@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "d04bacfb_fb968f2a",
+        "filename": "core/fxcrt/cfx_weak_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-21T18:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f990d6_6e12a01d",
+      "revId": "31915f8d2322429d494fd3db4a29822909566139",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f990d6_eefb309f",
         "filename": "core/fxge/fx_font.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
       "writtenOn": "2016-11-21T17:52:42Z",
       "side": 1,
       "message": "stray blank line?",
+      "revId": "31915f8d2322429d494fd3db4a29822909566139",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d04bacfb_fbbd2f9c",
+        "filename": "core/fxge/fx_font.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-21T18:37:46Z",
+      "side": 1,
+      "message": "the whitespace lint check wants a blank line before visibility statements. It\u0027s a bit silly in this case, but doesn\u0027t seem harmful.",
+      "parentUuid": "f0f990d6_eefb309f",
       "revId": "31915f8d2322429d494fd3db4a29822909566139",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
