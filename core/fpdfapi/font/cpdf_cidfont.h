@@ -48,7 +48,7 @@ class CPDF_CIDFont : public CPDF_Font {
                        int& offset) const override;
   int CountChar(const FX_CHAR* pString, int size) const override;
   int AppendChar(FX_CHAR* str, uint32_t charcode) const override;
-  int GetCharSize(uint32_t charcode) const override;
+  int GetCharSize(uint32_t charcode) const;
   bool IsVertWriting() const override;
   bool IsUnicodeCompatible() const override;
   bool Load() override;
