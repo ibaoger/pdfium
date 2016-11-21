@@ -22,6 +22,24 @@
       "revId": "d70133c5a965bc695380369a741a98fc7a85caaf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_bfa440eb",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-21T22:42:23Z",
+      "side": 1,
+      "message": "I\u0027ll do it when Polygerrit decides to let me upload again",
+      "parentUuid": "f0f990d6_1fca3408",
+      "revId": "d70133c5a965bc695380369a741a98fc7a85caaf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
