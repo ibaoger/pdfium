@@ -6,6 +6,10 @@
 
 #include "xfa/fwl/core/ifwl_combobox.h"
 
+#include <algorithm>
+#include <memory>
+#include <utility>
+
 #include "third_party/base/ptr_util.h"
 #include "xfa/fde/cfde_txtedtengine.h"
 #include "xfa/fde/tto/fde_textout.h"

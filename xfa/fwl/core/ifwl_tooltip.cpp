@@ -6,6 +6,9 @@
 
 #include "xfa/fwl/core/ifwl_tooltip.h"
 
+#include <memory>
+#include <utility>
+
 #include "third_party/base/ptr_util.h"
 #include "xfa/fde/tto/fde_textout.h"
 #include "xfa/fwl/core/cfwl_themebackground.h"
@@ -13,7 +16,6 @@
 #include "xfa/fwl/core/cfwl_themetext.h"
 #include "xfa/fwl/core/fwl_noteimp.h"
 #include "xfa/fwl/core/ifwl_themeprovider.h"
-#include "xfa/fwl/core/ifwl_tooltip.h"
 #include "xfa/fwl/theme/cfwl_widgettp.h"
 
 IFWL_ToolTip::IFWL_ToolTip(const IFWL_App* app,
