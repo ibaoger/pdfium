@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "8d175b37_1364e439",
+        "filename": "xfa/fwl/core/cfwl_combobox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "I haven\u0027t checked all the call sites, but I don\u0027t think it makes sense to return the original value when you\u0027re getting text. It makes sense to return blank.",
+      "parentUuid": "8d175b37_d3bf8c5d",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d175b37_334488b7",
         "filename": "xfa/fwl/core/cfwl_combobox.h",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 80,
         "endChar": 68
       },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_337fe8cb",
+        "filename": "xfa/fwl/core/cfwl_combobox.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "Don\u0027t know yet, will deal with defaults later.",
+      "parentUuid": "8d175b37_334488b7",
       "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "8d175b37_d36d4c1d",
+        "filename": "xfa/fwl/core/cfwl_datetimepicker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "8d175b37_b3bc186a",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d175b37_f335f038",
         "filename": "xfa/fwl/core/cfwl_datetimepicker.h",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 59,
         "endChar": 68
       },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_f3605027",
+        "filename": "xfa/fwl/core/cfwl_datetimepicker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "8d175b37_f335f038",
       "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "8d175b37_b36ad801",
+        "filename": "xfa/fwl/core/cfwl_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "parentUuid": "8d175b37_93cb540a",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d175b37_13df44c6",
         "filename": "xfa/fwl/core/cfwl_listbox.cpp",
         "patchSetId": 1
@@ -134,6 +224,24 @@
         "endLine": 207,
         "endChar": 14
       },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_9399140e",
+        "filename": "xfa/fwl/core/cfwl_listbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "parentUuid": "8d175b37_13df44c6",
       "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "8d175b37_739e80f5",
+        "filename": "xfa/fwl/core/cfwl_listbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "parentUuid": "8d175b37_b3d538a4",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d175b37_9370f4fd",
         "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
         "patchSetId": 1
@@ -174,6 +300,24 @@
       "writtenOn": "2016-11-24T15:37:33Z",
       "side": 1,
       "message": "Nit: {}",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_33980804",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2016-11-24T15:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d175b37_9370f4fd",
       "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
