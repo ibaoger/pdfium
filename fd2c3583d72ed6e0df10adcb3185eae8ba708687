@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d175b37_d3bf8c5d",
+        "filename": "xfa/fwl/core/cfwl_combobox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "The original code does not change wsText. Did you make sure all callers of this method call on an empty CFX_WideString?",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 303,
+        "endChar": 15
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_334488b7",
+        "filename": "xfa/fwl/core/cfwl_combobox.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Do we need the defaults here?",
+      "range": {
+        "startLine": 80,
+        "startChar": 29,
+        "endLine": 80,
+        "endChar": 68
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_b3bc186a",
+        "filename": "xfa/fwl/core/cfwl_datetimepicker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Ditto callers",
+      "range": {
+        "startLine": 201,
+        "startChar": 54,
+        "endLine": 201,
+        "endChar": 57
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_f335f038",
+        "filename": "xfa/fwl/core/cfwl_datetimepicker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Ditto defaults",
+      "range": {
+        "startLine": 59,
+        "startChar": 29,
+        "endLine": 59,
+        "endChar": 68
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_93cb540a",
+        "filename": "xfa/fwl/core/cfwl_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Ditto defaults",
+      "range": {
+        "startLine": 83,
+        "startChar": 25,
+        "endLine": 83,
+        "endChar": 64
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_13df44c6",
+        "filename": "xfa/fwl/core/cfwl_listbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Ditto caller",
+      "range": {
+        "startLine": 207,
+        "startChar": 11,
+        "endLine": 207,
+        "endChar": 14
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_b3d538a4",
+        "filename": "xfa/fwl/core/cfwl_listbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Ditto caller",
+      "range": {
+        "startLine": 1008,
+        "startChar": 64,
+        "endLine": 1008,
+        "endChar": 67
+      },
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d175b37_9370f4fd",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2016-11-24T15:37:33Z",
+      "side": 1,
+      "message": "Nit: {}",
+      "revId": "fd2c3583d72ed6e0df10adcb3185eae8ba708687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
