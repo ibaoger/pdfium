@@ -380,6 +380,8 @@ void CPDF_CharPosList::Load(int nChars,
       charpos.m_GlyphIndex = pFont->FallbackGlyphFromCharcode(
           charpos.m_FallbackFontPosition, CharCode);
     }
+    /*if(pFont->GetBaseFont() != "Custom-Metrics-1")
+      charpos.m_GlyphIndex = -1;*/
 // TODO(npm): Figure out how this affects m_ExtGID
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
     charpos.m_ExtGID = pFont->GlyphFromCharCodeExt(CharCode);
@@ -392,6 +394,7 @@ void CPDF_CharPosList::Load(int nChars,
     charpos.m_OriginX = iChar ? pCharPos[iChar - 1] : 0;
     charpos.m_OriginY = 0;
     charpos.m_bGlyphAdjust = FALSE;
+    //printf("\nOriginX %f OriginY %f",  charpos.m_OriginX, charpos.m_OriginY);
     if (!pCIDFont) {
       continue;
     }
@@ -416,6 +419,7 @@ void CPDF_CharPosList::Load(int nChars,
           pCIDFont->CIDTransformToFloat(pTransform[5]) * FontSize;
       charpos.m_bGlyphAdjust = TRUE;
     }
+    //printf("\nOriginX %f OriginY %f", charpos.m_OriginX, charpos.m_OriginY);
   }
 }
 
@@ -535,6 +539,7 @@ FX_BOOL CPDF_TextRenderer::DrawNormalText(CFX_RenderDevice* pDevice,
                                           const CFX_Matrix* pText2Device,
                                           FX_ARGB fill_argb,
                                           const CPDF_RenderOptions* pOptions) {
+  //printf("\nfontS %f", font_size);
   CPDF_CharPosList CharPosList;
   CharPosList.Load(nChars, pCharCodes, pCharPos, pFont, font_size);
   if (CharPosList.m_nChars == 0)

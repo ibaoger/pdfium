@@ -95,11 +95,14 @@ CFX_GlyphBitmap* CFX_FaceCache::RenderGlyph(const CFX_Font* pFont,
                                             const CFX_Matrix* pMatrix,
                                             int dest_width,
                                             int anti_alias) {
+  /*printf("\n A %f B %f C %f D %f E %f F %f", pMatrix->a, pMatrix->b, pMatrix->c, pMatrix->d,
+    pMatrix->e, pMatrix->f);*/
   if (!m_Face)
     return nullptr;
 
   FXFT_Matrix ft_matrix;
-  ft_matrix.xx = (signed long)(pMatrix->GetA() / 64 * 65536);
+  //printf("\nA %f B %f C %f D %f", pMatrix->GetA(),pMatrix->GetB(),pMatrix->GetC(),pMatrix->GetD());
+  ft_matrix.xx = (signed long)(pMatrix->GetA() / 64 * 65536);//* 0.8;
   ft_matrix.xy = (signed long)(pMatrix->GetC() / 64 * 65536);
   ft_matrix.yx = (signed long)(pMatrix->GetB() / 64 * 65536);
   ft_matrix.yy = (signed long)(pMatrix->GetD() / 64 * 65536);
@@ -135,6 +138,7 @@ CFX_GlyphBitmap* CFX_FaceCache::RenderGlyph(const CFX_Font* pFont,
   int load_flags = (m_Face->face_flags & FT_FACE_FLAG_SFNT)
                        ? FXFT_LOAD_NO_BITMAP
                        : (FXFT_LOAD_NO_BITMAP | FT_LOAD_NO_HINTING);
+
   int error = FXFT_Load_Glyph(m_Face, glyph_index, load_flags);
   if (error) {
     // if an error is returned, try to reload glyphs without hinting.
@@ -180,6 +184,7 @@ CFX_GlyphBitmap* CFX_FaceCache::RenderGlyph(const CFX_Font* pFont,
     return nullptr;
   int dib_width = bmwidth;
   CFX_GlyphBitmap* pGlyphBitmap = new CFX_GlyphBitmap;
+  //printf("\nDIB_Width %d", dib_width);
   pGlyphBitmap->m_Bitmap.Create(
       dib_width, bmheight,
       anti_alias == FXFT_RENDER_MODE_MONO ? FXDIB_1bppMask : FXDIB_8bppMask);

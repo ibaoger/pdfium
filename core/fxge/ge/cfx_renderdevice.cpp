@@ -826,6 +826,7 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
                                          const CFX_Matrix* pText2Device,
                                          uint32_t fill_color,
                                          uint32_t text_flags) {
+  //font_size-=3;
   int nativetext_flags = text_flags;
   if (m_DeviceClass != FXDC_DISPLAY) {
     if (!(text_flags & FXTEXT_PRINTGRAPHICTEXT)) {
@@ -897,6 +898,7 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
   CFX_Matrix deviceCtm = char2device;
   deviceCtm.Concat(scale_x, 0, 0, scale_y, 0, 0);
   text2Device.Concat(scale_x, 0, 0, scale_y, 0, 0);
+  int totalWidth = 0;
   for (size_t i = 0; i < glyphs.size(); ++i) {
     FXTEXT_GLYPHPOS& glyph = glyphs[i];
     const FXTEXT_CHARPOS& charpos = pCharPos[i];
@@ -921,12 +923,27 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
           charpos.m_GlyphIndex, charpos.m_bFontStyle, &deviceCtm,
           charpos.m_FontCharWidth, anti_alias, nativetext_flags);
     }
+    if(glyph.m_pGlyph && i < glyphs.size() - 1)
+      totalWidth += glyph.m_pGlyph->m_Bitmap.GetWidth()/3;
   }
+  /*if(totalWidth > 0 && glyphs.size() > 1){
+    //printf("\n%d\t%d", totalWidth, glyphs[glyphs.size()-1].m_OriginX - glyphs[0].m_OriginX);
+    int diff = glyphs[glyphs.size()-1].m_OriginX - glyphs[0].m_OriginX;
+    if(totalWidth > 1.4 * diff && recurse){
+      FX_FLOAT newFontSize = font_size - (int)(font_size/5);
+      printf("Going inside: \n%d\t%d FontS %f new %f", totalWidth, glyphs[glyphs.size()-1].m_OriginX - glyphs[0].m_OriginX, font_size, newFontSize);
+      //return DrawNormalText(nChars, pCharPos, pFont, newFontSize, pText2Device, fill_color, text_flags, false);
+    }
+  }*/
+  //printf("\ntotalW %d ", totalWidth/3); 
+  /*printf("\n A %f B %f C %f D %f E %f F %f", deviceCtm.a, deviceCtm.b, deviceCtm.c, deviceCtm.d,
+    deviceCtm.e, deviceCtm.f);*/
   if (anti_alias < FXFT_RENDER_MODE_LCD && glyphs.size() > 1)
     AdjustGlyphSpace(&glyphs);
 
   FX_RECT bmp_rect1 = FXGE_GetGlyphsBBox(glyphs, anti_alias);
   if (scale_x > 1 && scale_y > 1) {
+    printf("\nGOTHERE");
     bmp_rect1.left--;
     bmp_rect1.top--;
     bmp_rect1.right++;
@@ -936,13 +953,21 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
                    FXSYS_round((FX_FLOAT)(bmp_rect1.top) / scale_y),
                    FXSYS_round((FX_FLOAT)bmp_rect1.right / scale_x),
                    FXSYS_round((FX_FLOAT)bmp_rect1.bottom / scale_y));
+  /*printf("\nBMP_Rect Left %d Right %d Top %d Bottom %d", bmp_rect.left,
+    bmp_rect.right, bmp_rect.top, bmp_rect.bottom);
+  printf("\nClipBox Left %d Right %d Top %d Bottom %d", m_ClipBox.left,
+    m_ClipBox.right, m_ClipBox.top, m_ClipBox.bottom);
   bmp_rect.Intersect(m_ClipBox);
+  printf("\nIntersected Left %d Right %d Top %d Bottom %d", bmp_rect.left,
+    bmp_rect.right, bmp_rect.top, bmp_rect.bottom);*/
   if (bmp_rect.IsEmpty())
     return TRUE;
   int pixel_width = FXSYS_round(bmp_rect.Width() * scale_x);
   int pixel_height = FXSYS_round(bmp_rect.Height() * scale_y);
   int pixel_left = FXSYS_round(bmp_rect.left * scale_x);
   int pixel_top = FXSYS_round(bmp_rect.top * scale_y);
+  /*printf("\nwidth %d height %d left %d top %d", pixel_width, pixel_height,
+    pixel_left, pixel_top);*/
   if (anti_alias == FXFT_RENDER_MODE_MONO) {
     CFX_DIBitmap bitmap;
     if (!bitmap.Create(pixel_width, pixel_height, FXDIB_1bppMask))
@@ -984,6 +1009,7 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
   if (anti_alias == FXFT_RENDER_MODE_LCD)
     ArgbDecode(fill_color, a, r, g, b);
 
+  int i = 0;
   for (const FXTEXT_GLYPHPOS& glyph : glyphs) {
     if (!glyph.m_pGlyph)
       continue;
@@ -1024,10 +1050,12 @@ FX_BOOL CFX_RenderDevice::DrawNormalText(int nChars,
     int end_col = std::min(end_col_safe.ValueOrDie(), dest_width);
     if (start_col >= end_col)
       continue;
-
+    /*printf("\n left %d top %d start %d end %d", left.ValueOrDie(),
+      top.ValueOrDie(), start_col, end_col);*/
     DrawNormalTextHelper(&bitmap, pGlyph, nrows, left.ValueOrDie(),
                          top.ValueOrDie(), start_col, end_col, bNormal,
                          bBGRStripe, x_subpixel, a, r, g, b);
+    i++;
   }
   if (bitmap.IsAlphaMask())
     SetBitMask(&bitmap, bmp_rect.left, bmp_rect.top, fill_color);

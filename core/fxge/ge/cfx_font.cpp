@@ -319,10 +319,24 @@ void CFX_Font::LoadSubst(const CFX_ByteString& face_name,
                          bool bVertical) {
   m_bEmbedded = false;
   m_bVertical = bVertical;
-  m_pSubstFont = WrapUnique(new CFX_SubstFont);
+  m_pSubstFont.reset(new CFX_SubstFont);
+  
+  //CFX_ByteString name = face_name;
+
+  CFX_ByteString name = CFX_ByteString("DejaVu Sans Book");
+  if(face_name == "Futura-Condensed")
+    name = CFX_ByteString("DejaVu Sans Condensed Book");
+  else if(face_name == "AGaramond-Bold")
+    name = CFX_ByteString("DejaVu Sans Bold");
+
   m_Face = CFX_GEModule::Get()->GetFontMgr()->FindSubstFont(
-      face_name, bTrueType, flags, weight, italic_angle, CharsetCP,
+      name, bTrueType, flags, weight, italic_angle, CharsetCP,
       m_pSubstFont.get());
+  printf("\nOrig %s Face %s weight %d substW %d", face_name.c_str(), FXFT_Get_Postscript_Name(m_Face),
+    weight, m_pSubstFont->m_Weight);
+  //printf("\nFlags: FixedPitch %d Serif %d Symb %d Script %d Ita %d Bold %d UseExt %d CIDF %d\n",
+  //  flags&FXFONT_FIXED_PITCH, flags&FXFONT_SERIF, flags&FXFONT_SYMBOLIC, flags&FXFONT_SCRIPT,
+  //  flags&FXFONT_ITALIC, flags&FXFONT_BOLD, flags&FXFONT_USEEXTERNATTR, flags&FXFONT_CIDFONT);
   if (m_Face) {
     m_pFontData = FXFT_Get_Face_Stream_Base(m_Face);
     m_dwSize = FXFT_Get_Face_Stream_Size(m_Face);
