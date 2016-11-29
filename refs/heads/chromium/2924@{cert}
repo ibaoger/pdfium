@@ -1,0 +1,16 @@
+certificate version 0.1
+pusher 5A66FD7B 1480404934 -0800
+nonce AG58fQp3Bwh1NsVRVkDg6lz6IyxUmLADZBPqNNPLVoLx17qiZz3gVPbYhreR71/0AEvXGH0piJDM
+
+935c6310adacf2f4a4265e831e6cb60dc7a35803 adc4a73645ff20abc5eb73ffc38e44b92ff651b2 refs/heads/chromium/2924
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAABAgAGBQJYPS/GAAoJEKs2LWFaZv17v5MIAM/EKgsyDZkIba/CKSJHCOsR
+Edst0RoLayC/aDmacxS/ms+h0C44u1tn+uPwYffwU15U1Ebda4TEe/LMGBTVmWnU
+h0wOi08jvPsuteiytKhLmkxWQ0ghJcsrfKP1l9toroukZJjX8enZTvalQkscvNyv
+VXMJoFqcw5cJXkyZ7khw+W9qBskefz20zIRctqK2JCJ3pud4b6w5gLnVfAHodJho
+HKYLuLur1UHbiMYldGMzF7Te+64S+WrH1/gbqo6UBjFngR+VIHD04njKeZ4GoFdv
+7q8dtWsWmeUi0AtjpoMh0y1zc9VomG7kxS4erBWSdbU2cq1ipaVYvHRVdThtVG8=
+=J4BM
+-----END PGP SIGNATURE-----
