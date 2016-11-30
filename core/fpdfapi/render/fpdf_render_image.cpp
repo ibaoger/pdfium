@@ -39,9 +39,9 @@
 CPDF_DIBTransferFunc::~CPDF_DIBTransferFunc() {}
 
 FXDIB_Format CPDF_DIBTransferFunc::GetDestFormat() {
-  if (m_pSrc->IsAlphaMask()) {
+  if (m_pSrc->IsAlphaMask())
     return FXDIB_8bppMask;
-  }
+
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
   return (m_pSrc->HasAlpha()) ? FXDIB_Argb : FXDIB_Rgb32;
 #else
