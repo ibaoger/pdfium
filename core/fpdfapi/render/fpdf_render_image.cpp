@@ -39,9 +39,9 @@
 CPDF_DIBTransferFunc::~CPDF_DIBTransferFunc() {}
 
 FXDIB_Format CPDF_DIBTransferFunc::GetDestFormat() {
-  if (m_pSrc->IsAlphaMask()) {
+  if (m_pSrc->IsAlphaMask())
     return FXDIB_8bppMask;
-  }
+
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
   return (m_pSrc->HasAlpha()) ? FXDIB_Argb : FXDIB_Rgb32;
 #else
@@ -125,9 +125,8 @@ void CPDF_DIBTransferFunc::TranslateScanline(
     }
     case FXDIB_8bppMask: {
       int index = 0;
-      for (int i = 0; i < m_Width; i++) {
+      for (int i = 0; i < m_Width; i++)
         (*dest_buf)[index++] = m_RampR[*(src_buf++)];
-      }
       break;
     }
     case FXDIB_Rgb: {
