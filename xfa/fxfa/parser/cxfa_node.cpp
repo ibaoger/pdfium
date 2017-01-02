@@ -1109,8 +1109,8 @@ void CXFA_Node::Script_TreeClass_Nodes(CFXJSE_Value* pValue,
   if (bSetting) {
     IXFA_AppProvider* pAppProvider = m_pDocument->GetNotify()->GetAppProvider();
     ASSERT(pAppProvider);
-    CFX_WideString wsMessage;
-    pAppProvider->LoadString(XFA_IDS_Unable_TO_SET, wsMessage);
+
+    CFX_WideString wsMessage = L"Unable to set ";
     FXJSE_ThrowMessage(
         FX_UTF8Encode(wsMessage.c_str(), wsMessage.GetLength()).AsStringC());
   } else {
