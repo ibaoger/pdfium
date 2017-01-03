@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7ff126b_2a643ecc",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3009,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "vector of unique_ptrs while were at it?",
+      "range": {
+        "startLine": 3009,
+        "startChar": 1,
+        "endLine": 3009,
+        "endChar": 2
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_2a16fe0f",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5489,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "can we replace some hard-coded L\"functionname\" usage above with this same idiom since we already have a szFuncName argument to most of these ???",
+      "range": {
+        "startLine": 5489,
+        "startChar": 1,
+        "endLine": 5489,
+        "endChar": 2
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_4ae8a2c4",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5865,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: array of unique_ptrs?",
+      "range": {
+        "startLine": 5865,
+        "startChar": 1,
+        "endLine": 5865,
+        "endChar": 2
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_4a1d4226",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6464,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be a widestring like all the others?",
+      "range": {
+        "startLine": 6464,
+        "startChar": 0,
+        "endLine": 6464,
+        "endChar": 1
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_aaf4aeaf",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: return not needed since nothing follows.",
+      "range": {
+        "startLine": 2635,
+        "startChar": 1,
+        "endLine": 2635,
+        "endChar": 2
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_eafeb68b",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: maybe invert test and early return",
+      "range": {
+        "startLine": 2671,
+        "startChar": 1,
+        "endLine": 2671,
+        "endChar": 2
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_2a08beda",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: invert and early return here as well (several other places).",
+      "range": {
+        "startLine": 2715,
+        "startChar": 0,
+        "endLine": 2715,
+        "endChar": 1
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_aaddce2f",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2947,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: take line 2943 and combine here.",
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_cadc9231",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3002,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "nit: ditto.",
+      "range": {
+        "startLine": 3002,
+        "startChar": 2,
+        "endLine": 3002,
+        "endChar": 3
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ff126b_aaaf8e7b",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3515,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:59:42Z",
+      "side": 1,
+      "message": "all these could be inverted and early return.\nMaybe add not implemented comment as body following return.",
+      "range": {
+        "startLine": 3515,
+        "startChar": 0,
+        "endLine": 3515,
+        "endChar": 1
+      },
+      "revId": "d0b42930cba307fdf7efc148c26bbc60203539e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
