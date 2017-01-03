@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7ff126b_ca1db24c",
+        "filename": "xfa/fwl/cfwl_monthcalendar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:38:10Z",
+      "side": 1,
+      "message": "We\u0027ve got to have these strings in other places.  I just saw it in your other CL as an array local to some function.  followup?",
+      "revId": "f51a62ea95ce3207e1a7a5c6d2339933d663a3bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
