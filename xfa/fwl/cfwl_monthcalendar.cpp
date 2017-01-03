@@ -81,6 +81,34 @@ CFX_WideString GetCapacityForMonth(IFWL_ThemeProvider* pTheme,
   return L"December";
 }
 
+const int kWidth = 200;
+const int kHeight = 160;
+
+const int kHeaderWidth = 200;
+const int kHeaderHeight = 30;
+
+const int kButtonWidth = 18;
+const int kButtonHeight = 16;
+const int kButtonHorizontalMargin = 5;
+const int kButtonVerticalMargin = (kHeaderHeight - kButtonHeight) / 2;
+
+const int kHeaderTextWidth = 100;
+const int kHeaderTextHeight = 20;
+const int kHeaderTextHorizontalMargin = (kHeaderWidth - kHeaderTextWidth) / 2;
+const int kHeaderTextVerticalMargin = (kHeaderHeight - kHeaderTextHeight) / 2;
+
+const int kDatesCellWidth = (kHeaderWidth / 7);
+const int kDatesCellHeight = 16;
+const int kWeekWidth = kDatesCellWidth * 7;
+const int kWeekNumWidth = 26;
+const int kWeekNumHeight = (6 * kDatesCellHeight);
+
+const int kHorizontalSeparatorWidth = kWeekWidth - 10;
+const int kHorizontalSeparatorHeight = 1;
+const int kSeparatorDOffset = -4;
+const int kSeparatorX = 3;
+const int kSeparatorY = kHeaderHeight + kDatesCellHeight + kSeparatorDOffset;
+
 }  // namespace
 
 CFWL_MonthCalendar::CFWL_MonthCalendar(
@@ -555,62 +583,32 @@ void CFWL_MonthCalendar::GetCapValue() {
   if (!m_pProperties->m_pThemeProvider)
     m_pProperties->m_pThemeProvider = GetAvailableTheme();
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
-  CFWL_ThemePart part;
-  part.m_pWidget = this;
-  m_fHeadWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderWidth));
-  m_fHeadHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderHeight));
-  m_fHeadBtnWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderBtnWidth));
-  m_fHeadBtnHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderBtnHeight));
-  m_fHeadBtnHMargin = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderBtnHMargin));
-  m_fHeadBtnVMargin = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderBtnVMargin));
-  m_fHeadTextWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderTextWidth));
-  m_fHeadTextHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderTextHeight));
-  m_fHeadTextHMargin = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderTextHMargin));
-  m_fHeadTextVMargin = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HeaderTextVMargin));
-  m_fHSepWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HSepWidth));
-  m_fHSepHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::HSepHeight));
-  m_fWeekNumWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::WeekNumWidth));
-  m_fSepDOffset = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::SepDOffset));
-  m_fSepX = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::SepX));
-  m_fSepY = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::SepY));
-  m_fWeekNumHeigh = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::WeekNumHeight));
-  m_fWeekWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::WeekWidth));
-  m_fWeekHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::WeekHeight));
-  m_fDateCellWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::DatesCellWidth));
-  m_fDateCellHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::DatesCellHeight));
-  m_fTodayWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::TodayWidth));
-  m_fTodayHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::TodayHeight));
-  m_fTodayFlagWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::TodayFlagWidth));
-  m_fMCWid = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::Width));
-
-  m_fMCHei = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::Height));
+  m_fHeadWid = kHeaderWidth;
+  m_fHeadHei = kHeaderHeight;
+  m_fHeadBtnWid = kButtonWidth;
+  m_fHeadBtnHei = kButtonHeight;
+  m_fHeadBtnHMargin = kButtonHorizontalMargin;
+  m_fHeadBtnVMargin = kButtonVerticalMargin;
+  m_fHeadTextWid = kHeaderTextWidth;
+  m_fHeadTextHei = kHeaderTextHeight;
+  m_fHeadTextHMargin = kHeaderTextHorizontalMargin;
+  m_fHeadTextVMargin = kHeaderTextVerticalMargin;
+  m_fHSepWid = kHorizontalSeparatorWidth;
+  m_fHSepHei = kHorizontalSeparatorHeight;
+  m_fWeekNumWid = kWeekNumWidth;
+  m_fWeekNumHeigh = kWeekNumHeight;
+  m_fWeekWid = kWeekWidth;
+  m_fWeekHei = kDatesCellHeight;
+  m_fSepDOffset = kSeparatorDOffset;
+  m_fSepX = kSeparatorX;
+  m_fSepY = kSeparatorY;
+  m_fDateCellWid = kDatesCellWidth;
+  m_fDateCellHei = kDatesCellHeight;
+  m_fTodayWid = kHeaderWidth;
+  m_fTodayHei = kDatesCellHeight;
+  m_fTodayFlagWid = kDatesCellWidth;
+  m_fMCWid = kWidth;
+  m_fMCHei = kHeight;
 }
 
 void CFWL_MonthCalendar::InitDate() {

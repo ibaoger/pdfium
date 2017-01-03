@@ -22,6 +22,12 @@
 #define FWL_SCROLLBAR_Elapse 500
 #define FWL_SCROLLBAR_MinThumb 5
 
+namespace {
+
+const int kMinThumbSize = 5;
+
+}  // namespace
+
 CFWL_ScrollBar::CFWL_ScrollBar(
     const CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
@@ -150,12 +156,9 @@ void CFWL_ScrollBar::DrawThumb(CFX_Graphics* pGraphics,
 }
 
 void CFWL_ScrollBar::Layout() {
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
-  CFWL_ThemePart part;
-  part.m_pWidget = this;
-  m_fMinThumb = *static_cast<FX_FLOAT*>(
-      pTheme->GetCapacity(&part, CFWL_WidgetCapacity::Size));
+  m_fMinThumb = kMinThumbSize;
   m_rtClient = GetClientRect();
+
   CalcButtonLen();
   CalcMinButtonRect(m_rtMinBtn);
   CalcMaxButtonRect(m_rtMaxBtn);

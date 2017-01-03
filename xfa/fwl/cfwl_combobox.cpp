@@ -30,6 +30,12 @@
 #include "xfa/fwl/cfwl_widgetmgr.h"
 #include "xfa/fwl/ifwl_themeprovider.h"
 
+namespace {
+
+const float kComboFormHandler = 8.0f;
+
+}  // namespace
+
 CFWL_ComboBox::CFWL_ComboBox(const CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_pComboBoxProxy(nullptr),
@@ -119,9 +125,7 @@ void CFWL_ComboBox::Update() {
   Layout();
   CFWL_ThemePart part;
   part.m_pWidget = this;
-  m_fComboFormHandler =
-      *static_cast<FX_FLOAT*>(m_pProperties->m_pThemeProvider->GetCapacity(
-          &part, CFWL_WidgetCapacity::ComboFormHandler));
+  m_fComboFormHandler = kComboFormHandler;
 }
 
 FWL_WidgetHit CFWL_ComboBox::HitTest(FX_FLOAT fx, FX_FLOAT fy) {
@@ -383,12 +387,11 @@ void CFWL_ComboBox::Layout() {
     return DisForm_Layout();
 
   m_rtClient = GetClientRect();
-  FX_FLOAT* pFWidth = static_cast<FX_FLOAT*>(
-      GetThemeCapacity(CFWL_WidgetCapacity::ScrollBarWidth));
-  if (!pFWidth)
+  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  if (!theme)
     return;
 
-  FX_FLOAT fBtn = *pFWidth;
+  FX_FLOAT fBtn = theme->GetScrollBarWidth();
   m_rtBtn.Set(m_rtClient.right() - fBtn, m_rtClient.top, fBtn,
               m_rtClient.height);
   if (!IsDropDownStyle() || !m_pEdit)
@@ -684,24 +687,22 @@ CFX_RectF CFWL_ComboBox::DisForm_GetBBox() const {
 void CFWL_ComboBox::DisForm_Layout() {
   m_rtClient = GetClientRect();
   m_rtContent = m_rtClient;
-  FX_FLOAT* pFWidth = static_cast<FX_FLOAT*>(
-      GetThemeCapacity(CFWL_WidgetCapacity::ScrollBarWidth));
-  if (!pFWidth)
+  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  if (!theme)
     return;
 
   FX_FLOAT borderWidth = 1;
-  FX_FLOAT fBtn = *pFWidth;
+  FX_FLOAT fBtn = theme->GetScrollBarWidth();
   if (!(GetStylesEx() & FWL_STYLEEXT_CMB_ReadOnly)) {
     m_rtBtn.Set(m_rtClient.right() - fBtn, m_rtClient.top + borderWidth,
                 fBtn - borderWidth, m_rtClient.height - 2 * borderWidth);
   }
 
-  CFX_RectF* pUIMargin =
-      static_cast<CFX_RectF*>(GetThemeCapacity(CFWL_WidgetCapacity::UIMargin));
-  if (pUIMargin) {
-    m_rtContent.Deflate(pUIMargin->left, pUIMargin->top, pUIMargin->width,
-                        pUIMargin->height);
-  }
+  CFWL_ThemePart part;
+  part.m_pWidget = this;
+  CFX_RectF pUIMargin = theme->GetUIMargin(&part);
+  m_rtContent.Deflate(pUIMargin.left, pUIMargin.top, pUIMargin.width,
+                      pUIMargin.height);
 
   if (!IsDropDownStyle() || !m_pEdit)
     return;
