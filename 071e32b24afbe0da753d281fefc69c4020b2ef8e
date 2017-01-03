@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7ff126b_aa930eaa",
+        "filename": "core/fxcodec/jbig2/JBig2_HuffmanTable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-03T19:23:58Z",
+      "side": 1,
+      "message": "This will always be valid since you made a checked_int from an int.",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 2
+      },
+      "revId": "071e32b24afbe0da753d281fefc69c4020b2ef8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
