@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "core/fpdfapi/render/render_int.h"
+#include "core/fpdfapi/render/cpdf_dibsource.h"
 
 #include <algorithm>
 #include <memory>
