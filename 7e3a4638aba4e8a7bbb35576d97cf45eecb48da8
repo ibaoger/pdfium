@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_ad15f504",
+        "filename": "third_party/libtiff/tif_read.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-04T17:44:58Z",
+      "side": 1,
+      "message": "We segv now before we hit this check if malloc -\u003e 0.",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 943,
+        "endChar": 1
+      },
+      "revId": "7e3a4638aba4e8a7bbb35576d97cf45eecb48da8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
