@@ -936,6 +936,8 @@ TIFFReadBufferSetup(TIFF* tif, void* bp, tmsize_t size)
 		    return (0);
 		}
 		tif->tif_rawdata = (uint8*) _TIFFmalloc(tif->tif_rawdatasize);
+		memset(tif->tif_rawdata, 0, tif->tif_rawdatasize);
+
 		tif->tif_flags |= TIFF_MYBUFFER;
 	}
 	if (tif->tif_rawdata == NULL) {
