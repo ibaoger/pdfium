@@ -22,6 +22,24 @@
       "revId": "7e3a4638aba4e8a7bbb35576d97cf45eecb48da8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_28c9d313",
+        "filename": "third_party/libtiff/tif_read.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-04T18:28:52Z",
+      "side": 1,
+      "message": "Fixed.\n\nI added a null check here instead of moving the memset because in the if() case above the buffer is user provided and I didn\u0027t want to fiddle with it.",
+      "parentUuid": "97bbeed0_ad15f504",
+      "revId": "7e3a4638aba4e8a7bbb35576d97cf45eecb48da8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
