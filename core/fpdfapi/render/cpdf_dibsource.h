@@ -44,13 +44,13 @@ class CPDF_DIBSource : public CFX_DIBSource {
 
   bool Load(CPDF_Document* pDoc,
             const CPDF_Stream* pStream,
-            CPDF_DIBSource** ppMask,
+            std::unique_ptr<CPDF_DIBSource>* ppMask,
             uint32_t* pMatteColor,
             CPDF_Dictionary* pFormResources,
             CPDF_Dictionary* pPageResources,
-            bool bStdCS = false,
-            uint32_t GroupFamily = 0,
-            bool bLoadMask = false);
+            bool bStdCS,
+            uint32_t GroupFamily,
+            bool bLoadMask);
 
   // CFX_DIBSource
   bool SkipToScanline(int line, IFX_Pause* pPause) const override;
@@ -85,8 +85,8 @@ class CPDF_DIBSource : public CFX_DIBSource {
   bool LoadColorInfo(const CPDF_Dictionary* pFormResources,
                      const CPDF_Dictionary* pPageResources);
   DIB_COMP_DATA* GetDecodeAndMaskArray(bool& bDefaultDecode, bool& bColorKey);
-  CPDF_DIBSource* LoadMask(uint32_t& MatteColor);
-  CPDF_DIBSource* LoadMaskDIB(CPDF_Stream* pMask);
+  std::unique_ptr<CPDF_DIBSource> LoadMask(uint32_t& MatteColor);
+  std::unique_ptr<CPDF_DIBSource> LoadMaskDIB(CPDF_Stream* pMask);
   void LoadJpxBitmap();
   void LoadPalette();
   int CreateDecoder();

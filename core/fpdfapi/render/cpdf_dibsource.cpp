@@ -136,21 +136,21 @@ CPDF_DIBSource::~CPDF_DIBSource() {
 
 bool CPDF_DIBSource::Load(CPDF_Document* pDoc,
                           const CPDF_Stream* pStream,
-                          CPDF_DIBSource** ppMask,
+                          std::unique_ptr<CPDF_DIBSource>* ppMask,
                           uint32_t* pMatteColor,
                           CPDF_Dictionary* pFormResources,
                           CPDF_Dictionary* pPageResources,
                           bool bStdCS,
                           uint32_t GroupFamily,
                           bool bLoadMask) {
-  if (!pStream) {
+  if (!pStream)
     return false;
-  }
+
   m_pDocument = pDoc;
   m_pDict = pStream->GetDict();
-  if (!m_pDict) {
+  if (!m_pDict)
     return false;
-  }
+
   m_pStream = pStream;
   m_Width = m_pDict->GetIntegerFor("Width");
   m_Height = m_pDict->GetIntegerFor("Height");
@@ -164,22 +164,22 @@ bool CPDF_DIBSource::Load(CPDF_Document* pDoc,
                      pPageResources)) {
     return false;
   }
-  if (m_bDoBpcCheck && (m_bpc == 0 || m_nComponents == 0)) {
+  if (m_bDoBpcCheck && (m_bpc == 0 || m_nComponents == 0))
     return false;
-  }
+
   FX_SAFE_UINT32 src_size =
       CalculatePitch8(m_bpc, m_nComponents, m_Width) * m_Height;
-  if (!src_size.IsValid()) {
+  if (!src_size.IsValid())
     return false;
-  }
+
   m_pStreamAcc = pdfium::MakeUnique<CPDF_StreamAcc>();
   m_pStreamAcc->LoadAllData(pStream, false, src_size.ValueOrDie(), true);
-  if (m_pStreamAcc->GetSize() == 0 || !m_pStreamAcc->GetData()) {
+  if (m_pStreamAcc->GetSize() == 0 || !m_pStreamAcc->GetData())
     return false;
-  }
-  if (!CreateDecoder()) {
+
+  if (!CreateDecoder())
     return false;
-  }
+
   if (m_bImageMask) {
     m_bpp = 1;
     m_bpc = 1;
@@ -193,30 +193,27 @@ bool CPDF_DIBSource::Load(CPDF_Document* pDoc,
     m_bpp = 24;
   }
   FX_SAFE_UINT32 pitch = CalculatePitch32(m_bpp, m_Width);
-  if (!pitch.IsValid()) {
+  if (!pitch.IsValid())
     return false;
-  }
+
   m_pLineBuf = FX_Alloc(uint8_t, pitch.ValueOrDie());
-  if (m_pColorSpace && bStdCS) {
+  if (m_pColorSpace && bStdCS)
     m_pColorSpace->EnableStdConversion(true);
-  }
   LoadPalette();
   if (m_bColorKey) {
     m_bpp = 32;
     m_AlphaFlag = 2;
     pitch = CalculatePitch32(m_bpp, m_Width);
-    if (!pitch.IsValid()) {
+    if (!pitch.IsValid())
       return false;
-    }
+
     m_pMaskedLine = FX_Alloc(uint8_t, pitch.ValueOrDie());
   }
   m_Pitch = pitch.ValueOrDie();
-  if (ppMask) {
+  if (ppMask)
     *ppMask = LoadMask(*pMatteColor);
-  }
-  if (m_pColorSpace && bStdCS) {
+  if (m_pColorSpace && bStdCS)
     m_pColorSpace->EnableStdConversion(false);
-  }
   return true;
 }
 
@@ -710,7 +707,7 @@ void CPDF_DIBSource::LoadJpxBitmap() {
   m_bpc = 8;
 }
 
-CPDF_DIBSource* CPDF_DIBSource::LoadMask(uint32_t& MatteColor) {
+std::unique_ptr<CPDF_DIBSource> CPDF_DIBSource::LoadMask(uint32_t& MatteColor) {
   MatteColor = 0xFFFFFFFF;
   CPDF_Stream* pSoftMask = m_pDict->GetStreamFor("SMask");
   if (pSoftMask) {
@@ -783,11 +780,11 @@ CPDF_DIBSource* CPDF_DIBSource::DetachMask() {
   return pDIBSource;
 }
 
-CPDF_DIBSource* CPDF_DIBSource::LoadMaskDIB(CPDF_Stream* pMask) {
-  CPDF_DIBSource* pMaskSource = new CPDF_DIBSource;
+std::unique_ptr<CPDF_DIBSource> CPDF_DIBSource::LoadMaskDIB(
+    CPDF_Stream* pMask) {
+  auto pMaskSource = pdfium::MakeUnique<CPDF_DIBSource>();
   if (!pMaskSource->Load(m_pDocument, pMask, nullptr, nullptr, nullptr, nullptr,
-                         true)) {
-    delete pMaskSource;
+                         true, 0, false)) {
     return nullptr;
   }
   return pMaskSource;
