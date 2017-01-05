@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_5144ef94",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5464,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "pdfium::MakeUnique",
+      "range": {
+        "startLine": 5464,
+        "startChar": 2,
+        "endLine": 5464,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_7149f3a9",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5466,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "aieee!  no reason to believe length \u003e 2?",
+      "range": {
+        "startLine": 5466,
+        "startChar": 1,
+        "endLine": 5466,
+        "endChar": 2
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f13d03ee",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5467,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "std::vector to avoid free on line 5516?",
+      "range": {
+        "startLine": 5467,
+        "startChar": 3,
+        "endLine": 5467,
+        "endChar": 4
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_914e87b1",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5471,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "pdfium::MakeUnique",
+      "range": {
+        "startLine": 5471,
+        "startChar": 2,
+        "endLine": 5471,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f1542340",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5482,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "we need to resize the vector first or none of these indices will be valid.\nOne way to make this happen is to use the right ctor when declaring this, eg.\nstd::vector\u003cstd::vector\u003cstd::unique_ptr\u003cCFXJSE_Value\u003e\u003e\u003e resolveValues(iLength);\n\nDid any of the asan try jobs hit this?  Test coverage?",
+      "range": {
+        "startLine": 5482,
+        "startChar": 1,
+        "endLine": 5482,
+        "endChar": 2
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_d140ff76",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5494,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "std::vector\u003cunique_ptr\u003c\u003e\u003e given line 5513 ?",
+      "range": {
+        "startLine": 5494,
+        "startChar": 2,
+        "endLine": 5494,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_711bb399",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5547,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "std::vector\u003cunique_ptr\u003e",
+      "range": {
+        "startLine": 5547,
+        "startChar": 1,
+        "endLine": 5547,
+        "endChar": 2
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_d109df50",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5549,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "pdfium::MakeUnique",
+      "range": {
+        "startLine": 5549,
+        "startChar": 2,
+        "endLine": 5549,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_91f9270e",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5594,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "aieee!  what if iLength \u003c 2 ?",
+      "range": {
+        "startLine": 5594,
+        "startChar": 2,
+        "endLine": 5594,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f106e33f",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5598,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "std::vector\u003cint32_t\u003e",
+      "range": {
+        "startLine": 5598,
+        "startChar": 2,
+        "endLine": 5598,
+        "endChar": 3
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_51ff8ff2",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5599,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "auto hJSObjValue \u003d pdfium::MakeUnique\u003cCFXJSE_Value\u003e(pIsolate);",
+      "range": {
+        "startLine": 5599,
+        "startChar": 3,
+        "endLine": 5599,
+        "endChar": 4
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f1efc33d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5608,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "Need to resize vector first or these will be invalid.",
+      "range": {
+        "startLine": 5608,
+        "startChar": 4,
+        "endLine": 5608,
+        "endChar": 5
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f128a398",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5619,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "std::vector\u003cstd::unique_ptr\u003cCFXJSE_Value\u003e\u003e rgValues(iCounter + 2);",
+      "range": {
+        "startLine": 5619,
+        "startChar": 1,
+        "endLine": 5619,
+        "endChar": 2
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f1518326",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5670,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "Had the feeling we\u0027ve been here before.  Too much cutnpaste, helper method?",
+      "range": {
+        "startLine": 5670,
+        "startChar": 1,
+        "endLine": 5670,
+        "endChar": 2
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_9174c7ae",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6221,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "Do we want to resultValues.clear()  first, in case it isn\u0027t empty upon entry?",
+      "range": {
+        "startLine": 6221,
+        "startChar": 0,
+        "endLine": 6221,
+        "endChar": 1
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_9195a7cf",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:24:10Z",
+      "side": 1,
+      "message": "nit: these two in/out parameters should be a pointer rather than a reference.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 1
+      },
+      "revId": "4afa86b9648c27946cf6e757107d9c2062992e45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
