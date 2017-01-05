@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_d1655f3a",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T16:54:56Z",
+      "side": 1,
+      "message": "nit: can we make the out parameter  MatteColor  be uint32_t* ?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 5
+      },
+      "revId": "f5b4d7ae43bc1dc92155ec7a7c012bc8e4eaaa38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_1170b7f3",
+        "filename": "core/fpdfapi/render/cpdf_imagecacheentry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T16:54:56Z",
+      "side": 1,
+      "message": "nit: can we make these out parameters into **s ?",
+      "range": {
+        "startLine": 48,
+        "startChar": 43,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "f5b4d7ae43bc1dc92155ec7a7c012bc8e4eaaa38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_f162632f",
+        "filename": "core/fpdfapi/render/cpdf_imagecacheentry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T16:54:56Z",
+      "side": 1,
+      "message": "nit: initialization not needed, default ctor makes this null.",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "f5b4d7ae43bc1dc92155ec7a7c012bc8e4eaaa38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
