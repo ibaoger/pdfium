@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_a71b49e6",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5546,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T19:48:28Z",
+      "side": 1,
+      "message": "nit: overparenthesized (and below)",
+      "range": {
+        "startLine": 5546,
+        "startChar": 2,
+        "endLine": 5546,
+        "endChar": 5
+      },
+      "revId": "035840844786ada9ae2b71ab372071a2d296cbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
