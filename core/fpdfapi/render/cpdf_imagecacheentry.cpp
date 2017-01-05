@@ -68,7 +68,7 @@ bool CPDF_ImageCacheEntry::GetCachedBitmap(CFX_DIBSource*& pBitmap,
   CPDF_PageRenderCache* pPageRenderCache = pContext->GetPageCache();
   m_dwTimeCount = pPageRenderCache->GetTimeCount();
   std::unique_ptr<CPDF_DIBSource> pSrc = pdfium::MakeUnique<CPDF_DIBSource>();
-  CPDF_DIBSource* pMaskSrc = nullptr;
+  std::unique_ptr<CPDF_DIBSource> pMaskSrc = nullptr;
   if (!pSrc->Load(m_pDocument, m_pStream, &pMaskSrc, &MatteColor,
                   pRenderStatus->m_pFormResource, pPageResources, bStdCS,
                   GroupFamily, bLoadMask)) {
@@ -78,7 +78,7 @@ bool CPDF_ImageCacheEntry::GetCachedBitmap(CFX_DIBSource*& pBitmap,
   m_MatteColor = MatteColor;
   m_pCachedBitmap = std::move(pSrc);
   if (pMaskSrc)
-    m_pCachedMask = pdfium::WrapUnique<CFX_DIBSource>(pMaskSrc);
+    m_pCachedMask = std::move(pMaskSrc);
 
   pBitmap = m_pCachedBitmap.get();
   pMask = m_pCachedMask.get();
