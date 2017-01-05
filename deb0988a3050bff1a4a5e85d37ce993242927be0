@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_510eaf1d",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T17:48:24Z",
+      "side": 1,
+      "message": "nit: no {}",
+      "range": {
+        "startLine": 155,
+        "startChar": 40,
+        "endLine": 155,
+        "endChar": 41
+      },
+      "revId": "deb0988a3050bff1a4a5e85d37ce993242927be0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
