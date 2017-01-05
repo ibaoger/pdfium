@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_c7311cb5",
+        "filename": "fxjs/cfxjse_value.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T21:55:20Z",
+      "side": 1,
+      "message": "can v be null??  We removed a null check.",
+      "range": {
+        "startLine": 111,
+        "startChar": 1,
+        "endLine": 111,
+        "endChar": 2
+      },
+      "revId": "b2e996e3bad5d40afa75ec4695f9a585b736fe13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_a7450819",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2873,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T21:55:20Z",
+      "side": 1,
+      "message": "nit: range-base for loop preferred.",
+      "range": {
+        "startLine": 2873,
+        "startChar": 1,
+        "endLine": 2873,
+        "endChar": 2
+      },
+      "revId": "b2e996e3bad5d40afa75ec4695f9a585b736fe13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_07b794d7",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5594,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T21:55:20Z",
+      "side": 1,
+      "message": "nit: overparenthesized, also above, below, etc.",
+      "range": {
+        "startLine": 5594,
+        "startChar": 4,
+        "endLine": 5594,
+        "endChar": 7
+      },
+      "revId": "b2e996e3bad5d40afa75ec4695f9a585b736fe13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_6a681564",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6025,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-05T21:55:20Z",
+      "side": 1,
+      "message": "nit: or just (*resultValues)[index].get() to apply [] to the pointer.",
+      "range": {
+        "startLine": 6025,
+        "startChar": 2,
+        "endLine": 6025,
+        "endChar": 3
+      },
+      "revId": "b2e996e3bad5d40afa75ec4695f9a585b736fe13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
