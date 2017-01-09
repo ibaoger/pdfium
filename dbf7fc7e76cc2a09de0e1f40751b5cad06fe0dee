@@ -22,6 +22,30 @@
       "revId": "dbf7fc7e76cc2a09de0e1f40751b5cad06fe0dee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_bedd0130",
+        "filename": "core/fxcodec/codec/fx_codec_tiff.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 5035
+      },
+      "writtenOn": "2017-01-09T19:16:57Z",
+      "side": 1,
+      "message": "This will work because CheckedNumeric assignments go through an implicit constructor, which always range checks from the source type.",
+      "parentUuid": "97bbeed0_fe18595d",
+      "range": {
+        "startLine": 270,
+        "startChar": 1,
+        "endLine": 270,
+        "endChar": 2
+      },
+      "revId": "dbf7fc7e76cc2a09de0e1f40751b5cad06fe0dee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
