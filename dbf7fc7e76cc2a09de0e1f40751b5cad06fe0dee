@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_fe18595d",
+        "filename": "core/fxcodec/codec/fx_codec_tiff.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-09T19:04:07Z",
+      "side": 1,
+      "message": "this doesn\u0027t work the way you think it would, I think.  +Justin",
+      "range": {
+        "startLine": 270,
+        "startChar": 1,
+        "endLine": 270,
+        "endChar": 2
+      },
+      "revId": "dbf7fc7e76cc2a09de0e1f40751b5cad06fe0dee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
