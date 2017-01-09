@@ -6,6 +6,8 @@
 
 #include "core/fxcodec/lgif/fx_gif.h"
 
+#include <algorithm>
+
 #include "core/fxcodec/lbmp/fx_bmp.h"
 #include "third_party/base/stl_util.h"
 
@@ -36,7 +38,7 @@ CGifLZWDecoder::CGifLZWDecoder(FX_CHAR* error_ptr)
 CGifLZWDecoder::~CGifLZWDecoder() {}
 
 void CGifLZWDecoder::InitTable(uint8_t code_len) {
-  code_size = code_len;
+  code_size = std::min(code_len, static_cast<uint8_t>(31));
   code_clear = 1 << code_size;
   code_end = code_clear + 1;
   bits_left = 0;
@@ -229,7 +231,7 @@ void CGifLZWEncoder::Start(uint8_t code_len,
                            const uint8_t* src_buf,
                            uint8_t*& dst_buf,
                            uint32_t& offset) {
-  code_size = code_len + 1;
+  code_size = std::min(code_len + 1, 31);
   src_bit_cut = code_size;
   if (code_len == 0) {
     src_bit_cut = 1;
