@@ -1118,8 +1118,6 @@ if (pdf_enable_xfa) {
       "xfa/fde/cfde_path.h",
       "xfa/fde/cfde_txtedtbuf.cpp",
       "xfa/fde/cfde_txtedtbuf.h",
-      "xfa/fde/cfde_txtedtbufiter.cpp",
-      "xfa/fde/cfde_txtedtbufiter.h",
       "xfa/fde/cfde_txtedtdorecord_deleterange.cpp",
       "xfa/fde/cfde_txtedtdorecord_deleterange.h",
       "xfa/fde/cfde_txtedtdorecord_insert.cpp",
@@ -1728,6 +1726,7 @@ test("pdfium_unittests") {
   include_dirs = []
   if (pdf_enable_xfa) {
     sources += [
+      "xfa/fde/cfde_txtedtbuf_unittest.cpp",
       "xfa/fde/css/fde_cssdatatable_unittest.cpp",
       "xfa/fde/xml/fde_xml_imp_unittest.cpp",
       "xfa/fxbarcode/pdf417/BC_PDF417HighLevelEncoder_unittest.cpp",
