@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_68872234",
+        "filename": "xfa/fxfa/app/xfa_textpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-10T18:16:32Z",
+      "side": 1,
+      "message": "Should this be named CXFA_TextPiece?",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 19
+      },
+      "revId": "97a017fb9e59c350ff390406dab563508275d95d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
