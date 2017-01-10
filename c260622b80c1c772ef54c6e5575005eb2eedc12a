@@ -48,6 +48,24 @@
     },
     {
       "key": {
+        "uuid": "97bbeed0_e3d7d44e",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-10T21:36:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97bbeed0_832c58ad",
+      "revId": "c260622b80c1c772ef54c6e5575005eb2eedc12a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97bbeed0_83553815",
         "filename": "xfa/fde/cfde_txtedtbuf.cpp",
         "patchSetId": 4
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "97bbeed0_030f6819",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-10T21:36:06Z",
+      "side": 1,
+      "message": "error: chosen constructor is explicit in copy-initialization\n    return { m_chunks.size() - 1, m_chunks.back()-\u003enUsed };",
+      "parentUuid": "97bbeed0_83553815",
+      "revId": "c260622b80c1c772ef54c6e5575005eb2eedc12a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97bbeed0_036be8d0",
         "filename": "xfa/fde/cfde_txtedtbuf.cpp",
         "patchSetId": 4
@@ -88,6 +124,24 @@
         "endLine": 349,
         "endChar": 14
       },
+      "revId": "c260622b80c1c772ef54c6e5575005eb2eedc12a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_4319605e",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-10T21:36:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97bbeed0_036be8d0",
       "revId": "c260622b80c1c772ef54c6e5575005eb2eedc12a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
