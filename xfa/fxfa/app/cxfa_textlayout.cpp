@@ -45,27 +45,20 @@ CXFA_TextLayout::~CXFA_TextLayout() {
 }
 
 void CXFA_TextLayout::Unload() {
-  for (int32_t i = 0; i < m_pieceLines.GetSize(); i++) {
-    CXFA_PieceLine* pLine = m_pieceLines.GetAt(i);
-    for (int32_t i = 0; i < pLine->m_textPieces.GetSize(); i++) {
-      XFA_TextPiece* pPiece = pLine->m_textPieces.GetAt(i);
+  for (auto& line : m_pieceLines) {
+    for (int32_t i = 0; i < line->m_textPieces.GetSize(); i++) {
+      XFA_TextPiece* pPiece = line->m_textPieces.GetAt(i);
       // Release text and widths in a text piece.
       m_pAllocator->Free(pPiece->pszText);
       m_pAllocator->Free(pPiece->pWidths);
       // Release text piece.
       FXTARGET_DeleteWith(XFA_TextPiece, m_pAllocator.get(), pPiece);
     }
-    pLine->m_textPieces.RemoveAll();
-    // Release line.
-    FXTARGET_DeleteWith(CXFA_PieceLine, m_pAllocator.get(), pLine);
+    line->m_textPieces.RemoveAll();
   }
-  m_pieceLines.RemoveAll();
+  m_pieceLines.clear();
   m_pBreak.reset();
   m_pAllocator.reset();
-}
-
-const CFX_ArrayTemplate<CXFA_PieceLine*>* CXFA_TextLayout::GetPieceLines() {
-  return &m_pieceLines;
 }
 
 void CXFA_TextLayout::GetTextDataNode() {
@@ -589,7 +582,7 @@ bool CXFA_TextLayout::DrawString(CFX_RenderDevice* pFxDevice,
 
   auto pSolidBrush = pdfium::MakeUnique<CFDE_Brush>();
   auto pPen = pdfium::MakeUnique<CFDE_Pen>();
-  if (m_pieceLines.GetSize() == 0) {
+  if (m_pieceLines.empty()) {
     int32_t iBlockCount = CountBlocks();
     for (int32_t i = 0; i < iBlockCount; i++)
       Layout(i);
@@ -598,7 +591,7 @@ bool CXFA_TextLayout::DrawString(CFX_RenderDevice* pFxDevice,
   FXTEXT_CHARPOS* pCharPos = nullptr;
   int32_t iCharCount = 0;
   int32_t iLineStart = 0;
-  int32_t iPieceLines = m_pieceLines.GetSize();
+  int32_t iPieceLines = m_pieceLines.size();
   int32_t iCount = m_Blocks.GetSize();
   if (iCount > 0) {
     iBlock *= 2;
@@ -611,10 +604,10 @@ bool CXFA_TextLayout::DrawString(CFX_RenderDevice* pFxDevice,
   }
 
   for (int32_t i = 0; i < iPieceLines; i++) {
-    if (i + iLineStart >= m_pieceLines.GetSize())
+    if (i + iLineStart >= pdfium::CollectionSize<int>(m_pieceLines))
       break;
 
-    CXFA_PieceLine* pPieceLine = m_pieceLines.GetAt(i + iLineStart);
+    CXFA_PieceLine* pPieceLine = m_pieceLines[i + iLineStart].get();
     int32_t iPieces = pPieceLine->m_textPieces.GetSize();
     int32_t j = 0;
     for (j = 0; j < iPieces; j++) {
@@ -654,12 +647,10 @@ void CXFA_TextLayout::UpdateAlign(FX_FLOAT fHeight, FX_FLOAT fBottom) {
       return;
   }
 
-  int32_t iCount = m_pieceLines.GetSize();
-  for (int32_t i = 0; i < iCount; i++) {
-    CXFA_PieceLine* pPieceLine = m_pieceLines.GetAt(i);
-    int32_t iPieces = pPieceLine->m_textPieces.GetSize();
+  for (auto& line : m_pieceLines) {
+    int32_t iPieces = line->m_textPieces.GetSize();
     for (int32_t j = 0; j < iPieces; j++) {
-      XFA_TextPiece* pPiece = pPieceLine->m_textPieces.GetAt(j);
+      XFA_TextPiece* pPiece = line->m_textPieces.GetAt(j);
       CFX_RectF& rect = pPiece->rtPiece;
       rect.top += fHeight;
     }
@@ -1073,9 +1064,9 @@ void CXFA_TextLayout::AppendTextLine(uint32_t dwStatus,
 
   IFDE_CSSComputedStyle* pStyle = nullptr;
   if (bSavePieces) {
-    CXFA_PieceLine* pPieceLine =
-        FXTARGET_NewWith(m_pAllocator.get()) CXFA_PieceLine;
-    m_pieceLines.Add(pPieceLine);
+    m_pieceLines.push_back(pdfium::MakeUnique<CXFA_PieceLine>());
+
+    CXFA_PieceLine* pPieceLine = m_pieceLines.back().get();
     if (m_pTabstopContext)
       m_pTabstopContext->Reset();
 

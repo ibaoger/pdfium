@@ -158,14 +158,11 @@ const FX_WCHAR* CXFA_FFText::GetLinkURLAtPoint(FX_FLOAT fx, FX_FLOAT fy) {
   }
   FX_FLOAT x(fx), y(fy);
   FWLToClient(x, y);
-  const CFX_ArrayTemplate<CXFA_PieceLine*>* pPieceLines =
-      pTextLayout->GetPieceLines();
-  int32_t iCount = pPieceLines->GetSize();
-  for (int32_t i = 0; i < iCount; i++) {
-    CXFA_PieceLine* pPieceLine = pPieceLines->GetAt(i);
-    int32_t iPieces = pPieceLine->m_textPieces.GetSize();
+
+  for (auto& line : pTextLayout->GetPieceLines()) {
+    int32_t iPieces = line->m_textPieces.GetSize();
     for (int32_t j = 0; j < iPieces; j++) {
-      XFA_TextPiece* pPiece = pPieceLine->m_textPieces.GetAt(j);
+      XFA_TextPiece* pPiece = line->m_textPieces.GetAt(j);
       if (pPiece->pLinkData && pPiece->rtPiece.Contains(x, y)) {
         return pPiece->pLinkData->GetLinkURL();
       }

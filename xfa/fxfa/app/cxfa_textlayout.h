@@ -8,6 +8,7 @@
 #define XFA_FXFA_APP_CXFA_TEXTLAYOUT_H_
 
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/fx_basic.h"
 #include "core/fxcrt/fx_coordinates.h"
@@ -53,9 +54,11 @@ class CXFA_TextLayout {
                   const CFX_Matrix& tmDoc2Device,
                   const CFX_RectF& rtClip,
                   int32_t iBlock = 0);
-  bool IsLoaded() const { return m_pieceLines.GetSize() > 0; }
+  bool IsLoaded() const { return !m_pieceLines.empty(); }
   void Unload();
-  const CFX_ArrayTemplate<CXFA_PieceLine*>* GetPieceLines();
+  const std::vector<std::unique_ptr<CXFA_PieceLine>>& GetPieceLines() {
+    return m_pieceLines;
+  }
 
   bool m_bHasBlock;
   CFX_Int32Array m_Blocks;
@@ -127,7 +130,7 @@ class CXFA_TextLayout {
   int32_t m_iLines;
   FX_FLOAT m_fMaxWidth;
   CXFA_TextParser m_textParser;
-  CFX_ArrayTemplate<CXFA_PieceLine*> m_pieceLines;
+  std::vector<std::unique_ptr<CXFA_PieceLine>> m_pieceLines;
   std::unique_ptr<CXFA_TextTabstopsContext> m_pTabstopContext;
   bool m_bBlockContinue;
 };
