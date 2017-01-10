@@ -22,6 +22,24 @@
       "revId": "97a017fb9e59c350ff390406dab563508275d95d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97bbeed0_c30c9020",
+        "filename": "xfa/fxfa/app/xfa_textpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-10T21:37:22Z",
+      "side": 1,
+      "message": "Possibly, but I\u0027ve kept the naming for now. Will look at it in detail when I do further cleanup.",
+      "parentUuid": "97bbeed0_68872234",
+      "revId": "97a017fb9e59c350ff390406dab563508275d95d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
