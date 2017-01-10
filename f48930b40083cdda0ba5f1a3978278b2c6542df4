@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97bbeed0_c6dade77",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2873,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-10T22:27:59Z",
+      "side": 1,
+      "message": "nit: const auto\u0026",
+      "range": {
+        "startLine": 2873,
+        "startChar": 1,
+        "endLine": 2873,
+        "endChar": 2
+      },
+      "revId": "f48930b40083cdda0ba5f1a3978278b2c6542df4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
