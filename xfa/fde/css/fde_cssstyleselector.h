@@ -89,18 +89,18 @@ class CFDE_CSSStyleSelector {
 
   void SetDefFontSize(FX_FLOAT fFontSize);
 
-  bool SetStyleSheet(FDE_CSSSTYLESHEETGROUP eType, IFDE_CSSStyleSheet* pSheet);
-  bool SetStyleSheets(FDE_CSSSTYLESHEETGROUP eType,
+  bool SetStyleSheet(FDE_CSSStyleSheetGroup eType, IFDE_CSSStyleSheet* pSheet);
+  bool SetStyleSheets(FDE_CSSStyleSheetGroup eType,
                       const CFDE_CSSStyleSheetArray* pArray);
-  void SetStylePriority(FDE_CSSSTYLESHEETGROUP eType,
-                        FDE_CSSSTYLESHEETPRIORITY ePriority);
+  void SetStylePriority(FDE_CSSStyleSheetGroup eType,
+                        FDE_CSSStyleSheetPriority ePriority);
   void UpdateStyleIndex(uint32_t dwMediaList);
   CFDE_CSSAccelerator* InitAccelerator();
   IFDE_CSSComputedStyle* CreateComputedStyle(
       IFDE_CSSComputedStyle* pParentStyle);
   int32_t MatchDeclarations(CXFA_CSSTagProvider* pTag,
                             CFDE_CSSDeclarationArray& matchedDecls,
-                            FDE_CSSPSEUDO ePseudoType = FDE_CSSPSEUDO_NONE);
+                            FDE_CSSPseudo ePseudoType = FDE_CSSPseudo::NONE);
   void ComputeStyle(CXFA_CSSTagProvider* pTag,
                     const CFDE_CSSDeclaration** ppDeclArray,
                     int32_t iDeclCount,
@@ -110,10 +110,10 @@ class CFDE_CSSStyleSelector {
   void Reset();
   void MatchRules(FDE_CSSTagCache* pCache,
                   FDE_CSSRuleData* pList,
-                  FDE_CSSPSEUDO ePseudoType);
+                  FDE_CSSPseudo ePseudoType);
   bool MatchSelector(FDE_CSSTagCache* pCache,
                      CFDE_CSSSelector* pSel,
-                     FDE_CSSPSEUDO ePseudoType);
+                     FDE_CSSPseudo ePseudoType);
   void AppendInlineStyle(CFDE_CSSDeclaration* pDecl,
                          const FX_WCHAR* psz,
                          int32_t iLen);
@@ -121,58 +121,58 @@ class CFDE_CSSStyleSelector {
                          const CFDE_CSSDeclaration** ppDeclArray,
                          int32_t iDeclCount,
                          IFDE_CSSComputedStyle* pDestStyle);
-  void ApplyProperty(FDE_CSSPROPERTY eProperty,
+  void ApplyProperty(FDE_CSSProperty eProperty,
                      IFDE_CSSValue* pValue,
                      CFDE_CSSComputedStyle* pComputedStyle);
 
-  FX_FLOAT ApplyNumber(FDE_CSSPRIMITIVETYPE eUnit,
+  FX_FLOAT ApplyNumber(FDE_CSSPrimitiveType eUnit,
                        FX_FLOAT fValue,
                        FX_FLOAT fPercentBase);
   bool SetLengthWithPercent(FDE_CSSLENGTH& width,
-                            FDE_CSSPRIMITIVETYPE eType,
+                            FDE_CSSPrimitiveType eType,
                             IFDE_CSSPrimitiveValue* pPrimitive,
                             FX_FLOAT fFontSize);
-  FX_FLOAT ToFontSize(FDE_CSSPROPERTYVALUE eValue, FX_FLOAT fCurFontSize);
-  FDE_CSSDISPLAY ToDisplay(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSTEXTALIGN ToTextAlign(FDE_CSSPROPERTYVALUE eValue);
-  uint16_t ToFontWeight(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSFONTSTYLE ToFontStyle(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSBORDERSTYLE ToBorderStyle(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSVERTICALALIGN ToVerticalAlign(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSLISTSTYLETYPE ToListStyleType(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSLISTSTYLEPOSITION ToListStylePosition(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSVISIBILITY ToVisibility(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSWHITESPACE ToWhiteSpace(FDE_CSSPROPERTYVALUE eValue);
+  FX_FLOAT ToFontSize(FDE_CSSPropertyValue eValue, FX_FLOAT fCurFontSize);
+  FDE_CSSDisplay ToDisplay(FDE_CSSPropertyValue eValue);
+  FDE_CSSTextAlign ToTextAlign(FDE_CSSPropertyValue eValue);
+  uint16_t ToFontWeight(FDE_CSSPropertyValue eValue);
+  FDE_CSSFontStyle ToFontStyle(FDE_CSSPropertyValue eValue);
+  FDE_CSSBorderStyle ToBorderStyle(FDE_CSSPropertyValue eValue);
+  FDE_CSSVerticalAlign ToVerticalAlign(FDE_CSSPropertyValue eValue);
+  FDE_CSSListStyleType ToListStyleType(FDE_CSSPropertyValue eValue);
+  FDE_CSSListStylePosition ToListStylePosition(FDE_CSSPropertyValue eValue);
+  FDE_CSSVisibility ToVisibility(FDE_CSSPropertyValue eValue);
+  FDE_CSSWhitespace ToWhiteSpace(FDE_CSSPropertyValue eValue);
   uint32_t ToTextDecoration(IFDE_CSSValueList* pList);
-  FDE_CSSTEXTTRANSFORM ToTextTransform(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSFONTVARIANT ToFontVariant(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSFLOAT ToFloat(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSCLEAR ToClear(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSWRITINGMODE ToWritingMode(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSWORDBREAK ToWordBreak(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSPAGEBREAK ToPageBreak(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSOVERFLOW ToOverflow(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSLINEBREAK ToLineBreak(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSTEXTCOMBINE ToTextCombine(FDE_CSSPROPERTYVALUE eValue);
-  bool ToTextEmphasisMark(FDE_CSSPROPERTYVALUE eValue,
-                          FDE_CSSTEXTEMPHASISMARK& eMark);
-  bool ToTextEmphasisFill(FDE_CSSPROPERTYVALUE eValue,
-                          FDE_CSSTEXTEMPHASISFILL& eFill);
-  FDE_CSSCURSOR ToCursor(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSPOSITION ToPosition(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSCAPTIONSIDE ToCaptionSide(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSBKGREPEAT ToBKGRepeat(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSBKGATTACHMENT ToBKGAttachment(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSRUBYALIGN ToRubyAlign(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSRUBYOVERHANG ToRubyOverhang(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSRUBYPOSITION ToRubyPosition(FDE_CSSPROPERTYVALUE eValue);
-  FDE_CSSRUBYSPAN ToRubySpan(FDE_CSSPROPERTYVALUE eValue);
+  FDE_CSSTextTransform ToTextTransform(FDE_CSSPropertyValue eValue);
+  FDE_CSSFontVariant ToFontVariant(FDE_CSSPropertyValue eValue);
+  FDE_CSSFloat ToFloat(FDE_CSSPropertyValue eValue);
+  FDE_CSSClear ToClear(FDE_CSSPropertyValue eValue);
+  FDE_CSSWritingMode ToWritingMode(FDE_CSSPropertyValue eValue);
+  FDE_CSSWordBreak ToWordBreak(FDE_CSSPropertyValue eValue);
+  FDE_CSSPageBreak ToPageBreak(FDE_CSSPropertyValue eValue);
+  FDE_CSSOverFlow ToOverflow(FDE_CSSPropertyValue eValue);
+  FDE_CSSLineBreak ToLineBreak(FDE_CSSPropertyValue eValue);
+  FDE_CSSTextCombine ToTextCombine(FDE_CSSPropertyValue eValue);
+  bool ToTextEmphasisMark(FDE_CSSPropertyValue eValue,
+                          FDE_CSSTextEmphasisMark& eMark);
+  bool ToTextEmphasisFill(FDE_CSSPropertyValue eValue,
+                          FDE_CSSTextEmphasisFill& eFill);
+  FDE_CSSCursor ToCursor(FDE_CSSPropertyValue eValue);
+  FDE_CSSPosition ToPosition(FDE_CSSPropertyValue eValue);
+  FDE_CSSCaptionSide ToCaptionSide(FDE_CSSPropertyValue eValue);
+  FDE_CSSBackgroundRepeat ToBKGRepeat(FDE_CSSPropertyValue eValue);
+  FDE_CSSBackgroundAttachment ToBKGAttachment(FDE_CSSPropertyValue eValue);
+  FDE_CSSRubyAlign ToRubyAlign(FDE_CSSPropertyValue eValue);
+  FDE_CSSRubyOverhang ToRubyOverhang(FDE_CSSPropertyValue eValue);
+  FDE_CSSRubyPosition ToRubyPosition(FDE_CSSPropertyValue eValue);
+  FDE_CSSRubySpan ToRubySpan(FDE_CSSPropertyValue eValue);
 
   CFGAS_FontMgr* const m_pFontMgr;
   FX_FLOAT m_fDefFontSize;
-  CFDE_CSSStyleSheetArray m_SheetGroups[FDE_CSSSTYLESHEETGROUP_MAX];
-  CFDE_CSSRuleCollection m_RuleCollection[FDE_CSSSTYLESHEETGROUP_MAX];
-  FDE_CSSSTYLESHEETGROUP m_ePriorities[FDE_CSSSTYLESHEETPRIORITY_MAX];
+  CFDE_CSSStyleSheetArray m_SheetGroups[3];
+  CFDE_CSSRuleCollection m_RuleCollection[3];
+  FDE_CSSStyleSheetGroup m_ePriorities[3];
   std::unique_ptr<CFDE_CSSAccelerator> m_pAccelerator;
   std::vector<FDE_CSSRuleData*> m_MatchedRules;
 };
@@ -250,7 +250,7 @@ class CFDE_CSSInheritedData {
   IFDE_CSSValueList* m_pFontFamily;
   IFDE_CSSValueList* m_pQuotes;
   IFDE_CSSValueList* m_pCursorUris;
-  FDE_CSSCURSOR m_eCursor;
+  FDE_CSSCursor m_eCursor;
   FX_FLOAT m_fFontSize;
   FX_FLOAT m_fLineHeight;
   FX_ARGB m_dwFontColor;
@@ -259,22 +259,22 @@ class CFDE_CSSInheritedData {
   int32_t m_iWidows;
   int32_t m_iOrphans;
   const FX_WCHAR* m_pszTextEmphasisCustomMark;
-  uint32_t m_eFontVariant : 1;
-  uint32_t m_eFontStyle : 1;
+  FDE_CSSFontVariant m_eFontVariant;
+  FDE_CSSFontStyle m_eFontStyle;
   uint32_t m_bTextEmphasisColorCurrent : 1;
-  uint32_t m_eTextAligh : 2;
-  uint32_t m_eVisibility : 2;
-  uint32_t m_eWhiteSpace : 3;
-  uint32_t m_eTextTransform : 2;
-  uint32_t m_eWritingMode : 2;
-  uint32_t m_eWordBreak : 2;
-  uint32_t m_eLineBreak : 2;
-  uint32_t m_eTextEmphasisFill : 1;
-  uint32_t m_eTextEmphasisMark : 3;
-  uint32_t m_eCaptionSide : 3;
-  uint8_t m_eRubyAlign : 4;
-  uint8_t m_eRubyOverhang : 2;
-  uint8_t m_eRubyPosition : 2;
+  FDE_CSSTextAlign m_eTextAlign;
+  FDE_CSSVisibility m_eVisibility;
+  FDE_CSSWhitespace m_eWhiteSpace;
+  FDE_CSSTextTransform m_eTextTransform;
+  FDE_CSSWritingMode m_eWritingMode;
+  FDE_CSSWordBreak m_eWordBreak;
+  FDE_CSSLineBreak m_eLineBreak;
+  FDE_CSSTextEmphasisFill m_eTextEmphasisFill;
+  FDE_CSSTextEmphasisMark m_eTextEmphasisMark;
+  FDE_CSSCaptionSide m_eCaptionSide;
+  FDE_CSSRubyAlign m_eRubyAlign;
+  FDE_CSSRubyOverhang m_eRubyOverhang;
+  FDE_CSSRubyPosition m_eRubyPosition;
 };
 
 class CFDE_CSSNonInheritedData {
@@ -311,30 +311,30 @@ class CFDE_CSSNonInheritedData {
 
   FX_FLOAT m_fVerticalAlign;
   FX_FLOAT m_fTextCombineNumber;
-  uint32_t m_eBDRLeftStyle : 4;
-  uint32_t m_eBDRTopStyle : 4;
-  uint32_t m_eBDRRightStyle : 4;
-  uint32_t m_eBDRBottomStyle : 4;
-  uint32_t m_eDisplay : 5;
-  uint32_t m_eVerticalAlign : 4;
-  uint32_t m_eListStyleType : 5;
-  uint32_t m_eColumnRuleStyle : 4;
-  uint32_t m_ePageBreakInside : 3;
-  uint32_t m_ePageBreakAfter : 3;
-  uint32_t m_ePageBreakBefore : 3;
-  uint32_t m_ePosition : 2;
-  uint32_t m_eBKGRepeat : 2;
-  uint32_t m_eFloat : 2;
-  uint32_t m_eClear : 2;
-  uint32_t m_eOverflowX : 3;
-  uint32_t m_eOverflowY : 3;
-  uint32_t m_eListStylePosition : 1;
-  uint32_t m_eBKGAttachment : 1;
+  FDE_CSSBorderStyle m_eBDRLeftStyle;
+  FDE_CSSBorderStyle m_eBDRTopStyle;
+  FDE_CSSBorderStyle m_eBDRRightStyle;
+  FDE_CSSBorderStyle m_eBDRBottomStyle;
+  FDE_CSSDisplay m_eDisplay;
+  FDE_CSSVerticalAlign m_eVerticalAlign;
+  FDE_CSSListStyleType m_eListStyleType;
+  FDE_CSSBorderStyle m_eColumnRuleStyle;
+  FDE_CSSPageBreak m_ePageBreakInside;
+  FDE_CSSPageBreak m_ePageBreakAfter;
+  FDE_CSSPageBreak m_ePageBreakBefore;
+  FDE_CSSPosition m_ePosition;
+  FDE_CSSBackgroundRepeat m_eBKGRepeat;
+  FDE_CSSFloat m_eFloat;
+  FDE_CSSClear m_eClear;
+  FDE_CSSOverFlow m_eOverflowX;
+  FDE_CSSOverFlow m_eOverflowY;
+  FDE_CSSListStylePosition m_eListStylePosition;
+  FDE_CSSBackgroundAttachment m_eBKGAttachment;
   uint32_t m_bHasMargin : 1;
   uint32_t m_bHasBorder : 1;
   uint32_t m_bHasPadding : 1;
   uint32_t m_dwTextDecoration : 5;
-  uint32_t m_eTextCombine : 1;
+  FDE_CSSTextCombine m_eTextCombine;
   uint32_t m_bColumnRuleColorSame : 1;
   uint32_t m_bHasTextCombineNumber : 1;
 };
@@ -365,13 +365,13 @@ class CFDE_CSSComputedStyle : public IFDE_CSSComputedStyle,
   int32_t CountFontFamilies() const override;
   const FX_WCHAR* GetFontFamily(int32_t index) const override;
   uint16_t GetFontWeight() const override;
-  FDE_CSSFONTVARIANT GetFontVariant() const override;
-  FDE_CSSFONTSTYLE GetFontStyle() const override;
+  FDE_CSSFontVariant GetFontVariant() const override;
+  FDE_CSSFontStyle GetFontStyle() const override;
   FX_FLOAT GetFontSize() const override;
   FX_ARGB GetColor() const override;
   void SetFontWeight(uint16_t wFontWeight) override;
-  void SetFontVariant(FDE_CSSFONTVARIANT eFontVariant) override;
-  void SetFontStyle(FDE_CSSFONTSTYLE eFontStyle) override;
+  void SetFontVariant(FDE_CSSFontVariant eFontVariant) override;
+  void SetFontStyle(FDE_CSSFontStyle eFontStyle) override;
   void SetFontSize(FX_FLOAT fFontSize) override;
   void SetColor(FX_ARGB dwFontColor) override;
 
@@ -383,19 +383,19 @@ class CFDE_CSSComputedStyle : public IFDE_CSSComputedStyle,
   void SetPaddingWidth(const FDE_CSSRECT& rect) override;
 
   // IFDE_CSSPositionStyle:
-  FDE_CSSDISPLAY GetDisplay() const override;
+  FDE_CSSDisplay GetDisplay() const override;
 
   // IFDE_CSSParagraphStyle:
   FX_FLOAT GetLineHeight() const override;
   const FDE_CSSLENGTH& GetTextIndent() const override;
-  FDE_CSSTEXTALIGN GetTextAlign() const override;
-  FDE_CSSVERTICALALIGN GetVerticalAlign() const override;
+  FDE_CSSTextAlign GetTextAlign() const override;
+  FDE_CSSVerticalAlign GetVerticalAlign() const override;
   FX_FLOAT GetNumberVerticalAlign() const override;
   uint32_t GetTextDecoration() const override;
   const FDE_CSSLENGTH& GetLetterSpacing() const override;
   void SetLineHeight(FX_FLOAT fLineHeight) override;
   void SetTextIndent(const FDE_CSSLENGTH& textIndent) override;
-  void SetTextAlign(FDE_CSSTEXTALIGN eTextAlign) override;
+  void SetTextAlign(FDE_CSSTextAlign eTextAlign) override;
   void SetNumberVerticalAlign(FX_FLOAT fAlign) override;
   void SetTextDecoration(uint32_t dwTextDecoration) override;
   void SetLetterSpacing(const FDE_CSSLENGTH& letterSpacing) override;
