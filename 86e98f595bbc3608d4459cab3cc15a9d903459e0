@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d38de9_0c95cbce",
+        "filename": "infra/config/cq.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-11T20:41:55Z",
+      "side": 1,
+      "message": "Do we want to have a global_retry_quota entry here as well?",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "86e98f595bbc3608d4459cab3cc15a9d903459e0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
