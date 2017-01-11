@@ -22,6 +22,24 @@
       "revId": "86e98f595bbc3608d4459cab3cc15a9d903459e0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_aced9f42",
+        "filename": "infra/config/cq.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T20:54:26Z",
+      "side": 1,
+      "message": "I don\u0027t think it matters since we should never retry, so our retry count will always be zero.",
+      "parentUuid": "e3d38de9_0c95cbce",
+      "revId": "86e98f595bbc3608d4459cab3cc15a9d903459e0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
