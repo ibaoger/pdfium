@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_26bd4e17",
+        "filename": "testing/libfuzzer/pdf_css_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_668ef619",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_66dcb6f9",
         "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 36,
         "endChar": 27
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c6cd62b5",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Started, got too big, will do as a followup.",
+      "parentUuid": "e3d38de9_66dcb6f9",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -82,6 +118,24 @@
         "endLine": 51,
         "endChar": 32
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_a6937e79",
+        "filename": "xfa/fde/css/fde_css.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done. Looks like they can all be uint8_t as nothing has more then 200 values.",
+      "parentUuid": "e3d38de9_c6c6c21f",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -163,6 +217,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_86599af9",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Ack. Leaving as is so I don\u0027t have to rewrite the data table ....",
+      "parentUuid": "e3d38de9_06fb6a51",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_c6f4825f",
         "filename": "xfa/fde/css/fde_cssdatatable.h",
         "patchSetId": 1
@@ -180,6 +252,24 @@
         "endLine": 130,
         "endChar": 19
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_264eae2e",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3d38de9_c6f4825f",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -209,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_a6185e2f",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "How about ... no cast since the types are the same on both sides now, heh.",
+      "parentUuid": "e3d38de9_4637324e",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_863d1a32",
         "filename": "xfa/fde/css/fde_cssdeclaration.h",
         "patchSetId": 1
@@ -226,6 +334,24 @@
         "endLine": 16,
         "endChar": 28
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_a6413ef9",
+        "filename": "xfa/fde/css/fde_cssdeclaration.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3d38de9_863d1a32",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -290,6 +416,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_61382041",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_468c12d4",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_1baae775",
         "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
         "patchSetId": 1
@@ -348,6 +492,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_41763c43",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_c6224207",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_26b9ce8a",
         "filename": "xfa/fde/css/fde_cssstyleselector.h",
         "patchSetId": 1
@@ -365,6 +527,24 @@
         "endLine": 265,
         "endChar": 32
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_e17ad024",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3d38de9_26b9ce8a",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -394,6 +574,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_8156646e",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_06c04adb",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_c6c9e208",
         "filename": "xfa/fde/css/fde_cssstyleselector.h",
         "patchSetId": 1
@@ -411,6 +609,24 @@
         "endLine": 336,
         "endChar": 34
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_215bf898",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_c6c9e208",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -440,6 +656,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_41607c42",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_86dbdacf",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_269eaef8",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 1
@@ -457,6 +691,24 @@
         "endLine": 246,
         "endChar": 20
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_86b51ad9",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Overzelous sed command. Fixed.",
+      "parentUuid": "e3d38de9_269eaef8",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -486,6 +738,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_46af3285",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_e69746d7",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_c677a2e8",
         "filename": "xfa/fde/css/fde_cssstylesheet.h",
         "patchSetId": 1
@@ -509,6 +779,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_66c9165e",
+        "filename": "xfa/fde/css/fde_cssstylesheet.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_c677a2e8",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_c68ec2c0",
         "filename": "xfa/fde/css/fde_csssyntax.cpp",
         "patchSetId": 1
@@ -526,6 +814,24 @@
         "endLine": 82,
         "endChar": 1
       },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_816c2473",
+        "filename": "xfa/fde/css/fde_csssyntax.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_c68ec2c0",
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
