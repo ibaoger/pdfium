@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d38de9_2c71af49",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-11T19:59:14Z",
+      "side": 1,
+      "message": "We just new\u0027d the ComputedStyle so these should get the default construction values now.",
+      "revId": "2ebce2eacfd693f461fae5502cc873adb55e0f26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
