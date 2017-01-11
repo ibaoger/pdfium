@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3d38de9_668ef619",
+        "filename": "testing/libfuzzer/pdf_css_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "nit: If this were a do-while loop we\u0027d avoid duplicating the body before enterning the loop. sigh.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_66dcb6f9",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "Ok for now, but feel free to kill off CFX_ArrayTemplate in favor of std::vector\u003c\u003e as they are encountered.",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_7bce9368",
         "filename": "xfa/fde/css/fde_css.h",
         "patchSetId": 1
@@ -13,6 +59,29 @@
       "writtenOn": "2017-01-11T17:11:28Z",
       "side": 1,
       "message": "These were #defind in another file. Collecting them all here.",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c6c6c21f",
+        "filename": "xfa/fde/css/fde_css.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "Do we stick these in any const tables or structs?  Probably some savings if we base these on uint8_t/uint16_t (for all the enums in this file).\n\nenum class FDE_CSSPrimitiveType : uint8_t {  ...\n\nOf course, this won\u0027t help much unless it happens to pack against adjacent small members.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 32
+      },
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -53,6 +122,116 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_c61d62df",
+        "filename": "xfa/fde/css/fde_css.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "Agreed.  This was just totally insane.",
+      "parentUuid": "e3d38de9_dbbc5fcb",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_06fb6a51",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "e.g. this packs tighter on 64bit platforms if you swap the order of name and hash, but using the narrower enum doesn\u0027t affect it.  sigh.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 1
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c6f4825f",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "e.g. this saves some bytes with a narrower enum type.  Yay!",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 130,
+        "endChar": 19
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_4637324e",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "static_cast?  reinterpret_cast?",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_863d1a32",
+        "filename": "xfa/fde/css/fde_cssdeclaration.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "e.g. this packs tigher as-is on 32bits if we use a narrower enum.  Yay!",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_5bb06fe7",
         "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
         "patchSetId": 1
@@ -70,6 +249,47 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_667d96d0",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3d38de9_5bb06fe7",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_468c12d4",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "follow-up:  just expand these inline for transparency\u0027s sake.",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 1
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_1baae775",
         "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
         "patchSetId": 1
@@ -81,6 +301,231 @@
       "writtenOn": "2017-01-11T17:11:28Z",
       "side": 1,
       "message": "These few were just wrong previously, pulling from the wrong enum for the case label.",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_066e0a17",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3d38de9_1baae775",
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c6224207",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "follow-up: can we make this a bool?",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 43
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_26b9ce8a",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "e.g. these pack better when using a narrower type.  Its strange that they squeezed these into a uint32_t given the zillion bytes of pointers already in this struct, but before c++11 and narrower enums, this would bloat ...",
+      "range": {
+        "startLine": 265,
+        "startChar": 3,
+        "endLine": 265,
+        "endChar": 32
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_06c04adb",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "these should be bools.",
+      "range": {
+        "startLine": 333,
+        "startChar": 1,
+        "endLine": 333,
+        "endChar": 28
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c6c9e208",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "this could be uint8_t",
+      "range": {
+        "startLine": 336,
+        "startChar": 3,
+        "endLine": 336,
+        "endChar": 34
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_86dbdacf",
+        "filename": "xfa/fde/css/fde_cssstyleselector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 10
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_269eaef8",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "nit:  I think I\u0027d like this better as FDE_CSSPropertyArgs.",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 20
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_e69746d7",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "nit: static_cast.",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 409,
+        "endChar": 52
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c677a2e8",
+        "filename": "xfa/fde/css/fde_cssstylesheet.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "follow-up: expand inline for transparency.",
+      "range": {
+        "startLine": 87,
+        "startChar": 1,
+        "endLine": 87,
+        "endChar": 7
+      },
+      "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c68ec2c0",
+        "filename": "xfa/fde/css/fde_csssyntax.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-11T17:49:15Z",
+      "side": 1,
+      "message": "bleh.  two lines while we\u0027re at it (several places).",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
       "revId": "befe4034e5427e121a014b4aa2cca8a577f70263",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
