@@ -4,6 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
+#include <algorithm>
 #include <limits>
 
 #include "core/fxcodec/codec/codec_int.h"
@@ -104,7 +105,8 @@ tsize_t tiff_read(thandle_t context, tdata_t buf, tsize_t length) {
     return 0;
 
   pTiffContext->set_offset(increment.ValueOrDie());
-  return length;
+  return std::min(static_cast<FX_FILESIZE>(length),
+                  pTiffContext->io_in()->GetSize() - pTiffContext->offset());
 }
 
 tsize_t tiff_write(thandle_t context, tdata_t buf, tsize_t length) {
