@@ -40,6 +40,24 @@
       "revId": "86e98f595bbc3608d4459cab3cc15a9d903459e0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_79e8d8f6",
+        "filename": "infra/config/cq.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6130
+      },
+      "writtenOn": "2017-01-11T23:20:20Z",
+      "side": 1,
+      "message": "tbh, I don\u0027t know if it matters. It\u0027s not clear from the doc to me as well. let\u0027s try this and see :(",
+      "parentUuid": "e3d38de9_aced9f42",
+      "revId": "86e98f595bbc3608d4459cab3cc15a9d903459e0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
