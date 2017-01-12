@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_a02d9868",
+        "filename": "xfa/fde/css/cfde_cssrule.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-12T19:05:16Z",
+      "side": 1,
+      "message": "I un-did that virtualization to go to this. Why implement the method 5 times when I can do it twice?",
+      "parentUuid": "e3d38de9_a06598f7",
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_e0796097",
         "filename": "xfa/fde/css/fde_cssdatatable.cpp",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 541,
         "endChar": 2
       },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_c000dcba",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-12T19:05:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_e0796097",
       "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "e3d38de9_e0188030",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-12T19:05:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_a0b3584b",
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d38de9_a08cb88f",
         "filename": "xfa/fde/css/fde_cssdatatable.h",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 44,
         "endChar": 7
       },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_401e2c2e",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-12T19:05:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_a08cb88f",
       "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
