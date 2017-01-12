@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d38de9_e3b2cad1",
+        "filename": "xfa/fde/css/fde_css.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-12T19:23:41Z",
+      "side": 1,
+      "message": "class, also same for rect.\n\nALL CAPS names should be POD-type structs.  The rest should be classes.",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 6
+      },
+      "revId": "c6226bc74d79375378ec8f59d7527082ca2f5ad8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
