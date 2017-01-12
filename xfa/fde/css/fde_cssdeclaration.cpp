@@ -642,3 +642,10 @@ bool CFDE_CSSDeclaration::ParseFontProperty(const FDE_CSSPropertyArgs* pArgs,
   }
   return true;
 }
+
+size_t CFDE_CSSDeclaration::PropertyCountForTesting() const {
+  size_t ret = 0;
+  for (const FDE_CSSPropertyHolder* p = m_pFirstProperty; p; p = p->pNext)
+    ret++;
+  return ret;
+}

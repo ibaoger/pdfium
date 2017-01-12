@@ -58,6 +58,8 @@ class CFDE_CSSDeclaration {
                    const FX_WCHAR* pszValue,
                    int32_t iValueLen);
 
+  size_t PropertyCountForTesting() const;
+
  protected:
   bool ParseFontProperty(const FDE_CSSPropertyArgs* pArgs,
                          const FX_WCHAR* pszValue,
