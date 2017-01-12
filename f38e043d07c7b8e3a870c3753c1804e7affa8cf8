@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d38de9_a06598f7",
+        "filename": "xfa/fde/css/cfde_cssrule.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-12T18:37:49Z",
+      "side": 1,
+      "message": "follow-up: Do you want to virtualize this as well and have each sub-class respond for itself rather than trusting the base class?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_e0796097",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-12T18:37:49Z",
+      "side": 1,
+      "message": "We can use FX_Alloc(CFDE_CSSValue*, m_iCount) and lose the cast and be safe from overflow as a benefit !!!\n\nas a follow-up:\n\n$ git grep \u0027\\*)FX_Alloc(uint8_t\u0027\n\nshows about a dozen places where this anti-pattern is present.",
+      "range": {
+        "startLine": 541,
+        "startChar": 1,
+        "endLine": 541,
+        "endChar": 2
+      },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_a0b3584b",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-12T18:37:49Z",
+      "side": 1,
+      "message": "then we can just multiply here to get the size, knowing that if alloc returned, we didn\u0027t overflow.",
+      "range": {
+        "startLine": 542,
+        "startChar": 2,
+        "endLine": 542,
+        "endChar": 14
+      },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d38de9_a08cb88f",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-12T18:37:49Z",
+      "side": 1,
+      "message": "nit: remove typedef, use the full type info to where needed. Or at least\nusing CFDE_ ... \u003d ...;",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "f38e043d07c7b8e3a870c3753c1804e7affa8cf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
