@@ -22,6 +22,24 @@
       "revId": "c6226bc74d79375378ec8f59d7527082ca2f5ad8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_6b081ca2",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 0,
+      "message": "Yup, I messed it up, it\u0027s actually fixed in the next CL where I add a test for this. The var gets removed and the size is used directly.",
+      "parentUuid": "03bd01ca_10199532",
+      "revId": "c6226bc74d79375378ec8f59d7527082ca2f5ad8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

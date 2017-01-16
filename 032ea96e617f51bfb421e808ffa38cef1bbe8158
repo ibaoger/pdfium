@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_abc4f423",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Yea, will probably have to change in the future, but works for now.",
+      "parentUuid": "03bd01ca_b0d8e12a",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_f0f179e7",
         "filename": "xfa/fde/css/cfde_cssvalue.h",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_cba85065",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "See line 25.",
+      "parentUuid": "03bd01ca_f0f179e7",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_d0f47dda",
         "filename": "xfa/fde/css/cfde_cssvalue.h",
         "patchSetId": 3
@@ -59,6 +95,24 @@
       "writtenOn": "2017-01-16T20:09:25Z",
       "side": 1,
       "message": "Is it possible to use CFX_RetainPtr or something like this, to avoid adding this to more classes?",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_eba50c8a",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "These are used by CFX_RetainPtr.",
+      "parentUuid": "03bd01ca_d0f47dda",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -88,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_8bd658d5",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_708ba946",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_10943561",
         "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
         "patchSetId": 3
@@ -105,6 +177,24 @@
         "endLine": 231,
         "endChar": 45
       },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_abdb14fd",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Possibly, will leave for a potential followup.",
+      "parentUuid": "03bd01ca_10943561",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -134,6 +224,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_cbcf7036",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "I like this, I\u0027m not a fan of friends, heh.",
+      "parentUuid": "03bd01ca_d020fd6b",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_d072bd8b",
         "filename": "xfa/fde/css/fde_cssdeclaration.h",
         "patchSetId": 3
@@ -151,6 +259,24 @@
         "endLine": 40,
         "endChar": 22
       },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_0bb328d7",
+        "filename": "xfa/fde/css/fde_cssdeclaration.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_d072bd8b",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -180,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_ebcc2c44",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03bd01ca_f01df930",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_d0471d0d",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 3
@@ -197,6 +341,24 @@
         "endLine": 28,
         "endChar": 39
       },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_0bca4825",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_d0471d0d",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -226,6 +388,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_2bc7041d",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "rule is needed so we can assign rule.get() to pStyleRule. Not sure why I didn\u0027t use std::move ....",
+      "parentUuid": "03bd01ca_9005a5ca",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_b00aa1d6",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 3
@@ -243,6 +423,24 @@
         "endLine": 287,
         "endChar": 59
       },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_4b036086",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_b00aa1d6",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -272,6 +470,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_8b0d78b3",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_10f0b5a8",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_70ce4968",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 3
@@ -289,6 +505,24 @@
         "endLine": 477,
         "endChar": 26
       },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_ab1234cf",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_70ce4968",
       "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
