@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03bd01ca_4b67e08e",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:33:21Z",
+      "side": 1,
+      "message": "Can you compare the sizes of |list| and |values| before this loop?",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_6b6c9c72",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:33:21Z",
+      "side": 1,
+      "message": "This variable is being set but not being used",
+      "range": {
+        "startLine": 103,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 20
+      },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_8b71f84b",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:33:21Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 20
+      },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_f0a09992",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:33:21Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 248,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 17
+      },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_309bf163",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:33:21Z",
+      "side": 1,
+      "message": "Maybe pass pointer to the std::vector instead of reference",
+      "range": {
+        "startLine": 362,
+        "startChar": 52,
+        "endLine": 362,
+        "endChar": 56
+      },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
