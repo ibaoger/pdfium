@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03bd01ca_b0d8e12a",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "I imagine this 1 is because all your tests so far have only 1 rule",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_f0f179e7",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Can we have the constructor declared in the header?",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_d0f47dda",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Is it possible to use CFX_RetainPtr or something like this, to avoid adding this to more classes?",
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_708ba946",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Followup: this always returns true",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 13
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_10943561",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "If you are several doing several of CFX_RetainPtr\u003cClass\u003e(new Class()), maybe instead add a Create method in Class?",
+      "range": {
+        "startLine": 231,
+        "startChar": 23,
+        "endLine": 231,
+        "endChar": 45
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_d020fd6b",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "This, or make the test class a friend. Up to you",
+      "range": {
+        "startLine": 639,
+        "startChar": 28,
+        "endLine": 639,
+        "endChar": 51
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_d072bd8b",
+        "filename": "xfa/fde/css/fde_cssdeclaration.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Maybe use |const_prop_iterator| instead? Or capitalize the c.",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_f01df930",
+        "filename": "xfa/fde/css/fde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Followup: Pass bImportant by pointer instead of non-const ref",
+      "range": {
+        "startLine": 291,
+        "startChar": 65,
+        "endLine": 291,
+        "endChar": 75
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_d0471d0d",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Nit: no {}\u0027s",
+      "range": {
+        "startLine": 28,
+        "startChar": 38,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_9005a5ca",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "push_back(std::move(rule)) does not work? Otherwise, |rule| is unneeded variable, right?",
+      "range": {
+        "startLine": 235,
+        "startChar": 14,
+        "endLine": 235,
+        "endChar": 32
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_b00aa1d6",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 287,
+        "startChar": 47,
+        "endLine": 287,
+        "endChar": 59
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_10f0b5a8",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "return std::move(m_pNext);",
+      "range": {
+        "startLine": 408,
+        "startChar": 9,
+        "endLine": 408,
+        "endChar": 64
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_70ce4968",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-16T20:09:25Z",
+      "side": 1,
+      "message": "Nit: not {}\u0027s",
+      "range": {
+        "startLine": 477,
+        "startChar": 25,
+        "endLine": 477,
+        "endChar": 26
+      },
+      "revId": "032ea96e617f51bfb421e808ffa38cef1bbe8158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
