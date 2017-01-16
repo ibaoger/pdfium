@@ -22,6 +22,24 @@
       "revId": "0a9e4b1aba1fbfbcea4378c5ba65eff711b6540f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_8b88180a",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d38de9_4314f6ba",
+      "revId": "0a9e4b1aba1fbfbcea4378c5ba65eff711b6540f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
