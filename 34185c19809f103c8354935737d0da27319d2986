@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_2b1e24db",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_4b67e08e",
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_6b6c9c72",
         "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 103,
         "endChar": 20
       },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_4bea8080",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_6b6c9c72",
       "revId": "34185c19809f103c8354935737d0da27319d2986",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_6bef3c8f",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_8b71f84b",
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_f0a09992",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 1
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "03bd01ca_8be498b1",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:35:05Z",
+      "side": 1,
+      "message": "I think this is a bug with the old implementation. If we have gotten something like a {} b {} then we add \"a\" to the selectors and process the {} part. We should now clear the selectors and start again with \"b\" but nothing would clear them. So, I\u0027m forcing the selector list to clear when we\u0027ve added those selectors to the rule.",
+      "parentUuid": "03bd01ca_f0a09992",
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03bd01ca_309bf163",
         "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
         "patchSetId": 1
@@ -111,6 +183,24 @@
         "endLine": 362,
         "endChar": 56
       },
+      "revId": "34185c19809f103c8354935737d0da27319d2986",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03bd01ca_abe95489",
+        "filename": "xfa/fde/css/fde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-16T21:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bd01ca_309bf163",
       "revId": "34185c19809f103c8354935737d0da27319d2986",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
