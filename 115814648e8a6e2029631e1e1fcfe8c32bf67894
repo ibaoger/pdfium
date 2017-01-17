@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03bd01ca_ab94ef86",
+        "filename": "xfa/fde/css/fde_csssyntax.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T20:06:25Z",
+      "side": 1,
+      "message": "Does top() return a referece? eg. can we write\n\n m_ModeStack.top() \u003d FDE_CSSSyntaxMode::Ruleset;",
+      "range": {
+        "startLine": 204,
+        "startChar": 14,
+        "endLine": 204,
+        "endChar": 31
+      },
+      "revId": "115814648e8a6e2029631e1e1fcfe8c32bf67894",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
