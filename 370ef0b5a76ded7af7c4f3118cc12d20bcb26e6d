@@ -22,6 +22,23 @@
       "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234f6509_3c66312c",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-17T21:02:02Z",
+      "side": 1,
+      "message": "Done.\n\nI also fixed to use pdfium::MakeRetain where needed.",
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
