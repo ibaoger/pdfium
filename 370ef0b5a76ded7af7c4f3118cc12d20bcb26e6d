@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3354d63_62a2d68c",
+        "filename": "xfa/fde/css/cfde_cssvalue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T20:17:00Z",
+      "side": 1,
+      "message": "If this inherits from CFX_Retainable, then you don\u0027t need your own private retain/relese/m_nCount.",
+      "range": {
+        "startLine": 12,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
