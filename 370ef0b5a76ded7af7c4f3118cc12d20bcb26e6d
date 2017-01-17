@@ -65,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "234f6509_fc63e9bf",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-17T21:22:33Z",
+      "side": 1,
+      "message": "Dropped the const, skipped the \u0026\u0026 as per conversation. (Making this \u0026\u0026 causes pdfium::MakeRetain to no longer work correctly.)",
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234f6509_9cbe65a2",
         "filename": "xfa/fde/css/fde_cssdatatable.h",
         "patchSetId": 4
@@ -88,6 +105,23 @@
     },
     {
       "key": {
+        "uuid": "234f6509_1c3575f9",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-17T21:22:33Z",
+      "side": 1,
+      "message": "Will create a followup to split the class.",
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234f6509_fc1d2994",
         "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
         "patchSetId": 4
@@ -105,6 +139,23 @@
         "endLine": 54,
         "endChar": 23
       },
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234f6509_9c20a5bd",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-17T21:22:33Z",
+      "side": 1,
+      "message": "Done",
       "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
