@@ -122,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "236e8540_4d32b15f",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T21:33:05Z",
+      "side": 1,
+      "message": "Alternately, just move the unique_ptr outside the union and all should be well for now.  Otherwise, there\u0027s no reason to believe it will get deleted properly.",
+      "parentUuid": "234f6509_1c3575f9",
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234f6509_fc1d2994",
         "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
         "patchSetId": 4
