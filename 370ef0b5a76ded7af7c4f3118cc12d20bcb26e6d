@@ -39,6 +39,75 @@
       "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234f6509_7ccd993c",
+        "filename": "xfa/fde/css/fde_cssdatatable.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T21:05:24Z",
+      "side": 1,
+      "message": "Surprised this compiles since you\u0027re trying to move a const reference, wich modifes it.  Maybe this want to take a \u0026\u0026 argument, and the callers do the move().",
+      "range": {
+        "startLine": 541,
+        "startChar": 45,
+        "endLine": 541,
+        "endChar": 72
+      },
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234f6509_9cbe65a2",
+        "filename": "xfa/fde/css/fde_cssdatatable.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T21:05:24Z",
+      "side": 1,
+      "message": "Unique pointers inside unions are a bad idea.  We ought lose the union and suffer the size increase, or make N subclases CSSColorValue, CSSFlotValue, etc.",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 50
+      },
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234f6509_fc1d2994",
+        "filename": "xfa/fde/css/fde_cssdeclaration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-17T21:05:24Z",
+      "side": 1,
+      "message": "Alternately, pdfium::MakeRetain\u003cCFDE_CSSPrimitive\u003e(eUnit, fValue);  (several places).",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "370ef0b5a76ded7af7c4f3118cc12d20bcb26e6d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
