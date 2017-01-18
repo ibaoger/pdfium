@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4851d61e_ebd045da",
+        "filename": "xfa/fde/css/cfde_cssaccelerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Because of stack_.top().get(), you\u0027re going to crash on adding the first element",
+      "range": {
+        "startLine": 16,
+        "startChar": 51,
+        "endLine": 16,
+        "endChar": 69
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8361f1bd_465cbc5b",
         "filename": "xfa/fde/css/cfde_cssaccelerator.h",
         "patchSetId": 2
@@ -18,6 +41,190 @@
         "startChar": 0,
         "endLine": 30,
         "endChar": 1
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_0b8ba1bc",
+        "filename": "xfa/fde/css/cfde_cssdeclaration_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_cb5a295f",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_2b2d3dcc",
+        "filename": "xfa/fde/css/cfde_cssstylesheet.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_cb08e94e",
+        "filename": "xfa/fde/css/cfde_csssyntaxparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_4bb75939",
+        "filename": "xfa/fde/css/cfde_csstagcache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Is the if (it.dwClassHashs.GetSize() \u003e 0) no longer needed?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_6b8d7589",
+        "filename": "xfa/fde/css/cfde_csstagcache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_2bbc1d19",
+        "filename": "xfa/fde/css/cfde_csstextbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Move to cpp?",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_ebc5e58f",
+        "filename": "xfa/fde/css/cfde_csstextbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-18T23:36:32Z",
+      "side": 1,
+      "message": "Nit no {}",
+      "range": {
+        "startLine": 37,
+        "startChar": 61,
+        "endLine": 37,
+        "endChar": 62
       },
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
