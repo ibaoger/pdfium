@@ -31,7 +31,6 @@ enum FDE_CSSVALUETYPE {
   // Note the values below this comment must be > 0x0F so we can mask the above.
   FDE_CSSVALUETYPE_MaybeNumber = 1 << 4,
   FDE_CSSVALUETYPE_MaybeEnum = 1 << 5,
-  FDE_CSSVALUETYPE_MaybeURI = 1 << 6,
   FDE_CSSVALUETYPE_MaybeString = 1 << 7,
   FDE_CSSVALUETYPE_MaybeColor = 1 << 8,
   FDE_CSSVALUETYPE_MaybeFunction = 1 << 9
@@ -40,20 +39,11 @@ enum FDE_CSSVALUETYPE {
 enum class FDE_CSSPrimitiveType : uint8_t {
   Unknown = 0,
   Number,
-  Percent,
-  EMS,
-  EXS,
-  Pixels,
-  CentiMeters,
-  MilliMeters,
-  Inches,
-  Points,
-  Picas,
   String,
-  URI,
   RGB,
   Enum,
   Function,
+  List,
 };
 
 enum class FDE_CSSPropertyValue : uint8_t {
