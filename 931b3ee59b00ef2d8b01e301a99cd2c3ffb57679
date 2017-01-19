@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_714fa3a2",
+        "filename": "core/fpdfapi/page/fpdf_page_func.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T17:54:19Z",
+      "side": 1,
+      "message": "why float?",
+      "range": {
+        "startLine": 412,
+        "startChar": 6,
+        "endLine": 412,
+        "endChar": 11
+      },
+      "revId": "931b3ee59b00ef2d8b01e301a99cd2c3ffb57679",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_91333f35",
+        "filename": "core/fpdfapi/page/fpdf_page_func.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T17:54:19Z",
+      "side": 1,
+      "message": "assumes 4-byte ints.",
+      "range": {
+        "startLine": 414,
+        "startChar": 10,
+        "endLine": 414,
+        "endChar": 34
+      },
+      "revId": "931b3ee59b00ef2d8b01e301a99cd2c3ffb57679",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
