@@ -36,8 +36,6 @@ class CFDE_CSSStyleSelector {
   bool SetStyleSheet(FDE_CSSStyleSheetGroup eType, CFDE_CSSStyleSheet* pSheet);
   bool SetStyleSheets(FDE_CSSStyleSheetGroup eType,
                       const CFX_ArrayTemplate<CFDE_CSSStyleSheet*>* pArray);
-  void SetStylePriority(FDE_CSSStyleSheetGroup eType,
-                        FDE_CSSStyleSheetPriority ePriority);
   void UpdateStyleIndex(uint32_t dwMediaList);
   CFDE_CSSAccelerator* InitAccelerator();
   CFDE_CSSComputedStyle* CreateComputedStyle(
@@ -53,12 +51,21 @@ class CFDE_CSSStyleSelector {
 
  protected:
   void Reset();
-  void MatchRules(CFDE_CSSTagCache* pCache,
-                  CFDE_CSSRuleCollection::Data* pList,
-                  FDE_CSSPseudo ePseudoType);
+
+  void MatchRules(
+      std::vector<CFDE_CSSRuleCollection::Data*>& matchedRules,
+      CFDE_CSSTagCache* pCache,
+      const std::vector<std::unique_ptr<CFDE_CSSRuleCollection::Data>>* pList,
+      FDE_CSSPseudo ePseudoType);
   bool MatchSelector(CFDE_CSSTagCache* pCache,
                      CFDE_CSSSelector* pSel,
                      FDE_CSSPseudo ePseudoType);
+  void MatchDeclarationsForGroup(
+      FDE_CSSStyleSheetGroup group,
+      CXFA_CSSTagProvider* pTag,
+      CFX_ArrayTemplate<CFDE_CSSDeclaration*>& matchedDecls,
+      FDE_CSSPseudo ePseudoType);
+
   void AppendInlineStyle(CFDE_CSSDeclaration* pDecl,
                          const FX_WCHAR* psz,
                          int32_t iLen);
@@ -87,9 +94,7 @@ class CFDE_CSSStyleSelector {
   FX_FLOAT m_fDefFontSize;
   CFX_ArrayTemplate<CFDE_CSSStyleSheet*> m_SheetGroups[3];
   CFDE_CSSRuleCollection m_RuleCollection[3];
-  FDE_CSSStyleSheetGroup m_ePriorities[3];
   std::unique_ptr<CFDE_CSSAccelerator> m_pAccelerator;
-  std::vector<CFDE_CSSRuleCollection::Data*> m_MatchedRules;
 };
 
 #endif  // XFA_FDE_CSS_CFDE_CSSSTYLESELECTOR_H_
