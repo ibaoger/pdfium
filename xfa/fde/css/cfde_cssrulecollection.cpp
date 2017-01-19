@@ -7,9 +7,9 @@
 #include "xfa/fde/css/cfde_cssrulecollection.h"
 
 #include <algorithm>
-#include <map>
-#include <memory>
+#include <utility>
 
+#include "third_party/base/ptr_util.h"
 #include "xfa/fde/css/cfde_cssdeclaration.h"
 #include "xfa/fde/css/cfde_cssmediarule.h"
 #include "xfa/fde/css/cfde_cssrule.h"
@@ -22,15 +22,14 @@
 #define FDE_CSSUNIVERSALHASH ('*')
 
 void CFDE_CSSRuleCollection::Clear() {
-  m_IDRules.clear();
   m_TagRules.clear();
   m_ClassRules.clear();
-  m_pUniversalRules = nullptr;
+  m_pUniversalRules.clear();
+  m_pPseudoRules.clear();
   m_iSelectors = 0;
 }
 
-CFDE_CSSRuleCollection::CFDE_CSSRuleCollection()
-    : m_pUniversalRules(nullptr), m_pPseudoRules(nullptr), m_iSelectors(0) {}
+CFDE_CSSRuleCollection::CFDE_CSSRuleCollection() : m_iSelectors(0) {}
 
 CFDE_CSSRuleCollection::~CFDE_CSSRuleCollection() {
   Clear();
@@ -64,33 +63,31 @@ void CFDE_CSSRuleCollection::AddRulesFrom(CFDE_CSSStyleSheet* pStyleSheet,
       for (int32_t i = 0; i < iSelectors; ++i) {
         CFDE_CSSSelector* pSelector = pStyleRule->GetSelectorList(i);
         if (pSelector->GetType() == FDE_CSSSelectorType::Pseudo) {
-          Data* pData = NewRuleData(pSelector, pDeclaration);
-          AddRuleTo(&m_pPseudoRules, pData);
+          m_pPseudoRules.push_back(NewRuleData(pSelector, pDeclaration));
           continue;
         }
         if (pSelector->GetNameHash() != FDE_CSSUNIVERSALHASH) {
-          AddRuleTo(&m_TagRules, pSelector->GetNameHash(), pSelector,
-                    pDeclaration);
+          m_TagRules[pSelector->GetNameHash()].push_back(
+              NewRuleData(pSelector, pDeclaration));
           continue;
         }
+
         CFDE_CSSSelector* pNext = pSelector->GetNextSelector();
         if (!pNext) {
-          Data* pData = NewRuleData(pSelector, pDeclaration);
-          AddRuleTo(&m_pUniversalRules, pData);
+          m_pUniversalRules.push_back(NewRuleData(pSelector, pDeclaration));
           continue;
         }
+
         switch (pNext->GetType()) {
           case FDE_CSSSelectorType::ID:
-            AddRuleTo(&m_IDRules, pNext->GetNameHash(), pSelector,
-                      pDeclaration);
             break;
           case FDE_CSSSelectorType::Class:
-            AddRuleTo(&m_ClassRules, pNext->GetNameHash(), pSelector,
-                      pDeclaration);
+            m_ClassRules[pNext->GetNameHash()].push_back(
+                NewRuleData(pSelector, pDeclaration));
             break;
           case FDE_CSSSelectorType::Descendant:
           case FDE_CSSSelectorType::Element:
-            AddRuleTo(&m_pUniversalRules, NewRuleData(pSelector, pDeclaration));
+            m_pUniversalRules.push_back(NewRuleData(pSelector, pDeclaration));
             break;
           default:
             ASSERT(false);
@@ -113,39 +110,16 @@ void CFDE_CSSRuleCollection::AddRulesFrom(CFDE_CSSStyleSheet* pStyleSheet,
   }
 }
 
-void CFDE_CSSRuleCollection::AddRuleTo(std::map<uint32_t, Data*>* pMap,
-                                       uint32_t dwKey,
-                                       CFDE_CSSSelector* pSel,
-                                       CFDE_CSSDeclaration* pDecl) {
-  Data* pData = NewRuleData(pSel, pDecl);
-  Data* pList = (*pMap)[dwKey];
-  if (!pList) {
-    (*pMap)[dwKey] = pData;
-  } else if (AddRuleTo(&pList, pData)) {
-    (*pMap)[dwKey] = pList;
-  }
-}
-
-bool CFDE_CSSRuleCollection::AddRuleTo(Data** pList, Data* pData) {
-  if (*pList) {
-    pData->pNext = (*pList)->pNext;
-    (*pList)->pNext = pData;
-    return false;
-  }
-  *pList = pData;
-  return true;
-}
-
-CFDE_CSSRuleCollection::Data* CFDE_CSSRuleCollection::NewRuleData(
-    CFDE_CSSSelector* pSel,
-    CFDE_CSSDeclaration* pDecl) {
-  return new Data(pSel, pDecl, ++m_iSelectors);
+std::unique_ptr<CFDE_CSSRuleCollection::Data>
+CFDE_CSSRuleCollection::NewRuleData(CFDE_CSSSelector* pSel,
+                                    CFDE_CSSDeclaration* pDecl) {
+  return pdfium::MakeUnique<Data>(pSel, pDecl, ++m_iSelectors);
 }
 
 CFDE_CSSRuleCollection::Data::Data(CFDE_CSSSelector* pSel,
                                    CFDE_CSSDeclaration* pDecl,
                                    uint32_t dwPos)
-    : pSelector(pSel), pDeclaration(pDecl), dwPriority(dwPos), pNext(nullptr) {
+    : pSelector(pSel), pDeclaration(pDecl), dwPriority(dwPos) {
   static const uint32_t s_Specific[5] = {0x00010000, 0x00010000, 0x00100000,
                                          0x00100000, 0x01000000};
   for (; pSel; pSel = pSel->GetNextSelector()) {

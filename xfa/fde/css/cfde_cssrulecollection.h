@@ -8,6 +8,8 @@
 #define XFA_FDE_CSS_CFDE_CSSRULECOLLECTION_H_
 
 #include <map>
+#include <memory>
+#include <vector>
 
 #include "core/fxcrt/fx_basic.h"
 
@@ -26,7 +28,6 @@ class CFDE_CSSRuleCollection {
     CFDE_CSSSelector* const pSelector;
     CFDE_CSSDeclaration* const pDeclaration;
     uint32_t dwPriority;
-    Data* pNext;
   };
 
   CFDE_CSSRuleCollection();
@@ -38,41 +39,37 @@ class CFDE_CSSRuleCollection {
   void Clear();
   int32_t CountSelectors() const { return m_iSelectors; }
 
-  Data* GetIDRuleData(uint32_t dwIDHash) {
-    auto it = m_IDRules.find(dwIDHash);
-    return it != m_IDRules.end() ? it->second : nullptr;
-  }
-
-  Data* GetTagRuleData(uint32_t dwTagHash) {
+  const std::vector<std::unique_ptr<Data>>* GetTagRuleData(
+      uint32_t dwTagHash) const {
     auto it = m_TagRules.find(dwTagHash);
-    return it != m_TagRules.end() ? it->second : nullptr;
+    return it != m_TagRules.end() ? &it->second : nullptr;
   }
 
-  Data* GetClassRuleData(uint32_t dwIDHash) {
+  const std::vector<std::unique_ptr<Data>>* GetClassRuleData(
+      uint32_t dwIDHash) const {
     auto it = m_ClassRules.find(dwIDHash);
-    return it != m_ClassRules.end() ? it->second : nullptr;
+    return it != m_ClassRules.end() ? &it->second : nullptr;
   }
 
-  Data* GetUniversalRuleData() { return m_pUniversalRules; }
-  Data* GetPseudoRuleData() { return m_pPseudoRules; }
+  const std::vector<std::unique_ptr<Data>>* GetUniversalRuleData() const {
+    return &m_pUniversalRules;
+  }
+  const std::vector<std::unique_ptr<Data>>* GetPseudoRuleData() const {
+    return &m_pPseudoRules;
+  }
 
  protected:
   void AddRulesFrom(CFDE_CSSStyleSheet* pStyleSheet,
                     CFDE_CSSRule* pRule,
                     uint32_t dwMediaList,
                     CFGAS_FontMgr* pFontMgr);
-  void AddRuleTo(std::map<uint32_t, Data*>* pMap,
-                 uint32_t dwKey,
-                 CFDE_CSSSelector* pSel,
-                 CFDE_CSSDeclaration* pDecl);
-  bool AddRuleTo(Data** pList, Data* pData);
-  Data* NewRuleData(CFDE_CSSSelector* pSel, CFDE_CSSDeclaration* pDecl);
+  std::unique_ptr<Data> NewRuleData(CFDE_CSSSelector* pSel,
+                                    CFDE_CSSDeclaration* pDecl);
 
-  std::map<uint32_t, Data*> m_IDRules;
-  std::map<uint32_t, Data*> m_TagRules;
-  std::map<uint32_t, Data*> m_ClassRules;
-  Data* m_pUniversalRules;
-  Data* m_pPseudoRules;
+  std::map<uint32_t, std::vector<std::unique_ptr<Data>>> m_TagRules;
+  std::map<uint32_t, std::vector<std::unique_ptr<Data>>> m_ClassRules;
+  std::vector<std::unique_ptr<Data>> m_pUniversalRules;
+  std::vector<std::unique_ptr<Data>> m_pPseudoRules;
   int32_t m_iSelectors;
 };
 
