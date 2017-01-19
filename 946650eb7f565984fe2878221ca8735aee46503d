@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_0e704af3",
+        "filename": "xfa/fde/css/cfde_cssaccelerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_ebd045da",
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8361f1bd_465cbc5b",
         "filename": "xfa/fde/css/cfde_cssaccelerator.h",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 30,
         "endChar": 1
       },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_aee1367d",
+        "filename": "xfa/fde/css/cfde_cssaccelerator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8361f1bd_465cbc5b",
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_ee6cce1e",
+        "filename": "xfa/fde/css/cfde_cssdeclaration_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_0b8ba1bc",
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_cb5a295f",
         "filename": "xfa/fde/css/cfde_cssstyleselector.h",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 1,
         "endChar": 17
       },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_ce7912df",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_cb5a295f",
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_ae76d6ec",
+        "filename": "xfa/fde/css/cfde_cssstylesheet.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_2b2d3dcc",
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_cb08e94e",
         "filename": "xfa/fde/css/cfde_csssyntaxparser.h",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 1,
         "endChar": 17
       },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_8ea55a49",
+        "filename": "xfa/fde/css/cfde_csssyntaxparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_cb08e94e",
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_2e59c66c",
+        "filename": "xfa/fde/css/cfde_csstagcache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "My understanding is no, now that we\u0027re using std::copy it should do the right thing for the empty begin()/end() range.",
+      "parentUuid": "4851d61e_4bb75939",
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_6b8d7589",
         "filename": "xfa/fde/css/cfde_csstagcache.h",
         "patchSetId": 2
@@ -180,6 +306,24 @@
         "endLine": 1,
         "endChar": 17
       },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_4e9f62f3",
+        "filename": "xfa/fde/css/cfde_csstagcache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_6b8d7589",
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_ee5a8e5e",
+        "filename": "xfa/fde/css/cfde_csstextbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Doing to leave for now, may move in the future.",
+      "parentUuid": "4851d61e_2bbc1d19",
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_ebc5e58f",
         "filename": "xfa/fde/css/cfde_csstextbuf.h",
         "patchSetId": 2
@@ -226,6 +388,24 @@
         "endLine": 37,
         "endChar": 62
       },
+      "revId": "946650eb7f565984fe2878221ca8735aee46503d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_0e5e0a55",
+        "filename": "xfa/fde/css/cfde_csstextbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T15:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_ebc5e58f",
       "revId": "946650eb7f565984fe2878221ca8735aee46503d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
