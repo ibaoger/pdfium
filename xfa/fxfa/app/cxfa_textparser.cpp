@@ -102,11 +102,11 @@ CFDE_CSSStyleSheet* CXFA_TextParser::LoadDefaultSheetStyle() {
   return pStyleSheet;
 }
 
-CFDE_CSSComputedStyle* CXFA_TextParser::CreateRootStyle(
+CFX_RetainPtr<CFDE_CSSComputedStyle> CXFA_TextParser::CreateRootStyle(
     CXFA_TextProvider* pTextProvider) {
   CXFA_Font font = pTextProvider->GetFontNode();
   CXFA_Para para = pTextProvider->GetParaNode();
-  CFDE_CSSComputedStyle* pStyle = m_pSelector->CreateComputedStyle(nullptr);
+  auto pStyle = m_pSelector->CreateComputedStyle(nullptr);
   FX_FLOAT fLineHeight = 0;
   FX_FLOAT fFontSize = 10;
 
@@ -164,10 +164,9 @@ CFDE_CSSComputedStyle* CXFA_TextParser::CreateRootStyle(
   return pStyle;
 }
 
-CFDE_CSSComputedStyle* CXFA_TextParser::CreateStyle(
+CFX_RetainPtr<CFDE_CSSComputedStyle> CXFA_TextParser::CreateStyle(
     CFDE_CSSComputedStyle* pParentStyle) {
-  CFDE_CSSComputedStyle* pNewStyle =
-      m_pSelector->CreateComputedStyle(pParentStyle);
+  auto pNewStyle = m_pSelector->CreateComputedStyle(pParentStyle);
   ASSERT(pNewStyle);
   if (!pParentStyle)
     return pNewStyle;
@@ -186,7 +185,7 @@ CFDE_CSSComputedStyle* CXFA_TextParser::CreateStyle(
   return pNewStyle;
 }
 
-CFDE_CSSComputedStyle* CXFA_TextParser::ComputeStyle(
+CFX_RetainPtr<CFDE_CSSComputedStyle> CXFA_TextParser::ComputeStyle(
     CFDE_XMLNode* pXMLNode,
     CFDE_CSSComputedStyle* pParentStyle) {
   auto it = m_mapXMLNodeToParseContext.find(pXMLNode);
@@ -205,11 +204,11 @@ CFDE_CSSComputedStyle* CXFA_TextParser::ComputeStyle(
   if (tagProvider.m_bContent)
     return nullptr;
 
-  CFDE_CSSComputedStyle* pStyle = CreateStyle(pParentStyle);
+  auto pStyle = CreateStyle(pParentStyle);
   CFDE_CSSAccelerator* pCSSAccel = m_pSelector->InitAccelerator();
   pCSSAccel->OnEnterTag(&tagProvider);
   m_pSelector->ComputeStyle(&tagProvider, pContext->GetDecls(),
-                            pContext->CountDecls(), pStyle);
+                            pContext->CountDecls(), pStyle.Get());
   pCSSAccel->OnLeaveTag(&tagProvider);
   return pStyle;
 }
@@ -221,9 +220,8 @@ void CXFA_TextParser::DoParse(CFDE_XMLNode* pXMLContainer,
 
   m_bParsed = true;
   InitCSSData(pTextProvider);
-  CFDE_CSSComputedStyle* pRootStyle = CreateRootStyle(pTextProvider);
-  ParseRichText(pXMLContainer, pRootStyle);
-  pRootStyle->Release();
+  auto pRootStyle = CreateRootStyle(pTextProvider);
+  ParseRichText(pXMLContainer, pRootStyle.Get());
 }
 
 void CXFA_TextParser::ParseRichText(CFDE_XMLNode* pXMLNode,
@@ -236,7 +234,7 @@ void CXFA_TextParser::ParseRichText(CFDE_XMLNode* pXMLNode,
   if (!tagProvider.m_bTagAvailable)
     return;
 
-  CFDE_CSSComputedStyle* pNewStyle = nullptr;
+  CFX_RetainPtr<CFDE_CSSComputedStyle> pNewStyle;
   if ((tagProvider.GetTagName() != FX_WSTRC(L"body")) ||
       (tagProvider.GetTagName() != FX_WSTRC(L"html"))) {
     CXFA_TextParseContext* pTextContext = new CXFA_TextParseContext;
@@ -251,7 +249,7 @@ void CXFA_TextParser::ParseRichText(CFDE_XMLNode* pXMLNode,
       const CFDE_CSSDeclaration** ppMatchDecls =
           const_cast<const CFDE_CSSDeclaration**>(DeclArray.GetData());
       m_pSelector->ComputeStyle(&tagProvider, ppMatchDecls, iMatchedDecls,
-                                pNewStyle);
+                                pNewStyle.Get());
       pCSSAccel->OnLeaveTag(&tagProvider);
       if (iMatchedDecls > 0)
         pTextContext->SetDecls(ppMatchDecls, iMatchedDecls);
@@ -266,10 +264,8 @@ void CXFA_TextParser::ParseRichText(CFDE_XMLNode* pXMLNode,
            pXMLNode->GetNodeItem(CFDE_XMLNode::FirstChild);
        pXMLChild;
        pXMLChild = pXMLChild->GetNodeItem(CFDE_XMLNode::NextSibling)) {
-    ParseRichText(pXMLChild, pNewStyle);
+    ParseRichText(pXMLChild, pNewStyle.Get());
   }
-  if (pNewStyle)
-    pNewStyle->Release();
 }
 
 bool CXFA_TextParser::TagValidate(const CFX_WideString& wsName) const {

@@ -38,7 +38,7 @@ class CFDE_CSSStyleSelector {
                       const CFX_ArrayTemplate<CFDE_CSSStyleSheet*>* pArray);
   void UpdateStyleIndex(uint32_t dwMediaList);
   CFDE_CSSAccelerator* InitAccelerator();
-  CFDE_CSSComputedStyle* CreateComputedStyle(
+  CFX_RetainPtr<CFDE_CSSComputedStyle> CreateComputedStyle(
       CFDE_CSSComputedStyle* pParentStyle);
   int32_t MatchDeclarations(
       CXFA_CSSTagProvider* pTag,
