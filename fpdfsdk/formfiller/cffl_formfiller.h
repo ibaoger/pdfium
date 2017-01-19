@@ -9,6 +9,7 @@
 
 #include <map>
 
+#include "core/fxcrt/cfx_observable.h"
 #include "fpdfsdk/formfiller/cba_fontmap.h"
 #include "fpdfsdk/formfiller/cffl_interactiveformfiller.h"
 #include "fpdfsdk/pdfsdk_fieldaction.h"
