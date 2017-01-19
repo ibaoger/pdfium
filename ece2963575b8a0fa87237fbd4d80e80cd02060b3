@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "4851d61e_1172af8d",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:24:22Z",
+      "side": 1,
+      "message": "this should probably alloc on the heap and return unique_ptr to createparam",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 48
+      },
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_31e80bf2",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:24:22Z",
+      "side": 1,
+      "message": "I didn\u0027t see any usage of observable in this file itself, include to move to .cpp or some such?",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_0e53aa26",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 2
@@ -41,6 +87,29 @@
         "startChar": 28,
         "endLine": 13,
         "endChar": 49
+      },
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_11206f69",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:24:22Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 44
       },
       "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
