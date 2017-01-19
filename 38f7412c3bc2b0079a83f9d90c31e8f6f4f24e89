@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_513947f0",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "this solved a leak, but did we intend to clear the next one?  Or should it persist across a clear?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_1153cf26",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "nit: prefer early return",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 10
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_918d7f8c",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "since this expression must return a reference, it will do the default construction for you if it doesn\u0027t exist, so the whole function can collapse to one line:\n\n  pMap[dwKey].push_back(NewRuleData(pSel, pDecl));\n\nat which point having this as a function vs. just writing it inline becomes a choice ...",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 15
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_3125abcc",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "since these are returning const, they can be const methods themselves.",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 9
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_512027bc",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "pass by non-const ref vs. ptr?",
+      "range": {
+        "startLine": 65,
+        "startChar": 71,
+        "endLine": 65,
+        "endChar": 72
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_319a4bb2",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-19T18:13:14Z",
+      "side": 1,
+      "message": "can this be const?",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 50
+      },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
