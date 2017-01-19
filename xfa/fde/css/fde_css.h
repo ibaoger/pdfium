@@ -211,12 +211,6 @@ enum class FDE_CSSStyleSheetGroup : uint8_t {
   Author,
 };
 
-enum class FDE_CSSStyleSheetPriority : uint8_t {
-  High = 0,
-  Mid,
-  Low,
-};
-
 class FDE_CSSLength {
  public:
   FDE_CSSLength() {}
