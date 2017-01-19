@@ -409,12 +409,16 @@ bool CPDF_PSEngine::DoOperator(PDF_PSOP op) {
       Push((int)!i1);
       break;
     case PSOP_BITSHIFT: {
-      int shift = (int)Pop();
+      float shift = Pop();
       int i = (int)Pop();
+      if (shift > 31 || shift < -31)
+        break;
+
+      int shiftVal = static_cast<int>(shift);
       if (shift > 0) {
-        Push(i << shift);
+        Push(i << shiftVal);
       } else {
-        Push(i >> -shift);
+        Push(i >> -shiftVal);
       }
       break;
     }
