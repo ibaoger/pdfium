@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_844adb90",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:53:17Z",
+      "side": 1,
+      "message": "That\u0027s true, and I started down this road but it rippled. Leaving this way for now so this can get cherry picked into the branch easier. Will do a followup to try to make this a unique_ptr",
+      "parentUuid": "4851d61e_1172af8d",
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_31e80bf2",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 12,
         "endChar": 35
       },
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_c49213e7",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:53:17Z",
+      "side": 1,
+      "message": "Left over from previous attempts. Removed.",
+      "parentUuid": "4851d61e_31e80bf2",
       "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_e46cef1e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:53:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_0e53aa26",
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_ae493670",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 2
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_c479f3de",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:53:17Z",
+      "side": 1,
+      "message": "Possibly, but I think it\u0027s used outside PWL as well so would be better as a followup.",
+      "parentUuid": "4851d61e_ae493670",
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_11206f69",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 2
@@ -111,6 +183,24 @@
         "endLine": 42,
         "endChar": 44
       },
+      "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_24a44747",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:53:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_11206f69",
       "revId": "ece2963575b8a0fa87237fbd4d80e80cd02060b3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
