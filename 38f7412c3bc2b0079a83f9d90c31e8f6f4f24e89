@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_71cd6368",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "I don\u0027t know why it should. I\u0027m guessing it was a bug that it wasn\u0027t cleared.",
+      "parentUuid": "4851d61e_513947f0",
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_1153cf26",
         "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 119,
         "endChar": 10
       },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_11bcefc6",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_1153cf26",
       "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_84ae5b41",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "Nice. Moved inline.",
+      "parentUuid": "4851d61e_918d7f8c",
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_3125abcc",
         "filename": "xfa/fde/css/cfde_cssrulecollection.h",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 53,
         "endChar": 9
       },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_31548bbd",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_3125abcc",
       "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "4851d61e_31092be3",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4851d61e_512027bc",
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4851d61e_319a4bb2",
         "filename": "xfa/fde/css/cfde_cssstyleselector.h",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 56,
         "endChar": 50
       },
+      "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_44b86385",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T18:48:26Z",
+      "side": 1,
+      "message": "Nope, made * instead.",
+      "parentUuid": "4851d61e_319a4bb2",
       "revId": "38f7412c3bc2b0079a83f9d90c31e8f6f4f24e89",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
