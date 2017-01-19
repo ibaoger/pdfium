@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_0e44cab1",
+        "filename": "fpdfsdk/cpdfsdk_widget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-19T14:50:17Z",
+      "side": 1,
+      "message": "cpdfwdk_widget depends on color which was defined in PWL_Wnd, but we now need to include widget into PWL_Wnd to add the observer. Move colour out to break the cycle.",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "a7e19c7c5387e3a333998e2f995f790f0104d4e7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
