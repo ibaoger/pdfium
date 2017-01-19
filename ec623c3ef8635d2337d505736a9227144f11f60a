@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_1da3de90",
+        "filename": "xfa/fxfa/app/cxfa_textparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-19T21:14:12Z",
+      "side": 1,
+      "message": "Should we really use auto so much? When it is from a method being called, it is not clear what the type of this variable is.",
+      "range": {
+        "startLine": 223,
+        "startChar": 2,
+        "endLine": 223,
+        "endChar": 6
+      },
+      "revId": "ec623c3ef8635d2337d505736a9227144f11f60a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
