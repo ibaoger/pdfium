@@ -15,6 +15,7 @@
 #include "core/fpdfapi/page/pageint.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
+#include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_object.h"
 #include "core/fpdfapi/render/cpdf_pagerendercache.h"
 #include "third_party/base/ptr_util.h"
@@ -117,6 +118,18 @@ CPDF_Object* CPDF_Page::GetPageAttr(const CFX_ByteString& name) const {
       break;
   }
   return nullptr;
+}
+
+void CPDF_Page::AddTextAnnot(CFX_ByteString text, CFX_FloatRect rect) {
+  CPDF_Array* pAnnots = m_pFormDict->GetArrayFor("Annots");
+  if (!pAnnots)
+    return;
+  auto annot = pdfium::MakeUnique<CPDF_Dictionary>();
+  annot->SetNewFor<CPDF_Name>("Type", "Annot");
+  annot->SetNewFor<CPDF_Name>("Subtype", "Text");
+  annot->SetRectFor("Rect", rect);
+  annot->SetNewFor<CPDF_Name>("Contents", text);
+  pAnnots->Add(std::move(annot));
 }
 
 void CPDF_Page::GetDisplayMatrix(CFX_Matrix& matrix,

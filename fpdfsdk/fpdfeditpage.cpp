@@ -304,6 +304,19 @@ DLLEXPORT void STDCALL FPDFPage_TransformAnnots(FPDF_PAGE page,
   }
 }
 
+DLLEXPORT void STDCALL FPDFPage_AddTextAnnot(FPDF_PAGE page,
+                                             double left,
+                                             double bottom,
+                                             double right,
+                                             double top,
+                                             char* text) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!pPage)
+    return;
+  CFX_FloatRect rect(left, bottom, right, top);
+  pPage->AddTextAnnot(text, rect);
+}
+
 DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (!IsPageObject(pPage))

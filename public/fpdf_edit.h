@@ -173,6 +173,21 @@ DLLEXPORT void STDCALL FPDFPage_TransformAnnots(FPDF_PAGE page,
                                                 double e,
                                                 double f);
 
+// Add a text annotation to |page|
+//
+//  page    - handle to a page
+//  left    - left coordinate
+//  bottom  - bottom coordinate
+//  right   - right coordinate
+//  top     - top coordinate
+//  text    - the text to be displayed
+DLLEXPORT void STDCALL FPDFPage_AddTextAnnot(FPDF_PAGE page,
+                                             double left,
+                                             double bottom,
+                                             double right,
+                                             double top,
+                                             char* text);
+
 // Create a new image object.
 //
 //   document - handle to a document.
