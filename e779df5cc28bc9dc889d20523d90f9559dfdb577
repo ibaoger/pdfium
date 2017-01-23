@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_75af6fd3",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T20:02:30Z",
+      "side": 0,
+      "message": "There were two remaining GetType responses which would be 0 and 1 here which are the same value. So, the array sorting that comes later is basically in insert order as it will depend on the value of the m_iSelectorCount.",
+      "revId": "e779df5cc28bc9dc889d20523d90f9559dfdb577",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_f500ffeb",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T20:02:30Z",
+      "side": 0,
+      "message": "Because this ends up being insertion order I believe we can remove it as we iterate the array in order so this should be \u0027sorted\u0027 correctly already.",
+      "revId": "e779df5cc28bc9dc889d20523d90f9559dfdb577",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
