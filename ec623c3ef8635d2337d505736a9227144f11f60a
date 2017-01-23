@@ -22,6 +22,24 @@
       "revId": "ec623c3ef8635d2337d505736a9227144f11f60a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_63169a75",
+        "filename": "xfa/fxfa/app/cxfa_textparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T21:09:30Z",
+      "side": 1,
+      "message": "It\u0027s a lot nicer then typing out std::unique_ptr\u003cCFDE_CSSComputedStyle\u003e. I figure we can always look at the callsite if we really need to know the type.",
+      "parentUuid": "4851d61e_1da3de90",
+      "revId": "ec623c3ef8635d2337d505736a9227144f11f60a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
