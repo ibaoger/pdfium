@@ -29,7 +29,7 @@ class CFDE_CSSStyleSheet : public IFX_Retainable {
   bool LoadBuffer(const FX_WCHAR* pBuffer, int32_t iBufSize);
 
   int32_t CountRules() const;
-  CFDE_CSSStyleRule* GetRule(int32_t index);
+  CFDE_CSSStyleRule* GetRule(int32_t index) const;
 
  private:
   void Reset();

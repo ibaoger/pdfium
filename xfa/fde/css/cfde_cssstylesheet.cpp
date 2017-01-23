@@ -41,7 +41,7 @@ int32_t CFDE_CSSStyleSheet::CountRules() const {
   return pdfium::CollectionSize<int32_t>(m_RuleArray);
 }
 
-CFDE_CSSStyleRule* CFDE_CSSStyleSheet::GetRule(int32_t index) {
+CFDE_CSSStyleRule* CFDE_CSSStyleSheet::GetRule(int32_t index) const {
   return m_RuleArray[index].get();
 }
 
