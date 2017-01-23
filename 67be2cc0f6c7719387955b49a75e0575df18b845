@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_d26bd957",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-23T18:44:57Z",
+      "side": 1,
+      "message": "nit: while(1) ???",
+      "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_deabe576",
+        "filename": "xfa/fde/css/cfde_cssstylerule.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-23T18:44:57Z",
+      "side": 1,
+      "message": "do we still want this to be virtual?  Any subclasses?",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
