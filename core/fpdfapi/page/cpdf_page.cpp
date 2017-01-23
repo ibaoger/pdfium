@@ -15,6 +15,8 @@
 #include "core/fpdfapi/page/pageint.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
+#include "core/fpdfapi/parser/cpdf_name.h"
+#include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_object.h"
 #include "core/fpdfapi/render/cpdf_pagerendercache.h"
 #include "third_party/base/ptr_util.h"
@@ -117,6 +119,54 @@ CPDF_Object* CPDF_Page::GetPageAttr(const CFX_ByteString& name) const {
       break;
   }
   return nullptr;
+}
+
+CPDF_Array* CPDF_Page::GetAnnots() {
+  CPDF_Array* pAnnots = m_pFormDict->GetArrayFor("Annots");
+  if (!pAnnots) {
+    m_pFormDict->SetFor("Annots", pdfium::MakeUnique<CPDF_Array>());
+    pAnnots = m_pFormDict->GetArrayFor("Annots");
+  }
+  return pAnnots;
+}
+
+void CPDF_Page::AddTextAnnot(CFX_ByteString text, CFX_FloatRect rect) {
+  CPDF_Array* pAnnots = GetAnnots();
+  auto annot = pdfium::MakeUnique<CPDF_Dictionary>();
+  annot->SetNewFor<CPDF_Name>("Type", "Annot");
+  annot->SetNewFor<CPDF_Name>("Subtype", "Text");
+  annot->SetRectFor("Rect", rect);
+  annot->SetNewFor<CPDF_Name>("Contents", text);
+  pAnnots->Add(std::move(annot));
+}
+
+bool CPDF_Page::AddInkAnnot(double** inklist,
+                            uint numArr,
+                            uint* sizes,
+                            CFX_FloatRect rect) {
+  CPDF_Array* pAnnots = GetAnnots();
+  auto annot = pdfium::MakeUnique<CPDF_Dictionary>();
+  annot->SetNewFor<CPDF_Name>("Type", "Annot");
+  annot->SetNewFor<CPDF_Name>("Subtype", "Ink");
+  annot->SetRectFor("Rect", rect);
+  auto inkArrays = pdfium::MakeUnique<CPDF_Array>();
+  for (size_t i = 0; i < numArr; ++i) {
+    double* inkl = *inklist;
+    auto inkArr = pdfium::MakeUnique<CPDF_Array>();
+    uint size = *sizes;
+    if (size % 2 != 0)
+      return false;
+    for (size_t j = 0; j < size; j += 2) {
+      inkArr->AddNew<CPDF_Number>(static_cast<FX_FLOAT>(*inkl));
+      inkArr->AddNew<CPDF_Number>(static_cast<FX_FLOAT>(*(inkl + 1)));
+      inkl += 2;
+    }
+    inkArrays->Add(std::move(inkArr));
+    inklist++;
+  }
+  annot->SetFor("InkList", std::move(inkArrays));
+  pAnnots->Add(std::move(annot));
+  return true;
 }
 
 void CPDF_Page::GetDisplayMatrix(CFX_Matrix& matrix,

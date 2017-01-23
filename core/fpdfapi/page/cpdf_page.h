@@ -14,6 +14,7 @@
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_system.h"
 
+class CPDF_Array;
 class CPDF_Dictionary;
 class CPDF_Document;
 class CPDF_Object;
@@ -53,8 +54,15 @@ class CPDF_Page : public CPDF_PageObjectHolder {
   View* GetView() const { return m_pView; }
   void SetView(View* pView) { m_pView = pView; }
 
+  void AddTextAnnot(CFX_ByteString text, CFX_FloatRect rect);
+  bool AddInkAnnot(double** inklist,
+                   uint numArr,
+                   uint* sizes,
+                   CFX_FloatRect rect);
+
  protected:
   void StartParse();
+  CPDF_Array* GetAnnots();
 
   FX_FLOAT m_PageWidth;
   FX_FLOAT m_PageHeight;

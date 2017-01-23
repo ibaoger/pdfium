@@ -173,6 +173,45 @@ DLLEXPORT void STDCALL FPDFPage_TransformAnnots(FPDF_PAGE page,
                                                 double e,
                                                 double f);
 
+// Add a text annotation to |page|
+//
+//  page    - handle to a page
+//  left    - left coordinate
+//  bottom  - bottom coordinate
+//  right   - right coordinate
+//  top     - top coordinate
+//  text    - the text to be displayed
+DLLEXPORT void STDCALL FPDFPage_AddTextAnnot(FPDF_PAGE page,
+                                             double left,
+                                             double bottom,
+                                             double right,
+                                             double top,
+                                             char* text);
+
+// Add a text annotation to |page|
+//
+//  page    - handle to a page
+//  left    - left coordinate
+//  bottom  - bottom coordinate
+//  right   - right coordinate
+//  top     - top coordinate
+//  inklist - the InkList array of arrays for the annotation
+//  numArr  - the size of InkList
+//  sizes   - array with the sizes of the arrays in inklist
+//
+// Returns TRUE on success.
+//
+// Each array in |inklist| represents a stroked path. The path is determined by
+// points, and the array is in the following format: [x1, y1, x2, y2, ...]
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_AddInkAnnot(FPDF_PAGE page,
+                                                 double left,
+                                                 double bottom,
+                                                 double right,
+                                                 double top,
+                                                 double** inklist,
+                                                 unsigned int numArr,
+                                                 unsigned int* sizes);
+
 // Create a new image object.
 //
 //   document - handle to a document.
