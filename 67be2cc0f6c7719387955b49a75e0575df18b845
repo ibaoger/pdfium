@@ -57,6 +57,64 @@
       "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_d2b999bb",
+        "filename": "xfa/fde/css/cfde_cssstylerule.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T18:55:06Z",
+      "side": 1,
+      "message": "Nope, no subclasses. The only rule we have is the StyleRule.",
+      "parentUuid": "4851d61e_deabe576",
+      "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_f2ddb5f4",
+        "filename": "xfa/fde/css/cfde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T18:55:06Z",
+      "side": 1,
+      "message": "done",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 9
+      },
+      "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4851d61e_d2e2b9b5",
+        "filename": "xfa/fde/css/cfde_cssstylesheet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-23T18:55:06Z",
+      "side": 1,
+      "message": "done",
+      "revId": "67be2cc0f6c7719387955b49a75e0575df18b845",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
