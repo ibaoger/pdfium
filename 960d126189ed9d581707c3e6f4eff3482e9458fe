@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_2884faf7",
+        "filename": "xfa/fde/css/cfde_cssrulecollection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-23T20:21:04Z",
+      "side": 1,
+      "message": "The order in which Data are in the vector does not matter, right?",
+      "range": {
+        "startLine": 51,
+        "startChar": 41,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "960d126189ed9d581707c3e6f4eff3482e9458fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
