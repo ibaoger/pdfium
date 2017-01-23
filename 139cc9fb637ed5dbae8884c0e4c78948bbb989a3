@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_3595775f",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-23T20:09:51Z",
+      "side": 1,
+      "message": "0x02 \u003d Required, as per Table 8.70 of PDF spec",
+      "range": {
+        "startLine": 1184,
+        "startChar": 21,
+        "endLine": 1184,
+        "endChar": 25
+      },
+      "revId": "139cc9fb637ed5dbae8884c0e4c78948bbb989a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
