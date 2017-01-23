@@ -1157,7 +1157,7 @@ CPDF_FormControl* CPDF_InterForm::AddControl(CPDF_FormField* pField,
   return pControl;
 }
 
-CPDF_FormField* CPDF_InterForm::CheckRequiredFields(
+bool CPDF_InterForm::CheckRequiredFields(
     const std::vector<CPDF_FormField*>* fields,
     bool bIncludeOrExclude) const {
   size_t nCount = m_pFieldTree->m_Root.CountFields();
@@ -1182,10 +1182,10 @@ CPDF_FormField* CPDF_InterForm::CheckRequiredFields(
     if (bIncludeOrExclude == bFind) {
       CPDF_Dictionary* pFieldDict = pField->m_pDict;
       if ((dwFlags & 0x02) != 0 && pFieldDict->GetStringFor("V").IsEmpty())
-        return pField;
+        return false;
     }
   }
-  return nullptr;
+  return true;
 }
 
 std::unique_ptr<CFDF_Document> CPDF_InterForm::ExportToFDF(
