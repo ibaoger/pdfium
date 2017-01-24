@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae963601_5ab2e78f",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:39:37Z",
+      "side": 1,
+      "message": "Maybe return the vector itself?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9147c3b_fc11ddd8",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:39:37Z",
+      "side": 1,
+      "message": "nit: this test can come earlier, otherwise we don\u0027t populate any rules and can early return.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 23
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8a0d08e_6433cbcc",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:39:37Z",
+      "side": 1,
+      "message": "somebody has to take ownership of pDecl somewhere below since I did\u0027t see it getting deleted in the old code in this method.",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 152,
+        "endChar": 47
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f5bfbaf_e91ae60b",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:39:37Z",
+      "side": 1,
+      "message": "Can we write ?\n\nfor (const auto\u0026 holder : *decl) {",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 5
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7ead6db_3c391562",
+        "filename": "xfa/fxfa/app/cxfa_textparsecontext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:39:37Z",
+      "side": 1,
+      "message": "this should take a std::vector\u003cconst CFDE_CSSDeclaration*\u003e\u0026\u0026 argument if you want to give away decl\u0027s storage (as seen by the caller) (e.g. fully zero-copy).\n\nAlternatively, if you want the storage (as seen by the caller) to persist for the caller, pass by const\u0026 and just assign the unmoved version, which will give you the memcpy equivalent.",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
