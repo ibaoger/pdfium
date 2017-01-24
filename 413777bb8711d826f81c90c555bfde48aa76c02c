@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b541edb0_b65f3bfe",
+        "filename": "core/fxcrt/cfx_observable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-24T18:27:53Z",
+      "side": 1,
+      "message": "Added.",
+      "revId": "413777bb8711d826f81c90c555bfde48aa76c02c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7ddd791_c8489d02",
+        "filename": "core/fxcrt/cfx_observable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-24T18:27:53Z",
+      "side": 1,
+      "message": "Added.",
+      "revId": "413777bb8711d826f81c90c555bfde48aa76c02c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4e30e4_101c4748",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-24T18:27:53Z",
+      "side": 1,
+      "message": "Slight merge conflict. At HEAD m_aChildren has become a std::vector and named m_children. I switched back to the old version to fit this branch.",
+      "revId": "413777bb8711d826f81c90c555bfde48aa76c02c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
