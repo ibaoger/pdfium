@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4eb99e62_047bfe7b",
+        "filename": "third_party/libopenjpeg20/j2k.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T21:19:05Z",
+      "side": 1,
+      "message": "are we sure these expressions (and those like it below) can\u0027t go negative?",
+      "range": {
+        "startLine": 2158,
+        "startChar": 36,
+        "endLine": 2158,
+        "endChar": 59
+      },
+      "revId": "893d5294835329a99886800ff16a6da74b4b88ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
