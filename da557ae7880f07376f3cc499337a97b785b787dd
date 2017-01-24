@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7578bd79_8c984928",
+        "filename": "third_party/libtiff/0017-safe_skews_in_gtTileContig.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-24T23:45:47Z",
+      "side": 1,
+      "message": "we can avoid the unsigned negation issue by first setting safeskew to 0, and then doing\n   safeskew -\u003d tw + w;",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "da557ae7880f07376f3cc499337a97b785b787dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
