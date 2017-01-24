@@ -611,6 +611,7 @@ gtTileContig(TIFFRGBAImage* img, uint32* raster, uint32 w, uint32 h)
     tmsize_t pos;
     uint32 tw, th;
     unsigned char* buf;
+    int64 safeskew;
     int32 fromskew, toskew;
     uint32 nrow;
     int ret = 1, flip;
@@ -631,19 +632,31 @@ gtTileContig(TIFFRGBAImage* img, uint32* raster, uint32 w, uint32 h)
     flip = setorientation(img);
     if (flip & FLIP_VERTICALLY) {
 	    y = h - 1;
-	    toskew = -(int32)(tw + w);
+	    safeskew = -(tw + w);
     }
     else {
 	    y = 0;
-	    toskew = -(int32)(tw - w);
+	    safeskew = -(tw - w);
     }
+    if(safeskew > INT_MAX || safeskew < INT_MIN){
+    	_TIFFfree(buf);
+    	TIFFErrorExt(tif->tif_clientdata, TIFFFileName(tif), "%s", "Invalid skew");
+    	return (0);
+    }
+    toskew = safeskew;
      
     /*
      *	Leftmost tile is clipped on left side if col_offset > 0.
      */
     leftmost_fromskew = img->col_offset % tw;
     leftmost_tw = tw - leftmost_fromskew;
-    leftmost_toskew = toskew + leftmost_fromskew;
+    safeskew = toskew + leftmost_fromskew;
+    if(safeskew > INT_MAX || safeskew < INT_MIN){
+    	_TIFFfree(buf);
+    	TIFFErrorExt(tif->tif_clientdata, TIFFFileName(tif), "%s", "Invalid skew");
+    	return (0);
+    }
+    leftmost_toskew = safeskew;
     for (row = 0; row < h; row += nrow)
     {
         rowstoread = th - (row + img->row_offset) % th;
@@ -668,9 +681,21 @@ gtTileContig(TIFFRGBAImage* img, uint32* raster, uint32 w, uint32 h)
 		/*
 		 * Rightmost tile is clipped on right side.
 		 */
-		fromskew = tw - (w - tocol);
+		safeskew = tw - (w - tocol);
+		if(safeskew > INT_MAX || safeskew < INT_MIN){
+    		_TIFFfree(buf);
+    		TIFFErrorExt(tif->tif_clientdata, TIFFFileName(tif), "%s", "Invalid skew");
+    		return (0);
+    	}
+    	fromskew = safeskew;
 		this_tw = tw - fromskew;
-		this_toskew = toskew + fromskew;
+		safeskew = toskew + fromskew;
+		if(safeskew > INT_MAX || safeskew < INT_MIN){
+    		_TIFFfree(buf);
+    		TIFFErrorExt(tif->tif_clientdata, TIFFFileName(tif), "%s", "Invalid skew");
+    		return (0);
+    	}
+    	this_toskew = safeskew;
 	    }
 	    (*put)(img, raster+y*w+tocol, tocol, y, this_tw, nrow, fromskew, this_toskew, buf + pos);
 	    tocol += this_tw;
