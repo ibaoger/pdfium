@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2a9ea6e_1785441d",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-24T20:42:13Z",
+      "side": 0,
+      "message": "In both cases (this and line 196) we\u0027d call ApplyDeclarations with true then false. In the ApplyDeclarations code it would run the first chunk and return on true and run the second chunk on false. I just changed it to run both chunks all the time ....",
+      "range": {
+        "startLine": 186,
+        "startChar": 30,
+        "endLine": 186,
+        "endChar": 0
+      },
+      "revId": "bea4330c8805b87dedb79d2c83443d15e3e068a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3df0bfa6_0e46427d",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-24T20:42:13Z",
+      "side": 0,
+      "message": "This code is confusing and, I think, I simplifed it.\n\nIt was looking for FontSize properties first and setting those into pImportant or pLatest and then apply the font size if bPriority was set.\n\nIf !bPriority we would find the other styles and apply them. We\u0027d apply non-important styles immediately and then loop over the important styles and apply those. We\u0027d then grab (a random) custom properties and apply those (this part seems like a bug).",
+      "range": {
+        "startLine": 208,
+        "startChar": 2,
+        "endLine": 208,
+        "endChar": 9
+      },
+      "revId": "bea4330c8805b87dedb79d2c83443d15e3e068a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
