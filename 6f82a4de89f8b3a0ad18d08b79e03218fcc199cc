@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b640df0_f6a67c5f",
+        "filename": "testing/tools/gold.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T18:53:08Z",
+      "side": 1,
+      "message": "What\u0027s this?",
+      "range": {
+        "startLine": 86,
+        "startChar": 16,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "6f82a4de89f8b3a0ad18d08b79e03218fcc199cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
