@@ -45,6 +45,23 @@
       "revId": "bea4330c8805b87dedb79d2c83443d15e3e068a2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec68cc92_8037f340",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-25T16:47:28Z",
+      "side": 0,
+      "message": "From what I understand, this is like that to make sure that the latest most important font size property is the one set. After font size is set properly, nonimportant properties are set. Important non-font-size properties are also set, but making sure that there\u0027s no consecutive in a row (no idea why they would need this). Finally, custom styles from the last important non-font-size are applied.",
+      "revId": "bea4330c8805b87dedb79d2c83443d15e3e068a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
