@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fbd2048_4e316918",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-25T23:04:06Z",
+      "side": 1,
+      "message": "You can add this check for the first one as well",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 13
+      },
+      "revId": "492ea4969a998c76af5c9f0c9fe77f0d78d9fd13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5434f3f4_04a0a82c",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-25T23:04:06Z",
+      "side": 1,
+      "message": "If you call GetNextSelector again, you should get nullptr so you could add \nsel \u003d sel-\u003eGetNextSelector();\nEXPECT_FALSE(sel);",
+      "revId": "492ea4969a998c76af5c9f0c9fe77f0d78d9fd13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9724339c_9113af2e",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-25T23:04:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. We are skipping them only because we do not support them, right? In that case we could add a comment in this test.",
+      "range": {
+        "startLine": 169,
+        "startChar": 31,
+        "endLine": 169,
+        "endChar": 52
+      },
+      "revId": "492ea4969a998c76af5c9f0c9fe77f0d78d9fd13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6998e911_23e4c343",
+        "filename": "xfa/fde/css/cfde_cssstylesheet_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-25T23:04:06Z",
+      "side": 1,
+      "message": "When does LoadBuffer return false?",
+      "range": {
+        "startLine": 171,
+        "startChar": 22,
+        "endLine": 171,
+        "endChar": 32
+      },
+      "revId": "492ea4969a998c76af5c9f0c9fe77f0d78d9fd13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
