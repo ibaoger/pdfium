@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "b78c134c_61285a33",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9147c3b_fc11ddd8",
         "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
         "patchSetId": 3
@@ -41,6 +58,46 @@
         "startChar": 2,
         "endLine": 92,
         "endChar": 23
+      },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6073e24_4ba17367",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7eb30bc5_3db931a6",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "Merged this into the above as the only caller and made the code simpler.",
+      "range": {
+        "startLine": 101,
+        "startChar": 28,
+        "endLine": 101,
+        "endChar": 38
       },
       "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -71,6 +128,23 @@
     },
     {
       "key": {
+        "uuid": "daa44a3a_995e303c",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "In the old code, we leaked pDecl and let the allocator clean it up later. We only use pDecl to pass into the ApplyProperty which just uses its values, it doesn\u0027t store any part of it. We also use bits in AddCustomStyle but that just pulls out the name and value that are stored in the data.\n\nSo, I think the proper thing is for it to be released at the end of the method.",
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f5bfbaf_e91ae60b",
         "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
         "patchSetId": 3
@@ -94,6 +168,23 @@
     },
     {
       "key": {
+        "uuid": "0bad06f6_b500b6a2",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7ead6db_3c391562",
         "filename": "xfa/fxfa/app/cxfa_textparsecontext.h",
         "patchSetId": 3
@@ -111,6 +202,23 @@
         "endLine": 27,
         "endChar": 55
       },
+      "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0abc6e2_79da1d78",
+        "filename": "xfa/fxfa/app/cxfa_textparsecontext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-25T16:11:08Z",
+      "side": 1,
+      "message": "Done",
       "revId": "d968d1a3fc8f359b563830fcd5b1b74c615ab775",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
