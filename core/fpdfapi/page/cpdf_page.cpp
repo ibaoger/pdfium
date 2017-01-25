@@ -176,3 +176,12 @@ void CPDF_Page::GetDisplayMatrix(CFX_Matrix& matrix,
   matrix = m_PageMatrix;
   matrix.Concat(display_matrix);
 }
+
+void CPDF_Page::AddAnnotation(CPDF_Dictionary* pAnnot) {
+  CPDF_Array* pAnnots = m_pFormDict->GetArrayFor("Annots");
+  if (!pAnnots) {
+    m_pFormDict->SetFor("Annots", pdfium::MakeUnique<CPDF_Array>());
+    pAnnots = m_pFormDict->GetArrayFor("Annots");
+  }
+  pAnnots->Add(pAnnot);
+}
