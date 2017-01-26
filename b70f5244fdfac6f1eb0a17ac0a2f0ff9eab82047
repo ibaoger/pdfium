@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ac21ccf_312485e3",
+        "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-26T20:39:32Z",
+      "side": 1,
+      "message": "Needed the conversion other wise it\u0027s an int + str and compiler doesn\u0027t like it.",
+      "revId": "b70f5244fdfac6f1eb0a17ac0a2f0ff9eab82047",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "544b5744_44d636db",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-01-26T20:39:32Z",
+      "side": 1,
+      "message": "Needed this one so the compiler knew which overload of UTF8Encode to pick.",
+      "revId": "b70f5244fdfac6f1eb0a17ac0a2f0ff9eab82047",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
