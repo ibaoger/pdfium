@@ -20,25 +20,11 @@ class CPDF_StructElement;
 struct CPDF_StructKid {
   enum { Invalid, Element, PageContent, StreamContent, Object } m_Type;
 
-  union {
-    struct {
-      CPDF_StructElement* m_pElement;
-      CPDF_Dictionary* m_pDict;
-    } m_Element;
-    struct {
-      uint32_t m_PageObjNum;
-      uint32_t m_ContentId;
-    } m_PageContent;
-    struct {
-      uint32_t m_PageObjNum;
-      uint32_t m_ContentId;
-      uint32_t m_RefObjNum;
-    } m_StreamContent;
-    struct {
-      uint32_t m_PageObjNum;
-      uint32_t m_RefObjNum;
-    } m_Object;
-  };
+  CPDF_StructElement* m_pElement;  // For Element.
+  CPDF_Dictionary* m_pDict;        // For Element.
+  uint32_t m_PageObjNum;           // For PageContent, StreamContent, Object.
+  uint32_t m_RefObjNum;            // For StreamContent, Object.
+  uint32_t m_ContentId;            // For PageContent, StreamContent.
 };
 
 class CPDF_StructTree final : public IPDF_StructTree {
