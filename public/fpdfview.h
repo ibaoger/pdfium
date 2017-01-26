@@ -22,6 +22,7 @@
 
 // PDF types
 typedef void* FPDF_ACTION;
+typedef void* FPDF_ANNOTATION;
 typedef void* FPDF_BITMAP;
 typedef void* FPDF_BOOKMARK;
 typedef void* FPDF_CLIPPATH;
@@ -30,6 +31,7 @@ typedef void* FPDF_DOCSCHHANDLE;
 typedef void* FPDF_DOCUMENT;
 typedef void* FPDF_FONT;
 typedef void* FPDF_HMODULE;
+typedef void* FPDF_INKANNOTATION;
 typedef void* FPDF_LINK;
 typedef void* FPDF_MODULEMGR;
 typedef void* FPDF_PAGE;
@@ -41,6 +43,7 @@ typedef void* FPDF_RECORDER;
 typedef void* FPDF_SCHHANDLE;
 typedef void* FPDF_STRUCTELEMENT;
 typedef void* FPDF_STRUCTTREE;
+typedef void* FPDF_TEXTANNOTATION;
 typedef void* FPDF_TEXTPAGE;
 
 #ifdef PDF_ENABLE_XFA

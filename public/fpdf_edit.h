@@ -260,6 +260,64 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap);
 
+// Create a new text annotation
+//
+//  left    - left coordinate
+//  bottom  - bottom coordinate
+//  right   - right coordinate
+//  top     - top coordinate
+//  text    - the text to be displayed
+DLLEXPORT FPDF_TEXTANNOTATION STDCALL FPDF_CreateTextAnnot(double left,
+                                                           double bottom,
+                                                           double right,
+                                                           double top,
+                                                           char* text);
+
+// Create a new ink annotation (without any strokes)
+//
+//  left    - left coordinate
+//  bottom  - bottom coordinate
+//  right   - right coordinate
+//  top     - top coordinate
+DLLEXPORT FPDF_INKANNOTATION STDCALL FPDF_CreateInkAnnot(double left,
+                                                         double bottom,
+                                                         double right,
+                                                         double top);
+
+// Add a stroke to an ink annotation. The stroke consists of points that are
+// connected using straight lines.
+//
+// annot        - ink annotation to which the stroke should be added
+// nCount       - number of points representing the stroke
+// hor_coords   - pointer representing array of horizontal coordinates
+// vert_coords  - pointer representing array of vertical coordinates
+//
+// The points used for the stroke are (hor_coords[i], vert_coords[i]) for i=0
+// to nCount-1.
+//
+// Returns TRUE on success.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_AddStroke(FPDF_INKANNOTATION annot,
+                                                int nCount,
+                                                double* hor_coords,
+                                                double* vert_coords);
+
+// Add a date to an annotation
+//
+// annot  - the annotation to which the date should be added
+// date   - string representing a date
+//
+// If |annot| already has a date, it will be replaced by |date|.
+DLLEXPORT void STDCALL FPDFAnnot_AddDate(FPDF_ANNOTATION annot, char* date);
+
+// Add an annotation to a page
+//
+// annot  - the annotation to be added
+// page   - the page where the annotation is added
+//
+// Returns TRUE on success. |page| will take ownership of |annot|
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_AddToPage(FPDF_ANNOTATION annot,
+                                                FPDF_PAGE page);
+
 #ifdef __cplusplus
 }  // extern "C"
 #endif  // __cplusplus

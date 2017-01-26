@@ -20,6 +20,7 @@
 #include "core/fpdfapi/page/cpdf_shadingobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
+#include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
 #include "core/fpdfdoc/cpdf_annot.h"
@@ -312,4 +313,70 @@ DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate) {
   CPDF_Dictionary* pDict = pPage->m_pFormDict;
   rotate %= 4;
   pDict->SetNewFor<CPDF_Number>("Rotate", rotate * 90);
+}
+
+DLLEXPORT FPDF_TEXTANNOTATION STDCALL FPDF_CreateTextAnnot(double left,
+                                                           double bottom,
+                                                           double right,
+                                                           double top,
+                                                           char* text) {
+  auto annot = new CPDF_Dictionary;
+  annot->SetNewFor<CPDF_Name>("Type", "Annot");
+  annot->SetNewFor<CPDF_Name>("Subtype", "Text");
+  CFX_FloatRect rect(left, bottom, right, top);
+  annot->SetRectFor("Rect", rect);
+  annot->SetNewFor<CPDF_String>("Contents", CFX_ByteString(text), false);
+  return annot;
+}
+
+DLLEXPORT FPDF_INKANNOTATION STDCALL FPDF_CreateInkAnnot(double left,
+                                                         double bottom,
+                                                         double right,
+                                                         double top) {
+  auto annot = new CPDF_Dictionary;
+  annot->SetNewFor<CPDF_Name>("Type", "Annot");
+  annot->SetNewFor<CPDF_Name>("Subtype", "Ink");
+  CFX_FloatRect rect(left, bottom, right, top);
+  annot->SetRectFor("Rect", rect);
+  annot->SetNewFor<CPDF_Array>("InkList");
+  return annot;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_AddStroke(FPDF_INKANNOTATION annot,
+                                                int nCount,
+                                                double* hor_coords,
+                                                double* vert_coords) {
+  CPDF_Dictionary* annotDict = reinterpret_cast<CPDF_Dictionary*>(annot);
+  if (!annotDict || annotDict->GetStringFor("Type") != "Annot" ||
+      annotDict->GetStringFor("Subtype") != "Ink") {
+    return false;
+  }
+  CPDF_Array* inkList = annotDict->GetArrayFor("InkList");
+  if (!inkList)
+    return false;
+  auto stroke = pdfium::MakeUnique<CPDF_Array>();
+  for (int i = 0; i < nCount; ++i) {
+    if (!hor_coords || !vert_coords)
+      return false;
+    stroke->AddNew<CPDF_Number>(static_cast<FX_FLOAT>(*hor_coords++));
+    stroke->AddNew<CPDF_Number>(static_cast<FX_FLOAT>(*vert_coords++));
+  }
+  inkList->Add(std::move(stroke));
+  return true;
+}
+
+DLLEXPORT void STDCALL FPDFAnnot_AddDate(FPDF_ANNOTATION annot, char* date) {
+  CPDF_Dictionary* annotDict = reinterpret_cast<CPDF_Dictionary*>(annot);
+  if (!annotDict || annotDict->GetStringFor("Type") != "Annot")
+    return;
+  annotDict->SetNewFor<CPDF_String>("M", CFX_ByteString(date), false);
+}
+
+FPDF_BOOL STDCALL FPDFAnnot_AddToPage(FPDF_ANNOTATION annot, FPDF_PAGE page) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  CPDF_Dictionary* annotDict = reinterpret_cast<CPDF_Dictionary*>(annot);
+  if ((!annotDict || annotDict->GetStringFor("Type") != "Annot" || !pPage))
+    return false;
+  pPage->AddAnnotation(annotDict);
+  return true;
 }

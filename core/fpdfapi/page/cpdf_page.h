@@ -53,6 +53,8 @@ class CPDF_Page : public CPDF_PageObjectHolder {
   View* GetView() const { return m_pView; }
   void SetView(View* pView) { m_pView = pView; }
 
+  void AddAnnotation(CPDF_Dictionary* pAnnot);
+
  protected:
   void StartParse();
 
