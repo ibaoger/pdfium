@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "798e64d4_94fea20b",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-26T22:28:23Z",
+      "side": 1,
+      "message": "Important to GetNextWord before returning, to avoid infinite loops.",
+      "range": {
+        "startLine": 311,
+        "startChar": 2,
+        "endLine": 311,
+        "endChar": 13
+      },
+      "revId": "1d8a917b0a49bbbf4ebe4c4b24d9e9c531ba566d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
