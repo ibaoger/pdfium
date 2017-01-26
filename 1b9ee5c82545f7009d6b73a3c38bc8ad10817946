@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "063a35d7_5735dfc6",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-26T19:28:56Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 10
+      },
+      "revId": "1b9ee5c82545f7009d6b73a3c38bc8ad10817946",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eafd0395_74d8b676",
         "filename": "xfa/fxfa/app/cxfa_csstagprovider.h",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 17,
         "endLine": 27,
         "endChar": 29
+      },
+      "revId": "1b9ee5c82545f7009d6b73a3c38bc8ad10817946",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dcb9be6_1ef2a881",
+        "filename": "xfa/fxfa/app/cxfa_textparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-26T19:28:56Z",
+      "side": 1,
+      "message": "nit: WSTRC() doesn\u0027t help modern compilers which are smart about string lenghts, so we just pull these as encoundered and compare against L\"blah\" literals",
+      "range": {
+        "startLine": 230,
+        "startChar": 35,
+        "endLine": 230,
+        "endChar": 44
       },
       "revId": "1b9ee5c82545f7009d6b73a3c38bc8ad10817946",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
