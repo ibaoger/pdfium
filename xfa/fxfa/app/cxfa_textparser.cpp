@@ -11,7 +11,6 @@
 #include <vector>
 
 #include "third_party/base/ptr_util.h"
-#include "xfa/fde/css/cfde_cssaccelerator.h"
 #include "xfa/fde/css/cfde_csscomputedstyle.h"
 #include "xfa/fde/css/cfde_cssstyleselector.h"
 #include "xfa/fde/css/cfde_cssstylesheet.h"
@@ -198,18 +197,13 @@ CFX_RetainPtr<CFDE_CSSComputedStyle> CXFA_TextParser::ComputeStyle(
 
   pContext->m_pParentStyle.Reset(pParentStyle);
 
-  CXFA_CSSTagProvider tagProvider;
-  ParseTagInfo(pXMLNode, tagProvider);
-  if (tagProvider.m_bContent)
+  auto tagProvider = ParseTagInfo(pXMLNode);
+  if (tagProvider->m_bContent)
     return nullptr;
 
-  auto pStyle = CreateStyle(pParentStyle);
-  CFDE_CSSAccelerator* pCSSAccel = m_pSelector->InitAccelerator();
-  pCSSAccel->OnEnterTag(&tagProvider);
-
-  m_pSelector->ComputeStyle(&tagProvider, pContext->GetDecls(), pStyle.Get());
-  pCSSAccel->OnLeaveTag(&tagProvider);
-  return pStyle;
+  return m_pSelector->ComputeStyle(
+      pContext->GetDecls(), tagProvider->GetAttribute(L"style"),
+      tagProvider->GetAttribute(L"align"), pParentStyle);
 }
 
 void CXFA_TextParser::DoParse(CFDE_XMLNode* pXMLContainer,
@@ -228,25 +222,22 @@ void CXFA_TextParser::ParseRichText(CFDE_XMLNode* pXMLNode,
   if (!pXMLNode)
     return;
 
-  CXFA_CSSTagProvider tagProvider;
-  ParseTagInfo(pXMLNode, tagProvider);
-  if (!tagProvider.m_bTagAvailable)
+  auto tagProvider = ParseTagInfo(pXMLNode);
+  if (!tagProvider->m_bTagAvailable)
     return;
 
   CFX_RetainPtr<CFDE_CSSComputedStyle> pNewStyle;
-  if ((tagProvider.GetTagName() != FX_WSTRC(L"body")) ||
-      (tagProvider.GetTagName() != FX_WSTRC(L"html"))) {
+  if ((tagProvider->GetTagName() != FX_WSTRC(L"body")) ||
+      (tagProvider->GetTagName() != FX_WSTRC(L"html"))) {
     CXFA_TextParseContext* pTextContext = new CXFA_TextParseContext;
     FDE_CSSDisplay eDisplay = FDE_CSSDisplay::Inline;
-    if (!tagProvider.m_bContent) {
-      pNewStyle = CreateStyle(pParentStyle);
-      CFDE_CSSAccelerator* pCSSAccel = m_pSelector->InitAccelerator();
-      pCSSAccel->OnEnterTag(&tagProvider);
+    if (!tagProvider->m_bContent) {
+      auto declArray =
+          m_pSelector->MatchDeclarations(tagProvider->GetTagName());
+      pNewStyle = m_pSelector->ComputeStyle(
+          declArray, tagProvider->GetAttribute(L"style"),
+          tagProvider->GetAttribute(L"align"), pParentStyle);
 
-      auto declArray = m_pSelector->MatchDeclarations(&tagProvider);
-      m_pSelector->ComputeStyle(&tagProvider, declArray, pNewStyle.Get());
-
-      pCSSAccel->OnLeaveTag(&tagProvider);
       if (!declArray.empty())
         pTextContext->SetDecls(std::move(declArray));
 
@@ -286,23 +277,26 @@ bool CXFA_TextParser::TagValidate(const CFX_WideString& wsName) const {
                             FX_HashCode_GetW(wsName.AsStringC(), true));
 }
 
-void CXFA_TextParser::ParseTagInfo(CFDE_XMLNode* pXMLNode,
-                                   CXFA_CSSTagProvider& tagProvider) {
+std::unique_ptr<CXFA_CSSTagProvider> CXFA_TextParser::ParseTagInfo(
+    CFDE_XMLNode* pXMLNode) {
+  auto tagProvider = pdfium::MakeUnique<CXFA_CSSTagProvider>();
+
   CFX_WideString wsName;
   if (pXMLNode->GetType() == FDE_XMLNODE_Element) {
     CFDE_XMLElement* pXMLElement = static_cast<CFDE_XMLElement*>(pXMLNode);
     pXMLElement->GetLocalTagName(wsName);
-    tagProvider.SetTagNameObj(wsName);
-    tagProvider.m_bTagAvailable = TagValidate(wsName);
+    tagProvider->SetTagName(wsName);
+    tagProvider->m_bTagAvailable = TagValidate(wsName);
 
     CFX_WideString wsValue;
     pXMLElement->GetString(L"style", wsValue);
     if (!wsValue.IsEmpty())
-      tagProvider.SetAttribute(L"style", wsValue);
+      tagProvider->SetAttribute(L"style", wsValue);
   } else if (pXMLNode->GetType() == FDE_XMLNODE_Text) {
-    tagProvider.m_bTagAvailable = true;
-    tagProvider.m_bContent = true;
+    tagProvider->m_bTagAvailable = true;
+    tagProvider->m_bContent = true;
   }
+  return tagProvider;
 }
 
 int32_t CXFA_TextParser::GetVAlign(CXFA_TextProvider* pTextProvider) const {
