@@ -97,11 +97,6 @@ class CFX_WideTextBuf : public CFX_BinaryBuf {
                           m_DataSize / sizeof(FX_WCHAR));
   }
 
-  void Delete(int start_index, int count) {
-    CFX_BinaryBuf::Delete(start_index * sizeof(FX_WCHAR),
-                          count * sizeof(FX_WCHAR));
-  }
-
   CFX_WideTextBuf& operator<<(int i);
   CFX_WideTextBuf& operator<<(double f);
   CFX_WideTextBuf& operator<<(const FX_WCHAR* lpsz);
