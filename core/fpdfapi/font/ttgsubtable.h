@@ -11,6 +11,7 @@
 
 #include <map>
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/fx_basic.h"
 #include "core/fxge/fx_font.h"
@@ -51,8 +52,7 @@ class CFX_CTTGSUBTable {
 
     uint16_t LookupOrder;
     uint16_t ReqFeatureIndex;
-    uint16_t FeatureCount;
-    std::unique_ptr<uint16_t[]> FeatureIndex;
+    std::vector<uint16_t> FeatureIndex;
 
    private:
     TLangSys(const TLangSys&);

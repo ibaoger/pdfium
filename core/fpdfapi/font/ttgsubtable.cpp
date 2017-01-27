@@ -96,8 +96,7 @@ bool CFX_CTTGSUBTable::GetVerticalGlyph(uint32_t glyphnum,
     for (int i = 0; i < ScriptList.ScriptCount; i++) {
       for (int j = 0; j < ScriptList.ScriptRecord[i].Script.LangSysCount; ++j) {
         const auto& record = ScriptList.ScriptRecord[i].Script.LangSysRecord[j];
-        for (int k = 0; k < record.LangSys.FeatureCount; ++k) {
-          uint32_t index = record.LangSys.FeatureIndex[k];
+        for (int16_t index : record.LangSys.FeatureIndex) {
           if (FeatureList.FeatureRecord[index].FeatureTag == tag[0] ||
               FeatureList.FeatureRecord[index].FeatureTag == tag[1]) {
             if (!pdfium::ContainsKey(m_featureMap, index)) {
@@ -278,16 +277,9 @@ void CFX_CTTGSUBTable::ParseLangSys(FT_Bytes raw, TLangSys* rec) {
   FT_Bytes sp = raw;
   rec->LookupOrder = GetUInt16(sp);
   rec->ReqFeatureIndex = GetUInt16(sp);
-  rec->FeatureCount = GetUInt16(sp);
-  if (rec->FeatureCount <= 0) {
-    return;
-  }
-  rec->FeatureIndex.reset(new uint16_t[rec->FeatureCount]);
-  FXSYS_memset(rec->FeatureIndex.get(), 0,
-               sizeof(uint16_t) * rec->FeatureCount);
-  for (int i = 0; i < rec->FeatureCount; ++i) {
-    rec->FeatureIndex[i] = GetUInt16(sp);
-  }
+  rec->FeatureIndex.resize(GetUInt16(sp));
+  for (auto& element : rec->FeatureIndex)
+    element = GetUInt16(sp);
 }
 
 void CFX_CTTGSUBTable::ParseFeatureList(FT_Bytes raw, TFeatureList* rec) {
@@ -496,7 +488,6 @@ CFX_CTTGSUBTable::TLookupList::TLookupList() : LookupCount(0) {}
 
 CFX_CTTGSUBTable::TLookupList::~TLookupList() {}
 
-CFX_CTTGSUBTable::TLangSys::TLangSys()
-    : LookupOrder(0), ReqFeatureIndex(0), FeatureCount(0) {}
+CFX_CTTGSUBTable::TLangSys::TLangSys() : LookupOrder(0), ReqFeatureIndex(0) {}
 
 CFX_CTTGSUBTable::TLangSys::~TLangSys() {}
