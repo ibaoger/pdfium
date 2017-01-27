@@ -93,11 +93,9 @@ bool CFX_CTTGSUBTable::GetVerticalGlyph(uint32_t glyphnum,
           (uint8_t)'t',
   };
   if (!m_bFeautureMapLoad) {
-    for (int i = 0; i < ScriptList.ScriptCount; i++) {
-      for (int j = 0; j < ScriptList.ScriptRecord[i].Script.LangSysCount; ++j) {
-        const auto& record = ScriptList.ScriptRecord[i].Script.LangSysRecord[j];
-        for (int k = 0; k < record.LangSys.FeatureCount; ++k) {
-          uint32_t index = record.LangSys.FeatureIndex[k];
+    for (const auto& script : ScriptList.ScriptRecord) {
+      for (const auto& record : script.Script.LangSysRecord) {
+        for (int16_t index : record.LangSys.FeatureIndex) {
           if (FeatureList.FeatureRecord[index].FeatureTag == tag[0] ||
               FeatureList.FeatureRecord[index].FeatureTag == tag[1]) {
             if (!pdfium::ContainsKey(m_featureMap, index)) {
@@ -244,33 +242,21 @@ bool CFX_CTTGSUBTable::Parse(FT_Bytes scriptlist,
 }
 
 void CFX_CTTGSUBTable::ParseScriptList(FT_Bytes raw, TScriptList* rec) {
-  int i;
   FT_Bytes sp = raw;
-  rec->ScriptCount = GetUInt16(sp);
-  if (rec->ScriptCount <= 0) {
-    return;
-  }
-  rec->ScriptRecord.reset(new TScriptRecord[rec->ScriptCount]);
-  for (i = 0; i < rec->ScriptCount; i++) {
-    rec->ScriptRecord[i].ScriptTag = GetUInt32(sp);
-    uint16_t offset = GetUInt16(sp);
-    ParseScript(&raw[offset], &rec->ScriptRecord[i].Script);
+  rec->ScriptRecord = std::vector<TScriptRecord>(GetUInt16(sp));
+  for (auto& scriptRec : rec->ScriptRecord) {
+    scriptRec.ScriptTag = GetUInt32(sp);
+    ParseScript(&raw[GetUInt16(sp)], &scriptRec.Script);
   }
 }
 
 void CFX_CTTGSUBTable::ParseScript(FT_Bytes raw, TScript* rec) {
-  int i;
   FT_Bytes sp = raw;
   rec->DefaultLangSys = GetUInt16(sp);
-  rec->LangSysCount = GetUInt16(sp);
-  if (rec->LangSysCount <= 0) {
-    return;
-  }
-  rec->LangSysRecord.reset(new TLangSysRecord[rec->LangSysCount]);
-  for (i = 0; i < rec->LangSysCount; i++) {
-    rec->LangSysRecord[i].LangSysTag = GetUInt32(sp);
-    uint16_t offset = GetUInt16(sp);
-    ParseLangSys(&raw[offset], &rec->LangSysRecord[i].LangSys);
+  rec->LangSysRecord = std::vector<TLangSysRecord>(GetUInt16(sp));
+  for (auto& sysRecord : rec->LangSysRecord) {
+    sysRecord.LangSysTag = GetUInt32(sp);
+    ParseLangSys(&raw[GetUInt16(sp)], &sysRecord.LangSys);
   }
 }
 
@@ -278,16 +264,9 @@ void CFX_CTTGSUBTable::ParseLangSys(FT_Bytes raw, TLangSys* rec) {
   FT_Bytes sp = raw;
   rec->LookupOrder = GetUInt16(sp);
   rec->ReqFeatureIndex = GetUInt16(sp);
-  rec->FeatureCount = GetUInt16(sp);
-  if (rec->FeatureCount <= 0) {
-    return;
-  }
-  rec->FeatureIndex.reset(new uint16_t[rec->FeatureCount]);
-  FXSYS_memset(rec->FeatureIndex.get(), 0,
-               sizeof(uint16_t) * rec->FeatureCount);
-  for (int i = 0; i < rec->FeatureCount; ++i) {
-    rec->FeatureIndex[i] = GetUInt16(sp);
-  }
+  rec->FeatureIndex = std::vector<uint16_t>(GetUInt16(sp));
+  for (auto& element : rec->FeatureIndex)
+    element = GetUInt16(sp);
 }
 
 void CFX_CTTGSUBTable::ParseFeatureList(FT_Bytes raw, TFeatureList* rec) {
@@ -476,11 +455,11 @@ CFX_CTTGSUBTable::TLookup::~TLookup() {
   }
 }
 
-CFX_CTTGSUBTable::TScript::TScript() : DefaultLangSys(0), LangSysCount(0) {}
+CFX_CTTGSUBTable::TScript::TScript() : DefaultLangSys(0) {}
 
 CFX_CTTGSUBTable::TScript::~TScript() {}
 
-CFX_CTTGSUBTable::TScriptList::TScriptList() : ScriptCount(0) {}
+CFX_CTTGSUBTable::TScriptList::TScriptList() {}
 
 CFX_CTTGSUBTable::TScriptList::~TScriptList() {}
 
@@ -496,7 +475,6 @@ CFX_CTTGSUBTable::TLookupList::TLookupList() : LookupCount(0) {}
 
 CFX_CTTGSUBTable::TLookupList::~TLookupList() {}
 
-CFX_CTTGSUBTable::TLangSys::TLangSys()
-    : LookupOrder(0), ReqFeatureIndex(0), FeatureCount(0) {}
+CFX_CTTGSUBTable::TLangSys::TLangSys() : LookupOrder(0), ReqFeatureIndex(0) {}
 
 CFX_CTTGSUBTable::TLangSys::~TLangSys() {}
