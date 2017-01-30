@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8338dad_71013598",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-30T21:25:59Z",
+      "side": 1,
+      "message": "It does look like we know m_nCurUndoPos was not -1, since we were not doing checks to see if m_UndoItemStack.GetAt(m_nCurUndoPos) was null.",
+      "range": {
+        "startLine": 347,
+        "startChar": 18,
+        "endLine": 347,
+        "endChar": 22
+      },
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67ee4be_1c9b86ef",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-30T21:25:59Z",
+      "side": 1,
+      "message": "This is fine if the order in which the Undo\u0027s are called does not matter, since we are now doing it from beginning to end",
+      "range": {
+        "startLine": 431,
+        "startChar": 27,
+        "endLine": 431,
+        "endChar": 33
+      },
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
