@@ -9,6 +9,7 @@
 
 #include <map>
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/fx_system.h"
 #include "xfa/fwl/fwl_error.h"
@@ -54,7 +55,7 @@ class CFWL_WidgetMgr : public CFWL_WidgetMgrDelegate {
   CFWL_Widget* NextTab(CFWL_Widget* parent, CFWL_Widget* focus, bool& bFind);
 
   void GetSameGroupRadioButton(CFWL_Widget* pRadioButton,
-                               CFX_ArrayTemplate<CFWL_Widget*>& group) const;
+                               std::vector<CFWL_Widget*>* group) const;
   CFWL_Widget* GetDefaultButton(CFWL_Widget* pParent) const;
   void AddRedrawCounts(CFWL_Widget* pWidget);
 
