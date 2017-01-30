@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "06171b74_805994c9",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T21:22:28Z",
+      "side": 0,
+      "message": "Done. I\u0027m not sure the old way was right,but restored it.",
+      "revId": "4ada364e183e05479bc45d2ce41700ae18b7f6a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7fa28b5_5dde8d7a",
         "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
         "patchSetId": 2
