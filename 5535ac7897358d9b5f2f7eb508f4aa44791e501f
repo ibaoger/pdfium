@@ -39,6 +39,23 @@
       "revId": "5535ac7897358d9b5f2f7eb508f4aa44791e501f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7114b2ae_55c1e008",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T18:04:17Z",
+      "side": 0,
+      "message": "good catch.",
+      "revId": "5535ac7897358d9b5f2f7eb508f4aa44791e501f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
