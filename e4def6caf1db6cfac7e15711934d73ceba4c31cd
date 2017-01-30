@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "eebf9b19_f1ff2579",
+        "filename": "core/fpdfapi/font/ttgsubtable.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T17:55:57Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "e4def6caf1db6cfac7e15711934d73ceba4c31cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68090317_0c03cd0c",
         "filename": "core/fpdfapi/font/ttgsubtable.cpp",
         "patchSetId": 10
@@ -30,6 +47,23 @@
       "writtenOn": "2017-01-30T16:59:03Z",
       "side": 1,
       "message": "Is the (void) needed?",
+      "revId": "e4def6caf1db6cfac7e15711934d73ceba4c31cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e972ff4c_56835ec8",
+        "filename": "core/fpdfapi/font/ttgsubtable.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T17:55:57Z",
+      "side": 1,
+      "message": "No, but it gives a strong hint to the reader that we are calling this for the side-effect only and that we didn\u0027t forget to assign the result.",
       "revId": "e4def6caf1db6cfac7e15711934d73ceba4c31cd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
