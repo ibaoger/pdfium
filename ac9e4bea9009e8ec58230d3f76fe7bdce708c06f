@@ -42,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "ba78ca41_e04d3ea6",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-30T21:36:35Z",
+      "side": 1,
+      "message": "It seems to only be decreased in Undo, and only if it was \u003e0. So I think this works.",
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c67ee4be_1c9b86ef",
         "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
         "patchSetId": 2
@@ -76,6 +93,23 @@
       "writtenOn": "2017-01-30T21:29:32Z",
       "side": 1,
       "message": "ah, rbegin() goes backwards.",
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d0b587_96bc425b",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-30T21:36:35Z",
+      "side": 1,
+      "message": "Oops, right.",
       "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
