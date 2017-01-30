@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "6d4ba7a6_d29b44ad",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T21:29:32Z",
+      "side": 1,
+      "message": "yeah, and its unsigned now, do you think there\u0027s a problem?",
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c67ee4be_1c9b86ef",
         "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
         "patchSetId": 2
@@ -42,6 +59,23 @@
         "endLine": 431,
         "endChar": 33
       },
+      "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abbfbe12_74d25f0b",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T21:29:32Z",
+      "side": 1,
+      "message": "ah, rbegin() goes backwards.",
       "revId": "ac9e4bea9009e8ec58230d3f76fe7bdce708c06f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
