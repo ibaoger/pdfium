@@ -22,6 +22,23 @@
       "revId": "5535ac7897358d9b5f2f7eb508f4aa44791e501f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a81b8553_a532a35f",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-01-30T16:41:38Z",
+      "side": 0,
+      "message": "But now the new CPDF_RenderOptions does not know its OCContext. Isn\u0027t this a problem?",
+      "revId": "5535ac7897358d9b5f2f7eb508f4aa44791e501f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
