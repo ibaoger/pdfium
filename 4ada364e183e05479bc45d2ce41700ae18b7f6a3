@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7fa28b5_5dde8d7a",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-01-30T21:07:38Z",
+      "side": 0,
+      "message": "this was always a move constructor in \"copy\u0027s clothing\".  This is what makes new line 279 correct.",
+      "range": {
+        "startLine": 2435,
+        "startChar": 3,
+        "endLine": 2435,
+        "endChar": 69
+      },
+      "revId": "4ada364e183e05479bc45d2ce41700ae18b7f6a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
