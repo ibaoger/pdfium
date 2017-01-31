@@ -12,11 +12,18 @@ class Suppressor:
     feature_vector = feature_string.strip().split(",")
     self.has_v8 = "V8" in feature_vector
     self.has_xfa = "XFA" in feature_vector
+    self.is_asan = "ASAN" in feature_vector
     v8_option = "v8" if self.has_v8 else "nov8"
     xfa_option = "xfa" if self.has_xfa else "noxfa"
+
+    os_name = common.os_name()
+    if self.is_asan:
+      os_name += ",asan"
+
+    print os_name
     with open(os.path.join(finder.TestingDir(), 'SUPPRESSIONS')) as f:
       self.suppression_set = set(self._FilterSuppressions(
-        common.os_name(), v8_option, xfa_option, self._ExtractSuppressions(f)))
+        os_name, v8_option, xfa_option, self._ExtractSuppressions(f)))
 
   def _ExtractSuppressions(self, f):
     return [y.split(' ') for y in
