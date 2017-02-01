@@ -6116,7 +6116,7 @@ bool CXFA_FM2JSContext::GetObjectForName(
       dwFlags);
   if (iRet >= 1 && resoveNodeRS.dwFlags == XFA_RESOVENODE_RSTYPE_Nodes) {
     accessorValue->Assign(
-        pScriptContext->GetJSValueFromMap(resoveNodeRS.nodes.GetAt(0)));
+        pScriptContext->GetJSValueFromMap(resoveNodeRS.nodes[0]));
     return true;
   }
   return false;
@@ -6184,11 +6184,10 @@ void CXFA_FM2JSContext::ParseResolveResult(
 
   if (resoveNodeRS.dwFlags == XFA_RESOVENODE_RSTYPE_Nodes) {
     *bAttribute = false;
-    for (int32_t i = 0; i < resoveNodeRS.nodes.GetSize(); i++) {
+    for (CXFA_Object* pObj : resoveNodeRS.nodes) {
       resultValues->push_back(pdfium::MakeUnique<CFXJSE_Value>(pIsolate));
       resultValues->back()->Assign(
-          pContext->GetDocument()->GetScriptContext()->GetJSValueFromMap(
-              resoveNodeRS.nodes.GetAt(i)));
+          pContext->GetDocument()->GetScriptContext()->GetJSValueFromMap(pObj));
     }
     return;
   }

@@ -8,6 +8,7 @@
 #define XFA_FXFA_PARSER_CXFA_LAYOUTPROCESSOR_H_
 
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/fx_system.h"
 #include "xfa/fxfa/parser/xfa_object.h"
@@ -48,7 +49,7 @@ class CXFA_LayoutProcessor {
   CXFA_Document* const m_pDocument;
   std::unique_ptr<CXFA_ItemLayoutProcessor> m_pRootItemLayoutProcessor;
   std::unique_ptr<CXFA_LayoutPageMgr> m_pLayoutPageMgr;
-  CXFA_NodeArray m_rgChangedContainers;
+  std::vector<CXFA_Node*> m_rgChangedContainers;
   uint32_t m_nProgressCounter;
   bool m_bNeeLayout;
 };

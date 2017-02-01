@@ -8,6 +8,7 @@
 #define XFA_FXFA_PARSER_CXFA_RESOLVEPROCESSOR_H_
 
 #include <memory>
+#include <vector>
 
 #include "xfa/fxfa/parser/xfa_object.h"
 #include "xfa/fxfa/parser/xfa_resolvenode_rs.h"
@@ -26,7 +27,7 @@ class CXFA_ResolveNodesData {
   XFA_HashCode m_uHashName;
   CFX_WideString m_wsCondition;
   int32_t m_nLevel;
-  CXFA_ObjArray m_Nodes;
+  std::vector<CXFA_Object*> m_Nodes;
   uint32_t m_dwStyles;
   const XFA_SCRIPTATTRIBUTEINFO* m_pScriptAttribute;
   XFA_RESOVENODE_RSTYPE m_dwFlag;
@@ -44,8 +45,8 @@ class CXFA_ResolveProcessor {
   int32_t SetResultCreateNode(XFA_RESOLVENODE_RS& resolveNodeRS,
                               CFX_WideString& wsLastCondition);
   void SetIndexDataBind(CFX_WideString& wsNextCondition,
-                        int32_t& iIndex,
-                        int32_t iCount);
+                        size_t& iIndex,
+                        size_t iCount);
   void SetCurStart(int32_t start) { m_iCurStart = start; }
 
   CXFA_NodeHelper* GetNodeHelper() const { return m_pNodeHelper.get(); }

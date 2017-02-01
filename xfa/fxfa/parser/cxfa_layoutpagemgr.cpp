@@ -1667,26 +1667,24 @@ void CXFA_LayoutPageMgr::MergePageSetContents() {
   CXFA_FFNotify* pNotify = pDocument->GetNotify();
   CXFA_LayoutProcessor* pDocLayout = pDocument->GetDocLayout();
   CXFA_ContainerLayoutItem* pRootLayout = GetRootLayoutItem();
-  {
-    for (int32_t iIndex = 0; iIndex < pDocument->m_pPendingPageSet.GetSize();
-         iIndex++) {
-      CXFA_NodeIteratorTemplate<CXFA_Node, CXFA_TraverseStrategy_XFANode>
-          sIterator(pDocument->m_pPendingPageSet.GetAt(iIndex));
-      for (CXFA_Node* pNode = sIterator.GetCurrent(); pNode;
-           pNode = sIterator.MoveToNext()) {
-        if (pNode->IsContainerNode()) {
-          CXFA_Node* pBindNode = pNode->GetBindData();
-          if (pBindNode) {
-            pBindNode->RemoveBindItem(pNode);
-            pNode->SetObject(XFA_ATTRIBUTE_BindingNode, nullptr);
-          }
+
+  for (CXFA_Node* pItem : pDocument->m_pPendingPageSet) {
+    CXFA_NodeIteratorTemplate<CXFA_Node, CXFA_TraverseStrategy_XFANode>
+        sIterator(pItem);
+    for (CXFA_Node* pNode = sIterator.GetCurrent(); pNode;
+         pNode = sIterator.MoveToNext()) {
+      if (pNode->IsContainerNode()) {
+        CXFA_Node* pBindNode = pNode->GetBindData();
+        if (pBindNode) {
+          pBindNode->RemoveBindItem(pNode);
+          pNode->SetObject(XFA_ATTRIBUTE_BindingNode, nullptr);
         }
-        pNode->SetFlag(XFA_NodeFlag_UnusedNode, true);
       }
+      pNode->SetFlag(XFA_NodeFlag_UnusedNode, true);
     }
   }
 
-  int32_t iIndex = 0;
+  size_t iIndex = 0;
   for (; pRootLayout; pRootLayout = static_cast<CXFA_ContainerLayoutItem*>(
                           pRootLayout->m_pNextSibling)) {
     CXFA_Node* pPendingPageSet = nullptr;
@@ -1697,8 +1695,8 @@ void CXFA_LayoutPageMgr::MergePageSetContents() {
     CXFA_ContainerLayoutItem* pRootPageSetContainerItem = iterator.GetCurrent();
     ASSERT(pRootPageSetContainerItem->m_pFormNode->GetElementType() ==
            XFA_Element::PageSet);
-    if (iIndex < pDocument->m_pPendingPageSet.GetSize()) {
-      pPendingPageSet = pDocument->m_pPendingPageSet.GetAt(iIndex);
+    if (iIndex < pDocument->m_pPendingPageSet.size()) {
+      pPendingPageSet = pDocument->m_pPendingPageSet[iIndex];
       iIndex++;
     }
     if (!pPendingPageSet) {
@@ -1964,7 +1962,7 @@ void CXFA_LayoutPageMgr::PrepareLayout() {
   if (pRootLayoutItem &&
       pRootLayoutItem->m_pFormNode->GetPacketID() == XFA_XDPPACKET_Form) {
     CXFA_Node* pPageSetFormNode = pRootLayoutItem->m_pFormNode;
-    pRootLayoutItem->m_pFormNode->GetDocument()->m_pPendingPageSet.RemoveAll();
+    pRootLayoutItem->m_pFormNode->GetDocument()->m_pPendingPageSet.clear();
     if (pPageSetFormNode->HasRemovedChildren()) {
       XFA_ReleaseLayoutItem(pRootLayoutItem);
       m_pPageSetLayoutItemRoot = nullptr;
@@ -1977,7 +1975,7 @@ void CXFA_LayoutPageMgr::PrepareLayout() {
           pPageSetFormNode->GetNextSameClassSibling(XFA_Element::PageSet);
       pPageSetFormNode->GetNodeItem(XFA_NODEITEM_Parent)
           ->RemoveChild(pPageSetFormNode, false);
-      pRootLayoutItem->m_pFormNode->GetDocument()->m_pPendingPageSet.Add(
+      pRootLayoutItem->m_pFormNode->GetDocument()->m_pPendingPageSet.push_back(
           pPageSetFormNode);
       pPageSetFormNode = pNextPageSet;
     }

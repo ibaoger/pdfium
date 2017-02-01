@@ -746,7 +746,7 @@ void CXFA_FFDocView::RunBindItems() {
                        XFA_RESOLVENODE_ALL;
     XFA_RESOLVENODE_RS rs;
     pScriptContext->ResolveObjects(pWidgetNode, wsRef, rs, dwStyle);
-    int32_t iCount = rs.nodes.GetSize();
+    int32_t iCount = pdfium::CollectionSize<int32_t>(rs.nodes);
     pAcc->DeleteItem(-1);
     if (rs.dwFlags != XFA_RESOVENODE_RSTYPE_Nodes || iCount < 1)
       continue;
