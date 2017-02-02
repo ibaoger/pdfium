@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "a91545e0_0e28761a",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-02T17:55:47Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b80f1cfb_9b2fd3e7",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 6
@@ -42,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "eb8b1996_c6f55ec5",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-02T17:55:47Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4e353da_7ac6238b",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
         "patchSetId": 6
@@ -59,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "9c867329_7bd34c3a",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-02T17:55:47Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "163ece3c_19542dd6",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
         "patchSetId": 6
@@ -70,6 +121,23 @@
       "writtenOn": "2017-02-02T17:31:54Z",
       "side": 1,
       "message": "Why static?",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87114a66_3b886540",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-02T17:55:47Z",
+      "side": 1,
+      "message": "Because it can be and makes writing the unittest a bit easier. But it could also be made non-static, of course. This method just doesn\u0027t depend on the CPDF_PageContentGenerator.",
       "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
