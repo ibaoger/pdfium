@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2888268b_6b315a0b",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-02T17:31:54Z",
+      "side": 1,
+      "message": "Can you add a comment here listing what each of the letters are? And a link to the spec section describing them?",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b80f1cfb_9b2fd3e7",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-02T17:31:54Z",
+      "side": 1,
+      "message": "Lets drop the bRect and just do an else for this chunk",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 5
+      },
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4e353da_7ac6238b",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-02T17:31:54Z",
+      "side": 1,
+      "message": "Blank line after friend line.",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163ece3c_19542dd6",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-02T17:31:54Z",
+      "side": 1,
+      "message": "Why static?",
+      "revId": "a09ac2b93b84adcad293b0537a1e5259fb05e4ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
