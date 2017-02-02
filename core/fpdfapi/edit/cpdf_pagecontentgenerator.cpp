@@ -10,6 +10,8 @@
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_page.h"
+#include "core/fpdfapi/page/cpdf_path.h"
+#include "core/fpdfapi/page/cpdf_pathobject.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
@@ -40,9 +42,10 @@ CPDF_PageContentGenerator::~CPDF_PageContentGenerator() {}
 void CPDF_PageContentGenerator::GenerateContent() {
   CFX_ByteTextBuf buf;
   for (CPDF_PageObject* pPageObj : m_pageObjects) {
-    CPDF_ImageObject* pImageObject = pPageObj->AsImage();
-    if (pImageObject)
+    if (CPDF_ImageObject* pImageObject = pPageObj->AsImage())
       ProcessImage(&buf, pImageObject);
+    else if (CPDF_PathObject* pPathObj = pPageObj->AsPath())
+      ProcessPath(&buf, pPathObj);
   }
   CPDF_Dictionary* pPageDict = m_pPage->m_pFormDict;
   CPDF_Object* pContent =
@@ -108,4 +111,40 @@ void CPDF_PageContentGenerator::ProcessImage(CFX_ByteTextBuf* buf,
     pImageObj->SetUnownedImage(m_pDocument->GetPageData()->GetImage(dwObjNum));
 
   *buf << "/" << PDF_NameEncode(name) << " Do Q\n";
+}
+
+void CPDF_PageContentGenerator::ProcessPath(CFX_ByteTextBuf* buf,
+                                            CPDF_PathObject* pPathObj) {
+  const FX_PATHPOINT* pPoints = pPathObj->m_Path.GetPoints();
+  if (pPathObj->m_Path.IsRect()) {
+    *buf << pPoints[0].m_PointX << " " << pPoints[0].m_PointY << " "
+         << (pPoints[2].m_PointX - pPoints[0].m_PointX) << " "
+         << (pPoints[2].m_PointY - pPoints[0].m_PointY) << " re\n";
+    return;
+  }
+  int numPoints = pPathObj->m_Path.GetPointCount();
+  for (int i = 0; i < numPoints; i++) {
+    if (i > 0)
+      *buf << " ";
+    *buf << pPoints[i].m_PointX << " " << pPoints[i].m_PointY;
+    int pointFlag = pPoints[i].m_Flag;
+    if (pointFlag == FXPT_MOVETO) {
+      *buf << " m";
+    } else if (pointFlag & FXPT_LINETO) {
+      *buf << " l";
+    } else if (pointFlag & FXPT_BEZIERTO) {
+      ASSERT(i + 2 < numPoints && pPoints[i].m_Flag == FXPT_BEZIERTO &&
+             pPoints[i + 1].m_Flag == FXPT_BEZIERTO &&
+             (pPoints[i + 2].m_Flag & FXPT_BEZIERTO) != 0);
+      *buf << " " << pPoints[i + 1].m_PointX << " " << pPoints[i + 1].m_PointY
+           << " " << pPoints[i + 2].m_PointX << " " << pPoints[i + 2].m_PointY
+           << " c";
+      if (pPoints[i + 2].m_Flag & FXPT_CLOSEFIGURE)
+        *buf << " h";
+      i += 2;
+    }
+    if (pointFlag & FXPT_CLOSEFIGURE)
+      *buf << " h";
+  }
+  *buf << "\n";
 }
