@@ -97,9 +97,6 @@ class CFDE_CSSDeclaration {
   CFX_RetainPtr<CFDE_CSSValue> ParseString(const FDE_CSSPropertyArgs* pArgs,
                                            const FX_WCHAR* pszValue,
                                            int32_t iValueLen);
-  const FX_WCHAR* CopyToLocal(const FDE_CSSPropertyArgs* pArgs,
-                              const FX_WCHAR* pszValue,
-                              int32_t iValueLen);
   void AddPropertyHolder(FDE_CSSProperty eProperty,
                          CFX_RetainPtr<CFDE_CSSValue> pValue,
                          bool bImportant);
