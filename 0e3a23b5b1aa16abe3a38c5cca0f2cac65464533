@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "83b25b9a_9a2154bb",
+        "filename": "xfa/fxfa/parser/cxfa_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:18:29Z",
+      "side": 1,
+      "message": "no, new\u0027s can\u0027t fail in pdfium.",
+      "parentUuid": "1397dcb1_dd95c96a",
+      "revId": "0e3a23b5b1aa16abe3a38c5cca0f2cac65464533",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de65bd0a_85e5e383",
+        "filename": "xfa/fxfa/parser/cxfa_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:18:29Z",
+      "side": 1,
+      "message": "unique_pts?",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 8
+      },
+      "revId": "0e3a23b5b1aa16abe3a38c5cca0f2cac65464533",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "226e0e61_11088205",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 1
