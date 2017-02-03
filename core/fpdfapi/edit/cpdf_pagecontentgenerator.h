@@ -7,6 +7,7 @@
 #ifndef CORE_FPDFAPI_EDIT_CPDF_PAGECONTENTGENERATOR_H_
 #define CORE_FPDFAPI_EDIT_CPDF_PAGECONTENTGENERATOR_H_
 
+#include <map>
 #include <vector>
 
 #include "core/fxcrt/fx_basic.h"
@@ -26,14 +27,23 @@ class CPDF_PageContentGenerator {
   void GenerateContent();
 
  private:
-  friend class cpdf_pagecontentgenerator_ProcessRect_Test;
-  friend class cpdf_pagecontentgenerator_ProcessPath_Test;
+  friend class CPDF_PageContentGeneratorTest;
 
   void ProcessPath(CFX_ByteTextBuf* buf, CPDF_PathObject* pPathObj);
   void ProcessImage(CFX_ByteTextBuf* buf, CPDF_ImageObject* pImageObj);
+  void ProcessGraphics(CFX_ByteTextBuf* buf, CPDF_PageObject* pPageObj);
   CFX_ByteString RealizeResource(uint32_t dwResourceObjNum,
                                  const CFX_ByteString& bsType);
 
+  struct GraphicsData {
+    FX_FLOAT fillAlpha;
+    FX_FLOAT strokeAlpha;
+  };
+  struct GraphicsCompare {
+    bool operator()(const GraphicsData& a, const GraphicsData& b) const;
+  };
+
+  std::map<GraphicsData, CFX_ByteString, GraphicsCompare> m_GraphicsMap;
   CPDF_Page* const m_pPage;
   CPDF_Document* const m_pDocument;
   std::vector<CPDF_PageObject*> m_pageObjects;
