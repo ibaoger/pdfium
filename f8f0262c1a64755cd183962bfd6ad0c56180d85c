@@ -1,0 +1,1406 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dfa5760_b655a0a6",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Nit: space between methods",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 1
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc037bb9_ee3804b9",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Maybe this would look better if we define pMarginNode right before the if.",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4aa4a6a_cb5d9748",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "\"continue\" at the end of the if, and no else",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ec362f4_4c86a100",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "No {}",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 7
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bed51b4_28f47235",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Do we really need both GetLast methods? And if yes, can one call the other instead of duplicating code?",
+      "range": {
+        "startLine": 135,
+        "startChar": 40,
+        "endLine": 135,
+        "endChar": 47
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b02d1fbc_e49c662e",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Followup: does the organization of the CXFA_ContentLayoutItems make sense in terms of performance? GetLast, GetIndex are slow.",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 33
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c593ebec_ecbbd505",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Can this class not have a variable to know how many it has?",
+      "range": {
+        "startLine": 168,
+        "startChar": 25,
+        "endLine": 168,
+        "endChar": 33
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ee30ab_1047de87",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Space after return",
+      "range": {
+        "startLine": 216,
+        "startChar": 10,
+        "endLine": 216,
+        "endChar": 11
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdd2161c_fdbe3eab",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Use pointers instead of refs",
+      "range": {
+        "startLine": 53,
+        "startChar": 32,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14a694b0_14860918",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 82,
+        "startChar": 36,
+        "endLine": 82,
+        "endChar": 40
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3b4c391_e2a28c62",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "This variable is always true at this point, remove this part of the if.",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35412d1a_a30d0ae0",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3fd26be_20135257",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto pointers instead of refs",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 27
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f5d9586_b622d8a9",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "new line for fContainerHeight",
+      "range": {
+        "startLine": 155,
+        "startChar": 32,
+        "endLine": 155,
+        "endChar": 48
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad376497_95895a97",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdda72b4_9424a606",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "780fd4c7_6d3989bc",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 179,
+        "startChar": 11,
+        "endLine": 179,
+        "endChar": 34
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7747afe3_854d0dbb",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "if( !  XFA_ItemLayoutProcessor_IsTakingSpace ... ) continue;",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 45
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95efd838_372fb1ea",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "You could use std::max",
+      "range": {
+        "startLine": 216,
+        "startChar": 13,
+        "endLine": 216,
+        "endChar": 36
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3781fd21_767f5cee",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 266,
+        "startChar": 8,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2022511c_9dc1e244",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "No default param",
+      "range": {
+        "startLine": 307,
+        "startChar": 48,
+        "endLine": 307,
+        "endChar": 53
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801364fc_46d08458",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "One line per var",
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbcb663_58b08582",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "default before other cases?",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 357,
+        "endChar": 11
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f73da7_a1258ca7",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 11
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2176f197_63834067",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Use pointer",
+      "range": {
+        "startLine": 457,
+        "startChar": 56,
+        "endLine": 457,
+        "endChar": 68
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194c2844_fee496d6",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "move to line 507",
+      "range": {
+        "startLine": 503,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 25
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09a57df0_238a2536",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "pointer (double)",
+      "range": {
+        "startLine": 517,
+        "startChar": 31,
+        "endLine": 517,
+        "endChar": 45
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045dccbb_30b519ec",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "pointer",
+      "range": {
+        "startLine": 603,
+        "startChar": 13,
+        "endLine": 603,
+        "endChar": 28
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53758f24_b75b94cc",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "dittos",
+      "range": {
+        "startLine": 613,
+        "startChar": 10,
+        "endLine": 613,
+        "endChar": 23
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a4f429c_e9c3132e",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "One per line",
+      "range": {
+        "startLine": 674,
+        "startChar": 24,
+        "endLine": 674,
+        "endChar": 36
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10dc0fc9_037c78ab",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "The else is a return, so invert this if to simplify",
+      "range": {
+        "startLine": 680,
+        "startChar": 2,
+        "endLine": 680,
+        "endChar": 4
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aba7483_a2557679",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "No else needed, the if returns.",
+      "range": {
+        "startLine": 765,
+        "startChar": 8,
+        "endLine": 765,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffcf95e5_698bae53",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 10
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0fd829_6a420d31",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Ditto (still need if)",
+      "range": {
+        "startLine": 863,
+        "startChar": 8,
+        "endLine": 863,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59f1064e_06afef51",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 894,
+        "startChar": 8,
+        "endLine": 894,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ce9782_d69fdbc0",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Think of this as being at the of of the if in line 680 to avoid confusion when inverting it.",
+      "range": {
+        "startLine": 931,
+        "startChar": 2,
+        "endLine": 931,
+        "endChar": 43
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c65d9946_9ea54853",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "No {}",
+      "range": {
+        "startLine": 1083,
+        "startChar": 2,
+        "endLine": 1083,
+        "endChar": 3
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9a2d2a1_5e654e65",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Could add continue at the end of the if and no else",
+      "range": {
+        "startLine": 1163,
+        "startChar": 8,
+        "endLine": 1163,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6fe0c52_88a311c3",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "I don\u0027t see nCurStage changing from the first switch to the second. This is confusing, maybe merge the switchs?",
+      "range": {
+        "startLine": 1268,
+        "startChar": 10,
+        "endLine": 1268,
+        "endChar": 19
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b80cf9_7e7ed0d5",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Replace goto\u0027s with a method, boolean variable, or something?",
+      "range": {
+        "startLine": 1276,
+        "startChar": 11,
+        "endLine": 1276,
+        "endChar": 34
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "964de75b_17dd5cfb",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1361,
+        "startChar": 13,
+        "endLine": 1361,
+        "endChar": 33
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42fa77d4_cddb8087",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "And the default here is confusing, as it is called unless there was a call to break on the big switch (so always I think?)..",
+      "range": {
+        "startLine": 1402,
+        "startChar": 4,
+        "endLine": 1402,
+        "endChar": 11
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc7464ef_4eefa6b5",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "if ( !\u003d) continue",
+      "range": {
+        "startLine": 1605,
+        "startChar": 8,
+        "endLine": 1605,
+        "endChar": 19
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac3f674a_02586d84",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "std::max",
+      "range": {
+        "startLine": 1699,
+        "startChar": 12,
+        "endLine": 1699,
+        "endChar": 35
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0044bfa3_db653632",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1712,
+        "startChar": 12,
+        "endLine": 1712,
+        "endChar": 36
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d037b0ba_17bf6193",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1877,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "if( !\u003d 1 ) continue",
+      "range": {
+        "startLine": 1877,
+        "startChar": 31,
+        "endLine": 1877,
+        "endChar": 32
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cebd391_38583c3f",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1895,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "if(! bMoreColumns) continue",
+      "range": {
+        "startLine": 1895,
+        "startChar": 10,
+        "endLine": 1895,
+        "endChar": 22
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f3aabcb_c3e48b02",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Weird place for default.",
+      "range": {
+        "startLine": 1934,
+        "startChar": 8,
+        "endLine": 1934,
+        "endChar": 15
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7dd030d_dbc84a39",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "std::max",
+      "range": {
+        "startLine": 1954,
+        "startChar": 10,
+        "endLine": 1954,
+        "endChar": 33
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bbe86e4_370c6b3d",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1962,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1962,
+        "startChar": 8,
+        "endLine": 1962,
+        "endChar": 32
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3f321c8_b7271224",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1985,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Invert if",
+      "range": {
+        "startLine": 1985,
+        "startChar": 2,
+        "endLine": 1985,
+        "endChar": 4
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26f73afd_f0d32f5c",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2179,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "One per line",
+      "range": {
+        "startLine": 2179,
+        "startChar": 40,
+        "endLine": 2179,
+        "endChar": 64
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb017bd_9db3d904",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Maybe revert if",
+      "range": {
+        "startLine": 2203,
+        "startChar": 6,
+        "endLine": 2203,
+        "endChar": 8
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ff73e9_1ecdb481",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Revert if",
+      "range": {
+        "startLine": 2317,
+        "startChar": 10,
+        "endLine": 2317,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9214757d_194fde55",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2349,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Ew",
+      "range": {
+        "startLine": 2349,
+        "startChar": 12,
+        "endLine": 2349,
+        "endChar": 16
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f2ac402_259c182d",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Revert if",
+      "range": {
+        "startLine": 2357,
+        "startChar": 10,
+        "endLine": 2357,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84dfc8df_bb6352bf",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Revert if",
+      "range": {
+        "startLine": 2476,
+        "startChar": 10,
+        "endLine": 2476,
+        "endChar": 12
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef6ae37_5da42aac",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2719,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "No {}",
+      "range": {
+        "startLine": 2719,
+        "startChar": 4,
+        "endLine": 2719,
+        "endChar": 5
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc208a01_a9a2750e",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Why do we have a loose method?",
+      "range": {
+        "startLine": 63,
+        "startChar": 5,
+        "endLine": 63,
+        "endChar": 42
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d330e40a_42706398",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "const ref or pointer",
+      "range": {
+        "startLine": 74,
+        "startChar": 56,
+        "endLine": 74,
+        "endChar": 66
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93837936_8ff9312d",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "const ref or pointer",
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e188d738_704847d1",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-03T17:04:32Z",
+      "side": 1,
+      "message": "Can we remove the default param?",
+      "range": {
+        "startLine": 79,
+        "startChar": 61,
+        "endLine": 79,
+        "endChar": 65
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
