@@ -172,7 +172,7 @@ void RelocateTableRowCells(
   }
 
   FX_FLOAT fContentWidthLimit =
-      bContainerWidthAutoSize ? XFA_LAYOUT_FLOAT_MAX
+      bContainerWidthAutoSize ? FLT_MAX
                               : fContainerWidth - fLeftInset - fRightInset;
   FX_FLOAT fContentCurrentHeight =
       pLayoutRow->m_sSize.y - fTopInset - fBottomInset;
@@ -259,7 +259,7 @@ void RelocateTableRowCells(
 
   if (bContainerWidthAutoSize) {
     FX_FLOAT fChildSuppliedWidth = fCurrentColX;
-    if (fContentWidthLimit < XFA_LAYOUT_FLOAT_MAX &&
+    if (fContentWidthLimit < FLT_MAX &&
         fContentWidthLimit > fChildSuppliedWidth) {
       fChildSuppliedWidth = fContentWidthLimit;
     }
@@ -440,7 +440,7 @@ FX_FLOAT InsertPendingItems(CXFA_ItemLayoutProcessor* pProcessor,
     auto pPendingProcessor = pdfium::MakeUnique<CXFA_ItemLayoutProcessor>(
         pProcessor->m_PendingNodes.front(), nullptr);
     pProcessor->m_PendingNodes.pop_front();
-    pPendingProcessor->DoLayout(false, XFA_LAYOUT_FLOAT_MAX);
+    pPendingProcessor->DoLayout(false, FLT_MAX, FLT_MAX, nullptr);
     CXFA_ContentLayoutItem* pPendingLayoutItem =
         pPendingProcessor->HasLayoutItem()
             ? pPendingProcessor->ExtractLayoutItem()
@@ -528,7 +528,7 @@ bool FindBreakNode(CXFA_Node* pContainerNode,
       case XFA_Element::BreakBefore: {
         if (bBreakBefore) {
           pCurActionNode = pBreakNode;
-          nCurStage = XFA_ItemLayoutProcessorStages_BreakBefore;
+          nCurStage = XFA_ItemLayoutProcessorStages::BreakBefore;
           bFindRs = true;
         }
         break;
@@ -536,7 +536,7 @@ bool FindBreakNode(CXFA_Node* pContainerNode,
       case XFA_Element::BreakAfter: {
         if (!bBreakBefore) {
           pCurActionNode = pBreakNode;
-          nCurStage = XFA_ItemLayoutProcessorStages_BreakAfter;
+          nCurStage = XFA_ItemLayoutProcessorStages::BreakAfter;
           bFindRs = true;
         }
         break;
@@ -544,9 +544,9 @@ bool FindBreakNode(CXFA_Node* pContainerNode,
       case XFA_Element::Break:
         if (pBreakNode->GetEnum(eAttributeType) != XFA_ATTRIBUTEENUM_Auto) {
           pCurActionNode = pBreakNode;
-          nCurStage = XFA_ItemLayoutProcessorStages_BreakBefore;
+          nCurStage = XFA_ItemLayoutProcessorStages::BreakBefore;
           if (!bBreakBefore)
-            nCurStage = XFA_ItemLayoutProcessorStages_BreakAfter;
+            nCurStage = XFA_ItemLayoutProcessorStages::BreakAfter;
 
           bFindRs = true;
         }
@@ -611,8 +611,8 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
     FX_FLOAT& fContentCurRowHeight,
     bool& bAddedItemInRow,
     bool& bForceEndPage,
-    CXFA_LayoutContext* pLayoutContext = nullptr,
-    bool bNewRow = false) {
+    CXFA_LayoutContext* pLayoutContext,
+    bool bNewRow) {
   bool bTakeSpace =
       XFA_ItemLayoutProcessor_IsTakingSpace(pProcessor->m_pFormNode);
   uint8_t uHAlign =
@@ -622,7 +622,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
 
   if ((eFlowStrategy != XFA_ATTRIBUTEENUM_Rl_tb && uHAlign < uCurHAlignState) ||
       (eFlowStrategy == XFA_ATTRIBUTEENUM_Rl_tb && uHAlign > uCurHAlignState)) {
-    return XFA_ItemLayoutProcessorResult_RowFullBreak;
+    return XFA_ItemLayoutProcessorResult::RowFullBreak;
   }
 
   uCurHAlignState = uHAlign;
@@ -655,18 +655,18 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
     }
   }
 
-  XFA_ItemLayoutProcessorResult eRetValue = XFA_ItemLayoutProcessorResult_Done;
+  XFA_ItemLayoutProcessorResult eRetValue = XFA_ItemLayoutProcessorResult::Done;
   if (!bNewRow ||
-      pProcessor->m_ePreProcessRs == XFA_ItemLayoutProcessorResult_Done) {
+      pProcessor->m_ePreProcessRs == XFA_ItemLayoutProcessorResult::Done) {
     eRetValue = pProcessor->DoLayout(
         bTakeSpace ? bUseBreakControl : false,
-        bUseRealHeight ? fRealHeight - fContentCurRowY : XFA_LAYOUT_FLOAT_MAX,
-        bIsTransHeight ? fRealHeight - fContentCurRowY : XFA_LAYOUT_FLOAT_MAX,
+        bUseRealHeight ? fRealHeight - fContentCurRowY : FLT_MAX,
+        bIsTransHeight ? fRealHeight - fContentCurRowY : FLT_MAX,
         pLayoutContext);
     pProcessor->m_ePreProcessRs = eRetValue;
   } else {
     eRetValue = pProcessor->m_ePreProcessRs;
-    pProcessor->m_ePreProcessRs = XFA_ItemLayoutProcessorResult_Done;
+    pProcessor->m_ePreProcessRs = XFA_ItemLayoutProcessorResult::Done;
   }
   if (pProcessor->HasLayoutItem() == false)
     return eRetValue;
@@ -674,8 +674,8 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
   FX_FLOAT fChildWidth, fChildHeight;
   pProcessor->GetCurrentComponentSize(fChildWidth, fChildHeight);
   if (bUseRealHeight && fRealHeight < XFA_LAYOUT_FLOAT_PERCISION) {
-    fRealHeight = XFA_LAYOUT_FLOAT_MAX;
-    fAvailHeight = XFA_LAYOUT_FLOAT_MAX;
+    fRealHeight = FLT_MAX;
+    fAvailHeight = FLT_MAX;
   }
   if (!bTakeSpace ||
       (fChildWidth <= fContentCurRowAvailWidth + XFA_LAYOUT_FLOAT_PERCISION) ||
@@ -701,7 +701,8 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
           if (pOverflowTrailerNode) {
             CXFA_ItemLayoutProcessor* pOverflowLeaderProcessor =
                 new CXFA_ItemLayoutProcessor(pOverflowTrailerNode, nullptr);
-            pOverflowLeaderProcessor->DoLayout(false, XFA_LAYOUT_FLOAT_MAX);
+            pOverflowLeaderProcessor->DoLayout(false, FLT_MAX, FLT_MAX,
+                                               nullptr);
             pTrailerLayoutItem =
                 pOverflowLeaderProcessor->HasLayoutItem()
                     ? pOverflowLeaderProcessor->ExtractLayoutItem()
@@ -730,7 +731,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
         (!bContainerHeightAutoSize &&
          pThis->m_fUsedSize + fAvailHeight + XFA_LAYOUT_FLOAT_PERCISION >=
              fContainerHeight)) {
-      if (!bTakeSpace || eRetValue == XFA_ItemLayoutProcessorResult_Done) {
+      if (!bTakeSpace || eRetValue == XFA_ItemLayoutProcessorResult::Done) {
         if (pProcessor->m_bUseInheriated) {
           if (pTrailerLayoutItem)
             AddTrailerBeforeSplit(pProcessor, fChildHeight, pTrailerLayoutItem);
@@ -761,9 +762,9 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
           if (fContentCurRowHeight < fChildHeight)
             fContentCurRowHeight = fChildHeight;
         }
-        return XFA_ItemLayoutProcessorResult_Done;
+        return XFA_ItemLayoutProcessorResult::Done;
       } else {
-        if (eRetValue == XFA_ItemLayoutProcessorResult_PageFullBreak) {
+        if (eRetValue == XFA_ItemLayoutProcessorResult::PageFullBreak) {
           if (pProcessor->m_bUseInheriated) {
             if (pTrailerLayoutItem) {
               AddTrailerBeforeSplit(pProcessor, fChildHeight,
@@ -803,7 +804,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
         XFA_ATTRIBUTEENUM eLayout =
             pProcessor->m_pFormNode->GetEnum(XFA_ATTRIBUTE_Layout);
         if (eLayout == XFA_ATTRIBUTEENUM_Tb &&
-            eRetValue == XFA_ItemLayoutProcessorResult_Done) {
+            eRetValue == XFA_ItemLayoutProcessorResult::Done) {
           pProcessor->ProcessUnUseOverFlow(pOverflowLeaderNode,
                                            pOverflowTrailerNode,
                                            pTrailerLayoutItem, pFormNode);
@@ -814,13 +815,13 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
             if (fContentCurRowHeight < fChildHeight)
               fContentCurRowHeight = fChildHeight;
           }
-          return XFA_ItemLayoutProcessorResult_PageFullBreak;
+          return XFA_ItemLayoutProcessorResult::PageFullBreak;
         }
 
         CXFA_Node* pTempLeaderNode = nullptr;
         CXFA_Node* pTempTrailerNode = nullptr;
         if (pThis->m_pPageMgr && !pProcessor->m_bUseInheriated &&
-            eRetValue != XFA_ItemLayoutProcessorResult_PageFullBreak) {
+            eRetValue != XFA_ItemLayoutProcessorResult::PageFullBreak) {
           pThis->m_pPageMgr->ProcessOverflow(pFormNode, pTempLeaderNode,
                                              pTempTrailerNode, false, true);
         }
@@ -859,7 +860,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
               fContentCurRowHeight = fChildHeight;
           }
         }
-        return XFA_ItemLayoutProcessorResult_PageFullBreak;
+        return XFA_ItemLayoutProcessorResult::PageFullBreak;
       } else if (fContentCurRowY <= XFA_LAYOUT_FLOAT_PERCISION) {
         pProcessor->GetCurrentComponentSize(fChildWidth, fChildHeight);
         if (pProcessor->m_pPageMgr->GetNextAvailContentHeight(fChildHeight)) {
@@ -878,7 +879,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
                                              pTrailerLayoutItem, pFormNode);
             pThis->m_bUseInheriated = true;
           }
-          return XFA_ItemLayoutProcessorResult_PageFullBreak;
+          return XFA_ItemLayoutProcessorResult::PageFullBreak;
         }
 
         rgCurLineLayoutItems[uHAlign].Add(pProcessor->ExtractLayoutItem());
@@ -888,7 +889,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
           if (fContentCurRowHeight < fChildHeight)
             fContentCurRowHeight = fChildHeight;
         }
-        if (eRetValue == XFA_ItemLayoutProcessorResult_Done)
+        if (eRetValue == XFA_ItemLayoutProcessorResult::Done)
           bForceEndPage = false;
         return eRetValue;
       } else {
@@ -906,7 +907,7 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
           if (pProcessor->JudgeLeaderOrTrailerForOccur(pOverflowLeaderNode))
             AddPendingNode(pProcessor, pOverflowLeaderNode, false);
         } else {
-          if (eRetValue == XFA_ItemLayoutProcessorResult_Done) {
+          if (eRetValue == XFA_ItemLayoutProcessorResult::Done) {
             if (!pFormNode && pLayoutContext)
               pFormNode = pLayoutContext->m_pOverflowProcessor->m_pFormNode;
             if (pThis->m_pPageMgr) {
@@ -922,80 +923,20 @@ XFA_ItemLayoutProcessorResult InsertFlowedItem(
             }
           }
         }
-        return XFA_ItemLayoutProcessorResult_PageFullBreak;
+        return XFA_ItemLayoutProcessorResult::PageFullBreak;
       }
     }
   } else {
-    return XFA_ItemLayoutProcessorResult_RowFullBreak;
+    return XFA_ItemLayoutProcessorResult::RowFullBreak;
   }
-  return XFA_ItemLayoutProcessorResult_Done;
+  return XFA_ItemLayoutProcessorResult::Done;
 }
 
-}  // namespace
-
-CXFA_ItemLayoutProcessor::CXFA_ItemLayoutProcessor(CXFA_Node* pNode,
-                                                   CXFA_LayoutPageMgr* pPageMgr)
-    : m_bKeepBreakFinish(false),
-      m_bIsProcessKeep(false),
-      m_pKeepHeadNode(nullptr),
-      m_pKeepTailNode(nullptr),
-      m_pFormNode(pNode),
-      m_pLayoutItem(nullptr),
-      m_pOldLayoutItem(nullptr),
-      m_pCurChildNode(XFA_LAYOUT_INVALIDNODE),
-      m_pCurChildPreprocessor(nullptr),
-      m_nCurChildNodeStage(XFA_ItemLayoutProcessorStages_None),
-      m_fUsedSize(0),
-      m_pPageMgr(pPageMgr),
-      m_bBreakPending(true),
-      m_fLastRowWidth(0),
-      m_fLastRowY(0),
-      m_fWidthLimite(0),
-      m_bUseInheriated(false),
-      m_ePreProcessRs(XFA_ItemLayoutProcessorResult_Done),
-      m_bHasAvailHeight(true) {
-  ASSERT(m_pFormNode && (m_pFormNode->IsContainerNode() ||
-                         m_pFormNode->GetElementType() == XFA_Element::Form));
-  m_pOldLayoutItem =
-      (CXFA_ContentLayoutItem*)m_pFormNode->GetUserData(XFA_LAYOUTITEMKEY);
-}
-
-CXFA_ItemLayoutProcessor::~CXFA_ItemLayoutProcessor() {}
-
-CXFA_ContentLayoutItem* CXFA_ItemLayoutProcessor::CreateContentLayoutItem(
-    CXFA_Node* pFormNode) {
-  if (!pFormNode)
-    return nullptr;
-
-  CXFA_ContentLayoutItem* pLayoutItem = nullptr;
-  if (m_pOldLayoutItem) {
-    pLayoutItem = m_pOldLayoutItem;
-    m_pOldLayoutItem = m_pOldLayoutItem->m_pNext;
-    return pLayoutItem;
-  }
-  pLayoutItem = (CXFA_ContentLayoutItem*)pFormNode->GetDocument()
-                    ->GetNotify()
-                    ->OnCreateLayoutItem(pFormNode);
-  CXFA_ContentLayoutItem* pPrevLayoutItem =
-      (CXFA_ContentLayoutItem*)pFormNode->GetUserData(XFA_LAYOUTITEMKEY);
-  if (pPrevLayoutItem) {
-    while (pPrevLayoutItem->m_pNext) {
-      pPrevLayoutItem = pPrevLayoutItem->m_pNext;
-    }
-    pPrevLayoutItem->m_pNext = pLayoutItem;
-    pLayoutItem->m_pPrev = pPrevLayoutItem;
-  } else {
-    pFormNode->SetUserData(XFA_LAYOUTITEMKEY, pLayoutItem);
-  }
-  return pLayoutItem;
-}
-
-bool CXFA_ItemLayoutProcessor::FindLayoutItemSplitPos(
-    CXFA_ContentLayoutItem* pLayoutItem,
-    FX_FLOAT fCurVerticalOffset,
-    FX_FLOAT& fProposedSplitPos,
-    bool& bAppChange,
-    bool bCalculateMargin) {
+bool FindLayoutItemSplitPos(CXFA_ContentLayoutItem* pLayoutItem,
+                            FX_FLOAT fCurVerticalOffset,
+                            FX_FLOAT& fProposedSplitPos,
+                            bool& bAppChange,
+                            bool bCalculateMargin) {
   CXFA_Node* pFormNode = pLayoutItem->m_pFormNode;
   if (fProposedSplitPos > fCurVerticalOffset + XFA_LAYOUT_FLOAT_PERCISION &&
       fProposedSplitPos <= fCurVerticalOffset + pLayoutItem->m_sSize.y -
@@ -1072,6 +1013,138 @@ bool CXFA_ItemLayoutProcessor::FindLayoutItemSplitPos(
     }
   }
   return false;
+}
+
+void CalculatePositionedContainerPos(CXFA_Node* pNode,
+                                     FX_FLOAT fWidth,
+                                     FX_FLOAT fHeight,
+                                     FX_FLOAT& fAbsoluteX,
+                                     FX_FLOAT& fAbsoluteY) {
+  XFA_ATTRIBUTEENUM eAnchorType = pNode->GetEnum(XFA_ATTRIBUTE_AnchorType);
+  int32_t nAnchorType = 0;
+  switch (eAnchorType) {
+    case XFA_ATTRIBUTEENUM_TopLeft:
+      nAnchorType = 0;
+      break;
+    case XFA_ATTRIBUTEENUM_TopCenter:
+      nAnchorType = 1;
+      break;
+    case XFA_ATTRIBUTEENUM_TopRight:
+      nAnchorType = 2;
+      break;
+    case XFA_ATTRIBUTEENUM_MiddleLeft:
+      nAnchorType = 3;
+      break;
+    case XFA_ATTRIBUTEENUM_MiddleCenter:
+      nAnchorType = 4;
+      break;
+    case XFA_ATTRIBUTEENUM_MiddleRight:
+      nAnchorType = 5;
+      break;
+    case XFA_ATTRIBUTEENUM_BottomLeft:
+      nAnchorType = 6;
+      break;
+    case XFA_ATTRIBUTEENUM_BottomCenter:
+      nAnchorType = 7;
+      break;
+    case XFA_ATTRIBUTEENUM_BottomRight:
+      nAnchorType = 8;
+      break;
+    default:
+      break;
+  }
+  static const uint8_t nNextPos[4][9] = {{0, 1, 2, 3, 4, 5, 6, 7, 8},
+                                         {6, 3, 0, 7, 4, 1, 8, 5, 2},
+                                         {8, 7, 6, 5, 4, 3, 2, 1, 0},
+                                         {2, 5, 8, 1, 4, 7, 0, 3, 6}};
+
+  FX_FLOAT fAnchorX = pNode->GetMeasure(XFA_ATTRIBUTE_X).ToUnit(XFA_UNIT_Pt);
+  FX_FLOAT fAnchorY = pNode->GetMeasure(XFA_ATTRIBUTE_Y).ToUnit(XFA_UNIT_Pt);
+  int32_t nRotate =
+      FXSYS_round(pNode->GetMeasure(XFA_ATTRIBUTE_Rotate).GetValue());
+  nRotate = XFA_MapRotation(nRotate) / 90;
+  int32_t nAbsoluteAnchorType = nNextPos[nRotate][nAnchorType];
+  fAbsoluteX = fAnchorX;
+  fAbsoluteY = fAnchorY;
+  switch (nAbsoluteAnchorType / 3) {
+    case 1:
+      fAbsoluteY -= fHeight / 2;
+      break;
+    case 2:
+      fAbsoluteY -= fHeight;
+      break;
+    default:
+      break;
+  }
+  switch (nAbsoluteAnchorType % 3) {
+    case 1:
+      fAbsoluteX -= fWidth / 2;
+      break;
+    case 2:
+      fAbsoluteX -= fWidth;
+      break;
+    default:
+      break;
+  }
+}
+
+}  // namespace
+
+CXFA_ItemLayoutProcessor::CXFA_ItemLayoutProcessor(CXFA_Node* pNode,
+                                                   CXFA_LayoutPageMgr* pPageMgr)
+    : m_pFormNode(pNode),
+      m_pLayoutItem(nullptr),
+      m_pCurChildNode(XFA_LAYOUT_INVALIDNODE),
+      m_fUsedSize(0),
+      m_pPageMgr(pPageMgr),
+      m_bBreakPending(true),
+      m_fLastRowWidth(0),
+      m_fLastRowY(0),
+      m_bUseInheriated(false),
+      m_ePreProcessRs(XFA_ItemLayoutProcessorResult::Done),
+      m_bKeepBreakFinish(false),
+      m_bIsProcessKeep(false),
+      m_pKeepHeadNode(nullptr),
+      m_pKeepTailNode(nullptr),
+      m_pOldLayoutItem(nullptr),
+      m_pCurChildPreprocessor(nullptr),
+      m_nCurChildNodeStage(XFA_ItemLayoutProcessorStages::None),
+      m_fWidthLimite(0),
+      m_bHasAvailHeight(true) {
+  ASSERT(m_pFormNode && (m_pFormNode->IsContainerNode() ||
+                         m_pFormNode->GetElementType() == XFA_Element::Form));
+  m_pOldLayoutItem =
+      (CXFA_ContentLayoutItem*)m_pFormNode->GetUserData(XFA_LAYOUTITEMKEY);
+}
+
+CXFA_ItemLayoutProcessor::~CXFA_ItemLayoutProcessor() {}
+
+CXFA_ContentLayoutItem* CXFA_ItemLayoutProcessor::CreateContentLayoutItem(
+    CXFA_Node* pFormNode) {
+  if (!pFormNode)
+    return nullptr;
+
+  CXFA_ContentLayoutItem* pLayoutItem = nullptr;
+  if (m_pOldLayoutItem) {
+    pLayoutItem = m_pOldLayoutItem;
+    m_pOldLayoutItem = m_pOldLayoutItem->m_pNext;
+    return pLayoutItem;
+  }
+  pLayoutItem = (CXFA_ContentLayoutItem*)pFormNode->GetDocument()
+                    ->GetNotify()
+                    ->OnCreateLayoutItem(pFormNode);
+  CXFA_ContentLayoutItem* pPrevLayoutItem =
+      (CXFA_ContentLayoutItem*)pFormNode->GetUserData(XFA_LAYOUTITEMKEY);
+  if (pPrevLayoutItem) {
+    while (pPrevLayoutItem->m_pNext) {
+      pPrevLayoutItem = pPrevLayoutItem->m_pNext;
+    }
+    pPrevLayoutItem->m_pNext = pLayoutItem;
+    pLayoutItem->m_pPrev = pPrevLayoutItem;
+  } else {
+    pFormNode->SetUserData(XFA_LAYOUTITEMKEY, pLayoutItem);
+  }
+  return pLayoutItem;
 }
 
 FX_FLOAT CXFA_ItemLayoutProcessor::FindSplitPos(FX_FLOAT fProposedSplitPos) {
@@ -1217,7 +1290,7 @@ CXFA_ContentLayoutItem* CXFA_ItemLayoutProcessor::ExtractLayoutItem() {
     pLayoutItem->m_pNextSibling = nullptr;
   }
 
-  if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Done ||
+  if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Done ||
       !ToContentLayoutItem(m_pOldLayoutItem)) {
     return pLayoutItem;
   }
@@ -1251,13 +1324,13 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
   CXFA_Node* pEntireContainer = pParentContainer;
   CXFA_Node* pChildContainer = XFA_LAYOUT_INVALIDNODE;
   switch (nCurStage) {
-    case XFA_ItemLayoutProcessorStages_BreakBefore:
-    case XFA_ItemLayoutProcessorStages_BreakAfter: {
+    case XFA_ItemLayoutProcessorStages::BreakBefore:
+    case XFA_ItemLayoutProcessorStages::BreakAfter: {
       pChildContainer = pCurActionNode->GetNodeItem(XFA_NODEITEM_Parent);
       break;
     }
-    case XFA_ItemLayoutProcessorStages_Keep:
-    case XFA_ItemLayoutProcessorStages_Container:
+    case XFA_ItemLayoutProcessorStages::Keep:
+    case XFA_ItemLayoutProcessorStages::Container:
       pChildContainer = pCurActionNode;
       break;
     default:
@@ -1266,7 +1339,7 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
   }
 
   switch (nCurStage) {
-    case XFA_ItemLayoutProcessorStages_Keep: {
+    case XFA_ItemLayoutProcessorStages::Keep: {
       CXFA_Node* pBreakAfterNode =
           pChildContainer->GetNodeItem(XFA_NODEITEM_FirstChild);
       if (!m_bKeepBreakFinish &&
@@ -1275,9 +1348,9 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
       }
       goto CheckNextChildContainer;
     }
-    case XFA_ItemLayoutProcessorStages_None: {
+    case XFA_ItemLayoutProcessorStages::None: {
       pCurActionNode = XFA_LAYOUT_INVALIDNODE;
-      case XFA_ItemLayoutProcessorStages_BookendLeader:
+      case XFA_ItemLayoutProcessorStages::BookendLeader:
         for (CXFA_Node* pBookendNode =
                  pCurActionNode == XFA_LAYOUT_INVALIDNODE
                      ? pEntireContainer->GetNodeItem(XFA_NODEITEM_FirstChild)
@@ -1288,7 +1361,7 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
             case XFA_Element::Bookend:
             case XFA_Element::Break:
               pCurActionNode = pBookendNode;
-              nCurStage = XFA_ItemLayoutProcessorStages_BookendLeader;
+              nCurStage = XFA_ItemLayoutProcessorStages::BookendLeader;
               return;
             default:
               break;
@@ -1297,7 +1370,7 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
     }
       {
         pCurActionNode = XFA_LAYOUT_INVALIDNODE;
-        case XFA_ItemLayoutProcessorStages_BreakBefore:
+        case XFA_ItemLayoutProcessorStages::BreakBefore:
           if (pCurActionNode != XFA_LAYOUT_INVALIDNODE) {
             CXFA_Node* pBreakBeforeNode =
                 pCurActionNode->GetNodeItem(XFA_NODEITEM_NextSibling);
@@ -1314,14 +1387,14 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
               goto CheckNextChildContainer;
             }
             pCurActionNode = pChildContainer;
-            nCurStage = XFA_ItemLayoutProcessorStages_Container;
+            nCurStage = XFA_ItemLayoutProcessorStages::Container;
             return;
           }
           goto CheckNextChildContainer;
       }
-    case XFA_ItemLayoutProcessorStages_Container: {
+    case XFA_ItemLayoutProcessorStages::Container: {
       pCurActionNode = XFA_LAYOUT_INVALIDNODE;
-      case XFA_ItemLayoutProcessorStages_BreakAfter: {
+      case XFA_ItemLayoutProcessorStages::BreakAfter: {
         if (pCurActionNode == XFA_LAYOUT_INVALIDNODE) {
           CXFA_Node* pBreakAfterNode =
               pChildContainer->GetNodeItem(XFA_NODEITEM_FirstChild);
@@ -1373,15 +1446,15 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
       }
       pCurActionNode = pNextChildContainer;
       if (m_bIsProcessKeep)
-        nCurStage = XFA_ItemLayoutProcessorStages_Keep;
+        nCurStage = XFA_ItemLayoutProcessorStages::Keep;
       else
-        nCurStage = XFA_ItemLayoutProcessorStages_Container;
+        nCurStage = XFA_ItemLayoutProcessorStages::Container;
       return;
     }
 
     NoMoreChildContainer : {
       pCurActionNode = XFA_LAYOUT_INVALIDNODE;
-      case XFA_ItemLayoutProcessorStages_BookendTrailer:
+      case XFA_ItemLayoutProcessorStages::BookendTrailer:
         for (CXFA_Node* pBookendNode =
                  pCurActionNode == XFA_LAYOUT_INVALIDNODE
                      ? pEntireContainer->GetNodeItem(XFA_NODEITEM_FirstChild)
@@ -1392,7 +1465,7 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
             case XFA_Element::Bookend:
             case XFA_Element::Break:
               pCurActionNode = pBookendNode;
-              nCurStage = XFA_ItemLayoutProcessorStages_BookendTrailer;
+              nCurStage = XFA_ItemLayoutProcessorStages::BookendTrailer;
               return;
             default:
               break;
@@ -1401,7 +1474,7 @@ void CXFA_ItemLayoutProcessor::GotoNextContainerNode(
     }
     default:
       pCurActionNode = nullptr;
-      nCurStage = XFA_ItemLayoutProcessorStages_Done;
+      nCurStage = XFA_ItemLayoutProcessorStages::Done;
   }
 }
 
@@ -1455,7 +1528,7 @@ bool CXFA_ItemLayoutProcessor::ProcessKeepNodesForBreakBefore(
     m_pKeepHeadNode = nullptr;
     m_pKeepTailNode = nullptr;
     m_bIsProcessKeep = false;
-    nCurStage = XFA_ItemLayoutProcessorStages_Container;
+    nCurStage = XFA_ItemLayoutProcessorStages::Container;
     return true;
   }
 
@@ -1470,80 +1543,6 @@ bool XFA_ItemLayoutProcessor_IsTakingSpace(CXFA_Node* pNode) {
          ePresence == XFA_ATTRIBUTEENUM_Invisible;
 }
 
-void CXFA_ItemLayoutProcessor::CalculatePositionedContainerPos(
-    CXFA_Node* pNode,
-    FX_FLOAT fWidth,
-    FX_FLOAT fHeight,
-    FX_FLOAT& fAbsoluteX,
-    FX_FLOAT& fAbsoluteY) {
-  XFA_ATTRIBUTEENUM eAnchorType = pNode->GetEnum(XFA_ATTRIBUTE_AnchorType);
-  int32_t nAnchorType = 0;
-  switch (eAnchorType) {
-    case XFA_ATTRIBUTEENUM_TopLeft:
-      nAnchorType = 0;
-      break;
-    case XFA_ATTRIBUTEENUM_TopCenter:
-      nAnchorType = 1;
-      break;
-    case XFA_ATTRIBUTEENUM_TopRight:
-      nAnchorType = 2;
-      break;
-    case XFA_ATTRIBUTEENUM_MiddleLeft:
-      nAnchorType = 3;
-      break;
-    case XFA_ATTRIBUTEENUM_MiddleCenter:
-      nAnchorType = 4;
-      break;
-    case XFA_ATTRIBUTEENUM_MiddleRight:
-      nAnchorType = 5;
-      break;
-    case XFA_ATTRIBUTEENUM_BottomLeft:
-      nAnchorType = 6;
-      break;
-    case XFA_ATTRIBUTEENUM_BottomCenter:
-      nAnchorType = 7;
-      break;
-    case XFA_ATTRIBUTEENUM_BottomRight:
-      nAnchorType = 8;
-      break;
-    default:
-      break;
-  }
-  static const uint8_t nNextPos[4][9] = {{0, 1, 2, 3, 4, 5, 6, 7, 8},
-                                         {6, 3, 0, 7, 4, 1, 8, 5, 2},
-                                         {8, 7, 6, 5, 4, 3, 2, 1, 0},
-                                         {2, 5, 8, 1, 4, 7, 0, 3, 6}};
-
-  FX_FLOAT fAnchorX = pNode->GetMeasure(XFA_ATTRIBUTE_X).ToUnit(XFA_UNIT_Pt);
-  FX_FLOAT fAnchorY = pNode->GetMeasure(XFA_ATTRIBUTE_Y).ToUnit(XFA_UNIT_Pt);
-  int32_t nRotate =
-      FXSYS_round(pNode->GetMeasure(XFA_ATTRIBUTE_Rotate).GetValue());
-  nRotate = XFA_MapRotation(nRotate) / 90;
-  int32_t nAbsoluteAnchorType = nNextPos[nRotate][nAnchorType];
-  fAbsoluteX = fAnchorX;
-  fAbsoluteY = fAnchorY;
-  switch (nAbsoluteAnchorType / 3) {
-    case 1:
-      fAbsoluteY -= fHeight / 2;
-      break;
-    case 2:
-      fAbsoluteY -= fHeight;
-      break;
-    default:
-      break;
-  }
-  switch (nAbsoluteAnchorType % 3) {
-    case 1:
-      fAbsoluteX -= fWidth / 2;
-      break;
-    case 2:
-      fAbsoluteX -= fWidth;
-      break;
-    default:
-      break;
-  }
-}
-
 bool CXFA_ItemLayoutProcessor::IncrementRelayoutNode(
     CXFA_LayoutProcessor* pLayoutProcessor,
     CXFA_Node* pNode,
@@ -1556,20 +1555,20 @@ void CXFA_ItemLayoutProcessor::DoLayoutPageArea(
   CXFA_Node* pFormNode = pPageAreaLayoutItem->m_pFormNode;
   CXFA_Node* pCurChildNode = XFA_LAYOUT_INVALIDNODE;
   XFA_ItemLayoutProcessorStages nCurChildNodeStage =
-      XFA_ItemLayoutProcessorStages_None;
+      XFA_ItemLayoutProcessorStages::None;
   CXFA_LayoutItem* pBeforeItem = nullptr;
   for (GotoNextContainerNode(pCurChildNode, nCurChildNodeStage, pFormNode,
                              false);
        pCurChildNode; GotoNextContainerNode(pCurChildNode, nCurChildNodeStage,
                                             pFormNode, false)) {
-    if (nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Container)
+    if (nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Container)
       continue;
     if (pCurChildNode->GetElementType() == XFA_Element::Variables)
       continue;
 
     CXFA_ItemLayoutProcessor* pProcessor =
         new CXFA_ItemLayoutProcessor(pCurChildNode, nullptr);
-    pProcessor->DoLayout(false, XFA_LAYOUT_FLOAT_MAX);
+    pProcessor->DoLayout(false, FLT_MAX, FLT_MAX, nullptr);
     if (!pProcessor->HasLayoutItem()) {
       delete pProcessor;
       continue;
@@ -1644,7 +1643,7 @@ void CXFA_ItemLayoutProcessor::DoLayoutPositionedContainer(
   int32_t iColIndex = 0;
   for (; m_pCurChildNode; GotoNextContainerNode(
            m_pCurChildNode, m_nCurChildNodeStage, m_pFormNode, false)) {
-    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Container)
+    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Container)
       continue;
     if (m_pCurChildNode->GetElementType() == XFA_Element::Variables)
       continue;
@@ -1671,8 +1670,7 @@ void CXFA_ItemLayoutProcessor::DoLayoutPositionedContainer(
       }
     }
 
-    pProcessor->DoLayout(false, XFA_LAYOUT_FLOAT_MAX, XFA_LAYOUT_FLOAT_MAX,
-                         pContext);
+    pProcessor->DoLayout(false, FLT_MAX, FLT_MAX, pContext);
     if (!pProcessor->HasLayoutItem()) {
       delete pProcessor;
       continue;
@@ -1765,7 +1763,7 @@ void CXFA_ItemLayoutProcessor::DoLayoutTableContainer(CXFA_Node* pLayoutNode) {
   }
 
   FX_FLOAT fContentWidthLimit =
-      bContainerWidthAutoSize ? XFA_LAYOUT_FLOAT_MAX
+      bContainerWidthAutoSize ? FLT_MAX
                               : fContainerWidth - fLeftInset - fRightInset;
   CFX_WideStringC wsColumnWidths;
   if (pLayoutNode->TryCData(XFA_ATTRIBUTE_ColumnWidths, wsColumnWidths)) {
@@ -1799,13 +1797,12 @@ void CXFA_ItemLayoutProcessor::DoLayoutTableContainer(CXFA_Node* pLayoutNode) {
            m_pCurChildNode, m_nCurChildNodeStage, m_pFormNode, false)) {
     layoutContext.m_bCurColumnWidthAvaiable = false;
     layoutContext.m_fCurColumnWidth = 0;
-    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Container)
+    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Container)
       continue;
 
     CXFA_ItemLayoutProcessor* pProcessor =
         new CXFA_ItemLayoutProcessor(m_pCurChildNode, m_pPageMgr);
-    pProcessor->DoLayout(false, XFA_LAYOUT_FLOAT_MAX, XFA_LAYOUT_FLOAT_MAX,
-                         pLayoutContext);
+    pProcessor->DoLayout(false, FLT_MAX, FLT_MAX, pLayoutContext);
     if (!pProcessor->HasLayoutItem()) {
       delete pProcessor;
       continue;
@@ -1947,7 +1944,7 @@ void CXFA_ItemLayoutProcessor::DoLayoutTableContainer(CXFA_Node* pLayoutNode) {
     if (bContainerWidthAutoSize) {
       FX_FLOAT fChildSuppliedWidth =
           pLayoutChild->m_sPos.x + pLayoutChild->m_sSize.x;
-      if (fContentWidthLimit < XFA_LAYOUT_FLOAT_MAX &&
+      if (fContentWidthLimit < FLT_MAX &&
           fContentWidthLimit > fChildSuppliedWidth) {
         fChildSuppliedWidth = fContentWidthLimit;
       }
@@ -2034,7 +2031,7 @@ bool CXFA_ItemLayoutProcessor::ProcessKeepForSplite(
     }
     bAddedItemInRow = true;
     bForceEndPage = true;
-    result = XFA_ItemLayoutProcessorResult_PageFullBreak;
+    result = XFA_ItemLayoutProcessorResult::PageFullBreak;
     return true;
   }
 
@@ -2131,7 +2128,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
   bool bIsManualBreak = false;
   if (m_pCurChildPreprocessor) {
     m_pCurChildPreprocessor->m_ePreProcessRs =
-        XFA_ItemLayoutProcessorResult_Done;
+        XFA_ItemLayoutProcessorResult::Done;
   }
 
   CalculateContainerSpecfiedSize(m_pFormNode, fContainerWidth, fContainerHeight,
@@ -2174,7 +2171,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
         pMarginNode->GetMeasure(XFA_ATTRIBUTE_BottomInset).ToUnit(XFA_UNIT_Pt);
   }
   FX_FLOAT fContentWidthLimit =
-      bContainerWidthAutoSize ? XFA_LAYOUT_FLOAT_MAX
+      bContainerWidthAutoSize ? FLT_MAX
                               : fContainerWidth - fLeftInset - fRightInset;
   FX_FLOAT fContentCalculatedWidth = 0, fContentCalculatedHeight = 0;
   FX_FLOAT fAvailHeight = fHeightLimit - fTopInset - fBottomInset;
@@ -2185,7 +2182,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
   FX_FLOAT fContentCurRowY = 0;
   CXFA_ContentLayoutItem* pLayoutChild = nullptr;
   if (m_pLayoutItem) {
-    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Done &&
+    if (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Done &&
         eFlowStrategy != XFA_ATTRIBUTEENUM_Tb) {
       pLayoutChild = (CXFA_ContentLayoutItem*)m_pLayoutItem->m_pFirstChild;
       for (CXFA_ContentLayoutItem* pLayoutNext = pLayoutChild; pLayoutNext;
@@ -2220,22 +2217,22 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
   }
 
   fContentCurRowY += InsertKeepLayoutItems();
-  if (m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages_None) {
+  if (m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages::None) {
     GotoNextContainerNode(m_pCurChildNode, m_nCurChildNodeStage, m_pFormNode,
                           true);
   }
 
   fContentCurRowY += InsertPendingItems(this, m_pFormNode);
   if (m_pCurChildPreprocessor &&
-      m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages_Container) {
+      m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages::Container) {
     if (ExistContainerKeep(m_pCurChildPreprocessor->GetFormNode(), false)) {
       m_pKeepHeadNode = m_pCurChildNode;
       m_bIsProcessKeep = true;
-      m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages_Keep;
+      m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages::Keep;
     }
   }
 
-  while (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages_Done) {
+  while (m_nCurChildNodeStage != XFA_ItemLayoutProcessorStages::Done) {
     FX_FLOAT fContentCurRowHeight = 0;
     FX_FLOAT fContentCurRowAvailWidth = fContentWidthLimit;
     m_fWidthLimite = fContentCurRowAvailWidth;
@@ -2301,10 +2298,10 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
       bool bAddedItemInRow = false;
       fContentCurRowY += InsertPendingItems(this, m_pFormNode);
       switch (m_nCurChildNodeStage) {
-        case XFA_ItemLayoutProcessorStages_Keep:
-        case XFA_ItemLayoutProcessorStages_None:
+        case XFA_ItemLayoutProcessorStages::Keep:
+        case XFA_ItemLayoutProcessorStages::None:
           break;
-        case XFA_ItemLayoutProcessorStages_BreakBefore: {
+        case XFA_ItemLayoutProcessorStages::BreakBefore: {
           for (int32_t iIndex = 0; iIndex < m_arrayKeepItems.GetSize();
                iIndex++) {
             CXFA_ContentLayoutItem* pItem = m_arrayKeepItems.GetAt(iIndex);
@@ -2335,11 +2332,10 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                 InsertFlowedItem(
                     this, pTempProcessor.get(), bContainerWidthAutoSize,
                     bContainerHeightAutoSize, fContainerHeight, eFlowStrategy,
-                    uCurHAlignState, rgCurLineLayoutItems, false,
-                    XFA_LAYOUT_FLOAT_MAX, XFA_LAYOUT_FLOAT_MAX, fContentCurRowY,
-                    fContentWidthLimit, fContentCurRowAvailWidth,
-                    fContentCurRowHeight, bAddedItemInRow, bForceEndPage,
-                    pContext);
+                    uCurHAlignState, rgCurLineLayoutItems, false, FLT_MAX,
+                    FLT_MAX, fContentCurRowY, fContentWidthLimit,
+                    fContentCurRowAvailWidth, fContentCurRowHeight,
+                    bAddedItemInRow, bForceEndPage, pContext, false);
               }
             }
             GotoNextContainerNode(m_pCurChildNode, m_nCurChildNodeStage,
@@ -2350,7 +2346,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
           }
           break;
         }
-        case XFA_ItemLayoutProcessorStages_BreakAfter: {
+        case XFA_ItemLayoutProcessorStages::BreakAfter: {
           CXFA_Node* pLeaderNode = nullptr;
           CXFA_Node* pTrailerNode = nullptr;
           bool bCreatePage = false;
@@ -2366,11 +2362,10 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
               InsertFlowedItem(
                   this, pTempProcessor.get(), bContainerWidthAutoSize,
                   bContainerHeightAutoSize, fContainerHeight, eFlowStrategy,
-                  uCurHAlignState, rgCurLineLayoutItems, false,
-                  XFA_LAYOUT_FLOAT_MAX, XFA_LAYOUT_FLOAT_MAX, fContentCurRowY,
-                  fContentWidthLimit, fContentCurRowAvailWidth,
-                  fContentCurRowHeight, bAddedItemInRow, bForceEndPage,
-                  pContext);
+                  uCurHAlignState, rgCurLineLayoutItems, false, FLT_MAX,
+                  FLT_MAX, fContentCurRowY, fContentWidthLimit,
+                  fContentCurRowAvailWidth, fContentCurRowHeight,
+                  bAddedItemInRow, bForceEndPage, pContext, false);
             }
             if (!bCreatePage) {
               if (JudgeLeaderOrTrailerForOccur(pLeaderNode)) {
@@ -2378,7 +2373,8 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                     rgCurLineLayoutItems, eFlowStrategy,
                     bContainerHeightAutoSize, bContainerWidthAutoSize,
                     fContentCalculatedWidth, fContentCalculatedHeight,
-                    fContentCurRowY, fContentCurRowHeight, fContentWidthLimit);
+                    fContentCurRowY, fContentCurRowHeight, fContentWidthLimit,
+                    false);
                 rgCurLineLayoutItems->RemoveAll();
                 auto pTempProcessor =
                     pdfium::MakeUnique<CXFA_ItemLayoutProcessor>(pLeaderNode,
@@ -2386,11 +2382,10 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                 InsertFlowedItem(
                     this, pTempProcessor.get(), bContainerWidthAutoSize,
                     bContainerHeightAutoSize, fContainerHeight, eFlowStrategy,
-                    uCurHAlignState, rgCurLineLayoutItems, false,
-                    XFA_LAYOUT_FLOAT_MAX, XFA_LAYOUT_FLOAT_MAX, fContentCurRowY,
-                    fContentWidthLimit, fContentCurRowAvailWidth,
-                    fContentCurRowHeight, bAddedItemInRow, bForceEndPage,
-                    pContext);
+                    uCurHAlignState, rgCurLineLayoutItems, false, FLT_MAX,
+                    FLT_MAX, fContentCurRowY, fContentWidthLimit,
+                    fContentCurRowAvailWidth, fContentCurRowHeight,
+                    bAddedItemInRow, bForceEndPage, pContext, false);
               }
             } else {
               if (JudgeLeaderOrTrailerForOccur(pLeaderNode))
@@ -2402,14 +2397,14 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
             if (bCreatePage) {
               bForceEndPage = true;
               bIsManualBreak = true;
-              if (m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages_Done)
+              if (m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages::Done)
                 bBreakDone = true;
             }
             goto SuspendAndCreateNewRow;
           }
           break;
         }
-        case XFA_ItemLayoutProcessorStages_BookendLeader: {
+        case XFA_ItemLayoutProcessorStages::BookendLeader: {
           CXFA_Node* pLeaderNode = nullptr;
           if (m_pCurChildPreprocessor) {
             pProcessor = m_pCurChildPreprocessor;
@@ -2428,7 +2423,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                     fAvailHeight, fRealHeight, fContentCurRowY,
                     fContentWidthLimit, fContentCurRowAvailWidth,
                     fContentCurRowHeight, bAddedItemInRow, bForceEndPage,
-                    pContext) != XFA_ItemLayoutProcessorResult_Done) {
+                    pContext, false) != XFA_ItemLayoutProcessorResult::Done) {
               goto SuspendAndCreateNewRow;
             } else {
               delete pProcessor;
@@ -2437,7 +2432,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
           }
           break;
         }
-        case XFA_ItemLayoutProcessorStages_BookendTrailer: {
+        case XFA_ItemLayoutProcessorStages::BookendTrailer: {
           CXFA_Node* pTrailerNode = nullptr;
           if (m_pCurChildPreprocessor) {
             pProcessor = m_pCurChildPreprocessor;
@@ -2455,7 +2450,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                     fAvailHeight, fRealHeight, fContentCurRowY,
                     fContentWidthLimit, fContentCurRowAvailWidth,
                     fContentCurRowHeight, bAddedItemInRow, bForceEndPage,
-                    pContext) != XFA_ItemLayoutProcessorResult_Done) {
+                    pContext, false) != XFA_ItemLayoutProcessorResult::Done) {
               goto SuspendAndCreateNewRow;
             } else {
               delete pProcessor;
@@ -2464,7 +2459,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
           }
           break;
         }
-        case XFA_ItemLayoutProcessorStages_Container:
+        case XFA_ItemLayoutProcessorStages::Container:
           ASSERT(m_pCurChildNode->IsContainerNode());
           if (m_pCurChildNode->GetElementType() == XFA_Element::Variables)
             break;
@@ -2492,13 +2487,13 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
                 fContentCurRowAvailWidth, fContentCurRowHeight, bAddedItemInRow,
                 bForceEndPage, pContext, bNewRow);
             switch (rs) {
-              case XFA_ItemLayoutProcessorResult_ManualBreak:
+              case XFA_ItemLayoutProcessorResult::ManualBreak:
                 bIsManualBreak = true;
-              case XFA_ItemLayoutProcessorResult_PageFullBreak:
+              case XFA_ItemLayoutProcessorResult::PageFullBreak:
                 bForceEndPage = true;
-              case XFA_ItemLayoutProcessorResult_RowFullBreak:
+              case XFA_ItemLayoutProcessorResult::RowFullBreak:
                 goto SuspendAndCreateNewRow;
-              case XFA_ItemLayoutProcessorResult_Done:
+              case XFA_ItemLayoutProcessorResult::Done:
               default:
                 fContentCurRowY +=
                     InsertPendingItems(pProcessor, m_pCurChildNode);
@@ -2507,7 +2502,7 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
             }
           }
           break;
-        case XFA_ItemLayoutProcessorStages_Done:
+        case XFA_ItemLayoutProcessorStages::Done:
           break;
         default:
           break;
@@ -2534,8 +2529,9 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
       break;
   }
 
-  bool bRetValue = m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages_Done &&
-                   m_PendingNodes.empty();
+  bool bRetValue =
+      m_nCurChildNodeStage == XFA_ItemLayoutProcessorStages::Done &&
+      m_PendingNodes.empty();
   if (bBreakDone)
     bRetValue = false;
 
@@ -2559,9 +2555,9 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayoutFlowedContainer(
   }
 
   return bRetValue
-             ? XFA_ItemLayoutProcessorResult_Done
-             : (bIsManualBreak ? XFA_ItemLayoutProcessorResult_ManualBreak
-                               : XFA_ItemLayoutProcessorResult_PageFullBreak);
+             ? XFA_ItemLayoutProcessorResult::Done
+             : (bIsManualBreak ? XFA_ItemLayoutProcessorResult::ManualBreak
+                               : XFA_ItemLayoutProcessorResult::PageFullBreak);
 }
 
 bool CXFA_ItemLayoutProcessor::CalculateRowChildPosition(
@@ -2704,7 +2700,7 @@ bool CXFA_ItemLayoutProcessor::CalculateRowChildPosition(
   fContentCurRowY += fContentCurRowHeight;
   if (bContainerWidthAutoSize) {
     FX_FLOAT fChildSuppliedWidth = fGroupWidths[0];
-    if (fContentWidthLimit < XFA_LAYOUT_FLOAT_MAX &&
+    if (fContentWidthLimit < FLT_MAX &&
         fContentWidthLimit > fChildSuppliedWidth) {
       fChildSuppliedWidth = fContentWidthLimit;
     }
@@ -2785,31 +2781,24 @@ XFA_ItemLayoutProcessorResult CXFA_ItemLayoutProcessor::DoLayout(
         case XFA_ATTRIBUTEENUM_Rl_row:
         default:
           DoLayoutPositionedContainer(pContext);
-          m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages_Done;
-          return XFA_ItemLayoutProcessorResult_Done;
+          m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages::Done;
+          return XFA_ItemLayoutProcessorResult::Done;
         case XFA_ATTRIBUTEENUM_Table:
           DoLayoutTableContainer(pLayoutNode);
-          m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages_Done;
-          return XFA_ItemLayoutProcessorResult_Done;
+          m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages::Done;
+          return XFA_ItemLayoutProcessorResult::Done;
       }
     }
     case XFA_Element::Draw:
     case XFA_Element::Field:
       DoLayoutField();
-      m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages_Done;
-      return XFA_ItemLayoutProcessorResult_Done;
+      m_nCurChildNodeStage = XFA_ItemLayoutProcessorStages::Done;
+      return XFA_ItemLayoutProcessorResult::Done;
     case XFA_Element::ContentArea:
-      return XFA_ItemLayoutProcessorResult_Done;
+      return XFA_ItemLayoutProcessorResult::Done;
     default:
-      return XFA_ItemLayoutProcessorResult_Done;
+      return XFA_ItemLayoutProcessorResult::Done;
   }
-}
-
-void CXFA_ItemLayoutProcessor::GetCurrentComponentPos(FX_FLOAT& fAbsoluteX,
-                                                      FX_FLOAT& fAbsoluteY) {
-  ASSERT(m_pLayoutItem);
-  fAbsoluteX = m_pLayoutItem->m_sPos.x;
-  fAbsoluteY = m_pLayoutItem->m_sPos.y;
 }
 
 void CXFA_ItemLayoutProcessor::GetCurrentComponentSize(FX_FLOAT& fWidth,
