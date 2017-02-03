@@ -209,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "b5876b00_dbb7b042",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "assert not needed, segv on next line anyways.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 8
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14a694b0_14860918",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 1
@@ -301,6 +324,29 @@
     },
     {
       "key": {
+        "uuid": "14804a39_50484034",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "would like to pass this by pointer as well as long as we\u0027re doing this.",
+      "range": {
+        "startLine": 131,
+        "startChar": 59,
+        "endLine": 131,
+        "endChar": 67
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f5d9586_b622d8a9",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 1
@@ -374,6 +420,29 @@
         "startChar": 11,
         "endLine": 179,
         "endChar": 34
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6a928d1_2d7c8de0",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "auto pLayoutChild \u003d static_cast\u003c.....\u003e();\n\n(auto and static cast are good together). also static cast on 186",
+      "range": {
+        "startLine": 183,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 37
       },
       "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -835,6 +904,24 @@
     },
     {
       "key": {
+        "uuid": "f258212f_dca81542",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "or just combine with 1080\n\nbool bCalculateMargin \u003d (eLayout !\u003d XFA_ATTRIBUTEENUM_Position);",
+      "parentUuid": "c65d9946_9ea54853",
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9a2d2a1_5e654e65",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 1
@@ -950,6 +1037,29 @@
     },
     {
       "key": {
+        "uuid": "9d14568c_fd360da9",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "in my dreams, this would someday be \n\nstd::tie(fWidth, fHeight) \u003d pProcessor-\u003eGetComponentSize();",
+      "range": {
+        "startLine": 1580,
+        "startChar": 3,
+        "endLine": 1580,
+        "endChar": 42
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc7464ef_4eefa6b5",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 1
@@ -1012,6 +1122,29 @@
         "startChar": 12,
         "endLine": 1712,
         "endChar": 36
+      },
+      "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30d5cad0_d7543b7f",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-03T20:39:48Z",
+      "side": 1,
+      "message": "someone is asking to be a unique_ptr.",
+      "range": {
+        "startLine": 1810,
+        "startChar": 14,
+        "endLine": 1810,
+        "endChar": 24
       },
       "revId": "f8f0262c1a64755cd183962bfd6ad0c56180d85c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
