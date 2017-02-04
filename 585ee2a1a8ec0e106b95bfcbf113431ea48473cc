@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68186ff5_a1ae19d9",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-04T03:38:41Z",
+      "side": 1,
+      "message": "or just \nrgb[0] \u003d ...\nrgb[1] \u003d ..\nrgb[2] \u003d ...",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c513b290_d690fa29",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-04T03:38:41Z",
+      "side": 1,
+      "message": "generally, \nauto it \u003d foo.find();\nif (it !\u003d foo.end())\n  blah \u003d it-\u003esecond;\nelse\n...",
+      "range": {
+        "startLine": 216,
+        "startChar": 6,
+        "endLine": 216,
+        "endChar": 19
+      },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d49cbc64_29f1462c",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-04T03:38:41Z",
+      "side": 1,
+      "message": "I\u0027d write this as\n\nif (a.fillAlpha !\u003d b.fillAlpha)\n  return a.fillAlpha \u003c b.fillAlpha;\nreturn a.strokeAlpha \u003c b.strokeAlpha;",
+      "range": {
+        "startLine": 233,
+        "startChar": 1,
+        "endLine": 233,
+        "endChar": 2
+      },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac0dcb20_20e4dc45",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-04T03:38:41Z",
+      "side": 1,
+      "message": "a better alternative is to just provide operator\u003c() as part of your struct and the map will use it by default.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 8
+      },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "701b4e41_b5061278",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-04T03:38:41Z",
+      "side": 1,
+      "message": "nit: local not needed",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
