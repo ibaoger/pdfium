@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bb188d5_c0333751",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T23:02:09Z",
+      "side": 1,
+      "message": "did you mean to duplicate this line above?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 13
+      },
+      "revId": "052552139782d334bdc5d5764d5f3c9eafba08aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
