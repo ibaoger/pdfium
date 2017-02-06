@@ -16,6 +16,24 @@
       "revId": "b066a0a7bd0c17f77188f336936fea8a404d004b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be1242e_0656830b",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T22:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64169764_cd3a54e2",
+      "revId": "b066a0a7bd0c17f77188f336936fea8a404d004b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
