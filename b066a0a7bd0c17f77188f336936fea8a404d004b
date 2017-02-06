@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64169764_cd3a54e2",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T22:06:47Z",
+      "side": 1,
+      "message": "Should these typedefs (and the 2 above as well) be using statements?",
+      "revId": "b066a0a7bd0c17f77188f336936fea8a404d004b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
