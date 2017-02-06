@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "2948a81c_e576815d",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68186ff5_a1ae19d9",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26789b69_be4afe4a",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 2
@@ -39,6 +57,24 @@
       "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a239ebe_be1cb259",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26789b69_be4afe4a",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "593895b7_879f1215",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c513b290_d690fa29",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d49cbc64_29f1462c",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 2
@@ -82,6 +136,24 @@
         "endLine": 233,
         "endChar": 2
       },
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e668e20_aacfb624",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Or std::tie? This will make it easy to add other stuff to the struct in the future.",
+      "parentUuid": "d49cbc64_29f1462c",
       "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "bcf1c55b_fdac633b",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac0dcb20_20e4dc45",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "701b4e41_b5061278",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
         "patchSetId": 2
@@ -131,6 +221,24 @@
       "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7581a0c3_6305130e",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "701b4e41_b5061278",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
