@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf89d7c1_8e33bcd7",
+        "filename": "core/fpdfapi/page/cpdf_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "No, there is no enum type. The values are defined at:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fxge/cfx_renderdevice.h?dr\u003dCSs\u0026l\u003d30",
+      "parentUuid": "4fd365a9_14e239cd",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7657c67a_0e24cf67",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "eb43a881_34188c3b",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7657c67a_0e24cf67",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4790c24f_639c66c8",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-02-06T21:36:53Z",
       "side": 1,
       "message": "x, y aren\u0027t used?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f160eb7_563c4154",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Oops, yes sorry",
+      "parentUuid": "4790c24f_639c66c8",
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "f1041984_cd275fdf",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "I don\u0027t know what the natural range of A should be if it is an unsigned integer.",
+      "parentUuid": "16edd3e2_3a681ec4",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9749c5_3ac577c6",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "683a28f3_82a8063e",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa9749c5_3ac577c6",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a33cbbe4_1f4a0bd5",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2017-02-06T21:36:53Z",
       "side": 1,
       "message": "I don\u0027t think this can be nullptr if path is not nullptr.",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "342011ba_e52c7586",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Hm yes I think you\u0027re right.",
+      "parentUuid": "a33cbbe4_1f4a0bd5",
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "049aceca_385bbc46",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e63c0e_46e4f635",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afdc7a41_ce1c02e0",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -135,6 +261,24 @@
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13dbefd4_5d8e8983",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afdc7a41_ce1c02e0",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "f899eb0a_65ef344f",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3337cff_b53d15a9",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "333a51e0_a2e93ad8",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -166,6 +328,24 @@
       "writtenOn": "2017-02-06T21:36:53Z",
       "side": 1,
       "message": "Is this really an error? If the last point is already closed can\u0027t we just return true and be done?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d612c29_dc318fdd",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Well, either way is fine. false is not error, just \"didn\u0027t close\". But maybe we can return true.",
+      "parentUuid": "333a51e0_a2e93ad8",
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "4baa207c_5031a94a",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ff72d1a_e5b80291",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "444f24d2_6fc37b36",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -203,6 +401,24 @@
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74153a13_6989a4d3",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444f24d2_6fc37b36",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +439,24 @@
         "endLine": 30,
         "endChar": 27
       },
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5501d6a4_00c8b654",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T22:09:10Z",
+      "side": 1,
+      "message": "That would not be great, because then I would have to say \"enum FPDF_DRAWMODE\" all the time, instead of just \"FPDF_DRAWMODE\".",
+      "parentUuid": "500afd98_70a15bc2",
       "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
