@@ -12,84 +12,144 @@
 class CFX_Matrix;
 
 template <class BaseType>
-class CFX_PSTemplate {
+class CFX_PTemplate {
  public:
-  CFX_PSTemplate() : x(0), y(0) {}
-  CFX_PSTemplate(BaseType new_x, BaseType new_y) : x(new_x), y(new_y) {}
-  CFX_PSTemplate(const CFX_PSTemplate& other) : x(other.x), y(other.y) {}
+  CFX_PTemplate() : x(0), y(0) {}
+  CFX_PTemplate(BaseType new_x, BaseType new_y) : x(new_x), y(new_y) {}
+  CFX_PTemplate(const CFX_PTemplate& other) : x(other.x), y(other.y) {}
   void clear() {
     x = 0;
     y = 0;
   }
-  CFX_PSTemplate operator=(const CFX_PSTemplate& other) {
+  CFX_PTemplate operator=(const CFX_PTemplate& other) {
     if (this != &other) {
       x = other.x;
       y = other.y;
     }
     return *this;
   }
-  bool operator==(const CFX_PSTemplate& other) const {
+  bool operator==(const CFX_PTemplate& other) const {
     return x == other.x && y == other.y;
   }
-  bool operator!=(const CFX_PSTemplate& other) const {
+  bool operator!=(const CFX_PTemplate& other) const {
     return !(*this == other);
   }
-  CFX_PSTemplate& operator+=(const CFX_PSTemplate<BaseType>& obj) {
+  CFX_PTemplate& operator+=(const CFX_PTemplate<BaseType>& obj) {
     x += obj.x;
     y += obj.y;
     return *this;
   }
-  CFX_PSTemplate& operator-=(const CFX_PSTemplate<BaseType>& obj) {
+  CFX_PTemplate& operator-=(const CFX_PTemplate<BaseType>& obj) {
     x -= obj.x;
     y -= obj.y;
     return *this;
   }
-  CFX_PSTemplate& operator*=(BaseType factor) {
+  CFX_PTemplate& operator*=(BaseType factor) {
     x *= factor;
     y *= factor;
     return *this;
   }
-  CFX_PSTemplate& operator/=(BaseType divisor) {
+  CFX_PTemplate& operator/=(BaseType divisor) {
     x /= divisor;
     y /= divisor;
     return *this;
   }
-  CFX_PSTemplate operator+(const CFX_PSTemplate& other) {
-    return CFX_PSTemplate(x + other.x, y + other.y);
+  CFX_PTemplate operator+(const CFX_PTemplate& other) {
+    return CFX_PTemplate(x + other.x, y + other.y);
   }
-  CFX_PSTemplate operator-(const CFX_PSTemplate& other) {
-    return CFX_PSTemplate(x - other.x, y - other.y);
+  CFX_PTemplate operator-(const CFX_PTemplate& other) {
+    return CFX_PTemplate(x - other.x, y - other.y);
   }
-  CFX_PSTemplate operator*(BaseType factor) {
-    return CFX_PSTemplate(x * factor, y * factor);
+  CFX_PTemplate operator*(BaseType factor) {
+    return CFX_PTemplate(x * factor, y * factor);
   }
-  CFX_PSTemplate operator/(BaseType divisor) {
-    return CFX_PSTemplate(x / divisor, y / divisor);
+  CFX_PTemplate operator/(BaseType divisor) {
+    return CFX_PTemplate(x / divisor, y / divisor);
   }
 
   BaseType x;
   BaseType y;
 };
-typedef CFX_PSTemplate<int32_t> CFX_Point;
-typedef CFX_PSTemplate<FX_FLOAT> CFX_PointF;
-typedef CFX_PSTemplate<int32_t> CFX_Size;
-typedef CFX_PSTemplate<FX_FLOAT> CFX_SizeF;
+typedef CFX_PTemplate<int32_t> CFX_Point;
+typedef CFX_PTemplate<FX_FLOAT> CFX_PointF;
 
 template <class BaseType>
-class CFX_VTemplate : public CFX_PSTemplate<BaseType> {
+class CFX_STemplate {
  public:
-  using CFX_PSTemplate<BaseType>::x;
-  using CFX_PSTemplate<BaseType>::y;
+  CFX_STemplate() : x(0), y(0) {}
+  CFX_STemplate(BaseType new_x, BaseType new_y) : x(new_x), y(new_y) {}
+  CFX_STemplate(const CFX_STemplate& other) : x(other.x), y(other.y) {}
+  void clear() {
+    x = 0;
+    y = 0;
+  }
+  CFX_STemplate operator=(const CFX_STemplate& other) {
+    if (this != &other) {
+      x = other.x;
+      y = other.y;
+    }
+    return *this;
+  }
+  bool operator==(const CFX_STemplate& other) const {
+    return x == other.x && y == other.y;
+  }
+  bool operator!=(const CFX_STemplate& other) const {
+    return !(*this == other);
+  }
+  CFX_STemplate& operator+=(const CFX_STemplate<BaseType>& obj) {
+    x += obj.x;
+    y += obj.y;
+    return *this;
+  }
+  CFX_STemplate& operator-=(const CFX_STemplate<BaseType>& obj) {
+    x -= obj.x;
+    y -= obj.y;
+    return *this;
+  }
+  CFX_STemplate& operator*=(BaseType factor) {
+    x *= factor;
+    y *= factor;
+    return *this;
+  }
+  CFX_STemplate& operator/=(BaseType divisor) {
+    x /= divisor;
+    y /= divisor;
+    return *this;
+  }
+  CFX_STemplate operator+(const CFX_STemplate& other) {
+    return CFX_STemplate(x + other.x, y + other.y);
+  }
+  CFX_STemplate operator-(const CFX_STemplate& other) {
+    return CFX_STemplate(x - other.x, y - other.y);
+  }
+  CFX_STemplate operator*(BaseType factor) {
+    return CFX_STemplate(x * factor, y * factor);
+  }
+  CFX_STemplate operator/(BaseType divisor) {
+    return CFX_STemplate(x / divisor, y / divisor);
+  }
 
-  CFX_VTemplate() : CFX_PSTemplate<BaseType>() {}
+  BaseType x;
+  BaseType y;
+};
+typedef CFX_STemplate<int32_t> CFX_Size;
+typedef CFX_STemplate<FX_FLOAT> CFX_SizeF;
+
+template <class BaseType>
+class CFX_VTemplate : public CFX_PTemplate<BaseType> {
+ public:
+  using CFX_PTemplate<BaseType>::x;
+  using CFX_PTemplate<BaseType>::y;
+
+  CFX_VTemplate() : CFX_PTemplate<BaseType>() {}
   CFX_VTemplate(BaseType new_x, BaseType new_y)
-      : CFX_PSTemplate<BaseType>(new_x, new_y) {}
+      : CFX_PTemplate<BaseType>(new_x, new_y) {}
 
-  CFX_VTemplate(const CFX_VTemplate& other) : CFX_PSTemplate<BaseType>(other) {}
+  CFX_VTemplate(const CFX_VTemplate& other) : CFX_PTemplate<BaseType>(other) {}
 
-  CFX_VTemplate(const CFX_PSTemplate<BaseType>& point1,
-                const CFX_PSTemplate<BaseType>& point2)
-      : CFX_PSTemplate<BaseType>(point2.x - point1.x, point2.y - point1.y) {}
+  CFX_VTemplate(const CFX_PTemplate<BaseType>& point1,
+                const CFX_PTemplate<BaseType>& point2)
+      : CFX_PTemplate<BaseType>(point2.x - point1.x, point2.y - point1.y) {}
 
   FX_FLOAT Length() const { return FXSYS_sqrt(x * x + y * y); }
   void Normalize() {
@@ -193,8 +253,8 @@ class CFX_FloatPoint {
 template <class baseType>
 class CFX_RTemplate {
  public:
-  typedef CFX_PSTemplate<baseType> FXT_POINT;
-  typedef CFX_PSTemplate<baseType> FXT_SIZE;
+  typedef CFX_PTemplate<baseType> FXT_POINT;
+  typedef CFX_STemplate<baseType> FXT_SIZE;
   typedef CFX_VTemplate<baseType> FXT_VECTOR;
   typedef CFX_RTemplate<baseType> FXT_RECT;
   void Set(baseType dst_left,
@@ -209,7 +269,8 @@ class CFX_RTemplate {
   void Set(baseType dst_left, baseType dst_top, const FXT_SIZE& dst_size) {
     left = dst_left;
     top = dst_top;
-    Size(dst_size);
+    width = dst_size.x;
+    height = dst_size.y;
   }
   void Set(const FXT_POINT& p, baseType dst_width, baseType dst_height) {
     TopLeft(p);
@@ -318,7 +379,6 @@ class CFX_RTemplate {
     size.Set(width, height);
     return size;
   }
-  void Size(FXT_SIZE s) { width = s.x, height = s.y; }
   FXT_POINT TopLeft() const {
     FXT_POINT p;
     p.x = left;
@@ -425,8 +485,10 @@ class CFX_RTemplate {
   friend bool operator!=(const FXT_RECT& rc1, const FXT_RECT& rc2) {
     return !(rc1 == rc2);
   }
-  baseType left, top;
-  baseType width, height;
+  baseType left;
+  baseType top;
+  baseType width;
+  baseType height;
 };
 typedef CFX_RTemplate<int32_t> CFX_Rect;
 typedef CFX_RTemplate<FX_FLOAT> CFX_RectF;
