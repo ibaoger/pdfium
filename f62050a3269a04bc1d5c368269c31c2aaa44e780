@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "ebde53cc_a92cd390",
+        "filename": "xfa/fxfa/app/xfa_fffield.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 202,
+        "startChar": 10,
+        "endLine": 202,
+        "endChar": 27
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "780b3f34_e5dea8e5",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "nit: maybe just call RecacheWigetRect()",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 2
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95052c37_50de790a",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "nit: RecacheWidgetRect",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "507c4fdf_552b20e4",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "nit: auto is fine with static cast",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32d62170_cef13427",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "someone needs a smarter ctor, we need to be able to write\n\nreturn CFX_RectF(sPos, sSize);",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38520d48_5d2a2922",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "probably should just return vector, caller can find its size easy enough.",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 8
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d91dc422_81fe2d44",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 2
@@ -110,6 +248,52 @@
         "startChar": 71,
         "endLine": 1987,
         "endChar": 77
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d842d6ef_4d755d58",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2804,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "should just return CFX_SizeF",
+      "range": {
+        "startLine": 2804,
+        "startChar": 1,
+        "endLine": 2804,
+        "endChar": 24
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4650b8e3_9be8cce0",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-06T18:08:28Z",
+      "side": 1,
+      "message": "Isn\u0027t this a CFX_SizeF ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 32
       },
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
