@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "effbe19e_fd590e79",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:56:58Z",
+      "side": 1,
+      "message": "Skip over the opening \" or \u0027 before doing the rest of the skip and remove the -1 as it\u0027s accounted for.",
+      "revId": "9b9717f6409f2d0fbd72bb61a9792c1146b1f25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

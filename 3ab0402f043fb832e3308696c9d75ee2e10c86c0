@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0e20956_0e7e7a48",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:56:58Z",
+      "side": 0,
+      "message": "We have to have at least length 1 because we matched wch above on line 34.",
+      "revId": "3ab0402f043fb832e3308696c9d75ee2e10c86c0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be79da3e_fdfb29bf",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:56:58Z",
+      "side": 0,
+      "message": "We don\u0027t support url() so remove parsing.",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "3ab0402f043fb832e3308696c9d75ee2e10c86c0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
