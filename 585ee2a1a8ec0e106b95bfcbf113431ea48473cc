@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "be29df99_74086cd0",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T16:32:21Z",
+      "side": 1,
+      "message": "I think the other way is simpler, the std::tie is cool, but harder to understand.",
+      "parentUuid": "3e668e20_aacfb624",
+      "revId": "585ee2a1a8ec0e106b95bfcbf113431ea48473cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac0dcb20_20e4dc45",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
         "patchSetId": 2
