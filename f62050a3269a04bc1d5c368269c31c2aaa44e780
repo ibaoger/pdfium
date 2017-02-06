@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "53d8244a_b704cd70",
+        "filename": "xfa/fxfa/app/xfa_fffield.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebde53cc_a92cd390",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "780b3f34_e5dea8e5",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -45,6 +63,24 @@
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad75f799_6b78a408",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780b3f34_e5dea8e5",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "aaabb546_cfe8b07c",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95052c37_50de790a",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "507c4fdf_552b20e4",
         "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
         "patchSetId": 2
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "e1f18f30_b6a2ddb1",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507c4fdf_552b20e4",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32d62170_cef13427",
         "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
         "patchSetId": 2
@@ -111,6 +183,24 @@
         "endLine": 104,
         "endChar": 2
       },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f6db0b8_cac21095",
+        "filename": "xfa/fxfa/parser/cxfa_layoutitem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Yea, I was going to look at that as it\u0027s come up a bunch, will do a followup.",
+      "parentUuid": "32d62170_cef13427",
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "35e3d917_31851954",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38520d48_5d2a2922",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91dc422_81fe2d44",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 2
@@ -157,6 +265,24 @@
         "endLine": 77,
         "endChar": 36
       },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6184532a_9cc1002e",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Returned a CFX_SizeF, plus a bunch of other methods that could have the same fix ...",
+      "parentUuid": "d91dc422_81fe2d44",
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -186,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "0a7ac667_30223574",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23db76ca_d448cb3c",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6aa91b9_3695eee2",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 2
@@ -206,6 +350,24 @@
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c133615f_4374125d",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6aa91b9_3695eee2",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "e89d2d82_89dc54ce",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eec19fd_9fc4770a",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e94cdc05_a5463b56",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
         "patchSetId": 2
@@ -252,6 +432,24 @@
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6157d3c4_23c323bf",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e94cdc05_a5463b56",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +476,24 @@
     },
     {
       "key": {
+        "uuid": "1d106cc6_a021d8dc",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2804,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d842d6ef_4d755d58",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4650b8e3_9be8cce0",
         "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
         "patchSetId": 2
@@ -298,6 +514,24 @@
       "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f71655f_754fbc95",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T20:25:10Z",
+      "side": 1,
+      "message": "Done. It\u0027s a little annoying that SizeF uses x, y instead of width, height.",
+      "parentUuid": "4650b8e3_9be8cce0",
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
