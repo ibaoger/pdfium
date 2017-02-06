@@ -27,6 +27,13 @@
 #define FPDF_PAGEOBJ_SHADING 4
 #define FPDF_PAGEOBJ_FORM 5
 
+typedef enum _FPDF_DRAWMODE {
+  None = 0,
+  FillAlternate = 1 << 0,
+  FillWinding = 1 << 1,
+  Stroke = 1 << 2
+} FPDF_DRAWMODE;
+
 #ifdef __cplusplus
 extern "C" {
 #endif  // __cplusplus
@@ -259,6 +266,120 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    int nCount,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap);
+
+// Create a new path object at an initial position.
+//
+//   x - initial horizontal position.
+//   y - initial vertical position.
+//
+// Returns a handle to a new path object.
+DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y);
+
+// Create a closed path consisting of a rectangle.
+//
+//   x - horizontal position for the left boundary of the rectangle.
+//   y - vertical position for the bottom boundary of the rectangle.
+//   w - width of the rectangle.
+//   h - height of the rectangle.
+//
+// Returns a handle to the new path object.
+DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
+                                                            float y,
+                                                            float w,
+                                                            float h);
+
+// Set the stroke RGBA of a path.
+//
+// path   - the handle to the path object.
+// R      - the R component for the path stroke color. Range: 0-255.
+// G      - the G component for the path stroke color. Range: 0-255.
+// B      - the B component for the path stroke color. Range: 0-255.
+// A      - the stroke alpha for the path. Range: 0.0 to 1.0.
+//
+// Returns TRUE on success.
+DLLEXPORT FPDF_BOOL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
+                                            unsigned int R,
+                                            unsigned int G,
+                                            unsigned int B,
+                                            float A);
+
+// Set the fill RGBA of a path.
+//
+// path   - the handle to the path object.
+// R      - the R component for the path fill color. Range: 0-255.
+// G      - the G component for the path fill color. Range: 0-255.
+// B      - the B component for the path fill color. Range: 0-255.
+// A      - the fill alpha for the path. Range: 0.0 to 1.0.
+//
+// Returns TRUE on success.
+DLLEXPORT FPDF_BOOL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
+                                          unsigned int R,
+                                          unsigned int G,
+                                          unsigned int B,
+                                          float A);
+
+// Move a path's current point.
+//
+// path   - the handle to the path object.
+// x      - the horizontal position of the new current point.
+// y      - the vertical position of the new current point.
+//
+// Note that no line will be created between the previous current point and the
+// new one.
+//
+// Returns TRUE on success
+DLLEXPORT FPDF_BOOL FPDFPath_MoveTo(FPDF_PAGEOBJECT path, float x, float y);
+
+// Add a line between the current point and a new point in the path.
+//
+// path   - the handle to the path object.
+// x      - the horizontal position of the new point.
+// y      - the vertical position of the new point.
+//
+// The path's current point is changed to (x, y).
+//
+// Returns TRUE on success
+DLLEXPORT FPDF_BOOL FPDFPath_LineTo(FPDF_PAGEOBJECT path, float x, float y);
+
+// Add a cubic Bezier curve to the given path, starting at the current point.
+//
+// path   - the handle to the path object.
+// x1     - the horizontal position of the first Bezier control point.
+// y1     - the vertical position of the first Bezier control point.
+// x2     - the horizontal position of the second Bezier control point.
+// y2     - the vertical position of the second Bezier control point.
+// x3     - the horizontal position of the ending point of the Bezier curve.
+// y3     - the vertical position of the ending point of the Bezier curve.
+//
+// Returns TRUE on success
+DLLEXPORT FPDF_BOOL FPDF_PathBezierTo(FPDF_PAGEOBJECT path,
+                                      float x1,
+                                      float y1,
+                                      float x2,
+                                      float y2,
+                                      float x3,
+                                      float y3);
+
+// Close the current subpath of a given path.
+//
+// path   - the handle to the path object.
+//
+// This will add a line between the current point and the initial point of the
+// subpath, thus terminating the current subpath.
+//
+// Returns TRUE on success
+DLLEXPORT FPDF_BOOL FPDF_PathClose(FPDF_PAGEOBJECT path);
+
+// Set the drawing mode of a path.
+//
+// path     - the handle to the path object.
+// drawmode - the drawing mode to be set.
+// Use the "|" operator to set multiple drawing modes at the same time, for
+// instance FillAlternate | Stroke.
+//
+// Returns TRUE on success
+DLLEXPORT FPDF_BOOL FPDF_PathSetDrawMode(FPDF_PAGEOBJECT path,
+                                         FPDF_DRAWMODE drawmode);
 
 #ifdef __cplusplus
 }  // extern "C"
