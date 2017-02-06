@@ -1,0 +1,231 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fd365a9_14e239cd",
+        "filename": "core/fpdfapi/page/cpdf_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "Can this int be the actual enum type?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7657c67a_0e24cf67",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "Don\u0027t think this is needed since this is all new code.",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4790c24f_639c66c8",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "x, y aren\u0027t used?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16edd3e2_3a681ec4",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "This can be done before the cast line.\n\nWhy are all the values unsigned int except for A? Should it be unsigned int for consistency?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9749c5_3ac577c6",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a33cbbe4_1f4a0bd5",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "I don\u0027t think this can be nullptr if path is not nullptr.",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1e63c0e_46e4f635",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afdc7a41_ce1c02e0",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3337cff_b53d15a9",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333a51e0_a2e93ad8",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "Is this really an error? If the last point is already closed can\u0027t we just return true and be done?",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ff72d1a_e5b80291",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "444f24d2_6fc37b36",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "pPathObj-\u003em_bStroke \u003d (drawmode \u0026 FPDF_DRAWMODE::Stroke);",
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "500afd98_70a15bc2",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-06T21:36:53Z",
+      "side": 1,
+      "message": "drop the typedef and the bit at the very end. Just do:\n\nenum FPDF_DrawMode",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "9d70e814c3204b6bc43b1e023272d13c8901268e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
