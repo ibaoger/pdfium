@@ -61,7 +61,7 @@ CXFA_ContainerLayoutItem* CXFA_LayoutItem::GetPage() const {
   return nullptr;
 }
 
-void CXFA_LayoutItem::GetRect(CFX_RectF& rtLayout, bool bRelative) const {
+CFX_RectF CXFA_LayoutItem::GetRect(bool bRelative) const {
   ASSERT(m_bIsContentLayoutItem);
 
   const CXFA_ContentLayoutItem* pThis =
@@ -69,8 +69,9 @@ void CXFA_LayoutItem::GetRect(CFX_RectF& rtLayout, bool bRelative) const {
   CFX_PointF sPos = pThis->m_sPos;
   CFX_SizeF sSize = pThis->m_sSize;
   if (bRelative) {
+    CFX_RectF rtLayout;
     rtLayout.Set(sPos.x, sPos.y, sSize.x, sSize.y);
-    return;
+    return rtLayout;
   }
 
   for (CXFA_LayoutItem* pLayoutItem = pThis->m_pParent; pLayoutItem;
@@ -100,7 +101,9 @@ void CXFA_LayoutItem::GetRect(CFX_RectF& rtLayout, bool bRelative) const {
       break;
   }
 
+  CFX_RectF rtLayout;
   rtLayout.Set(sPos.x, sPos.y, sSize.x, sSize.y);
+  return rtLayout;
 }
 
 CXFA_LayoutItem* CXFA_LayoutItem::GetFirst() {
