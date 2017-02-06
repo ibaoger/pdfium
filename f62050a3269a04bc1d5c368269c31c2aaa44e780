@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91dc422_81fe2d44",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:56:16Z",
+      "side": 1,
+      "message": "This could also return a tuple with width and height (since you like tuples).",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23db76ca_d448cb3c",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:56:16Z",
+      "side": 1,
+      "message": "ditto except they may not be assigned (would have to check if callers set them to 0 or some default before)",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 51
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6aa91b9_3695eee2",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:56:16Z",
+      "side": 1,
+      "message": "This could go one up, so pointers go together? I almost thought this was a mistake",
+      "range": {
+        "startLine": 616,
+        "startChar": 13,
+        "endLine": 616,
+        "endChar": 31
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eec19fd_9fc4770a",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:56:16Z",
+      "side": 1,
+      "message": "ditto tuple",
+      "range": {
+        "startLine": 1025,
+        "startChar": 5,
+        "endLine": 1025,
+        "endChar": 36
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e94cdc05_a5463b56",
+        "filename": "xfa/fxfa/parser/xfa_layout_itemlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-06T16:56:16Z",
+      "side": 1,
+      "message": "typo, maybe you mean rend",
+      "range": {
+        "startLine": 1987,
+        "startChar": 71,
+        "endLine": 1987,
+        "endChar": 77
+      },
+      "revId": "f62050a3269a04bc1d5c368269c31c2aaa44e780",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
