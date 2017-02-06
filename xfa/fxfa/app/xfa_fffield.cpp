@@ -196,11 +196,10 @@ void CXFA_FFField::CapPlacement() {
                         rtWidget.height);
       } else {
         pItem = pItem->GetFirst();
-        pItem->GetRect(m_rtCaption);
+        m_rtCaption = pItem->GetRect(false);
         pItem = pItem->GetNext();
         while (pItem) {
-          CFX_RectF rtRect;
-          pItem->GetRect(rtRect);
+          CFX_RectF rtRect = pItem->GetRect(false);
           m_rtCaption.height += rtRect.Height();
           pItem = pItem->GetNext();
         }

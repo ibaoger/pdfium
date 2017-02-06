@@ -48,13 +48,13 @@ const CFWL_App* CXFA_FFWidget::GetFWLApp() {
 void CXFA_FFWidget::GetWidgetRect(CFX_RectF& rtWidget) {
   if ((m_dwStatus & XFA_WidgetStatus_RectCached) == 0) {
     m_dwStatus |= XFA_WidgetStatus_RectCached;
-    GetRect(m_rtWidget);
+    m_rtWidget = GetRect(false);
   }
   rtWidget = m_rtWidget;
 }
 CFX_RectF CXFA_FFWidget::ReCacheWidgetRect() {
   m_dwStatus |= XFA_WidgetStatus_RectCached;
-  GetRect(m_rtWidget);
+  m_rtWidget = GetRect(false);
   return m_rtWidget;
 }
 void CXFA_FFWidget::GetRectWithoutRotate(CFX_RectF& rtWidget) {
