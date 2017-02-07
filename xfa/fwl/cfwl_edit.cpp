@@ -231,8 +231,7 @@ void CFWL_Edit::DrawSpellCheck(CFX_Graphics* pGraphics,
   }
   if (!pathSpell.IsEmpty()) {
     CFX_RectF rtClip = m_rtEngine;
-    CFX_Matrix mt;
-    mt.Set(1, 0, 0, 1, fOffSetX, fOffSetY);
+    CFX_Matrix mt(1, 0, 0, 1, fOffSetX, fOffSetY);
     if (pMatrix) {
       pMatrix->TransformRect(rtClip);
       mt.Concat(*pMatrix);
@@ -408,7 +407,6 @@ void CFWL_Edit::OnCaretChanged() {
   bool bRepaintContent = UpdateOffset();
   UpdateCaret();
   CFX_RectF rtInvalid;
-  rtInvalid.Set(0, 0, 0, 0);
   bool bRepaintScroll = false;
   if (m_pProperties->m_dwStyleExes & FWL_STYLEEXT_EDT_MultiLine) {
     CFWL_ScrollBar* pScroll = UpdateScroll();
@@ -501,10 +499,9 @@ void CFWL_Edit::DrawTextBk(CFX_Graphics* pGraphics,
 
   CFX_RectF rtScroll = m_pHorzScrollBar->GetWidgetRect();
 
-  CFX_RectF rtStatic;
-  rtStatic.Set(m_rtClient.right() - rtScroll.height,
-               m_rtClient.bottom() - rtScroll.height, rtScroll.height,
-               rtScroll.height);
+  CFX_RectF rtStatic(m_rtClient.right() - rtScroll.height,
+                     m_rtClient.bottom() - rtScroll.height, rtScroll.height,
+                     rtScroll.height);
   param.m_bStaticBackground = true;
   param.m_bMaximize = true;
   param.m_rtPart = rtStatic;
@@ -525,8 +522,7 @@ void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
   CFX_RectF rtClip = m_rtEngine;
   FX_FLOAT fOffSetX = m_rtEngine.left - m_fScrollOffsetX;
   FX_FLOAT fOffSetY = m_rtEngine.top - m_fScrollOffsetY + m_fVAlignOffset;
-  CFX_Matrix mt;
-  mt.Set(1, 0, 0, 1, fOffSetX, fOffSetY);
+  CFX_Matrix mt(1, 0, 0, 1, fOffSetX, fOffSetY);
   if (pMatrix) {
     pMatrix->TransformRect(rtClip);
     mt.Concat(*pMatrix);
@@ -812,8 +808,7 @@ void CFWL_Edit::UpdateCaret() {
 
   rtFDE.Offset(m_rtEngine.left - m_fScrollOffsetX,
                m_rtEngine.top - m_fScrollOffsetY + m_fVAlignOffset);
-  CFX_RectF rtCaret;
-  rtCaret.Set(rtFDE.left, rtFDE.top, rtFDE.width, rtFDE.height);
+  CFX_RectF rtCaret(rtFDE.left, rtFDE.top, rtFDE.width, rtFDE.height);
 
   CFX_RectF rtClient = GetClientRect();
   rtCaret.Intersect(rtClient);
@@ -1312,9 +1307,8 @@ void CFWL_Edit::OnFocusChanged(CFWL_Message* pMsg, bool bSet) {
   if (!bRepaint)
     return;
 
-  CFX_RectF rtInvalidate;
-  rtInvalidate.Set(0, 0, m_pProperties->m_rtWidget.width,
-                   m_pProperties->m_rtWidget.height);
+  CFX_RectF rtInvalidate(0, 0, m_pProperties->m_rtWidget.width,
+                         m_pProperties->m_rtWidget.height);
   RepaintRect(rtInvalidate);
 }
 
@@ -1561,8 +1555,6 @@ bool CFWL_Edit::OnScroll(CFWL_ScrollBar* pScrollBar,
   UpdateCaret();
 
   CFX_RectF rect = GetWidgetRect();
-  CFX_RectF rtInvalidate;
-  rtInvalidate.Set(0, 0, rect.width + 2, rect.height + 2);
-  RepaintRect(rtInvalidate);
+  RepaintRect(CFX_RectF(0, 0, rect.width + 2, rect.height + 2));
   return true;
 }

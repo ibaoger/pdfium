@@ -45,8 +45,8 @@ void CXFA_FFPushButton::RenderWidget(CFX_Graphics* pGS,
   RenderHighlightCaption(pGS, &mtRotate);
   CFX_RectF rtWidget;
   GetRectWithoutRotate(rtWidget);
-  CFX_Matrix mt;
-  mt.Set(1, 0, 0, 1, rtWidget.left, rtWidget.top);
+
+  CFX_Matrix mt(1, 0, 0, 1, rtWidget.left, rtWidget.top);
   mt.Concat(mtRotate);
   GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, &mt);
 }
@@ -176,8 +176,7 @@ void CXFA_FFPushButton::RenderHighlightCaption(CFX_Graphics* pGS,
     GetRectWithoutRotate(rtWidget);
     CFX_RectF rtClip = m_rtCaption;
     rtClip.Intersect(rtWidget);
-    CFX_Matrix mt;
-    mt.Set(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
+    CFX_Matrix mt(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
     if (pMatrix) {
       pMatrix->TransformRect(rtClip);
       mt.Concat(*pMatrix);
@@ -216,7 +215,7 @@ void CXFA_FFPushButton::OnDrawWidget(CFX_Graphics* pGraphics,
     if ((m_pNormalWidget->GetStates() & FWL_STATE_PSB_Pressed) &&
         (m_pNormalWidget->GetStates() & FWL_STATE_PSB_Hovered)) {
       CFX_RectF rtFill = m_pNormalWidget->GetWidgetRect();
-      rtFill.left = rtFill.top = 0;
+      rtFill.Set(0, 0, rtFill.width, rtFill.height);
       FX_FLOAT fLineWith = GetLineWidth();
       rtFill.Deflate(fLineWith, fLineWith);
       CFX_Color cr(FXARGB_MAKE(128, 128, 255, 255));

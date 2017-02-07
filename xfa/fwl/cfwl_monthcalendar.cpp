@@ -125,8 +125,7 @@ FWL_Type CFWL_MonthCalendar::GetClassID() const {
 
 CFX_RectF CFWL_MonthCalendar::GetAutosizedWidgetRect() {
   CFX_SizeF fs = CalcSize();
-  CFX_RectF rect;
-  rect.Set(0, 0, fs.x, fs.y);
+  CFX_RectF rect(0, 0, fs.x, fs.y);
   InflateWidgetRect(rect);
   return rect;
 }
@@ -579,7 +578,6 @@ void CFWL_MonthCalendar::ResetDateItem() {
       dwStates |= FWL_ITEMSTATE_MCD_Selected;
 
     CFX_RectF rtDate;
-    rtDate.Set(0, 0, 0, 0);
     m_arrDates.push_back(pdfium::MakeUnique<DATEINFO>(i + 1, iDayOfWeek,
                                                       dwStates, rtDate, wsDay));
     iDayOfWeek++;
@@ -845,7 +843,6 @@ void CFWL_MonthCalendar::DisForm_OnLButtonUp(CFWL_MessageMouse* pMsg) {
 void CFWL_MonthCalendar::OnMouseMove(CFWL_MessageMouse* pMsg) {
   bool bRepaint = false;
   CFX_RectF rtInvalidate;
-  rtInvalidate.Set(0, 0, 0, 0);
   if (m_rtDates.Contains(pMsg->m_fx, pMsg->m_fy)) {
     int32_t iHover = GetDayAtPoint(pMsg->m_fx, pMsg->m_fy);
     bRepaint = m_iHovered != iHover;

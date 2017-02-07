@@ -281,8 +281,8 @@ bool CFWL_Widget::IsChild() const {
 }
 
 CFX_RectF CFWL_Widget::GetEdgeRect() {
-  CFX_RectF rtEdge = m_pProperties->m_rtWidget;
-  rtEdge.left = rtEdge.top = 0;
+  CFX_RectF rtEdge(0, 0, m_pProperties->m_rtWidget.width,
+                   m_pProperties->m_rtWidget.height);
   if (HasBorder()) {
     FX_FLOAT fCX = GetBorderSize(true);
     FX_FLOAT fCY = GetBorderSize(false);
@@ -299,10 +299,8 @@ FX_FLOAT CFWL_Widget::GetBorderSize(bool bCX) {
 }
 
 CFX_RectF CFWL_Widget::GetRelativeRect() {
-  CFX_RectF rect = m_pProperties->m_rtWidget;
-  rect.left = 0;
-  rect.top = 0;
-  return rect;
+  return CFX_RectF(0, 0, m_pProperties->m_rtWidget.width,
+                   m_pProperties->m_rtWidget.height);
 }
 
 IFWL_ThemeProvider* CFWL_Widget::GetAvailableTheme() {
@@ -345,10 +343,9 @@ CFX_SizeF CFWL_Widget::CalcTextSize(const CFX_WideString& wsText,
   calPart.m_dwTTOStyles =
       bMultiLine ? FDE_TTOSTYLE_LineWrap : FDE_TTOSTYLE_SingleLine;
   calPart.m_iTTOAlign = FDE_TTOALIGNMENT_TopLeft;
-  CFX_RectF rect;
   FX_FLOAT fWidth =
       bMultiLine ? FWL_WGT_CalcMultiLineDefWidth : FWL_WGT_CalcWidth;
-  rect.Set(0, 0, fWidth, FWL_WGT_CalcHeight);
+  CFX_RectF rect(0, 0, fWidth, FWL_WGT_CalcHeight);
   pTheme->CalcTextRect(&calPart, rect);
   return CFX_SizeF(rect.width, rect.height);
 }
@@ -535,11 +532,8 @@ void CFWL_Widget::DispatchEvent(CFWL_Event* pEvent) {
 }
 
 void CFWL_Widget::Repaint() {
-  CFX_RectF rect;
-  rect = m_pProperties->m_rtWidget;
-  rect.left = 0;
-  rect.top = 0;
-  RepaintRect(rect);
+  RepaintRect(CFX_RectF(0, 0, m_pProperties->m_rtWidget.width,
+                        m_pProperties->m_rtWidget.height));
 }
 
 void CFWL_Widget::RepaintRect(const CFX_RectF& pRect) {

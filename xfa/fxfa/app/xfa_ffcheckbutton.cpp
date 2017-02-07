@@ -232,8 +232,7 @@ void CXFA_FFCheckButton::RenderWidget(CFX_Graphics* pGS,
   RenderCaption(pGS, &mtRotate);
   DrawHighlight(pGS, &mtRotate, dwStatus,
                 m_pDataAcc->GetCheckButtonShape() == XFA_ATTRIBUTEENUM_Round);
-  CFX_Matrix mt;
-  mt.Set(1, 0, 0, 1, m_rtCheckBox.left, m_rtCheckBox.top);
+  CFX_Matrix mt(1, 0, 0, 1, m_rtCheckBox.left, m_rtCheckBox.top);
   mt.Concat(mtRotate);
   GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, &mt);
 }

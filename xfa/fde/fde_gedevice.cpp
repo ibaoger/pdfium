@@ -75,14 +75,14 @@ bool CFDE_RenderDevice::DrawImage(CFX_DIBSource* pDib,
                                   const CFX_Matrix* pImgMatrix,
                                   const CFX_Matrix* pDevMatrix) {
   CFX_RectF srcRect;
-  if (pSrcRect) {
+  if (pSrcRect)
     srcRect = *pSrcRect;
-  } else {
+  else
     srcRect.Set(0, 0, (FX_FLOAT)pDib->GetWidth(), (FX_FLOAT)pDib->GetHeight());
-  }
-  if (srcRect.IsEmpty()) {
+
+  if (srcRect.IsEmpty())
     return false;
-  }
+
   CFX_Matrix dib2fxdev;
   if (pImgMatrix) {
     dib2fxdev = *pImgMatrix;

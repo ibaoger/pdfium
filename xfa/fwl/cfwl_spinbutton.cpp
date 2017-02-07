@@ -253,7 +253,6 @@ void CFWL_SpinButton::OnMouseMove(CFWL_MessageMouse* pMsg) {
 
   bool bRepaint = false;
   CFX_RectF rtInvlidate;
-  rtInvlidate.Reset();
   if (m_rtUpButton.Contains(pMsg->m_fx, pMsg->m_fy)) {
     if (IsUpButtonEnabled()) {
       if (m_dwUpState == CFWL_PartState_Hovered) {
