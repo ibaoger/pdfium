@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74fdf662_520a6316",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T15:24:49Z",
+      "side": 1,
+      "message": "Can we pass pointers?",
+      "range": {
+        "startLine": 16,
+        "startChar": 30,
+        "endLine": 16,
+        "endChar": 39
+      },
+      "revId": "aafd082dd85a6d644aba53e2a7aae61f8dabd9b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
