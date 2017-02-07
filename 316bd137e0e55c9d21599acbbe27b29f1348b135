@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "409e704d_73d1d3a7",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T19:10:19Z",
+      "side": 1,
+      "message": "Here\u0027s a follow-up suggestion for each of these templates:\n\ntemplate \u003ctypename OtherType\u003e\nCFX_STemplate\u003cOtherType\u003e As() const {\n  return CFX_STemplate\u003cOtherType\u003e(static_cast\u003cotherType\u003e(width), static_cast\u003cotherType\u003e(height));\n}\n\n\nwhich might save a bunch of places where we\u0027ve got ugly cast n the code.",
+      "revId": "316bd137e0e55c9d21599acbbe27b29f1348b135",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
