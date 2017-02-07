@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "687a8f68_b060d9ae",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:14:21Z",
+      "side": 0,
+      "message": "If you really care about space, you can make this be a CFX_WideStringPool against which you intern the strings ...",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "c222907f453e8a0e6376a86f89354eedb8285854",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

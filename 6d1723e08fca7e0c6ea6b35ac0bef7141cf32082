@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4674be11_e3a8f096",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:14:21Z",
+      "side": 1,
+      "message": "do callers already have a widestring/widestringc  ?  splitting them up and then putting them together again is a losing pattern.",
+      "range": {
+        "startLine": 269,
+        "startChar": 38,
+        "endLine": 269,
+        "endChar": 61
+      },
+      "revId": "6d1723e08fca7e0c6ea6b35ac0bef7141cf32082",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c91fb33_4e805cb4",
+        "filename": "xfa/fde/css/cfde_cssstyleselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:14:21Z",
+      "side": 1,
+      "message": "Let\u0027s make this return a CFX_WideStringC.",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "6d1723e08fca7e0c6ea6b35ac0bef7141cf32082",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
