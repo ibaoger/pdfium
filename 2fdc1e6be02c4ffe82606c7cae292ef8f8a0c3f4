@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "440730e1_a4a073d3",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-07T17:38:46Z",
+      "side": 1,
+      "message": "one per line. (and pPoints above)",
+      "revId": "2fdc1e6be02c4ffe82606c7cae292ef8f8a0c3f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
