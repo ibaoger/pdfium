@@ -89,7 +89,8 @@ void CScript_HostPseudoModel::Language(CFXJSE_Value* pValue,
     return;
   }
   pValue->SetString(
-      FX_UTF8Encode(pNotify->GetAppProvider()->GetLanguage()).AsStringC());
+      FX_UTF8Encode(pNotify->GetAppProvider()->GetLanguage().AsStringC())
+          .AsStringC());
 }
 
 void CScript_HostPseudoModel::NumPages(CFXJSE_Value* pValue,
@@ -118,7 +119,8 @@ void CScript_HostPseudoModel::Platform(CFXJSE_Value* pValue,
     return;
   }
   pValue->SetString(
-      FX_UTF8Encode(pNotify->GetAppProvider()->GetPlatform()).AsStringC());
+      FX_UTF8Encode(pNotify->GetAppProvider()->GetPlatform().AsStringC())
+          .AsStringC());
 }
 void CScript_HostPseudoModel::Title(CFXJSE_Value* pValue,
                                     bool bSetting,
@@ -137,7 +139,7 @@ void CScript_HostPseudoModel::Title(CFXJSE_Value* pValue,
   }
   CFX_WideString wsTitle;
   pNotify->GetDocEnvironment()->GetTitle(hDoc, wsTitle);
-  pValue->SetString(FX_UTF8Encode(wsTitle).AsStringC());
+  pValue->SetString(FX_UTF8Encode(wsTitle.AsStringC()).AsStringC());
 }
 
 void CScript_HostPseudoModel::ValidationsEnabled(CFXJSE_Value* pValue,
@@ -199,7 +201,8 @@ void CScript_HostPseudoModel::Name(CFXJSE_Value* pValue,
     return;
   }
   pValue->SetString(
-      FX_UTF8Encode(pNotify->GetAppProvider()->GetAppName()).AsStringC());
+      FX_UTF8Encode(pNotify->GetAppProvider()->GetAppName().AsStringC())
+          .AsStringC());
 }
 
 void CScript_HostPseudoModel::GotoURL(CFXJSE_Arguments* pArguments) {
@@ -306,7 +309,7 @@ void CScript_HostPseudoModel::Response(CFXJSE_Arguments* pArguments) {
       wsQuestion, wsTitle, wsDefaultAnswer, bMark);
   CFXJSE_Value* pValue = pArguments->GetReturnValue();
   if (pValue)
-    pValue->SetString(FX_UTF8Encode(wsAnswer).AsStringC());
+    pValue->SetString(FX_UTF8Encode(wsAnswer.AsStringC()).AsStringC());
 }
 
 void CScript_HostPseudoModel::DocumentInBatch(CFXJSE_Arguments* pArguments) {
@@ -674,7 +677,7 @@ void CScript_HostPseudoModel::CurrentDateTime(CFXJSE_Arguments* pArguments) {
   CFX_WideString wsDataTime = pNotify->GetCurrentDateTime();
   CFXJSE_Value* pValue = pArguments->GetReturnValue();
   if (pValue)
-    pValue->SetString(FX_UTF8Encode(wsDataTime).AsStringC());
+    pValue->SetString(FX_UTF8Encode(wsDataTime.AsStringC()).AsStringC());
 }
 
 void CScript_HostPseudoModel::ThrowSetLanguageException() const {

@@ -2026,7 +2026,7 @@ bool CXFA_FM2JSContext::IsoDate2Local(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strLocalDate = FX_UTF8Encode(wsRet.c_str(), wsRet.GetLength());
+  strLocalDate = FX_UTF8Encode(wsRet.AsStringC());
   return true;
 }
 
@@ -2065,7 +2065,7 @@ bool CXFA_FM2JSContext::IsoTime2Local(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strLocalTime = FX_UTF8Encode(wsRet.c_str(), wsRet.GetLength());
+  strLocalTime = FX_UTF8Encode(wsRet.AsStringC());
   return true;
 }
 
@@ -2104,7 +2104,7 @@ bool CXFA_FM2JSContext::GetGMTTime(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strGMTTime = FX_UTF8Encode(wsRet.c_str(), wsRet.GetLength());
+  strGMTTime = FX_UTF8Encode(wsRet.AsStringC());
   return true;
 }
 
@@ -2213,7 +2213,7 @@ void CXFA_FM2JSContext::GetLocalDateFormat(CFXJSE_Value* pThis,
     pLocale->GetDateTimeSymbols(wsSymbols);
     AlternateDateTimeSymbols(strRet, wsSymbols, g_sAltTable_Date);
   }
-  strFormat = FX_UTF8Encode(strRet.c_str(), strRet.GetLength());
+  strFormat = FX_UTF8Encode(strRet.AsStringC());
 }
 
 // static
@@ -2264,7 +2264,7 @@ void CXFA_FM2JSContext::GetLocalTimeFormat(CFXJSE_Value* pThis,
     pLocale->GetDateTimeSymbols(wsSymbols);
     AlternateDateTimeSymbols(strRet, wsSymbols, g_sAltTable_Time);
   }
-  strFormat = FX_UTF8Encode(strRet.c_str(), strRet.GetLength());
+  strFormat = FX_UTF8Encode(strRet.AsStringC());
 }
 
 // static
@@ -2959,10 +2959,8 @@ void CXFA_FM2JSContext::Eval(CFXJSE_Value* pThis,
       CFXJSE_Context::Create(pIsolate, nullptr, nullptr));
 
   auto returnValue = pdfium::MakeUnique<CFXJSE_Value>(pIsolate);
-  CFX_WideString javaScript(wsJavaScriptBuf.AsStringC());
-  pNewContext->ExecuteScript(
-      FX_UTF8Encode(javaScript.c_str(), javaScript.GetLength()).c_str(),
-      returnValue.get());
+  pNewContext->ExecuteScript(FX_UTF8Encode(wsJavaScriptBuf.AsStringC()).c_str(),
+                             returnValue.get());
 
   args.GetReturnValue()->Assign(returnValue.get());
 }
@@ -3430,9 +3428,7 @@ void CXFA_FM2JSContext::DecodeURL(const CFX_ByteStringC& szURLString,
   wsResultBuf.AppendChar(0);
 
   szResultString.Clear();
-  szResultString << FX_UTF8Encode(wsResultBuf.GetBuffer(),
-                                  wsResultBuf.GetLength())
-                        .AsStringC();
+  szResultString << FX_UTF8Encode(wsResultBuf.AsStringC()).AsStringC();
 }
 
 // static
@@ -3508,9 +3504,7 @@ void CXFA_FM2JSContext::DecodeHTML(const CFX_ByteStringC& szHTMLString,
   wsResultBuf.AppendChar(0);
 
   szResultString.Clear();
-  szResultString << FX_UTF8Encode(wsResultBuf.GetBuffer(),
-                                  wsResultBuf.GetLength())
-                        .AsStringC();
+  szResultString << FX_UTF8Encode(wsResultBuf.AsStringC());
 }
 
 // static
@@ -3612,8 +3606,7 @@ void CXFA_FM2JSContext::DecodeXML(const CFX_ByteStringC& szXMLString,
   wsXMLBuf.AppendChar(0);
 
   szResultString.Clear();
-  szResultString << FX_UTF8Encode(wsXMLBuf.GetBuffer(), wsXMLBuf.GetLength())
-                        .AsStringC();
+  szResultString << FX_UTF8Encode(wsXMLBuf.AsStringC()).AsStringC();
 }
 
 // static
@@ -3761,9 +3754,7 @@ void CXFA_FM2JSContext::EncodeURL(const CFX_ByteStringC& szURLString,
   }
   wsResultBuf.AppendChar(0);
   szResultBuf.Clear();
-
-  szResultBuf << FX_UTF8Encode(wsResultBuf.GetBuffer(), wsResultBuf.GetLength())
-                     .AsStringC();
+  szResultBuf << FX_UTF8Encode(wsResultBuf.AsStringC());
 }
 
 // static
@@ -3813,9 +3804,7 @@ void CXFA_FM2JSContext::EncodeHTML(const CFX_ByteStringC& szHTMLString,
   }
   wsResultBuf.AppendChar(0);
   szResultBuf.Clear();
-
-  szResultBuf << FX_UTF8Encode(wsResultBuf.GetBuffer(), wsResultBuf.GetLength())
-                     .AsStringC();
+  szResultBuf << FX_UTF8Encode(wsResultBuf.AsStringC());
 }
 
 // static
@@ -3886,9 +3875,7 @@ void CXFA_FM2JSContext::EncodeXML(const CFX_ByteStringC& szXMLString,
   }
   wsResultBuf.AppendChar(0);
   szResultBuf.Clear();
-
-  szResultBuf << FX_UTF8Encode(wsResultBuf.GetBuffer(), wsResultBuf.GetLength())
-                     .AsStringC();
+  szResultBuf << FX_UTF8Encode(wsResultBuf.AsStringC());
 }
 
 // static
@@ -4010,7 +3997,7 @@ void CXFA_FM2JSContext::Format(CFXJSE_Value* pThis,
   }
 
   args.GetReturnValue()->SetString(
-      FX_UTF8Encode(wsRet.c_str(), wsRet.GetLength()).AsStringC());
+      FX_UTF8Encode(wsRet.AsStringC()).AsStringC());
 }
 
 // static
@@ -4091,8 +4078,7 @@ void CXFA_FM2JSContext::Lower(CFXJSE_Value* pThis,
   lowStringBuf.AppendChar(0);
 
   args.GetReturnValue()->SetString(
-      FX_UTF8Encode(lowStringBuf.GetBuffer(), lowStringBuf.GetLength())
-          .AsStringC());
+      FX_UTF8Encode(lowStringBuf.AsStringC()).AsStringC());
 }
 
 // static
@@ -4156,7 +4142,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
       return;
     }
     args.GetReturnValue()->SetString(
-        FX_UTF8Encode(localeValue.GetValue()).AsStringC());
+        FX_UTF8Encode(localeValue.GetValue().AsStringC()).AsStringC());
     return;
   }
 
@@ -4173,7 +4159,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
         return;
       }
       args.GetReturnValue()->SetString(
-          FX_UTF8Encode(localeValue.GetValue()).AsStringC());
+          FX_UTF8Encode(localeValue.GetValue().AsStringC()).AsStringC());
       return;
     }
     case XFA_VT_DATE: {
@@ -4185,7 +4171,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
         return;
       }
       args.GetReturnValue()->SetString(
-          FX_UTF8Encode(localeValue.GetValue()).AsStringC());
+          FX_UTF8Encode(localeValue.GetValue().AsStringC()).AsStringC());
       return;
     }
     case XFA_VT_TIME: {
@@ -4197,7 +4183,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
         return;
       }
       args.GetReturnValue()->SetString(
-          FX_UTF8Encode(localeValue.GetValue()).AsStringC());
+          FX_UTF8Encode(localeValue.GetValue().AsStringC()).AsStringC());
       return;
     }
     case XFA_VT_TEXT: {
@@ -4209,7 +4195,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
         return;
       }
       args.GetReturnValue()->SetString(
-          FX_UTF8Encode(localeValue.GetValue()).AsStringC());
+          FX_UTF8Encode(localeValue.GetValue().AsStringC()).AsStringC());
       return;
     }
     case XFA_VT_FLOAT: {
@@ -4241,7 +4227,7 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
         return;
       }
       args.GetReturnValue()->SetString(
-          FX_UTF8Encode(localeValue2.GetValue()).AsStringC());
+          FX_UTF8Encode(localeValue2.GetValue().AsStringC()).AsStringC());
       return;
     }
   }
@@ -4640,8 +4626,7 @@ void CXFA_FM2JSContext::Upper(CFXJSE_Value* pThis,
   upperStringBuf.AppendChar(0);
 
   args.GetReturnValue()->SetString(
-      FX_UTF8Encode(upperStringBuf.GetBuffer(), upperStringBuf.GetLength())
-          .AsStringC());
+      FX_UTF8Encode(upperStringBuf.AsStringC()).AsStringC());
 }
 
 // static
@@ -4933,8 +4918,7 @@ void CXFA_FM2JSContext::Post(CFXJSE_Value* pThis,
   }
 
   args.GetReturnValue()->SetString(
-      FX_UTF8Encode(decodedResponse.c_str(), decodedResponse.GetLength())
-          .AsStringC());
+      FX_UTF8Encode(decodedResponse.AsStringC()).AsStringC());
 }
 
 // static
@@ -5680,9 +5664,8 @@ void CXFA_FM2JSContext::eval_translation(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_WideString javaScript = wsJavaScriptBuf.MakeString();
   args.GetReturnValue()->SetString(
-      FX_UTF8Encode(javaScript.c_str(), javaScript.GetLength()).AsStringC());
+      FX_UTF8Encode(wsJavaScriptBuf.AsStringC()).AsStringC());
 }
 
 // static
@@ -6439,6 +6422,5 @@ void CXFA_FM2JSContext::ThrowException(const FX_WCHAR* str, ...) const {
   va_start(arg_ptr, str);
   wsMessage.FormatV(str, arg_ptr);
   va_end(arg_ptr);
-  FXJSE_ThrowMessage(
-      FX_UTF8Encode(wsMessage.c_str(), wsMessage.GetLength()).AsStringC());
+  FXJSE_ThrowMessage(FX_UTF8Encode(wsMessage.AsStringC()).AsStringC());
 }
