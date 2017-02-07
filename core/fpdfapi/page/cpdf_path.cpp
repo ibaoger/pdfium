@@ -28,8 +28,12 @@ FX_PATHPOINT* CPDF_Path::GetMutablePoints() {
   return m_Ref.GetPrivateCopy()->GetPoints();
 }
 
-int CPDF_Path::GetFlag(int index) const {
-  return m_Ref.GetObject()->GetFlag(index);
+FXPT_TYPE CPDF_Path::GetType(int index) const {
+  return m_Ref.GetObject()->GetType(index);
+}
+
+bool CPDF_Path::IsClosingFigure(int index) const {
+  return m_Ref.GetObject()->IsClosingFigure(index);
 }
 
 FX_FLOAT CPDF_Path::GetPointX(int index) const {

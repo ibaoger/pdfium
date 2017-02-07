@@ -27,7 +27,8 @@ class CPDF_Path {
   const FX_PATHPOINT* GetPoints() const;
   FX_PATHPOINT* GetMutablePoints();
 
-  int GetFlag(int index) const;
+  FXPT_TYPE GetType(int index) const;
+  bool IsClosingFigure(int index) const;
   FX_FLOAT GetPointX(int index) const;
   FX_FLOAT GetPointY(int index) const;
   CFX_FloatRect GetBoundingBox() const;
