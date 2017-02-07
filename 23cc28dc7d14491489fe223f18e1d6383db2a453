@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "dadfb644_3832971b",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d5c2a43_df00be46",
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfa82fd9_793e5eb2",
         "filename": "fpdfsdk/fpdfview_c_api_test.c",
         "patchSetId": 5
@@ -42,6 +60,24 @@
         "endLine": 94,
         "endChar": 24
       },
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a8dab3_50d24d8b",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Typo",
+      "parentUuid": "bfa82fd9_793e5eb2",
       "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "f51b801a_83677ac8",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b5456a5_a1e59f2a",
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6c48725_ec4df416",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 5
@@ -88,6 +142,24 @@
         "endLine": 285,
         "endChar": 43
       },
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb8d4ee8_7ebec7cc",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Well, this just calls AppendRect, which doesn\u0027t fail.",
+      "parentUuid": "b6c48725_ec4df416",
       "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "f6ca0d82_03e6ecde",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b349c9_8bd8c053",
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ccd64a35_759ae8f3",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 5
@@ -137,6 +227,24 @@
       "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d31a9fb_5d77c150",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd64a35_759ae8f3",
+      "revId": "23cc28dc7d14491489fe223f18e1d6383db2a453",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
