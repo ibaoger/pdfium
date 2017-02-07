@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "680356c9_d909d010",
+        "filename": "core/fpdfapi/render/cpdf_type3cache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "nit: combine with declaration",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 14
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfe5d004_53b04909",
+        "filename": "core/fpdfdoc/cpdf_defaultappearance.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "there\u0027s a Set() that takes a single float[6] arg, maybe have a ctor that takes the same.",
+      "range": {
+        "startLine": 222,
+        "startChar": 1,
+        "endLine": 222,
+        "endChar": 56
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f839db96_995a0ac7",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "return by value?",
+      "range": {
+        "startLine": 1336,
+        "startChar": 2,
+        "endLine": 1336,
+        "endChar": 44
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c875597b_fb10e03a",
         "filename": "core/fxge/agg/fx_agg_driver.cpp",
         "patchSetId": 1
@@ -31,6 +100,29 @@
       "side": 1,
       "message": "It spaces the code into logical chunks which I think makes it easier to read.",
       "parentUuid": "c875597b_fb10e03a",
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c2448e_a790c666",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "copy ctor instead?  eg.  Concat isn\u0027t safe against itelf (sigh) so CFX_Matrix(matrix)",
+      "range": {
+        "startLine": 759,
+        "startChar": 28,
+        "endLine": 759,
+        "endChar": 38
+      },
       "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -192,6 +284,52 @@
       "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c8fd9ba_cc22de96",
+        "filename": "xfa/fwl/cfwl_listbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "check to see if local needed, probably just\n\nRepaintRect(CFX_RectF(...))l",
+      "range": {
+        "startLine": 834,
+        "startChar": 2,
+        "endLine": 834,
+        "endChar": 24
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a14d94_39823735",
+        "filename": "xfa/fxfa/app/xfa_ffdocview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:38:31Z",
+      "side": 1,
+      "message": "why not copy ctor?  e.g.\n\npdfium::MakeUnique\u003cCFX_RectF\u003e(rtInvalidate);",
+      "range": {
+        "startLine": 555,
+        "startChar": 36,
+        "endLine": 556,
+        "endChar": 74
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
