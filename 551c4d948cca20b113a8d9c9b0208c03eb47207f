@@ -22,6 +22,24 @@
       "revId": "551c4d948cca20b113a8d9c9b0208c03eb47207f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc261b9_c8f82de6",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-07T14:09:34Z",
+      "side": 0,
+      "message": "We don\u0027t support url() so I figure we don\u0027t need to parse it.",
+      "parentUuid": "ca746b77_6e25a7a0",
+      "revId": "551c4d948cca20b113a8d9c9b0208c03eb47207f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

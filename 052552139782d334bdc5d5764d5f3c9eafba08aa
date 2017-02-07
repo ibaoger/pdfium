@@ -22,6 +22,24 @@
       "revId": "052552139782d334bdc5d5764d5f3c9eafba08aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0104ccbc_cebc9c43",
+        "filename": "xfa/fde/css/cfde_cssvaluelistparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-07T14:09:34Z",
+      "side": 1,
+      "message": "Yes, I moved the increment of the m_pCur to move off of the \" or \u0027 to outside the SkipTo method which simplifies things internally. This m_pCur moves off the last \" or \u0027.",
+      "parentUuid": "0bb188d5_c0333751",
+      "revId": "052552139782d334bdc5d5764d5f3c9eafba08aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
