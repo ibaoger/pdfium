@@ -85,6 +85,15 @@ int CheckPDFiumCApi() {
     CHK(FPDFImageObj_LoadJpegFile);
     CHK(FPDFImageObj_SetMatrix);
     CHK(FPDFImageObj_SetBitmap);
+    CHK(FPDFPageObj_CreateNewPath);
+    CHK(FPDFPageObj_CreateNewRect);
+    CHK(FPDFPath_SetStrokeColor);
+    CHK(FPDFPath_SetFillColor);
+    CHK(FPDFPath_MoveTo);
+    CHK(FPDFPath_LineTo);
+    CHK(FPDF_PathBezierTo);
+    CHK(FPDF_PathClose);
+    CHK(FPDF_PathSetDrawMode);
 
     // fpdf_ext.h
     CHK(FSDK_SetUnSpObjProcessHandler);
