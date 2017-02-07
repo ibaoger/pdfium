@@ -168,20 +168,20 @@ int32_t CFDE_TextOut::GetTotalLines() {
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             CFX_Size& size) {
-  CFX_RectF rtText(0.0f, 0.0f, static_cast<FX_FLOAT>(size.x),
-                   static_cast<FX_FLOAT>(size.y));
+  CFX_RectF rtText(0.0f, 0.0f, static_cast<FX_FLOAT>(size.width),
+                   static_cast<FX_FLOAT>(size.height));
   CalcSize(pwsStr, iLength, rtText);
-  size.x = (int32_t)rtText.Width();
-  size.y = (int32_t)rtText.Height();
+  size.width = static_cast<int32_t>(rtText.Width());
+  size.height = static_cast<int32_t>(rtText.Height());
 }
 
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             CFX_SizeF& size) {
-  CFX_RectF rtText(0.0f, 0.0f, size.x, size.y);
+  CFX_RectF rtText(0.0f, 0.0f, size.width, size.height);
   CalcSize(pwsStr, iLength, rtText);
-  size.x = rtText.Width();
-  size.y = rtText.Height();
+  size.width = rtText.Width();
+  size.height = rtText.Height();
 }
 
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
@@ -216,10 +216,9 @@ void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
 void CFDE_TextOut::CalcLogicSize(const FX_WCHAR* pwsStr,
                                  int32_t iLength,
                                  CFX_SizeF& size) {
-  CFX_RectF rtText(0.0f, 0.0f, size.x, size.y);
+  CFX_RectF rtText(0.0f, 0.0f, size.width, size.height);
   CalcLogicSize(pwsStr, iLength, rtText);
-  size.x = rtText.Width();
-  size.y = rtText.Height();
+  size = rtText.Size();
 }
 
 void CFDE_TextOut::CalcLogicSize(const FX_WCHAR* pwsStr,
