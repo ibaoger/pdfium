@@ -22,6 +22,24 @@
       "revId": "e73d5c8eaaea2bd48ac82c5b0eca6d75c499af85",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dc03d7c_02bf3dbe",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-07T19:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb20c3d_7acc272a",
+      "revId": "e73d5c8eaaea2bd48ac82c5b0eca6d75c499af85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
