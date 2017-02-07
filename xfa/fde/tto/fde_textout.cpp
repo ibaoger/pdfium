@@ -166,8 +166,7 @@ int32_t CFDE_TextOut::GetTotalLines() {
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             CFX_Size& size) {
-  CFX_RectF rtText;
-  rtText.Set(0.0f, 0.0f, (FX_FLOAT)size.x, (FX_FLOAT)size.y);
+  CFX_RectF rtText(0.0f, 0.0f, (FX_FLOAT)size.x, (FX_FLOAT)size.y);
   CalcSize(pwsStr, iLength, rtText);
   size.x = (int32_t)rtText.Width();
   size.y = (int32_t)rtText.Height();
@@ -176,8 +175,7 @@ void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             CFX_SizeF& size) {
-  CFX_RectF rtText;
-  rtText.Set(0.0f, 0.0f, size.x, size.y);
+  CFX_RectF rtText(0.0f, 0.0f, size.x, size.y);
   CalcSize(pwsStr, iLength, rtText);
   size.x = rtText.Width();
   size.y = rtText.Height();
@@ -186,9 +184,8 @@ void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
 void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             CFX_Rect& rect) {
-  CFX_RectF rtText;
-  rtText.Set((FX_FLOAT)rect.left, (FX_FLOAT)rect.top, (FX_FLOAT)rect.Width(),
-             (FX_FLOAT)rect.Height());
+  CFX_RectF rtText((FX_FLOAT)rect.left, (FX_FLOAT)rect.top,
+                   (FX_FLOAT)rect.Width(), (FX_FLOAT)rect.Height());
   CalcSize(pwsStr, iLength, rtText);
   rect.Set((int32_t)rtText.left, (int32_t)rtText.top, (int32_t)rtText.Width(),
            (int32_t)rtText.Height());
@@ -212,8 +209,7 @@ void CFDE_TextOut::CalcSize(const FX_WCHAR* pwsStr,
 void CFDE_TextOut::CalcLogicSize(const FX_WCHAR* pwsStr,
                                  int32_t iLength,
                                  CFX_SizeF& size) {
-  CFX_RectF rtText;
-  rtText.Set(0.0f, 0.0f, size.x, size.y);
+  CFX_RectF rtText(0.0f, 0.0f, size.x, size.y);
   CalcLogicSize(pwsStr, iLength, rtText);
   size.x = rtText.Width();
   size.y = rtText.Height();
@@ -346,9 +342,8 @@ void CFDE_TextOut::DrawText(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             int32_t x,
                             int32_t y) {
-  CFX_RectF rtText;
-  rtText.Set((FX_FLOAT)x, (FX_FLOAT)y, m_fFontSize * 1000.0f,
-             m_fFontSize * 1000.0f);
+  CFX_RectF rtText((FX_FLOAT)x, (FX_FLOAT)y, m_fFontSize * 1000.0f,
+                   m_fFontSize * 1000.0f);
   DrawText(pwsStr, iLength, rtText);
 }
 
@@ -356,25 +351,22 @@ void CFDE_TextOut::DrawText(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             FX_FLOAT x,
                             FX_FLOAT y) {
-  CFX_RectF rtText;
-  rtText.Set(x, y, m_fFontSize * 1000.0f, m_fFontSize * 1000.0f);
+  CFX_RectF rtText(x, y, m_fFontSize * 1000.0f, m_fFontSize * 1000.0f);
   DrawText(pwsStr, iLength, rtText);
 }
 
 void CFDE_TextOut::DrawText(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             const CFX_Rect& rect) {
-  CFX_RectF rtText;
-  rtText.Set((FX_FLOAT)rect.left, (FX_FLOAT)rect.top, (FX_FLOAT)rect.width,
-             (FX_FLOAT)rect.height);
+  CFX_RectF rtText((FX_FLOAT)rect.left, (FX_FLOAT)rect.top,
+                   (FX_FLOAT)rect.width, (FX_FLOAT)rect.height);
   DrawText(pwsStr, iLength, rtText);
 }
 
 void CFDE_TextOut::DrawText(const FX_WCHAR* pwsStr,
                             int32_t iLength,
                             const CFX_RectF& rect) {
-  CFX_RectF rtText;
-  rtText.Set(rect.left, rect.top, rect.width, rect.height);
+  CFX_RectF rtText(rect.left, rect.top, rect.width, rect.height);
   CFX_Matrix rm;
   rm.SetReverse(m_Matrix);
   rm.TransformRect(rtText);
@@ -385,17 +377,15 @@ void CFDE_TextOut::DrawLogicText(const FX_WCHAR* pwsStr,
                                  int32_t iLength,
                                  FX_FLOAT x,
                                  FX_FLOAT y) {
-  CFX_RectF rtText;
-  rtText.Set(x, y, m_fFontSize * 1000.0f, m_fFontSize * 1000.0f);
+  CFX_RectF rtText(x, y, m_fFontSize * 1000.0f, m_fFontSize * 1000.0f);
   DrawLogicText(pwsStr, iLength, rtText);
 }
 
 void CFDE_TextOut::DrawLogicText(const FX_WCHAR* pwsStr,
                                  int32_t iLength,
                                  const CFX_RectF& rect) {
-  CFX_RectF rtClip;
-  rtClip.Set(m_rtLogicClip.left, m_rtLogicClip.top, m_rtLogicClip.width,
-             m_rtLogicClip.height);
+  CFX_RectF rtClip(m_rtLogicClip.left, m_rtLogicClip.top, m_rtLogicClip.width,
+                   m_rtLogicClip.height);
   m_Matrix.TransformRect(rtClip);
   DrawText(pwsStr, iLength, rect, rtClip);
 }

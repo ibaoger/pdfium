@@ -609,6 +609,15 @@ class CFX_Matrix {
     f = f1;
   }
 
+  void operator=(const CFX_Matrix& other) {
+    a = other.a;
+    b = other.b;
+    c = other.c;
+    d = other.d;
+    e = other.e;
+    f = other.f;
+  }
+
   void Set(FX_FLOAT a,
            FX_FLOAT b,
            FX_FLOAT c,

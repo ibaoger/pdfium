@@ -551,10 +551,9 @@ void CXFA_FFDocView::AddInvalidateRect(CXFA_FFPageView* pPageView,
     m_mapPageInvalidate[pPageView]->Union(rtInvalidate);
     return;
   }
-  CFX_RectF* pRect = new CFX_RectF;
-  pRect->Set(rtInvalidate.left, rtInvalidate.top, rtInvalidate.width,
-             rtInvalidate.height);
-  m_mapPageInvalidate[pPageView].reset(pRect);
+  m_mapPageInvalidate[pPageView] =
+      pdfium::MakeUnique<CFX_RectF>(rtInvalidate.left, rtInvalidate.top,
+                                    rtInvalidate.width, rtInvalidate.height);
 }
 
 void CXFA_FFDocView::RunInvalidate() {

@@ -327,8 +327,10 @@ void DrawFuncShading(CFX_DIBitmap* pBitmap,
     ymax = pDomain->GetNumberAt(3);
   }
   CFX_Matrix mtDomain2Target = pDict->GetMatrixFor("Matrix");
-  CFX_Matrix matrix, reverse_matrix;
+  CFX_Matrix matrix;
   matrix.SetReverse(*pObject2Bitmap);
+
+  CFX_Matrix reverse_matrix;
   reverse_matrix.SetReverse(mtDomain2Target);
   matrix.Concat(reverse_matrix);
   int width = pBitmap->GetWidth();
@@ -888,6 +890,7 @@ std::unique_ptr<CFX_DIBitmap> DrawPatternBitmap(
   CFX_FloatRect bitmap_rect(0.0f, 0.0f, (FX_FLOAT)width, (FX_FLOAT)height);
   CFX_Matrix mtAdjust;
   mtAdjust.MatchRect(bitmap_rect, cell_bbox);
+
   CFX_Matrix mtPattern2Bitmap = *pObject2Device;
   mtPattern2Bitmap.Concat(mtAdjust);
   CPDF_RenderOptions options;

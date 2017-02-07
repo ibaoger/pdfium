@@ -1348,10 +1348,9 @@ static void XFA_BOX_GetPath(CXFA_Box box,
     if (bInverted) {
       sy *= -1;
     }
-    CFX_RectF rtRadius;
-    rtRadius.Set(cp1.x + offsetX * 2, cp1.y + offsetY * 2,
-                 fRadius1 * 2 * vx - offsetX * 2,
-                 fRadius1 * 2 * vy - offsetY * 2);
+    CFX_RectF rtRadius(cp1.x + offsetX * 2, cp1.y + offsetY * 2,
+                       fRadius1 * 2 * vx - offsetX * 2,
+                       fRadius1 * 2 * vy - offsetY * 2);
     rtRadius.Normalize();
     if (bInverted) {
       rtRadius.Offset(-fRadius1 * vx, -fRadius1 * vy);
@@ -1501,8 +1500,7 @@ static void XFA_BOX_GetFillPath(CXFA_Box box,
       if (bInverted) {
         sy *= -1;
       }
-      CFX_RectF rtRadius;
-      rtRadius.Set(cp1.x, cp1.y, fRadius1 * 2 * vx, fRadius1 * 2 * vy);
+      CFX_RectF rtRadius(cp1.x, cp1.y, fRadius1 * 2 * vx, fRadius1 * 2 * vy);
       rtRadius.Normalize();
       if (bInverted) {
         rtRadius.Offset(-fRadius1 * vx, -fRadius1 * vy);

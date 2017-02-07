@@ -198,8 +198,6 @@ CFX_RectF CFWL_ScrollBar::CalcMaxButtonRect() {
 
 CFX_RectF CFWL_ScrollBar::CalcThumbButtonRect(const CFX_RectF& rtThumb) {
   CFX_RectF rect;
-  rect.Reset();
-
   if (!IsEnabled())
     return rect;
 
@@ -251,8 +249,6 @@ CFX_RectF CFWL_ScrollBar::CalcThumbButtonRect(const CFX_RectF& rtThumb) {
 
 CFX_RectF CFWL_ScrollBar::CalcMinTrackRect(const CFX_RectF& rtMinRect) {
   CFX_RectF rect;
-  rect.Reset();
-
   if (m_bMinSize) {
     rect.left = rtMinRect.left;
     rect.top = rtMinRect.top;

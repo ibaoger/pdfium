@@ -138,9 +138,8 @@ void CFWL_CheckBox::Layout() {
                   m_rtClient.height);
   m_rtCaption.Inflate(-kCaptionMargin, -kCaptionMargin);
 
-  CFX_RectF rtFocus;
-  rtFocus.Set(m_rtCaption.left, m_rtCaption.top, m_rtCaption.width,
-              m_rtCaption.height);
+  CFX_RectF rtFocus(m_rtCaption.left, m_rtCaption.top, m_rtCaption.width,
+                    m_rtCaption.height);
 
   CalcTextRect(L"Check box", m_pProperties->m_pThemeProvider, m_dwTTOStyles,
                m_iTTOAlign, rtFocus);
@@ -196,7 +195,7 @@ void CFWL_CheckBox::NextStates() {
               pCheckBox->GetStates() & FWL_STATE_CKB_Checked) {
             pCheckBox->SetCheckState(0);
             CFX_RectF rt = pCheckBox->GetWidgetRect();
-            rt.left = rt.top = 0;
+            rt.Set(0, 0, rt.width, rt.height);
             m_pWidgetMgr->RepaintWidget(pCheckBox, rt);
             break;
           }

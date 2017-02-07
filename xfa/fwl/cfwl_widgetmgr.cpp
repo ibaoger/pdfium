@@ -267,9 +267,10 @@ CFWL_Widget* CFWL_WidgetMgr::GetWidgetAtPoint(CFWL_Widget* parent,
     if ((child->GetStates() & FWL_WGTSTATE_Invisible) == 0) {
       x1 = x;
       y1 = y;
-      CFX_Matrix matrixOnParent;
       CFX_Matrix m;
       m.SetIdentity();
+
+      CFX_Matrix matrixOnParent;
       m.SetReverse(matrixOnParent);
       m.TransformPoint(x1, y1);
       CFX_RectF bounds = child->GetWidgetRect();
@@ -429,7 +430,7 @@ void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
     return;
 
   CFX_RectF clipCopy = pWidget->GetWidgetRect();
-  clipCopy.left = clipCopy.top = 0;
+  clipCopy.Set(0, 0, clipCopy.width, clipCopy.height);
 
   CFX_RectF clipBounds;
 
@@ -519,7 +520,8 @@ bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
   }
 
   CFX_RectF rtWidget = pWidget->GetWidgetRect();
-  rtWidget.left = rtWidget.top = 0;
+  rtWidget.Set(0, 0, rtWidget.width, rtWidget.height);
+
   pMatrix->TransformRect(rtWidget);
   if (!rtWidget.IntersectWith(rtDirty))
     return false;
@@ -530,7 +532,6 @@ bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
     return true;
 
   CFX_RectF rtChilds;
-  rtChilds.Empty();
   bool bChildIntersectWithDirty = false;
   bool bOrginPtIntersectWidthChild = false;
   bool bOrginPtIntersectWidthDirty =
@@ -555,9 +556,8 @@ bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
       rtWidget.height + rtWidget.top;
   do {
     CFX_RectF rect = pChild->GetWidgetRect();
-    CFX_RectF r = rect;
-    r.left += rtWidget.left;
-    r.top += rtWidget.top;
+    CFX_RectF r(rect.left + rtWidget.left, rect.top + rtWidget.top, rect.width,
+                rect.height);
     if (r.IsEmpty())
       continue;
     if (r.Contains(rtDirty))

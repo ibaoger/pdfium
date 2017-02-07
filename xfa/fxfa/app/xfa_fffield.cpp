@@ -72,8 +72,7 @@ void CXFA_FFField::RenderWidget(CFX_Graphics* pGS,
   DrawHighlight(pGS, &mtRotate, dwStatus, false);
 
   CFX_RectF rtWidget = m_pNormalWidget->GetWidgetRect();
-  CFX_Matrix mt;
-  mt.Set(1, 0, 0, 1, rtWidget.left, rtWidget.top);
+  CFX_Matrix mt(1, 0, 0, 1, rtWidget.left, rtWidget.top);
   mt.Concat(mtRotate);
   GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, &mt);
 }
@@ -617,8 +616,7 @@ void CXFA_FFField::RenderCaption(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
     CFX_RectF rtClip = m_rtCaption;
     rtClip.Intersect(rtWidget);
     CFX_RenderDevice* pRenderDevice = pGS->GetRenderDevice();
-    CFX_Matrix mt;
-    mt.Set(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
+    CFX_Matrix mt(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
     if (pMatrix) {
       pMatrix->TransformRect(rtClip);
       mt.Concat(*pMatrix);
