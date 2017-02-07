@@ -105,10 +105,8 @@ void CFDE_CSSStyleSelector::ComputeStyle(
     if (!styleString.IsEmpty())
       AppendInlineStyle(pDecl.get(), styleString);
     if (!alignString.IsEmpty()) {
-      FDE_CSSPropertyArgs args;
-      args.pStringCache = nullptr;
-      args.pProperty = FDE_GetCSSPropertyByEnum(FDE_CSSProperty::TextAlign);
-      pDecl->AddProperty(&args, alignString.c_str(), alignString.GetLength());
+      pDecl->AddProperty(FDE_GetCSSPropertyByEnum(FDE_CSSProperty::TextAlign),
+                         alignString.c_str(), alignString.GetLength());
     }
   }
   ApplyDeclarations(declArray, pDecl.get(), pDest);
@@ -160,27 +158,24 @@ void CFDE_CSSStyleSelector::AppendInlineStyle(CFDE_CSSDeclaration* pDecl,
 
   int32_t iLen2 = 0;
   const FX_WCHAR* psz2;
-  FDE_CSSPropertyArgs args;
-  args.pStringCache = nullptr;
-  args.pProperty = nullptr;
+  const FDE_CSSPropertyTable* table = nullptr;
   CFX_WideString wsName;
   while (1) {
     FDE_CSSSyntaxStatus eStatus = pSyntax->DoSyntaxParse();
     if (eStatus == FDE_CSSSyntaxStatus::PropertyName) {
       psz2 = pSyntax->GetCurrentString(iLen2);
-      args.pProperty = FDE_GetCSSPropertyByName(CFX_WideStringC(psz2, iLen2));
-      if (!args.pProperty)
+      table = FDE_GetCSSPropertyByName(CFX_WideStringC(psz2, iLen2));
+      if (!table)
         wsName = CFX_WideStringC(psz2, iLen2);
     } else if (eStatus == FDE_CSSSyntaxStatus::PropertyValue) {
-      if (args.pProperty) {
+      if (table) {
         psz2 = pSyntax->GetCurrentString(iLen2);
         if (iLen2 > 0)
-          pDecl->AddProperty(&args, psz2, iLen2);
+          pDecl->AddProperty(table, psz2, iLen2);
       } else if (iLen2 > 0) {
         psz2 = pSyntax->GetCurrentString(iLen2);
         if (iLen2 > 0) {
-          pDecl->AddProperty(&args, wsName.c_str(), wsName.GetLength(), psz2,
-                             iLen2);
+          pDecl->AddProperty(wsName.c_str(), wsName.GetLength(), psz2, iLen2);
         }
       }
     } else {

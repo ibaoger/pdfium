@@ -65,9 +65,7 @@ FDE_CSSSyntaxStatus CFDE_CSSStyleSheet::LoadStyleRule(
   CFDE_CSSStyleRule* pStyleRule = nullptr;
   const FX_WCHAR* pszValue = nullptr;
   int32_t iValueLen = 0;
-  FDE_CSSPropertyArgs propertyArgs;
-  propertyArgs.pStringCache = &m_StringCache;
-  propertyArgs.pProperty = nullptr;
+  const FDE_CSSPropertyTable* propertyTable = nullptr;
   CFX_WideString wsName;
   while (1) {
     switch (pSyntax->DoSyntaxParse()) {
@@ -80,24 +78,23 @@ FDE_CSSSyntaxStatus CFDE_CSSStyleSheet::LoadStyleRule(
       }
       case FDE_CSSSyntaxStatus::PropertyName:
         pszValue = pSyntax->GetCurrentString(iValueLen);
-        propertyArgs.pProperty =
+        propertyTable =
             FDE_GetCSSPropertyByName(CFX_WideStringC(pszValue, iValueLen));
-        if (!propertyArgs.pProperty)
+        if (!propertyTable)
           wsName = CFX_WideStringC(pszValue, iValueLen);
         break;
       case FDE_CSSSyntaxStatus::PropertyValue:
-        if (propertyArgs.pProperty) {
+        if (propertyTable) {
           pszValue = pSyntax->GetCurrentString(iValueLen);
           if (iValueLen > 0) {
-            pStyleRule->GetDeclaration()->AddProperty(&propertyArgs, pszValue,
+            pStyleRule->GetDeclaration()->AddProperty(propertyTable, pszValue,
                                                       iValueLen);
           }
         } else if (iValueLen > 0) {
           pszValue = pSyntax->GetCurrentString(iValueLen);
           if (iValueLen > 0) {
             pStyleRule->GetDeclaration()->AddProperty(
-                &propertyArgs, wsName.c_str(), wsName.GetLength(), pszValue,
-                iValueLen);
+                wsName.c_str(), wsName.GetLength(), pszValue, iValueLen);
           }
         }
         break;
