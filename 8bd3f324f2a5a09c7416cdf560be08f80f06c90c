@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f7dd30f_901499f7",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T20:26:32Z",
+      "side": 1,
+      "message": "this form should be removed.  If you want to concat, you can make a matrix first.",
+      "range": {
+        "startLine": 616,
+        "startChar": 2,
+        "endLine": 622,
+        "endChar": 39
+      },
+      "revId": "8bd3f324f2a5a09c7416cdf560be08f80f06c90c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
