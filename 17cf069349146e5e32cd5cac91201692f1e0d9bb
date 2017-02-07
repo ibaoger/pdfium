@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "5ca7aa68_404f0a3b",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:46:02Z",
+      "side": 1,
+      "message": "also copy ctor here",
+      "range": {
+        "startLine": 596,
+        "startChar": 2,
+        "endLine": 596,
+        "endChar": 16
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa8c6d0_b260c972",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-07T18:46:02Z",
+      "side": 1,
+      "message": "There are those who would get rid of these in favor of\n\nold_matrix \u003d CFX_Matrix(1, 2, 3, 4, 5, 6);\n\nrather than old_matrix.set(1, 2 ,3 4, 5, 6);\n\nsame for rects.",
+      "range": {
+        "startLine": 621,
+        "startChar": 1,
+        "endLine": 627,
+        "endChar": 32
+      },
+      "revId": "17cf069349146e5e32cd5cac91201692f1e0d9bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c875597b_fb10e03a",
         "filename": "core/fxge/agg/fx_agg_driver.cpp",
         "patchSetId": 1
