@@ -170,7 +170,7 @@ uint8_t* CBC_OnedEAN13Writer::Encode(const CFX_ByteString& contents,
 void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
                                     CFX_DIBitmap* pOutBitmap,
                                     CFX_RenderDevice* device,
-                                    const CFX_Matrix* matrix,
+                                    const CFX_Matrix& matrix,
                                     int32_t barWidth,
                                     int32_t multiple,
                                     int32_t& e) {
@@ -197,7 +197,7 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
     CFX_FloatRect rect(
         (FX_FLOAT)leftPosition, (FX_FLOAT)(m_Height - iTextHeight),
         (FX_FLOAT)(leftPosition + strWidth - 0.5), (FX_FLOAT)m_Height);
-    matr.Concat(*matrix);
+    matr.Concat(matrix);
     matr.TransformRect(rect);
     FX_RECT re = rect.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -207,7 +207,7 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
         (FX_FLOAT)(leftPosition + 47 * multiple + strWidth - 0.5),
         (FX_FLOAT)m_Height);
     CFX_Matrix matr1(m_outputHScale, 0.0, 0.0, 1.0, 0.0, 0.0);
-    matr1.Concat(*matrix);
+    matr1.Concat(matrix);
     matr1.TransformRect(rect1);
     re = rect1.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -215,7 +215,7 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
     CFX_Matrix matr2(m_outputHScale, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
     CFX_FloatRect rect2(0.0f, (FX_FLOAT)(m_Height - iTextHeight),
                         (FX_FLOAT)strWidth1 - 0.5f, (FX_FLOAT)m_Height);
-    matr2.Concat(*matrix);
+    matr2.Concat(matrix);
     matr2.TransformRect(rect2);
     re = rect2.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -241,9 +241,9 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
     CFX_Matrix affine_matrix1(1.0, 0.0, 0.0, -1.0,
                               (FX_FLOAT)leftPosition * m_outputHScale,
                               (FX_FLOAT)(m_Height - iTextHeight) + iFontSize);
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos + 1, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
@@ -265,9 +265,9 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
         1.0, 0.0, 0.0, -1.0,
         (FX_FLOAT)(leftPosition + 47 * multiple) * m_outputHScale,
         (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos + 7, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
@@ -290,9 +290,9 @@ void CBC_OnedEAN13Writer::ShowChars(const CFX_WideStringC& contents,
   } else {
     CFX_Matrix affine_matrix1(1.0, 0.0, 0.0, -1.0, 0.0,
                               (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);

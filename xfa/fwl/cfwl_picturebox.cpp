@@ -33,7 +33,7 @@ void CFWL_PictureBox::Update() {
 }
 
 void CFWL_PictureBox::DrawWidget(CFX_Graphics* pGraphics,
-                                 const CFX_Matrix* pMatrix) {
+                                 const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -45,6 +45,6 @@ void CFWL_PictureBox::DrawWidget(CFX_Graphics* pGraphics,
 }
 
 void CFWL_PictureBox::OnDrawWidget(CFX_Graphics* pGraphics,
-                                   const CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }

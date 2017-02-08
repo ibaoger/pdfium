@@ -32,6 +32,6 @@ bool CFFL_PushButton::OnChar(CPDFSDK_Annot* pAnnot,
 void CFFL_PushButton::OnDraw(CPDFSDK_PageView* pPageView,
                              CPDFSDK_Annot* pAnnot,
                              CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device) {
+                             const CFX_Matrix& pUser2Device) {
   CFFL_Button::OnDraw(pPageView, pAnnot, pDevice, pUser2Device);
 }

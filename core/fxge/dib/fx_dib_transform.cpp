@@ -304,7 +304,7 @@ FX_RECT FXDIB_SwapClipBox(FX_RECT& clip,
 }
 
 std::unique_ptr<CFX_DIBitmap> CFX_DIBSource::TransformTo(
-    const CFX_Matrix* pDestMatrix,
+    const CFX_Matrix& pDestMatrix,
     int& result_left,
     int& result_top,
     uint32_t flags,
@@ -342,7 +342,7 @@ std::unique_ptr<CFX_DIBitmap> CFX_DIBSource::StretchTo(
 }
 
 CFX_ImageTransformer::CFX_ImageTransformer(const CFX_DIBSource* pSrc,
-                                           const CFX_Matrix* pMatrix,
+                                           const CFX_Matrix& pMatrix,
                                            int flags,
                                            const FX_RECT* pClip)
     : m_pSrc(pSrc),
@@ -354,7 +354,7 @@ CFX_ImageTransformer::CFX_ImageTransformer(const CFX_DIBSource* pSrc,
 CFX_ImageTransformer::~CFX_ImageTransformer() {}
 
 bool CFX_ImageTransformer::Start() {
-  CFX_FloatRect unit_rect = m_pMatrix->GetUnitRect();
+  CFX_FloatRect unit_rect = m_pMatrix.GetUnitRect();
   FX_RECT result_rect = unit_rect.GetClosestRect();
   FX_RECT result_clip = result_rect;
   if (m_pClip)
@@ -364,26 +364,26 @@ bool CFX_ImageTransformer::Start() {
     return false;
 
   m_result = result_clip;
-  if (FXSYS_fabs(m_pMatrix->a) < FXSYS_fabs(m_pMatrix->b) / 20 &&
-      FXSYS_fabs(m_pMatrix->d) < FXSYS_fabs(m_pMatrix->c) / 20 &&
-      FXSYS_fabs(m_pMatrix->a) < 0.5f && FXSYS_fabs(m_pMatrix->d) < 0.5f) {
+  if (FXSYS_fabs(m_pMatrix.a) < FXSYS_fabs(m_pMatrix.b) / 20 &&
+      FXSYS_fabs(m_pMatrix.d) < FXSYS_fabs(m_pMatrix.c) / 20 &&
+      FXSYS_fabs(m_pMatrix.a) < 0.5f && FXSYS_fabs(m_pMatrix.d) < 0.5f) {
     int dest_width = result_rect.Width();
     int dest_height = result_rect.Height();
     result_clip.Offset(-result_rect.left, -result_rect.top);
     result_clip = FXDIB_SwapClipBox(result_clip, dest_width, dest_height,
-                                    m_pMatrix->c > 0, m_pMatrix->b < 0);
+                                    m_pMatrix.c > 0, m_pMatrix.b < 0);
     m_Stretcher = pdfium::MakeUnique<CFX_ImageStretcher>(
         &m_Storer, m_pSrc, dest_height, dest_width, result_clip, m_Flags);
     m_Stretcher->Start();
     m_Status = 1;
     return true;
   }
-  if (FXSYS_fabs(m_pMatrix->b) < FIX16_005 &&
-      FXSYS_fabs(m_pMatrix->c) < FIX16_005) {
-    int dest_width = m_pMatrix->a > 0 ? (int)FXSYS_ceil(m_pMatrix->a)
-                                      : (int)FXSYS_floor(m_pMatrix->a);
-    int dest_height = m_pMatrix->d > 0 ? (int)-FXSYS_ceil(m_pMatrix->d)
-                                       : (int)-FXSYS_floor(m_pMatrix->d);
+  if (FXSYS_fabs(m_pMatrix.b) < FIX16_005 &&
+      FXSYS_fabs(m_pMatrix.c) < FIX16_005) {
+    int dest_width = m_pMatrix.a > 0 ? (int)FXSYS_ceil(m_pMatrix.a)
+                                     : (int)FXSYS_floor(m_pMatrix.a);
+    int dest_height = m_pMatrix.d > 0 ? (int)-FXSYS_ceil(m_pMatrix.d)
+                                      : (int)-FXSYS_floor(m_pMatrix.d);
     result_clip.Offset(-result_rect.left, -result_rect.top);
     m_Stretcher = pdfium::MakeUnique<CFX_ImageStretcher>(
         &m_Storer, m_pSrc, dest_width, dest_height, result_clip, m_Flags);
@@ -391,18 +391,18 @@ bool CFX_ImageTransformer::Start() {
     m_Status = 2;
     return true;
   }
-  int stretch_width = (int)FXSYS_ceil(FXSYS_sqrt2(m_pMatrix->a, m_pMatrix->b));
-  int stretch_height = (int)FXSYS_ceil(FXSYS_sqrt2(m_pMatrix->c, m_pMatrix->d));
+  int stretch_width = (int)FXSYS_ceil(FXSYS_sqrt2(m_pMatrix.a, m_pMatrix.b));
+  int stretch_height = (int)FXSYS_ceil(FXSYS_sqrt2(m_pMatrix.c, m_pMatrix.d));
   CFX_Matrix stretch2dest(1.0f, 0.0f, 0.0f, -1.0f, 0.0f,
                           (FX_FLOAT)(stretch_height));
   stretch2dest.Concat(
-      CFX_Matrix(m_pMatrix->a / stretch_width, m_pMatrix->b / stretch_width,
-                 m_pMatrix->c / stretch_height, m_pMatrix->d / stretch_height,
-                 m_pMatrix->e, m_pMatrix->f));
+      CFX_Matrix(m_pMatrix.a / stretch_width, m_pMatrix.b / stretch_width,
+                 m_pMatrix.c / stretch_height, m_pMatrix.d / stretch_height,
+                 m_pMatrix.e, m_pMatrix.f));
   m_dest2stretch.SetReverse(stretch2dest);
 
   CFX_FloatRect clip_rect_f(result_clip);
-  clip_rect_f.Transform(&m_dest2stretch);
+  clip_rect_f.Transform(m_dest2stretch);
   m_StretchClip = clip_rect_f.GetOuterRect();
   m_StretchClip.Intersect(0, 0, stretch_width, stretch_height);
   m_Stretcher = pdfium::MakeUnique<CFX_ImageStretcher>(
@@ -419,7 +419,7 @@ bool CFX_ImageTransformer::Continue(IFX_Pause* pPause) {
 
     if (m_Storer.GetBitmap()) {
       m_Storer.Replace(
-          m_Storer.GetBitmap()->SwapXY(m_pMatrix->c > 0, m_pMatrix->b < 0));
+          m_Storer.GetBitmap()->SwapXY(m_pMatrix.c > 0, m_pMatrix.b < 0));
     }
     return false;
   }

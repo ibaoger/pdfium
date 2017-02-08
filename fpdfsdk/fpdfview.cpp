@@ -106,7 +106,7 @@ void RenderPageImpl(CPDF_PageRenderContext* pContext,
     pContext->m_pAnnots = pdfium::MakeUnique<CPDF_AnnotList>(pPage);
     bool bPrinting = pContext->m_pDevice->GetDeviceClass() != FXDC_DISPLAY;
     pContext->m_pAnnots->DisplayAnnots(pPage, pContext->m_pContext.get(),
-                                       bPrinting, &matrix, false, nullptr);
+                                       bPrinting, matrix, false, nullptr);
   }
 
   pContext->m_pRenderer = pdfium::MakeUnique<CPDF_ProgressiveRenderer>(

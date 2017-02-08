@@ -146,7 +146,7 @@ void CPWL_ListBox::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                      CFX_Matrix* pUser2Device) {
+                                      const CFX_Matrix& pUser2Device) {
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
 
   CFX_FloatRect rcPlate = m_pList->GetPlateRect();

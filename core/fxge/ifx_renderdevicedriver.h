@@ -33,13 +33,13 @@ class IFX_RenderDeviceDriver {
   virtual void RestoreState(bool bKeepSaved) = 0;
 
   virtual bool SetClip_PathFill(const CFX_PathData* pPathData,
-                                const CFX_Matrix* pObject2Device,
+                                const CFX_Matrix& pObject2Device,
                                 int fill_mode) = 0;
   virtual bool SetClip_PathStroke(const CFX_PathData* pPathData,
-                                  const CFX_Matrix* pObject2Device,
+                                  const CFX_Matrix& pObject2Device,
                                   const CFX_GraphStateData* pGraphState);
   virtual bool DrawPath(const CFX_PathData* pPathData,
-                        const CFX_Matrix* pObject2Device,
+                        const CFX_Matrix& pObject2Device,
                         const CFX_GraphStateData* pGraphState,
                         uint32_t fill_color,
                         uint32_t stroke_color,
@@ -77,7 +77,7 @@ class IFX_RenderDeviceDriver {
   virtual bool StartDIBits(const CFX_DIBSource* pBitmap,
                            int bitmap_alpha,
                            uint32_t color,
-                           const CFX_Matrix* pMatrix,
+                           const CFX_Matrix& pMatrix,
                            uint32_t flags,
                            void*& handle,
                            int blend_type) = 0;
@@ -93,7 +93,7 @@ class IFX_RenderDeviceDriver {
   virtual int GetDriverType() const;
   virtual void ClearDriver();
   virtual bool DrawShading(const CPDF_ShadingPattern* pPattern,
-                           const CFX_Matrix* pMatrix,
+                           const CFX_Matrix& pMatrix,
                            const FX_RECT& clip_rect,
                            int alpha,
                            bool bAlphaMode);

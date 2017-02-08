@@ -16,7 +16,7 @@ class CXFA_FFLine : public CXFA_FFDraw {
 
   // CXFA_FFWidget
   void RenderWidget(CFX_Graphics* pGS,
-                    CFX_Matrix* pMatrix,
+                    const CFX_Matrix& pMatrix,
                     uint32_t dwStatus) override;
 
  private:
@@ -30,7 +30,7 @@ class CXFA_FFArc : public CXFA_FFDraw {
 
   // CXFA_FFWidget
   void RenderWidget(CFX_Graphics* pGS,
-                    CFX_Matrix* pMatrix,
+                    const CFX_Matrix& pMatrix,
                     uint32_t dwStatus) override;
 };
 
@@ -41,7 +41,7 @@ class CXFA_FFRectangle : public CXFA_FFDraw {
 
   // CXFA_FFWidget
   void RenderWidget(CFX_Graphics* pGS,
-                    CFX_Matrix* pMatrix,
+                    const CFX_Matrix& pMatrix,
                     uint32_t dwStatus) override;
 };
 

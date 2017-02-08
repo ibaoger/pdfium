@@ -46,7 +46,7 @@ bool CBC_DataMatrix::Encode(const CFX_WideStringC& contents,
 }
 
 bool CBC_DataMatrix::RenderDevice(CFX_RenderDevice* device,
-                                  const CFX_Matrix* matrix,
+                                  const CFX_Matrix& matrix,
                                   int32_t& e) {
   static_cast<CBC_TwoDimWriter*>(m_pBCWriter.get())
       ->RenderDeviceResult(device, matrix);

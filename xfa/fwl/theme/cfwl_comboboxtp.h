@@ -20,10 +20,10 @@ class CFWL_ComboBoxTP : public CFWL_WidgetTP {
  protected:
   void DrawDropDownButton(CFWL_ThemeBackground* pParams,
                           uint32_t dwStates,
-                          CFX_Matrix* pMatrix);
+                          const CFX_Matrix& pMatrix);
   void DrawStrethHandler(CFWL_ThemeBackground* pParams,
                          uint32_t dwStates,
-                         CFX_Matrix* pMatrix);
+                         const CFX_Matrix& pMatrix);
 };
 
 #endif  // XFA_FWL_THEME_CFWL_COMBOBOXTP_H_

@@ -24,7 +24,7 @@ void IFX_RenderDeviceDriver::EndRendering() {}
 
 bool IFX_RenderDeviceDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pObject2Device,
+    const CFX_Matrix& pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   return false;
 }
@@ -84,7 +84,7 @@ int IFX_RenderDeviceDriver::GetDriverType() const {
 void IFX_RenderDeviceDriver::ClearDriver() {}
 
 bool IFX_RenderDeviceDriver::DrawShading(const CPDF_ShadingPattern* pPattern,
-                                         const CFX_Matrix* pMatrix,
+                                         const CFX_Matrix& pMatrix,
                                          const FX_RECT& clip_rect,
                                          int alpha,
                                          bool bAlphaMode) {

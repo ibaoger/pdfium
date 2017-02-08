@@ -33,13 +33,13 @@ void CFWL_EditTP::DrawBackground(CFWL_ThemeBackground* pParams) {
     CFX_Color crLine(cr);
     pParams->m_pGraphics->SetStrokeColor(&crLine);
     pParams->m_pGraphics->SetLineWidth(fWidth);
-    pParams->m_pGraphics->StrokePath(pParams->m_pPath, &pParams->m_matrix);
+    pParams->m_pGraphics->StrokePath(pParams->m_pPath, pParams->m_matrix);
     return;
   }
 
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Background: {
@@ -49,7 +49,7 @@ void CFWL_EditTP::DrawBackground(CFWL_ThemeBackground* pParams) {
         CFX_Color crSelected(FWLTHEME_COLOR_BKSelected);
         pGraphics->SetFillColor(&crSelected);
         pGraphics->FillPath(pParams->m_pPath, FXFILL_WINDING,
-                            &pParams->m_matrix);
+                            pParams->m_matrix);
         pGraphics->RestoreGraphState();
       } else {
         CFX_Path path;
@@ -68,7 +68,7 @@ void CFWL_EditTP::DrawBackground(CFWL_ThemeBackground* pParams) {
         pParams->m_pGraphics->SaveGraphState();
         pParams->m_pGraphics->SetFillColor(&cr);
         pParams->m_pGraphics->FillPath(&path, FXFILL_WINDING,
-                                       &pParams->m_matrix);
+                                       pParams->m_matrix);
         pParams->m_pGraphics->RestoreGraphState();
       }
       break;
@@ -79,7 +79,7 @@ void CFWL_EditTP::DrawBackground(CFWL_ThemeBackground* pParams) {
       CFX_Color crLine(cr);
       pParams->m_pGraphics->SetStrokeColor(&crLine);
       pParams->m_pGraphics->SetLineWidth(fWidth);
-      pParams->m_pGraphics->StrokePath(pParams->m_pPath, &pParams->m_matrix);
+      pParams->m_pGraphics->StrokePath(pParams->m_pPath, pParams->m_matrix);
       break;
     }
     default:

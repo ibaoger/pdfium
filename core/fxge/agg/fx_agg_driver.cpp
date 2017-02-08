@@ -272,14 +272,14 @@ bool DibSetPixel(CFX_DIBitmap* pDevice,
 }  // namespace
 
 void CAgg_PathData::BuildPath(const CFX_PathData* pPathData,
-                              const CFX_Matrix* pObject2Device) {
+                              const CFX_Matrix& pObject2Device) {
   int nPoints = pPathData->GetPointCount();
   FX_PATHPOINT* pPoints = pPathData->GetPoints();
   for (int i = 0; i < nPoints; i++) {
     FX_FLOAT x = pPoints[i].m_PointX, y = pPoints[i].m_PointY;
-    if (pObject2Device) {
-      pObject2Device->Transform(x, y);
-    }
+    if (!pObject2Device.IsIdentity())
+      pObject2Device.Transform(x, y);
+
     HardClip(x, y);
     FXPT_TYPE point_type = pPoints[i].m_Type;
     if (point_type == FXPT_TYPE::MoveTo) {
@@ -297,10 +297,10 @@ void CAgg_PathData::BuildPath(const CFX_PathData* pPathData,
       FX_FLOAT x0 = pPoints[i - 1].m_PointX, y0 = pPoints[i - 1].m_PointY;
       FX_FLOAT x2 = pPoints[i + 1].m_PointX, y2 = pPoints[i + 1].m_PointY;
       FX_FLOAT x3 = pPoints[i + 2].m_PointX, y3 = pPoints[i + 2].m_PointY;
-      if (pObject2Device) {
-        pObject2Device->Transform(x0, y0);
-        pObject2Device->Transform(x2, y2);
-        pObject2Device->Transform(x3, y3);
+      if (!pObject2Device.IsIdentity()) {
+        pObject2Device.Transform(x0, y0);
+        pObject2Device.Transform(x2, y2);
+        pObject2Device.Transform(x3, y3);
       }
       HardClip(x0, y0);
       HardClip(x2, y2);
@@ -357,7 +357,7 @@ class renderer_scanline_aa_offset {
 
 static void RasterizeStroke(agg::rasterizer_scanline_aa& rasterizer,
                             agg::path_storage& path_data,
-                            const CFX_Matrix* pObject2Device,
+                            const CFX_Matrix& pObject2Device,
                             const CFX_GraphStateData* pGraphState,
                             FX_FLOAT scale = 1.0f,
                             bool bStrokeAdjust = false,
@@ -388,13 +388,11 @@ static void RasterizeStroke(agg::rasterizer_scanline_aa& rasterizer,
   }
   FX_FLOAT width = pGraphState->m_LineWidth * scale;
   FX_FLOAT unit = 1.f;
-  if (pObject2Device) {
-    unit =
-        1.0f / ((pObject2Device->GetXUnit() + pObject2Device->GetYUnit()) / 2);
-  }
-  if (width < unit) {
+  if (!pObject2Device.IsIdentity())
+    unit = 1.0f / ((pObject2Device.GetXUnit() + pObject2Device.GetYUnit()) / 2);
+  if (width < unit)
     width = unit;
-  }
+
   if (pGraphState->m_DashArray) {
     typedef agg::conv_dash<agg::path_storage> dash_converter;
     dash_converter dash(path_data);
@@ -546,7 +544,7 @@ void CFX_AggDeviceDriver::SetClipMask(agg::rasterizer_scanline_aa& rasterizer) {
 }
 
 bool CFX_AggDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
-                                           const CFX_Matrix* pObject2Device,
+                                           const CFX_Matrix& pObject2Device,
                                            int fill_mode) {
   m_FillFlags = fill_mode;
   if (!m_pClipRgn) {
@@ -567,6 +565,7 @@ bool CFX_AggDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
   CAgg_PathData path_data;
   path_data.BuildPath(pPathData, pObject2Device);
   path_data.m_PathData.end_poly();
+
   agg::rasterizer_scanline_aa rasterizer;
   rasterizer.clip_box(0.0f, 0.0f, (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_WIDTH)),
                       (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
@@ -580,14 +579,14 @@ bool CFX_AggDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 
 bool CFX_AggDeviceDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pObject2Device,
+    const CFX_Matrix& pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   if (!m_pClipRgn) {
     m_pClipRgn = pdfium::MakeUnique<CFX_ClipRgn>(
         GetDeviceCaps(FXDC_PIXEL_WIDTH), GetDeviceCaps(FXDC_PIXEL_HEIGHT));
   }
   CAgg_PathData path_data;
-  path_data.BuildPath(pPathData, nullptr);
+  path_data.BuildPath(pPathData, CFX_Matrix());
   agg::rasterizer_scanline_aa rasterizer;
   rasterizer.clip_box(0.0f, 0.0f, (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_WIDTH)),
                       (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
@@ -1450,7 +1449,7 @@ bool CFX_AggDeviceDriver::RenderRasterizer(
 }
 
 bool CFX_AggDeviceDriver::DrawPath(const CFX_PathData* pPathData,
-                                   const CFX_Matrix* pObject2Device,
+                                   const CFX_Matrix& pObject2Device,
                                    const CFX_GraphStateData* pGraphState,
                                    uint32_t fill_color,
                                    uint32_t stroke_color,
@@ -1489,34 +1488,35 @@ bool CFX_AggDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     agg::rasterizer_scanline_aa rasterizer;
     rasterizer.clip_box(0.0f, 0.0f, (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_WIDTH)),
                         (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
-    RasterizeStroke(rasterizer, path_data.m_PathData, nullptr, pGraphState, 1,
-                    false, !!(fill_mode & FX_STROKE_TEXT_MODE));
+    RasterizeStroke(rasterizer, path_data.m_PathData, CFX_Matrix(), pGraphState,
+                    1, false, !!(fill_mode & FX_STROKE_TEXT_MODE));
     return RenderRasterizer(rasterizer, stroke_color,
                             !!(fill_mode & FXFILL_FULLCOVER), m_bGroupKnockout,
                             0, nullptr);
   }
   CFX_Matrix matrix1;
   CFX_Matrix matrix2;
-  if (pObject2Device) {
+  if (!pObject2Device.IsIdentity()) {
     matrix1.a =
-        std::max(FXSYS_fabs(pObject2Device->a), FXSYS_fabs(pObject2Device->b));
+        std::max(FXSYS_fabs(pObject2Device.a), FXSYS_fabs(pObject2Device.b));
     matrix1.d = matrix1.a;
     matrix2 = CFX_Matrix(
-        pObject2Device->a / matrix1.a, pObject2Device->b / matrix1.a,
-        pObject2Device->c / matrix1.d, pObject2Device->d / matrix1.d, 0, 0);
+        pObject2Device.a / matrix1.a, pObject2Device.b / matrix1.a,
+        pObject2Device.c / matrix1.d, pObject2Device.d / matrix1.d, 0, 0);
 
     CFX_Matrix mtRervese;
     mtRervese.SetReverse(matrix2);
-    matrix1 = *pObject2Device;
+    matrix1 = pObject2Device;
     matrix1.Concat(mtRervese);
   }
 
   CAgg_PathData path_data;
-  path_data.BuildPath(pPathData, &matrix1);
+  path_data.BuildPath(pPathData, matrix1);
+
   agg::rasterizer_scanline_aa rasterizer;
   rasterizer.clip_box(0.0f, 0.0f, (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_WIDTH)),
                       (FX_FLOAT)(GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
-  RasterizeStroke(rasterizer, path_data.m_PathData, &matrix2, pGraphState,
+  RasterizeStroke(rasterizer, path_data.m_PathData, matrix2, pGraphState,
                   matrix1.a, false, !!(fill_mode & FX_STROKE_TEXT_MODE));
   return RenderRasterizer(rasterizer, stroke_color,
                           !!(fill_mode & FXFILL_FULLCOVER), m_bGroupKnockout, 0,
@@ -1693,7 +1693,7 @@ bool CFX_AggDeviceDriver::StretchDIBits(const CFX_DIBSource* pSource,
 bool CFX_AggDeviceDriver::StartDIBits(const CFX_DIBSource* pSource,
                                       int bitmap_alpha,
                                       uint32_t argb,
-                                      const CFX_Matrix* pMatrix,
+                                      const CFX_Matrix& pMatrix,
                                       uint32_t render_flags,
                                       void*& handle,
                                       int blend_type) {

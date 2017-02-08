@@ -223,7 +223,7 @@ class CFX_DIBSource {
                                           uint32_t flags = 0,
                                           const FX_RECT* pClip = nullptr) const;
   std::unique_ptr<CFX_DIBitmap> TransformTo(
-      const CFX_Matrix* pMatrix,
+      const CFX_Matrix& pMatrix,
       int& left,
       int& top,
       uint32_t flags = 0,
@@ -633,7 +633,7 @@ class CFX_ImageStretcher {
 class CFX_ImageTransformer {
  public:
   CFX_ImageTransformer(const CFX_DIBSource* pSrc,
-                       const CFX_Matrix* pMatrix,
+                       const CFX_Matrix& pMatrix,
                        int flags,
                        const FX_RECT* pClip);
   ~CFX_ImageTransformer();
@@ -646,7 +646,7 @@ class CFX_ImageTransformer {
 
  private:
   const CFX_DIBSource* const m_pSrc;
-  const CFX_Matrix* const m_pMatrix;
+  const CFX_Matrix m_pMatrix;
   const FX_RECT* const m_pClip;
   FX_RECT m_StretchClip;
   FX_RECT m_result;
@@ -667,7 +667,7 @@ class CFX_ImageRenderer {
              const CFX_DIBSource* pSource,
              int bitmap_alpha,
              uint32_t mask_color,
-             const CFX_Matrix* pMatrix,
+             const CFX_Matrix& pMatrix,
              uint32_t dib_flags,
              bool bRgbByteOrder = false,
              int alpha_flag = 0,

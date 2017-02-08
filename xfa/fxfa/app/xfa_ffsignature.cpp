@@ -21,21 +21,21 @@ bool CXFA_FFSignature::LoadWidget() {
 }
 
 void CXFA_FFSignature::RenderWidget(CFX_Graphics* pGS,
-                                    CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  CXFA_FFWidget::RenderWidget(pGS, &mtRotate, dwStatus);
+  CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
 
   CXFA_Border borderUI = m_pDataAcc->GetUIBorder();
-  DrawBorder(pGS, borderUI, m_rtUI, &mtRotate);
-  RenderCaption(pGS, &mtRotate);
-  DrawHighlight(pGS, &mtRotate, dwStatus, false);
+  DrawBorder(pGS, borderUI, m_rtUI, mtRotate);
+  RenderCaption(pGS, mtRotate);
+  DrawHighlight(pGS, mtRotate, dwStatus, false);
 }
 
 bool CXFA_FFSignature::OnMouseEnter() {

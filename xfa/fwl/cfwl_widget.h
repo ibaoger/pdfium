@@ -62,14 +62,14 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   virtual void Update() = 0;
   virtual FWL_WidgetHit HitTest(FX_FLOAT fx, FX_FLOAT fy);
   virtual void DrawWidget(CFX_Graphics* pGraphics,
-                          const CFX_Matrix* pMatrix) = 0;
+                          const CFX_Matrix& pMatrix) = 0;
   virtual void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider);
 
   // IFWL_WidgetDelegate.
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void InflateWidgetRect(CFX_RectF& rect);
   void SetWidgetRect(const CFX_RectF& rect);
@@ -144,7 +144,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   void DrawBorder(CFX_Graphics* pGraphics,
                   CFWL_Part iPartBorder,
                   IFWL_ThemeProvider* pTheme,
-                  const CFX_Matrix* pMatrix);
+                  const CFX_Matrix& pMatrix);
 
   const CFWL_App* const m_pOwnerApp;
   CFWL_WidgetMgr* const m_pWidgetMgr;

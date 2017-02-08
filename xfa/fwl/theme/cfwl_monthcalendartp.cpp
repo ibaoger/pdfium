@@ -37,47 +37,47 @@ void CFWL_MonthCalendarTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Background: {
-      DrawTotalBK(pParams, &pParams->m_matrix);
+      DrawTotalBK(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Header: {
-      DrawHeadBk(pParams, &pParams->m_matrix);
+      DrawHeadBk(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::LBtn: {
       FWLTHEME_STATE eState = GetState(pParams->m_dwStates);
       DrawArrowBtn(pParams->m_pGraphics, &pParams->m_rtPart,
-                   FWLTHEME_DIRECTION_Left, eState, &pParams->m_matrix);
+                   FWLTHEME_DIRECTION_Left, eState, pParams->m_matrix);
       break;
     }
     case CFWL_Part::RBtn: {
       FWLTHEME_STATE eState = GetState(pParams->m_dwStates);
       DrawArrowBtn(pParams->m_pGraphics, &pParams->m_rtPart,
-                   FWLTHEME_DIRECTION_Right, eState, &pParams->m_matrix);
+                   FWLTHEME_DIRECTION_Right, eState, pParams->m_matrix);
       break;
     }
     case CFWL_Part::HSeparator: {
-      DrawHSeperator(pParams, &pParams->m_matrix);
+      DrawHSeperator(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::DatesIn: {
-      DrawDatesInBK(pParams, &pParams->m_matrix);
+      DrawDatesInBK(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::TodayCircle: {
-      DrawTodayCircle(pParams, &pParams->m_matrix);
+      DrawTodayCircle(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::DateInCircle: {
-      DrawDatesInCircle(pParams, &pParams->m_matrix);
+      DrawDatesInCircle(pParams, pParams->m_matrix);
       break;
     }
     case CFWL_Part::WeekNumSep: {
-      DrawWeekNumSep(pParams, &pParams->m_matrix);
+      DrawWeekNumSep(pParams, pParams->m_matrix);
       break;
     }
     default:
@@ -103,7 +103,7 @@ void CFWL_MonthCalendarTP::DrawText(CFWL_ThemeText* pParams) {
 }
 
 void CFWL_MonthCalendarTP::DrawTotalBK(CFWL_ThemeBackground* pParams,
-                                       CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtTotal(pParams->m_rtPart);
@@ -116,7 +116,7 @@ void CFWL_MonthCalendarTP::DrawTotalBK(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawHeadBk(CFWL_ThemeBackground* pParams,
-                                      CFX_Matrix* pMatrix) {
+                                      const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtHead = pParams->m_rtPart;
@@ -129,7 +129,7 @@ void CFWL_MonthCalendarTP::DrawHeadBk(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawLButton(CFWL_ThemeBackground* pParams,
-                                       CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtLBtn = pParams->m_rtPart;
@@ -160,7 +160,7 @@ void CFWL_MonthCalendarTP::DrawLButton(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawRButton(CFWL_ThemeBackground* pParams,
-                                       CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtRBtn = pParams->m_rtPart;
@@ -191,7 +191,7 @@ void CFWL_MonthCalendarTP::DrawRButton(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawHSeperator(CFWL_ThemeBackground* pParams,
-                                          CFX_Matrix* pMatrix) {
+                                          const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtHSep = pParams->m_rtPart;
@@ -205,7 +205,7 @@ void CFWL_MonthCalendarTP::DrawHSeperator(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawWeekNumSep(CFWL_ThemeBackground* pParams,
-                                          CFX_Matrix* pMatrix) {
+                                          const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtWeekSep = pParams->m_rtPart;
@@ -219,7 +219,7 @@ void CFWL_MonthCalendarTP::DrawWeekNumSep(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawDatesInBK(CFWL_ThemeBackground* pParams,
-                                         CFX_Matrix* pMatrix) {
+                                         const CFX_Matrix& pMatrix) {
   pParams->m_pGraphics->SaveGraphState();
   if (pParams->m_dwStates & CFWL_PartState_Selected) {
     CFX_Path path;
@@ -244,7 +244,7 @@ void CFWL_MonthCalendarTP::DrawDatesInBK(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawDatesInCircle(CFWL_ThemeBackground* pParams,
-                                             CFX_Matrix* pMatrix) {
+                                             const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtSelDay = pParams->m_rtPart;
@@ -258,7 +258,7 @@ void CFWL_MonthCalendarTP::DrawDatesInCircle(CFWL_ThemeBackground* pParams,
 }
 
 void CFWL_MonthCalendarTP::DrawTodayCircle(CFWL_ThemeBackground* pParams,
-                                           CFX_Matrix* pMatrix) {
+                                           const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rtTodayCircle = pParams->m_rtPart;

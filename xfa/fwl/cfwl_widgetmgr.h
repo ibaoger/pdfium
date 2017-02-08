@@ -35,7 +35,7 @@ class CFWL_WidgetMgr : public CFWL_WidgetMgrDelegate {
   void OnProcessMessageToForm(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFWL_Widget* pWidget,
                     CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   CFWL_Widget* GetParentWidget(CFWL_Widget* pWidget) const;
   CFWL_Widget* GetOwnerWidget(CFWL_Widget* pWidget) const;
@@ -104,12 +104,12 @@ class CFWL_WidgetMgr : public CFWL_WidgetMgrDelegate {
   void DrawChild(CFWL_Widget* pParent,
                  const CFX_RectF& rtClip,
                  CFX_Graphics* pGraphics,
-                 const CFX_Matrix* pMatrix);
+                 const CFX_Matrix& pMatrix);
   CFX_Graphics* DrawWidgetBefore(CFWL_Widget* pWidget,
                                  CFX_Graphics* pGraphics,
-                                 const CFX_Matrix* pMatrix);
+                                 const CFX_Matrix& pMatrix);
   bool IsNeedRepaint(CFWL_Widget* pWidget,
-                     CFX_Matrix* pMatrix,
+                     const CFX_Matrix& pMatrix,
                      const CFX_RectF& rtDirty);
 
   bool IsAbleNative(CFWL_Widget* pWidget) const;

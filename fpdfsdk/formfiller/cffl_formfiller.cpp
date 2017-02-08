@@ -84,13 +84,13 @@ FX_RECT CFFL_FormFiller::GetViewBBox(CPDFSDK_PageView* pPageView,
 void CFFL_FormFiller::OnDraw(CPDFSDK_PageView* pPageView,
                              CPDFSDK_Annot* pAnnot,
                              CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device) {
+                             const CFX_Matrix& pUser2Device) {
   ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
 
   if (CPWL_Wnd* pWnd = GetPDFWindow(pPageView, false)) {
     CFX_Matrix mt = GetCurMatrix();
-    mt.Concat(*pUser2Device);
-    pWnd->DrawAppearance(pDevice, &mt);
+    mt.Concat(pUser2Device);
+    pWnd->DrawAppearance(pDevice, mt);
   } else {
     CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
     if (CFFL_InteractiveFormFiller::IsVisible(pWidget))
@@ -102,8 +102,8 @@ void CFFL_FormFiller::OnDraw(CPDFSDK_PageView* pPageView,
 void CFFL_FormFiller::OnDrawDeactive(CPDFSDK_PageView* pPageView,
                                      CPDFSDK_Annot* pAnnot,
                                      CFX_RenderDevice* pDevice,
-                                     CFX_Matrix* pUser2Device) {
-  CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
+                                     const CFX_Matrix& pUser2Device) {
+  CPDFSDK_Widget* pWidget = static_cast<CPDFSDK_Widget*>(pAnnot);
   pWidget->DrawAppearance(pDevice, pUser2Device, CPDF_Annot::Normal, nullptr);
 }
 
@@ -675,9 +675,10 @@ bool CFFL_Button::OnMouseMove(CPDFSDK_PageView* pPageView,
 void CFFL_Button::OnDraw(CPDFSDK_PageView* pPageView,
                          CPDFSDK_Annot* pAnnot,
                          CFX_RenderDevice* pDevice,
-                         CFX_Matrix* pUser2Device) {
+                         const CFX_Matrix& pUser2Device) {
   ASSERT(pPageView);
-  CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
+
+  CPDFSDK_Widget* pWidget = static_cast<CPDFSDK_Widget*>(pAnnot);
   CPDF_FormControl* pCtrl = pWidget->GetFormControl();
   CPDF_FormControl::HighlightingMode eHM = pCtrl->GetHighlightingMode();
 
@@ -707,6 +708,6 @@ void CFFL_Button::OnDraw(CPDFSDK_PageView* pPageView,
 void CFFL_Button::OnDrawDeactive(CPDFSDK_PageView* pPageView,
                                  CPDFSDK_Annot* pAnnot,
                                  CFX_RenderDevice* pDevice,
-                                 CFX_Matrix* pUser2Device) {
+                                 const CFX_Matrix& pUser2Device) {
   OnDraw(pPageView, pAnnot, pDevice, pUser2Device);
 }

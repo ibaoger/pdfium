@@ -24,7 +24,7 @@ CFWL_PushButtonTP::~CFWL_PushButtonTP() {}
 void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Background: {
@@ -57,19 +57,19 @@ void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
                        rect.left + PUSHBUTTON_SIZE_Corner, rect.bottom(),
                        m_pThemeData->clrStart[iColor],
                        m_pThemeData->clrEnd[iColor], &fillPath,
-                       FXFILL_ALTERNATE, &pParams->m_matrix);
+                       FXFILL_ALTERNATE, pParams->m_matrix);
       CFX_Color crStroke(m_pThemeData->clrBorder[iColor]);
       pGraphics->SetStrokeColor(&crStroke);
-      pGraphics->StrokePath(&strokePath, &pParams->m_matrix);
+      pGraphics->StrokePath(&strokePath, pParams->m_matrix);
       fillPath.Clear();
       fillPath.AddRectangle(rtInner.left, rtInner.top, rtInner.width,
                             rtInner.height);
       CFX_Color crFill(m_pThemeData->clrFill[iColor]);
       pGraphics->SetFillColor(&crFill);
-      pGraphics->FillPath(&fillPath, FXFILL_WINDING, &pParams->m_matrix);
+      pGraphics->FillPath(&fillPath, FXFILL_WINDING, pParams->m_matrix);
       if (pParams->m_dwStates & CFWL_PartState_Focused) {
         rtInner.Inflate(1, 1, 0, 0);
-        DrawFocus(pGraphics, &rtInner, &pParams->m_matrix);
+        DrawFocus(pGraphics, &rtInner, pParams->m_matrix);
       }
       pGraphics->RestoreGraphState();
       break;

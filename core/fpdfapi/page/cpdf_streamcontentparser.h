@@ -34,7 +34,7 @@ class CPDF_StreamContentParser {
   CPDF_StreamContentParser(CPDF_Document* pDoc,
                            CPDF_Dictionary* pPageResources,
                            CPDF_Dictionary* pParentResources,
-                           const CFX_Matrix* pmtContentToUser,
+                           const CFX_Matrix& pmtContentToUser,
                            CPDF_PageObjectHolder* pObjectHolder,
                            CPDF_Dictionary* pResources,
                            CFX_FloatRect* pBBox,

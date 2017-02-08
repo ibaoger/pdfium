@@ -28,7 +28,7 @@ class CBC_CodeBase {
                       bool isDevice,
                       int32_t& e) = 0;
   virtual bool RenderDevice(CFX_RenderDevice* device,
-                            const CFX_Matrix* matrix,
+                            const CFX_Matrix& matrix,
                             int32_t& e) = 0;
   virtual bool RenderBitmap(CFX_DIBitmap*& pOutBitmap, int32_t& e) = 0;
 

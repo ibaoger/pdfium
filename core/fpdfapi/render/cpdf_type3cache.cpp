@@ -158,7 +158,7 @@ CFX_GlyphBitmap* CPDF_Type3Cache::RenderGlyph(CPDF_Type3Glyphs* pSize,
   }
   if (!pResBitmap) {
     image_matrix.Scale(retinaScaleX, retinaScaleY);
-    pResBitmap = pBitmap->TransformTo(&image_matrix, left, top);
+    pResBitmap = pBitmap->TransformTo(image_matrix, left, top);
   }
   if (!pResBitmap)
     return nullptr;

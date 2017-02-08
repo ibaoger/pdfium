@@ -80,14 +80,14 @@ CPDFSDK_PageView::~CPDFSDK_PageView() {
 }
 
 void CPDFSDK_PageView::PageView_OnDraw(CFX_RenderDevice* pDevice,
-                                       CFX_Matrix* pUser2Device,
+                                       const CFX_Matrix& pUser2Device,
 #ifdef PDF_ENABLE_XFA
                                        CPDF_RenderOptions* pOptions,
                                        const FX_RECT& pClip) {
 #else
                                        CPDF_RenderOptions* pOptions) {
 #endif  // PDF_ENABLE_XFA
-  m_curMatrix = *pUser2Device;
+  m_curMatrix = pUser2Device;
 
 #ifdef PDF_ENABLE_XFA
   CPDFXFA_Page* pPage = GetPDFXFAPage();
@@ -106,7 +106,7 @@ void CPDFSDK_PageView::PageView_OnDraw(CFX_RenderDevice* pDevice,
     CXFA_RenderOptions renderOptions;
     renderOptions.m_bHighlight = true;
     CXFA_FFPageView* xfaView = pPage->GetXFAPageView();
-    pRenderContext->StartRender(xfaView, &gs, *pUser2Device, renderOptions);
+    pRenderContext->StartRender(xfaView, &gs, pUser2Device, renderOptions);
     pRenderContext->DoRender();
     pRenderContext->StopRender();
     CXFA_FFDocView* docView = xfaView->GetDocView();

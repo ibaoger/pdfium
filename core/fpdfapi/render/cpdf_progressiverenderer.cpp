@@ -76,7 +76,7 @@ void CPDF_ProgressiveRenderer::Continue(IFX_Pause* pPause) {
           pCurObj->m_Bottom <= m_ClipRect.top &&
           pCurObj->m_Top >= m_ClipRect.bottom) {
         if (m_pRenderStatus->ContinueSingleObject(
-                pCurObj, &m_pCurrentLayer->m_Matrix, pPause)) {
+                pCurObj, m_pCurrentLayer->m_Matrix, pPause)) {
           return;
         }
         if (pCurObj->IsImage() &&

@@ -58,7 +58,7 @@ bool CBC_Code39::Encode(const CFX_WideStringC& contents,
 }
 
 bool CBC_Code39::RenderDevice(CFX_RenderDevice* device,
-                              const CFX_Matrix* matrix,
+                              const CFX_Matrix& matrix,
                               int32_t& e) {
   CFX_WideString renderCon =
       static_cast<CBC_OnedCode39Writer*>(m_pBCWriter.get())

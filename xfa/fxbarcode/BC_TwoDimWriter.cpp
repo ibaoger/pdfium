@@ -20,7 +20,7 @@ CBC_TwoDimWriter::CBC_TwoDimWriter() : m_iCorrectLevel(1), m_bFixedSize(true) {}
 CBC_TwoDimWriter::~CBC_TwoDimWriter() {}
 
 void CBC_TwoDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
-                                          const CFX_Matrix* matrix) {
+                                          const CFX_Matrix& matrix) {
   CFX_GraphStateData stateData;
   CFX_PathData path;
   path.AppendRect(0, 0, (FX_FLOAT)m_Width, (FX_FLOAT)m_Height);
@@ -32,13 +32,14 @@ void CBC_TwoDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
     leftPos = (m_Width - m_output->GetWidth()) / 2;
     topPos = (m_Height - m_output->GetHeight()) / 2;
   }
-  CFX_Matrix matri = *matrix;
+
+  CFX_Matrix newMatrix = matrix;
   if (m_Width < m_output->GetWidth() && m_Height < m_output->GetHeight()) {
     CFX_Matrix matriScale(
         (FX_FLOAT)m_Width / (FX_FLOAT)m_output->GetWidth(), 0.0, 0.0,
         (FX_FLOAT)m_Height / (FX_FLOAT)m_output->GetHeight(), 0.0, 0.0);
-    matriScale.Concat(*matrix);
-    matri = matriScale;
+    matriScale.Concat(matrix);
+    newMatrix = matriScale;
   }
   for (int32_t x = 0; x < m_output->GetWidth(); x++) {
     for (int32_t y = 0; y < m_output->GetHeight(); y++) {
@@ -47,7 +48,8 @@ void CBC_TwoDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
                       (FX_FLOAT)(leftPos + x + 1), (FX_FLOAT)(topPos + y + 1));
       if (m_output->Get(x, y)) {
         CFX_GraphStateData data;
-        device->DrawPath(&rect, &matri, &data, m_barColor, 0, FXFILL_WINDING);
+        device->DrawPath(&rect, newMatrix, &data, m_barColor, 0,
+                         FXFILL_WINDING);
       }
     }
   }

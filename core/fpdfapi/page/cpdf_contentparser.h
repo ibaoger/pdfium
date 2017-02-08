@@ -30,7 +30,7 @@ class CPDF_ContentParser {
   void Start(CPDF_Page* pPage);
   void Start(CPDF_Form* pForm,
              CPDF_AllStates* pGraphicStates,
-             const CFX_Matrix* pParentMatrix,
+             const CFX_Matrix& pParentMatrix,
              CPDF_Type3Char* pType3Char,
              int level);
   void Continue(IFX_Pause* pPause);

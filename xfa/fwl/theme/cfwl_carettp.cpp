@@ -26,7 +26,7 @@ void CFWL_CaretTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
       DrawCaretBK(pParams->m_pGraphics, pParams->m_dwStates,
                   &(pParams->m_rtPart), (CFX_Color*)pParams->m_pData,
-                  &(pParams->m_matrix));
+                  pParams->m_matrix);
       break;
     }
     default:
@@ -38,7 +38,7 @@ void CFWL_CaretTP::DrawCaretBK(CFX_Graphics* pGraphics,
                                uint32_t dwStates,
                                const CFX_RectF* pRect,
                                CFX_Color* crFill,
-                               CFX_Matrix* pMatrix) {
+                               const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   CFX_RectF rect = *pRect;

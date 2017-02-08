@@ -87,17 +87,17 @@ class CPDF_Annot {
 
   bool DrawAppearance(CPDF_Page* pPage,
                       CFX_RenderDevice* pDevice,
-                      const CFX_Matrix* pUser2Device,
+                      const CFX_Matrix& pUser2Device,
                       AppearanceMode mode,
                       const CPDF_RenderOptions* pOptions);
   bool DrawInContext(const CPDF_Page* pPage,
                      CPDF_RenderContext* pContext,
-                     const CFX_Matrix* pUser2Device,
+                     const CFX_Matrix& pUser2Device,
                      AppearanceMode mode);
 
   void ClearCachedAP();
   void DrawBorder(CFX_RenderDevice* pDevice,
-                  const CFX_Matrix* pUser2Device,
+                  const CFX_Matrix& pUser2Device,
                   const CPDF_RenderOptions* pOptions);
   CPDF_Form* GetAPForm(const CPDF_Page* pPage, AppearanceMode mode);
   void SetOpenState(bool bOpenState) { m_bOpenState = bOpenState; }

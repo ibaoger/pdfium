@@ -42,7 +42,7 @@ class CPDFSDK_Annot : public CFX_Observable<CPDFSDK_Annot> {
 
   virtual void SetRect(const CFX_FloatRect& rect);
   virtual void Annot_OnDraw(CFX_RenderDevice* pDevice,
-                            CFX_Matrix* pUser2Device,
+                            const CFX_Matrix& pUser2Device,
                             CPDF_RenderOptions* pOptions);
 
   UnderlyingPageType* GetUnderlyingPage();

@@ -54,7 +54,7 @@ CPDF_Annot::Subtype CPDFSDK_BAAnnot::GetAnnotSubtype() const {
 }
 
 void CPDFSDK_BAAnnot::DrawAppearance(CFX_RenderDevice* pDevice,
-                                     const CFX_Matrix* pUser2Device,
+                                     const CFX_Matrix& pUser2Device,
                                      CPDF_Annot::AppearanceMode mode,
                                      const CPDF_RenderOptions* pOptions) {
   m_pAnnot->DrawAppearance(m_pPageView->GetPDFPage(), pDevice, pUser2Device,
@@ -85,7 +85,7 @@ bool CPDFSDK_BAAnnot::IsAppearanceValid(CPDF_Annot::AppearanceMode mode) {
 }
 
 void CPDFSDK_BAAnnot::DrawBorder(CFX_RenderDevice* pDevice,
-                                 const CFX_Matrix* pUser2Device,
+                                 const CFX_Matrix& pUser2Device,
                                  const CPDF_RenderOptions* pOptions) {
   m_pAnnot->DrawBorder(pDevice, pUser2Device, pOptions);
 }
@@ -387,7 +387,7 @@ CPDF_Action CPDFSDK_BAAnnot::GetAAction(CPDF_AAction::AActionType eAAT) {
 }
 
 void CPDFSDK_BAAnnot::Annot_OnDraw(CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device,
+                                   const CFX_Matrix& pUser2Device,
                                    CPDF_RenderOptions* pOptions) {
   m_pAnnot->GetAPForm(m_pPageView->GetPDFPage(), CPDF_Annot::Normal);
   m_pAnnot->DrawAppearance(m_pPageView->GetPDFPage(), pDevice, pUser2Device,

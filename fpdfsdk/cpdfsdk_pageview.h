@@ -26,12 +26,12 @@ class CPDFSDK_PageView final : public CPDF_Page::View {
 
 #ifdef PDF_ENABLE_XFA
   void PageView_OnDraw(CFX_RenderDevice* pDevice,
-                       CFX_Matrix* pUser2Device,
+                       const CFX_Matrix& pUser2Device,
                        CPDF_RenderOptions* pOptions,
                        const FX_RECT& pClip);
 #else   // PDF_ENABLE_XFA
   void PageView_OnDraw(CFX_RenderDevice* pDevice,
-                       CFX_Matrix* pUser2Device,
+                       const CFX_Matrix& pUser2Device,
                        CPDF_RenderOptions* pOptions);
 #endif  // PDF_ENABLE_XFA
 
