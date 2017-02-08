@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a29f05cd_51323403",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T17:39:28Z",
+      "side": 1,
+      "message": "There;s got to be a saner way of doing this using Mid() or other operations on the stringC (always cheap for ....C) to produce new stringCs which are given to the comparison and Parse() calls below.  Follow-up if you like.",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 16
+      },
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ac6bdfc_0f47336f",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T17:39:28Z",
+      "side": 1,
+      "message": "nit: we can use range-based for loops over []s, eg.\n\nfor (int32_t guess  : g_ValueGuessOrder) {",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 9
+      },
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6176cc30_d35f8f3b",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T17:39:28Z",
+      "side": 1,
+      "message": "follow-up: these should take WideStringC\u0027s",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 43
+      },
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
