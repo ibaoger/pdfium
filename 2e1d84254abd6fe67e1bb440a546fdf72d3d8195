@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "790e11ab_169007ca",
+        "filename": "core/fpdfapi/render/cpdf_textrenderer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack. Next Cl.",
+      "parentUuid": "1111a9ec_1b4d544a",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e8cf0f8_7d860bf1",
         "filename": "core/fxge/cfx_renderdevice.h",
         "patchSetId": 2
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "c19c0de2_40b0c3de",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e8cf0f8_7d860bf1",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5471ccd_c7f3e3d7",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 2
@@ -62,6 +98,24 @@
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "552f92a5_5878d365",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5471ccd_c7f3e3d7",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "e4455caa_cbff015b",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8e43862_5796c6f9",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb16b035_c28c8cad",
         "filename": "xfa/fde/cfde_path.h",
         "patchSetId": 2
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "cbd881a9_898f639e",
+        "filename": "xfa/fde/cfde_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done. Removed param as it was never set.",
+      "parentUuid": "eb16b035_c28c8cad",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b864d_5fc0056a",
         "filename": "xfa/fde/fde_gedevice.h",
         "patchSetId": 2
@@ -128,6 +218,24 @@
         "endLine": 54,
         "endChar": 34
       },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1bdb824_190ca296",
+        "filename": "xfa/fde/fde_gedevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be7b864d_5fc0056a",
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -157,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "3a6ce334_fca3b205",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efcafa15_341007e7",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "065fe5ae_2e43a204",
         "filename": "xfa/fxfa/app/xfa_ffchoicelist.h",
         "patchSetId": 2
@@ -180,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "59cd25da_3618653c",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Followup.",
+      "parentUuid": "065fe5ae_2e43a204",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b545a222_13b3a00c",
         "filename": "xfa/fxfa/app/xfa_fffield.h",
         "patchSetId": 2
@@ -191,6 +335,24 @@
       "writtenOn": "2017-02-08T19:11:28Z",
       "side": 1,
       "message": "ditto",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545f600d_3226b81b",
+        "filename": "xfa/fxfa/app/xfa_fffield.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b545a222_13b3a00c",
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -220,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "0300ee7c_0080863d",
+        "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c65ad0_31b578a7",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f9f4d89_e17e3ebe",
         "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
         "patchSetId": 2
@@ -240,6 +420,24 @@
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f9f026_8e220d6d",
+        "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f9f4d89_e17e3ebe",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -266,6 +464,24 @@
     },
     {
       "key": {
+        "uuid": "d9a7dd56_477c95dd",
+        "filename": "xfa/fxfa/app/xfa_ffpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea24ea5_e9df7f8f",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f53769f_e7d0fa7f",
         "filename": "xfa/fxfa/app/xfa_fftext.cpp",
         "patchSetId": 2
@@ -286,6 +502,24 @@
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "820e192e_378c947f",
+        "filename": "xfa/fxfa/app/xfa_fftext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f53769f_e7d0fa7f",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -312,6 +546,24 @@
     },
     {
       "key": {
+        "uuid": "72cd2b38_19c1095e",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3a9c933_0e2d479b",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00b90ee4_e857497f",
         "filename": "xfa/fxfa/xfa_ffwidget.h",
         "patchSetId": 2
@@ -329,6 +581,24 @@
         "endLine": 51,
         "endChar": 70
       },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c9f63a8_e735fffc",
+        "filename": "xfa/fxfa/xfa_ffwidget.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T21:56:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00b90ee4_e857497f",
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
