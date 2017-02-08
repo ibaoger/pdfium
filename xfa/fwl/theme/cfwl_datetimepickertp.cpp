@@ -19,11 +19,11 @@ void CFWL_DateTimePickerTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::DropDownButton: {
-      DrawDropDownButton(pParams, &pParams->m_matrix);
+      DrawDropDownButton(pParams, pParams->m_matrix);
       break;
     }
     default:
@@ -32,7 +32,7 @@ void CFWL_DateTimePickerTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 }
 
 void CFWL_DateTimePickerTP::DrawDropDownButton(CFWL_ThemeBackground* pParams,
-                                               CFX_Matrix* pMatrix) {
+                                               const CFX_Matrix& pMatrix) {
   uint32_t dwStates = pParams->m_dwStates;
   dwStates &= 0x03;
   FWLTHEME_STATE eState = FWLTHEME_STATE_Normal;

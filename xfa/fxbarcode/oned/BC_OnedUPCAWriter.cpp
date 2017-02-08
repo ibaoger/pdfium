@@ -120,7 +120,7 @@ uint8_t* CBC_OnedUPCAWriter::Encode(const CFX_ByteString& contents,
 void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
                                    CFX_DIBitmap* pOutBitmap,
                                    CFX_RenderDevice* device,
-                                   const CFX_Matrix* matrix,
+                                   const CFX_Matrix& matrix,
                                    int32_t barWidth,
                                    int32_t multiple,
                                    int32_t& e) {
@@ -150,7 +150,7 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
     CFX_FloatRect rect(
         (FX_FLOAT)leftPosition, (FX_FLOAT)(m_Height - iTextHeight),
         (FX_FLOAT)(leftPosition + strWidth - 0.5), (FX_FLOAT)m_Height);
-    matr.Concat(*matrix);
+    matr.Concat(matrix);
     matr.TransformRect(rect);
     FX_RECT re = rect.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -160,7 +160,7 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
         (FX_FLOAT)(m_Height - iTextHeight),
         (FX_FLOAT)((leftPosition + 40 * multiple) + strWidth - 0.5),
         (FX_FLOAT)m_Height);
-    matr1.Concat(*matrix);
+    matr1.Concat(matrix);
     matr1.TransformRect(rect1);
     re = rect1.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -168,7 +168,7 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
     CFX_Matrix matr2(m_outputHScale, 0.0, 0.0, 1.0, 0.0, 0.0);
     CFX_FloatRect rect2(0.0, (FX_FLOAT)(m_Height - iTextHeight),
                         (FX_FLOAT)strWidth1 - 1, (FX_FLOAT)m_Height);
-    matr2.Concat(*matrix);
+    matr2.Concat(matrix);
     matr2.TransformRect(rect2);
     re = rect2.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -178,7 +178,7 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
         (FX_FLOAT)(m_Height - iTextHeight),
         (FX_FLOAT)((leftPosition + 85 * multiple) + strWidth1 - 0.5),
         (FX_FLOAT)m_Height);
-    matr3.Concat(*matrix);
+    matr3.Concat(matrix);
     matr3.TransformRect(rect3);
     re = rect3.GetOuterRect();
     device->FillRect(&re, m_backgroundColor);
@@ -200,9 +200,9 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
     CFX_Matrix affine_matrix1(1.0, 0.0, 0.0, -1.0,
                               (FX_FLOAT)leftPosition * m_outputHScale,
                               (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos + 1, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
@@ -223,9 +223,9 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
         1.0, 0.0, 0.0, -1.0,
         (FX_FLOAT)(leftPosition + 40 * multiple) * m_outputHScale,
         (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos + 6, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
@@ -247,9 +247,9 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
   } else {
     CFX_Matrix affine_matrix1(1.0, 0.0, 0.0, -1.0, 0,
                               (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
@@ -271,9 +271,9 @@ void CBC_OnedUPCAWriter::ShowChars(const CFX_WideStringC& contents,
         1.0, 0.0, 0.0, -1.0,
         (FX_FLOAT)(leftPosition + 85 * multiple) * m_outputHScale,
         (FX_FLOAT)(m_Height - iTextHeight + iFontSize));
-    if (matrix) {
-      affine_matrix1.Concat(*matrix);
-    }
+    if (!matrix.IsIdentity())
+      affine_matrix1.Concat(matrix);
+
     device->DrawNormalText(iLen, pCharPos + 11, m_pFont,
                            static_cast<FX_FLOAT>(iFontSize), affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);

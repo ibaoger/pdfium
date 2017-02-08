@@ -42,12 +42,12 @@ class CFWL_ListBox : public CFWL_Widget {
   FWL_Type GetClassID() const override;
   void Update() override;
   FWL_WidgetHit HitTest(FX_FLOAT fx, FX_FLOAT fy) override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   int32_t CountItems(const CFWL_Widget* pWidget) const;
   CFWL_ListItem* GetItem(const CFWL_Widget* pWidget, int32_t nIndex) const;
@@ -87,16 +87,16 @@ class CFWL_ListBox : public CFWL_Widget {
   void SetFocusItem(CFWL_ListItem* hItem);
   void DrawBkground(CFX_Graphics* pGraphics,
                     IFWL_ThemeProvider* pTheme,
-                    const CFX_Matrix* pMatrix);
+                    const CFX_Matrix& pMatrix);
   void DrawItems(CFX_Graphics* pGraphics,
                  IFWL_ThemeProvider* pTheme,
-                 const CFX_Matrix* pMatrix);
+                 const CFX_Matrix& pMatrix);
   void DrawItem(CFX_Graphics* pGraphics,
                 IFWL_ThemeProvider* pTheme,
                 CFWL_ListItem* hItem,
                 int32_t Index,
                 const CFX_RectF& rtItem,
-                const CFX_Matrix* pMatrix);
+                const CFX_Matrix& pMatrix);
   void DrawStatic(CFX_Graphics* pGraphics, IFWL_ThemeProvider* pTheme);
   CFX_SizeF CalcSize(bool bAutoSize);
   void UpdateItemSize(CFWL_ListItem* hItem,

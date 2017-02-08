@@ -58,16 +58,17 @@ void CFX_PathData::AddPointCount(int addPoints) {
   m_PointCount = new_count;
 }
 
-void CFX_PathData::Append(const CFX_PathData* pSrc, const CFX_Matrix* pMatrix) {
+void CFX_PathData::Append(const CFX_PathData* pSrc, const CFX_Matrix& pMatrix) {
   int old_count = m_PointCount;
   AddPointCount(pSrc->m_PointCount);
   FXSYS_memcpy(m_pPoints + old_count, pSrc->m_pPoints,
                pSrc->m_PointCount * sizeof(FX_PATHPOINT));
-  if (pMatrix) {
-    for (int i = 0; i < pSrc->m_PointCount; i++) {
-      pMatrix->Transform(m_pPoints[old_count + i].m_PointX,
-                         m_pPoints[old_count + i].m_PointY);
-    }
+  if (pMatrix.IsIdentity())
+    return;
+
+  for (int i = 0; i < pSrc->m_PointCount; i++) {
+    pMatrix.Transform(m_pPoints[old_count + i].m_PointX,
+                      m_pPoints[old_count + i].m_PointY);
   }
 }
 
@@ -311,22 +312,21 @@ CFX_FloatRect CFX_PathData::GetBoundingBox(FX_FLOAT line_width,
   return rect;
 }
 
-void CFX_PathData::Transform(const CFX_Matrix* pMatrix) {
-  if (!pMatrix) {
+void CFX_PathData::Transform(const CFX_Matrix& pMatrix) {
+  if (pMatrix.IsIdentity())
     return;
-  }
-  for (int i = 0; i < m_PointCount; i++) {
-    pMatrix->Transform(m_pPoints[i].m_PointX, m_pPoints[i].m_PointY);
-  }
+
+  for (int i = 0; i < m_PointCount; i++)
+    pMatrix.Transform(m_pPoints[i].m_PointX, m_pPoints[i].m_PointY);
 }
 
 bool CFX_PathData::GetZeroAreaPath(CFX_PathData& NewPath,
-                                   CFX_Matrix* pMatrix,
+                                   const CFX_Matrix& pMatrix,
                                    bool& bThin,
                                    bool bAdjust) const {
-  if (m_PointCount < 3) {
+  if (m_PointCount < 3)
     return false;
-  }
+
   if (m_PointCount == 3 && m_pPoints[0].m_Type == FXPT_TYPE::MoveTo &&
       m_pPoints[1].m_Type == FXPT_TYPE::LineTo &&
       m_pPoints[2].m_Type == FXPT_TYPE::LineTo &&
@@ -334,18 +334,21 @@ bool CFX_PathData::GetZeroAreaPath(CFX_PathData& NewPath,
       m_pPoints[0].m_PointY == m_pPoints[2].m_PointY) {
     NewPath.AddPointCount(2);
     if (bAdjust) {
-      if (pMatrix) {
+      if (!pMatrix.IsIdentity()) {
         FX_FLOAT x = m_pPoints[0].m_PointX, y = m_pPoints[0].m_PointY;
-        pMatrix->TransformPoint(x, y);
+        pMatrix.TransformPoint(x, y);
         x = (int)x + 0.5f;
         y = (int)y + 0.5f;
         NewPath.SetPoint(0, x, y, FXPT_TYPE::MoveTo, false);
+
         x = m_pPoints[1].m_PointX, y = m_pPoints[1].m_PointY;
-        pMatrix->TransformPoint(x, y);
+        pMatrix.TransformPoint(x, y);
         x = (int)x + 0.5f;
         y = (int)y + 0.5f;
         NewPath.SetPoint(1, x, y, FXPT_TYPE::LineTo, false);
-        pMatrix->SetIdentity();
+
+        // TODO(dsinclair) This modifies the incoming matrix ....
+        const_cast<CFX_Matrix*>(&pMatrix)->SetIdentity();
       } else {
         FX_FLOAT x = (int)m_pPoints[0].m_PointX + 0.5f,
                  y = (int)m_pPoints[0].m_PointY + 0.5f;
@@ -389,7 +392,7 @@ bool CFX_PathData::GetZeroAreaPath(CFX_PathData& NewPath,
                       false);
     }
     if (!bZeroArea) {
-      NewPath.Append(&t_path, nullptr);
+      NewPath.Append(&t_path, CFX_Matrix());
       bThin = true;
       return true;
     }
@@ -467,9 +470,9 @@ bool CFX_PathData::GetZeroAreaPath(CFX_PathData& NewPath,
 }
 
 bool CFX_PathData::IsRect() const {
-  if (m_PointCount != 5 && m_PointCount != 4) {
+  if (m_PointCount != 5 && m_PointCount != 4)
     return false;
-  }
+
   if ((m_PointCount == 5 && (m_pPoints[0].m_PointX != m_pPoints[4].m_PointX ||
                              m_pPoints[0].m_PointY != m_pPoints[4].m_PointY)) ||
       (m_pPoints[0].m_PointX == m_pPoints[2].m_PointX &&
@@ -483,9 +486,8 @@ bool CFX_PathData::IsRect() const {
     return false;
   }
   for (int i = 1; i < 4; i++) {
-    if (m_pPoints[i].m_Type != FXPT_TYPE::LineTo) {
+    if (m_pPoints[i].m_Type != FXPT_TYPE::LineTo)
       return false;
-    }
     if (m_pPoints[i].m_PointX != m_pPoints[i - 1].m_PointX &&
         m_pPoints[i].m_PointY != m_pPoints[i - 1].m_PointY) {
       return false;
@@ -494,12 +496,11 @@ bool CFX_PathData::IsRect() const {
   return m_PointCount == 5 || m_pPoints[3].m_CloseFigure;
 }
 
-bool CFX_PathData::IsRect(const CFX_Matrix* pMatrix,
+bool CFX_PathData::IsRect(const CFX_Matrix& pMatrix,
                           CFX_FloatRect* pRect) const {
-  if (!pMatrix) {
-    if (!IsRect()) {
+  if (pMatrix.IsIdentity()) {
+    if (!IsRect())
       return false;
-    }
     if (pRect) {
       pRect->left = m_pPoints[0].m_PointX;
       pRect->right = m_pPoints[2].m_PointX;
@@ -509,9 +510,10 @@ bool CFX_PathData::IsRect(const CFX_Matrix* pMatrix,
     }
     return true;
   }
-  if (m_PointCount != 5 && m_PointCount != 4) {
+
+  if (m_PointCount != 5 && m_PointCount != 4)
     return false;
-  }
+
   if ((m_PointCount == 5 && (m_pPoints[0].m_PointX != m_pPoints[4].m_PointX ||
                              m_pPoints[0].m_PointY != m_pPoints[4].m_PointY)) ||
       (m_pPoints[1].m_PointX == m_pPoints[3].m_PointX &&
@@ -522,19 +524,18 @@ bool CFX_PathData::IsRect(const CFX_Matrix* pMatrix,
       m_pPoints[0].m_PointY != m_pPoints[3].m_PointY) {
     return false;
   }
+
   FX_FLOAT x[5], y[5];
   for (int i = 0; i < m_PointCount; i++) {
-    pMatrix->Transform(m_pPoints[i].m_PointX, m_pPoints[i].m_PointY, x[i],
-                       y[i]);
+    pMatrix.Transform(m_pPoints[i].m_PointX, m_pPoints[i].m_PointY, x[i], y[i]);
     if (i) {
-      if (m_pPoints[i].m_Type != FXPT_TYPE::LineTo) {
+      if (m_pPoints[i].m_Type != FXPT_TYPE::LineTo)
         return false;
-      }
-      if (x[i] != x[i - 1] && y[i] != y[i - 1]) {
+      if (x[i] != x[i - 1] && y[i] != y[i - 1])
         return false;
-      }
     }
   }
+
   if (pRect) {
     pRect->left = x[0];
     pRect->right = x[2];

@@ -17,7 +17,7 @@ class CXFA_FFCheckButton : public CXFA_FFField {
 
   // CXFA_FFField
   void RenderWidget(CFX_Graphics* pGS,
-                    CFX_Matrix* pMatrix,
+                    const CFX_Matrix& pMatrix,
                     uint32_t dwStatus) override;
 
   bool LoadWidget() override;
@@ -28,7 +28,7 @@ class CXFA_FFCheckButton : public CXFA_FFField {
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix = nullptr) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void SetFWLCheckState(XFA_CHECKSTATE eCheckState);
 

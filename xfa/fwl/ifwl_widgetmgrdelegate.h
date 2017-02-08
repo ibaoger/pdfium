@@ -18,7 +18,7 @@ class CFWL_WidgetMgrDelegate {
   virtual void OnProcessMessageToForm(CFWL_Message* pMessage) = 0;
   virtual void OnDrawWidget(CFWL_Widget* pWidget,
                             CFX_Graphics* pGraphics,
-                            const CFX_Matrix* pMatrix) = 0;
+                            const CFX_Matrix& pMatrix) = 0;
 };
 
 #endif  // XFA_FWL_IFWL_WIDGETMGRDELEGATE_H_

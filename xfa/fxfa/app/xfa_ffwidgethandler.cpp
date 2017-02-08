@@ -176,7 +176,7 @@ bool CXFA_FFWidgetHandler::OnSetCursor(CXFA_FFWidget* hWidget,
 
 void CXFA_FFWidgetHandler::RenderWidget(CXFA_FFWidget* hWidget,
                                         CFX_Graphics* pGS,
-                                        CFX_Matrix* pMatrix,
+                                        const CFX_Matrix& pMatrix,
                                         bool bHighlight) {
   hWidget->RenderWidget(pGS, pMatrix,
                         bHighlight ? XFA_WidgetStatus_Highlight : 0);

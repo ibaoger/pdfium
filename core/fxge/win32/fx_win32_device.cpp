@@ -89,14 +89,14 @@ bool IsGDIEnabled() {
 }
 
 HPEN CreatePen(const CFX_GraphStateData* pGraphState,
-               const CFX_Matrix* pMatrix,
+               const CFX_Matrix& pMatrix,
                uint32_t argb) {
   FX_FLOAT width;
   FX_FLOAT scale = 1.f;
-  if (pMatrix)
-    scale = FXSYS_fabs(pMatrix->a) > FXSYS_fabs(pMatrix->b)
-                ? FXSYS_fabs(pMatrix->a)
-                : FXSYS_fabs(pMatrix->b);
+  if (!pMatrix.IsIdentity())
+    scale = FXSYS_fabs(pMatrix.a) > FXSYS_fabs(pMatrix.b)
+                ? FXSYS_fabs(pMatrix.a)
+                : FXSYS_fabs(pMatrix.b);
   if (pGraphState) {
     width = scale * pGraphState->m_LineWidth;
   } else {
@@ -145,8 +145,9 @@ HPEN CreatePen(const CFX_GraphStateData* pGraphState,
     dashes.resize(pGraphState->m_DashCount);
     for (int i = 0; i < pGraphState->m_DashCount; i++) {
       dashes[i] = FXSYS_round(
-          pMatrix ? pMatrix->TransformDistance(pGraphState->m_DashArray[i])
-                  : pGraphState->m_DashArray[i]);
+          pMatrix.IsIdentity()
+              ? pGraphState->m_DashArray[i]
+              : pMatrix.TransformDistance(pGraphState->m_DashArray[i]));
       dashes[i] = std::max(dashes[i], 1U);
     }
   }
@@ -164,15 +165,15 @@ HBRUSH CreateBrush(uint32_t argb) {
 
 void SetPathToDC(HDC hDC,
                  const CFX_PathData* pPathData,
-                 const CFX_Matrix* pMatrix) {
+                 const CFX_Matrix& pMatrix) {
   BeginPath(hDC);
   int nPoints = pPathData->GetPointCount();
   FX_PATHPOINT* pPoints = pPathData->GetPoints();
   for (int i = 0; i < nPoints; i++) {
     FX_FLOAT posx = pPoints[i].m_PointX, posy = pPoints[i].m_PointY;
-    if (pMatrix) {
-      pMatrix->Transform(posx, posy);
-    }
+    if (!pMatrix.IsIdentity())
+      pMatrix.Transform(posx, posy);
+
     int screen_x = FXSYS_round(posx), screen_y = FXSYS_round(posy);
     FXPT_TYPE point_type = pPoints[i].m_Type;
     if (point_type == FXPT_TYPE::MoveTo) {
@@ -189,16 +190,16 @@ void SetPathToDC(HDC hDC,
       lppt[0].y = screen_y;
       posx = pPoints[i + 1].m_PointX;
       posy = pPoints[i + 1].m_PointY;
-      if (pMatrix) {
-        pMatrix->Transform(posx, posy);
-      }
+      if (!pMatrix.IsIdentity())
+        pMatrix.Transform(posx, posy);
+
       lppt[1].x = FXSYS_round(posx);
       lppt[1].y = FXSYS_round(posy);
       posx = pPoints[i + 2].m_PointX;
       posy = pPoints[i + 2].m_PointY;
-      if (pMatrix) {
-        pMatrix->Transform(posx, posy);
-      }
+      if (pMatrix.IsIdentity())
+        pMatrix.Transform(posx, posy);
+
       lppt[2].x = FXSYS_round(posx);
       lppt[2].y = FXSYS_round(posy);
       PolyBezierTo(hDC, lppt, 3);
@@ -316,9 +317,9 @@ unsigned clip_liang_barsky(FX_FLOAT x1,
 }
 #endif  // _SKIA_SUPPORT_
 
-bool MatrixNoScaled(const CFX_Matrix* pMatrix) {
-  return pMatrix->GetA() == 1.0f && pMatrix->GetB() == 0 &&
-         pMatrix->GetC() == 0 && pMatrix->GetD() == 1.0f;
+bool MatrixNoScaled(const CFX_Matrix& pMatrix) {
+  return pMatrix.GetA() == 1.0f && pMatrix.GetB() == 0 && pMatrix.GetC() == 0 &&
+         pMatrix.GetD() == 1.0f;
 }
 
 class CFX_Win32FallbackFontInfo final : public CFX_FolderFontInfo {
@@ -982,7 +983,7 @@ void CGdiDeviceDriver::DrawLine(FX_FLOAT x1,
 }
 
 bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
-                                const CFX_Matrix* pMatrix,
+                                const CFX_Matrix& pMatrix,
                                 const CFX_GraphStateData* pGraphState,
                                 uint32_t fill_color,
                                 uint32_t stroke_color,
@@ -996,9 +997,9 @@ bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
   if (!(pGraphState || stroke_color == 0) &&
       !pPlatform->m_GdiplusExt.IsAvailable()) {
     CFX_FloatRect bbox_f = pPathData->GetBoundingBox();
-    if (pMatrix) {
+    if (!pMatrix.IsIdentity())
       bbox_f.Transform(pMatrix);
-    }
+
     FX_RECT bbox = bbox_f.GetInnerRect();
     if (bbox.Width() <= 0) {
       return DrawCosmeticLine(
@@ -1022,7 +1023,7 @@ bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     if (bDrawAlpha ||
         ((m_DeviceClass != FXDC_PRINTER && !(fill_mode & FXFILL_FULLCOVER)) ||
          (pGraphState && pGraphState->m_DashCount))) {
-      if (!((!pMatrix || MatrixNoScaled(pMatrix)) && pGraphState &&
+      if (!((pMatrix.IsIdentity() || MatrixNoScaled(pMatrix)) && pGraphState &&
             pGraphState->m_LineWidth == 1.f &&
             (pPathData->GetPointCount() == 5 ||
              pPathData->GetPointCount() == 4) &&
@@ -1055,9 +1056,9 @@ bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     FX_FLOAT y1 = pPathData->GetPointY(0);
     FX_FLOAT x2 = pPathData->GetPointX(1);
     FX_FLOAT y2 = pPathData->GetPointY(1);
-    if (pMatrix) {
-      pMatrix->Transform(x1, y1);
-      pMatrix->Transform(x2, y2);
+    if (!pMatrix.IsIdentity()) {
+      pMatrix.Transform(x1, y1);
+      pMatrix.Transform(x2, y2);
     }
     DrawLine(x1, y1, x2, y2);
   } else {
@@ -1111,7 +1112,7 @@ bool CGdiDeviceDriver::FillRectWithBlend(const FX_RECT* pRect,
 }
 
 bool CGdiDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
-                                        const CFX_Matrix* pMatrix,
+                                        const CFX_Matrix& pMatrix,
                                         int fill_mode) {
   if (pPathData->GetPointCount() == 5) {
     CFX_FloatRect rectf;
@@ -1129,7 +1130,7 @@ bool CGdiDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 
 bool CGdiDeviceDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pMatrix,
+    const CFX_Matrix& pMatrix,
     const CFX_GraphStateData* pGraphState) {
   HPEN hPen = CreatePen(pGraphState, pMatrix, 0xff000000);
   hPen = (HPEN)SelectObject(m_hDC, hPen);
@@ -1361,7 +1362,7 @@ bool CGdiDisplayDriver::StretchDIBits(const CFX_DIBSource* pSource,
 bool CGdiDisplayDriver::StartDIBits(const CFX_DIBSource* pBitmap,
                                     int bitmap_alpha,
                                     uint32_t color,
-                                    const CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t render_flags,
                                     void*& handle,
                                     int blend_type) {

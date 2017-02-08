@@ -542,11 +542,11 @@ void ClipAngledGradient(const SkPoint pts[2],
 }
 
 #ifdef _SKIA_SUPPORT_
-void SetBitmapMatrix(const CFX_Matrix* pMatrix,
+void SetBitmapMatrix(const CFX_Matrix& pMatrix,
                      int width,
                      int height,
                      SkMatrix* skMatrix) {
-  const CFX_Matrix& m = *pMatrix;
+  CFX_Matrix m = pMatrix;
   skMatrix->setAll(m.a / width, -m.c / height, m.c + m.e, m.b / width,
                    -m.d / height, m.d + m.f, 0, 0, 1);
 }
@@ -686,7 +686,7 @@ class SkiaState {
   }
 
   bool DrawPath(const CFX_PathData* pPathData,
-                const CFX_Matrix* pMatrix,
+                const CFX_Matrix& pMatrix,
                 const CFX_GraphStateData* pDrawState,
                 uint32_t fill_color,
                 uint32_t stroke_color,
@@ -715,8 +715,8 @@ class SkiaState {
       m_strokeColor = stroke_color;
       m_blendType = blend_type;
       m_groupKnockout = m_pDriver->m_bGroupKnockout;
-      if (pMatrix)
-        m_drawMatrix = *pMatrix;
+      if (!pMatrix.IsIdentity())
+        m_drawMatrix = pMatrix;
       m_drawIndex = m_commandIndex;
       m_type = Accumulator::kPath;
     }
@@ -778,7 +778,7 @@ class SkiaState {
   bool DrawText(int nChars,
                 const FXTEXT_CHARPOS* pCharPos,
                 CFX_Font* pFont,
-                const CFX_Matrix* pMatrix,
+                const CFX_Matrix& pMatrix,
                 FX_FLOAT font_size,
                 uint32_t color) {
     if (m_debugDisable)
@@ -796,7 +796,7 @@ class SkiaState {
       m_pFont = pFont;
       m_fontSize = font_size;
       m_fillColor = color;
-      m_drawMatrix = *pMatrix;
+      m_drawMatrix = pMatrix;
       m_drawIndex = m_commandIndex;
       m_type = Accumulator::kText;
     }
@@ -849,7 +849,7 @@ class SkiaState {
   }
 
   bool SetClipFill(const CFX_PathData* pPathData,
-                   const CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    int fill_mode) {
     if (m_debugDisable)
       return false;
@@ -858,7 +858,7 @@ class SkiaState {
     skClipPath.setFillType((fill_mode & 3) == FXFILL_ALTERNATE
                                ? SkPath::kEvenOdd_FillType
                                : SkPath::kWinding_FillType);
-    SkMatrix skMatrix = ToSkMatrix(*pMatrix);
+    SkMatrix skMatrix = ToSkMatrix(pMatrix);
     skClipPath.transform(skMatrix);
     return SetClip(skClipPath);
   }
@@ -892,13 +892,13 @@ class SkiaState {
   }
 
   bool SetClipStroke(const CFX_PathData* pPathData,
-                     const CFX_Matrix* pMatrix,
+                     const CFX_Matrix& pMatrix,
                      const CFX_GraphStateData* pGraphState) {
     if (m_debugDisable)
       return false;
     Dump(__func__);
     SkPath skPath = BuildPath(pPathData);
-    SkMatrix skMatrix = ToSkMatrix(*pMatrix);
+    SkMatrix skMatrix = ToSkMatrix(pMatrix);
     SkPaint skPaint;
     m_pDriver->PaintStroke(&skPaint, pGraphState, skMatrix);
     SkPath dst_path;
@@ -907,11 +907,8 @@ class SkiaState {
     return SetClip(dst_path);
   }
 
-  bool MatrixOffset(const CFX_Matrix* pMatrix, SkPoint* delta) {
-    CFX_Matrix identityMatrix;
-    if (!pMatrix)
-      pMatrix = &identityMatrix;
-    delta->set(pMatrix->e - m_drawMatrix.e, pMatrix->f - m_drawMatrix.f);
+  bool MatrixOffset(const CFX_Matrix& pMatrix, SkPoint* delta) {
+    delta->set(pMatrix.e - m_drawMatrix.e, pMatrix.f - m_drawMatrix.f);
     if (!delta->fX && !delta->fY)
       return true;
     SkMatrix drawMatrix = ToSkMatrix(m_drawMatrix);
@@ -921,7 +918,7 @@ class SkiaState {
     if (!drawMatrix.invert(&invDrawMatrix))
       return false;
     SkMatrix invNewMatrix;
-    SkMatrix newMatrix = ToSkMatrix(*pMatrix);
+    SkMatrix newMatrix = ToSkMatrix(pMatrix);
     if (!newMatrix.invert(&invNewMatrix))
       return false;
     delta->set(invDrawMatrix.getTranslateX() - invNewMatrix.getTranslateX(),
@@ -963,7 +960,7 @@ class SkiaState {
     return true;
   }
 
-  bool DrawChanged(const CFX_Matrix* pMatrix,
+  bool DrawChanged(const CFX_Matrix& pMatrix,
                    const CFX_GraphStateData* pState,
                    uint32_t fill_color,
                    uint32_t stroke_color,
@@ -979,20 +976,17 @@ class SkiaState {
   }
 
   bool FontChanged(CFX_Font* pFont,
-                   const CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    FX_FLOAT font_size,
                    uint32_t color) const {
     return pFont != m_pFont || MatrixChanged(pMatrix, m_drawMatrix) ||
            font_size != m_fontSize || color != m_fillColor;
   }
 
-  bool MatrixChanged(const CFX_Matrix* pMatrix,
+  bool MatrixChanged(const CFX_Matrix& pMatrix,
                      const CFX_Matrix& refMatrix) const {
-    CFX_Matrix identityMatrix;
-    if (!pMatrix)
-      pMatrix = &identityMatrix;
-    return pMatrix->a != refMatrix.a || pMatrix->b != refMatrix.b ||
-           pMatrix->c != refMatrix.c || pMatrix->d != refMatrix.d;
+    return pMatrix.a != refMatrix.a || pMatrix.b != refMatrix.b ||
+           pMatrix.c != refMatrix.c || pMatrix.d != refMatrix.d;
   }
 
   bool StateChanged(const CFX_GraphStateData* pState,
@@ -1425,12 +1419,11 @@ void CFX_SkiaDeviceDriver::SetClipMask(const FX_RECT& clipBox,
 
 bool CFX_SkiaDeviceDriver::SetClip_PathFill(
     const CFX_PathData* pPathData,     // path info
-    const CFX_Matrix* pObject2Device,  // flips object's y-axis
+    const CFX_Matrix& pObject2Device,  // flips object's y-axis
     int fill_mode                      // fill mode, WINDING or ALTERNATE
     ) {
   CFX_Matrix identity;
-  const CFX_Matrix* deviceMatrix = pObject2Device ? pObject2Device : &identity;
-  bool cached = m_pCache->SetClipFill(pPathData, deviceMatrix, fill_mode);
+  bool cached = m_pCache->SetClipFill(pPathData, pObject2Device, fill_mode);
 
 #ifdef _SKIA_SUPPORT_PATHS_
   m_FillFlags = fill_mode;
@@ -1441,7 +1434,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
 #endif  // _SKIA_SUPPORT_PATHS_
   if (pPathData->GetPointCount() == 5 || pPathData->GetPointCount() == 4) {
     CFX_FloatRect rectf;
-    if (pPathData->IsRect(deviceMatrix, &rectf)) {
+    if (pPathData->IsRect(pObject2Device, &rectf)) {
       rectf.Intersect(
           CFX_FloatRect(0, 0, (FX_FLOAT)GetDeviceCaps(FXDC_PIXEL_WIDTH),
                         (FX_FLOAT)GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
@@ -1465,7 +1458,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
   skClipPath.setFillType((fill_mode & 3) == FXFILL_ALTERNATE
                              ? SkPath::kEvenOdd_FillType
                              : SkPath::kWinding_FillType);
-  SkMatrix skMatrix = ToSkMatrix(*deviceMatrix);
+  SkMatrix skMatrix = ToSkMatrix(pObject2Device);
   skClipPath.transform(skMatrix);
   DebugShowSkiaPath(skClipPath);
   if (!cached) {
@@ -1483,7 +1476,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
 
 bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,         // path info
-    const CFX_Matrix* pObject2Device,      // optional transformation
+    const CFX_Matrix& pObject2Device,      // optional transformation
     const CFX_GraphStateData* pGraphState  // graphic state, for pen attributes
     ) {
   bool cached = m_pCache->SetClipStroke(pPathData, pObject2Device, pGraphState);
@@ -1496,7 +1489,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
 #endif  // _SKIA_SUPPORT_PATHS_
   // build path data
   SkPath skPath = BuildPath(pPathData);
-  SkMatrix skMatrix = ToSkMatrix(*pObject2Device);
+  SkMatrix skMatrix = ToSkMatrix(pObject2Device);
   SkPaint skPaint;
   PaintStroke(&skPaint, pGraphState, skMatrix);
   SkPath dst_path;
@@ -1517,7 +1510,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
 
 bool CFX_SkiaDeviceDriver::DrawPath(
     const CFX_PathData* pPathData,          // path info
-    const CFX_Matrix* pObject2Device,       // optional transformation
+    const CFX_Matrix& pObject2Device,       // optional transformation
     const CFX_GraphStateData* pGraphState,  // graphic state, for pen attributes
     uint32_t fill_color,                    // fill color
     uint32_t stroke_color,                  // stroke color
@@ -1529,11 +1522,7 @@ bool CFX_SkiaDeviceDriver::DrawPath(
                          stroke_color, fill_mode, blend_type)) {
     return true;
   }
-  SkMatrix skMatrix;
-  if (pObject2Device)
-    skMatrix = ToSkMatrix(*pObject2Device);
-  else
-    skMatrix.setIdentity();
+  SkMatrix skMatrix = ToSkMatrix(pObject2Device);
   SkPaint skPaint;
   skPaint.setAntiAlias(true);
   if (fill_mode & FXFILL_FULLCOVER)
@@ -1606,7 +1595,7 @@ bool CFX_SkiaDeviceDriver::FillRectWithBlend(const FX_RECT* pRect,
 }
 
 bool CFX_SkiaDeviceDriver::DrawShading(const CPDF_ShadingPattern* pPattern,
-                                       const CFX_Matrix* pMatrix,
+                                       const CFX_Matrix& pMatrix,
                                        const FX_RECT& clip_rect,
                                        int alpha,
                                        bool bAlphaMode) {
@@ -1662,7 +1651,7 @@ bool CFX_SkiaDeviceDriver::DrawShading(const CPDF_ShadingPattern* pPattern,
   SkPaint paint;
   paint.setAntiAlias(true);
   paint.setAlpha(alpha);
-  SkMatrix skMatrix = ToSkMatrix(*pMatrix);
+  SkMatrix skMatrix = ToSkMatrix(pMatrix);
   SkRect skRect = SkRect::MakeLTRB(clip_rect.left, clip_rect.top,
                                    clip_rect.right, clip_rect.bottom);
   SkPath skClip;
@@ -1880,7 +1869,7 @@ bool CFX_SkiaDeviceDriver::SetDIBits(const CFX_DIBSource* pBitmap,
   CFX_Matrix m(pBitmap->GetWidth(), 0, 0, -pBitmap->GetHeight(), left,
                top + pBitmap->GetHeight());
   void* dummy;
-  return StartDIBits(pBitmap, 0xFF, argb, &m, 0, dummy, blend_type);
+  return StartDIBits(pBitmap, 0xFF, argb, m, 0, dummy, blend_type);
 #endif  // _SKIA_SUPPORT_
 
 #ifdef _SKIA_SUPPORT_PATHS_
@@ -1918,7 +1907,7 @@ bool CFX_SkiaDeviceDriver::StretchDIBits(const CFX_DIBSource* pSource,
                                        pClipRect->right, pClipRect->top);
   m_pCanvas->clipRect(skClipRect, SkClipOp::kIntersect, true);
   void* dummy;
-  bool result = StartDIBits(pSource, 0xFF, argb, &m, 0, dummy, blend_type);
+  bool result = StartDIBits(pSource, 0xFF, argb, m, 0, dummy, blend_type);
   m_pCanvas->restore();
 
   return result;
@@ -1951,7 +1940,7 @@ bool CFX_SkiaDeviceDriver::StretchDIBits(const CFX_DIBSource* pSource,
 bool CFX_SkiaDeviceDriver::StartDIBits(const CFX_DIBSource* pSource,
                                        int bitmap_alpha,
                                        uint32_t argb,
-                                       const CFX_Matrix* pMatrix,
+                                       const CFX_Matrix& pMatrix,
                                        uint32_t render_flags,
                                        void*& handle,
                                        int blend_type) {
@@ -2085,7 +2074,7 @@ void CFX_DIBitmap::UnPreMultiply() {
 bool CFX_SkiaDeviceDriver::DrawBitsWithMask(const CFX_DIBSource* pSource,
                                             const CFX_DIBSource* pMask,
                                             int bitmap_alpha,
-                                            const CFX_Matrix* pMatrix,
+                                            const CFX_Matrix& pMatrix,
                                             int blend_type) {
   DebugValidate(m_pBitmap, m_pOriDevice);
   SkColorTable* srcCt = nullptr;
@@ -2136,7 +2125,7 @@ bool CFX_SkiaDeviceDriver::SetBitsWithMask(const CFX_DIBSource* pBitmap,
     return true;
   CFX_Matrix m(pBitmap->GetWidth(), 0, 0, -pBitmap->GetHeight(), dest_left,
                dest_top + pBitmap->GetHeight());
-  return DrawBitsWithMask(pBitmap, pMask, bitmap_alpha, &m, blend_type);
+  return DrawBitsWithMask(pBitmap, pMask, bitmap_alpha, m, blend_type);
 }
 
 void CFX_SkiaDeviceDriver::Clear(uint32_t color) {

@@ -46,7 +46,7 @@ class CBC_OneDimWriter : public CBC_Writer {
                                   const CFX_WideStringC& contents,
                                   int32_t& e);
   virtual void RenderDeviceResult(CFX_RenderDevice* device,
-                                  const CFX_Matrix* matrix,
+                                  const CFX_Matrix& matrix,
                                   const CFX_WideStringC& contents,
                                   int32_t& e);
   virtual bool CheckContentValidity(const CFX_WideStringC& contents);
@@ -70,7 +70,7 @@ class CBC_OneDimWriter : public CBC_Writer {
   virtual void ShowChars(const CFX_WideStringC& contents,
                          CFX_DIBitmap* pOutBitmap,
                          CFX_RenderDevice* device,
-                         const CFX_Matrix* matrix,
+                         const CFX_Matrix& matrix,
                          int32_t barWidth,
                          int32_t multiple,
                          int32_t& e);
@@ -82,7 +82,7 @@ class CBC_OneDimWriter : public CBC_Writer {
                                FX_FLOAT locY,
                                int32_t barWidth);
   virtual void ShowDeviceChars(CFX_RenderDevice* device,
-                               const CFX_Matrix* matrix,
+                               const CFX_Matrix& matrix,
                                const CFX_ByteString str,
                                FX_FLOAT geWidth,
                                FXTEXT_CHARPOS* pCharPos,

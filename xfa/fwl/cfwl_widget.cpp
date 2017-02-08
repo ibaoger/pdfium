@@ -559,13 +559,14 @@ void CFWL_Widget::DrawBackground(CFX_Graphics* pGraphics,
 void CFWL_Widget::DrawBorder(CFX_Graphics* pGraphics,
                              CFWL_Part iPartBorder,
                              IFWL_ThemeProvider* pTheme,
-                             const CFX_Matrix* pMatrix) {
+                             const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
   param.m_iPart = iPartBorder;
   param.m_pGraphics = pGraphics;
-  if (pMatrix)
-    param.m_matrix.Concat(*pMatrix, true);
+  if (!pMatrix.IsIdentity())
+    param.m_matrix.Concat(pMatrix, true);
+
   param.m_rtPart = GetRelativeRect();
   pTheme->DrawBackground(&param);
 }
@@ -635,4 +636,4 @@ void CFWL_Widget::OnProcessMessage(CFWL_Message* pMessage) {
 void CFWL_Widget::OnProcessEvent(CFWL_Event* pEvent) {}
 
 void CFWL_Widget::OnDrawWidget(CFX_Graphics* pGraphics,
-                               const CFX_Matrix* pMatrix) {}
+                               const CFX_Matrix& pMatrix) {}

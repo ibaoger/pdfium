@@ -22,7 +22,7 @@ class CBC_DataMatrix : public CBC_CodeBase {
               bool isDevice,
               int32_t& e) override;
   bool RenderDevice(CFX_RenderDevice* device,
-                    const CFX_Matrix* matrix,
+                    const CFX_Matrix& matrix,
                     int32_t& e) override;
   bool RenderBitmap(CFX_DIBitmap*& pOutBitmap, int32_t& e) override;
   BC_TYPE GetType() override;

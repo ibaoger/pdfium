@@ -39,11 +39,11 @@ class CFWL_DateTimePicker : public CFWL_Widget {
   FWL_Type GetClassID() const override;
   void Update() override;
   FWL_WidgetHit HitTest(FX_FLOAT fx, FX_FLOAT fy) override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void SetThemeProvider(IFWL_ThemeProvider* pTP) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void GetCurSel(int32_t& iYear, int32_t& iMonth, int32_t& iDay);
   void SetCurSel(int32_t iYear, int32_t iMonth, int32_t iDay);
@@ -69,7 +69,7 @@ class CFWL_DateTimePicker : public CFWL_Widget {
  private:
   void DrawDropDownButton(CFX_Graphics* pGraphics,
                           IFWL_ThemeProvider* pTheme,
-                          const CFX_Matrix* pMatrix);
+                          const CFX_Matrix& pMatrix);
   void FormatDateString(int32_t iYear,
                         int32_t iMonth,
                         int32_t iDay,
@@ -88,7 +88,7 @@ class CFWL_DateTimePicker : public CFWL_Widget {
   bool DisForm_IsNeedShowButton() const;
   void DisForm_Update();
   CFX_RectF DisForm_GetBBox() const;
-  void DisForm_DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix);
+  void DisForm_DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix);
   void DisForm_OnFocusChanged(CFWL_Message* pMsg, bool bSet);
 
   CFX_RectF m_rtBtn;

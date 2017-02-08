@@ -322,7 +322,7 @@ class CFX_Edit {
       const CFX_FloatPoint& ptOffset,
       const CPVT_WordRange* pRange);
   static void DrawEdit(CFX_RenderDevice* pDevice,
-                       CFX_Matrix* pUser2Device,
+                       const CFX_Matrix& pUser2Device,
                        CFX_Edit* pEdit,
                        FX_COLORREF crTextFill,
                        FX_COLORREF crTextStroke,

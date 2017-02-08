@@ -187,27 +187,27 @@ class CPWL_Utils {
   static CFX_ByteString GetDropButtonAppStream(const CFX_FloatRect& rcBBox);
 
   static void DrawFillRect(CFX_RenderDevice* pDevice,
-                           CFX_Matrix* pUser2Device,
+                           const CFX_Matrix& pUser2Device,
                            const CFX_FloatRect& rect,
                            const CPWL_Color& color,
                            int32_t nTransparancy);
   static void DrawFillRect(CFX_RenderDevice* pDevice,
-                           CFX_Matrix* pUser2Device,
+                           const CFX_Matrix& pUser2Device,
                            const CFX_FloatRect& rect,
                            const FX_COLORREF& color);
   static void DrawStrokeRect(CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device,
+                             const CFX_Matrix& pUser2Device,
                              const CFX_FloatRect& rect,
                              const FX_COLORREF& color,
                              FX_FLOAT fWidth);
   static void DrawStrokeLine(CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device,
+                             const CFX_Matrix& pUser2Device,
                              const CFX_FloatPoint& ptMoveTo,
                              const CFX_FloatPoint& ptLineTo,
                              const FX_COLORREF& color,
                              FX_FLOAT fWidth);
   static void DrawBorder(CFX_RenderDevice* pDevice,
-                         CFX_Matrix* pUser2Device,
+                         const CFX_Matrix& pUser2Device,
                          const CFX_FloatRect& rect,
                          FX_FLOAT fWidth,
                          const CPWL_Color& color,
@@ -216,12 +216,12 @@ class CPWL_Utils {
                          BorderStyle nStyle,
                          int32_t nTransparancy);
   static void DrawFillArea(CFX_RenderDevice* pDevice,
-                           CFX_Matrix* pUser2Device,
+                           const CFX_Matrix& pUser2Device,
                            const CFX_FloatPoint* pPts,
                            int32_t nCount,
                            const FX_COLORREF& color);
   static void DrawShadow(CFX_RenderDevice* pDevice,
-                         CFX_Matrix* pUser2Device,
+                         const CFX_Matrix& pUser2Device,
                          bool bVertical,
                          bool bHorizontal,
                          CFX_FloatRect rect,
@@ -278,7 +278,7 @@ class CPWL_Utils {
       const CPWL_Color& crFill,
       const CPWL_Color& crStroke = PWL_DEFAULT_BLACKCOLOR);
   static void DrawIconAppStream(CFX_RenderDevice* pDevice,
-                                CFX_Matrix* pUser2Device,
+                                const CFX_Matrix& pUser2Device,
                                 int32_t nType,
                                 const CFX_FloatRect& rect,
                                 const CPWL_Color& crFill,

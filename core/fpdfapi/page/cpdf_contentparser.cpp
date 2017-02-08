@@ -70,7 +70,7 @@ void CPDF_ContentParser::Start(CPDF_Page* pPage) {
 
 void CPDF_ContentParser::Start(CPDF_Form* pForm,
                                CPDF_AllStates* pGraphicStates,
-                               const CFX_Matrix* pParentMatrix,
+                               const CFX_Matrix& pParentMatrix,
                                CPDF_Type3Char* pType3Char,
                                int level) {
   m_pType3Char = pType3Char;
@@ -87,11 +87,11 @@ void CPDF_ContentParser::Start(CPDF_Form* pForm,
     ClipPath.Emplace();
     ClipPath.AppendRect(form_bbox.left, form_bbox.bottom, form_bbox.right,
                         form_bbox.top);
-    ClipPath.Transform(&form_matrix);
-    if (pParentMatrix)
+    ClipPath.Transform(form_matrix);
+    if (!pParentMatrix.IsIdentity())
       ClipPath.Transform(pParentMatrix);
-    form_bbox.Transform(&form_matrix);
-    if (pParentMatrix)
+    form_bbox.Transform(form_matrix);
+    if (!pParentMatrix.IsIdentity())
       form_bbox.Transform(pParentMatrix);
   }
   CPDF_Dictionary* pResources = pForm->m_pFormDict->GetDictFor("Resources");
@@ -165,8 +165,9 @@ void CPDF_ContentParser::Continue(IFX_Pause* pPause) {
       if (!m_pParser) {
         m_pParser = pdfium::MakeUnique<CPDF_StreamContentParser>(
             m_pObjectHolder->m_pDocument, m_pObjectHolder->m_pPageResources,
-            nullptr, nullptr, m_pObjectHolder, m_pObjectHolder->m_pResources,
-            &m_pObjectHolder->m_BBox, nullptr, 0);
+            nullptr, CFX_Matrix(), m_pObjectHolder,
+            m_pObjectHolder->m_pResources, &m_pObjectHolder->m_BBox, nullptr,
+            0);
         m_pParser->GetCurStates()->m_ColorState.SetDefault();
       }
       if (m_CurrentOffset >= m_Size) {

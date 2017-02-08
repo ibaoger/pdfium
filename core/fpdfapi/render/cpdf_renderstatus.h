@@ -56,10 +56,10 @@ class CPDF_RenderStatus {
                   uint32_t GroupFamily = 0,
                   bool bLoadMask = false);
   void RenderObjectList(const CPDF_PageObjectHolder* pObjectHolder,
-                        const CFX_Matrix* pObj2Device);
-  void RenderSingleObject(CPDF_PageObject* pObj, const CFX_Matrix* pObj2Device);
+                        const CFX_Matrix& pObj2Device);
+  void RenderSingleObject(CPDF_PageObject* pObj, const CFX_Matrix& pObj2Device);
   bool ContinueSingleObject(CPDF_PageObject* pObj,
-                            const CFX_Matrix* pObj2Device,
+                            const CFX_Matrix& pObj2Device,
                             IFX_Pause* pPause);
   CPDF_RenderContext* GetContext() { return m_pContext; }
 
@@ -76,35 +76,35 @@ class CPDF_RenderStatus {
   friend class CPDF_ImageRenderer;
   friend class CPDF_RenderContext;
 
-  void ProcessClipPath(CPDF_ClipPath ClipPath, const CFX_Matrix* pObj2Device);
+  void ProcessClipPath(CPDF_ClipPath ClipPath, const CFX_Matrix& pObj2Device);
   bool ProcessTransparency(CPDF_PageObject* PageObj,
-                           const CFX_Matrix* pObj2Device);
+                           const CFX_Matrix& pObj2Device);
   void ProcessObjectNoClip(CPDF_PageObject* PageObj,
-                           const CFX_Matrix* pObj2Device);
+                           const CFX_Matrix& pObj2Device);
   void DrawObjWithBackground(CPDF_PageObject* pObj,
-                             const CFX_Matrix* pObj2Device);
-  bool DrawObjWithBlend(CPDF_PageObject* pObj, const CFX_Matrix* pObj2Device);
-  bool ProcessPath(CPDF_PathObject* pPathObj, const CFX_Matrix* pObj2Device);
+                             const CFX_Matrix& pObj2Device);
+  bool DrawObjWithBlend(CPDF_PageObject* pObj, const CFX_Matrix& pObj2Device);
+  bool ProcessPath(CPDF_PathObject* pPathObj, const CFX_Matrix& pObj2Device);
   void ProcessPathPattern(CPDF_PathObject* pPathObj,
-                          const CFX_Matrix* pObj2Device,
+                          const CFX_Matrix& pObj2Device,
                           int& filltype,
                           bool& bStroke);
   void DrawPathWithPattern(CPDF_PathObject* pPathObj,
-                           const CFX_Matrix* pObj2Device,
+                           const CFX_Matrix& pObj2Device,
                            const CPDF_Color* pColor,
                            bool bStroke);
   void DrawTilingPattern(CPDF_TilingPattern* pPattern,
                          CPDF_PageObject* pPageObj,
-                         const CFX_Matrix* pObj2Device,
+                         const CFX_Matrix& pObj2Device,
                          bool bStroke);
   void DrawShadingPattern(CPDF_ShadingPattern* pPattern,
                           const CPDF_PageObject* pPageObj,
-                          const CFX_Matrix* pObj2Device,
+                          const CFX_Matrix& pObj2Device,
                           bool bStroke);
   bool SelectClipPath(const CPDF_PathObject* pPathObj,
-                      const CFX_Matrix* pObj2Device,
+                      const CFX_Matrix& pObj2Device,
                       bool bStroke);
-  bool ProcessImage(CPDF_ImageObject* pImageObj, const CFX_Matrix* pObj2Device);
+  bool ProcessImage(CPDF_ImageObject* pImageObj, const CFX_Matrix& pObj2Device);
   void CompositeDIBitmap(CFX_DIBitmap* pDIBitmap,
                          int left,
                          int top,
@@ -113,26 +113,26 @@ class CPDF_RenderStatus {
                          int blend_mode,
                          int bIsolated);
   void ProcessShading(const CPDF_ShadingObject* pShadingObj,
-                      const CFX_Matrix* pObj2Device);
+                      const CFX_Matrix& pObj2Device);
   void DrawShading(CPDF_ShadingPattern* pPattern,
-                   CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    FX_RECT& clip_rect,
                    int alpha,
                    bool bAlphaMode);
   bool ProcessType3Text(CPDF_TextObject* textobj,
-                        const CFX_Matrix* pObj2Device);
+                        const CFX_Matrix& pObj2Device);
   bool ProcessText(CPDF_TextObject* textobj,
-                   const CFX_Matrix* pObj2Device,
+                   const CFX_Matrix& pObj2Device,
                    CFX_PathData* pClippingPath);
   void DrawTextPathWithPattern(const CPDF_TextObject* textobj,
-                               const CFX_Matrix* pObj2Device,
+                               const CFX_Matrix& pObj2Device,
                                CPDF_Font* pFont,
                                FX_FLOAT font_size,
                                const CFX_Matrix* pTextMatrix,
                                bool bFill,
                                bool bStroke);
   bool ProcessForm(const CPDF_FormObject* pFormObj,
-                   const CFX_Matrix* pObj2Device);
+                   const CFX_Matrix& pObj2Device);
   std::unique_ptr<CFX_DIBitmap> GetBackdrop(const CPDF_PageObject* pObj,
                                             const FX_RECT& rect,
                                             int& left,
@@ -140,7 +140,7 @@ class CPDF_RenderStatus {
                                             bool bBackAlphaRequired);
   std::unique_ptr<CFX_DIBitmap> LoadSMask(CPDF_Dictionary* pSMaskDict,
                                           FX_RECT* pClipRect,
-                                          const CFX_Matrix* pMatrix);
+                                          const CFX_Matrix& pMatrix);
   static CPDF_Type3Cache* GetCachedType3(CPDF_Type3Font* pFont);
   static CPDF_GraphicStates* CloneObjStates(const CPDF_GraphicStates* pPathObj,
                                             bool bStroke);
@@ -148,7 +148,7 @@ class CPDF_RenderStatus {
   FX_ARGB GetFillArgb(CPDF_PageObject* pObj, bool bType3 = false) const;
   FX_ARGB GetStrokeArgb(CPDF_PageObject* pObj) const;
   bool GetObjectClippedRect(const CPDF_PageObject* pObj,
-                            const CFX_Matrix* pObj2Device,
+                            const CFX_Matrix& pObj2Device,
                             bool bLogical,
                             FX_RECT& rect) const;
   void GetScaledMatrix(CFX_Matrix& matrix) const;

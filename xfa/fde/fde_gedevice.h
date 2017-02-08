@@ -34,86 +34,18 @@ class CFDE_RenderDevice {
   FX_FLOAT GetDpiX() const;
   FX_FLOAT GetDpiY() const;
 
-  bool DrawImage(CFX_DIBSource* pDib,
-                 const CFX_RectF* pSrcRect,
-                 const CFX_RectF& dstRect,
-                 const CFX_Matrix* pImgMatrix = nullptr,
-                 const CFX_Matrix* pDevMatrix = nullptr);
   bool DrawString(CFDE_Brush* pBrush,
                   const CFX_RetainPtr<CFGAS_GEFont>& pFont,
                   const FXTEXT_CHARPOS* pCharPos,
                   int32_t iCount,
                   FX_FLOAT fFontSize,
                   const CFX_Matrix& pMatrix);
-  bool DrawBezier(CFDE_Pen* pPen,
-                  FX_FLOAT fPenWidth,
-                  const CFX_PointF& pt1,
-                  const CFX_PointF& pt2,
-                  const CFX_PointF& pt3,
-                  const CFX_PointF& pt4,
-                  const CFX_Matrix* pMatrix = nullptr);
-  bool DrawCurve(CFDE_Pen* pPen,
-                 FX_FLOAT fPenWidth,
-                 const std::vector<CFX_PointF>& points,
-                 bool bClosed,
-                 FX_FLOAT fTension = 0.5f,
-                 const CFX_Matrix* pMatrix = nullptr);
-  bool DrawEllipse(CFDE_Pen* pPen,
-                   FX_FLOAT fPenWidth,
-                   const CFX_RectF& rect,
-                   const CFX_Matrix* pMatrix = nullptr);
-  bool DrawLines(CFDE_Pen* pPen,
-                 FX_FLOAT fPenWidth,
-                 const std::vector<CFX_PointF>& points,
-                 const CFX_Matrix* pMatrix = nullptr);
-  bool DrawLine(CFDE_Pen* pPen,
-                FX_FLOAT fPenWidth,
-                const CFX_PointF& pt1,
-                const CFX_PointF& pt2,
-                const CFX_Matrix* pMatrix = nullptr);
   bool DrawPath(CFDE_Pen* pPen,
                 FX_FLOAT fPenWidth,
                 const CFDE_Path* pPath,
-                const CFX_Matrix* pMatrix = nullptr);
-  bool DrawPolygon(CFDE_Pen* pPen,
-                   FX_FLOAT fPenWidth,
-                   const std::vector<CFX_PointF>& points,
-                   const CFX_Matrix* pMatrix = nullptr);
-  bool DrawRectangle(CFDE_Pen* pPen,
-                     FX_FLOAT fPenWidth,
-                     const CFX_RectF& rect,
-                     const CFX_Matrix* pMatrix = nullptr);
-  bool FillClosedCurve(CFDE_Brush* pBrush,
-                       const std::vector<CFX_PointF>& points,
-                       FX_FLOAT fTension = 0.5f,
-                       const CFX_Matrix* pMatrix = nullptr);
-  bool FillEllipse(CFDE_Brush* pBrush,
-                   const CFX_RectF& rect,
-                   const CFX_Matrix* pMatrix = nullptr);
-  bool FillPath(CFDE_Brush* pBrush,
-                const CFDE_Path* pPath,
-                const CFX_Matrix* pMatrix = nullptr);
-  bool FillPolygon(CFDE_Brush* pBrush,
-                   const std::vector<CFX_PointF>& points,
-                   const CFX_Matrix* pMatrix = nullptr);
-  bool FillRectangle(CFDE_Brush* pBrush,
-                     const CFX_RectF& rect,
-                     const CFX_Matrix* pMatrix = nullptr);
+                const CFX_Matrix& pMatrix);
 
-  bool DrawSolidString(CFDE_Brush* pBrush,
-                       const CFX_RetainPtr<CFGAS_GEFont>& pFont,
-                       const FXTEXT_CHARPOS* pCharPos,
-                       int32_t iCount,
-                       FX_FLOAT fFontSize,
-                       const CFX_Matrix* pMatrix);
-  bool DrawStringPath(CFDE_Brush* pBrush,
-                      const CFX_RetainPtr<CFGAS_GEFont>& pFont,
-                      const FXTEXT_CHARPOS* pCharPos,
-                      int32_t iCount,
-                      FX_FLOAT fFontSize,
-                      const CFX_Matrix* pMatrix);
-
- protected:
+ private:
   bool CreatePen(CFDE_Pen* pPen,
                  FX_FLOAT fPenWidth,
                  CFX_GraphStateData& graphState);
@@ -121,7 +53,6 @@ class CFDE_RenderDevice {
   CFX_RenderDevice* const m_pDevice;
   CFX_RectF m_rtClip;
   bool m_bOwnerDevice;
-  int32_t m_iCharCount;
 };
 
 #endif  // XFA_FDE_FDE_GEDEVICE_H_

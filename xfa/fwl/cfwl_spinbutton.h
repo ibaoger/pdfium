@@ -28,10 +28,10 @@ class CFWL_SpinButton : public CFWL_Widget {
   FWL_Type GetClassID() const override;
   void Update() override;
   FWL_WidgetHit HitTest(FX_FLOAT fx, FX_FLOAT fy) override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
  private:
   class Timer : public CFWL_Timer {
@@ -48,10 +48,10 @@ class CFWL_SpinButton : public CFWL_Widget {
   bool IsDownButtonEnabled();
   void DrawUpButton(CFX_Graphics* pGraphics,
                     IFWL_ThemeProvider* pTheme,
-                    const CFX_Matrix* pMatrix);
+                    const CFX_Matrix& pMatrix);
   void DrawDownButton(CFX_Graphics* pGraphics,
                       IFWL_ThemeProvider* pTheme,
-                      const CFX_Matrix* pMatrix);
+                      const CFX_Matrix& pMatrix);
   void OnFocusChanged(CFWL_Message* pMsg, bool bSet);
   void OnLButtonDown(CFWL_MessageMouse* pMsg);
   void OnLButtonUp(CFWL_MessageMouse* pMsg);

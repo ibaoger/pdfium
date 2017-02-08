@@ -180,7 +180,7 @@ void CPDF_FormControl::DrawControl(CFX_RenderDevice* pDevice,
   matrix.Concat(*pMatrix);
   CPDF_Form form(m_pField->m_pForm->m_pDocument,
                  m_pField->m_pForm->m_pFormDict->GetDictFor("DR"), pStream);
-  form.ParseContent(nullptr, nullptr, nullptr);
+  form.ParseContent(nullptr, CFX_Matrix(), nullptr);
   CPDF_RenderContext context(pPage);
   context.AppendLayer(&form, &matrix);
   context.Render(pDevice, pOptions, nullptr);

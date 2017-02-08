@@ -30,7 +30,7 @@ class CFX_Barcode {
   bool Encode(const CFX_WideStringC& contents, bool isDevice, int32_t& e);
 
   bool RenderDevice(CFX_RenderDevice* device,
-                    const CFX_Matrix* matrix,
+                    const CFX_Matrix& matrix,
                     int32_t& e);
 
   bool SetCharEncoding(BC_CHAR_ENCODING encoding);

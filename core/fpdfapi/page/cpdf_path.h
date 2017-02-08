@@ -33,10 +33,10 @@ class CPDF_Path {
   CFX_FloatRect GetBoundingBox(FX_FLOAT line_width, FX_FLOAT miter_limit) const;
 
   bool IsRect() const;
-  void Transform(const CFX_Matrix* pMatrix);
+  void Transform(const CFX_Matrix& pMatrix);
 
-  void Append(const CPDF_Path& other, const CFX_Matrix* pMatrix);
-  void Append(const CFX_PathData* pData, const CFX_Matrix* pMatrix);
+  void Append(const CPDF_Path& other, const CFX_Matrix& pMatrix);
+  void Append(const CFX_PathData* pData, const CFX_Matrix& pMatrix);
   void AppendRect(FX_FLOAT left, FX_FLOAT bottom, FX_FLOAT right, FX_FLOAT top);
   void AppendPoint(FX_FLOAT x, FX_FLOAT y, FXPT_TYPE type, bool close);
 

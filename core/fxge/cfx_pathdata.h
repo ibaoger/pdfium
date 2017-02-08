@@ -42,14 +42,14 @@ class CFX_PathData {
   void AddPointCount(int addPoints);
   CFX_FloatRect GetBoundingBox() const;
   CFX_FloatRect GetBoundingBox(FX_FLOAT line_width, FX_FLOAT miter_limit) const;
-  void Transform(const CFX_Matrix* pMatrix);
+  void Transform(const CFX_Matrix& pMatrix);
   bool IsRect() const;
   bool GetZeroAreaPath(CFX_PathData& NewPath,
-                       CFX_Matrix* pMatrix,
+                       const CFX_Matrix& pMatrix,
                        bool& bThin,
                        bool bAdjust) const;
-  bool IsRect(const CFX_Matrix* pMatrix, CFX_FloatRect* rect) const;
-  void Append(const CFX_PathData* pSrc, const CFX_Matrix* pMatrix);
+  bool IsRect(const CFX_Matrix& pMatrix, CFX_FloatRect* rect) const;
+  void Append(const CFX_PathData* pSrc, const CFX_Matrix& pMatrix);
   void AppendRect(FX_FLOAT left, FX_FLOAT bottom, FX_FLOAT right, FX_FLOAT top);
   void SetPoint(int index,
                 FX_FLOAT x,

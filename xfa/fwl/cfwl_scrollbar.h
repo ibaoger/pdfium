@@ -30,10 +30,10 @@ class CFWL_ScrollBar : public CFWL_Widget {
   // CFWL_Widget
   FWL_Type GetClassID() const override;
   void Update() override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void GetRange(FX_FLOAT* fMin, FX_FLOAT* fMax) const {
     ASSERT(fMin);
@@ -69,14 +69,14 @@ class CFWL_ScrollBar : public CFWL_Widget {
   void DrawTrack(CFX_Graphics* pGraphics,
                  IFWL_ThemeProvider* pTheme,
                  bool bLower,
-                 const CFX_Matrix* pMatrix);
+                 const CFX_Matrix& pMatrix);
   void DrawArrowBtn(CFX_Graphics* pGraphics,
                     IFWL_ThemeProvider* pTheme,
                     bool bMinBtn,
-                    const CFX_Matrix* pMatrix);
+                    const CFX_Matrix& pMatrix);
   void DrawThumb(CFX_Graphics* pGraphics,
                  IFWL_ThemeProvider* pTheme,
-                 const CFX_Matrix* pMatrix);
+                 const CFX_Matrix& pMatrix);
   void Layout();
   void CalcButtonLen();
   CFX_RectF CalcMinButtonRect();

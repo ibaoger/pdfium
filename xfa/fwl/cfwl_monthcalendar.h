@@ -33,10 +33,10 @@ class CFWL_MonthCalendar : public CFWL_Widget {
   FWL_Type GetClassID() const override;
   CFX_RectF GetAutosizedWidgetRect() override;
   void Update() override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void SetSelect(int32_t iYear, int32_t iMonth, int32_t iDay);
 
@@ -92,40 +92,40 @@ class CFWL_MonthCalendar : public CFWL_Widget {
 
   void DrawBackground(CFX_Graphics* pGraphics,
                       IFWL_ThemeProvider* pTheme,
-                      const CFX_Matrix* pMatrix);
+                      const CFX_Matrix& pMatrix);
   void DrawHeadBK(CFX_Graphics* pGraphics,
                   IFWL_ThemeProvider* pTheme,
-                  const CFX_Matrix* pMatrix);
+                  const CFX_Matrix& pMatrix);
   void DrawLButton(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
   void DrawRButton(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
   void DrawCaption(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
   void DrawSeperator(CFX_Graphics* pGraphics,
                      IFWL_ThemeProvider* pTheme,
-                     const CFX_Matrix* pMatrix);
+                     const CFX_Matrix& pMatrix);
   void DrawDatesInBK(CFX_Graphics* pGraphics,
                      IFWL_ThemeProvider* pTheme,
-                     const CFX_Matrix* pMatrix);
+                     const CFX_Matrix& pMatrix);
   void DrawWeek(CFX_Graphics* pGraphics,
                 IFWL_ThemeProvider* pTheme,
-                const CFX_Matrix* pMatrix);
+                const CFX_Matrix& pMatrix);
   void DrawToday(CFX_Graphics* pGraphics,
                  IFWL_ThemeProvider* pTheme,
-                 const CFX_Matrix* pMatrix);
+                 const CFX_Matrix& pMatrix);
   void DrawDatesIn(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
   void DrawDatesOut(CFX_Graphics* pGraphics,
                     IFWL_ThemeProvider* pTheme,
-                    const CFX_Matrix* pMatrix);
+                    const CFX_Matrix& pMatrix);
   void DrawDatesInCircle(CFX_Graphics* pGraphics,
                          IFWL_ThemeProvider* pTheme,
-                         const CFX_Matrix* pMatrix);
+                         const CFX_Matrix& pMatrix);
   CFX_SizeF CalcSize();
   void Layout();
   void CalcHeadSize();

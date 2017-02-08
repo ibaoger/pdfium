@@ -148,7 +148,7 @@ void CFWL_MonthCalendar::Update() {
 }
 
 void CFWL_MonthCalendar::DrawWidget(CFX_Graphics* pGraphics,
-                                    const CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -181,63 +181,67 @@ void CFWL_MonthCalendar::SetSelect(int32_t iYear,
 
 void CFWL_MonthCalendar::DrawBackground(CFX_Graphics* pGraphics,
                                         IFWL_ThemeProvider* pTheme,
-                                        const CFX_Matrix* pMatrix) {
+                                        const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::Background;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_rtPart = m_rtClient;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
 void CFWL_MonthCalendar::DrawHeadBK(CFX_Graphics* pGraphics,
                                     IFWL_ThemeProvider* pTheme,
-                                    const CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::Header;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_rtPart = m_rtHead;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
 void CFWL_MonthCalendar::DrawLButton(CFX_Graphics* pGraphics,
                                      IFWL_ThemeProvider* pTheme,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::LBtn;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = m_iLBtnPartStates;
   params.m_rtPart = m_rtLBtn;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
 void CFWL_MonthCalendar::DrawRButton(CFX_Graphics* pGraphics,
                                      IFWL_ThemeProvider* pTheme,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::RBtn;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = m_iRBtnPartStates;
   params.m_rtPart = m_rtRBtn;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
 void CFWL_MonthCalendar::DrawCaption(CFX_Graphics* pGraphics,
                                      IFWL_ThemeProvider* pTheme,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFWL_ThemeText textParam;
   textParam.m_pWidget = this;
   textParam.m_iPart = CFWL_Part::Caption;
@@ -250,34 +254,36 @@ void CFWL_MonthCalendar::DrawCaption(CFX_Graphics* pGraphics,
   textParam.m_rtPart = m_rtHeadText;
   textParam.m_dwTTOStyles = FDE_TTOSTYLE_SingleLine;
   textParam.m_iTTOAlign = FDE_TTOALIGNMENT_Center;
-  if (pMatrix)
-    textParam.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    textParam.m_matrix.Concat(pMatrix);
+
   pTheme->DrawText(&textParam);
 }
 
 void CFWL_MonthCalendar::DrawSeperator(CFX_Graphics* pGraphics,
                                        IFWL_ThemeProvider* pTheme,
-                                       const CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::HSeparator;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_rtPart = m_rtHSep;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
 void CFWL_MonthCalendar::DrawDatesInBK(CFX_Graphics* pGraphics,
                                        IFWL_ThemeProvider* pTheme,
-                                       const CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::DateInBK;
   params.m_pGraphics = pGraphics;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
 
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_arrDates);
   for (int32_t j = 0; j < iCount; j++) {
@@ -301,7 +307,7 @@ void CFWL_MonthCalendar::DrawDatesInBK(CFX_Graphics* pGraphics,
 
 void CFWL_MonthCalendar::DrawWeek(CFX_Graphics* pGraphics,
                                   IFWL_ThemeProvider* pTheme,
-                                  const CFX_Matrix* pMatrix) {
+                                  const CFX_Matrix& pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::Week;
@@ -309,8 +315,8 @@ void CFWL_MonthCalendar::DrawWeek(CFX_Graphics* pGraphics,
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_iTTOAlign = FDE_TTOALIGNMENT_Center;
   CFX_RectF rtDayOfWeek;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
 
   for (int32_t i = 0; i < 7; i++) {
     rtDayOfWeek =
@@ -326,7 +332,7 @@ void CFWL_MonthCalendar::DrawWeek(CFX_Graphics* pGraphics,
 
 void CFWL_MonthCalendar::DrawToday(CFX_Graphics* pGraphics,
                                    IFWL_ThemeProvider* pTheme,
-                                   const CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::Today;
@@ -340,22 +346,23 @@ void CFWL_MonthCalendar::DrawToday(CFX_Graphics* pGraphics,
   CalcTodaySize();
   params.m_rtPart = m_rtToday;
   params.m_dwTTOStyles = FDE_TTOSTYLE_SingleLine;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawText(&params);
 }
 
 void CFWL_MonthCalendar::DrawDatesIn(CFX_Graphics* pGraphics,
                                      IFWL_ThemeProvider* pTheme,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::DatesIn;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_iTTOAlign = FDE_TTOALIGNMENT_Center;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
 
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_arrDates);
   for (int32_t j = 0; j < iCount; j++) {
@@ -372,21 +379,22 @@ void CFWL_MonthCalendar::DrawDatesIn(CFX_Graphics* pGraphics,
 
 void CFWL_MonthCalendar::DrawDatesOut(CFX_Graphics* pGraphics,
                                       IFWL_ThemeProvider* pTheme,
-                                      const CFX_Matrix* pMatrix) {
+                                      const CFX_Matrix& pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::DatesOut;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = CFWL_PartState_Normal;
   params.m_iTTOAlign = FDE_TTOALIGNMENT_Center;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawText(&params);
 }
 
 void CFWL_MonthCalendar::DrawDatesInCircle(CFX_Graphics* pGraphics,
                                            IFWL_ThemeProvider* pTheme,
-                                           const CFX_Matrix* pMatrix) {
+                                           const CFX_Matrix& pMatrix) {
   if (m_iMonth != m_iCurMonth || m_iYear != m_iCurYear)
     return;
 
@@ -403,8 +411,9 @@ void CFWL_MonthCalendar::DrawDatesInCircle(CFX_Graphics* pGraphics,
   params.m_pGraphics = pGraphics;
   params.m_rtPart = pDate->rect;
   params.m_dwStates = CFWL_PartState_Normal;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&params);
 }
 
@@ -747,7 +756,7 @@ void CFWL_MonthCalendar::OnProcessMessage(CFWL_Message* pMessage) {
 }
 
 void CFWL_MonthCalendar::OnDrawWidget(CFX_Graphics* pGraphics,
-                                      const CFX_Matrix* pMatrix) {
+                                      const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
 

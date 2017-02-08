@@ -17,14 +17,14 @@ CXFA_FFExclGroup::CXFA_FFExclGroup(CXFA_WidgetAcc* pDataAcc)
 CXFA_FFExclGroup::~CXFA_FFExclGroup() {}
 
 void CXFA_FFExclGroup::RenderWidget(CFX_Graphics* pGS,
-                                    CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  CXFA_FFWidget::RenderWidget(pGS, &mtRotate, dwStatus);
+  CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
 }

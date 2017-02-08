@@ -49,15 +49,15 @@ bool CPDF_Path::IsRect() const {
   return m_Ref.GetObject()->IsRect();
 }
 
-void CPDF_Path::Transform(const CFX_Matrix* pMatrix) {
+void CPDF_Path::Transform(const CFX_Matrix& pMatrix) {
   m_Ref.GetPrivateCopy()->Transform(pMatrix);
 }
 
-void CPDF_Path::Append(const CPDF_Path& other, const CFX_Matrix* pMatrix) {
+void CPDF_Path::Append(const CPDF_Path& other, const CFX_Matrix& pMatrix) {
   m_Ref.GetPrivateCopy()->Append(other.GetObject(), pMatrix);
 }
 
-void CPDF_Path::Append(const CFX_PathData* pData, const CFX_Matrix* pMatrix) {
+void CPDF_Path::Append(const CFX_PathData* pData, const CFX_Matrix& pMatrix) {
   m_Ref.GetPrivateCopy()->Append(pData, pMatrix);
 }
 
@@ -75,5 +75,5 @@ void CPDF_Path::AppendPoint(FX_FLOAT x,
   CFX_PathData data;
   data.SetPointCount(1);
   data.SetPoint(0, x, y, type, close);
-  Append(&data, nullptr);
+  Append(&data, CFX_Matrix());
 }

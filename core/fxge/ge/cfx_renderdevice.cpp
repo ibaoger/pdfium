@@ -423,7 +423,7 @@ bool CFX_RenderDevice::CreateCompatibleBitmap(CFX_DIBitmap* pDIB,
 }
 
 bool CFX_RenderDevice::SetClip_PathFill(const CFX_PathData* pPathData,
-                                        const CFX_Matrix* pObject2Device,
+                                        const CFX_Matrix& pObject2Device,
                                         int fill_mode) {
   if (!m_pDeviceDriver->SetClip_PathFill(pPathData, pObject2Device,
                                          fill_mode)) {
@@ -435,7 +435,7 @@ bool CFX_RenderDevice::SetClip_PathFill(const CFX_PathData* pPathData,
 
 bool CFX_RenderDevice::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pObject2Device,
+    const CFX_Matrix& pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   if (!m_pDeviceDriver->SetClip_PathStroke(pPathData, pObject2Device,
                                            pGraphState)) {
@@ -448,7 +448,7 @@ bool CFX_RenderDevice::SetClip_PathStroke(
 bool CFX_RenderDevice::SetClip_Rect(const FX_RECT& rect) {
   CFX_PathData path;
   path.AppendRect(rect.left, rect.bottom, rect.right, rect.top);
-  if (!SetClip_PathFill(&path, nullptr, FXFILL_WINDING))
+  if (!SetClip_PathFill(&path, CFX_Matrix(), FXFILL_WINDING))
     return false;
 
   UpdateClipBox();
@@ -465,7 +465,7 @@ void CFX_RenderDevice::UpdateClipBox() {
 }
 
 bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
-                                         const CFX_Matrix* pObject2Device,
+                                         const CFX_Matrix& pObject2Device,
                                          const CFX_GraphStateData* pGraphState,
                                          uint32_t fill_color,
                                          uint32_t stroke_color,
@@ -476,11 +476,12 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
   if (stroke_alpha == 0 && pPathData->GetPointCount() == 2) {
     FX_PATHPOINT* pPoints = pPathData->GetPoints();
     FX_FLOAT x1, x2, y1, y2;
-    if (pObject2Device) {
-      pObject2Device->Transform(pPoints[0].m_PointX, pPoints[0].m_PointY, x1,
-                                y1);
-      pObject2Device->Transform(pPoints[1].m_PointX, pPoints[1].m_PointY, x2,
-                                y2);
+
+    if (!pObject2Device.IsIdentity()) {
+      pObject2Device.Transform(pPoints[0].m_PointX, pPoints[0].m_PointY, x1,
+                               y1);
+      pObject2Device.Transform(pPoints[1].m_PointX, pPoints[1].m_PointY, x2,
+                               y2);
     } else {
       x1 = pPoints[0].m_PointX;
       y1 = pPoints[0].m_PointY;
@@ -490,6 +491,7 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
     DrawCosmeticLine(x1, y1, x2, y2, fill_color, fill_mode, blend_type);
     return true;
   }
+
   if ((pPathData->GetPointCount() == 5 || pPathData->GetPointCount() == 4) &&
       stroke_alpha == 0) {
     CFX_FloatRect rect_f;
@@ -539,21 +541,19 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
       !(fill_mode & FX_FILL_TEXT_MODE)) {
     CFX_PathData newPath;
     bool bThin = false;
-    if (pPathData->GetZeroAreaPath(newPath, (CFX_Matrix*)pObject2Device, bThin,
+    if (pPathData->GetZeroAreaPath(newPath, pObject2Device, bThin,
                                    !!m_pDeviceDriver->GetDriverType())) {
       CFX_GraphStateData graphState;
       graphState.m_LineWidth = 0.0f;
       uint32_t strokecolor = fill_color;
       if (bThin)
         strokecolor = (((fill_alpha >> 2) << 24) | (strokecolor & 0x00ffffff));
-      CFX_Matrix* pMatrix = nullptr;
-      if (pObject2Device && !pObject2Device->IsIdentity())
-        pMatrix = (CFX_Matrix*)pObject2Device;
+
       int smooth_path = FX_ZEROAREA_FILL;
       if (fill_mode & FXFILL_NOPATHSMOOTH)
         smooth_path |= FXFILL_NOPATHSMOOTH;
-      m_pDeviceDriver->DrawPath(&newPath, pMatrix, &graphState, 0, strokecolor,
-                                smooth_path, blend_type);
+      m_pDeviceDriver->DrawPath(&newPath, pObject2Device, &graphState, 0,
+                                strokecolor, smooth_path, blend_type);
     }
   }
   if ((fill_mode & 3) && fill_alpha && stroke_alpha < 0xff &&
@@ -573,7 +573,7 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
 
 // This can be removed once PDFium entirely relies on Skia
 bool CFX_RenderDevice::DrawFillStrokePath(const CFX_PathData* pPathData,
-                                          const CFX_Matrix* pObject2Device,
+                                          const CFX_Matrix& pObject2Device,
                                           const CFX_GraphStateData* pGraphState,
                                           uint32_t fill_color,
                                           uint32_t stroke_color,
@@ -581,6 +581,7 @@ bool CFX_RenderDevice::DrawFillStrokePath(const CFX_PathData* pPathData,
                                           int blend_type) {
   if (!(m_RenderCaps & FXRC_GET_BITS))
     return false;
+
   CFX_FloatRect bbox;
   if (pGraphState) {
     bbox = pPathData->GetBoundingBox(pGraphState->m_LineWidth,
@@ -588,8 +589,10 @@ bool CFX_RenderDevice::DrawFillStrokePath(const CFX_PathData* pPathData,
   } else {
     bbox = pPathData->GetBoundingBox();
   }
-  if (pObject2Device)
+
+  if (!pObject2Device.IsIdentity())
     bbox.Transform(pObject2Device);
+
   CFX_Matrix ctm = GetCTM();
   FX_FLOAT fScaleX = FXSYS_fabs(ctm.a);
   FX_FLOAT fScaleY = FXSYS_fabs(ctm.d);
@@ -609,14 +612,13 @@ bool CFX_RenderDevice::DrawFillStrokePath(const CFX_PathData* pPathData,
   }
   CFX_FxgeDevice bitmap_device;
   bitmap_device.Attach(&bitmap, false, &Backdrop, true);
-  CFX_Matrix matrix;
-  if (pObject2Device)
-    matrix = *pObject2Device;
+
+  CFX_Matrix matrix = pObject2Device;
   matrix.TranslateI(-rect.left, -rect.top);
   matrix.Concat(CFX_Matrix(fScaleX, 0, 0, fScaleY, 0, 0));
-  if (!bitmap_device.GetDeviceDriver()->DrawPath(
-          pPathData, &matrix, pGraphState, fill_color, stroke_color, fill_mode,
-          blend_type)) {
+  if (!bitmap_device.GetDeviceDriver()->DrawPath(pPathData, matrix, pGraphState,
+                                                 fill_color, stroke_color,
+                                                 fill_mode, blend_type)) {
     return false;
   }
 #if defined _SKIA_SUPPORT_ || defined _SKIA_SUPPORT_PATHS_
@@ -678,7 +680,7 @@ bool CFX_RenderDevice::DrawCosmeticLine(FX_FLOAT x1,
   path.SetPointCount(2);
   path.SetPoint(0, x1, y1, FXPT_TYPE::MoveTo, false);
   path.SetPoint(1, x2, y2, FXPT_TYPE::LineTo, false);
-  return m_pDeviceDriver->DrawPath(&path, nullptr, &graph_state, 0, color,
+  return m_pDeviceDriver->DrawPath(&path, CFX_Matrix(), &graph_state, 0, color,
                                    fill_mode, blend_type);
 }
 
@@ -797,7 +799,7 @@ bool CFX_RenderDevice::StretchBitMaskWithFlags(const CFX_DIBSource* pBitmap,
 bool CFX_RenderDevice::StartDIBitsWithBlend(const CFX_DIBSource* pBitmap,
                                             int bitmap_alpha,
                                             uint32_t argb,
-                                            const CFX_Matrix* pMatrix,
+                                            const CFX_Matrix& pMatrix,
                                             uint32_t flags,
                                             void*& handle,
                                             int blend_mode) {
@@ -865,7 +867,8 @@ bool CFX_RenderDevice::DrawNormalText(int nChars,
       int nPathFlags =
           (text_flags & FXTEXT_NOSMOOTH) == 0 ? 0 : FXFILL_NOPATHSMOOTH;
       return DrawTextPath(nChars, pCharPos, pFont, font_size, pText2Device,
-                          nullptr, nullptr, fill_color, 0, nullptr, nPathFlags);
+                          CFX_Matrix(), nullptr, fill_color, 0, nullptr,
+                          nPathFlags);
     }
   }
   int anti_alias = FXFT_RENDER_MODE_MONO;
@@ -1049,7 +1052,7 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
                                     CFX_Font* pFont,
                                     FX_FLOAT font_size,
                                     const CFX_Matrix& pText2User,
-                                    const CFX_Matrix* pUser2Device,
+                                    const CFX_Matrix& pUser2Device,
                                     const CFX_GraphStateData* pGraphState,
                                     uint32_t fill_color,
                                     FX_ARGB stroke_color,
@@ -1073,7 +1076,7 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
     matrix.Concat(pText2User);
 
     CFX_PathData TransformedPath(*pPath);
-    TransformedPath.Transform(&matrix);
+    TransformedPath.Transform(matrix);
     if (fill_color || stroke_color) {
       int fill_mode = nFlag;
       if (fill_color)

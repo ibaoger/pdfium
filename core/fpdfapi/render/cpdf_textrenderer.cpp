@@ -23,7 +23,7 @@ bool CPDF_TextRenderer::DrawTextPath(CFX_RenderDevice* pDevice,
                                      CPDF_Font* pFont,
                                      FX_FLOAT font_size,
                                      const CFX_Matrix& pText2User,
-                                     const CFX_Matrix* pUser2Device,
+                                     const CFX_Matrix& pUser2Device,
                                      const CFX_GraphStateData* pGraphState,
                                      FX_ARGB fill_argb,
                                      FX_ARGB stroke_argb,
@@ -70,7 +70,7 @@ void CPDF_TextRenderer::DrawTextString(CFX_RenderDevice* pDevice,
                                        FX_FLOAT origin_y,
                                        CPDF_Font* pFont,
                                        FX_FLOAT font_size,
-                                       const CFX_Matrix* pMatrix,
+                                       const CFX_Matrix& pMatrix,
                                        const CFX_ByteString& str,
                                        FX_ARGB fill_argb,
                                        FX_ARGB stroke_argb,
@@ -105,10 +105,8 @@ void CPDF_TextRenderer::DrawTextString(CFX_RenderDevice* pDevice,
     pCharCodes = codes.data();
     pCharPos = positions.data();
   }
-  CFX_Matrix matrix;
-  if (pMatrix)
-    matrix = *pMatrix;
 
+  CFX_Matrix matrix = pMatrix;
   matrix.e = origin_x;
   matrix.f = origin_y;
 
@@ -117,8 +115,8 @@ void CPDF_TextRenderer::DrawTextString(CFX_RenderDevice* pDevice,
                    matrix, fill_argb, pOptions);
   } else {
     DrawTextPath(pDevice, nChars, pCharCodes, pCharPos, pFont, font_size,
-                 matrix, nullptr, pGraphState, fill_argb, stroke_argb, nullptr,
-                 0);
+                 matrix, CFX_Matrix(), pGraphState, fill_argb, stroke_argb,
+                 nullptr, 0);
   }
 }
 

@@ -200,7 +200,7 @@ void CBC_OneDimWriter::CalcTextInfo(const CFX_ByteString& text,
 }
 
 void CBC_OneDimWriter::ShowDeviceChars(CFX_RenderDevice* device,
-                                       const CFX_Matrix* matrix,
+                                       const CFX_Matrix& matrix,
                                        const CFX_ByteString str,
                                        FX_FLOAT geWidth,
                                        FXTEXT_CHARPOS* pCharPos,
@@ -214,14 +214,14 @@ void CBC_OneDimWriter::ShowDeviceChars(CFX_RenderDevice* device,
   if (geWidth != m_Width) {
     rect.right -= 1;
   }
-  matrix->TransformRect(rect);
+  matrix.TransformRect(rect);
   FX_RECT re = rect.GetOuterRect();
   device->FillRect(&re, m_backgroundColor);
   CFX_Matrix affine_matrix(1.0, 0.0, 0.0, -1.0, (FX_FLOAT)locX,
                            (FX_FLOAT)(locY + iFontSize));
-  if (matrix) {
-    affine_matrix.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    affine_matrix.Concat(matrix);
+
   device->DrawNormalText(str.GetLength(), pCharPos, m_pFont,
                          static_cast<FX_FLOAT>(iFontSize), affine_matrix,
                          m_fontColor, FXTEXT_CLEARTYPE);
@@ -253,7 +253,7 @@ void CBC_OneDimWriter::ShowBitmapChars(CFX_DIBitmap* pOutBitmap,
 void CBC_OneDimWriter::ShowChars(const CFX_WideStringC& contents,
                                  CFX_DIBitmap* pOutBitmap,
                                  CFX_RenderDevice* device,
-                                 const CFX_Matrix* matrix,
+                                 const CFX_Matrix& matrix,
                                  int32_t barWidth,
                                  int32_t multiple,
                                  int32_t& e) {
@@ -345,8 +345,8 @@ void CBC_OneDimWriter::RenderBitmapResult(CFX_DIBitmap*& pOutBitmap,
       break;
     }
   if (m_locTextLoc != BC_TEXT_LOC_NONE && i < contents.GetLength()) {
-    ShowChars(contents, pOutBitmap, nullptr, nullptr, m_barWidth, m_multiple,
-              e);
+    ShowChars(contents, pOutBitmap, nullptr, CFX_Matrix(), m_barWidth,
+              m_multiple, e);
     if (e != BCExceptionNO)
       return;
   }
@@ -357,7 +357,7 @@ void CBC_OneDimWriter::RenderBitmapResult(CFX_DIBitmap*& pOutBitmap,
 }
 
 void CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
-                                          const CFX_Matrix* matrix,
+                                          const CFX_Matrix& matrix,
                                           const CFX_WideStringC& contents,
                                           int32_t& e) {
   if (!m_output)
@@ -369,8 +369,9 @@ void CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
   path.AppendRect(0, 0, (FX_FLOAT)m_Width, (FX_FLOAT)m_Height);
   device->DrawPath(&path, matrix, &stateData, m_backgroundColor,
                    m_backgroundColor, FXFILL_ALTERNATE);
-  CFX_Matrix matri(m_outputHScale, 0.0, 0.0, (FX_FLOAT)m_Height, 0.0, 0.0);
-  matri.Concat(*matrix);
+  CFX_Matrix newMatrix(m_outputHScale, 0.0, 0.0, (FX_FLOAT)m_Height, 0.0, 0.0);
+  newMatrix.Concat(matrix);
+
   for (int32_t x = 0; x < m_output->GetWidth(); x++) {
     for (int32_t y = 0; y < m_output->GetHeight(); y++) {
       CFX_PathData rect;
@@ -378,7 +379,8 @@ void CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
                       (FX_FLOAT)(y + 1));
       if (m_output->Get(x, y)) {
         CFX_GraphStateData data;
-        device->DrawPath(&rect, &matri, &data, m_barColor, 0, FXFILL_WINDING);
+        device->DrawPath(&rect, newMatrix, &data, m_barColor, 0,
+                         FXFILL_WINDING);
       }
     }
   }

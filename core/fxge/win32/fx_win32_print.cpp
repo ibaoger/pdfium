@@ -161,7 +161,7 @@ bool CGdiPrinterDriver::StretchDIBits(const CFX_DIBSource* pSource,
 bool CGdiPrinterDriver::StartDIBits(const CFX_DIBSource* pSource,
                                     int bitmap_alpha,
                                     uint32_t color,
-                                    const CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t render_flags,
                                     void*& handle,
                                     int blend_type) {
@@ -169,12 +169,12 @@ bool CGdiPrinterDriver::StartDIBits(const CFX_DIBSource* pSource,
       (pSource->IsAlphaMask() && (pSource->GetBPP() != 1))) {
     return false;
   }
-  CFX_FloatRect unit_rect = pMatrix->GetUnitRect();
+  CFX_FloatRect unit_rect = pMatrix.GetUnitRect();
   FX_RECT full_rect = unit_rect.GetOuterRect();
-  if (FXSYS_fabs(pMatrix->b) < 0.5f && pMatrix->a != 0 &&
-      FXSYS_fabs(pMatrix->c) < 0.5f && pMatrix->d != 0) {
-    bool bFlipX = pMatrix->a < 0;
-    bool bFlipY = pMatrix->d > 0;
+  if (FXSYS_fabs(pMatrix.b) < 0.5f && pMatrix.a != 0 &&
+      FXSYS_fabs(pMatrix.c) < 0.5f && pMatrix.d != 0) {
+    bool bFlipX = pMatrix.a < 0;
+    bool bFlipY = pMatrix.d > 0;
     return StretchDIBits(pSource, color,
                          bFlipX ? full_rect.right : full_rect.left,
                          bFlipY ? full_rect.bottom : full_rect.top,
@@ -182,11 +182,11 @@ bool CGdiPrinterDriver::StartDIBits(const CFX_DIBSource* pSource,
                          bFlipY ? -full_rect.Height() : full_rect.Height(),
                          nullptr, 0, blend_type);
   }
-  if (FXSYS_fabs(pMatrix->a) >= 0.5f || FXSYS_fabs(pMatrix->d) >= 0.5f)
+  if (FXSYS_fabs(pMatrix.a) >= 0.5f || FXSYS_fabs(pMatrix.d) >= 0.5f)
     return false;
 
   std::unique_ptr<CFX_DIBitmap> pTransformed =
-      pSource->SwapXY(pMatrix->c > 0, pMatrix->b < 0);
+      pSource->SwapXY(pMatrix.c > 0, pMatrix.b < 0);
   if (!pTransformed)
     return false;
 
@@ -402,7 +402,7 @@ void CPSPrinterDriver::RestoreState(bool bKeepSaved) {
 }
 
 bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
-                                        const CFX_Matrix* pObject2Device,
+                                        const CFX_Matrix& pObject2Device,
                                         int fill_mode) {
   m_PSRenderer.SetClip_PathFill(pPathData, pObject2Device, fill_mode);
   return true;
@@ -410,14 +410,14 @@ bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 
 bool CPSPrinterDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pObject2Device,
+    const CFX_Matrix& pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   m_PSRenderer.SetClip_PathStroke(pPathData, pObject2Device, pGraphState);
   return true;
 }
 
 bool CPSPrinterDriver::DrawPath(const CFX_PathData* pPathData,
-                                const CFX_Matrix* pObject2Device,
+                                const CFX_Matrix& pObject2Device,
                                 const CFX_GraphStateData* pGraphState,
                                 FX_ARGB fill_color,
                                 FX_ARGB stroke_color,
@@ -464,7 +464,7 @@ bool CPSPrinterDriver::StretchDIBits(const CFX_DIBSource* pBitmap,
 bool CPSPrinterDriver::StartDIBits(const CFX_DIBSource* pBitmap,
                                    int bitmap_alpha,
                                    uint32_t color,
-                                   const CFX_Matrix* pMatrix,
+                                   const CFX_Matrix& pMatrix,
                                    uint32_t render_flags,
                                    void*& handle,
                                    int blend_type) {

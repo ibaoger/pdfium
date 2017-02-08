@@ -60,18 +60,18 @@ void DrawTextString(CFX_RenderDevice* pDevice,
                     const CFX_FloatPoint& pt,
                     CPDF_Font* pFont,
                     FX_FLOAT fFontSize,
-                    CFX_Matrix* pUser2Device,
+                    const CFX_Matrix& pUser2Device,
                     const CFX_ByteString& str,
                     FX_ARGB crTextFill,
                     FX_ARGB crTextStroke,
                     int32_t nHorzScale) {
   FX_FLOAT x = pt.x, y = pt.y;
-  pUser2Device->Transform(x, y);
+  pUser2Device.Transform(x, y);
 
   if (pFont) {
     if (nHorzScale != 100) {
       CFX_Matrix mt(nHorzScale / 100.0f, 0, 0, 1, 0, 0);
-      mt.Concat(*pUser2Device);
+      mt.Concat(pUser2Device);
 
       CPDF_RenderOptions ro;
       ro.m_Flags = RENDER_CLEARTYPE;
@@ -80,17 +80,17 @@ void DrawTextString(CFX_RenderDevice* pDevice,
       if (crTextStroke != 0) {
         CFX_FloatPoint pt1;
         CFX_FloatPoint pt2;
-        pUser2Device->Transform(pt1.x, pt1.y);
-        pUser2Device->Transform(pt2.x, pt2.y);
+        pUser2Device.Transform(pt1.x, pt1.y);
+        pUser2Device.Transform(pt2.x, pt2.y);
         CFX_GraphStateData gsd;
         gsd.m_LineWidth =
             (FX_FLOAT)FXSYS_fabs((pt2.x + pt2.y) - (pt1.x + pt1.y));
 
-        CPDF_TextRenderer::DrawTextString(pDevice, x, y, pFont, fFontSize, &mt,
+        CPDF_TextRenderer::DrawTextString(pDevice, x, y, pFont, fFontSize, mt,
                                           str, crTextFill, crTextStroke, &gsd,
                                           &ro);
       } else {
-        CPDF_TextRenderer::DrawTextString(pDevice, x, y, pFont, fFontSize, &mt,
+        CPDF_TextRenderer::DrawTextString(pDevice, x, y, pFont, fFontSize, mt,
                                           str, crTextFill, 0, nullptr, &ro);
       }
     } else {
@@ -101,8 +101,8 @@ void DrawTextString(CFX_RenderDevice* pDevice,
       if (crTextStroke != 0) {
         CFX_FloatPoint pt1;
         CFX_FloatPoint pt2;
-        pUser2Device->Transform(pt1.x, pt1.y);
-        pUser2Device->Transform(pt2.x, pt2.y);
+        pUser2Device.Transform(pt1.x, pt1.y);
+        pUser2Device.Transform(pt2.x, pt2.y);
         CFX_GraphStateData gsd;
         gsd.m_LineWidth =
             (FX_FLOAT)FXSYS_fabs((pt2.x + pt2.y) - (pt1.x + pt1.y));
@@ -783,7 +783,7 @@ CFX_ByteString CFX_Edit::GetSelectAppearanceStream(
 
 // static
 void CFX_Edit::DrawEdit(CFX_RenderDevice* pDevice,
-                        CFX_Matrix* pUser2Device,
+                        const CFX_Matrix& pUser2Device,
                         CFX_Edit* pEdit,
                         FX_COLORREF crTextFill,
                         FX_COLORREF crTextStroke,
@@ -812,7 +812,7 @@ void CFX_Edit::DrawEdit(CFX_RenderDevice* pDevice,
   pDevice->SaveState();
   if (!rcClip.IsEmpty()) {
     CFX_FloatRect rcTemp = rcClip;
-    pUser2Device->TransformRect(rcTemp);
+    pUser2Device.TransformRect(rcTemp);
     pDevice->SetClip_Rect(rcTemp.ToFxRect());
   }
 

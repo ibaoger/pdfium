@@ -41,11 +41,11 @@ class CFWL_CheckBox : public CFWL_Widget {
   // CFWL_Widget
   FWL_Type GetClassID() const override;
   void Update() override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
 
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void SetBoxSize(FX_FLOAT fHeight);
 

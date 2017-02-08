@@ -108,7 +108,7 @@ void CFX_PSRenderer::RestoreState(bool bKeepSaved) {
 }
 
 void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
-                                const CFX_Matrix* pObject2Device) {
+                                const CFX_Matrix& pObject2Device) {
   int nPoints = pPathData->GetPointCount();
   CFX_ByteTextBuf buf;
   buf.EstimateSize(nPoints * 10);
@@ -117,9 +117,9 @@ void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
     bool closing = pPathData->IsClosingFigure(i);
     FX_FLOAT x = pPathData->GetPointX(i);
     FX_FLOAT y = pPathData->GetPointY(i);
-    if (pObject2Device) {
-      pObject2Device->Transform(x, y);
-    }
+    if (!pObject2Device.IsIdentity())
+      pObject2Device.Transform(x, y);
+
     buf << x << " " << y;
     switch (type) {
       case FXPT_TYPE::MoveTo:
@@ -135,9 +135,9 @@ void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
         FX_FLOAT x2 = pPathData->GetPointX(i + 2);
         FX_FLOAT y1 = pPathData->GetPointY(i + 1);
         FX_FLOAT y2 = pPathData->GetPointY(i + 2);
-        if (pObject2Device) {
-          pObject2Device->Transform(x1, y1);
-          pObject2Device->Transform(x2, y2);
+        if (!pObject2Device.IsIdentity()) {
+          pObject2Device.Transform(x1, y1);
+          pObject2Device.Transform(x2, y2);
         }
         buf << " " << x1 << " " << y1 << " " << x2 << " " << y2 << " c";
         if (closing)
@@ -152,13 +152,14 @@ void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
 }
 
 void CFX_PSRenderer::SetClip_PathFill(const CFX_PathData* pPathData,
-                                      const CFX_Matrix* pObject2Device,
+                                      const CFX_Matrix& pObject2Device,
                                       int fill_mode) {
   StartRendering();
   OutputPath(pPathData, pObject2Device);
   CFX_FloatRect rect = pPathData->GetBoundingBox();
-  if (pObject2Device)
+  if (!pObject2Device.IsIdentity())
     rect.Transform(pObject2Device);
+
   m_ClipBox.left = static_cast<int>(rect.left);
   m_ClipBox.right = static_cast<int>(rect.left + rect.right);
   m_ClipBox.top = static_cast<int>(rect.top + rect.bottom);
@@ -171,15 +172,15 @@ void CFX_PSRenderer::SetClip_PathFill(const CFX_PathData* pPathData,
 }
 
 void CFX_PSRenderer::SetClip_PathStroke(const CFX_PathData* pPathData,
-                                        const CFX_Matrix* pObject2Device,
+                                        const CFX_Matrix& pObject2Device,
                                         const CFX_GraphStateData* pGraphState) {
   StartRendering();
   SetGraphState(pGraphState);
-  if (pObject2Device) {
+  if (!pObject2Device.IsIdentity()) {
     CFX_ByteTextBuf buf;
-    buf << "mx Cm [" << pObject2Device->a << " " << pObject2Device->b << " "
-        << pObject2Device->c << " " << pObject2Device->d << " "
-        << pObject2Device->e << " " << pObject2Device->f << "]cm ";
+    buf << "mx Cm [" << pObject2Device.a << " " << pObject2Device.b << " "
+        << pObject2Device.c << " " << pObject2Device.d << " "
+        << pObject2Device.e << " " << pObject2Device.f << "]cm ";
     m_pOutput->OutputPS((const FX_CHAR*)buf.GetBuffer(), buf.GetSize());
   }
   OutputPath(pPathData, nullptr);
@@ -187,7 +188,7 @@ void CFX_PSRenderer::SetClip_PathStroke(const CFX_PathData* pPathData,
                                                  pGraphState->m_MiterLimit);
   rect.Transform(pObject2Device);
   m_ClipBox.Intersect(rect.GetOuterRect());
-  if (pObject2Device) {
+  if (!pObject2Device.IsIdentity()) {
     OUTPUT_PS("strokepath W n sm\n");
   } else {
     OUTPUT_PS("strokepath W n\n");
@@ -195,7 +196,7 @@ void CFX_PSRenderer::SetClip_PathStroke(const CFX_PathData* pPathData,
 }
 
 bool CFX_PSRenderer::DrawPath(const CFX_PathData* pPathData,
-                              const CFX_Matrix* pObject2Device,
+                              const CFX_Matrix& pObject2Device,
                               const CFX_GraphStateData* pGraphState,
                               uint32_t fill_color,
                               uint32_t stroke_color,
@@ -214,11 +215,11 @@ bool CFX_PSRenderer::DrawPath(const CFX_PathData* pPathData,
   }
   if (stroke_alpha) {
     SetGraphState(pGraphState);
-    if (pObject2Device) {
+    if (!pObject2Device.IsIdentity()) {
       CFX_ByteTextBuf buf;
-      buf << "mx Cm [" << pObject2Device->a << " " << pObject2Device->b << " "
-          << pObject2Device->c << " " << pObject2Device->d << " "
-          << pObject2Device->e << " " << pObject2Device->f << "]cm ";
+      buf << "mx Cm [" << pObject2Device.a << " " << pObject2Device.b << " "
+          << pObject2Device.c << " " << pObject2Device.d << " "
+          << pObject2Device.e << " " << pObject2Device.f << "]cm ";
       m_pOutput->OutputPS((const FX_CHAR*)buf.GetBuffer(), buf.GetSize());
     }
   }
@@ -241,7 +242,7 @@ bool CFX_PSRenderer::DrawPath(const CFX_PathData* pPathData,
   }
   if (stroke_alpha) {
     SetColor(stroke_color);
-    if (pObject2Device) {
+    if (!pObject2Device.IsIdentity()) {
       OUTPUT_PS("s sm");
     } else {
       OUTPUT_PS("s");
@@ -631,7 +632,7 @@ void CFX_PSRenderer::FindPSFontGlyph(CFX_FaceCache* pFaceCache,
 bool CFX_PSRenderer::DrawText(int nChars,
                               const FXTEXT_CHARPOS* pCharPos,
                               CFX_Font* pFont,
-                              const CFX_Matrix* pObject2Device,
+                              const CFX_Matrix& pObject2Device,
                               FX_FLOAT font_size,
                               uint32_t color) {
   StartRendering();
@@ -639,15 +640,15 @@ bool CFX_PSRenderer::DrawText(int nChars,
   if (alpha < 255)
     return false;
 
-  if ((pObject2Device->a == 0 && pObject2Device->b == 0) ||
-      (pObject2Device->c == 0 && pObject2Device->d == 0)) {
+  if ((pObject2Device.a == 0 && pObject2Device.b == 0) ||
+      (pObject2Device.c == 0 && pObject2Device.d == 0)) {
     return true;
   }
   SetColor(color);
   CFX_ByteTextBuf buf;
-  buf << "q[" << pObject2Device->a << " " << pObject2Device->b << " "
-      << pObject2Device->c << " " << pObject2Device->d << " "
-      << pObject2Device->e << " " << pObject2Device->f << "]cm\n";
+  buf << "q[" << pObject2Device.a << " " << pObject2Device.b << " "
+      << pObject2Device.c << " " << pObject2Device.d << " " << pObject2Device.e
+      << " " << pObject2Device.f << "]cm\n";
 
   CFX_FontCache* pCache = CFX_GEModule::Get()->GetFontCache();
   CFX_FaceCache* pFaceCache = pCache->GetCachedFace(pFont);

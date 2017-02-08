@@ -68,10 +68,10 @@ CFX_FloatRect CPDF_ClipPath::GetClipBox() const {
         bLayerStarted = false;
       } else {
         if (!bLayerStarted) {
-          layer_rect = CFX_FloatRect(pTextObj->GetBBox(nullptr));
+          layer_rect = CFX_FloatRect(pTextObj->GetBBox(CFX_Matrix()));
           bLayerStarted = true;
         } else {
-          layer_rect.Union(CFX_FloatRect(pTextObj->GetBBox(nullptr)));
+          layer_rect.Union(CFX_FloatRect(pTextObj->GetBBox(CFX_Matrix())));
         }
       }
     }
@@ -108,7 +108,7 @@ void CPDF_ClipPath::AppendTexts(
 void CPDF_ClipPath::Transform(const CFX_Matrix& matrix) {
   PathData* pData = m_Ref.GetPrivateCopy();
   for (auto& obj : pData->m_PathAndTypeList)
-    obj.first.Transform(&matrix);
+    obj.first.Transform(matrix);
   for (auto& text : pData->m_TextList) {
     if (text)
       text->Transform(matrix);

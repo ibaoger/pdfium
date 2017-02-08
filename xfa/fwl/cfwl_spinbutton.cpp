@@ -79,13 +79,13 @@ FWL_WidgetHit CFWL_SpinButton::HitTest(FX_FLOAT fx, FX_FLOAT fy) {
 }
 
 void CFWL_SpinButton::DrawWidget(CFX_Graphics* pGraphics,
-                                 const CFX_Matrix* pMatrix) {
+                                 const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
 
   CFX_RectF rtClip(m_rtClient);
-  if (pMatrix)
-    pMatrix->TransformRect(rtClip);
+  if (!pMatrix.IsIdentity())
+    pMatrix.TransformRect(rtClip);
 
   IFWL_ThemeProvider* pTheme = GetAvailableTheme();
   if (HasBorder())
@@ -109,14 +109,14 @@ bool CFWL_SpinButton::IsDownButtonEnabled() {
 
 void CFWL_SpinButton::DrawUpButton(CFX_Graphics* pGraphics,
                                    IFWL_ThemeProvider* pTheme,
-                                   const CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::UpButton;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = m_dwUpState + 1;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
 
   params.m_rtPart = m_rtUpButton;
   pTheme->DrawBackground(&params);
@@ -124,14 +124,14 @@ void CFWL_SpinButton::DrawUpButton(CFX_Graphics* pGraphics,
 
 void CFWL_SpinButton::DrawDownButton(CFX_Graphics* pGraphics,
                                      IFWL_ThemeProvider* pTheme,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
   params.m_iPart = CFWL_Part::DownButton;
   params.m_pGraphics = pGraphics;
   params.m_dwStates = m_dwDnState + 1;
-  if (pMatrix)
-    params.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    params.m_matrix.Concat(pMatrix);
 
   params.m_rtPart = m_rtDnButton;
   pTheme->DrawBackground(&params);
@@ -183,7 +183,7 @@ void CFWL_SpinButton::OnProcessMessage(CFWL_Message* pMessage) {
 }
 
 void CFWL_SpinButton::OnDrawWidget(CFX_Graphics* pGraphics,
-                                   const CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
 

@@ -1482,13 +1482,13 @@ bool CFX_ImageRenderer::Start(CFX_DIBitmap* pDevice,
                               const CFX_DIBSource* pSource,
                               int bitmap_alpha,
                               uint32_t mask_color,
-                              const CFX_Matrix* pMatrix,
+                              const CFX_Matrix& pMatrix,
                               uint32_t dib_flags,
                               bool bRgbByteOrder,
                               int alpha_flag,
                               void* pIccTransform,
                               int blend_type) {
-  m_Matrix = *pMatrix;
+  m_Matrix = pMatrix;
   CFX_FloatRect image_rect_f = m_Matrix.GetUnitRect();
   FX_RECT image_rect = image_rect_f.GetOuterRect();
   m_ClipBox = pClipRgn ? pClipRgn->GetBox() : FX_RECT(0, 0, pDevice->GetWidth(),
@@ -1501,7 +1501,7 @@ bool CFX_ImageRenderer::Start(CFX_DIBitmap* pDevice,
   m_pClipRgn = pClipRgn;
   m_MaskColor = mask_color;
   m_BitmapAlpha = bitmap_alpha;
-  m_Matrix = *pMatrix;
+  m_Matrix = pMatrix;
   m_Flags = dib_flags;
   m_AlphaFlag = alpha_flag;
   m_pIccTransform = pIccTransform;
@@ -1533,7 +1533,7 @@ bool CFX_ImageRenderer::Start(CFX_DIBitmap* pDevice,
     }
     m_Status = 2;
     m_pTransformer.reset(
-        new CFX_ImageTransformer(pSource, &m_Matrix, dib_flags, &m_ClipBox));
+        new CFX_ImageTransformer(pSource, m_Matrix, dib_flags, &m_ClipBox));
     m_pTransformer->Start();
     return true;
   }

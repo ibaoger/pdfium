@@ -44,20 +44,20 @@ class CFX_SkiaDeviceDriver : public IFX_RenderDeviceDriver {
   /** Set clipping path using filled region */
   bool SetClip_PathFill(
       const CFX_PathData* pPathData,     // path info
-      const CFX_Matrix* pObject2Device,  // optional transformation
+      const CFX_Matrix& pObject2Device,  // optional transformation
       int fill_mode) override;           // fill mode, WINDING or ALTERNATE
 
   /** Set clipping path using stroked region */
   bool SetClip_PathStroke(
       const CFX_PathData* pPathData,     // path info
-      const CFX_Matrix* pObject2Device,  // optional transformation
+      const CFX_Matrix& pObject2Device,  // optional transformation
       const CFX_GraphStateData*
           pGraphState)  // graphic state, for pen attributes
       override;
 
   /** Draw a path */
   bool DrawPath(const CFX_PathData* pPathData,
-                const CFX_Matrix* pObject2Device,
+                const CFX_Matrix& pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
                 uint32_t stroke_color,
@@ -115,7 +115,7 @@ class CFX_SkiaDeviceDriver : public IFX_RenderDeviceDriver {
   bool StartDIBits(const CFX_DIBSource* pBitmap,
                    int bitmap_alpha,
                    uint32_t color,
-                   const CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    uint32_t flags,
                    void*& handle,
                    int blend_type) override;
@@ -127,7 +127,7 @@ class CFX_SkiaDeviceDriver : public IFX_RenderDeviceDriver {
   bool DrawBitsWithMask(const CFX_DIBSource* pBitmap,
                         const CFX_DIBSource* pMask,
                         int bitmap_alpha,
-                        const CFX_Matrix* pMatrix,
+                        const CFX_Matrix& pMatrix,
                         int blend_type);
 
   bool DrawDeviceText(int nChars,
@@ -138,7 +138,7 @@ class CFX_SkiaDeviceDriver : public IFX_RenderDeviceDriver {
                       uint32_t color) override;
 
   bool DrawShading(const CPDF_ShadingPattern* pPattern,
-                   const CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    const FX_RECT& clip_rect,
                    int alpha,
                    bool bAlphaMode) override;

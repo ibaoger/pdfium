@@ -54,7 +54,7 @@ FX_RECT CFFL_InteractiveFormFiller::GetViewBBox(CPDFSDK_PageView* pPageView,
 void CFFL_InteractiveFormFiller::OnDraw(CPDFSDK_PageView* pPageView,
                                         CPDFSDK_Annot* pAnnot,
                                         CFX_RenderDevice* pDevice,
-                                        CFX_Matrix* pUser2Device) {
+                                        const CFX_Matrix& pUser2Device) {
   ASSERT(pPageView);
   CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
 
