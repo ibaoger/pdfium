@@ -59,7 +59,7 @@ void CommonTest(CFX_SkiaDeviceDriver* driver, const State& state) {
     driver->DrawPath(&path1, &matrix, &graphState, 0xFF112233, 0,
                      FXFILL_WINDING, 0);
   } else if (state.m_graphic == State::Graphic::kText) {
-    driver->DrawDeviceText(SK_ARRAY_COUNT(charPos), charPos, &font, &matrix,
+    driver->DrawDeviceText(SK_ARRAY_COUNT(charPos), charPos, &font, matrix,
                            fontSize, 0xFF445566);
   }
   if (state.m_save == State::Save::kYes)
@@ -82,7 +82,7 @@ void CommonTest(CFX_SkiaDeviceDriver* driver, const State& state) {
     driver->DrawPath(&path2, &matrix2, &graphState, 0xFF112233, 0,
                      FXFILL_WINDING, 0);
   } else if (state.m_graphic == State::Graphic::kText) {
-    driver->DrawDeviceText(SK_ARRAY_COUNT(charPos), charPos, &font, &matrix2,
+    driver->DrawDeviceText(SK_ARRAY_COUNT(charPos), charPos, &font, matrix2,
                            fontSize, 0xFF445566);
   }
   if (state.m_save == State::Save::kYes)

@@ -44,7 +44,7 @@ class CFDE_RenderDevice {
                   const FXTEXT_CHARPOS* pCharPos,
                   int32_t iCount,
                   FX_FLOAT fFontSize,
-                  const CFX_Matrix* pMatrix = nullptr);
+                  const CFX_Matrix& pMatrix);
   bool DrawBezier(CFDE_Pen* pPen,
                   FX_FLOAT fPenWidth,
                   const CFX_PointF& pt1,

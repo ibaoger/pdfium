@@ -126,6 +126,6 @@ void CFDE_RenderContext::RenderText(IFDE_TextSet* pTextSet,
   FX_ARGB dwColor = pTextSet->GetFontColor();
   m_pBrush->SetColor(dwColor);
   m_pRenderDevice->DrawString(m_pBrush.get(), pFont, m_CharPos.data(), iCount,
-                              fFontSize, &m_Transform);
+                              fFontSize, m_Transform);
 }
 

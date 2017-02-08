@@ -982,10 +982,10 @@ void FPDF_RenderPage_Retail(CPDF_PageRenderContext* pContext,
   if (!pPage)
     return;
 
-  CFX_Matrix matrix;
-  pPage->GetDisplayMatrix(matrix, start_x, start_y, size_x, size_y, rotate);
-  FX_RECT rect(start_x, start_y, start_x + size_x, start_y + size_y);
-  RenderPageImpl(pContext, pPage, matrix, rect, flags, bNeedToRestore, pause);
+  RenderPageImpl(pContext, pPage, pPage->GetDisplayMatrix(
+                                      start_x, start_y, size_x, size_y, rotate),
+                 FX_RECT(start_x, start_y, start_x + size_x, start_y + size_y),
+                 flags, bNeedToRestore, pause);
 }
 
 DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,

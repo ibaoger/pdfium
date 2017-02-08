@@ -1268,7 +1268,7 @@ void CFX_SkiaDeviceDriver::Flush() {
 bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
                                           const FXTEXT_CHARPOS* pCharPos,
                                           CFX_Font* pFont,
-                                          const CFX_Matrix* pObject2Device,
+                                          const CFX_Matrix& pObject2Device,
                                           FX_FLOAT font_size,
                                           uint32_t color) {
   if (m_pCache->DrawText(nChars, pCharPos, pFont, pObject2Device, font_size,
@@ -1289,7 +1289,7 @@ bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
   SkScalar vFlip = flip;
   if (pFont->IsVertical())
     vFlip *= -1;
-  SkMatrix skMatrix = ToFlippedSkMatrix(*pObject2Device, flip);
+  SkMatrix skMatrix = ToFlippedSkMatrix(pObject2Device, flip);
   m_pCanvas->concat(skMatrix);
   SkTDArray<SkPoint> positions;
   positions.setCount(nChars);
