@@ -61,12 +61,12 @@ class CFWL_Edit : public CFWL_Widget {
   void Update() override;
   FWL_WidgetHit HitTest(FX_FLOAT fx, FX_FLOAT fy) override;
   void SetStates(uint32_t dwStates) override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
 
   virtual void SetText(const CFX_WideString& wsText);
 
@@ -111,11 +111,11 @@ class CFWL_Edit : public CFWL_Widget {
  private:
   void DrawTextBk(CFX_Graphics* pGraphics,
                   IFWL_ThemeProvider* pTheme,
-                  const CFX_Matrix* pMatrix);
+                  const CFX_Matrix& pMatrix);
   void DrawContent(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
-  void DrawSpellCheck(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
+  void DrawSpellCheck(CFX_Graphics* Graphics, const CFX_Matrix& pMatrix);
 
   void UpdateEditEngine();
   void UpdateEditParams();

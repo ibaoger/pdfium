@@ -803,7 +803,7 @@ void CPDFSDK_Widget::ResetFieldAppearance(bool bValueChanged) {
 }
 
 void CPDFSDK_Widget::DrawAppearance(CFX_RenderDevice* pDevice,
-                                    const CFX_Matrix* pUser2Device,
+                                    const CFX_Matrix& pUser2Device,
                                     CPDF_Annot::AppearanceMode mode,
                                     const CPDF_RenderOptions* pOptions) {
   int nFieldType = GetFieldType();

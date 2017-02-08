@@ -402,7 +402,7 @@ void CPSPrinterDriver::RestoreState(bool bKeepSaved) {
 }
 
 bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
-                                        const CFX_Matrix* pObject2Device,
+                                        const CFX_Matrix& pObject2Device,
                                         int fill_mode) {
   m_PSRenderer.SetClip_PathFill(pPathData, pObject2Device, fill_mode);
   return true;
@@ -410,14 +410,14 @@ bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 
 bool CPSPrinterDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
-    const CFX_Matrix* pObject2Device,
+    const CFX_Matrix& pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   m_PSRenderer.SetClip_PathStroke(pPathData, pObject2Device, pGraphState);
   return true;
 }
 
 bool CPSPrinterDriver::DrawPath(const CFX_PathData* pPathData,
-                                const CFX_Matrix* pObject2Device,
+                                const CFX_Matrix& pObject2Device,
                                 const CFX_GraphStateData* pGraphState,
                                 FX_ARGB fill_color,
                                 FX_ARGB stroke_color,

@@ -52,7 +52,7 @@ class CGdiplusExt {
                      int flags);
   bool DrawPath(HDC hDC,
                 const CFX_PathData* pPathData,
-                const CFX_Matrix* pObject2Device,
+                const CFX_Matrix& pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_argb,
                 uint32_t stroke_argb,
@@ -132,13 +132,13 @@ class CGdiDeviceDriver : public IFX_RenderDeviceDriver {
   void SaveState() override;
   void RestoreState(bool bKeepSaved) override;
   bool SetClip_PathFill(const CFX_PathData* pPathData,
-                        const CFX_Matrix* pObject2Device,
+                        const CFX_Matrix& pObject2Device,
                         int fill_mode) override;
   bool SetClip_PathStroke(const CFX_PathData* pPathData,
-                          const CFX_Matrix* pObject2Device,
+                          const CFX_Matrix& pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
   bool DrawPath(const CFX_PathData* pPathData,
-                const CFX_Matrix* pObject2Device,
+                const CFX_Matrix& pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
                 uint32_t stroke_color,
@@ -277,13 +277,13 @@ class CPSPrinterDriver : public IFX_RenderDeviceDriver {
   void SaveState() override;
   void RestoreState(bool bKeepSaved) override;
   bool SetClip_PathFill(const CFX_PathData* pPathData,
-                        const CFX_Matrix* pObject2Device,
+                        const CFX_Matrix& pObject2Device,
                         int fill_mode) override;
   bool SetClip_PathStroke(const CFX_PathData* pPathData,
-                          const CFX_Matrix* pObject2Device,
+                          const CFX_Matrix& pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
   bool DrawPath(const CFX_PathData* pPathData,
-                const CFX_Matrix* pObject2Device,
+                const CFX_Matrix& pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
                 uint32_t stroke_color,

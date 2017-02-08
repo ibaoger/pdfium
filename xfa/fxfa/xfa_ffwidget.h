@@ -50,7 +50,7 @@ class CXFA_FFWidget : public CXFA_ContentLayoutItem {
 
   virtual CFX_RectF GetBBox(uint32_t dwStatus, bool bDrawFocus = false);
   virtual void RenderWidget(CFX_Graphics* pGS,
-                            CFX_Matrix* pMatrix,
+                            const CFX_Matrix& pMatrix,
                             uint32_t dwStatus);
   virtual bool IsLoaded();
   virtual bool LoadWidget();
@@ -132,7 +132,7 @@ class CXFA_FFWidget : public CXFA_ContentLayoutItem {
   void DrawBorder(CFX_Graphics* pGS,
                   CXFA_Box box,
                   const CFX_RectF& rtBorder,
-                  CFX_Matrix* pMatrix,
+                  const CFX_Matrix& pMatrix,
                   uint32_t dwFlags = 0);
 
   CFX_RectF GetRectWithoutRotate();
@@ -153,7 +153,7 @@ int32_t XFA_StrokeTypeSetLineDash(CFX_Graphics* pGraphics,
 CFX_GraphStateData::LineCap XFA_LineCapToFXGE(int32_t iLineCap);
 void XFA_DrawImage(CFX_Graphics* pGS,
                    const CFX_RectF& rtImage,
-                   CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    CFX_DIBitmap* pDIBitmap,
                    int32_t iAspect,
                    int32_t iImageXDpi,
@@ -185,7 +185,7 @@ bool XFA_IsCreateWidget(XFA_Element iType);
 void XFA_DrawBox(CXFA_Box box,
                  CFX_Graphics* pGS,
                  const CFX_RectF& rtWidget,
-                 CFX_Matrix* pMatrix,
+                 const CFX_Matrix& pMatrix,
                  uint32_t dwFlags = 0);
 
 #endif  // XFA_FXFA_XFA_FFWIDGET_H_

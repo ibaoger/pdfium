@@ -45,7 +45,7 @@ bool ShouldGenerateAPForAnnotation(CPDF_Dictionary* pAnnotDict) {
 CPDF_Form* AnnotGetMatrix(const CPDF_Page* pPage,
                           CPDF_Annot* pAnnot,
                           CPDF_Annot::AppearanceMode mode,
-                          const CFX_Matrix* pUser2Device,
+                          const CFX_Matrix& pUser2Device,
                           CFX_Matrix* matrix) {
   CPDF_Form* pForm = pAnnot->GetAPForm(pPage, mode);
   if (!pForm)
@@ -55,7 +55,7 @@ CPDF_Form* AnnotGetMatrix(const CPDF_Page* pPage,
   CFX_Matrix form_matrix = pForm->m_pFormDict->GetMatrixFor("Matrix");
   form_matrix.TransformRect(form_bbox);
   matrix->MatchRect(pAnnot->GetRect(), form_bbox);
-  matrix->Concat(*pUser2Device);
+  matrix->Concat(pUser2Device);
   return pForm;
 }
 
@@ -206,7 +206,7 @@ CPDF_Form* CPDF_Annot::GetAPForm(const CPDF_Page* pPage, AppearanceMode mode) {
 
   auto pNewForm =
       pdfium::MakeUnique<CPDF_Form>(m_pDocument, pPage->m_pResources, pStream);
-  pNewForm->ParseContent(nullptr, nullptr, nullptr);
+  pNewForm->ParseContent(nullptr, CFX_Matrix(), nullptr);
 
   CPDF_Form* pResult = pNewForm.get();
   m_APMap[pStream] = std::move(pNewForm);
@@ -359,7 +359,7 @@ CFX_ByteString CPDF_Annot::AnnotSubtypeToString(CPDF_Annot::Subtype nSubtype) {
 
 bool CPDF_Annot::DrawAppearance(CPDF_Page* pPage,
                                 CFX_RenderDevice* pDevice,
-                                const CFX_Matrix* pUser2Device,
+                                const CFX_Matrix& pUser2Device,
                                 AppearanceMode mode,
                                 const CPDF_RenderOptions* pOptions) {
   if (!ShouldDrawAnnotation())
@@ -385,7 +385,7 @@ bool CPDF_Annot::DrawAppearance(CPDF_Page* pPage,
 
 bool CPDF_Annot::DrawInContext(const CPDF_Page* pPage,
                                CPDF_RenderContext* pContext,
-                               const CFX_Matrix* pUser2Device,
+                               const CFX_Matrix& pUser2Device,
                                AppearanceMode mode) {
   if (!ShouldDrawAnnotation())
     return false;
@@ -407,7 +407,7 @@ bool CPDF_Annot::DrawInContext(const CPDF_Page* pPage,
 }
 
 void CPDF_Annot::DrawBorder(CFX_RenderDevice* pDevice,
-                            const CFX_Matrix* pUser2Device,
+                            const CFX_Matrix& pUser2Device,
                             const CPDF_RenderOptions* pOptions) {
   if (GetSubtype() == CPDF_Annot::Subtype::POPUP)
     return;

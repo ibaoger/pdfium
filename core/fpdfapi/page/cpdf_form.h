@@ -25,13 +25,13 @@ class CPDF_Form : public CPDF_PageObjectHolder {
   ~CPDF_Form() override;
 
   void ParseContent(CPDF_AllStates* pGraphicStates,
-                    const CFX_Matrix* pParentMatrix,
+                    const CFX_Matrix& pParentMatrix,
                     CPDF_Type3Char* pType3Char,
                     int level = 0);
 
  private:
   void StartParse(CPDF_AllStates* pGraphicStates,
-                  const CFX_Matrix* pParentMatrix,
+                  const CFX_Matrix& pParentMatrix,
                   CPDF_Type3Char* pType3Char,
                   int level = 0);
 };

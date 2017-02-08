@@ -101,14 +101,14 @@ class CFX_RenderDevice {
   bool CreateCompatibleBitmap(CFX_DIBitmap* pDIB, int width, int height) const;
   const FX_RECT& GetClipBox() const { return m_ClipBox; }
   bool SetClip_PathFill(const CFX_PathData* pPathData,
-                        const CFX_Matrix* pObject2Device,
+                        const CFX_Matrix& pObject2Device,
                         int fill_mode);
   bool SetClip_Rect(const FX_RECT& pRect);
   bool SetClip_PathStroke(const CFX_PathData* pPathData,
-                          const CFX_Matrix* pObject2Device,
+                          const CFX_Matrix& pObject2Device,
                           const CFX_GraphStateData* pGraphState);
   bool DrawPath(const CFX_PathData* pPathData,
-                const CFX_Matrix* pObject2Device,
+                const CFX_Matrix& pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
                 uint32_t stroke_color,
@@ -117,7 +117,7 @@ class CFX_RenderDevice {
                              stroke_color, fill_mode, FXDIB_BLEND_NORMAL);
   }
   bool DrawPathWithBlend(const CFX_PathData* pPathData,
-                         const CFX_Matrix* pObject2Device,
+                         const CFX_Matrix& pObject2Device,
                          const CFX_GraphStateData* pGraphState,
                          uint32_t fill_color,
                          uint32_t stroke_color,
@@ -180,7 +180,7 @@ class CFX_RenderDevice {
   bool StartDIBits(const CFX_DIBSource* pBitmap,
                    int bitmap_alpha,
                    uint32_t color,
-                   const CFX_Matrix* pMatrix,
+                   const CFX_Matrix& pMatrix,
                    uint32_t flags,
                    void*& handle) {
     return StartDIBitsWithBlend(pBitmap, bitmap_alpha, color, pMatrix, flags,
@@ -189,7 +189,7 @@ class CFX_RenderDevice {
   bool StartDIBitsWithBlend(const CFX_DIBSource* pBitmap,
                             int bitmap_alpha,
                             uint32_t color,
-                            const CFX_Matrix* pMatrix,
+                            const CFX_Matrix& pMatrix,
                             uint32_t flags,
                             void*& handle,
                             int blend_type);
@@ -208,7 +208,7 @@ class CFX_RenderDevice {
                     CFX_Font* pFont,
                     FX_FLOAT font_size,
                     const CFX_Matrix& pText2User,
-                    const CFX_Matrix* pUser2Device,
+                    const CFX_Matrix& pUser2Device,
                     const CFX_GraphStateData* pGraphState,
                     uint32_t fill_color,
                     uint32_t stroke_color,
@@ -232,7 +232,7 @@ class CFX_RenderDevice {
   void InitDeviceInfo();
   void UpdateClipBox();
   bool DrawFillStrokePath(const CFX_PathData* pPathData,
-                          const CFX_Matrix* pObject2Device,
+                          const CFX_Matrix& pObject2Device,
                           const CFX_GraphStateData* pGraphState,
                           uint32_t fill_color,
                           uint32_t stroke_color,

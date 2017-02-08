@@ -106,7 +106,7 @@ void CPDF_AnnotList::DisplayPass(CPDF_Page* pPage,
                                  CFX_RenderDevice* pDevice,
                                  CPDF_RenderContext* pContext,
                                  bool bPrinting,
-                                 const CFX_Matrix* pMatrix,
+                                 const CFX_Matrix& pMatrix,
                                  bool bWidgetPass,
                                  CPDF_RenderOptions* pOptions,
                                  FX_RECT* clip_rect) {
@@ -134,9 +134,9 @@ void CPDF_AnnotList::DisplayPass(CPDF_Page* pPage,
       }
     }
     CFX_FloatRect annot_rect_f = pAnnot->GetRect();
-    CFX_Matrix matrix = *pMatrix;
+    CFX_Matrix matrix = pMatrix;
     if (clip_rect) {
-      annot_rect_f.Transform(&matrix);
+      annot_rect_f.Transform(matrix);
       FX_RECT annot_rect = annot_rect_f.GetOuterRect();
       annot_rect.Intersect(*clip_rect);
       if (annot_rect.IsEmpty()) {
@@ -144,10 +144,10 @@ void CPDF_AnnotList::DisplayPass(CPDF_Page* pPage,
       }
     }
     if (pContext) {
-      pAnnot->DrawInContext(pPage, pContext, &matrix, CPDF_Annot::Normal);
-    } else if (!pAnnot->DrawAppearance(pPage, pDevice, &matrix,
+      pAnnot->DrawInContext(pPage, pContext, matrix, CPDF_Annot::Normal);
+    } else if (!pAnnot->DrawAppearance(pPage, pDevice, matrix,
                                        CPDF_Annot::Normal, pOptions)) {
-      pAnnot->DrawBorder(pDevice, &matrix, pOptions);
+      pAnnot->DrawBorder(pDevice, matrix, pOptions);
     }
   }
 }
@@ -156,7 +156,7 @@ void CPDF_AnnotList::DisplayAnnots(CPDF_Page* pPage,
                                    CFX_RenderDevice* pDevice,
                                    CPDF_RenderContext* pContext,
                                    bool bPrinting,
-                                   const CFX_Matrix* pUser2Device,
+                                   const CFX_Matrix& pUser2Device,
                                    uint32_t dwAnnotFlags,
                                    CPDF_RenderOptions* pOptions,
                                    FX_RECT* pClipRect) {
@@ -173,7 +173,7 @@ void CPDF_AnnotList::DisplayAnnots(CPDF_Page* pPage,
 void CPDF_AnnotList::DisplayAnnots(CPDF_Page* pPage,
                                    CPDF_RenderContext* pContext,
                                    bool bPrinting,
-                                   const CFX_Matrix* pMatrix,
+                                   const CFX_Matrix& pMatrix,
                                    bool bShowWidget,
                                    CPDF_RenderOptions* pOptions) {
   uint32_t dwAnnotFlags = bShowWidget ? ANNOTFLAG_INVISIBLE | ANNOTFLAG_HIDDEN

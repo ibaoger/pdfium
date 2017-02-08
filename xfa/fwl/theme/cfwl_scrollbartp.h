@@ -33,24 +33,24 @@ class CFWL_ScrollBarTP : public CFWL_WidgetTP {
                     const CFX_RectF* pRect,
                     bool bVert,
                     FWLTHEME_STATE eState,
-                    bool bPawButton = true,
-                    CFX_Matrix* pMatrix = nullptr);
+                    bool bPawButton,
+                    const CFX_Matrix& pMatrix);
   void DrawTrack(CFX_Graphics* pGraphics,
                  const CFX_RectF* pRect,
                  bool bVert,
                  FWLTHEME_STATE eState,
                  bool bLowerTrack,
-                 CFX_Matrix* pMatrix = nullptr);
+                 const CFX_Matrix& pMatrix);
   void DrawMaxMinBtn(CFX_Graphics* pGraphics,
                      const CFX_RectF* pRect,
                      FWLTHEME_DIRECTION eDict,
                      FWLTHEME_STATE eState,
-                     CFX_Matrix* pMatrix = nullptr);
+                     const CFX_Matrix& pMatrix);
   void DrawPaw(CFX_Graphics* pGraphics,
                const CFX_RectF* pRect,
                bool bVert,
                FWLTHEME_STATE eState,
-               CFX_Matrix* pMatrix = nullptr);
+               const CFX_Matrix& pMatrix);
 
   std::unique_ptr<SBThemeData> m_pThemeData;
 

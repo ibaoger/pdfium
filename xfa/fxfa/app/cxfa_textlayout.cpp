@@ -1276,7 +1276,7 @@ void CXFA_TextLayout::RenderPath(CFDE_RenderDevice* pDevice,
       fEndY += 2.0f;
     }
   }
-  pDevice->DrawPath(pPen, 1, pPath.get(), &tmDoc2Device);
+  pDevice->DrawPath(pPen, 1, pPath.get(), tmDoc2Device);
 }
 
 int32_t CXFA_TextLayout::GetDisplayPos(const XFA_TextPiece* pPiece,

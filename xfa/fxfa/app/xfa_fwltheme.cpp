@@ -112,10 +112,10 @@ void CXFA_FWLTheme::DrawText(CFWL_ThemeText* pParams) {
 
     m_pTextOut->SetRenderDevice(pRenderDevice);
     CFX_Matrix mtPart = pParams->m_matrix;
-    CFX_Matrix* pMatrix = pGraphics->GetMatrix();
-    if (pMatrix) {
-      mtPart.Concat(*pMatrix);
-    }
+    CFX_Matrix pMatrix = pGraphics->GetMatrix();
+    if (!pMatrix.IsIdentity())
+      mtPart.Concat(pMatrix);
+
     m_pTextOut->SetMatrix(mtPart);
     m_pTextOut->DrawLogicText(pParams->m_wsText.c_str(),
                               pParams->m_wsText.GetLength(), pParams->m_rtPart);
@@ -138,9 +138,9 @@ void CXFA_FWLTheme::DrawText(CFWL_ThemeText* pParams) {
   m_pTextOut->SetFontSize(pAcc->GetFontSize());
   m_pTextOut->SetTextColor(pAcc->GetTextColor());
   CFX_Matrix mtPart = pParams->m_matrix;
-  CFX_Matrix* pMatrix = pGraphics->GetMatrix();
-  if (pMatrix)
-    mtPart.Concat(*pMatrix);
+  CFX_Matrix pMatrix = pGraphics->GetMatrix();
+  if (!pMatrix.IsIdentity())
+    mtPart.Concat(pMatrix);
 
   m_pTextOut->SetMatrix(mtPart);
   m_pTextOut->DrawLogicText(pParams->m_wsText.c_str(),

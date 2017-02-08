@@ -47,19 +47,19 @@ void CXFA_FFImageEdit::UnloadWidget() {
   CXFA_FFField::UnloadWidget();
 }
 void CXFA_FFImageEdit::RenderWidget(CFX_Graphics* pGS,
-                                    CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  CXFA_FFWidget::RenderWidget(pGS, &mtRotate, dwStatus);
+  CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
   CXFA_Border borderUI = m_pDataAcc->GetUIBorder();
-  DrawBorder(pGS, borderUI, m_rtUI, &mtRotate);
-  RenderCaption(pGS, &mtRotate);
+  DrawBorder(pGS, borderUI, m_rtUI, mtRotate);
+  RenderCaption(pGS, mtRotate);
   CFX_DIBitmap* pDIBitmap = m_pDataAcc->GetImageEditImage();
   if (!pDIBitmap)
     return;
@@ -81,7 +81,7 @@ void CXFA_FFImageEdit::RenderWidget(CFX_Graphics* pGS,
   int32_t iImageXDpi = 0;
   int32_t iImageYDpi = 0;
   m_pDataAcc->GetImageEditDpi(iImageXDpi, iImageYDpi);
-  XFA_DrawImage(pGS, rtImage, &mtRotate, pDIBitmap, iAspect, iImageXDpi,
+  XFA_DrawImage(pGS, rtImage, mtRotate, pDIBitmap, iAspect, iImageXDpi,
                 iImageYDpi, iHorzAlign, iVertAlign);
 }
 
@@ -135,6 +135,6 @@ void CXFA_FFImageEdit::OnProcessEvent(CFWL_Event* pEvent) {
 }
 
 void CXFA_FFImageEdit::OnDrawWidget(CFX_Graphics* pGraphics,
-                                    const CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   m_pOldDelegate->OnDrawWidget(pGraphics, pMatrix);
 }

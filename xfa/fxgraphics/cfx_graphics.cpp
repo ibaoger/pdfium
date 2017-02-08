@@ -803,7 +803,7 @@ FWL_Error CFX_Graphics::SetFillColor(CFX_Color* color) {
   return FWL_Error::PropertyInvalid;
 }
 
-FWL_Error CFX_Graphics::StrokePath(CFX_Path* path, CFX_Matrix* matrix) {
+FWL_Error CFX_Graphics::StrokePath(CFX_Path* path, const CFX_Matrix& matrix) {
   if (!path)
     return FWL_Error::ParameterInvalid;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -813,7 +813,7 @@ FWL_Error CFX_Graphics::StrokePath(CFX_Path* path, CFX_Matrix* matrix) {
 
 FWL_Error CFX_Graphics::FillPath(CFX_Path* path,
                                  FX_FillMode fillMode,
-                                 CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (!path)
     return FWL_Error::ParameterInvalid;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -823,7 +823,7 @@ FWL_Error CFX_Graphics::FillPath(CFX_Path* path,
 
 FWL_Error CFX_Graphics::ClipPath(CFX_Path* path,
                                  FX_FillMode fillMode,
-                                 CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (!path)
     return FWL_Error::ParameterInvalid;
   if (m_type == FX_CONTEXT_Device && m_renderDevice) {
@@ -838,7 +838,7 @@ FWL_Error CFX_Graphics::ClipPath(CFX_Path* path,
 
 FWL_Error CFX_Graphics::DrawImage(CFX_DIBSource* source,
                                   const CFX_PointF& point,
-                                  CFX_Matrix* matrix) {
+                                  const CFX_Matrix& matrix) {
   if (!source)
     return FWL_Error::ParameterInvalid;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -848,7 +848,7 @@ FWL_Error CFX_Graphics::DrawImage(CFX_DIBSource* source,
 
 FWL_Error CFX_Graphics::StretchImage(CFX_DIBSource* source,
                                      const CFX_RectF& rect,
-                                     CFX_Matrix* matrix) {
+                                     const CFX_Matrix& matrix) {
   if (!source)
     return FWL_Error::ParameterInvalid;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -856,20 +856,18 @@ FWL_Error CFX_Graphics::StretchImage(CFX_DIBSource* source,
   return FWL_Error::PropertyInvalid;
 }
 
-FWL_Error CFX_Graphics::ConcatMatrix(const CFX_Matrix* matrix) {
-  if (!matrix)
-    return FWL_Error::ParameterInvalid;
+FWL_Error CFX_Graphics::ConcatMatrix(const CFX_Matrix& matrix) {
   if (m_type == FX_CONTEXT_Device && m_renderDevice) {
-    m_info.CTM.Concat(*matrix);
+    m_info.CTM.Concat(matrix);
     return FWL_Error::Succeeded;
   }
   return FWL_Error::PropertyInvalid;
 }
 
-CFX_Matrix* CFX_Graphics::GetMatrix() {
+CFX_Matrix CFX_Graphics::GetMatrix() {
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
-    return &m_info.CTM;
-  return nullptr;
+    return m_info.CTM;
+  return CFX_Matrix();
 }
 
 CFX_RectF CFX_Graphics::GetClipRect() const {
@@ -940,7 +938,7 @@ FWL_Error CFX_Graphics::SetTextDrawingMode(const int32_t mode) {
 
 FWL_Error CFX_Graphics::ShowText(const CFX_PointF& point,
                                  const CFX_WideString& text,
-                                 CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
     return RenderDeviceShowText(point, text, matrix);
   return FWL_Error::PropertyInvalid;
@@ -949,7 +947,7 @@ FWL_Error CFX_Graphics::ShowText(const CFX_PointF& point,
 void CFX_Graphics::CalcTextRect(CFX_RectF& rect,
                                 const CFX_WideString& text,
                                 bool isMultiline,
-                                CFX_Matrix* matrix) {
+                                const CFX_Matrix& matrix) {
   if (m_type != FX_CONTEXT_Device || !m_renderDevice)
     return;
 
@@ -962,14 +960,14 @@ void CFX_Graphics::CalcTextRect(CFX_RectF& rect,
 }
 
 FWL_Error CFX_Graphics::Transfer(CFX_Graphics* graphics,
-                                 const CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (!graphics || !graphics->m_renderDevice)
     return FWL_Error::ParameterInvalid;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m.Concat(matrix);
+
   if (m_type == FX_CONTEXT_Device && m_renderDevice) {
     CFX_DIBitmap* bitmap = graphics->m_renderDevice->GetBitmap();
     bool result = m_renderDevice->SetDIBits(bitmap, 0, 0);
@@ -984,14 +982,14 @@ FWL_Error CFX_Graphics::Transfer(CFX_Graphics* graphics,
                                  FX_FLOAT srcLeft,
                                  FX_FLOAT srcTop,
                                  const CFX_RectF& dstRect,
-                                 const CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (!graphics || !graphics->m_renderDevice)
     return FWL_Error::ParameterInvalid;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m.Concat(matrix);
+
   if (m_type == FX_CONTEXT_Device && m_renderDevice) {
     CFX_DIBitmap bmp;
     bool result =
@@ -1146,27 +1144,27 @@ FWL_Error CFX_Graphics::RenderDeviceSetLineDash(FX_DashStyle dashStyle) {
 }
 
 FWL_Error CFX_Graphics::RenderDeviceStrokePath(CFX_Path* path,
-                                               CFX_Matrix* matrix) {
+                                               const CFX_Matrix& matrix) {
   if (!m_info.strokeColor)
     return FWL_Error::PropertyInvalid;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m.Concat(matrix);
+
   switch (m_info.strokeColor->m_type) {
     case FX_COLOR_Solid: {
       bool result =
-          m_renderDevice->DrawPath(path->GetPathData(), &m, &m_info.graphState,
+          m_renderDevice->DrawPath(path->GetPathData(), m, &m_info.graphState,
                                    0x0, m_info.strokeColor->m_info.argb, 0);
       if (!result)
         return FWL_Error::Indefinite;
       return FWL_Error::Succeeded;
     }
     case FX_COLOR_Pattern:
-      return StrokePathWithPattern(path, &m);
+      return StrokePathWithPattern(path, m);
     case FX_COLOR_Shading:
-      return StrokePathWithShading(path, &m);
+      return StrokePathWithShading(path, m);
     default:
       return FWL_Error::PropertyInvalid;
   }
@@ -1174,27 +1172,27 @@ FWL_Error CFX_Graphics::RenderDeviceStrokePath(CFX_Path* path,
 
 FWL_Error CFX_Graphics::RenderDeviceFillPath(CFX_Path* path,
                                              FX_FillMode fillMode,
-                                             CFX_Matrix* matrix) {
+                                             const CFX_Matrix& matrix) {
   if (!m_info.fillColor)
     return FWL_Error::PropertyInvalid;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m.Concat(matrix);
+
   switch (m_info.fillColor->m_type) {
     case FX_COLOR_Solid: {
       bool result = m_renderDevice->DrawPath(
-          path->GetPathData(), &m, &m_info.graphState,
+          path->GetPathData(), m, &m_info.graphState,
           m_info.fillColor->m_info.argb, 0x0, fillMode);
       if (!result)
         return FWL_Error::Indefinite;
       return FWL_Error::Succeeded;
     }
     case FX_COLOR_Pattern:
-      return FillPathWithPattern(path, fillMode, &m);
+      return FillPathWithPattern(path, fillMode, m);
     case FX_COLOR_Shading:
-      return FillPathWithShading(path, fillMode, &m);
+      return FillPathWithShading(path, fillMode, m);
     default:
       return FWL_Error::PropertyInvalid;
   }
@@ -1202,18 +1200,18 @@ FWL_Error CFX_Graphics::RenderDeviceFillPath(CFX_Path* path,
 
 FWL_Error CFX_Graphics::RenderDeviceDrawImage(CFX_DIBSource* source,
                                               const CFX_PointF& point,
-                                              CFX_Matrix* matrix) {
+                                              const CFX_Matrix& matrix) {
   CFX_Matrix m1(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                 m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m1.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m1.Concat(matrix);
+
   CFX_Matrix m2((FX_FLOAT)source->GetWidth(), 0.0, 0.0,
                 (FX_FLOAT)source->GetHeight(), point.x, point.y);
   m2.Concat(m1);
   int32_t left, top;
   std::unique_ptr<CFX_DIBitmap> bmp1 = source->FlipImage(false, true);
-  std::unique_ptr<CFX_DIBitmap> bmp2 = bmp1->TransformTo(&m2, left, top);
+  std::unique_ptr<CFX_DIBitmap> bmp2 = bmp1->TransformTo(m2, left, top);
   CFX_RectF r = GetClipRect();
   CFX_DIBitmap* bitmap = m_renderDevice->GetBitmap();
   CFX_DIBitmap bmp;
@@ -1231,12 +1229,12 @@ FWL_Error CFX_Graphics::RenderDeviceDrawImage(CFX_DIBSource* source,
 
 FWL_Error CFX_Graphics::RenderDeviceStretchImage(CFX_DIBSource* source,
                                                  const CFX_RectF& rect,
-                                                 CFX_Matrix* matrix) {
+                                                 const CFX_Matrix& matrix) {
   CFX_Matrix m1(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                 m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m1.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m1.Concat(matrix);
+
   std::unique_ptr<CFX_DIBitmap> bmp1 =
       source->StretchTo((int32_t)rect.Width(), (int32_t)rect.Height());
   CFX_Matrix m2(rect.Width(), 0.0, 0.0, rect.Height(), rect.left, rect.top);
@@ -1245,7 +1243,7 @@ FWL_Error CFX_Graphics::RenderDeviceStretchImage(CFX_DIBSource* source,
   int32_t left;
   int32_t top;
   std::unique_ptr<CFX_DIBitmap> bmp2 = bmp1->FlipImage(false, true);
-  std::unique_ptr<CFX_DIBitmap> bmp3 = bmp2->TransformTo(&m2, left, top);
+  std::unique_ptr<CFX_DIBitmap> bmp3 = bmp2->TransformTo(m2, left, top);
   CFX_RectF r = GetClipRect();
   CFX_DIBitmap* bitmap = m_renderDevice->GetBitmap();
   if (bitmap->CompositeBitmap(FXSYS_round(r.left), FXSYS_round(r.top),
@@ -1259,7 +1257,7 @@ FWL_Error CFX_Graphics::RenderDeviceStretchImage(CFX_DIBSource* source,
 
 FWL_Error CFX_Graphics::RenderDeviceShowText(const CFX_PointF& point,
                                              const CFX_WideString& text,
-                                             CFX_Matrix* matrix) {
+                                             const CFX_Matrix& matrix) {
   int32_t length = text.GetLength();
   uint32_t* charCodes = FX_Alloc(uint32_t, length);
   FXTEXT_CHARPOS* charPos = FX_Alloc(FXTEXT_CHARPOS, length);
@@ -1268,9 +1266,9 @@ FWL_Error CFX_Graphics::RenderDeviceShowText(const CFX_PointF& point,
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
   m.Translate(0, m_info.fontSize * m_info.fontHScale);
-  if (matrix) {
-    m.Concat(*matrix);
-  }
+  if (!matrix.IsIdentity())
+    m.Concat(matrix);
+
   bool result = m_renderDevice->DrawNormalText(
       length, charPos, m_info.font, -m_info.fontSize * m_info.fontHScale, m,
       m_info.fillColor->m_info.argb, FXTEXT_CLEARTYPE);
@@ -1282,18 +1280,18 @@ FWL_Error CFX_Graphics::RenderDeviceShowText(const CFX_PointF& point,
 }
 
 FWL_Error CFX_Graphics::StrokePathWithPattern(CFX_Path* path,
-                                              CFX_Matrix* matrix) {
+                                              const CFX_Matrix& matrix) {
   return FWL_Error::MethodNotSupported;
 }
 
 FWL_Error CFX_Graphics::StrokePathWithShading(CFX_Path* path,
-                                              CFX_Matrix* matrix) {
+                                              const CFX_Matrix& matrix) {
   return FWL_Error::MethodNotSupported;
 }
 
 FWL_Error CFX_Graphics::FillPathWithPattern(CFX_Path* path,
                                             FX_FillMode fillMode,
-                                            CFX_Matrix* matrix) {
+                                            const CFX_Matrix& matrix) {
   CFX_Pattern* pattern = m_info.fillColor->m_info.pattern;
   CFX_DIBitmap* bitmap = m_renderDevice->GetBitmap();
   int32_t width = bitmap->GetWidth();
@@ -1312,9 +1310,9 @@ FWL_Error CFX_Graphics::FillPathWithPattern(CFX_Path* path,
   mask.Create(data.width, data.height, FXDIB_1bppMask);
   FXSYS_memcpy(mask.GetBuffer(), data.maskBits, mask.GetPitch() * data.height);
   CFX_FloatRect rectf = path->GetPathData()->GetBoundingBox();
-  if (matrix) {
+  if (!matrix.IsIdentity())
     rectf.Transform(matrix);
-  }
+
   FX_RECT rect(FXSYS_round(rectf.left), FXSYS_round(rectf.top),
                FXSYS_round(rectf.right), FXSYS_round(rectf.bottom));
   CFX_FxgeDevice device;
@@ -1329,14 +1327,14 @@ FWL_Error CFX_Graphics::FillPathWithPattern(CFX_Path* path,
 
   m_renderDevice->SaveState();
   m_renderDevice->SetClip_PathFill(path->GetPathData(), matrix, fillMode);
-  SetDIBitsWithMatrix(&bmp, &pattern->m_matrix);
+  SetDIBitsWithMatrix(&bmp, pattern->m_matrix);
   m_renderDevice->RestoreState(false);
   return FWL_Error::Succeeded;
 }
 
 FWL_Error CFX_Graphics::FillPathWithShading(CFX_Path* path,
                                             FX_FillMode fillMode,
-                                            CFX_Matrix* matrix) {
+                                            const CFX_Matrix& matrix) {
   CFX_DIBitmap* bitmap = m_renderDevice->GetBitmap();
   int32_t width = bitmap->GetWidth();
   int32_t height = bitmap->GetHeight();
@@ -1456,17 +1454,17 @@ FWL_Error CFX_Graphics::FillPathWithShading(CFX_Path* path,
 }
 
 FWL_Error CFX_Graphics::SetDIBitsWithMatrix(CFX_DIBSource* source,
-                                            CFX_Matrix* matrix) {
-  if (matrix->IsIdentity()) {
+                                            const CFX_Matrix& matrix) {
+  if (matrix.IsIdentity()) {
     m_renderDevice->SetDIBits(source, 0, 0);
   } else {
     CFX_Matrix m((FX_FLOAT)source->GetWidth(), 0, 0,
                  (FX_FLOAT)source->GetHeight(), 0, 0);
-    m.Concat(*matrix);
+    m.Concat(matrix);
     int32_t left;
     int32_t top;
     std::unique_ptr<CFX_DIBitmap> bmp1 = source->FlipImage(false, true);
-    std::unique_ptr<CFX_DIBitmap> bmp2 = bmp1->TransformTo(&m, left, top);
+    std::unique_ptr<CFX_DIBitmap> bmp2 = bmp1->TransformTo(m, left, top);
     m_renderDevice->SetDIBits(bmp2.get(), left, top);
   }
   return FWL_Error::Succeeded;

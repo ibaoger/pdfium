@@ -27,10 +27,10 @@ class CFWL_Caret : public CFWL_Widget {
 
   // CFWL_Widget
   FWL_Type GetClassID() const override;
-  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) override;
+  void DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& pMatrix) override;
   void Update() override;
 
   void ShowCaret();
@@ -48,7 +48,7 @@ class CFWL_Caret : public CFWL_Widget {
 
   void DrawCaretBK(CFX_Graphics* pGraphics,
                    IFWL_ThemeProvider* pTheme,
-                   const CFX_Matrix* pMatrix);
+                   const CFX_Matrix& pMatrix);
 
   std::unique_ptr<CFWL_Caret::Timer> m_pTimer;
   CFWL_TimerInfo* m_pTimerInfo;  // not owned.

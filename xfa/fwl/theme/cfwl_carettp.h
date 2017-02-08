@@ -22,7 +22,7 @@ class CFWL_CaretTP : public CFWL_WidgetTP {
                    uint32_t dwStates,
                    const CFX_RectF* pRect,
                    CFX_Color* crFill,
-                   CFX_Matrix* pMatrix = nullptr);
+                   const CFX_Matrix& pMatrix);
 };
 
 #endif  // XFA_FWL_THEME_CFWL_CARETTP_H_

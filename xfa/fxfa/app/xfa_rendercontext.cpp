@@ -55,7 +55,7 @@ int32_t CXFA_RenderContext::DoRender(IFX_Pause* pPause) {
     rtWidgetBox.width += 1;
     rtWidgetBox.height += 1;
     if (rtWidgetBox.IntersectWith(m_rtClipRect))
-      pWidget->RenderWidget(m_pGS, &m_matrix, m_dwStatus);
+      pWidget->RenderWidget(m_pGS, m_matrix, m_dwStatus);
 
     m_pWidget = m_pWidgetIterator->MoveToNext();
     iCount++;

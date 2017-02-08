@@ -74,7 +74,7 @@ CFX_FloatRect CPDFSDK_Annot::GetRect() const {
 }
 
 void CPDFSDK_Annot::Annot_OnDraw(CFX_RenderDevice* pDevice,
-                                 CFX_Matrix* pUser2Device,
+                                 const CFX_Matrix& pUser2Device,
                                  CPDF_RenderOptions* pOptions) {}
 
 bool CPDFSDK_Annot::IsSelected() {

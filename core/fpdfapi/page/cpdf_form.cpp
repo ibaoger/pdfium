@@ -34,7 +34,7 @@ CPDF_Form::CPDF_Form(CPDF_Document* pDoc,
 CPDF_Form::~CPDF_Form() {}
 
 void CPDF_Form::StartParse(CPDF_AllStates* pGraphicStates,
-                           const CFX_Matrix* pParentMatrix,
+                           const CFX_Matrix& pParentMatrix,
                            CPDF_Type3Char* pType3Char,
                            int level) {
   if (m_ParseState == CONTENT_PARSED || m_ParseState == CONTENT_PARSING)
@@ -46,7 +46,7 @@ void CPDF_Form::StartParse(CPDF_AllStates* pGraphicStates,
 }
 
 void CPDF_Form::ParseContent(CPDF_AllStates* pGraphicStates,
-                             const CFX_Matrix* pParentMatrix,
+                             const CFX_Matrix& pParentMatrix,
                              CPDF_Type3Char* pType3Char,
                              int level) {
   StartParse(pGraphicStates, pParentMatrix, pType3Char, level);

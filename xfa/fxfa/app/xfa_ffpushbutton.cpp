@@ -31,22 +31,22 @@ CXFA_FFPushButton::~CXFA_FFPushButton() {
 }
 
 void CXFA_FFPushButton::RenderWidget(CFX_Graphics* pGS,
-                                     CFX_Matrix* pMatrix,
+                                     const CFX_Matrix& pMatrix,
                                      uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  CXFA_FFWidget::RenderWidget(pGS, &mtRotate, dwStatus);
-  RenderHighlightCaption(pGS, &mtRotate);
+  CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
+  RenderHighlightCaption(pGS, mtRotate);
 
   CFX_RectF rtWidget = GetRectWithoutRotate();
   CFX_Matrix mt(1, 0, 0, 1, rtWidget.left, rtWidget.top);
   mt.Concat(mtRotate);
-  GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, &mt);
+  GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, mt);
 }
 
 bool CXFA_FFPushButton::LoadWidget() {
@@ -166,7 +166,7 @@ void CXFA_FFPushButton::LayoutHighlightCaption() {
   }
 }
 void CXFA_FFPushButton::RenderHighlightCaption(CFX_Graphics* pGS,
-                                               CFX_Matrix* pMatrix) {
+                                               const CFX_Matrix& pMatrix) {
   CXFA_TextLayout* pCapTextLayout = m_pDataAcc->GetCaptionTextLayout();
   CXFA_Caption caption = m_pDataAcc->GetCaption();
   if (!caption || caption.GetPresence() != XFA_ATTRIBUTEENUM_Visible)
@@ -176,9 +176,9 @@ void CXFA_FFPushButton::RenderHighlightCaption(CFX_Graphics* pGS,
   CFX_RectF rtClip = m_rtCaption;
   rtClip.Intersect(GetRectWithoutRotate());
   CFX_Matrix mt(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
-  if (pMatrix) {
-    pMatrix->TransformRect(rtClip);
-    mt.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity()) {
+    pMatrix.TransformRect(rtClip);
+    mt.Concat(pMatrix);
   }
 
   uint32_t dwState = m_pNormalWidget->GetStates();
@@ -205,7 +205,7 @@ void CXFA_FFPushButton::OnProcessEvent(CFWL_Event* pEvent) {
 }
 
 void CXFA_FFPushButton::OnDrawWidget(CFX_Graphics* pGraphics,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   if (m_pNormalWidget->GetStylesEx() & XFA_FWL_PSBSTYLEEXT_HiliteInverted) {
     if ((m_pNormalWidget->GetStates() & FWL_STATE_PSB_Pressed) &&
         (m_pNormalWidget->GetStates() & FWL_STATE_PSB_Hovered)) {
@@ -217,7 +217,7 @@ void CXFA_FFPushButton::OnDrawWidget(CFX_Graphics* pGraphics,
       CFX_Path path;
       path.Create();
       path.AddRectangle(rtFill.left, rtFill.top, rtFill.width, rtFill.height);
-      pGraphics->FillPath(&path, FXFILL_WINDING, (CFX_Matrix*)pMatrix);
+      pGraphics->FillPath(&path, FXFILL_WINDING, pMatrix);
     }
   } else if (m_pNormalWidget->GetStylesEx() &
              XFA_FWL_PSBSTYLEEXT_HiliteOutLine) {
@@ -232,7 +232,7 @@ void CXFA_FFPushButton::OnDrawWidget(CFX_Graphics* pGraphics,
 
       CFX_RectF rect = m_pNormalWidget->GetWidgetRect();
       path.AddRectangle(0, 0, rect.width, rect.height);
-      pGraphics->StrokePath(&path, (CFX_Matrix*)pMatrix);
+      pGraphics->StrokePath(&path, pMatrix);
     }
   }
 }

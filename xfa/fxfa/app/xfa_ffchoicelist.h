@@ -21,7 +21,7 @@ class CXFA_FFListBox : public CXFA_FFField {
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix = nullptr) override;
+                    const CFX_Matrix& pMatrix) override;
 
   void OnSelectChanged(CFWL_Widget* pWidget,
                        const CFX_ArrayTemplate<int32_t>& arrSels);
@@ -70,7 +70,7 @@ class CXFA_FFComboBox : public CXFA_FFField {
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CFX_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix = nullptr) override;
+                    const CFX_Matrix& pMatrix) override;
 
   virtual void OpenDropDownList();
 

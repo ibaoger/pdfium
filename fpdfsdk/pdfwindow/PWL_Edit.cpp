@@ -305,7 +305,7 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 void CPWL_Edit::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device) {
+                                   const CFX_Matrix& pUser2Device) {
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
 
   CFX_FloatRect rcClient = GetClientRect();

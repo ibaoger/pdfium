@@ -425,7 +425,7 @@ void CFWL_WidgetMgr::OnProcessMessageToForm(CFWL_Message* pMessage) {
 
 void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
                                   CFX_Graphics* pGraphics,
-                                  const CFX_Matrix* pMatrix) {
+                                  const CFX_Matrix& pMatrix) {
   if (!pWidget || !pGraphics)
     return;
 
@@ -442,9 +442,10 @@ void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
 
 #if _FX_OS_ == _FX_MACOSX_
   } else {
-    clipBounds = CFX_RectF(pMatrix->a, pMatrix->b, pMatrix->c, pMatrix->d);
-    const_cast<CFX_Matrix*>(pMatrix)->SetIdentity();  // FIXME: const cast.
-    pWidget->GetDelegate()->OnDrawWidget(pGraphics, pMatrix);
+    clipBounds = CFX_RectF(pMatrix.a, pMatrix.b, pMatrix.c, pMatrix.d);
+    // TODO(dsinclair): This modifies the incoming matrix.
+    const_cast<CFX_Matrix*>(&pMatrix)->SetIdentity();
+    pWidget->GetDelegate()->OnDrawWidget(pGraphics, CFX_Matrix());
   }
 #endif  // _FX_OS_ == _FX_MACOSX_
 
@@ -460,7 +461,7 @@ void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
 void CFWL_WidgetMgr::DrawChild(CFWL_Widget* parent,
                                const CFX_RectF& rtClip,
                                CFX_Graphics* pGraphics,
-                               const CFX_Matrix* pMatrix) {
+                               const CFX_Matrix& pMatrix) {
   if (!parent)
     return;
 
@@ -480,8 +481,8 @@ void CFWL_WidgetMgr::DrawChild(CFWL_Widget* parent,
     CFX_RectF clipBounds(rtWidget);
     if (!bFormDisable)
       widgetMatrix = child->GetMatrix();
-    if (pMatrix)
-      widgetMatrix.Concat(*pMatrix);
+    if (!pMatrix.IsIdentity())
+      widgetMatrix.Concat(pMatrix);
 
     if (!bFormDisable) {
       widgetMatrix.TransformPoint(clipBounds.left, clipBounds.top);
@@ -495,20 +496,20 @@ void CFWL_WidgetMgr::DrawChild(CFWL_Widget* parent,
     widgetMatrix.Translate(rtWidget.left, rtWidget.top, true);
 
     if (IFWL_WidgetDelegate* pDelegate = child->GetDelegate()) {
-      if (IsFormDisabled() || IsNeedRepaint(child, &widgetMatrix, rtClip))
-        pDelegate->OnDrawWidget(pGraphics, &widgetMatrix);
+      if (IsFormDisabled() || IsNeedRepaint(child, widgetMatrix, rtClip))
+        pDelegate->OnDrawWidget(pGraphics, widgetMatrix);
     }
     if (!bFormDisable)
       pGraphics->RestoreGraphState();
 
     DrawChild(child, clipBounds, pGraphics,
-              bFormDisable ? &widgetMatrix : pMatrix);
+              bFormDisable ? widgetMatrix : pMatrix);
     child = GetNextSiblingWidget(child);
   }
 }
 
 bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
-                                   CFX_Matrix* pMatrix,
+                                   const CFX_Matrix& pMatrix,
                                    const CFX_RectF& rtDirty) {
   Item* pItem = GetWidgetMgrItem(pWidget);
   if (pItem && pItem->iRedrawCounter > 0) {
@@ -517,7 +518,7 @@ bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
   }
 
   CFX_RectF rtWidget(0, 0, pWidget->GetWidgetRect().Size());
-  pMatrix->TransformRect(rtWidget);
+  pMatrix.TransformRect(rtWidget);
   if (!rtWidget.IntersectWith(rtDirty))
     return false;
 
@@ -596,7 +597,7 @@ bool CFWL_WidgetMgr::IsNeedRepaint(CFWL_Widget* pWidget,
   if (repaintPoint > 0)
     return true;
 
-  pMatrix->TransformRect(rtChilds);
+  pMatrix.TransformRect(rtChilds);
   if (rtChilds.Contains(rtDirty) || rtChilds.Contains(rtWidget))
     return false;
   return true;

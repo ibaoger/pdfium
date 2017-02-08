@@ -58,14 +58,14 @@ class CFWL_WidgetTP {
 
   void DrawBorder(CFX_Graphics* pGraphics,
                   const CFX_RectF* pRect,
-                  CFX_Matrix* pMatrix = nullptr);
+                  const CFX_Matrix& pMatrix);
   void FillBackground(CFX_Graphics* pGraphics,
                       const CFX_RectF* pRect,
-                      CFX_Matrix* pMatrix = nullptr);
+                      const CFX_Matrix& pMatrix);
   void FillSoildRect(CFX_Graphics* pGraphics,
                      FX_ARGB fillColor,
                      const CFX_RectF* pRect,
-                     CFX_Matrix* pMatrix = nullptr);
+                     const CFX_Matrix& pMatrix);
   void DrawAxialShading(CFX_Graphics* pGraphics,
                         FX_FLOAT fx1,
                         FX_FLOAT fy1,
@@ -74,25 +74,25 @@ class CFWL_WidgetTP {
                         FX_ARGB beginColor,
                         FX_ARGB endColor,
                         CFX_Path* path,
-                        int32_t fillMode = FXFILL_WINDING,
-                        CFX_Matrix* pMatrix = nullptr);
+                        int32_t fillMode,
+                        const CFX_Matrix& pMatrix);
   void DrawFocus(CFX_Graphics* pGraphics,
                  const CFX_RectF* pRect,
-                 CFX_Matrix* pMatrix = nullptr);
+                 const CFX_Matrix& pMatrix);
   void DrawArrow(CFX_Graphics* pGraphics,
                  const CFX_RectF* pRect,
                  FWLTHEME_DIRECTION eDict,
                  FX_ARGB argSign,
-                 CFX_Matrix* pMatrix = nullptr);
+                 const CFX_Matrix& pMatrix);
   void DrawBtn(CFX_Graphics* pGraphics,
                const CFX_RectF* pRect,
                FWLTHEME_STATE eState,
-               CFX_Matrix* pMatrix = nullptr);
+               const CFX_Matrix& pMatrix);
   void DrawArrowBtn(CFX_Graphics* pGraphics,
                     const CFX_RectF* pRect,
                     FWLTHEME_DIRECTION eDict,
                     FWLTHEME_STATE eState,
-                    CFX_Matrix* pMatrix = nullptr);
+                    const CFX_Matrix& pMatrix);
 
   uint32_t m_dwRefCount;
   std::unique_ptr<CFDE_TextOut> m_pTextOut;

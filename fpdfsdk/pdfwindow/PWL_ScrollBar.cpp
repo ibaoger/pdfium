@@ -236,7 +236,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                       CFX_Matrix* pUser2Device) {
+                                       const CFX_Matrix& pUser2Device) {
   if (!IsVisible())
     return;
 
@@ -674,7 +674,7 @@ void CPWL_ScrollBar::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 void CPWL_ScrollBar::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                        CFX_Matrix* pUser2Device) {
+                                        const CFX_Matrix& pUser2Device) {
   CFX_FloatRect rectWnd = GetWindowRect();
 
   if (IsVisible() && !rectWnd.IsEmpty()) {

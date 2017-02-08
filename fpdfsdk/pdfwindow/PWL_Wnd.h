@@ -259,7 +259,8 @@ class CPWL_Wnd : public CPWL_TimerHandler {
   void Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh);
   virtual void InvalidateRect(CFX_FloatRect* pRect = nullptr);
 
-  void DrawAppearance(CFX_RenderDevice* pDevice, CFX_Matrix* pUser2Device);
+  void DrawAppearance(CFX_RenderDevice* pDevice,
+                      const CFX_Matrix& pUser2Device);
 
   virtual bool OnKeyDown(uint16_t nChar, uint32_t nFlag);
   virtual bool OnKeyUp(uint16_t nChar, uint32_t nFlag);
@@ -366,9 +367,9 @@ class CPWL_Wnd : public CPWL_TimerHandler {
   virtual void GetChildAppearanceStream(CFX_ByteTextBuf& sAppStream);
 
   virtual void DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                  CFX_Matrix* pUser2Device);
+                                  const CFX_Matrix& pUser2Device);
   virtual void DrawChildAppearance(CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device);
+                                   const CFX_Matrix& pUser2Device);
 
   virtual void OnCreate(PWL_CREATEPARAM& cp);
   virtual void OnCreated();

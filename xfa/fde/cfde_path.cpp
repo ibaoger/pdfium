@@ -213,7 +213,7 @@ void CFDE_Path::AddPath(const CFDE_Path* pSrc, bool bConnect) {
   if (bConnect)
     LineTo(pSrc->m_Path.GetPointX(0), pSrc->m_Path.GetPointY(0));
 
-  m_Path.Append(&pSrc->m_Path, nullptr);
+  m_Path.Append(&pSrc->m_Path, CFX_Matrix());
 }
 
 void CFDE_Path::AddPolygon(const std::vector<CFX_PointF>& points) {

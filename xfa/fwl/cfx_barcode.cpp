@@ -310,7 +310,7 @@ bool CFX_Barcode::Encode(const CFX_WideStringC& contents,
 }
 
 bool CFX_Barcode::RenderDevice(CFX_RenderDevice* device,
-                               const CFX_Matrix* matrix,
+                               const CFX_Matrix& matrix,
                                int32_t& e) {
   return m_pBCEngine && m_pBCEngine->RenderDevice(device, matrix, e);
 }

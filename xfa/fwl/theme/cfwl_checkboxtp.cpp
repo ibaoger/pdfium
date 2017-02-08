@@ -59,25 +59,26 @@ void CFWL_CheckBoxTP::DrawText(CFWL_ThemeText* pParams) {
 void CFWL_CheckBoxTP::DrawSignCheck(CFX_Graphics* pGraphics,
                                     const CFX_RectF* pRtSign,
                                     FX_ARGB argbFill,
-                                    CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   if (!m_pCheckPath)
     InitCheckPath(pRtSign->width);
 
   CFX_Matrix mt;
   mt.SetIdentity();
   mt.Translate(pRtSign->left, pRtSign->top);
-  mt.Concat(*pMatrix);
+  mt.Concat(pMatrix);
+
   CFX_Color crFill(argbFill);
   pGraphics->SaveGraphState();
   pGraphics->SetFillColor(&crFill);
-  pGraphics->FillPath(m_pCheckPath.get(), FXFILL_WINDING, &mt);
+  pGraphics->FillPath(m_pCheckPath.get(), FXFILL_WINDING, mt);
   pGraphics->RestoreGraphState();
 }
 
 void CFWL_CheckBoxTP::DrawSignCircle(CFX_Graphics* pGraphics,
                                      const CFX_RectF* pRtSign,
                                      FX_ARGB argbFill,
-                                     CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   path.AddEllipse(*pRtSign);
@@ -91,7 +92,7 @@ void CFWL_CheckBoxTP::DrawSignCircle(CFX_Graphics* pGraphics,
 void CFWL_CheckBoxTP::DrawSignCross(CFX_Graphics* pGraphics,
                                     const CFX_RectF* pRtSign,
                                     FX_ARGB argbFill,
-                                    CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   FX_FLOAT fRight = pRtSign->right();
@@ -109,7 +110,7 @@ void CFWL_CheckBoxTP::DrawSignCross(CFX_Graphics* pGraphics,
 void CFWL_CheckBoxTP::DrawSignDiamond(CFX_Graphics* pGraphics,
                                       const CFX_RectF* pRtSign,
                                       FX_ARGB argbFill,
-                                      CFX_Matrix* pMatrix) {
+                                      const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   FX_FLOAT fWidth = pRtSign->width;
@@ -130,7 +131,7 @@ void CFWL_CheckBoxTP::DrawSignDiamond(CFX_Graphics* pGraphics,
 void CFWL_CheckBoxTP::DrawSignSquare(CFX_Graphics* pGraphics,
                                      const CFX_RectF* pRtSign,
                                      FX_ARGB argbFill,
-                                     CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   path.AddRectangle(pRtSign->left, pRtSign->top, pRtSign->width,
@@ -145,7 +146,7 @@ void CFWL_CheckBoxTP::DrawSignSquare(CFX_Graphics* pGraphics,
 void CFWL_CheckBoxTP::DrawSignStar(CFX_Graphics* pGraphics,
                                    const CFX_RectF* pRtSign,
                                    FX_ARGB argbFill,
-                                   CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   FX_FLOAT fBottom = pRtSign->bottom();
@@ -278,7 +279,7 @@ void CFWL_CheckBoxTP::InitCheckPath(FX_FLOAT fCheckLen) {
     CFX_Matrix mt(1, 0, 0, 1, 0, 0);
     mt.Scale(fScale, fScale);
     CFX_PathData* pData = m_pCheckPath->GetPathData();
-    pData->Transform(&mt);
+    pData->Transform(mt);
   }
 }
 
@@ -289,7 +290,7 @@ void CFWL_CheckBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
   if ((pParams->m_dwStates & CFWL_PartState_Checked) ||
       (pParams->m_dwStates & CFWL_PartState_Neutral)) {
     DrawCheckSign(pParams->m_pWidget, pParams->m_pGraphics, pParams->m_rtPart,
-                  pParams->m_dwStates, &pParams->m_matrix);
+                  pParams->m_dwStates, pParams->m_matrix);
   }
 }
 
@@ -297,7 +298,7 @@ void CFWL_CheckBoxTP::DrawCheckSign(CFWL_Widget* pWidget,
                                     CFX_Graphics* pGraphics,
                                     const CFX_RectF& pRtBox,
                                     int32_t iState,
-                                    CFX_Matrix* pMatrix) {
+                                    const CFX_Matrix& pMatrix) {
   CFX_RectF rtSign(pRtBox);
   uint32_t dwColor = iState & CFWL_PartState_Neutral ? 0xFFA9A9A9 : 0xFF000000;
 

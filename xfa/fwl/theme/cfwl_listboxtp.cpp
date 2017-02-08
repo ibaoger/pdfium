@@ -22,26 +22,26 @@ void CFWL_ListBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Background: {
       FillSoildRect(pParams->m_pGraphics, ArgbEncode(255, 255, 255, 255),
-                    &pParams->m_rtPart, &pParams->m_matrix);
+                    &pParams->m_rtPart, pParams->m_matrix);
       if (pParams->m_pData) {
         FillSoildRect(pParams->m_pGraphics, FWLTHEME_COLOR_Background,
-                      (CFX_RectF*)pParams->m_pData, &pParams->m_matrix);
+                      (CFX_RectF*)pParams->m_pData, pParams->m_matrix);
       }
       break;
     }
     case CFWL_Part::ListItem: {
       DrawListBoxItem(pParams->m_pGraphics, pParams->m_dwStates,
-                      &pParams->m_rtPart, pParams->m_pData, &pParams->m_matrix);
+                      &pParams->m_rtPart, pParams->m_pData, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Icon: {
       pParams->m_pGraphics->StretchImage(pParams->m_pImage, pParams->m_rtPart,
-                                         &pParams->m_matrix);
+                                         pParams->m_matrix);
       break;
     }
     case CFWL_Part::Check: {
@@ -52,7 +52,7 @@ void CFWL_ListBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
         color = 0xFF0000FF;
       }
       FillSoildRect(pParams->m_pGraphics, color, &pParams->m_rtPart,
-                    &pParams->m_matrix);
+                    pParams->m_matrix);
     }
     default:
       break;
@@ -63,7 +63,7 @@ void CFWL_ListBoxTP::DrawListBoxItem(CFX_Graphics* pGraphics,
                                      uint32_t dwStates,
                                      const CFX_RectF* prtItem,
                                      void* pData,
-                                     CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   if (dwStates & CFWL_PartState_Selected) {
     pGraphics->SaveGraphState();
     CFX_Color crFill(FWLTHEME_COLOR_BKSelected);

@@ -50,9 +50,9 @@ void CFWL_WidgetTP::DrawText(CFWL_ThemeText* pParams) {
   m_pTextOut->SetStyles(pParams->m_dwTTOStyles);
   m_pTextOut->SetAlignment(pParams->m_iTTOAlign);
 
-  CFX_Matrix* pMatrix = &pParams->m_matrix;
-  pMatrix->Concat(*pGraphics->GetMatrix());
-  m_pTextOut->SetMatrix(*pMatrix);
+  CFX_Matrix pMatrix = pParams->m_matrix;
+  pMatrix.Concat(pGraphics->GetMatrix());
+  m_pTextOut->SetMatrix(pMatrix);
   m_pTextOut->DrawLogicText(pParams->m_wsText.c_str(), iLen, pParams->m_rtPart);
 }
 
@@ -98,7 +98,7 @@ void CFWL_WidgetTP::FinalizeTTO() {
 
 void CFWL_WidgetTP::DrawBorder(CFX_Graphics* pGraphics,
                                const CFX_RectF* pRect,
-                               CFX_Matrix* pMatrix) {
+                               const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!pRect)
@@ -117,14 +117,14 @@ void CFWL_WidgetTP::DrawBorder(CFX_Graphics* pGraphics,
 
 void CFWL_WidgetTP::FillBackground(CFX_Graphics* pGraphics,
                                    const CFX_RectF* pRect,
-                                   CFX_Matrix* pMatrix) {
+                                   const CFX_Matrix& pMatrix) {
   FillSoildRect(pGraphics, FWLTHEME_COLOR_Background, pRect, pMatrix);
 }
 
 void CFWL_WidgetTP::FillSoildRect(CFX_Graphics* pGraphics,
                                   FX_ARGB fillColor,
                                   const CFX_RectF* pRect,
-                                  CFX_Matrix* pMatrix) {
+                                  const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!pRect)
@@ -148,7 +148,7 @@ void CFWL_WidgetTP::DrawAxialShading(CFX_Graphics* pGraphics,
                                      FX_ARGB endColor,
                                      CFX_Path* path,
                                      int32_t fillMode,
-                                     CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   if (!pGraphics || !path)
     return;
 
@@ -164,7 +164,7 @@ void CFWL_WidgetTP::DrawAxialShading(CFX_Graphics* pGraphics,
 
 void CFWL_WidgetTP::DrawFocus(CFX_Graphics* pGraphics,
                               const CFX_RectF* pRect,
-                              CFX_Matrix* pMatrix) {
+                              const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!pRect)
@@ -185,7 +185,7 @@ void CFWL_WidgetTP::DrawArrow(CFX_Graphics* pGraphics,
                               const CFX_RectF* pRect,
                               FWLTHEME_DIRECTION eDict,
                               FX_ARGB argSign,
-                              CFX_Matrix* pMatrix) {
+                              const CFX_Matrix& pMatrix) {
   bool bVert =
       (eDict == FWLTHEME_DIRECTION_Up || eDict == FWLTHEME_DIRECTION_Down);
   FX_FLOAT fLeft =
@@ -240,7 +240,7 @@ void CFWL_WidgetTP::DrawArrow(CFX_Graphics* pGraphics,
 void CFWL_WidgetTP::DrawBtn(CFX_Graphics* pGraphics,
                             const CFX_RectF* pRect,
                             FWLTHEME_STATE eState,
-                            CFX_Matrix* pMatrix) {
+                            const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
 
@@ -264,7 +264,7 @@ void CFWL_WidgetTP::DrawArrowBtn(CFX_Graphics* pGraphics,
                                  const CFX_RectF* pRect,
                                  FWLTHEME_DIRECTION eDict,
                                  FWLTHEME_STATE eState,
-                                 CFX_Matrix* pMatrix) {
+                                 const CFX_Matrix& pMatrix) {
   DrawBtn(pGraphics, pRect, eState, pMatrix);
 
   InitializeArrowColorData();

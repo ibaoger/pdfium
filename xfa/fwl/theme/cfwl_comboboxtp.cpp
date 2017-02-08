@@ -23,7 +23,7 @@ void CFWL_ComboBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
   switch (pParams->m_iPart) {
     case CFWL_Part::Border: {
-      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, &pParams->m_matrix);
+      DrawBorder(pParams->m_pGraphics, &pParams->m_rtPart, pParams->m_matrix);
       break;
     }
     case CFWL_Part::Background: {
@@ -45,16 +45,16 @@ void CFWL_ComboBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
       pParams->m_pGraphics->SaveGraphState();
       CFX_Color cr(argb_color);
       pParams->m_pGraphics->SetFillColor(&cr);
-      pParams->m_pGraphics->FillPath(&path, FXFILL_WINDING, &pParams->m_matrix);
+      pParams->m_pGraphics->FillPath(&path, FXFILL_WINDING, pParams->m_matrix);
       pParams->m_pGraphics->RestoreGraphState();
       break;
     }
     case CFWL_Part::DropDownButton: {
-      DrawDropDownButton(pParams, pParams->m_dwStates, &pParams->m_matrix);
+      DrawDropDownButton(pParams, pParams->m_dwStates, pParams->m_matrix);
       break;
     }
     case CFWL_Part::StretchHandler: {
-      DrawStrethHandler(pParams, 0, &pParams->m_matrix);
+      DrawStrethHandler(pParams, 0, pParams->m_matrix);
       break;
     }
     default:
@@ -64,19 +64,19 @@ void CFWL_ComboBoxTP::DrawBackground(CFWL_ThemeBackground* pParams) {
 
 void CFWL_ComboBoxTP::DrawStrethHandler(CFWL_ThemeBackground* pParams,
                                         uint32_t dwStates,
-                                        CFX_Matrix* pMatrix) {
+                                        const CFX_Matrix& pMatrix) {
   CFX_Path path;
   path.Create();
   path.AddRectangle(pParams->m_rtPart.left, pParams->m_rtPart.top,
                     pParams->m_rtPart.width - 1, pParams->m_rtPart.height);
   CFX_Color cr(ArgbEncode(0xff, 0xff, 0, 0));
   pParams->m_pGraphics->SetFillColor(&cr);
-  pParams->m_pGraphics->FillPath(&path, FXFILL_WINDING, &pParams->m_matrix);
+  pParams->m_pGraphics->FillPath(&path, FXFILL_WINDING, pParams->m_matrix);
 }
 
 void CFWL_ComboBoxTP::DrawDropDownButton(CFWL_ThemeBackground* pParams,
                                          uint32_t dwStates,
-                                         CFX_Matrix* pMatrix) {
+                                         const CFX_Matrix& pMatrix) {
   FWLTHEME_STATE eState = FWLTHEME_STATE_Normal;
   switch (dwStates) {
     case CFWL_PartState_Normal: {
@@ -99,5 +99,5 @@ void CFWL_ComboBoxTP::DrawDropDownButton(CFWL_ThemeBackground* pParams,
       break;
   }
   DrawArrowBtn(pParams->m_pGraphics, &pParams->m_rtPart,
-               FWLTHEME_DIRECTION_Down, eState, &pParams->m_matrix);
+               FWLTHEME_DIRECTION_Down, eState, pParams->m_matrix);
 }

@@ -27,7 +27,7 @@ void CPWL_Caret::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                    CFX_Matrix* pUser2Device) {
+                                    const CFX_Matrix& pUser2Device) {
   if (IsVisible() && m_bFlash) {
     CFX_FloatRect rcRect = GetCaretRect();
     CFX_FloatRect rcClip = GetClipRect();

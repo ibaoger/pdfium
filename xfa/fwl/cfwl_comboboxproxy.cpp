@@ -59,7 +59,7 @@ void CFWL_ComboBoxProxy::OnProcessMessage(CFWL_Message* pMessage) {
 }
 
 void CFWL_ComboBoxProxy::OnDrawWidget(CFX_Graphics* pGraphics,
-                                      const CFX_Matrix* pMatrix) {
+                                      const CFX_Matrix& pMatrix) {
   m_pComboBox->DrawStretchHandler(pGraphics, pMatrix);
 }
 

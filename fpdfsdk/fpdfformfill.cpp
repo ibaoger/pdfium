@@ -129,12 +129,12 @@ void FFLCommon(FPDF_FORMHANDLE hHandle,
   options.m_pOCContext =
       pdfium::MakeRetain<CPDF_OCContext>(pPDFDoc, CPDF_OCContext::View);
   if (CPDFSDK_PageView* pPageView = pFormFillEnv->GetPageView(pPage, true))
-    pPageView->PageView_OnDraw(pDevice.get(), &matrix, &options, clip);
+    pPageView->PageView_OnDraw(pDevice.get(), matrix, &options, clip);
 #else   // PDF_ENABLE_XFA
   options.m_pOCContext = pdfium::MakeRetain<CPDF_OCContext>(
       pPage->m_pDocument, CPDF_OCContext::View);
   if (CPDFSDK_PageView* pPageView = FormHandleToPageView(hHandle, pPage))
-    pPageView->PageView_OnDraw(pDevice.get(), &matrix, &options);
+    pPageView->PageView_OnDraw(pDevice.get(), matrix, &options);
 #endif  // PDF_ENABLE_XFA
 
   pDevice->RestoreState(false);

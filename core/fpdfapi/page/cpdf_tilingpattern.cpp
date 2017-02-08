@@ -49,7 +49,7 @@ bool CPDF_TilingPattern::Load() {
     return false;
 
   m_pForm = pdfium::MakeUnique<CPDF_Form>(m_pDocument, nullptr, pStream);
-  m_pForm->ParseContent(nullptr, &m_ParentMatrix, nullptr);
+  m_pForm->ParseContent(nullptr, m_ParentMatrix, nullptr);
   m_BBox = pDict->GetRectFor("BBox");
   return true;
 }

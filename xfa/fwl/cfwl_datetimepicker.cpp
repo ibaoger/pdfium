@@ -115,7 +115,7 @@ FWL_WidgetHit CFWL_DateTimePicker::HitTest(FX_FLOAT fx, FX_FLOAT fy) {
 }
 
 void CFWL_DateTimePicker::DrawWidget(CFX_Graphics* pGraphics,
-                                     const CFX_Matrix* pMatrix) {
+                                     const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -197,15 +197,16 @@ void CFWL_DateTimePicker::ModifyEditStylesEx(uint32_t dwStylesExAdded,
 
 void CFWL_DateTimePicker::DrawDropDownButton(CFX_Graphics* pGraphics,
                                              IFWL_ThemeProvider* pTheme,
-                                             const CFX_Matrix* pMatrix) {
+                                             const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
   param.m_iPart = CFWL_Part::DropDownButton;
   param.m_dwStates = m_iBtnState;
   param.m_pGraphics = pGraphics;
   param.m_rtPart = m_rtBtn;
-  if (pMatrix)
-    param.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    param.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&param);
 }
 
@@ -444,25 +445,27 @@ CFX_RectF CFWL_DateTimePicker::DisForm_GetBBox() const {
 }
 
 void CFWL_DateTimePicker::DisForm_DrawWidget(CFX_Graphics* pGraphics,
-                                             const CFX_Matrix* pMatrix) {
+                                             const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (m_pEdit) {
     CFX_RectF rtEdit = m_pEdit->GetWidgetRect();
 
     CFX_Matrix mt(1, 0, 0, 1, rtEdit.left, rtEdit.top);
-    if (pMatrix)
-      mt.Concat(*pMatrix);
-    m_pEdit->DrawWidget(pGraphics, &mt);
+    if (!pMatrix.IsIdentity())
+      mt.Concat(pMatrix);
+
+    m_pEdit->DrawWidget(pGraphics, mt);
   }
   if (!IsMonthCalendarVisible())
     return;
 
   CFX_RectF rtMonth = m_pMonthCal->GetWidgetRect();
   CFX_Matrix mt(1, 0, 0, 1, rtMonth.left, rtMonth.top);
-  if (pMatrix)
-    mt.Concat(*pMatrix);
-  m_pMonthCal->DrawWidget(pGraphics, &mt);
+  if (!pMatrix.IsIdentity())
+    mt.Concat(pMatrix);
+
+  m_pMonthCal->DrawWidget(pGraphics, mt);
 }
 
 void CFWL_DateTimePicker::OnProcessMessage(CFWL_Message* pMessage) {
@@ -511,7 +514,7 @@ void CFWL_DateTimePicker::OnProcessMessage(CFWL_Message* pMessage) {
 }
 
 void CFWL_DateTimePicker::OnDrawWidget(CFX_Graphics* pGraphics,
-                                       const CFX_Matrix* pMatrix) {
+                                       const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
 

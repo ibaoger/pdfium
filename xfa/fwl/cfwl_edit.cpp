@@ -185,10 +185,10 @@ void CFWL_Edit::AddSpellCheckObj(CFX_Path& PathData,
 }
 
 void CFWL_Edit::DrawSpellCheck(CFX_Graphics* pGraphics,
-                               const CFX_Matrix* pMatrix) {
+                               const CFX_Matrix& pMatrix) {
   pGraphics->SaveGraphState();
-  if (pMatrix)
-    pGraphics->ConcatMatrix(const_cast<CFX_Matrix*>(pMatrix));
+  if (!pMatrix.IsIdentity())
+    pGraphics->ConcatMatrix(pMatrix);
 
   CFX_Color crLine(0xFFFF0000);
   CFWL_EventCheckWord checkWordEvent(this);
@@ -232,19 +232,19 @@ void CFWL_Edit::DrawSpellCheck(CFX_Graphics* pGraphics,
   if (!pathSpell.IsEmpty()) {
     CFX_RectF rtClip = m_rtEngine;
     CFX_Matrix mt(1, 0, 0, 1, fOffSetX, fOffSetY);
-    if (pMatrix) {
-      pMatrix->TransformRect(rtClip);
-      mt.Concat(*pMatrix);
+    if (!pMatrix.IsIdentity()) {
+      pMatrix.TransformRect(rtClip);
+      mt.Concat(pMatrix);
     }
     pGraphics->SetClipRect(rtClip);
     pGraphics->SetStrokeColor(&crLine);
     pGraphics->SetLineWidth(0);
-    pGraphics->StrokePath(&pathSpell, nullptr);
+    pGraphics->StrokePath(&pathSpell, CFX_Matrix());
   }
   pGraphics->RestoreGraphState();
 }
 
-void CFWL_Edit::DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) {
+void CFWL_Edit::DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -478,7 +478,7 @@ void CFWL_Edit::SetScrollOffset(FX_FLOAT fScrollOffset) {
 
 void CFWL_Edit::DrawTextBk(CFX_Graphics* pGraphics,
                            IFWL_ThemeProvider* pTheme,
-                           const CFX_Matrix* pMatrix) {
+                           const CFX_Matrix& pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
   param.m_iPart = CFWL_Part::Background;
@@ -490,7 +490,7 @@ void CFWL_Edit::DrawTextBk(CFX_Graphics* pGraphics,
   if (dwStates)
     param.m_dwStates = CFWL_PartState_Disabled;
   param.m_pGraphics = pGraphics;
-  param.m_matrix = *pMatrix;
+  param.m_matrix = pMatrix;
   param.m_rtPart = m_rtClient;
   pTheme->DrawBackground(&param);
 
@@ -510,7 +510,7 @@ void CFWL_Edit::DrawTextBk(CFX_Graphics* pGraphics,
 
 void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
                             IFWL_ThemeProvider* pTheme,
-                            const CFX_Matrix* pMatrix) {
+                            const CFX_Matrix& pMatrix) {
   IFDE_TxtEdtPage* pPage = m_EdtEngine.GetPage(0);
   if (!pPage)
     return;
@@ -523,9 +523,9 @@ void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
   FX_FLOAT fOffSetX = m_rtEngine.left - m_fScrollOffsetX;
   FX_FLOAT fOffSetY = m_rtEngine.top - m_fScrollOffsetY + m_fVAlignOffset;
   CFX_Matrix mt(1, 0, 0, 1, fOffSetX, fOffSetY);
-  if (pMatrix) {
-    pMatrix->TransformRect(rtClip);
-    mt.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity()) {
+    pMatrix.TransformRect(rtClip);
+    mt.Concat(pMatrix);
   }
 
   bool bShowSel = !!(m_pProperties->m_dwStates & FWL_WGTSTATE_Focused);
@@ -560,7 +560,7 @@ void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
 
     CFWL_ThemeBackground param;
     param.m_pGraphics = pGraphics;
-    param.m_matrix = *pMatrix;
+    param.m_matrix = pMatrix;
     param.m_pWidget = this;
     param.m_iPart = CFWL_Part::Background;
     param.m_pPath = &path;
@@ -592,7 +592,7 @@ void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
 
     CFWL_ThemeBackground param;
     param.m_pGraphics = pGraphics;
-    param.m_matrix = *pMatrix;
+    param.m_matrix = pMatrix;
     param.m_pWidget = this;
     param.m_iPart = CFWL_Part::CombTextLine;
     param.m_pPath = &path;
@@ -1256,7 +1256,7 @@ void CFWL_Edit::OnProcessEvent(CFWL_Event* pEvent) {
 }
 
 void CFWL_Edit::OnDrawWidget(CFX_Graphics* pGraphics,
-                             const CFX_Matrix* pMatrix) {
+                             const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
 

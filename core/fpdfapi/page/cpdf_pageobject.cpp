@@ -90,10 +90,9 @@ void CPDF_PageObject::TransformGeneralState(CFX_Matrix& matrix) {
   m_GeneralState.GetMutableMatrix()->Concat(matrix);
 }
 
-FX_RECT CPDF_PageObject::GetBBox(const CFX_Matrix* pMatrix) const {
+FX_RECT CPDF_PageObject::GetBBox(const CFX_Matrix& pMatrix) const {
   CFX_FloatRect rect(m_Left, m_Bottom, m_Right, m_Top);
-  if (pMatrix) {
-    pMatrix->TransformRect(rect);
-  }
+  if (!pMatrix.IsIdentity())
+    pMatrix.TransformRect(rect);
   return rect.GetOuterRect();
 }

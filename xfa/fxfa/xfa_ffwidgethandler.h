@@ -68,7 +68,7 @@ class CXFA_FFWidgetHandler {
   bool OnSetCursor(CXFA_FFWidget* hWidget, FX_FLOAT fx, FX_FLOAT fy);
   void RenderWidget(CXFA_FFWidget* hWidget,
                     CFX_Graphics* pGS,
-                    CFX_Matrix* pMatrix,
+                    const CFX_Matrix& pMatrix,
                     bool bHighlight);
   bool HasEvent(CXFA_WidgetAcc* pWidgetAcc, XFA_EVENTTYPE eEventType);
   int32_t ProcessEvent(CXFA_WidgetAcc* pWidgetAcc, CXFA_EventParam* pParam);

@@ -91,7 +91,7 @@ void CPDFSDK_WidgetHandler::ReleaseAnnot(CPDFSDK_Annot* pAnnot) {
 void CPDFSDK_WidgetHandler::OnDraw(CPDFSDK_PageView* pPageView,
                                    CPDFSDK_Annot* pAnnot,
                                    CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device,
+                                   const CFX_Matrix& pUser2Device,
                                    bool bDrawAnnots) {
   if (pAnnot->IsSignatureWidget()) {
     static_cast<CPDFSDK_BAAnnot*>(pAnnot)->DrawAppearance(

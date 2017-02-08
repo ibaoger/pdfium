@@ -1219,7 +1219,7 @@ FX_COLORREF CPWL_Utils::PWLColorToFXColor(const CPWL_Color& color,
 }
 
 void CPWL_Utils::DrawFillRect(CFX_RenderDevice* pDevice,
-                              CFX_Matrix* pUser2Device,
+                              const CFX_Matrix& pUser2Device,
                               const CFX_FloatRect& rect,
                               const FX_COLORREF& color) {
   CFX_PathData path;
@@ -1229,7 +1229,7 @@ void CPWL_Utils::DrawFillRect(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawFillArea(CFX_RenderDevice* pDevice,
-                              CFX_Matrix* pUser2Device,
+                              const CFX_Matrix& pUser2Device,
                               const CFX_FloatPoint* pPts,
                               int32_t nCount,
                               const FX_COLORREF& color) {
@@ -1244,7 +1244,7 @@ void CPWL_Utils::DrawFillArea(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawStrokeRect(CFX_RenderDevice* pDevice,
-                                CFX_Matrix* pUser2Device,
+                                const CFX_Matrix& pUser2Device,
                                 const CFX_FloatRect& rect,
                                 const FX_COLORREF& color,
                                 FX_FLOAT fWidth) {
@@ -1259,7 +1259,7 @@ void CPWL_Utils::DrawStrokeRect(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawStrokeLine(CFX_RenderDevice* pDevice,
-                                CFX_Matrix* pUser2Device,
+                                const CFX_Matrix& pUser2Device,
                                 const CFX_FloatPoint& ptMoveTo,
                                 const CFX_FloatPoint& ptLineTo,
                                 const FX_COLORREF& color,
@@ -1276,7 +1276,7 @@ void CPWL_Utils::DrawStrokeLine(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawFillRect(CFX_RenderDevice* pDevice,
-                              CFX_Matrix* pUser2Device,
+                              const CFX_Matrix& pUser2Device,
                               const CFX_FloatRect& rect,
                               const CPWL_Color& color,
                               int32_t nTransparancy) {
@@ -1285,7 +1285,7 @@ void CPWL_Utils::DrawFillRect(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawShadow(CFX_RenderDevice* pDevice,
-                            CFX_Matrix* pUser2Device,
+                            const CFX_Matrix& pUser2Device,
                             bool bVertical,
                             bool bHorizontal,
                             CFX_FloatRect rect,
@@ -1320,7 +1320,7 @@ void CPWL_Utils::DrawShadow(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Utils::DrawBorder(CFX_RenderDevice* pDevice,
-                            CFX_Matrix* pUser2Device,
+                            const CFX_Matrix& pUser2Device,
                             const CFX_FloatRect& rect,
                             FX_FLOAT fWidth,
                             const CPWL_Color& color,
@@ -1577,7 +1577,7 @@ CFX_ByteString CPWL_Utils::GetIconAppStream(int32_t nType,
 }
 
 void CPWL_Utils::DrawIconAppStream(CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device,
+                                   const CFX_Matrix& pUser2Device,
                                    int32_t nType,
                                    const CFX_FloatRect& rect,
                                    const CPWL_Color& crFill,

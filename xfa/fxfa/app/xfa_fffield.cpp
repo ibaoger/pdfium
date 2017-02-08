@@ -49,28 +49,28 @@ CFX_RectF CXFA_FFField::GetBBox(uint32_t dwStatus, bool bDrawFocus) {
 }
 
 void CXFA_FFField::RenderWidget(CFX_Graphics* pGS,
-                                CFX_Matrix* pMatrix,
+                                const CFX_Matrix& pMatrix,
                                 uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  CXFA_FFWidget::RenderWidget(pGS, &mtRotate, dwStatus);
+  CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
   CXFA_Border borderUI = m_pDataAcc->GetUIBorder();
-  DrawBorder(pGS, borderUI, m_rtUI, &mtRotate);
-  RenderCaption(pGS, &mtRotate);
-  DrawHighlight(pGS, &mtRotate, dwStatus, false);
+  DrawBorder(pGS, borderUI, m_rtUI, mtRotate);
+  RenderCaption(pGS, mtRotate);
+  DrawHighlight(pGS, mtRotate, dwStatus, false);
 
   CFX_RectF rtWidget = m_pNormalWidget->GetWidgetRect();
   CFX_Matrix mt(1, 0, 0, 1, rtWidget.left, rtWidget.top);
   mt.Concat(mtRotate);
-  GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, &mt);
+  GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget, pGS, mt);
 }
 void CXFA_FFField::DrawHighlight(CFX_Graphics* pGS,
-                                 CFX_Matrix* pMatrix,
+                                 const CFX_Matrix& pMatrix,
                                  uint32_t dwStatus,
                                  bool bEllipse) {
   if (m_rtUI.IsEmpty() || !m_pDataAcc->GetDoc()->GetXFADoc()->IsInteractive()) {
@@ -91,7 +91,7 @@ void CXFA_FFField::DrawHighlight(CFX_Graphics* pGS,
     pGS->FillPath(&path, FXFILL_WINDING, pMatrix);
   }
 }
-void CXFA_FFField::DrawFocus(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
+void CXFA_FFField::DrawFocus(CFX_Graphics* pGS, const CFX_Matrix& pMatrix) {
   if (m_dwStatus & XFA_WidgetStatus_Focused) {
     CFX_Color cr(0xFF000000);
     pGS->SetStrokeColor(&cr);
@@ -592,7 +592,7 @@ void CXFA_FFField::LayoutCaption() {
     m_rtCaption.height = fHeight;
 }
 
-void CXFA_FFField::RenderCaption(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
+void CXFA_FFField::RenderCaption(CFX_Graphics* pGS, const CFX_Matrix& pMatrix) {
   CXFA_TextLayout* pCapTextLayout = m_pDataAcc->GetCaptionTextLayout();
   if (!pCapTextLayout)
     return;
@@ -608,9 +608,9 @@ void CXFA_FFField::RenderCaption(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
   rtClip.Intersect(GetRectWithoutRotate());
   CFX_RenderDevice* pRenderDevice = pGS->GetRenderDevice();
   CFX_Matrix mt(1, 0, 0, 1, m_rtCaption.left, m_rtCaption.top);
-  if (pMatrix) {
-    pMatrix->TransformRect(rtClip);
-    mt.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity()) {
+    pMatrix.TransformRect(rtClip);
+    mt.Concat(pMatrix);
   }
   pCapTextLayout->DrawString(pRenderDevice, mt, rtClip);
 }
@@ -768,4 +768,4 @@ void CXFA_FFField::OnProcessEvent(CFWL_Event* pEvent) {
 }
 
 void CXFA_FFField::OnDrawWidget(CFX_Graphics* pGraphics,
-                                const CFX_Matrix* pMatrix) {}
+                                const CFX_Matrix& pMatrix) {}

@@ -127,7 +127,7 @@ CFX_FloatRect GetShadingBBox(CPDF_ShadingPattern* pShading,
     if (bGouraud)
       stream.BitStream()->ByteAlign();
   }
-  rect.Transform(&matrix);
+  rect.Transform(matrix);
   return rect;
 }
 
@@ -245,7 +245,7 @@ CPDF_StreamContentParser::CPDF_StreamContentParser(
     CPDF_Document* pDocument,
     CPDF_Dictionary* pPageResources,
     CPDF_Dictionary* pParentResources,
-    const CFX_Matrix* pmtContentToUser,
+    const CFX_Matrix& pmtContentToUser,
     CPDF_PageObjectHolder* pObjHolder,
     CPDF_Dictionary* pResources,
     CFX_FloatRect* pBBox,
@@ -257,6 +257,7 @@ CPDF_StreamContentParser::CPDF_StreamContentParser(
       m_pResources(pResources),
       m_pObjectHolder(pObjHolder),
       m_Level(level),
+      m_mtContentToUser(pmtContentToUser),
       m_ParamStartPos(0),
       m_ParamCount(0),
       m_pCurStates(new CPDF_AllStates),
@@ -271,8 +272,6 @@ CPDF_StreamContentParser::CPDF_StreamContentParser(
       m_pLastImage(nullptr),
       m_bColored(false),
       m_bResourceMissing(false) {
-  if (pmtContentToUser)
-    m_mtContentToUser = *pmtContentToUser;
   if (!m_pResources)
     m_pResources = m_pParentResources;
   if (!m_pResources)
@@ -776,7 +775,7 @@ void CPDF_StreamContentParser::AddForm(CPDF_Stream* pStream) {
   status.m_GraphState = m_pCurStates->m_GraphState;
   status.m_ColorState = m_pCurStates->m_ColorState;
   status.m_TextState = m_pCurStates->m_TextState;
-  pFormObj->m_pForm->ParseContent(&status, nullptr, nullptr, m_Level + 1);
+  pFormObj->m_pForm->ParseContent(&status, CFX_Matrix(), nullptr, m_Level + 1);
   if (!m_pObjectHolder->BackgroundAlphaNeeded() &&
       pFormObj->m_pForm->BackgroundAlphaNeeded()) {
     m_pObjectHolder->SetBackgroundAlphaNeeded(true);
@@ -1524,7 +1523,7 @@ void CPDF_StreamContentParser::AddPathObject(int FillType, bool bStroke) {
   }
   if (PathClipType) {
     if (!matrix.IsIdentity()) {
-      Path.Transform(&matrix);
+      Path.Transform(matrix);
       matrix.SetIdentity();
     }
     m_pCurStates->m_ClipPath.AppendPath(Path, PathClipType, true);

@@ -44,7 +44,7 @@ FWL_Type CFWL_Caret::GetClassID() const {
 void CFWL_Caret::Update() {}
 
 void CFWL_Caret::DrawWidget(CFX_Graphics* pGraphics,
-                            const CFX_Matrix* pMatrix) {
+                            const CFX_Matrix& pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -72,7 +72,7 @@ void CFWL_Caret::HideCaret() {
 
 void CFWL_Caret::DrawCaretBK(CFX_Graphics* pGraphics,
                              IFWL_ThemeProvider* pTheme,
-                             const CFX_Matrix* pMatrix) {
+                             const CFX_Matrix& pMatrix) {
   if (!(m_pProperties->m_dwStates & FWL_STATE_CAT_HightLight))
     return;
 
@@ -82,15 +82,16 @@ void CFWL_Caret::DrawCaretBK(CFX_Graphics* pGraphics,
   param.m_rtPart = CFX_RectF(0, 0, GetWidgetRect().Size());
   param.m_iPart = CFWL_Part::Background;
   param.m_dwStates = CFWL_PartState_HightLight;
-  if (pMatrix)
-    param.m_matrix.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    param.m_matrix.Concat(pMatrix);
+
   pTheme->DrawBackground(&param);
 }
 
 void CFWL_Caret::OnProcessMessage(CFWL_Message* pMessage) {}
 
 void CFWL_Caret::OnDrawWidget(CFX_Graphics* pGraphics,
-                              const CFX_Matrix* pMatrix) {
+                              const CFX_Matrix& pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
 

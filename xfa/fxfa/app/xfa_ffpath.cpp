@@ -52,7 +52,7 @@ void CXFA_FFLine::GetRectFromHand(CFX_RectF& rect,
 }
 
 void CXFA_FFLine::RenderWidget(CFX_Graphics* pGS,
-                               CFX_Matrix* pMatrix,
+                               const CFX_Matrix& pMatrix,
                                uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
@@ -78,8 +78,8 @@ void CXFA_FFLine::RenderWidget(CFX_Graphics* pGS,
   }
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
   CFX_RectF rtLine = GetRectWithoutRotate();
   if (CXFA_Margin mgWidget = m_pDataAcc->GetMargin())
@@ -99,7 +99,7 @@ void CXFA_FFLine::RenderWidget(CFX_Graphics* pGS,
   XFA_StrokeTypeSetLineDash(pGS, iStrokeType, iCap);
   pGS->SetStrokeColor(&color);
   pGS->SetLineCap(XFA_LineCapToFXGE(iCap));
-  pGS->StrokePath(&linePath, &mtRotate);
+  pGS->StrokePath(&linePath, mtRotate);
   pGS->RestoreGraphState();
 }
 
@@ -108,7 +108,7 @@ CXFA_FFArc::CXFA_FFArc(CXFA_WidgetAcc* pDataAcc) : CXFA_FFDraw(pDataAcc) {}
 CXFA_FFArc::~CXFA_FFArc() {}
 
 void CXFA_FFArc::RenderWidget(CFX_Graphics* pGS,
-                              CFX_Matrix* pMatrix,
+                              const CFX_Matrix& pMatrix,
                               uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
@@ -119,14 +119,14 @@ void CXFA_FFArc::RenderWidget(CFX_Graphics* pGS,
 
   CXFA_Arc arcObj = value.GetArc();
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
   CFX_RectF rtArc = GetRectWithoutRotate();
   if (CXFA_Margin mgWidget = m_pDataAcc->GetMargin())
     XFA_RectWidthoutMargin(rtArc, mgWidget);
 
-  DrawBorder(pGS, arcObj, rtArc, &mtRotate);
+  DrawBorder(pGS, arcObj, rtArc, mtRotate);
 }
 
 CXFA_FFRectangle::CXFA_FFRectangle(CXFA_WidgetAcc* pDataAcc)
@@ -135,7 +135,7 @@ CXFA_FFRectangle::CXFA_FFRectangle(CXFA_WidgetAcc* pDataAcc)
 CXFA_FFRectangle::~CXFA_FFRectangle() {}
 
 void CXFA_FFRectangle::RenderWidget(CFX_Graphics* pGS,
-                                    CFX_Matrix* pMatrix,
+                                    const CFX_Matrix& pMatrix,
                                     uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
     return;
@@ -150,8 +150,8 @@ void CXFA_FFRectangle::RenderWidget(CFX_Graphics* pGS,
     XFA_RectWidthoutMargin(rect, mgWidget);
 
   CFX_Matrix mtRotate = GetRotateMatrix();
-  if (pMatrix)
-    mtRotate.Concat(*pMatrix);
+  if (!pMatrix.IsIdentity())
+    mtRotate.Concat(pMatrix);
 
-  DrawBorder(pGS, rtObj, rect, &mtRotate);
+  DrawBorder(pGS, rtObj, rect, mtRotate);
 }

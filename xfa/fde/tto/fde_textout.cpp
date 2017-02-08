@@ -848,7 +848,7 @@ void CFDE_TextOut::DrawLine(const FDE_TTOPIECE* pPiece, CFDE_Pen*& pPen) {
     }
   }
   if (iLineCount > 0)
-    m_pRenderDevice->DrawPath(pPen, 1, pPath.get(), &m_Matrix);
+    m_pRenderDevice->DrawPath(pPen, 1, pPath.get(), m_Matrix);
 }
 
 CFDE_TTOLine::CFDE_TTOLine()
