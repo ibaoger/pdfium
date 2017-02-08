@@ -345,7 +345,7 @@ void CFX_WideString::Concat(const FX_WCHAR* pSrcData, FX_STRSIZE nSrcLen) {
 
 // static
 CFX_ByteString CFX_WideString::UTF8Encode() const {
-  return FX_UTF8Encode(*this);
+  return FX_UTF8Encode(this->AsStringC());
 }
 
 // static
