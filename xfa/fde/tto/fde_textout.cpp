@@ -739,7 +739,7 @@ void CFDE_TextOut::OnDraw(const CFX_RectF& rtClip) {
       int32_t iCount = GetDisplayPos(pPiece);
       if (iCount > 0) {
         m_pRenderDevice->DrawString(pBrush, m_pFont, m_CharPos.data(), iCount,
-                                    m_fFontSize, &m_Matrix);
+                                    m_fFontSize, m_Matrix);
       }
       DrawLine(pPiece, pPen);
     }

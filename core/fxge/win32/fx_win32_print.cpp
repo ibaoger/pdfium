@@ -198,7 +198,7 @@ bool CGdiPrinterDriver::StartDIBits(const CFX_DIBSource* pSource,
 bool CGdiPrinterDriver::DrawDeviceText(int nChars,
                                        const FXTEXT_CHARPOS* pCharPos,
                                        CFX_Font* pFont,
-                                       const CFX_Matrix* pObject2Device,
+                                       const CFX_Matrix& pObject2Device,
                                        FX_FLOAT font_size,
                                        uint32_t color) {
 #if defined(PDFIUM_PRINT_TEXT_WITH_GDI)
@@ -269,12 +269,12 @@ bool CGdiPrinterDriver::DrawDeviceText(int nChars,
   // Transforms
   SetGraphicsMode(m_hDC, GM_ADVANCED);
   XFORM xform;
-  xform.eM11 = pObject2Device->GetA() / kScaleFactor;
-  xform.eM12 = pObject2Device->GetB() / kScaleFactor;
-  xform.eM21 = -pObject2Device->GetC() / kScaleFactor;
-  xform.eM22 = -pObject2Device->GetD() / kScaleFactor;
-  xform.eDx = pObject2Device->GetE();
-  xform.eDy = pObject2Device->GetF();
+  xform.eM11 = pObject2Device.GetA() / kScaleFactor;
+  xform.eM12 = pObject2Device.GetB() / kScaleFactor;
+  xform.eM21 = -pObject2Device.GetC() / kScaleFactor;
+  xform.eM22 = -pObject2Device.GetD() / kScaleFactor;
+  xform.eDx = pObject2Device.GetE();
+  xform.eDy = pObject2Device.GetF();
   ModifyWorldTransform(m_hDC, &xform, MWT_LEFTMULTIPLY);
 
   // Color
@@ -481,7 +481,7 @@ bool CPSPrinterDriver::StartDIBits(const CFX_DIBSource* pBitmap,
 bool CPSPrinterDriver::DrawDeviceText(int nChars,
                                       const FXTEXT_CHARPOS* pCharPos,
                                       CFX_Font* pFont,
-                                      const CFX_Matrix* pObject2Device,
+                                      const CFX_Matrix& pObject2Device,
                                       FX_FLOAT font_size,
                                       uint32_t color) {
   return m_PSRenderer.DrawText(nChars, pCharPos, pFont, pObject2Device,
