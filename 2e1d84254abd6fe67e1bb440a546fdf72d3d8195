@@ -25,6 +25,178 @@
     },
     {
       "key": {
+        "uuid": "7e8cf0f8_7d860bf1",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "ditto const ref or nonconst pointer",
+      "range": {
+        "startLine": 211,
+        "startChar": 36,
+        "endLine": 211,
+        "endChar": 37
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5471ccd_c7f3e3d7",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "One per line",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e43862_5796c6f9",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 10
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb16b035_c28c8cad",
+        "filename": "xfa/fde/cfde_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "Can default be removed?",
+      "range": {
+        "startLine": 49,
+        "startChar": 46,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7b864d_5fc0056a",
+        "filename": "xfa/fde/fde_gedevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "Well you don\u0027t change all these Draw methods but I imagine we can change them similarly to DrawString. Possible followup",
+      "range": {
+        "startLine": 54,
+        "startChar": 24,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efcafa15_341007e7",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "Unless this is inherited, I don\u0027t see the point of having bDrawFocus. If it is true, no need to call this method.",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 16
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "065fe5ae_2e43a204",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "Is default needed?",
+      "range": {
+        "startLine": 48,
+        "startChar": 57,
+        "endLine": 48,
+        "endChar": 62
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b545a222_13b3a00c",
+        "filename": "xfa/fxfa/app/xfa_fffield.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17c65ad0_31b578a7",
         "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
         "patchSetId": 2
@@ -41,6 +213,29 @@
         "startChar": 6,
         "endLine": 366,
         "endChar": 7
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f9f4d89_e17e3ebe",
+        "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "This one should be from phWidget2, no?",
+      "range": {
+        "startLine": 368,
+        "startChar": 2,
+        "endLine": 368,
+        "endChar": 15
       },
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -87,6 +282,52 @@
         "startChar": 2,
         "endLine": 126,
         "endChar": 1
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a9c933_0e2d479b",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 87,
+        "startChar": 57,
+        "endLine": 87,
+        "endChar": 62
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b90ee4_e857497f",
+        "filename": "xfa/fxfa/xfa_ffwidget.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T19:11:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 51,
+        "startChar": 65,
+        "endLine": 51,
+        "endChar": 70
       },
       "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
