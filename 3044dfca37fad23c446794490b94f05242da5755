@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "36a25b61_ac469aa1",
+        "filename": "core/fxcrt/fx_basic_wstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T17:12:07Z",
+      "side": 1,
+      "message": "Ha.  Indeed. I will change this.",
+      "parentUuid": "cae4c79e_e4b47c2f",
+      "revId": "3044dfca37fad23c446794490b94f05242da5755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e6e192f_1fd06b66",
         "filename": "xfa/fxfa/parser/cxfa_object.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-08T02:36:14Z",
       "side": 1,
       "message": "What about adding a .UTF8Encode() to CFX_WideStringC so the call is the same as the other ones and we\u0027d get GetClassName().UTF8Encode().AsStringC() ?  Seems weird that sometimes we call .UTF8Encode() and sometimes FX_UTF8Encode.",
+      "revId": "3044dfca37fad23c446794490b94f05242da5755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ac97f9_86abe97f",
+        "filename": "xfa/fxfa/parser/cxfa_object.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T17:12:07Z",
+      "side": 1,
+      "message": "It\u0027s an artifact of ...StringC being a template, so all of its operations must apply to bytes and wide chars vs. ....String which is still custom for each.  So when we have an operatoion that applies only to wides (or conversely, the decode which applies only to bytes), we wind up with standalone function to augmnet the template.  Ideally, both would be methods as you point out.  In the mean time, this is better,I think.",
+      "parentUuid": "8e6e192f_1fd06b66",
       "revId": "3044dfca37fad23c446794490b94f05242da5755",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
