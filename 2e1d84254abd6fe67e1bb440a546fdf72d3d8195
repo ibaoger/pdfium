@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1111a9ec_1b4d544a",
+        "filename": "core/fpdfapi/render/cpdf_textrenderer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T18:13:13Z",
+      "side": 1,
+      "message": "nit: const ref or non-const ptr?",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c65ad0_31b578a7",
+        "filename": "xfa/fxfa/app/xfa_ffpageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T18:13:13Z",
+      "side": 1,
+      "message": "\u0026 not strictly necessary as copying a ptr vs ref to ptr yield same results as used in this case.",
+      "range": {
+        "startLine": 366,
+        "startChar": 6,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea24ea5_e9df7f8f",
+        "filename": "xfa/fxfa/app/xfa_ffpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T18:13:13Z",
+      "side": 1,
+      "message": "we should fix the spelling of this while we\u0027re at it.",
+      "range": {
+        "startLine": 91,
+        "startChar": 15,
+        "endLine": 91,
+        "endChar": 21
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f53769f_e7d0fa7f",
+        "filename": "xfa/fxfa/app/xfa_fftext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-08T18:13:13Z",
+      "side": 1,
+      "message": "or just (but double check my reasoning)\n\nreturn GetRectWithoutRotate().Constains(fx, fy) \u0026\u0026 GetLinkURLAtPoint(fx, fy);",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "2e1d84254abd6fe67e1bb440a546fdf72d3d8195",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
