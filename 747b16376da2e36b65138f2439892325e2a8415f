@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cbe5371_806fd257",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-08T17:09:25Z",
+      "side": 1,
+      "message": "How about moving this to be:\n\n#if _FXM_PLATFOM_ \u003d\u003d _FXM_PLATFORM_APPLE_\nconst char kSha[] \u003d  ...;\n#else\nconst char kSha[] \u003d ...;\n#endif\n\nThen the CompareBitmap line is the same for both.",
+      "revId": "747b16376da2e36b65138f2439892325e2a8415f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
