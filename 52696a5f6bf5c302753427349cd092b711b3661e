@@ -16,6 +16,24 @@
       "revId": "52696a5f6bf5c302753427349cd092b711b3661e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9d69d11_3ecbef4d",
+        "filename": "core/fxge/ge/cfx_graphstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-08T15:27:51Z",
+      "side": 1,
+      "message": "That is the default according to PDF spec table 4.2",
+      "parentUuid": "3da242d9_b2b76940",
+      "revId": "52696a5f6bf5c302753427349cd092b711b3661e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
