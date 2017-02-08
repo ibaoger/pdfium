@@ -1544,16 +1544,15 @@ bool CPDF_RenderStatus::ProcessTransparency(CPDF_PageObject* pPageObj,
     text_device.Attach(pTextMask.get(), false, nullptr, false);
     for (uint32_t i = 0; i < pPageObj->m_ClipPath.GetTextCount(); i++) {
       CPDF_TextObject* textobj = pPageObj->m_ClipPath.GetText(i);
-      if (!textobj) {
+      if (!textobj)
         break;
-      }
-      CFX_Matrix text_matrix;
-      textobj->GetTextMatrix(&text_matrix);
+
       CPDF_TextRenderer::DrawTextPath(
           &text_device, textobj->m_nChars, textobj->m_pCharCodes,
           textobj->m_pCharPos, textobj->m_TextState.GetFont(),
-          textobj->m_TextState.GetFontSize(), &text_matrix, &new_matrix,
-          textobj->m_GraphState.GetObject(), (FX_ARGB)-1, 0, nullptr, 0);
+          textobj->m_TextState.GetFontSize(), textobj->GetTextMatrix(),
+          &new_matrix, textobj->m_GraphState.GetObject(), (FX_ARGB)-1, 0,
+          nullptr, 0);
     }
   }
   CPDF_RenderStatus bitmap_render;
@@ -1732,8 +1731,7 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
       fill_argb = GetFillArgb(textobj);
     }
   }
-  CFX_Matrix text_matrix;
-  textobj->GetTextMatrix(&text_matrix);
+  CFX_Matrix text_matrix = textobj->GetTextMatrix();
   if (!IsAvailableMatrix(text_matrix))
     return true;
 
@@ -1767,14 +1765,14 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
       flag |= FXFILL_NOPATHSMOOTH;
     return CPDF_TextRenderer::DrawTextPath(
         m_pDevice, textobj->m_nChars, textobj->m_pCharCodes,
-        textobj->m_pCharPos, pFont, font_size, &text_matrix, pDeviceMatrix,
+        textobj->m_pCharPos, pFont, font_size, text_matrix, pDeviceMatrix,
         textobj->m_GraphState.GetObject(), fill_argb, stroke_argb,
         pClippingPath, flag);
   }
   text_matrix.Concat(*pObj2Device);
   return CPDF_TextRenderer::DrawNormalText(
       m_pDevice, textobj->m_nChars, textobj->m_pCharCodes, textobj->m_pCharPos,
-      pFont, font_size, &text_matrix, fill_argb, &m_Options);
+      pFont, font_size, text_matrix, fill_argb, &m_Options);
 }
 
 CPDF_Type3Cache* CPDF_RenderStatus::GetCachedType3(CPDF_Type3Font* pFont) {
@@ -1795,8 +1793,7 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
   CFX_Matrix dCTM = m_pDevice->GetCTM();
   FX_FLOAT sa = FXSYS_fabs(dCTM.a);
   FX_FLOAT sd = FXSYS_fabs(dCTM.d);
-  CFX_Matrix text_matrix;
-  textobj->GetTextMatrix(&text_matrix);
+  CFX_Matrix text_matrix = textobj->GetTextMatrix();
   CFX_Matrix char_matrix = pType3Font->GetFontMatrix();
   FX_FLOAT font_size = textobj->m_TextState.GetFontSize();
   char_matrix.Scale(font_size, font_size);

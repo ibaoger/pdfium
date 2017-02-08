@@ -22,7 +22,7 @@ bool CPDF_TextRenderer::DrawTextPath(CFX_RenderDevice* pDevice,
                                      FX_FLOAT* pCharPos,
                                      CPDF_Font* pFont,
                                      FX_FLOAT font_size,
-                                     const CFX_Matrix* pText2User,
+                                     const CFX_Matrix& pText2User,
                                      const CFX_Matrix* pUser2Device,
                                      const CFX_GraphStateData* pGraphState,
                                      FX_ARGB fill_argb,
@@ -114,10 +114,10 @@ void CPDF_TextRenderer::DrawTextString(CFX_RenderDevice* pDevice,
 
   if (stroke_argb == 0) {
     DrawNormalText(pDevice, nChars, pCharCodes, pCharPos, pFont, font_size,
-                   &matrix, fill_argb, pOptions);
+                   matrix, fill_argb, pOptions);
   } else {
     DrawTextPath(pDevice, nChars, pCharCodes, pCharPos, pFont, font_size,
-                 &matrix, nullptr, pGraphState, fill_argb, stroke_argb, nullptr,
+                 matrix, nullptr, pGraphState, fill_argb, stroke_argb, nullptr,
                  0);
   }
 }
@@ -129,7 +129,7 @@ bool CPDF_TextRenderer::DrawNormalText(CFX_RenderDevice* pDevice,
                                        FX_FLOAT* pCharPos,
                                        CPDF_Font* pFont,
                                        FX_FLOAT font_size,
-                                       const CFX_Matrix* pText2Device,
+                                       const CFX_Matrix& pText2Device,
                                        FX_ARGB fill_argb,
                                        const CPDF_RenderOptions* pOptions) {
   CPDF_CharPosList CharPosList;

@@ -253,16 +253,16 @@ void CFDE_Path::AddRectangle(const CFX_RectF& rect) {
   CloseFigure();
 }
 
-void CFDE_Path::GetBBox(CFX_RectF& bbox) const {
+CFX_RectF CFDE_Path::GetBBox() const {
   CFX_FloatRect rect = m_Path.GetBoundingBox();
-  bbox = CFX_RectF(rect.left, rect.top, rect.Width(), rect.Height());
+  CFX_RectF bbox = CFX_RectF(rect.left, rect.top, rect.Width(), rect.Height());
   bbox.Normalize();
+  return bbox;
 }
 
-void CFDE_Path::GetBBox(CFX_RectF& bbox,
-                        FX_FLOAT fLineWidth,
-                        FX_FLOAT fMiterLimit) const {
+CFX_RectF CFDE_Path::GetBBox(FX_FLOAT fLineWidth, FX_FLOAT fMiterLimit) const {
   CFX_FloatRect rect = m_Path.GetBoundingBox(fLineWidth, fMiterLimit);
-  bbox = CFX_RectF(rect.left, rect.top, rect.Width(), rect.Height());
+  CFX_RectF bbox = CFX_RectF(rect.left, rect.top, rect.Width(), rect.Height());
   bbox.Normalize();
+  return bbox;
 }

@@ -38,7 +38,7 @@ class CPDF_TextRenderer {
                            FX_FLOAT* pCharPos,
                            CPDF_Font* pFont,
                            FX_FLOAT font_size,
-                           const CFX_Matrix* pText2User,
+                           const CFX_Matrix& pText2User,
                            const CFX_Matrix* pUser2Device,
                            const CFX_GraphStateData* pGraphState,
                            FX_ARGB fill_argb,
@@ -52,7 +52,7 @@ class CPDF_TextRenderer {
                              FX_FLOAT* pCharPos,
                              CPDF_Font* pFont,
                              FX_FLOAT font_size,
-                             const CFX_Matrix* pText2Device,
+                             const CFX_Matrix& pText2Device,
                              FX_ARGB fill_argb,
                              const CPDF_RenderOptions* pOptions);
 };

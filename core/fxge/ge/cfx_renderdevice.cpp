@@ -833,7 +833,7 @@ bool CFX_RenderDevice::DrawNormalText(int nChars,
                                       const FXTEXT_CHARPOS* pCharPos,
                                       CFX_Font* pFont,
                                       FX_FLOAT font_size,
-                                      const CFX_Matrix* pText2Device,
+                                      const CFX_Matrix& pText2Device,
                                       uint32_t fill_color,
                                       uint32_t text_flags) {
   int nativetext_flags = text_flags;
@@ -854,12 +854,9 @@ bool CFX_RenderDevice::DrawNormalText(int nChars,
       return true;
     }
   }
-  CFX_Matrix char2device;
-  CFX_Matrix text2Device;
-  if (pText2Device) {
-    char2device = *pText2Device;
-    text2Device = *pText2Device;
-  }
+  CFX_Matrix char2device = pText2Device;
+  CFX_Matrix text2Device = pText2Device;
+
   char2device.Scale(font_size, -font_size);
   if (FXSYS_fabs(char2device.a) + FXSYS_fabs(char2device.b) > 50 * 1.0f ||
       ((m_DeviceClass == FXDC_PRINTER) &&
@@ -1051,7 +1048,7 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
                                     const FXTEXT_CHARPOS* pCharPos,
                                     CFX_Font* pFont,
                                     FX_FLOAT font_size,
-                                    const CFX_Matrix* pText2User,
+                                    const CFX_Matrix& pText2User,
                                     const CFX_Matrix* pUser2Device,
                                     const CFX_GraphStateData* pGraphState,
                                     uint32_t fill_color,
@@ -1072,7 +1069,9 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
         pFont->LoadGlyphPath(charpos.m_GlyphIndex, charpos.m_FontCharWidth);
     if (!pPath)
       continue;
-    matrix.Concat(*pText2User);
+
+    matrix.Concat(pText2User);
+
     CFX_PathData TransformedPath(*pPath);
     TransformedPath.Transform(&matrix);
     if (fill_color || stroke_color) {

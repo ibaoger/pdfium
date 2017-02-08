@@ -86,7 +86,7 @@ class IFX_RenderDeviceDriver {
   virtual bool DrawDeviceText(int nChars,
                               const FXTEXT_CHARPOS* pCharPos,
                               CFX_Font* pFont,
-                              const CFX_Matrix* pObject2Device,
+                              const CFX_Matrix& pObject2Device,
                               FX_FLOAT font_size,
                               uint32_t color);
   virtual void* GetPlatformSurface() const;

@@ -1165,7 +1165,7 @@ void CXFA_TextLayout::RenderString(CFDE_RenderDevice* pDevice,
   if (iCount > 0) {
     pBrush->SetColor(pPiece->dwColor);
     pDevice->DrawString(pBrush, pPiece->pFont, pCharPos, iCount,
-                        pPiece->fFontSize, &tmDoc2Device);
+                        pPiece->fFontSize, tmDoc2Device);
   }
   pPieceLine->m_charCounts.Add(iCount);
 }
