@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d362932f_0b5a5fd4",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "In here, do we need both a cast to a float and one to a double? it looks like one would not be needed.",
+      "range": {
+        "startLine": 172,
+        "startChar": 55,
+        "endLine": 172,
+        "endChar": 61
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "775af4b9_aae6ea93",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "Followup: this should similarly return the rgb",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 17
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31098e66_f75ee6d0",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "I\u0027m confused by ties. Do we use the rgb\u0027s of vertex separately? otherwise we can a) merge them into a single uint OR b) use a tuple in the vertex itself.",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 10
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25b79312_dbe4a173",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "origin? These are the coordinates. It\u0027s a vertex.",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6f8eae6_02133129",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "Followup: Use point here",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0c35250_86a1157d",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24386ca6_e38ac2e6",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "Merge the two if\u0027s",
+      "range": {
+        "startLine": 378,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 6
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f856a6c9_030f14a6",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "ditto merge",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 382,
+        "endChar": 6
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6a16495_c64c0033",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 409,
+        "endChar": 12
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85b27ef_22a2d997",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:54:05Z",
+      "side": 1,
+      "message": "ditto these are coordinates of the vertex. origin? what\u0027s that",
+      "range": {
+        "startLine": 413,
+        "startChar": 18,
+        "endLine": 413,
+        "endChar": 25
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
