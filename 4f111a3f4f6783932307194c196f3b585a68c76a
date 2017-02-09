@@ -1,0 +1,510 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71aeda56_78b5a0f6",
+        "filename": "core/fpdfdoc/cpvt_line.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "if you\u0027re feeling lazy, you can put this in the header and fool lint by putting the declaration outside\nthe class defn as\n\ninline CPVT_Line::CPCT_Line() : ... {}",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32dee90e_11de3f4f",
+        "filename": "core/fpdfdoc/cpvt_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a5ada7_c5508d2b",
+        "filename": "core/fpdfdoc/cpvt_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad52aca1_c1bae995",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "pass by const ref.",
+      "range": {
+        "startLine": 99,
+        "startChar": 20,
+        "endLine": 99,
+        "endChar": 30
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff6ea03_73c7a591",
+        "filename": "fpdfsdk/cfx_systemhandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "local not needed (leftbotton, righttop)",
+      "range": {
+        "startLine": 68,
+        "startChar": 13,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "759a1fbe_f4c3d1ce",
+        "filename": "fpdfsdk/cfx_systemhandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "this should take CFX_PointFs",
+      "range": {
+        "startLine": 77,
+        "startChar": 18,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aca5036_b9a05cb5",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "local not needed",
+      "range": {
+        "startLine": 159,
+        "startChar": 17,
+        "endLine": 159,
+        "endChar": 22
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2683b59_c21d3ac1",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "Pass point instead of x,y ?",
+      "range": {
+        "startLine": 491,
+        "startChar": 15,
+        "endLine": 491,
+        "endChar": 18
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c415fd2_74a36099",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 499,
+        "startChar": 3,
+        "endLine": 499,
+        "endChar": 12
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36fff8a8_7023f8c1",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "this should take a CFX_Pointf",
+      "range": {
+        "startLine": 638,
+        "startChar": 15,
+        "endLine": 638,
+        "endChar": 23
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60016749_4859feaa",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "seems like this should take a const CFX_RectF\u0026 argument",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 645,
+        "endChar": 14
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84ab353a_8f3b0d12",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "blank line not needed after",
+      "range": {
+        "startLine": 668,
+        "startChar": 2,
+        "endLine": 668,
+        "endChar": 15
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe127be_a44d0a40",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "blank line above not needed",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 16
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b65d2185_5c1a2026",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "const ref.",
+      "range": {
+        "startLine": 37,
+        "startChar": 47,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6465e588_400145a5",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "local not needed, static cast.",
+      "range": {
+        "startLine": 296,
+        "startChar": 2,
+        "endLine": 296,
+        "endChar": 13
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d661fde_cf88bd7c",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 309,
+        "startChar": 2,
+        "endLine": 309,
+        "endChar": 12
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e88acfe9_740a7510",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "ditto ditto all the way down",
+      "range": {
+        "startLine": 322,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 12
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5194dffa_00ab7c35",
+        "filename": "fpdfsdk/fxedit/fxet_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "blank lines not strictly  needed above and below these three.",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 16
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3fb1911_d1dd8a1f",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "blank lines not strictly needed above here (several places)",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 8
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bb9ac00_0cad3ac4",
+        "filename": "fpdfsdk/pdfwindow/PWL_Caret.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "default ctor CFX_PointF()",
+      "range": {
+        "startLine": 28,
+        "startChar": 31,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bae6932_2e0d27d5",
+        "filename": "fpdfsdk/pdfwindow/PWL_Caret.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "isn\u0027t this a PWL_CARET_INFO, provide by const ref?",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8377854_cce65caf",
+        "filename": "fpdfsdk/pdfwindow/PWL_Edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T21:26:56Z",
+      "side": 1,
+      "message": "init not strictly needed;",
+      "range": {
+        "startLine": 246,
+        "startChar": 23,
+        "endLine": 246,
+        "endChar": 36
+      },
+      "revId": "4f111a3f4f6783932307194c196f3b585a68c76a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
