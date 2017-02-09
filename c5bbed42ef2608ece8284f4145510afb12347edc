@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd09e717_1969e988",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T18:44:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 643,
+        "startChar": 19,
+        "endLine": 643,
+        "endChar": 20
+      },
+      "revId": "c5bbed42ef2608ece8284f4145510afb12347edc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
