@@ -40,6 +40,24 @@
       "revId": "9d5fd1de29538ab04c23ec9d11d22683e5c53e43",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c6b5047_fbe5dc67",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T18:07:53Z",
+      "side": 0,
+      "message": "I\u0027m planning on doing this, but will do it in another CL. There is a bunch of ripples that this causes.",
+      "parentUuid": "350f018a_50187a32",
+      "revId": "9d5fd1de29538ab04c23ec9d11d22683e5c53e43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
