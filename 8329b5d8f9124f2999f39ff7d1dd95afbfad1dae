@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "249d0c2a_fe22f312",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T23:24:17Z",
+      "side": 1,
+      "message": "I think that m_nChars is the number of chars we read on a single BT command in the PDF. But afaik we don\u0027t have statistics for this.",
+      "parentUuid": "f029adf0_54ef5474",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4abc9238_86c0dfa0",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 3
