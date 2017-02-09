@@ -317,8 +317,8 @@ unsigned clip_liang_barsky(FX_FLOAT x1,
 #endif  // _SKIA_SUPPORT_
 
 bool MatrixNoScaled(const CFX_Matrix* pMatrix) {
-  return pMatrix->GetA() == 1.0f && pMatrix->GetB() == 0 &&
-         pMatrix->GetC() == 0 && pMatrix->GetD() == 1.0f;
+  return pMatrix->a == 1.0f && pMatrix->b == 0 && pMatrix->c == 0 &&
+         pMatrix->d == 1.0f;
 }
 
 class CFX_Win32FallbackFontInfo final : public CFX_FolderFontInfo {
