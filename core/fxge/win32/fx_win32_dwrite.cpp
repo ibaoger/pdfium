@@ -111,8 +111,7 @@ class CDwGdiTextRenderer {
   HRESULT STDMETHODCALLTYPE DrawGlyphRun(const FX_RECT& text_bbox,
                                          __in_opt CFX_ClipRgn* pClipRgn,
                                          __in_opt DWRITE_MATRIX const* pMatrix,
-                                         FLOAT baselineOriginX,
-                                         FLOAT baselineOriginY,
+                                         const CFX_PointF& baselineOrigin,
                                          DWRITE_MEASURING_MODE measuringMode,
                                          __in DWRITE_GLYPH_RUN const* glyphRun,
                                          const COLORREF& textColor);
@@ -231,8 +230,7 @@ bool CDWriteExt::DwRendingString(void* renderTarget,
                                  FX_ARGB text_color,
                                  int glyph_count,
                                  unsigned short* glyph_indices,
-                                 FX_FLOAT baselineOriginX,
-                                 FX_FLOAT baselineOriginY,
+                                 const CFX_PointF& baselineOrigin,
                                  void* glyph_offsets,
                                  FX_FLOAT* glyph_advances) {
   if (!renderTarget) {
@@ -259,8 +257,8 @@ bool CDWriteExt::DwRendingString(void* renderTarget,
   glyphRun.isSideways = false;
   glyphRun.bidiLevel = 0;
   hr = pTextRenderer->DrawGlyphRun(
-      stringRect, pClipRgn, pMatrix ? &transform : nullptr, baselineOriginX,
-      baselineOriginY, DWRITE_MEASURING_MODE_NATURAL, &glyphRun,
+      stringRect, pClipRgn, pMatrix ? &transform : nullptr, baselineOrigin.x,
+      baselineOrigin.y, DWRITE_MEASURING_MODE_NATURAL, &glyphRun,
       RGB(FXARGB_R(text_color), FXARGB_G(text_color), FXARGB_B(text_color)));
   return SUCCEEDED(hr);
 }
@@ -410,8 +408,7 @@ STDMETHODIMP CDwGdiTextRenderer::DrawGlyphRun(
     const FX_RECT& text_bbox,
     __in_opt CFX_ClipRgn* pClipRgn,
     __in_opt DWRITE_MATRIX const* pMatrix,
-    FLOAT baselineOriginX,
-    FLOAT baselineOriginY,
+    const CFX_PointF& baselineOrigin,
     DWRITE_MEASURING_MODE measuringMode,
     __in DWRITE_GLYPH_RUN const* glyphRun,
     const COLORREF& textColor) {
@@ -433,7 +430,7 @@ STDMETHODIMP CDwGdiTextRenderer::DrawGlyphRun(
   dib.CompositeBitmap(text_bbox.left, text_bbox.top, text_bbox.Width(),
                       text_bbox.Height(), pBitmap_, text_bbox.left,
                       text_bbox.top, FXDIB_BLEND_NORMAL, nullptr);
-  hr = pRenderTarget_->DrawGlyphRun(baselineOriginX, baselineOriginY,
+  hr = pRenderTarget_->DrawGlyphRun(baselineOrigin.x, baselineOrigin.y,
                                     measuringMode, glyphRun, pRenderingParams_,
                                     textColor);
   if (FAILED(hr)) {

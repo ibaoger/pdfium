@@ -50,8 +50,7 @@ class CDWriteExt {
                        FX_ARGB text_color,
                        int glyph_count,
                        unsigned short* glyph_indices,
-                       FX_FLOAT baselineOriginX,
-                       FX_FLOAT baselineOriginY,
+                       const CFX_PointF& baselineOrigin,
                        void* glyph_offsets,
                        FX_FLOAT* glyph_advances);
   void DwDeleteFont(void* pFont);

@@ -14,9 +14,11 @@
 #include "core/fxcrt/fx_system.h"
 
 struct CPDF_TextObjectItem {
+  CPDF_TextObjectItem();
+  ~CPDF_TextObjectItem();
+
   uint32_t m_CharCode;
-  FX_FLOAT m_OriginX;
-  FX_FLOAT m_OriginY;
+  CFX_PointF m_Origin;
 };
 
 class CPDF_TextObject : public CPDF_PageObject {

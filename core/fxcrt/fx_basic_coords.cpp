@@ -377,6 +377,13 @@ void CFX_Matrix::TransformPoint(FX_FLOAT& x, FX_FLOAT& y) const {
   y = fy;
 }
 
+CFX_PointF CFX_Matrix::Transform(const CFX_PointF& p) const {
+  FX_FLOAT x = p.x;
+  FX_FLOAT y = p.y;
+  TransformPoint(x, y);
+  return CFX_PointF(x, y);
+}
+
 void CFX_Matrix::TransformRect(CFX_RectF& rect) const {
   FX_FLOAT right = rect.right(), bottom = rect.bottom();
   TransformRect(rect.left, right, bottom, rect.top);
