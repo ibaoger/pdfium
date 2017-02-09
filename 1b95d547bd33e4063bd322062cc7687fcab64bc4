@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "0e392e4f_f6786ea4",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T15:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a29f05cd_51323403",
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ac6bdfc_0f47336f",
         "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "5f3d42fb_edfb75bf",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T15:14:00Z",
+      "side": 1,
+      "message": "Leaving as is for now, get an error when using range based for.\n\nerror: invalid range expression of type \u0027const int\u0027; no viable \u0027begin\u0027 function available\n      for (const int32_t guess : g_ValueGuessCount)",
+      "parentUuid": "2ac6bdfc_0f47336f",
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6176cc30_d35f8f3b",
         "filename": "xfa/fde/css/cfde_cssdeclaration.h",
         "patchSetId": 3
@@ -65,6 +101,24 @@
         "endLine": 61,
         "endChar": 43
       },
+      "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "002128dd_35c1601b",
+        "filename": "xfa/fde/css/cfde_cssdeclaration.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T15:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6176cc30_d35f8f3b",
       "revId": "1b95d547bd33e4063bd322062cc7687fcab64bc4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
