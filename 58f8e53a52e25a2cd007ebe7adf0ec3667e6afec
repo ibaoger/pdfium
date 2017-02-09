@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed39d8dc_15ff4a07",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T16:19:59Z",
+      "side": 1,
+      "message": "The name is clear , but we might want to change the ref to pointer while we\u0027re at it.",
+      "range": {
+        "startLine": 436,
+        "startChar": 17,
+        "endLine": 436,
+        "endChar": 30
+      },
+      "revId": "58f8e53a52e25a2cd007ebe7adf0ec3667e6afec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87f44495_0973aa03",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T16:19:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 443,
+        "startChar": 17,
+        "endLine": 443,
+        "endChar": 30
+      },
+      "revId": "58f8e53a52e25a2cd007ebe7adf0ec3667e6afec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f828f80_2ddcecff",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T16:19:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 456,
+        "startChar": 17,
+        "endLine": 456,
+        "endChar": 30
+      },
+      "revId": "58f8e53a52e25a2cd007ebe7adf0ec3667e6afec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f23f5bf_8e535da1",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T16:19:59Z",
+      "side": 1,
+      "message": "Having a,b,c,d,e,f public AND gettter methods is redundant (followup)",
+      "revId": "58f8e53a52e25a2cd007ebe7adf0ec3667e6afec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
