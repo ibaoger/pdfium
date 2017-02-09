@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb0481cc_6517de08",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "Is it possible to have just one cast/something nicer?",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4abc9238_86c0dfa0",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "These should be a point too, and GetVertOrigin should return it (followup)",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 7
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7c5433e_981878f2",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "We could explicitly use points to create rectangles, I think",
+      "range": {
+        "startLine": 1132,
+        "startChar": 12,
+        "endLine": 1132,
+        "endChar": 25
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c20e7bb_8c378cf7",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "I thought we just changed this to TransformPoint? I\u0027m confused.",
+      "range": {
+        "startLine": 1154,
+        "startChar": 31,
+        "endLine": 1154,
+        "endChar": 40
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d13aac9c_0c641cf4",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 1237,
+        "startChar": 30,
+        "endLine": 1237,
+        "endChar": 39
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88bfff5a_4687c405",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "Ah ok that\u0027s why we are using constructor now",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6b72431_f70fd37a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 1543,
+        "startChar": 39,
+        "endLine": 1543,
+        "endChar": 40
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9658ca9b_01ca9aa8",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "ditto points",
+      "range": {
+        "startLine": 1544,
+        "startChar": 19,
+        "endLine": 1544,
+        "endChar": 32
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc0758c_566f50da",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "Do we normally have struct constructors? Haven\u0027t seen them if unneeded.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6167074_65946794",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "TransformPoint? And later remove the x,y based",
+      "range": {
+        "startLine": 380,
+        "startChar": 23,
+        "endLine": 380,
+        "endChar": 32
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a63a29cd_5bd6e525",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 931,
+        "startChar": 26,
+        "endLine": 931,
+        "endChar": 29
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2890165_ecdcba83",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2230470_a195f5c8",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T20:09:55Z",
+      "side": 1,
+      "message": "Since we now have nothing here, maybe place it in another file, and remove this one?",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
