@@ -8,6 +8,7 @@
 #define CORE_FPDFAPI_PAGE_CPDF_MESHSTREAM_H_
 
 #include <memory>
+#include <tuple>
 #include <vector>
 
 #include "core/fpdfapi/page/cpdf_shadingpattern.h"
@@ -16,8 +17,11 @@
 #include "core/fxcrt/fx_system.h"
 
 struct CPDF_MeshVertex {
-  FX_FLOAT x;
-  FX_FLOAT y;
+  CPDF_MeshVertex();
+  CPDF_MeshVertex(const CPDF_MeshVertex&);
+  ~CPDF_MeshVertex();
+
+  CFX_PointF origin;
   FX_FLOAT r;
   FX_FLOAT g;
   FX_FLOAT b;
@@ -37,14 +41,14 @@ class CPDF_MeshStream {
 
   bool Load();
 
-  uint32_t GetFlag();
-  void GetCoords(FX_FLOAT& x, FX_FLOAT& y);
-  void GetColor(FX_FLOAT& r, FX_FLOAT& g, FX_FLOAT& b);
+  uint32_t ReadFlag();
+  CFX_PointF ReadCoords();
+  std::tuple<FX_FLOAT, FX_FLOAT, FX_FLOAT> ReadColor();
 
-  uint32_t GetVertex(CPDF_MeshVertex& vertex, CFX_Matrix* pObject2Bitmap);
-  bool GetVertexRow(CPDF_MeshVertex* vertex,
-                    int count,
-                    CFX_Matrix* pObject2Bitmap);
+  CPDF_MeshVertex ReadVertex(uint32_t* flag, const CFX_Matrix& pObject2Bitmap);
+  bool ReadVertexRow(CPDF_MeshVertex* vertex,
+                     int count,
+                     const CFX_Matrix& pObject2Bitmap);
 
   CFX_BitStream* BitStream() { return &m_BitStream; }
   uint32_t ComponentBits() const { return m_nComponentBits; }
