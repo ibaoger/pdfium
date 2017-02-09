@@ -119,7 +119,6 @@ class CWin32Platform {
  public:
   bool m_bHalfTone;
   CGdiplusExt m_GdiplusExt;
-  CDWriteExt m_DWriteExt;
 };
 
 class CGdiDeviceDriver : public IFX_RenderDeviceDriver {

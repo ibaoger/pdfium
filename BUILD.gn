@@ -907,7 +907,6 @@ static_library("fxge") {
       "core/fxge/win32/dwrite_int.h",
       "core/fxge/win32/fx_win32_device.cpp",
       "core/fxge/win32/fx_win32_dib.cpp",
-      "core/fxge/win32/fx_win32_dwrite.cpp",
       "core/fxge/win32/fx_win32_gdipext.cpp",
       "core/fxge/win32/fx_win32_print.cpp",
       "core/fxge/win32/win32_int.h",
