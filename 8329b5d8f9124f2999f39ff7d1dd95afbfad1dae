@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e0ad4274_b33741cf",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "I\u0027m not sure. I\u0027m going to leave it as is to be safe.",
+      "parentUuid": "bb0481cc_6517de08",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4abc9238_86c0dfa0",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
         "endLine": 52,
         "endChar": 7
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ee91a16_1bb2b6c3",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4abc9238_86c0dfa0",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "91c46bea_a4ec13e8",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Yea, that\u0027s a good idea. Followup.",
+      "parentUuid": "d7c5433e_981878f2",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c20e7bb_8c378cf7",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 3
@@ -82,6 +136,24 @@
         "endLine": 1154,
         "endChar": 40
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e092243_176fd3ce",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "I\u0027m wrangling the naming .....",
+      "parentUuid": "7c20e7bb_8c378cf7",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "ecef5ee4_f9636347",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d13aac9c_0c641cf4",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88bfff5a_4687c405",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 3
@@ -122,6 +212,24 @@
       "writtenOn": "2017-02-09T20:09:55Z",
       "side": 1,
       "message": "Ah ok that\u0027s why we are using constructor now",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c31b6cd_fc20cfd2",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "88bfff5a_4687c405",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -151,6 +259,24 @@
     },
     {
       "key": {
+        "uuid": "fbdf0dde_e2a8cae2",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6b72431_f70fd37a",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9658ca9b_01ca9aa8",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 3
@@ -168,6 +294,24 @@
         "endLine": 1544,
         "endChar": 32
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbd7e77_04595410",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9658ca9b_01ca9aa8",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -197,6 +341,24 @@
     },
     {
       "key": {
+        "uuid": "7827a04d_f6807056",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "It\u0027s because it\u0027s a complex class now that I added CFX_PointF and our lint rules require out of line constructors/destructors.",
+      "parentUuid": "8bc0758c_566f50da",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6167074_65946794",
         "filename": "core/fxcrt/fx_basic_coords.cpp",
         "patchSetId": 3
@@ -214,6 +376,24 @@
         "endLine": 380,
         "endChar": 32
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9adbf33b_37623ec0",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d6167074_65946794",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -243,6 +423,24 @@
     },
     {
       "key": {
+        "uuid": "7ba3dbf9_2e92a12b",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63a29cd_5bd6e525",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2890165_ecdcba83",
         "filename": "core/fxge/ge/cfx_renderdevice.cpp",
         "patchSetId": 3
@@ -257,6 +455,24 @@
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2928a24_205fecd1",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2890165_ecdcba83",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -277,6 +493,24 @@
         "endLine": 10,
         "endChar": 21
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f73ea06_a9b81cc5",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 1,
+      "message": "Leaving for now as then have to make sure include orders are correct.",
+      "parentUuid": "c2230470_a195f5c8",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

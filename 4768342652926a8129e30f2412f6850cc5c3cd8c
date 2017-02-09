@@ -39,6 +39,42 @@
       "revId": "4768342652926a8129e30f2412f6850cc5c3cd8c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ced992_0be8fd23",
+        "filename": "core/fxge/win32/win32_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "69895e56_3ec79b33",
+      "revId": "4768342652926a8129e30f2412f6850cc5c3cd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0457c7_e51b8b07",
+        "filename": "core/fxge/win32/win32_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T20:43:05Z",
+      "side": 0,
+      "message": "We can add it back if we need it later for something. If it isn\u0027t used I think we should get rid of it (because it also isn\u0027t tested in any way)",
+      "parentUuid": "69895e56_3ec79b33",
+      "revId": "4768342652926a8129e30f2412f6850cc5c3cd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
