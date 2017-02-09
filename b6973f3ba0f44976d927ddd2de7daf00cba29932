@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "438c80ea_9cb43b08",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T17:36:03Z",
+      "side": 1,
+      "message": "pass by pioniter?",
+      "range": {
+        "startLine": 16,
+        "startChar": 47,
+        "endLine": 16,
+        "endChar": 64
+      },
+      "revId": "b6973f3ba0f44976d927ddd2de7daf00cba29932",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd27dc9_5000555a",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T17:36:03Z",
+      "side": 1,
+      "message": "one per line.",
+      "range": {
+        "startLine": 226,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 30
+      },
+      "revId": "b6973f3ba0f44976d927ddd2de7daf00cba29932",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "666e66a2_c6a6fc28",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T17:36:03Z",
+      "side": 1,
+      "message": "should this be a method of CFX_Matrix called IsNonScaled() ??",
+      "range": {
+        "startLine": 319,
+        "startChar": 5,
+        "endLine": 319,
+        "endChar": 45
+      },
+      "revId": "b6973f3ba0f44976d927ddd2de7daf00cba29932",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c269f281_9d873caa",
+        "filename": "xfa/fxgraphics/cfx_graphics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T17:36:03Z",
+      "side": 1,
+      "message": "prefer 0.0f",
+      "range": {
+        "startLine": 1270,
+        "startChar": 14,
+        "endLine": 1270,
+        "endChar": 17
+      },
+      "revId": "b6973f3ba0f44976d927ddd2de7daf00cba29932",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
