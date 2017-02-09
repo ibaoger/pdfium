@@ -58,6 +58,24 @@
       "revId": "9d5fd1de29538ab04c23ec9d11d22683e5c53e43",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f64a712_7c353650",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-09T18:40:50Z",
+      "side": 0,
+      "message": "Not saying to convert all x,y\u0027s to CFX_Point all at once, that would be a big change. But fine, followup then",
+      "parentUuid": "7c6b5047_fbe5dc67",
+      "revId": "9d5fd1de29538ab04c23ec9d11d22683e5c53e43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
