@@ -65,10 +65,10 @@ void CFX_SystemHandler::OutputSelectedRect(CFFL_FormFiller* pFormFiller,
   if (!pFormFiller)
     return;
 
-  CFX_FloatPoint leftbottom = CFX_FloatPoint(rect.left, rect.bottom);
-  CFX_FloatPoint righttop = CFX_FloatPoint(rect.right, rect.top);
-  CFX_FloatPoint ptA = pFormFiller->PWLtoFFL(leftbottom);
-  CFX_FloatPoint ptB = pFormFiller->PWLtoFFL(righttop);
+  CFX_PointF leftbottom = CFX_PointF(rect.left, rect.bottom);
+  CFX_PointF righttop = CFX_PointF(rect.right, rect.top);
+  CFX_PointF ptA = pFormFiller->PWLtoFFL(leftbottom);
+  CFX_PointF ptB = pFormFiller->PWLtoFFL(righttop);
 
   CPDFSDK_Annot* pAnnot = pFormFiller->GetSDKAnnot();
   UnderlyingPageType* pPage = pAnnot->GetUnderlyingPage();
