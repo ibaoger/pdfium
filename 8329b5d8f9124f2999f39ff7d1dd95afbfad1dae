@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f029adf0_54ef5474",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "This looks to be an optimization to avoid vectors of 1. Do we know how often it gets hit?  In other words, if it\u0027s nearly always a vector of more than one, the optimization may not be buying us much and should be removed in favor of always using a vector.  This would be a good followon",
+      "parentUuid": "bb0481cc_6517de08",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4abc9238_86c0dfa0",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 3
@@ -78,6 +96,121 @@
     },
     {
       "key": {
+        "uuid": "eabe2afd_5645e74f",
+        "filename": "core/fpdfapi/page/cpdf_textobject.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "nit: class",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe4eb1a9_cf8cb657",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2003,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "how common is this pattern, eg. 4 discreet values and a point?  Maybe a new matrix ctor?  It makes sense in that the first 4 coeficients are scale/rotate and the last two are translate, so translate by a point might be common.",
+      "range": {
+        "startLine": 2003,
+        "startChar": 18,
+        "endLine": 2003,
+        "endChar": 28
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a6c581_64cef767",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "maybe this gets a method to return the point itself.",
+      "range": {
+        "startLine": 911,
+        "startChar": 17,
+        "endLine": 911,
+        "endChar": 34
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "999e605c_013c9956",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "maybe this gets a method to return the rect",
+      "range": {
+        "startLine": 913,
+        "startChar": 25,
+        "endLine": 913,
+        "endChar": 40
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f2ee8e_8784c2f1",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "doesn\u0027t our ctor do this for use?",
+      "range": {
+        "startLine": 1083,
+        "startChar": 5,
+        "endLine": 1083,
+        "endChar": 36
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7c5433e_981878f2",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 3
@@ -112,6 +245,24 @@
       "writtenOn": "2017-02-09T20:43:05Z",
       "side": 1,
       "message": "Yea, that\u0027s a good idea. Followup.",
+      "parentUuid": "d7c5433e_981878f2",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1c141d3_e642a2bc",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "Yes, use it but double check for (point point) vs (point size) constructions.",
       "parentUuid": "d7c5433e_981878f2",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -318,6 +469,29 @@
     },
     {
       "key": {
+        "uuid": "8bdba4b1_9648217f",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 7
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bc0758c_566f50da",
         "filename": "core/fpdftext/cpdf_textpage.h",
         "patchSetId": 3
@@ -359,6 +533,52 @@
     },
     {
       "key": {
+        "uuid": "59f35478_076d83d0",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa627f0_6e5cbed0",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "agree we should see if this form can be removed.",
+      "range": {
+        "startLine": 373,
+        "startChar": 6,
+        "endLine": 373,
+        "endChar": 31
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6167074_65946794",
         "filename": "core/fxcrt/fx_basic_coords.cpp",
         "patchSetId": 3
@@ -394,6 +614,75 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "d6167074_65946794",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41335bec_829db674",
+        "filename": "core/fxge/apple/fx_apple_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "maybe assign point to point in one statement, and then negate the x if required.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1d6d6f6_2133c2e2",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 6
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f325c98c_5a85fd06",
+        "filename": "core/fxge/fx_font.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "class",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 7
+      },
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -476,6 +765,29 @@
     },
     {
       "key": {
+        "uuid": "d3961fe8_9a075ad6",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "new ctor would apply here",
+      "range": {
+        "startLine": 1082,
+        "startChar": 19,
+        "endLine": 1083,
+        "endChar": 47
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2230470_a195f5c8",
         "filename": "core/fxge/win32/dwrite_int.h",
         "patchSetId": 3
@@ -511,6 +823,52 @@
       "side": 1,
       "message": "Leaving for now as then have to make sure include orders are correct.",
       "parentUuid": "c2230470_a195f5c8",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a980ae4_245d91fb",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "this seems very old, given we require c++11, ping bruce about what versions macros actually are in effect for us.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 6
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45650b2_789b8488",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 1,
+      "message": "this is a win32 file, do we even build this for mac? this can probably go .",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 12
+      },
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

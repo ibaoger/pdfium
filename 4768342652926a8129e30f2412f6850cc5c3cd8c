@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "9e043545_e664635a",
+        "filename": "core/fxge/win32/fx_win32_dwrite.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:43:38Z",
+      "side": 0,
+      "message": "how is this cleanup related to the CFX_Point() change?  Can it go separately?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "4768342652926a8129e30f2412f6850cc5c3cd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69895e56_3ec79b33",
         "filename": "core/fxge/win32/win32_int.h",
         "patchSetId": 3
