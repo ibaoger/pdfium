@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d19b3469_c265adef",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T17:41:32Z",
+      "side": 0,
+      "message": "I would be happier if these two were\n\nCFX_Point{F} TransformPoint(const CFX_Point{F}\u0026 pt);",
+      "range": {
+        "startLine": 675,
+        "startChar": 2,
+        "endLine": 676,
+        "endChar": 52
+      },
+      "revId": "9d5fd1de29538ab04c23ec9d11d22683e5c53e43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
