@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc3fc498_82d21756",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-09T19:30:22Z",
+      "side": 0,
+      "message": "This doesn\u0027t seem to ever be used (and has the OriginX, OriginY pattern) so I removed it.",
+      "revId": "4768342652926a8129e30f2412f6850cc5c3cd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
