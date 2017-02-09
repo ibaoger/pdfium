@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7e66e71_f7df0118",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "maybe all 3 of these are \u003d defauit;",
+      "range": {
+        "startLine": 86,
+        "startChar": 36,
+        "endLine": 86,
+        "endChar": 37
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9b0ada_2cd7873e",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "as part of the separare color RGB tuple change, GETRgb shold just return the tuple.",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 21
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa204b0_fa9113db",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "nit: generally, in parameters come before out parameters.",
+      "range": {
+        "startLine": 213,
+        "startChar": 44,
+        "endLine": 213,
+        "endChar": 73
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191b4a8c_ccabf237",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "this should become one of your magic tuples if you do this.",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 13
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "718afa4f_806de0f7",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "can we put this in its own change?  Moving from discrete RGB to tuples seems unrelated.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 51
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4564a65_d4e9a1b7",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-09T20:54:21Z",
+      "side": 1,
+      "message": "this should take a const CFX_PointF",
+      "range": {
+        "startLine": 112,
+        "startChar": 14,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "revId": "7d611a3c48976198fb1af02c03413a64e0ca3acc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
