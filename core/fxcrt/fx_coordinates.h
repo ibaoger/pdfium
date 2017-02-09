@@ -669,6 +669,7 @@ class CFX_Matrix {
   FX_FLOAT TransformDistance(FX_FLOAT distance) const;
 
   void TransformPoint(FX_FLOAT& x, FX_FLOAT& y) const;
+  CFX_PointF Transform(const CFX_PointF& p) const;
 
   void TransformRect(CFX_RectF& rect) const;
   void TransformRect(FX_FLOAT& left,

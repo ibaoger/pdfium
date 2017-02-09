@@ -1,5 +1,3 @@
-# Copyright 2016 The Chromium Authors. All rights reserved.
-# Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
 import("//testing/test.gni")
@@ -907,7 +905,6 @@ static_library("fxge") {
       "core/fxge/win32/dwrite_int.h",
       "core/fxge/win32/fx_win32_device.cpp",
       "core/fxge/win32/fx_win32_dib.cpp",
-      "core/fxge/win32/fx_win32_dwrite.cpp",
       "core/fxge/win32/fx_win32_gdipext.cpp",
       "core/fxge/win32/fx_win32_print.cpp",
       "core/fxge/win32/win32_int.h",

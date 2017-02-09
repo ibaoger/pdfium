@@ -45,12 +45,14 @@ enum class FPDFText_MarkedContent { Pass = 0, Done, Delay };
 enum class FPDFText_Direction { Left = -1, Right = 1 };
 
 struct FPDF_CHAR_INFO {
+  FPDF_CHAR_INFO();
+  ~FPDF_CHAR_INFO();
+
   FX_WCHAR m_Unicode;
   FX_WCHAR m_Charcode;
   int32_t m_Flag;
   FX_FLOAT m_FontSize;
-  FX_FLOAT m_OriginX;
-  FX_FLOAT m_OriginY;
+  CFX_PointF m_Origin;
   CFX_FloatRect m_CharBox;
   CPDF_TextObject* m_pTextObj;
   CFX_Matrix m_Matrix;
@@ -62,10 +64,13 @@ struct FPDF_SEGMENT {
 };
 
 struct PAGECHAR_INFO {
+  PAGECHAR_INFO();
+  PAGECHAR_INFO(const PAGECHAR_INFO&);
+  ~PAGECHAR_INFO();
+
   int m_CharCode;
   FX_WCHAR m_Unicode;
-  FX_FLOAT m_OriginX;
-  FX_FLOAT m_OriginY;
+  CFX_PointF m_Origin;
   int32_t m_Flag;
   CFX_FloatRect m_CharBox;
   CPDF_TextObject* m_pTextObj;

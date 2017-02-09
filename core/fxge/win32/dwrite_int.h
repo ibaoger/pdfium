@@ -26,41 +26,5 @@
 DECLARE_HANDLE(HMONITOR);
 #endif
 #endif
-class CDWriteExt {
- public:
-  CDWriteExt();
-  ~CDWriteExt();
-
-  void Load();
-  void Unload();
-
-  bool IsAvailable() { return !!m_pDWriteFactory; }
-
-  void* DwCreateFontFaceFromStream(uint8_t* pData,
-                                   uint32_t size,
-                                   int simulation_style);
-  bool DwCreateRenderingTarget(CFX_DIBitmap* pSrc, void** renderTarget);
-  void DwDeleteRenderingTarget(void* renderTarget);
-  bool DwRendingString(void* renderTarget,
-                       CFX_ClipRgn* pClipRgn,
-                       FX_RECT& stringRect,
-                       CFX_Matrix* pMatrix,
-                       void* font,
-                       FX_FLOAT font_size,
-                       FX_ARGB text_color,
-                       int glyph_count,
-                       unsigned short* glyph_indices,
-                       FX_FLOAT baselineOriginX,
-                       FX_FLOAT baselineOriginY,
-                       void* glyph_offsets,
-                       FX_FLOAT* glyph_advances);
-  void DwDeleteFont(void* pFont);
-
- protected:
-  void* m_hModule;
-  void* m_pDWriteFactory;
-  void* m_pDwFontContext;
-  void* m_pDwTextRenderer;
-};
 
 #endif  // CORE_FXGE_WIN32_DWRITE_INT_H_
