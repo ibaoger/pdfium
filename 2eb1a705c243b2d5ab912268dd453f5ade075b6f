@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48e3214e_bed1b56b",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-10T19:08:25Z",
+      "side": 0,
+      "message": "This represents an array, but subarrays are passed as input to methods, so changing it is to std::vector properly is not trivial. Possible followup.",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 28
+      },
+      "revId": "2eb1a705c243b2d5ab912268dd453f5ade075b6f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

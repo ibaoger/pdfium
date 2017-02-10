@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adb9a646_75eb0c44",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-10T19:08:25Z",
+      "side": 1,
+      "message": "This will be changed in a followup once the appropriate CFX_Matrix method is ready.",
+      "range": {
+        "startLine": 1281,
+        "startChar": 4,
+        "endLine": 1281,
+        "endChar": 20
+      },
+      "revId": "f225a86eb8c71510666e80c16e9a441088901177",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3b3baec_89c3e058",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-10T19:08:25Z",
+      "side": 1,
+      "message": "This method is being cleaned up a bit in dsinclair@ CL, leaving as is here.",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "f225a86eb8c71510666e80c16e9a441088901177",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eac31937_cbc33399",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-10T19:08:25Z",
+      "side": 1,
+      "message": "if still needed (similar below) because we don\u0027t check for invalid charcode here. Don\u0027t want to change the behaviour in this CL.",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 4
+      },
+      "revId": "f225a86eb8c71510666e80c16e9a441088901177",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
