@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f0fdb2f_3e9f9176",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-10T22:00:31Z",
+      "side": 1,
+      "message": "seems like a silly optimization unless we really want to treat a single kInvlaidCharCode value as valid.",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d335ec0a_6beeb64d",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-10T22:00:31Z",
+      "side": 1,
+      "message": "Same thing.  We\u0027re no longer making the optimization avoiding vector(1), so I think this can go, too.\n\nDid we ever settle the question of how much bloat this introduced?  Are they always one element?",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a42d8992_d4352563",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-10T22:00:31Z",
+      "side": 1,
+      "message": "nit: no need for blank line before this one",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecafbc0a_38ceb19d",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-10T22:00:31Z",
+      "side": 1,
+      "message": "or just \u0027 \u0027 since space is decimal 32.",
+      "range": {
+        "startLine": 264,
+        "startChar": 63,
+        "endLine": 264,
+        "endChar": 65
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b9d2853_d8f08279",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-10T22:00:31Z",
+      "side": 1,
+      "message": ".empty()",
+      "range": {
+        "startLine": 1674,
+        "startChar": 0,
+        "endLine": 1674,
+        "endChar": 39
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
