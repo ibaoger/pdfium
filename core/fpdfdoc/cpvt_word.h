@@ -17,7 +17,7 @@ struct CPVT_Word {
   uint16_t Word;
   int32_t nCharset;
   CPVT_WordPlace WordPlace;
-  CFX_FloatPoint ptWord;
+  CFX_PointF ptWord;
   FX_FLOAT fAscent;
   FX_FLOAT fDescent;
   FX_FLOAT fWidth;
