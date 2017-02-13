@@ -34,6 +34,24 @@
       "revId": "da385bcd639fe9288e5eb8a73ff8d85040884c64",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e9f58de_fac1b1f4",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T19:31:20Z",
+      "side": 1,
+      "message": "Right. Can i be size_t to make this simpler?",
+      "parentUuid": "48f7c138_83368499",
+      "revId": "da385bcd639fe9288e5eb8a73ff8d85040884c64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
