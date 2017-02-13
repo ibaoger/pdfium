@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63c67326_cda1ce36",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T19:21:29Z",
+      "side": 1,
+      "message": "This can read off the end of the list, no?",
+      "revId": "da385bcd639fe9288e5eb8a73ff8d85040884c64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
