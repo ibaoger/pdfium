@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09b1381b_3bcbd32d",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ecb229c_1b823222",
+      "range": {
+        "startLine": 1072,
+        "startChar": 4,
+        "endLine": 1072,
+        "endChar": 33
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53045e05_b1cc19a9",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec6e4685_d0f2492f",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53045e05_b1cc19a9",
+      "range": {
+        "startLine": 1369,
+        "startChar": 56,
+        "endLine": 1369,
+        "endChar": 57
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "18111937_5be369de",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f4b00c8_37144324",
+      "range": {
+        "startLine": 1413,
+        "startChar": 4,
+        "endLine": 1413,
+        "endChar": 42
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ce87547_1473eb62",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-13T19:53:40Z",
       "side": 1,
       "message": "The three ifs could be merged into a single, with ||. Up to you.",
+      "range": {
+        "startLine": 1420,
+        "startChar": 6,
+        "endLine": 1420,
+        "endChar": 8
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7810246_dc2ba2af",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ce87547_1473eb62",
       "range": {
         "startLine": 1420,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5925f3e3_8f23ec31",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c10c773e_19655889",
+      "range": {
+        "startLine": 1475,
+        "startChar": 2,
+        "endLine": 1475,
+        "endChar": 4
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2429eabb_3977585d",
         "filename": "core/fxcrt/fx_basic_coords.cpp",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2017-02-13T19:53:40Z",
       "side": 1,
       "message": "Followup: Remove this type in favor of CFX_PointF",
+      "range": {
+        "startLine": 200,
+        "startChar": 35,
+        "endLine": 200,
+        "endChar": 49
+      },
+      "revId": "dfe089e4c3b81e6a160ca21985584dc61f0d8689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47023cd_bde2fc1a",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T20:30:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2429eabb_3977585d",
       "range": {
         "startLine": 200,
         "startChar": 35,
