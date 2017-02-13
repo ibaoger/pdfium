@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "29d1fc9e_f36c0e60",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "249d0c2a_fe22f312",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4abc9238_86c0dfa0",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 3
@@ -137,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "96b83c08_1c2c7211",
+        "filename": "core/fpdfapi/page/cpdf_textobject.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eabe2afd_5645e74f",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe4eb1a9_cf8cb657",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 3
@@ -154,6 +190,24 @@
         "endLine": 2003,
         "endChar": 28
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1046040a_56dc1908",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2003,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "I\u0027m not seeing that many on a quick scan. Don\u0027t think it\u0027s worth it at this point.",
+      "parentUuid": "fe4eb1a9_cf8cb657",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -183,6 +237,24 @@
     },
     {
       "key": {
+        "uuid": "101b9fb2_3376bcd2",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a6c581_64cef767",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "999e605c_013c9956",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 3
@@ -203,6 +275,24 @@
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "187cb629_da1c502a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "999e605c_013c9956",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -282,6 +372,24 @@
       "side": 1,
       "message": "Yes, use it but double check for (point point) vs (point size) constructions.",
       "parentUuid": "d7c5433e_981878f2",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c27caf5_089844f4",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d1c141d3_e642a2bc",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -510,6 +618,24 @@
     },
     {
       "key": {
+        "uuid": "01510475_839ba4d4",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bdba4b1_9648217f",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bc0758c_566f50da",
         "filename": "core/fpdftext/cpdf_textpage.h",
         "patchSetId": 3
@@ -574,6 +700,24 @@
     },
     {
       "key": {
+        "uuid": "cd53f03c_42d7540d",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59f35478_076d83d0",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efa627f0_6e5cbed0",
         "filename": "core/fxcrt/fx_basic_coords.cpp",
         "patchSetId": 3
@@ -591,6 +735,24 @@
         "endLine": 373,
         "endChar": 31
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d5ba571_9f5d126b",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efa627f0_6e5cbed0",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -661,6 +823,24 @@
     },
     {
       "key": {
+        "uuid": "33214b77_eb14a70e",
+        "filename": "core/fxge/apple/fx_apple_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41335bec_829db674",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1d6d6f6_2133c2e2",
         "filename": "core/fxge/cfx_renderdevice.h",
         "patchSetId": 3
@@ -684,6 +864,24 @@
     },
     {
       "key": {
+        "uuid": "81db5d00_dc610507",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1d6d6f6_2133c2e2",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f325c98c_5a85fd06",
         "filename": "core/fxge/fx_font.h",
         "patchSetId": 3
@@ -704,6 +902,24 @@
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "259035a4_12d3a285",
+        "filename": "core/fxge/fx_font.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f325c98c_5a85fd06",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -806,6 +1022,24 @@
     },
     {
       "key": {
+        "uuid": "84b61ed2_347e58d2",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d3961fe8_9a075ad6",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2230470_a195f5c8",
         "filename": "core/fxge/win32/dwrite_int.h",
         "patchSetId": 3
@@ -870,6 +1104,24 @@
     },
     {
       "key": {
+        "uuid": "fb0900f7_4097277d",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a980ae4_245d91fb",
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b45650b2_789b8488",
         "filename": "core/fxge/win32/dwrite_int.h",
         "patchSetId": 3
@@ -887,6 +1139,24 @@
         "endLine": 25,
         "endChar": 12
       },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1acf182d_696a2606",
+        "filename": "core/fxge/win32/dwrite_int.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T15:38:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b45650b2_789b8488",
       "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
