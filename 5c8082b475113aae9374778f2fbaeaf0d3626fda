@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "628c7ce0_23ecd44f",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T15:41:19Z",
+      "side": 1,
+      "message": "I did mention I wanted to keep for now to avoid change in behavior in this CL. But fine, let\u0027s see how it goes.",
+      "parentUuid": "9f0fdb2f_3e9f9176",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d335ec0a_6beeb64d",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-10T22:00:31Z",
       "side": 1,
       "message": "Same thing.  We\u0027re no longer making the optimization avoiding vector(1), so I think this can go, too.\n\nDid we ever settle the question of how much bloat this introduced?  Are they always one element?",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa95abcb_09d1c22b",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T15:41:19Z",
+      "side": 1,
+      "message": "As a simple test, I ran on the first 5 examples in testing/corpus and found 10 out of 208 calls to DrawNormalText had nChars\u003d\u003d1.",
+      "parentUuid": "d335ec0a_6beeb64d",
       "range": {
         "startLine": 64,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "794a0a0c_a235aae4",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T15:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42d8992_d4352563",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecafbc0a_38ceb19d",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "855c0d5c_91f5cbb3",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T15:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecafbc0a_38ceb19d",
+      "range": {
+        "startLine": 264,
+        "startChar": 63,
+        "endLine": 264,
+        "endChar": 65
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b9d2853_d8f08279",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed064a6_ca8e40a5",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T15:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b9d2853_d8f08279",
+      "range": {
+        "startLine": 1674,
+        "startChar": 0,
+        "endLine": 1674,
+        "endChar": 39
+      },
+      "revId": "5c8082b475113aae9374778f2fbaeaf0d3626fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
