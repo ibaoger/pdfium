@@ -347,7 +347,8 @@ bool ShouldDrawDeviceText(const CFX_Font* pFont, uint32_t text_flags) {
 }  // namespace
 
 FXTEXT_CHARPOS::FXTEXT_CHARPOS()
-    : m_GlyphIndex(0),
+    : m_AdjustMatrix{0, 0, 0, 0},
+      m_GlyphIndex(0),
       m_FontCharWidth(0),
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
       m_ExtGID(0),
