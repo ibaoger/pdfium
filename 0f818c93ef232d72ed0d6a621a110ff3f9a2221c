@@ -68,6 +68,30 @@
       "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f1d1ab0_19f9a7a6",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-13T20:14:39Z",
+      "side": 1,
+      "message": "brace-initialization may help here (and the array above).",
+      "parentUuid": "adde964f_8258b780",
+      "range": {
+        "startLine": 1669,
+        "startChar": 16,
+        "endLine": 1669,
+        "endChar": 25
+      },
+      "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
