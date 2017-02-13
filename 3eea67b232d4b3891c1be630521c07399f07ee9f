@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a01342e_114602da",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T22:08:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b55c6028_530f9ef3",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "3eea67b232d4b3891c1be630521c07399f07ee9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a6dc18d_0999f2ad",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-02-13T21:09:15Z",
       "side": 1,
       "message": "Can this be PDF_EncodeString..., true)?",
+      "revId": "3eea67b232d4b3891c1be630521c07399f07ee9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3e2417d_3c2e5e1a",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T22:08:39Z",
+      "side": 1,
+      "message": "You mean instead of AddCharToHex? Done",
+      "parentUuid": "3a6dc18d_0999f2ad",
       "revId": "3eea67b232d4b3891c1be630521c07399f07ee9f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
