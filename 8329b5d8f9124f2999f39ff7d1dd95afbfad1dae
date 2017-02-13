@@ -841,6 +841,30 @@
     },
     {
       "key": {
+        "uuid": "aee7ba8e_a476b711",
+        "filename": "core/fxge/apple/fx_apple_platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T19:06:22Z",
+      "side": 1,
+      "message": "I put this back as glyph_positions is  a CGPoint not one of our points and this seems like it\u0027s the best way to do this.",
+      "parentUuid": "33214b77_eb14a70e",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "8329b5d8f9124f2999f39ff7d1dd95afbfad1dae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1d6d6f6_2133c2e2",
         "filename": "core/fxge/cfx_renderdevice.h",
         "patchSetId": 3
