@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b55c6028_530f9ef3",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-13T21:28:45Z",
+      "side": 1,
+      "message": "nul-termination ?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "3eea67b232d4b3891c1be630521c07399f07ee9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a6dc18d_0999f2ad",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 1
