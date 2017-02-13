@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23c94f0b_aa5d3c11",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d362932f_0b5a5fd4",
+      "range": {
+        "startLine": 172,
+        "startChar": 55,
+        "endLine": 172,
+        "endChar": 61
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "775af4b9_aae6ea93",
         "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-09T20:54:05Z",
       "side": 1,
       "message": "Followup: this should similarly return the rgb",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 17
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c4bfce_ebb53154",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "775af4b9_aae6ea93",
       "range": {
         "startLine": 196,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "751b7425_a41ea82a",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "We access them in various places, having them as r,g,b in the vertex makes the access .r, .g, .b instead of color[0], colour[1], colour[2] which I think is  a lot clearer.\n\nWe don\u0027t actually have a CFX_Color class outside of XFA, we\u0027d have to encode/decode into a FX_RGBA int which is annoying.",
+      "parentUuid": "31098e66_f75ee6d0",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 10
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25b79312_dbe4a173",
         "filename": "core/fpdfapi/page/cpdf_meshstream.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "cf500162_b024a135",
+        "filename": "core/fpdfapi/page/cpdf_meshstream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25b79312_dbe4a173",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6f8eae6_02133129",
         "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2017-02-09T20:54:05Z",
       "side": 1,
       "message": "Followup: Use point here",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51898291_8a880108",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c6f8eae6_02133129",
       "range": {
         "startLine": 112,
         "startChar": 13,
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "f62f0d94_2d2544c5",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0c35250_86a1157d",
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24386ca6_e38ac2e6",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 2
@@ -145,6 +283,30 @@
       "writtenOn": "2017-02-09T20:54:05Z",
       "side": 1,
       "message": "Merge the two if\u0027s",
+      "range": {
+        "startLine": 378,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 6
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "886a68dd_4f22f4f7",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Can\u0027t because of the else.",
+      "parentUuid": "24386ca6_e38ac2e6",
       "range": {
         "startLine": 378,
         "startChar": 2,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "d3e86cd8_ea90c529",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f856a6c9_030f14a6",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 382,
+        "endChar": 6
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6a16495_c64c0033",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 2
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "9780d8b2_4762e977",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6a16495_c64c0033",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 409,
+        "endChar": 12
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c85b27ef_22a2d997",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 2
@@ -223,6 +433,30 @@
       "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0b5e0f_f4439d6b",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-13T18:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85b27ef_22a2d997",
+      "range": {
+        "startLine": 413,
+        "startChar": 18,
+        "endLine": 413,
+        "endChar": 25
+      },
+      "revId": "91de7cf96b2f6c2456ec3c40846c2b0286fc552b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
