@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4af141b_86394d47",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T20:09:55Z",
+      "side": 1,
+      "message": "This could be an array of size 4 (and we can just have a for loop here).",
+      "range": {
+        "startLine": 931,
+        "startChar": 11,
+        "endLine": 931,
+        "endChar": 18
+      },
+      "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd6d05e_d61649de",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T20:09:55Z",
+      "side": 1,
+      "message": "And another here",
+      "range": {
+        "startLine": 938,
+        "startChar": 11,
+        "endLine": 938,
+        "endChar": 18
+      },
+      "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adde964f_8258b780",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-13T20:09:55Z",
+      "side": 1,
+      "message": "It could be useful to improve the appearance of this array description. \"CPWL_PathData(CFX_PointF\" all the time is not very useful and makes the indenting very hard to read IMO.",
+      "range": {
+        "startLine": 1669,
+        "startChar": 16,
+        "endLine": 1669,
+        "endChar": 25
+      },
+      "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
