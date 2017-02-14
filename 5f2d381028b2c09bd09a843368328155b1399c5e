@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c162f571_93c3ff7c",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-14T23:16:02Z",
+      "side": 0,
+      "message": "Why does this free everything when the allocCount has been passed? I don\u0027t get it. I\u0027m assuming this was right before because we only used this at the beginning or to trim, yea?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "5f2d381028b2c09bd09a843368328155b1399c5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
