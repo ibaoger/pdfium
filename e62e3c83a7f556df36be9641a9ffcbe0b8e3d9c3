@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aea246ac_8de76f12",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-14T21:14:01Z",
+      "side": 1,
+      "message": "I\u0027d write it out long form, eg std::vector\u003cFX_PathPoint\u003e\u0026 because the type information isn\u0027t already present elsewhere on the same line, and its not so insanely complicated to want to hide it like with iterators.",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 8
+      },
+      "revId": "e62e3c83a7f556df36be9641a9ffcbe0b8e3d9c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93ecec72_be484679",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-14T21:14:01Z",
+      "side": 1,
+      "message": "maybe buf should learn how to output FX_PathPoints to itself?  but layering seems icky.",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 63
+      },
+      "revId": "e62e3c83a7f556df36be9641a9ffcbe0b8e3d9c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

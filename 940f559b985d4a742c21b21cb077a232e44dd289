@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e9c75f_65b19907",
+        "filename": "core/fpdfapi/page/cpdf_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-14T21:14:01Z",
+      "side": 0,
+      "message": "I think we may need to keep the shared copy on write behavior intact between getting readable shared vs writable private copies.",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "940f559b985d4a742c21b21cb077a232e44dd289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
