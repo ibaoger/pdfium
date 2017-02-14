@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7f7f7a2d_3834dfde",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-14T20:46:43Z",
+      "side": 1,
+      "message": "The meaning depends on the colortype, I think.",
+      "parentUuid": "ee0b0adf_46ace3b9",
+      "range": {
+        "startLine": 931,
+        "startChar": 11,
+        "endLine": 931,
+        "endChar": 18
+      },
+      "revId": "0f818c93ef232d72ed0d6a621a110ff3f9a2221c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "abd6d05e_d61649de",
         "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
         "patchSetId": 1
