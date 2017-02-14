@@ -318,3 +318,60 @@ TEST_F(FPDFEditEmbeddertest, AddStrokedPaths) {
   FPDF_ClosePage(page);
   FPDF_CloseDocument(doc);
 }
+
+TEST_F(FPDFEditEmbeddertest, AddStandardFontText) {
+  // Start with a blank page
+  FPDF_DOCUMENT doc = FPDF_CreateNewDocument();
+  FPDF_PAGE page = FPDFPage_New(doc, 0, 612, 792);
+
+  // Add some additional text in the page
+  FPDF_PAGEOBJECT text1 = FPDFPageObj_NewTextObj(doc, "Arial", 12.0f);
+  EXPECT_TRUE(text1);
+  EXPECT_TRUE(FPDFText_SetText(text1, "I'm at the bottom of the page"));
+  FPDFPageObj_Transform(text1, 1, 0, 0, 1, 20, 20);
+  FPDFPage_InsertObject(page, text1);
+  EXPECT_TRUE(FPDFPage_GenerateContent(page));
+  FPDF_BITMAP page_bitmap = RenderPage(page);
+  CompareBitmap(page_bitmap, 612, 792, "7c3a36ba7cec01688a16a14bfed9ecfc");
+  FPDFBitmap_Destroy(page_bitmap);
+
+  // Try another font
+  FPDF_PAGEOBJECT text2 =
+      FPDFPageObj_NewTextObj(doc, "TimesNewRomanBold", 15.0f);
+  EXPECT_TRUE(text2);
+  EXPECT_TRUE(FPDFText_SetText(text2, "Hi, I'm Bold. Times New Roman Bold."));
+  FPDFPageObj_Transform(text2, 1, 0, 0, 1, 100, 600);
+  FPDFPage_InsertObject(page, text2);
+  EXPECT_TRUE(FPDFPage_GenerateContent(page));
+  page_bitmap = RenderPage(page);
+  CompareBitmap(page_bitmap, 612, 792, "e0e0873e3a2634a6394a431a51ce90ff");
+  FPDFBitmap_Destroy(page_bitmap);
+
+  // And some randomly transformed
+  FPDF_PAGEOBJECT text3 = FPDFPageObj_NewTextObj(doc, "Courier-Bold", 20.0f);
+  EXPECT_TRUE(text3);
+  EXPECT_TRUE(FPDFText_SetText(text3, "Can you read me? <:)>"));
+  FPDFPageObj_Transform(text3, 1, 1.5, 2, 0.5, 200, 200);
+  FPDFPage_InsertObject(page, text3);
+  EXPECT_TRUE(FPDFPage_GenerateContent(page));
+  page_bitmap = RenderPage(page);
+  CompareBitmap(page_bitmap, 612, 792, "903ee10b6a9f0be51ecad0a1a0eeb171");
+  FPDFBitmap_Destroy(page_bitmap);
+
+  // TODO(npm): Why do pdfium_test and embeddertest give differnt md5s for text
+  // rotated by 90 degrees?
+  FPDF_PAGEOBJECT text4 =
+      FPDFPageObj_NewTextObj(doc, "TimesNewRomanBold", 13.0f);
+  EXPECT_TRUE(text4);
+  EXPECT_TRUE(FPDFText_SetText(text4, "Rotated Text WEE! 90 degrees"));
+  FPDFPageObj_Transform(text4, 0, -1, 1, 0, 580, 700);
+  FPDFPage_InsertObject(page, text4);
+  EXPECT_TRUE(FPDFPage_GenerateContent(page));
+  page_bitmap = RenderPage(page);
+  CompareBitmap(page_bitmap, 612, 792, "f48431e538764ef5ee18aabbfa337a9a");
+  FPDFBitmap_Destroy(page_bitmap);
+
+  // TODO(npm): FPDF_SaveAsCopy not giving the desired result after this.
+  FPDF_ClosePage(page);
+  FPDF_CloseDocument(doc);
+}
