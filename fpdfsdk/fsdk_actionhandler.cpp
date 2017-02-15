@@ -14,7 +14,7 @@
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/cpdfsdk_interform.h"
 #include "fpdfsdk/fsdk_define.h"
-#include "fpdfsdk/javascript/ijs_context.h"
+#include "fpdfsdk/javascript/ijs_event_context.h"
 #include "fpdfsdk/javascript/ijs_runtime.h"
 #include "third_party/base/stl_util.h"
 
@@ -157,7 +157,7 @@ bool CPDFSDK_ActionHandler::ExecuteLinkAction(
       CFX_WideString swJS = action.GetJavaScript();
       if (!swJS.IsEmpty()) {
         IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-        IJS_Context* pContext = pRuntime->NewContext();
+        IJS_EventContext* pContext = pRuntime->NewContext();
         pContext->OnLink_MouseUp(pFormFillEnv);
 
         CFX_WideString csInfo;
@@ -282,7 +282,7 @@ bool CPDFSDK_ActionHandler::ExecuteScreenAction(
       CFX_WideString swJS = action.GetJavaScript();
       if (!swJS.IsEmpty()) {
         IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-        IJS_Context* pContext = pRuntime->NewContext();
+        IJS_EventContext* pContext = pRuntime->NewContext();
         CFX_WideString csInfo;
         bool bRet = pContext->RunScript(swJS, &csInfo);
         if (!bRet) {
@@ -322,7 +322,7 @@ bool CPDFSDK_ActionHandler::ExecuteBookMark(
       CFX_WideString swJS = action.GetJavaScript();
       if (!swJS.IsEmpty()) {
         IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-        IJS_Context* pContext = pRuntime->NewContext();
+        IJS_EventContext* pContext = pRuntime->NewContext();
         pContext->OnBookmark_MouseUp(pBookmark);
 
         CFX_WideString csInfo;
@@ -478,7 +478,7 @@ void CPDFSDK_ActionHandler::RunFieldJavaScript(
   ASSERT(type != CPDF_AAction::Format);
 
   IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-  IJS_Context* pContext = pRuntime->NewContext();
+  IJS_EventContext* pContext = pRuntime->NewContext();
   switch (type) {
     case CPDF_AAction::CursorEnter:
       pContext->OnField_MouseEnter(data.bModifier, data.bShift, pFormField);
@@ -530,7 +530,7 @@ void CPDFSDK_ActionHandler::RunDocumentOpenJavaScript(
     const CFX_WideString& sScriptName,
     const CFX_WideString& script) {
   IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-  IJS_Context* pContext = pRuntime->NewContext();
+  IJS_EventContext* pContext = pRuntime->NewContext();
   pContext->OnDoc_Open(pFormFillEnv, sScriptName);
 
   CFX_WideString csInfo;
@@ -547,7 +547,7 @@ void CPDFSDK_ActionHandler::RunDocumentPageJavaScript(
     CPDF_AAction::AActionType type,
     const CFX_WideString& script) {
   IJS_Runtime* pRuntime = pFormFillEnv->GetJSRuntime();
-  IJS_Context* pContext = pRuntime->NewContext();
+  IJS_EventContext* pContext = pRuntime->NewContext();
   switch (type) {
     case CPDF_AAction::OpenPage:
       pContext->OnPage_Open(pFormFillEnv);

@@ -18,7 +18,7 @@
 #include "fpdfsdk/javascript/JS_Object.h"
 #include "fpdfsdk/javascript/JS_Value.h"
 #include "fpdfsdk/javascript/PublicMethods.h"
-#include "fpdfsdk/javascript/cjs_context.h"
+#include "fpdfsdk/javascript/cjs_event_context.h"
 #include "fpdfsdk/javascript/cjs_runtime.h"
 #include "fpdfsdk/javascript/resource.h"
 
@@ -114,7 +114,7 @@ util::util(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}
 
 util::~util() {}
 
-bool util::printf(IJS_Context* cc,
+bool util::printf(IJS_EventContext* cc,
                   const std::vector<CJS_Value>& params,
                   CJS_Value& vRet,
                   CFX_WideString& sError) {
@@ -177,7 +177,7 @@ bool util::printf(IJS_Context* cc,
   return true;
 }
 
-bool util::printd(IJS_Context* cc,
+bool util::printd(IJS_EventContext* cc,
                   const std::vector<CJS_Value>& params,
                   CJS_Value& vRet,
                   CFX_WideString& sError) {
@@ -307,7 +307,7 @@ bool util::printd(IJS_Context* cc,
   return false;
 }
 
-bool util::printx(IJS_Context* cc,
+bool util::printx(IJS_EventContext* cc,
                   const std::vector<CJS_Value>& params,
                   CJS_Value& vRet,
                   CFX_WideString& sError) {
@@ -425,7 +425,7 @@ CFX_WideString util::printx(const CFX_WideString& wsFormat,
   return wsResult;
 }
 
-bool util::scand(IJS_Context* cc,
+bool util::scand(IJS_EventContext* cc,
                  const std::vector<CJS_Value>& params,
                  CJS_Value& vRet,
                  CFX_WideString& sError) {
@@ -450,7 +450,7 @@ bool util::scand(IJS_Context* cc,
   return true;
 }
 
-bool util::byteToChar(IJS_Context* cc,
+bool util::byteToChar(IJS_EventContext* cc,
                       const std::vector<CJS_Value>& params,
                       CJS_Value& vRet,
                       CFX_WideString& sError) {

@@ -70,7 +70,8 @@ struct JSMethodSpec {
   }                            \
   ;  // NOLINT
 
-template <class C, bool (C::*M)(IJS_Context*, CJS_PropValue&, CFX_WideString&)>
+template <class C,
+          bool (C::*M)(IJS_EventContext*, CJS_PropValue&, CFX_WideString&)>
 void JSPropGetter(const char* prop_name_string,
                   const char* class_name_string,
                   v8::Local<v8::String> property,
@@ -93,7 +94,8 @@ void JSPropGetter(const char* prop_name_string,
   info.GetReturnValue().Set(value.GetJSValue()->ToV8Value(pRuntime));
 }
 
-template <class C, bool (C::*M)(IJS_Context*, CJS_PropValue&, CFX_WideString&)>
+template <class C,
+          bool (C::*M)(IJS_EventContext*, CJS_PropValue&, CFX_WideString&)>
 void JSPropSetter(const char* prop_name_string,
                   const char* class_name_string,
                   v8::Local<v8::String> property,
@@ -130,7 +132,7 @@ void JSPropSetter(const char* prop_name_string,
   }
 
 template <class C,
-          bool (C::*M)(IJS_Context*,
+          bool (C::*M)(IJS_EventContext*,
                        const std::vector<CJS_Value>&,
                        CJS_Value&,
                        CFX_WideString&)>
@@ -430,7 +432,7 @@ void JSSpecialPropDel(const char* class_name,
   }
 }
 
-template <bool (*F)(IJS_Context*,
+template <bool (*F)(IJS_EventContext*,
                     const std::vector<CJS_Value>&,
                     CJS_Value&,
                     CFX_WideString&)>
