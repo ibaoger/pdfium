@@ -18,7 +18,7 @@ class CPDFSDK_FormFillEnvironment;
 class CPDFXFA_Page;
 class CXFA_FFDocHandler;
 class IJS_Runtime;
-class IJS_Context;
+class IJS_EventContext;
 
 enum LoadStatus {
   FXFA_LOADSTATUS_PRELOAD = 0,
