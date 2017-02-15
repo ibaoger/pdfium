@@ -15,8 +15,10 @@ class CPDF_FormField;
 class CPDFSDK_Annot;
 class CPDFSDK_FormFillEnvironment;
 
-// Records the details of an event and triggers JS execution for it.
-class IJS_Context {
+// Records the details of an event and triggers JS execution for it. There can
+// be several of these at any time as JS may trigger new events on top of this
+// one.
+class IJS_EventContext {
  public:
   virtual bool RunScript(const CFX_WideString& script,
                          CFX_WideString* info) = 0;
@@ -126,7 +128,7 @@ class IJS_Context {
   virtual void OnExternal_Exec() = 0;
 
  protected:
-  virtual ~IJS_Context() {}
+  virtual ~IJS_EventContext() {}
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_IJS_CONTEXT_H_

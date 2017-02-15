@@ -17,12 +17,12 @@ class CJS_EventHandler;
 class CJS_Runtime;
 class CPDFSDK_FormFillEnvironment;
 
-class CJS_Context : public IJS_Context {
+class CJS_EventContext : public IJS_EventContext {
  public:
-  explicit CJS_Context(CJS_Runtime* pRuntime);
-  ~CJS_Context() override;
+  explicit CJS_EventContext(CJS_Runtime* pRuntime);
+  ~CJS_EventContext() override;
 
-  // IJS_Context
+  // IJS_EventContext
   bool RunScript(const CFX_WideString& script, CFX_WideString* info) override;
   void OnApp_Init() override;
   void OnDoc_Open(CPDFSDK_FormFillEnvironment* pFormFillEnv,
