@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58be76f4_e5b5298d",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T15:20:25Z",
+      "side": 0,
+      "message": "This seems really bad. It\u0027s wiping out the object2Device matrix for pretty much everything after this is called. I removed the side effect and return a bool instead.",
+      "revId": "8a60a82a6cfd9ca024ee2f5a76bfafc37f67a68a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
