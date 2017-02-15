@@ -14,7 +14,7 @@
 #include "fpdfsdk/javascript/cjs_context.h"
 #include "fpdfsdk/javascript/cjs_runtime.h"
 
-CJS_EventHandler::CJS_EventHandler(CJS_Context* pContext)
+CJS_EventHandler::CJS_EventHandler(CJS_EventContext* pContext)
     : m_pJSContext(pContext),
       m_eEventType(JET_UNKNOWN),
       m_bValid(false),

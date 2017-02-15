@@ -253,7 +253,7 @@ void CPDFSDK_InterForm::OnCalculate(CPDF_FormField* pFormField) {
     if (csJS.IsEmpty())
       continue;
 
-    IJS_Context* pContext = pRuntime->NewContext();
+    IJS_EventContext* pContext = pRuntime->NewContext();
     CFX_WideString sOldValue = pField->GetValue();
     CFX_WideString sValue = sOldValue;
     bool bRC = true;
@@ -296,7 +296,7 @@ CFX_WideString CPDFSDK_InterForm::OnFormat(CPDF_FormField* pFormField,
       if (!script.IsEmpty()) {
         CFX_WideString Value = sValue;
 
-        IJS_Context* pContext = pRuntime->NewContext();
+        IJS_EventContext* pContext = pRuntime->NewContext();
         pContext->OnField_Format(pFormField, Value, true);
         CFX_WideString sInfo;
         bool bRet = pContext->RunScript(script, &sInfo);

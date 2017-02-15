@@ -51,8 +51,8 @@ IJS_Runtime* IJS_Runtime::Create(CPDFSDK_FormFillEnvironment* pFormFillEnv) {
 }
 
 // static
-CJS_Runtime* CJS_Runtime::FromContext(const IJS_Context* cc) {
-  const CJS_Context* pContext = static_cast<const CJS_Context*>(cc);
+CJS_Runtime* CJS_Runtime::FromContext(const IJS_EventContext* cc) {
+  const CJS_EventContext* pContext = static_cast<const CJS_EventContext*>(cc);
   return pContext->GetJSRuntime();
 }
 
@@ -89,7 +89,7 @@ CJS_Runtime::CJS_Runtime(CPDFSDK_FormFillEnvironment* pFormFillEnv)
   if (m_isolateManaged || FXJS_GlobalIsolateRefCount() == 0)
     DefineJSObjects();
 
-  CJS_Context* pContext = (CJS_Context*)NewContext();
+  CJS_EventContext* pContext = (CJS_EventContext*)NewContext();
   InitializeEngine();
   ReleaseContext(pContext);
 
@@ -153,21 +153,22 @@ void CJS_Runtime::DefineJSObjects() {
   CJS_Annot::DefineJSObjects(this, FXJSOBJTYPE_DYNAMIC);
 }
 
-IJS_Context* CJS_Runtime::NewContext() {
-  m_ContextArray.push_back(std::unique_ptr<CJS_Context>(new CJS_Context(this)));
+IJS_EventContext* CJS_Runtime::NewContext() {
+  m_ContextArray.push_back(
+      std::unique_ptr<CJS_EventContext>(new CJS_EventContext(this)));
   return m_ContextArray.back().get();
 }
 
-void CJS_Runtime::ReleaseContext(IJS_Context* pContext) {
+void CJS_Runtime::ReleaseContext(IJS_EventContext* pContext) {
   for (auto it = m_ContextArray.begin(); it != m_ContextArray.end(); ++it) {
-    if (it->get() == static_cast<CJS_Context*>(pContext)) {
+    if (it->get() == static_cast<CJS_EventContext*>(pContext)) {
       m_ContextArray.erase(it);
       return;
     }
   }
 }
 
-IJS_Context* CJS_Runtime::GetCurrentContext() {
+IJS_EventContext* CJS_Runtime::GetCurrentContext() {
   return m_ContextArray.empty() ? nullptr : m_ContextArray.back().get();
 }
 

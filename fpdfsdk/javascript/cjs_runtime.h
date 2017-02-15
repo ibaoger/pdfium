@@ -19,7 +19,7 @@
 #include "fpdfsdk/javascript/ijs_runtime.h"
 #include "fxjs/fxjs_v8.h"
 
-class CJS_Context;
+class CJS_EventContext;
 
 class CJS_Runtime : public IJS_Runtime,
                     public CFXJS_Engine,
@@ -27,16 +27,16 @@ class CJS_Runtime : public IJS_Runtime,
  public:
   using FieldEvent = std::pair<CFX_WideString, JS_EVENT_T>;
 
-  static CJS_Runtime* FromContext(const IJS_Context* cc);
+  static CJS_Runtime* FromContext(const IJS_EventContext* cc);
   static CJS_Runtime* CurrentRuntimeFromIsolate(v8::Isolate* pIsolate);
 
   explicit CJS_Runtime(CPDFSDK_FormFillEnvironment* pFormFillEnv);
   ~CJS_Runtime() override;
 
   // IJS_Runtime
-  IJS_Context* NewContext() override;
-  void ReleaseContext(IJS_Context* pContext) override;
-  IJS_Context* GetCurrentContext() override;
+  IJS_EventContext* NewContext() override;
+  void ReleaseContext(IJS_EventContext* pContext) override;
+  IJS_EventContext* GetCurrentContext() override;
 
   CPDFSDK_FormFillEnvironment* GetFormFillEnv() const override;
 
@@ -62,7 +62,7 @@ class CJS_Runtime : public IJS_Runtime,
   void DefineJSObjects();
   void SetFormFillEnvToDocument();
 
-  std::vector<std::unique_ptr<CJS_Context>> m_ContextArray;
+  std::vector<std::unique_ptr<CJS_EventContext>> m_ContextArray;
   CPDFSDK_FormFillEnvironment* const m_pFormFillEnv;
   bool m_bBlocking;
   bool m_isolateManaged;
