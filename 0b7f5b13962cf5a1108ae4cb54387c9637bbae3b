@@ -94,6 +94,52 @@
     },
     {
       "key": {
+        "uuid": "7d4d5376_9975c184",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-15T21:14:22Z",
+      "side": 1,
+      "message": "Why not use Transform here?",
+      "range": {
+        "startLine": 784,
+        "startChar": 24,
+        "endLine": 784,
+        "endChar": 38
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1a4eb60_603505a9",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-15T21:14:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 785,
+        "startChar": 18,
+        "endLine": 785,
+        "endChar": 32
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d6ba44f_7daae5c6",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 2
@@ -133,6 +179,29 @@
         "startChar": 2,
         "endLine": 378,
         "endChar": 34
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c68b777_3bfcf75b",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-15T21:14:22Z",
+      "side": 1,
+      "message": "Is it really better to have it this way considering we\u0027re generally doing just:\npoint \u003d matrix.Transform(point)?",
+      "range": {
+        "startLine": 384,
+        "startChar": 23,
+        "endLine": 384,
+        "endChar": 32
       },
       "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
