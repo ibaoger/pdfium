@@ -13,9 +13,9 @@
 BEGIN_JS_STATIC_CONST(CJS_Icon)
 END_JS_STATIC_CONST()
 
-BEGIN_JS_STATIC_PROP(CJS_Icon)
-JS_STATIC_PROP_ENTRY(name)
-END_JS_STATIC_PROP()
+JSPropertySpec CJS_Icon::PropertySpecs[] = {
+    {L"name", get_name_static, set_name_static},
+    {0, 0, 0}};
 
 BEGIN_JS_STATIC_METHOD(CJS_Icon)
 END_JS_STATIC_METHOD()
