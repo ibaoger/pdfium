@@ -37,19 +37,6 @@ class CPDF_PageContentGenerator {
   CFX_ByteString RealizeResource(uint32_t dwResourceObjNum,
                                  const CFX_ByteString& bsType);
 
-  struct GraphicsData {
-    FX_FLOAT fillAlpha;
-    FX_FLOAT strokeAlpha;
-    bool operator<(const GraphicsData& other) const;
-  };
-
-  struct FontData {
-    CFX_ByteString baseFont;
-    bool operator<(const FontData& other) const;
-  };
-
-  std::map<GraphicsData, CFX_ByteString> m_GraphicsMap;
-  std::map<FontData, CFX_ByteString> m_FontsMap;
   CPDF_Page* const m_pPage;
   CPDF_Document* const m_pDocument;
   std::vector<CPDF_PageObject*> m_pageObjects;
