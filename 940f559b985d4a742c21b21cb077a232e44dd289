@@ -22,6 +22,30 @@
       "revId": "940f559b985d4a742c21b21cb077a232e44dd289",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7f8040_7ef3b5e9",
+        "filename": "core/fpdfapi/page/cpdf_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 0,
+      "message": "I\u0027m not sure I understand, is the change I made wrong? I need the mutable version to close the path in this case? Otherwise, I don\u0027t think the CPDF_PATH uses mutable points as the vector is const?",
+      "parentUuid": "50e9c75f_65b19907",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "940f559b985d4a742c21b21cb077a232e44dd289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

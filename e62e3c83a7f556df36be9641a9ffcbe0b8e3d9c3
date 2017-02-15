@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "938bd65a_4bc6b70c",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aea246ac_8de76f12",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 8
+      },
+      "revId": "e62e3c83a7f556df36be9641a9ffcbe0b8e3d9c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93ecec72_be484679",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-14T21:14:01Z",
       "side": 1,
       "message": "maybe buf should learn how to output FX_PathPoints to itself?  but layering seems icky.",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 63
+      },
+      "revId": "e62e3c83a7f556df36be9641a9ffcbe0b8e3d9c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf79f351_d0c65186",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93ecec72_be484679",
       "range": {
         "startLine": 160,
         "startChar": 14,
