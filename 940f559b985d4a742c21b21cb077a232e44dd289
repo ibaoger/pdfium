@@ -70,6 +70,30 @@
       "revId": "940f559b985d4a742c21b21cb077a232e44dd289",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0279901_629ad4eb",
+        "filename": "core/fpdfapi/page/cpdf_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T17:34:05Z",
+      "side": 0,
+      "message": "That\u0027s because m_Ref is shared, which means if you are going to be subsequently modifying the result, you need to call getPrivateCopy to perform the copy-as-needed magic to ensure your modifications don\u0027t contaminate the other holders of this object.\n\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fxcrt/cfx_shared_copy_on_write.h?rcl\u003d5f2d381028b2c09bd09a843368328155b1399c5e\u0026l\u003d39",
+      "parentUuid": "d0771648_a57818c9",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "940f559b985d4a742c21b21cb077a232e44dd289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
