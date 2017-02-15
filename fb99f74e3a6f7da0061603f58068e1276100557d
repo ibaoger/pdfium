@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbefe490_70199b3c",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51395a80_990a6564",
+      "range": {
+        "startLine": 1512,
+        "startChar": 4,
+        "endLine": 1512,
+        "endChar": 8
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df9c0450_26381eb0",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d20f6db2_30f7845b",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df9c0450_26381eb0",
+      "range": {
+        "startLine": 740,
+        "startChar": 6,
+        "endLine": 740,
+        "endChar": 10
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "2e4d7ccf_36d7a5f3",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "774ed2ba_12ba2f5e",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0d4c76f_5b45c306",
         "filename": "core/fxge/ge/cfx_font.cpp",
         "patchSetId": 3
@@ -105,6 +177,30 @@
       "writtenOn": "2017-02-14T23:16:02Z",
       "side": 1,
       "message": "Why do we need a point count if we are now using a vector?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af05fea0_8408820e",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Because this PointCount didn\u0027t have to match the vector size previously. I modified the code to work correctly with just the vector size.",
+      "parentUuid": "c0d4c76f_5b45c306",
       "range": {
         "startLine": 31,
         "startChar": 6,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "9f8c2819_0df0dd12",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d2e382e_f7345c54",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c608b2_34bdc3f8",
         "filename": "core/fxge/ge/cfx_font.cpp",
         "patchSetId": 3
@@ -160,6 +280,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91283702_47d40b17",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "I kept the index and did the resize at the end so as to not throw off anything else that\u0027s happening in here.",
+      "parentUuid": "42c608b2_34bdc3f8",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "7ec65597_44af2011",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afc246d_a90071de",
+      "range": {
+        "startLine": 696,
+        "startChar": 4,
+        "endLine": 696,
+        "endChar": 43
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69403bb8_04a7e0ae",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 3
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "47963c38_14c682dc",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69403bb8_04a7e0ae",
+      "range": {
+        "startLine": 272,
+        "startChar": 35,
+        "endLine": 272,
+        "endChar": 47
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "022abaee_5ad13f89",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 3
@@ -220,6 +412,30 @@
       "writtenOn": "2017-02-14T23:16:02Z",
       "side": 1,
       "message": "Maybe use a for loop with two iterations since the only change is MoveTo vs LineTo. Up to you",
+      "range": {
+        "startLine": 299,
+        "startChar": 34,
+        "endLine": 299,
+        "endChar": 51
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43982bc_352614a3",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Heh, I\u0027ve done this change 3 times as I tried to get this Cl right. I\u0027m going to do it as a followup. You can actually remove almost all of this if (bAdjust) stuff...",
+      "parentUuid": "022abaee_5ad13f89",
       "range": {
         "startLine": 299,
         "startChar": 34,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "b308c672_d72afe2d",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "* binds higher then - so the brackets are required.",
+      "parentUuid": "358309f2_573eb259",
+      "range": {
+        "startLine": 360,
+        "startChar": 12,
+        "endLine": 360,
+        "endChar": 13
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eea1f86f_0ce8c522",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 3
@@ -275,6 +515,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75db5e4f_f5e1a558",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea1f86f_0ce8c522",
+      "range": {
+        "startLine": 432,
+        "startChar": 49,
+        "endLine": 432,
+        "endChar": 50
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "67dd3b93_f90c6f13",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "153ff535_4f2b4c9b",
+      "range": {
+        "startLine": 476,
+        "startChar": 2,
+        "endLine": 476,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f04facd0_7dcffdba",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 3
@@ -321,6 +609,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca31e2e0_1bb736f2",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f04facd0_7dcffdba",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 287,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "0b9d74bd_af203aa0",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d93c8d4e_11248ca0",
+      "range": {
+        "startLine": 113,
+        "startChar": 19,
+        "endLine": 113,
+        "endChar": 26
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "178b3670_84718bf4",
         "filename": "core/fxge/win32/cfx_psrenderer.cpp",
         "patchSetId": 3
@@ -367,6 +703,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea670fec_09522cf8",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "178b3670_84718bf4",
+      "range": {
+        "startLine": 115,
+        "startChar": 25,
+        "endLine": 115,
+        "endChar": 34
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -393,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "6f6edd08_2f883f9c",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fb6753d_e14d2f85",
+      "range": {
+        "startLine": 595,
+        "startChar": 18,
+        "endLine": 595,
+        "endChar": 19
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85158b7a_e6954787",
         "filename": "core/fxge/win32/cfx_psrenderer.cpp",
         "patchSetId": 3
@@ -413,6 +797,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2915c13a_3505103d",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85158b7a_e6954787",
+      "range": {
+        "startLine": 599,
+        "startChar": 30,
+        "endLine": 599,
+        "endChar": 31
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -439,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "286335fe_92921708",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb5a6bf0_f3ecad79",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d83d4fb_cfe2d9f3",
         "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
         "patchSetId": 3
@@ -450,6 +882,30 @@
       "writtenOn": "2017-02-14T23:16:02Z",
       "side": 1,
       "message": "Do we need a static_cast?",
+      "range": {
+        "startLine": 1210,
+        "startChar": 43,
+        "endLine": 1210,
+        "endChar": 58
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662ad307_a3fe067e",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Why?",
+      "parentUuid": "3d83d4fb_cfe2d9f3",
       "range": {
         "startLine": 1210,
         "startChar": 43,
@@ -485,6 +941,30 @@
     },
     {
       "key": {
+        "uuid": "e11f7acb_e6b496d7",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33fe240b_ab66b4b1",
+      "range": {
+        "startLine": 1213,
+        "startChar": 17,
+        "endLine": 1213,
+        "endChar": 18
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6b5fde_9324540f",
         "filename": "fpdfsdk/fpdf_transformpage.cpp",
         "patchSetId": 3
@@ -508,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "96b6ec98_6b07d31c",
+        "filename": "fpdfsdk/fpdf_transformpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a6b5fde_9324540f",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 6
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd86c35c_e9487d5d",
         "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
         "patchSetId": 3
@@ -519,6 +1023,30 @@
       "writtenOn": "2017-02-14T23:16:02Z",
       "side": 1,
       "message": "ASSERT(false) here maybe",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 13
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "033e10e5_26570a58",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "There is a PWLPT_UNKNOWN type which is set by default. In theory, these types should just go away for the type we use in CFX anyway",
+      "parentUuid": "cd86c35c_e9487d5d",
       "range": {
         "startLine": 66,
         "startChar": 8,
@@ -551,6 +1079,30 @@
       "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456aebb3_be047569",
+        "filename": "xfa/fde/cfde_path.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c7d53e_bbd1f2a9",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "fb99f74e3a6f7da0061603f58068e1276100557d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

@@ -22,6 +22,30 @@
       "revId": "5f2d381028b2c09bd09a843368328155b1399c5e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e8b9e7a_81cb49d5",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T14:44:28Z",
+      "side": 0,
+      "message": "Seems like a bug.....Code is gone now as Trim has also been removed.",
+      "parentUuid": "c162f571_93c3ff7c",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "5f2d381028b2c09bd09a843368328155b1399c5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
