@@ -346,7 +346,6 @@ CPSPrinterDriver::CPSPrinterDriver(HDC hDC, int pslevel, bool bCmykOutput)
       ret = ::GetRegionData(hRgn, ret, pData);
       if (ret) {
         CFX_PathData path;
-        path.AllocPointCount(pData->rdh.nCount * 5);
         for (uint32_t i = 0; i < pData->rdh.nCount; i++) {
           RECT* pRect =
               reinterpret_cast<RECT*>(pData->Buffer + pData->rdh.nRgnSize * i);
