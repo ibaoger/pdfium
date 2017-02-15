@@ -48,17 +48,6 @@ struct JSMethodSpec {
   }                           \
   ;  // NOLINT
 
-#define BEGIN_JS_STATIC_PROP(js_class_name) \
-  JSPropertySpec js_class_name::JS_Class_Properties[] = {
-#define JS_STATIC_PROP_ENTRY(prop_name)                \
-  {JS_WIDESTRING(prop_name), get_##prop_name##_static, \
-   set_##prop_name##_static},  // NOLINT
-
-#define END_JS_STATIC_PROP() \
-  { 0, 0, 0 }                \
-  }                          \
-  ;  // NOLINT
-
 #define BEGIN_JS_STATIC_METHOD(js_class_name) \
   JSMethodSpec js_class_name::JS_Class_Methods[] = {
 #define JS_STATIC_METHOD_ENTRY(method_name)            \

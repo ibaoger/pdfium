@@ -134,8 +134,7 @@ GlobalTimer::TimerMap* GlobalTimer::GetGlobalTimerMap() {
 BEGIN_JS_STATIC_CONST(CJS_TimerObj)
 END_JS_STATIC_CONST()
 
-BEGIN_JS_STATIC_PROP(CJS_TimerObj)
-END_JS_STATIC_PROP()
+JSPropertySpec CJS_TimerObj::JS_Class_Properties[] = {{0, 0, 0}};
 
 BEGIN_JS_STATIC_METHOD(CJS_TimerObj)
 END_JS_STATIC_METHOD()
@@ -164,20 +163,22 @@ void TimerObj::SetTimer(GlobalTimer* pTimer) {
 BEGIN_JS_STATIC_CONST(CJS_App)
 END_JS_STATIC_CONST()
 
-BEGIN_JS_STATIC_PROP(CJS_App)
-JS_STATIC_PROP_ENTRY(activeDocs)
-JS_STATIC_PROP_ENTRY(calculate)
-JS_STATIC_PROP_ENTRY(formsVersion)
-JS_STATIC_PROP_ENTRY(fs)
-JS_STATIC_PROP_ENTRY(fullscreen)
-JS_STATIC_PROP_ENTRY(language)
-JS_STATIC_PROP_ENTRY(media)
-JS_STATIC_PROP_ENTRY(platform)
-JS_STATIC_PROP_ENTRY(runtimeHighlight)
-JS_STATIC_PROP_ENTRY(viewerType)
-JS_STATIC_PROP_ENTRY(viewerVariation)
-JS_STATIC_PROP_ENTRY(viewerVersion)
-END_JS_STATIC_PROP()
+JSPropertySpec CJS_App::JS_Class_Properties[] = {
+    {L"activeDocs", get_activeDocs_static, set_activeDocs_static},
+    {L"calculate", get_calculate_static, set_calculate_static},
+    {L"formsVersion", get_formsVersion_static, set_formsVersion_static},
+    {L"fs", get_fs_static, set_fs_static},
+    {L"fullscreen", get_fullscreen_static, set_fullscreen_static},
+    {L"language", get_language_static, set_language_static},
+    {L"media", get_media_static, set_media_static},
+    {L"platform", get_platform_static, set_platform_static},
+    {L"runtimeHighlight", get_runtimeHighlight_static,
+     set_runtimeHighlight_static},
+    {L"viewerType", get_viewerType_static, set_viewerType_static},
+    {L"viewerVariation", get_viewerVariation_static,
+     set_viewerVariation_static},
+    {L"viewerVersion", get_viewerVersion_static, set_viewerVersion_static},
+    {0, 0, 0}};
 
 BEGIN_JS_STATIC_METHOD(CJS_App)
 JS_STATIC_METHOD_ENTRY(alert)
