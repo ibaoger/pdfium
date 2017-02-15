@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9bc997e6_a0769070",
+        "filename": "core/fxge/cfx_pathdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T15:56:55Z",
+      "side": 1,
+      "message": "pMatrix is also an in.",
+      "parentUuid": "ad8b6c8a_0748a33a",
+      "range": {
+        "startLine": 52,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 35
+      },
+      "revId": "7f5837547d634af244dd444e245a0f0558b8fda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11447d7d_d9504522",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-15T15:54:53Z",
       "side": 1,
       "message": "maybe use a ref instead of pointer since it\u0027s no longer being changed?",
+      "range": {
+        "startLine": 267,
+        "startChar": 51,
+        "endLine": 267,
+        "endChar": 53
+      },
+      "revId": "7f5837547d634af244dd444e245a0f0558b8fda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3633c5c7_6f1f94e3",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T15:56:55Z",
+      "side": 1,
+      "message": "I\u0027m leaving it as a pointer because the incoming can be nullptr. We need to update the places where we pass nullptr to the device object matrix in order to do that.",
+      "parentUuid": "11447d7d_d9504522",
       "range": {
         "startLine": 267,
         "startChar": 51,

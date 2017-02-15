@@ -34,6 +34,24 @@
       "revId": "8a60a82a6cfd9ca024ee2f5a76bfafc37f67a68a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c992d80_139094a7",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-15T15:56:55Z",
+      "side": 0,
+      "message": "Tests fail slightly if we don\u0027t do the check, It checks if pmatrix is identity in the calling function.",
+      "parentUuid": "0bd88906_730724f4",
+      "revId": "8a60a82a6cfd9ca024ee2f5a76bfafc37f67a68a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
