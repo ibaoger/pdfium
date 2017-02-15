@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d36d0d3_da0008db",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "have to wonder if this was ever right from the beginning.  No matter.  It just looks strange.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b60dc6cf_26713f94",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "follow-up:  return some kind of point.",
+      "range": {
+        "startLine": 45,
+        "startChar": 22,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a67153_f8fdf79b",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "might this have been modified above as a side effect?",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 22
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37839199_f9460b26",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "no need for blank line before here.",
+      "range": {
+        "startLine": 784,
+        "startChar": 2,
+        "endLine": 784,
+        "endChar": 10
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d6ba44f_7daae5c6",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "if this were a return, the index could move inside the for() since there\u0027d be no need to test at line 808.",
+      "range": {
+        "startLine": 805,
+        "startChar": 6,
+        "endLine": 805,
+        "endChar": 11
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0faecec_f12b0cc6",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:01:04Z",
+      "side": 1,
+      "message": "how much more work to make this one die die die?",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 378,
+        "endChar": 34
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
