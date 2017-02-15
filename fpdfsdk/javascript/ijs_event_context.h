@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_JAVASCRIPT_IJS_CONTEXT_H_
-#define FPDFSDK_JAVASCRIPT_IJS_CONTEXT_H_
+#ifndef FPDFSDK_JAVASCRIPT_IJS_EVENT_CONTEXT_H_
+#define FPDFSDK_JAVASCRIPT_IJS_EVENT_CONTEXT_H_
 
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
@@ -16,7 +16,7 @@ class CPDFSDK_Annot;
 class CPDFSDK_FormFillEnvironment;
 
 // Records the details of an event and triggers JS execution for it.
-class IJS_Context {
+class IJS_EventContext {
  public:
   virtual bool RunScript(const CFX_WideString& script,
                          CFX_WideString* info) = 0;
@@ -126,7 +126,7 @@ class IJS_Context {
   virtual void OnExternal_Exec() = 0;
 
  protected:
-  virtual ~IJS_Context() {}
+  virtual ~IJS_EventContext() {}
 };
 
-#endif  // FPDFSDK_JAVASCRIPT_IJS_CONTEXT_H_
+#endif  // FPDFSDK_JAVASCRIPT_IJS_EVENT_CONTEXT_H_
