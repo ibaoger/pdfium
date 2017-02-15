@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57ab7e6a_5019cfda",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-15T21:09:22Z",
+      "side": 1,
+      "message": "we could probably squeeze 8 bytes out of this on 64-bit platforms if m_charcode, m_flag, m_index and m_unicode,  all came together, then the point, rect, pointer, and matrix.  We got an odd number of 4byte types before the pointer at 78, and moving this would make it even.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 17
+      },
+      "revId": "3ec7d07c444ffc3c4eceb8a76ac656fba86745df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
