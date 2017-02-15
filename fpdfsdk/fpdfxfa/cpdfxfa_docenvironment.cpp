@@ -43,8 +43,10 @@ CPDFXFA_DocEnvironment::CPDFXFA_DocEnvironment(CPDFXFA_Context* pContext)
 }
 
 CPDFXFA_DocEnvironment::~CPDFXFA_DocEnvironment() {
-  if (m_pJSContext && m_pContext->GetFormFillEnv())
-    m_pContext->GetFormFillEnv()->GetJSRuntime()->ReleaseContext(m_pJSContext);
+  if (m_pJSContext && m_pContext->GetFormFillEnv()) {
+    m_pContext->GetFormFillEnv()->GetJSRuntime()->ReleaseEventContext(
+        m_pJSContext);
+  }
 }
 
 void CPDFXFA_DocEnvironment::SetChangeMark(CXFA_FFDoc* hDoc) {
@@ -1024,7 +1026,7 @@ bool CPDFXFA_DocEnvironment::GetGlobalProperty(
 
   CPDFSDK_FormFillEnvironment* pFormFillEnv = m_pContext->GetFormFillEnv();
   if (!m_pJSContext)
-    m_pJSContext = pFormFillEnv->GetJSRuntime()->NewContext();
+    m_pJSContext = pFormFillEnv->GetJSRuntime()->NewEventContext();
 
   return pFormFillEnv->GetJSRuntime()->GetValueByName(szPropName, pValue);
 }
