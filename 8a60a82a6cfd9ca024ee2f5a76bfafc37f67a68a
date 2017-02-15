@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbeb8b2b_2e8cb67a",
+        "filename": "core/fxge/win32/fx_win32_print.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-15T15:42:14Z",
+      "side": 1,
+      "message": "Maybe this should take a CFX_FloatRect (possible followup). static_casts otherwise.",
+      "range": {
+        "startLine": 352,
+        "startChar": 15,
+        "endLine": 352,
+        "endChar": 25
+      },
+      "revId": "8a60a82a6cfd9ca024ee2f5a76bfafc37f67a68a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98ce957_f955a11d",
+        "filename": "xfa/fde/cfde_path.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-15T15:42:14Z",
+      "side": 1,
+      "message": "Possible followup: how is closing the figure starting it? (remove this method)",
+      "range": {
+        "startLine": 12,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "8a60a82a6cfd9ca024ee2f5a76bfafc37f67a68a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
