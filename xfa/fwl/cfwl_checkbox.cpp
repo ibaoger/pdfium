@@ -130,7 +130,7 @@ void CFWL_CheckBox::Layout() {
   m_rtClient = GetClientRect();
 
   FX_FLOAT fTextLeft = m_rtClient.left + m_fBoxHeight;
-  m_rtBox = CFX_RectF(m_rtClient.TopLeft(), m_fBoxHeight, m_fBoxHeight);
+  m_rtBox = CFX_RectF(m_rtClient.LeftTop(), m_fBoxHeight, m_fBoxHeight);
   m_rtCaption = CFX_RectF(fTextLeft, m_rtClient.top,
                           m_rtClient.right() - fTextLeft, m_rtClient.height);
   m_rtCaption.Inflate(-kCaptionMargin, -kCaptionMargin);
@@ -141,7 +141,7 @@ void CFWL_CheckBox::Layout() {
   CalcTextRect(L"Check box", m_pProperties->m_pThemeProvider, m_dwTTOStyles,
                m_iTTOAlign, rtFocus);
 
-  m_rtFocus = CFX_RectF(m_rtCaption.TopLeft(),
+  m_rtFocus = CFX_RectF(m_rtCaption.LeftTop(),
                         std::max(m_rtCaption.width, rtFocus.width),
                         std::min(m_rtCaption.height, rtFocus.height));
   m_rtFocus.Inflate(1, 1);

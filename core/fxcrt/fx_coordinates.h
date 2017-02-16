@@ -372,10 +372,10 @@ class CFX_RTemplate {
   BaseType Width() const { return width; }
   BaseType Height() const { return height; }
   SizeType Size() const { return SizeType(width, height); }
-  PointType TopLeft() const { return PointType(left, top); }
-  PointType TopRight() const { return PointType(left + width, top); }
-  PointType BottomLeft() const { return PointType(left, top + height); }
-  PointType BottomRight() const {
+  PointType LeftTop() const { return PointType(left, top); }
+  PointType RightTop() const { return PointType(left + width, top); }
+  PointType LeftBottom() const { return PointType(left, top + height); }
+  PointType RightBottom() const {
     return PointType(left + width, top + height);
   }
   PointType Center() const {

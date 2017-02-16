@@ -823,7 +823,7 @@ void XFA_DrawImage(CFX_Graphics* pGS,
     return;
 
   CFX_RectF rtFit(
-      rtImage.TopLeft(),
+      rtImage.LeftTop(),
       XFA_UnitPx2Pt((FX_FLOAT)pDIBitmap->GetWidth(), (FX_FLOAT)iImageXDpi),
       XFA_UnitPx2Pt((FX_FLOAT)pDIBitmap->GetHeight(), (FX_FLOAT)iImageYDpi));
   switch (iAspect) {
@@ -1245,8 +1245,8 @@ static void XFA_BOX_GetPath(CXFA_Box box,
   switch (nIndex) {
     case 0:
     case 1:
-      cp1 = rtWidget.TopLeft();
-      cp2 = rtWidget.TopRight();
+      cp1 = rtWidget.LeftTop();
+      cp2 = rtWidget.RightTop();
       if (nIndex == 0) {
         cpStart.x = cp1.x - halfBefore;
         cpStart.y = cp1.y + fRadius1, offsetY = -halfAfter;
@@ -1264,8 +1264,8 @@ static void XFA_BOX_GetPath(CXFA_Box box,
       break;
     case 2:
     case 3:
-      cp1 = rtWidget.TopRight();
-      cp2 = rtWidget.BottomRight();
+      cp1 = rtWidget.RightTop();
+      cp2 = rtWidget.RightBottom();
       if (nIndex == 2) {
         cpStart.x = cp1.x - fRadius1, cpStart.y = cp1.y - halfBefore,
         offsetX = halfAfter;
@@ -1283,8 +1283,8 @@ static void XFA_BOX_GetPath(CXFA_Box box,
       break;
     case 4:
     case 5:
-      cp1 = rtWidget.BottomRight();
-      cp2 = rtWidget.BottomLeft();
+      cp1 = rtWidget.RightBottom();
+      cp2 = rtWidget.LeftBottom();
       if (nIndex == 4) {
         cpStart.x = cp1.x + halfBefore, cpStart.y = cp1.y - fRadius1,
         offsetY = halfAfter;
@@ -1302,8 +1302,8 @@ static void XFA_BOX_GetPath(CXFA_Box box,
       break;
     case 6:
     case 7:
-      cp1 = rtWidget.BottomLeft();
-      cp2 = rtWidget.TopLeft();
+      cp1 = rtWidget.LeftBottom();
+      cp2 = rtWidget.LeftTop();
       if (nIndex == 6) {
         cpStart.x = cp1.x + fRadius1, cpStart.y = cp1.y + halfBefore,
         offsetX = -halfAfter;
@@ -1433,8 +1433,8 @@ static void XFA_BOX_GetFillPath(CXFA_Box box,
     }
     switch (i) {
       case 0:
-        cp1 = rtWidget.TopLeft();
-        cp2 = rtWidget.TopRight();
+        cp1 = rtWidget.LeftTop();
+        cp2 = rtWidget.RightTop();
         vx = 1, vy = 1;
         nx = -1, ny = 0;
         if (bRound) {
@@ -1444,8 +1444,8 @@ static void XFA_BOX_GetFillPath(CXFA_Box box,
         }
         break;
       case 2:
-        cp1 = rtWidget.TopRight();
-        cp2 = rtWidget.BottomRight();
+        cp1 = rtWidget.RightTop();
+        cp2 = rtWidget.RightBottom();
         vx = -1, vy = 1;
         nx = 0, ny = -1;
         if (bRound) {
@@ -1455,8 +1455,8 @@ static void XFA_BOX_GetFillPath(CXFA_Box box,
         }
         break;
       case 4:
-        cp1 = rtWidget.BottomRight();
-        cp2 = rtWidget.BottomLeft();
+        cp1 = rtWidget.RightBottom();
+        cp2 = rtWidget.LeftBottom();
         vx = -1, vy = -1;
         nx = 1, ny = 0;
         if (bRound) {
@@ -1466,8 +1466,8 @@ static void XFA_BOX_GetFillPath(CXFA_Box box,
         }
         break;
       case 6:
-        cp1 = rtWidget.BottomLeft();
-        cp2 = rtWidget.TopLeft();
+        cp1 = rtWidget.LeftBottom();
+        cp2 = rtWidget.LeftTop();
         vx = 1, vy = -1;
         nx = 0, ny = 1;
         if (bRound) {

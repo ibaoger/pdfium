@@ -177,8 +177,8 @@ void CFWL_ScrollBar::CalcButtonLen() {
 
 CFX_RectF CFWL_ScrollBar::CalcMinButtonRect() {
   if (IsVertical())
-    return CFX_RectF(m_rtClient.TopLeft(), m_rtClient.width, m_fButtonLen);
-  return CFX_RectF(m_rtClient.TopLeft(), m_fButtonLen, m_rtClient.height);
+    return CFX_RectF(m_rtClient.LeftTop(), m_rtClient.width, m_fButtonLen);
+  return CFX_RectF(m_rtClient.LeftTop(), m_fButtonLen, m_rtClient.height);
 }
 
 CFX_RectF CFWL_ScrollBar::CalcMaxButtonRect() {
@@ -263,7 +263,7 @@ CFX_RectF CFWL_ScrollBar::CalcMinTrackRect(const CFX_RectF& rtMinRect) {
 
 CFX_RectF CFWL_ScrollBar::CalcMaxTrackRect(const CFX_RectF& rtMaxRect) {
   if (m_bMinSize)
-    return CFX_RectF(rtMaxRect.TopLeft(), 0, 0);
+    return CFX_RectF(rtMaxRect.LeftTop(), 0, 0);
 
   if (IsVertical()) {
     FX_FLOAT iy = (m_rtThumb.top + m_rtThumb.bottom()) / 2;

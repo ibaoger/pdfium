@@ -58,7 +58,7 @@ void CFWL_SpinButton::Update() {
         CFX_RectF(m_rtClient.left, m_rtClient.top + m_rtClient.height / 2,
                   m_rtClient.width, m_rtClient.height / 2);
   } else {
-    m_rtUpButton = CFX_RectF(m_rtClient.TopLeft(), m_rtClient.width / 2,
+    m_rtUpButton = CFX_RectF(m_rtClient.LeftTop(), m_rtClient.width / 2,
                              m_rtClient.height);
     m_rtDnButton =
         CFX_RectF(m_rtClient.left + m_rtClient.width / 2, m_rtClient.top,

@@ -201,10 +201,10 @@ void CFDE_Path::AddLines(const std::vector<CFX_PointF>& points) {
 }
 
 void CFDE_Path::AddRectangle(const CFX_RectF& rect) {
-  MoveTo(rect.TopLeft());
-  LineTo(rect.TopRight());
-  LineTo(rect.BottomRight());
-  LineTo(rect.BottomLeft());
+  MoveTo(rect.LeftTop());
+  LineTo(rect.RightTop());
+  LineTo(rect.RightBottom());
+  LineTo(rect.LeftBottom());
   CloseFigure();
 }
 
