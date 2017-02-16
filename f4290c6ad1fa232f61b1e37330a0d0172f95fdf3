@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae004c14_e376e02e",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T19:02:33Z",
+      "side": 1,
+      "message": "Possibly, but it would need to be changed in a followup where we can determine how they\u0027re both used.",
+      "parentUuid": "e35c139b_0b1c743c",
+      "range": {
+        "startLine": 932,
+        "startChar": 4,
+        "endLine": 932,
+        "endChar": 18
+      },
+      "revId": "f4290c6ad1fa232f61b1e37330a0d0172f95fdf3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33e4dea5_f2db4786",
         "filename": "core/fxge/ge/cfx_renderdevice.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "f4290c6ad1fa232f61b1e37330a0d0172f95fdf3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5bc2107_f7446425",
+        "filename": "core/fxge/ge/cfx_renderdevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T19:02:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33e4dea5_f2db4786",
+      "range": {
+        "startLine": 1040,
+        "startChar": 22,
+        "endLine": 1040,
+        "endChar": 25
+      },
+      "revId": "f4290c6ad1fa232f61b1e37330a0d0172f95fdf3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
