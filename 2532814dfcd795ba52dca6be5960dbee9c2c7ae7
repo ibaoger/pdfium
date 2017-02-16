@@ -16,6 +16,24 @@
       "revId": "2532814dfcd795ba52dca6be5960dbee9c2c7ae7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3806db9_fd1e616d",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T19:45:50Z",
+      "side": 1,
+      "message": "Nah, its nested, JSConstSpec::Type::Number is too verbose.",
+      "parentUuid": "74363f62_f2012671",
+      "revId": "2532814dfcd795ba52dca6be5960dbee9c2c7ae7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
