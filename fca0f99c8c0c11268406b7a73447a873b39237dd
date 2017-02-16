@@ -994,6 +994,24 @@
     },
     {
       "key": {
+        "uuid": "8b004625_c92f530f",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T19:37:45Z",
+      "side": 1,
+      "message": "Oh, yes, particularly since we can put a nullptr setter for the ones that are readonly and let JS deal.",
+      "parentUuid": "da7b8b21_441192a6",
+      "revId": "fca0f99c8c0c11268406b7a73447a873b39237dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feaa5a3a_97a108c9",
         "filename": "fpdfsdk/javascript/JS_Define.h",
         "patchSetId": 6
