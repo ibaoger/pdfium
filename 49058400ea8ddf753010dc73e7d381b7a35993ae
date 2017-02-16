@@ -22,6 +22,30 @@
       "revId": "49058400ea8ddf753010dc73e7d381b7a35993ae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93ca30e4_d3effa7b",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 0,
+      "message": "From my reading, no I don\u0027t believe it does.",
+      "parentUuid": "18f71c5e_5620998b",
+      "range": {
+        "startLine": 896,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 38
+      },
+      "revId": "49058400ea8ddf753010dc73e7d381b7a35993ae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

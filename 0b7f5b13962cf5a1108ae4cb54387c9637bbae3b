@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "246ae4f5_2c265fdd",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d36d0d3_da0008db",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b60dc6cf_26713f94",
         "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ee6df309_5461fdfa",
+        "filename": "core/fpdfapi/page/cpdf_textobject.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b60dc6cf_26713f94",
+      "range": {
+        "startLine": 45,
+        "startChar": 22,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9a67153_f8fdf79b",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-15T21:01:04Z",
       "side": 1,
       "message": "might this have been modified above as a side effect?",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 22
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95a06e1c_5f08d4f8",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 1,
+      "message": "It had the side effect of TransformPoint modifying it, but Transform(CFX_PointF) returns the modified value which we\u0027re assigning back to origin, so we have the modified version.",
+      "parentUuid": "d9a67153_f8fdf79b",
       "range": {
         "startLine": 265,
         "startChar": 11,
@@ -186,6 +258,30 @@
     },
     {
       "key": {
+        "uuid": "cb070fe8_6fd76af8",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 1,
+      "message": "Patience, patience. I\u0027m getting there. I want all of these Transform methods to take a const in and return  a new value, so this and TransfromRect and others.",
+      "parentUuid": "c0faecec_f12b0cc6",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 378,
+        "endChar": 34
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c68b777_3bfcf75b",
         "filename": "core/fxcrt/fx_basic_coords.cpp",
         "patchSetId": 2
@@ -197,6 +293,30 @@
       "writtenOn": "2017-02-15T21:14:22Z",
       "side": 1,
       "message": "Is it really better to have it this way considering we\u0027re generally doing just:\npoint \u003d matrix.Transform(point)?",
+      "range": {
+        "startLine": 384,
+        "startChar": 23,
+        "endLine": 384,
+        "endChar": 32
+      },
+      "revId": "0b7f5b13962cf5a1108ae4cb54387c9637bbae3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "986326e7_d3c4a7c4",
+        "filename": "core/fxcrt/fx_basic_coords.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-16T01:48:52Z",
+      "side": 1,
+      "message": "There are a lot of places in the code that do\nx, y \u003d point.x, point.y\ntransform(x,y)\n\nI\u0027m turning them into\nfoo \u003d transform(point);\n\nthere maybe a few foo \u003d transform(foo) calls but I think it\u0027s a win in general.\n\nPlus, I think the lack of side effect is clearer/safer?",
+      "parentUuid": "6c68b777_3bfcf75b",
       "range": {
         "startLine": 384,
         "startChar": 23,
