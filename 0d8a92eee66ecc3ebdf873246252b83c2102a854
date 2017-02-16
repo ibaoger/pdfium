@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ce96203_6bbaf31e",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-16T20:26:57Z",
+      "side": 1,
+      "message": "Using reset() here instead of moving to the vector would be bad because the indirect object could still be in use, right?",
+      "range": {
+        "startLine": 62,
+        "startChar": 31,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "0d8a92eee66ecc3ebdf873246252b83c2102a854",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
