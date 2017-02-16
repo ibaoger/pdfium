@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bd853e7_8acef3bf",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T21:36:23Z",
+      "side": 1,
+      "message": "does orig mean original or origin ?  hmmm.",
+      "range": {
+        "startLine": 2231,
+        "startChar": 19,
+        "endLine": 2231,
+        "endChar": 25
+      },
+      "revId": "e463c69f85ff53f7e7143f6b20102bb9d1b08657",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7823d7ef_f0433be6",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T21:36:23Z",
+      "side": 1,
+      "message": "You\u0027re next?  (to return points)",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 44
+      },
+      "revId": "e463c69f85ff53f7e7143f6b20102bb9d1b08657",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5bc2550_07f2a7c1",
+        "filename": "xfa/fwl/cfwl_combolist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T21:36:23Z",
+      "side": 1,
+      "message": "nit: maybe return pOwner ? pOwner-\u003eTransformTo ... : ret;",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 72,
+        "endChar": 44
+      },
+      "revId": "e463c69f85ff53f7e7143f6b20102bb9d1b08657",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f2f3e74_f56794bf",
+        "filename": "xfa/fwl/cfwl_combolist.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-16T21:36:23Z",
+      "side": 1,
+      "message": "you\u0027re next ?",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "e463c69f85ff53f7e7143f6b20102bb9d1b08657",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
