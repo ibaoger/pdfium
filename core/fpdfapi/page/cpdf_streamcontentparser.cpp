@@ -1229,16 +1229,6 @@ CPDF_Pattern* CPDF_StreamContentParser::FindPattern(const CFX_ByteString& name,
                                   m_pCurStates->m_ParentMatrix);
 }
 
-void CPDF_StreamContentParser::ConvertTextSpace(FX_FLOAT& x, FX_FLOAT& y) {
-  m_pCurStates->m_TextMatrix.TransformPoint(x, y);
-  ConvertUserSpace(x, y);
-}
-
-void CPDF_StreamContentParser::ConvertUserSpace(FX_FLOAT& x, FX_FLOAT& y) {
-  m_pCurStates->m_CTM.TransformPoint(x, y);
-  m_mtContentToUser.TransformPoint(x, y);
-}
-
 void CPDF_StreamContentParser::AddTextObject(CFX_ByteString* pStrs,
                                              FX_FLOAT fInitKerning,
                                              FX_FLOAT* pKerning,
@@ -1278,7 +1268,13 @@ void CPDF_StreamContentParser::AddTextObject(CFX_ByteString* pStrs,
     pText->SetSegments(pStrs, pKerning, nsegs);
     pText->m_Pos = CFX_PointF(m_pCurStates->m_TextX,
                               m_pCurStates->m_TextY + m_pCurStates->m_TextRise);
-    ConvertTextSpace(pText->m_Pos.x, pText->m_Pos.y);
+
+    CFX_PointF point = m_mtContentToUser.Transform(
+        m_pCurStates->m_CTM.Transform(m_pCurStates->m_TextMatrix.Transform(
+            CFX_PointF(pText->m_Pos.x, pText->m_Pos.y))));
+    pText->m_Pos.x = point.x;
+    pText->m_Pos.y = point.y;
+
     FX_FLOAT x_advance;
     FX_FLOAT y_advance;
     pText->CalcPositionData(&x_advance, &y_advance,
