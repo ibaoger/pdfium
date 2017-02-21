@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcbd05b9_54ea5aee",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-21T20:00:37Z",
+      "side": 1,
+      "message": "FFI_OutputSelectedRect is public API and can\u0027t change.",
+      "revId": "66e3a602fdbf78fa40cac352b2384f3724150e8d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
