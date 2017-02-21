@@ -900,8 +900,8 @@ CPDF_FormField* CPDF_InterForm::GetFieldByDict(
 }
 
 CPDF_FormControl* CPDF_InterForm::GetControlAtPoint(CPDF_Page* pPage,
-                                                    FX_FLOAT pdf_x,
-                                                    FX_FLOAT pdf_y,
+                                                    const CFX_PointF& point,
+
                                                     int* z_order) const {
   CPDF_Array* pAnnotList = pPage->m_pFormDict->GetArrayFor("Annots");
   if (!pAnnotList)
@@ -919,7 +919,7 @@ CPDF_FormControl* CPDF_InterForm::GetControlAtPoint(CPDF_Page* pPage,
 
     CPDF_FormControl* pControl = it->second.get();
     CFX_FloatRect rect = pControl->GetRect();
-    if (!rect.Contains(pdf_x, pdf_y))
+    if (!rect.Contains(point))
       continue;
 
     if (z_order)
