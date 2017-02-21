@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c18d6c4e_ae10f52c",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local not needed?",
+      "range": {
+        "startLine": 921,
+        "startChar": 18,
+        "endLine": 921,
+        "endChar": 22
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e014a1_022a2e48",
+        "filename": "core/fpdfdoc/cpdf_linklist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local not needed.",
+      "range": {
+        "startLine": 46,
+        "startChar": 19,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "568e7a96_a58f9e16",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local not needed",
+      "range": {
+        "startLine": 286,
+        "startChar": 14,
+        "endLine": 286,
+        "endChar": 23
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83d1d07b_59dc8466",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local not needed.",
+      "range": {
+        "startLine": 652,
+        "startChar": 17,
+        "endLine": 652,
+        "endChar": 22
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b176f8_28f677e6",
+        "filename": "xfa/fwl/cfwl_messagemouse.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "ditto nit",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7edffbfe_56989c58",
+        "filename": "xfa/fwl/cfwl_messagemouse.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "nit: give parameter a name",
+      "range": {
+        "startLine": 31,
+        "startChar": 44,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce57b16_35de2328",
+        "filename": "xfa/fwl/cfwl_scrollbar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local needed?  Or does onScroll modify its arguments?",
+      "range": {
+        "startLine": 460,
+        "startChar": 3,
+        "endLine": 461,
+        "endChar": 23
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa04efc_11c1cb6b",
+        "filename": "xfa/fwl/cfwl_spinbutton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "nit: overparenthesized.",
+      "range": {
+        "startLine": 204,
+        "startChar": 18,
+        "endLine": 204,
+        "endChar": 19
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5471a95_0ef237ed",
+        "filename": "xfa/fwl/cfwl_widgetmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "nit: no-arg ctor.",
+      "range": {
+        "startLine": 563,
+        "startChar": 50,
+        "endLine": 563,
+        "endChar": 67
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be4e0c2_bf4cba6e",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "nit: could be\n\nreturn m_pNormalWidget \u0026\u0026 static_cast ...\n\nor maybe\n\nauto pComboBox \u003d static_cast ...\nreturn pComboBox \u0026\u0026 pComboBox-\u003eGetBBox().Contains(point);",
+      "range": {
+        "startLine": 230,
+        "startChar": 3,
+        "endLine": 231,
+        "endChar": 17
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ea8beb8_8184b22d",
+        "filename": "xfa/fxfa/app/xfa_fffield.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "local not needed.",
+      "range": {
+        "startLine": 543,
+        "startChar": 15,
+        "endLine": 543,
+        "endChar": 25
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c5a169e_f4d36200",
+        "filename": "xfa/fxfa/app/xfa_ffsignature.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T18:38:06Z",
+      "side": 1,
+      "message": "ditto nit",
+      "range": {
+        "startLine": 102,
+        "startChar": 33,
+        "endLine": 102,
+        "endChar": 43
+      },
+      "revId": "217f83793b904a78a7a3016f23a6e704ccdff4a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
