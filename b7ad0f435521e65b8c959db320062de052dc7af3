@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4dec5422_a10dbd30",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-21T19:53:20Z",
+      "side": 1,
+      "message": "It\u0027s easier to go from CFX_FloatRect to FX_RECT then the other way. (And CFX_RectF is never easy, heh)",
+      "revId": "b7ad0f435521e65b8c959db320062de052dc7af3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4da64deb_576ec217",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-21T19:53:20Z",
+      "side": 1,
+      "message": "FFI_Invalidate is public API so can\u0027t be changed.",
+      "revId": "b7ad0f435521e65b8c959db320062de052dc7af3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
