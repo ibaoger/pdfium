@@ -30,8 +30,7 @@ const std::vector<CPDF_Dictionary*>* CPDF_LinkList::GetPageLinks(
 }
 
 CPDF_Link CPDF_LinkList::GetLinkAtPoint(CPDF_Page* pPage,
-                                        FX_FLOAT pdf_x,
-                                        FX_FLOAT pdf_y,
+                                        const CFX_PointF& point,
                                         int* z_order) {
   const std::vector<CPDF_Dictionary*>* pPageLinkList = GetPageLinks(pPage);
   if (!pPageLinkList)
@@ -45,7 +44,7 @@ CPDF_Link CPDF_LinkList::GetLinkAtPoint(CPDF_Page* pPage,
 
     CPDF_Link link(pAnnot);
     CFX_FloatRect rect = link.GetRect();
-    if (!rect.Contains(pdf_x, pdf_y))
+    if (!rect.Contains(point))
       continue;
 
     if (z_order)
