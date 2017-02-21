@@ -101,10 +101,6 @@ class CPDF_TextPage {
   int GetIndexAtPos(const CFX_PointF& point,
                     FX_FLOAT xTolerance,
                     FX_FLOAT yTolerance) const;
-  int GetIndexAtPos(FX_FLOAT x,
-                    FX_FLOAT y,
-                    FX_FLOAT xTolerance,
-                    FX_FLOAT yTolerance) const;
   CFX_WideString GetTextByRect(const CFX_FloatRect& rect) const;
   CFX_WideString GetPageText(int start = 0, int nCount = -1) const;
   int CountRects(int start, int nCount);

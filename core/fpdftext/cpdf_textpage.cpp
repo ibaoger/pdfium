@@ -378,14 +378,6 @@ CFX_WideString CPDF_TextPage::GetTextByRect(const CFX_FloatRect& rect) const {
   return strText;
 }
 
-int CPDF_TextPage::GetIndexAtPos(FX_FLOAT x,
-                                 FX_FLOAT y,
-                                 FX_FLOAT xTolerance,
-                                 FX_FLOAT yTolerance) const {
-  CFX_PointF point(x, y);
-  return GetIndexAtPos(point, xTolerance, yTolerance);
-}
-
 void CPDF_TextPage::GetCharInfo(int index, FPDF_CHAR_INFO* info) const {
   if (!m_bIsParsed)
     return;
