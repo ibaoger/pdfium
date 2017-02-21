@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5712fccd_1e9c34de",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-21T19:06:09Z",
+      "side": 1,
+      "message": "It strikes me that a tolerance is representable as a CFX_SizeF",
+      "range": {
+        "startLine": 136,
+        "startChar": 19,
+        "endLine": 136,
+        "endChar": 32
+      },
+      "revId": "2514174a35213028cb9981ddf11a9b5627ed5eb0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
