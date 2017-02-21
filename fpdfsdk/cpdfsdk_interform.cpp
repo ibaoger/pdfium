@@ -327,12 +327,9 @@ void CPDFSDK_InterForm::UpdateField(CPDF_FormField* pFormField) {
 
     if (CPDFSDK_Widget* pWidget = GetWidget(pFormCtrl)) {
       UnderlyingPageType* pPage = pWidget->GetUnderlyingPage();
-      CPDFSDK_PageView* pPageView = m_pFormFillEnv->GetPageView(pPage, false);
-      FX_RECT rcBBox = m_pFormFillEnv->GetInteractiveFormFiller()->GetViewBBox(
-          pPageView, pWidget);
-
-      m_pFormFillEnv->Invalidate(pPage, rcBBox.left, rcBBox.top, rcBBox.right,
-                                 rcBBox.bottom);
+      m_pFormFillEnv->Invalidate(
+          pPage, m_pFormFillEnv->GetInteractiveFormFiller()->GetViewBBox(
+                     m_pFormFillEnv->GetPageView(pPage, false), pWidget));
     }
   }
 }
