@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d59628f_56c0e9f3",
+        "filename": "core/fpdfapi/page/cpdf_clippath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d21eeb03_19200b00",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a335e011_fe80ea6f",
         "filename": "core/fpdfapi/page/cpdf_contentparser.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "That would also be used here",
+      "range": {
+        "startLine": 209,
+        "startChar": 22,
+        "endLine": 209,
+        "endChar": 30
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cab6c56c_c0f2e4eb",
+        "filename": "core/fpdfapi/page/cpdf_contentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a335e011_fe80ea6f",
       "range": {
         "startLine": 209,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f8c69400_8ec972ee",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aefc0c2e_a2ddf374",
+      "range": {
+        "startLine": 824,
+        "startChar": 27,
+        "endLine": 824,
+        "endChar": 37
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd9e2c19_2939d3b4",
         "filename": "core/fpdfdoc/cpdf_annot.cpp",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "Touching this file just for this nit? :P",
+      "range": {
+        "startLine": 503,
+        "startChar": 2,
+        "endLine": 503,
+        "endChar": 4
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b0d15a4_3bc52dad",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "I\u0027d previously changed AppendRect to take a rect but it got crazy, this is left over from then.",
+      "parentUuid": "cd9e2c19_2939d3b4",
       "range": {
         "startLine": 503,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4c00377e_dd353b26",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f25c1c2d_a6db754b",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 14
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71a2e9a9_36e54147",
         "filename": "core/fxge/agg/fx_agg_driver.cpp",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "This could take the point (followup)",
+      "range": {
+        "startLine": 285,
+        "startChar": 17,
+        "endLine": 285,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f601507_73637026",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "This m_PathData is an AGG method which is going away so no reason to change.",
+      "parentUuid": "71a2e9a9_36e54147",
       "range": {
         "startLine": 285,
         "startChar": 17,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8c80c221_bbdb1ef0",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "28a4f2a2_f7735b8c",
+      "range": {
+        "startLine": 293,
+        "startChar": 17,
+        "endLine": 293,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46616a1d_1293a784",
         "filename": "core/fxge/agg/fx_agg_driver.cpp",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "I\u0027ll just state that I disagree with HardClip being changed to return a point",
+      "range": {
+        "startLine": 303,
+        "startChar": 13,
+        "endLine": 303,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0c65192_cc944897",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46616a1d_1293a784",
       "range": {
         "startLine": 303,
         "startChar": 13,
@@ -232,6 +424,54 @@
     },
     {
       "key": {
+        "uuid": "c4f050bf_e3422134",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b22784_d267f865",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d76135e4_6f3bff02",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2faa4278_a868397e",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d9ba4e3_4fd92c8c",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 2
@@ -252,6 +492,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae73cc49_4290df9d",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d9ba4e3_4fd92c8c",
+      "range": {
+        "startLine": 58,
+        "startChar": 26,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "c0112cbd_e516be39",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "398cd60e_3a12e08b",
+      "range": {
+        "startLine": 72,
+        "startChar": 11,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4161f403_05dc9ade",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 2
@@ -295,6 +583,24 @@
     },
     {
       "key": {
+        "uuid": "65f986ce_6636207b",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4161f403_05dc9ade",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c267f8a_11ede47e",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 2
@@ -306,6 +612,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "Maybe in a followup it could take a point (would have to see how it is used elsewhere).",
+      "range": {
+        "startLine": 228,
+        "startChar": 7,
+        "endLine": 228,
+        "endChar": 15
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00d41ece_5e8b75db",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c267f8a_11ede47e",
       "range": {
         "startLine": 228,
         "startChar": 7,
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "aeb346db_6d376701",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6107b849_378cdb16",
+      "range": {
+        "startLine": 230,
+        "startChar": 9,
+        "endLine": 230,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7459d08e_c49851c3",
         "filename": "core/fxge/ge/cfx_pathdata.cpp",
         "patchSetId": 2
@@ -352,6 +706,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "I wonder why we don\u0027t compare points 0 and 2 in this one, as above, in the other IsRect",
+      "range": {
+        "startLine": 458,
+        "startChar": 6,
+        "endLine": 458,
+        "endChar": 14
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06a75fa2_56010ce2",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "No idea, but this seems to be working ....",
+      "parentUuid": "7459d08e_c49851c3",
       "range": {
         "startLine": 458,
         "startChar": 6,
@@ -387,6 +765,30 @@
     },
     {
       "key": {
+        "uuid": "2f99bef2_072c547a",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Skia method, outside our control",
+      "parentUuid": "c1fa241e_4d5cfcde",
+      "range": {
+        "startLine": 286,
+        "startChar": 13,
+        "endLine": 286,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "576c06a0_757034be",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 2
@@ -398,6 +800,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 288,
+        "startChar": 13,
+        "endLine": 288,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26272a12_fad23083",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "576c06a0_757034be",
       "range": {
         "startLine": 288,
         "startChar": 13,
@@ -433,6 +859,30 @@
     },
     {
       "key": {
+        "uuid": "c3bbcaef_1f639049",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "0522a93d_87d6b380",
+      "range": {
+        "startLine": 292,
+        "startChar": 13,
+        "endLine": 292,
+        "endChar": 20
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8cfb96c_b99d2c68",
         "filename": "core/fxge/win32/fx_win32_device.cpp",
         "patchSetId": 2
@@ -444,6 +894,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1053,
+        "startChar": 4,
+        "endLine": 1053,
+        "endChar": 12
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cee11d7d_33b2c8d2",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d8cfb96c_b99d2c68",
       "range": {
         "startLine": 1053,
         "startChar": 4,
@@ -479,6 +953,30 @@
     },
     {
       "key": {
+        "uuid": "19a0c087_67236312",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Good catch, undone.",
+      "parentUuid": "5bc3f93e_5fdb869a",
+      "range": {
+        "startLine": 72,
+        "startChar": 15,
+        "endLine": 72,
+        "endChar": 25
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41914ab0_406d977e",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -499,6 +997,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06bae705_c9d02d05",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41914ab0_406d977e",
+      "range": {
+        "startLine": 1339,
+        "startChar": 14,
+        "endLine": 1339,
+        "endChar": 16
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -525,6 +1047,30 @@
     },
     {
       "key": {
+        "uuid": "3bb20f74_1df50f8d",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e40b1d96_4a8c6731",
+      "range": {
+        "startLine": 1341,
+        "startChar": 18,
+        "endLine": 1341,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb4a3f8b_25f0bff3",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -545,6 +1091,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864dbc3f_deb79cc9",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4a3f8b_25f0bff3",
+      "range": {
+        "startLine": 1344,
+        "startChar": 11,
+        "endLine": 1344,
+        "endChar": 12
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -571,6 +1141,30 @@
     },
     {
       "key": {
+        "uuid": "f8abb427_9dd71ecc",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79035e72_b2824341",
+      "range": {
+        "startLine": 1357,
+        "startChar": 21,
+        "endLine": 1357,
+        "endChar": 23
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23e0d741_dfdf1878",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -591,6 +1185,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a852a53b_ce01ba6f",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23e0d741_dfdf1878",
+      "range": {
+        "startLine": 1373,
+        "startChar": 19,
+        "endLine": 1373,
+        "endChar": 20
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -617,6 +1235,30 @@
     },
     {
       "key": {
+        "uuid": "540da927_d0cf6b2d",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79218fda_f663e684",
+      "range": {
+        "startLine": 1374,
+        "startChar": 34,
+        "endLine": 1374,
+        "endChar": 35
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39e6d05d_83d2cdee",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -637,6 +1279,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6805b867_0b550496",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39e6d05d_83d2cdee",
+      "range": {
+        "startLine": 1497,
+        "startChar": 20,
+        "endLine": 1497,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -680,6 +1346,24 @@
     },
     {
       "key": {
+        "uuid": "02540b35_661cce39",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92ef0303_a57b3916",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73862543_472fd510",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -700,6 +1384,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f87379f5_9d0617cb",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73862543_472fd510",
+      "range": {
+        "startLine": 1508,
+        "startChar": 24,
+        "endLine": 1508,
+        "endChar": 25
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -726,6 +1434,30 @@
     },
     {
       "key": {
+        "uuid": "e64178e1_18150eab",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83775b77_f94b9c5c",
+      "range": {
+        "startLine": 1516,
+        "startChar": 21,
+        "endLine": 1516,
+        "endChar": 22
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e11f68d2_73efe8e0",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -746,6 +1478,30 @@
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f69c5e_f24c8851",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e11f68d2_73efe8e0",
+      "range": {
+        "startLine": 1522,
+        "startChar": 21,
+        "endLine": 1522,
+        "endChar": 22
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -772,6 +1528,30 @@
     },
     {
       "key": {
+        "uuid": "5e67e78c_741fab96",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c258d2f8_00a08122",
+      "range": {
+        "startLine": 1523,
+        "startChar": 0,
+        "endLine": 1523,
+        "endChar": 67
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7953d851_b210f124",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -783,6 +1563,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "space between methods (here and elsewhere)",
+      "range": {
+        "startLine": 1532,
+        "startChar": 0,
+        "endLine": 1532,
+        "endChar": 1
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b86d7c89_c70dc60e",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Leaving for now, this whole file needs to be cleaned up.",
+      "parentUuid": "7953d851_b210f124",
       "range": {
         "startLine": 1532,
         "startChar": 0,
@@ -818,6 +1622,30 @@
     },
     {
       "key": {
+        "uuid": "d8086fc0_477df2ff",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b880827_9b44c0ab",
+      "range": {
+        "startLine": 107,
+        "startChar": 44,
+        "endLine": 107,
+        "endChar": 45
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a315f815_7c5fc752",
         "filename": "xfa/fxgraphics/cfx_path.cpp",
         "patchSetId": 2
@@ -829,6 +1657,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "Or maybe use a helper method to avoid having to do the /2 and + width/height in multiple methods.",
+      "range": {
+        "startLine": 131,
+        "startChar": 22,
+        "endLine": 131,
+        "endChar": 32
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bd773c6_dd0e73b1",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a315f815_7c5fc752",
       "range": {
         "startLine": 131,
         "startChar": 22,
@@ -864,6 +1716,30 @@
     },
     {
       "key": {
+        "uuid": "8d97d61c_e25f4c3d",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d8e6336e_c89554cc",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28b7612d_a476b6dc",
         "filename": "xfa/fxgraphics/cfx_path.h",
         "patchSetId": 2
@@ -875,6 +1751,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "start",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b499ba9c_05c6fcdb",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28b7612d_a476b6dc",
       "range": {
         "startLine": 36,
         "startChar": 28,
@@ -904,6 +1804,24 @@
     },
     {
       "key": {
+        "uuid": "a4d73528_78ee4b4a",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45601b56_31938746",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc3e0939_bfc3fe5d",
         "filename": "xfa/fxgraphics/cfx_path_generator.cpp",
         "patchSetId": 2
@@ -915,6 +1833,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "p1 is start, p2 is end.",
+      "range": {
+        "startLine": 50,
+        "startChar": 52,
+        "endLine": 50,
+        "endChar": 54
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6c6d420_dc713529",
+        "filename": "xfa/fxgraphics/cfx_path_generator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc3e0939_bfc3fe5d",
       "range": {
         "startLine": 50,
         "startChar": 52,
@@ -944,6 +1886,24 @@
     },
     {
       "key": {
+        "uuid": "d0636f92_4c6bfd08",
+        "filename": "xfa/fxgraphics/cfx_path_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d9f63565_12ad9d6a",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3236b740_d38410d9",
         "filename": "xfa/fxgraphics/cfx_path_generator.h",
         "patchSetId": 2
@@ -955,6 +1915,30 @@
       "writtenOn": "2017-02-22T20:11:49Z",
       "side": 1,
       "message": "ditto naming throughout this file",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01a21766_c36b889d",
+        "filename": "xfa/fxgraphics/cfx_path_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T22:00:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3236b740_d38410d9",
       "range": {
         "startLine": 25,
         "startChar": 34,
