@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "aefc0c2e_a2ddf374",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "no-arg ctor",
+      "range": {
+        "startLine": 824,
+        "startChar": 27,
+        "endLine": 824,
+        "endChar": 37
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd9e2c19_2939d3b4",
         "filename": "core/fpdfdoc/cpdf_annot.cpp",
         "patchSetId": 2
@@ -456,6 +479,29 @@
     },
     {
       "key": {
+        "uuid": "41914ab0_406d977e",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 1339,
+        "startChar": 14,
+        "endLine": 1339,
+        "endChar": 16
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e40b1d96_4a8c6731",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -472,6 +518,29 @@
         "startChar": 18,
         "endLine": 1341,
         "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb4a3f8b_25f0bff3",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "arg, one per line with semicolons, then braces required (ha ha).",
+      "range": {
+        "startLine": 1344,
+        "startChar": 11,
+        "endLine": 1344,
+        "endChar": 12
       },
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -525,6 +594,29 @@
     },
     {
       "key": {
+        "uuid": "79218fda_f663e684",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "remove comma, keep braces.",
+      "range": {
+        "startLine": 1374,
+        "startChar": 34,
+        "endLine": 1374,
+        "endChar": 35
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39e6d05d_83d2cdee",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 2
@@ -541,6 +633,29 @@
         "startChar": 20,
         "endLine": 1497,
         "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f74c8fe0_49802b8e",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "ha ha",
+      "range": {
+        "startLine": 1500,
+        "startChar": 0,
+        "endLine": 1500,
+        "endChar": 26
       },
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -627,6 +742,29 @@
         "startChar": 21,
         "endLine": 1522,
         "endChar": 22
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c258d2f8_00a08122",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T20:29:00Z",
+      "side": 1,
+      "message": "comma and braces",
+      "range": {
+        "startLine": 1523,
+        "startChar": 0,
+        "endLine": 1523,
+        "endChar": 67
       },
       "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
