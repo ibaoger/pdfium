@@ -69,14 +69,8 @@ void CFFL_InteractiveFormFiller::OnDraw(CPDFSDK_PageView* pPageView,
         CFX_FloatRect rcFocus = pFormFiller->GetFocusBox(pPageView);
         if (!rcFocus.IsEmpty()) {
           CFX_PathData path;
-          path.AppendPoint(rcFocus.left, rcFocus.top, FXPT_TYPE::MoveTo, false);
-          path.AppendPoint(rcFocus.left, rcFocus.bottom, FXPT_TYPE::LineTo,
-                           false);
-          path.AppendPoint(rcFocus.right, rcFocus.bottom, FXPT_TYPE::LineTo,
-                           false);
-          path.AppendPoint(rcFocus.right, rcFocus.top, FXPT_TYPE::LineTo,
-                           false);
-          path.AppendPoint(rcFocus.left, rcFocus.top, FXPT_TYPE::LineTo, false);
+          path.AppendRect(rcFocus.left, rcFocus.bottom, rcFocus.right,
+                          rcFocus.top);
 
           CFX_GraphStateData gsd;
           gsd.SetDashCount(1);
