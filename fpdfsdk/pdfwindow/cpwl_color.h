@@ -28,7 +28,9 @@ struct CPWL_Color {
         fColor3(b / 255.0f),
         fColor4(0) {}
 
-  void ConvertColorType(int32_t other_nColorType);
+  CPWL_Color ConvertColorType(int32_t other_nColorType) const;
+
+  FX_COLORREF ToFXColor(int32_t nTransparency) const;
 
   void Reset() {
     nColorType = COLORTYPE_TRANSPARENT;
