@@ -1,0 +1,831 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d21eeb03_19200b00",
+        "filename": "core/fpdfapi/page/cpdf_clippath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "maybe this can be constructed using two points?",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a335e011_fe80ea6f",
+        "filename": "core/fpdfapi/page/cpdf_contentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "That would also be used here",
+      "range": {
+        "startLine": 209,
+        "startChar": 22,
+        "endLine": 209,
+        "endChar": 30
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd9e2c19_2939d3b4",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "Touching this file just for this nit? :P",
+      "range": {
+        "startLine": 503,
+        "startChar": 2,
+        "endLine": 503,
+        "endChar": 4
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f25c1c2d_a6db754b",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "I\u0027m assuming this is just copy-paste moved (saw no change)",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 14
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a2e9a9_36e54147",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "This could take the point (followup)",
+      "range": {
+        "startLine": 285,
+        "startChar": 17,
+        "endLine": 285,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28a4f2a2_f7735b8c",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 293,
+        "startChar": 17,
+        "endLine": 293,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46616a1d_1293a784",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "I\u0027ll just state that I disagree with HardClip being changed to return a point",
+      "range": {
+        "startLine": 303,
+        "startChar": 13,
+        "endLine": 303,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2faa4278_a868397e",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "I see there are some changes here. It would be nice to just copy-paste to namespace and clean-up in a followup, to see what the changes are. (Or have separate patchsets for copy-paste and change)",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b22784_d267f865",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "rect pointer, or as you like it, returned?",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d9ba4e3_4fd92c8c",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto rect",
+      "range": {
+        "startLine": 58,
+        "startChar": 26,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "398cd60e_3a12e08b",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "maybe one_twentieth if we are being precise",
+      "range": {
+        "startLine": 72,
+        "startChar": 11,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4161f403_05dc9ade",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "Nit: this space is not needed.",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c267f8a_11ede47e",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "Maybe in a followup it could take a point (would have to see how it is used elsewhere).",
+      "range": {
+        "startLine": 228,
+        "startChar": 7,
+        "endLine": 228,
+        "endChar": 15
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6107b849_378cdb16",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 230,
+        "startChar": 9,
+        "endLine": 230,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7459d08e_c49851c3",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "I wonder why we don\u0027t compare points 0 and 2 in this one, as above, in the other IsRect",
+      "range": {
+        "startLine": 458,
+        "startChar": 6,
+        "endLine": 458,
+        "endChar": 14
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1fa241e_4d5cfcde",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto this could take a point",
+      "range": {
+        "startLine": 286,
+        "startChar": 13,
+        "endLine": 286,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "576c06a0_757034be",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 288,
+        "startChar": 13,
+        "endLine": 288,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0522a93d_87d6b380",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 292,
+        "startChar": 13,
+        "endLine": 292,
+        "endChar": 20
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8cfb96c_b99d2c68",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1053,
+        "startChar": 4,
+        "endLine": 1053,
+        "endChar": 12
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bc3f93e_5fdb869a",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "Is this exactly the same? I thought AppendRect would have a closed point in the end",
+      "range": {
+        "startLine": 72,
+        "startChar": 15,
+        "endLine": 72,
+        "endChar": 25
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40b1d96_4a8c6731",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "No {}",
+      "range": {
+        "startLine": 1341,
+        "startChar": 18,
+        "endLine": 1341,
+        "endChar": 19
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79035e72_b2824341",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "2tto",
+      "range": {
+        "startLine": 1357,
+        "startChar": 21,
+        "endLine": 1357,
+        "endChar": 23
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e0d741_dfdf1878",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "3tto",
+      "range": {
+        "startLine": 1373,
+        "startChar": 19,
+        "endLine": 1373,
+        "endChar": 20
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39e6d05d_83d2cdee",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "4tto",
+      "range": {
+        "startLine": 1497,
+        "startChar": 20,
+        "endLine": 1497,
+        "endChar": 21
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92ef0303_a57b3916",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "No {}",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73862543_472fd510",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 1508,
+        "startChar": 24,
+        "endLine": 1508,
+        "endChar": 25
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83775b77_f94b9c5c",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 1516,
+        "startChar": 21,
+        "endLine": 1516,
+        "endChar": 22
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e11f68d2_73efe8e0",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 1522,
+        "startChar": 21,
+        "endLine": 1522,
+        "endChar": 22
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7953d851_b210f124",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "space between methods (here and elsewhere)",
+      "range": {
+        "startLine": 1532,
+        "startChar": 0,
+        "endLine": 1532,
+        "endChar": 1
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b880827_9b44c0ab",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "similar trick as before with the \"/ 2\"?",
+      "range": {
+        "startLine": 107,
+        "startChar": 44,
+        "endLine": 107,
+        "endChar": 45
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a315f815_7c5fc752",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "Or maybe use a helper method to avoid having to do the /2 and + width/height in multiple methods.",
+      "range": {
+        "startLine": 131,
+        "startChar": 22,
+        "endLine": 131,
+        "endChar": 32
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8e6336e_c89554cc",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "these are control points, ctrl or control is better than c",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b7612d_a476b6dc",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "start",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45601b56_31938746",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto c",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3e0939_bfc3fe5d",
+        "filename": "xfa/fxgraphics/cfx_path_generator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "p1 is start, p2 is end.",
+      "range": {
+        "startLine": 50,
+        "startChar": 52,
+        "endLine": 50,
+        "endChar": 54
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f63565_12ad9d6a",
+        "filename": "xfa/fxgraphics/cfx_path_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "I suppose you\u0027ve already added the followup or merging some of our multiple path classes, they all look too similar.",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3236b740_d38410d9",
+        "filename": "xfa/fxgraphics/cfx_path_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T20:11:49Z",
+      "side": 1,
+      "message": "ditto naming throughout this file",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
