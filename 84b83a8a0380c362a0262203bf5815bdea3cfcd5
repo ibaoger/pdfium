@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "4d270db2_af50e0be",
+        "filename": "fpdfsdk/pdfwindow/PWL_ScrollBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T23:35:05Z",
+      "side": 1,
+      "message": "nTransparancy... Can we rename this?",
+      "range": {
+        "startLine": 266,
+        "startChar": 63,
+        "endLine": 266,
+        "endChar": 76
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "285d7785_d9077b0d",
+        "filename": "fpdfsdk/pdfwindow/PWL_Utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T23:35:05Z",
+      "side": 1,
+      "message": "ditto transparancy in several methods in this file.",
+      "range": {
+        "startLine": 995,
+        "startChar": 38,
+        "endLine": 995,
+        "endChar": 51
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d5dc6ac_1a8a89d8",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
@@ -18,6 +64,52 @@
         "startChar": 6,
         "endLine": 18,
         "endChar": 13
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4c53f3a_e9058abe",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T23:35:05Z",
+      "side": 1,
+      "message": "Before, this set alpha \u003d 0. Was that a bug?",
+      "range": {
+        "startLine": 114,
+        "startChar": 55,
+        "endLine": 114,
+        "endChar": 68
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb3d4c09_63767446",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-22T23:35:05Z",
+      "side": 1,
+      "message": "Doesn\u0027t RGB have only 3 values? Should this be nTransparency?",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
       },
       "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
