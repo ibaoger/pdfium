@@ -1047,8 +1047,8 @@ bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     CFX_PointF pos1 = pPathData->GetPoint(0);
     CFX_pointF pos2 = pPathData->GetPoint(1);
     if (pMatrix) {
-      pos1 = pMatrix->TransformPoint(pos1);
-      pos2 = pMatrix->TransformPoint(pos2);
+      pos1 = pMatrix->Transform(pos1);
+      pos2 = pMatrix->Transform(pos2);
     }
     DrawLine(pos1.x, pos1.y, pos2.x, pos2.y);
   } else {
