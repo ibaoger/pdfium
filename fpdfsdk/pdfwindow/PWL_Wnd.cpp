@@ -31,8 +31,6 @@ PWL_CREATEPARAM::PWL_CREATEPARAM()
       nBorderStyle(BorderStyle::SOLID),
       dwBorderWidth(1),
       sBorderColor(),
-      sTextColor(),
-      sTextStrokeColor(),
       nTransparency(255),
       fFontSize(PWL_DEFAULT_FONTSIZE),
       sDash(3, 0, 0),
@@ -557,22 +555,6 @@ CPWL_Color CPWL_Wnd::GetBackgroundColor() const {
 
 void CPWL_Wnd::SetBackgroundColor(const CPWL_Color& color) {
   m_sPrivateParam.sBackgroundColor = color;
-}
-
-void CPWL_Wnd::SetTextColor(const CPWL_Color& color) {
-  m_sPrivateParam.sTextColor = color;
-}
-
-void CPWL_Wnd::SetTextStrokeColor(const CPWL_Color& color) {
-  m_sPrivateParam.sTextStrokeColor = color;
-}
-
-CPWL_Color CPWL_Wnd::GetTextColor() const {
-  return m_sPrivateParam.sTextColor;
-}
-
-CPWL_Color CPWL_Wnd::GetTextStrokeColor() const {
-  return m_sPrivateParam.sTextStrokeColor;
 }
 
 BorderStyle CPWL_Wnd::GetBorderStyle() const {
