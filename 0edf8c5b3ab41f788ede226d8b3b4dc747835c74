@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8519891b_e20c99fb",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T22:51:43Z",
+      "side": 1,
+      "message": "nit: overparenthesized",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "0edf8c5b3ab41f788ede226d8b3b4dc747835c74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8782e88_64c3f904",
+        "filename": "core/fxge/ge/cfx_pathdata.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-22T22:51:43Z",
+      "side": 1,
+      "message": "I don\u0027t think this increases readabiity above 100000.0f etc.",
+      "range": {
+        "startLine": 235,
+        "startChar": 22,
+        "endLine": 236,
+        "endChar": 36
+      },
+      "revId": "0edf8c5b3ab41f788ede226d8b3b4dc747835c74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
