@@ -263,8 +263,7 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
             path.AppendPoint(pt1.x, pt1.y, FXPT_TYPE::LineTo, false);
 
             pDevice->DrawPath(&path, pUser2Device, nullptr,
-                              CPWL_Utils::PWLColorToFXColor(
-                                  PWL_DEFAULT_BLACKCOLOR, nTransparancy),
+                              PWL_DEFAULT_BLACKCOLOR.ToFXColor(nTransparancy),
                               0, FXFILL_ALTERNATE);
           }
         } break;
@@ -284,8 +283,7 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
             path.AppendPoint(pt1.x, pt1.y, FXPT_TYPE::LineTo, false);
 
             pDevice->DrawPath(&path, pUser2Device, nullptr,
-                              CPWL_Utils::PWLColorToFXColor(
-                                  PWL_DEFAULT_BLACKCOLOR, nTransparancy),
+                              PWL_DEFAULT_BLACKCOLOR.ToFXColor(nTransparancy),
                               0, FXFILL_ALTERNATE);
           }
         } break;
@@ -337,9 +335,9 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
                   pDevice, pUser2Device, pts, 7,
                   ArgbEncode(nTransparancy, 255, 255, 255));
             else
-              CPWL_Utils::DrawFillArea(pDevice, pUser2Device, pts, 7,
-                                       CPWL_Utils::PWLColorToFXColor(
-                                           PWL_DEFAULT_HEAVYGRAYCOLOR, 255));
+              CPWL_Utils::DrawFillArea(
+                  pDevice, pUser2Device, pts, 7,
+                  PWL_DEFAULT_HEAVYGRAYCOLOR.ToFXColor(255));
           }
         } break;
         case PSBT_MAX: {
@@ -383,9 +381,9 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
                   pDevice, pUser2Device, pts, 7,
                   ArgbEncode(nTransparancy, 255, 255, 255));
             else
-              CPWL_Utils::DrawFillArea(pDevice, pUser2Device, pts, 7,
-                                       CPWL_Utils::PWLColorToFXColor(
-                                           PWL_DEFAULT_HEAVYGRAYCOLOR, 255));
+              CPWL_Utils::DrawFillArea(
+                  pDevice, pUser2Device, pts, 7,
+                  PWL_DEFAULT_HEAVYGRAYCOLOR.ToFXColor(255));
           }
         } break;
         case PSBT_POS: {
@@ -487,8 +485,7 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
           if (rectWnd.Height() > 8.0f) {
             FX_COLORREF crStroke = ArgbEncode(nTransparancy, 120, 120, 120);
             if (!IsEnabled())
-              crStroke = CPWL_Utils::PWLColorToFXColor(
-                  PWL_DEFAULT_HEAVYGRAYCOLOR, 255);
+              crStroke = PWL_DEFAULT_HEAVYGRAYCOLOR.ToFXColor(255);
 
             FX_FLOAT nFrictionWidth = 5.0f;
             FX_FLOAT nFrictionHeight = 5.5f;
