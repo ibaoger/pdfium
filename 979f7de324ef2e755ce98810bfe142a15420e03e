@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af3fe31d_896e90aa",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T19:21:50Z",
+      "side": 0,
+      "message": "This code would have always set the LineWidth to 0 .... we never set the text stroke colour so this code path isn\u0027t run.",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26389f1c_55f6f181",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-22T19:21:50Z",
+      "side": 0,
+      "message": "ditto",
+      "revId": "979f7de324ef2e755ce98810bfe142a15420e03e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
