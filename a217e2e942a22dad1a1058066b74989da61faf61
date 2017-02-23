@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a47e5792_d14029dd",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:14:35Z",
+      "side": 1,
+      "message": "do we ever push nullptrs into m_Children?  If so, why?",
+      "range": {
+        "startLine": 896,
+        "startChar": 8,
+        "endLine": 896,
+        "endChar": 15
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6897d151_902ed92e",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:14:35Z",
+      "side": 1,
+      "message": "const method, maybe in header even.",
+      "range": {
+        "startLine": 902,
+        "startChar": 26,
+        "endLine": 902,
+        "endChar": 28
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa87d2a7_35a01df2",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:14:35Z",
+      "side": 1,
+      "message": "I think this can be private.",
+      "range": {
+        "startLine": 378,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 0
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
