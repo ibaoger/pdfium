@@ -124,7 +124,7 @@ void CPWL_ListBox::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
           CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
       if (sItem.GetLength() > 0) {
         sListItems << "BT\n"
-                   << CPWL_Utils::GetColorAppStream(GetTextColor()).AsStringC()
+                   << CPWL_Utils::GetColorAppStream(CPWL_Color()).AsStringC()
                    << sItem.AsStringC() << "ET\n";
       }
     }
@@ -171,24 +171,21 @@ void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
       CFX_SystemHandler* pSysHandler = GetSystemHandler();
       if (pSysHandler && pSysHandler->IsSelectionImplemented()) {
         CFX_Edit::DrawEdit(pDevice, pUser2Device, m_pList->GetItemEdit(i),
-                           CPWL_Utils::PWLColorToFXColor(GetTextColor()),
-                           CPWL_Utils::PWLColorToFXColor(GetTextStrokeColor()),
-                           rcList, ptOffset, nullptr, pSysHandler,
-                           m_pFormFiller);
+                           CPWL_Utils::PWLColorToFXColor(CPWL_Color()), rcList,
+                           ptOffset, nullptr, pSysHandler, m_pFormFiller);
         pSysHandler->OutputSelectedRect(m_pFormFiller, rcItem);
       } else {
         CPWL_Utils::DrawFillRect(pDevice, pUser2Device, rcItem,
                                  ArgbEncode(255, 0, 51, 113));
         CFX_Edit::DrawEdit(pDevice, pUser2Device, m_pList->GetItemEdit(i),
-                           ArgbEncode(255, 255, 255, 255), 0, rcList, ptOffset,
+                           ArgbEncode(255, 255, 255, 255), rcList, ptOffset,
                            nullptr, pSysHandler, m_pFormFiller);
       }
     } else {
       CFX_SystemHandler* pSysHandler = GetSystemHandler();
       CFX_Edit::DrawEdit(pDevice, pUser2Device, m_pList->GetItemEdit(i),
-                         CPWL_Utils::PWLColorToFXColor(GetTextColor()),
-                         CPWL_Utils::PWLColorToFXColor(GetTextStrokeColor()),
-                         rcList, ptOffset, nullptr, pSysHandler, nullptr);
+                         CPWL_Utils::PWLColorToFXColor(CPWL_Color()), rcList,
+                         ptOffset, nullptr, pSysHandler, nullptr);
     }
   }
 }
