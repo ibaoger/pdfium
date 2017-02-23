@@ -686,6 +686,30 @@
     },
     {
       "key": {
+        "uuid": "d43b1d1b_43b62d96",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-23T03:20:08Z",
+      "side": 1,
+      "message": "It gains clarity to avoid problems like in patchset 2. The color4 is only intended for use in cmyk, I believe, why use that variable as something that\u0027s not? Maybe the best would be to have an array of colour, sized properly depending on the type. For now, my suggestion is to use the proper variable.",
+      "parentUuid": "f0257799_c999072b",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503b268f_62ac8f14",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
