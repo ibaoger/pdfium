@@ -2837,19 +2837,6 @@ bool Field::buttonGetIcon(CJS_Runtime* pRuntime,
   ASSERT(pObj.IsEmpty() == false);
 
   CJS_Icon* pJS_Icon = static_cast<CJS_Icon*>(pRuntime->GetObjectPrivate(pObj));
-  Icon* pIcon = (Icon*)pJS_Icon->GetEmbedObject();
-
-  CPDF_Stream* pIconStream = nullptr;
-  if (nface == 0)
-    pIconStream = pFormControl->GetNormalIcon();
-  else if (nface == 1)
-    pIconStream = pFormControl->GetDownIcon();
-  else if (nface == 2)
-    pIconStream = pFormControl->GetRolloverIcon();
-  else
-    return false;
-
-  pIcon->SetStream(pIconStream);
   vRet = CJS_Value(pRuntime, pJS_Icon);
   return true;
 }
