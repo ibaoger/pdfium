@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9604b53_901ac6a7",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T19:38:59Z",
+      "side": 1,
+      "message": "It\u0027s possible AddChild could push a nullptr. There is also a period of time in ::Destroy where the pointers will all be nullptr but we haven\u0027t cleared the vector yet.\n\nWill add a followup to see if it can be fixed (really, the children should be unique_ptr\u0027s anyway)",
+      "parentUuid": "a47e5792_d14029dd",
+      "range": {
+        "startLine": 896,
+        "startChar": 8,
+        "endLine": 896,
+        "endChar": 15
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6897d151_902ed92e",
         "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23a745ba_5f95a107",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T19:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6897d151_902ed92e",
+      "range": {
+        "startLine": 902,
+        "startChar": 26,
+        "endLine": 902,
+        "endChar": 28
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0989545c_ec4cfc30",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T19:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d16b2794_b9f7f91b",
+      "range": {
+        "startLine": 907,
+        "startChar": 1,
+        "endLine": 911,
+        "endChar": 15
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa87d2a7_35a01df2",
         "filename": "fpdfsdk/pdfwindow/PWL_Wnd.h",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fc853f_f6018538",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T19:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa87d2a7_35a01df2",
+      "range": {
+        "startLine": 378,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 0
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
