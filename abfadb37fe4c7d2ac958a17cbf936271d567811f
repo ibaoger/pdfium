@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00a780f4_936ee9ab",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:02:55Z",
+      "side": 1,
+      "message": "have complete type from include above (incomplete type not sufficient since we have one directly inside our class (rather than a pointer to one).",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd0225c_ad35ff74",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:02:55Z",
+      "side": 1,
+      "message": "mno exist anymore?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
