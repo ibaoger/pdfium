@@ -558,13 +558,18 @@ void* CFXJS_Engine::GetObjectPrivate(v8::Local<v8::Object> pObj) {
   return pPerObjectData ? pPerObjectData->m_pPrivate : nullptr;
 }
 
-v8::Local<v8::String> CFXJS_Engine::WSToJSString(
-    const CFX_WideString& wsPropertyName) {
+v8::Local<v8::String> CFXJS_Engine::BSToJSString(
+    const CFX_ByteStringC& bsPropertyName) {
   v8::Isolate* pIsolate = m_isolate ? m_isolate : v8::Isolate::GetCurrent();
-  CFX_ByteString bs = wsPropertyName.UTF8Encode();
-  return v8::String::NewFromUtf8(pIsolate, bs.c_str(),
-                                 v8::NewStringType::kNormal, bs.GetLength())
+  return v8::String::NewFromUtf8(pIsolate, bsPropertyName.c_str(),
+                                 v8::NewStringType::kNormal,
+                                 bsPropertyName.GetLength())
       .ToLocalChecked();
+}
+
+v8::Local<v8::String> CFXJS_Engine::WSToJSString(
+    const CFX_WideStringC& wsPropertyName) {
+  return BSToJSString(FX_UTF8Encode(wsPropertyName).AsStringC());
 }
 
 v8::Local<v8::Value> CFXJS_Engine::GetObjectProperty(
@@ -573,7 +578,8 @@ v8::Local<v8::Value> CFXJS_Engine::GetObjectProperty(
   if (pObj.IsEmpty())
     return v8::Local<v8::Value>();
   v8::Local<v8::Value> val;
-  if (!pObj->Get(m_isolate->GetCurrentContext(), WSToJSString(wsPropertyName))
+  if (!pObj->Get(m_isolate->GetCurrentContext(),
+                 WSToJSString(wsPropertyName.AsStringC()))
            .ToLocal(&val))
     return v8::Local<v8::Value>();
   return val;
@@ -602,7 +608,8 @@ void CFXJS_Engine::PutObjectProperty(v8::Local<v8::Object> pObj,
                                      v8::Local<v8::Value> pPut) {
   if (pObj.IsEmpty())
     return;
-  pObj->Set(m_isolate->GetCurrentContext(), WSToJSString(wsPropertyName), pPut)
+  pObj->Set(m_isolate->GetCurrentContext(),
+            WSToJSString(wsPropertyName.AsStringC()), pPut)
       .FromJust();
 }
 
@@ -661,8 +668,12 @@ v8::Local<v8::Value> CFXJS_Engine::NewBoolean(bool b) {
   return v8::Boolean::New(m_isolate, b);
 }
 
+v8::Local<v8::Value> CFXJS_Engine::NewString(const CFX_ByteString& str) {
+  return BSToJSString(str.AsStringC());
+}
+
 v8::Local<v8::Value> CFXJS_Engine::NewString(const CFX_WideString& str) {
-  return WSToJSString(str.c_str());
+  return WSToJSString(str.AsStringC());
 }
 
 v8::Local<v8::Value> CFXJS_Engine::NewNull() {
