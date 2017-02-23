@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "d16b2794_b9f7f91b",
+        "filename": "fpdfsdk/pdfwindow/PWL_Wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-23T17:17:50Z",
+      "side": 1,
+      "message": "nit:\n\nCFX_SystemHandler* pSystemHandler \u003d GetSystemHandler();\nreturn pSystemHandler \u0026\u0026 pSystemHandler-\u003eIsCTRLKeyDown(nFlag);",
+      "range": {
+        "startLine": 907,
+        "startChar": 1,
+        "endLine": 911,
+        "endChar": 15
+      },
+      "revId": "a217e2e942a22dad1a1058066b74989da61faf61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa87d2a7_35a01df2",
         "filename": "fpdfsdk/pdfwindow/PWL_Wnd.h",
         "patchSetId": 1
