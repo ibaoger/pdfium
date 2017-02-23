@@ -614,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "c7b29a80_e71d7f9d",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T02:10:42Z",
+      "side": 1,
+      "message": "The constructor takes 5 values, they just all have defaults. I\u0027m also, in a later patch set, explicitly setting fColour4 to the alpha in all cases but the first where alpha is 0.",
+      "parentUuid": "e47b1e2a_c50fc597",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503b268f_62ac8f14",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
