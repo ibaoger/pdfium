@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b28f7f4f_4edb5c63",
+        "filename": "xfa/fxgraphics/cfx_graphics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T17:49:48Z",
+      "side": 0,
+      "message": "These values are set into the CFX_Pattern object where we pull them out to index the hatch data array. The CFX_Pattern is only created in XFA_FFWidget which sets these 6 values.",
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc4a5c2e_ce550617",
+        "filename": "xfa/fxgraphics/cfx_graphics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T17:49:48Z",
+      "side": 0,
+      "message": "This was created in a ::Create path that we never called. Removed, which removes the whole class.",
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
