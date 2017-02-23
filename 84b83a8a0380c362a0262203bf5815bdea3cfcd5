@@ -638,6 +638,30 @@
     },
     {
       "key": {
+        "uuid": "dd9384ad_5819402c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-23T02:44:35Z",
+      "side": 1,
+      "message": "Let\u0027s use nTransparency, and just set it to 0 if the color type is transparent.",
+      "parentUuid": "c7b29a80_e71d7f9d",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503b268f_62ac8f14",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
