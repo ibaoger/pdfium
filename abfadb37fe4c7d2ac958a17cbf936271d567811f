@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8c5e42ee_a586630d",
+        "filename": "xfa/fxfa/app/xfa_fffield.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "276d83ae_512afb12",
+      "range": {
+        "startLine": 85,
+        "startChar": 18,
+        "endLine": 85,
+        "endChar": 19
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9035a14_8d86c8aa",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e96e94_973d61ee",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9035a14_8d86c8aa",
+      "range": {
+        "startLine": 1638,
+        "startChar": 64,
+        "endLine": 1638,
+        "endChar": 65
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6cba3e45_0729ccb1",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7abc0348_2c744847",
+      "range": {
+        "startLine": 1731,
+        "startChar": 24,
+        "endLine": 1731,
+        "endChar": 25
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4954121d_ff55d045",
         "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05595fe1_cf0ef110",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1927,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4954121d_ff55d045",
+      "range": {
+        "startLine": 1927,
+        "startChar": 32,
+        "endLine": 1927,
+        "endChar": 33
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "69f253a7_73631a0e",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "The /2 will be done when we call AddArc. The previous code would have called into the AddArcInternal equivalent which didn\u0027t do a /2.",
+      "parentUuid": "8d0a6d94_155cd2fe",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 8
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dffa5de_eafcd384",
+        "filename": "xfa/fxgraphics/cfx_path.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "We add the width and height in the AddArc.",
+      "parentUuid": "eeb8b930_3da06f00",
+      "range": {
+        "startLine": 89,
+        "startChar": 14,
+        "endLine": 89,
+        "endChar": 21
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00a780f4_936ee9ab",
         "filename": "xfa/fxgraphics/cfx_path.h",
         "patchSetId": 1
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cdb06534_cbd0624c",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a780f4_936ee9ab",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd0225c_ad35ff74",
         "filename": "xfa/fxgraphics/cfx_path.h",
         "patchSetId": 1
@@ -183,6 +351,30 @@
       "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46c93c5c_fb3a7c75",
+        "filename": "xfa/fxgraphics/cfx_path.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T18:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbd0225c_ad35ff74",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "abfadb37fe4c7d2ac958a17cbf936271d567811f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
