@@ -2815,11 +2815,6 @@ bool Field::buttonGetIcon(CJS_Runtime* pRuntime,
                           const std::vector<CJS_Value>& params,
                           CJS_Value& vRet,
                           CFX_WideString& sError) {
-  int nface = 0;
-  int iSize = params.size();
-  if (iSize >= 1)
-    nface = params[0].ToInt(pRuntime);
-
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
     return false;
@@ -2837,19 +2832,6 @@ bool Field::buttonGetIcon(CJS_Runtime* pRuntime,
   ASSERT(pObj.IsEmpty() == false);
 
   CJS_Icon* pJS_Icon = static_cast<CJS_Icon*>(pRuntime->GetObjectPrivate(pObj));
-  Icon* pIcon = (Icon*)pJS_Icon->GetEmbedObject();
-
-  CPDF_Stream* pIconStream = nullptr;
-  if (nface == 0)
-    pIconStream = pFormControl->GetNormalIcon();
-  else if (nface == 1)
-    pIconStream = pFormControl->GetDownIcon();
-  else if (nface == 2)
-    pIconStream = pFormControl->GetRolloverIcon();
-  else
-    return false;
-
-  pIcon->SetStream(pIconStream);
   vRet = CJS_Value(pRuntime, pJS_Icon);
   return true;
 }
