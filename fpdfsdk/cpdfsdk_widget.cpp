@@ -883,11 +883,10 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
       break;
   }
 
-  CPWL_Color crBackground, crBorder;
-
+  CPWL_Color crBackground;
+  CPWL_Color crBorder;
   int iColorType;
   FX_FLOAT fc[4];
-
   pControl->GetOriginalBackgroundColor(iColorType, fc);
   if (iColorType > 0)
     crBackground = CPWL_Color(iColorType, fc[0], fc[1], fc[2], fc[3]);
@@ -898,7 +897,8 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
 
   FX_FLOAT fBorderWidth = (FX_FLOAT)GetBorderWidth();
   CPWL_Dash dsBorder(3, 0, 0);
-  CPWL_Color crLeftTop, crRightBottom;
+  CPWL_Color crLeftTop;
+  CPWL_Color crRightBottom;
 
   BorderStyle nBorderStyle = GetBorderStyle();
   switch (nBorderStyle) {
@@ -908,7 +908,7 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
     case BorderStyle::BEVELED:
       fBorderWidth *= 2;
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 1);
-      crRightBottom = CPWL_Utils::DevideColor(crBackground, 2);
+      crRightBottom = crBackground / 2.0f;
       break;
     case BorderStyle::INSET:
       fBorderWidth *= 2;
@@ -1044,8 +1044,7 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
 
     font_map.SetAPType("D");
 
-    csAP = CPWL_Utils::GetRectFillAppStream(
-               rcWindow, CPWL_Utils::SubstractColor(crBackground, 0.25f)) +
+    csAP = CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
            CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
                                           crLeftTop, crRightBottom,
                                           nBorderStyle, dsBorder) +
@@ -1088,7 +1087,7 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
     case BorderStyle::BEVELED:
       fBorderWidth *= 2;
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 1);
-      crRightBottom = CPWL_Utils::DevideColor(crBackground, 2);
+      crRightBottom = crBackground / 2.0f;
       break;
     case BorderStyle::INSET:
       fBorderWidth *= 2;
@@ -1101,7 +1100,6 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
 
   CFX_FloatRect rcWindow = GetRotatedRect();
   CFX_FloatRect rcClient = CPWL_Utils::DeflateRect(rcWindow, fBorderWidth);
-
   CPDF_DefaultAppearance da = pControl->GetDefaultAppearance();
   if (da.HasColor()) {
     da.GetColor(iColorType, fc);
@@ -1109,7 +1107,6 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
   }
 
   int32_t nStyle = 0;
-
   CFX_WideString csWCaption = pControl->GetNormalCaption();
   if (csWCaption.GetLength() > 0) {
     switch (csWCaption[0]) {
@@ -1161,8 +1158,7 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
   }
 
   CFX_ByteString csAP_D_ON =
-      CPWL_Utils::GetRectFillAppStream(
-          rcWindow, CPWL_Utils::SubstractColor(crBackground, 0.25f)) +
+      CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
       CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
                                      crLeftTop, crRightBottom, nBorderStyle,
                                      dsBorder);
@@ -1201,8 +1197,8 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
 
   FX_FLOAT fBorderWidth = (FX_FLOAT)GetBorderWidth();
   CPWL_Dash dsBorder(3, 0, 0);
-  CPWL_Color crLeftTop, crRightBottom;
-
+  CPWL_Color crLeftTop;
+  CPWL_Color crRightBottom;
   BorderStyle nBorderStyle = GetBorderStyle();
   switch (nBorderStyle) {
     case BorderStyle::DASH:
@@ -1211,7 +1207,7 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
     case BorderStyle::BEVELED:
       fBorderWidth *= 2;
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 1);
-      crRightBottom = CPWL_Utils::DevideColor(crBackground, 2);
+      crRightBottom = crBackground / 2.0f;
       break;
     case BorderStyle::INSET:
       fBorderWidth *= 2;
@@ -1232,7 +1228,6 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
   }
 
   int32_t nStyle = 0;
-
   CFX_WideString csWCaption = pControl->GetNormalCaption();
   if (csWCaption.GetLength() > 0) {
     switch (csWCaption[0]) {
@@ -1267,7 +1262,7 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
   if (nStyle == PCS_CIRCLE) {
     if (nBorderStyle == BorderStyle::BEVELED) {
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 1);
-      crRightBottom = CPWL_Utils::SubstractColor(crBackground, 0.25f);
+      crRightBottom = crBackground - 0.25f;
     } else if (nBorderStyle == BorderStyle::INSET) {
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 0.5f);
       crRightBottom = CPWL_Color(COLORTYPE_GRAY, 0.75f);
@@ -1305,9 +1300,9 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
   CFX_ByteString csAP_D_ON;
 
   if (nStyle == PCS_CIRCLE) {
-    CPWL_Color crBK = CPWL_Utils::SubstractColor(crBackground, 0.25f);
+    CPWL_Color crBK = crBackground - 0.25f;
     if (nBorderStyle == BorderStyle::BEVELED) {
-      crLeftTop = CPWL_Utils::SubstractColor(crBackground, 0.25f);
+      crLeftTop = crBackground - 0.25f;
       crRightBottom = CPWL_Color(COLORTYPE_GRAY, 1);
       crBK = crBackground;
     } else if (nBorderStyle == BorderStyle::INSET) {
@@ -1320,11 +1315,11 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
                     rcCenter, fBorderWidth, crBorder, crLeftTop, crRightBottom,
                     nBorderStyle, dsBorder);
   } else {
-    csAP_D_ON = CPWL_Utils::GetRectFillAppStream(
-                    rcWindow, CPWL_Utils::SubstractColor(crBackground, 0.25f)) +
-                CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                               crLeftTop, crRightBottom,
-                                               nBorderStyle, dsBorder);
+    csAP_D_ON =
+        CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
+        CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
+                                       crLeftTop, crRightBottom, nBorderStyle,
+                                       dsBorder);
   }
 
   CFX_ByteString csAP_D_OFF = csAP_D_ON;
@@ -1701,7 +1696,7 @@ CFX_ByteString CPDFSDK_Widget::GetBorderAppStream() const {
     case BorderStyle::BEVELED:
       fBorderWidth *= 2;
       crLeftTop = CPWL_Color(COLORTYPE_GRAY, 1);
-      crRightBottom = CPWL_Utils::DevideColor(crBackground, 2);
+      crRightBottom = crBackground / 2.0f;
       break;
     case BorderStyle::INSET:
       fBorderWidth *= 2;

@@ -822,7 +822,7 @@ CPWL_Color CPWL_Wnd::GetBorderLeftTopColor(BorderStyle nBorderStyle) const {
 CPWL_Color CPWL_Wnd::GetBorderRightBottomColor(BorderStyle nBorderStyle) const {
   switch (nBorderStyle) {
     case BorderStyle::BEVELED:
-      return CPWL_Utils::DevideColor(GetBackgroundColor(), 2);
+      return GetBackgroundColor() / 2.0f;
     case BorderStyle::INSET:
       return CPWL_Color(COLORTYPE_GRAY, 0.75f);
     default:
