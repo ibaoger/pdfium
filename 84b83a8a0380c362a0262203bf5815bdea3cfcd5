@@ -590,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "e47b1e2a_c50fc597",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-23T01:52:27Z",
+      "side": 1,
+      "message": "The color rgb constructor takes three values. When is the alpha being set then?",
+      "parentUuid": "b6160a37_560631c5",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503b268f_62ac8f14",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
