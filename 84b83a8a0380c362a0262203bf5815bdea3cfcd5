@@ -710,6 +710,30 @@
     },
     {
       "key": {
+        "uuid": "72f0ad15_de7b4779",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-23T14:08:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure why you say color4 is only for CMYK? If I have an rgba colour then it makes sense for colour4 to be the a value. This way if we pass the colour around before converting to an FXARGB we won\u0027t lose the alpha as it\u0027s part of the colour object.",
+      "parentUuid": "d43b1d1b_43b62d96",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "84b83a8a0380c362a0262203bf5815bdea3cfcd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "503b268f_62ac8f14",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.cpp",
         "patchSetId": 2
