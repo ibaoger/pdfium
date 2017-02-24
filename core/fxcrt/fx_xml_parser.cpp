@@ -718,7 +718,7 @@ CXML_Element* CXML_Element::Parse(
 CXML_Element::CXML_Element() : m_QSpaceName(), m_TagName(), m_AttrMap() {}
 CXML_Element::CXML_Element(const CFX_ByteStringC& qSpace,
                            const CFX_ByteStringC& tagName)
-    : m_QSpaceName(), m_TagName(), m_AttrMap() {
+    : m_pParent(nullptr), m_QSpaceName(), m_TagName(), m_AttrMap() {
   m_QSpaceName = qSpace;
   m_TagName = tagName;
 }
