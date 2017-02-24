@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "395affe7_7c08e560",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-24T07:16:35Z",
+      "side": 1,
+      "message": "It doesn\u0027t hurt to do this, but FTR there is no bug here because the class is a state machine and the only ways to reach the one place that reads this variable initializes this variable.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "e5d58f792a335f3a13c2ae9a277c710d8d6907de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d612b2f8_47b66934",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-24T07:16:35Z",
+      "side": 1,
+      "message": "If the cross references on cs.chromium.org is correct, then this constructor is dead code, and so is the one below. The only one that\u0027s alive is the one above, where we also do not initialize |m_Parent|, but the only caller to that ctor initializes it immediately after.",
+      "range": {
+        "startLine": 719,
+        "startChar": 14,
+        "endLine": 719,
+        "endChar": 26
+      },
+      "revId": "e5d58f792a335f3a13c2ae9a277c710d8d6907de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
