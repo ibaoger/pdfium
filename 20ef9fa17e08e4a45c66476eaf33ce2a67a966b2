@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aabe0747_7ac02670",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "These two don\u0027t really need to be checked, NewFXDynamicObject() is null if the creation fails.",
+      "range": {
+        "startLine": 307,
+        "startChar": 1,
+        "endLine": 308,
+        "endChar": 17
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63b939a0_5dcf7daf",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2844,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 2842,
+        "startChar": 1,
+        "endLine": 2844,
+        "endChar": 0
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd63321_7bd10204",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2973,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "Should check and return.  Might fail for any number of reasons.",
+      "range": {
+        "startLine": 2973,
+        "startChar": 5,
+        "endLine": 2973,
+        "endChar": 28
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf4b1611_1a043738",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "not needed, same reasoning.",
+      "range": {
+        "startLine": 2977,
+        "startChar": 3,
+        "endLine": 2978,
+        "endChar": 19
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52ebb6bb_52b230ec",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "Note: this is the gist of the fix, we can be sure the object has our private data even if it is calling our internal method.",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d96f214c_59a77e23",
+        "filename": "fxjs/fxjs_v8.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "Note: All PDFium objects have two fields for us to exploit.",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41ba3cbc_176639d3",
+        "filename": "fxjs/fxjs_v8.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T23:15:21Z",
+      "side": 1,
+      "message": "run this callback on each new object.",
+      "range": {
+        "startLine": 59,
+        "startChar": 24,
+        "endLine": 59,
+        "endChar": 74
+      },
+      "revId": "20ef9fa17e08e4a45c66476eaf33ce2a67a966b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
