@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac0ed058_b3e043b4",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T20:56:00Z",
+      "side": 1,
+      "message": "you mean |\u003d  throughout ?",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 13
+      },
+      "revId": "903b48ced15beafeebe31ae0d7f91a348c384f2c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d12baa3_c58288cc",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T20:56:00Z",
+      "side": 1,
+      "message": "Must this buffer stay valid for the life of the font, or do we copy it?  Document here.",
+      "range": {
+        "startLine": 412,
+        "startChar": 14,
+        "endLine": 412,
+        "endChar": 33
+      },
+      "revId": "903b48ced15beafeebe31ae0d7f91a348c384f2c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5caf3c76_563948a3",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T20:56:00Z",
+      "side": 1,
+      "message": "add: in bytes.",
+      "range": {
+        "startLine": 413,
+        "startChar": 26,
+        "endLine": 413,
+        "endChar": 32
+      },
+      "revId": "903b48ced15beafeebe31ae0d7f91a348c384f2c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94820f9e_60152055",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T20:56:00Z",
+      "side": 1,
+      "message": "const ?",
+      "range": {
+        "startLine": 417,
+        "startChar": 50,
+        "endLine": 417,
+        "endChar": 57
+      },
+      "revId": "903b48ced15beafeebe31ae0d7f91a348c384f2c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
