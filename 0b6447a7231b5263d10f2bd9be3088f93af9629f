@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6a896b5_f814382e",
+        "filename": "third_party/libtiff/tif_ojpeg.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-24T23:46:13Z",
+      "side": 1,
+      "message": "Do we need these check at all?\n\nI don\u0027t know if libtiff has a style guide, but line 1792 above has a space after \"if\".",
+      "range": {
+        "startLine": 1797,
+        "startChar": 3,
+        "endLine": 1797,
+        "endChar": 23
+      },
+      "revId": "0b6447a7231b5263d10f2bd9be3088f93af9629f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
