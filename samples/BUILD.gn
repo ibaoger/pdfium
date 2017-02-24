@@ -61,7 +61,7 @@ executable("pdfium_test") {
     # of results across platforms.
     "../third_party:fx_freetype",
   ]
-  if (!pdf_enable_xfa) {
+  if (!pdf_enable_xfa || !pdf_enable_xfa_png) {
     deps += [ "../third_party:fx_lpng" ]
   }
   if (pdf_enable_v8) {
@@ -90,7 +90,7 @@ executable("pdfium_diff") {
     "//build/config/sanitizers:deps",
     "//build/win:default_exe_manifest",
   ]
-  if (!pdf_enable_xfa) {
+  if (!pdf_enable_xfa || !pdf_enable_xfa_png) {
     deps += [ "../third_party:fx_lpng" ]
   }
   configs -= [ "//build/config/compiler:chromium_code" ]
