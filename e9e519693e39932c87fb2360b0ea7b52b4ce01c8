@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac3c442b_389aa8ba",
+        "filename": "core/fxge/fx_font.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-24T20:47:13Z",
+      "side": 1,
+      "message": "supernit: (1 \u003c\u003c 0) if you want consistency, as you like.",
+      "range": {
+        "startLine": 62,
+        "startChar": 27,
+        "endLine": 62,
+        "endChar": 28
+      },
+      "revId": "e9e519693e39932c87fb2360b0ea7b52b4ce01c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
