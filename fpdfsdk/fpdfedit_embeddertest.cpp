@@ -5,8 +5,11 @@
 #include <memory>
 #include <string>
 
+#include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fpdfapi/page/cpdf_page.h"
+#include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
+#include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fxcrt/fx_system.h"
 #include "fpdfsdk/fsdk_define.h"
 #include "public/fpdf_edit.h"
@@ -438,5 +441,60 @@ TEST_F(FPDFEditEmbeddertest, DoubleGenerating) {
   EXPECT_EQ(2, static_cast<int>(graphics_dict->GetCount()));
   EXPECT_EQ(1, static_cast<int>(font_dict->GetCount()));
   FPDF_ClosePage(page);
+  FPDF_CloseDocument(doc);
+}
+
+TEST_F(FPDFEditEmbeddertest, Type1Font) {
+  // Create a new document
+  FPDF_DOCUMENT doc = FPDF_CreateNewDocument();
+  CPDF_Document* document = reinterpret_cast<CPDF_Document*>(doc);
+
+  // Get Times New Roman Bold as a Type 1 font
+  CPDF_Font* times_bold = CPDF_Font::GetStockFont(document, "Times-Bold");
+  uint8_t* data = times_bold->m_Font.GetFontData();
+  uint32_t size = times_bold->m_Font.GetSize();
+  FPDF_FONT font = FPDFText_GetType1Font(doc, data, size);
+  ASSERT_TRUE(font);
+  CPDF_Font* type1_font = reinterpret_cast<CPDF_Font*>(font);
+  EXPECT_TRUE(type1_font->IsType1Font());
+
+  // Check that the font dictionary has the required keys according to the spec
+  CPDF_Dictionary* font_dict = type1_font->GetFontDict();
+  EXPECT_EQ("Font", font_dict->GetStringFor("Type"));
+  EXPECT_EQ("Type1", font_dict->GetStringFor("Subtype"));
+  EXPECT_EQ("Times New Roman Bold", font_dict->GetStringFor("BaseFont"));
+  ASSERT_TRUE(font_dict->KeyExist("FirstChar"));
+  ASSERT_TRUE(font_dict->KeyExist("LastChar"));
+  int first = font_dict->GetIntegerFor("FirstChar");
+  int last = font_dict->GetIntegerFor("LastChar");
+  ASSERT_TRUE(font_dict->KeyExist("Widths"));
+  EXPECT_EQ(last - first + 1,
+            static_cast<int>(font_dict->GetArrayFor("Widths")->GetCount()));
+  ASSERT_TRUE(font_dict->KeyExist("FontDescriptor"));
+  CPDF_Dictionary* font_desc = font_dict->GetDictFor("FontDescriptor");
+  EXPECT_EQ("FontDescriptor", font_desc->GetStringFor("Type"));
+  EXPECT_EQ(font_dict->GetStringFor("BaseFont"),
+            font_desc->GetStringFor("FontName"));
+
+  // Check that the font descriptor has the required keys according to the spec
+  EXPECT_TRUE(font_desc->KeyExist("Flags"));
+  ASSERT_TRUE(font_desc->KeyExist("FontBBox"));
+  EXPECT_EQ(4,
+            static_cast<int>(font_desc->GetArrayFor("FontBBox")->GetCount()));
+  EXPECT_TRUE(font_desc->KeyExist("ItalicAngle"));
+  EXPECT_TRUE(font_desc->KeyExist("Ascent"));
+  EXPECT_TRUE(font_desc->KeyExist("Descent"));
+  EXPECT_TRUE(font_desc->KeyExist("CapHeight"));
+  EXPECT_TRUE(font_desc->KeyExist("StemV"));
+  ASSERT_TRUE(font_desc->KeyExist("FontFile"));
+
+  // Check that the font stream is the one that was provided
+  CPDF_Stream* font_stream = font_desc->GetStreamFor("FontFile");
+  ASSERT_EQ(size, font_stream->GetRawSize());
+  uint8_t* stream_data = font_stream->GetRawData();
+  for (size_t i = 0; i < size; i++)
+    EXPECT_EQ(data[i], stream_data[i]);
+
+  // Close document
   FPDF_CloseDocument(doc);
 }
