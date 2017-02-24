@@ -2835,9 +2835,13 @@ bool Field::buttonGetIcon(CJS_Runtime* pRuntime,
 
   v8::Local<v8::Object> pObj =
       pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
-  ASSERT(pObj.IsEmpty() == false);
+  if (pObj.IsEmpty())
+    return false;
 
   CJS_Icon* pJS_Icon = static_cast<CJS_Icon*>(pRuntime->GetObjectPrivate(pObj));
+  if (!pJS_Icon)
+    return false;
+
   vRet = CJS_Value(pRuntime, pJS_Icon);
   return true;
 }
@@ -2970,7 +2974,13 @@ bool Field::getArray(CJS_Runtime* pRuntime,
 
     CJS_Field* pJSField =
         static_cast<CJS_Field*>(pRuntime->GetObjectPrivate(pObj));
+    if (!pJSField)
+      return false;
+
     Field* pField = static_cast<Field*>(pJSField->GetEmbedObject());
+    if (!pField)
+      return false;
+
     pField->AttachField(m_pJSDoc, *pStr);
     FormFieldArray.SetElement(pRuntime, j++, CJS_Value(pRuntime, pJSField));
   }
