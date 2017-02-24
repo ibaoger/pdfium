@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cb7431d_9f3b06bb",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6640
+      },
+      "writtenOn": "2017-02-24T09:04:35Z",
+      "side": 1,
+      "message": "Yes, I guess this is a \"doesn\u0027t hurt, but silences static analysis noise\" case. Unless somebody objects, I think it would be good to have this.",
+      "parentUuid": "395affe7_7c08e560",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "e5d58f792a335f3a13c2ae9a277c710d8d6907de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d612b2f8_47b66934",
         "filename": "core/fxcrt/fx_xml_parser.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e5d58f792a335f3a13c2ae9a277c710d8d6907de",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15392fa1_01341b59",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 6640
+      },
+      "writtenOn": "2017-02-24T09:04:35Z",
+      "side": 1,
+      "message": "I\u0027ve removed the two unused ctors and fixed the remaining one. As far as I understand this is safe as only the public/ interface is to be used in external code.",
+      "parentUuid": "d612b2f8_47b66934",
+      "range": {
+        "startLine": 719,
+        "startChar": 14,
+        "endLine": 719,
+        "endChar": 26
+      },
+      "revId": "e5d58f792a335f3a13c2ae9a277c710d8d6907de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
