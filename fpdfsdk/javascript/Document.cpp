@@ -299,11 +299,19 @@ bool Document::getField(CJS_Runtime* pRuntime,
 
   v8::Local<v8::Object> pFieldObj =
       pRuntime->NewFxDynamicObj(CJS_Field::g_nObjDefnID);
+  if (pFieldObj.IsEmpty())
+    return false;
+
   CJS_Field* pJSField =
       static_cast<CJS_Field*>(pRuntime->GetObjectPrivate(pFieldObj));
-  Field* pField = static_cast<Field*>(pJSField->GetEmbedObject());
-  pField->AttachField(this, wideName);
+  if (!pJSField)
+    return false;
 
+  Field* pField = static_cast<Field*>(pJSField->GetEmbedObject());
+  if (!pField)
+    return false;
+
+  pField->AttachField(this, wideName);
   vRet = CJS_Value(pRuntime, pJSField);
   return true;
 }
