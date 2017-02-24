@@ -1123,13 +1123,8 @@ bool CPDF_DataAvail::CheckArrayPageNode(uint32_t dwPageNo,
     return false;
   }
 
-  if (!pPages) {
-    if (m_docStatus == PDF_DATAAVAIL_ERROR) {
-      m_docStatus = PDF_DATAAVAIL_ERROR;
-      return false;
-    }
+  if (!pPages)
     return false;
-  }
 
   CPDF_Array* pArray = pPages->AsArray();
   if (!pArray) {
@@ -1160,11 +1155,8 @@ bool CPDF_DataAvail::CheckUnknownPageNode(uint32_t dwPageNo,
     return false;
   }
 
-  if (!pPage) {
-    if (m_docStatus == PDF_DATAAVAIL_ERROR)
-      m_docStatus = PDF_DATAAVAIL_ERROR;
+  if (!pPage)
     return false;
-  }
 
   if (pPage->IsArray()) {
     pPageNode->m_dwPageNo = dwPageNo;
