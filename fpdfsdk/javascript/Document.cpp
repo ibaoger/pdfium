@@ -1225,14 +1225,12 @@ bool Document::addIcon(CJS_Runtime* pRuntime,
     return false;
   }
 
-  CJS_EmbedObj* pEmbedObj = params[1].ToCJSObject(pRuntime)->GetEmbedObject();
-  if (!pEmbedObj) {
+  if (!params[1].ToCJSObject(pRuntime)->GetEmbedObject()) {
     sError = JSGetStringFromID(IDS_STRING_JSTYPEERROR);
     return false;
   }
 
-  m_Icons.push_back(pdfium::MakeUnique<IconElement>(
-      swIconName, static_cast<Icon*>(pEmbedObj)));
+  m_Icons.push_back(pdfium::MakeUnique<IconElement>(swIconName));
   return true;
 }
 

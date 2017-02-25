@@ -45,11 +45,9 @@ class Icon;
 class Field;
 
 struct IconElement {
-  IconElement(const CFX_WideString& name, Icon* stream)
-      : IconName(name), IconStream(stream) {}
+  explicit IconElement(const CFX_WideString& name) : IconName(name) {}
 
   const CFX_WideString IconName;
-  Icon* const IconStream;
 };
 
 struct CJS_DelayData;
