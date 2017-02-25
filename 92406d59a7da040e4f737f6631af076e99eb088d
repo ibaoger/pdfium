@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47ba3041_25363b67",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-25T00:06:40Z",
+      "side": 1,
+      "message": "Are the values for |first| and |last| well known? Maybe just check those, and check the GetCount() value against whatever (last - first + 1) comes out to be.",
+      "range": {
+        "startLine": 468,
+        "startChar": 6,
+        "endLine": 468,
+        "endChar": 11
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26e6ce1e_230d1f74",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-25T00:06:40Z",
+      "side": 1,
+      "message": "I think if you compare against 4U, then you can drop the cast.",
+      "range": {
+        "startLine": 486,
+        "startChar": 12,
+        "endLine": 486,
+        "endChar": 28
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b56f8368_297112b1",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-25T00:06:40Z",
+      "side": 1,
+      "message": "Do we care if this is 0?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 13
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
