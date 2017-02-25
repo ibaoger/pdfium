@@ -13,16 +13,7 @@
 #include "fpdfsdk/fsdk_define.h"
 #include "third_party/base/ptr_util.h"
 
-DLLEXPORT FPDF_PAGEOBJECT STDCALL
-FPDFPageObj_NewImgeObj(FPDF_DOCUMENT document) {
-  CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
-  if (!pDoc)
-    return nullptr;
-
-  CPDF_ImageObject* pImageObj = new CPDF_ImageObject;
-  pImageObj->SetOwnedImage(pdfium::MakeUnique<CPDF_Image>(pDoc));
-  return pImageObj;
-}
+namespace {
 
 FPDF_BOOL FPDFImageObj_LoadJpegHelper(FPDF_PAGE* pages,
                                       int nCount,
@@ -47,6 +38,19 @@ FPDF_BOOL FPDFImageObj_LoadJpegHelper(FPDF_PAGE* pages,
     pImgObj->GetImage()->SetJpegImage(pFile);
 
   return true;
+}
+
+}  // namespace
+
+DLLEXPORT FPDF_PAGEOBJECT STDCALL
+FPDFPageObj_NewImgeObj(FPDF_DOCUMENT document) {
+  CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
+  if (!pDoc)
+    return nullptr;
+
+  CPDF_ImageObject* pImageObj = new CPDF_ImageObject;
+  pImageObj->SetOwnedImage(pdfium::MakeUnique<CPDF_Image>(pDoc));
+  return pImageObj;
 }
 
 DLLEXPORT FPDF_BOOL STDCALL
