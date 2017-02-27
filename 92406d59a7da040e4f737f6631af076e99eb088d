@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "134a9e40_293f5178",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "Answers seem to be matching http://www.fileformat.info/info/unicode/font/times_new_roman/list.htm if we ignore control characters.",
+      "parentUuid": "47ba3041_25363b67",
+      "range": {
+        "startLine": 468,
+        "startChar": 6,
+        "endLine": 468,
+        "endChar": 11
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26e6ce1e_230d1f74",
         "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bf9e32d3_d79aa947",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e6ce1e_230d1f74",
+      "range": {
+        "startLine": 486,
+        "startChar": 12,
+        "endLine": 486,
+        "endChar": 28
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f6ed90_3ee07694",
         "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
         "patchSetId": 4
@@ -59,6 +107,24 @@
       "writtenOn": "2017-02-27T14:53:02Z",
       "side": 1,
       "message": "Do we need to cleanup the FPDF_FONT or CPDF_Font\u0027s here?",
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1470bfa_cc0e698d",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "No, CPDF_Document::LoadFont returns a pointer to something that the CPDF_DocPageData owns.",
+      "parentUuid": "c3f6ed90_3ee07694",
       "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -79,6 +145,24 @@
       "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f30edac_b6bdbba0",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f893520c_9b67cb3b",
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "1c5bba82_3217a76c",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "Not for now. Some of them may be zero.",
+      "parentUuid": "b56f8368_297112b1",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 13
+      },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31c5308b_b881e0fc",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 4
@@ -119,6 +227,24 @@
       "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af592314_c6f0f69e",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T15:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c5308b_b881e0fc",
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
