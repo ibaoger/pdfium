@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb9c4a0c_a6f48722",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "The other instances of GetObjectPrivate removed the check, is this one needed?",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3523b2c5_65e04d77",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d54d92e_5b6d2790",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fba3d1b_b1f8bddc",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2979e408_17bbb596",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5d12a9_e569cf75",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f78d702_e4e3317e",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:45:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
