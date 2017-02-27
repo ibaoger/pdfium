@@ -22,6 +22,30 @@
       "revId": "0b6447a7231b5263d10f2bd9be3088f93af9629f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c354bcb3_bc305b73",
+        "filename": "third_party/libtiff/tif_ojpeg.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T18:59:09Z",
+      "side": 1,
+      "message": "As I said in reply to Tom, we do not need them, but they always use them in other places, so using them for consistency.\nThe space is my bad, I can fix that...",
+      "parentUuid": "c6a896b5_f814382e",
+      "range": {
+        "startLine": 1797,
+        "startChar": 3,
+        "endLine": 1797,
+        "endChar": 23
+      },
+      "revId": "0b6447a7231b5263d10f2bd9be3088f93af9629f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
