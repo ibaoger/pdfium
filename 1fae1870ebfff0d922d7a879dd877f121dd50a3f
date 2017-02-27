@@ -70,6 +70,23 @@
       "revId": "1fae1870ebfff0d922d7a879dd877f121dd50a3f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb712207_f0560ab8",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T18:43:24Z",
+      "side": 1,
+      "message": "Sigh, can we add a FPDFPageObj_NewImageObj() and have this one call that and deprecate this one?",
+      "revId": "1fae1870ebfff0d922d7a879dd877f121dd50a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
