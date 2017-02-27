@@ -6,6 +6,7 @@
 
 #include "fpdfsdk/pdfwindow/PWL_Edit.h"
 
+#include <memory>
 #include <vector>
 
 #include "core/fpdfapi/font/cpdf_font.h"
@@ -43,8 +44,9 @@ void CPWL_Edit::SetText(const CFX_WideString& csText) {
   CFX_WideString swText = csText;
   if (HasFlag(PES_RICH)) {
     CFX_ByteString sValue = CFX_ByteString::FromUnicode(swText);
-    if (CXML_Element* pXML =
-            CXML_Element::Parse(sValue.c_str(), sValue.GetLength())) {
+    std::unique_ptr<CXML_Element> pXML(
+        CXML_Element::Parse(sValue.c_str(), sValue.GetLength()));
+    if (pXML) {
       int32_t nCount = pXML->CountChildren();
       bool bFirst = true;
 
@@ -68,8 +70,6 @@ void CPWL_Edit::SetText(const CFX_WideString& csText) {
           }
         }
       }
-
-      delete pXML;
     }
   }
 

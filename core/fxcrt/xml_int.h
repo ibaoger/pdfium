@@ -8,6 +8,7 @@
 #define CORE_FXCRT_XML_INT_H_
 
 #include <algorithm>
+#include <memory>
 
 #include "core/fxcrt/fx_stream.h"
 
@@ -35,7 +36,8 @@ class CXML_Parser {
                   bool& bEndTag,
                   bool bStartTag = false);
   void SkipLiterals(const CFX_ByteStringC& str);
-  CXML_Element* ParseElement(CXML_Element* pParent, bool bStartTag = false);
+  std::unique_ptr<CXML_Element> ParseElement(CXML_Element* pParent,
+                                             bool bStartTag);
   void InsertContentSegment(bool bCDATA,
                             const CFX_WideStringC& content,
                             CXML_Element* pElement);
@@ -43,7 +45,6 @@ class CXML_Parser {
 
   CFX_RetainPtr<IFX_BufferedReadStream> m_pDataAcc;
   FX_FILESIZE m_nOffset;
-  bool m_bSaveSpaceChars;
   const uint8_t* m_pBuffer;
   size_t m_dwBufferSize;
   FX_FILESIZE m_nBufferOffset;

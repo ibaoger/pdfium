@@ -4,13 +4,13 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "core/fxcrt/xml_int.h"
-
 #include <algorithm>
+#include <memory>
 #include <vector>
 
 #include "core/fxcrt/fx_ext.h"
 #include "core/fxcrt/fx_xml.h"
+#include "core/fxcrt/xml_int.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 
@@ -212,7 +212,6 @@ FX_FILESIZE CXML_DataStmAcc::GetBlockOffset() {
 
 CXML_Parser::CXML_Parser()
     : m_nOffset(0),
-      m_bSaveSpaceChars(false),
       m_pBuffer(nullptr),
       m_dwBufferSize(0),
       m_nBufferOffset(0),
@@ -510,56 +509,58 @@ void CXML_Parser::GetTagName(CFX_ByteString& space,
     }
   } while (ReadNextBlock());
 }
-CXML_Element* CXML_Parser::ParseElement(CXML_Element* pParent, bool bStartTag) {
+
+std::unique_ptr<CXML_Element> CXML_Parser::ParseElement(CXML_Element* pParent,
+                                                        bool bStartTag) {
   m_nOffset = m_nBufferOffset + (FX_FILESIZE)m_dwIndex;
-  if (IsEOF()) {
+  if (IsEOF())
     return nullptr;
-  }
-  CFX_ByteString tag_name, tag_space;
+
+  CFX_ByteString tag_name;
+  CFX_ByteString tag_space;
   bool bEndTag;
   GetTagName(tag_space, tag_name, bEndTag, bStartTag);
-  if (tag_name.IsEmpty() || bEndTag) {
+  if (tag_name.IsEmpty() || bEndTag)
     return nullptr;
-  }
-  CXML_Element* pElement = new CXML_Element;
-  pElement->m_pParent = pParent;
-  pElement->SetTag(tag_space.AsStringC(), tag_name.AsStringC());
+
+  auto pElement = pdfium::MakeUnique<CXML_Element>(
+      pParent, tag_space.AsStringC(), tag_name.AsStringC());
   do {
-    CFX_ByteString attr_space, attr_name;
+    CFX_ByteString attr_space;
+    CFX_ByteString attr_name;
     while (m_dwIndex < m_dwBufferSize) {
       SkipWhiteSpaces();
-      if (IsEOF()) {
+      if (IsEOF())
         break;
-      }
-      if (!g_FXCRT_XML_IsNameIntro(m_pBuffer[m_dwIndex])) {
+
+      if (!g_FXCRT_XML_IsNameIntro(m_pBuffer[m_dwIndex]))
         break;
-      }
+
       GetName(attr_space, attr_name);
       SkipWhiteSpaces();
-      if (IsEOF()) {
+      if (IsEOF())
         break;
-      }
-      if (m_pBuffer[m_dwIndex] != '=') {
+
+      if (m_pBuffer[m_dwIndex] != '=')
         break;
-      }
+
       m_dwIndex++;
       SkipWhiteSpaces();
-      if (IsEOF()) {
+      if (IsEOF())
         break;
-      }
+
       CFX_WideString attr_value;
       GetAttrValue(attr_value);
       pElement->m_AttrMap.SetAt(attr_space, attr_name, attr_value);
     }
     m_nOffset = m_nBufferOffset + (FX_FILESIZE)m_dwIndex;
-    if (m_dwIndex < m_dwBufferSize || IsEOF()) {
+    if (m_dwIndex < m_dwBufferSize || IsEOF())
       break;
-    }
   } while (ReadNextBlock());
   SkipWhiteSpaces();
-  if (IsEOF()) {
+  if (IsEOF())
     return pElement;
-  }
+
   uint8_t ch = m_pBuffer[m_dwIndex++];
   if (ch == '/') {
     m_dwIndex++;
@@ -568,13 +569,12 @@ CXML_Element* CXML_Parser::ParseElement(CXML_Element* pParent, bool bStartTag) {
   }
   if (ch != '>') {
     m_nOffset = m_nBufferOffset + (FX_FILESIZE)m_dwIndex;
-    delete pElement;
     return nullptr;
   }
   SkipWhiteSpaces();
-  if (IsEOF()) {
+  if (IsEOF())
     return pElement;
-  }
+
   CFX_UTF8Decoder decoder;
   CFX_WideTextBuf content;
   bool bCDATA = false;
@@ -609,22 +609,22 @@ CXML_Element* CXML_Parser::ParseElement(CXML_Element* pParent, bool bStartTag) {
           } else {
             content << decoder.GetResult();
             CFX_WideString dataStr = content.MakeString();
-            if (!bCDATA && !m_bSaveSpaceChars) {
+            if (!bCDATA)
               dataStr.TrimRight(L" \t\r\n");
-            }
-            InsertContentSegment(bCDATA, dataStr.AsStringC(), pElement);
+
+            InsertContentSegment(bCDATA, dataStr.AsStringC(), pElement.get());
             content.Clear();
             decoder.Clear();
             bCDATA = false;
             iState = 0;
             m_dwIndex--;
-            CXML_Element* pSubElement = ParseElement(pElement, true);
-            if (!pSubElement) {
+            std::unique_ptr<CXML_Element> pSubElement(
+                ParseElement(pElement.get(), true));
+            if (!pSubElement)
               break;
-            }
-            pSubElement->m_pParent = pElement;
+
             pElement->m_Children.push_back(
-                {CXML_Element::Element, pSubElement});
+                {CXML_Element::Element, pSubElement.release()});
             SkipWhiteSpaces();
           }
           break;
@@ -653,15 +653,15 @@ CXML_Element* CXML_Parser::ParseElement(CXML_Element* pParent, bool bStartTag) {
   } while (ReadNextBlock());
   content << decoder.GetResult();
   CFX_WideString dataStr = content.MakeString();
-  if (!m_bSaveSpaceChars) {
-    dataStr.TrimRight(L" \t\r\n");
-  }
-  InsertContentSegment(bCDATA, dataStr.AsStringC(), pElement);
+  dataStr.TrimRight(L" \t\r\n");
+
+  InsertContentSegment(bCDATA, dataStr.AsStringC(), pElement.get());
   content.Clear();
   decoder.Clear();
   bCDATA = false;
   return pElement;
 }
+
 void CXML_Parser::InsertContentSegment(bool bCDATA,
                                        const CFX_WideStringC& content,
                                        CXML_Element* pElement) {
@@ -672,54 +672,24 @@ void CXML_Parser::InsertContentSegment(bool bCDATA,
   pContent->Set(bCDATA, content);
   pElement->m_Children.push_back({CXML_Element::Content, pContent});
 }
-static CXML_Element* XML_ContinueParse(CXML_Parser& parser,
-                                       bool bSaveSpaceChars,
-                                       FX_FILESIZE* pParsedSize) {
-  parser.m_bSaveSpaceChars = bSaveSpaceChars;
-  CXML_Element* pElement = parser.ParseElement(nullptr, false);
-  if (pParsedSize) {
-    *pParsedSize = parser.m_nOffset;
-  }
-  return pElement;
-}
-CXML_Element* CXML_Element::Parse(const void* pBuffer,
-                                  size_t size,
-                                  bool bSaveSpaceChars,
-                                  FX_FILESIZE* pParsedSize) {
+
+std::unique_ptr<CXML_Element> CXML_Element::Parse(const void* pBuffer,
+                                                  size_t size) {
   CXML_Parser parser;
-  if (!parser.Init((uint8_t*)pBuffer, size)) {
+  if (!parser.Init((uint8_t*)pBuffer, size))
     return nullptr;
-  }
-  return XML_ContinueParse(parser, bSaveSpaceChars, pParsedSize);
+  return parser.ParseElement(nullptr, false);
 }
 
-CXML_Element* CXML_Element::Parse(
-    const CFX_RetainPtr<IFX_SeekableReadStream>& pFile,
-    bool bSaveSpaceChars,
-    FX_FILESIZE* pParsedSize) {
-  CXML_Parser parser;
-  if (!parser.Init(pFile))
-    return nullptr;
+CXML_Element::CXML_Element(CXML_Element* pParent,
+                           const CFX_ByteStringC& qSpace,
+                           const CFX_ByteStringC& tagname)
+    : m_pParent(pParent), m_QSpaceName(qSpace), m_TagName(tagname) {}
 
-  return XML_ContinueParse(parser, bSaveSpaceChars, pParsedSize);
-}
-
-CXML_Element* CXML_Element::Parse(
-    const CFX_RetainPtr<IFX_BufferedReadStream>& pBuffer,
-    bool bSaveSpaceChars,
-    FX_FILESIZE* pParsedSize) {
-  CXML_Parser parser;
-  if (!parser.Init(pBuffer))
-    return nullptr;
-
-  return XML_ContinueParse(parser, bSaveSpaceChars, pParsedSize);
-}
-
-CXML_Element::CXML_Element()
-    : m_pParent(nullptr), m_QSpaceName(), m_TagName(), m_AttrMap() {}
 CXML_Element::~CXML_Element() {
   Empty();
 }
+
 void CXML_Element::Empty() {
   RemoveChildren();
 }
