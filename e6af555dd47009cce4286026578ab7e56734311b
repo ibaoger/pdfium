@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a5f5bb6_84a64578",
+        "filename": "project.config",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6130
+      },
+      "writtenOn": "2017-02-27T14:03:44Z",
+      "side": 1,
+      "message": "this is OK, but we recommend rebase-always strategy these days.",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 4,
+        "endChar": 21
+      },
+      "revId": "e6af555dd47009cce4286026578ab7e56734311b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
