@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1488168702 -0800\nnonce AFJA6odMDJxqWtr8b+CzzLAGxxx0uhzFAio5RvpCMXVrgX70PMtSCrKr23/gDTDyP3ToWa8cWarM\n\n0000000000000000000000000000000000000000 9744d56c860f115eab0f3c404a89643c887e4aa1 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYs6b+AAoJEKs2LWFaZv17dWgH+gMNhpUC9csI6PaW7P7gllHf\nmKawjQDLZ+9Usgf/ouohFiPNU8JPId4hSAXnDCzuVUvIwkXZ3dGio8vs0U3QK2uw\nzJ1ReBt9Zsb4WZxXYyUR0ikSx5XyV2ecgGqtLFv275oWDfNNrAvTCYG2Cgp1P/mf\n/9rhnBZFutNoqGs+6QXibtnaBYmB9dZkPDNRrQSHZIyIcYx6L4H2btDPOd2H3laQ\nbG8elmz01UXbvyidRnS57UYxXZznexZVrb8LXsFwvgUd6KRTiSkoV9fagemnnV8x\nV/htqbxxTadzDMT2rJwYH0hmsMudljEwO2E+3RPjk+zdltq7893me6uottpA1cU\u003d\n\u003dLyBu\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "a47f25e1_97bbb51d",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T20:11:06Z",
+      "side": 1,
+      "message": "I believe this was at the top because this file defines this class, it\u0027s just named wrong. Not really sure the right place to put it ....",
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "759d73bd_b6681c0b",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T20:11:06Z",
+      "side": 1,
+      "message": "nit: static cast?",
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
