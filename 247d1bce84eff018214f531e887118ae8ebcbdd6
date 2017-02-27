@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e3f06773_8afce19e",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-27T17:02:14Z",
+      "side": 1,
+      "message": "Yes the check is needed, because it doesn\u0027t directly follow a successful call to NewFxDynamicObject().  We don\u0027t know what happened to the object on its way into here ...",
+      "parentUuid": "bb9c4a0c_a6f48722",
+      "revId": "247d1bce84eff018214f531e887118ae8ebcbdd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3523b2c5_65e04d77",
         "filename": "fpdfsdk/javascript/JS_Define.h",
         "patchSetId": 6
