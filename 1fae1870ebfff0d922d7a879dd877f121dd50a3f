@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1487982108 -0800\nnonce AFJA6ofp7INpNCHqNN8GhuovEUCzkeLywaFklAvJZYV7UFbldAAVFiten1sFq7yhH4Cc3dsrqTgt\n\n0000000000000000000000000000000000000000 1fae1870ebfff0d922d7a879dd877f121dd50a3f refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYsM4cAAoJEKs2LWFaZv17J4EIAKlr81gmwEM6rHkKKwmJLESv\nefd48Fg9Nh6S2ZmZDsO4LPVl9NV33Y02nE2eja3fCvoh80Y5ROqRNJ4h51n5M32D\nr8WLPcRbmGPrp44sl8R5dZUP/ZEnxUelIJi7aTFUEINDZS5aAq+7vobOmttLUeN1\n/NxsEMiCZ4jdTLL5XY7Q8Txj8GY/I0AEO/wmy9KFOmAwAbOclN00SjpBRNMUxfkQ\nfaWOEa+7Hk8vwQFqCeEbEh0KnCsxyfIKD0yV0cJ6ZHEVCTGC+hF+TgtjXtUDYQYo\nZZxtC6X3ZizCukC2oAZnxx4St+9dHHNbeuFrmARNff4EaPCA7X61zJC5LTOHOXk\u003d\n\u003dyKdu\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3db748c_f94079e5",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-27T18:39:24Z",
+      "side": 1,
+      "message": "probably should return bool, convert to FPDF_BOOL in the public entrypoint that calls this.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "1fae1870ebfff0d922d7a879dd877f121dd50a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f2873c8_2ac80426",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-27T18:39:24Z",
+      "side": 1,
+      "message": "If this is not exposed to \"public\", then it needed have this silly prefix.  LoadJpegHelper should be fine.",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "1fae1870ebfff0d922d7a879dd877f121dd50a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
