@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "29dfab92_010f6f5f",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-27T22:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c060f19f_3260a7aa",
+      "range": {
+        "startLine": 246,
+        "startChar": 15,
+        "endLine": 246,
+        "endChar": 16
+      },
+      "revId": "140872866022b66e53d3496bce9a1613a87d9299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fdba572_483ed941",
         "filename": "core/fxcrt/fx_xml_parser.cpp",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "140872866022b66e53d3496bce9a1613a87d9299",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91bcb69b_c8718798",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-27T22:46:27Z",
+      "side": 1,
+      "message": "I did a bunch more.",
+      "parentUuid": "9fdba572_483ed941",
+      "range": {
+        "startLine": 255,
+        "startChar": 46,
+        "endLine": 255,
+        "endChar": 48
+      },
+      "revId": "140872866022b66e53d3496bce9a1613a87d9299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "b9f5d322_170cad71",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-27T22:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba57bc1_453d1af4",
+      "range": {
+        "startLine": 451,
+        "startChar": 34,
+        "endLine": 451,
+        "endChar": 43
+      },
+      "revId": "140872866022b66e53d3496bce9a1613a87d9299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c17c251b_a1c78476",
         "filename": "core/fxcrt/fx_xml_parser.cpp",
         "patchSetId": 2
@@ -95,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "45b2c78b_217faaac",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-27T22:46:27Z",
+      "side": 1,
+      "message": "I usually try the narrowest cast and see what the compiler says.",
+      "parentUuid": "c17c251b_a1c78476",
+      "range": {
+        "startLine": 665,
+        "startChar": 19,
+        "endLine": 665,
+        "endChar": 30
+      },
+      "revId": "140872866022b66e53d3496bce9a1613a87d9299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "298b94bc_a8dc78b2",
         "filename": "fpdfsdk/pdfwindow/PWL_Edit.cpp",
         "patchSetId": 2
@@ -115,6 +211,30 @@
       "revId": "140872866022b66e53d3496bce9a1613a87d9299",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53188a8f_a15e42b4",
+        "filename": "fpdfsdk/pdfwindow/PWL_Edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-02-27T22:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "298b94bc_a8dc78b2",
+      "range": {
+        "startLine": 69,
+        "startChar": 45,
+        "endLine": 69,
+        "endChar": 46
+      },
+      "revId": "140872866022b66e53d3496bce9a1613a87d9299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
