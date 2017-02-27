@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5728c6a0_a5c08b2a",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-27T18:43:49Z",
+      "side": 1,
+      "message": "this API looks like it should have a fuzzer around it?  OR do we fuzz the underlying code elsewhere?",
+      "range": {
+        "startLine": 51,
+        "startChar": 28,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "91dd779b1db50434ef9f627dfeb933e7bf0f6827",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
