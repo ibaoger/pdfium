@@ -20,6 +20,144 @@
     },
     {
       "key": {
+        "uuid": "f9469242_d7affec0",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "Nit: no {}",
+      "range": {
+        "startLine": 507,
+        "startChar": 47,
+        "endLine": 507,
+        "endChar": 48
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ff229e_92bd0cfc",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "nit: can this be static_cast? Otherwise, reinterpret_cast",
+      "range": {
+        "startLine": 515,
+        "startChar": 32,
+        "endLine": 515,
+        "endChar": 33
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11e6c109_07433635",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "Pass the boolean as a pointer?",
+      "range": {
+        "startLine": 522,
+        "startChar": 34,
+        "endLine": 522,
+        "endChar": 41
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcdae3eb_78ae1e7d",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "nitto cast and some other below as well. Maybe use a variable that casts the index to a FX_FILESIZE.",
+      "range": {
+        "startLine": 556,
+        "startChar": 34,
+        "endLine": 556,
+        "endChar": 35
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6be2edb0_a0512c35",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "nitto {}",
+      "range": {
+        "startLine": 650,
+        "startChar": 63,
+        "endLine": 650,
+        "endChar": 64
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "362bf8c8_bfb7de22",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 668,
+        "startChar": 25,
+        "endLine": 668,
+        "endChar": 26
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "759d73bd_b6681c0b",
         "filename": "core/fxcrt/fx_xml_parser.cpp",
         "patchSetId": 1
@@ -31,6 +169,52 @@
       "writtenOn": "2017-02-27T20:11:06Z",
       "side": 1,
       "message": "nit: static cast?",
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "965dfece_326f4c5e",
+        "filename": "core/fxcrt/fx_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "can this be const?",
+      "range": {
+        "startLine": 684,
+        "startChar": 27,
+        "endLine": 684,
+        "endChar": 48
+      },
+      "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07d5534d_9e97c093",
+        "filename": "fpdfsdk/pdfwindow/PWL_Edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-27T20:16:19Z",
+      "side": 1,
+      "message": "Can we instead do\nif (!pXML) {\n  m_pEdit-\u003eSetText(swText);\n  return;\n}\netc\nSimilarly can be done with the HasFlag if",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 15
+      },
       "revId": "9744d56c860f115eab0f3c404a89643c887e4aa1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
