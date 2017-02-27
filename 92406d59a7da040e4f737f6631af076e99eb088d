@@ -48,6 +48,40 @@
     },
     {
       "key": {
+        "uuid": "c3f6ed90_3ee07694",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:53:02Z",
+      "side": 1,
+      "message": "Do we need to cleanup the FPDF_FONT or CPDF_Font\u0027s here?",
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f893520c_9b67cb3b",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:53:02Z",
+      "side": 1,
+      "message": "Should this be called FPDFText_LoadType1Font as it loads it into the document as well?",
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b56f8368_297112b1",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 4
@@ -65,6 +99,23 @@
         "endLine": 78,
         "endChar": 13
       },
+      "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c5308b_b881e0fc",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-27T14:53:02Z",
+      "side": 1,
+      "message": "Mention that the font is loaded into the document. Does the font need to be free\u0027d by the caller?",
       "revId": "92406d59a7da040e4f737f6631af076e99eb088d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
