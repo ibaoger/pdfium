@@ -1041,11 +1041,9 @@ void CXFA_TextLayout::AppendTextLine(CFX_RTFBreakType dwStatus,
       FX_FLOAT fVerScale = pPiece->m_iVerticalScale / 100.0f;
 
       auto pTP = pdfium::MakeUnique<XFA_TextPiece>();
-      pTP->pszText = FX_Alloc(FX_WCHAR, pPiece->m_iChars);
-      pTP->pWidths = FX_Alloc(int32_t, pPiece->m_iChars);
       pTP->iChars = pPiece->m_iChars;
-      pPiece->GetString(pTP->pszText);
-      pPiece->GetWidths(pTP->pWidths);
+      pTP->pszText = pPiece->GetString();
+      pTP->pWidths = pPiece->GetWidths();
       pTP->iBidiLevel = pPiece->m_iBidiLevel;
       pTP->iHorScale = pPiece->m_iHorizontalScale;
       pTP->iVerScale = pPiece->m_iVerticalScale;
