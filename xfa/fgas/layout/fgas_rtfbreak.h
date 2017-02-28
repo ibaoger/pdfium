@@ -53,11 +53,10 @@ class CFX_RTFPiece {
   void AppendChar(const CFX_RTFChar& tc) {
     ASSERT(m_pChars);
     m_pChars->push_back(tc);
-    if (m_iWidth < 0) {
+    if (m_iWidth < 0)
       m_iWidth = tc.m_iCharWidth;
-    } else {
+    else
       m_iWidth += tc.m_iCharWidth;
-    }
     m_iChars++;
   }
 
@@ -100,9 +99,9 @@ class CFX_RTFPiece {
 
   void Reset() {
     m_dwStatus = CFX_RTFBreakType::Piece;
-    if (m_iWidth > -1) {
+    if (m_iWidth > -1)
       m_iStartPos += m_iWidth;
-    }
+
     m_iWidth = -1;
     m_iStartChar += m_iChars;
     m_iChars = 0;
@@ -138,23 +137,28 @@ class CFX_RTFLine {
   int32_t CountChars() const {
     return pdfium::CollectionSize<int32_t>(m_LineChars);
   }
+
   CFX_RTFChar& GetChar(int32_t index) {
     ASSERT(index >= 0 && index < pdfium::CollectionSize<int32_t>(m_LineChars));
     return m_LineChars[index];
   }
+
   CFX_RTFChar* GetCharPtr(int32_t index) {
     ASSERT(index > -1 && index < pdfium::CollectionSize<int32_t>(m_LineChars));
     return &m_LineChars[index];
   }
+
   int32_t CountPieces() const { return m_LinePieces.GetSize(); }
   CFX_RTFPiece& GetPiece(int32_t index) const {
     ASSERT(index > -1 && index < m_LinePieces.GetSize());
     return m_LinePieces.GetAt(index);
   }
+
   CFX_RTFPiece* GetPiecePtr(int32_t index) const {
     ASSERT(index > -1 && index < m_LinePieces.GetSize());
     return m_LinePieces.GetPtrAt(index);
   }
+
   int32_t GetLineEnd() const { return m_iStart + m_iWidth; }
   void RemoveAll(bool bLeaveMemory = false) {
     m_LineChars.clear();
