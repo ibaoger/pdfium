@@ -180,7 +180,6 @@ class CFX_RTFChar : public CFX_Char {
   int16_t m_iBidiLevel;
   int16_t m_iBidiPos;
   int16_t m_iBidiOrder;
-  uint32_t m_dwLayoutStyles;
   uint32_t m_dwIdentity;
   CFX_RetainPtr<CFX_Retainable> m_pUserData;
 };
@@ -192,7 +191,6 @@ inline CFX_RTFChar::CFX_RTFChar()
       m_iBidiClass(0),
       m_iBidiLevel(0),
       m_iBidiPos(0),
-      m_dwLayoutStyles(0),
       m_dwIdentity(0),
       m_pUserData(nullptr) {}
 
