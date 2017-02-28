@@ -19,6 +19,7 @@ struct FXGIF_Context {
   void* (*m_AllocFunc)(unsigned int);
   void (*m_FreeFunc)(void*);
 };
+
 extern "C" {
 static void* gif_alloc_func(unsigned int size) {
   return FX_Alloc(char, size);
@@ -27,31 +28,36 @@ static void gif_free_func(void* p) {
   FX_Free(p);
 }
 };
+
 static void gif_error_data(gif_decompress_struct_p gif_ptr,
                            const FX_CHAR* err_msg) {
   FXSYS_strncpy((char*)gif_ptr->err_ptr, err_msg, GIF_MAX_ERROR_SIZE - 1);
   longjmp(gif_ptr->jmpbuf, 1);
 }
+
 static uint8_t* gif_ask_buf_for_pal(gif_decompress_struct_p gif_ptr,
                                     int32_t pal_size) {
   FXGIF_Context* p = (FXGIF_Context*)gif_ptr->context_ptr;
   CCodec_GifModule* pModule = (CCodec_GifModule*)p->parent_ptr;
-  return pModule->AskLocalPaletteBufCallback(
-      p->child_ptr, gif_get_frame_num(gif_ptr), pal_size);
+  return pModule->GetDelegate()->GifAskLocalPaletteBuf(
+      gif_get_frame_num(gif_ptr), pal_size);
 }
+
 static void gif_record_current_position(gif_decompress_struct_p gif_ptr,
                                         uint32_t* cur_pos_ptr) {
   FXGIF_Context* p = (FXGIF_Context*)gif_ptr->context_ptr;
   CCodec_GifModule* pModule = (CCodec_GifModule*)p->parent_ptr;
-  pModule->RecordCurrentPositionCallback(p->child_ptr, *cur_pos_ptr);
+  pModule->GetDelegate()->GifRecordCurrentPosition(*cur_pos_ptr);
 }
+
 static void gif_read_scanline(gif_decompress_struct_p gif_ptr,
                               int32_t row_num,
                               uint8_t* row_buf) {
   FXGIF_Context* p = (FXGIF_Context*)gif_ptr->context_ptr;
   CCodec_GifModule* pModule = (CCodec_GifModule*)p->parent_ptr;
-  pModule->ReadScanlineCallback(p->child_ptr, row_num, row_buf);
+  pModule->GetDelegate()->GifReadScanline(row_num, row_buf);
 }
+
 static bool gif_get_record_position(gif_decompress_struct_p gif_ptr,
                                     uint32_t cur_pos,
                                     int32_t left,
@@ -67,11 +73,14 @@ static bool gif_get_record_position(gif_decompress_struct_p gif_ptr,
                                     bool interlace) {
   FXGIF_Context* p = (FXGIF_Context*)gif_ptr->context_ptr;
   CCodec_GifModule* pModule = (CCodec_GifModule*)p->parent_ptr;
-  return pModule->InputRecordPositionBufCallback(
-      p->child_ptr, cur_pos, FX_RECT(left, top, left + width, top + height),
-      pal_num, pal_ptr, delay_time, user_input, trans_index, disposal_method,
-      interlace);
+  return pModule->GetDelegate()->GifInputRecordPositionBuf(
+      cur_pos, FX_RECT(left, top, left + width, top + height), pal_num, pal_ptr,
+      delay_time, user_input, trans_index, disposal_method, interlace);
 }
+
+CCodec_GifModule::CCodec_GifModule() {}
+
+CCodec_GifModule::~CCodec_GifModule() {}
 
 FXGIF_Context* CCodec_GifModule::Start(void* pModule) {
   FXGIF_Context* p = FX_Alloc(FXGIF_Context, 1);

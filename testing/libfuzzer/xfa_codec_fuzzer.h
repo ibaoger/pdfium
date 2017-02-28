@@ -7,14 +7,22 @@
 
 #include <memory>
 
+#include "core/fxcodec/codec/ccodec_bmpmodule.h"
+#include "core/fxcodec/codec/ccodec_gifmodule.h"
+#include "core/fxcodec/codec/ccodec_pngmodule.h"
 #include "core/fxcodec/codec/ccodec_progressivedecoder.h"
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/fx_stream.h"
+#include "third_party/base/ptr_util.h"
 
 class XFACodecFuzzer {
  public:
   static int Fuzz(const uint8_t* data, size_t size, FXCODEC_IMAGE_TYPE type) {
-    std::unique_ptr<CCodec_ModuleMgr> mgr(new CCodec_ModuleMgr());
+    auto mgr = pdfium::MakeUnique<CCodec_ModuleMgr>();
+    mgr->AddBmpModule(pdfium::MakeUnique<CCodec_BmpModule>());
+    mgr->AddGifModule(pdfium::MakeUnique<CCodec_GifModule>());
+    mgr->AddPngModule(pdfium::MakeUnique<CCodec_PngModule>());
+
     std::unique_ptr<CCodec_ProgressiveDecoder> decoder(
         mgr->CreateProgressiveDecoder());
     CFX_RetainPtr<Reader> source(new Reader(data, size));
