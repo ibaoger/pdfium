@@ -9,6 +9,7 @@
 
 #include <vector>
 
+#include "core/fxcodec/codec/icodec_pngmodule.h"
 #include "core/fxcodec/fx_codec_def.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_system.h"
@@ -19,7 +20,6 @@ class CCodec_GifContext;
 class CCodec_GifModule;
 class CCodec_JpegModule;
 class CCodec_ModuleMgr;
-class CCodec_PngContext;
 class CCodec_TiffContext;
 class CFX_DIBAttribute;
 class IFX_SeekableReadStream;
@@ -29,7 +29,7 @@ struct FXGIF_Context;
 struct FXJPEG_Context;
 struct FXPNG_Context;
 
-class CCodec_ProgressiveDecoder {
+class CCodec_ProgressiveDecoder : public ICodec_PngModule::Delegate {
  public:
   enum FXCodec_Format {
     FXCodec_Invalid = 0,
@@ -44,7 +44,7 @@ class CCodec_ProgressiveDecoder {
   };
 
   explicit CCodec_ProgressiveDecoder(CCodec_ModuleMgr* pCodecMgr);
-  ~CCodec_ProgressiveDecoder();
+  virtual ~CCodec_ProgressiveDecoder();
 
   FXCODEC_STATUS LoadImageInfo(
       const CFX_RetainPtr<IFX_SeekableReadStream>& pFile,
@@ -170,20 +170,15 @@ class CCodec_ProgressiveDecoder {
   bool m_BmpIsTopBottom;
   FXCODEC_STATUS m_status;
 
- protected:
-#ifdef PDF_ENABLE_XFA_PNG
-  static bool PngReadHeaderFunc(void* pModule,
-                                int width,
-                                int height,
-                                int bpc,
-                                int pass,
-                                int* color_type,
-                                double* gamma);
-  static bool PngAskScanlineBufFunc(void* pModule, int line, uint8_t*& src_buf);
-  static void PngFillScanlineBufCompletedFunc(void* pModule,
-                                              int pass,
-                                              int line);
-#endif  // PDF_ENABLE_XFA_PNG
+  // ICodec_PngModule::Delegate
+  bool PngReadHeader(int width,
+                     int height,
+                     int bpc,
+                     int pass,
+                     int* color_type,
+                     double* gamma) override;
+  bool PngAskScanlineBuf(int line, uint8_t*& src_buf) override;
+  void PngFillScanlineBufCompleted(int pass, int line) override;
 
 #ifdef PDF_ENABLE_XFA_GIF
   static void GifRecordCurrentPositionCallback(void* pModule,

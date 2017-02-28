@@ -17,13 +17,11 @@
 
 namespace {
 
-#ifdef PDF_ENABLE_XFA_PNG
 #if _FX_OS_ == _FX_MACOSX_ || _FX_OS_ == _FX_IOS_
 const double kPngGamma = 1.7;
 #else  // _FX_OS_ == _FX_MACOSX_ || _FX_OS_ == _FX_IOS_
 const double kPngGamma = 2.2;
 #endif  // _FX_OS_ == _FX_MACOSX_ || _FX_OS_ == _FX_IOS_
-#endif  // PDF_ENABLE_XFA_PNG
 
 void RGB2BGR(uint8_t* buffer, int width = 1) {
   if (buffer && width > 0) {
@@ -359,42 +357,39 @@ bool CCodec_ProgressiveDecoder::JpegReadMoreData(CCodec_JpegModule* pJpegModule,
   return true;
 }
 
-#ifdef PDF_ENABLE_XFA_PNG
-bool CCodec_ProgressiveDecoder::PngReadHeaderFunc(void* pModule,
-                                                  int width,
-                                                  int height,
-                                                  int bpc,
-                                                  int pass,
-                                                  int* color_type,
-                                                  double* gamma) {
-  CCodec_ProgressiveDecoder* pCodec = (CCodec_ProgressiveDecoder*)pModule;
-  if (!pCodec->m_pDeviceBitmap) {
-    pCodec->m_SrcWidth = width;
-    pCodec->m_SrcHeight = height;
-    pCodec->m_SrcBPC = bpc;
-    pCodec->m_SrcPassNumber = pass;
+bool CCodec_ProgressiveDecoder::PngReadHeader(int width,
+                                              int height,
+                                              int bpc,
+                                              int pass,
+                                              int* color_type,
+                                              double* gamma) {
+  if (!m_pDeviceBitmap) {
+    m_SrcWidth = width;
+    m_SrcHeight = height;
+    m_SrcBPC = bpc;
+    m_SrcPassNumber = pass;
     switch (*color_type) {
       case 0:
-        pCodec->m_SrcComponents = 1;
+        m_SrcComponents = 1;
         break;
       case 4:
-        pCodec->m_SrcComponents = 2;
+        m_SrcComponents = 2;
         break;
       case 2:
-        pCodec->m_SrcComponents = 3;
+        m_SrcComponents = 3;
         break;
       case 3:
       case 6:
-        pCodec->m_SrcComponents = 4;
+        m_SrcComponents = 4;
         break;
       default:
-        pCodec->m_SrcComponents = 0;
+        m_SrcComponents = 0;
         break;
     }
-    pCodec->m_clipBox = FX_RECT(0, 0, width, height);
+    m_clipBox = FX_RECT(0, 0, width, height);
     return false;
   }
-  FXDIB_Format format = pCodec->m_pDeviceBitmap->GetFormat();
+  FXDIB_Format format = m_pDeviceBitmap->GetFormat();
   switch (format) {
     case FXDIB_1bppMask:
     case FXDIB_1bppRgb:
@@ -419,32 +414,26 @@ bool CCodec_ProgressiveDecoder::PngReadHeaderFunc(void* pModule,
   return true;
 }
 
-bool CCodec_ProgressiveDecoder::PngAskScanlineBufFunc(void* pModule,
-                                                      int line,
-                                                      uint8_t*& src_buf) {
-  CCodec_ProgressiveDecoder* pCodec = (CCodec_ProgressiveDecoder*)pModule;
-  CFX_DIBitmap* pDIBitmap = pCodec->m_pDeviceBitmap;
+bool CCodec_ProgressiveDecoder::PngAskScanlineBuf(int line, uint8_t*& src_buf) {
+  CFX_DIBitmap* pDIBitmap = m_pDeviceBitmap;
   if (!pDIBitmap) {
     ASSERT(false);
     return false;
   }
-  if (line >= pCodec->m_clipBox.top && line < pCodec->m_clipBox.bottom) {
-    double scale_y =
-        (double)pCodec->m_sizeY / (double)pCodec->m_clipBox.Height();
-    int32_t row =
-        (int32_t)((line - pCodec->m_clipBox.top) * scale_y) + pCodec->m_startY;
+  if (line >= m_clipBox.top && line < m_clipBox.bottom) {
+    double scale_y = (double)m_sizeY / (double)m_clipBox.Height();
+    int32_t row = (int32_t)((line - m_clipBox.top) * scale_y) + m_startY;
     uint8_t* src_scan = (uint8_t*)pDIBitmap->GetScanline(row);
-    uint8_t* des_scan = pCodec->m_pDecodeBuf;
-    src_buf = pCodec->m_pDecodeBuf;
+    uint8_t* des_scan = m_pDecodeBuf;
+    src_buf = m_pDecodeBuf;
     int32_t src_Bpp = pDIBitmap->GetBPP() >> 3;
-    int32_t des_Bpp = (pCodec->m_SrcFormat & 0xff) >> 3;
-    int32_t src_left = pCodec->m_startX;
-    int32_t des_left = pCodec->m_clipBox.left;
+    int32_t des_Bpp = (m_SrcFormat & 0xff) >> 3;
+    int32_t src_left = m_startX;
+    int32_t des_left = m_clipBox.left;
     src_scan += src_left * src_Bpp;
     des_scan += des_left * des_Bpp;
-    for (int32_t src_col = 0; src_col < pCodec->m_sizeX; src_col++) {
-      PixelWeight* pPixelWeights =
-          pCodec->m_WeightHorzOO.GetPixelWeight(src_col);
+    for (int32_t src_col = 0; src_col < m_sizeX; src_col++) {
+      PixelWeight* pPixelWeights = m_WeightHorzOO.GetPixelWeight(src_col);
       if (pPixelWeights->m_SrcStart != pPixelWeights->m_SrcEnd) {
         continue;
       }
@@ -566,17 +555,15 @@ void CCodec_ProgressiveDecoder::PngOneOneMapResampleHorz(
   }
 }
 
-void CCodec_ProgressiveDecoder::PngFillScanlineBufCompletedFunc(void* pModule,
-                                                                int pass,
-                                                                int line) {
-  CCodec_ProgressiveDecoder* pCodec = (CCodec_ProgressiveDecoder*)pModule;
-  CFX_DIBitmap* pDIBitmap = pCodec->m_pDeviceBitmap;
+void CCodec_ProgressiveDecoder::PngFillScanlineBufCompleted(int pass,
+                                                            int line) {
+  CFX_DIBitmap* pDIBitmap = m_pDeviceBitmap;
   ASSERT(pDIBitmap);
-  int src_top = pCodec->m_clipBox.top;
-  int src_bottom = pCodec->m_clipBox.bottom;
-  int des_top = pCodec->m_startY;
-  int src_hei = pCodec->m_clipBox.Height();
-  int des_hei = pCodec->m_sizeY;
+  int src_top = m_clipBox.top;
+  int src_bottom = m_clipBox.bottom;
+  int des_top = m_startY;
+  int src_hei = m_clipBox.Height();
+  int des_hei = m_sizeY;
   if (line >= src_top && line < src_bottom) {
     double scale_y = (double)des_hei / (double)src_hei;
     int src_row = line - src_top;
@@ -584,18 +571,16 @@ void CCodec_ProgressiveDecoder::PngFillScanlineBufCompletedFunc(void* pModule,
     if (des_row >= des_top + des_hei) {
       return;
     }
-    pCodec->PngOneOneMapResampleHorz(pDIBitmap, des_row, pCodec->m_pDecodeBuf,
-                                     pCodec->m_SrcFormat);
-    if (pCodec->m_SrcPassNumber == 1 && scale_y > 1.0) {
-      pCodec->ResampleVert(pDIBitmap, scale_y, des_row);
+    PngOneOneMapResampleHorz(pDIBitmap, des_row, m_pDecodeBuf, m_SrcFormat);
+    if (m_SrcPassNumber == 1 && scale_y > 1.0) {
+      ResampleVert(pDIBitmap, scale_y, des_row);
       return;
     }
     if (pass == 6 && scale_y > 1.0) {
-      pCodec->ResampleVert(pDIBitmap, scale_y, des_row);
+      ResampleVert(pDIBitmap, scale_y, des_row);
     }
   }
 }
-#endif  // PDF_ENABLE_XFA_PNG
 
 #ifdef PDF_ENABLE_XFA_GIF
 bool CCodec_ProgressiveDecoder::GifReadMoreData(CCodec_GifModule* pGifModule,
@@ -1169,17 +1154,12 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
     }
 #ifdef PDF_ENABLE_XFA_PNG
     case FXCODEC_IMAGE_PNG: {
-      CCodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
+      ICodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
       if (!pPngModule) {
         m_status = FXCODEC_STATUS_ERR_MEMORY;
         return false;
       }
-      pPngModule->ReadHeaderCallback =
-          CCodec_ProgressiveDecoder::PngReadHeaderFunc;
-      pPngModule->AskScanlineBufCallback =
-          CCodec_ProgressiveDecoder::PngAskScanlineBufFunc;
-      pPngModule->FillScanlineBufCompletedCallback =
-          CCodec_ProgressiveDecoder::PngFillScanlineBufCompletedFunc;
+      pPngModule->SetDelegate(this);
       m_pPngContext = pPngModule->Start((void*)this);
       if (!m_pPngContext) {
         m_status = FXCODEC_STATUS_ERR_MEMORY;
@@ -2002,7 +1982,7 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(CFX_DIBitmap* pDIBitmap,
     }
 #ifdef PDF_ENABLE_XFA_PNG
     case FXCODEC_IMAGE_PNG: {
-      CCodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
+      ICodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
       if (!pPngModule) {
         m_pDeviceBitmap = nullptr;
         m_pFile = nullptr;
@@ -2158,7 +2138,7 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::ContinueDecode(IFX_Pause* pPause) {
     }
 #ifdef PDF_ENABLE_XFA_PNG
     case FXCODEC_IMAGE_PNG: {
-      CCodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
+      ICodec_PngModule* pPngModule = m_pCodecMgr->GetPngModule();
       while (true) {
         uint32_t remain_size = (uint32_t)m_pFile->GetSize() - m_offSet;
         uint32_t input_size =

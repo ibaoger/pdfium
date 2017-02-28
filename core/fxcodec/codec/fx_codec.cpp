@@ -30,9 +30,6 @@ CCodec_ModuleMgr::CCodec_ModuleMgr()
 #ifdef PDF_ENABLE_XFA_GIF
       m_pGifModule(new CCodec_GifModule),
 #endif  // PDF_ENABLE_XFA_GIF
-#ifdef PDF_ENABLE_XFA_PNG
-      m_pPngModule(new CCodec_PngModule),
-#endif  // PDF_ENABLE_XFA_PNG
 #ifdef PDF_ENABLE_XFA_TIFF
       m_pTiffModule(new CCodec_TiffModule),
 #endif  // PDF_ENABLE_XFA_TIFF

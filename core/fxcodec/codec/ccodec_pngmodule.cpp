@@ -135,8 +135,8 @@ static void _png_get_header_func(png_structp png_ptr, png_infop info_ptr) {
     png_set_palette_to_rgb(png_ptr);
   }
   pass = png_set_interlace_handling(png_ptr);
-  if (!pModule->ReadHeaderCallback(p->child_ptr, width, height, bpc, pass,
-                                   &color_type, &gamma)) {
+  if (!pModule->GetDelegate()->PngReadHeader(width, height, bpc, pass,
+                                             &color_type, &gamma)) {
     png_error(p->png_ptr, "Read Header Callback Error");
   }
   int intent;
@@ -189,14 +189,18 @@ static void _png_get_row_func(png_structp png_ptr,
 
   CCodec_PngModule* pModule = (CCodec_PngModule*)p->parent_ptr;
   uint8_t* src_buf = nullptr;
-  if (!pModule->AskScanlineBufCallback(p->child_ptr, row_num, src_buf)) {
+  if (!pModule->GetDelegate()->PngAskScanlineBuf(row_num, src_buf)) {
     png_error(png_ptr, "Ask Scanline buffer Callback Error");
   }
   if (src_buf) {
     png_progressive_combine_row(png_ptr, src_buf, new_row);
   }
-  pModule->FillScanlineBufCompletedCallback(p->child_ptr, pass, row_num);
+  pModule->GetDelegate()->PngFillScanlineBufCompleted(pass, row_num);
 }
+
+CCodec_PngModule::CCodec_PngModule() {}
+
+CCodec_PngModule::~CCodec_PngModule() {}
 
 FXPNG_Context* CCodec_PngModule::Start(void* pModule) {
   FXPNG_Context* p = FX_Alloc(FXPNG_Context, 1);
