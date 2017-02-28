@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "03bc289b_26beec82",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:25:05Z",
+      "side": 1,
+      "message": "This was casting off the const, so I made it return const instead. Had to add one const_cast in the ClearBreakPieces method.",
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eccdb98d_6520d820",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 1
@@ -13,6 +30,30 @@
       "writtenOn": "2017-02-28T18:21:27Z",
       "side": 1,
       "message": "maybe \n\nreturn !m_PositionedTabs.empty() ? m_PositionedTabs.back() :  m_BoundaryStart ;",
+      "range": {
+        "startLine": 230,
+        "startChar": 1,
+        "endLine": 234,
+        "endChar": 1
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b42ca9_d954bd02",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:25:05Z",
+      "side": 1,
+      "message": "Leaving for now. m_PositionedTaba is a CFX_ArrayTemplate. Can clean this up when we get it to std::vector.",
+      "parentUuid": "eccdb98d_6520d820",
       "range": {
         "startLine": 230,
         "startChar": 1,
@@ -48,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "1b6cb487_1760ac2d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:25:05Z",
+      "side": 1,
+      "message": "Removed in later CL.",
+      "parentUuid": "b63fbbbe_86679615",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 21
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9be5cab_ab6a5f4b",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
         "patchSetId": 1
@@ -71,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "27fe0a7c_779e7cb6",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:25:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9be5cab_ab6a5f4b",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 18
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6391591d_84a273fe",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -91,6 +180,30 @@
       "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b1a399_ab1c15ef",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6391591d_84a273fe",
+      "range": {
+        "startLine": 1512,
+        "startChar": 14,
+        "endLine": 1512,
+        "endChar": 40
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
