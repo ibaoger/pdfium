@@ -977,6 +977,30 @@
     },
     {
       "key": {
+        "uuid": "dde755be_a96376d6",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T22:29:40Z",
+      "side": 1,
+      "message": "Yes, but it is enclosed by an if (iWidth \u003e 0), which will be false if the iWidth\u003d\u003d0",
+      "parentUuid": "03b21091_afc70747",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 18
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1abb7a55_12bb22df",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -2069,6 +2093,30 @@
     },
     {
       "key": {
+        "uuid": "fc022090_7b9afe5c",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T22:29:40Z",
+      "side": 1,
+      "message": "Why not? The if part is much bigger and much more complex",
+      "parentUuid": "030e1a03_b6d0abc2",
+      "range": {
+        "startLine": 724,
+        "startChar": 2,
+        "endLine": 724,
+        "endChar": 6
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28044755_0e5c659a",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 2
@@ -2374,6 +2422,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "194b6ee9_16f2e861",
+      "range": {
+        "startLine": 1074,
+        "startChar": 7,
+        "endLine": 1074,
+        "endChar": 37
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "516eaa6e_4d44a69a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T22:29:40Z",
+      "side": 1,
+      "message": "Why did you remove this line? Now nextChars is not pointing to the thing you want to change: *pNextLine-\u003em_pLineChars",
+      "parentUuid": "1e3b241e_359bc954",
       "range": {
         "startLine": 1074,
         "startChar": 7,
