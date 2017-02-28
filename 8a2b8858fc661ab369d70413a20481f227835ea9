@@ -22,6 +22,30 @@
       "revId": "8a2b8858fc661ab369d70413a20481f227835ea9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c03bba7b_d2637413",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "618d1eb7_f1ae2842",
+      "range": {
+        "startLine": 580,
+        "startChar": 12,
+        "endLine": 580,
+        "endChar": 27
+      },
+      "revId": "8a2b8858fc661ab369d70413a20481f227835ea9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
