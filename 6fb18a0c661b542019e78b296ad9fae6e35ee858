@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "a9de2672_44232f5f",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:49:08Z",
+      "side": 1,
+      "message": "Is this also always being called with true? Possible followup.",
+      "range": {
+        "startLine": 911,
+        "startChar": 13,
+        "endLine": 911,
+        "endChar": 22
+      },
+      "revId": "6fb18a0c661b542019e78b296ad9fae6e35ee858",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92e69e40_dd732937",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:49:08Z",
+      "side": 1,
+      "message": "{} and 267",
+      "range": {
+        "startLine": 264,
+        "startChar": 68,
+        "endLine": 264,
+        "endChar": 69
+      },
+      "revId": "6fb18a0c661b542019e78b296ad9fae6e35ee858",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e38dff4e_1680a929",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -64,6 +110,52 @@
         "startChar": 1,
         "endLine": 287,
         "endChar": 39
+      },
+      "revId": "6fb18a0c661b542019e78b296ad9fae6e35ee858",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3dd3dc7_a598adeb",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:49:08Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 921,
+        "startChar": 43,
+        "endLine": 921,
+        "endChar": 44
+      },
+      "revId": "6fb18a0c661b542019e78b296ad9fae6e35ee858",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d07d33f_97063fc3",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:49:08Z",
+      "side": 1,
+      "message": "{} etc (I guess this also needs to be cleaned up in a followup :))",
+      "range": {
+        "startLine": 934,
+        "startChar": 47,
+        "endLine": 934,
+        "endChar": 48
       },
       "revId": "6fb18a0c661b542019e78b296ad9fae6e35ee858",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
