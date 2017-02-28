@@ -175,9 +175,7 @@ class CFX_RTFBreak {
 
  private:
   void SetBreakStatus();
-  CFX_RTFChar* GetLastChar(int32_t index) const;
-  const CFX_RTFLine* GetRTFLine() const;
-  const CFX_RTFPieceArray* GetRTFPieces() const;
+  CFX_RTFChar* GetLastChar(int32_t index);
   FX_CHARTYPE GetUnifiedCharType(FX_CHARTYPE chartype) const;
   int32_t GetLastPositionedTab() const;
   bool GetPositionedTab(int32_t& iTabPos) const;
@@ -186,10 +184,8 @@ class CFX_RTFBreak {
                       int32_t& iEndPos,
                       bool bAllChars,
                       bool bOnlyBrk);
-  void SplitTextLine(CFX_RTFLine* pCurLine,
-                     CFX_RTFLine* pNextLine,
-                     bool bAllChars);
-  bool EndBreak_SplitLine(CFX_RTFLine* pNextLine,
+  void SplitTextLine(size_t cur_line, size_t next_line, bool bAllChars);
+  bool EndBreak_SplitLine(size_t next_line,
                           bool bAllChars,
                           CFX_RTFBreakType dwStatus);
   void EndBreak_BidiLine(CFX_TPOArray& tpos, CFX_RTFBreakType dwStatus);
@@ -216,9 +212,8 @@ class CFX_RTFBreak {
   CFX_RetainPtr<CFX_Retainable> m_pUserData;
   FX_CHARTYPE m_eCharType;
   uint32_t m_dwIdentity;
-  CFX_RTFLine m_RTFLine1;
-  CFX_RTFLine m_RTFLine2;
-  CFX_RTFLine* m_pCurLine;
+  CFX_RTFLine m_Lines[2];
+  size_t m_current_line;
   int32_t m_iReady;
   int32_t m_iTolerance;
 };
