@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "b2875f9c_d58f659c",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:15:39Z",
+      "side": 1,
+      "message": "Will this be called with something other than false in its last parameter?",
+      "range": {
+        "startLine": 1048,
+        "startChar": 44,
+        "endLine": 1048,
+        "endChar": 57
+      },
+      "revId": "cff12160424edee3a896d7a915eb1400de293daf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e106193_f55611de",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:15:39Z",
+      "side": 1,
+      "message": "Are the layout style values made up by us, or defined in some spec?",
+      "revId": "cff12160424edee3a896d7a915eb1400de293daf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6148d6c_4248aa25",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
         "patchSetId": 2
@@ -41,6 +81,29 @@
         "startChar": 1,
         "endLine": 68,
         "endChar": 25
+      },
+      "revId": "cff12160424edee3a896d7a915eb1400de293daf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a074d84_4092db23",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:15:39Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 498,
+        "startChar": 25,
+        "endLine": 498,
+        "endChar": 27
       },
       "revId": "cff12160424edee3a896d7a915eb1400de293daf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",

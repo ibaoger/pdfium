@@ -16,6 +16,23 @@
       "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf94c5f2_6175df0b",
+        "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:15:39Z",
+      "side": 0,
+      "message": "So the FX_RTFTEXTOBJ dwLayoutStyles was being assigned but never used then?",
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
