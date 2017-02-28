@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "618d1eb7_f1ae2842",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T19:45:06Z",
+      "side": 1,
+      "message": "iVerticalScale?",
+      "range": {
+        "startLine": 580,
+        "startChar": 12,
+        "endLine": 580,
+        "endChar": 27
+      },
+      "revId": "8a2b8858fc661ab369d70413a20481f227835ea9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
