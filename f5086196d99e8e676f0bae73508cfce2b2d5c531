@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "919515e1_3ed6eca9",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T19:31:51Z",
+      "side": 1,
+      "message": "OK, we may want to make both const and non-const versions per the usual trick.",
+      "parentUuid": "03bc289b_26beec82",
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eccdb98d_6520d820",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 1
@@ -63,6 +81,30 @@
       "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0dbb409_f2069be0",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T19:31:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "50b42ca9_d954bd02",
+      "range": {
+        "startLine": 230,
+        "startChar": 1,
+        "endLine": 234,
+        "endChar": 1
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
