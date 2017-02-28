@@ -67,7 +67,6 @@ CFX_TxtBreak::CFX_TxtBreak(uint32_t dwPolicies)
       m_iReady(0),
       m_iTolerance(0),
       m_iHorScale(100),
-      m_iVerScale(100),
       m_iCharSpace(0) {
   m_bPagination = (m_dwPolicies & FX_TXTBREAKPOLICY_Pagination) != 0;
   int32_t iSize = m_bPagination ? sizeof(CFX_Char) : sizeof(CFX_TxtChar);
@@ -207,19 +206,6 @@ void CFX_TxtBreak::ResetContextCharStyles() {
   m_dwContextCharStyles |= (m_iArabicContext << 8);
 }
 
-uint32_t CFX_TxtBreak::GetContextCharStyles() const {
-  return m_dwContextCharStyles;
-}
-
-void CFX_TxtBreak::SetContextCharStyles(uint32_t dwCharStyles) {
-  m_iCurAlignment = dwCharStyles & 0x0F;
-  m_bArabicNumber = (dwCharStyles & FX_TXTCHARSTYLE_ArabicNumber) != 0;
-  m_bArabicComma = (dwCharStyles & FX_TXTCHARSTYLE_ArabicComma) != 0;
-  m_bCurRTL = (dwCharStyles & FX_TXTCHARSTYLE_RTLReadingOrder) != 0;
-  m_iCurArabicContext = m_iArabicContext = ((dwCharStyles & 0x0300) >> 8);
-  ResetContextCharStyles();
-}
-
 void CFX_TxtBreak::SetCombWidth(FX_FLOAT fCombWidth) {
   m_iCombWidth = FXSYS_round(fCombWidth * 20000.0f);
 }
@@ -255,17 +241,6 @@ void CFX_TxtBreak::SetHorizontalScale(int32_t iScale) {
   }
   SetBreakStatus();
   m_iHorScale = iScale;
-}
-
-void CFX_TxtBreak::SetVerticalScale(int32_t iScale) {
-  if (iScale < 0) {
-    iScale = 0;
-  }
-  if (iScale == m_iHorScale) {
-    return;
-  }
-  SetBreakStatus();
-  m_iVerScale = iScale;
 }
 
 void CFX_TxtBreak::SetCharSpace(FX_FLOAT fCharSpace) {
@@ -602,7 +577,7 @@ uint32_t CFX_TxtBreak::AppendChar(FX_WCHAR wch) {
   pCurChar->m_dwCharStyles = 0;
   pCurChar->m_iCharWidth = 0;
   pCurChar->m_iHorizontalScale = m_iHorScale;
-  pCurChar->m_iVertialScale = m_iVerScale;
+  pCurChar->m_iVertialScale = 100;
   pCurChar->m_dwStatus = 0;
   pCurChar->m_iBidiClass = 0;
   pCurChar->m_iBidiLevel = 0;
@@ -1147,11 +1122,6 @@ void CFX_TxtBreak::SplitTextLine(CFX_TxtLine* pCurLine,
     pTC->m_dwStatus = 0;
   }
   pNextLine->m_iWidth = iWidth;
-}
-
-int32_t CFX_TxtBreak::CountBreakChars() const {
-  CFX_TxtLine* pTxtLine = GetTxtLine(true);
-  return pTxtLine ? pTxtLine->CountChars() : 0;
 }
 
 int32_t CFX_TxtBreak::CountBreakPieces() const {
