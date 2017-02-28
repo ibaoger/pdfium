@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbc86180_0ce27ebe",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T18:43:18Z",
+      "side": 1,
+      "message": "nit: overparenthesized.",
+      "range": {
+        "startLine": 499,
+        "startChar": 6,
+        "endLine": 499,
+        "endChar": 33
+      },
+      "revId": "f120a3142c4c80abf7448803c78dc73abce29207",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
