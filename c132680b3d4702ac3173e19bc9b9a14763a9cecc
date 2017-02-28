@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f168abe_6673db64",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-02-28T16:58:17Z",
+      "side": 1,
+      "message": "This if followed by the |else if| do the same thing... Simplify (only the bNeedBreak assignment needs an if).",
+      "range": {
+        "startLine": 948,
+        "startChar": 4,
+        "endLine": 948,
+        "endChar": 6
+      },
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
