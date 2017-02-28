@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eccdb98d_6520d820",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T18:21:27Z",
+      "side": 1,
+      "message": "maybe \n\nreturn !m_PositionedTabs.empty() ? m_PositionedTabs.back() :  m_BoundaryStart ;",
+      "range": {
+        "startLine": 230,
+        "startChar": 1,
+        "endLine": 234,
+        "endChar": 1
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b63fbbbe_86679615",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T18:21:27Z",
+      "side": 1,
+      "message": "assert not required, segv on next line if assert fails.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 21
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9be5cab_ab6a5f4b",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T18:21:27Z",
+      "side": 1,
+      "message": "follow-up: this convention of using -1 as some sort of flag is dubious, and ripples throughout the code, eg. line 56, 64, 102 etc.  Can we re-write this just to set it to 0 somehow while keeping the same behaviour?",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 18
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6391591d_84a273fe",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-02-28T18:21:27Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 1512,
+        "startChar": 14,
+        "endLine": 1512,
+        "endChar": 40
+      },
+      "revId": "f5086196d99e8e676f0bae73508cfce2b2d5c531",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
