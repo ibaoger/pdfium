@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7033eabf_ce8e5f58",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T15:20:37Z",
+      "side": 0,
+      "message": "The only styles we have are pagination (0x01) and ExpandTab (0x10) neither of which will match \u0026 0x0e, so we always get 0 \u003e\u003e 1 and index into the 0 element which is 0.",
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
