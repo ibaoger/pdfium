@@ -33,6 +33,24 @@
       "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb17a77_e20ff23c",
+        "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:33:48Z",
+      "side": 0,
+      "message": "It was used, but the value check was never this one, so it can be removed.",
+      "parentUuid": "cf94c5f2_6175df0b",
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
