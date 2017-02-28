@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "193797b0_ed3d9a73",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:05:14Z",
+      "side": 1,
+      "message": "The sections aren\u0027t quite the same as they use _TB and _SP.  I reformatted this in a later CL to be nicer.",
+      "parentUuid": "7f168abe_6673db64",
+      "range": {
+        "startLine": 948,
+        "startChar": 4,
+        "endLine": 948,
+        "endChar": 6
+      },
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2bce4c1_7fd7b063",
         "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c63612_5d7bf4bf",
+        "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-02-28T19:05:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2bce4c1_7fd7b063",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 13
+      },
+      "revId": "c132680b3d4702ac3173e19bc9b9a14763a9cecc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
