@@ -9,17 +9,17 @@
 
 #include <vector>
 
+#include "core/fxcodec/codec/icodec_bmpmodule.h"
+#include "core/fxcodec/codec/icodec_pngmodule.h"
 #include "core/fxcodec/fx_codec_def.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/fx_dib.h"
 
-class CCodec_BmpModule;
 class CCodec_GifContext;
 class CCodec_GifModule;
 class CCodec_JpegModule;
 class CCodec_ModuleMgr;
-class CCodec_PngContext;
 class CCodec_TiffContext;
 class CFX_DIBAttribute;
 class IFX_SeekableReadStream;
@@ -29,7 +29,8 @@ struct FXGIF_Context;
 struct FXJPEG_Context;
 struct FXPNG_Context;
 
-class CCodec_ProgressiveDecoder {
+class CCodec_ProgressiveDecoder : public ICodec_BmpModule::Delegate,
+                                  public ICodec_PngModule::Delegate {
  public:
   enum FXCodec_Format {
     FXCodec_Invalid = 0,
@@ -44,7 +45,7 @@ class CCodec_ProgressiveDecoder {
   };
 
   explicit CCodec_ProgressiveDecoder(CCodec_ModuleMgr* pCodecMgr);
-  ~CCodec_ProgressiveDecoder();
+  virtual ~CCodec_ProgressiveDecoder();
 
   FXCODEC_STATUS LoadImageInfo(
       const CFX_RetainPtr<IFX_SeekableReadStream>& pFile,
@@ -170,20 +171,15 @@ class CCodec_ProgressiveDecoder {
   bool m_BmpIsTopBottom;
   FXCODEC_STATUS m_status;
 
- protected:
-#ifdef PDF_ENABLE_XFA_PNG
-  static bool PngReadHeaderFunc(void* pModule,
-                                int width,
-                                int height,
-                                int bpc,
-                                int pass,
-                                int* color_type,
-                                double* gamma);
-  static bool PngAskScanlineBufFunc(void* pModule, int line, uint8_t*& src_buf);
-  static void PngFillScanlineBufCompletedFunc(void* pModule,
-                                              int pass,
-                                              int line);
-#endif  // PDF_ENABLE_XFA_PNG
+  // ICodec_PngModule::Delegate
+  bool PngReadHeader(int width,
+                     int height,
+                     int bpc,
+                     int pass,
+                     int* color_type,
+                     double* gamma) override;
+  bool PngAskScanlineBuf(int line, uint8_t*& src_buf) override;
+  void PngFillScanlineBufCompleted(int pass, int line) override;
 
 #ifdef PDF_ENABLE_XFA_GIF
   static void GifRecordCurrentPositionCallback(void* pModule,
@@ -211,18 +207,9 @@ class CCodec_ProgressiveDecoder {
                                  int des_row);
 #endif  // PDF_ENABLE_XFA_GIF
 
-#ifdef PDF_ENABLE_XFA_BMP
-  static bool BmpInputImagePositionBufCallback(void* pModule, uint32_t rcd_pos);
-  static void BmpReadScanlineCallback(void* pModule,
-                                      int32_t row_num,
-                                      uint8_t* row_buf);
-  void PngOneOneMapResampleHorz(CFX_DIBitmap* pDeviceBitmap,
-                                int32_t des_line,
-                                uint8_t* src_scan,
-                                FXCodec_Format src_format);
-  bool BmpReadMoreData(CCodec_BmpModule* pBmpModule,
-                       FXCODEC_STATUS& err_status);
-#endif  // PDF_ENABLE_XFA_BMP
+  // ICodec_BmpModule::Delegate
+  bool BmpInputImagePositionBuf(uint32_t rcd_pos) override;
+  void BmpReadScanline(int32_t row_num, uint8_t* row_buf) override;
 
   bool DetectImageType(FXCODEC_IMAGE_TYPE imageType,
                        CFX_DIBAttribute* pAttribute);
@@ -240,6 +227,13 @@ class CCodec_ProgressiveDecoder {
   bool JpegReadMoreData(CCodec_JpegModule* pJpegModule,
                         FXCODEC_STATUS& err_status);
   void ResampleVertBT(CFX_DIBitmap* pDeviceBitmap, double scale_y, int des_row);
+
+  bool BmpReadMoreData(ICodec_BmpModule* pBmpModule,
+                       FXCODEC_STATUS& err_status);
+  void PngOneOneMapResampleHorz(CFX_DIBitmap* pDeviceBitmap,
+                                int32_t des_line,
+                                uint8_t* src_scan,
+                                FXCodec_Format src_format);
 };
 
 #endif  // CORE_FXCODEC_CODEC_CCODEC_PROGRESSIVEDECODER_H_

@@ -37,14 +37,18 @@ static void bmp_read_scanline(bmp_decompress_struct_p bmp_ptr,
                               uint8_t* row_buf) {
   FXBMP_Context* p = (FXBMP_Context*)bmp_ptr->context_ptr;
   CCodec_BmpModule* pModule = (CCodec_BmpModule*)p->parent_ptr;
-  pModule->ReadScanlineCallback(p->child_ptr, row_num, row_buf);
+  pModule->GetDelegate()->BmpReadScanline(row_num, row_buf);
 }
 static bool bmp_get_data_position(bmp_decompress_struct_p bmp_ptr,
                                   uint32_t rcd_pos) {
   FXBMP_Context* p = (FXBMP_Context*)bmp_ptr->context_ptr;
   CCodec_BmpModule* pModule = (CCodec_BmpModule*)p->parent_ptr;
-  return pModule->InputImagePositionBufCallback(p->child_ptr, rcd_pos);
+  return pModule->GetDelegate()->BmpInputImagePositionBuf(rcd_pos);
 }
+
+CCodec_BmpModule::CCodec_BmpModule() {}
+
+CCodec_BmpModule::~CCodec_BmpModule() {}
 
 FXBMP_Context* CCodec_BmpModule::Start(void* pModule) {
   FXBMP_Context* p = FX_Alloc(FXBMP_Context, 1);
