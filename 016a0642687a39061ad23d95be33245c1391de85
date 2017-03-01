@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7f3b8436_715871e1",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-01T21:04:38Z",
+      "side": 1,
+      "message": "or pNextLine \u003d !m_current_line.  also, its not a pNextLine, its just next_line since its not a pointer.",
+      "parentUuid": "fac7f83c_ad83a2df",
+      "range": {
+        "startLine": 415,
+        "startChar": 21,
+        "endLine": 415,
+        "endChar": 35
+      },
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6923e8c_788ab37d",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -175,6 +199,29 @@
       "revId": "016a0642687a39061ad23d95be33245c1391de85",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b14020a_bc1a72b6",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-01T21:04:38Z",
+      "side": 1,
+      "message": "if (m_iReady !\u003d 0) {\n  M_Linest[iReady -1].RemoveAll(true)\n  m_iDredy \u003d 0;\n}",
+      "range": {
+        "startLine": 836,
+        "startChar": 3,
+        "endLine": 839,
+        "endChar": 31
+      },
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
