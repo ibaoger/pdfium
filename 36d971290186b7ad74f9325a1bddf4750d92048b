@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae550bcb_e37cebb0",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "Does this need an if (!pGifModule) return;?",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "258b3746_9d731707",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2078,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "if (!pPngModule) break?",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9abda58_e9c718bf",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f843704_a3ee1642",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2153,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d1d78f3_49cfbf3e",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f05db0_b94601ac",
+        "filename": "core/fxcodec/codec/icodec_pngmodule.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695e7f3e_b8627df1",
+        "filename": "core/fxcodec/fx_codec.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "Set vs Add? We can only have one so Add seems misleading?",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286ac154_d28bbc4d",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "AddTiffModule and CCCodec_TiffModule",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3de2ab0d_08904f52",
+        "filename": "testing/libfuzzer/xfa_codec_fuzzer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "auto?",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1f70aa_2afe685d",
+        "filename": "xfa/fxfa/app/xfa_ffwidget.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:42:24Z",
+      "side": 1,
+      "message": "auto",
+      "revId": "36d971290186b7ad74f9325a1bddf4750d92048b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
