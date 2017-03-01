@@ -7,6 +7,7 @@
 #ifndef XFA_FGAS_LAYOUT_FGAS_TEXTBREAK_H_
 #define XFA_FGAS_LAYOUT_FGAS_TEXTBREAK_H_
 
+#include <deque>
 #include <memory>
 #include <vector>
 
@@ -252,8 +253,8 @@ class CFX_TxtBreak {
   bool EndBreak_SplitLine(CFX_TxtLine* pNextLine,
                           bool bAllChars,
                           uint32_t dwStatus);
-  void EndBreak_BidiLine(CFX_TPOArray& tpos, uint32_t dwStatus);
-  void EndBreak_Alignment(CFX_TPOArray& tpos,
+  void EndBreak_BidiLine(std::deque<FX_TPO>& tpos, uint32_t dwStatus);
+  void EndBreak_Alignment(std::deque<FX_TPO>& tpos,
                           bool bAllChars,
                           uint32_t dwStatus);
   int32_t GetBreakPos(std::vector<CFX_TxtChar>& ca,
