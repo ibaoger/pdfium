@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17cba4a9_889a0d2d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6249f48a_e3c02a25",
+      "range": {
+        "startLine": 924,
+        "startChar": 22,
+        "endLine": 924,
+        "endChar": 35
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a203c47a_4f0afee1",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed97169_ee04404c",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a203c47a_4f0afee1",
+      "range": {
+        "startLine": 945,
+        "startChar": 8,
+        "endLine": 945,
+        "endChar": 25
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e663c316_49257695",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7048a59_4bd39c28",
+      "range": {
+        "startLine": 946,
+        "startChar": 30,
+        "endLine": 946,
+        "endChar": 41
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4ae6590_c6d9b523",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3991dd_1b96eb71",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ae6590_c6d9b523",
+      "range": {
+        "startLine": 948,
+        "startChar": 32,
+        "endLine": 948,
+        "endChar": 47
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c67039af_343fea42",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "Can\u0027t m_* are int32\u0027s.",
+      "parentUuid": "bcb39e15_21c13614",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07f51280_7be02f76",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2017-03-01T15:50:03Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 16
+      },
+      "revId": "6bae6e813d8803bc4b1dd72ff1d722b9eaf44db9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "067d410e_37e1b299",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T16:23:27Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "07f51280_7be02f76",
       "range": {
         "startLine": 73,
         "startChar": 9,
