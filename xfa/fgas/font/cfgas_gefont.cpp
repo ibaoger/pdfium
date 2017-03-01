@@ -220,8 +220,6 @@ bool CFGAS_GEFont::InitFont() {
     m_pCharWidthMap =
         pdfium::MakeUnique<CFX_DiscreteArrayTemplate<uint16_t>>(1024);
   }
-  if (!m_pRectArray)
-    m_pRectArray = pdfium::MakeUnique<CFX_MassArrayTemplate<CFX_Rect>>(16);
   return true;
 }
 
@@ -315,7 +313,6 @@ bool CFGAS_GEFont::GetCharBBoxInternal(FX_WCHAR wUnicode,
                                        CFX_Rect* bbox,
                                        bool bRecursive,
                                        bool bCharCode) {
-  ASSERT(m_pRectArray);
   CFX_Rect* pRect = nullptr;
   auto it = m_BBoxMap.find(wUnicode);
   if (it == m_BBoxMap.end()) {
@@ -326,8 +323,8 @@ bool CFGAS_GEFont::GetCharBBoxInternal(FX_WCHAR wUnicode,
         FX_RECT rtBBox;
         if (m_pFont->GetGlyphBBox(iGlyph, rtBBox)) {
           CFX_Rect rt(rtBBox.left, rtBBox.top, rtBBox.Width(), rtBBox.Height());
-          int32_t index = m_pRectArray->Add(rt);
-          pRect = m_pRectArray->GetPtrAt(index);
+          m_RectArray.push_back(rt);
+          pRect = &m_RectArray.back();
           m_BBoxMap[wUnicode] = pRect;
         }
       } else if (pFont->GetCharBBoxInternal(wUnicode, bbox, false, bCharCode)) {
