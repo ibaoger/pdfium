@@ -16,6 +16,24 @@
       "revId": "959b1691e0c8e646a40f72613b2f05b9127ee2c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa6b707f_8267eb9e",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-01T19:45:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0e27afbf_a4575cfa",
+      "revId": "959b1691e0c8e646a40f72613b2f05b9127ee2c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
