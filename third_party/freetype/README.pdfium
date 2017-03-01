@@ -11,6 +11,7 @@ FreeType library.
 Local Modifications:
 
 0000-include.patch: Modifications to configuration header files.
+0001-replace-dash.patch: Updates comment character to be simple dash.
 
 include/freetype/ftchapers.h is not included.
 

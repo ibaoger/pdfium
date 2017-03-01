@@ -1,0 +1,13 @@
+diff --git a/third_party/freetype/src/sfnt/ttload.c b/third_party/freetype/src/sfnt/ttload.c
+index c1bd7f0c8..1d9803437 100644
+--- a/third_party/freetype/src/sfnt/ttload.c
++++ b/third_party/freetype/src/sfnt/ttload.c
+@@ -460,7 +460,7 @@
+                     entry.CheckSum ));
+ #endif
+ 
+-      /* ignore duplicate tables – the first one wins */
++      /* ignore duplicate tables - the first one wins */
+       duplicate = 0;
+       for ( i = 0; i < valid_entries; i++ )
+       {

@@ -460,7 +460,7 @@
                     entry.CheckSum ));
 #endif
 
-      /* ignore duplicate tables – the first one wins */
+      /* ignore duplicate tables - the first one wins */
       duplicate = 0;
       for ( i = 0; i < valid_entries; i++ )
       {
