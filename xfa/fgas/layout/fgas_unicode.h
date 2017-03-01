@@ -13,9 +13,8 @@
 struct FX_TPO {
   int32_t index;
   int32_t pos;
-};
-typedef CFX_MassArrayTemplate<FX_TPO> CFX_TPOArray;
 
-void FX_TEXTLAYOUT_PieceSort(CFX_TPOArray& tpos, int32_t iStart, int32_t iEnd);
+  bool operator<(const FX_TPO& that) const { return pos < that.pos; }
+};
 
 #endif  // XFA_FGAS_LAYOUT_FGAS_UNICODE_H_

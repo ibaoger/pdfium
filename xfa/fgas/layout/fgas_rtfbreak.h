@@ -7,6 +7,7 @@
 #ifndef XFA_FGAS_LAYOUT_FGAS_RTFBREAK_H_
 #define XFA_FGAS_LAYOUT_FGAS_RTFBREAK_H_
 
+#include <deque>
 #include <vector>
 
 #include "core/fxcrt/cfx_retain_ptr.h"
@@ -195,8 +196,8 @@ class CFX_RTFBreak {
   bool EndBreak_SplitLine(CFX_RTFLine* pNextLine,
                           bool bAllChars,
                           CFX_RTFBreakType dwStatus);
-  void EndBreak_BidiLine(CFX_TPOArray* tpos, CFX_RTFBreakType dwStatus);
-  void EndBreak_Alignment(const CFX_TPOArray& tpos,
+  void EndBreak_BidiLine(std::deque<FX_TPO>* tpos, CFX_RTFBreakType dwStatus);
+  void EndBreak_Alignment(const std::deque<FX_TPO>& tpos,
                           bool bAllChars,
                           CFX_RTFBreakType dwStatus);
 
