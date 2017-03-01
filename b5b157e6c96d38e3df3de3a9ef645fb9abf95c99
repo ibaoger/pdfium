@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af656e78_8543d57c",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:54:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e49cc49a_fa470878",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "befb354d_0a1aa075",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd68ee7_21c69a9a",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:54:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "befb354d_0a1aa075",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "deddc99c_2fb58cfb",
+        "filename": "xfa/fxfa/app/xfa_textpiece.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:54:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8cc93a0_84d6e308",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7735e25_4eefb557",
         "filename": "xfa/fxfa/app/xfa_textpiece.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "615b2c0e_679efa49",
+        "filename": "xfa/fxfa/app/xfa_textpiece.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:54:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7735e25_4eefb557",
+      "range": {
+        "startLine": 26,
+        "startChar": 23,
+        "endLine": 26,
+        "endChar": 31
+      },
+      "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3992de9d_746d77bb",
         "filename": "xfa/fxfa/app/xfa_textpiece.h",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-02-28T19:28:25Z",
       "side": 1,
       "message": "how does this interact with the .size() of the two above?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "b5b157e6c96d38e3df3de3a9ef645fb9abf95c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca681aaa_279d9520",
+        "filename": "xfa/fxfa/app/xfa_textpiece.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:54:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure. It\u0027s tied up with the m_iChars in CFX_RTFPiece which seems to be based off some indexing into the piece line?",
+      "parentUuid": "3992de9d_746d77bb",
       "range": {
         "startLine": 27,
         "startChar": 2,
