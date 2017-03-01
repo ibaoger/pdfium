@@ -453,6 +453,9 @@ FXFT_Face CFX_FontMapper::FindSubstFont(const CFX_ByteString& name,
   bool bHasComma = false;
   bool bHasHyphen = false;
   int find = SubstName.Find(",", 0);
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_LINUX_
+  bool bIsNarrow = SubstName.Find("Narrow") > 0 || family.Find("Condensed") > 0;
+#endif
   if (find >= 0) {
     family = SubstName.Left(find);
     PDF_GetStandardFontName(&family);
@@ -582,15 +585,10 @@ FXFT_Face CFX_FontMapper::FindSubstFont(const CFX_ByteString& name,
         bItalic = italic_angle != 0;
         weight = old_weight;
       }
-      if (family.Find("Narrow") > 0 || family.Find("Condensed") > 0) {
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_LINUX_
+      if (bIsNarrow)
         family = "LiberationSansNarrow";
-#elif _FXM_PLATFORM_ == _FXM_PLATFORM_ANDROID_
-        family = "RobotoCondensed";
-#else
-        family = "ArialNarrow";
 #endif
-      }
     } else {
       pSubstFont->m_bSubstCJK = true;
       if (nStyle)
