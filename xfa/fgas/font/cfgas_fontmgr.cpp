@@ -48,7 +48,7 @@ int32_t GetSimilarityScore(FX_FONTDESCRIPTOR const* pFont,
 }
 
 FX_FONTDESCRIPTOR const* MatchDefaultFont(FX_FONTMATCHPARAMS* pParams,
-                                          const CFX_FontDescriptors& fonts) {
+                                          const std::deque<FX_FONTDESCRIPTOR>& fonts) {
   FX_FONTDESCRIPTOR const* pBestFont = nullptr;
   int32_t iBestSimilar = 0;
   bool bMatchStyle = (pParams->dwMatchFlags & FX_FONTMATCHPARA_MatchStyle) > 0;
@@ -284,8 +284,8 @@ FX_FONTDESCRIPTOR const* CFGAS_FontMgr::FindFont(const FX_WCHAR* pszFontFamily,
   if (!pszFontFamily || !m_pEnumerator)
     return nullptr;
 
-  CFX_FontDescriptors namedFonts(100);
-  m_pEnumerator(namedFonts, pszFontFamily, wUnicode);
+  std::deque<FX_FONTDESCRIPTOR> namedFonts;
+  m_pEnumerator(&namedFonts, pszFontFamily, wUnicode);
   params.pwsFamily = nullptr;
   pDesc = MatchDefaultFont(&params, namedFonts);
   if (!pDesc)
@@ -330,12 +330,12 @@ static int32_t CALLBACK FX_GdiFontEnumProc(ENUMLOGFONTEX* lpelfe,
   pFont->wsFontFace[31] = 0;
   FXSYS_memcpy(&pFont->FontSignature, &lpntme->ntmFontSig,
                sizeof(lpntme->ntmFontSig));
-  ((CFX_FontDescriptors*)lParam)->Add(*pFont);
+  reinterpret_cast<std::deque<FX_FONTDESCRIPTOR>*>(lParam)->push_back(*pFont);
   FX_Free(pFont);
   return 1;
 }
 
-static void FX_EnumGdiFonts(CFX_FontDescriptors& fonts,
+static void FX_EnumGdiFonts(std::deque<FX_FONTDESCRIPTO>* fonts,
                             const FX_WCHAR* pwsFaceName,
                             FX_WCHAR wUnicode) {
   HDC hDC = ::GetDC(nullptr);
@@ -347,7 +347,7 @@ static void FX_EnumGdiFonts(CFX_FontDescriptors& fonts,
     lfFind.lfFaceName[31] = 0;
   }
   EnumFontFamiliesExW(hDC, (LPLOGFONTW)&lfFind,
-                      (FONTENUMPROCW)FX_GdiFontEnumProc, (LPARAM)&fonts, 0);
+                      (FONTENUMPROCW)FX_GdiFontEnumProc, (LPARAM)fonts, 0);
   ::ReleaseDC(nullptr, hDC);
 }
 
