@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "67ad812c_c7df7f74",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T17:55:58Z",
+      "side": 1,
+      "message": "Possibly, but will need to see if it\u0027s used for anything else. Leaving for now.",
+      "parentUuid": "4c2a4812_eff981ac",
+      "range": {
+        "startLine": 414,
+        "startChar": 2,
+        "endLine": 414,
+        "endChar": 10
+      },
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87b39522_2b1df04d",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "016a0642687a39061ad23d95be33245c1391de85",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fac7f83c_ad83a2df",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T17:55:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87b39522_2b1df04d",
+      "range": {
+        "startLine": 415,
+        "startChar": 21,
+        "endLine": 415,
+        "endChar": 35
+      },
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "964df190_152a18ae",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T17:55:58Z",
+      "side": 1,
+      "message": "Probably, but leaving for now. I think it\u0027s clearer at the moment to just say current and next as opposed to saying next is a shift off of current.",
+      "parentUuid": "c6923e8c_788ab37d",
+      "range": {
+        "startLine": 785,
+        "startChar": 40,
+        "endLine": 785,
+        "endChar": 49
+      },
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b7255f8_79132861",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -85,6 +157,24 @@
       "revId": "016a0642687a39061ad23d95be33245c1391de85",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce2d1f57_65887d88",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T17:55:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0b7255f8_79132861",
+      "revId": "016a0642687a39061ad23d95be33245c1391de85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
