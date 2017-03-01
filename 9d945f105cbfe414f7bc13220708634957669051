@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6384f6ee_ef1ef61d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T20:43:33Z",
+      "side": 1,
+      "message": "I prefer the less side effects route of have it on its own line.",
+      "parentUuid": "3233fb57_c7f41bfc",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 729,
+        "endChar": 12
+      },
+      "revId": "9d945f105cbfe414f7bc13220708634957669051",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b65e9dbe_7f13de72",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-01T20:33:37Z",
       "side": 1,
       "message": "nit: for (auto\u0026 lineChar : pNextLine-\u003em_LineChars)  ???",
+      "range": {
+        "startLine": 830,
+        "startChar": 2,
+        "endLine": 830,
+        "endChar": 62
+      },
+      "revId": "9d945f105cbfe414f7bc13220708634957669051",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "959b8055_94efde05",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T20:43:33Z",
+      "side": 1,
+      "message": "Done in followup",
+      "parentUuid": "b65e9dbe_7f13de72",
       "range": {
         "startLine": 830,
         "startChar": 2,
@@ -68,6 +116,30 @@
       "revId": "9d945f105cbfe414f7bc13220708634957669051",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b2e2641_1f770ce0",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T20:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ed40701_a33b701a",
+      "range": {
+        "startLine": 915,
+        "startChar": 2,
+        "endLine": 920,
+        "endChar": 15
+      },
+      "revId": "9d945f105cbfe414f7bc13220708634957669051",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
