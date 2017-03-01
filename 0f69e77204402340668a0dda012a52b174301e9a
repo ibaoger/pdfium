@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f58dbaaf_9ff01ec3",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-01T22:44:13Z",
+      "side": 1,
+      "message": "note: pre-allocating a deque serves no purpose, as it grows without copy penalties.",
+      "range": {
+        "startLine": 451,
+        "startChar": 5,
+        "endLine": 451,
+        "endChar": 28
+      },
+      "revId": "0f69e77204402340668a0dda012a52b174301e9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
