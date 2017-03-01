@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e27afbf_a4575cfa",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T19:26:06Z",
+      "side": 1,
+      "message": "Line 519 doesn\u0027t make sense as a negation as then this line ends up wrong. The original code was m_FolderQueue.GetSize() \u003d\u003d 0 which accidentally ended up as !m_FolderQueue.empty()",
+      "revId": "959b1691e0c8e646a40f72613b2f05b9127ee2c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
