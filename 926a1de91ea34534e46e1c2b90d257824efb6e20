@@ -1001,6 +1001,30 @@
     },
     {
       "key": {
+        "uuid": "730c9999_adc2bdf4",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:33:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde755be_a96376d6",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 18
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1abb7a55_12bb22df",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -2117,6 +2141,30 @@
     },
     {
       "key": {
+        "uuid": "a210ef8d_864350bc",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:33:03Z",
+      "side": 1,
+      "message": "At the moment, this if condition is confusing enough. This file is going to get cleaned up which may simplify this in the future. Going to leave it for now.",
+      "parentUuid": "fc022090_7b9afe5c",
+      "range": {
+        "startLine": 724,
+        "startChar": 2,
+        "endLine": 724,
+        "endChar": 6
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28044755_0e5c659a",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 2
@@ -2446,6 +2494,30 @@
       "side": 1,
       "message": "Why did you remove this line? Now nextChars is not pointing to the thing you want to change: *pNextLine-\u003em_pLineChars",
       "parentUuid": "1e3b241e_359bc954",
+      "range": {
+        "startLine": 1074,
+        "startChar": 7,
+        "endLine": 1074,
+        "endChar": 37
+      },
+      "revId": "926a1de91ea34534e46e1c2b90d257824efb6e20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "572b5910_3b1406d7",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-01T14:33:03Z",
+      "side": 1,
+      "message": "Because I mis-understood what this code was actually doing. The next line was re-assigning nextChars, but of course since it\u0027s a ref it\u0027s really re-assigning pNextLine-\u003em_pLineChars. Fixed.",
+      "parentUuid": "516eaa6e_4d44a69a",
       "range": {
         "startLine": 1074,
         "startChar": 7,
