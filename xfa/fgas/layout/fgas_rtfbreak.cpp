@@ -41,7 +41,6 @@ CFX_RTFBreak::CFX_RTFBreak(uint32_t dwLayoutStyles)
       m_iFontHeight(240),
       m_iFontSize(240),
       m_iTabWidth(720000),
-      m_PositionedTabs(),
       m_wDefChar(0xFEFF),
       m_iDefChar(0),
       m_wLineBreakChar(L'\n'),
@@ -65,7 +64,6 @@ CFX_RTFBreak::CFX_RTFBreak(uint32_t dwLayoutStyles)
 
 CFX_RTFBreak::~CFX_RTFBreak() {
   Reset();
-  m_PositionedTabs.RemoveAll();
 }
 
 void CFX_RTFBreak::SetLineBoundary(FX_FLOAT fLineStart, FX_FLOAT fLineEnd) {
@@ -122,20 +120,13 @@ void CFX_RTFBreak::SetTabWidth(FX_FLOAT fTabWidth) {
 }
 
 void CFX_RTFBreak::AddPositionedTab(FX_FLOAT fTabPos) {
-  int32_t iLineEnd = m_iBoundaryEnd;
-  int32_t iTabPos = FXSYS_round(fTabPos * 20000.0f) + m_iBoundaryStart;
-  if (iTabPos > iLineEnd)
-    iTabPos = iLineEnd;
-  if (m_PositionedTabs.Find(iTabPos, 0) > -1)
+  int32_t iTabPos = std::min(FXSYS_round(fTabPos * 20000.0f) + m_iBoundaryStart,
+                             m_iBoundaryEnd);
+  auto it = std::lower_bound(m_PositionedTabs.begin(), m_PositionedTabs.end(),
+                             iTabPos);
+  if (it != m_PositionedTabs.end() && *it == iTabPos)
     return;
-
-  int32_t iCount = m_PositionedTabs.GetSize();
-  int32_t iFind = 0;
-  for (; iFind < iCount; iFind++) {
-    if (m_PositionedTabs[iFind] > iTabPos)
-      break;
-  }
-  m_PositionedTabs.InsertAt(iFind, iTabPos);
+  m_PositionedTabs.insert(it, iTabPos);
 }
 
 void CFX_RTFBreak::SetLineBreakTolerance(FX_FLOAT fTolerance) {
@@ -222,21 +213,17 @@ inline FX_CHARTYPE CFX_RTFBreak::GetUnifiedCharType(
 }
 
 int32_t CFX_RTFBreak::GetLastPositionedTab() const {
-  int32_t iCount = m_PositionedTabs.GetSize();
-  if (iCount < 1)
-    return m_iBoundaryStart;
-  return m_PositionedTabs[iCount - 1];
+  return m_PositionedTabs.empty() ? m_iBoundaryStart : m_PositionedTabs.back();
 }
 
 bool CFX_RTFBreak::GetPositionedTab(int32_t* iTabPos) const {
-  int32_t iCount = m_PositionedTabs.GetSize();
-  for (int32_t i = 0; i < iCount; i++) {
-    if (m_PositionedTabs[i] > *iTabPos) {
-      *iTabPos = m_PositionedTabs[i];
-      return true;
-    }
-  }
-  return false;
+  auto it = std::upper_bound(m_PositionedTabs.begin(), m_PositionedTabs.end(),
+                             *iTabPos);
+  if (it == m_PositionedTabs.end())
+    return false;
+
+  *iTabPos = *it;
+  return true;
 }
 
 CFX_RTFBreakType CFX_RTFBreak::AppendChar(FX_WCHAR wch) {
