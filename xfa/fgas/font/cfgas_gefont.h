@@ -7,6 +7,7 @@
 #ifndef XFA_FGAS_FONT_CFGAS_GEFONT_H_
 #define XFA_FGAS_FONT_CFGAS_GEFONT_H_
 
+#include <deque>
 #include <map>
 #include <memory>
 #include <vector>
@@ -109,7 +110,7 @@ class CFGAS_GEFont : public CFX_Retainable {
   CFX_RetainPtr<IFX_SeekableReadStream> m_pFileRead;
   std::unique_ptr<CFX_UnicodeEncoding> m_pFontEncoding;
   std::unique_ptr<CFX_DiscreteArrayTemplate<uint16_t>> m_pCharWidthMap;
-  std::unique_ptr<CFX_MassArrayTemplate<CFX_Rect>> m_pRectArray;
+  std::deque<CFX_Rect> m_RectArray;         // Stablity of references required.
   std::map<FX_WCHAR, CFX_Rect*> m_BBoxMap;  // Rect owned by m_pRectArray.
   CXFA_PDFFontMgr* m_pProvider;  // not owned.
   std::vector<CFX_RetainPtr<CFGAS_GEFont>> m_SubstFonts;
