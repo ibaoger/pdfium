@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d72b773_f1c0f3e5",
+        "filename": "xfa/fgas/font/cfgas_gefont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T13:52:19Z",
+      "side": 1,
+      "message": "Why do we have m_RectArray? We always push on the end and immediately read the last item. Why not just do pRect \u003d rt; and remove m_RectArray?",
+      "revId": "6b54e4f96e327de706afcb526f7b700528085f93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
