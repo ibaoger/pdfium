@@ -26,6 +26,7 @@ enum FDE_VISUALOBJTYPE {
 
 struct FDE_TEXTEDITPIECE {
   FDE_TEXTEDITPIECE();
+  FDE_TEXTEDITPIECE(const FDE_TEXTEDITPIECE& that);
   ~FDE_TEXTEDITPIECE();
 
   int32_t nStart;
@@ -35,13 +36,15 @@ struct FDE_TEXTEDITPIECE {
   uint32_t dwCharStyles;
 };
 inline FDE_TEXTEDITPIECE::FDE_TEXTEDITPIECE() = default;
+inline FDE_TEXTEDITPIECE::FDE_TEXTEDITPIECE(const FDE_TEXTEDITPIECE& that) =
+    default;
 inline FDE_TEXTEDITPIECE::~FDE_TEXTEDITPIECE() = default;
 
 class IFDE_VisualSet {
  public:
   virtual ~IFDE_VisualSet() {}
   virtual FDE_VISUALOBJTYPE GetType() = 0;
-  virtual void GetRect(FDE_TEXTEDITPIECE* hVisualObj, CFX_RectF& rt) = 0;
+  virtual void GetRect(const FDE_TEXTEDITPIECE* hVisualObj, CFX_RectF& rt) = 0;
 };
 
 class IFDE_CanvasSet : public IFDE_VisualSet {

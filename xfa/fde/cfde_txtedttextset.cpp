@@ -19,7 +19,8 @@ FDE_VISUALOBJTYPE CFDE_TxtEdtTextSet::GetType() {
   return FDE_VISUALOBJ_Text;
 }
 
-void CFDE_TxtEdtTextSet::GetRect(FDE_TEXTEDITPIECE* pPiece, CFX_RectF& rt) {
+void CFDE_TxtEdtTextSet::GetRect(const FDE_TEXTEDITPIECE* pPiece,
+                                 CFX_RectF& rt) {
   rt = pPiece->rtPiece;
 }
 
