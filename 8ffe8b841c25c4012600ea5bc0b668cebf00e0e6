@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38c6d69d_612c5f63",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T21:31:53Z",
+      "side": 1,
+      "message": "nit: combine with above?",
+      "range": {
+        "startLine": 581,
+        "startChar": 2,
+        "endLine": 585,
+        "endChar": 7
+      },
+      "revId": "8ffe8b841c25c4012600ea5bc0b668cebf00e0e6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "978cdedd_e3671a6e",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T21:31:53Z",
+      "side": 1,
+      "message": "can this addition overflow?  use safe ints?",
+      "range": {
+        "startLine": 603,
+        "startChar": 9,
+        "endLine": 603,
+        "endChar": 50
+      },
+      "revId": "8ffe8b841c25c4012600ea5bc0b668cebf00e0e6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
