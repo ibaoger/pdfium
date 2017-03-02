@@ -7,6 +7,7 @@
 #ifndef XFA_FDE_TTO_FDE_TEXTOUT_H_
 #define XFA_FDE_TTO_FDE_TEXTOUT_H_
 
+#include <deque>
 #include <memory>
 #include <vector>
 
@@ -48,6 +49,7 @@ struct FX_TXTRUN;
 
 struct FDE_TTOPIECE {
   FDE_TTOPIECE();
+  FDE_TTOPIECE(const FDE_TTOPIECE& that);
   ~FDE_TTOPIECE();
 
   int32_t iStartChar;
@@ -55,9 +57,6 @@ struct FDE_TTOPIECE {
   uint32_t dwCharStyles;
   CFX_RectF rtPiece;
 };
-inline FDE_TTOPIECE::FDE_TTOPIECE() = default;
-inline FDE_TTOPIECE::~FDE_TTOPIECE() = default;
-typedef CFX_MassArrayTemplate<FDE_TTOPIECE> CFDE_TTOPieceArray;
 
 class CFDE_TTOLine {
  public:
@@ -69,15 +68,13 @@ class CFDE_TTOLine {
   int32_t GetSize() const;
   FDE_TTOPIECE* GetPtrAt(int32_t index);
   void RemoveLast(int32_t iCount);
-  void RemoveAll(bool bLeaveMemory);
+  void RemoveAll();
 
   bool m_bNewReload;
-  CFDE_TTOPieceArray m_pieces;
 
  protected:
-  int32_t m_iPieceCount;
+  std::deque<FDE_TTOPIECE> m_pieces;
 };
-typedef CFX_ObjectMassArrayTemplate<CFDE_TTOLine> CFDE_TTOLineArray;
 
 class CFDE_TextOut {
  public:
@@ -174,7 +171,7 @@ class CFDE_TextOut {
   CFX_RectF m_rtClip;
   CFX_RectF m_rtLogicClip;
   CFX_Matrix m_Matrix;
-  CFDE_TTOLineArray m_ttoLines;
+  std::deque<CFDE_TTOLine> m_ttoLines;
   int32_t m_iCurLine;
   int32_t m_iCurPiece;
   int32_t m_iTotalLines;
