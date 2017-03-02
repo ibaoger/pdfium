@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "681aaaa7_43a9a976",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T14:00:22Z",
+      "side": 1,
+      "message": "Does DrawLine create the pen? Otherwise, where does it come from? If it\u0027s creating, can we have it return a unqiue ptr so we can get rid of the delete on 736?",
+      "revId": "a71b418eba6504e8163f12d6c819762b8057f285",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2cc8a21_8a8367fa",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T14:00:22Z",
+      "side": 1,
+      "message": "Or, what about pulling this out into the other route and always passing in a pen? Will then just need to set the colour in here?",
+      "revId": "a71b418eba6504e8163f12d6c819762b8057f285",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad479d80_53aa72ab",
+        "filename": "xfa/fde/tto/fde_textout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T14:00:22Z",
+      "side": 1,
+      "message": "private?",
+      "revId": "a71b418eba6504e8163f12d6c819762b8057f285",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
