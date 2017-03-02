@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "299179e6_b798203a",
+        "filename": "xfa/fde/fde_iterator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T23:32:19Z",
+      "side": 1,
+      "message": "Note: the index of an item pushed onto an empty stack was always 0.",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "e88bec242ea06df2f8a357da9bd28c9fc602c336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
