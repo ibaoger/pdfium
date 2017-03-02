@@ -16,6 +16,24 @@
       "revId": "6b54e4f96e327de706afcb526f7b700528085f93",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec99fb31_bf004891",
+        "filename": "xfa/fgas/font/cfgas_gefont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T17:48:41Z",
+      "side": 1,
+      "message": "We have m_BBoxMap which is a map of wchar -\u003e pointer to rect.  The permanent storage for the underlying rect comes from m_RectArray.  I\u0027d imagined that the map was many to one, so that it was more efficient not to have copies of the rect directly in the map.  But now I\u0027ve checked that assumption, and it looks like the only place we insert in to bboxmap is right here -- after we\u0027ve just made a brand-new rect, so its one-to-one.  Probably a quirk of not having a map type that works well enough for complex objects in the fxcrt ...",
+      "parentUuid": "7d72b773_f1c0f3e5",
+      "revId": "6b54e4f96e327de706afcb526f7b700528085f93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
