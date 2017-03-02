@@ -22,6 +22,30 @@
       "revId": "42bb05ae65b888a412f641a241b6fe76ebcaab51",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbbf17df_a32a20dd",
+        "filename": "core/fxcrt/fx_ucd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:27:16Z",
+      "side": 1,
+      "message": "They are bits from a uint32_t table, but even if we leave the in....does anyone know what they mean? SP is space i think, and tb is tab. NU I don\u0027t know nor any of the others ....",
+      "parentUuid": "596cf1ca_69cef54a",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "42bb05ae65b888a412f641a241b6fe76ebcaab51",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
