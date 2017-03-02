@@ -16,18 +16,13 @@ CXFA_XMLParser::CXFA_XMLParser(CFDE_XMLNode* pRoot,
       m_pParser(new CFDE_XMLSyntaxParser),
       m_pParent(pRoot),
       m_pChild(nullptr),
-      m_NodeStack(16),
       m_syntaxParserResult(FDE_XmlSyntaxResult::None) {
   ASSERT(m_pParent && m_pStream);
-  m_NodeStack.Push(m_pParent);
+  m_NodeStack.push(m_pParent);
   m_pParser->Init(m_pStream, 32 * 1024, 1024 * 1024);
 }
 
-CXFA_XMLParser::~CXFA_XMLParser() {
-  m_NodeStack.RemoveAll(false);
-  m_ws1.clear();
-  m_ws2.clear();
-}
+CXFA_XMLParser::~CXFA_XMLParser() {}
 
 int32_t CXFA_XMLParser::DoParser(IFX_Pause* pPause) {
   if (m_syntaxParserResult == FDE_XmlSyntaxResult::Error)
@@ -51,7 +46,7 @@ int32_t CXFA_XMLParser::DoParser(IFX_Pause* pPause) {
         m_pChild = m_pParent;
         break;
       case FDE_XmlSyntaxResult::ElementOpen:
-        if (m_dwCheckStatus != 0x03 && m_NodeStack.GetSize() == 2) {
+        if (m_dwCheckStatus != 0x03 && m_NodeStack.size() == 2) {
           m_nElementStart = m_pParser->GetCurrentPos() - 1;
         }
         break;
@@ -68,18 +63,17 @@ int32_t CXFA_XMLParser::DoParser(IFX_Pause* pPause) {
           m_syntaxParserResult = FDE_XmlSyntaxResult::Error;
           break;
         }
-        m_NodeStack.Pop();
-        if (m_NodeStack.GetSize() < 1) {
+        m_NodeStack.pop();
+        if (m_NodeStack.empty()) {
           m_syntaxParserResult = FDE_XmlSyntaxResult::Error;
           break;
-        } else if (m_dwCurrentCheckStatus != 0 && m_NodeStack.GetSize() == 2) {
+        } else if (m_dwCurrentCheckStatus != 0 && m_NodeStack.size() == 2) {
           m_nSize[m_dwCurrentCheckStatus - 1] =
               m_pParser->GetCurrentBinaryPos() -
               m_nStart[m_dwCurrentCheckStatus - 1];
           m_dwCurrentCheckStatus = 0;
         }
-
-        m_pParent = static_cast<CFDE_XMLNode*>(*m_NodeStack.GetTopElement());
+        m_pParent = m_NodeStack.top();
         m_pChild = m_pParent;
         iCount++;
         break;
@@ -97,10 +91,10 @@ int32_t CXFA_XMLParser::DoParser(IFX_Pause* pPause) {
         m_pParser->GetTagName(m_ws1);
         m_pChild = new CFDE_XMLElement(m_ws1);
         m_pParent->InsertChildNode(m_pChild);
-        m_NodeStack.Push(m_pChild);
+        m_NodeStack.push(m_pChild);
         m_pParent = m_pChild;
 
-        if (m_dwCheckStatus != 0x03 && m_NodeStack.GetSize() == 3) {
+        if (m_dwCheckStatus != 0x03 && m_NodeStack.size() == 3) {
           CFX_WideString wsTag;
           static_cast<CFDE_XMLElement*>(m_pChild)->GetLocalTagName(wsTag);
           if (wsTag == L"template") {
@@ -166,7 +160,7 @@ int32_t CXFA_XMLParser::DoParser(IFX_Pause* pPause) {
     }
   }
   return (m_syntaxParserResult == FDE_XmlSyntaxResult::Error ||
-          m_NodeStack.GetSize() != 1)
+          m_NodeStack.size() != 1)
              ? -1
              : m_pParser->GetStatus();
 }

@@ -8,6 +8,7 @@
 #define XFA_FXFA_PARSER_CXFA_XML_PARSER_H_
 
 #include <memory>
+#include <stack>
 
 #include "xfa/fde/xml/fde_xml_imp.h"
 
@@ -35,7 +36,7 @@ class CXFA_XMLParser : public IFDE_XMLParser {
   std::unique_ptr<CFDE_XMLSyntaxParser> m_pParser;
   CFDE_XMLNode* m_pParent;
   CFDE_XMLNode* m_pChild;
-  CFX_StackTemplate<CFDE_XMLNode*> m_NodeStack;
+  std::stack<CFDE_XMLNode*> m_NodeStack;
   CFX_WideString m_ws1;
   CFX_WideString m_ws2;
   FDE_XmlSyntaxResult m_syntaxParserResult;
