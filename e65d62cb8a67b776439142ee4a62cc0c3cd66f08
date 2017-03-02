@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d557fdff_ee99f790",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:32:04Z",
+      "side": 0,
+      "message": "So, RemoveAll(false) i believe would remove them but leave the memory? If that\u0027s right, are we sure we aren\u0027t going to hit use after free now because we\u0027ve returned the font address?",
+      "revId": "e65d62cb8a67b776439142ee4a62cc0c3cd66f08",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc834ef8_00dcfeb1",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:32:04Z",
+      "side": 1,
+      "message": "Is this needed? We\u0027re in the destructor anyway?",
+      "revId": "334c27e27e5313266c4e7470a50d1c743ec4c40b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f475a895_43f0d92a",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:32:04Z",
+      "side": 1,
+      "message": "for (auto it \u003d m_FontFaces.rbegin(), it !\u003d m_FontFaces.rend(); it++) ?\n\nOr, size_t i",
+      "revId": "334c27e27e5313266c4e7470a50d1c743ec4c40b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
