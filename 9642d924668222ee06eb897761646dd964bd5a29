@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaeabafe_2824564d",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:11:09Z",
+      "side": 0,
+      "message": "These were only used to set the numbers for the below defines and then the defines are used. Merged the define names up here to be clearer.",
+      "revId": "9642d924668222ee06eb897761646dd964bd5a29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85aee905_36c56f15",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-02T17:11:09Z",
+      "side": 0,
+      "message": "ditto",
+      "revId": "9642d924668222ee06eb897761646dd964bd5a29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
