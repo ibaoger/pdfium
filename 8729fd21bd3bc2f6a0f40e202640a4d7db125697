@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3ccb03d_421c1900",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:15:01Z",
+      "side": 1,
+      "message": "need a comment here that we can\u0027t trust the library to give us a number that matches the total space we\u0027ve pushed onto the array so far.  Also the underlying library has a uLong field (unsigned long maybe 64 but not guaranteed to be 64 even on a 64 bit platform), so it may not ever be able to report the truth.  That our FPDFAP_ routine truncates this to int seems really icky.  Maybe it should return unsigned long.",
+      "range": {
+        "startLine": 590,
+        "startChar": 4,
+        "endLine": 590,
+        "endChar": 13
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a37fef8_bbc07576",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:15:01Z",
+      "side": 1,
+      "message": "this could be uint32.",
+      "range": {
+        "startLine": 597,
+        "startChar": 4,
+        "endLine": 597,
+        "endChar": 5
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb194fe_700bcaab",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:15:01Z",
+      "side": 1,
+      "message": "and if it was uint32, this becomes if (remaining \u003c tmp_buf_size), or a std::min().",
+      "range": {
+        "startLine": 605,
+        "startChar": 1,
+        "endLine": 605,
+        "endChar": 41
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
