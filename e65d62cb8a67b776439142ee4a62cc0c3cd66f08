@@ -16,6 +16,24 @@
       "revId": "e65d62cb8a67b776439142ee4a62cc0c3cd66f08",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cd0f586_1c73707a",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T18:31:08Z",
+      "side": 0,
+      "message": "Actually, its bLeaveMemory, so false means clean it all up, right?  And the chain of dtors from CFX_BaseMassArray to CFX_BaseMassArrayImpl cleans it anyways.",
+      "parentUuid": "d557fdff_ee99f790",
+      "revId": "e65d62cb8a67b776439142ee4a62cc0c3cd66f08",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

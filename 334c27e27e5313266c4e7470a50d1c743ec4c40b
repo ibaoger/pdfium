@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d617071f_ac1d45c0",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T18:31:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc834ef8_00dcfeb1",
+      "revId": "334c27e27e5313266c4e7470a50d1c743ec4c40b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f475a895_43f0d92a",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "334c27e27e5313266c4e7470a50d1c743ec4c40b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e1f4a5_01ed008b",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T18:31:08Z",
+      "side": 1,
+      "message": "Done. even better with std:find on R-iterators.\n\nThe return \u0026*it; is a little strange, to a C programmer this would be a no-op, but in C++ sneaky operator overloads mean its something else ...",
+      "parentUuid": "f475a895_43f0d92a",
+      "revId": "334c27e27e5313266c4e7470a50d1c743ec4c40b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
