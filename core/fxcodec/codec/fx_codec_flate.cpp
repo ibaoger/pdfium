@@ -600,7 +600,8 @@ void FlateUncompress(const uint8_t* src_buf,
         if (i == result_tmp_bufs.size() - 1) {
           tmp_buf_size = last_buf_size;
         }
-        FXSYS_memcpy(result_buf + result_pos, tmp_buf, tmp_buf_size);
+        if (result_pos + tmp_buf_size < dest_size)
+          FXSYS_memcpy(result_buf + result_pos, tmp_buf, tmp_buf_size);
         result_pos += tmp_buf_size;
         FX_Free(result_tmp_bufs[i]);
       }
