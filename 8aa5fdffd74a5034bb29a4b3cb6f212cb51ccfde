@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1c1d8da_bafc832f",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T20:40:08Z",
+      "side": 1,
+      "message": "nit: No need for blank line here.",
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e8123bf_f92362f4",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T20:40:08Z",
+      "side": 1,
+      "message": "no need for blank line before here.",
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8021654_54266b1d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T20:40:08Z",
+      "side": 1,
+      "message": "*",
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dc66b65_66686300",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T20:40:08Z",
+      "side": 1,
+      "message": "*",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 11
+      },
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
