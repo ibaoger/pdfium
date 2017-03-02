@@ -49,47 +49,8 @@ uint32_t FX_GetUnicodeProperties(FX_WCHAR wch);
 FX_WCHAR FX_GetMirrorChar(FX_WCHAR wch, bool bRTL, bool bVertical);
 
 #ifdef PDF_ENABLE_XFA
-enum FX_CHARBREAKPROP {
-  FX_CBP_OP = 0,
-  FX_CBP_CL = 1,
-  FX_CBP_QU = 2,
-  FX_CBP_GL = 3,
-  FX_CBP_NS = 4,
-  FX_CBP_EX = 5,
-  FX_CBP_SY = 6,
-  FX_CBP_IS = 7,
-  FX_CBP_PR = 8,
-  FX_CBP_PO = 9,
-  FX_CBP_NU = 10,
-  FX_CBP_AL = 11,
-  FX_CBP_ID = 12,
-  FX_CBP_IN = 13,
-  FX_CBP_HY = 14,
-  FX_CBP_BA = 15,
-  FX_CBP_BB = 16,
-  FX_CBP_B2 = 17,
-  FX_CBP_ZW = 18,
-  FX_CBP_CM = 19,
-  FX_CBP_WJ = 20,
-  FX_CBP_H2 = 21,
-  FX_CBP_H3 = 22,
-  FX_CBP_JL = 23,
-  FX_CBP_JV = 24,
-  FX_CBP_JT = 25,
 
-  FX_CBP_BK = 26,
-  FX_CBP_CR = 27,
-  FX_CBP_LF = 28,
-  FX_CBP_NL = 29,
-  FX_CBP_SA = 30,
-  FX_CBP_SG = 31,
-  FX_CBP_CB = 32,
-  FX_CBP_XX = 33,
-  FX_CBP_AI = 34,
-  FX_CBP_SP = 35,
-  FX_CBP_TB = 37,
-  FX_CBP_NONE = 36,
-};
+enum FX_CHARBREAKPROP { FX_CBP_NU = 10, FX_CBP_SP = 35, FX_CBP_TB = 37 };
 
 #define FX_CHARTYPEBITS 11
 #define FX_CHARTYPEBITSMASK (15 << FX_CHARTYPEBITS)
@@ -112,7 +73,6 @@ inline FX_CHARTYPE GetCharTypeFromProp(uint32_t prop) {
   return static_cast<FX_CHARTYPE>(prop & FX_CHARTYPEBITSMASK);
 }
 
-bool FX_IsCtrlCode(FX_WCHAR ch);
 FX_WCHAR FX_GetMirrorChar(FX_WCHAR wch,
                           uint32_t dwProps,
                           bool bRTL,
