@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3a4effe1_7a92d814",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:32:44Z",
+      "side": 1,
+      "message": "maybe a saturated_cast with a comment about our callers can only handle up to 4GB results, so give them as much of the result as we can.",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f3ccb03d_421c1900",
         "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2017-03-02T22:15:01Z",
       "side": 1,
       "message": "need a comment here that we can\u0027t trust the library to give us a number that matches the total space we\u0027ve pushed onto the array so far.  Also the underlying library has a uLong field (unsigned long maybe 64 but not guaranteed to be 64 even on a 64 bit platform), so it may not ever be able to report the truth.  That our FPDFAP_ routine truncates this to int seems really icky.  Maybe it should return unsigned long.",
+      "range": {
+        "startLine": 590,
+        "startChar": 4,
+        "endLine": 590,
+        "endChar": 13
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3f99ab_aee7b946",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:32:44Z",
+      "side": 1,
+      "message": "And then the comment here is that we may have pushed more aggregate space than our callers can handle.",
+      "parentUuid": "f3ccb03d_421c1900",
       "range": {
         "startLine": 590,
         "startChar": 4,
