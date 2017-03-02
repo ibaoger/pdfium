@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "764be1b4_76f36fb7",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:41:38Z",
+      "side": 1,
+      "message": "same with these!  I think these are the ones I actually meant.  Also extern C can probably end with the alloc/free functions, since only they get passed down below to th C library?",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a4effe1_7a92d814",
         "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2017-03-02T22:32:44Z",
       "side": 1,
       "message": "maybe a saturated_cast with a comment about our callers can only handle up to 4GB results, so give them as much of the result as we can.",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52080046_09572095",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-02T22:41:38Z",
+      "side": 1,
+      "message": "anonymous namespace, maybe call it FlateGetPossiblyTruncatedAvailIn()",
+      "parentUuid": "3a4effe1_7a92d814",
       "range": {
         "startLine": 77,
         "startChar": 4,
