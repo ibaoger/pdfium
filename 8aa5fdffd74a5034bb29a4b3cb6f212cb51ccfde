@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6c46b6db_f05ad6e4",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-02T21:06:05Z",
+      "side": 1,
+      "message": "nit: unneeded var type",
+      "range": {
+        "startLine": 58,
+        "startChar": 38,
+        "endLine": 58,
+        "endChar": 42
+      },
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1c1d8da_bafc832f",
         "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
         "patchSetId": 1
@@ -30,6 +53,29 @@
       "writtenOn": "2017-03-02T20:40:08Z",
       "side": 1,
       "message": "no need for blank line before here.",
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b44d6c4_c7b20064",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-02T21:06:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 42
+      },
       "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -69,6 +115,29 @@
         "startChar": 2,
         "endLine": 86,
         "endChar": 11
+      },
+      "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3f80374_6f619620",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-02T21:06:05Z",
+      "side": 1,
+      "message": "I\u0027m confused, why should this return 1 if there were multiple breaks? Can have a test for when this returns \u003e1?",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 34
       },
       "revId": "8aa5fdffd74a5034bb29a4b3cb6f212cb51ccfde",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
