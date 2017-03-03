@@ -9,6 +9,7 @@
 #include "core/fpdfapi/page/cpdf_page.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
+#include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fxcrt/fx_system.h"
 #include "fpdfsdk/fsdk_define.h"
@@ -19,7 +20,54 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/test_support.h"
 
-class FPDFEditEmbeddertest : public EmbedderTest, public TestSaver {};
+class FPDFEditEmbeddertest : public EmbedderTest, public TestSaver {
+ protected:
+  void CheckFontDescriptor(CPDF_Dictionary* font_dict,
+                           int font_type,
+                           bool bold,
+                           bool italic,
+                           uint32_t size,
+                           uint8_t* data) {
+    ASSERT_TRUE(font_dict->KeyExist("FontDescriptor"));
+    CPDF_Dictionary* font_desc = font_dict->GetDictFor("FontDescriptor");
+    EXPECT_EQ("FontDescriptor", font_desc->GetStringFor("Type"));
+    EXPECT_EQ(font_dict->GetStringFor("BaseFont"),
+              font_desc->GetStringFor("FontName"));
+
+    // Check that the font descriptor has the required keys according to the
+    // spec
+    ASSERT_TRUE(font_desc->KeyExist("Flags"));
+    int font_flags = font_desc->GetIntegerFor("Flags");
+    if (bold)
+      EXPECT_TRUE(font_flags & FXFONT_BOLD);
+    else
+      EXPECT_FALSE(font_flags & FXFONT_BOLD);
+    if (italic)
+      EXPECT_TRUE(font_flags & FXFONT_ITALIC);
+    else
+      EXPECT_FALSE(font_flags & FXFONT_ITALIC);
+    EXPECT_TRUE(font_flags & FXFONT_NONSYMBOLIC);
+    ASSERT_TRUE(font_desc->KeyExist("FontBBox"));
+    EXPECT_EQ(4U, font_desc->GetArrayFor("FontBBox")->GetCount());
+    EXPECT_TRUE(font_desc->KeyExist("ItalicAngle"));
+    EXPECT_TRUE(font_desc->KeyExist("Ascent"));
+    EXPECT_TRUE(font_desc->KeyExist("Descent"));
+    EXPECT_TRUE(font_desc->KeyExist("CapHeight"));
+    EXPECT_TRUE(font_desc->KeyExist("StemV"));
+    CFX_ByteString fontFile =
+        font_type == FPDF_FONT_TYPE1 ? "FontFile" : "FontFile2";
+    EXPECT_FALSE(font_desc->KeyExist(
+        font_type == FPDF_FONT_TYPE1 ? "FontFile2" : "FontFile"));
+    ASSERT_TRUE(font_desc->KeyExist(fontFile));
+
+    // Check that the font stream is the one that was provided
+    CPDF_Stream* font_stream = font_desc->GetStreamFor(fontFile);
+    ASSERT_EQ(size, font_stream->GetRawSize());
+    uint8_t* stream_data = font_stream->GetRawData();
+    for (size_t j = 0; j < size; j++)
+      EXPECT_EQ(data[j], stream_data[j]);
+  }
+};
 
 namespace {
 
@@ -444,62 +492,161 @@ TEST_F(FPDFEditEmbeddertest, DoubleGenerating) {
   FPDF_CloseDocument(doc);
 }
 
-TEST_F(FPDFEditEmbeddertest, Type1Font) {
+TEST_F(FPDFEditEmbeddertest, LoadSimpleFont) {
   // Create a new document
   FPDF_DOCUMENT doc = FPDF_CreateNewDocument();
   CPDF_Document* document = reinterpret_cast<CPDF_Document*>(doc);
 
-  // Get Times New Roman Bold as a Type 1 font
-  CPDF_Font* times_bold = CPDF_Font::GetStockFont(document, "Times-Bold");
-  uint8_t* data = times_bold->m_Font.GetFontData();
-  uint32_t size = times_bold->m_Font.GetSize();
-  FPDF_FONT font = FPDFText_LoadType1Font(doc, data, size);
-  ASSERT_TRUE(font);
-  CPDF_Font* type1_font = reinterpret_cast<CPDF_Font*>(font);
-  EXPECT_TRUE(type1_font->IsType1Font());
+  const int font_types[2] = {FPDF_FONT_TYPE1, FPDF_FONT_TRUETYPE};
+  // TODO(npm): use other fonts after disallowing loading any font as any type
+  const CPDF_Font* fonts[2] = {CPDF_Font::GetStockFont(document, "Times-Bold"),
+                               CPDF_Font::GetStockFont(document, "Courier")};
+  uint8_t* data[2];
+  uint32_t size[2];
+  for (int i = 0; i < 2; i++) {
+    data[i] = fonts[i]->m_Font.GetFontData();
+    size[i] = fonts[i]->m_Font.GetSize();
+  }
+  for (int i = 0; i < 2; i++) {
+    FPDF_FONT font = FPDFText_LoadFont(doc, data[i], size[i], font_types[i], 0);
+    ASSERT_TRUE(font);
+    CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+    if (font_types[i] == FPDF_FONT_TYPE1)
+      EXPECT_TRUE(typed_font->IsType1Font());
+    else
+      EXPECT_TRUE(typed_font->IsTrueTypeFont());
 
-  // Check that the font dictionary has the required keys according to the spec
-  CPDF_Dictionary* font_dict = type1_font->GetFontDict();
-  EXPECT_EQ("Font", font_dict->GetStringFor("Type"));
-  EXPECT_EQ("Type1", font_dict->GetStringFor("Subtype"));
-  EXPECT_EQ("Times New Roman Bold", font_dict->GetStringFor("BaseFont"));
-  ASSERT_TRUE(font_dict->KeyExist("FirstChar"));
-  ASSERT_TRUE(font_dict->KeyExist("LastChar"));
-  EXPECT_EQ(32, font_dict->GetIntegerFor("FirstChar"));
-  EXPECT_EQ(65532, font_dict->GetIntegerFor("LastChar"));
-  ASSERT_TRUE(font_dict->KeyExist("Widths"));
-  CPDF_Array* widths_array = font_dict->GetArrayFor("Widths");
-  EXPECT_EQ(65501U, widths_array->GetCount());
-  EXPECT_EQ(250, widths_array->GetNumberAt(0));
-  EXPECT_EQ(0, widths_array->GetNumberAt(8172));
-  EXPECT_EQ(1000, widths_array->GetNumberAt(65500));
-  ASSERT_TRUE(font_dict->KeyExist("FontDescriptor"));
-  CPDF_Dictionary* font_desc = font_dict->GetDictFor("FontDescriptor");
-  EXPECT_EQ("FontDescriptor", font_desc->GetStringFor("Type"));
-  EXPECT_EQ(font_dict->GetStringFor("BaseFont"),
-            font_desc->GetStringFor("FontName"));
+    // Check that the font dictionary has the required keys according to the
+    // spec
+    CPDF_Dictionary* font_dict = typed_font->GetFontDict();
+    EXPECT_EQ("Font", font_dict->GetStringFor("Type"));
+    EXPECT_EQ(font_types[i] == FPDF_FONT_TYPE1 ? "Type1" : "TrueType",
+              font_dict->GetStringFor("Subtype"));
+    EXPECT_EQ(i == 0 ? "Times New Roman Bold" : "Courier New",
+              font_dict->GetStringFor("BaseFont"));
+    ASSERT_TRUE(font_dict->KeyExist("FirstChar"));
+    ASSERT_TRUE(font_dict->KeyExist("LastChar"));
+    EXPECT_EQ(32, font_dict->GetIntegerFor("FirstChar"));
+    EXPECT_EQ(255, font_dict->GetIntegerFor("LastChar"));
+    ASSERT_TRUE(font_dict->KeyExist("Widths"));
+    CPDF_Array* widths_array = font_dict->GetArrayFor("Widths");
+    ASSERT_EQ(224U, widths_array->GetCount());
+    if (i == 0) {
+      EXPECT_EQ(250, widths_array->GetNumberAt(0));
+      EXPECT_EQ(569, widths_array->GetNumberAt(11));
+      EXPECT_EQ(500, widths_array->GetNumberAt(223));
+    } else {
+      EXPECT_EQ(600, widths_array->GetNumberAt(33));
+      EXPECT_EQ(600, widths_array->GetNumberAt(74));
+      EXPECT_EQ(600, widths_array->GetNumberAt(223));
+    }
+    // Check that the font descriptor has the required keys according to the
+    // spec
+    CheckFontDescriptor(font_dict, font_types[i], i == 0, false, size[i],
+                        data[i]);
+  }
+  // Close document
+  FPDF_CloseDocument(doc);
+}
 
-  // Check that the font descriptor has the required keys according to the spec
-  ASSERT_TRUE(font_desc->KeyExist("Flags"));
-  int font_flags = font_desc->GetIntegerFor("Flags");
-  EXPECT_TRUE(font_flags & FXFONT_BOLD);
-  EXPECT_TRUE(font_flags & FXFONT_NONSYMBOLIC);
-  ASSERT_TRUE(font_desc->KeyExist("FontBBox"));
-  EXPECT_EQ(4U, font_desc->GetArrayFor("FontBBox")->GetCount());
-  EXPECT_TRUE(font_desc->KeyExist("ItalicAngle"));
-  EXPECT_TRUE(font_desc->KeyExist("Ascent"));
-  EXPECT_TRUE(font_desc->KeyExist("Descent"));
-  EXPECT_TRUE(font_desc->KeyExist("CapHeight"));
-  EXPECT_TRUE(font_desc->KeyExist("StemV"));
-  ASSERT_TRUE(font_desc->KeyExist("FontFile"));
+TEST_F(FPDFEditEmbeddertest, LoadCompositeFont) {
+  // Create a new document
+  FPDF_DOCUMENT doc = FPDF_CreateNewDocument();
+  CPDF_Document* document = reinterpret_cast<CPDF_Document*>(doc);
 
-  // Check that the font stream is the one that was provided
-  CPDF_Stream* font_stream = font_desc->GetStreamFor("FontFile");
-  ASSERT_EQ(size, font_stream->GetRawSize());
-  uint8_t* stream_data = font_stream->GetRawData();
-  for (size_t i = 0; i < size; i++)
-    EXPECT_EQ(data[i], stream_data[i]);
+  const int font_types[2] = {FPDF_FONT_TYPE1, FPDF_FONT_TRUETYPE};
+  const CPDF_Font* fonts[2] = {
+      CPDF_Font::GetStockFont(document, "Times-Roman"),
+      CPDF_Font::GetStockFont(document, "Helvetica-Oblique")};
+  uint8_t* data[2];
+  uint32_t size[2];
+  for (int i = 0; i < 2; i++) {
+    data[i] = fonts[i]->m_Font.GetFontData();
+    size[i] = fonts[i]->m_Font.GetSize();
+  }
+  for (int i = 0; i < 2; i++) {
+    FPDF_FONT font = FPDFText_LoadFont(doc, data[i], size[i], font_types[i], 1);
+    ASSERT_TRUE(font);
+    CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+    EXPECT_TRUE(typed_font->IsCIDFont());
 
+    // Check font dictionary entries
+    CPDF_Dictionary* font_dict = typed_font->GetFontDict();
+    EXPECT_EQ("Font", font_dict->GetStringFor("Type"));
+    EXPECT_EQ("Type0", font_dict->GetStringFor("Subtype"));
+    CFX_ByteString font_name = i == 0 ? "Times New Roman" : "Arial Italic";
+    EXPECT_EQ(font_types[i] == FPDF_FONT_TYPE1 ? font_name + "-Identity-H"
+                                               : font_name,
+              font_dict->GetStringFor("BaseFont"));
+    EXPECT_EQ("Identity-H", font_dict->GetStringFor("Encoding"));
+    ASSERT_TRUE(font_dict->KeyExist("DescendantFonts"));
+    CPDF_Array* descendant_array = font_dict->GetArrayFor("DescendantFonts");
+    EXPECT_EQ(1U, descendant_array->GetCount());
+
+    // Check the CIDFontDict
+    CPDF_Dictionary* cidfont_dict = descendant_array->GetDictAt(0);
+    EXPECT_EQ("Font", cidfont_dict->GetStringFor("Type"));
+    EXPECT_EQ(
+        font_types[i] == FPDF_FONT_TYPE1 ? "CIDFontType0" : "CIDFontType2",
+        cidfont_dict->GetStringFor("Subtype"));
+    EXPECT_EQ(font_name, cidfont_dict->GetStringFor("BaseFont"));
+    ASSERT_TRUE(cidfont_dict->KeyExist("CIDSystemInfo"));
+    CPDF_Dictionary* cidinfo_dict = cidfont_dict->GetDictFor("CIDSystemInfo");
+    EXPECT_EQ("Adobe", cidinfo_dict->GetStringFor("Registry"));
+    EXPECT_EQ("Identity", cidinfo_dict->GetStringFor("Ordering"));
+    EXPECT_EQ(0, cidinfo_dict->GetNumberFor("Supplement"));
+    CheckFontDescriptor(cidfont_dict, font_types[i], false, i != 0, size[i],
+                        data[i]);
+    ASSERT_TRUE(cidfont_dict->KeyExist("W"));
+    CPDF_Array* widths_array = cidfont_dict->GetArrayFor("W");
+    // Check some specific values in TimesNewRoman
+    if (i == 0) {
+      EXPECT_EQ(32, widths_array->GetNumberAt(0));
+      CPDF_Array* arr = widths_array->GetArrayAt(1);
+      ASSERT_TRUE(arr);
+      // This font support chars 32 to 126
+      EXPECT_EQ(95U, arr->GetCount());
+      EXPECT_EQ(250, arr->GetNumberAt(0));
+      EXPECT_EQ(610, arr->GetNumberAt(44));
+      EXPECT_EQ(541, arr->GetNumberAt(94));
+      // Next range: 160 - 383
+      EXPECT_EQ(160, widths_array->GetNumberAt(2));
+      arr = widths_array->GetArrayAt(3);
+      ASSERT_TRUE(arr);
+    }
+    // Check that W array is being parsed properly
+    EXPECT_GT(widths_array->GetCount(), 1U);
+    int num_cids_checked = 0;
+    int cur_cid = 0;
+    for (size_t idx = 0; idx < widths_array->GetCount(); idx++) {
+      int cid = widths_array->GetNumberAt(idx);
+      EXPECT_GE(cid, cur_cid);
+      ASSERT_FALSE(++idx == widths_array->GetCount());
+      CPDF_Object* next = widths_array->GetObjectAt(idx);
+      if (next->IsArray()) {
+        // We are in the c [w1 w2 ...] case
+        CPDF_Array* arr = next->AsArray();
+        int cnt = static_cast<int>(arr->GetCount());
+        size_t inner_idx = 0;
+        for (cur_cid = cid; cur_cid < cid + cnt; cur_cid++) {
+          int width = arr->GetNumberAt(inner_idx++);
+          EXPECT_EQ(width, typed_font->GetCharWidthF(cur_cid));
+        }
+        num_cids_checked += cnt;
+        continue;
+      }
+      // Otherwise, are in the c_first c_last w case.
+      ASSERT_TRUE(next->IsNumber());
+      int last_cid = next->AsNumber()->GetInteger();
+      ASSERT_FALSE(++idx == widths_array->GetCount());
+      int width = widths_array->GetNumberAt(idx);
+      for (cur_cid = cid; cur_cid <= last_cid; cur_cid++)
+        EXPECT_EQ(width, typed_font->GetCharWidthF(cur_cid));
+      num_cids_checked += last_cid - cid + 1;
+    }
+    // Make sure we a good amount of cids described
+    EXPECT_GT(num_cids_checked, 900);
+  }
   // Close document
   FPDF_CloseDocument(doc);
 }
