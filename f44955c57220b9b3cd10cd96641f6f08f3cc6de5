@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cda9720_ab82dc98",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "what if it exists but isn\u0027t a dictionary?  Blow up on next line.  Maybe just assert the font_desc after getting it.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ca9f5d8_9df63fea",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "can name the spec here? or a link?  chapter?",
+      "range": {
+        "startLine": 37,
+        "startChar": 71,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1871f3a0_7b43071e",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "maybe something like:\n\nCFX_ByteString present(\"FontFile\");\nCFX_ByteString absent(\"FontFile2\");\nif (font_type !\u003d FPDF_FONT_TYPE_1)\n  std::swap(present, absent);\nEXPECT_TRUE(keyexitst(present);\nEXPECT_FALSE(keyexists(absent);",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0413061_443da556",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "maybe add \u003c\u003c \" at byte \" \u003c\u003c j;",
+      "range": {
+        "startLine": 68,
+        "startChar": 40,
+        "endLine": 68,
+        "endChar": 41
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c667eef_417b03c8",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "This could be part of FPDFEditEmbeddertest::Setup(), and your class could provide a document() method to get at the value as stashed in FPDFEditEmbeddertest::document_ by said setup.   GTEST calls Setup automatically if you get it right.",
+      "range": {
+        "startLine": 496,
+        "startChar": 2,
+        "endLine": 498,
+        "endChar": 66
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86326a79_6b7f6c04",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "This could go into the TearDown method invoked automatically by test harness.",
+      "range": {
+        "startLine": 548,
+        "startChar": 2,
+        "endLine": 548,
+        "endChar": 19
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1552e7d7_02a33750",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "As much as we discourage cut and paste, tests are one place where we want to keep the logic really really simple.   I\u0027d split this into two separate tests and avoid all the array manipulations and conditional statements.  If there\u0027s too much in common, maybe a helper method.",
+      "range": {
+        "startLine": 495,
+        "startChar": 1,
+        "endLine": 549,
+        "endChar": 26
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7bcf282_adc8bf59",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "const CFX_ByteString\u0026 as I don\u0027t expect us to modify it.",
+      "range": {
+        "startLine": 27,
+        "startChar": 30,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6c67050_5330b40f",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "Maybe a helper method to get this string.  We do it more than once?",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 62
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1308ad7_d04ba8d3",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "maybe helper here too.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 69
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8225f10f_9cb4b730",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "move to line 98 and combine?",
+      "range": {
+        "startLine": 93,
+        "startChar": 1,
+        "endLine": 93,
+        "endChar": 15
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a14fd9f_8c68ef2e",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:30:26Z",
+      "side": 1,
+      "message": "this is so new that we don\u0027t worry about breaking old callers, right?",
+      "range": {
+        "startLine": 412,
+        "startChar": 1,
+        "endLine": 412,
+        "endChar": 17
+      },
+      "revId": "f44955c57220b9b3cd10cd96641f6f08f3cc6de5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
