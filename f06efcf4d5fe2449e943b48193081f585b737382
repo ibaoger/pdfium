@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caa694ee_5100dcd8",
+        "filename": "xfa/fxfa/parser/cxfa_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-03T18:32:25Z",
+      "side": 1,
+      "message": "nit: no {}",
+      "range": {
+        "startLine": 49,
+        "startChar": 64,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "f06efcf4d5fe2449e943b48193081f585b737382",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdb095b9_3d6d2ff3",
+        "filename": "xfa/fxfa/parser/cxfa_xml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-03T18:32:25Z",
+      "side": 1,
+      "message": "Are we sure the stack is not empty before popping?",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "f06efcf4d5fe2449e943b48193081f585b737382",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b912046_4276474c",
+        "filename": "xfa/fxfa/parser/cxfa_xml_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-03T18:32:25Z",
+      "side": 1,
+      "message": "can this be private?",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 33,
+        "endChar": 10
+      },
+      "revId": "f06efcf4d5fe2449e943b48193081f585b737382",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
