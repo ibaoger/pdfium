@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a502af10_0218cecb",
+        "filename": "xfa/fxfa/parser/xfa_utils_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:04:40Z",
+      "side": 1,
+      "message": "You\u0027re right.  If this were a real strategy, it might be called from other places with the additonal argument present.  But in the template they are always missing.  Removed.",
+      "parentUuid": "01d0fc69_9edd38ca",
+      "range": {
+        "startLine": 35,
+        "startChar": 52,
+        "endLine": 35,
+        "endChar": 61
+      },
+      "revId": "77019f9afc7c0b14a211ab9cea645b3df04c0cdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13eb2388_e05c3938",
         "filename": "xfa/fxfa/parser/xfa_utils_unittest.cpp",
         "patchSetId": 6
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "a5055b44_988dee38",
+        "filename": "xfa/fxfa/parser/xfa_utils_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:04:40Z",
+      "side": 1,
+      "message": "Prefer this to calling blah_.get() everywhere, keep memebers protected.",
+      "parentUuid": "13eb2388_e05c3938",
+      "revId": "77019f9afc7c0b14a211ab9cea645b3df04c0cdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "485b09e6_eb16d89a",
         "filename": "xfa/fxfa/parser/xfa_utils_unittest.cpp",
         "patchSetId": 6
@@ -53,6 +95,24 @@
       "writtenOn": "2017-03-03T22:42:04Z",
       "side": 1,
       "message": "root_.get() etc?",
+      "revId": "77019f9afc7c0b14a211ab9cea645b3df04c0cdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f443207_e3163c7a",
+        "filename": "xfa/fxfa/parser/xfa_utils_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-03T23:04:40Z",
+      "side": 1,
+      "message": "Nah, cleaner like this",
+      "parentUuid": "485b09e6_eb16d89a",
       "revId": "77019f9afc7c0b14a211ab9cea645b3df04c0cdc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
