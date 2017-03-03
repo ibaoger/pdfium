@@ -7,6 +7,8 @@
 #ifndef XFA_FXFA_PARSER_XFA_UTILS_H_
 #define XFA_FXFA_PARSER_XFA_UTILS_H_
 
+#include <stack>
+
 #include "xfa/fde/xml/fde_xml.h"
 #include "xfa/fgas/crt/fgas_stream.h"
 #include "xfa/fgas/crt/fgas_utils.h"
@@ -26,115 +28,95 @@ bool XFA_FDEExtension_ResolveNamespaceQualifier(
 template <class NodeType, class TraverseStrategy>
 class CXFA_NodeIteratorTemplate {
  public:
-  explicit CXFA_NodeIteratorTemplate(NodeType* pRootNode = nullptr)
-      : m_pRoot(pRootNode), m_NodeStack(100) {
-    if (pRootNode) {
-      m_NodeStack.Push(pRootNode);
-    }
+  explicit CXFA_NodeIteratorTemplate(NodeType* pRootNode) : m_pRoot(pRootNode) {
+    if (pRootNode)
+      m_NodeStack.push(pRootNode);
   }
-  bool Init(NodeType* pRootNode) {
-    if (!pRootNode) {
-      return false;
-    }
-    m_pRoot = pRootNode;
-    m_NodeStack.RemoveAll(false);
-    m_NodeStack.Push(pRootNode);
-    return true;
-  }
-  void Clear() { m_NodeStack.RemoveAll(false); }
+  void Clear() { m_NodeStack = std::stack<NodeType*>(); }
   void Reset() {
     Clear();
-    if (m_pRoot) {
-      m_NodeStack.Push(m_pRoot);
-    }
+    if (m_pRoot)
+      m_NodeStack.push(m_pRoot);
   }
   bool SetCurrent(NodeType* pCurNode) {
-    m_NodeStack.RemoveAll(false);
+    Clear();
     if (pCurNode) {
-      CFX_StackTemplate<NodeType*> revStack(100);
+      std::stack<NodeType*> revStack;
       NodeType* pNode;
       for (pNode = pCurNode; pNode && pNode != m_pRoot;
            pNode = TraverseStrategy::GetParent(pNode)) {
-        revStack.Push(pNode);
+        revStack.push(pNode);
       }
-      if (!pNode) {
+      if (!pNode)
         return false;
-      }
-      revStack.Push(m_pRoot);
-      while (revStack.GetSize()) {
-        m_NodeStack.Push(*revStack.GetTopElement());
-        revStack.Pop();
+
+      revStack.push(m_pRoot);
+      while (!revStack.empty()) {
+        m_NodeStack.push(revStack.top());
+        revStack.pop();
       }
     }
     return true;
   }
   NodeType* GetCurrent() const {
-    return m_NodeStack.GetSize() ? *m_NodeStack.GetTopElement() : nullptr;
+    return !m_NodeStack.empty() ? m_NodeStack.top() : nullptr;
   }
   NodeType* GetRoot() const { return m_pRoot; }
   NodeType* MoveToPrev() {
-    int32_t nStackLength = m_NodeStack.GetSize();
-    if (nStackLength == 1) {
+    size_t nStackLength = m_NodeStack.size();
+    if (nStackLength == 1)
       return nullptr;
-    } else if (nStackLength > 1) {
-      NodeType* pCurItem = *m_NodeStack.GetTopElement();
-      m_NodeStack.Pop();
-      NodeType* pParentItem = *m_NodeStack.GetTopElement();
+    if (nStackLength > 1) {
+      NodeType* pCurItem = m_NodeStack.top();
+      m_NodeStack.pop();
+      NodeType* pParentItem = m_NodeStack.top();
       NodeType* pParentFirstChildItem =
           TraverseStrategy::GetFirstChild(pParentItem);
-      if (pCurItem == pParentFirstChildItem) {
+      if (pCurItem == pParentFirstChildItem)
         return pParentItem;
-      }
-      NodeType *pPrevItem = pParentFirstChildItem, *pPrevItemNext = nullptr;
+      NodeType* pPrevItem = pParentFirstChildItem;
+      NodeType* pPrevItemNext = nullptr;
       for (; pPrevItem; pPrevItem = pPrevItemNext) {
         pPrevItemNext = TraverseStrategy::GetNextSibling(pPrevItem);
-        if (!pPrevItemNext || pPrevItemNext == pCurItem) {
+        if (!pPrevItemNext || pPrevItemNext == pCurItem)
           break;
-        }
       }
-      m_NodeStack.Push(pPrevItem);
+      m_NodeStack.push(pPrevItem);
     } else {
-      m_NodeStack.RemoveAll(false);
-      if (m_pRoot) {
-        m_NodeStack.Push(m_pRoot);
-      }
+      Reset();
     }
-    if (m_NodeStack.GetSize() > 0) {
-      NodeType* pChildItem = *m_NodeStack.GetTopElement();
-      while ((pChildItem = TraverseStrategy::GetFirstChild(pChildItem)) !=
-             nullptr) {
+    if (!m_NodeStack.empty()) {
+      NodeType* pChildItem = m_NodeStack.top();
+      while ((pChildItem = TraverseStrategy::GetFirstChild(pChildItem))) {
         while (NodeType* pNextItem =
                    TraverseStrategy::GetNextSibling(pChildItem)) {
           pChildItem = pNextItem;
         }
-        m_NodeStack.Push(pChildItem);
+        m_NodeStack.push(pChildItem);
       }
-      return *m_NodeStack.GetTopElement();
+      return m_NodeStack.top();
     }
     return nullptr;
   }
   NodeType* MoveToNext() {
-    NodeType** ppNode = nullptr;
+    NodeType* pNode = nullptr;
     NodeType* pCurrent = GetCurrent();
-    while (m_NodeStack.GetSize() > 0) {
-      while ((ppNode = m_NodeStack.GetTopElement()) != nullptr) {
-        if (pCurrent != *ppNode) {
-          return *ppNode;
-        }
-        NodeType* pChild = TraverseStrategy::GetFirstChild(*ppNode);
-        if (!pChild) {
+    while (!m_NodeStack.empty()) {
+      while ((pNode = m_NodeStack.top()) != nullptr) {
+        if (pCurrent != pNode)
+          return pNode;
+        NodeType* pChild = TraverseStrategy::GetFirstChild(pNode);
+        if (!pChild)
           break;
-        }
-        m_NodeStack.Push(pChild);
+        m_NodeStack.push(pChild);
       }
-      while ((ppNode = m_NodeStack.GetTopElement()) != nullptr) {
-        NodeType* pNext = TraverseStrategy::GetNextSibling(*ppNode);
-        m_NodeStack.Pop();
-        if (m_NodeStack.GetSize() == 0) {
+      while ((pNode = m_NodeStack.top()) != nullptr) {
+        NodeType* pNext = TraverseStrategy::GetNextSibling(pNode);
+        m_NodeStack.pop();
+        if (m_NodeStack.empty())
           break;
-        }
         if (pNext) {
-          m_NodeStack.Push(pNext);
+          m_NodeStack.push(pNext);
           break;
         }
       }
@@ -142,15 +124,14 @@ class CXFA_NodeIteratorTemplate {
     return nullptr;
   }
   NodeType* SkipChildrenAndMoveToNext() {
-    NodeType** ppNode = nullptr;
-    while ((ppNode = m_NodeStack.GetTopElement()) != nullptr) {
-      NodeType* pNext = TraverseStrategy::GetNextSibling(*ppNode);
-      m_NodeStack.Pop();
-      if (m_NodeStack.GetSize() == 0) {
+    NodeType* pNode = nullptr;
+    while ((pNode = m_NodeStack.top()) != nullptr) {
+      NodeType* pNext = TraverseStrategy::GetNextSibling(pNode);
+      m_NodeStack.pop();
+      if (m_NodeStack.empty())
         break;
-      }
       if (pNext) {
-        m_NodeStack.Push(pNext);
+        m_NodeStack.push(pNext);
         break;
       }
     }
@@ -159,7 +140,7 @@ class CXFA_NodeIteratorTemplate {
 
  protected:
   NodeType* m_pRoot;
-  CFX_StackTemplate<NodeType*> m_NodeStack;
+  std::stack<NodeType*> m_NodeStack;
 };
 
 CXFA_LocaleValue XFA_GetLocaleValue(CXFA_WidgetData* pWidgetData);
