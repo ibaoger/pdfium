@@ -321,6 +321,7 @@ CStretchEngine::CStretchEngine(IFX_ScanlineComposer* pDestBitmap,
       m_Flags |= FXDIB_DOWNSAMPLE;
     }
   }
+
   double scale_x = (FX_FLOAT)m_SrcWidth / (FX_FLOAT)m_DestWidth;
   double scale_y = (FX_FLOAT)m_SrcHeight / (FX_FLOAT)m_DestHeight;
   double base_x = m_DestWidth > 0 ? 0.0f : (FX_FLOAT)(m_DestWidth);

@@ -562,6 +562,36 @@ DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
 #define FPDF_REVERSE_BYTE_ORDER 0x10
 
 #ifdef _WIN32
+// Function: FPDF_ReplaceMasksWithBitmaps
+//          Replace sections of a page with image masks with bitmap images.
+//          This is more efficient than replacing the entire page with a bitmap
+//          image.
+//          This function is only supported on Windows.
+// Parameters:
+//          doc         -   Handle to the document.
+//          page        -   Handle to the page. Returned by FPDF_LoadPage.
+//          size_x      -   Horizontal size (in pixels) for displaying the page.
+//          size_y      -   Vertical size (in pixels) for displaying the page.
+//          hdc         -   0 for normal display, or a combination of flags
+//                          defined above
+// Return value:
+//          None.
+/*DLLEXPORT std::vector<FPDF_BITMAP>
+STDCALL FPDF_ReplaceMasksWithBitmaps(FPDF_DOCUMENT doc,
+                                     FPDF_PAGE page,
+                                     int start_x,
+                                     int start_y,
+                                     int size_x,
+                                     int size_y);
+
+DLLEXPORT void STDCALL FPDF_RenderBitmaps(HDC dc,
+                                          FPDF_PAGE page,
+                                          int start_x,
+                                          int start_y,
+                                          int size_x,
+                                          int size_y,
+                                          std::vector<FPDF_BITMAP> bitmaps);
+ */
 // Function: FPDF_RenderPage
 //          Render contents of a page to a device (screen, bitmap, or printer).
 //          This function is only supported on Windows.
