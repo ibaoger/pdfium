@@ -8,6 +8,7 @@
 #define CORE_FPDFAPI_PAGE_CPDF_PAGEOBJECTHOLDER_H_
 
 #include <memory>
+#include <vector>
 
 #include "core/fpdfapi/page/cpdf_pageobjectlist.h"
 #include "core/fxcrt/fx_coordinates.h"
@@ -42,8 +43,8 @@ class CPDF_PageObjectHolder {
   }
 
   bool HasImageMask() const { return m_bHasImageMask; }
-  void SetHasImageMask(bool value) { m_bHasImageMask = value; }
-
+  std::vector<CFX_FloatRect> GetMaskBbox() const { return m_MaskBBox; }
+  void SetHasImageMask(CFX_FloatRect mask_bbox);
   void Transform(const CFX_Matrix& matrix);
   CFX_FloatRect CalcBoundingBox() const;
 
@@ -53,6 +54,7 @@ class CPDF_PageObjectHolder {
   CPDF_Dictionary* m_pPageResources;
   CPDF_Dictionary* m_pResources;
   CFX_FloatRect m_BBox;
+  std::vector<CFX_FloatRect> m_MaskBBox;
   int m_Transparency;
 
  protected:

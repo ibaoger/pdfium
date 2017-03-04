@@ -37,6 +37,22 @@ void CPDF_PageObjectHolder::ContinueParse(IFX_Pause* pPause) {
   }
 }
 
+void CPDF_PageObjectHolder::SetHasImageMask(CFX_FloatRect mask_bbox) {
+  /* if (m_bHasImageMask) {
+     for (int i = 0; i < m_MaskBBox.size(); i++) {
+       FX_RECT intersect = m_MaskBBox[i].GetOuterRect();
+       intersect.Intersect(mask_bbox.GetOuterRect());
+       if (intersect.Width() > 0 || intersect.Height() > 0) {
+         m_MaskBBox[i].Union(mask_bbox);
+         return;
+       }
+     }
+   }*/
+  // This is a new, nonoverlapping mask (or we have no image masks)
+  m_bHasImageMask = true;
+  m_MaskBBox.push_back(mask_bbox);
+}
+
 void CPDF_PageObjectHolder::Transform(const CFX_Matrix& matrix) {
   for (auto& pObj : m_PageObjectList)
     pObj->Transform(matrix);
