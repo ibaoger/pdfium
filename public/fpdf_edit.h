@@ -107,12 +107,27 @@ DLLEXPORT int STDCALL FPDFPage_CountObject(FPDF_PAGE page);
 // Returns the handle to the page object, or NULL on failed.
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPage_GetObject(FPDF_PAGE page, int index);
 
+// Remove the object at |index| from |page|
+//
+//   page - handle to a page.
+//   index - the index of a page object.
+//
+// Returns true on success and false on failure.
+DLLEXPORT bool STDCALL FPDFPage_RemoveObject(FPDF_PAGE page, int index);
+
 // Checks if |page| contains transparency.
 //
 //   page - handle to a page.
 //
 // Returns TRUE if |page| contains transparency.
 DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasTransparency(FPDF_PAGE page);
+
+// Checks if |page| contains image masks.
+//
+//   page - handle to a page.
+//
+// Returns TRUE if |page| contains image masks.
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasImageMask(FPDF_PAGE page);
 
 // Generate the content of |page|.
 //
@@ -131,6 +146,13 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page);
 // Returns TRUE if |pageObject| contains transparency.
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFPageObj_HasTransparency(FPDF_PAGEOBJECT pageObject);
+
+// Checks if |pageObject| is an image mask.
+//
+//   pageObject - handle to a page object.
+//
+// Returns TRUE if |pageObject| is an image mask.
+DLLEXPORT FPDF_BOOL STDCALL FPDFPageObj_IsImageMask(FPDF_PAGEOBJECT pageObject);
 
 // Transform |pageObject| by the given matrix.
 //

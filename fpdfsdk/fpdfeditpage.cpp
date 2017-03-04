@@ -13,6 +13,7 @@
 #include "core/fpdfapi/edit/cpdf_pagecontentgenerator.h"
 #include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_formobject.h"
+#include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_page.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
@@ -207,9 +208,21 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPage_GetObject(FPDF_PAGE page,
   return pPage->GetPageObjectList()->GetPageObjectByIndex(index);
 }
 
+DLLEXPORT bool STDCALL FPDFPage_RemoveObject(FPDF_PAGE page, int index) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!IsPageObject(pPage))
+    return nullptr;
+  return pPage->GetPageObjectList()->RemovePageObjectByIndex(index);
+}
+
 DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasTransparency(FPDF_PAGE page) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   return pPage && pPage->BackgroundAlphaNeeded();
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasImageMask(FPDF_PAGE page) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  return pPage && pPage->HasImageMask();
 }
 
 DLLEXPORT FPDF_BOOL STDCALL
@@ -244,6 +257,17 @@ FPDFPageObj_HasTransparency(FPDF_PAGEOBJECT pageObject) {
   }
 
   return false;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL
+FPDFPageObj_IsImageMask(FPDF_PAGEOBJECT pageObject) {
+  if (!pageObject)
+    return false;
+
+  CPDF_PageObject* pPageObj = reinterpret_cast<CPDF_PageObject*>(pageObject);
+
+  return (pPageObj->IsImage() && pPageObj->AsImage()->GetImage() &&
+          pPageObj->AsImage()->GetImage()->IsMask());
 }
 
 DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page) {

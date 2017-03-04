@@ -6,6 +6,8 @@
 
 #include "core/fpdfapi/render/cpdf_progressiverenderer.h"
 
+#include "core/fpdfapi/page/cpdf_image.h"
+#include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/page/cpdf_pageobjectholder.h"
 #include "core/fpdfapi/render/cpdf_pagerendercache.h"
@@ -37,6 +39,10 @@ void CPDF_ProgressiveRenderer::Start(IFX_Pause* pPause) {
   }
   m_Status = ToBeContinued;
   Continue(pPause);
+}
+
+void CPDF_ProgressiveRenderer::Resume() {
+  Continue(nullptr);
 }
 
 void CPDF_ProgressiveRenderer::Continue(IFX_Pause* pPause) {
@@ -96,6 +102,11 @@ void CPDF_ProgressiveRenderer::Continue(IFX_Pause* pPause) {
         nObjsToGo = kStepLimit;
       }
       ++iter;
+      if (pCurObj->IsImage() && pCurObj->AsImage()->GetImage() &&
+          pCurObj->AsImage()->GetImage()->IsMask() &&
+          m_pDevice->GetDeviceClass() != FXDC_DISPLAY) {
+        return;
+      }
     }
     if (m_pCurrentLayer->m_pObjectHolder->IsParsed()) {
       m_pRenderStatus.reset();

@@ -40,6 +40,7 @@ class CPDF_ProgressiveRenderer {
 
   Status GetStatus() const { return m_Status; }
   void Start(IFX_Pause* pPause);
+  void Resume();
   void Continue(IFX_Pause* pPause);
 
  private:
