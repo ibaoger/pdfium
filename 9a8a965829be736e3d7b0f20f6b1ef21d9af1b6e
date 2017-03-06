@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f66687f0_93a1f18a",
+        "filename": "xfa/fxfa/parser/xfa_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T20:18:46Z",
+      "side": 0,
+      "message": "Would this be equivalent to m_pRoot \u003d\u003d m_pCurrent? Do we still need that case?",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 20
+      },
+      "revId": "9a8a965829be736e3d7b0f20f6b1ef21d9af1b6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
