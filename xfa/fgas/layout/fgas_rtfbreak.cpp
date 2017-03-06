@@ -273,6 +273,7 @@ CFX_RTFBreakType CFX_RTFBreak::AppendChar(FX_WCHAR wch) {
   CFX_RTFBreakType dwRet2 =
       (this->*g_FX_RTFBreak_lpfAppendChar[chartype >> FX_CHARTYPEBITS])(
           pCurChar);
+
   m_eCharType = chartype;
   return std::max(dwRet1, dwRet2);
 }
