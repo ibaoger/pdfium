@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73f47ce5_dbc03745",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-06T17:46:41Z",
+      "side": 1,
+      "message": "nit: 4GB",
+      "range": {
+        "startLine": 593,
+        "startChar": 13,
+        "endLine": 593,
+        "endChar": 17
+      },
+      "revId": "ac5834b48446c1b1c99f667f009e17e8fe7cd9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
