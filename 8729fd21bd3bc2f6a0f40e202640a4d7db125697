@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d26e93b7_0824a1df",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T15:18:22Z",
+      "side": 1,
+      "message": "I have a followup which cleans this up.",
+      "parentUuid": "764be1b4_76f36fb7",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a4effe1_7a92d814",
         "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74a4636_a58348ef",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T15:18:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "52080046_09572095",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "6fe3d432_2479e78a",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T15:18:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed3f99ab_aee7b946",
+      "range": {
+        "startLine": 590,
+        "startChar": 4,
+        "endLine": 590,
+        "endChar": 13
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a37fef8_bbc07576",
         "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
         "patchSetId": 2
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "2ea8c2c8_5135513f",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T15:18:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a37fef8_bbc07576",
+      "range": {
+        "startLine": 597,
+        "startChar": 4,
+        "endLine": 597,
+        "endChar": 5
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bb194fe_700bcaab",
         "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
         "patchSetId": 2
@@ -162,6 +258,30 @@
       "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b994f6e5_29063add",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-06T15:18:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bb194fe_700bcaab",
+      "range": {
+        "startLine": 605,
+        "startChar": 1,
+        "endLine": 605,
+        "endChar": 41
+      },
+      "revId": "8729fd21bd3bc2f6a0f40e202640a4d7db125697",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
