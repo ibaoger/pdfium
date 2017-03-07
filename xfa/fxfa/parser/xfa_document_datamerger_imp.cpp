@@ -464,12 +464,12 @@ CXFA_Node* FindDataRefDataNode(CXFA_Document* pDocument,
                                                 pTemplateNode);
   if (rs.dwFlags == XFA_RESOLVENODE_RSTYPE_CreateNodeAll ||
       rs.dwFlags == XFA_RESOLVENODE_RSTYPE_CreateNodeMidAll ||
-      rs.nodes.GetSize() > 1) {
+      rs.nodes.size() > 1) {
     return pDocument->GetNotBindNode(rs.nodes);
   }
 
   if (rs.dwFlags == XFA_RESOLVENODE_RSTYPE_CreateNodeOne) {
-    CXFA_Object* pObject = (rs.nodes.GetSize() > 0) ? rs.nodes[0] : nullptr;
+    CXFA_Object* pObject = !rs.nodes.empty() ? rs.nodes[0] : nullptr;
     CXFA_Node* pNode = ToNode(pObject);
     return (bForceBind || !pNode || !pNode->HasBindItem()) ? pNode : nullptr;
   }
@@ -1157,8 +1157,7 @@ void UpdateBindingRelations(CXFA_Document* pDocument,
           XFA_RESOLVENODE_RS rs;
           pDocument->GetScriptContext()->ResolveObjects(pDataScope, wsRef, rs,
                                                         dFlags, pTemplateNode);
-          CXFA_Object* pObject =
-              (rs.nodes.GetSize() > 0) ? rs.nodes[0] : nullptr;
+          CXFA_Object* pObject = !rs.nodes.empty() ? rs.nodes[0] : nullptr;
           pDataNode = ToNode(pObject);
           if (pDataNode) {
             CreateDataBinding(pFormNode, pDataNode,
@@ -1354,9 +1353,10 @@ void CXFA_Document::DataMerge_UpdateBindingRelations(
   UpdateBindingRelations(this, pFormUpdateRoot, pDataScope, true, false);
 }
 
-CXFA_Node* CXFA_Document::GetNotBindNode(CXFA_ObjArray& arrayNodes) {
-  for (int32_t i = 0; i < arrayNodes.GetSize(); i++) {
-    CXFA_Node* pNode = arrayNodes[i]->AsNode();
+CXFA_Node* CXFA_Document::GetNotBindNode(
+    const std::vector<CXFA_Object*>& arrayNodes) {
+  for (CXFA_Object* pObj : arrayNodes) {
+    CXFA_Node* pNode = pObj->AsNode();
     if (pNode && !pNode->HasBindItem())
       return pNode;
   }

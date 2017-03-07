@@ -1070,18 +1070,18 @@ void CXFA_Node::Script_Som_ResolveNodeList(CFXJSE_Value* pValue,
                                  resoveNodeRS, dwFlag);
   CXFA_ArrayNodeList* pNodeList = new CXFA_ArrayNodeList(m_pDocument);
   if (resoveNodeRS.dwFlags == XFA_RESOVENODE_RSTYPE_Nodes) {
-    for (int32_t i = 0; i < resoveNodeRS.nodes.GetSize(); i++) {
-      if (resoveNodeRS.nodes[i]->IsNode())
-        pNodeList->Append(resoveNodeRS.nodes[i]->AsNode());
+    for (CXFA_Object* pNode : resoveNodeRS.nodes) {
+      if (pNode->IsNode())
+        pNodeList->Append(pNode->AsNode());
     }
   } else {
     CXFA_ValueArray valueArray(pScriptContext->GetRuntime());
     if (resoveNodeRS.GetAttributeResult(valueArray) > 0) {
-      CXFA_ObjArray objectArray;
+      std::vector<CXFA_Object*> objectArray;
       valueArray.GetAttributeObject(objectArray);
-      for (int32_t i = 0; i < objectArray.GetSize(); i++) {
-        if (objectArray[i]->IsNode())
-          pNodeList->Append(objectArray[i]->AsNode());
+      for (CXFA_Object* pNode : objectArray) {
+        if (pNode->IsNode())
+          pNodeList->Append(pNode->AsNode());
       }
     }
   }

@@ -106,7 +106,6 @@ class CXFA_Object : public CFXJSE_HostObject {
   const uint32_t m_elementNameHash;
   const CFX_WideStringC m_elementName;
 };
-using CXFA_ObjArray = CFX_ArrayTemplate<CXFA_Object*>;
 
 #define XFA_NODEFILTER_Children 0x01
 #define XFA_NODEFILTER_Properties 0x02

@@ -16,7 +16,7 @@ CXFA_ValueArray::~CXFA_ValueArray() {
     delete GetAt(i);
 }
 
-void CXFA_ValueArray::GetAttributeObject(CXFA_ObjArray& objArray) {
+void CXFA_ValueArray::GetAttributeObject(std::vector<CXFA_Object*>& objArray) {
   for (int32_t i = 0; i < GetSize(); i++)
-    objArray.Add(CXFA_ScriptContext::ToObject(GetAt(i), nullptr));
+    objArray.push_back(CXFA_ScriptContext::ToObject(GetAt(i), nullptr));
 }

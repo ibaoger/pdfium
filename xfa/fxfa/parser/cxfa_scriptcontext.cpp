@@ -13,6 +13,7 @@
 #include "fxjs/cfxjse_class.h"
 #include "fxjs/cfxjse_value.h"
 #include "third_party/base/ptr_util.h"
+#include "third_party/base/stl_util.h"
 #include "xfa/fxfa/app/xfa_ffnotify.h"
 #include "xfa/fxfa/cxfa_eventparam.h"
 #include "xfa/fxfa/parser/cxfa_document.h"
@@ -583,11 +584,11 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
   int32_t nLevel = 0;
   int32_t nRet = -1;
   rndFind.m_pSC = this;
-  CXFA_ObjArray findNodes;
-  findNodes.Add(refNode ? refNode : m_pDocument->GetRoot());
+  std::vector<CXFA_Object*> findNodes;
+  findNodes.push_back(refNode ? refNode : m_pDocument->GetRoot());
   int32_t nNodes = 0;
   while (true) {
-    nNodes = findNodes.GetSize();
+    nNodes = pdfium::CollectionSize<int32_t>(findNodes);
     int32_t i = 0;
     rndFind.m_dwStyles = dwStyles;
     m_ResolveProcessor->SetCurStart(nStart);
@@ -599,19 +600,20 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
         if (nStart != -1) {
           pDataNode = m_pDocument->GetNotBindNode(findNodes);
           if (pDataNode) {
-            findNodes.RemoveAll();
-            findNodes.Add(pDataNode);
+            findNodes.clear();
+            findNodes.push_back(pDataNode);
             break;
           }
         } else {
           pDataNode = findNodes[0]->AsNode();
-          findNodes.RemoveAll();
-          findNodes.Add(pDataNode);
+          findNodes.clear();
+          findNodes.push_back(pDataNode);
           break;
         }
         dwStyles |= XFA_RESOLVENODE_Bind;
-        findNodes.RemoveAll();
-        findNodes.Add(m_ResolveProcessor->GetNodeHelper()->m_pAllStartParent);
+        findNodes.clear();
+        findNodes.push_back(
+            m_ResolveProcessor->GetNodeHelper()->m_pAllStartParent);
         continue;
       } else {
         break;
@@ -628,7 +630,7 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
         break;
       }
     }
-    CXFA_ObjArray retNodes;
+    std::vector<CXFA_Object*> retNodes;
     while (i < nNodes) {
       bool bDataBind = false;
       if (((dwStyles & XFA_RESOLVENODE_Bind) ||
@@ -652,20 +654,20 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
         (rndFind.m_Nodes[0]->*(rndFind.m_pScriptAttribute->lpfnCallback))(
             pValue.get(), false,
             (XFA_ATTRIBUTE)rndFind.m_pScriptAttribute->eAttribute);
-        rndFind.m_Nodes.SetAt(0, ToObject(pValue.get(), nullptr));
+        rndFind.m_Nodes[0] = ToObject(pValue.get(), nullptr);
       }
       int32_t iSize = m_upObjectArray.GetSize();
       if (iSize) {
         m_upObjectArray.RemoveAt(iSize - 1);
       }
-      retNodes.Append(rndFind.m_Nodes);
-      rndFind.m_Nodes.RemoveAll();
-      if (bDataBind) {
+      retNodes.insert(retNodes.end(), rndFind.m_Nodes.begin(),
+                      rndFind.m_Nodes.end());
+      rndFind.m_Nodes.clear();
+      if (bDataBind)
         break;
-      }
     }
-    findNodes.RemoveAll();
-    nNodes = retNodes.GetSize();
+    findNodes.clear();
+    nNodes = pdfium::CollectionSize<int32_t>(retNodes);
     if (nNodes < 1) {
       if (dwStyles & XFA_RESOLVENODE_CreateNode) {
         bNextCreate = true;
@@ -687,8 +689,8 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
         break;
       }
     }
-    findNodes.Copy(retNodes);
-    rndFind.m_Nodes.RemoveAll();
+    findNodes = retNodes;
+    rndFind.m_Nodes.clear();
     if (nLevel == 0) {
       dwStyles &= ~(XFA_RESOLVENODE_Parent | XFA_RESOLVENODE_Siblings);
     }
@@ -697,7 +699,8 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
   if (!bNextCreate) {
     resolveNodeRS.dwFlags = rndFind.m_dwFlag;
     if (nNodes > 0) {
-      resolveNodeRS.nodes.Append(findNodes);
+      resolveNodeRS.nodes.insert(resolveNodeRS.nodes.begin(), findNodes.begin(),
+                                 findNodes.end());
     }
     if (rndFind.m_dwFlag == XFA_RESOVENODE_RSTYPE_Attribute) {
       resolveNodeRS.pScriptAttribute = rndFind.m_pScriptAttribute;
@@ -711,7 +714,7 @@ int32_t CXFA_ScriptContext::ResolveObjects(CXFA_Object* refNode,
     if (!bNextCreate && (dwStyles & XFA_RESOLVENODE_CreateNode)) {
       resolveNodeRS.dwFlags = XFA_RESOVENODE_RSTYPE_ExistNodes;
     }
-    return resolveNodeRS.nodes.GetSize();
+    return pdfium::CollectionSize<int32_t>(resolveNodeRS.nodes);
   }
   return nNodes;
 }
