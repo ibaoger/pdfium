@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae7cd936_b2bf6f38",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "nice.  so much nicer even.",
+      "range": {
+        "startLine": 386,
+        "startChar": 3,
+        "endLine": 388,
+        "endChar": 54
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "976e61bd_7751cf79",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -49,6 +72,75 @@
     },
     {
       "key": {
+        "uuid": "755dbe82_5aec1755",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "maybe\nfor (auto it \u003d tpos.rbegin(); it !\u003d tpos.rend(); it++);\n  ... \u003d ...[it-\u003eindex];\n\nnote the Rs.  And we avoid the collectionsize, which should only be used if we\u0027re making calculations off of |i|",
+      "range": {
+        "startLine": 596,
+        "startChar": 1,
+        "endLine": 596,
+        "endChar": 45
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3c9070c_a19135bb",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "for (const auto\u0026 tpo : tpos) {\n\nor begin/end (without the Rs for parallelism with above).",
+      "range": {
+        "startLine": 635,
+        "startChar": 4,
+        "endLine": 635,
+        "endChar": 42
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4ad6ca_c684390d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "range-base for loop.",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 663,
+        "endChar": 44
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3126b019_246c58dd",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -65,6 +157,75 @@
         "startChar": 33,
         "endLine": 815,
         "endChar": 34
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60c5e11_2306e57e",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "please confirm that this result is only used for brief periods, eg. inserting into array will inavlidate it.  I think the old type has the same limitiation, but it may not realloc in the same places and they might have been lucky.",
+      "range": {
+        "startLine": 819,
+        "startChar": 9,
+        "endLine": 820,
+        "endChar": 1
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74de7520_1f164e0a",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "why bother?",
+      "range": {
+        "startLine": 982,
+        "startChar": 3,
+        "endLine": 982,
+        "endChar": 10
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0de7162c_d6752cea",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "this is scary without a copy ctor but it moves just swell under memcpy as long as you throw away the old without dtor (eg. realloc).",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 2
       },
       "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -112,6 +273,29 @@
         "startChar": 16,
         "endLine": 124,
         "endChar": 18
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe37022a_84f555d6",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T20:08:53Z",
+      "side": 1,
+      "message": "nit: maybe Clear() with a capital C of course.",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 16
       },
       "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
