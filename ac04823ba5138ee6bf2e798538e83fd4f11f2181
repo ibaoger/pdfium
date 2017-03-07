@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ce2f9af_bbb054ef",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6168,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "Can we pull pContext-\u003eGetDocument()-\u003eGetScriptContext() out to a var outside the for()?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1960a05_14a90d43",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "Can this be a* instead of \u0026 as we\u0027re modifying it?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee3a999c_3fb97b30",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "if (rndFind.m_Nodes.empty())\n  return 0;",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d4f4e77_da8532f2",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4946256f_b435fd6a",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "This one does clear(), needed or not?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22bb76fa_8e3af731",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "nit {}s",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2958dba_9ce29f42",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545444d5_ecc6b373",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31ad2307_be19131c",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "This appears to be the one place this method doesn\u0027t return 0,1. Do we actually care what the  value is or are we just treating it as a boolean on the calling side?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0d13f1_9cae69be",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a51a784a_e96a2bf2",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "This resolve, insert, clear pattern happens a few times, followup to factor this out?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a4b751d_f1555da6",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "Ownership of CXFA_Object*?  (unique_ptr or unowned comment)",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0025e7b7_ebf773fe",
+        "filename": "xfa/fxfa/parser/cxfa_scriptcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783fdf43_f782371a",
+        "filename": "xfa/fxfa/parser/cxfa_scriptcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "resolveNodeRS.nodes.end()?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cf1a606_b668a2ed",
+        "filename": "xfa/fxfa/parser/cxfa_valuearray.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "const \u0026 or *?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60bbad3b_18e760f1",
+        "filename": "xfa/fxfa/parser/xfa_resolvenode_rs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T00:53:10Z",
+      "side": 1,
+      "message": "ownership of CXFA_Object? (comment or unique_ptr)?",
+      "revId": "ac04823ba5138ee6bf2e798538e83fd4f11f2181",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
