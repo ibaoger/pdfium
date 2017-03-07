@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42a56f40_922ddea5",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T17:29:52Z",
+      "side": 1,
+      "message": "fx_alloc never returns null.  Do you want tryalloc?",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "45ceced6b32841412d292b74c3ae073eb9b9e9bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
