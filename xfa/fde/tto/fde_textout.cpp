@@ -23,7 +23,7 @@ FDE_TTOPIECE::FDE_TTOPIECE(const FDE_TTOPIECE& that) = default;
 FDE_TTOPIECE::~FDE_TTOPIECE() = default;
 
 CFDE_TextOut::CFDE_TextOut()
-    : m_pTxtBreak(new CFX_TxtBreak(FX_TXTBREAKPOLICY_None)),
+    : m_pTxtBreak(new CFX_TxtBreak()),
       m_pFont(nullptr),
       m_fFontSize(12.0f),
       m_fLineSpace(m_fFontSize),

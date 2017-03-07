@@ -23,10 +23,6 @@ class CFX_TxtPiece;
 class IFX_TxtAccess;
 struct FDE_TEXTEDITPIECE;
 
-#define FX_TXTBREAKPOLICY_None 0x00
-#define FX_TXTBREAKPOLICY_Pagination 0x01
-#define FX_TXTBREAKPOLICY_SpaceBreak 0x02
-#define FX_TXTBREAKPOLICY_NumberBreak 0x04
 #define FX_TXTBREAK_None 0x00
 #define FX_TXTBREAK_PieceBreak 0x01
 #define FX_TXTBREAK_LineBreak 0x02
@@ -162,7 +158,7 @@ typedef CFX_BaseArrayTemplate<CFX_TxtPiece> CFX_TxtPieceArray;
 
 class CFX_TxtLine {
  public:
-  explicit CFX_TxtLine(int32_t iBlockSize);
+  CFX_TxtLine();
   ~CFX_TxtLine();
 
   int32_t CountChars() const {
@@ -205,7 +201,7 @@ class CFX_TxtLine {
 
 class CFX_TxtBreak {
  public:
-  explicit CFX_TxtBreak(uint32_t dwPolicies);
+  CFX_TxtBreak();
   ~CFX_TxtBreak();
 
   void SetLineWidth(FX_FLOAT fLineWidth);
@@ -248,7 +244,7 @@ class CFX_TxtBreak {
   void SetBreakStatus();
   int32_t GetLineRotation(uint32_t dwStyles) const;
   CFX_TxtChar* GetLastChar(int32_t index, bool bOmitChar = true) const;
-  CFX_TxtLine* GetTxtLine() const;
+  const CFX_TxtLine* GetTxtLine() const;
   CFX_TxtPieceArray* GetTxtPieces() const;
   FX_CHARTYPE GetUnifiedCharType(FX_CHARTYPE dwType) const;
   void ResetArabicContext();
@@ -269,8 +265,6 @@ class CFX_TxtBreak {
                      CFX_TxtLine* pNextLine,
                      bool bAllChars = false);
 
-  uint32_t m_dwPolicies;
-  bool m_bPagination;
   int32_t m_iLineWidth;
   uint32_t m_dwLayoutStyles;
   bool m_bVertical;
@@ -300,8 +294,8 @@ class CFX_TxtBreak {
   int32_t m_iCurAlignment;
   bool m_bArabicNumber;
   bool m_bArabicComma;
-  std::unique_ptr<CFX_TxtLine> m_pTxtLine1;
-  std::unique_ptr<CFX_TxtLine> m_pTxtLine2;
+  CFX_TxtLine m_pTxtLine1;
+  CFX_TxtLine m_pTxtLine2;
   CFX_TxtLine* m_pCurLine;
   int32_t m_iReady;
   int32_t m_iTolerance;
