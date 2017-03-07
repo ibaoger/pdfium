@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "313fb8e5_faf2b051",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae7cd936_b2bf6f38",
+      "range": {
+        "startLine": 386,
+        "startChar": 3,
+        "endLine": 388,
+        "endChar": 54
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "976e61bd_7751cf79",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "153b3528_6c4b4fe4",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755dbe82_5aec1755",
+      "range": {
+        "startLine": 596,
+        "startChar": 1,
+        "endLine": 596,
+        "endChar": 45
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c9070c_a19135bb",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -115,6 +163,30 @@
       "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a366c72_6f1fddf6",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c9070c_a19135bb",
+      "range": {
+        "startLine": 635,
+        "startChar": 4,
+        "endLine": 635,
+        "endChar": 42
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "50065db8_28ed3778",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab4ad6ca_c684390d",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 663,
+        "endChar": 44
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3f5cbe3_0a370eaa",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -161,6 +257,30 @@
       "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6bd337_cc004dcc",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3f5cbe3_0a370eaa",
+      "range": {
+        "startLine": 811,
+        "startChar": 34,
+        "endLine": 811,
+        "endChar": 48
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -187,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f8339da2_621d7fa8",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3126b019_246c58dd",
+      "range": {
+        "startLine": 815,
+        "startChar": 33,
+        "endLine": 815,
+        "endChar": 34
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d60c5e11_2306e57e",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -198,6 +342,30 @@
       "writtenOn": "2017-03-07T20:08:53Z",
       "side": 1,
       "message": "please confirm that this result is only used for brief periods, eg. inserting into array will inavlidate it.  I think the old type has the same limitiation, but it may not realloc in the same places and they might have been lucky.",
+      "range": {
+        "startLine": 819,
+        "startChar": 9,
+        "endLine": 820,
+        "endChar": 1
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32dbb827_9dd041e1",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Only used from CXFA_TextLayout and, as far as I can tell, is only used to get data, not stored.",
+      "parentUuid": "d60c5e11_2306e57e",
       "range": {
         "startLine": 819,
         "startChar": 9,
@@ -233,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "68028383_9bdd7dc5",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Mostly that I missed it, removed the CFX_RTFBreak that does this as well. On the plus side, this removes the Reset() method which was kinda weird.",
+      "parentUuid": "74de7520_1f164e0a",
+      "range": {
+        "startLine": 982,
+        "startChar": 3,
+        "endLine": 982,
+        "endChar": 10
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0de7162c_d6752cea",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
         "patchSetId": 2
@@ -244,6 +436,30 @@
       "writtenOn": "2017-03-07T20:08:53Z",
       "side": 1,
       "message": "this is scary without a copy ctor but it moves just swell under memcpy as long as you throw away the old without dtor (eg. realloc).",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44ee8f20_171cde49",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Yup, on the plus side, we have a copy constructor now, heh.",
+      "parentUuid": "0de7162c_d6752cea",
       "range": {
         "startLine": 106,
         "startChar": 2,
@@ -323,6 +539,54 @@
       "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "492d16ab_9f9bc88e",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe37022a_84f555d6",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 16
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be628061_276a894b",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:41:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fa4c1923_480a935d",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 18
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
