@@ -8,8 +8,10 @@
 #define XFA_FXFA_PARSER_XFA_RESOLVENODE_RS_H_
 
 #include <memory>
+#include <vector>
 
 #include "fxjs/cfxjse_value.h"
+#include "third_party/base/ptr_util.h"
 #include "xfa/fxfa/fxfa.h"
 #include "xfa/fxfa/parser/cxfa_valuearray.h"
 
@@ -45,10 +47,9 @@ struct XFA_RESOLVENODE_RS {
 
   int32_t GetAttributeResult(CXFA_ValueArray& valueArray) const {
     if (pScriptAttribute && pScriptAttribute->eValueType == XFA_SCRIPT_Object) {
-      v8::Isolate* pIsolate = valueArray.m_pIsolate;
-      for (int32_t i = 0; i < nodes.GetSize(); i++) {
-        std::unique_ptr<CFXJSE_Value> pValue(new CFXJSE_Value(pIsolate));
-        (nodes[i]->*(pScriptAttribute->lpfnCallback))(
+      for (CXFA_Node* pNode : nodes) {
+        auto pValue = pdfium::MakeUnique<CFXJSE_Value>(valueArray.m_pIsolate);
+        (pNode->*(pScriptAttribute->lpfnCallback))(
             pValue.get(), false, (XFA_ATTRIBUTE)pScriptAttribute->eAttribute);
         valueArray.Add(pValue.release());
       }
@@ -56,15 +57,14 @@ struct XFA_RESOLVENODE_RS {
     return valueArray.GetSize();
   }
 
-  CXFA_ObjArray nodes;
   XFA_RESOVENODE_RSTYPE dwFlags;
   const XFA_SCRIPTATTRIBUTEINFO* pScriptAttribute;
+  std::vector<CXFA_Node*> nodes;
 };
 
 inline XFA_RESOLVENODE_RS::XFA_RESOLVENODE_RS()
     : dwFlags(XFA_RESOVENODE_RSTYPE_Nodes), pScriptAttribute(nullptr) {}
 
-inline XFA_RESOLVENODE_RS::~XFA_RESOLVENODE_RS() {
-  nodes.RemoveAll();
-}
+inline XFA_RESOLVENODE_RS::~XFA_RESOLVENODE_RS() {}
+
 #endif  // XFA_FXFA_PARSER_XFA_RESOLVENODE_RS_H_

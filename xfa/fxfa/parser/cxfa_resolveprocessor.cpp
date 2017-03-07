@@ -6,7 +6,12 @@
 
 #include "xfa/fxfa/parser/cxfa_resolveprocessor.h"
 
+#include <utility>
+#include <vector>
+
 #include "core/fxcrt/fx_ext.h"
+#include "third_party/base/ptr_util.h"
+#include "third_party/base/stl_util.h"
 #include "xfa/fxfa/parser/cxfa_document.h"
 #include "xfa/fxfa/parser/cxfa_nodehelper.h"
 #include "xfa/fxfa/parser/cxfa_scriptcontext.h"
@@ -51,36 +56,36 @@ int32_t CXFA_ResolveProcessor::Resolve(CXFA_ResolveNodesData& rnd) {
       break;
   }
   if (rnd.m_uHashName == XFA_HASHCODE_This && rnd.m_nLevel == 0) {
-    rnd.m_Nodes.Add(rnd.m_pSC->GetThisObject());
+    rnd.m_Nodes.push_back(rnd.m_pSC->GetThisObject());
     return 1;
-  } else if (rnd.m_CurNode->GetElementType() == XFA_Element::Xfa) {
+  }
+  if (rnd.m_CurNode->GetElementType() == XFA_Element::Xfa) {
     CXFA_Object* pObjNode =
         rnd.m_pSC->GetDocument()->GetXFAObject(rnd.m_uHashName);
     if (pObjNode) {
-      rnd.m_Nodes.Add(pObjNode);
+      rnd.m_Nodes.push_back(pObjNode->AsNode());
     } else if (rnd.m_uHashName == XFA_HASHCODE_Xfa) {
-      rnd.m_Nodes.Add(rnd.m_CurNode);
+      rnd.m_Nodes.push_back(rnd.m_CurNode);
     } else if ((rnd.m_dwStyles & XFA_RESOLVENODE_Attributes) &&
                ResolveForAttributeRs(rnd.m_CurNode, rnd,
                                      rnd.m_wsName.AsStringC())) {
       return 1;
     }
-    if (rnd.m_Nodes.GetSize() > 0) {
+    if (!rnd.m_Nodes.empty())
       FilterCondition(rnd, rnd.m_wsCondition);
-    }
-    return rnd.m_Nodes.GetSize();
+
+    return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
   }
-  int32_t nRet = ResolveNormal(rnd);
-  if (nRet < 1 && rnd.m_uHashName == XFA_HASHCODE_Xfa) {
-    rnd.m_Nodes.Add(rnd.m_pSC->GetDocument()->GetRoot());
-  }
-  return rnd.m_Nodes.GetSize();
+  if (ResolveNormal(rnd) < 1 && rnd.m_uHashName == XFA_HASHCODE_Xfa)
+    rnd.m_Nodes.push_back(rnd.m_pSC->GetDocument()->GetRoot());
+
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolveAnyChild(CXFA_ResolveNodesData& rnd) {
   CFX_WideString wsName = rnd.m_wsName;
   CFX_WideString wsCondition = rnd.m_wsCondition;
   CXFA_Node* findNode = nullptr;
-  CXFA_NodeArray siblings;
   bool bClassName = false;
   if (wsName.GetAt(0) == '#') {
     bClassName = true;
@@ -92,21 +97,21 @@ int32_t CXFA_ResolveProcessor::ResolveAnyChild(CXFA_ResolveNodesData& rnd) {
     return 0;
   }
   if (wsCondition.IsEmpty()) {
-    rnd.m_Nodes.Add(findNode);
-    return rnd.m_Nodes.GetSize();
+    rnd.m_Nodes.push_back(findNode);
+    return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
   }
-  m_pNodeHelper->CountSiblings(findNode, XFA_LOGIC_Transparent,
-                               (CXFA_NodeArray*)&rnd.m_Nodes, bClassName);
+  m_pNodeHelper->CountSiblings(findNode, XFA_LOGIC_Transparent, &rnd.m_Nodes,
+                               bClassName);
   FilterCondition(rnd, wsCondition);
-  return rnd.m_Nodes.GetSize();
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolveDollar(CXFA_ResolveNodesData& rnd) {
-  CXFA_ObjArray& nodes = rnd.m_Nodes;
   CFX_WideString wsName = rnd.m_wsName;
   CFX_WideString wsCondition = rnd.m_wsCondition;
   int32_t iNameLen = wsName.GetLength();
   if (iNameLen == 1) {
-    nodes.Add(rnd.m_CurNode);
+    rnd.m_Nodes.push_back(rnd.m_CurNode);
     return 1;
   }
   if (rnd.m_nLevel > 0) {
@@ -115,27 +120,27 @@ int32_t CXFA_ResolveProcessor::ResolveDollar(CXFA_ResolveNodesData& rnd) {
   XFA_HashCode dwNameHash = static_cast<XFA_HashCode>(FX_HashCode_GetW(
       CFX_WideStringC(wsName.c_str() + 1, iNameLen - 1), false));
   if (dwNameHash == XFA_HASHCODE_Xfa) {
-    nodes.Add(rnd.m_pSC->GetDocument()->GetRoot());
+    rnd.m_Nodes.push_back(rnd.m_pSC->GetDocument()->GetRoot());
   } else {
     CXFA_Object* pObjNode = rnd.m_pSC->GetDocument()->GetXFAObject(dwNameHash);
-    if (pObjNode) {
-      rnd.m_Nodes.Add(pObjNode);
-    }
+    if (pObjNode)
+      rnd.m_Nodes.push_back(pObjNode->AsNode());
   }
-  if (rnd.m_Nodes.GetSize() > 0) {
+  if (!rnd.m_Nodes.empty())
     FilterCondition(rnd, wsCondition);
-  }
-  return rnd.m_Nodes.GetSize();
+
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolveExcalmatory(CXFA_ResolveNodesData& rnd) {
-  if (rnd.m_nLevel > 0) {
+  if (rnd.m_nLevel > 0)
     return 0;
-  }
+
   CXFA_Node* datasets =
       ToNode(rnd.m_pSC->GetDocument()->GetXFAObject(XFA_HASHCODE_Datasets));
-  if (!datasets) {
+  if (!datasets)
     return 0;
-  }
+
   CXFA_ResolveNodesData rndFind;
   rndFind.m_pSC = rnd.m_pSC;
   rndFind.m_CurNode = datasets;
@@ -146,19 +151,18 @@ int32_t CXFA_ResolveProcessor::ResolveExcalmatory(CXFA_ResolveNodesData& rnd) {
   rndFind.m_dwStyles = XFA_RESOLVENODE_Children;
   rndFind.m_wsCondition = rnd.m_wsCondition;
   Resolve(rndFind);
-  if (rndFind.m_Nodes.GetSize() > 0) {
-    rnd.m_Nodes.Append(rndFind.m_Nodes);
-    rndFind.m_Nodes.RemoveAll();
-  }
-  return rnd.m_Nodes.GetSize();
+  rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                     rndFind.m_Nodes.end());
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolveNumberSign(CXFA_ResolveNodesData& rnd) {
   CFX_WideString wsName = rnd.m_wsName.Right(rnd.m_wsName.GetLength() - 1);
   CFX_WideString wsCondition = rnd.m_wsCondition;
   CXFA_Node* curNode = ToNode(rnd.m_CurNode);
-  if (ResolveForAttributeRs(curNode, rnd, wsName.AsStringC())) {
+  if (ResolveForAttributeRs(curNode, rnd, wsName.AsStringC()))
     return 1;
-  }
+
   CXFA_ResolveNodesData rndFind;
   rndFind.m_pSC = rnd.m_pSC;
   rndFind.m_nLevel = rnd.m_nLevel + 1;
@@ -171,16 +175,18 @@ int32_t CXFA_ResolveProcessor::ResolveNumberSign(CXFA_ResolveNodesData& rnd) {
   rndFind.m_wsCondition = wsCondition;
   rndFind.m_CurNode = curNode;
   ResolveNormal(rndFind);
-  if (rndFind.m_Nodes.GetSize() > 0) {
-    if (wsCondition.GetLength() == 0 && rndFind.m_Nodes.Find(curNode) >= 0) {
-      rnd.m_Nodes.Add(curNode);
+  if (!rndFind.m_Nodes.empty()) {
+    if (wsCondition.GetLength() == 0 &&
+        pdfium::ContainsValue(rndFind.m_Nodes, curNode)) {
+      rnd.m_Nodes.push_back(curNode);
     } else {
-      rnd.m_Nodes.Append(rndFind.m_Nodes);
-      rndFind.m_Nodes.RemoveAll();
+      rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                         rndFind.m_Nodes.end());
     }
   }
-  return rnd.m_Nodes.GetSize();
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolveForAttributeRs(
     CXFA_Object* curNode,
     CXFA_ResolveNodesData& rnd,
@@ -189,22 +195,19 @@ int32_t CXFA_ResolveProcessor::ResolveForAttributeRs(
       XFA_GetScriptAttributeByName(curNode->GetElementType(), strAttr);
   if (lpScriptAttribute) {
     rnd.m_pScriptAttribute = lpScriptAttribute;
-    rnd.m_Nodes.Add(curNode);
+    rnd.m_Nodes.push_back(curNode->AsNode());
     rnd.m_dwFlag = XFA_RESOVENODE_RSTYPE_Attribute;
     return 1;
   }
   return 0;
 }
+
 int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
-  if (rnd.m_nLevel > 32) {
+  if (rnd.m_nLevel > 32 || !rnd.m_CurNode->IsNode())
     return 0;
-  }
-  if (!rnd.m_CurNode->IsNode()) {
-    return 0;
-  }
+
   CXFA_Node* curNode = ToNode(rnd.m_CurNode);
-  CXFA_ObjArray& nodes = rnd.m_Nodes;
-  int32_t nNum = nodes.GetSize();
+  size_t nNum = rnd.m_Nodes.size();
   uint32_t dwStyles = rnd.m_dwStyles;
   CFX_WideString& wsName = rnd.m_wsName;
   XFA_HashCode uNameHash = rnd.m_uHashName;
@@ -215,8 +218,8 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
   rndFind.m_pSC = rnd.m_pSC;
   rndFind.m_nLevel = rnd.m_nLevel + 1;
   rndFind.m_uHashName = uNameHash;
-  CXFA_NodeArray children;
-  CXFA_NodeArray properties;
+  std::vector<CXFA_Node*> children;
+  std::vector<CXFA_Node*> properties;
   CXFA_Node* pVariablesNode = nullptr;
   CXFA_Node* pPageSetNode = nullptr;
   CXFA_Node* pChild = curNode->GetNodeItem(XFA_NODEITEM_FirstChild);
@@ -225,26 +228,26 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
       pVariablesNode = pChild;
       pChild = pChild->GetNodeItem(XFA_NODEITEM_NextSibling);
       continue;
-    } else if (pChild->GetElementType() == XFA_Element::PageSet) {
+    }
+    if (pChild->GetElementType() == XFA_Element::PageSet) {
       pPageSetNode = pChild;
       pChild = pChild->GetNodeItem(XFA_NODEITEM_NextSibling);
       continue;
+    }
+    const XFA_PROPERTY* pPropert = XFA_GetPropertyOfElement(
+        curNode->GetElementType(), pChild->GetElementType(),
+        XFA_XDPPACKET_UNKNOWN);
+    if (pPropert) {
+      properties.push_back(pChild);
     } else {
-      const XFA_PROPERTY* pPropert = XFA_GetPropertyOfElement(
-          curNode->GetElementType(), pChild->GetElementType(),
-          XFA_XDPPACKET_UNKNOWN);
-      if (pPropert) {
-        properties.Add(pChild);
-      } else {
-        children.Add(pChild);
-      }
+      children.push_back(pChild);
     }
     pChild = pChild->GetNodeItem(XFA_NODEITEM_NextSibling);
   }
   if ((dwStyles & XFA_RESOLVENODE_Properties) && pVariablesNode) {
     uint32_t uPropHash = pVariablesNode->GetClassHashCode();
     if (uPropHash == uNameHash) {
-      nodes.Add(pVariablesNode);
+      rnd.m_Nodes.push_back(pVariablesNode);
     } else {
       rndFind.m_CurNode = pVariablesNode;
       SetStylesForChild(dwStyles, rndFind);
@@ -252,32 +255,27 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
       rndFind.m_wsCondition.clear();
       ResolveNormal(rndFind);
       rndFind.m_wsCondition = wsSaveCondition;
-      if (rndFind.m_Nodes.GetSize() > 0) {
-        nodes.Append(rndFind.m_Nodes);
-        rndFind.m_Nodes.RemoveAll();
-      }
+      rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                         rndFind.m_Nodes.end());
+      rndFind.m_Nodes.clear();
     }
-    if (nodes.GetSize() > nNum) {
+    if (rnd.m_Nodes.size() > nNum) {
       FilterCondition(rnd, wsCondition);
-      if (nodes.GetSize() > 0) {
-        return 1;
-      }
-      return 0;
+      return !rnd.m_Nodes.empty() ? 1 : 0;
     }
   }
   if (dwStyles & XFA_RESOLVENODE_Children) {
     bool bSetFlag = false;
     if (pPageSetNode && (dwStyles & XFA_RESOLVENODE_Properties)) {
-      children.Add(pPageSetNode);
+      children.push_back(pPageSetNode);
     }
-    for (int32_t i = 0; i < children.GetSize(); i++) {
-      CXFA_Node* child = children[i];
+    for (CXFA_Node* child : children) {
       if (dwStyles & XFA_RESOLVENODE_TagName) {
         if (child->GetClassHashCode() == uNameHash) {
-          nodes.Add(child);
+          rnd.m_Nodes.push_back(child);
         }
       } else if (child->GetNameHash() == uNameHash) {
-        nodes.Add(child);
+        rnd.m_Nodes.push_back(child);
       }
       if (m_pNodeHelper->NodeIsTransparent(child) &&
           child->GetElementType() != XFA_Element::PageSet) {
@@ -290,59 +288,48 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
         rndFind.m_wsCondition.clear();
         ResolveNormal(rndFind);
         rndFind.m_wsCondition = wsSaveCondition;
-        if (rndFind.m_Nodes.GetSize() > 0) {
-          nodes.Append(rndFind.m_Nodes);
-          rndFind.m_Nodes.RemoveAll();
-        }
+        rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                           rndFind.m_Nodes.end());
+        rndFind.m_Nodes.clear();
       }
     }
-    if (nodes.GetSize() > nNum) {
+    if (rnd.m_Nodes.size() > nNum) {
       if (!(dwStyles & XFA_RESOLVENODE_ALL)) {
-        CXFA_NodeArray upArrayNodes;
+        std::vector<CXFA_Node*> upArrayNodes;
         if (m_pNodeHelper->NodeIsTransparent(ToNode(curNode))) {
-          m_pNodeHelper->CountSiblings(ToNode(nodes[0]), XFA_LOGIC_Transparent,
-                                       &upArrayNodes,
+          m_pNodeHelper->CountSiblings(ToNode(rnd.m_Nodes[0]),
+                                       XFA_LOGIC_Transparent, &upArrayNodes,
                                        !!(dwStyles & XFA_RESOLVENODE_TagName));
         }
-        if (upArrayNodes.GetSize() > nodes.GetSize()) {
-          upArrayNodes[0] = ToNode(nodes[0]);
-          nodes.RemoveAll();
-          nodes.Append((CXFA_ObjArray&)upArrayNodes);
-          upArrayNodes.RemoveAll();
+        if (upArrayNodes.size() > rnd.m_Nodes.size()) {
+          upArrayNodes[0] = rnd.m_Nodes[0];
+          rnd.m_Nodes = std::move(upArrayNodes);
         }
       }
       FilterCondition(rnd, wsCondition);
-      if (nodes.GetSize() > 0) {
-        return 1;
-      }
-      return 0;
+      return !rnd.m_Nodes.empty() ? 1 : 0;
     }
   }
   if (dwStyles & XFA_RESOLVENODE_Attributes) {
-    if (ResolveForAttributeRs(curNode, rnd, wsName.AsStringC())) {
+    if (ResolveForAttributeRs(curNode, rnd, wsName.AsStringC()))
       return 1;
-    }
   }
   if (dwStyles & XFA_RESOLVENODE_Properties) {
-    for (int32_t i = 0; i < properties.GetSize(); i++) {
-      CXFA_Node* childProperty = properties[i];
-      if (childProperty->IsUnnamed()) {
-        uint32_t uPropHash = childProperty->GetClassHashCode();
-        if (uPropHash == uNameHash) {
-          nodes.Add(childProperty);
-        }
-      } else if (childProperty->GetNameHash() == uNameHash &&
-                 childProperty->GetElementType() != XFA_Element::Extras &&
-                 childProperty->GetElementType() != XFA_Element::Items) {
-        nodes.Add(childProperty);
+    for (CXFA_Node* pChildProperty : properties) {
+      if (pChildProperty->IsUnnamed()) {
+        if (pChildProperty->GetClassHashCode() == uNameHash)
+          rnd.m_Nodes.push_back(pChildProperty);
+        continue;
+      }
+      if (pChildProperty->GetNameHash() == uNameHash &&
+          pChildProperty->GetElementType() != XFA_Element::Extras &&
+          pChildProperty->GetElementType() != XFA_Element::Items) {
+        rnd.m_Nodes.push_back(pChildProperty);
       }
     }
-    if (nodes.GetSize() > nNum) {
+    if (rnd.m_Nodes.size() > nNum) {
       FilterCondition(rnd, wsCondition);
-      if (nodes.GetSize() > 0) {
-        return 1;
-      }
-      return 0;
+      return !rnd.m_Nodes.empty() ? 1 : 0;
     }
     CXFA_Node* pProp = nullptr;
     if (XFA_Element::Subform == curNode->GetElementType() &&
@@ -360,8 +347,8 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
       }
     }
     if (pProp) {
-      nodes.Add(pProp);
-      return nodes.GetSize();
+      rnd.m_Nodes.push_back(pProp);
+      return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
     }
   }
   CXFA_Node* parentNode = m_pNodeHelper->ResolveNodes_GetParent(
@@ -369,11 +356,10 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
   uint32_t uCurClassHash = curNode->GetClassHashCode();
   if (!parentNode) {
     if (uCurClassHash == uNameHash) {
-      nodes.Add(curNode->AsNode());
+      rnd.m_Nodes.push_back(curNode->AsNode());
       FilterCondition(rnd, wsCondition);
-      if (nodes.GetSize() > 0) {
+      if (!rnd.m_Nodes.empty())
         return 1;
-      }
     }
     return 0;
   }
@@ -381,25 +367,23 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
     CXFA_Node* child = parentNode->GetNodeItem(XFA_NODEITEM_FirstChild);
     uint32_t dwSubStyles =
         XFA_RESOLVENODE_Children | XFA_RESOLVENODE_Properties;
-    if (dwStyles & XFA_RESOLVENODE_TagName) {
+    if (dwStyles & XFA_RESOLVENODE_TagName)
       dwSubStyles |= XFA_RESOLVENODE_TagName;
-    }
-    if (dwStyles & XFA_RESOLVENODE_ALL) {
+    if (dwStyles & XFA_RESOLVENODE_ALL)
       dwSubStyles |= XFA_RESOLVENODE_ALL;
-    }
     rndFind.m_dwStyles = dwSubStyles;
     while (child) {
       if (child == curNode) {
         if (dwStyles & XFA_RESOLVENODE_TagName) {
           if (uCurClassHash == uNameHash) {
-            nodes.Add(curNode);
+            rnd.m_Nodes.push_back(curNode);
           }
         } else {
           if (child->GetNameHash() == uNameHash) {
-            nodes.Add(curNode);
+            rnd.m_Nodes.push_back(curNode);
             if (rnd.m_nLevel == 0 && wsCondition.GetLength() == 0) {
-              nodes.RemoveAll();
-              nodes.Add(curNode);
+              rnd.m_Nodes.clear();
+              rnd.m_Nodes.push_back(curNode);
               return 1;
             }
           }
@@ -408,11 +392,10 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
         continue;
       }
       if (dwStyles & XFA_RESOLVENODE_TagName) {
-        if (child->GetClassHashCode() == uNameHash) {
-          nodes.Add(child);
-        }
+        if (child->GetClassHashCode() == uNameHash)
+          rnd.m_Nodes.push_back(child);
       } else if (child->GetNameHash() == uNameHash) {
-        nodes.Add(child);
+        rnd.m_Nodes.push_back(child);
       }
       const XFA_PROPERTY* pPropert = XFA_GetPropertyOfElement(
           parentNode->GetElementType(), child->GetElementType(),
@@ -437,31 +420,25 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
         ResolveNormal(rndFind);
         rndFind.m_dwStyles = dwOriginStyle;
         rndFind.m_wsCondition = wsOriginCondition;
-        if (rndFind.m_Nodes.GetSize() > 0) {
-          nodes.Append(rndFind.m_Nodes);
-          rndFind.m_Nodes.RemoveAll();
-        }
+        rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                           rndFind.m_Nodes.end());
+        rndFind.m_Nodes.clear();
       }
       child = child->GetNodeItem(XFA_NODEITEM_NextSibling);
     }
-    if (nodes.GetSize() > nNum) {
+    if (rnd.m_Nodes.size() > nNum) {
       if (m_pNodeHelper->NodeIsTransparent(parentNode)) {
-        CXFA_NodeArray upArrayNodes;
-        m_pNodeHelper->CountSiblings(ToNode(nodes[0]), XFA_LOGIC_Transparent,
+        std::vector<CXFA_Node*> upArrayNodes;
+        m_pNodeHelper->CountSiblings(rnd.m_Nodes[0], XFA_LOGIC_Transparent,
                                      &upArrayNodes,
                                      !!(dwStyles & XFA_RESOLVENODE_TagName));
-        if (upArrayNodes.GetSize() > nodes.GetSize()) {
-          upArrayNodes[0] = ToNode(nodes[0]);
-          nodes.RemoveAll();
-          nodes.Append((CXFA_ObjArray&)upArrayNodes);
-          upArrayNodes.RemoveAll();
+        if (upArrayNodes.size() > rnd.m_Nodes.size()) {
+          upArrayNodes[0] = rnd.m_Nodes[0];
+          rnd.m_Nodes = std::move(upArrayNodes);
         }
       }
       FilterCondition(rnd, wsCondition);
-      if (nodes.GetSize() > 0) {
-        return 1;
-      }
-      return 0;
+      return !rnd.m_Nodes.empty() ? 1 : 0;
     }
   }
   if (dwStyles & XFA_RESOLVENODE_Parent) {
@@ -475,28 +452,25 @@ int32_t CXFA_ResolveProcessor::ResolveNormal(CXFA_ResolveNodesData& rnd) {
     }
     rndFind.m_dwStyles = dwSubStyles;
     rndFind.m_CurNode = parentNode;
-    CXFA_NodeArray& array = rnd.m_pSC->GetUpObjectArray();
-    array.Add(parentNode);
+    rnd.m_pSC->GetUpObjectArray().push_back(parentNode);
     ResolveNormal(rndFind);
-    if (rndFind.m_Nodes.GetSize() > 0) {
-      nodes.Append(rndFind.m_Nodes);
-      rndFind.m_Nodes.RemoveAll();
-    }
-    if (nodes.GetSize() > nNum) {
-      return 1;
-    }
+    rnd.m_Nodes.insert(rnd.m_Nodes.end(), rndFind.m_Nodes.begin(),
+                       rndFind.m_Nodes.end());
+    rndFind.m_Nodes.clear();
+    return !rnd.m_Nodes.empty() ? 1 : 0;
   }
   return 0;
 }
+
 int32_t CXFA_ResolveProcessor::ResolveAsterisk(CXFA_ResolveNodesData& rnd) {
   CXFA_Node* curNode = ToNode(rnd.m_CurNode);
-  CXFA_ObjArray& nodes = rnd.m_Nodes;
-  CXFA_NodeArray array;
-  curNode->GetNodeList(array,
+  std::vector<CXFA_Node*> array;
+  curNode->GetNodeList(&array,
                        XFA_NODEFILTER_Children | XFA_NODEFILTER_Properties);
-  nodes.Append((CXFA_ObjArray&)array);
-  return nodes.GetSize();
+  rnd.m_Nodes.insert(rnd.m_Nodes.end(), array.begin(), array.end());
+  return pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
 }
+
 int32_t CXFA_ResolveProcessor::ResolvePopStack(
     CFX_ArrayTemplate<int32_t>& stack) {
   int32_t nType = -1;
@@ -611,7 +585,6 @@ void CXFA_ResolveProcessor::ConditionArray(int32_t iCurIndex,
                                            CFX_WideString wsCondition,
                                            int32_t iFoundCount,
                                            CXFA_ResolveNodesData& rnd) {
-  CXFA_NodeArray& findNodes = (CXFA_NodeArray&)rnd.m_Nodes;
   int32_t iLen = wsCondition.GetLength();
   bool bRelative = false;
   bool bAll = false;
@@ -636,7 +609,7 @@ void CXFA_ResolveProcessor::ConditionArray(int32_t iCurIndex,
       if (rnd.m_dwStyles & XFA_RESOLVENODE_Bind) {
         m_pNodeHelper->m_pCreateParent = ToNode(rnd.m_CurNode);
         m_pNodeHelper->m_iCreateCount = 1;
-        findNodes.RemoveAll();
+        rnd.m_Nodes.clear();
         m_pNodeHelper->m_iCurAllStart = -1;
         m_pNodeHelper->m_pAllStartParent = nullptr;
       } else {
@@ -666,19 +639,19 @@ void CXFA_ResolveProcessor::ConditionArray(int32_t iCurIndex,
       m_pNodeHelper->m_pCreateParent = ToNode(rnd.m_CurNode);
       m_pNodeHelper->m_iCreateCount = iIndex - iFoundCount + 1;
     }
-    findNodes.RemoveAll();
+    rnd.m_Nodes.clear();
   } else {
-    CXFA_Node* ret = findNodes[iIndex];
-    findNodes.RemoveAll();
-    findNodes.Add(ret);
+    CXFA_Node* ret = rnd.m_Nodes[iIndex];
+    rnd.m_Nodes.clear();
+    rnd.m_Nodes.push_back(ret);
   }
 }
+
 void CXFA_ResolveProcessor::DoPredicateFilter(int32_t iCurIndex,
                                               CFX_WideString wsCondition,
                                               int32_t iFoundCount,
                                               CXFA_ResolveNodesData& rnd) {
-  CXFA_NodeArray& findNodes = (CXFA_NodeArray&)rnd.m_Nodes;
-  ASSERT(iFoundCount == findNodes.GetSize());
+  ASSERT(iFoundCount == pdfium::CollectionSize<int32_t>(rnd.m_Nodes));
   CFX_WideString wsExpression;
   XFA_SCRIPTLANGTYPE eLangType = XFA_SCRIPTLANGTYPE_Unkown;
   if (wsCondition.Left(2) == L".[" && wsCondition.Right(1) == L"]") {
@@ -692,25 +665,20 @@ void CXFA_ResolveProcessor::DoPredicateFilter(int32_t iCurIndex,
   CXFA_ScriptContext* pContext = rnd.m_pSC;
   wsExpression = wsCondition.Mid(2, wsCondition.GetLength() - 3);
   for (int32_t i = iFoundCount - 1; i >= 0; i--) {
-    CXFA_Object* node = findNodes[i];
-    bool bRet = false;
-    std::unique_ptr<CFXJSE_Value> pRetValue(
-        new CFXJSE_Value(rnd.m_pSC->GetRuntime()));
-    bRet = pContext->RunScript(eLangType, wsExpression.AsStringC(),
-                               pRetValue.get(), node);
+    auto pRetValue = pdfium::MakeUnique<CFXJSE_Value>(rnd.m_pSC->GetRuntime());
+    bool bRet = pContext->RunScript(eLangType, wsExpression.AsStringC(),
+                                    pRetValue.get(), rnd.m_Nodes[i]);
     if (!bRet || !pRetValue->ToBoolean())
-      findNodes.RemoveAt(i);
+      rnd.m_Nodes.erase(rnd.m_Nodes.begin() + i);
   }
 }
 
 void CXFA_ResolveProcessor::FilterCondition(CXFA_ResolveNodesData& rnd,
                                             CFX_WideString wsCondition) {
-  CXFA_NodeArray& findNodes = (CXFA_NodeArray&)rnd.m_Nodes;
   int32_t iCurrIndex = 0;
-  const CXFA_NodeArray& array = rnd.m_pSC->GetUpObjectArray();
-  int32_t iSize = array.GetSize();
-  if (iSize) {
-    CXFA_Node* curNode = array[iSize - 1];
+  const std::vector<CXFA_Node*>& array = rnd.m_pSC->GetUpObjectArray();
+  if (!array.empty()) {
+    CXFA_Node* curNode = array.back();
     bool bIsProperty = m_pNodeHelper->NodeIsProperty(curNode);
     if (curNode->IsUnnamed() ||
         (bIsProperty && curNode->GetElementType() != XFA_Element::PageSet)) {
@@ -721,7 +689,7 @@ void CXFA_ResolveProcessor::FilterCondition(CXFA_ResolveNodesData& rnd,
                                            bIsProperty, false);
     }
   }
-  int32_t iFoundCount = findNodes.GetSize();
+  int32_t iFoundCount = pdfium::CollectionSize<int32_t>(rnd.m_Nodes);
   wsCondition.TrimLeft();
   wsCondition.TrimRight();
   int32_t iLen = wsCondition.GetLength();
@@ -737,12 +705,12 @@ void CXFA_ResolveProcessor::FilterCondition(CXFA_ResolveNodesData& rnd,
         m_pNodeHelper->m_pCreateParent = ToNode(rnd.m_CurNode);
         m_pNodeHelper->m_iCreateCount = iCurrIndex - iFoundCount + 1;
       }
-      findNodes.RemoveAll();
+      rnd.m_Nodes.clear();
       return;
     } else {
-      CXFA_Node* ret = findNodes[iCurrIndex];
-      findNodes.RemoveAll();
-      findNodes.Add(ret);
+      CXFA_Node* ret = rnd.m_Nodes[iCurrIndex];
+      rnd.m_Nodes.clear();
+      rnd.m_Nodes.push_back(ret);
       return;
     }
   }
@@ -775,11 +743,12 @@ void CXFA_ResolveProcessor::SetStylesForChild(uint32_t dwParentStyles,
   dwSubStyles |= XFA_RESOLVENODE_ALL;
   rnd.m_dwStyles = dwSubStyles;
 }
+
 int32_t CXFA_ResolveProcessor::SetResultCreateNode(
     XFA_RESOLVENODE_RS& resolveNodeRS,
     CFX_WideString& wsLastCondition) {
   if (m_pNodeHelper->m_pCreateParent) {
-    resolveNodeRS.nodes.Add(m_pNodeHelper->m_pCreateParent);
+    resolveNodeRS.nodes.push_back(m_pNodeHelper->m_pCreateParent);
   } else {
     m_pNodeHelper->CreateNode_ForCondition(wsLastCondition);
   }
@@ -789,8 +758,9 @@ int32_t CXFA_ResolveProcessor::SetResultCreateNode(
       resolveNodeRS.dwFlags = XFA_RESOLVENODE_RSTYPE_CreateNodeMidAll;
     }
   }
-  return resolveNodeRS.nodes.GetSize();
+  return pdfium::CollectionSize<int32_t>(resolveNodeRS.nodes);
 }
+
 void CXFA_ResolveProcessor::SetIndexDataBind(CFX_WideString& wsNextCondition,
                                              int32_t& iIndex,
                                              int32_t iCount) {
@@ -817,6 +787,4 @@ CXFA_ResolveNodesData::CXFA_ResolveNodesData(CXFA_ScriptContext* pSC)
       m_pScriptAttribute(nullptr),
       m_dwFlag(XFA_RESOVENODE_RSTYPE_Nodes) {}
 
-CXFA_ResolveNodesData::~CXFA_ResolveNodesData() {
-  m_Nodes.RemoveAll();
-}
+CXFA_ResolveNodesData::~CXFA_ResolveNodesData() {}
