@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9146a25_bfbd691e",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T23:39:52Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 88,
+        "startChar": 19,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b038a63_8c7ea59b",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T23:39:52Z",
+      "side": 1,
+      "message": "so... not really const :S",
+      "range": {
+        "startLine": 1076,
+        "startChar": 4,
+        "endLine": 1076,
+        "endChar": 14
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa5ada38_bc1f7cbb",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T23:39:52Z",
+      "side": 1,
+      "message": "no longer a pointer, ditto the next one",
+      "range": {
+        "startLine": 297,
+        "startChar": 16,
+        "endLine": 297,
+        "endChar": 17
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
