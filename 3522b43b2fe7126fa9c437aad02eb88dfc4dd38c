@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e007bbe_979ed385",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T23:51:56Z",
+      "side": 0,
+      "message": "note: blatantly casting an array template \u003cbase\u003e to array template \u003cderived\u003e is really a bad idea.",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 59
+      },
+      "revId": "3522b43b2fe7126fa9c437aad02eb88dfc4dd38c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

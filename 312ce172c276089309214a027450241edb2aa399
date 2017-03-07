@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2d23b96_d185158a",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T23:51:56Z",
+      "side": 0,
+      "message": "rndFind is local, its array of unowned goes away upon return.",
+      "parentUuid": "09c0765b_3af28c55",
+      "revId": "312ce172c276089309214a027450241edb2aa399",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6aaba32_46231c14",
         "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-07T00:53:10Z",
       "side": 0,
       "message": "ditto, safe to not remove?",
+      "revId": "312ce172c276089309214a027450241edb2aa399",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43a99f3e_9adbc38f",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T23:51:56Z",
+      "side": 0,
+      "message": "safe.",
+      "parentUuid": "f6aaba32_46231c14",
       "revId": "312ce172c276089309214a027450241edb2aa399",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
