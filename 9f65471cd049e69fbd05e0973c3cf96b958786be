@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "976e61bd_7751cf79",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T19:54:49Z",
+      "side": 1,
+      "message": "this is not the last one, as before iCount was decreased by 1",
+      "range": {
+        "startLine": 394,
+        "startChar": 41,
+        "endLine": 394,
+        "endChar": 45
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3126b019_246c58dd",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T19:54:49Z",
+      "side": 1,
+      "message": "Maybe this can be a ref to make it clearer?",
+      "range": {
+        "startLine": 815,
+        "startChar": 33,
+        "endLine": 815,
+        "endChar": 34
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c94f8ac2_282a422e",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-07T19:54:49Z",
+      "side": 1,
+      "message": "Are we not worried about ownership here? That is, when RemoveAll was called with bLeaveMemory \u003d true / false.",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 18
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
