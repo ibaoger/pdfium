@@ -48,6 +48,7 @@ struct FX_RTFTEXTOBJ {
 class CFX_RTFPiece {
  public:
   CFX_RTFPiece();
+  CFX_RTFPiece(const CFX_RTFPiece& other);
   ~CFX_RTFPiece();
 
   int32_t GetEndPos() const {
@@ -105,8 +106,6 @@ class CFX_RTFPiece {
   CFX_RetainPtr<CFX_Retainable> m_pUserData;
 };
 
-typedef CFX_BaseArrayTemplate<CFX_RTFPiece> CFX_RTFPieceArray;
-
 class CFX_RTFLine {
  public:
   CFX_RTFLine();
@@ -124,14 +123,14 @@ class CFX_RTFLine {
   int32_t GetLineEnd() const { return m_iStart + m_iWidth; }
   void RemoveAll(bool bLeaveMemory) {
     m_LineChars.clear();
-    m_LinePieces.RemoveAll(bLeaveMemory);
+    m_LinePieces.clear();
     m_iWidth = 0;
     m_iArabicChars = 0;
     m_iMBCSChars = 0;
   }
 
   std::vector<CFX_RTFChar> m_LineChars;
-  CFX_RTFPieceArray m_LinePieces;
+  std::vector<CFX_RTFPiece> m_LinePieces;
   int32_t m_iStart;
   int32_t m_iWidth;
   int32_t m_iArabicChars;
