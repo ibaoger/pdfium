@@ -307,7 +307,7 @@ int32_t CXFA_WidgetAcc::ProcessEvent(int32_t iActivity,
     return XFA_EVENTERROR_NotExist;
   }
   int32_t iRet = XFA_EVENTERROR_NotExist;
-  CXFA_NodeArray eventArray;
+  std::vector<CXFA_Node*> eventArray;
   int32_t iCounts =
       GetEventByActivity(iActivity, eventArray, pEventParam->m_bIsFormReady);
   for (int32_t i = 0; i < iCounts; i++) {
@@ -631,7 +631,7 @@ int32_t CXFA_WidgetAcc::ExecuteScript(CXFA_Script script,
   CXFA_ScriptContext* pContext = pDoc->GetXFADoc()->GetScriptContext();
   pContext->SetEventParam(*pEventParam);
   pContext->SetRunAtType((XFA_ATTRIBUTEENUM)script.GetRunAt());
-  CXFA_NodeArray refNodes;
+  std::vector<CXFA_Node*> refNodes;
   if (pEventParam->m_eType == XFA_EVENT_InitCalculate ||
       pEventParam->m_eType == XFA_EVENT_Calculate) {
     pContext->SetNodesOfRunScript(&refNodes);
@@ -663,16 +663,14 @@ int32_t CXFA_WidgetAcc::ExecuteScript(CXFA_Script script,
           m_pDocView->AddValidateWidget(this);
         }
       }
-      int32_t iRefs = refNodes.GetSize();
-      for (int32_t r = 0; r < iRefs; r++) {
+      for (CXFA_Node* pRefNode : refNodes) {
         CXFA_WidgetAcc* pRefAcc =
-            static_cast<CXFA_WidgetAcc*>(refNodes[r]->GetWidgetData());
-        if (pRefAcc && pRefAcc == this) {
+            static_cast<CXFA_WidgetAcc*>(pRefNode->GetWidgetData());
+        if (pRefAcc == this)
           continue;
-        }
-        CXFA_Node* pRefNode = refNodes[r];
+
         CXFA_CalcData* pGlobalData =
-            (CXFA_CalcData*)pRefNode->GetUserData(XFA_CalcData);
+            static_cast<CXFA_CalcData*>(pRefNode->GetUserData(XFA_CalcData));
         if (!pGlobalData) {
           pGlobalData = new CXFA_CalcData;
           pRefNode->SetUserData(XFA_CalcData, pGlobalData,

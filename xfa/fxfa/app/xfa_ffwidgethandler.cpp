@@ -189,7 +189,7 @@ bool CXFA_FFWidgetHandler::HasEvent(CXFA_WidgetAcc* pWidgetAcc,
     default:
       break;
   }
-  CXFA_NodeArray eventArray;
+  std::vector<CXFA_Node*> eventArray;
   return pWidgetAcc->GetEventByActivity(gs_EventActivity[eEventType],
                                         eventArray) > 0;
 }

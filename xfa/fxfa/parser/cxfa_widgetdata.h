@@ -53,9 +53,9 @@ class CXFA_WidgetData : public CXFA_Data {
   CXFA_Font GetFont(bool bModified = false);
   CXFA_Margin GetMargin(bool bModified = false);
   CXFA_Para GetPara(bool bModified = false);
-  void GetEventList(CXFA_NodeArray& events);
+  void GetEventList(std::vector<CXFA_Node*>& events);
   int32_t GetEventByActivity(int32_t iActivity,
-                             CXFA_NodeArray& events,
+                             std::vector<CXFA_Node*>& events,
                              bool bIsFormReady = false);
   CXFA_Value GetDefaultValue(bool bModified = false);
   CXFA_Value GetFormValue(bool bModified = false);
