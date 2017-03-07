@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ad8f162_6cf8d57c",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T18:08:38Z",
+      "side": 1,
+      "message": "There is only one place where we\u0027d swap I believe, so I\u0027m not sure if this would be beneficial. Going to leave it as is for now.",
+      "parentUuid": "3c00d999_29348e02",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "cfb42d4caadf3924ab8cc07f9a09615813c50c01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21ecbf56_3f6fbba4",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
