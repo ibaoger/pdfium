@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0388c865_bd9000da",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:01:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "976e61bd_7751cf79",
+      "range": {
+        "startLine": 394,
+        "startChar": 41,
+        "endLine": 394,
+        "endChar": 45
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3126b019_246c58dd",
         "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-07T19:54:49Z",
       "side": 1,
       "message": "Are we not worried about ownership here? That is, when RemoveAll was called with bLeaveMemory \u003d true / false.",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 18
+      },
+      "revId": "9f65471cd049e69fbd05e0973c3cf96b958786be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa4c1923_480a935d",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-07T20:01:06Z",
+      "side": 1,
+      "message": "I don\u0027t think this is an issue. The memory would get overwritten so callers should not be storing those memory locations. I believe this was just so the array would not get resized down and have to be resized again in the future.",
+      "parentUuid": "c94f8ac2_282a422e",
       "range": {
         "startLine": 124,
         "startChar": 16,
