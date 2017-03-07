@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c00d999_29348e02",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T17:39:36Z",
+      "side": 1,
+      "message": "Just a suggestion, feel free to tell me to buzz off, and I\u0027ll re-review.  But I think this would be cute:\n\nm_pCurLine \u003d \u0026m_RTFLine[0];\nm_pOtherLine \u003d \u0026m_RTFLine[1];\n\nand throughout the code we\u0027re always doing.\n\nstd::swap(m_pCurLine, m_pOtherLine);\n\ninstead of this ? 1 : 0 stuff.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "cfb42d4caadf3924ab8cc07f9a09615813c50c01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21ecbf56_3f6fbba4",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-07T17:39:36Z",
+      "side": 1,
+      "message": "nit: !!",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "revId": "cfb42d4caadf3924ab8cc07f9a09615813c50c01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
