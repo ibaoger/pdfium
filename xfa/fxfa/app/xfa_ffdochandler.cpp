@@ -56,5 +56,6 @@ bool CXFA_FFDocHandler::RunDocScript(CXFA_FFDoc* hDoc,
 
   return pScriptContext->RunScript(
       (XFA_SCRIPTLANGTYPE)eScriptType, wsScript, pRetValue,
-      pThisValue ? CXFA_ScriptContext::ToObject(pThisValue, nullptr) : nullptr);
+      pThisValue ? CXFA_ScriptContext::ToObject(pThisValue, nullptr)->AsNode()
+                 : nullptr);
 }
