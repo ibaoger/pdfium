@@ -213,35 +213,33 @@ void CScript_LayoutPseudoModel::GetObjArray(CXFA_LayoutProcessor* pDocLayout,
                                             int32_t iPageNo,
                                             const CFX_WideString& wsType,
                                             bool bOnPageArea,
-                                            CXFA_NodeArray& retArray) {
+                                            std::vector<CXFA_Node*>* retArray) {
   CXFA_ContainerLayoutItem* pLayoutPage = pDocLayout->GetPage(iPageNo);
-  if (!pLayoutPage) {
+  if (!pLayoutPage)
     return;
-  }
+
   if (wsType == L"pageArea") {
-    if (CXFA_Node* pMasterPage = pLayoutPage->m_pFormNode) {
-      retArray.Add(pMasterPage);
-    }
+    if (pLayoutPage->m_pFormNode)
+      retArray->push_back(pLayoutPage->m_pFormNode);
     return;
   }
   if (wsType == L"contentArea") {
     for (CXFA_LayoutItem* pItem = pLayoutPage->m_pFirstChild; pItem;
          pItem = pItem->m_pNextSibling) {
-      if (pItem->m_pFormNode->GetElementType() == XFA_Element::ContentArea) {
-        retArray.Add(pItem->m_pFormNode);
-      }
+      if (pItem->m_pFormNode->GetElementType() == XFA_Element::ContentArea)
+        retArray->push_back(pItem->m_pFormNode);
     }
     return;
   }
   std::set<CXFA_Node*> formItems;
   if (wsType.IsEmpty()) {
-    if (CXFA_Node* pMasterPage = pLayoutPage->m_pFormNode) {
-      retArray.Add(pMasterPage);
-    }
+    if (pLayoutPage->m_pFormNode)
+      retArray->push_back(pLayoutPage->m_pFormNode);
+
     for (CXFA_LayoutItem* pItem = pLayoutPage->m_pFirstChild; pItem;
          pItem = pItem->m_pNextSibling) {
       if (pItem->m_pFormNode->GetElementType() == XFA_Element::ContentArea) {
-        retArray.Add(pItem->m_pFormNode);
+        retArray->push_back(pItem->m_pFormNode);
         if (!bOnPageArea) {
           CXFA_NodeIteratorTemplate<CXFA_ContentLayoutItem,
                                     CXFA_TraverseStrategy_ContentLayoutItem>
@@ -260,7 +258,7 @@ void CScript_LayoutPseudoModel::GetObjArray(CXFA_LayoutProcessor* pDocLayout,
               continue;
 
             formItems.insert(pItemChild->m_pFormNode);
-            retArray.Add(pItemChild->m_pFormNode);
+            retArray->push_back(pItemChild->m_pFormNode);
           }
         }
       } else {
@@ -281,7 +279,7 @@ void CScript_LayoutPseudoModel::GetObjArray(CXFA_LayoutProcessor* pDocLayout,
             if (pdfium::ContainsValue(formItems, pItemChild->m_pFormNode))
               continue;
             formItems.insert(pItemChild->m_pFormNode);
-            retArray.Add(pItemChild->m_pFormNode);
+            retArray->push_back(pItemChild->m_pFormNode);
           }
         }
       }
@@ -315,7 +313,7 @@ void CScript_LayoutPseudoModel::GetObjArray(CXFA_LayoutProcessor* pDocLayout,
             if (pdfium::ContainsValue(formItems, pItemChild->m_pFormNode))
               continue;
             formItems.insert(pItemChild->m_pFormNode);
-            retArray.Add(pItemChild->m_pFormNode);
+            retArray->push_back(pItemChild->m_pFormNode);
           }
         }
       } else {
@@ -332,7 +330,7 @@ void CScript_LayoutPseudoModel::GetObjArray(CXFA_LayoutProcessor* pDocLayout,
             if (pdfium::ContainsValue(formItems, pItemChild->m_pFormNode))
               continue;
             formItems.insert(pItemChild->m_pFormNode);
-            retArray.Add(pItemChild->m_pFormNode);
+            retArray->push_back(pItemChild->m_pFormNode);
           }
         }
       }
@@ -368,8 +366,8 @@ void CScript_LayoutPseudoModel::PageContent(CFXJSE_Arguments* pArguments) {
   if (!pDocLayout) {
     return;
   }
-  CXFA_NodeArray retArray;
-  GetObjArray(pDocLayout, iIndex, wsType, bOnPageArea, retArray);
+  std::vector<CXFA_Node*> retArray;
+  GetObjArray(pDocLayout, iIndex, wsType, bOnPageArea, &retArray);
   CXFA_ArrayNodeList* pArrayNodeList = new CXFA_ArrayNodeList(m_pDocument);
   pArrayNodeList->SetArrayNodeList(retArray);
   pArguments->GetReturnValue()->SetObject(
