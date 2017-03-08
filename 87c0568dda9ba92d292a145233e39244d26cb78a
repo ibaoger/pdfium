@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39608b0c_d7a1c0de",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T14:07:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9146a25_bfbd691e",
+      "range": {
+        "startLine": 88,
+        "startChar": 19,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "222cb22a_6d1f6d38",
         "filename": "xfa/fde/tto/fde_textout.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "47f5a386_fe61b709",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T14:07:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "222cb22a_6d1f6d38",
+      "range": {
+        "startLine": 26,
+        "startChar": 18,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b038a63_8c7ea59b",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-07T23:39:52Z",
       "side": 1,
       "message": "so... not really const :S",
+      "range": {
+        "startLine": 1076,
+        "startChar": 4,
+        "endLine": 1076,
+        "endChar": 14
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fe3b5cd_dd821469",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T14:07:34Z",
+      "side": 1,
+      "message": "Nope, but this will get fixed later.",
+      "parentUuid": "1b038a63_8c7ea59b",
       "range": {
         "startLine": 1076,
         "startChar": 4,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4f180d9c_fefb6f7a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T14:07:34Z",
+      "side": 1,
+      "message": "Removed the unique_ptr as it wasn\u0027t really needed.",
+      "parentUuid": "dc2f5a0d_513cdd32",
+      "range": {
+        "startLine": 1614,
+        "startChar": 19,
+        "endLine": 1614,
+        "endChar": 47
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa5ada38_bc1f7cbb",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29b1505_711a421a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T14:07:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5ada38_bc1f7cbb",
+      "range": {
+        "startLine": 297,
+        "startChar": 16,
+        "endLine": 297,
+        "endChar": 17
+      },
+      "revId": "87c0568dda9ba92d292a145233e39244d26cb78a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
