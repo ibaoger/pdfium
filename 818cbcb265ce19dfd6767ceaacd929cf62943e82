@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f761b7b_e9bdba9a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T16:18:34Z",
+      "side": 0,
+      "message": "Our two possible styles are 0x200 and 0x400 so this will always be 0 \u003e\u003e 1 which gives us the 0 value in the array.",
+      "revId": "818cbcb265ce19dfd6767ceaacd929cf62943e82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
