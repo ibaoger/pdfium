@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4962c738_ed6b5a90",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-08T01:01:59Z",
+      "side": 1,
+      "message": "To understand PS#10, realize that this is always called with the default argument of 1 from the outside.",
+      "range": {
+        "startLine": 627,
+        "startChar": 36,
+        "endLine": 627,
+        "endChar": 53
+      },
+      "revId": "c4384245e8140b7eb2b0a20751cc5aaab08d1cb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1deb7f26_1b1a41f8",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-08T01:01:59Z",
+      "side": 1,
+      "message": "So even at the topmost level, we decrement and get level 0.",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 14
+      },
+      "revId": "c4384245e8140b7eb2b0a20751cc5aaab08d1cb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508da570_0b60de87",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-08T01:01:59Z",
+      "side": 1,
+      "message": "Level 0 is never greater than 0 so the path can\u0027t be reached.",
+      "range": {
+        "startLine": 635,
+        "startChar": 9,
+        "endLine": 635,
+        "endChar": 23
+      },
+      "revId": "c4384245e8140b7eb2b0a20751cc5aaab08d1cb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
