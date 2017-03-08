@@ -14,13 +14,13 @@
 #include "core/fxcrt/fx_ucd.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "third_party/base/stl_util.h"
+#include "xfa/fde/cfde_txtedtpage.h"
 #include "xfa/fgas/crt/fgas_utils.h"
 
 class CFX_Char;
 class CFGAS_GEFont;
 class CFX_TxtChar;
 class CFX_TxtPiece;
-class IFX_TxtAccess;
 struct FDE_TEXTEDITPIECE;
 
 #define FX_TXTLAYOUTSTYLE_SingleLine 0x0200
@@ -43,21 +43,12 @@ struct FX_TPO {
   bool operator<(const FX_TPO& that) const { return pos < that.pos; }
 };
 
-class IFX_TxtAccess {
- public:
-  virtual ~IFX_TxtAccess() {}
-  virtual FX_WCHAR GetChar(const FDE_TEXTEDITPIECE* pIdentity,
-                           int32_t index) const = 0;
-  virtual int32_t GetWidth(const FDE_TEXTEDITPIECE* pIdentity,
-                           int32_t index) const = 0;
-};
-
 struct FX_TXTRUN {
   FX_TXTRUN();
   FX_TXTRUN(const FX_TXTRUN& other);
   ~FX_TXTRUN();
 
-  IFX_TxtAccess* pAccess;
+  CFDE_TxtEdtPage* pAccess;
   const FDE_TEXTEDITPIECE* pIdentity;
   CFX_WideString wsStr;
   int32_t* pWidths;
