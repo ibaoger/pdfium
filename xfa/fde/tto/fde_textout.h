@@ -17,6 +17,7 @@
 #include "xfa/fde/fde_object.h"
 #include "xfa/fgas/crt/fgas_utils.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
+#include "xfa/fgas/layout/fgas_textbreak.h"
 
 #define FDE_TTOSTYLE_Underline 0x0001
 #define FDE_TTOSTYLE_Strikeout 0x0002
@@ -120,7 +121,7 @@ class CFDE_TextOut {
 
  protected:
   void CalcTextSize(const FX_WCHAR* pwsStr, int32_t iLength, CFX_RectF& rect);
-  bool RetrieveLineWidth(uint32_t dwBreakStatus,
+  bool RetrieveLineWidth(CFX_BreakType dwBreakStatus,
                          FX_FLOAT& fStartPos,
                          FX_FLOAT& fWidth,
                          FX_FLOAT& fHeight);
@@ -136,7 +137,7 @@ class CFDE_TextOut {
 
   void Reload(const CFX_RectF& rect);
   void ReloadLinePiece(CFDE_TTOLine* pLine, const CFX_RectF& rect);
-  bool RetriecePieces(uint32_t dwBreakStatus,
+  bool RetrievePieces(CFX_BreakType dwBreakStatus,
                       int32_t& iStartChar,
                       int32_t& iPieceWidths,
                       bool bReload,
