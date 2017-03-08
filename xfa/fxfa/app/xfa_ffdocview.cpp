@@ -722,6 +722,7 @@ bool CXFA_FFDocView::RunEventLayoutReady() {
   RunLayout();
   return true;
 }
+
 void CXFA_FFDocView::RunBindItems() {
   for (const auto& item : m_BindItems) {
     if (item->HasRemovedChildren())
@@ -743,9 +744,8 @@ void CXFA_FFDocView::RunBindItems() {
                        XFA_RESOLVENODE_ALL;
     XFA_RESOLVENODE_RS rs;
     pScriptContext->ResolveObjects(pWidgetNode, wsRef, rs, dwStyle);
-    int32_t iCount = rs.nodes.GetSize();
     pAcc->DeleteItem(-1);
-    if (rs.dwFlags != XFA_RESOVENODE_RSTYPE_Nodes || iCount < 1)
+    if (rs.dwFlags != XFA_RESOVENODE_RSTYPE_Nodes || rs.nodes.empty())
       continue;
 
     CFX_WideStringC wsValueRef, wsLabelRef;
@@ -757,12 +757,7 @@ void CXFA_FFDocView::RunBindItems() {
     CFX_WideString wsValue;
     CFX_WideString wsLabel;
     uint32_t uValueHash = FX_HashCode_GetW(wsValueRef, false);
-    for (int32_t j = 0; j < iCount; j++) {
-      CXFA_Object* refObj = rs.nodes[j];
-      if (!refObj->IsNode()) {
-        continue;
-      }
-      CXFA_Node* refNode = refObj->AsNode();
+    for (CXFA_Node* refNode : rs.nodes) {
       if (bValueUseContent) {
         wsValue = refNode->GetContent();
       } else {
@@ -785,6 +780,7 @@ void CXFA_FFDocView::RunBindItems() {
   }
   m_BindItems.clear();
 }
+
 void CXFA_FFDocView::SetChangeMark() {
   if (m_iStatus < XFA_DOCVIEW_LAYOUTSTATUS_End) {
     return;
