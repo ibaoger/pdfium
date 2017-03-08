@@ -224,6 +224,7 @@ void CScript_HostPseudoModel::GotoURL(CFXJSE_Arguments* pArguments) {
   }
   pNotify->GetDocEnvironment()->GotoURL(hDoc, wsURL);
 }
+
 void CScript_HostPseudoModel::OpenList(CFXJSE_Arguments* pArguments) {
   if (!m_pDocument->GetScriptContext()->IsRunAtClient()) {
     return;
@@ -247,7 +248,7 @@ void CScript_HostPseudoModel::OpenList(CFXJSE_Arguments* pArguments) {
       if (!pScriptContext)
         return;
 
-      CXFA_Object* pObject = pScriptContext->GetThisObject();
+      CXFA_Node* pObject = pScriptContext->GetThisObject();
       if (!pObject)
         return;
 
@@ -367,10 +368,10 @@ void CScript_HostPseudoModel::ResetData(CFXJSE_Arguments* pArguments) {
     if (!pScriptContext) {
       return;
     }
-    CXFA_Object* pObject = pScriptContext->GetThisObject();
-    if (!pObject) {
+    CXFA_Node* pObject = pScriptContext->GetThisObject()->AsNode();
+    if (!pObject)
       return;
-    }
+
     uint32_t dwFlag = XFA_RESOLVENODE_Children | XFA_RESOLVENODE_Parent |
                       XFA_RESOLVENODE_Siblings;
     XFA_RESOLVENODE_RS resoveNodeRS;
@@ -428,7 +429,7 @@ void CScript_HostPseudoModel::SetFocus(CFXJSE_Arguments* pArguments) {
       if (!pScriptContext)
         return;
 
-      CXFA_Object* pObject = pScriptContext->GetThisObject();
+      CXFA_Node* pObject = pScriptContext->GetThisObject();
       if (!pObject)
         return;
 
