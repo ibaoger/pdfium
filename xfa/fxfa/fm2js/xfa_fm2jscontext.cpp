@@ -1558,7 +1558,6 @@ void CXFA_FM2JSContext::Time2Num(CFXJSE_Value* pThis,
   if (localString.IsEmpty()) {
     CXFA_Node* pThisNode = ToNode(pDoc->GetScriptContext()->GetThisObject());
     ASSERT(pThisNode);
-
     CXFA_WidgetData widgetData(pThisNode);
     pLocale = widgetData.GetLocal();
   } else {
@@ -6094,7 +6093,7 @@ bool CXFA_FM2JSContext::GetObjectForName(
       dwFlags);
   if (iRet >= 1 && resoveNodeRS.dwFlags == XFA_RESOVENODE_RSTYPE_Nodes) {
     accessorValue->Assign(
-        pScriptContext->GetJSValueFromMap(resoveNodeRS.nodes.GetAt(0)));
+        pScriptContext->GetJSValueFromMap(resoveNodeRS.nodes.front()));
     return true;
   }
   return false;
@@ -6113,14 +6112,14 @@ int32_t CXFA_FM2JSContext::ResolveObjects(CFXJSE_Value* pThis,
 
   CFX_WideString wsSomExpression = CFX_WideString::FromUTF8(bsSomExp);
   CXFA_ScriptContext* pScriptContext = pDoc->GetScriptContext();
-  CXFA_Object* pNode = nullptr;
+  CXFA_Node* pNode = nullptr;
   uint32_t dFlags = 0UL;
   if (bdotAccessor) {
     if (pRefValue && pRefValue->IsNull()) {
       pNode = pScriptContext->GetThisObject();
       dFlags = XFA_RESOLVENODE_Siblings | XFA_RESOLVENODE_Parent;
     } else {
-      pNode = CXFA_ScriptContext::ToObject(pRefValue, nullptr);
+      pNode = CXFA_ScriptContext::ToObject(pRefValue, nullptr)->AsNode();
       ASSERT(pNode);
       if (bHasNoResolveName) {
         CFX_WideString wsName;
@@ -6139,7 +6138,7 @@ int32_t CXFA_FM2JSContext::ResolveObjects(CFXJSE_Value* pThis,
       }
     }
   } else {
-    pNode = CXFA_ScriptContext::ToObject(pRefValue, nullptr);
+    pNode = CXFA_ScriptContext::ToObject(pRefValue, nullptr)->AsNode();
     dFlags = XFA_RESOLVENODE_AnyChild;
   }
   return pScriptContext->ResolveObjects(pNode, wsSomExpression.AsStringC(),
@@ -6162,11 +6161,11 @@ void CXFA_FM2JSContext::ParseResolveResult(
 
   if (resoveNodeRS.dwFlags == XFA_RESOVENODE_RSTYPE_Nodes) {
     *bAttribute = false;
-    for (int32_t i = 0; i < resoveNodeRS.nodes.GetSize(); i++) {
+    CXFA_ScriptContext* pScriptContext =
+        pContext->GetDocument()->GetScriptContext();
+    for (CXFA_Node* pNode : resoveNodeRS.nodes) {
       resultValues->push_back(pdfium::MakeUnique<CFXJSE_Value>(pIsolate));
-      resultValues->back()->Assign(
-          pContext->GetDocument()->GetScriptContext()->GetJSValueFromMap(
-              resoveNodeRS.nodes.GetAt(i)));
+      resultValues->back()->Assign(pScriptContext->GetJSValueFromMap(pNode));
     }
     return;
   }
