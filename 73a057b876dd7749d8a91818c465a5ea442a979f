@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e5442d2_174b5495",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T16:00:00Z",
+      "side": 0,
+      "message": "If I\u0027m reading this right, this is making sure these styles do NOT exist in dwStyle which means we aren\u0027t using them.",
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bae9fad2_22c38cac",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-08T16:00:00Z",
+      "side": 0,
+      "message": "m_bArabicShapes is always false, so this ends up being false, so the if above does nothing.",
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
