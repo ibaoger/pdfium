@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "375c8ae5_50b547b4",
+        "filename": "core/fxcrt/fx_ucd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "do we need inline?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 7
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52e78893_906e0f12",
+        "filename": "xfa/fde/cfde_txtedtpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "Eww",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 20
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ece989a_7639e2cc",
+        "filename": "xfa/fde/cfde_txtedtpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 313,
+        "startChar": 44,
+        "endLine": 313,
+        "endChar": 3
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3af51287_64fda3e1",
+        "filename": "xfa/fde/cfde_txtedtpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 325,
+        "startChar": 34,
+        "endLine": 325,
+        "endChar": 3
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "268d394f_d6895b97",
+        "filename": "xfa/fde/cfde_txtedtparag.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "Maybe helper for this",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 46
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7277562_1e03a116",
+        "filename": "xfa/fde/cfde_txtedtparag.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 45
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55ca879c_ad1d5b3a",
+        "filename": "xfa/fde/cfde_txtedtparag.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "Too many ()",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 47
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29b8889c_a5b8cc06",
+        "filename": "xfa/fde/cfde_txtedtparag.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 83,
+        "startChar": 16,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc121181_52b7fb00",
+        "filename": "xfa/fde/cfde_txtedtparag.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "ditto ()",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 134,
+        "endChar": 9
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549a52e8_0eacb6e4",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 285,
+        "startChar": 19,
+        "endLine": 285,
+        "endChar": 27
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2dce15_b682c5c4",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 289,
+        "startChar": 49,
+        "endLine": 289,
+        "endChar": 5
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6631167_75e9495d",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "Is this supposed to be RetrieveAllPieces?",
+      "range": {
+        "startLine": 423,
+        "startChar": 4,
+        "endLine": 423,
+        "endChar": 21
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dcabe55_0a7323be",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "Unneeded check for !bLineWrap",
+      "range": {
+        "startLine": 484,
+        "startChar": 25,
+        "endLine": 484,
+        "endChar": 35
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "566c605d_70902f6c",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:03:04Z",
+      "side": 1,
+      "message": "iCharWidth \u003d m_iTabWidth * (iLineWidth / m_iTabWidth + 1) - iLineWidth",
+      "range": {
+        "startLine": 378,
+        "startChar": 6,
+        "endLine": 379,
+        "endChar": 76
+      },
+      "revId": "8f8a309a62547bbeb0af2422d31cdd8f8d81c83d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
