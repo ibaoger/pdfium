@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f8cf6c1_3da01099",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:41:27Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "720565c0_67d99ebc",
+      "range": {
+        "startLine": 562,
+        "startChar": 42,
+        "endLine": 562,
+        "endChar": 54
+      },
+      "revId": "392b0c87fea3f397cb2b467b0310af13e74abf35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca33bc1e_306727f4",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-09T18:03:04Z",
       "side": 0,
       "message": "Were these unused?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "392b0c87fea3f397cb2b467b0310af13e74abf35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d9952a7_190017a9",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:41:27Z",
+      "side": 0,
+      "message": "The code works with them removed .....",
+      "parentUuid": "ca33bc1e_306727f4",
       "range": {
         "startLine": 31,
         "startChar": 0,
