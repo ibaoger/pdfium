@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "f44344ac_dca1a480",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:52:14Z",
+      "side": 1,
+      "message": "Distributed is never set, so there is no reason to check for it.",
+      "parentUuid": "70bef32b_478588c3",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 69
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccb22411_ee5221a5",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2017-03-09T18:19:15Z",
       "side": 1,
       "message": "Here they did use distributed. So you are making  CFX_TxtLineAlignment_Justified and  FX_TXTLINEALIGNMENT_HigherMask equivalent when they are not.",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 796,
+        "endChar": 44
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ffe617_2c14616a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:52:14Z",
+      "side": 1,
+      "message": "They used it, but they never set it.",
+      "parentUuid": "ccb22411_ee5221a5",
       "range": {
         "startLine": 795,
         "startChar": 2,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "7664ce0d_a77e453b",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:52:14Z",
+      "side": 1,
+      "message": "Sigh, done. They\u0027re logical equivalent but we don\u0027t use an enum class here.",
+      "parentUuid": "ae497261_120334df",
+      "range": {
+        "startLine": 823,
+        "startChar": 4,
+        "endLine": 823,
+        "endChar": 7
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6a9eef6_8ecc8e51",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -137,6 +209,30 @@
       "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b20d2ff6_17799ee8",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6a9eef6_8ecc8e51",
+      "range": {
+        "startLine": 874,
+        "startChar": 19,
+        "endLine": 874,
+        "endChar": 20
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
