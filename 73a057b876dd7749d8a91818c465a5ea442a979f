@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "96e48e22_6b501dfc",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T20:23:18Z",
+      "side": 1,
+      "message": "It is set in this line...",
+      "parentUuid": "f44344ac_dca1a480",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 69
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccb22411_ee5221a5",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "They used it, but they never set it.",
       "parentUuid": "ccb22411_ee5221a5",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 796,
+        "endChar": 44
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "084c59a6_d76d1e37",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T20:23:18Z",
+      "side": 1,
+      "message": "It was set, see above. Also, these are numbers not enum class, so it\u0027s harder to be sure it\u0027s \"never set\". For example, there could be a part in the code where we have alignment *\u003d 2. What if it was justified at that time?",
+      "parentUuid": "03ffe617_2c14616a",
       "range": {
         "startLine": 795,
         "startChar": 2,
