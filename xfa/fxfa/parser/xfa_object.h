@@ -8,6 +8,7 @@
 #define XFA_FXFA_PARSER_XFA_OBJECT_H_
 
 #include <map>
+#include <vector>
 
 #include "fxjs/cfxjse_arguments.h"
 #include "xfa/fde/xml/fde_xml.h"
@@ -106,7 +107,6 @@ class CXFA_Object : public CFXJSE_HostObject {
   const uint32_t m_elementNameHash;
   const CFX_WideStringC m_elementName;
 };
-using CXFA_ObjArray = CFX_ArrayTemplate<CXFA_Object*>;
 
 #define XFA_NODEFILTER_Children 0x01
 #define XFA_NODEFILTER_Properties 0x02
@@ -123,8 +123,6 @@ enum XFA_SOM_MESSAGETYPE {
   XFA_SOM_FormatMessage,
   XFA_SOM_MandatoryMessage
 };
-
-using CXFA_NodeArray = CFX_ArrayTemplate<CXFA_Node*>;
 
 typedef void (*PD_CALLBACK_FREEDATA)(void* pData);
 typedef void (*PD_CALLBACK_DUPLICATEDATA)(void*& pData);
@@ -301,11 +299,10 @@ class CXFA_Node : public CXFA_Object {
   CXFA_Node* Clone(bool bRecursive);
   CXFA_Node* GetNodeItem(XFA_NODEITEM eItem) const;
   CXFA_Node* GetNodeItem(XFA_NODEITEM eItem, XFA_ObjectType eType) const;
-  int32_t GetNodeList(CXFA_NodeArray& nodes,
-                      uint32_t dwTypeFilter = XFA_NODEFILTER_Children |
-                                              XFA_NODEFILTER_Properties,
-                      XFA_Element eTypeFilter = XFA_Element::Unknown,
-                      int32_t iLevel = 1);
+  std::vector<CXFA_Node*> GetNodeList(
+      uint32_t dwTypeFilter = XFA_NODEFILTER_Children |
+                              XFA_NODEFILTER_Properties,
+      XFA_Element eTypeFilter = XFA_Element::Unknown);
   CXFA_Node* CreateSamePacketNode(XFA_Element eType,
                                   uint32_t dwFlags = XFA_NodeFlag_Initialized);
   CXFA_Node* CloneTemplateToForm(bool bRecursive);
@@ -314,7 +311,7 @@ class CXFA_Node : public CXFA_Object {
   CXFA_Node* GetDataDescriptionNode();
   void SetDataDescriptionNode(CXFA_Node* pDataDescriptionNode);
   CXFA_Node* GetBindData();
-  int32_t GetBindItems(CXFA_NodeArray& formItems);
+  std::vector<CXFA_Node*> GetBindItems();
   int32_t AddBindItem(CXFA_Node* pFormNode);
   int32_t RemoveBindItem(CXFA_Node* pFormNode);
   bool HasBindItem();
@@ -737,10 +734,10 @@ class CXFA_ArrayNodeList : public CXFA_NodeList {
   bool Remove(CXFA_Node* pNode) override;
   CXFA_Node* Item(int32_t iIndex) override;
 
-  void SetArrayNodeList(const CXFA_NodeArray& srcArray);
+  void SetArrayNodeList(const std::vector<CXFA_Node*>& srcArray);
 
  protected:
-  CXFA_NodeArray m_array;
+  std::vector<CXFA_Node*> m_array;
 };
 
 class CXFA_AttachNodeList : public CXFA_NodeList {
