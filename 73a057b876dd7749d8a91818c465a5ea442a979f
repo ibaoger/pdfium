@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5dfba5f7_7645e2de",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T20:25:49Z",
+      "side": 1,
+      "message": "It\u0027s only set if m_iAlignment already as it set, otherwise it gets masked out. So, if m_iAlignment doesn\u0027t have DISTRIBUTED, it won\u0027t get set into m_iCurAlignment.",
+      "parentUuid": "96e48e22_6b501dfc",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 69
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccb22411_ee5221a5",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "It was set, see above. Also, these are numbers not enum class, so it\u0027s harder to be sure it\u0027s \"never set\". For example, there could be a part in the code where we have alignment *\u003d 2. What if it was justified at that time?",
       "parentUuid": "03ffe617_2c14616a",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 796,
+        "endChar": 44
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc226fb_5d107e3d",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-09T20:25:49Z",
+      "side": 1,
+      "message": "I\u0027d call that a bug, multiplying a bitmask just seems like a really bad idea.",
+      "parentUuid": "084c59a6_d76d1e37",
       "range": {
         "startLine": 795,
         "startChar": 2,
