@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b0b8441_45948b79",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "Does the FDE_TEXTEDITALIGN need to be different from CFX_TxtLineAlignment?",
+      "range": {
+        "startLine": 1026,
+        "startChar": 28,
+        "endLine": 1026,
+        "endChar": 55
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91bed86d_56f9b266",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "nit {}s",
+      "range": {
+        "startLine": 1026,
+        "startChar": 57,
+        "endLine": 1026,
+        "endChar": 3
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70bef32b_478588c3",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "This is not equivalent, maybe we should keep Distributed",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 69
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccb22411_ee5221a5",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "Here they did use distributed. So you are making  CFX_TxtLineAlignment_Justified and  FX_TXTLINEALIGNMENT_HigherMask equivalent when they are not.",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 796,
+        "endChar": 44
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae497261_120334df",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "This is not equivalent. You would also need to check that it\u0027s NOT Right.",
+      "range": {
+        "startLine": 823,
+        "startChar": 4,
+        "endLine": 823,
+        "endChar": 7
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a9eef6_8ecc8e51",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T18:19:15Z",
+      "side": 1,
+      "message": "Nit: ()",
+      "range": {
+        "startLine": 874,
+        "startChar": 19,
+        "endLine": 874,
+        "endChar": 20
+      },
+      "revId": "73a057b876dd7749d8a91818c465a5ea442a979f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
