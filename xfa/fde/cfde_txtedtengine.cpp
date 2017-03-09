@@ -1024,12 +1024,12 @@ void CFDE_TxtEdtEngine::UpdateTxtBreak() {
   m_pTextBreak->SetLayoutStyles(dwStyle);
   uint32_t dwAligment = 0;
   if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Justified) {
-    dwAligment |= FX_TXTLINEALIGNMENT_Justified;
+    dwAligment |= CFX_TxtLineAlignment_Justified;
   }
   if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Center) {
-    dwAligment |= FX_TXTLINEALIGNMENT_Center;
+    dwAligment |= CFX_TxtLineAlignment_Center;
   } else if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Right) {
-    dwAligment |= FX_TXTLINEALIGNMENT_Right;
+    dwAligment |= CFX_TxtLineAlignment_Right;
   }
   m_pTextBreak->SetAlignment(dwAligment);
 
