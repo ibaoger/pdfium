@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed90bd21_ab776762",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-09T21:27:58Z",
+      "side": 0,
+      "message": "Can you explain why you say this always returns 0?",
+      "revId": "f91274c473b325e097e1e206e139f233fda9892f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
