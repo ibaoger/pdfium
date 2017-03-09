@@ -216,10 +216,8 @@ bool CFGAS_GEFont::InitFont() {
     if (!m_pFontEncoding)
       return false;
   }
-  if (!m_pCharWidthMap) {
-    m_pCharWidthMap =
-        pdfium::MakeUnique<CFX_DiscreteArrayTemplate<uint16_t>>(1024);
-  }
+  if (!m_pCharWidthMap)
+    m_pCharWidthMap = pdfium::MakeUnique<std::map<FX_WCHAR, int32_t>>();
   return true;
 }
 
@@ -274,7 +272,9 @@ bool CFGAS_GEFont::GetCharWidthInternal(FX_WCHAR wUnicode,
                                         bool bRecursive,
                                         bool bCharCode) {
   ASSERT(m_pCharWidthMap);
-  iWidth = m_pCharWidthMap->GetAt(wUnicode, 0);
+
+  auto it = m_pCharWidthMap->find(wUnicode);
+  iWidth = it != m_pCharWidthMap->end() ? it->second : 0;
   if (iWidth == 65535)
     return false;
 
@@ -299,7 +299,7 @@ bool CFGAS_GEFont::GetCharWidthInternal(FX_WCHAR wUnicode,
       iWidth = -1;
     }
   }
-  m_pCharWidthMap->SetAtGrow(wUnicode, iWidth);
+  (*m_pCharWidthMap)[wUnicode] = iWidth;
   return iWidth > 0;
 }
 
