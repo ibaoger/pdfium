@@ -101,7 +101,9 @@ bool CPDF_DeviceCS::GetRGB(FX_FLOAT* pBuf,
         G = 1.0f - std::min(1.0f, pBuf[1] + k);
         B = 1.0f - std::min(1.0f, pBuf[2] + k);
       } else {
-        AdobeCMYK_to_sRGB(pBuf[0], pBuf[1], pBuf[2], pBuf[3], R, G, B);
+        AdobeCMYK_to_sRGB(NormalizeChannel(pBuf[0]), NormalizeChannel(pBuf[1]),
+                          NormalizeChannel(pBuf[2]), NormalizeChannel(pBuf[3]),
+                          R, G, B);
       }
       break;
     default:
