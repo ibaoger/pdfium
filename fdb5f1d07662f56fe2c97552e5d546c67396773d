@@ -22,6 +22,30 @@
       "revId": "fdb5f1d07662f56fe2c97552e5d546c67396773d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b56f8a_ec284e67",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-10T20:54:42Z",
+      "side": 1,
+      "message": "Nevermind.  Its not our type, its a library, and it should match.",
+      "parentUuid": "ffd125ff_6268e94e",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 10
+      },
+      "revId": "fdb5f1d07662f56fe2c97552e5d546c67396773d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
