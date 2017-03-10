@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bef6910_26d47a76",
+        "filename": "xfa/fxfa/app/xfa_ffwidgetacc.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-10T20:40:15Z",
+      "side": 1,
+      "message": "Aha! Here is where the trouble lies.  We expect to call into the method at line 321, but event is not marked const in it.  And CXFA_Event has an implicit operator  bool() defined from its CXFA_Data superclass, which gets invoked, promotes to int 1, and calls into ourselves at line 304.\n\nMaking the operator bool explicit breaks the compile and we can fix it.",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 51
+      },
+      "revId": "3847b20680b09ef75646e36689a6245dea4d56cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
