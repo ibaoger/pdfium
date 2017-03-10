@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6e4f905_95df1f48",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-10T18:33:35Z",
+      "side": 1,
+      "message": "\u003e\u003d 0",
+      "range": {
+        "startLine": 132,
+        "startChar": 12,
+        "endLine": 132,
+        "endChar": 21
+      },
+      "revId": "e33aec19af8cceabc903c6cd6a17faff91a18c45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
