@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65718f9c_86e4f50d",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-10T18:28:14Z",
+      "side": 1,
+      "message": "Nit: Yes, the name is literally accurate, but is there some higher principle involved? eg. these are break types that are/arent \u003cplace concept here\u003e.",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "d82988db46dea0bd21bbb7dcc45337dfeb068b6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
