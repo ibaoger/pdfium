@@ -22,6 +22,30 @@
       "revId": "d82988db46dea0bd21bbb7dcc45337dfeb068b6c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f3a3b15_9677263c",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-10T19:11:07Z",
+      "side": 1,
+      "message": "None \u003d 0, Piece, Line, Paragraph, Page\n\nI\u0027m .... not sure? CFX_BreakIsWord?  Assuming None and Piece mean Word?",
+      "parentUuid": "65718f9c_86e4f50d",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "d82988db46dea0bd21bbb7dcc45337dfeb068b6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
