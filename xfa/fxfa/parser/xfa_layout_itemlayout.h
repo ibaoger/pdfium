@@ -92,7 +92,7 @@ class CXFA_ItemLayoutProcessor {
       CXFA_ItemLayoutProcessor* pParentProcessor,
       CXFA_ItemLayoutProcessor* pChildProcessor,
       XFA_ItemLayoutProcessorResult eRetValue,
-      CFX_ArrayTemplate<CXFA_ContentLayoutItem*>* rgCurLineLayoutItem,
+      std::vector<CXFA_ContentLayoutItem*>* rgCurLineLayoutItem,
       FX_FLOAT* fContentCurRowAvailWidth,
       FX_FLOAT* fContentCurRowHeight,
       FX_FLOAT* fContentCurRowY,
@@ -131,7 +131,7 @@ class CXFA_ItemLayoutProcessor {
                        FX_FLOAT fSplitPos);
   FX_FLOAT InsertKeepLayoutItems();
   bool CalculateRowChildPosition(
-      CFX_ArrayTemplate<CXFA_ContentLayoutItem*> (&rgCurLineLayoutItems)[3],
+      std::vector<CXFA_ContentLayoutItem*> (&rgCurLineLayoutItems)[3],
       XFA_ATTRIBUTEENUM eFlowStrategy,
       bool bContainerHeightAutoSize,
       bool bContainerWidthAutoSize,
