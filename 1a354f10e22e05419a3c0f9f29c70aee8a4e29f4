@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "340e0e56_92d99ef9",
+        "filename": "xfa/fde/tto/fde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:18:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e929b5_2ad7a553",
+      "range": {
+        "startLine": 480,
+        "startChar": 6,
+        "endLine": 480,
+        "endChar": 14
+      },
+      "revId": "1a354f10e22e05419a3c0f9f29c70aee8a4e29f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f892d40_1770be39",
         "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "876cd840_cf908832",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:18:09Z",
+      "side": 1,
+      "message": "This can\u0027t be const due to line 617.",
+      "parentUuid": "4f892d40_1770be39",
+      "range": {
+        "startLine": 612,
+        "startChar": 8,
+        "endLine": 612,
+        "endChar": 19
+      },
+      "revId": "1a354f10e22e05419a3c0f9f29c70aee8a4e29f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffaf825a_c607a9f7",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-13T13:40:00Z",
       "side": 1,
       "message": "const, otherwise just leave the ptr.",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "1a354f10e22e05419a3c0f9f29c70aee8a4e29f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba08193e_8ba5bea5",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:18:09Z",
+      "side": 1,
+      "message": "This matches the CFX_RTFPiece class. I don\u0027t see any issue with returning a ref...",
+      "parentUuid": "ffaf825a_c607a9f7",
       "range": {
         "startLine": 80,
         "startChar": 2,
