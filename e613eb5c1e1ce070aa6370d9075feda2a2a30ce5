@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c50a905_62b464ba",
+        "filename": "core/fxcrt/cfx_char.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-13T19:47:53Z",
+      "side": 1,
+      "message": "Maybe CFX_RichChar to avoid confusion with FX_CHAR typedef.  Or maybe it\u0027s time to just remove FX_CHAR and FX_WCHAR in favor of char and wchar_t throughout the codebase.",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
