@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af6d0bff_c4c8a1b6",
+        "filename": "xfa/fxfa/parser/cxfa_data.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:09:44Z",
+      "side": 1,
+      "message": "What about dropping this in a future Cl and making a HasNode() method to make it clearer?",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13b2b8cb_253aa89d",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:09:44Z",
+      "side": 1,
+      "message": "Is this correct? If pOldFormItem \u003d\u003d nullptr and pFormNode is !\u003d nullptr we\u0027ll return 1, the old code would return 0.",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ca52807_9c052232",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:09:44Z",
+      "side": 1,
+      "message": "nit: add {}\u0027s",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "317144b6_0e9fc48c",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:09:44Z",
+      "side": 1,
+      "message": "Is this copying and re-assigning needed?",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fcd3a40_86fbd338",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:09:44Z",
+      "side": 1,
+      "message": "Why did this change from !empty?",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
