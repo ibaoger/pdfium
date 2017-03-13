@@ -22,6 +22,30 @@
       "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e5f5d1_0e95980b",
+        "filename": "core/fxcrt/cfx_char.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:01:33Z",
+      "side": 1,
+      "message": "How about keeping this as CFX_Char and I\u0027ll do a followup to replace CHAR and WCHAR?",
+      "parentUuid": "2c50a905_62b464ba",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
