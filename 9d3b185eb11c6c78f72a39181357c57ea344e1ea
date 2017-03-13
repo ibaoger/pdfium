@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e542a0f_ff1fa418",
+        "filename": "core/fdrm/crypto/fx_crypt_sha.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-13T21:41:14Z",
+      "side": 1,
+      "message": "nit: this is probably \nstatic const char* const constants[]\u003d {",
+      "range": {
+        "startLine": 429,
+        "startChar": 10,
+        "endLine": 429,
+        "endChar": 19
+      },
+      "revId": "9d3b185eb11c6c78f72a39181357c57ea344e1ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
