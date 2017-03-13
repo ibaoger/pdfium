@@ -1,6 +1,6 @@
-diff -ru freetype-2.6.1/include/freetype/config/ftmodule.h include/freetype/config/ftmodule.h
---- freetype-2.6.1/include/freetype/config/ftmodule.h	2015-11-05 13:52:36.734733186 -0800
-+++ include/freetype/config/ftmodule.h	2015-11-05 13:44:54.445479822 -0800
+diff -ru freetype-2.7.1-patches/include/freetype/config/ftmodule.h include/freetype/config/ftmodule.h
+--- freetype-2.7.1-patches/include/freetype/config/ftmodule.h	2016-07-26 11:49:16.495496549 +0300
++++ include/freetype/config/ftmodule.h	2017-03-13 17:18:27.622095306 +0200
 @@ -1,3 +1,20 @@
 +/***************************************************************************/
 +/*                                                                         */
@@ -51,10 +51,10 @@ diff -ru freetype-2.6.1/include/freetype/config/ftmodule.h include/freetype/conf
 +//FT_USE_MODULE( FT_Driver_ClassRec, bdf_driver_class )
  
  /* EOF */
-diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/config/ftoption.h
---- freetype-2.6.1/include/freetype/config/ftoption.h	2015-11-05 13:52:36.734733186 -0800
-+++ include/freetype/config/ftoption.h	2015-11-05 13:44:54.445479822 -0800
-@@ -92,7 +92,7 @@
+diff -ru freetype-2.7.1-patches/include/freetype/config/ftoption.h include/freetype/config/ftoption.h
+--- freetype-2.7.1-patches/include/freetype/config/ftoption.h	2017-03-13 17:17:56.922335966 +0200
++++ include/freetype/config/ftoption.h	2017-03-13 17:18:27.626095275 +0200
+@@ -122,7 +122,7 @@
    /* This is done to allow FreeType clients to run unmodified, forcing     */
    /* them to display normal gray-level anti-aliased glyphs.                */
    /*                                                                       */
@@ -63,7 +63,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -163,7 +163,7 @@
+@@ -193,7 +193,7 @@
    /*   Define this macro if you want to enable this `feature'.  See also   */
    /*   the macro FT_CONFIG_OPTION_SYSTEM_ZLIB below.                       */
    /*                                                                       */
@@ -72,7 +72,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -336,7 +336,7 @@
+@@ -366,7 +366,7 @@
    /*                                                                       */
    /*   Note that the `FOND' resource isn't checked.                        */
    /*                                                                       */
@@ -81,7 +81,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -512,7 +512,7 @@
+@@ -556,7 +556,7 @@
    /* embedded bitmaps in all formats using the SFNT module (namely         */
    /* TrueType & OpenType).                                                 */
    /*                                                                       */
@@ -90,7 +90,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -681,7 +681,7 @@
+@@ -705,7 +705,7 @@
    /* and avar tables).  This has many similarities to Type 1 Multiple      */
    /* Masters support.                                                      */
    /*                                                                       */
@@ -99,7 +99,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -689,7 +689,7 @@
+@@ -713,7 +713,7 @@
    /* Define TT_CONFIG_OPTION_BDF if you want to include support for        */
    /* an embedded `BDF ' table within SFNT-based bitmap formats.            */
    /*                                                                       */
@@ -108,7 +108,7 @@ diff -ru freetype-2.6.1/include/freetype/config/ftoption.h include/freetype/conf
  
  
    /*************************************************************************/
-@@ -725,7 +725,7 @@
+@@ -767,7 +767,7 @@
    /*                                                                       */
    /* The Chinese font MingTiEG-Medium (CNS 11643 character set) needs 256. */
    /*                                                                       */
