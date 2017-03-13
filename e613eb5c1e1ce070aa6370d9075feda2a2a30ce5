@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6b7a6c9c_58169e80",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "40c43363_82376896",
+      "range": {
+        "startLine": 413,
+        "startChar": 18,
+        "endLine": 413,
+        "endChar": 26
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "219674f1_2508e666",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 2
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "15a83e38_fd49ca62",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "219674f1_2508e666",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 415,
+        "endChar": 50
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2db4122_e867bda1",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 2
@@ -109,6 +157,24 @@
       "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74f0c2d1_02fce130",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2db4122_e867bda1",
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -135,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "e449d54d_2febe901",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "676f594c_917b5c3e",
+      "range": {
+        "startLine": 475,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 27
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5d1714d_d9f66f02",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 2
@@ -155,6 +245,30 @@
       "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cf57372_57836133",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f5d1714d_d9f66f02",
+      "range": {
+        "startLine": 545,
+        "startChar": 4,
+        "endLine": 548,
+        "endChar": 18
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -181,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "5c0304dc_d511fa68",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4c4be70c_b0d169eb",
+      "range": {
+        "startLine": 710,
+        "startChar": 5,
+        "endLine": 710,
+        "endChar": 16
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cb72c81_8481859e",
         "filename": "core/fxcrt/fx_arabic.h",
         "patchSetId": 2
@@ -192,6 +330,30 @@
       "writtenOn": "2017-03-13T20:37:33Z",
       "side": 1,
       "message": "non-const ref",
+      "range": {
+        "startLine": 167,
+        "startChar": 17,
+        "endLine": 167,
+        "endChar": 39
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5372e2f3_6a880a96",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Followup.",
+      "parentUuid": "8cb72c81_8481859e",
       "range": {
         "startLine": 167,
         "startChar": 17,
@@ -227,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "4f7518a8_3251ee90",
+        "filename": "xfa/fgas/layout/cfx_breakline.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "This is specific to the line breaking stuff so I think it\u0027s better as CFX_BreakLine",
+      "parentUuid": "782dec56_4fa3065b",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08a34065_880c6bbb",
         "filename": "xfa/fgas/layout/cfx_breakline.h",
         "patchSetId": 2
@@ -238,6 +424,30 @@
       "writtenOn": "2017-03-13T20:37:33Z",
       "side": 1,
       "message": "return the string instead?",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbb055fb_4e04cda5",
+        "filename": "xfa/fgas/layout/cfx_breakline.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Will followup",
+      "parentUuid": "08a34065_880c6bbb",
       "range": {
         "startLine": 27,
         "startChar": 7,
@@ -273,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "dcdcc48a_23dc2806",
+        "filename": "xfa/fgas/layout/cfx_breakpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ditto, specific to the Break code.",
+      "parentUuid": "3fbae2f9_c1945502",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 20
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf6ff8a1_054c4ac2",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 2
@@ -296,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "14a316ff_d85b8c1d",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf6ff8a1_054c4ac2",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 47
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "add2c3f6_488ff548",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 2
@@ -307,6 +565,24 @@
       "writtenOn": "2017-03-13T20:37:33Z",
       "side": 1,
       "message": "are defaults needed? here and in next method",
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "691780df_7a17156d",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T20:51:41Z",
+      "side": 1,
+      "message": "followup",
+      "parentUuid": "add2c3f6_488ff548",
       "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
