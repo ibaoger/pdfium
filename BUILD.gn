@@ -741,6 +741,8 @@ config("fxge_warnings") {
 
 static_library("fxcrt") {
   sources = [
+    "core/fxcrt/cfx_char.cpp",
+    "core/fxcrt/cfx_char.h",
     "core/fxcrt/cfx_maybe_owned.h",
     "core/fxcrt/cfx_observable.h",
     "core/fxcrt/cfx_retain_ptr.h",
@@ -1229,6 +1231,10 @@ if (pdf_enable_xfa) {
       "xfa/fgas/font/cfgas_gefont.h",
       "xfa/fgas/font/fgas_fontutils.cpp",
       "xfa/fgas/font/fgas_fontutils.h",
+      "xfa/fgas/layout/cfx_breakline.cpp",
+      "xfa/fgas/layout/cfx_breakline.h",
+      "xfa/fgas/layout/cfx_breakpiece.cpp",
+      "xfa/fgas/layout/cfx_breakpiece.h",
       "xfa/fgas/layout/fgas_linebreak.cpp",
       "xfa/fgas/layout/fgas_linebreak.h",
       "xfa/fgas/layout/fgas_rtfbreak.cpp",
