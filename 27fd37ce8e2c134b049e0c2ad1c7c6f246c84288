@@ -22,6 +22,30 @@
       "revId": "27fd37ce8e2c134b049e0c2ad1c7c6f246c84288",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b510b11f_d5a6c5d3",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T19:09:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351207a7_76bbc306",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 67
+      },
+      "revId": "27fd37ce8e2c134b049e0c2ad1c7c6f246c84288",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
