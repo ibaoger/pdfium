@@ -7,9 +7,9 @@ import("//build_overrides/pdfium.gni")
 # This file contains PDFium-related build flags.
 
 declare_args() {
-  # On Android there's no system FreeType. On Windows and Mac, only a few
+  # On Android there's no system FreeType. On Mac, only a few
   # methods are used from it.
-  pdfium_bundle_freetype = !is_linux
+  pdfium_bundle_freetype = !is_linux && !is_win
 
   # Build PDFium either with or without v8 support.
   pdf_enable_v8 = pdf_enable_v8_override
