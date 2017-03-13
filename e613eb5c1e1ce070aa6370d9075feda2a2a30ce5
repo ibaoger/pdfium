@@ -46,6 +46,270 @@
       "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c43363_82376896",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "this is no longer a template, yea?",
+      "range": {
+        "startLine": 413,
+        "startChar": 18,
+        "endLine": 413,
+        "endChar": 26
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "219674f1_2508e666",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "ditto throughout. Could be followup",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 415,
+        "endChar": 50
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2db4122_e867bda1",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "nit: {}",
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "676f594c_917b5c3e",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 475,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 27
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d1714d_d9f66f02",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "ditto. Ok stopping here, this file requires cleanup in general.",
+      "range": {
+        "startLine": 545,
+        "startChar": 4,
+        "endLine": 548,
+        "endChar": 18
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4be70c_b0d169eb",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "Followup: get rid of this? it\u0027s probably static in the class anyways.",
+      "range": {
+        "startLine": 710,
+        "startChar": 5,
+        "endLine": 710,
+        "endChar": 16
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb72c81_8481859e",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "non-const ref",
+      "range": {
+        "startLine": 167,
+        "startChar": 17,
+        "endLine": 167,
+        "endChar": 39
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "782dec56_4fa3065b",
+        "filename": "xfa/fgas/layout/cfx_breakline.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "CFX_Line?",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a34065_880c6bbb",
+        "filename": "xfa/fgas/layout/cfx_breakline.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "return the string instead?",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fbae2f9_c1945502",
+        "filename": "xfa/fgas/layout/cfx_breakpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "Another option: CFX_Piece (but I saw this is mostly used as a break piece, so this seems fine)",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 20
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6ff8a1_054c4ac2",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "ditto non-const and the next param",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 47
+      },
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add2c3f6_488ff548",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-13T20:37:33Z",
+      "side": 1,
+      "message": "are defaults needed? here and in next method",
+      "revId": "e613eb5c1e1ce070aa6370d9075feda2a2a30ce5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
