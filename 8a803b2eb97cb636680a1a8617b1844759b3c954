@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f3538f0_4a559d8e",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4aee1c1_7f129a60",
+      "range": {
+        "startLine": 221,
+        "startChar": 1,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "8a803b2eb97cb636680a1a8617b1844759b3c954",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdb05153_8b71a827",
         "filename": "xfa/fgas/layout/fgas_textbreak.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-10T21:24:00Z",
       "side": 1,
       "message": "Doesn\u0027t really save any space since its next to three int32_ts and we\u0027ll pad it out ...\nMaybe it should be called m_iReadyLineIndex",
+      "range": {
+        "startLine": 236,
+        "startChar": 2,
+        "endLine": 236,
+        "endChar": 8
+      },
+      "revId": "8a803b2eb97cb636680a1a8617b1844759b3c954",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaf7e761_71daa44e",
+        "filename": "xfa/fgas/layout/fgas_textbreak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-13T14:25:03Z",
+      "side": 1,
+      "message": "Doesn\u0027t save space now, but it records what it actually needs so if we add stuff in the future it may save space.\n\nRenamed.",
+      "parentUuid": "bdb05153_8b71a827",
       "range": {
         "startLine": 236,
         "startChar": 2,
