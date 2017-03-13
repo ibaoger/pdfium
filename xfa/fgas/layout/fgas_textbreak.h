@@ -61,7 +61,7 @@ struct FX_TXTRUN {
   int32_t iVerticalScale;
   uint32_t dwCharStyles;
   const CFX_RectF* pRect;
-  FX_WCHAR wLineBreakChar;
+  wchar_t wLineBreakChar;
   bool bSkipSpace;
 };
 
@@ -76,8 +76,8 @@ class CFX_TxtBreak {
   void SetFont(const CFX_RetainPtr<CFGAS_GEFont>& pFont);
   void SetFontSize(FX_FLOAT fFontSize);
   void SetTabWidth(FX_FLOAT fTabWidth, bool bEquidistant);
-  void SetDefaultChar(FX_WCHAR wch);
-  void SetParagraphBreakChar(FX_WCHAR wch);
+  void SetDefaultChar(wchar_t wch);
+  void SetParagraphBreakChar(wchar_t wch);
   void SetLineBreakTolerance(FX_FLOAT fTolerance);
   void SetHorizontalScale(int32_t iScale);
   void SetCharSpace(FX_FLOAT fCharSpace);
@@ -95,7 +95,7 @@ class CFX_TxtBreak {
   std::vector<CFX_RectF> GetCharRects(const FX_TXTRUN* pTxtRun,
                                       bool bCharBBox = false) const;
   void AppendChar_PageLoad(CFX_Char* pCurChar, uint32_t dwProps);
-  CFX_BreakType AppendChar(FX_WCHAR wch);
+  CFX_BreakType AppendChar(wchar_t wch);
   CFX_BreakType AppendChar_Combination(CFX_Char* pCurChar);
   CFX_BreakType AppendChar_Tab(CFX_Char* pCurChar);
   CFX_BreakType AppendChar_Control(CFX_Char* pCurChar);
@@ -107,7 +107,7 @@ class CFX_TxtBreak {
   void SetBreakStatus();
   CFX_Char* GetLastChar(int32_t index, bool bOmitChar = true) const;
   bool HasTxtLine() const { return m_iReadyLineIndex >= 0; }
-  FX_CHARTYPE GetUnifiedCharType(FX_CHARTYPE dwType) const;
+  charTYPE GetUnifiedCharType(charTYPE dwType) const;
   void ResetArabicContext();
   void ResetContextCharStyles();
   bool EndBreak_SplitLine(CFX_BreakLine* pNextLine, bool bAllChars);
@@ -133,13 +133,13 @@ class CFX_TxtBreak {
   CFX_RetainPtr<CFGAS_GEFont> m_pFont;
   int32_t m_iFontSize;
   int32_t m_iTabWidth;
-  FX_WCHAR m_wDefChar;
-  FX_WCHAR m_wParagBreakChar;
+  wchar_t m_wDefChar;
+  wchar_t m_wParagBreakChar;
   int32_t m_iDefChar;
   int32_t m_iAlignment;
   uint32_t m_dwContextCharStyles;
   int32_t m_iCombWidth;
-  FX_CHARTYPE m_eCharType;
+  charTYPE m_eCharType;
   int32_t m_iCurAlignment;
   CFX_BreakLine m_TxtLine[2];
   CFX_BreakLine* m_pCurLine;

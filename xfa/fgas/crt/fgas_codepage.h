@@ -97,57 +97,57 @@
 #define FX_CODEPAGE_ISCII_Punjabi 57011
 #define FX_CODEPAGE_UTF7 65000
 #define FX_CODEPAGE_UTF8 65001
-#define FX_CHARSET_ANSI 0
-#define FX_CHARSET_Default 1
-#define FX_CHARSET_Symbol 2
-#define FX_CHARSET_MAC_Roman 77
-#define FX_CHARSET_MAC_ShiftJIS 78
-#define FX_CHARSET_MAC_Korean 79
-#define FX_CHARSET_MAC_ChineseSimplified 80
-#define FX_CHARSET_MAC_ChineseTriditional 81
-#define FX_CHARSET_MAC_Johab 82
-#define FX_CHARSET_MAC_Hebrew 83
-#define FX_CHARSET_MAC_Arabic 84
-#define FX_CHARSET_MAC_Greek 85
-#define FX_CHARSET_MAC_Turkish 86
-#define FX_CHARSET_MAC_Thai 87
-#define FX_CHARSET_MAC_EasternEuropean 88
-#define FX_CHARSET_MAC_Cyrillic 89
-#define FX_CHARSET_ShiftJIS 128
-#define FX_CHARSET_Korean 129
-#define FX_CHARSET_Johab 130
-#define FX_CHARSET_ChineseSimplified 134
-#define FX_CHARSET_ChineseTriditional 136
-#define FX_CHARSET_MSWin_Greek 161
-#define FX_CHARSET_MSWin_Turkish 162
-#define FX_CHARSET_MSWin_Vietnamese 163
-#define FX_CHARSET_MSWin_Hebrew 177
-#define FX_CHARSET_MSWin_Arabic 178
-#define FX_CHARSET_ArabicTraditional 179
-#define FX_CHARSET_ArabicUser 180
-#define FX_CHARSET_HebrewUser 181
-#define FX_CHARSET_MSWin_Baltic 186
-#define FX_CHARSET_MSWin_Cyrillic 204
-#define FX_CHARSET_Thai 222
-#define FX_CHARSET_MSWin_EasterEuropean 238
-#define FX_CHARSET_US 254
-#define FX_CHARSET_OEM 255
+#define charSET_ANSI 0
+#define charSET_Default 1
+#define charSET_Symbol 2
+#define charSET_MAC_Roman 77
+#define charSET_MAC_ShiftJIS 78
+#define charSET_MAC_Korean 79
+#define charSET_MAC_ChineseSimplified 80
+#define charSET_MAC_ChineseTriditional 81
+#define charSET_MAC_Johab 82
+#define charSET_MAC_Hebrew 83
+#define charSET_MAC_Arabic 84
+#define charSET_MAC_Greek 85
+#define charSET_MAC_Turkish 86
+#define charSET_MAC_Thai 87
+#define charSET_MAC_EasternEuropean 88
+#define charSET_MAC_Cyrillic 89
+#define charSET_ShiftJIS 128
+#define charSET_Korean 129
+#define charSET_Johab 130
+#define charSET_ChineseSimplified 134
+#define charSET_ChineseTriditional 136
+#define charSET_MSWin_Greek 161
+#define charSET_MSWin_Turkish 162
+#define charSET_MSWin_Vietnamese 163
+#define charSET_MSWin_Hebrew 177
+#define charSET_MSWin_Arabic 178
+#define charSET_ArabicTraditional 179
+#define charSET_ArabicUser 180
+#define charSET_HebrewUser 181
+#define charSET_MSWin_Baltic 186
+#define charSET_MSWin_Cyrillic 204
+#define charSET_Thai 222
+#define charSET_MSWin_EasterEuropean 238
+#define charSET_US 254
+#define charSET_OEM 255
 
 uint16_t FX_GetCodePageFromCharset(uint8_t charset);
-uint16_t FX_GetCodePageFromStringW(const FX_WCHAR* pStr, int32_t iLength);
+uint16_t FX_GetCodePageFromStringW(const wchar_t* pStr, int32_t iLength);
 uint16_t FX_GetDefCodePageByLanguage(uint16_t wLanguage);
-void FX_SwapByteOrder(FX_WCHAR* pStr, int32_t iLength);
+void FX_SwapByteOrder(wchar_t* pStr, int32_t iLength);
 
 void FX_UTF16ToWChar(void* pBuffer, int32_t iLength);
 int32_t FX_DecodeString(uint16_t wCodePage,
-                        const FX_CHAR* pSrc,
+                        const char* pSrc,
                         int32_t* pSrcLen,
-                        FX_WCHAR* pDst,
+                        wchar_t* pDst,
                         int32_t* pDstLen,
                         bool bErrBreak);
-int32_t FX_UTF8Decode(const FX_CHAR* pSrc,
+int32_t FX_UTF8Decode(const char* pSrc,
                       int32_t* pSrcLen,
-                      FX_WCHAR* pDst,
+                      wchar_t* pDst,
                       int32_t* pDstLen);
 
 #endif  // XFA_FGAS_CRT_FGAS_CODEPAGE_H_

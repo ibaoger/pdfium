@@ -45,6 +45,6 @@ CFX_Char::CFX_Char(const CFX_Char& other) = default;
 
 CFX_Char::~CFX_Char() = default;
 
-FX_CHARTYPE CFX_Char::GetCharType() const {
+charTYPE CFX_Char::GetCharType() const {
   return GetCharTypeFromProp(m_dwCharProps);
 }

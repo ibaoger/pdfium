@@ -20,7 +20,7 @@ class CFX_Char {
   CFX_Char(const CFX_Char& other);
   ~CFX_Char();
 
-  FX_CHARTYPE GetCharType() const;
+  charTYPE GetCharType() const;
 
   CFX_BreakType m_dwStatus;
   uint8_t m_nBreakType;

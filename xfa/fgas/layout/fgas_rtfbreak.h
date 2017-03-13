@@ -36,7 +36,7 @@ struct FX_RTFTEXTOBJ {
   std::vector<int32_t> pWidths;
   CFX_RetainPtr<CFGAS_GEFont> pFont;
   const CFX_RectF* pRect;
-  FX_WCHAR wLineBreakChar;
+  wchar_t wLineBreakChar;
   FX_FLOAT fFontSize;
   int32_t iLength;
   int32_t iBidiLevel;
@@ -74,7 +74,7 @@ class CFX_RTFBreak {
                         FXTEXT_CHARPOS* pCharPos,
                         bool bCharCode) const;
 
-  CFX_BreakType AppendChar(FX_WCHAR wch);
+  CFX_BreakType AppendChar(wchar_t wch);
 
   CFX_BreakLine* GetCurrentLineForTesting() const { return m_pCurLine; }
 
@@ -88,7 +88,7 @@ class CFX_RTFBreak {
   void SetBreakStatus();
   CFX_Char* GetLastChar(int32_t index) const;
   bool HasRTFLine() const { return m_iReadyLineIndex >= 0; }
-  FX_CHARTYPE GetUnifiedCharType(FX_CHARTYPE chartype) const;
+  charTYPE GetUnifiedCharType(charTYPE chartype) const;
   int32_t GetLastPositionedTab() const;
   bool GetPositionedTab(int32_t* iTabPos) const;
 
@@ -116,15 +116,15 @@ class CFX_RTFBreak {
   int32_t m_iFontSize;
   int32_t m_iTabWidth;
   std::vector<int32_t> m_PositionedTabs;
-  FX_WCHAR m_wDefChar;
+  wchar_t m_wDefChar;
   int32_t m_iDefChar;
-  FX_WCHAR m_wLineBreakChar;
+  wchar_t m_wLineBreakChar;
   int32_t m_iHorizontalScale;
   int32_t m_iVerticalScale;
   int32_t m_iCharSpace;
   CFX_RTFLineAlignment m_iAlignment;
   CFX_RetainPtr<CFX_Retainable> m_pUserData;
-  FX_CHARTYPE m_eCharType;
+  charTYPE m_eCharType;
   uint32_t m_dwIdentity;
   CFX_BreakLine m_RTFLine[2];
   CFX_BreakLine* m_pCurLine;

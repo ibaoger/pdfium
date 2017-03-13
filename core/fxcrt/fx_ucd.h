@@ -45,13 +45,13 @@ extern const size_t kFXTextLayoutVerticalMirrorSize;
 extern const uint16_t kFXTextLayoutBidiMirror[];
 extern const size_t kFXTextLayoutBidiMirrorSize;
 
-uint32_t FX_GetUnicodeProperties(FX_WCHAR wch);
-FX_WCHAR FX_GetMirrorChar(FX_WCHAR wch, bool bRTL, bool bVertical);
+uint32_t FX_GetUnicodeProperties(wchar_t wch);
+wchar_t FX_GetMirrorChar(wchar_t wch, bool bRTL, bool bVertical);
 
 #ifdef PDF_ENABLE_XFA
 
 // As defined in http://www.unicode.org/reports/tr14/
-enum FX_CHARBREAKPROP {
+enum charBREAKPROP {
   FX_CBP_OP = 0,   // Opening Punctuation
   FX_CBP_CL = 1,   // Closing Punctuation
   FX_CBP_QU = 2,   // Ambiguous Quotation
@@ -93,31 +93,31 @@ enum FX_CHARBREAKPROP {
   FX_CBP_TB = 37,  // ?
 };
 
-#define FX_CHARTYPEBITS 11
-#define FX_CHARTYPEBITSMASK (15 << FX_CHARTYPEBITS)
-enum FX_CHARTYPE {
-  FX_CHARTYPE_Unknown = 0,
-  FX_CHARTYPE_Tab = (1 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Space = (2 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Control = (3 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Combination = (4 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Numeric = (5 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Normal = (6 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_ArabicAlef = (7 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_ArabicSpecial = (8 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_ArabicDistortion = (9 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_ArabicNormal = (10 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_ArabicForm = (11 << FX_CHARTYPEBITS),
-  FX_CHARTYPE_Arabic = (12 << FX_CHARTYPEBITS),
+#define charTYPEBITS 11
+#define charTYPEBITSMASK (15 << charTYPEBITS)
+enum charTYPE {
+  charTYPE_Unknown = 0,
+  charTYPE_Tab = (1 << charTYPEBITS),
+  charTYPE_Space = (2 << charTYPEBITS),
+  charTYPE_Control = (3 << charTYPEBITS),
+  charTYPE_Combination = (4 << charTYPEBITS),
+  charTYPE_Numeric = (5 << charTYPEBITS),
+  charTYPE_Normal = (6 << charTYPEBITS),
+  charTYPE_ArabicAlef = (7 << charTYPEBITS),
+  charTYPE_ArabicSpecial = (8 << charTYPEBITS),
+  charTYPE_ArabicDistortion = (9 << charTYPEBITS),
+  charTYPE_ArabicNormal = (10 << charTYPEBITS),
+  charTYPE_ArabicForm = (11 << charTYPEBITS),
+  charTYPE_Arabic = (12 << charTYPEBITS),
 };
-inline FX_CHARTYPE GetCharTypeFromProp(uint32_t prop) {
-  return static_cast<FX_CHARTYPE>(prop & FX_CHARTYPEBITSMASK);
+inline charTYPE GetCharTypeFromProp(uint32_t prop) {
+  return static_cast<charTYPE>(prop & charTYPEBITSMASK);
 }
 
-FX_WCHAR FX_GetMirrorChar(FX_WCHAR wch,
-                          uint32_t dwProps,
-                          bool bRTL,
-                          bool bVertical);
+wchar_t FX_GetMirrorChar(wchar_t wch,
+                         uint32_t dwProps,
+                         bool bRTL,
+                         bool bVertical);
 
 #endif  // PDF_ENABLE_XFA
 
