@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "7fdd66c2_47acdb59",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "const casts?",
+      "range": {
+        "startLine": 66,
+        "startChar": 21,
+        "endLine": 66,
+        "endChar": 52
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f034df2e_88defad0",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "nit: Bracey McBraceface",
+      "range": {
+        "startLine": 407,
+        "startChar": 52,
+        "endLine": 407,
+        "endChar": 53
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f81ae5_9c96cb39",
+        "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "nit: Casty McCastface",
+      "range": {
+        "startLine": 335,
+        "startChar": 21,
+        "endLine": 335,
+        "endChar": 31
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b58bc5f7_64d4e40c",
+        "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "nit: overparenthesized.",
+      "range": {
+        "startLine": 356,
+        "startChar": 20,
+        "endLine": 356,
+        "endChar": 50
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3a91e36_fb823706",
         "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
         "patchSetId": 1
@@ -49,6 +141,29 @@
     },
     {
       "key": {
+        "uuid": "272c762f_5928a5f9",
+        "filename": "xfa/fxfa/parser/xfa_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "nit: ever had the feeling you\u0027ve seen this before?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 54
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "710fcd45_73a42bec",
         "filename": "xfa/fxfa/parser/xfa_utils.cpp",
         "patchSetId": 1
@@ -84,6 +199,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "710fcd45_73a42bec",
+      "range": {
+        "startLine": 109,
+        "startChar": 34,
+        "endLine": 109,
+        "endChar": 46
+      },
+      "revId": "3bec9285c07835f1029d3dae327f36cb6f2999f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3733507a_e0165842",
+        "filename": "xfa/fxfa/parser/xfa_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:04:55Z",
+      "side": 1,
+      "message": "nit: overparenthesized",
+      "parentUuid": "838353d1_65b0b8f4",
       "range": {
         "startLine": 109,
         "startChar": 34,
