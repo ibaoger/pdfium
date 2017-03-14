@@ -149,8 +149,10 @@ void DrawAxialShading(CFX_DIBitmap* pBitmap,
           offset += nresults;
       }
     }
-    FX_FLOAT R = 0.0f, G = 0.0f, B = 0.0f;
-    pCS->GetRGB(pResults, R, G, B);
+    FX_FLOAT R = 0.0f;
+    FX_FLOAT G = 0.0f;
+    FX_FLOAT B = 0.0f;
+    pCS->GetRGB(pResults, &R, &G, &B);
     rgb_array[i] =
         FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(R * 255),
                                  FXSYS_round(G * 255), FXSYS_round(B * 255)));
@@ -230,8 +232,10 @@ void DrawRadialShading(CFX_DIBitmap* pBitmap,
           offset += nresults;
       }
     }
-    FX_FLOAT R = 0.0f, G = 0.0f, B = 0.0f;
-    pCS->GetRGB(pResults, R, G, B);
+    FX_FLOAT R = 0.0f;
+    FX_FLOAT G = 0.0f;
+    FX_FLOAT B = 0.0f;
+    pCS->GetRGB(pResults, &R, &G, &B);
     rgb_array[i] =
         FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(R * 255),
                                  FXSYS_round(G * 255), FXSYS_round(B * 255)));
@@ -364,7 +368,7 @@ void DrawFuncShading(CFX_DIBitmap* pBitmap,
       FX_FLOAT R = 0.0f;
       FX_FLOAT G = 0.0f;
       FX_FLOAT B = 0.0f;
-      pCS->GetRGB(pResults, R, G, B);
+      pCS->GetRGB(pResults, &R, &G, &B);
       dib_buf[column] = FXARGB_TODIB(FXARGB_MAKE(
           alpha, (int32_t)(R * 255), (int32_t)(G * 255), (int32_t)(B * 255)));
     }
@@ -2042,8 +2046,10 @@ void CPDF_RenderStatus::DrawShading(CPDF_ShadingPattern* pPattern,
       CFX_FixedBufGrow<FX_FLOAT, 16> comps(pColorSpace->CountComponents());
       for (uint32_t i = 0; i < pColorSpace->CountComponents(); i++)
         comps[i] = pBackColor->GetNumberAt(i);
-      FX_FLOAT R = 0.0f, G = 0.0f, B = 0.0f;
-      pColorSpace->GetRGB(comps, R, G, B);
+      FX_FLOAT R = 0.0f;
+      FX_FLOAT G = 0.0f;
+      FX_FLOAT B = 0.0f;
+      pColorSpace->GetRGB(comps, &R, &G, &B);
       background = ArgbEncode(255, (int32_t)(R * 255), (int32_t)(G * 255),
                               (int32_t)(B * 255));
     }
@@ -2586,7 +2592,7 @@ std::unique_ptr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
         for (size_t i = 0; i < count; i++) {
           pFloats[i] = pBC->GetNumberAt(i);
         }
-        pCS->GetRGB(pFloats, R, G, B);
+        pCS->GetRGB(pFloats, &R, &G, &B);
         back_color = 0xff000000 | ((int32_t)(R * 255) << 16) |
                      ((int32_t)(G * 255) << 8) | (int32_t)(B * 255);
         m_pContext->GetDocument()->GetPageData()->ReleaseColorSpace(pCSObj);
