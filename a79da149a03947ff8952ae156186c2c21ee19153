@@ -22,6 +22,30 @@
       "revId": "a79da149a03947ff8952ae156186c2c21ee19153",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a43e1d9_155002c2",
+        "filename": "xfa/fde/cfde_txtedtpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T16:07:48Z",
+      "side": 1,
+      "message": "It was, but it can never be negative as that doesn\u0027t make sense as an array index. So, I upgraded to uint",
+      "parentUuid": "1e507d56_7593ee45",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 430,
+        "endChar": 21
+      },
+      "revId": "a79da149a03947ff8952ae156186c2c21ee19153",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
