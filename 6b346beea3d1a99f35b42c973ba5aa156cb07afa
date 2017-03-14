@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c89d76e_5188bb97",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:12:32Z",
+      "side": 1,
+      "message": "This check is not enough because this variable is changed below on line 556",
+      "range": {
+        "startLine": 551,
+        "startChar": 2,
+        "endLine": 551,
+        "endChar": 30
+      },
+      "revId": "6b346beea3d1a99f35b42c973ba5aa156cb07afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d71f4e25_36093a5a",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:12:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be:\nreturn m_wsNext.GetLength() !\u003d 0? pAccess : nullptr;\n\n(since we are now relying on this being null to stop the while on line 605)",
+      "range": {
+        "startLine": 557,
+        "startChar": 2,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "6b346beea3d1a99f35b42c973ba5aa156cb07afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc39749_ba8549f3",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:12:32Z",
+      "side": 1,
+      "message": "You are skipping the while body right after HasStartPosition and before the first GetNext. Switch to do ... while?",
+      "range": {
+        "startLine": 602,
+        "startChar": 2,
+        "endLine": 605,
+        "endChar": 80
+      },
+      "revId": "6b346beea3d1a99f35b42c973ba5aa156cb07afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
