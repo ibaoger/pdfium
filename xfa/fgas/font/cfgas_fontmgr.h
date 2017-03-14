@@ -169,8 +169,8 @@ class CFX_FontSourceEnum_File {
   CFX_FontSourceEnum_File();
   ~CFX_FontSourceEnum_File();
 
-  FX_POSITION GetStartPosition();
-  CFX_RetainPtr<IFX_FileAccess> GetNext(FX_POSITION& pos);
+  bool GetStartPosition();
+  CFX_RetainPtr<IFX_FileAccess> GetNext(bool* hasNext);
 
  private:
   CFX_ByteString GetNextFile();
