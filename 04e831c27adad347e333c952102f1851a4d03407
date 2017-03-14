@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3c939547_57dc9b2c",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T19:46:21Z",
+      "side": 1,
+      "message": "I loooked at this and I personally have no idea if this is correct. As an intermediate step and to make sure we\u0027re doing things right, you could have a boolean which will tell us if te pos was being set as a uint32_t or as an offset.",
+      "parentUuid": "78cb1b3a_4bd1bf56",
+      "range": {
+        "startLine": 1470,
+        "startChar": 3,
+        "endLine": 1470,
+        "endChar": 46
+      },
+      "revId": "04e831c27adad347e333c952102f1851a4d03407",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f0db4ac_1f24ad05",
         "filename": "third_party/agg23/agg_basics.h",
         "patchSetId": 2
