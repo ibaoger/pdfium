@@ -22,6 +22,30 @@
       "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70cdc0b6_051f0ba0",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T20:39:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0de869d5_9f1897a2",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 378,
+        "endChar": 48
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
