@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca22e3ec_aa80aa97",
+        "filename": "core/fpdfapi/font/cpdf_type3font.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68c7af28_d9fc1b06",
+        "filename": "core/fpdfapi/font/cpdf_type3font.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 68,
+        "startChar": 21,
+        "endLine": 68,
+        "endChar": 56
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a95823_9fcc575f",
+        "filename": "core/fpdfapi/font/cpdf_type3font.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "moar cast",
+      "range": {
+        "startLine": 122,
+        "startChar": 23,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d62eadbe_15663cb8",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "ditto cast",
+      "range": {
+        "startLine": 248,
+        "startChar": 11,
+        "endLine": 248,
+        "endChar": 18
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d94d5ff_06c839f6",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "size_t here and for alefcount?",
+      "range": {
+        "startLine": 267,
+        "startChar": 7,
+        "endLine": 267,
+        "endChar": 14
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2311e5ce_d5c076f5",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 278,
+        "startChar": 7,
+        "endLine": 278,
+        "endChar": 14
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "279b22c1_c2833398",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "iAction \u0026\u003d 0xF",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 28
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0de869d5_9f1897a2",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 2
@@ -46,6 +207,190 @@
       "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b3877c6_af837053",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "cast. Or just downgrade the iValue param?",
+      "range": {
+        "startLine": 428,
+        "startChar": 36,
+        "endLine": 428,
+        "endChar": 43
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ede659d4_3db5e588",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "return;\n\nNo else",
+      "range": {
+        "startLine": 444,
+        "startChar": 4,
+        "endLine": 444,
+        "endChar": 12
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3b80dc_558421a9",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "one per line (maybe they can be declared later in 481, 488)",
+      "range": {
+        "startLine": 471,
+        "startChar": 4,
+        "endLine": 471,
+        "endChar": 27
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af43e7c0_b1cfff84",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "nit {} (or just use max)",
+      "range": {
+        "startLine": 495,
+        "startChar": 39,
+        "endLine": 495,
+        "endChar": 40
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f1fdad0_33c4d912",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "more casts",
+      "range": {
+        "startLine": 498,
+        "startChar": 33,
+        "endLine": 498,
+        "endChar": 40
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c74c0d0_970d35ed",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 523,
+        "startChar": 29,
+        "endLine": 523,
+        "endChar": 36
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8564779f_68785ef9",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "can we remove this default",
+      "range": {
+        "startLine": 169,
+        "startChar": 36,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "053d70f7_80d0fdae",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T20:53:08Z",
+      "side": 1,
+      "message": "can this be const ref? or pointer?",
+      "range": {
+        "startLine": 174,
+        "startChar": 28,
+        "endLine": 174,
+        "endChar": 63
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
