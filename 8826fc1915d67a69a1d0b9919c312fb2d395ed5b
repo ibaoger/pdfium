@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49425e21_efdac5ed",
+        "filename": "xfa/fxfa/parser/cxfa_data.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:53:10Z",
+      "side": 1,
+      "message": "SGTM.  Also a quick grep shows that this was the last non-explicit operator bool in pdfium ...",
+      "parentUuid": "af6d0bff_c4c8a1b6",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13b2b8cb_253aa89d",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 14
@@ -33,6 +51,24 @@
       "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8d25de_01941086",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13b2b8cb_253aa89d",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e8a25228_f79a8b93",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ca52807_9c052232",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "317144b6_0e9fc48c",
         "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
         "patchSetId": 14
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e03186a1_6d937981",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:53:10Z",
+      "side": 1,
+      "message": "Sadly, yes.  vector\u003cDerived*\u003e is not vector\u003cBase*\u003e, because pointer adjustment may be required (think muplitle inheritance or if one has a vtable and the other doesn\u0027t).  Although that isn\u0027t the case here, the iterator extracts each element, and promotion to base occurs, adjusting the pointer under the covers.  A straight cast like we had in the past is totally wrong since it may give you pointers that don\u0027t actually point to the right places.",
+      "parentUuid": "317144b6_0e9fc48c",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2fcd3a40_86fbd338",
         "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
         "patchSetId": 14
@@ -81,6 +153,24 @@
       "writtenOn": "2017-03-13T14:09:44Z",
       "side": 1,
       "message": "Why did this change from !empty?",
+      "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3640fdc0_ab71c35d",
+        "filename": "xfa/fxfa/parser/cxfa_resolveprocessor.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:53:10Z",
+      "side": 1,
+      "message": "see line 485 in the original, I botched this in the earlier patch.",
+      "parentUuid": "2fcd3a40_86fbd338",
       "revId": "8826fc1915d67a69a1d0b9919c312fb2d395ed5b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
