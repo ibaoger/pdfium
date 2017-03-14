@@ -45,6 +45,75 @@
       "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53f370f_d668f381",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T18:22:04Z",
+      "side": 1,
+      "message": "you\u0027re not replacing this one?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 68,
+        "endLine": 1023,
+        "endChar": 74
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2d697dc_de7aa23e",
+        "filename": "xfa/fgas/font/fgas_fontutils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T18:22:04Z",
+      "side": 1,
+      "message": "What does this mean, let\u0027s have a define if it doesn\u0027t already exist",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa27a23_ba54567d",
+        "filename": "xfa/fgas/font/fgas_fontutils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T18:22:04Z",
+      "side": 1,
+      "message": "Should probably think about using some standard method instead of implementing our own binary seach",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 4
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
