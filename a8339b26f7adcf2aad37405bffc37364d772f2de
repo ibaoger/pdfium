@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61d541ab_d1d15e58",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T16:45:00Z",
+      "side": 1,
+      "message": "HasStartPosition?",
+      "range": {
+        "startLine": 172,
+        "startChar": 7,
+        "endLine": 172,
+        "endChar": 23
+      },
+      "revId": "a8339b26f7adcf2aad37405bffc37364d772f2de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
