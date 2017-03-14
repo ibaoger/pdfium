@@ -542,19 +542,16 @@ CFX_ByteString CFX_FontSourceEnum_File::GetNextFile() {
   return bsName;
 }
 
-FX_POSITION CFX_FontSourceEnum_File::GetStartPosition() {
+bool CFX_FontSourceEnum_File::GetStartPosition() {
   m_wsNext = GetNextFile().UTF8Decode();
-  if (m_wsNext.GetLength() == 0)
-    return (FX_POSITION)0;
-  return (FX_POSITION)-1;
+  return m_wsNext.GetLength() != 0;
 }
 
-CFX_RetainPtr<IFX_FileAccess> CFX_FontSourceEnum_File::GetNext(
-    FX_POSITION& pos) {
+CFX_RetainPtr<IFX_FileAccess> CFX_FontSourceEnum_File::GetNext(bool* hasNext) {
   CFX_RetainPtr<IFX_FileAccess> pAccess =
       IFX_FileAccess::CreateDefault(m_wsNext.AsStringC());
   m_wsNext = GetNextFile().UTF8Decode();
-  pos = m_wsNext.GetLength() != 0 ? pAccess.Get() : nullptr;
+  *hasNext = m_wsNext.GetLength() != 0 && pAccess.Get() != nullptr;
   return pAccess;
 }
 
@@ -600,9 +597,10 @@ bool CFGAS_FontMgr::EnumFontsFromFontMapper() {
 
 bool CFGAS_FontMgr::EnumFontsFromFiles() {
   CFX_GEModule::Get()->GetFontMgr()->InitFTLibrary();
-  FX_POSITION pos = m_pFontSource->GetStartPosition();
-  while (pos) {
-    CFX_RetainPtr<IFX_FileAccess> pFontSource = m_pFontSource->GetNext(pos);
+  bool hasNext = m_pFontSource->GetStartPosition();
+  while (hasNext) {
+    CFX_RetainPtr<IFX_FileAccess> pFontSource =
+        m_pFontSource->GetNext(&hasNext);
     CFX_RetainPtr<IFX_SeekableReadStream> pFontStream =
         pFontSource->CreateFileStream(FX_FILEMODE_ReadOnly);
     if (pFontStream)
