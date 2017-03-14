@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0de869d5_9f1897a2",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T20:33:10Z",
+      "side": 1,
+      "message": "we can declare ilevel in this block, right?  Then pull the assignment out of the if and do it at declaration time.",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 378,
+        "endChar": 48
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
