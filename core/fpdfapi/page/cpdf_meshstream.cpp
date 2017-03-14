@@ -205,7 +205,7 @@ std::tuple<FX_FLOAT, FX_FLOAT, FX_FLOAT> CPDF_MeshStream::ReadColor() {
   FX_FLOAT g;
   FX_FLOAT b;
   if (m_funcs.empty()) {
-    m_pCS->GetRGB(color_value, r, g, b);
+    m_pCS->GetRGB(color_value, &r, &g, &b);
     return std::tuple<FX_FLOAT, FX_FLOAT, FX_FLOAT>(r, g, b);
   }
 
@@ -217,7 +217,7 @@ std::tuple<FX_FLOAT, FX_FLOAT, FX_FLOAT> CPDF_MeshStream::ReadColor() {
       func->Call(color_value, 1, result, nResults);
   }
 
-  m_pCS->GetRGB(result, r, g, b);
+  m_pCS->GetRGB(result, &r, &g, &b);
   return std::tuple<FX_FLOAT, FX_FLOAT, FX_FLOAT>(r, g, b);
 }
 
