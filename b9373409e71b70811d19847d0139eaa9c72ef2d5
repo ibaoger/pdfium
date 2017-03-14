@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cdc4ce31_3c41cc4e",
+        "filename": "core/fpdfapi/font/cpdf_type3font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:12:21Z",
+      "side": 1,
+      "message": "nit: casts",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 66
+      },
+      "revId": "b9373409e71b70811d19847d0139eaa9c72ef2d5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d3ddb86_358422cd",
         "filename": "third_party/agg23/0001-gcc-warning.patch",
         "patchSetId": 1
