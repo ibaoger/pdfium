@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1cff403_be1a8ea2",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T21:08:08Z",
+      "side": 1,
+      "message": "nit: Pointery McPointerface",
+      "range": {
+        "startLine": 239,
+        "startChar": 33,
+        "endLine": 239,
+        "endChar": 48
+      },
+      "revId": "218c2a9426de2d1eeb733c7a9e7f53ef600ae658",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
