@@ -10,6 +10,7 @@
 #include <utility>
 
 #include "third_party/base/ptr_util.h"
+#include "third_party/base/stl_util.h"
 #include "xfa/fxfa/xfa_checksum.h"
 
 enum class CFX_SaxMode {
@@ -151,7 +152,7 @@ void CFX_SAXReader::Reset() {
     m_Stack.pop();
 
   m_dwItemID = 0;
-  m_SkipStack.RemoveAll();
+  m_SkipStack.clear();
   m_SkipChar = 0;
   m_iDataLength = 0;
   m_iEntityStart = -1;
@@ -404,7 +405,7 @@ void CFX_SAXReader::ParseDeclOrComment() {
     m_eMode = CFX_SaxMode::DeclNode;
     m_dwDataOffset = m_File.m_dwBufIndex;
     m_SkipChar = '>';
-    m_SkipStack.Add('>');
+    m_SkipStack.push_back('>');
     SkipNode();
   }
 }
@@ -591,44 +592,41 @@ void CFX_SAXReader::ParseTargetData() {
   }
 }
 void CFX_SAXReader::SkipNode() {
-  int32_t iLen = m_SkipStack.GetSize();
   if (m_SkipChar == '\'' || m_SkipChar == '\"') {
-    if (m_CurByte != m_SkipChar) {
+    if (m_CurByte != m_SkipChar)
       return;
-    }
-    iLen--;
-    ASSERT(iLen > -1);
-    m_SkipStack.RemoveAt(iLen, 1);
-    m_SkipChar = iLen ? m_SkipStack[iLen - 1] : 0;
+
+    ASSERT(!m_SkipStack.empty());
+    m_SkipStack.pop_back();
+    m_SkipChar = !m_SkipStack.empty() ? m_SkipStack.back() : 0;
     return;
   }
   switch (m_CurByte) {
     case '<':
       m_SkipChar = '>';
-      m_SkipStack.Add('>');
+      m_SkipStack.push_back('>');
       break;
     case '[':
       m_SkipChar = ']';
-      m_SkipStack.Add(']');
+      m_SkipStack.push_back(']');
       break;
     case '(':
       m_SkipChar = ')';
-      m_SkipStack.Add(')');
+      m_SkipStack.push_back(')');
       break;
     case '\'':
       m_SkipChar = '\'';
-      m_SkipStack.Add('\'');
+      m_SkipStack.push_back('\'');
       break;
     case '\"':
       m_SkipChar = '\"';
-      m_SkipStack.Add('\"');
+      m_SkipStack.push_back('\"');
       break;
     default:
       if (m_CurByte == m_SkipChar) {
-        iLen--;
-        m_SkipStack.RemoveAt(iLen, 1);
-        m_SkipChar = iLen ? m_SkipStack[iLen - 1] : 0;
-        if (iLen == 0 && m_CurByte == '>') {
+        m_SkipStack.pop_back();
+        m_SkipChar = !m_SkipStack.empty() ? m_SkipStack.back() : 0;
+        if (m_SkipStack.empty() && m_CurByte == '>') {
           m_iDataLength = m_iDataPos;
           m_iDataPos = 0;
           if (m_iDataLength >= 9 &&
@@ -653,9 +651,8 @@ void CFX_SAXReader::SkipNode() {
       }
       break;
   }
-  if (iLen > 0) {
+  if (!m_SkipStack.empty())
     ParseChar(m_CurByte);
-  }
 }
 
 void CFX_SAXReader::NotifyData() {
