@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5488e6a6_8e8d84cc",
+        "filename": "xfa/fgas/crt/fgas_codepage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T17:26:55Z",
+      "side": 1,
+      "message": "Do we have tests to make sure these are all correct? I\u0027m too lazy to check them all manually.",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 55
+      },
+      "revId": "9c93526321033c0779d48f968fefd81b2a829276",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa932668_a7f055b4",
+        "filename": "xfa/fgas/crt/fgas_codepage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T17:26:55Z",
+      "side": 1,
+      "message": "casts: search for (uint16_t)",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 19
+      },
+      "revId": "9c93526321033c0779d48f968fefd81b2a829276",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3db387f_b4feb9e8",
+        "filename": "xfa/fgas/crt/fgas_codepage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T17:26:55Z",
+      "side": 1,
+      "message": "ditto uint16_t*, wchar_t*, wchar_t",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 29
+      },
+      "revId": "9c93526321033c0779d48f968fefd81b2a829276",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
