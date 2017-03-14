@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fc2b2d4_2f1c6a1e",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T20:27:55Z",
+      "side": 1,
+      "message": "This check catches if we went to 0 on the last call to GetNext.",
+      "parentUuid": "9c89d76e_5188bb97",
+      "range": {
+        "startLine": 551,
+        "startChar": 2,
+        "endLine": 551,
+        "endChar": 30
+      },
+      "revId": "6b346beea3d1a99f35b42c973ba5aa156cb07afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d71f4e25_36093a5a",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-14T20:12:32Z",
       "side": 1,
       "message": "Shouldn\u0027t this be:\nreturn m_wsNext.GetLength() !\u003d 0? pAccess : nullptr;\n\n(since we are now relying on this being null to stop the while on line 605)",
+      "range": {
+        "startLine": 557,
+        "startChar": 2,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "6b346beea3d1a99f35b42c973ba5aa156cb07afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74cce026_6171dc50",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T20:27:55Z",
+      "side": 1,
+      "message": "We checked the pos after we used the value, so previously this would have set hasNext to false but still used the value (which I guess means pAssess won\u0027t be null). We then use the value on the second iteration.\n\nIf pAccess is null we\u0027ll bail out of the while() immediately below. If Length \u003d\u003d 0 then we\u0027ll bail out on the next iteration by hitting the check above as previously.",
+      "parentUuid": "d71f4e25_36093a5a",
       "range": {
         "startLine": 557,
         "startChar": 2,
