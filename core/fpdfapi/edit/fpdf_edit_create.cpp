@@ -891,7 +891,7 @@ CPDF_Creator::CPDF_Creator(CPDF_Document* pDoc)
       m_Offset(0),
       m_iStage(-1),
       m_dwFlags(0),
-      m_Pos(nullptr),
+      m_Pos(0),
       m_XrefStart(0),
       m_pIDArray(nullptr),
       m_FileVersion(0) {}
@@ -1297,7 +1297,7 @@ int32_t CPDF_Creator::WriteOldObjs(IFX_Pause* pPause) {
   if (!m_pParser->IsValidObjectNumber(nLastObjNum))
     return 0;
 
-  uint32_t objnum = (uint32_t)(uintptr_t)m_Pos;
+  uint32_t objnum = m_Pos;
   for (; objnum <= nLastObjNum; ++objnum) {
     int32_t iRet = WriteOldIndirectObject(objnum);
     if (iRet < 0)
@@ -1307,7 +1307,7 @@ int32_t CPDF_Creator::WriteOldObjs(IFX_Pause* pPause) {
       continue;
 
     if (pPause && pPause->NeedToPauseNow()) {
-      m_Pos = (void*)(uintptr_t)(objnum + 1);
+      m_Pos = objnum + 1;
       return 1;
     }
   }
@@ -1315,8 +1315,8 @@ int32_t CPDF_Creator::WriteOldObjs(IFX_Pause* pPause) {
 }
 
 int32_t CPDF_Creator::WriteNewObjs(bool bIncremental, IFX_Pause* pPause) {
-  size_t iCount = m_NewObjNumArray.size();
-  size_t index = (size_t)(uintptr_t)m_Pos;
+  uint32_t iCount = pdfium::CollectionSize<uint32_t>(m_NewObjNumArray);
+  uint32_t index = m_Pos;
   while (index < iCount) {
     uint32_t objnum = m_NewObjNumArray[index];
     CPDF_Object* pObj = m_pDocument->GetIndirectObject(objnum);
@@ -1330,7 +1330,7 @@ int32_t CPDF_Creator::WriteNewObjs(bool bIncremental, IFX_Pause* pPause) {
 
     index++;
     if (pPause && pPause->NeedToPauseNow()) {
-      m_Pos = (FX_POSITION)(uintptr_t)index;
+      m_Pos = index;
       return 1;
     }
   }
@@ -1468,16 +1468,16 @@ int32_t CPDF_Creator::WriteDoc_Stage1(IFX_Pause* pPause) {
       CFX_RetainPtr<IFX_SeekableReadStream> pSrcFile =
           m_pParser->GetFileAccess();
       m_Offset = pSrcFile->GetSize();
-      m_Pos = (void*)(uintptr_t)m_Offset;
+      m_Pos = static_cast<uint32_t>(m_Offset);
       m_iStage = 15;
     }
   }
   if (m_iStage == 15) {
-    if ((m_dwFlags & FPDFCREATE_NO_ORIGINAL) == 0 && m_Pos) {
+    if ((m_dwFlags & FPDFCREATE_NO_ORIGINAL) == 0 && m_Pos > 0) {
       CFX_RetainPtr<IFX_SeekableReadStream> pSrcFile =
           m_pParser->GetFileAccess();
       uint8_t buffer[4096];  // TODO(tsepez): don't stack allocate.
-      uint32_t src_size = (uint32_t)(uintptr_t)m_Pos;
+      uint32_t src_size = m_Pos;
       while (src_size) {
         uint32_t block_size = src_size > 4096 ? 4096 : src_size;
         if (!pSrcFile->ReadBlock(buffer, m_Offset - src_size, block_size)) {
@@ -1488,7 +1488,7 @@ int32_t CPDF_Creator::WriteDoc_Stage1(IFX_Pause* pPause) {
         }
         src_size -= block_size;
         if (pPause && pPause->NeedToPauseNow()) {
-          m_Pos = (void*)(uintptr_t)src_size;
+          m_Pos = src_size;
           return 1;
         }
       }
@@ -1521,7 +1521,7 @@ int32_t CPDF_Creator::WriteDoc_Stage2(IFX_Pause* pPause) {
   ASSERT(m_iStage >= 20 || m_iStage < 30);
   if (m_iStage == 20) {
     if ((m_dwFlags & FPDFCREATE_INCREMENTAL) == 0 && m_pParser) {
-      m_Pos = (void*)(uintptr_t)0;
+      m_Pos = 0;
       m_iStage = 21;
     } else {
       m_iStage = 25;
@@ -1535,7 +1535,7 @@ int32_t CPDF_Creator::WriteDoc_Stage2(IFX_Pause* pPause) {
     m_iStage = 25;
   }
   if (m_iStage == 25) {
-    m_Pos = (void*)(uintptr_t)0;
+    m_Pos = 0;
     m_iStage = 26;
   }
   if (m_iStage == 26) {
@@ -1583,13 +1583,13 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
         if (m_File.AppendString(str.AsStringC()) < 0) {
           return -1;
         }
-        m_Pos = (void*)(uintptr_t)1;
+        m_Pos = 1;
         m_iStage = 81;
       } else {
         if (m_File.AppendString("xref\r\n") < 0) {
           return -1;
         }
-        m_Pos = (void*)(uintptr_t)0;
+        m_Pos = 0;
         m_iStage = 82;
       }
     } else {
@@ -1598,7 +1598,8 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
   }
   if (m_iStage == 81) {
     CFX_ByteString str;
-    uint32_t i = (uint32_t)(uintptr_t)m_Pos, j;
+    uint32_t i = m_Pos;
+    uint32_t j;
     while (i <= dwLastObjNum) {
       while (i <= dwLastObjNum && !m_ObjectOffset.GetPtrAt(i)) {
         i++;
@@ -1628,7 +1629,7 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
         break;
       }
       if (pPause && pPause->NeedToPauseNow()) {
-        m_Pos = (void*)(uintptr_t)i;
+        m_Pos = i;
         return 1;
       }
     }
@@ -1636,8 +1637,8 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
   }
   if (m_iStage == 82) {
     CFX_ByteString str;
-    size_t iCount = m_NewObjNumArray.size();
-    size_t i = (size_t)(uintptr_t)m_Pos;
+    uint32_t iCount = pdfium::CollectionSize<uint32_t>(m_NewObjNumArray);
+    uint32_t i = m_Pos;
     while (i < iCount) {
       size_t j = i;
       uint32_t objnum = m_NewObjNumArray[i];
@@ -1665,7 +1666,7 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
           return -1;
       }
       if (pPause && (i % 100) == 0 && pPause->NeedToPauseNow()) {
-        m_Pos = (void*)(uintptr_t)i;
+        m_Pos = i;
         return 1;
       }
     }
