@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "78cb1b3a_4bd1bf56",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:02:11Z",
+      "side": 1,
+      "message": "Ok, done. But, please make sure you believe I converted them correctly. It\u0027s kinda hard to tell which usage is the expected one ....",
+      "parentUuid": "56b6269e_48a075b5",
+      "range": {
+        "startLine": 1470,
+        "startChar": 3,
+        "endLine": 1470,
+        "endChar": 46
+      },
+      "revId": "04e831c27adad347e333c952102f1851a4d03407",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f0db4ac_1f24ad05",
         "filename": "third_party/agg23/agg_basics.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-14T18:25:15Z",
       "side": 1,
       "message": "????? wha\n\nThis is third_party, we shouldn\u0027t be messing with it / reformatting it.",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "04e831c27adad347e333c952102f1851a4d03407",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da8401de_b943e79c",
+        "filename": "third_party/agg23/agg_basics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:02:11Z",
+      "side": 1,
+      "message": "Bad merge, there were agg changes in the FX_FLOAT cl due to us pulling in this class and using FX_ code. This is removed from this cl.",
+      "parentUuid": "7f0db4ac_1f24ad05",
       "range": {
         "startLine": 44,
         "startChar": 1,
