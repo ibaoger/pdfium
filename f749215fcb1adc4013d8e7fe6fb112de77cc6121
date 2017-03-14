@@ -1,4 +1,488 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1489460967 -0700\nnonce AIcUUg9gqWL95jvTP0BhF1iG/G/9Fn4g7YMrcyXSCxlp4hzRhLcbsQ2YlNbQvPULhPigSfshQu9r\n\n0000000000000000000000000000000000000000 f749215fcb1adc4013d8e7fe6fb112de77cc6121 refs/for/refs/heads/master%m\u003dself_review,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEbBAABAgAGBQJYx17nAAoJEKs2LWFaZv17ti0H91gxwnQq8O/jNvjIDmTcLHAa\nHDCXQwJJ6lSavNhZV71SIJACLZ358vNr7i1oinn18GDu6t/SwMH9efoab3/uenKd\nzF8mXJ9Jiyrd8WVpMr4Ot+zAKxnDwH12YVdpGABxJ4IpnUIJHRBrVDNgVkAzjkyd\n+w7JBmz7Qy6NfyYX52wJQJjtNrp61J70Vkdm3TAWpv9Y/6IC1QbyzKuuS3iSFyNM\nRGX+8TqF6dIVUXnLnVzzj1LZwKXVYgwW2W78FMslInieO6KCmRSmCQYhh6xfozcy\n/hJZ/lU2bipaS19HIrC0t4WpfwYEY8Qq2Neio5k0G05+bPd6PNuSQQYhNFACsw\u003d\u003d\n\u003dkoRV\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd9f2968_51821249",
+        "filename": "core/fpdfapi/page/cpdf_color.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 15
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47062401_1c7f3cf0",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto const",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 28
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d0bcf49_8aa24a77",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "out params after in params",
+      "range": {
+        "startLine": 78,
+        "startChar": 26,
+        "endLine": 78,
+        "endChar": 43
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c56c144_16ebec30",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "do we need this default param?",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32cceb32_f36a9c97",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto comments in previous class",
+      "range": {
+        "startLine": 91,
+        "startChar": 6,
+        "endLine": 91,
+        "endChar": 17
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afcf3ab8_74db33a4",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 259,
+        "startChar": 11,
+        "endLine": 259,
+        "endChar": 12
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3d35a7_1419cc14",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "this should probably receive the cmyk pointers as well (could be followup)",
+      "range": {
+        "startLine": 457,
+        "startChar": 2,
+        "endLine": 457,
+        "endChar": 19
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad9ead15_1fc674d9",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "0.0f",
+      "range": {
+        "startLine": 494,
+        "startChar": 11,
+        "endLine": 494,
+        "endChar": 12
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7bd51c2_0888d3c7",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "cast, and maybe no {} in its if/else",
+      "range": {
+        "startLine": 513,
+        "startChar": 17,
+        "endLine": 513,
+        "endChar": 27
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db33f21_8566be61",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 518,
+        "startChar": 19,
+        "endLine": 518,
+        "endChar": 26
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f19afbb_8e9fcc40",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto cast",
+      "range": {
+        "startLine": 712,
+        "startChar": 17,
+        "endLine": 712,
+        "endChar": 25
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad9f1354_62b233fa",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto 0.0f",
+      "range": {
+        "startLine": 735,
+        "startChar": 11,
+        "endLine": 735,
+        "endChar": 12
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efb04eda_5ec913de",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto cast",
+      "range": {
+        "startLine": 814,
+        "startChar": 19,
+        "endLine": 814,
+        "endChar": 26
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b4e4fa_ad93115e",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto 0.0f",
+      "range": {
+        "startLine": 1018,
+        "startChar": 21,
+        "endLine": 1018,
+        "endChar": 22
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64513d4a_7a13ff7d",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 1078,
+        "startChar": 15,
+        "endLine": 1078,
+        "endChar": 22
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bdb80aa_e40bbdcd",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "nit: {}",
+      "range": {
+        "startLine": 1149,
+        "startChar": 53,
+        "endLine": 1149,
+        "endChar": 54
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68690974_35a90472",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "can the |pBuf|s in here be const?",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f2d4701_c27ce7d0",
+        "filename": "core/fpdfapi/page/cpdf_colorstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 121,
+        "startChar": 30,
+        "endLine": 121,
+        "endChar": 38
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c699f45c_c5daae70",
+        "filename": "core/fpdfapi/page/cpdf_colorstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "can these be pointers or const refs?",
+      "range": {
+        "startLine": 124,
+        "startChar": 31,
+        "endLine": 125,
+        "endChar": 44
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3a58cd_faed309d",
+        "filename": "core/fpdfapi/page/pageint.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "ditto const",
+      "range": {
+        "startLine": 154,
+        "startChar": 14,
+        "endLine": 154,
+        "endChar": 28
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9574c2b0_58256bdd",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:11:19Z",
+      "side": 1,
+      "message": "nit: no {}",
+      "range": {
+        "startLine": 704,
+        "startChar": 51,
+        "endLine": 704,
+        "endChar": 52
+      },
+      "revId": "f749215fcb1adc4013d8e7fe6fb112de77cc6121",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
