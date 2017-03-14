@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23d4b4f0_3c13adc1",
+        "filename": "xfa/fgas/crt/fgas_codepage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "316d1e24_3eb3d975",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 31
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0cec101_dd583b42",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5f4a24c3_4d37317b",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0cec101_dd583b42",
+      "range": {
+        "startLine": 469,
+        "startChar": 5,
+        "endLine": 469,
+        "endChar": 7
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c53f370f_d668f381",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-14T18:22:04Z",
       "side": 1,
       "message": "you\u0027re not replacing this one?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 68,
+        "endLine": 1023,
+        "endChar": 74
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca126d58_c5f63035",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:19:07Z",
+      "side": 1,
+      "message": "FFFF isn\u0027t a code page identifier, it\u0027s used as a marker. I\u0027d prefer to leave it to signify that it isn\u0027t a codepage.",
+      "parentUuid": "c53f370f_d668f381",
       "range": {
         "startLine": 1023,
         "startChar": 68,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "25219408_7239c355",
+        "filename": "xfa/fgas/font/fgas_fontutils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2d697dc_de7aa23e",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aa27a23_ba54567d",
         "filename": "xfa/fgas/font/fgas_fontutils.cpp",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614a4b57_52b95dc8",
+        "filename": "xfa/fgas/font/fgas_fontutils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T19:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7aa27a23_ba54567d",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 4
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
