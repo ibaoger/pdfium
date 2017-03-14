@@ -40,10 +40,7 @@ public:
     void remove_all_dashes();
     void add_dash(float dash_len, float gap_len);
     void dash_start(float ds);
-    void shorten(float s)
-    {
-        m_shorten = s;
-    }
+    void shorten(float s) { m_shorten = s; }
     double shorten() const
     {
         return m_shorten;
@@ -52,18 +49,19 @@ public:
     void add_vertex(float x, float y, unsigned cmd);
     void     rewind(unsigned path_id);
     unsigned vertex(float* x, float* y);
-private:
+
+   private:
     vcgen_dash(const vcgen_dash&);
     const vcgen_dash& operator = (const vcgen_dash&);
     void calc_dash_start(float ds);
-    float     m_dashes[max_dashes];
-    float		m_total_dash_len;
+    float m_dashes[max_dashes];
+    float m_total_dash_len;
     unsigned        m_num_dashes;
-    float     m_dash_start;
-    float     m_shorten;
-    float     m_curr_dash_start;
+    float m_dash_start;
+    float m_shorten;
+    float m_curr_dash_start;
     unsigned        m_curr_dash;
-    float     m_curr_rest;
+    float m_curr_rest;
     const vertex_dist* m_v1;
     const vertex_dist* m_v2;
     vertex_storage m_src_vertices;

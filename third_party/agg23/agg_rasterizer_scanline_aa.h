@@ -45,9 +45,8 @@ enum poly_base_scale_e {
     poly_base_size  = 1 << poly_base_shift,
     poly_base_mask  = poly_base_size - 1
 };
-inline int poly_coord(float c)
-{
-    return int(c * poly_base_size);
+inline int poly_coord(float c) {
+  return int(c * poly_base_size);
 }
 struct cell_aa  {
     int x;
@@ -219,26 +218,24 @@ public:
         m_outline.reset();
         m_status = status_initial;
     }
-    void clip_box(float x1, float y1, float x2, float y2)
-    {
-        m_clip_box = rect(poly_coord(x1), poly_coord(y1),
-                          poly_coord(x2), poly_coord(y2));
-        m_clip_box.normalize();
-        m_clipping = true;
+    void clip_box(float x1, float y1, float x2, float y2) {
+      m_clip_box =
+          rect(poly_coord(x1), poly_coord(y1), poly_coord(x2), poly_coord(y2));
+      m_clip_box.normalize();
+      m_clipping = true;
     }
-    void add_vertex(float x, float y, unsigned cmd)
-    {
-        if(is_close(cmd)) {
-            close_polygon();
+    void add_vertex(float x, float y, unsigned cmd) {
+      if (is_close(cmd)) {
+        close_polygon();
+      } else {
+        if (is_move_to(cmd)) {
+          move_to(poly_coord(x), poly_coord(y));
         } else {
-            if(is_move_to(cmd)) {
-                move_to(poly_coord(x), poly_coord(y));
-            } else {
-                if(is_vertex(cmd)) {
-                    line_to(poly_coord(x), poly_coord(y));
-                }
-            }
+          if (is_vertex(cmd)) {
+            line_to(poly_coord(x), poly_coord(y));
+          }
         }
+      }
     }
     void move_to(int x, int y)
     {
@@ -374,28 +371,28 @@ public:
     template<class VertexSource>
     void add_path(VertexSource& vs, unsigned path_id = 0)
     {
-        float x;
-        float y;
-        unsigned cmd;
-        vs.rewind(path_id);
-        while(!is_stop(cmd = vs.vertex(&x, &y))) {
-            add_vertex(x, y, cmd);
+      float x;
+      float y;
+      unsigned cmd;
+      vs.rewind(path_id);
+      while (!is_stop(cmd = vs.vertex(&x, &y))) {
+        add_vertex(x, y, cmd);
         }
     }
     template<class VertexSource>
     void add_path_transformed(VertexSource& vs, const CFX_Matrix* pMatrix, unsigned path_id = 0)
     {
-        float x;
-        float y;
-        unsigned cmd;
-        vs.rewind(path_id);
-        while(!is_stop(cmd = vs.vertex(&x, &y))) {
-          if (pMatrix) {
-            CFX_PointF ret = pMatrix->Transform(CFX_PointF(x, y));
-            x = ret.x;
-            y = ret.y;
-          }
-          add_vertex(x, y, cmd);
+      float x;
+      float y;
+      unsigned cmd;
+      vs.rewind(path_id);
+      while (!is_stop(cmd = vs.vertex(&x, &y))) {
+        if (pMatrix) {
+          CFX_PointF ret = pMatrix->Transform(CFX_PointF(x, y));
+          x = ret.x;
+          y = ret.y;
+        }
+        add_vertex(x, y, cmd);
         }
     }
 private:

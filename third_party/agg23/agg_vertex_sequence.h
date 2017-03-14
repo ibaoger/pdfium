@@ -71,30 +71,21 @@ void vertex_sequence<T, S>::close(bool closed)
 }
 const float vertex_dist_epsilon = 1e-14f;
 struct vertex_dist  {
-    float   x;
-    float   y;
-    float   dist;
-    vertex_dist() {}
-    vertex_dist(float x_, float y_) :
-        x(x_),
-        y(y_),
-        dist(0)
-    {
-    }
-    bool operator () (const vertex_dist& val)
-    {
-        bool ret = (dist = calc_distance(x, y, val.x, val.y)) > vertex_dist_epsilon;
-        return ret;
+  float x;
+  float y;
+  float dist;
+  vertex_dist() {}
+  vertex_dist(float x_, float y_) : x(x_), y(y_), dist(0) {}
+  bool operator()(const vertex_dist& val) {
+    bool ret = (dist = calc_distance(x, y, val.x, val.y)) > vertex_dist_epsilon;
+    return ret;
     }
 };
 struct vertex_dist_cmd : public vertex_dist {
     unsigned cmd;
     vertex_dist_cmd() {}
-    vertex_dist_cmd(float x_, float y_, unsigned cmd_) :
-        vertex_dist(x_, y_),
-        cmd(cmd_)
-    {
-    }
+    vertex_dist_cmd(float x_, float y_, unsigned cmd_)
+        : vertex_dist(x_, y_), cmd(cmd_) {}
 };
 }
 #endif

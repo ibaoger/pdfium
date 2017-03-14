@@ -41,6 +41,8 @@
 #endif
 #define AGG_INLINE inline
 
+#include "core/fxcrt/fx_system.h"  // For float
+
 namespace agg
 {
 typedef AGG_INT8   int8;
@@ -259,10 +261,11 @@ inline unsigned set_orientation(unsigned c, unsigned o)
     return clear_orientation(c) | o;
 }
 struct point_type  {
-    float x, y;
-    unsigned flag;
-    point_type() {}
-    point_type(float x_, float y_, unsigned flag_ = 0) : x(x_), y(y_), flag(flag_) {}
+  float x, y;
+  unsigned flag;
+  point_type() {}
+  point_type(float x_, float y_, unsigned flag_ = 0)
+      : x(x_), y(y_), flag(flag_) {}
 };
 struct point_type_flag : public point_type {
     unsigned flag;
@@ -270,14 +273,14 @@ struct point_type_flag : public point_type {
     {
         flag = 0;
     }
-    point_type_flag(float x_, float y_, unsigned flag_ = 0) : point_type(x_, y_), flag(flag_) {}
+    point_type_flag(float x_, float y_, unsigned flag_ = 0)
+        : point_type(x_, y_), flag(flag_) {}
 };
 struct vertex_type  {
-    float   x, y;
-    unsigned cmd;
-    vertex_type() {}
-    vertex_type(float x_, float y_, unsigned cmd_) :
-        x(x_), y(y_), cmd(cmd_) {}
+  float x, y;
+  unsigned cmd;
+  vertex_type() {}
+  vertex_type(float x_, float y_, unsigned cmd_) : x(x_), y(y_), cmd(cmd_) {}
 };
 }
 #endif

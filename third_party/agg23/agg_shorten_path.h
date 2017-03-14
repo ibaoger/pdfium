@@ -19,39 +19,38 @@
 #include "agg_vertex_sequence.h"
 namespace agg
 {
-template<class VertexSequence>
-void shorten_path(VertexSequence& vs, float s, unsigned closed = 0)
-{
-    typedef typename VertexSequence::value_type vertex_type;
-    if(s > 0 && vs.size() > 1) {
-        float d;
-        int n = int(vs.size() - 2);
-        while(n) {
-            d = vs[n].dist;
-            if(d > s) {
-                break;
-            }
-            vs.remove_last();
-            s -= d;
-            --n;
-        }
-        if(vs.size() < 2) {
-            vs.remove_all();
-        } else {
-            n = vs.size() - 1;
-            vertex_type& prev = vs[n - 1];
-            vertex_type& last = vs[n];
-            d = (prev.dist - s) / prev.dist;
-            float x = prev.x + (last.x - prev.x) * d;
-            float y = prev.y + (last.y - prev.y) * d;
-            last.x = x;
-            last.y = y;
-            if(!prev(last)) {
-                vs.remove_last();
-            }
-            vs.close(closed != 0);
-        }
+template <class VertexSequence>
+void shorten_path(VertexSequence& vs, float s, unsigned closed = 0) {
+  typedef typename VertexSequence::value_type vertex_type;
+  if (s > 0 && vs.size() > 1) {
+    float d;
+    int n = int(vs.size() - 2);
+    while (n) {
+      d = vs[n].dist;
+      if (d > s) {
+        break;
+      }
+      vs.remove_last();
+      s -= d;
+      --n;
     }
+    if (vs.size() < 2) {
+      vs.remove_all();
+    } else {
+      n = vs.size() - 1;
+      vertex_type& prev = vs[n - 1];
+      vertex_type& last = vs[n];
+      d = (prev.dist - s) / prev.dist;
+      float x = prev.x + (last.x - prev.x) * d;
+      float y = prev.y + (last.y - prev.y) * d;
+      last.x = x;
+      last.y = y;
+      if (!prev(last)) {
+        vs.remove_last();
+      }
+      vs.close(closed != 0);
+    }
+  }
 }
 }
 #endif

@@ -36,30 +36,30 @@ inline unsigned clip_liang_barsky(T x1, T y1, T x2, T y2,
                                   const rect_base<T>& clip_box,
                                   T* x, T* y)
 {
-    const float nearzero = 1e-30f;
+  const float nearzero = 1e-30f;
 
-    pdfium::base::CheckedNumeric<float> width = x2;
-    width -= x1;
-    if (!width.IsValid())
-        return 0;
-    pdfium::base::CheckedNumeric<float> height = y2;
-    height -= y1;
-    if (!height.IsValid())
-        return 0;
+  pdfium::base::CheckedNumeric<float> width = x2;
+  width -= x1;
+  if (!width.IsValid())
+    return 0;
+  pdfium::base::CheckedNumeric<float> height = y2;
+  height -= y1;
+  if (!height.IsValid())
+    return 0;
 
-    float deltax = width.ValueOrDefault(0);
-    float deltay = height.ValueOrDefault(0);
-    unsigned np = 0;
-    if(deltax == 0) {
-        deltax = (x1 > clip_box.x1) ? -nearzero : nearzero;
+  float deltax = width.ValueOrDefault(0);
+  float deltay = height.ValueOrDefault(0);
+  unsigned np = 0;
+  if (deltax == 0) {
+    deltax = (x1 > clip_box.x1) ? -nearzero : nearzero;
     }
     float xin, xout;
     if(deltax > 0) {
-        xin  = (float)clip_box.x1;
-        xout = (float)clip_box.x2;
+      xin = (float)clip_box.x1;
+      xout = (float)clip_box.x2;
     } else {
-        xin  = (float)clip_box.x2;
-        xout = (float)clip_box.x1;
+      xin = (float)clip_box.x2;
+      xout = (float)clip_box.x1;
     }
     float tinx = (xin - x1) / deltax;
     if(deltay == 0) {
@@ -67,11 +67,11 @@ inline unsigned clip_liang_barsky(T x1, T y1, T x2, T y2,
     }
     float yin, yout;
     if(deltay > 0) {
-        yin  = (float)clip_box.y1;
-        yout = (float)clip_box.y2;
+      yin = (float)clip_box.y1;
+      yout = (float)clip_box.y2;
     } else {
-        yin  = (float)clip_box.y2;
-        yout = (float)clip_box.y1;
+      yin = (float)clip_box.y2;
+      yout = (float)clip_box.y1;
     }
     float tiny = (yin - y1) / deltay;
     float tin1, tin2;
