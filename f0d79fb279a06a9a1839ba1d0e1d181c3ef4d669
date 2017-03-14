@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7d604da_89f959d8",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T20:33:12Z",
+      "side": 1,
+      "message": "Can we unique_ptr\u0027ify pBlock?",
+      "revId": "f0d79fb279a06a9a1839ba1d0e1d181c3ef4d669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "324730ad_5ad3e88d",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T20:33:12Z",
+      "side": 1,
+      "message": "Can\u0027t this be size_t? size is a size_t, and we use it for indexing into the vector which I think takes size_t?",
+      "revId": "f0d79fb279a06a9a1839ba1d0e1d181c3ef4d669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
