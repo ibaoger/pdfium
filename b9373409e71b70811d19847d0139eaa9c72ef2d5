@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d3ddb86_358422cd",
+        "filename": "third_party/agg23/0001-gcc-warning.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:41:33Z",
+      "side": 1,
+      "message": "did you do this diff manually or did this actually not change?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 29
+      },
+      "revId": "b9373409e71b70811d19847d0139eaa9c72ef2d5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5c4f5a5_874f8e7e",
+        "filename": "third_party/agg23/agg_basics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:41:33Z",
+      "side": 1,
+      "message": "Do we still need this include?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "b9373409e71b70811d19847d0139eaa9c72ef2d5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b92aaf43_1dbe7b81",
+        "filename": "third_party/agg23/agg_conv_adaptor_vcgen.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:41:33Z",
+      "side": 1,
+      "message": "We don\u0027t want to git cl format third_party classes",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 134,
+        "endChar": 13
+      },
+      "revId": "b9373409e71b70811d19847d0139eaa9c72ef2d5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
