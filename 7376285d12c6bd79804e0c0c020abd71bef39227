@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9fe5066_aa566c0c",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-14T15:04:55Z",
+      "side": 1,
+      "message": "m_offset is either an off_t on mac/linux or a int32_t on windows. Need to keep the cast in this case.",
+      "revId": "7376285d12c6bd79804e0c0c020abd71bef39227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
