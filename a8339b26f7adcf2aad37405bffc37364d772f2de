@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "333b33b7_a4c68c05",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:45:22Z",
+      "side": 1,
+      "message": "I\u0027d really like this loop to be \n\nwhile (CFX_RetainPtr\u003cIFX_FileAcess\u003e pFontSource \u003d m_pFontSource-\u003eGetNext()) {",
+      "range": {
+        "startLine": 601,
+        "startChar": 1,
+        "endLine": 603,
+        "endChar": 40
+      },
+      "revId": "a8339b26f7adcf2aad37405bffc37364d772f2de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61d541ab_d1d15e58",
         "filename": "xfa/fgas/font/cfgas_fontmgr.h",
         "patchSetId": 1
