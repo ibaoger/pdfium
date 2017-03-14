@@ -412,24 +412,27 @@ const CFX_RectF& CFDE_TxtEdtPage::GetContentsBox() {
   return m_rtPageContents;
 }
 
-FX_POSITION CFDE_TxtEdtPage::GetFirstPosition() {
+uint32_t CFDE_TxtEdtPage::GetFirstPosition() {
   if (m_Pieces.empty())
-    return nullptr;
-  return (FX_POSITION)1;
+    return 0;
+  return 1;
 }
 
-FDE_TEXTEDITPIECE* CFDE_TxtEdtPage::GetNext(FX_POSITION& pos,
+FDE_TEXTEDITPIECE* CFDE_TxtEdtPage::GetNext(uint32_t* pos,
                                             IFDE_VisualSet*& pVisualSet) {
+  ASSERT(pos);
+
   if (!m_pTextSet) {
-    pos = nullptr;
+    *pos = 0;
     return nullptr;
   }
-  int32_t nPos = (int32_t)(uintptr_t)pos;
+
+  uint32_t nPos = *pos;
   pVisualSet = m_pTextSet.get();
-  if (nPos + 1 > pdfium::CollectionSize<int32_t>(m_Pieces))
-    pos = nullptr;
+  if (nPos + 1 > pdfium::CollectionSize<uint32_t>(m_Pieces))
+    *pos = 0;
   else
-    pos = (FX_POSITION)(uintptr_t)(nPos + 1);
+    *pos = nPos + 1;
 
   return &m_Pieces[nPos - 1];
 }
