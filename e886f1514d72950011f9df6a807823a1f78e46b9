@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "316d1e24_3eb3d975",
+        "filename": "xfa/fgas/crt/fgas_codepage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:10:56Z",
+      "side": 1,
+      "message": "nit: Casty McCastface x 3",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 31
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0cec101_dd583b42",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-14T18:10:56Z",
+      "side": 1,
+      "message": "do we really need to store these sequential values?",
+      "range": {
+        "startLine": 469,
+        "startChar": 5,
+        "endLine": 469,
+        "endChar": 7
+      },
+      "revId": "e886f1514d72950011f9df6a807823a1f78e46b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
