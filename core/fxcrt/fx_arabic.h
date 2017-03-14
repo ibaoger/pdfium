@@ -164,7 +164,7 @@ const FX_ARBFORMTABLE* FX_GetArabicFormTable(wchar_t unicode);
 wchar_t FX_GetArabicFromAlefTable(wchar_t alef);
 wchar_t FX_GetArabicFromShaddaTable(wchar_t shadda);
 
-void FX_BidiLine(std::vector<CFX_Char>& chars,
+void FX_BidiLine(std::vector<CFX_Char>* chars,
                  int32_t iCount,
                  int32_t iBaseLevel = 0);
 
