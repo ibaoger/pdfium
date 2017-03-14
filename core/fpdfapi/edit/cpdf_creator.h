@@ -92,7 +92,7 @@ class CPDF_Creator {
   FX_FILESIZE m_Offset;
   int32_t m_iStage;
   uint32_t m_dwFlags;
-  FX_POSITION m_Pos;
+  uint32_t m_Pos;
   FX_FILESIZE m_XrefStart;
   CFX_FileSizeListArray m_ObjectOffset;
   std::vector<uint32_t> m_NewObjNumArray;  // Sorted, ascending.
