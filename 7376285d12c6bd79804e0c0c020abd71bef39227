@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "016a03f1_49e20316",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:59:28Z",
+      "side": 1,
+      "message": "move this to the for loop:\nfor (uint32_t objnum ...",
+      "range": {
+        "startLine": 1300,
+        "startChar": 2,
+        "endLine": 1300,
+        "endChar": 25
+      },
+      "revId": "7376285d12c6bd79804e0c0c020abd71bef39227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afeb8307_f66f3a4b",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:59:28Z",
+      "side": 1,
+      "message": "nit: {}",
+      "range": {
+        "startLine": 1341,
+        "startChar": 18,
+        "endLine": 1341,
+        "endChar": 19
+      },
+      "revId": "7376285d12c6bd79804e0c0c020abd71bef39227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9fe5066_aa566c0c",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 1
@@ -13,6 +59,29 @@
       "writtenOn": "2017-03-14T15:04:55Z",
       "side": 1,
       "message": "m_offset is either an off_t on mac/linux or a int32_t on windows. Need to keep the cast in this case.",
+      "revId": "7376285d12c6bd79804e0c0c020abd71bef39227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87fbf7af_9944213a",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-14T15:59:28Z",
+      "side": 1,
+      "message": "{}s",
+      "range": {
+        "startLine": 1483,
+        "startChar": 8,
+        "endLine": 1488,
+        "endChar": 9
+      },
       "revId": "7376285d12c6bd79804e0c0c020abd71bef39227",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
