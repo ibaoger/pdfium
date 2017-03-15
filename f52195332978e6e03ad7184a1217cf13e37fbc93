@@ -70,6 +70,30 @@
       "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15644036_bf0d914f",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T20:19:29Z",
+      "side": 0,
+      "message": "chartype is the result of GetCharTypeFromProp(dwProps) which is:\n\nstatic_cast\u003cFX_CHARTYPE\u003e(prop \u0026 FX_CHARTYPEBITSMASK); where the bit mask masks off the other bits of the value.",
+      "parentUuid": "3e6ef22c_8715ff78",
+      "range": {
+        "startLine": 298,
+        "startChar": 43,
+        "endLine": 298,
+        "endChar": 69
+      },
+      "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
