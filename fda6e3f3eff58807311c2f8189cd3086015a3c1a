@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0b2fb8f_7fd97392",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "These are used in data tables, updating those to add the FX_BIDIWEAKSTATE would be .... a pain.",
+      "parentUuid": "8635ca15_33699d5a",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0dadf292_3da8ea95",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-15T15:32:54Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34fd179_da01a49d",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "0dadf292_3da8ea95",
       "range": {
         "startLine": 82,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e39c90ef_e7cb1af2",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "Commented on the original CL.",
+      "parentUuid": "0428db1f_6bb123a5",
+      "range": {
+        "startLine": 402,
+        "startChar": 41,
+        "endLine": 402,
+        "endChar": 47
+      },
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69483d97_16d17189",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "cbefac24_80c62ea7",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69483d97_16d17189",
+      "range": {
+        "startLine": 412,
+        "startChar": 41,
+        "endLine": 412,
+        "endChar": 47
+      },
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54ed7e97_5e2541e2",
         "filename": "core/fxcrt/fx_arabic.cpp",
         "patchSetId": 6
@@ -108,6 +204,24 @@
       "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b422aa_d7a82001",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54ed7e97_5e2541e2",
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "9c1a0b82_c4bb6f1a",
+        "filename": "core/fxcrt/fx_arabic.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "Nack. This involves reordering all the methods and making sure there are no call cycles. Going to leave the class.",
+      "parentUuid": "2890831c_2dbb8a7e",
+      "range": {
+        "startLine": 741,
+        "startChar": 2,
+        "endLine": 741,
+        "endChar": 17
+      },
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebcd124f_609db6cc",
         "filename": "core/fxcrt/fx_arabic.h",
         "patchSetId": 6
@@ -148,6 +286,24 @@
       "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d09bb2b_0f38076a",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:23:04Z",
+      "side": 1,
+      "message": "That can be handled later if we find somewhere. There are still a few things in here, and there is an explicit pdfium::arabic namespace.",
+      "parentUuid": "ebcd124f_609db6cc",
+      "revId": "fda6e3f3eff58807311c2f8189cd3086015a3c1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
