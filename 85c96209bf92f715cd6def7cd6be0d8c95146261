@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "945b87fb_b89e268f",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T16:11:36Z",
+      "side": 1,
+      "message": "There is a slight difference in here. Only one of the two classes did the ax with the kMinimumTabWidth thing, the other didn\u0027t.\n\nI\u0027ve opted to keep them consistent here and we may need to revisit if we find a PDF in the wild where this is an issue.",
+      "revId": "85c96209bf92f715cd6def7cd6be0d8c95146261",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
