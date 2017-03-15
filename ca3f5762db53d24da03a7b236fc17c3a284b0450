@@ -707,6 +707,30 @@
     },
     {
       "key": {
+        "uuid": "5a986c04_6142be00",
+        "filename": "core/fxcrt/fx_arabic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-15T15:32:54Z",
+      "side": 1,
+      "message": "Nice default removal :P",
+      "parentUuid": "ded7eea4_d1b50437",
+      "range": {
+        "startLine": 169,
+        "startChar": 36,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "ca3f5762db53d24da03a7b236fc17c3a284b0450",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "053d70f7_80d0fdae",
         "filename": "core/fxcrt/fx_arabic.h",
         "patchSetId": 2
