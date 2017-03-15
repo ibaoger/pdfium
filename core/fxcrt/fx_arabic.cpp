@@ -399,8 +399,8 @@ class CFX_BidiLine {
                      int32_t iStart,
                      int32_t iCount) {
     ASSERT(pdfium::IndexInBounds(*chars, iStart));
-    ASSERT(pdfium::IndexInBounds(*chars, iCount));
-    ASSERT(iStart + iCount <= pdfium::CollectionSize<int32_t>(*chars));
+    ASSERT(iCount >= 0 &&
+           iStart + iCount <= pdfium::CollectionSize<int32_t>(*chars));
     std::reverse(chars->begin() + iStart, chars->begin() + iStart + iCount);
   }
 
