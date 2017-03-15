@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "92513c82_54c2834b",
+        "filename": "xfa/fde/xml/cfx_saxreader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-15T19:49:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cf8cd11_4fc87a6a",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 10
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a01fb45e_9b29b624",
         "filename": "xfa/fde/xml/cfx_saxreader.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-15T19:35:10Z",
       "side": 1,
       "message": "Not sure if it matters, but it\u0027s called a stack, maybe it can be std::stack. Or it can be renamed",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 13
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d82a8ed8_d04d861d",
+        "filename": "xfa/fde/xml/cfx_saxreader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-15T19:49:13Z",
+      "side": 1,
+      "message": "Replaced with std::stack.  The only operation not present for it is .clear(), which we work around by assigning a new empty stack to it.",
+      "parentUuid": "a01fb45e_9b29b624",
       "range": {
         "startLine": 132,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "459f6dc2_c9ad1afe",
+        "filename": "xfa/fde/xml/fde_xml_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-15T19:49:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d987e5a9_cf042dad",
+      "range": {
+        "startLine": 1156,
+        "startChar": 2,
+        "endLine": 1158,
+        "endChar": 3
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de4114ac_9d0c5cfc",
         "filename": "xfa/fde/xml/fde_xml_imp.cpp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "cda04972487666443ec8a8548c85c73907d6c678",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "682fe2c5_79856803",
+        "filename": "xfa/fde/xml/fde_xml_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-15T19:49:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de4114ac_9d0c5cfc",
+      "range": {
+        "startLine": 1162,
+        "startChar": 19,
+        "endLine": 1162,
+        "endChar": 20
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
