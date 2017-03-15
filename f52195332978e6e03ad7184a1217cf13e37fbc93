@@ -22,6 +22,30 @@
       "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a667dbbf_56ee515c",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-15T19:36:39Z",
+      "side": 0,
+      "message": "The shift is because the values are \u003c\u003c FX_CHARTYPEBYTES and in order to convert them into 0-12 integers we shift them back. So, since we\u0027re comparing the actual type we don\u0027t need the shift.",
+      "parentUuid": "4a07b793_af99a3eb",
+      "range": {
+        "startLine": 298,
+        "startChar": 43,
+        "endLine": 298,
+        "endChar": 69
+      },
+      "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
