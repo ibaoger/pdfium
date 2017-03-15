@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cf8cd11_4fc87a6a",
+        "filename": "xfa/fde/xml/cfx_saxreader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-15T19:35:10Z",
+      "side": 1,
+      "message": "return;\n\nno else",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 10
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01fb45e_9b29b624",
+        "filename": "xfa/fde/xml/cfx_saxreader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-15T19:35:10Z",
+      "side": 1,
+      "message": "Not sure if it matters, but it\u0027s called a stack, maybe it can be std::stack. Or it can be renamed",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 13
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d987e5a9_cf042dad",
+        "filename": "xfa/fde/xml/fde_xml_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-15T19:35:10Z",
+      "side": 1,
+      "message": "use max?",
+      "range": {
+        "startLine": 1156,
+        "startChar": 2,
+        "endLine": 1158,
+        "endChar": 3
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de4114ac_9d0c5cfc",
+        "filename": "xfa/fde/xml/fde_xml_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-15T19:35:10Z",
+      "side": 1,
+      "message": "MacBraceFace",
+      "range": {
+        "startLine": 1162,
+        "startChar": 19,
+        "endLine": 1162,
+        "endChar": 20
+      },
+      "revId": "cda04972487666443ec8a8548c85c73907d6c678",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
