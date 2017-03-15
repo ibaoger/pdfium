@@ -91,6 +91,10 @@ class CPDF_TestDocumentForPages : public CPDF_Document {
     m_PageList.resize(7);
   }
 
+  void SetTreeSize(int size) {
+    m_pOwnedRootDict->SetNewFor<CPDF_Number>("Count", size);
+  }
+
  private:
   std::unique_ptr<CPDF_Dictionary> m_pOwnedRootDict;
 };
@@ -218,4 +222,15 @@ TEST_F(cpdf_document_test, UseCachedPageObjNumIfHaveNotPagesDict) {
   document.SetPageObjNum(test_page_num, obj_num);
   EXPECT_TRUE(document.IsPageLoaded(test_page_num));
   EXPECT_EQ(page_stub, document.GetPage(test_page_num));
+}
+
+TEST_F(cpdf_document_test, CountGreaterThanPageTree) {
+  std::unique_ptr<CPDF_TestDocumentForPages> document =
+      pdfium::MakeUnique<CPDF_TestDocumentForPages>();
+  document->SetTreeSize(10);
+  for (int i = 0; i < 7; i++)
+    EXPECT_TRUE(document->GetPage(i));
+  for (int i = 7; i < 11; i++)
+    EXPECT_FALSE(document->GetPage(i));
+  EXPECT_TRUE(document->GetPage(6));
 }
