@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b11d2e34_9c140ec2",
+        "filename": "xfa/fxfa/app/cxfa_textparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-15T20:36:01Z",
+      "side": 1,
+      "message": "Note: re-ordered just because it looks cleaner when this wrapped line comes last.",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "6601553a7f08120b0756b3536a582442ed2e49d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
