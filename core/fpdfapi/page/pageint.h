@@ -33,10 +33,11 @@ class CPDF_Function {
   static Type IntegerToFunctionType(int iType);
 
   virtual ~CPDF_Function();
+
   bool Call(FX_FLOAT* inputs,
             uint32_t ninputs,
             FX_FLOAT* results,
-            int& nresults) const;
+            int* nresults) const;
   uint32_t CountInputs() const { return m_nInputs; }
   uint32_t CountOutputs() const { return m_nOutputs; }
   FX_FLOAT GetDomain(int i) const { return m_pDomains[i]; }
@@ -148,20 +149,22 @@ class CPDF_IccProfile {
 class CPDF_DeviceCS : public CPDF_ColorSpace {
  public:
   CPDF_DeviceCS(CPDF_Document* pDoc, int family);
+  ~CPDF_DeviceCS() override;
 
+  // CPDF_ColorSpace:
   bool GetRGB(FX_FLOAT* pBuf,
-              FX_FLOAT& R,
-              FX_FLOAT& G,
-              FX_FLOAT& B) const override;
+              FX_FLOAT* R,
+              FX_FLOAT* G,
+              FX_FLOAT* B) const override;
   bool SetRGB(FX_FLOAT* pBuf,
               FX_FLOAT R,
               FX_FLOAT G,
               FX_FLOAT B) const override;
   bool v_GetCMYK(FX_FLOAT* pBuf,
-                 FX_FLOAT& c,
-                 FX_FLOAT& m,
-                 FX_FLOAT& y,
-                 FX_FLOAT& k) const override;
+                 FX_FLOAT* c,
+                 FX_FLOAT* m,
+                 FX_FLOAT* y,
+                 FX_FLOAT* k) const override;
   bool v_SetCMYK(FX_FLOAT* pBuf,
                  FX_FLOAT c,
                  FX_FLOAT m,
@@ -172,18 +175,20 @@ class CPDF_DeviceCS : public CPDF_ColorSpace {
                           int pixels,
                           int image_width,
                           int image_height,
-                          bool bTransMask = false) const override;
+                          bool bTransMask) const override;
 };
 
 class CPDF_PatternCS : public CPDF_ColorSpace {
  public:
   explicit CPDF_PatternCS(CPDF_Document* pDoc);
   ~CPDF_PatternCS() override;
+
+  // CPDF_ColorSpace:
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
   bool GetRGB(FX_FLOAT* pBuf,
-              FX_FLOAT& R,
-              FX_FLOAT& G,
-              FX_FLOAT& B) const override;
+              FX_FLOAT* R,
+              FX_FLOAT* G,
+              FX_FLOAT* B) const override;
   CPDF_ColorSpace* GetBaseCS() const override;
 
  private:

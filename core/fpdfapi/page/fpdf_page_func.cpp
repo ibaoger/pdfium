@@ -727,7 +727,7 @@ bool CPDF_StitchFunc::v_Call(FX_FLOAT* inputs, FX_FLOAT* outputs) const {
   input = PDF_Interpolate(input, m_pBounds[i], m_pBounds[i + 1],
                           m_pEncode[i * 2], m_pEncode[i * 2 + 1]);
   int nresults;
-  m_pSubFunctions[i]->Call(&input, kRequiredNumInputs, outputs, nresults);
+  m_pSubFunctions[i]->Call(&input, kRequiredNumInputs, outputs, &nresults);
   return true;
 }
 
@@ -820,11 +820,11 @@ bool CPDF_Function::Init(CPDF_Object* pObj) {
 bool CPDF_Function::Call(FX_FLOAT* inputs,
                          uint32_t ninputs,
                          FX_FLOAT* results,
-                         int& nresults) const {
-  if (m_nInputs != ninputs) {
+                         int* nresults) const {
+  if (m_nInputs != ninputs)
     return false;
-  }
-  nresults = m_nOutputs;
+
+  *nresults = m_nOutputs;
   for (uint32_t i = 0; i < m_nInputs; i++) {
     if (inputs[i] < m_pDomains[i * 2])
       inputs[i] = m_pDomains[i * 2];

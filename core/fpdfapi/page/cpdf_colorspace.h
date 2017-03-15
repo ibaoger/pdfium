@@ -43,22 +43,22 @@ class CPDF_ColorSpace {
   uint32_t CountComponents() const;
   int GetFamily() const { return m_Family; }
   virtual void GetDefaultValue(int iComponent,
-                               FX_FLOAT& value,
-                               FX_FLOAT& min,
-                               FX_FLOAT& max) const;
+                               FX_FLOAT* value,
+                               FX_FLOAT* min,
+                               FX_FLOAT* max) const;
 
   bool sRGB() const;
   virtual bool GetRGB(FX_FLOAT* pBuf,
-                      FX_FLOAT& R,
-                      FX_FLOAT& G,
-                      FX_FLOAT& B) const = 0;
+                      FX_FLOAT* R,
+                      FX_FLOAT* G,
+                      FX_FLOAT* B) const = 0;
   virtual bool SetRGB(FX_FLOAT* pBuf, FX_FLOAT R, FX_FLOAT G, FX_FLOAT B) const;
 
   bool GetCMYK(FX_FLOAT* pBuf,
-               FX_FLOAT& c,
-               FX_FLOAT& m,
-               FX_FLOAT& y,
-               FX_FLOAT& k) const;
+               FX_FLOAT* c,
+               FX_FLOAT* m,
+               FX_FLOAT* y,
+               FX_FLOAT* k) const;
   bool SetCMYK(FX_FLOAT* pBuf,
                FX_FLOAT c,
                FX_FLOAT m,
@@ -70,7 +70,7 @@ class CPDF_ColorSpace {
                                   int pixels,
                                   int image_width,
                                   int image_height,
-                                  bool bTransMask = false) const;
+                                  bool bTransMask) const;
 
   CPDF_Array*& GetArray() { return m_pArray; }
   virtual CPDF_ColorSpace* GetBaseCS() const;
@@ -85,10 +85,10 @@ class CPDF_ColorSpace {
 
   virtual bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray);
   virtual bool v_GetCMYK(FX_FLOAT* pBuf,
-                         FX_FLOAT& c,
-                         FX_FLOAT& m,
-                         FX_FLOAT& y,
-                         FX_FLOAT& k) const;
+                         FX_FLOAT* c,
+                         FX_FLOAT* m,
+                         FX_FLOAT* y,
+                         FX_FLOAT* k) const;
   virtual bool v_SetCMYK(FX_FLOAT* pBuf,
                          FX_FLOAT c,
                          FX_FLOAT m,
