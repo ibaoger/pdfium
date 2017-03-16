@@ -159,6 +159,8 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
   // If no valid ICC profile or using sRGB, try looking for an alternate.
   bool FindAlternateProfile(CPDF_Document* pDoc, CPDF_Dictionary* pDict);
 
+  bool IsValidComponents(int32_t nComps) const;
+  bool SetComponentsFromDictionary(CPDF_Dictionary* pDict);
   void UseStockAlternateProfile();
   void PopulateRanges(CPDF_Dictionary* pDict);
 
@@ -902,12 +904,16 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
   CPDF_Object* pAlterCSObj =
       pDict ? pDict->GetDirectObjectFor("Alternate") : nullptr;
   if (!pAlterCSObj) {
+    if (!IsValidComponents(m_nComponents))
+      SetComponentsFromDictionary(pDict);
     UseStockAlternateProfile();
     return true;
   }
 
   auto pAlterCS = CPDF_ColorSpace::Load(pDoc, pAlterCSObj);
   if (!pAlterCS) {
+    if (!IsValidComponents(m_nComponents))
+      SetComponentsFromDictionary(pDict);
     UseStockAlternateProfile();
     return true;
   }
@@ -929,15 +935,26 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
     return true;
   }
 
-  int32_t nDictComponents = pDict ? pDict->GetIntegerFor("N") : 0;
-  if (nDictComponents == 1 || nDictComponents == 3 || nDictComponents == 4) {
-    m_nComponents = nDictComponents;
+  if (SetComponentsFromDictionary(pDict)) {
     UseStockAlternateProfile();
     return true;
   }
 
   // No valid alternative colorspace
   return false;
+}
+
+bool CPDF_ICCBasedCS::IsValidComponents(int32_t nComps) const {
+  return nComps == 1 || nComps == 3 || nComps == 4;
+}
+
+bool CPDF_ICCBasedCS::SetComponentsFromDictionary(CPDF_Dictionary* pDict) {
+  int32_t nDictComponents = pDict ? pDict->GetIntegerFor("N") : 0;
+  if (!IsValidComponents(nDictComponents))
+    return false;
+
+  m_nComponents = nDictComponents;
+  return true;
 }
 
 void CPDF_ICCBasedCS::UseStockAlternateProfile() {
