@@ -739,7 +739,12 @@ void CPDF_StreamContentParser::Handle_ExecuteXObject() {
   CFX_ByteString name = GetString(0);
   if (name == m_LastImageName && m_pLastImage && m_pLastImage->GetStream() &&
       m_pLastImage->GetStream()->GetObjNum()) {
-    AddImage(m_pLastImage);
+    CPDF_ImageObject* pObj = AddImage(m_pLastImage);
+    // Record the location in order to replace it later
+    if (pObj->GetImage()->IsMask()) {
+      m_pObjectHolder->SetHasImageMask(CFX_FloatRect(
+          pObj->m_Left, pObj->m_Bottom, pObj->m_Right, pObj->m_Top));
+    }
     return;
   }
 
@@ -761,8 +766,10 @@ void CPDF_StreamContentParser::Handle_ExecuteXObject() {
 
     m_LastImageName = name;
     m_pLastImage = pObj->GetImage();
-    if (!m_pObjectHolder->HasImageMask())
-      m_pObjectHolder->SetHasImageMask(m_pLastImage->IsMask());
+    if (m_pLastImage->IsMask()) {
+      m_pObjectHolder->SetHasImageMask(CFX_FloatRect(
+          pObj->m_Left, pObj->m_Bottom, pObj->m_Right, pObj->m_Top));
+    }
   } else if (type == "Form") {
     AddForm(pXObject);
   }

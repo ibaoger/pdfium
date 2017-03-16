@@ -12,3 +12,11 @@
 CPDF_PageObject* CPDF_PageObjectList::GetPageObjectByIndex(int index) {
   return pdfium::IndexInBounds(*this, index) ? (*this)[index].get() : nullptr;
 }
+
+bool CPDF_PageObjectList::RemovePageObjectByIndex(int index) {
+  if (index < 0 || index >= pdfium::CollectionSize<int>(*this))
+    return false;
+  (*this)[index].release();
+  this->erase((*this).begin() + index);
+  return true;
+}

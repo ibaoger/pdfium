@@ -37,6 +37,12 @@ void CPDF_PageObjectHolder::ContinueParse(IFX_Pause* pPause) {
   }
 }
 
+void CPDF_PageObjectHolder::SetHasImageMask(CFX_FloatRect mask_bbox) {
+  // Set image mask true and save off the location.
+  m_bHasImageMask = true;
+  m_MaskBBox.push_back(mask_bbox);
+}
+
 void CPDF_PageObjectHolder::Transform(const CFX_Matrix& matrix) {
   for (auto& pObj : m_PageObjectList)
     pObj->Transform(matrix);
