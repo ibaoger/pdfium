@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4cf3482_0e9842c3",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T15:47:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c116dff_45326cfb",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 51,
+        "endChar": 15
+      },
+      "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "251d0c0f_3cbea549",
         "filename": "xfa/fgas/layout/cfx_break.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0132af51_4b3fb09d",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T15:47:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "251d0c0f_3cbea549",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 19
+      },
+      "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f05ff5a_df29c761",
         "filename": "xfa/fgas/layout/cfx_break.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-15T19:04:16Z",
       "side": 1,
       "message": "Why do we need this one here? Only saw it implemented in TextBreak",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 35
+      },
+      "revId": "f52195332978e6e03ad7184a1217cf13e37fbc93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdfdccca_cf7542b4",
+        "filename": "xfa/fgas/layout/cfx_break.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T15:47:27Z",
+      "side": 1,
+      "message": "Because this class needs to call it in some of the Setters.",
+      "parentUuid": "5f05ff5a_df29c761",
       "range": {
         "startLine": 52,
         "startChar": 2,
