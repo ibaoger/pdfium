@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b002d1a_b37afcd3",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T19:22:51Z",
+      "side": 1,
+      "message": "Prefer here to avoid doing the (fast) calculation every time in the for loops. Same with bAlpha in line 89",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "5ffe2e38cb4b09cfaef5e94b853093042d3d3146",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3e3202_0eee450c",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T19:22:51Z",
+      "side": 1,
+      "message": "New helper methods start from down here.",
+      "revId": "5ffe2e38cb4b09cfaef5e94b853093042d3d3146",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
