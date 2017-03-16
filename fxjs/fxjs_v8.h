@@ -22,6 +22,8 @@
 #include <vector>
 
 #include "core/fxcrt/fx_string.h"
+#include "third_party/base/allocator/partition_allocator/partition_alloc.h"
+
 #ifdef PDF_ENABLE_XFA
 // Header for CFXJSE_RuntimeData. FXJS_V8 doesn't interpret this class,
 // it is just passed along to XFA.
@@ -111,10 +113,15 @@ class FXJS_PerIsolateData {
 };
 
 class FXJS_ArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
-  static const size_t kMaxAllowedBytes = 0x10000000;
+ public:
+  FXJS_ArrayBufferAllocator() { partitionAllocator.init(); }
   void* Allocate(size_t length) override;
   void* AllocateUninitialized(size_t length) override;
   void Free(void* data, size_t length) override;
+
+ private:
+  static const size_t kMaxAllowedBytes = 0x10000000;
+  pdfium::base::PartitionAllocatorGeneric partitionAllocator;
 };
 
 void FXJS_Initialize(unsigned int embedderDataSlot, v8::Isolate* pIsolate);
