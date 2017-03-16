@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "8af96c21_cd74c3c2",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:52:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9230b2f_4d2bdae4",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "968cde93_eb192141",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 1
@@ -248,6 +272,30 @@
       "side": 1,
       "message": "There is another FormatDateTime method in the class. I prefer to add Internal to differentiate then do ::FormateDateTime.",
       "parentUuid": "bd221a21_47c355d1",
+      "range": {
+        "startLine": 937,
+        "startChar": 19,
+        "endLine": 937,
+        "endChar": 27
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ba5232_60041a84",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:52:05Z",
+      "side": 1,
+      "message": "Unneeded because they have different parameters, but that\u0027s ok",
+      "parentUuid": "dd72ae27_0db98fe5",
       "range": {
         "startLine": 937,
         "startChar": 19,
