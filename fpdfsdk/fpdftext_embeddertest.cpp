@@ -370,6 +370,66 @@ TEST_F(FPDFTextEmbeddertest, WebLinks) {
   UnloadPage(page);
 }
 
+TEST_F(FPDFTextEmbeddertest, WebLinksAcrossLines) {
+  EXPECT_TRUE(OpenDocument("weblinks_across_lines.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  EXPECT_TRUE(page);
+
+  FPDF_TEXTPAGE textpage = FPDFText_LoadPage(page);
+  EXPECT_TRUE(textpage);
+
+  FPDF_PAGELINK pagelink = FPDFLink_LoadWebLinks(textpage);
+  EXPECT_TRUE(pagelink);
+
+  EXPECT_EQ(5, FPDFLink_CountWebLinks(pagelink));
+
+  static const char* expected_url[5] = {
+      "http://example.com?",          // from "http://www.example.com?\r\nfoo"
+      "http://example.com/",          // from "http://www.example.com/\r\nfoo"
+      "http://example.com/test-foo",  // from "http://example.com/test-\r\nfoo"
+      // Next two links from "http://www.example.com/\r\nhttp://www.abc.com/"
+      "http://example.com/", "http://www.abc.com",
+  };
+  unsigned short fixed_buffer[128];
+
+  for (int i = 0; i < 5; i++) {
+    const size_t expected_len = strlen(expected_url[i]) + 1;
+    memset(fixed_buffer, 0, 128);
+    EXPECT_EQ(static_cast<int>(expected_len),
+              FPDFLink_GetURL(pagelink, i, nullptr, 0));
+    EXPECT_EQ(static_cast<int>(expected_len),
+              FPDFLink_GetURL(pagelink, i, fixed_buffer, 128));
+    EXPECT_TRUE(
+        check_unsigned_shorts(expected_url[i], fixed_buffer, expected_len));
+  }
+
+  FPDFLink_CloseWebLinks(pagelink);
+  FPDFText_ClosePage(textpage);
+  UnloadPage(page);
+}
+
+TEST_F(FPDFTextEmbeddertest, WebLinksAcrossLinesBug) {
+  EXPECT_TRUE(OpenDocument("bug_650.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  EXPECT_TRUE(page);
+
+  FPDF_TEXTPAGE textpage = FPDFText_LoadPage(page);
+  EXPECT_TRUE(textpage);
+
+  FPDF_PAGELINK pagelink = FPDFLink_LoadWebLinks(textpage);
+  EXPECT_TRUE(pagelink);
+
+  EXPECT_EQ(2, FPDFLink_CountWebLinks(pagelink));
+  unsigned short fixed_buffer[128] = {0};
+  static const char expected_url[] =
+      "http://tutorial45.com/learn-autocad-basics-day-166/";
+  int url_size = static_cast<int>(sizeof(expected_url));
+
+  EXPECT_EQ(url_size, FPDFLink_GetURL(pagelink, 1, nullptr, 0));
+  EXPECT_EQ(url_size, FPDFLink_GetURL(pagelink, 1, fixed_buffer, 128));
+  EXPECT_TRUE(check_unsigned_shorts(expected_url, fixed_buffer, url_size));
+}
+
 TEST_F(FPDFTextEmbeddertest, GetFontSize) {
   EXPECT_TRUE(OpenDocument("hello_world.pdf"));
   FPDF_PAGE page = LoadPage(0);
