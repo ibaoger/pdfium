@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "4e956805_ea00ad16",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-16T18:14:24Z",
+      "side": 1,
+      "message": "This comment is no longer true.  Nonetheless, source-set is preferred.  Let\u0027s just remove the comment",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 55
+      },
+      "revId": "4a50e5cc54d909cb6db67916166908857fd3ec49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b618813b_1f8b56f1",
         "filename": "third_party/base/logging.h",
         "patchSetId": 1
