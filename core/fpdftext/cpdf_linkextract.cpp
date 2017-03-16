@@ -31,18 +31,36 @@ void CPDF_LinkExtract::ExtractLinks() {
 }
 
 void CPDF_LinkExtract::ParseLink() {
-  int start = 0, pos = 0;
-  int TotalChar = m_pTextPage->CountChars();
-  while (pos < TotalChar) {
+  int start = 0;
+  int pos = 0;
+  int totalChar = m_pTextPage->CountChars();
+  bool afterHyphen = false;
+  bool lineBreak = false;
+  while (pos < totalChar) {
     FPDF_CHAR_INFO pageChar;
     m_pTextPage->GetCharInfo(pos, &pageChar);
     if (pageChar.m_Flag == FPDFTEXT_CHAR_GENERATED ||
-        pageChar.m_Unicode == 0x20 || pos == TotalChar - 1) {
+        pageChar.m_Unicode == TEXT_SPACE_CHAR || pos == totalChar - 1) {
       int nCount = pos - start;
-      if (pos == TotalChar - 1)
+      if (pos == totalChar - 1) {
         nCount++;
+      } else if (afterHyphen && (pageChar.m_Unicode == TEXT_LINEFEED_CHAR ||
+                                 pageChar.m_Unicode == TEXT_RETURN_CHAR)) {
+        // Handle text breaks with a hyphen to the next line.
+        lineBreak = true;
+        pos++;
+        continue;
+      }
       CFX_WideString strBeCheck;
       strBeCheck = m_pTextPage->GetPageText(start, nCount);
+      if (lineBreak) {
+        strBeCheck.Remove(TEXT_LINEFEED_CHAR);
+        strBeCheck.Remove(TEXT_RETURN_CHAR);
+        lineBreak = false;
+      }
+      // Replace the generated code with the hyphen char.
+      strBeCheck.Replace(L"\xfffe", TEXT_HYPHEN);
+
       if (strBeCheck.GetLength() > 5) {
         while (strBeCheck.GetLength() > 0) {
           wchar_t ch = strBeCheck.GetAt(strBeCheck.GetLength() - 1);
@@ -60,6 +78,9 @@ void CPDF_LinkExtract::ParseLink() {
       }
       start = ++pos;
     } else {
+      afterHyphen = (pageChar.m_Flag == FPDFTEXT_CHAR_HYPHEN ||
+                     (pageChar.m_Flag == FPDFTEXT_CHAR_NORMAL &&
+                      pageChar.m_Unicode == TEXT_HYPHEN_CHAR));
       pos++;
     }
   }
