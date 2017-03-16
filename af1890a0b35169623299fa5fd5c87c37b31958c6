@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1489617801 -0700\nnonce AIcUUg+dHf3Fpt1f7JZzdZQjRlnI3387K4mx2LOnjXKTYnb+T0+xptbLtxSR2vwzNSVysbV5oTQv\n\n0000000000000000000000000000000000000000 af1890a0b35169623299fa5fd5c87c37b31958c6 refs/for/refs/heads/master%m\u003drebase,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYycOJAAoJEKs2LWFaZv1794wIAKHLnZYZNrV4LcOHSv+57+PW\n60NOFoLX2z1aNiOq2IPXbKwr8IB46SGBkTviKZR3a0+cdHkxyni0ydXAGCyK7S0A\nQSCZ+MyPk/0hTLsORVzFgvUXP7S9ckf7aKTEIpSvc3WW59KscwErhBk8ZNarn6h7\nEsHPoMUys+SGI3l5zGDN5CJEn73ThQZWPzcq/4Rk93gjC4dlP8GqSnxq2kuyznEB\nhoBTnmdqSm8hWzmIqKtodAGry6PyVAHYLgZeux0uGh0ZdrEaqlznYJ1fPmO7kxbQ\nbT10FRvVUTu7muoMwdmZH/uQZUVJdiWoX4M3FvYgprhbh10F+Z1Y9s5nQ7KdzAk\u003d\n\u003dbXwO\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea64935_19289c45",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T14:17:02Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 431,
+        "startChar": 28,
+        "endLine": 431,
+        "endChar": 29
+      },
+      "revId": "af1890a0b35169623299fa5fd5c87c37b31958c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
