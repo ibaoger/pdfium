@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "9395c1e2_4d5c9e7c",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:50:40Z",
+      "side": 1,
+      "message": "Do we want to continue with the Hungarian notation? nTotalChar, bAfterHyphen, etc...",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 15
+      },
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fc05bbc_308d9346",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:50:40Z",
+      "side": 1,
+      "message": "const char* const",
+      "range": {
+        "startLine": 386,
+        "startChar": 9,
+        "endLine": 386,
+        "endChar": 20
+      },
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80d4bfe9_8f97b366",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:50:40Z",
+      "side": 1,
+      "message": "kExpectedUrl",
+      "range": {
+        "startLine": 424,
+        "startChar": 20,
+        "endLine": 424,
+        "endChar": 32
+      },
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f422d2c_3b651258",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:50:40Z",
+      "side": 1,
+      "message": "kUrlSize",
+      "range": {
+        "startLine": 426,
+        "startChar": 6,
+        "endLine": 426,
+        "endChar": 14
+      },
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93da09f3_62b83806",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:50:40Z",
+      "side": 1,
+      "message": "FX_ArraySize(fixed_buffer), same on line 401 above.",
+      "range": {
+        "startLine": 429,
+        "startChar": 65,
+        "endLine": 429,
+        "endChar": 68
+      },
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdc749c0_d383debf",
         "filename": "testing/resources/weblinks_across_lines.in",
         "patchSetId": 2
