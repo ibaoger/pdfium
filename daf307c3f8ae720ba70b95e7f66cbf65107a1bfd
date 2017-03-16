@@ -22,6 +22,30 @@
       "revId": "daf307c3f8ae720ba70b95e7f66cbf65107a1bfd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e023ec2e_d5168061",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T22:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48a99c2e_967a711e",
+      "range": {
+        "startLine": 337,
+        "startChar": 2,
+        "endLine": 337,
+        "endChar": 6
+      },
+      "revId": "daf307c3f8ae720ba70b95e7f66cbf65107a1bfd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
