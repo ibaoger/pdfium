@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41cb8a1f_2c14a0d7",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-16T20:09:05Z",
+      "side": 1,
+      "message": "note: new directory for C++.  Everything in public has to be C.",
+      "range": {
+        "startLine": 145,
+        "startChar": 3,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "7a7d1e66651dd95bf6f4660124654402d5762bd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
