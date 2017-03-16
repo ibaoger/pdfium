@@ -1,0 +1,433 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3bf0208_977ef26f",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "We can get rid of m_bHasImageMask and check !m_MaskBbox.empty() instead.",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1dc3c5f_da7c9c26",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Rename to GetMaskBoundingBoxes.",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f57706a6_3cfb7494",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Return type: const std::vector\u003cCFX_FloatRect\u003e\u0026",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62cb72bf_bc665279",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Pass by const-ref, , or pass in the const CPDF_ImageObject\u0026 and read the size from the object inside this method.",
+      "range": {
+        "startLine": 47,
+        "startChar": 23,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2899e222_a1fa85b1",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Rename to AddImageMaskBoundingBox.",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "907bf3c4_f40210b8",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectlist.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "We  recently added pdfium::IndexInBounds(), as seen in the method above.",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfad2fa8_f6e740f2",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectlist.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Isn\u0027t this leaking memory?",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015d8b05_bb8ebce6",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectlist.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Is this need or can we keep the forward decl? Maybe this needs to be moved to the .cpp file instead?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11211369_491024c1",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Why can\u0027t the caller just call Continue(nullptr) directly?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6cfeb4f_b8977741",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Keep this as the last statement in the block?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb53777_047c7a16",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "I wonder if the device class is ever something other than FXDC_DISPLAY on non-Windows platforms, and how that would affect rendering.",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20082aa2_156c9745",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Blank line after.",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c33ea83_d360312a",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Since these are no longer in public/, they don\u0027t have to be named like public APIs.",
+      "range": {
+        "startLine": 702,
+        "startChar": 5,
+        "endLine": 702,
+        "endChar": 26
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "182c8816_60df20aa",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "You may want to do this outside of this method, and change the newly added methods to just take a CPDF_Page* instead.",
+      "range": {
+        "startLine": 703,
+        "startChar": 21,
+        "endLine": 703,
+        "endChar": 41
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd8c3c88_629eb77c",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "const ref",
+      "range": {
+        "startLine": 728,
+        "startChar": 34,
+        "endLine": 728,
+        "endChar": 47
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a48b30e3_459b564c",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Can we multiple scale_foo by mask_box.bar in the same order in this function?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6311bb1a_b99a746a",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Why not just use std::swap?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59fa4671_fd64ee23",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "When is this ever true?",
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bdb3acb_61313428",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "Can the width/height ever be 0 and cause a divide by 0 error?",
+      "range": {
+        "startLine": 794,
+        "startChar": 31,
+        "endLine": 794,
+        "endChar": 43
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "212483f0_7456687f",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 971,
+        "startChar": 9,
+        "endLine": 971,
+        "endChar": 12
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3317c3e9_93ff935a",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T23:11:46Z",
+      "side": 1,
+      "message": "No parens.",
+      "range": {
+        "startLine": 973,
+        "startChar": 31,
+        "endLine": 973,
+        "endChar": 43
+      },
+      "revId": "60dac72815bbc526e740bb292f382f88b7743a85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
