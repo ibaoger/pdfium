@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77be2e0f_a36f3403",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 55
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38cdff4b_e82859cf",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "what is this ending in //",
+      "range": {
+        "startLine": 187,
+        "startChar": 1,
+        "endLine": 187,
+        "endChar": 6
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aad2b70_7e93b93c",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "unneeded param for GetDayOfAD",
+      "range": {
+        "startLine": 220,
+        "startChar": 24,
+        "endLine": 220,
+        "endChar": 34
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "384872be_59b7f3f3",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "Does DateTime need these then?",
+      "range": {
+        "startLine": 274,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 40
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b431744_11eed13e",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "Are these ever call with something different from 0?",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ca9558_91db9907",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "this is just FX_DATE",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36dc7920_03e0c586",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "This is just FX_TIME",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 7
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c731cea6_e4d0e094",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "nit: {}",
+      "range": {
+        "startLine": 2234,
+        "startChar": 15,
+        "endLine": 2234,
+        "endChar": 17
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78d7c34_b87772f8",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3585,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "nitto",
+      "range": {
+        "startLine": 3585,
+        "startChar": 31,
+        "endLine": 3585,
+        "endChar": 32
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9a19918_f4f88b96",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T18:21:09Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 525,
+        "startChar": 35,
+        "endLine": 525,
+        "endChar": 36
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
