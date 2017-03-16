@@ -61,9 +61,10 @@ std::unique_ptr<CPDF_Object> CPDF_Reference::CloneNonCyclic(
   pVisited->insert(this);
   if (bDirect) {
     auto* pDirect = GetDirect();
-    return pDirect && !pdfium::ContainsKey(*pVisited, pDirect)
-               ? pDirect->CloneNonCyclic(true, pVisited)
-               : nullptr;
+    // If we have a direct object that has already been cloned, we should just
+    // insert the ref so we don't end up with null objects.
+    if (pDirect && !pdfium::ContainsKey(*pVisited, pDirect))
+      return pDirect->CloneNonCyclic(true, pVisited);
   }
   return pdfium::MakeUnique<CPDF_Reference>(m_pObjList, m_RefObjNum);
 }
