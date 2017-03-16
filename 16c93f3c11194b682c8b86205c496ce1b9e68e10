@@ -70,6 +70,30 @@
       "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "540f54aa_28225f1d",
+        "filename": "core/fpdfapi/parser/cpdf_reference.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T18:59:58Z",
+      "side": 1,
+      "message": "Doesn\u0027t that fail the ContainsKey check? In which case we don\u0027t clone, we just create a CPDF_Reference and return that. We don\u0027t clone anything if it\u0027s already been cloned.",
+      "parentUuid": "cb09882f_91b4b7cc",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
