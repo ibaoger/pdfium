@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa65523f_7d62f9fd",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "We\u0027re in 2017 now",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185e26e6_a2f63f11",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 14,
+        "startChar": 38,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "896fe38e_29d753e3",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "This file is nittilicious, since this CL is so big I\u0027m ignoring them.",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3966215b_3b35b756",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "These \"inline\" methods with for loops inside are not really inline are they",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "968cde93_eb192141",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "More nittilicious files. Yum",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd221a21_47c355d1",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "We know it\u0027s internal, it\u0027s in the namespace.",
+      "range": {
+        "startLine": 937,
+        "startChar": 19,
+        "endLine": 937,
+        "endChar": 27
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afdf4368_bdb4993f",
+        "filename": "xfa/fgas/localization/fgas_locale.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "is this \u003d 3 used or can we remove it",
+      "range": {
+        "startLine": 93,
+        "startChar": 48,
+        "endLine": 93,
+        "endChar": 51
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6201d20e_555c996c",
+        "filename": "xfa/fgas/localization/fgas_locale.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 10
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a8eb910_d57cfc68",
+        "filename": "xfa/fxfa/parser/xfa_localemgr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-16T20:38:01Z",
+      "side": 1,
+      "message": "private",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
