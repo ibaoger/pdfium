@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdc749c0_d383debf",
+        "filename": "testing/resources/weblinks_across_lines.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:41:15Z",
+      "side": 1,
+      "message": "Can we also add \"http://example.com/test-\\r\\n\\r\\nfoo\" as a test case?",
+      "revId": "10a70c80075fe8e2c262c329f374ed995631061a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
