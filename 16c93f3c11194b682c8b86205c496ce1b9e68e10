@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87034eb2_46938e1e",
+        "filename": "core/fpdfapi/parser/cpdf_reference.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-03-16T16:36:01Z",
+      "side": 1,
+      "message": "I suspect this could cause some infinite loop. Did you try cases such as reference obj X to an object Y (dict or array) which has a reference back to X?",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
