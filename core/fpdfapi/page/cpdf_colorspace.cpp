@@ -159,7 +159,13 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
   // If no valid ICC profile or using sRGB, try looking for an alternate.
   bool FindAlternateProfile(CPDF_Document* pDoc, CPDF_Dictionary* pDict);
 
-  void UseStockAlternateProfile();
+  // Pick a stock profile based on the components count in the colorspace. If
+  // the components count is invalid, try setting it using values from |pDict|.
+  // Returns true if the components count is valid, in which case, a stock
+  // profile has been selected.
+  bool UseStockAlternateProfile(CPDF_Dictionary* pDict);
+
+  bool IsValidComponents(int32_t nComps) const;
   void PopulateRanges(CPDF_Dictionary* pDict);
 
   CFX_MaybeOwned<CPDF_ColorSpace> m_pAlterCS;
@@ -902,13 +908,13 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
   CPDF_Object* pAlterCSObj =
       pDict ? pDict->GetDirectObjectFor("Alternate") : nullptr;
   if (!pAlterCSObj) {
-    UseStockAlternateProfile();
+    UseStockAlternateProfile(pDict);
     return true;
   }
 
   auto pAlterCS = CPDF_ColorSpace::Load(pDoc, pAlterCSObj);
   if (!pAlterCS) {
-    UseStockAlternateProfile();
+    UseStockAlternateProfile(pDict);
     return true;
   }
 
@@ -917,7 +923,7 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
     if (pAlterCS->CountComponents() == m_nComponents)
       m_pAlterCS = std::move(pAlterCS);
     else
-      UseStockAlternateProfile();
+      UseStockAlternateProfile(pDict);
     return true;
   }
 
@@ -929,25 +935,31 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
     return true;
   }
 
-  int32_t nDictComponents = pDict ? pDict->GetIntegerFor("N") : 0;
-  if (nDictComponents == 1 || nDictComponents == 3 || nDictComponents == 4) {
-    m_nComponents = nDictComponents;
-    UseStockAlternateProfile();
-    return true;
-  }
-
-  // No valid alternative colorspace
-  return false;
+  return UseStockAlternateProfile(pDict);
 }
 
-void CPDF_ICCBasedCS::UseStockAlternateProfile() {
+bool CPDF_ICCBasedCS::UseStockAlternateProfile(CPDF_Dictionary* pDict) {
   ASSERT(!m_pAlterCS);
+
+  if (!IsValidComponents(m_nComponents)) {
+    int32_t nDictComponents = pDict ? pDict->GetIntegerFor("N") : 0;
+    if (!IsValidComponents(nDictComponents))
+      return false;
+
+    m_nComponents = nDictComponents;
+  }
+
   if (m_nComponents == 1)
     m_pAlterCS = GetStockCS(PDFCS_DEVICEGRAY);
   else if (m_nComponents == 3)
     m_pAlterCS = GetStockCS(PDFCS_DEVICERGB);
   else if (m_nComponents == 4)
     m_pAlterCS = GetStockCS(PDFCS_DEVICECMYK);
+  return true;
+}
+
+bool CPDF_ICCBasedCS::IsValidComponents(int32_t nComps) const {
+  return nComps == 1 || nComps == 3 || nComps == 4;
 }
 
 void CPDF_ICCBasedCS::PopulateRanges(CPDF_Dictionary* pDict) {
