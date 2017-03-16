@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b929be50_2f158542",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Bah, you\u0027re living in the future.",
+      "parentUuid": "fa65523f_7d62f9fd",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "185e26e6_a2f63f11",
         "filename": "xfa/fgas/localization/cfx_decimal.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d520b7a1_55800288",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185e26e6_a2f63f11",
+      "range": {
+        "startLine": 14,
+        "startChar": 38,
+        "endLine": 14,
+        "endChar": 39
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "896fe38e_29d753e3",
         "filename": "xfa/fgas/localization/cfx_decimal.cpp",
         "patchSetId": 1
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "fe267a8f_e3a99f07",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "896fe38e_29d753e3",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3966215b_3b35b756",
         "filename": "xfa/fgas/localization/cfx_decimal.cpp",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-03-16T20:38:01Z",
       "side": 1,
       "message": "These \"inline\" methods with for loops inside are not really inline are they",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9230b2f_4d2bdae4",
+        "filename": "xfa/fgas/localization/cfx_decimal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "I\u0027m assuming they did this for performance, this is just hinting to the compiler we want it inlined.",
+      "parentUuid": "3966215b_3b35b756",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "005e0107_1a1c0381",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "968cde93_eb192141",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd221a21_47c355d1",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2017-03-16T20:38:01Z",
       "side": 1,
       "message": "We know it\u0027s internal, it\u0027s in the namespace.",
+      "range": {
+        "startLine": 937,
+        "startChar": 19,
+        "endLine": 937,
+        "endChar": 27
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd72ae27_0db98fe5",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "There is another FormatDateTime method in the class. I prefer to add Internal to differentiate then do ::FormateDateTime.",
+      "parentUuid": "bd221a21_47c355d1",
       "range": {
         "startLine": 937,
         "startChar": 19,
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "9de47634_996a6da3",
+        "filename": "xfa/fgas/localization/fgas_locale.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afdf4368_bdb4993f",
+      "range": {
+        "startLine": 93,
+        "startChar": 48,
+        "endLine": 93,
+        "endChar": 51
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6201d20e_555c996c",
         "filename": "xfa/fgas/localization/fgas_locale.h",
         "patchSetId": 1
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "a08bf9cb_05690ee7",
+        "filename": "xfa/fgas/localization/fgas_locale.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6201d20e_555c996c",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 10
+      },
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a8eb910_d57cfc68",
         "filename": "xfa/fxfa/parser/xfa_localemgr.h",
         "patchSetId": 1
@@ -188,6 +368,24 @@
       "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661d09aa_04de419a",
+        "filename": "xfa/fxfa/parser/xfa_localemgr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-16T20:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a8eb910_d57cfc68",
+      "revId": "2ad5196eaf871b146f430bf7df3355cf089d1fe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
