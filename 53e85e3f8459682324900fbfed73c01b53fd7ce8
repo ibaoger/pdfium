@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cb1f378_3ed86dbc",
+        "filename": "public/cpp/fpdf_deleters.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-16T21:24:57Z",
+      "side": 1,
+      "message": "Well, I do want to rewrite the public API in C++, so this is a step in the right direction. We probably will need these anyway for convenience and to help make the transition easier.",
+      "revId": "53e85e3f8459682324900fbfed73c01b53fd7ce8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
