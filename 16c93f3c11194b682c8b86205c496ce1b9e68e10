@@ -46,6 +46,30 @@
       "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb09882f_91b4b7cc",
+        "filename": "core/fpdfapi/parser/cpdf_reference.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-03-16T18:58:00Z",
+      "side": 1,
+      "message": "The problem is when you clone X, you need to Clone Y, then you need to clone X again, won\u0027t this be a loop?",
+      "parentUuid": "d41c423e_6075341a",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
