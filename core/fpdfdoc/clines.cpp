@@ -40,6 +40,7 @@ int32_t CLines::Add(const CPVT_LineInfo& lineinfo) {
     m_Lines.Add(pLine);
   } else if (CLine* pLine = GetAt(m_nTotal)) {
     pLine->m_LineInfo = lineinfo;
+    pLine->LinePlace = CPVT_WordPlace();
   }
   return m_nTotal++;
 }
