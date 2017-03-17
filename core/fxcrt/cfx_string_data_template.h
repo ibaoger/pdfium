@@ -9,7 +9,11 @@
 
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
+#include "third_party/base/allocator/partition_allocator/partition_alloc.h"
 #include "third_party/base/numerics/safe_math.h"
+
+extern pdfium::base::PartitionAllocatorGeneric g_partitionAllocator;
+extern bool g_partitionAllocatorInitialized;
 
 template <typename CharType>
 class CFX_StringDataTemplate {
@@ -35,7 +39,13 @@ class CFX_StringDataTemplate {
     int usableLen = (totalSize - overhead) / sizeof(CharType);
     ASSERT(usableLen >= nLen);
 
-    void* pData = FX_Alloc(uint8_t, totalSize);
+    if (!g_partitionAllocatorInitialized) {
+      g_partitionAllocator.init();
+      g_partitionAllocatorInitialized = true;
+    }
+
+    void* pData = pdfium::base::PartitionAllocGeneric(
+        g_partitionAllocator.root(), totalSize, "CFX_StringDataTemplate");
     return new (pData) CFX_StringDataTemplate(nLen, usableLen);
   }
 
@@ -54,7 +64,7 @@ class CFX_StringDataTemplate {
   void Retain() { ++m_nRefs; }
   void Release() {
     if (--m_nRefs <= 0)
-      FX_Free(this);
+      pdfium::base::PartitionFree(this);
   }
 
   bool CanOperateInPlace(FX_STRSIZE nTotalLen) const {
