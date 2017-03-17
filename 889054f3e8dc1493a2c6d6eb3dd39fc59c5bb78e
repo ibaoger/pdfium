@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "ae334345_0556b97e",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "We do want to use an alternate for sRGB. For sRGB, IsValid() is true, and GetComponents() returns 3. So as long as N\u003d3, we pass this check and continue on. However, IsSupported() returns false for sRGB below, so we end up looking for an alternate.",
+      "parentUuid": "3c360a5a_7593f3e0",
+      "range": {
+        "startLine": 805,
+        "startChar": 6,
+        "endLine": 805,
+        "endChar": 25
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c278934_13aa7807",
         "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "01eefdb9_726a42c7",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "It\u0027s an override.",
+      "parentUuid": "de51245f_59fe52cf",
+      "range": {
+        "startLine": 823,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 4
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79f3ad68_5ee9ed9e",
         "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
         "patchSetId": 3
@@ -83,6 +131,30 @@
       "writtenOn": "2017-03-17T15:29:56Z",
       "side": 1,
       "message": "It looks like this can return nullptr. so leave the pIccModule check from before?",
+      "range": {
+        "startLine": 833,
+        "startChar": 4,
+        "endLine": 833,
+        "endChar": 70
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a9b7e1_c36bf16c",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "There\u0027s no way for a transform to exist without the ICC Module. If you look in CPDF_IccProfile::~CPDF_IccProfile(), it makes this same assumption.",
+      "parentUuid": "79f3ad68_5ee9ed9e",
       "range": {
         "startLine": 833,
         "startChar": 4,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "5b1fc7b5_44621b1a",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "I\u0027ll make another pass through this file and fix the nits in a separate CL.",
+      "parentUuid": "b0ad1aef_86081746",
+      "range": {
+        "startLine": 881,
+        "startChar": 21,
+        "endLine": 884,
+        "endChar": 5
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c8da128_5a859b53",
         "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
         "patchSetId": 3
@@ -138,6 +234,30 @@
       "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "007136ae_6338ce89",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c8da128_5a859b53",
+      "range": {
+        "startLine": 897,
+        "startChar": 23,
+        "endLine": 897,
+        "endChar": 30
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +295,30 @@
       "writtenOn": "2017-03-17T15:29:56Z",
       "side": 1,
       "message": "Why is this check needed?",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 35
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91aa49f0_ad1c7dfa",
+        "filename": "core/fpdfapi/page/fpdf_page_colors.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T16:57:24Z",
+      "side": 1,
+      "message": "As I said in my previous comment, the old code can end up with a null |m_pTransform| but set the |m_nSrcComponents|. That may be a little confusing. This makes sure |m_nSrcComponents| \u003e 0 IFF |m_pTransform| is valid.",
+      "parentUuid": "85b13524_009bc206",
       "range": {
         "startLine": 231,
         "startChar": 4,
