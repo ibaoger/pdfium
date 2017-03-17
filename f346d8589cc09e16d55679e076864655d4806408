@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e564c54_96d4d3ce",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "Outdated comment. I\u0027d just omit it.",
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f05073dd_5af8789c",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "How about \"Record the bounding box of this image, so rendering code can draw it properly.\" so we answer the question of who will replace it later.",
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64992f24_dd5abc86",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "If we aer going to return, do we still have to increment |iter| ?",
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef2cdaa_7f43a127",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "No parens.",
+      "range": {
+        "startLine": 731,
+        "startChar": 9,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c14f3d5_04dc728c",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "No FPDF_, same for RenderMaskToBitmap().",
+      "range": {
+        "startLine": 768,
+        "startChar": 5,
+        "endLine": 768,
+        "endChar": 20
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccba529c_c14b4470",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "Can we just ASSERT(scale_x) instead?",
+      "range": {
+        "startLine": 775,
+        "startChar": 17,
+        "endLine": 775,
+        "endChar": 24
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669dea44_1a23632c",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "const ref",
+      "range": {
+        "startLine": 794,
+        "startChar": 29,
+        "endLine": 794,
+        "endChar": 42
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d779c9da_d7e5cb6c",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "The current code to do the round up will round 5.1 to 6, but also round 5 to 6. Maybe it\u0027s not a big deal?",
+      "range": {
+        "startLine": 810,
+        "startChar": 35,
+        "endLine": 810,
+        "endChar": 43
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c64648_d01b3896",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "If either of the two size values is 0, this block divides by 0. It might be pointless to continue if the mask has 0 area.",
+      "range": {
+        "startLine": 819,
+        "startChar": 11,
+        "endLine": 819,
+        "endChar": 23
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86e53eb0_4942b432",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "You can avoid using new by going the other way:\n\npPage-\u003eSetRenderContext(pdfium::MakeUnique\u003cCPDF_PageRenderContext\u003e());\nCPDF_PageRenderContext* pContext \u003d pPage-\u003eGetRenderContext();",
+      "range": {
+        "startLine": 836,
+        "startChar": 37,
+        "endLine": 836,
+        "endChar": 40
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15044c63_74c4f1c0",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "This is O(N^2) calls. Is there a better way to do this?",
+      "range": {
+        "startLine": 855,
+        "startChar": 27,
+        "endLine": 855,
+        "endChar": 35
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82aa228b_85738c66",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "Can you explain why it has to have at least 100 masks?",
+      "range": {
+        "startLine": 940,
+        "startChar": 71,
+        "endLine": 940,
+        "endChar": 74
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23dfc777_7a99571b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T23:04:23Z",
+      "side": 1,
+      "message": "We just added FPDFBitmapDeleter, so maybe this can be std::vector\u003cstd::unique_ptr\u003cvoid, FPDFBitmapDeleter\u003e\u003e, so you don\u0027t have to call FPDFBitmap_Destroy() anymore.",
+      "range": {
+        "startLine": 944,
+        "startChar": 16,
+        "endLine": 944,
+        "endChar": 27
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
