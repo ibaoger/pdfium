@@ -29,12 +29,13 @@
 #include "third_party/agg23/agg_renderer_scanline.h"
 #include "third_party/agg23/agg_scanline_u.h"
 #include "third_party/base/ptr_util.h"
+#include "third_party/base/stl_util.h"
 
 namespace {
 
 CFX_PointF HardClip(const CFX_PointF& pos) {
-  return CFX_PointF(std::max(std::min(pos.x, 50000.0f), -50000.0f),
-                    std::max(std::min(pos.y, 50000.0f), -50000.0f));
+  return CFX_PointF(pdfium::clamp(pos.x, -50000.0f, 50000.0f),
+                    pdfium::clamp(pos.y, -50000.0f, 50000.0f));
 }
 
 void RgbByteOrderSetPixel(CFX_DIBitmap* pBitmap, int x, int y, uint32_t argb) {
