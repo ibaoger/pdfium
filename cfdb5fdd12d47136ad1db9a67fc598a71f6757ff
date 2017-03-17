@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "daa3495c_593302e9",
+        "filename": "third_party/zlib_v1211/gzguts.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-17T17:32:52Z",
+      "side": 0,
+      "message": "I would say only if it is really necessary.\n\nIdeally, the zlib used by PDFium should be as close as possible to vanilla zlib.",
+      "parentUuid": "27079841_23e4fcbe",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f03b5eb7_22762f76",
         "filename": "third_party/zlib_v1211/gzguts.h",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "8ab8938d_da274556",
+        "filename": "third_party/zlib_v1211/inflate.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-17T17:32:52Z",
+      "side": 0,
+      "message": "dictid will have its value set by the call to adler32(), that in case of an empty buffer will return 1L. Also notice that the first call to adler32() will use 0L as the first parameter.\n\nOnly after being set to a valid value returned by adler32(), dictid will be used to test for error.\n\nThere is no need to set it to zero (even though I would like to make that change on upstream zlib).\n\nUnless there is a known case where it would fail, it is advisable to avoid patching zlib.",
+      "parentUuid": "c0093e04_4c110fed",
+      "range": {
+        "startLine": 1300,
+        "startChar": 4,
+        "endLine": 1300,
+        "endChar": 11
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e71ad04_82782883",
         "filename": "third_party/zlib_v1211/zconf.h",
         "patchSetId": 1
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c68aa158_f718eacc",
+        "filename": "third_party/zlib_v1211/zconf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-17T17:32:52Z",
+      "side": 0,
+      "message": "Seems to be a compiler workaround, maybe no longer necessary.",
+      "parentUuid": "7e71ad04_82782883",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 5
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "327476fe_f5784896",
         "filename": "third_party/zlib_v1211/zlib.h",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2017-03-17T15:01:29Z",
       "side": 0,
       "message": "ditto",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56ae0c6f_400b5453",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-17T17:32:52Z",
+      "side": 0,
+      "message": "I wonder if modern versions of VC++ still require this.",
+      "parentUuid": "327476fe_f5784896",
       "range": {
         "startLine": 34,
         "startChar": 0,

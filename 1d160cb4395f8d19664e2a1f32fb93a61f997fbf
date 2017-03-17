@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "350f84f2_e610f610",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-17T17:32:52Z",
+      "side": 1,
+      "message": "Some of this may be needed *if* whoever is using PDFium *also* links to a self build zlib (to avoid symbol name clashing).",
+      "parentUuid": "64d33f3f_5f8d0948",
+      "revId": "1d160cb4395f8d19664e2a1f32fb93a61f997fbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60d78324_d71f012c",
         "filename": "third_party/zlib_v1211/zlib.h",
         "patchSetId": 1
