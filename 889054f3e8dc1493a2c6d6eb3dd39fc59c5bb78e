@@ -1,4 +1,189 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1489727108 -0700\nnonce AIcUUg/xJrpS27jyik5lD7Ljw2YWubAbCnnBj0Oog/WeKVx9Agt3AmwCve08GuWha1Pe11Zs6cZ7\n\n0000000000000000000000000000000000000000 889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e refs/for/refs/heads/master%m\u003dself_review,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYy26EAAoJEKs2LWFaZv17HoEH/3yTVdWCTzn/daCj/GtOWUdN\nkMvIo5ePLA7ZXDlsritqbXq6QsJKTC1VKiBr7sD48Yl82CflMfGKdDCZM2QWQ1mv\nNW/xxEegfGbX8Vj6sykn0CjunIAAZhTwoDyipRdtglPvVnLHrm6oZIq4GqgmVjGP\n+2a6h89nKkgR5lJfpFgihYMD4gIdaxC2pExNVowuattwl/KfCgTtJy/GDa/QzW+t\nv0trS/H/D4tgJ3aWZjgYlqGT4wCCYpVfNuTsPnPGxeRLxsKFXaIrF+QEjhnKTH90\nVIaR+10gJOrqjvh7W1OvLH4xqknVcZAFCVzTJuSg/tpnrepzfU7wbbHKEM8J5ow\u003d\n\u003dEjqQ\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c360a5a_7593f3e0",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "So we don\u0027t want to use an alternate when the transform exists but the profile is sRGB?",
+      "range": {
+        "startLine": 805,
+        "startChar": 6,
+        "endLine": 805,
+        "endChar": 25
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c278934_13aa7807",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "merge ifs",
+      "range": {
+        "startLine": 811,
+        "startChar": 2,
+        "endLine": 812,
+        "endChar": 43
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de51245f_59fe52cf",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "can be void (unless it\u0027s overriding or something)",
+      "range": {
+        "startLine": 823,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 4
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f3ad68_5ee9ed9e",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "It looks like this can return nullptr. so leave the pIccModule check from before?",
+      "range": {
+        "startLine": 833,
+        "startChar": 4,
+        "endLine": 833,
+        "endChar": 70
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0ad1aef_86081746",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "pow(52, m_nComponents)",
+      "range": {
+        "startLine": 881,
+        "startChar": 21,
+        "endLine": 884,
+        "endChar": 5
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c8da128_5a859b53",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 897,
+        "startChar": 23,
+        "endLine": 897,
+        "endChar": 30
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be38fe02_5266d765",
+        "filename": "core/fpdfapi/page/fpdf_page_colors.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "using m_bsRGB would be clearer here I think.",
+      "range": {
+        "startLine": 223,
+        "startChar": 6,
+        "endLine": 223,
+        "endChar": 14
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b13524_009bc206",
+        "filename": "core/fpdfapi/page/fpdf_page_colors.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:29:56Z",
+      "side": 1,
+      "message": "Why is this check needed?",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 35
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
