@@ -1,4 +1,74 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1489729580 -0700\nnonce AIcUUg88r69tAOncEm46yH0JvMT3MNtWIVh16ZiueNx/ByQdRIQQKFnfJtyvP25/86UL9zIYvlhM\n\n0000000000000000000000000000000000000000 f6691eb80914b0bc31952914c848405a4b1ce6ce refs/for/refs/heads/master%m\u003drebase,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYy3gsAAoJEKs2LWFaZv17pIcH/2DCHvS0kDqYv87zmxCZcZ7c\nswT66j1T5fKP8wm1gp/GjwhloxQ4qXPINvcCpDFd8LpE1hL24ogYA4gf8N2uWozv\nPJv8bR8FsMnLWFxjA4H/xaQD47NPLzLGyInUQ9e5nbiEa6H9g38rHYJEyig2YHRi\npayekrPzzWDqHQMmI3K6E6d4HGDkA6xxa40x4NWfrpRbR6NRKTUHdPMA57VAGNRT\ntmdmeHrIaclimrr/YljmmYEl6NzpuxdvkDxON4ENljgJB3LFpTs3WrTi+Ip6QJbq\nvekhoEeMgZovA1sK3UgjSKOVwMHg7bvwVGRJulwo9SchGtAYmhiepNALqg8c6G8\u003d\n\u003dEVUw\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "974dc543_4c37ca6d",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T17:19:51Z",
+      "side": 1,
+      "message": "nit: bracey mcbraceface.",
+      "range": {
+        "startLine": 888,
+        "startChar": 71,
+        "endLine": 888,
+        "endChar": 73
+      },
+      "revId": "f6691eb80914b0bc31952914c848405a4b1ce6ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9ef7f2_0caaeed9",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T17:19:51Z",
+      "side": 1,
+      "message": "Where did we formerly clear m_pPathPoints? Or is it just that we set count to 0?",
+      "range": {
+        "startLine": 1466,
+        "startChar": 2,
+        "endLine": 1466,
+        "endChar": 33
+      },
+      "revId": "f6691eb80914b0bc31952914c848405a4b1ce6ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf2a1e47_d7f57d16",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T17:19:51Z",
+      "side": 1,
+      "message": "nit: not a pointer, no p.",
+      "range": {
+        "startLine": 207,
+        "startChar": 30,
+        "endLine": 207,
+        "endChar": 31
+      },
+      "revId": "f6691eb80914b0bc31952914c848405a4b1ce6ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
