@@ -11,6 +11,7 @@
 #include "core/fpdfdoc/cline.h"
 #include "core/fpdfdoc/cpvt_wordinfo.h"
 #include "core/fpdfdoc/csection.h"
+#include "third_party/base/stl_util.h"
 
 namespace {
 
@@ -190,7 +191,11 @@ CPVT_FloatRect CTypeset::CharArray() {
   int32_t nStart = 0;
   float fNodeWidth = m_pVT->GetPlateWidth() /
                      (m_pVT->m_nCharArray <= 0 ? 1 : m_pVT->m_nCharArray);
-  if (CLine* pLine = m_pSection->m_LineArray.GetAt(0)) {
+  if (m_pSection->m_LineArray.empty()) {
+    m_rcRet = CPVT_FloatRect(0, 0, x, y);
+    return m_rcRet;
+  }
+  if (CLine* pLine = m_pSection->m_LineArray.front().get()) {
     x = 0.0f;
     y += m_pVT->GetLineLeading(m_pSection->m_SecInfo);
     y += fLineAscent;
@@ -264,9 +269,9 @@ CFX_SizeF CTypeset::GetEditSize(float fFontSize) {
 
 CPVT_FloatRect CTypeset::Typeset() {
   ASSERT(m_pVT);
-  m_pSection->m_LineArray.Empty();
+  m_pSection->m_LineArray.clear();
   SplitLines(true, 0.0f);
-  m_pSection->m_LineArray.Clear();
+  m_pSection->m_LineArray.clear();
   OutputLines();
   return m_rcRet;
 }
@@ -439,11 +444,12 @@ void CTypeset::OutputLines() {
   fMaxX = fMinX + m_rcRet.Width();
   fMinY = 0.0f;
   fMaxY = m_rcRet.Height();
-  int32_t nTotalLines = m_pSection->m_LineArray.GetSize();
+  int32_t nTotalLines =
+      pdfium::CollectionSize<int32_t>(m_pSection->m_LineArray);
   if (nTotalLines > 0) {
     m_pSection->m_SecInfo.nTotalLine = nTotalLines;
     for (int32_t l = 0; l < nTotalLines; l++) {
-      if (CLine* pLine = m_pSection->m_LineArray.GetAt(l)) {
+      if (CLine* pLine = m_pSection->m_LineArray[l].get()) {
         switch (m_pVT->GetAlignment(m_pSection->m_SecInfo)) {
           default:
           case 0:
