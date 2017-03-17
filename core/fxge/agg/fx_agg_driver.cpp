@@ -27,9 +27,12 @@
 
 namespace {
 
+const float kMaxPos = 32000.0f;
+const float kMinPos = -32000.0f;
+
 CFX_PointF HardClip(const CFX_PointF& pos) {
-  return CFX_PointF(std::max(std::min(pos.x, 50000.0f), -50000.0f),
-                    std::max(std::min(pos.y, 50000.0f), -50000.0f));
+  return CFX_PointF(std::max(std::min(pos.x, kMaxPos), -kMinPos),
+                    std::max(std::min(pos.y, kMaxPos), -kMinPos));
 }
 
 void RgbByteOrderSetPixel(CFX_DIBitmap* pBitmap, int x, int y, uint32_t argb) {
