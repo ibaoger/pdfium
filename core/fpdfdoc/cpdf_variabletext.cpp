@@ -16,6 +16,7 @@
 #include "core/fpdfdoc/csection.h"
 #include "core/fpdfdoc/ipvt_fontmap.h"
 #include "third_party/base/ptr_util.h"
+#include "third_party/base/stl_util.h"
 
 namespace {
 
@@ -112,16 +113,18 @@ bool CPDF_VariableText::Iterator::PrevWord() {
 }
 
 bool CPDF_VariableText::Iterator::NextLine() {
-  if (CSection* pSection = m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex)) {
-    if (m_CurPos.nLineIndex < pSection->m_LineArray.GetSize() - 1) {
-      m_CurPos =
-          CPVT_WordPlace(m_CurPos.nSecIndex, m_CurPos.nLineIndex + 1, -1);
-      return true;
-    }
-    if (m_CurPos.nSecIndex < m_pVT->m_SectionArray.GetSize() - 1) {
-      m_CurPos = CPVT_WordPlace(m_CurPos.nSecIndex + 1, 0, -1);
-      return true;
-    }
+  CSection* pSection = m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex);
+  if (!pSection)
+    return false;
+
+  if (m_CurPos.nLineIndex <
+      pdfium::CollectionSize<int32_t>(pSection->m_LineArray) - 1) {
+    m_CurPos = CPVT_WordPlace(m_CurPos.nSecIndex, m_CurPos.nLineIndex + 1, -1);
+    return true;
+  }
+  if (m_CurPos.nSecIndex < m_pVT->m_SectionArray.GetSize() - 1) {
+    m_CurPos = CPVT_WordPlace(m_CurPos.nSecIndex + 1, 0, -1);
+    return true;
   }
   return false;
 }
@@ -136,8 +139,9 @@ bool CPDF_VariableText::Iterator::PrevLine() {
     if (m_CurPos.nSecIndex > 0) {
       if (CSection* pLastSection =
               m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex - 1)) {
-        m_CurPos = CPVT_WordPlace(m_CurPos.nSecIndex - 1,
-                                  pLastSection->m_LineArray.GetSize() - 1, -1);
+        m_CurPos = CPVT_WordPlace(
+            m_CurPos.nSecIndex - 1,
+            pdfium::CollectionSize<int32_t>(pLastSection->m_LineArray) - 1, -1);
         return true;
       }
     }
@@ -165,7 +169,8 @@ bool CPDF_VariableText::Iterator::PrevSection() {
 bool CPDF_VariableText::Iterator::GetWord(CPVT_Word& word) const {
   word.WordPlace = m_CurPos;
   if (CSection* pSection = m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex)) {
-    if (pSection->m_LineArray.GetAt(m_CurPos.nLineIndex)) {
+    if (pdfium::IndexInBounds(pSection->m_LineArray, m_CurPos.nLineIndex) &&
+        pSection->m_LineArray[m_CurPos.nLineIndex]) {
       if (CPVT_WordInfo* pWord =
               pSection->m_WordArray.GetAt(m_CurPos.nWordIndex)) {
         word.Word = pWord->Word;
@@ -203,19 +208,25 @@ bool CPDF_VariableText::Iterator::SetWord(const CPVT_Word& word) {
 bool CPDF_VariableText::Iterator::GetLine(CPVT_Line& line) const {
   ASSERT(m_pVT);
   line.lineplace = CPVT_WordPlace(m_CurPos.nSecIndex, m_CurPos.nLineIndex, -1);
-  if (CSection* pSection = m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex)) {
-    if (CLine* pLine = pSection->m_LineArray.GetAt(m_CurPos.nLineIndex)) {
-      line.ptLine = m_pVT->InToOut(CFX_PointF(
-          pLine->m_LineInfo.fLineX + pSection->m_SecInfo.rcSection.left,
-          pLine->m_LineInfo.fLineY + pSection->m_SecInfo.rcSection.top));
-      line.fLineWidth = pLine->m_LineInfo.fLineWidth;
-      line.fLineAscent = pLine->m_LineInfo.fLineAscent;
-      line.fLineDescent = pLine->m_LineInfo.fLineDescent;
-      line.lineEnd = pLine->GetEndWordPlace();
-      return true;
-    }
-  }
-  return false;
+  CSection* pSection = m_pVT->m_SectionArray.GetAt(m_CurPos.nSecIndex);
+  if (!pSection)
+    return false;
+
+  if (!pdfium::IndexInBounds(pSection->m_LineArray, m_CurPos.nLineIndex))
+    return false;
+
+  CLine* pLine = pSection->m_LineArray[m_CurPos.nLineIndex].get();
+  if (!pLine)
+    return false;
+
+  line.ptLine = m_pVT->InToOut(
+      CFX_PointF(pLine->m_LineInfo.fLineX + pSection->m_SecInfo.rcSection.left,
+                 pLine->m_LineInfo.fLineY + pSection->m_SecInfo.rcSection.top));
+  line.fLineWidth = pLine->m_LineInfo.fLineWidth;
+  line.fLineAscent = pLine->m_LineInfo.fLineAscent;
+  line.fLineDescent = pLine->m_LineInfo.fLineDescent;
+  line.lineEnd = pLine->GetEndWordPlace();
+  return true;
 }
 
 bool CPDF_VariableText::Iterator::GetSection(CPVT_Section& section) const {
@@ -602,7 +613,8 @@ CPVT_WordPlace CPDF_VariableText::GetUpWordPlace(
     }
     if (temp.nSecIndex-- > 0) {
       if (CSection* pLastSection = m_SectionArray.GetAt(temp.nSecIndex)) {
-        temp.nLineIndex = pLastSection->m_LineArray.GetSize() - 1;
+        temp.nLineIndex =
+            pdfium::CollectionSize<int32_t>(pLastSection->m_LineArray) - 1;
         return pLastSection->SearchWordPlace(
             pt.x - pLastSection->m_SecInfo.rcSection.left, temp);
       }
@@ -617,7 +629,8 @@ CPVT_WordPlace CPDF_VariableText::GetDownWordPlace(
   if (CSection* pSection = m_SectionArray.GetAt(place.nSecIndex)) {
     CPVT_WordPlace temp = place;
     CFX_PointF pt = OutToIn(point);
-    if (temp.nLineIndex++ < pSection->m_LineArray.GetSize() - 1) {
+    if (temp.nLineIndex++ <
+        pdfium::CollectionSize<int32_t>(pSection->m_LineArray) - 1) {
       return pSection->SearchWordPlace(
           pt.x - pSection->m_SecInfo.rcSection.left, temp);
     }
@@ -639,11 +652,18 @@ CPVT_WordPlace CPDF_VariableText::GetLineBeginPlace(
 
 CPVT_WordPlace CPDF_VariableText::GetLineEndPlace(
     const CPVT_WordPlace& place) const {
-  if (CSection* pSection = m_SectionArray.GetAt(place.nSecIndex)) {
-    if (CLine* pLine = pSection->m_LineArray.GetAt(place.nLineIndex))
-      return pLine->GetEndWordPlace();
-  }
-  return place;
+  CSection* pSection = m_SectionArray.GetAt(place.nSecIndex);
+  if (!pSection)
+    return place;
+
+  if (!pdfium::IndexInBounds(pSection->m_LineArray, place.nLineIndex))
+    return place;
+
+  CLine* pLine = pSection->m_LineArray[place.nLineIndex].get();
+  if (!pLine)
+    return place;
+
+  return pLine->GetEndWordPlace();
 }
 
 CPVT_WordPlace CPDF_VariableText::GetSectionBeginPlace(
@@ -739,13 +759,19 @@ bool CPDF_VariableText::SetWordInfo(const CPVT_WordPlace& place,
 
 bool CPDF_VariableText::GetLineInfo(const CPVT_WordPlace& place,
                                     CPVT_LineInfo& lineinfo) {
-  if (CSection* pSection = m_SectionArray.GetAt(place.nSecIndex)) {
-    if (CLine* pLine = pSection->m_LineArray.GetAt(place.nLineIndex)) {
-      lineinfo = pLine->m_LineInfo;
-      return true;
-    }
-  }
-  return false;
+  CSection* pSection = m_SectionArray.GetAt(place.nSecIndex);
+  if (!pSection)
+    return false;
+
+  if (!pdfium::IndexInBounds(pSection->m_LineArray, place.nLineIndex))
+    return false;
+
+  CLine* pLine = pSection->m_LineArray[place.nLineIndex].get();
+  if (!pLine)
+    return false;
+
+  lineinfo = pLine->m_LineInfo;
+  return true;
 }
 
 bool CPDF_VariableText::GetSectionInfo(const CPVT_WordPlace& place,
