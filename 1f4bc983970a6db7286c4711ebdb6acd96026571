@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8252fbb_97498115",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T23:30:42Z",
+      "side": 1,
+      "message": "Note: Dubious way to avoid an if i \u003d\u003d 0 in loo?.  Probably wrong for 0-length array. I left it.",
+      "range": {
+        "startLine": 677,
+        "startChar": 3,
+        "endLine": 677,
+        "endChar": 32
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e5af442_ddb3e875",
+        "filename": "core/fpdfdoc/csection.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T23:30:42Z",
+      "side": 1,
+      "message": "note: using a range-based erase() is much better, but I left it because I was getting uptight about what the range boundaries meant.",
+      "range": {
+        "startLine": 218,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 49
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
