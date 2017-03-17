@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaa068b1_1f962f2e",
+        "filename": "core/fpdfapi/page/cpdf_allstates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:58:38Z",
+      "side": 1,
+      "message": "kinda seems silly to not just write the clamp call inline, like we do on line 229 of the next file ..",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 34
+      },
+      "revId": "bae836a6db84296f57f5c8b5ab2bd81b0aa99f72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb9c1c2_21c4fb31",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:58:38Z",
+      "side": 1,
+      "message": "nit: else considered harmful, early return.",
+      "range": {
+        "startLine": 688,
+        "startChar": 1,
+        "endLine": 688,
+        "endChar": 10
+      },
+      "revId": "bae836a6db84296f57f5c8b5ab2bd81b0aa99f72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c700e7e_bb0729fb",
+        "filename": "core/fpdfapi/page/fpdf_page_func.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:58:38Z",
+      "side": 1,
+      "message": "followup:  scary",
+      "range": {
+        "startLine": 546,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 35
+      },
+      "revId": "bae836a6db84296f57f5c8b5ab2bd81b0aa99f72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cdb8e8c_01c8742c",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:58:38Z",
+      "side": 1,
+      "message": "here\u0027s fine, maybe also our stl_util.h is where this belongs?",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 26
+      },
+      "revId": "bae836a6db84296f57f5c8b5ab2bd81b0aa99f72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37490951_3076df8a",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:58:38Z",
+      "side": 1,
+      "message": "Probaby should be FX_Clamp, it snot a class, so can\u0027t be (C)oncrete.\n\nOr maybe nonstd::clamp() ?",
+      "range": {
+        "startLine": 560,
+        "startChar": 19,
+        "endLine": 560,
+        "endChar": 28
+      },
+      "revId": "bae836a6db84296f57f5c8b5ab2bd81b0aa99f72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
