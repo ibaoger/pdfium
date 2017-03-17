@@ -8,7 +8,9 @@
 #define CORE_FPDFAPI_PAGE_CPDF_PAGEOBJECTHOLDER_H_
 
 #include <memory>
+#include <vector>
 
+#include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_pageobjectlist.h"
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_system.h"
@@ -41,9 +43,11 @@ class CPDF_PageObjectHolder {
     m_bBackgroundAlphaNeeded = needed;
   }
 
-  bool HasImageMask() const { return m_bHasImageMask; }
-  void SetHasImageMask(bool value) { m_bHasImageMask = value; }
-
+  bool HasImageMask() const { return !m_MaskBoundingBoxes.empty(); }
+  const std::vector<CFX_FloatRect>& GetMaskBoundingBoxes() const {
+    return m_MaskBoundingBoxes;
+  }
+  void AddImageMaskBoundingBox(const CPDF_ImageObject& mask);
   void Transform(const CFX_Matrix& matrix);
   CFX_FloatRect CalcBoundingBox() const;
 
@@ -53,6 +57,7 @@ class CPDF_PageObjectHolder {
   CPDF_Dictionary* m_pPageResources;
   CPDF_Dictionary* m_pResources;
   CFX_FloatRect m_BBox;
+  std::vector<CFX_FloatRect> m_MaskBoundingBoxes;
   int m_Transparency;
 
  protected:
@@ -61,7 +66,6 @@ class CPDF_PageObjectHolder {
   void LoadTransInfo();
 
   bool m_bBackgroundAlphaNeeded;
-  bool m_bHasImageMask;
   ParseState m_ParseState;
   std::unique_ptr<CPDF_ContentParser> m_pParser;
   CPDF_PageObjectList m_PageObjectList;

@@ -16,6 +16,7 @@ class CPDF_PageObjectList
     : public std::deque<std::unique_ptr<CPDF_PageObject>> {
  public:
   CPDF_PageObject* GetPageObjectByIndex(int index);
+  bool RemovePageObjectByIndex(int index);
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_PAGEOBJECTLIST_H_
