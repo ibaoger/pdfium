@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ba5a5073_28cbfeab",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T18:00:07Z",
+      "side": 1,
+      "message": "yes/no?",
+      "parentUuid": "1c278934_13aa7807",
+      "range": {
+        "startLine": 811,
+        "startChar": 2,
+        "endLine": 812,
+        "endChar": 43
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de51245f_59fe52cf",
         "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
         "patchSetId": 3
@@ -272,6 +296,30 @@
       "writtenOn": "2017-03-17T15:29:56Z",
       "side": 1,
       "message": "using m_bsRGB would be clearer here I think.",
+      "range": {
+        "startLine": 223,
+        "startChar": 6,
+        "endLine": 223,
+        "endChar": 14
+      },
+      "revId": "889054f3e8dc1493a2c6d6eb3dd39fc59c5bb78e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95db6997_4ab00998",
+        "filename": "core/fpdfapi/page/fpdf_page_colors.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T18:00:07Z",
+      "side": 1,
+      "message": "(since it\u0027s its own variable)",
+      "parentUuid": "be38fe02_5266d765",
       "range": {
         "startLine": 223,
         "startChar": 6,
