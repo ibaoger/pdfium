@@ -33,8 +33,8 @@
 namespace {
 
 CFX_PointF HardClip(const CFX_PointF& pos) {
-  return CFX_PointF(std::max(std::min(pos.x, 50000.0f), -50000.0f),
-                    std::max(std::min(pos.y, 50000.0f), -50000.0f));
+  return CFX_PointF(CFX_Clamp(pos.x, -50000.0f, 50000.0f),
+                    CFX_Clamp(pos.y, -50000.0f, 50000.0f));
 }
 
 void RgbByteOrderSetPixel(CFX_DIBitmap* pBitmap, int x, int y, uint32_t argb) {

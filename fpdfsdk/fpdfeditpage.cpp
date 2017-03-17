@@ -104,7 +104,7 @@ DLLEXPORT FPDF_PAGE STDCALL FPDFPage_New(FPDF_DOCUMENT document,
   if (!pDoc)
     return nullptr;
 
-  page_index = std::min(std::max(page_index, 0), pDoc->GetPageCount());
+  page_index = CFX_Clamp(page_index, 0, pDoc->GetPageCount());
   CPDF_Dictionary* pPageDict = pDoc->CreateNewPage(page_index);
   if (!pPageDict)
     return nullptr;

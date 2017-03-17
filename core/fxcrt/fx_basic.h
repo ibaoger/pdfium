@@ -555,4 +555,10 @@ class CFX_Matrix_3by3 {
 
 uint32_t GetBits32(const uint8_t* pData, int bitpos, int nbits);
 
+// std::clamp(), some day.
+template <class T>
+constexpr const T& CFX_Clamp(const T& v, const T& lo, const T& hi) {
+  return std::min(std::max(v, lo), hi);
+}
+
 #endif  // CORE_FXCRT_FX_BASIC_H_

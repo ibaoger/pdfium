@@ -104,7 +104,7 @@ void FaxG4FindB1B2(const std::vector<uint8_t>& ref_buf,
 
 void FaxFillBits(uint8_t* dest_buf, int columns, int startpos, int endpos) {
   startpos = std::max(startpos, 0);
-  endpos = std::min(std::max(endpos, 0), columns);
+  endpos = CFX_Clamp(endpos, 0, columns);
   if (startpos >= endpos)
     return;
 

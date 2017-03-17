@@ -36,7 +36,7 @@ int32_t CXFA_WideTextRead::Seek(FX_STREAMSEEK eSeek, int32_t iOffset) {
       m_iPosition = m_wsBuffer.GetLength() + iOffset;
       break;
   }
-  m_iPosition = std::min(std::max(0, m_iPosition), m_wsBuffer.GetLength());
+  m_iPosition = CFX_Clamp(0, m_iPosition, m_wsBuffer.GetLength());
   return GetPosition();
 }
 

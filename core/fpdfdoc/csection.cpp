@@ -27,9 +27,8 @@ void CSection::ResetLineArray() {
 }
 
 void CSection::ResetWordArray() {
-  for (int32_t i = 0, sz = m_WordArray.GetSize(); i < sz; i++) {
+  for (int32_t i = 0, sz = m_WordArray.GetSize(); i < sz; i++)
     delete m_WordArray.GetAt(i);
-  }
   m_WordArray.RemoveAll();
 }
 
@@ -44,13 +43,11 @@ void CSection::ResetLinePlace() {
 CPVT_WordPlace CSection::AddWord(const CPVT_WordPlace& place,
                                  const CPVT_WordInfo& wordinfo) {
   CPVT_WordInfo* pWord = new CPVT_WordInfo(wordinfo);
-  int32_t nWordIndex =
-      std::max(std::min(place.nWordIndex, m_WordArray.GetSize()), 0);
-  if (nWordIndex == m_WordArray.GetSize()) {
+  int32_t nWordIndex = CFX_Clamp(place.nWordIndex, 0, m_WordArray.GetSize());
+  if (nWordIndex == m_WordArray.GetSize())
     m_WordArray.Add(pWord);
-  } else {
+  else
     m_WordArray.InsertAt(nWordIndex, pWord);
-  }
   return place;
 }
 
@@ -59,9 +56,8 @@ CPVT_WordPlace CSection::AddLine(const CPVT_LineInfo& lineinfo) {
 }
 
 CPVT_FloatRect CSection::Rearrange() {
-  if (m_pVT->m_nCharArray > 0) {
+  if (m_pVT->m_nCharArray > 0)
     return CTypeset(this).CharArray();
-  }
   return CTypeset(this).Typeset();
 }
 
@@ -70,56 +66,50 @@ CFX_SizeF CSection::GetSectionSize(float fFontSize) {
 }
 
 CPVT_WordPlace CSection::GetBeginWordPlace() const {
-  if (CLine* pLine = m_LineArray.GetAt(0)) {
+  if (CLine* pLine = m_LineArray.GetAt(0))
     return pLine->GetBeginWordPlace();
-  }
   return SecPlace;
 }
 
 CPVT_WordPlace CSection::GetEndWordPlace() const {
-  if (CLine* pLine = m_LineArray.GetAt(m_LineArray.GetSize() - 1)) {
+  if (CLine* pLine = m_LineArray.GetAt(m_LineArray.GetSize() - 1))
     return pLine->GetEndWordPlace();
-  }
   return SecPlace;
 }
 
 CPVT_WordPlace CSection::GetPrevWordPlace(const CPVT_WordPlace& place) const {
-  if (place.nLineIndex < 0) {
+  if (place.nLineIndex < 0)
     return GetBeginWordPlace();
-  }
-  if (place.nLineIndex >= m_LineArray.GetSize()) {
+
+  if (place.nLineIndex >= m_LineArray.GetSize())
     return GetEndWordPlace();
-  }
+
   if (CLine* pLine = m_LineArray.GetAt(place.nLineIndex)) {
-    if (place.nWordIndex == pLine->m_LineInfo.nBeginWordIndex) {
+    if (place.nWordIndex == pLine->m_LineInfo.nBeginWordIndex)
       return CPVT_WordPlace(place.nSecIndex, place.nLineIndex, -1);
-    }
-    if (place.nWordIndex < pLine->m_LineInfo.nBeginWordIndex) {
-      if (CLine* pPrevLine = m_LineArray.GetAt(place.nLineIndex - 1)) {
-        return pPrevLine->GetEndWordPlace();
-      }
-    } else {
+
+    if (place.nWordIndex >= pLine->m_LineInfo.nBeginWordIndex)
       return pLine->GetPrevWordPlace(place);
-    }
+
+    if (CLine* pPrevLine = m_LineArray.GetAt(place.nLineIndex - 1))
+      return pPrevLine->GetEndWordPlace();
   }
   return place;
 }
 
 CPVT_WordPlace CSection::GetNextWordPlace(const CPVT_WordPlace& place) const {
-  if (place.nLineIndex < 0) {
+  if (place.nLineIndex < 0)
     return GetBeginWordPlace();
-  }
-  if (place.nLineIndex >= m_LineArray.GetSize()) {
+
+  if (place.nLineIndex >= m_LineArray.GetSize())
     return GetEndWordPlace();
-  }
+
   if (CLine* pLine = m_LineArray.GetAt(place.nLineIndex)) {
-    if (place.nWordIndex >= pLine->m_LineInfo.nEndWordIndex) {
-      if (CLine* pNextLine = m_LineArray.GetAt(place.nLineIndex + 1)) {
-        return pNextLine->GetBeginWordPlace();
-      }
-    } else {
+    if (place.nWordIndex < pLine->m_LineInfo.nEndWordIndex)
       return pLine->GetNextWordPlace(place);
-    }
+
+    if (CLine* pNextLine = m_LineArray.GetAt(place.nLineIndex + 1))
+      return pNextLine->GetBeginWordPlace();
   }
   return place;
 }

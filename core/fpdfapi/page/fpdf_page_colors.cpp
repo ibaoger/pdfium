@@ -22,7 +22,7 @@
 namespace {
 
 float NormalizeChannel(float fVal) {
-  return std::min(std::max(fVal, 0.0f), 1.0f);
+  return CFX_Clamp(fVal, 0.0f, 1.0f);
 }
 
 }  // namespace

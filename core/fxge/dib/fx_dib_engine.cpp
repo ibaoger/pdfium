@@ -984,7 +984,7 @@ bool CFX_ImageStretcher::ContinueQuickStretch(IFX_Pause* pPause) {
       dest_y = m_LineIndex;
       src_y = (dest_y + m_ClipRect.top) * src_height / m_DestHeight;
     }
-    src_y = std::max(std::min(src_y, src_height - 1), 0);
+    src_y = CFX_Clamp(src_y, 0, src_height - 1);
 
     if (m_pSource->SkipToScanline(src_y, pPause))
       return true;
