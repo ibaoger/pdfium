@@ -405,8 +405,8 @@ CFX_ByteString CFX_ByteString::Mid(FX_STRSIZE nFirst, FX_STRSIZE nCount) const {
   if (!m_pData)
     return CFX_ByteString();
 
-  nFirst = std::min(std::max(nFirst, 0), m_pData->m_nDataLength);
-  nCount = std::min(std::max(nCount, 0), m_pData->m_nDataLength - nFirst);
+  nFirst = CFX_Clamp(nFirst, 0, m_pData->m_nDataLength);
+  nCount = CFX_Clamp(nCount, 0, m_pData->m_nDataLength - nFirst);
   if (nCount == 0)
     return CFX_ByteString();
 

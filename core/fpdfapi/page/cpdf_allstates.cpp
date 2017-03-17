@@ -18,7 +18,7 @@
 namespace {
 
 float ClipFloat(float f) {
-  return std::max(0.0f, std::min(1.0f, f));
+  return CFX_Clamp(f, 0.0f, 1.0f);
 }
 
 }  // namespace

@@ -219,7 +219,7 @@ CFX_RectF CFWL_ScrollBar::CalcThumbButtonRect(const CFX_RectF& rtThumb) {
   fThumbSize = std::max(fThumbSize, kMinThumbSize);
 
   float fDiff = std::max(fLength - fThumbSize, 0.0f);
-  float fTrackPos = std::max(std::min(m_fTrackPos, m_fRangeMax), m_fRangeMin);
+  float fTrackPos = CFX_Clamp(m_fTrackPos, m_fRangeMin, m_fRangeMax);
   if (!fRange)
     return rect;
 
@@ -287,7 +287,7 @@ float CFWL_ScrollBar::GetTrackPointPos(const CFX_PointF& point) {
   }
 
   fPos += m_fLastTrackPos;
-  return std::min(std::max(fPos, m_fRangeMin), m_fRangeMax);
+  return CFX_Clamp(fPos, m_fRangeMin, m_fRangeMax);
 }
 
 bool CFWL_ScrollBar::SendEvent() {

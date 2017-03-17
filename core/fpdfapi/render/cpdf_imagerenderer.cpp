@@ -273,11 +273,11 @@ void CPDF_ImageRenderer::CalculateDrawImage(CFX_FxgeDevice* pBitmapDevice1,
         continue;
       }
       int orig = (*dest_scan - matte_b) * 255 / alpha + matte_b;
-      *dest_scan++ = std::min(std::max(orig, 0), 255);
+      *dest_scan++ = CFX_Clamp(orig, 0, 255);
       orig = (*dest_scan - matte_g) * 255 / alpha + matte_g;
-      *dest_scan++ = std::min(std::max(orig, 0), 255);
+      *dest_scan++ = CFX_Clamp(orig, 0, 255);
       orig = (*dest_scan - matte_r) * 255 / alpha + matte_r;
-      *dest_scan++ = std::min(std::max(orig, 0), 255);
+      *dest_scan++ = CFX_Clamp(orig, 0, 255);
       dest_scan++;
     }
   }

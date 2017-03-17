@@ -226,7 +226,7 @@ class CPDF_DeviceNCS : public CPDF_ColorSpace {
 };
 
 float RGB_Conversion(float colorComponent) {
-  colorComponent = std::min(std::max(colorComponent, 0.0f), 1.0f);
+  colorComponent = CFX_Clamp(colorComponent, 0.0f, 1.0f);
   int scale = std::max(static_cast<int>(colorComponent * 1023), 0);
   if (scale < 192)
     return g_sRGBSamples1[scale] / 255.0f;
@@ -688,7 +688,7 @@ void CPDF_LabCS::GetDefaultValue(int iComponent,
   } else {
     *min = m_Ranges[iComponent * 2 - 2];
     *max = m_Ranges[iComponent * 2 - 1];
-    *value = std::min(std::max(0.0f, *min), *max);
+    *value = CFX_Clamp(0.0f, *min, *max);
   }
 }
 

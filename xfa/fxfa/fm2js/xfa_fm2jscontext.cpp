@@ -910,8 +910,7 @@ void CXFA_FM2JSContext::Round(CFXJSE_Value* pThis,
       return;
     }
 
-    uPrecision =
-        static_cast<uint8_t>(std::min(std::max(dPrecision, 0.0), 12.0));
+    uPrecision = static_cast<uint8_t>(CFX_Clamp(dPrecision, 0.0, 12.0));
   }
 
   CFX_Decimal decimalValue((float)dValue, uPrecision);
@@ -4494,8 +4493,9 @@ void CXFA_FM2JSContext::Stuff(CFXJSE_Value* pThis,
       !deleteValue->IsNull()) {
     ValueToUTF8String(sourceValue.get(), sourceString);
     iLength = sourceString.GetLength();
-    iStart = std::min(iLength, std::max(1, static_cast<int32_t>(ValueToFloat(
-                                               pThis, startValue.get()))));
+    iStart =
+        CFX_Clamp(static_cast<int32_t>(ValueToFloat(pThis, startValue.get())),
+                  1, iLength);
     iDelete = std::max(
         0, static_cast<int32_t>(ValueToFloat(pThis, deleteValue.get())));
   }
@@ -4551,9 +4551,8 @@ void CXFA_FM2JSContext::Substr(CFXJSE_Value* pThis,
     return;
   }
 
-  iStart = std::min(
-      iLength,
-      std::max(1, static_cast<int32_t>(ValueToFloat(pThis, startValue.get()))));
+  iStart = CFX_Clamp(
+      iLength, 1, static_cast<int32_t>(ValueToFloat(pThis, startValue.get())));
   iCount =
       std::max(0, static_cast<int32_t>(ValueToFloat(pThis, endValue.get())));
 

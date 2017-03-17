@@ -450,10 +450,10 @@ FX_RECT CPDF_CIDFont::GetCharBBox(uint32_t charcode) {
         if (!err) {
           FXFT_BBox cbox;
           FXFT_Glyph_Get_CBox(glyph, FXFT_GLYPH_BBOX_PIXELS, &cbox);
-          cbox.xMin = std::min(std::max(cbox.xMin, kMinCBox), kMaxCBox);
-          cbox.xMax = std::min(std::max(cbox.xMax, kMinCBox), kMaxCBox);
-          cbox.yMin = std::min(std::max(cbox.yMin, kMinCBox), kMaxCBox);
-          cbox.yMax = std::min(std::max(cbox.yMax, kMinCBox), kMaxCBox);
+          cbox.xMin = CFX_Clamp(cbox.xMin, kMinCBox, kMaxCBox);
+          cbox.xMax = CFX_Clamp(cbox.xMax, kMinCBox, kMaxCBox);
+          cbox.yMin = CFX_Clamp(cbox.yMin, kMinCBox, kMaxCBox);
+          cbox.yMax = CFX_Clamp(cbox.yMax, kMinCBox, kMaxCBox);
           int pixel_size_x = ((FXFT_Face)face)->size->metrics.x_ppem;
           int pixel_size_y = ((FXFT_Face)face)->size->metrics.y_ppem;
           if (pixel_size_x == 0 || pixel_size_y == 0) {
