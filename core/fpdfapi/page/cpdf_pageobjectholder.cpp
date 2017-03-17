@@ -21,7 +21,6 @@ CPDF_PageObjectHolder::CPDF_PageObjectHolder()
       m_pResources(nullptr),
       m_Transparency(0),
       m_bBackgroundAlphaNeeded(false),
-      m_bHasImageMask(false),
       m_ParseState(CONTENT_NOT_PARSED) {}
 
 CPDF_PageObjectHolder::~CPDF_PageObjectHolder() {}
@@ -35,6 +34,13 @@ void CPDF_PageObjectHolder::ContinueParse(IFX_Pause* pPause) {
     m_ParseState = CONTENT_PARSED;
     m_pParser.reset();
   }
+}
+
+void CPDF_PageObjectHolder::AddImageMaskBoundingBox(
+    const CPDF_ImageObject& mask) {
+  // Set image mask true and save off the location.
+  m_MaskBoundingBoxes.push_back(
+      CFX_FloatRect(mask.m_Left, mask.m_Bottom, mask.m_Right, mask.m_Top));
 }
 
 void CPDF_PageObjectHolder::Transform(const CFX_Matrix& matrix) {
