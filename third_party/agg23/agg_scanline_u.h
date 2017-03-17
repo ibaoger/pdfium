@@ -84,8 +84,12 @@ public:
     {
         x -= m_min_x;
         FXSYS_memcpy(m_covers + x, covers, len * sizeof(CoverT));
+        len = std::min(
+            len, static_cast<unsigned>(std::numeric_limits<coord_type>::max()));
         if(x == m_last_x + 1) {
-            m_cur_span->len += (coord_type)len;
+          m_cur_span->len = static_cast<coord_type>(std::min(
+              len + m_cur_span->len,
+              static_cast<unsigned>(std::numeric_limits<coord_type>::max())));
         } else {
             m_cur_span++;
             m_cur_span->x      = (coord_type)(x + m_min_x);
@@ -98,8 +102,12 @@ public:
     {
         x -= m_min_x;
         FXSYS_memset(m_covers + x, cover, len);
+        len = std::min(
+            len, static_cast<unsigned>(std::numeric_limits<coord_type>::max()));
         if(x == m_last_x + 1) {
-            m_cur_span->len += (coord_type)len;
+          m_cur_span->len = static_cast<coord_type>(std::min(
+              len + m_cur_span->len,
+              static_cast<unsigned>(std::numeric_limits<coord_type>::max())));
         } else {
             m_cur_span++;
             m_cur_span->x      = (coord_type)(x + m_min_x);
