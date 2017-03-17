@@ -22,6 +22,30 @@
       "revId": "8618955debb83b739ae881e0468ee29e6c90b430",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95c8bb73_3d5bd155",
+        "filename": "core/fpdfapi/page/fpdf_page_colors.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-17T21:28:32Z",
+      "side": 1,
+      "message": "This one has a lot of callers. Feels a bit more readable for the callers to not have to worry about the implementation details of normalizing the channel value.",
+      "parentUuid": "eb306669_8814cf63",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "8618955debb83b739ae881e0468ee29e6c90b430",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
