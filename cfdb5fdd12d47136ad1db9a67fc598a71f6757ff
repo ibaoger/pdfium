@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27079841_23e4fcbe",
+        "filename": "third_party/zlib_v1211/gzguts.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "This was our addition, maybe leave it?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f03b5eb7_22762f76",
+        "filename": "third_party/zlib_v1211/gzguts.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "We might want to leave this as well... but tsepez@ can better comment on this.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0093e04_4c110fed",
+        "filename": "third_party/zlib_v1211/inflate.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "Ours too, don\u0027t see a problem with leaving this (or just set have this in line 1297\nunsigned long dictid \u003d 0;",
+      "range": {
+        "startLine": 1300,
+        "startChar": 4,
+        "endLine": 1300,
+        "endChar": 11
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e71ad04_82782883",
+        "filename": "third_party/zlib_v1211/zconf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "These #if 0 are ours but I don\u0027t know if we still need them.",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 5
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "327476fe_f5784896",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "ditto",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acade80f_8a66a86e",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "Ours",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 26
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89f3e3e7_c8dad615",
+        "filename": "third_party/zlib_v1211/zutil.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "More of our #if 0\u0027s. It would\u0027ve been nice if they had documented their changes to the third_party libs :S",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c39eb822_5b9829a7",
+        "filename": "third_party/zlib_v1211/zutil.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "I think it is fine to use their calloc and free, but not sure",
+      "range": {
+        "startLine": 329,
+        "startChar": 1,
+        "endLine": 341,
+        "endChar": 1
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41011489_67651319",
+        "filename": "third_party/zlib_v1211/zutil.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "FXSYS_fopen vs fopen",
+      "range": {
+        "startLine": 109,
+        "startChar": 5,
+        "endLine": 109,
+        "endChar": 16
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0645ec1_ecf5cc73",
+        "filename": "third_party/zlib_v1211/zutil.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-17T15:01:29Z",
+      "side": 0,
+      "message": "It\u0027s probably also fine to use theirs instead of ours",
+      "range": {
+        "startLine": 210,
+        "startChar": 5,
+        "endLine": 210,
+        "endChar": 27
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
