@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b6460d0_0ff9ba34",
+        "filename": "core/fxcrt/cfx_string_data_template.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-17T16:41:55Z",
+      "side": 1,
+      "message": "I think that as time goes on, we\u0027re going to want to centralize the various partition allocators.  If blink is any example, we\u0027re going to want at least two: one for strings/arraybuffers, and one for objects.\n\nSo ... while this is on the right track, the thing to note is we have FPDF_InitLibrary() that can do the creation for us rather than oppoturnistically trying to create it on each allocation.\n\n\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/fpdfsdk/fpdfview.cpp?rcl\u003dadee4859cdb4a591cdc202d0a4452d17a827fc90\u0026l\u003d366\n\nThis would have to be the first thing that happens after checking for intialization.\n\nAs to where to declare the partitions themselves, there are a coupla possibilities:\n\n1.  core/fxcrt/fx_memory.h\n2.  a brand-new core/fxcrt/fx_partitions.h\n\nAs to where to define the globals themseleves, maybe\n  core/fxcrt/fx_basic_memmgr.cpp\n\nand realize that someday maybe the names of the headers and .cpps will fully match each other.",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "83f41d799efc47d47b7cd85fb60c2d65164ea5b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
