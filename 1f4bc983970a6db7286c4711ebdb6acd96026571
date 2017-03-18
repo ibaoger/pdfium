@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f003c145_5487c018",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-18T00:33:25Z",
+      "side": 1,
+      "message": "BTW, did you notice we have |NewPlace| here and |newplace| above? @_@",
+      "range": {
+        "startLine": 328,
+        "startChar": 19,
+        "endLine": 328,
+        "endChar": 27
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9626ea9e_b8e0ae37",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-18T00:33:25Z",
+      "side": 1,
+      "message": "Was |wordplace.nWordIndex| always -1 previously? Not obvious why it\u0027s ok to iterate through the entire array here.",
+      "range": {
+        "startLine": 333,
+        "startChar": 25,
+        "endLine": 333,
+        "endChar": 46
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614f3b3d_6d09b54e",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-18T00:33:25Z",
+      "side": 1,
+      "message": "const auto?",
+      "range": {
+        "startLine": 333,
+        "startChar": 11,
+        "endLine": 333,
+        "endChar": 15
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8252fbb_97498115",
         "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
         "patchSetId": 3
@@ -13,6 +82,30 @@
       "writtenOn": "2017-03-17T23:30:42Z",
       "side": 1,
       "message": "Note: Dubious way to avoid an if i \u003d\u003d 0 in loo?.  Probably wrong for 0-length array. I left it.",
+      "range": {
+        "startLine": 677,
+        "startChar": 3,
+        "endLine": 677,
+        "endChar": 32
+      },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd611338_81c2801c",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-18T00:33:25Z",
+      "side": 1,
+      "message": "Most of the callers check for total \u003e 0, so returning -1 just happens to work.",
+      "parentUuid": "d8252fbb_97498115",
       "range": {
         "startLine": 677,
         "startChar": 3,
@@ -42,6 +135,23 @@
         "endLine": 218,
         "endChar": 49
       },
+      "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c9b1bb_7e48bf15",
+        "filename": "core/fpdfdoc/ctypeset.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-18T00:33:25Z",
+      "side": 1,
+      "message": "BTW, good place to use std::max().",
       "revId": "1f4bc983970a6db7286c4711ebdb6acd96026571",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
