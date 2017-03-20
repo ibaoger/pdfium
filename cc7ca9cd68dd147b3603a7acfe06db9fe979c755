@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "28a7e3d2_00b381fa",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Sure, but not sure the benefit.",
+      "parentUuid": "99336195_51731a1b",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 63
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f675ba31_ebc37e0a",
         "filename": "xfa/fgas/localization/fgas_datetime.h",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f2d35e3f_c0621a7d",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f675ba31_ebc37e0a",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "249b22d1_04ffdeee",
         "filename": "xfa/fgas/localization/fgas_datetime.h",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2017-03-20T18:54:17Z",
       "side": 1,
       "message": "Do you need to reset the hours, minutes, etc? Or if it is always called with SetTime, merge?",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 15
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ef61e9_74ade4a7",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "No,  we don\u0027t want to reset the time here or the date in time. These can be called on the same datetime object but from different methods.",
+      "parentUuid": "249b22d1_04ffdeee",
       "range": {
         "startLine": 61,
         "startChar": 4,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "887a304e_0d45c7a2",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Apparently? These are the same types they used previously so I\u0027m keeping them for consistency.",
+      "parentUuid": "ef1f1037_642b14a8",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 9
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "109e9ab4_5e14961a",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 3
@@ -128,6 +224,30 @@
       "writtenOn": "2017-03-20T18:54:17Z",
       "side": 1,
       "message": "We\u0027re assuming these methods receive datetime 0, right? Can we add ASSERTs accordingly? Or even return the CFX_Unitime",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 205,
+        "endChar": 20
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af3f268b_6d4bf4fb",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Cant\u0027 return as they return a bool that is checked.  They don\u0027t have to take a 0 datetime as the date ones may get called with the time set already, or the other way around.",
+      "parentUuid": "109e9ab4_5e14961a",
       "range": {
         "startLine": 205,
         "startChar": 5,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "1d116465_2982885b",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Possibly, but the alternative should call the Time set method as well.",
+      "parentUuid": "073cb925_8ae8de50",
+      "range": {
+        "startLine": 613,
+        "startChar": 9,
+        "endLine": 613,
+        "endChar": 13
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d855754f_df15ab50",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 3
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "bb4490b2_dc19abbc",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d855754f_df15ab50",
+      "range": {
+        "startLine": 1096,
+        "startChar": 30,
+        "endLine": 1096,
+        "endChar": 31
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67afa779_85397494",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 3
@@ -197,6 +365,30 @@
       "writtenOn": "2017-03-20T18:54:17Z",
       "side": 1,
       "message": "They can\u0027t both be true at the same time. Leave else if?",
+      "range": {
+        "startLine": 2715,
+        "startChar": 5,
+        "endLine": 2715,
+        "endChar": 7
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b80bd328_aa178cad",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "The if returns.",
+      "parentUuid": "67afa779_85397494",
       "range": {
         "startLine": 2715,
         "startChar": 5,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "fd57a648_870ace3a",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b164e76_74c2a1b9",
+      "range": {
+        "startLine": 623,
+        "startChar": 10,
+        "endLine": 623,
+        "endChar": 29
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba11f14a_69d8f60b",
         "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
         "patchSetId": 3
@@ -252,6 +468,30 @@
       "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a042045_4f89e1c2",
+        "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T19:04:32Z",
+      "side": 1,
+      "message": "Bool is checked, can call the Time method so it won\u0027t be 0.",
+      "parentUuid": "ba11f14a_69d8f60b",
+      "range": {
+        "startLine": 595,
+        "startChar": 23,
+        "endLine": 595,
+        "endChar": 44
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
