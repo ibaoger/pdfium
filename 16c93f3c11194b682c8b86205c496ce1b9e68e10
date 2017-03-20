@@ -94,6 +94,30 @@
       "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b373a07_9e59217a",
+        "filename": "core/fpdfapi/parser/cpdf_reference.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-03-20T16:59:52Z",
+      "side": 1,
+      "message": "Returning a reference while pDirect\u003dtrue may break other code. I think a better fix would be using separate *pVisited set for elements in CPDF_Array and CPDF_Dictionary.",
+      "parentUuid": "540f54aa_28225f1d",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "16c93f3c11194b682c8b86205c496ce1b9e68e10",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
