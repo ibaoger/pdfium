@@ -113,6 +113,29 @@
       "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be42fe19_1ccb2726",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-20T18:42:27Z",
+      "side": 1,
+      "message": "there\u0027s got to be a saner way to compute this.  They avoid some multiplies, but really\n\nmin \u003d min(r, g, b);\nmax \u003d max(r, g, b);\nif (max \u003d\u003d min) { .. }\nr \u003d (r - min) * s / (max - min)\ng \u003d (g - min) * s / (max - min)\nb \u003d (b - min) * s / (max - min)",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 3
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
