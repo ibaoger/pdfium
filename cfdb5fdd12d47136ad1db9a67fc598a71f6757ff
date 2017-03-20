@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "cb7a1c38_0547d4e9",
+        "filename": "third_party/zlib_v1211/gzguts.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-20T21:22:42Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "8f5462a3_295924c0",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0093e04_4c110fed",
         "filename": "third_party/zlib_v1211/inflate.c",
         "patchSetId": 1
@@ -167,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "9e659142_4e8bab69",
+        "filename": "third_party/zlib_v1211/inflate.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-20T21:22:42Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "6a21ab58_5b34e25a",
+      "range": {
+        "startLine": 1300,
+        "startChar": 4,
+        "endLine": 1300,
+        "endChar": 11
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e71ad04_82782883",
         "filename": "third_party/zlib_v1211/zconf.h",
         "patchSetId": 1
@@ -235,6 +283,30 @@
       "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "209740c2_1af0dcd1",
+        "filename": "third_party/zlib_v1211/zconf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-20T21:22:42Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "da52aa5e_babb16ec",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 5
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -320,6 +392,30 @@
       "side": 0,
       "message": "It looks like this is just disabling GZIP? Is there a way we can do that in BUILD.gn instead of patching?",
       "parentUuid": "acade80f_8a66a86e",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 26
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37153cbc_2764eafe",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-20T21:22:42Z",
+      "side": 0,
+      "message": "On the same header there is this comment: \n\"17: NO_GZIP -- deflate can\u0027t write gzip streams, and inflate can\u0027t detect\nand decode gzip streams (to avoid linking crc code)\"\n\nI guess it makes sense to disable it by default.",
+      "parentUuid": "3f88d68f_9a679db6",
       "range": {
         "startLine": 102,
         "startChar": 1,
