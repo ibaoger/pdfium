@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c62f465_b565edf0",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a11f94_9b1c4ea1",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aadb9e13_f6b0b201",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74708d7b_0e955f13",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadb9e13_f6b0b201",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f274c767_82f324d3",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caaa9b8c_8392416d",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 35
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0764aa9c_ea4f6dfc",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 2
@@ -79,6 +139,30 @@
       "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8e8091_4b09ecff",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0764aa9c_ea4f6dfc",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 42
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "a33ce78b_cbfa0d17",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "If all values are equal.",
+      "parentUuid": "b8ff36ca_3047094d",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be42fe19_1ccb2726",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 2
@@ -127,6 +229,30 @@
       "writtenOn": "2017-03-20T18:42:27Z",
       "side": 1,
       "message": "there\u0027s got to be a saner way to compute this.  They avoid some multiplies, but really\n\nmin \u003d min(r, g, b);\nmax \u003d max(r, g, b);\nif (max \u003d\u003d min) { .. }\nr \u003d (r - min) * s / (max - min)\ng \u003d (g - min) * s / (max - min)\nb \u003d (b - min) * s / (max - min)",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 3
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "561c5b26_b4038ebb",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:03:07Z",
+      "side": 1,
+      "message": "Yes, I thought this too, it is equivalent. But I think they have it like this for efficiency. Should we just use the simpler form then?",
+      "parentUuid": "be42fe19_1ccb2726",
       "range": {
         "startLine": 164,
         "startChar": 2,
