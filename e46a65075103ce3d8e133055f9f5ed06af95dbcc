@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1490049967 -0700\nnonce AIcUUg/KBS3frPdeaAmDfkix0dM/ky+zxrzIsuZubX7IqRDgVcpgGLaWEHZ45JxfPH0HpnRIUQU9\n\n0000000000000000000000000000000000000000 e46a65075103ce3d8e133055f9f5ed06af95dbcc refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY0FuvAAoJEKs2LWFaZv17CrsIAL26+sQCPD/UGcGwL+tUtAke\nYk6/Ozk+htU2Oz+2b909DzqbSknnBQtDnmUii9tICWlu+ODaQ2m0joR3bebRSiA3\nTkTTEqLDFrHAa2+VD4lMrN4Q/D6ajPiEJRfSls4rEUEbC3WVWNj0ebT/Sw8Q8uUs\nHlBrblr4DcMABB0LQzOizEZsXR+9gi9ZaP+4R6RvhczqhIi9xhJretBcRGp4Xg3u\nhRwei1F7YHv+avntcG3/+eVF7+ImjbqwbLsn0HnPGU9UXxVzDywoGVJ2o3Fjw6Gi\nzCR4OVpvTkRsYaJfuxgLvZAxwVNytEK3ME4gtsZoR+yKUeYQdk1k70sjCVc4oz8\u003d\n\u003dOQpE\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d2989de_68a65c60",
+        "filename": "third_party/libtiff/0016-fix-leak-in-pixarlogsetupdecode.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-20T23:30:14Z",
+      "side": 1,
+      "message": "Removed in patch 18.",
+      "revId": "e46a65075103ce3d8e133055f9f5ed06af95dbcc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b1ef60_6710d59e",
+        "filename": "third_party/libtiff/0021-fix-leaks-ojpegreaderinfosectables.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-20T23:30:14Z",
+      "side": 1,
+      "message": "Merged with patch 15.",
+      "revId": "e46a65075103ce3d8e133055f9f5ed06af95dbcc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
