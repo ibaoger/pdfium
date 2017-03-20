@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce917493_fb540f8f",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T15:56:07Z",
+      "side": 1,
+      "message": "one per line.",
+      "range": {
+        "startLine": 268,
+        "startChar": 2,
+        "endLine": 268,
+        "endChar": 23
+      },
+      "revId": "40df3d25dd6d58e909b10f2648a3bb2e587626aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1db83d1b_7e95c38b",
+        "filename": "xfa/fwl/cfwl_monthcalendar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T15:56:07Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem good to me, we\u0027re doing extra work we\u0027re not even going to use. Just add GetDayOfWeek in the namespace of this file.",
+      "range": {
+        "startLine": 573,
+        "startChar": 2,
+        "endLine": 573,
+        "endChar": 13
+      },
+      "revId": "40df3d25dd6d58e909b10f2648a3bb2e587626aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
