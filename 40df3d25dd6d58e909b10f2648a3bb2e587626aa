@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d022de77_94910a5b",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T17:33:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce917493_fb540f8f",
+      "range": {
+        "startLine": 268,
+        "startChar": 2,
+        "endLine": 268,
+        "endChar": 23
+      },
+      "revId": "40df3d25dd6d58e909b10f2648a3bb2e587626aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1db83d1b_7e95c38b",
         "filename": "xfa/fwl/cfwl_monthcalendar.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-20T15:56:07Z",
       "side": 1,
       "message": "This doesn\u0027t seem good to me, we\u0027re doing extra work we\u0027re not even going to use. Just add GetDayOfWeek in the namespace of this file.",
+      "range": {
+        "startLine": 573,
+        "startChar": 2,
+        "endLine": 573,
+        "endChar": 13
+      },
+      "revId": "40df3d25dd6d58e909b10f2648a3bb2e587626aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6439fc30_152bb301",
+        "filename": "xfa/fwl/cfwl_monthcalendar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T17:33:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure it matters that much, this will only be called when we\u0027re opening a month calendar and flipping through it in XFA.\n\nI\u0027m going to look at making CFX_Unitime store the individual components instead of a int64_t and see if that makes things simpler.",
+      "parentUuid": "1db83d1b_7e95c38b",
       "range": {
         "startLine": 573,
         "startChar": 2,
