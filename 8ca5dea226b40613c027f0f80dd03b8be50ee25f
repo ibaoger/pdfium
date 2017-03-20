@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b669b01_144a9920",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:24:04Z",
+      "side": 1,
+      "message": "I\u0027m thinking of changing the method in fpdfedittext to generate an indirect object even for standard fonts. And also having m_FontsMap map the objnum to the name. WDYT?",
+      "range": {
+        "startLine": 264,
+        "startChar": 13,
+        "endLine": 264,
+        "endChar": 21
+      },
+      "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
