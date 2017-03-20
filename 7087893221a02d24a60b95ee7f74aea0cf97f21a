@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caaa9b8c_8392416d",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-20T18:33:53Z",
+      "side": 1,
+      "message": "isn\u0027t this the opposite of what we just tested on 125?",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 35
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0764aa9c_ea4f6dfc",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-20T18:33:53Z",
+      "side": 1,
+      "message": "always true in else branch?",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 42
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
