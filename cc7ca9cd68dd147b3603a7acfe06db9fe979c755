@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e26bc88_4f5ce492",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "Update description",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99336195_51731a1b",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "You could still use the Set methods here.",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 63
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f675ba31_ebc37e0a",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "consistency: this is plural the rest are not",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "249b22d1_04ffdeee",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "Do you need to reset the hours, minutes, etc? Or if it is always called with SetTime, merge?",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 15
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef1f1037_642b14a8",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "Can the year used be negative?",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 9
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109e9ab4_5e14961a",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "We\u0027re assuming these methods receive datetime 0, right? Can we add ASSERTs accordingly? Or even return the CFX_Unitime",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 205,
+        "endChar": 20
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "073cb925_8ae8de50",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "Could this potentially return false after modifying the date and cause us to call another modifier, in lines 2093-2099?",
+      "range": {
+        "startLine": 613,
+        "startChar": 9,
+        "endLine": 613,
+        "endChar": 13
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d855754f_df15ab50",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 1096,
+        "startChar": 30,
+        "endLine": 1096,
+        "endChar": 31
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67afa779_85397494",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "They can\u0027t both be true at the same time. Leave else if?",
+      "range": {
+        "startLine": 2715,
+        "startChar": 5,
+        "endLine": 2715,
+        "endChar": 7
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b164e76_74c2a1b9",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 623,
+        "startChar": 10,
+        "endLine": 623,
+        "endChar": 29
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba11f14a_69d8f60b",
+        "filename": "xfa/fxfa/parser/xfa_localevalue.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T18:54:17Z",
+      "side": 1,
+      "message": "ditto ASSERT or return",
+      "range": {
+        "startLine": 595,
+        "startChar": 23,
+        "endLine": 595,
+        "endChar": 44
+      },
+      "revId": "cc7ca9cd68dd147b3603a7acfe06db9fe979c755",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
