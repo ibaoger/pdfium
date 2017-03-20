@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bef9aa32_e0f8a1b0",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77be2e0f_a36f3403",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 55
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38cdff4b_e82859cf",
         "filename": "xfa/fgas/localization/fgas_datetime.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d9db2272_f039d09c",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38cdff4b_e82859cf",
+      "range": {
+        "startLine": 187,
+        "startChar": 1,
+        "endLine": 187,
+        "endChar": 6
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aad2b70_7e93b93c",
         "filename": "xfa/fgas/localization/fgas_datetime.cpp",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-16T18:21:09Z",
       "side": 1,
       "message": "unneeded param for GetDayOfAD",
+      "range": {
+        "startLine": 220,
+        "startChar": 24,
+        "endLine": 220,
+        "endChar": 34
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe22616_a5caedcd",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "No, it\u0027s used.",
+      "parentUuid": "6aad2b70_7e93b93c",
       "range": {
         "startLine": 220,
         "startChar": 24,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bbbb3ea2_3d70bf62",
+        "filename": "xfa/fgas/localization/fgas_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "It appears so.",
+      "parentUuid": "384872be_59b7f3f3",
+      "range": {
+        "startLine": 274,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 40
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b431744_11eed13e",
         "filename": "xfa/fgas/localization/fgas_datetime.h",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-16T18:21:09Z",
       "side": 1,
       "message": "Are these ever call with something different from 0?",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039e96d3_273fbf02",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "9b431744_11eed13e",
       "range": {
         "startLine": 29,
         "startChar": 11,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "5f4c89ce_137a16c5",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a87ed56_0ea89fd2",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 11
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82ca9558_91db9907",
         "filename": "xfa/fgas/localization/fgas_datetime.h",
         "patchSetId": 1
@@ -160,6 +304,30 @@
       "revId": "15210d65838035e6be78b9e6ced857c96a737336",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1988ec14_abd9b700",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82ca9558_91db9907",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "27a2da93_c360d998",
+        "filename": "xfa/fgas/localization/fgas_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36dc7920_03e0c586",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 7
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c731cea6_e4d0e094",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 1
@@ -206,6 +398,30 @@
       "revId": "15210d65838035e6be78b9e6ced857c96a737336",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff8b16c4_5fa397d4",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c731cea6_e4d0e094",
+      "range": {
+        "startLine": 2234,
+        "startChar": 15,
+        "endLine": 2234,
+        "endChar": 17
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "50ef2b02_39e147fd",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3585,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d78d7c34_b87772f8",
+      "range": {
+        "startLine": 3585,
+        "startChar": 31,
+        "endLine": 3585,
+        "endChar": 32
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a19918_f4f88b96",
         "filename": "xfa/fxfa/app/xfa_fftextedit.cpp",
         "patchSetId": 1
@@ -252,6 +492,30 @@
       "revId": "15210d65838035e6be78b9e6ced857c96a737336",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d317aa_9e918ef4",
+        "filename": "xfa/fxfa/app/xfa_fftextedit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T14:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a19918_f4f88b96",
+      "range": {
+        "startLine": 525,
+        "startChar": 35,
+        "endLine": 525,
+        "endChar": 36
+      },
+      "revId": "15210d65838035e6be78b9e6ced857c96a737336",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
