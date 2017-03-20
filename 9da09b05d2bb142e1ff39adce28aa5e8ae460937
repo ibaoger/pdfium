@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc1ae515_7f10e13a",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:52:44Z",
+      "side": 1,
+      "message": "Couldn\u0027t m_iAlignment have changed since the last call to ResetArabicContext?",
+      "range": {
+        "startLine": 82,
+        "startChar": 29,
+        "endLine": 82,
+        "endChar": 41
+      },
+      "revId": "9da09b05d2bb142e1ff39adce28aa5e8ae460937",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16dbd081_a44b5852",
+        "filename": "xfa/fgas/layout/fgas_textbreak.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:52:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 470,
+        "startChar": 23,
+        "endLine": 470,
+        "endChar": 35
+      },
+      "revId": "9da09b05d2bb142e1ff39adce28aa5e8ae460937",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
