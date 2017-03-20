@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "52a11f94_9b1c4ea1",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T18:38:40Z",
+      "side": 1,
+      "message": "return 255 - std::min((255 - back_color) * 255 / src_color, 255);\n\nI think is easier to read.",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aadb9e13_f6b0b201",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T18:38:40Z",
+      "side": 1,
+      "message": "s/blue/red",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "caaa9b8c_8392416d",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 2
@@ -42,6 +76,40 @@
         "endLine": 154,
         "endChar": 42
       },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78da0b08_d1d2ff3a",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T18:38:40Z",
+      "side": 1,
+      "message": "Can we get rid of hte min, max, mid in here and spit this into 2 parts?\nThis chunk of If\u0027s in the first, but instead of assiging to min/mid/max we call\n\nSetSatInternal(int* min, int* mid, int* max, s);\n\nThen the second method which does the stuff below here.",
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8ff36ca_3047094d",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T18:38:40Z",
+      "side": 1,
+      "message": "How is this possible?",
       "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
