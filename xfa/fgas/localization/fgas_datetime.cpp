@@ -263,26 +263,13 @@ uint16_t CFX_Unitime::GetMillisecond() const {
   return static_cast<uint16_t>(v);
 }
 
-bool CFX_DateTime::Set(int32_t year, uint8_t month, uint8_t day) {
-  ASSERT(year != 0);
-  ASSERT(month >= 1 && month <= 12);
-  ASSERT(day >= 1 && day <= FX_DaysInMonth(year, month));
+int32_t CFX_Unitime::GetDayOfWeek() const {
+  int32_t iYear;
+  uint8_t iMonth;
+  uint8_t iDay;
+  DaysToDate(GetDayOfAD(m_iUnitime), &iYear, &iMonth, &iDay);
 
-  m_DateTime.Date.sDate.year = year;
-  m_DateTime.Date.sDate.month = month;
-  m_DateTime.Date.sDate.day = day;
-  m_DateTime.Time.sTime.hour = 0;
-  m_DateTime.Time.sTime.minute = 0;
-  m_DateTime.Time.sTime.second = 0;
-  m_DateTime.Time.sTime.millisecond = 0;
-  return true;
-}
-
-int32_t CFX_DateTime::GetDayOfWeek() const {
-  int32_t v = static_cast<int32_t>(DateToDays(m_DateTime.Date.sDate.year,
-                                              m_DateTime.Date.sDate.month,
-                                              m_DateTime.Date.sDate.day, true) %
-                                   7);
+  int32_t v = static_cast<int32_t>(DateToDays(iYear, iMonth, iDay, true) % 7);
   if (v < 0)
     v += 7;
   return v;

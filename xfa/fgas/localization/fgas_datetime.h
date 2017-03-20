@@ -39,6 +39,7 @@ class CFX_Unitime {
   uint8_t GetMinute() const;
   uint8_t GetSecond() const;
   uint16_t GetMillisecond() const;
+  int32_t GetDayOfWeek() const;
 
   CFX_Unitime operator+(const CFX_Unitime& t2) const {
     return CFX_Unitime(m_iUnitime + t2.m_iUnitime);
@@ -58,47 +59,5 @@ struct FX_TIMEZONE {
 #if _FX_OS_ != _FX_ANDROID_
 #pragma pack(pop)
 #endif
-
-class CFX_DateTime {
- public:
-  CFX_DateTime() {}
-  ~CFX_DateTime() {}
-
-  bool Set(int32_t year, uint8_t month, uint8_t day);
-  int32_t GetDayOfWeek() const;
-
- private:
-#if _FX_OS_ != _FX_ANDROID_
-#pragma pack(push, 1)
-#endif
-  struct FX_DATE {
-    int32_t year;
-    uint8_t month;
-    uint8_t day;
-  };
-
-  struct FX_TIME {
-    uint8_t hour;
-    uint8_t minute;
-    uint8_t second;
-    uint16_t millisecond;
-  };
-
-  struct FX_DATETIME {
-    union {
-      FX_DATE sDate;
-      FX_DATE aDate;
-    } Date;
-    union {
-      FX_TIME sTime;
-      FX_TIME aTime;
-    } Time;
-  };
-
-#if _FX_OS_ != _FX_ANDROID_
-#pragma pack(pop)
-#endif
-  FX_DATETIME m_DateTime;
-};
 
 #endif  // XFA_FGAS_LOCALIZATION_FGAS_DATETIME_H_
