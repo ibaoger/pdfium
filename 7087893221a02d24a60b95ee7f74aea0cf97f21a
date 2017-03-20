@@ -262,6 +262,30 @@
       "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48963cfc_f2243f13",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-20T20:18:32Z",
+      "side": 1,
+      "message": "branch misprediction probably costs more nowdays than the multiply, so yes.",
+      "parentUuid": "561c5b26_b4038ebb",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 3
+      },
+      "revId": "7087893221a02d24a60b95ee7f74aea0cf97f21a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
