@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0209622_3371fc4f",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T14:19:02Z",
+      "side": 1,
+      "message": "{}",
+      "range": {
+        "startLine": 1049,
+        "startChar": 40,
+        "endLine": 1049,
+        "endChar": 41
+      },
+      "revId": "d5aeef3eb234543ad7b0c61ad5415095827abd94",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
