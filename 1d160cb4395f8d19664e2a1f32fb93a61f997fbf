@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "741092fc_178a2869",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 1,
+      "message": "It\u0027s quite possible that the user of pdfium will also slink to zlib. We should keep these defines in place to be on the safe side.",
+      "parentUuid": "350f84f2_e610f610",
+      "revId": "1d160cb4395f8d19664e2a1f32fb93a61f997fbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60d78324_d71f012c",
         "filename": "third_party/zlib_v1211/zlib.h",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2017-03-17T15:01:29Z",
       "side": 1,
       "message": "tsepez@ can we change this to their type or should we keep using off64_t?",
+      "range": {
+        "startLine": 1932,
+        "startChar": 13,
+        "endLine": 1932,
+        "endChar": 20
+      },
+      "revId": "1d160cb4395f8d19664e2a1f32fb93a61f997fbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acab4d9c_91e3a514",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1932,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 1,
+      "message": "Lets go with z_off_t for now on this one I think.",
+      "parentUuid": "60d78324_d71f012c",
       "range": {
         "startLine": 1932,
         "startChar": 13,

@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8f5462a3_295924c0",
+        "filename": "third_party/zlib_v1211/gzguts.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 0,
+      "message": "We should keep these.",
+      "parentUuid": "f03b5eb7_22762f76",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0093e04_4c110fed",
         "filename": "third_party/zlib_v1211/inflate.c",
         "patchSetId": 1
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "6a21ab58_5b34e25a",
+        "filename": "third_party/zlib_v1211/inflate.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 0,
+      "message": "The problem is, we don\u0027 necessary know if there is a case where it would fail as this was part of the initial code drop. We should keep this in for safety sake and get it pushed to upstream.",
+      "parentUuid": "8ab8938d_da274556",
+      "range": {
+        "startLine": 1300,
+        "startChar": 4,
+        "endLine": 1300,
+        "endChar": 11
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e71ad04_82782883",
         "filename": "third_party/zlib_v1211/zconf.h",
         "patchSetId": 1
@@ -154,6 +202,30 @@
       "side": 0,
       "message": "Seems to be a compiler workaround, maybe no longer necessary.",
       "parentUuid": "7e71ad04_82782883",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 5
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da52aa5e_babb16ec",
+        "filename": "third_party/zlib_v1211/zconf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 0,
+      "message": "These seem safe to drop.",
+      "parentUuid": "c68aa158_f718eacc",
       "range": {
         "startLine": 411,
         "startChar": 0,
@@ -224,6 +296,30 @@
       "writtenOn": "2017-03-17T15:01:29Z",
       "side": 0,
       "message": "Ours",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 26
+      },
+      "revId": "cfdb5fdd12d47136ad1db9a67fc598a71f6757ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f88d68f_9a679db6",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-20T13:58:12Z",
+      "side": 0,
+      "message": "It looks like this is just disabling GZIP? Is there a way we can do that in BUILD.gn instead of patching?",
+      "parentUuid": "acade80f_8a66a86e",
       "range": {
         "startLine": 102,
         "startChar": 1,
