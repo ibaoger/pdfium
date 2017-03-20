@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9650d20c_7c699cf9",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42fac9fb_5cd1a9c3",
+      "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b669b01_144a9920",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 1
@@ -66,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "dd531a3d_4935247d",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:21:22Z",
+      "side": 1,
+      "message": "The only benefit I can see would be being able to use the object number in the font map instead of properties about the font.",
+      "parentUuid": "db0dc165_cf00704c",
+      "range": {
+        "startLine": 264,
+        "startChar": 13,
+        "endLine": 264,
+        "endChar": 21
+      },
+      "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "948b4e0b_22b782f6",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
         "patchSetId": 1
@@ -83,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "a77bff88_7065e1cf",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948b4e0b_22b782f6",
+      "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee8a2db_6495ce22",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
         "patchSetId": 1
@@ -97,6 +157,24 @@
       "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e60a8d56_255e0d88",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-20T19:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eee8a2db_6495ce22",
+      "revId": "8ca5dea226b40613c027f0f80dd03b8be50ee25f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
