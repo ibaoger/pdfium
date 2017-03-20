@@ -394,7 +394,7 @@ bool ParseLocaleDate(const CFX_WideString& wsDate,
     return false;
   }
   CFX_Unitime ut;
-  ut.Set(year, month, day);
+  ut.Set(year, month, day, 0, 0, 0, 0);
   datetime = datetime + ut;
   return !!cc;
 }
@@ -1027,7 +1027,7 @@ bool FX_DateFromCanonical(const CFX_WideString& wsDate, CFX_Unitime& datetime) {
     }
   }
   CFX_Unitime ut;
-  ut.Set(year, month, day);
+  ut.Set(year, month, day, 0, 0, 0, 0);
   datetime = datetime + ut;
   return true;
 }
