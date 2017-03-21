@@ -135,8 +135,7 @@ void DrawAxialShading(CFX_DIBitmap* pBitmap,
   matrix.SetReverse(*pObject2Bitmap);
   uint32_t total_results =
       std::max(CountOutputs(funcs), pCS->CountComponents());
-  CFX_FixedBufGrow<float, 16> result_array(total_results);
-  float* pResults = result_array;
+  float pResults[std::max(16U, total_results)];
   FXSYS_memset(pResults, 0, total_results * sizeof(float));
   uint32_t rgb_array[SHADING_STEPS];
   for (int i = 0; i < SHADING_STEPS; i++) {
@@ -218,8 +217,7 @@ void DrawRadialShading(CFX_DIBitmap* pBitmap,
   }
   uint32_t total_results =
       std::max(CountOutputs(funcs), pCS->CountComponents());
-  CFX_FixedBufGrow<float, 16> result_array(total_results);
-  float* pResults = result_array;
+  float pResults[std::max(16U, total_results)];
   FXSYS_memset(pResults, 0, total_results * sizeof(float));
   uint32_t rgb_array[SHADING_STEPS];
   for (int i = 0; i < SHADING_STEPS; i++) {
@@ -343,8 +341,7 @@ void DrawFuncShading(CFX_DIBitmap* pBitmap,
   int pitch = pBitmap->GetPitch();
   uint32_t total_results =
       std::max(CountOutputs(funcs), pCS->CountComponents());
-  CFX_FixedBufGrow<float, 16> result_array(total_results);
-  float* pResults = result_array;
+  float pResults[std::max(16U, total_results)];
   FXSYS_memset(pResults, 0, total_results * sizeof(float));
   for (int row = 0; row < height; row++) {
     uint32_t* dib_buf = (uint32_t*)(pBitmap->GetBuffer() + row * pitch);
@@ -2042,7 +2039,7 @@ void CPDF_RenderStatus::DrawShading(CPDF_ShadingPattern* pPattern,
     CPDF_Array* pBackColor = pDict->GetArrayFor("Background");
     if (pBackColor &&
         pBackColor->GetCount() >= pColorSpace->CountComponents()) {
-      CFX_FixedBufGrow<float, 16> comps(pColorSpace->CountComponents());
+      float comps[std::max(16U, pColorSpace->CountComponents())];
       for (uint32_t i = 0; i < pColorSpace->CountComponents(); i++)
         comps[i] = pBackColor->GetNumberAt(i);
       float R = 0.0f;
@@ -2576,16 +2573,15 @@ std::unique_ptr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
 
         float R, G, B;
         uint32_t comps = 8;
-        if (pCS->CountComponents() > comps) {
+        if (pCS->CountComponents() > comps)
           comps = pCS->CountComponents();
-        }
-        CFX_FixedBufGrow<float, 8> float_array(comps);
-        float* pFloats = float_array;
+
+        float pFloats[std::max(8U, comps)];
         FX_SAFE_UINT32 num_floats = comps;
         num_floats *= sizeof(float);
-        if (!num_floats.IsValid()) {
+        if (!num_floats.IsValid())
           return nullptr;
-        }
+
         FXSYS_memset(pFloats, 0, num_floats.ValueOrDie());
         size_t count = pBC->GetCount() > 8 ? 8 : pBC->GetCount();
         for (size_t i = 0; i < count; i++) {
@@ -2623,7 +2619,7 @@ std::unique_ptr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
   int src_pitch = bitmap.GetPitch();
   std::vector<uint8_t> transfers(256);
   if (pFunc) {
-    CFX_FixedBufGrow<float, 16> results(pFunc->CountOutputs());
+    float results[std::max(16U, pFunc->CountOutputs())];
     for (int i = 0; i < 256; i++) {
       float input = (float)i / 255.0f;
       int nresult;
