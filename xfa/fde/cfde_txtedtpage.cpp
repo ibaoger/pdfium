@@ -296,7 +296,7 @@ int32_t CFDE_TxtEdtPage::LoadPage(const CFX_RectF* pClipBox,
     if (!CFX_BreakTypeNoneOrPiece(dwBreakStatus)) {
       int32_t nPieceCount = pBreak->CountBreakPieces();
       for (int32_t j = 0; j < nPieceCount; j++) {
-        const CFX_BreakPiece* pPiece = pBreak->GetBreakPiece(j);
+        const CFX_BreakPiece* pPiece = pBreak->GetBreakPieceUnstable(j);
         FDE_TEXTEDITPIECE TxtEdtPiece;
         FXSYS_memset(&TxtEdtPiece, 0, sizeof(FDE_TEXTEDITPIECE));
         TxtEdtPiece.nBidiLevel = pPiece->m_iBidiLevel;
