@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "603390bd_01f080b1",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T13:20:05Z",
+      "side": 1,
+      "message": "Is the inline needed, or can we let the compiler figure it out.",
+      "revId": "c23577e49d7a6828f268a2a194de75150859f20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c91925_9cb358d9",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T13:20:05Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "c23577e49d7a6828f268a2a194de75150859f20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a37880c_66abfbe0",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T13:20:05Z",
+      "side": 1,
+      "message": "Followup, change this to return the uint8_t instead of taking an out.",
+      "revId": "c23577e49d7a6828f268a2a194de75150859f20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d21f98_e508436a",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T13:20:05Z",
+      "side": 1,
+      "message": "{}\u0027s",
+      "revId": "c23577e49d7a6828f268a2a194de75150859f20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fa80776_c344a9d4",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1714,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T13:20:05Z",
+      "side": 1,
+      "message": "{}\u0027s",
+      "revId": "c23577e49d7a6828f268a2a194de75150859f20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
