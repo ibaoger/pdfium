@@ -95,7 +95,7 @@ class CPDF_Creator {
   uint32_t m_dwFlags;
   uint32_t m_CurObjNum;
   FX_FILESIZE m_XrefStart;
-  std::map<uint32_t, FX_FILESIZE> m_ObjectOffsets;
+  std::map<uint32_t, FX_FILESIZE> m_ObjectOffset;
   std::vector<uint32_t> m_NewObjNumArray;  // Sorted, ascending.
   std::unique_ptr<CPDF_Array> m_pIDArray;
   int32_t m_FileVersion;
