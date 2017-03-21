@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81789c2b_a382f8c9",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-21T17:42:28Z",
+      "side": 1,
+      "message": "Or we can return nullptr here. It is like this because that\u0027s how it was when I changed the method (it just assumed it was a Page).",
+      "revId": "3cded47c18db92cd1bb0d7b8681a2f2cff42d252",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
