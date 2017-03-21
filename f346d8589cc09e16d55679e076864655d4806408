@@ -76,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "fbc69462_3ec7e2cd",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aef2cdaa_7f43a127",
+      "range": {
+        "startLine": 731,
+        "startChar": 9,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c14f3d5_04dc728c",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 6
@@ -96,6 +120,30 @@
       "revId": "f346d8589cc09e16d55679e076864655d4806408",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4063fa05_9fd948a1",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c14f3d5_04dc728c",
+      "range": {
+        "startLine": 768,
+        "startChar": 5,
+        "endLine": 768,
+        "endChar": 20
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -122,6 +170,30 @@
     },
     {
       "key": {
+        "uuid": "ca347cd8_b665957d",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccba529c_c14b4470",
+      "range": {
+        "startLine": 775,
+        "startChar": 17,
+        "endLine": 775,
+        "endChar": 24
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "669dea44_1a23632c",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 6
@@ -145,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "e4b45d05_0e354950",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "669dea44_1a23632c",
+      "range": {
+        "startLine": 794,
+        "startChar": 29,
+        "endLine": 794,
+        "endChar": 42
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d779c9da_d7e5cb6c",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 6
@@ -156,6 +252,30 @@
       "writtenOn": "2017-03-17T23:04:23Z",
       "side": 1,
       "message": "The current code to do the round up will round 5.1 to 6, but also round 5 to 6. Maybe it\u0027s not a big deal?",
+      "range": {
+        "startLine": 810,
+        "startChar": 35,
+        "endLine": 810,
+        "endChar": 43
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e4a4fff_e771b749",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Really just needs to be at least as big as the mask so that nothing gets left off, so this should definitely work. Would something else be better/cleaner?",
+      "parentUuid": "d779c9da_d7e5cb6c",
       "range": {
         "startLine": 810,
         "startChar": 35,
@@ -191,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "5181b2c1_089724c2",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c64648_d01b3896",
+      "range": {
+        "startLine": 819,
+        "startChar": 11,
+        "endLine": 819,
+        "endChar": 23
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86e53eb0_4942b432",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 6
@@ -211,6 +355,30 @@
       "revId": "f346d8589cc09e16d55679e076864655d4806408",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b87d271_857424ec",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86e53eb0_4942b432",
+      "range": {
+        "startLine": 836,
+        "startChar": 37,
+        "endLine": 836,
+        "endChar": 40
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -237,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "31cde349_5e34220e",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Done - see new patch set. Render entire page, and pick out pieces as it goes. So we have O(N) calls to continue - the page gets rendered twice (once to bitmap, once to the printer).",
+      "parentUuid": "15044c63_74c4f1c0",
+      "range": {
+        "startLine": 855,
+        "startChar": 27,
+        "endLine": 855,
+        "endChar": 35
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82aa228b_85738c66",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 6
@@ -248,6 +440,30 @@
       "writtenOn": "2017-03-17T23:04:23Z",
       "side": 1,
       "message": "Can you explain why it has to have at least 100 masks?",
+      "range": {
+        "startLine": 940,
+        "startChar": 71,
+        "endLine": 940,
+        "endChar": 74
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01558d51_84ad772a",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Somewhat arbitrary. Once we get to a certain number of masks it doesn\u0027t make sense to render e.g. thousands of masks individually - takes a long time and doesn\u0027t save on spool size. One of the corpus PDFs apparently has 1200ish masks on the first page which was how I realized this was possible (took forever when trying to render all masks).  However another of them has several pages that have a dozen or so masks that are all pretty small and it is a solid improvement to render the masks separately in that case and isn\u0027t particularly inefficient.  I was trying to figure out a good balance between those two. It could probably be a little lower- maybe 40 or 50? What do you think?",
+      "parentUuid": "82aa228b_85738c66",
       "range": {
         "startLine": 940,
         "startChar": 71,
@@ -280,6 +496,30 @@
       "revId": "f346d8589cc09e16d55679e076864655d4806408",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f800c4a_4d4f4341",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-03-21T01:05:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "23dfc777_7a99571b",
+      "range": {
+        "startLine": 944,
+        "startChar": 16,
+        "endLine": 944,
+        "endChar": 27
+      },
+      "revId": "f346d8589cc09e16d55679e076864655d4806408",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
