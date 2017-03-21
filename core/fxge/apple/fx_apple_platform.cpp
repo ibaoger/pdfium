@@ -4,6 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
+#include <algorithm>
+
 #include "core/fxcrt/fx_system.h"
 
 #ifndef _SKIA_SUPPORT_
@@ -55,8 +57,8 @@ bool CGDrawGlyphRun(CGContextRef pContext,
     if (!pFont->GetPlatformFont())
       return false;
   }
-  CFX_FixedBufGrow<uint16_t, 32> glyph_indices(nChars);
-  CFX_FixedBufGrow<CGPoint, 32> glyph_positions(nChars);
+  uint16_t glyph_indices[std::max(32, nChars)];
+  CGPoint glyph_positions[std::max(32, nChars)];
   for (int i = 0; i < nChars; i++) {
     glyph_indices[i] =
         pCharPos[i].m_ExtGID ? pCharPos[i].m_ExtGID : pCharPos[i].m_GlyphIndex;

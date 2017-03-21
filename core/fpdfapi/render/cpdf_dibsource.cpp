@@ -795,8 +795,7 @@ void CPDF_DIBSource::LoadPalette() {
       m_bpc == 8 && m_bDefaultDecode) {
   } else {
     int palette_count = 1 << (m_bpc * m_nComponents);
-    CFX_FixedBufGrow<float, 16> color_values(m_nComponents);
-    float* color_value = color_values;
+    float color_value[std::max(16U, m_nComponents)];
     for (int i = 0; i < palette_count; i++) {
       int color_data = i;
       for (uint32_t j = 0; j < m_nComponents; j++) {
@@ -915,8 +914,7 @@ void CPDF_DIBSource::TranslateScanline24bpp(uint8_t* dest_scan,
     }
   }
 
-  CFX_FixedBufGrow<float, 16> color_values1(m_nComponents);
-  float* color_values = color_values1;
+  float color_values[std::max(16U, m_nComponents)];
   float R = 0.0f;
   float G = 0.0f;
   float B = 0.0f;
@@ -1344,7 +1342,7 @@ void CPDF_DIBSource::DownSampleScanline32Bit(int orig_Bpp,
     if (src_x == last_src_x) {
       argb = last_argb;
     } else {
-      CFX_FixedBufGrow<uint8_t, 128> extracted_components(m_nComponents);
+      uint8_t extracted_components[std::max(128U, m_nComponents)];
       const uint8_t* pSrcPixel = nullptr;
       if (m_bpc % 8 != 0) {
         // No need to check for 32-bit overflow, as |src_x| is bounded by
