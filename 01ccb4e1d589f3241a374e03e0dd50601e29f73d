@@ -68,6 +68,30 @@
       "revId": "01ccb4e1d589f3241a374e03e0dd50601e29f73d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76746fc9_d700d08b",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T20:57:53Z",
+      "side": 1,
+      "message": "I don\u0027t know if it\u0027s safe to remove. The call to GetRGB will access some number of arguments. That GetRGB can call out and pass the buffer through to other methods which look like they calculate the number of outputs/components?\n\nI think it\u0027s safer to leave for now.",
+      "parentUuid": "78889f0d_ae3194e3",
+      "range": {
+        "startLine": 544,
+        "startChar": 34,
+        "endLine": 544,
+        "endChar": 37
+      },
+      "revId": "01ccb4e1d589f3241a374e03e0dd50601e29f73d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
