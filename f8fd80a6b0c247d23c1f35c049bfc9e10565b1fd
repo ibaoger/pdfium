@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "4de13fda_c6030b19",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T19:24:13Z",
+      "side": 1,
+      "message": "nit: m_ObjectOffsetMap or m_ObjectOffsets (plural).",
+      "range": {
+        "startLine": 98,
+        "startChar": 34,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "f8fd80a6b0c247d23c1f35c049bfc9e10565b1fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121c4f65_8c67bcc3",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T19:24:13Z",
+      "side": 1,
+      "message": "ok, but we\u0027re doing two lookups, one here and one as a result of [] at line 670.  I don\u0027t know if that is less efficient than just doing\n\nauto iter \u003d pCreator-\u003em_ObjectOffset.find(m_dwTempObjnum)\nif (iter !\u003d end)\n  blah blah blah\n  AppendIndex(blah, iter-\u003esecond);\n\n\n[several places]",
+      "range": {
+        "startLine": 667,
+        "startChar": 4,
+        "endLine": 667,
+        "endChar": 71
+      },
+      "revId": "f8fd80a6b0c247d23c1f35c049bfc9e10565b1fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc38fe1_0f04bb55",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T19:24:13Z",
+      "side": 1,
+      "message": "where did this all go?",
+      "range": {
+        "startLine": 1378,
+        "startChar": 1,
+        "endLine": 1380,
+        "endChar": 11
+      },
+      "revId": "f8fd80a6b0c247d23c1f35c049bfc9e10565b1fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2bf8a0d_6b48e02d",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 2
@@ -16,6 +85,24 @@
       "revId": "f8fd80a6b0c247d23c1f35c049bfc9e10565b1fd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7798a2_81040a8b",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T19:24:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b2bf8a0d_6b48e02d",
+      "revId": "f8fd80a6b0c247d23c1f35c049bfc9e10565b1fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
