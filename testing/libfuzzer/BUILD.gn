@@ -158,3 +158,9 @@ pdfium_fuzzer("pdf_streamparser_fuzzer") {
     "pdf_streamparser_fuzzer.cc",
   ]
 }
+
+pdfium_fuzzer("pdf_save_as_copy_fuzzer") {
+  sources = [
+    "pdf_save_as_copy_fuzzer.cc",
+  ]
+}
