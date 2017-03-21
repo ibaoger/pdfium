@@ -664,11 +664,10 @@ int32_t CPDF_XRefStream::EndObjectStream(CPDF_Creator* pCreator, bool bEOF) {
     uint32_t end_num = m_IndexArray.back().objnum + m_IndexArray.back().count;
     int index = 0;
     for (; m_dwTempObjNum < end_num; m_dwTempObjNum++) {
-      FX_FILESIZE* offset = pCreator->m_ObjectOffset.GetPtrAt(m_dwTempObjNum);
-      if (offset) {
+      if (pdfium::ContainsKey(pCreator->m_ObjectOffset, m_dwTempObjNum)) {
         if (index >= iSize ||
             m_dwTempObjNum != m_ObjStream.m_Items[index].objnum) {
-          AppendIndex1(m_Buffer, *offset);
+          AppendIndex1(m_Buffer, pCreator->m_ObjectOffset[m_dwTempObjNum]);
         } else {
           AppendIndex2(m_Buffer, dwObjStmNum, index++);
         }
@@ -676,10 +675,9 @@ int32_t CPDF_XRefStream::EndObjectStream(CPDF_Creator* pCreator, bool bEOF) {
         AppendIndex0(m_Buffer, false);
       }
     }
-    if (iSize > 0 && bEOF) {
-      pCreator->m_ObjectOffset.Add(dwObjStmNum, 1);
+    if (iSize > 0 && bEOF)
       pCreator->m_ObjectOffset[dwObjStmNum] = objOffset;
-    }
+
     m_iSeg = iSeg;
     if (bEOF) {
       m_ObjStream.Start();
@@ -717,14 +715,13 @@ bool CPDF_XRefStream::GenerateXRefStream(CPDF_Creator* pCreator, bool bEOF) {
     AddObjectNumberToIndexArray(objnum);
   } else {
     for (; m_dwTempObjNum < pCreator->m_dwLastObjNum; m_dwTempObjNum++) {
-      FX_FILESIZE* offset = pCreator->m_ObjectOffset.GetPtrAt(m_dwTempObjNum);
-      if (offset) {
-        AppendIndex1(m_Buffer, *offset);
-      } else {
+      if (pdfium::ContainsKey(pCreator->m_ObjectOffset, m_dwTempObjNum))
+        AppendIndex1(m_Buffer, pCreator->m_ObjectOffset[m_dwTempObjNum]);
+      else
         AppendIndex0(m_Buffer, false);
-      }
     }
   }
+
   AppendIndex1(m_Buffer, offset_tmp);
   FX_FILESIZE& offset = pCreator->m_Offset;
   int32_t len = pFile->AppendDWord(objnum);
@@ -849,12 +846,10 @@ bool CPDF_XRefStream::EndXRefStream(CPDF_Creator* pCreator) {
   if (!(pCreator->m_dwFlags & FPDFCREATE_INCREMENTAL)) {
     AppendIndex0(m_Buffer, true);
     for (uint32_t i = 1; i < pCreator->m_dwLastObjNum + 1; i++) {
-      FX_FILESIZE* offset = pCreator->m_ObjectOffset.GetPtrAt(i);
-      if (offset) {
-        AppendIndex1(m_Buffer, *offset);
-      } else {
+      if (pdfium::ContainsKey(pCreator->m_ObjectOffset, i))
+        AppendIndex1(m_Buffer, pCreator->m_ObjectOffset[i]);
+      else
         AppendIndex0(m_Buffer, false);
-      }
     }
   } else {
     for (const auto& pair : m_IndexArray) {
@@ -1240,7 +1235,7 @@ int32_t CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
       bObjStm) {
     CPDF_Object* pObj = m_pDocument->GetOrParseIndirectObject(objnum);
     if (!pObj) {
-      m_ObjectOffset[objnum] = 0;
+      m_ObjectOffset.erase(objnum);
       return 0;
     }
     if (WriteIndirectObj(pObj)) {
@@ -1355,14 +1350,12 @@ void CPDF_Creator::InitOldObjNumOffsets() {
     while (j <= dwEnd && !m_pParser->IsObjectFreeOrNull(j))
       j++;
 
-    m_ObjectOffset.Add(dwStart, j - dwStart);
     dwStart = j;
   }
 }
 
 void CPDF_Creator::InitNewObjNumOffsets() {
   bool bIncremental = (m_dwFlags & FPDFCREATE_INCREMENTAL) != 0;
-  bool bNoOriginal = (m_dwFlags & FPDFCREATE_NO_ORIGINAL) != 0;
   for (const auto& pair : *m_pDocument) {
     const uint32_t objnum = pair.first;
     const CPDF_Object* pObj = pair.second.get();
@@ -1372,52 +1365,10 @@ void CPDF_Creator::InitNewObjNumOffsets() {
         m_pParser->GetObjectType(objnum)) {
       continue;
     }
-    AppendNewObjNum(objnum);
+    m_NewObjNumArray.insert(std::lower_bound(m_NewObjNumArray.begin(),
+                                             m_NewObjNumArray.end(), objnum),
+                            objnum);
   }
-
-  size_t iCount = m_NewObjNumArray.size();
-  if (iCount == 0)
-    return;
-
-  size_t i = 0;
-  uint32_t dwStartObjNum = 0;
-  bool bCrossRefValid = m_pParser && m_pParser->GetLastXRefOffset() > 0;
-  while (i < iCount) {
-    dwStartObjNum = m_NewObjNumArray[i];
-    if ((bIncremental && (bNoOriginal || bCrossRefValid)) ||
-        !m_ObjectOffset.GetPtrAt(dwStartObjNum)) {
-      break;
-    }
-    i++;
-  }
-  if (i >= iCount)
-    return;
-
-  uint32_t dwLastObjNum = dwStartObjNum;
-  i++;
-  bool bNewStart = false;
-  for (; i < iCount; i++) {
-    uint32_t dwCurObjNum = m_NewObjNumArray[i];
-    bool bExist = m_pParser && m_pParser->IsValidObjectNumber(dwCurObjNum) &&
-                  m_ObjectOffset.GetPtrAt(dwCurObjNum);
-    if (bExist || dwCurObjNum - dwLastObjNum > 1) {
-      if (!bNewStart)
-        m_ObjectOffset.Add(dwStartObjNum, dwLastObjNum - dwStartObjNum + 1);
-      dwStartObjNum = dwCurObjNum;
-    }
-    if (bNewStart)
-      dwStartObjNum = dwCurObjNum;
-
-    bNewStart = bExist;
-    dwLastObjNum = dwCurObjNum;
-  }
-  m_ObjectOffset.Add(dwStartObjNum, dwLastObjNum - dwStartObjNum + 1);
-}
-
-void CPDF_Creator::AppendNewObjNum(uint32_t objnum) {
-  m_NewObjNumArray.insert(std::lower_bound(m_NewObjNumArray.begin(),
-                                           m_NewObjNumArray.end(), objnum),
-                          objnum);
 }
 
 int32_t CPDF_Creator::WriteDoc_Stage1(IFX_Pause* pPause) {
@@ -1552,7 +1503,6 @@ int32_t CPDF_Creator::WriteDoc_Stage2(IFX_Pause* pPause) {
       if (WriteIndirectObj(m_dwLastObjNum, m_pEncryptDict) < 0)
         return -1;
 
-      m_ObjectOffset.Add(m_dwLastObjNum, 1);
       m_ObjectOffset[m_dwLastObjNum] = saveOffset;
       m_dwEncryptObjNum = m_dwLastObjNum;
       if (m_dwFlags & FPDFCREATE_INCREMENTAL)
@@ -1576,7 +1526,7 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
       if ((m_dwFlags & FPDFCREATE_INCREMENTAL) == 0 ||
           m_pParser->GetLastXRefOffset() == 0) {
         CFX_ByteString str;
-        str = m_ObjectOffset.GetPtrAt(1)
+        str = pdfium::ContainsKey(m_ObjectOffset, 1)
                   ? "xref\r\n"
                   : "xref\r\n0 1\r\n0000000000 65535 f\r\n";
         if (m_File.AppendString(str.AsStringC()) < 0) {
@@ -1600,24 +1550,24 @@ int32_t CPDF_Creator::WriteDoc_Stage3(IFX_Pause* pPause) {
     uint32_t i = m_CurObjNum;
     uint32_t j;
     while (i <= dwLastObjNum) {
-      while (i <= dwLastObjNum && !m_ObjectOffset.GetPtrAt(i)) {
+      while (i <= dwLastObjNum && !pdfium::ContainsKey(m_ObjectOffset, i))
         i++;
-      }
-      if (i > dwLastObjNum) {
+
+      if (i > dwLastObjNum)
         break;
-      }
+
       j = i;
-      while (j <= dwLastObjNum && m_ObjectOffset.GetPtrAt(j)) {
+      while (j <= dwLastObjNum && pdfium::ContainsKey(m_ObjectOffset, j))
         j++;
-      }
-      if (i == 1) {
+
+      if (i == 1)
         str.Format("0 %d\r\n0000000000 65535 f\r\n", j);
-      } else {
+      else
         str.Format("%d %d\r\n", i, j - i);
-      }
-      if (m_File.AppendBlock(str.c_str(), str.GetLength()) < 0) {
+
+      if (m_File.AppendBlock(str.c_str(), str.GetLength()) < 0)
         return -1;
-      }
+
       while (i < j) {
         str.Format("%010d 00000 n\r\n", m_ObjectOffset[i++]);
         if (m_File.AppendBlock(str.c_str(), str.GetLength()) < 0) {
@@ -1703,134 +1653,106 @@ int32_t CPDF_Creator::WriteDoc_Stage4(IFX_Pause* pPause) {
             key == "XRefStm" || key == "ID") {
           continue;
         }
-        if (m_File.AppendString(("/")) < 0) {
+        if (m_File.AppendString(("/")) < 0)
           return -1;
-        }
-        if (m_File.AppendString(PDF_NameEncode(key).AsStringC()) < 0) {
+        if (m_File.AppendString(PDF_NameEncode(key).AsStringC()) < 0)
           return -1;
-        }
         if (!pValue->IsInline()) {
-          if (m_File.AppendString(" ") < 0) {
+          if (m_File.AppendString(" ") < 0)
             return -1;
-          }
-          if (m_File.AppendDWord(pValue->GetObjNum()) < 0) {
+          if (m_File.AppendDWord(pValue->GetObjNum()) < 0)
             return -1;
-          }
-          if (m_File.AppendString(" 0 R ") < 0) {
+          if (m_File.AppendString(" 0 R ") < 0)
             return -1;
-          }
         } else {
           FX_FILESIZE offset = 0;
-          if (PDF_CreatorAppendObject(pValue, &m_File, offset) < 0) {
+          if (PDF_CreatorAppendObject(pValue, &m_File, offset) < 0)
             return -1;
-          }
         }
       }
     } else {
-      if (m_File.AppendString("\r\n/Root ") < 0) {
+      if (m_File.AppendString("\r\n/Root ") < 0)
         return -1;
-      }
-      if (m_File.AppendDWord(m_pDocument->GetRoot()->GetObjNum()) < 0) {
+      if (m_File.AppendDWord(m_pDocument->GetRoot()->GetObjNum()) < 0)
         return -1;
-      }
-      if (m_File.AppendString(" 0 R\r\n") < 0) {
+      if (m_File.AppendString(" 0 R\r\n") < 0)
         return -1;
-      }
       if (m_pDocument->GetInfo()) {
-        if (m_File.AppendString("/Info ") < 0) {
+        if (m_File.AppendString("/Info ") < 0)
           return -1;
-        }
-        if (m_File.AppendDWord(m_pDocument->GetInfo()->GetObjNum()) < 0) {
+        if (m_File.AppendDWord(m_pDocument->GetInfo()->GetObjNum()) < 0)
           return -1;
-        }
-        if (m_File.AppendString(" 0 R\r\n") < 0) {
+        if (m_File.AppendString(" 0 R\r\n") < 0)
           return -1;
-        }
       }
     }
     if (m_pEncryptDict) {
-      if (m_File.AppendString("/Encrypt") < 0) {
+      if (m_File.AppendString("/Encrypt") < 0)
         return -1;
-      }
+
       uint32_t dwObjNum = m_pEncryptDict->GetObjNum();
-      if (dwObjNum == 0) {
+      if (dwObjNum == 0)
         dwObjNum = m_pDocument->GetLastObjNum() + 1;
-      }
-      if (m_File.AppendString(" ") < 0) {
+      if (m_File.AppendString(" ") < 0)
         return -1;
-      }
-      if (m_File.AppendDWord(dwObjNum) < 0) {
+      if (m_File.AppendDWord(dwObjNum) < 0)
         return -1;
-      }
-      if (m_File.AppendString(" 0 R ") < 0) {
+      if (m_File.AppendString(" 0 R ") < 0)
         return -1;
-      }
     }
-    if (m_File.AppendString("/Size ") < 0) {
+
+    if (m_File.AppendString("/Size ") < 0)
       return -1;
-    }
-    if (m_File.AppendDWord(m_dwLastObjNum + (bXRefStream ? 2 : 1)) < 0) {
+    if (m_File.AppendDWord(m_dwLastObjNum + (bXRefStream ? 2 : 1)) < 0)
       return -1;
-    }
     if ((m_dwFlags & FPDFCREATE_INCREMENTAL) != 0) {
       FX_FILESIZE prev = m_pParser->GetLastXRefOffset();
       if (prev) {
-        if (m_File.AppendString("/Prev ") < 0) {
+        if (m_File.AppendString("/Prev ") < 0)
           return -1;
-        }
+
         char offset_buf[20];
         FXSYS_memset(offset_buf, 0, sizeof(offset_buf));
         FXSYS_i64toa(prev, offset_buf, 10);
-        if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0) {
+        if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0)
           return -1;
-        }
       }
     }
     if (m_pIDArray) {
-      if (m_File.AppendString(("/ID")) < 0) {
+      if (m_File.AppendString(("/ID")) < 0)
         return -1;
-      }
+
       FX_FILESIZE offset = 0;
-      if (PDF_CreatorAppendObject(m_pIDArray.get(), &m_File, offset) < 0) {
+      if (PDF_CreatorAppendObject(m_pIDArray.get(), &m_File, offset) < 0)
         return -1;
-      }
     }
     if (!bXRefStream) {
-      if (m_File.AppendString(">>") < 0) {
+      if (m_File.AppendString(">>") < 0)
         return -1;
-      }
     } else {
-      if (m_File.AppendString("/W[0 4 1]/Index[") < 0) {
+      if (m_File.AppendString("/W[0 4 1]/Index[") < 0)
         return -1;
-      }
       if ((m_dwFlags & FPDFCREATE_INCREMENTAL) != 0 && m_pParser &&
           m_pParser->GetLastXRefOffset() == 0) {
         uint32_t i = 0;
         for (i = 0; i < m_dwLastObjNum; i++) {
-          if (!m_ObjectOffset.GetPtrAt(i)) {
+          if (!pdfium::ContainsKey(m_ObjectOffset, i))
             continue;
-          }
-          if (m_File.AppendDWord(i) < 0) {
+          if (m_File.AppendDWord(i) < 0)
             return -1;
-          }
-          if (m_File.AppendString(" 1 ") < 0) {
+          if (m_File.AppendString(" 1 ") < 0)
             return -1;
-          }
         }
-        if (m_File.AppendString("]/Length ") < 0) {
+        if (m_File.AppendString("]/Length ") < 0)
           return -1;
-        }
-        if (m_File.AppendDWord(m_dwLastObjNum * 5) < 0) {
+        if (m_File.AppendDWord(m_dwLastObjNum * 5) < 0)
           return -1;
-        }
-        if (m_File.AppendString(">>stream\r\n") < 0) {
+        if (m_File.AppendString(">>stream\r\n") < 0)
           return -1;
-        }
         for (i = 0; i < m_dwLastObjNum; i++) {
-          FX_FILESIZE* offset = m_ObjectOffset.GetPtrAt(i);
-          if (!offset)
+          if (!pdfium::ContainsKey(m_ObjectOffset, i))
             continue;
-          OutputIndex(&m_File, *offset);
+          OutputIndex(&m_File, m_ObjectOffset[i]);
         }
       } else {
         size_t count = m_NewObjNumArray.size();
@@ -1847,28 +1769,25 @@ int32_t CPDF_Creator::WriteDoc_Stage4(IFX_Pause* pPause) {
           return -1;
         if (m_File.AppendString(">>stream\r\n") < 0)
           return -1;
-        for (i = 0; i < count; i++) {
-          uint32_t objnum = m_NewObjNumArray[i];
-          FX_FILESIZE offset = m_ObjectOffset[objnum];
-          OutputIndex(&m_File, offset);
-        }
+        for (i = 0; i < count; i++)
+          OutputIndex(&m_File, m_ObjectOffset[m_NewObjNumArray[i]]);
       }
       if (m_File.AppendString("\r\nendstream") < 0)
         return -1;
     }
   }
-  if (m_File.AppendString("\r\nstartxref\r\n") < 0) {
+
+  if (m_File.AppendString("\r\nstartxref\r\n") < 0)
     return -1;
-  }
+
   char offset_buf[20];
   FXSYS_memset(offset_buf, 0, sizeof(offset_buf));
   FXSYS_i64toa(m_XrefStart, offset_buf, 10);
-  if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0) {
+  if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0)
     return -1;
-  }
-  if (m_File.AppendString("\r\n%%EOF\r\n") < 0) {
+  if (m_File.AppendString("\r\n%%EOF\r\n") < 0)
     return -1;
-  }
+
   m_File.Flush();
   return m_iStage = 100;
 }
@@ -1891,7 +1810,7 @@ bool CPDF_Creator::Create(uint32_t flags) {
   m_iStage = 0;
   m_Offset = 0;
   m_dwLastObjNum = m_pDocument->GetLastObjNum();
-  m_ObjectOffset.Clear();
+  m_ObjectOffset.clear();
   m_NewObjNumArray.clear();
   InitID();
   if (flags & FPDFCREATE_PROGRESSIVE)
