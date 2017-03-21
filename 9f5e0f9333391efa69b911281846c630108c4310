@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f00103f9_7377cd27",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T20:42:45Z",
+      "side": 1,
+      "message": "Exactly.  SearchWordPlace only uses secindex as it turned out.",
+      "parentUuid": "2a1f4729_fac9f5d1",
+      "revId": "9f5e0f9333391efa69b911281846c630108c4310",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c40e1a8d_d87c1e64",
         "filename": "core/fpdfdoc/cpvt_wordrange.h",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "9f5e0f9333391efa69b911281846c630108c4310",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654dbe67_bc3e9313",
+        "filename": "core/fpdfdoc/cpvt_wordrange.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T20:42:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40e1a8d_d87c1e64",
+      "revId": "9f5e0f9333391efa69b911281846c630108c4310",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
