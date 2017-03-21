@@ -16,6 +16,24 @@
       "revId": "a48ea3a466815a4306721c77b99818284f22d4bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c903b73_644eabd8",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T17:48:38Z",
+      "side": 1,
+      "message": "True, but these two go together in the \"carriage-returny\" sense of \"advance to next lilne, colunm 0\".  There prolly should be a method to do this in CPVT_WordPlace.",
+      "parentUuid": "601ad72c_6d650eec",
+      "revId": "a48ea3a466815a4306721c77b99818284f22d4bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
