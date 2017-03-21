@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b20800a0_06047ce2",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-21T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ded5373_eadcaefd",
+      "revId": "dc0da828e493f419ca68deb55ddf9aa0f790f087",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18242de8_8ca4ea73",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1c16fce6_556ca92c",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-21T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18242de8_8ca4ea73",
+      "revId": "dc0da828e493f419ca68deb55ddf9aa0f790f087",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5600aee4_bae3941a",
         "filename": "core/fxge/dib/fx_dib_composite.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-03-21T17:42:35Z",
       "side": 1,
       "message": "Can the GetGrey call be moved into the else so we don\u0027t do the work if we don\u0027t need too.",
+      "revId": "dc0da828e493f419ca68deb55ddf9aa0f790f087",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c949b2f_16e9eae6",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-21T18:22:09Z",
+      "side": 1,
+      "message": "No. This value may be used inside of the if statement",
+      "parentUuid": "5600aee4_bae3941a",
       "revId": "dc0da828e493f419ca68deb55ddf9aa0f790f087",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
