@@ -3,6 +3,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "db37389c_feae0323",
+        "filename": "fpdfsdk/formfiller/cffl_combobox.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T20:31:27Z",
+      "side": 1,
+      "message": "nit: auto* and static cast.  Also, local not needed.",
+      "range": {
+        "startLine": 274,
+        "startChar": 30,
+        "endLine": 274,
+        "endChar": 65
+      },
+      "revId": "8b3578b7832acebe075bbc9f51117a843b9a7a94",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72d73595_fa29d3ad",
         "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
         "patchSetId": 2
