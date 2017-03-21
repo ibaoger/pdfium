@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "422e2fd1_af6d1f6c",
+        "filename": "xfa/fde/cfde_txtedtpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T15:31:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25a7e17f_0c8fbc45",
+      "range": {
+        "startLine": 306,
+        "startChar": 44,
+        "endLine": 306,
+        "endChar": 45
+      },
+      "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2561a9c_51532ea4",
         "filename": "xfa/fgas/layout/cfx_break.cpp",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78cfac7b_abf7f3f3",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T15:31:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfb474d6_02392df9",
+      "range": {
+        "startLine": 168,
+        "startChar": 6,
+        "endLine": 168,
+        "endChar": 34
+      },
+      "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +176,54 @@
     },
     {
       "key": {
+        "uuid": "c11e2e5d_f81bbdbc",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T15:31:32Z",
+      "side": 1,
+      "message": "Seems like overkill. Can look into it later if we need this in other methods.",
+      "parentUuid": "b860a9fd_bf4b766c",
+      "range": {
+        "startLine": 174,
+        "startChar": 10,
+        "endLine": 174,
+        "endChar": 19
+      },
+      "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9235b52_43390179",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T15:31:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c31e70ea_e8ad3e43",
+      "range": {
+        "startLine": 174,
+        "startChar": 23,
+        "endLine": 174,
+        "endChar": 45
+      },
+      "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6adbfbc1_1bcb5ade",
         "filename": "xfa/fgas/layout/cfx_break.cpp",
         "patchSetId": 1
@@ -139,6 +235,30 @@
       "writtenOn": "2017-03-21T15:09:09Z",
       "side": 1,
       "message": "merge ifs",
+      "range": {
+        "startLine": 191,
+        "startChar": 3,
+        "endLine": 195,
+        "endChar": 19
+      },
+      "revId": "9605a152924e168c3077fcf10372fc843f0dfbc0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4adedad4_57824a30",
+        "filename": "xfa/fgas/layout/cfx_break.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-21T15:31:32Z",
+      "side": 1,
+      "message": "It ends up wrapping and needing {}\u0027s. Leaving as 2 lines.",
+      "parentUuid": "6adbfbc1_1bcb5ade",
       "range": {
         "startLine": 191,
         "startChar": 3,
