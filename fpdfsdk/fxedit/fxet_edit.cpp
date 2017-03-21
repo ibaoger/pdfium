@@ -1090,10 +1090,6 @@ CFX_WideString CFX_Edit::GetSelText() const {
   return GetRangeText(m_SelState.ConvertToWordRange());
 }
 
-int32_t CFX_Edit::GetTotalWords() const {
-  return m_pVT->GetTotalWords();
-}
-
 int32_t CFX_Edit::GetTotalLines() const {
   int32_t nLines = 1;
 
@@ -1231,11 +1227,6 @@ void CFX_Edit::SetContentChanged() {
     CFX_FloatRect rcContent = m_pVT->GetContentRect();
     if (rcContent.Width() != m_rcOldContent.Width() ||
         rcContent.Height() != m_rcOldContent.Height()) {
-      if (!m_bNotifyFlag) {
-        m_bNotifyFlag = true;
-        m_pNotify->IOnContentChange(rcContent);
-        m_bNotifyFlag = false;
-      }
       m_rcOldContent = rcContent;
     }
   }

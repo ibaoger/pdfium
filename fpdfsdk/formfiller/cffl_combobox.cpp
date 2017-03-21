@@ -266,7 +266,6 @@ void CFFL_ComboBox::OnSetFocus(CPWL_Wnd* pWnd) {
   if (pWnd->GetClassName() == PWL_CLASSNAME_EDIT) {
     CPWL_Edit* pEdit = (CPWL_Edit*)pWnd;
     pEdit->SetCharSet(FXFONT_GB2312_CHARSET);
-    pEdit->SetCodePage(936);
 
     pEdit->SetReadyToInput();
     CFX_WideString wsText = pEdit->GetText();
