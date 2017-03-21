@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1490119368 -0700\nnonce AIcUUg965q1y9ZPPKgtK7cMkVm4z7/YlhMm53voqWyMrnsn49LN2TDsDCu0xuLy+2wtuA/+1drBV\n\n0000000000000000000000000000000000000000 8b3578b7832acebe075bbc9f51117a843b9a7a94 refs/for/refs/heads/master%m\u003drebase,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY0WrIAAoJEKs2LWFaZv17Nv4H/1EW2ZcQYY/YwotaidoWObI1\nwpKjhKZhO3QRMCRdDVvadyc6ZK84vqAmAWRTptoq0CbuUHpvUrXqbKhRZQcvT1nF\njjwwMZ8tX/zZWZUKC+FeGPd/FuvgCzOv4Vs/+U1FLZBxEl7VJ2foILUzh1YlVWLf\nA3rQYIgR8/mX8ztnz2OJfDomJbZ4rqQGIULaIedISSCSUGNINxQwrDk5pmVIJypB\nPxAnUn+Gj7BuBq8pRvY7L4zJ2gcdxF0U6O5C2ZM5aHeuss3020o/aY4yYRj1fQBI\n0d8a8I0A7zMu09hnuULyWSwEqLO4eWu4fO9QPA8wwX/C+9GrhcmXv4Bvq8YiEQg\u003d\n\u003dwnYj\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "72d73595_fa29d3ad",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-21T20:30:05Z",
+      "side": 1,
+      "message": "Seems like these could benefit from an CFX_AutoRestorer.",
+      "range": {
+        "startLine": 1317,
+        "startChar": 7,
+        "endLine": 1317,
+        "endChar": 27
+      },
+      "revId": "8b3578b7832acebe075bbc9f51117a843b9a7a94",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
