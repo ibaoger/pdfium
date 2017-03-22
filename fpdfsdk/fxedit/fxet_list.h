@@ -198,7 +198,7 @@ class CPLST_Select {
   void DeselectAll();
 
  private:
-  CFX_ArrayTemplate<CPLST_Select_Item*> m_aItems;
+  std::vector<std::unique_ptr<CPLST_Select_Item>> m_aItems;
 };
 
 class CFX_ListCtrl : protected CFX_ListContainer {
