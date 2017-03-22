@@ -278,25 +278,11 @@ int32_t CXFA_FFDocView::ProcessWidgetEvent(CXFA_EventParam* pParam,
         wsValidateStr = pValidateNode->GetContent();
       }
     }
-    bool bValidate = false;
-    switch (pParam->m_iValidateActivities) {
-      case XFA_VALIDATE_preSubmit:
-        bValidate = wsValidateStr.Find(L"preSubmit") != -1;
-        break;
-      case XFA_VALIDATE_prePrint:
-        bValidate = wsValidateStr.Find(L"prePrint") != -1;
-        break;
-      case XFA_VALIDATE_preExecute:
-        bValidate = wsValidateStr.Find(L"preExecute") != -1;
-        break;
-      case XFA_VALIDATE_preSave:
-        bValidate = wsValidateStr.Find(L"preSave") != -1;
-        break;
-    }
-    if (!bValidate) {
+
+    if (wsValidateStr.Find(L"preSubmit") == -1)
       return XFA_EVENTERROR_Success;
-    }
   }
+
   CXFA_Node* pNode = pWidgetAcc ? pWidgetAcc->GetNode() : nullptr;
   if (!pNode) {
     CXFA_Node* pRootItem =
