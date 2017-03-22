@@ -423,8 +423,8 @@ DLLEXPORT void STDCALL FPDF_Widget_Undo(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   static_cast<CXFA_FFWidget*>(hWidget)->Undo();
@@ -436,8 +436,8 @@ DLLEXPORT void STDCALL FPDF_Widget_Redo(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   static_cast<CXFA_FFWidget*>(hWidget)->Redo();
@@ -449,8 +449,8 @@ DLLEXPORT void STDCALL FPDF_Widget_SelectAll(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   static_cast<CXFA_FFWidget*>(hWidget)->SelectAll();
@@ -464,8 +464,8 @@ DLLEXPORT void STDCALL FPDF_Widget_Copy(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   CFX_WideString wsCpText;
@@ -496,8 +496,8 @@ DLLEXPORT void STDCALL FPDF_Widget_Cut(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   CFX_WideString wsCpText;
@@ -528,8 +528,8 @@ DLLEXPORT void STDCALL FPDF_Widget_Paste(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   CFX_WideString wstr = CFX_WideString::FromUTF16LE(wsText, size);
@@ -546,8 +546,8 @@ FPDF_Widget_ReplaceSpellCheckWord(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   CFX_PointF ptPopup;
@@ -567,8 +567,8 @@ FPDF_Widget_GetSpellCheckWords(FPDF_DOCUMENT document,
     return;
 
   CPDFXFA_Context* pContext = static_cast<CPDFXFA_Context*>(document);
-  if (pContext->GetDocType() != XFA_DOCTYPE_Dynamic &&
-      pContext->GetDocType() != XFA_DOCTYPE_Static)
+  if (pContext->GetDocType() != XFA_DocType::Dynamic &&
+      pContext->GetDocType() != XFA_DocType::Static)
     return;
 
   std::vector<CFX_ByteString>* sSuggestWords = new std::vector<CFX_ByteString>;
