@@ -81,6 +81,8 @@ void JSPropGetter(const char* prop_name_string,
     return;
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
   C* pObj = reinterpret_cast<C*>(pJSObj->GetEmbedObject());
   CFX_WideString sError;
   CJS_PropValue value(pRuntime);
@@ -105,6 +107,8 @@ void JSPropSetter(const char* prop_name_string,
     return;
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
   C* pObj = reinterpret_cast<C*>(pJSObj->GetEmbedObject());
   CFX_WideString sError;
   CJS_PropValue propValue(pRuntime, CJS_Value(pRuntime, value));
@@ -147,6 +151,8 @@ void JSMethod(const char* method_name_string,
   }
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
   C* pObj = reinterpret_cast<C*>(pJSObj->GetEmbedObject());
   CFX_WideString sError;
   CJS_Value valueRes(pRuntime);
@@ -348,12 +354,18 @@ void JSSpecialPropQuery(const char*,
                         const v8::PropertyCallbackInfo<v8::Integer>& info) {
   CJS_Runtime* pRuntime =
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
+  if (!pRuntime)
+    return;
+
+  CJS_Object* pJSObj =
+      static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
+
+  Alt* pObj = reinterpret_cast<Alt*>(pJSObj->GetEmbedObject());
   v8::String::Utf8Value utf8_value(property);
   CFX_WideString propname = CFX_WideString::FromUTF8(
       CFX_ByteStringC(*utf8_value, utf8_value.length()));
-  CJS_Object* pJSObj =
-      static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
-  Alt* pObj = reinterpret_cast<Alt*>(pJSObj->GetEmbedObject());
   bool bRet = pObj->QueryProperty(propname.c_str());
   info.GetReturnValue().Set(bRet ? 4 : 0);
 }
@@ -366,8 +378,12 @@ void JSSpecialPropGet(const char* class_name,
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
   if (!pRuntime)
     return;
+
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
+
   Alt* pObj = reinterpret_cast<Alt*>(pJSObj->GetEmbedObject());
   v8::String::Utf8Value utf8_value(property);
   CFX_WideString propname = CFX_WideString::FromUTF8(
@@ -392,8 +408,12 @@ void JSSpecialPropPut(const char* class_name,
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
   if (!pRuntime)
     return;
+
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
+
   Alt* pObj = reinterpret_cast<Alt*>(pJSObj->GetEmbedObject());
   v8::String::Utf8Value utf8_value(property);
   CFX_WideString propname = CFX_WideString::FromUTF8(
@@ -415,8 +435,12 @@ void JSSpecialPropDel(const char* class_name,
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
   if (!pRuntime)
     return;
+
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
+  if (!pJSObj)
+    return;
+
   Alt* pObj = reinterpret_cast<Alt*>(pJSObj->GetEmbedObject());
   v8::String::Utf8Value utf8_value(property);
   CFX_WideString propname = CFX_WideString::FromUTF8(
