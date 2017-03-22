@@ -46,6 +46,30 @@
       "revId": "29041010864c5d9b454ed3739873b2dcccc42767",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fca04150_3eae8f22",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-22T20:44:37Z",
+      "side": 1,
+      "message": "I think we should just handle it. Same for the other two spots in this file that call ValidatePage().\n\nif (!ValidatePage(index))\n  return nullptr;\nreturn m_pDocument-\u003eGetPage(index);",
+      "parentUuid": "8d67f310_ede92ce6",
+      "range": {
+        "startLine": 1628,
+        "startChar": 2,
+        "endLine": 1628,
+        "endChar": 14
+      },
+      "revId": "29041010864c5d9b454ed3739873b2dcccc42767",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
