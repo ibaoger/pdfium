@@ -169,22 +169,11 @@ class CFX_ListContainer {
   CLST_Rect m_rcContent;  // positive forever!
 };
 
-struct CPLST_Select_Item {
-  CPLST_Select_Item(int32_t other_nItemIndex, int32_t other_nState) {
-    nItemIndex = other_nItemIndex;
-    nState = other_nState;
-  }
-
-  int32_t nItemIndex;
-  int32_t nState;  // 0:normal select -1:to deselect 1: to select
-};
-
 class CPLST_Select {
  public:
   CPLST_Select();
   virtual ~CPLST_Select();
 
- public:
   void Add(int32_t nItemIndex);
   void Add(int32_t nBeginIndex, int32_t nEndIndex);
   void Sub(int32_t nItemIndex);
@@ -198,7 +187,17 @@ class CPLST_Select {
   void DeselectAll();
 
  private:
-  CFX_ArrayTemplate<CPLST_Select_Item*> m_aItems;
+  struct Item {
+    Item(int32_t other_nItemIndex, int32_t other_nState) {
+      nItemIndex = other_nItemIndex;
+      nState = other_nState;
+    }
+
+    int32_t nItemIndex;
+    int32_t nState;  // 0:normal select, -1:to deselect, 1: to select.
+  };
+
+  std::vector<std::unique_ptr<Item>> m_Items;
 };
 
 class CFX_ListCtrl : protected CFX_ListContainer {

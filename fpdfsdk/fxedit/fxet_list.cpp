@@ -6,6 +6,7 @@
 
 #include "fpdfsdk/fxedit/fxet_list.h"
 
+#include <algorithm>
 #include <utility>
 
 #include "core/fpdfdoc/cpvt_word.h"
@@ -86,23 +87,15 @@ void CFX_ListContainer::SetPlateRect(const CFX_FloatRect& rect) {
 
 CPLST_Select::CPLST_Select() {}
 
-CPLST_Select::~CPLST_Select() {
-  for (int32_t i = 0, sz = m_aItems.GetSize(); i < sz; i++)
-    delete m_aItems.GetAt(i);
-
-  m_aItems.RemoveAll();
-}
+CPLST_Select::~CPLST_Select() {}
 
 void CPLST_Select::Add(int32_t nItemIndex) {
   int32_t nIndex = Find(nItemIndex);
-
   if (nIndex < 0) {
-    m_aItems.Add(new CPLST_Select_Item(nItemIndex, 1));
-  } else {
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(nIndex)) {
-      pItem->nState = 1;
-    }
+    m_Items.push_back(pdfium::MakeUnique<Item>(nItemIndex, 1));
+    return;
   }
+  m_Items[nIndex]->nState = 1;
 }
 
 void CPLST_Select::Add(int32_t nBeginIndex, int32_t nEndIndex) {
@@ -117,10 +110,9 @@ void CPLST_Select::Add(int32_t nBeginIndex, int32_t nEndIndex) {
 }
 
 void CPLST_Select::Sub(int32_t nItemIndex) {
-  for (int32_t i = m_aItems.GetSize() - 1; i >= 0; i--) {
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(i))
-      if (pItem->nItemIndex == nItemIndex)
-        pItem->nState = -1;
+  for (auto& pItem : m_Items) {
+    if (pItem->nItemIndex == nItemIndex)
+      pItem->nState = -1;
   }
 }
 
@@ -136,13 +128,12 @@ void CPLST_Select::Sub(int32_t nBeginIndex, int32_t nEndIndex) {
 }
 
 int32_t CPLST_Select::Find(int32_t nItemIndex) const {
-  for (int32_t i = 0, sz = m_aItems.GetSize(); i < sz; i++) {
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(i)) {
-      if (pItem->nItemIndex == nItemIndex)
-        return i;
-    }
+  int32_t i = 0;
+  for (const auto& pItem : m_Items) {
+    if (pItem->nItemIndex == nItemIndex)
+      return i;
+    ++i;
   }
-
   return -1;
 }
 
@@ -151,44 +142,36 @@ bool CPLST_Select::IsExist(int32_t nItemIndex) const {
 }
 
 int32_t CPLST_Select::GetCount() const {
-  return m_aItems.GetSize();
+  return pdfium::CollectionSize<int32_t>(m_Items);
 }
 
 int32_t CPLST_Select::GetItemIndex(int32_t nIndex) const {
-  if (nIndex >= 0 && nIndex < m_aItems.GetSize())
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(nIndex))
-      return pItem->nItemIndex;
+  if (!pdfium::IndexInBounds(m_Items, nIndex))
+    return -1;
 
-  return -1;
+  return m_Items[nIndex]->nItemIndex;
 }
 
 int32_t CPLST_Select::GetState(int32_t nIndex) const {
-  if (nIndex >= 0 && nIndex < m_aItems.GetSize())
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(nIndex))
-      return pItem->nState;
+  if (!pdfium::IndexInBounds(m_Items, nIndex))
+    return 0;
 
-  return 0;
+  return m_Items[nIndex]->nState;
 }
 
 void CPLST_Select::DeselectAll() {
-  for (int32_t i = 0, sz = m_aItems.GetSize(); i < sz; i++) {
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(i)) {
-      pItem->nState = -1;
-    }
-  }
+  for (auto& pItem : m_Items)
+    pItem->nState = -1;
 }
 
 void CPLST_Select::Done() {
-  for (int32_t i = m_aItems.GetSize() - 1; i >= 0; i--) {
-    if (CPLST_Select_Item* pItem = m_aItems.GetAt(i)) {
-      if (pItem->nState == -1) {
-        delete pItem;
-        m_aItems.RemoveAt(i);
-      } else {
-        pItem->nState = 0;
-      }
-    }
-  }
+  m_Items.erase(std::remove_if(m_Items.begin(), m_Items.end(),
+                               [](const std::unique_ptr<Item>& pItem) {
+                                 return pItem->nState == -1;
+                               }),
+                m_Items.end());
+  for (auto& pItem : m_Items)
+    pItem->nState = 0;
 }
 
 CFX_ListCtrl::CFX_ListCtrl()
