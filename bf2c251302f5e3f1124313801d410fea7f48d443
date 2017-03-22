@@ -52,6 +52,24 @@
       "revId": "bf2c251302f5e3f1124313801d410fea7f48d443",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5381fbea_5108f252",
+        "filename": "xfa/fde/xml/fde_xml_imp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-22T20:24:35Z",
+      "side": 1,
+      "message": "Well, except it\u0027s created in the constructor as CFDE_XMLNode and never changed, heh.",
+      "parentUuid": "2bd994a5_0fd91f4c",
+      "revId": "bf2c251302f5e3f1124313801d410fea7f48d443",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
