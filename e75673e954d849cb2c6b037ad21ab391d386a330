@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4c538e8c_a31a6988",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-22T00:28:16Z",
+      "side": 1,
+      "message": "We use it later in a few places, and this would make the line wider than 80.  Left as is.",
+      "parentUuid": "3545789c_eab93524",
+      "range": {
+        "startLine": 535,
+        "startChar": 16,
+        "endLine": 535,
+        "endChar": 22
+      },
+      "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5a6705a_7dce714f",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d495fa_425cfe1f",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-22T00:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5a6705a_7dce714f",
+      "range": {
+        "startLine": 583,
+        "startChar": 4,
+        "endLine": 583,
+        "endChar": 9
+      },
+      "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d8782c64_1f2b3f81",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-22T00:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d9ea1b_038cf796",
+      "range": {
+        "startLine": 862,
+        "startChar": 20,
+        "endLine": 862,
+        "endChar": 26
+      },
+      "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14e7d25e_dd0ee4f6",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0dd1ba3_9fd56b23",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-22T00:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14e7d25e_dd0ee4f6",
+      "range": {
+        "startLine": 964,
+        "startChar": 21,
+        "endLine": 964,
+        "endChar": 26
+      },
+      "revId": "e75673e954d849cb2c6b037ad21ab391d386a330",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
