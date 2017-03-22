@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1e686c2_1bf9006e",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-22T21:05:41Z",
+      "side": 1,
+      "message": "remove comment?",
+      "range": {
+        "startLine": 24,
+        "startChar": 26,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "80ead97d9b621d24a63e67c2f046a0c7adca7b62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
