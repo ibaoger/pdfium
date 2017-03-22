@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a65bc87b_dc3c1d53",
+        "filename": "xfa/fde/xml/fde_xml_imp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-22T20:17:17Z",
+      "side": 1,
+      "message": "This always exists, is there any reason to have it as a unique_ptr vs just a member?",
+      "revId": "bf2c251302f5e3f1124313801d410fea7f48d443",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
