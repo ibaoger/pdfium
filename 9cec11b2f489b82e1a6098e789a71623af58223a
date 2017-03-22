@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e34a505_f5ff1986",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-22T16:07:12Z",
+      "side": 1,
+      "message": "this check implies: blend_type",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 44
+      },
+      "revId": "9cec11b2f489b82e1a6098e789a71623af58223a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb93319b_2807bda9",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-22T16:07:12Z",
+      "side": 1,
+      "message": "This is just to optimize this case, and was not in the blend_type case. In this case:\ndest_alpha \u003d back_alpha + 255  - back_alpha * 255 / 255 \u003d 255\nalpha_ratio \u003d src_alpha * 255 / dest_alpha \u003d 255 * 255 / 255 \u003d 255\nFXDIB_ALPHA_MERGE(*dest_scan, gray, 255) \u003d gray # for any value of gray",
+      "range": {
+        "startLine": 356,
+        "startChar": 4,
+        "endLine": 356,
+        "endChar": 27
+      },
+      "revId": "9cec11b2f489b82e1a6098e789a71623af58223a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
