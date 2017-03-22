@@ -22,6 +22,30 @@
       "revId": "29041010864c5d9b454ed3739873b2dcccc42767",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d67f310_ede92ce6",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-22T18:53:49Z",
+      "side": 1,
+      "message": "The same reason it\u0027s not inside the ASSERT: it\u0027s not a const method. Or do you think it should just not be called?",
+      "parentUuid": "b612b86c_95ba39ea",
+      "range": {
+        "startLine": 1628,
+        "startChar": 2,
+        "endLine": 1628,
+        "endChar": 14
+      },
+      "revId": "29041010864c5d9b454ed3739873b2dcccc42767",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
