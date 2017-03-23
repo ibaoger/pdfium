@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2238a7fe_e87fe993",
+        "filename": "core/fxcrt/cfx_retain_ptr_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T21:27:45Z",
+      "side": 1,
+      "message": "To be more precise: EXPECT_EQ(\u0026obj, ptr2.Get());\nSimilarly line 196 and 200.",
+      "revId": "35f85b164effaa80ee97c65b85403a2bf812beb9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc88ef6d_ff3a29ec",
+        "filename": "core/fxcrt/cfx_retain_ptr_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T21:27:45Z",
+      "side": 1,
+      "message": "I liked |ptr1| from the previous test case.",
+      "range": {
+        "startLine": 193,
+        "startChar": 36,
+        "endLine": 193,
+        "endChar": 39
+      },
+      "revId": "35f85b164effaa80ee97c65b85403a2bf812beb9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
