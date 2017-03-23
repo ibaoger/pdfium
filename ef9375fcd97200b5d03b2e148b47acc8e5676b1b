@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1e9cbe3_25a9f7b1",
+        "filename": "core/fpdfapi/parser/cpdf_array.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-23T13:09:51Z",
+      "side": 1,
+      "message": "nit: auto, the type is on the right side already.",
+      "revId": "ef9375fcd97200b5d03b2e148b47acc8e5676b1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c20487_8401d7cf",
+        "filename": "core/fpdfapi/parser/cpdf_array.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-23T13:09:51Z",
+      "side": 1,
+      "message": "nit: {}\u0027s",
+      "revId": "ef9375fcd97200b5d03b2e148b47acc8e5676b1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c79289a8_577af79a",
+        "filename": "core/fpdfapi/parser/cpdf_dictionary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-23T13:09:51Z",
+      "side": 1,
+      "message": "nit : {}\u0027s",
+      "revId": "ef9375fcd97200b5d03b2e148b47acc8e5676b1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
