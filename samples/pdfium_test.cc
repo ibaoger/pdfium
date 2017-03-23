@@ -117,6 +117,11 @@ static void OutputMD5Hash(const char* file_name, const char* buffer, int len) {
   for (int i = 0; i < 16; i++)
     printf("%02x", digest[i]);
   printf("\n");
+
+  fprintf(stderr, "MD5:%s:", file_name);
+  for (int i = 0; i < 16; i++)
+    fprintf(stderr, "%02x", digest[i]);
+  fprintf(stderr, "\n");
 }
 
 static std::string WritePpm(const char* pdf_name,
@@ -699,8 +704,9 @@ bool RenderPage(const std::string& name,
 
     // Write the filename and the MD5 of the buffer to stdout if we wrote a
     // file.
-    if (options.md5 && image_file_name != "")
+    if (options.md5 && image_file_name != "") {
       OutputMD5Hash(image_file_name.c_str(), buffer, stride * height);
+    }
   } else {
     fprintf(stderr, "Page was too large to be rendered.\n");
   }

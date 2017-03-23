@@ -39,6 +39,7 @@ def RunCommandExtractHashedFiles(cmd):
       line = line.strip()
       if line.startswith("MD5:"):
           ret.append([x.strip() for x in line.lstrip("MD5:").rsplit(":", 1)])
+          sys.stdout.write("MD5: %s", ret[-1])
     return None, ret
   except subprocess.CalledProcessError as e:
     return e, None
