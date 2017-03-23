@@ -28,12 +28,17 @@ class CFX_WindowsDIB : public CFX_DIBitmap {
   CFX_WindowsDIB(HDC hDC, int width, int height);
   ~CFX_WindowsDIB() override;
 
-  static CFX_ByteString GetBitmapInfo(const CFX_DIBitmap* pBitmap);
-  static CFX_DIBitmap* LoadFromBuf(BITMAPINFO* pbmi, void* pData);
-  static HBITMAP GetDDBitmap(const CFX_DIBitmap* pBitmap, HDC hDC);
-  static CFX_DIBitmap* LoadFromFile(const wchar_t* filename);
-  static CFX_DIBitmap* LoadFromFile(const char* filename);
-  static CFX_DIBitmap* LoadDIBitmap(WINDIB_Open_Args_ args);
+  static CFX_ByteString GetBitmapInfo(
+      const CFX_RetainPtr<CFX_DIBitmap>& pBitmap);
+  static const CFX_RetainPtr<CFX_DIBitmap>& LoadFromBuf(BITMAPINFO* pbmi,
+                                                        void* pData);
+  static HBITMAP GetDDBitmap(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
+                             HDC hDC);
+  static const CFX_RetainPtr<CFX_DIBitmap>& LoadFromFile(
+      const wchar_t* filename);
+  static const CFX_RetainPtr<CFX_DIBitmap>& LoadFromFile(const char* filename);
+  static const CFX_RetainPtr<CFX_DIBitmap>& LoadDIBitmap(
+      WINDIB_Open_Args_ args);
 
   HDC GetDC() const { return m_hMemDC; }
   HBITMAP GetWindowsBitmap() const { return m_hBitmap; }

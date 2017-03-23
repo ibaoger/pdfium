@@ -338,7 +338,7 @@ static void PSCompressData(int PSLevel,
   }
 }
 
-bool CFX_PSRenderer::SetDIBits(const CFX_DIBSource* pSource,
+bool CFX_PSRenderer::SetDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                                uint32_t color,
                                int left,
                                int top) {
@@ -349,7 +349,7 @@ bool CFX_PSRenderer::SetDIBits(const CFX_DIBSource* pSource,
   return DrawDIBits(pSource, color, &matrix, 0);
 }
 
-bool CFX_PSRenderer::StretchDIBits(const CFX_DIBSource* pSource,
+bool CFX_PSRenderer::StretchDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                                    uint32_t color,
                                    int dest_left,
                                    int dest_top,
@@ -362,7 +362,7 @@ bool CFX_PSRenderer::StretchDIBits(const CFX_DIBSource* pSource,
   return DrawDIBits(pSource, color, &matrix, flags);
 }
 
-bool CFX_PSRenderer::DrawDIBits(const CFX_DIBSource* pSource,
+bool CFX_PSRenderer::DrawDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                                 uint32_t color,
                                 const CFX_Matrix* pMatrix,
                                 uint32_t flags) {
