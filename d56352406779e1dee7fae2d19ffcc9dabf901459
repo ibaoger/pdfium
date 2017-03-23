@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1490247455 -0700\nnonce AIcUUg/3ipMn+/JBIOsZ76MZlAPW3eXwsBXpcNzA22hhXNo/rKPrGlAWC0U+B5SM5t6qg9SqZmm+\n\n0000000000000000000000000000000000000000 d56352406779e1dee7fae2d19ffcc9dabf901459 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY018fAAoJEKs2LWFaZv17n0MIAJF28Q10F4g9Vp7HkOdNfJTf\n5AfiXSKkmW8rnPVLT4/dUQbMjJi1RTBf7+A7tQCRYiPtn0X2EGVArUq3eOkpko1l\noyXcSRFCG3Fxy/eAFWZ5+npE0YDBjWwc6P6pMA06+bwr/+F+hvCXQ27gEkricexd\nQE58iCyB+gLhu772jBzGv2vgjamQXm8CzBaQIeNjig9KsW2kf2YEZ6Ah8CL9kFK0\nbvlPAHMsiiMIyezMekw5yzKfi/W78hyI08V1gyykRP8v+NbvMQTxtxaaplnx0Rpw\n5FV8qUpi4as81MMwVEawPWGMsJcRP7yOQaFhfPkEvKZQb7eyWydVnoen7HwxLCk\u003d\n\u003di2Lg\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "2273d521_9192159e",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-23T14:41:54Z",
+      "side": 1,
+      "message": "Is this  a Gerrit bug? We deleted the files but added the entries to BUILD.gn?",
+      "revId": "d56352406779e1dee7fae2d19ffcc9dabf901459",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
