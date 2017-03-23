@@ -69,6 +69,8 @@ class GoldResults(object):
     self._properties["key"] = self._parseKeyValuePairs(keyStr)
     self._results =  []
     self._outputDir = outputDir
+    self._ignored = []
+    self._not_ignored = []
 
     # make sure the output directory exists.
     if not os.path.exists(outputDir):
@@ -87,9 +89,13 @@ class GoldResults(object):
     if md5Hash not in self._ignore_hashes:
       # Copy the image to <output_dir>/<md5Hash>.<image_extension>
       if not imgExt:
+        self._not_ignored.append(md5Hash+"valerror")
         raise ValueError("File %s does not have an extension" % outputImagePath)
       newFilePath = os.path.join(self._outputDir, md5Hash + '.' + imgExt)
       shutil.copy2(outputImagePath, newFilePath)
+      self._not_ignored.append(md5Hash)
+    else:
+      self._ignored.append(md5Hash)
 
     # Add an entry to the list of test results
     self._results.append({
@@ -111,6 +117,12 @@ class GoldResults(object):
     return { kvPairs[i]:kvPairs[i+1] for i in range(0, len(kvPairs), 2) }
 
   def WriteResults(self):
+    output = ""
+    output += "\nIGNORED : \n%d  %s\n" % (len(self._ignored), "  ".join(self._ignored))
+    output += "\nNIGNORED: \n%d  %s\n" % (len(self._not_ignored), "  ".join(self._not_ignored))
+    output += "\nDICT    : \n%d  %s\n" % (len(self._ignore_hashes), "  ".join(self._ignore_hashes))
+    raise ValueError(output)
+
     self._properties.update({
       "results": self._results
     })
