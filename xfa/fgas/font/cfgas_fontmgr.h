@@ -18,7 +18,7 @@
 #include "core/fxge/cfx_fontmapper.h"
 #include "core/fxge/fx_freetype.h"
 #include "core/fxge/ifx_systemfontinfo.h"
-#include "third_party/freetype/include/freetype/fttypes.h"
+#include "freetype/fttypes.h"
 #include "xfa/fgas/crt/fgas_stream.h"
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
