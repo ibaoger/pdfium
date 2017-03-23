@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7222613_fa891bea",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:05:07Z",
+      "side": 1,
+      "message": "Turns out you can call mask.GetRect()",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549b5c1d_d79b95a3",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:05:07Z",
+      "side": 1,
+      "message": "Move into the protected section below?",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bbfdcd2_a8451964",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:05:07Z",
+      "side": 1,
+      "message": "You can omit this check. It should never return nullptr and every other caller treats it that way.",
+      "range": {
+        "startLine": 100,
+        "startChar": 29,
+        "endLine": 100,
+        "endChar": 62
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37d31c1_4e2160a2",
+        "filename": "core/fpdfapi/render/cpdf_progressiverenderer.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:05:07Z",
+      "side": 1,
+      "message": "Add some parenthesis, so we don\u0027t have to think about operator presidence with \"foo \u0026\u0026 bar \u0026 qux\"",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
