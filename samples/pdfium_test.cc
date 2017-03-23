@@ -117,6 +117,11 @@ static void OutputMD5Hash(const char* file_name, const char* buffer, int len) {
   for (int i = 0; i < 16; i++)
     printf("%02x", digest[i]);
   printf("\n");
+
+  // fprintf(stderr, "MD5:%s:", file_name);
+  // for (int i = 0; i < 16; i++)
+  //   fprintf(stderr, "%02x", digest[i]);
+  // fprintf(stderr, "\n");
 }
 
 static std::string WritePpm(const char* pdf_name,

@@ -219,6 +219,10 @@ class TestRunner:
     # Collect Gold results if an output directory was named.
     self.gold_results = None
     if options.gold_output_dir:
+      # Remove the output directory
+      shutil.rmtree(options.gold_output_dir, ignore_errors=True)
+      os.mkdir(options.gold_output_dir)
+
       self.gold_results = gold.GoldResults("pdfium",
                                            options.gold_output_dir,
                                            options.gold_properties,
