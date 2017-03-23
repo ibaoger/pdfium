@@ -949,6 +949,10 @@ class SkiaState {
   bool ClipRestore() {
     if (m_debugDisable)
       return false;
+
+    if (m_commandIndex == 0)
+      return true;
+
     Dump(__func__);
     while (Clip::kSave != m_commands[--m_commandIndex]) {
       SkASSERT(m_commandIndex > 0);
