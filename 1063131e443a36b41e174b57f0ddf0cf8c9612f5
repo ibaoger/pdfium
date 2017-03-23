@@ -16,6 +16,24 @@
       "revId": "1063131e443a36b41e174b57f0ddf0cf8c9612f5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdf89fbf_ab8748a1",
+        "filename": "core/fxge/dib/fx_dib_composite.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-23T18:48:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "413f751d_08467664",
+      "revId": "1063131e443a36b41e174b57f0ddf0cf8c9612f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
