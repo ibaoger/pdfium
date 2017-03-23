@@ -93,6 +93,29 @@
     },
     {
       "key": {
+        "uuid": "d200af52_9c1c9a51",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "Can we use CPDF_Page* in these internal functions?",
+      "range": {
+        "startLine": 719,
+        "startChar": 16,
+        "endLine": 719,
+        "endChar": 25
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07ea21ac_d7a8c0ad",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 8
@@ -144,6 +167,138 @@
       "writtenOn": "2017-03-23T00:14:21Z",
       "side": 1,
       "message": "Can we reorder this to be: start_x + size_x - size_x_bm - start_x_bm, so it\u0027s similar to line 774? Same for lines 785/786.",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52a74b2b_05439187",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "|mask_box|",
+      "range": {
+        "startLine": 795,
+        "startChar": 52,
+        "endLine": 795,
+        "endChar": 60
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94991508_3957221b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "Can this return a unique_ptr? (And then adjust callers accordingly)",
+      "range": {
+        "startLine": 797,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 12
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6baf9b3c_4c9e3949",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "If you save the results from GetMaskBitmap(), then you don\u0027t have to get these again, right?",
+      "range": {
+        "startLine": 836,
+        "startChar": 2,
+        "endLine": 836,
+        "endChar": 29
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e06daa57_268a96ba",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "Eliminate the variable since it\u0027s only used once and it\u0027s fairly obvious what \"pSrc-\u003eGetPitch()\" is.",
+      "range": {
+        "startLine": 844,
+        "startChar": 6,
+        "endLine": 844,
+        "endChar": 11
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27fa67fb_9e108d30",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "const ref.",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08bd4648_c7b902ff",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:31:28Z",
+      "side": 1,
+      "message": "Pass |pPage|.",
+      "range": {
+        "startLine": 905,
+        "startChar": 33,
+        "endLine": 905,
+        "endChar": 37
+      },
       "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
