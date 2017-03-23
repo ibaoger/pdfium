@@ -73,6 +73,80 @@
       "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8b9c3d8_c4c77073",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:14:21Z",
+      "side": 1,
+      "message": "Are these still in use? I can\u0027t seem to find a caller. I\u0027m surprised the compiler didn\u0027t complain about unused functions in an anonymous namespace.",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ea21ac_d7a8c0ad",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:14:21Z",
+      "side": 1,
+      "message": "ASSERT() these separately, so if an assertion fails, you know which failed.",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169ba7c0_40bbf322",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:14:21Z",
+      "side": 1,
+      "message": "No parens, again.",
+      "range": {
+        "startLine": 772,
+        "startChar": 9,
+        "endLine": 772,
+        "endChar": 12
+      },
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a4e94aa_dc41f476",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-23T00:14:21Z",
+      "side": 1,
+      "message": "Can we reorder this to be: start_x + size_x - size_x_bm - start_x_bm, so it\u0027s similar to line 774? Same for lines 785/786.",
+      "revId": "b71fdd875a05de04147e2f8bee252d501e478425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
