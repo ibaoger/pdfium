@@ -103,7 +103,7 @@ class CDwFontContext {
 
 class CDwGdiTextRenderer {
  public:
-  CDwGdiTextRenderer(CFX_DIBitmap* pBitmap,
+  CDwGdiTextRenderer(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
                      IDWriteBitmapRenderTarget* bitmapRenderTarget,
                      IDWriteRenderingParams* renderingParams);
   ~CDwGdiTextRenderer();
@@ -118,7 +118,7 @@ class CDwGdiTextRenderer {
                                          const COLORREF& textColor);
 
  private:
-  CFX_DIBitmap* pBitmap_;
+  const CFX_RetainPtr<CFX_DIBitmap>& pBitmap_;
   IDWriteBitmapRenderTarget* pRenderTarget_;
   IDWriteRenderingParams* pRenderingParams_;
 };
@@ -180,8 +180,9 @@ failed:
   return nullptr;
 }
 
-bool CDWriteExt::DwCreateRenderingTarget(CFX_DIBitmap* pBitmap,
-                                         void** renderTarget) {
+bool CDWriteExt::DwCreateRenderingTarget(
+    const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
+    void** renderTarget) {
   if (pBitmap->GetFormat() > FXDIB_Argb) {
     return false;
   }
@@ -395,7 +396,7 @@ HRESULT CDwFontContext::Initialize() {
 }
 
 CDwGdiTextRenderer::CDwGdiTextRenderer(
-    CFX_DIBitmap* pBitmap,
+    const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
     IDWriteBitmapRenderTarget* bitmapRenderTarget,
     IDWriteRenderingParams* renderingParams)
     : pBitmap_(pBitmap),
