@@ -17,6 +17,24 @@
       "revId": "d56352406779e1dee7fae2d19ffcc9dabf901459",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d6dbcd5_17956d55",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-23T15:45:34Z",
+      "side": 1,
+      "message": "I believe the added files here in BUILD.gn are only the headers that were previously used, but had not been listed in BUILD.gn.",
+      "parentUuid": "2273d521_9192159e",
+      "revId": "d56352406779e1dee7fae2d19ffcc9dabf901459",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
