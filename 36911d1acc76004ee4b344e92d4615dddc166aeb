@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3624dba_cdcc4e90",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-24T09:41:59Z",
+      "side": 1,
+      "message": "\u003e Is using system freetype no longer an option on Linux?\n\nIt should still be, yes. True, this CL did not consider this yet. Instead of pointing to //third_party/freetype public_deps for the else case should point to something like //build/freetype on the Chrome side in which we have a group() GN statement which either uses system FreeType (on Linux, for now) or redirects to //third_party/freetype to build our own in Chrome on Windows.\n\nI\u0027ll prepare the Chrome side for a target that we can use here.\n\nOr do we need a third case here for building pdfium standalone, not as part of the Chrome build, with system FreeType? In that case we would need a variable to detect whether we\u0027re inside the Chrome build.",
+      "revId": "36911d1acc76004ee4b344e92d4615dddc166aeb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
