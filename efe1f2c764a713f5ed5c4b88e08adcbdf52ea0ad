@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ea3f798_0a5477f2",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "No longer needed?",
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f938b1a_a4c97fa3",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "const",
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a804844d_d0c522f8",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "scale_x first",
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f55edf6_0834d6b2",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "Can we just return a FX_RECT?",
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f307b78_9b4527ea",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "Declare these down around line 761 where they are used.",
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e20a938_488e14fd",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "ASSERT(bitmap_area);",
+      "range": {
+        "startLine": 799,
+        "startChar": 6,
+        "endLine": 799,
+        "endChar": 18
+      },
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e58e365_a15e929e",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "if (bitmap_area-\u003eIsEmpty())",
+      "range": {
+        "startLine": 799,
+        "startChar": 22,
+        "endLine": 799,
+        "endChar": 78
+      },
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac5c14e_6d06de52",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "You can pass in nullptr, like on line 890.",
+      "range": {
+        "startLine": 849,
+        "startChar": 26,
+        "endLine": 849,
+        "endChar": 70
+      },
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0d2c521_c72d01c1",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:49:23Z",
+      "side": 1,
+      "message": "Can you write a comment to explain the constant? It\u0027s much easier for future readers than going through git blame to find this code review.",
+      "range": {
+        "startLine": 855,
+        "startChar": 71,
+        "endLine": 855,
+        "endChar": 74
+      },
+      "revId": "efe1f2c764a713f5ed5c4b88e08adcbdf52ea0ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
