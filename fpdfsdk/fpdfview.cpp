@@ -8,10 +8,14 @@
 
 #include <memory>
 #include <utility>
+#include <vector>
 
 #include "core/fpdfapi/cpdf_modulemgr.h"
 #include "core/fpdfapi/cpdf_pagerendercontext.h"
+#include "core/fpdfapi/page/cpdf_image.h"
+#include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_page.h"
+#include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
@@ -31,6 +35,7 @@
 #include "fpdfsdk/fsdk_define.h"
 #include "fpdfsdk/fsdk_pauseadapter.h"
 #include "fpdfsdk/javascript/ijs_runtime.h"
+#include "public/fpdf_edit.h"
 #include "public/fpdf_ext.h"
 #include "public/fpdf_progressive.h"
 #include "third_party/base/numerics/safe_conversions_impl.h"
@@ -685,6 +690,150 @@ DLLEXPORT double STDCALL FPDF_GetPageHeight(FPDF_PAGE page) {
 }
 
 #if defined(_WIN32)
+namespace {
+
+double kEpsilonSize = 0.01f;
+
+void GetScaling(CPDF_Page* pPage,
+                int size_x,
+                int size_y,
+                int rotate,
+                double* scale_x,
+                double* scale_y) {
+  ASSERT(pPage);
+  ASSERT(scale_y);
+  ASSERT(scale_x);
+  double page_width = pPage->GetPageWidth();
+  double page_height = pPage->GetPageHeight();
+  if (page_width < kEpsilonSize || page_height < kEpsilonSize)
+    return;
+
+  if (rotate % 2 == 0) {
+    *scale_x = size_x / page_width;
+    *scale_y = size_y / page_height;
+  } else {
+    *scale_x = size_y / page_width;
+    *scale_y = size_x / page_height;
+  }
+}
+
+void GetMaskDimensionsAndOffsets(CPDF_Page* pPage,
+                                 int start_x,
+                                 int start_y,
+                                 int size_x,
+                                 int size_y,
+                                 int rotate,
+                                 const CFX_FloatRect& mask_box,
+                                 FX_RECT* bitmap_area) {
+  if (!bitmap_area)
+    return;
+  double scale_x = 0.0f;
+  double scale_y = 0.0f;
+  GetScaling(pPage, size_x, size_y, rotate, &scale_x, &scale_y);
+  if (scale_x < kEpsilonSize || scale_y < kEpsilonSize)
+    return;
+
+  // Compute sizes in page points. Round down to catch the entire bitmap.
+  int start_x_bm = static_cast<int>(mask_box.left * scale_x);
+  int start_y_bm = static_cast<int>(mask_box.bottom * scale_y);
+  int offset_x = 0;
+  int offset_y = 0;
+  int size_x_bm = static_cast<int>(mask_box.right * scale_x + 1.0f) -
+                  static_cast<int>(mask_box.left * scale_x);
+  int size_y_bm = static_cast<int>(mask_box.top * scale_y + 1.0f) -
+                  static_cast<int>(mask_box.bottom * scale_y);
+
+  // Get page rotation
+  int page_rotation = 0;
+  CPDF_Dictionary* pDict = pPage->m_pFormDict;
+  while (pDict) {
+    if (pDict->KeyExist("Rotate")) {
+      CPDF_Object* pRotateObj = pDict->GetObjectFor("Rotate")->GetDirect();
+      page_rotation = pRotateObj ? pRotateObj->GetInteger() / 90 : 0;
+      break;
+    }
+    if (!pDict->KeyExist("Parent"))
+      break;
+
+    pDict = ToDictionary(pDict->GetObjectFor("Parent")->GetDirect());
+  }
+
+  // Compute offsets
+  switch ((rotate + page_rotation) % 4) {
+    case 0:
+      offset_x = start_x_bm + start_x;
+      offset_y = start_y + size_y - size_y_bm - start_y_bm;
+      break;
+    case 1:
+      offset_x = start_y_bm + start_x;
+      offset_y = start_x_bm + start_y;
+      break;
+    case 2:
+      offset_x = start_x + size_x - size_x_bm - start_x_bm;
+      offset_y = start_y_bm + start_y;
+      break;
+    case 3:
+      offset_x = start_x + size_x - size_x_bm - start_y_bm;
+      offset_y = start_y + size_y - size_y_bm - start_x_bm;
+      break;
+  }
+  bitmap_area->left = offset_x;
+  bitmap_area->top = offset_y;
+  bitmap_area->right = offset_x + size_x_bm;
+  bitmap_area->bottom = offset_y + size_y_bm;
+}
+
+// Get a bitmap of just the mask section defined by |mask_box| from a full page
+// bitmap |pBitmap|.
+std::unique_ptr<CFX_DIBitmap> GetMaskBitmap(CPDF_Page* pPage,
+                                            int start_x,
+                                            int start_y,
+                                            int size_x,
+                                            int size_y,
+                                            int rotate,
+                                            CFX_DIBitmap* pSrc,
+                                            const CFX_FloatRect& mask_box,
+                                            FX_RECT* bitmap_area) {
+  GetMaskDimensionsAndOffsets(pPage, start_x, start_y, size_x, size_y, rotate,
+                              mask_box, bitmap_area);
+  if (!bitmap_area || bitmap_area->Width() == 0 || bitmap_area->Height() == 0)
+    return nullptr;
+
+  // Create a new bitmap to transfer part of the page bitmap to.
+  std::unique_ptr<CFX_DIBitmap> pDst = pdfium::MakeUnique<CFX_DIBitmap>();
+  pDst->Create(bitmap_area->Width(), bitmap_area->Height(), FXDIB_Argb);
+  pDst->Clear(0x00ffffff);
+  pDst->TransferBitmap(0, 0, bitmap_area->Width(), bitmap_area->Height(), pSrc,
+                       bitmap_area->left, bitmap_area->top);
+  return pDst;
+}
+
+void RenderBitmap(CFX_RenderDevice* device,
+                  const std::unique_ptr<CFX_DIBitmap>& pSrc,
+                  const FX_RECT& mask_area) {
+  int size_x_bm = mask_area.Width();
+  int size_y_bm = mask_area.Height();
+  if (size_x_bm == 0 || size_y_bm == 0)
+    return;
+
+  // Create a new bitmap from the old one
+  std::unique_ptr<CFX_DIBitmap> pDst = pdfium::MakeUnique<CFX_DIBitmap>();
+  pDst->Create(size_x_bm, size_y_bm, FXDIB_Rgb32);
+  FXSYS_memset(pDst->GetBuffer(), 0xffffffff, pSrc->GetPitch() * size_y_bm);
+  pDst->CompositeBitmap(0, 0, size_x_bm, size_y_bm, pSrc.get(), 0, 0,
+                        FXDIB_BLEND_NORMAL, nullptr, false, nullptr);
+
+  if (device->GetDeviceCaps(FXDC_DEVICE_CLASS) == FXDC_PRINTER) {
+    device->StretchDIBitsWithFlagsAndBlend(pDst.get(), mask_area.left,
+                                           mask_area.top, size_x_bm, size_y_bm,
+                                           0, FXDIB_BLEND_NORMAL);
+  } else {
+    device->SetDIBits(pDst.get(), mask_area.left, mask_area.top);
+  }
+}
+
+}  // namespace
+
 DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
                                        FPDF_PAGE page,
                                        int start_x,
@@ -697,22 +846,25 @@ DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
   if (!pPage)
     return;
 
-  CPDF_PageRenderContext* pContext = new CPDF_PageRenderContext;
-  pPage->SetRenderContext(pdfium::WrapUnique(pContext));
+  pPage->SetRenderContext(pdfium::MakeUnique<CPDF_PageRenderContext>());
+  CPDF_PageRenderContext* pContext = pPage->GetRenderContext();
 
   std::unique_ptr<CFX_DIBitmap> pBitmap;
-  // TODO: This results in unnecessary rasterization of some PDFs due to
-  // HasImageMask() returning true. If any image on the page is a mask, the
-  // entire page gets rasterized and the spool size gets huge.
   const bool bNewBitmap =
-      pPage->BackgroundAlphaNeeded() || pPage->HasImageMask();
-  if (bNewBitmap) {
+      pPage->BackgroundAlphaNeeded() ||
+      (pPage->HasImageMask() && pPage->GetMaskBoundingBoxes().size() > 100);
+  const bool bHasMask = pPage->HasImageMask() && !bNewBitmap;
+  if (bNewBitmap || bHasMask) {
     pBitmap = pdfium::MakeUnique<CFX_DIBitmap>();
     pBitmap->Create(size_x, size_y, FXDIB_Argb);
     pBitmap->Clear(0x00ffffff);
     CFX_FxgeDevice* pDevice = new CFX_FxgeDevice;
     pContext->m_pDevice = pdfium::WrapUnique(pDevice);
     pDevice->Attach(pBitmap.get(), false, nullptr, false);
+    if (bHasMask) {
+      pContext->m_pOptions = pdfium::MakeUnique<CPDF_RenderOptions>();
+      pContext->m_pOptions->m_Flags |= RENDER_BREAKFORMASKS;
+    }
   } else {
     pContext->m_pDevice = pdfium::MakeUnique<CFX_WindowsDevice>(dc);
   }
@@ -720,7 +872,43 @@ DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
   FPDF_RenderPage_Retail(pContext, page, start_x, start_y, size_x, size_y,
                          rotate, flags, true, nullptr);
 
-  if (bNewBitmap) {
+  if (bHasMask) {
+    // Finish rendering the page to bitmap and copy the correct segments
+    // of the page to individual image mask bitmaps.
+    const std::vector<CFX_FloatRect>& mask_boxes =
+        pPage->GetMaskBoundingBoxes();
+    std::vector<FX_RECT> bitmap_areas(mask_boxes.size());
+    std::vector<std::unique_ptr<CFX_DIBitmap>> bitmaps(mask_boxes.size());
+    for (size_t i = 0; i < mask_boxes.size(); i++) {
+      bitmaps[i] = std::move(GetMaskBitmap(pPage, start_x, start_y, size_x,
+                                           size_y, rotate, pBitmap.get(),
+                                           mask_boxes[i], &bitmap_areas[i]));
+      pContext->m_pRenderer->Continue(nullptr);
+    }
+
+    // Reset rendering context
+    pPage->SetRenderContext(nullptr);
+
+    // Begin rendering to the printer. Add flag to indicate the renderer should
+    // pause after each image mask.
+    pPage->SetRenderContext(pdfium::MakeUnique<CPDF_PageRenderContext>());
+    pContext = pPage->GetRenderContext();
+    pContext->m_pDevice = pdfium::MakeUnique<CFX_WindowsDevice>(dc);
+    pContext->m_pOptions = pdfium::MakeUnique<CPDF_RenderOptions>();
+    pContext->m_pOptions->m_Flags |= RENDER_BREAKFORMASKS;
+    FPDF_RenderPage_Retail(pContext, page, start_x, start_y, size_x, size_y,
+                           rotate, flags, true, nullptr);
+
+    // Render masks
+    for (size_t i = 0; i < mask_boxes.size(); i++) {
+      // Render the bitmap for the mask and free the bitmap.
+      if (bitmaps[i]) {  // will be null if mask has zero area
+        RenderBitmap(pContext->m_pDevice.get(), bitmaps[i], bitmap_areas[i]);
+      }
+      // Render the next portion of page.
+      pContext->m_pRenderer->Continue(nullptr);
+    }
+  } else if (bNewBitmap) {
     CFX_WindowsDevice WinDC(dc);
     if (WinDC.GetDeviceCaps(FXDC_DEVICE_CLASS) == FXDC_PRINTER) {
       std::unique_ptr<CFX_DIBitmap> pDst = pdfium::MakeUnique<CFX_DIBitmap>();
