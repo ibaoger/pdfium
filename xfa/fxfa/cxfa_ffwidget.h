@@ -142,8 +142,8 @@ class CXFA_FFWidget : public CXFA_ContentLayoutItem {
 
   CXFA_FFPageView* GetPageView() const { return m_pPageView; }
   void SetPageView(CXFA_FFPageView* pPageView) { m_pPageView = pPageView; }
-  CFX_RectF GetWidgetRect();
-  CFX_RectF RecacheWidgetRect();
+  const CFX_RectF& GetWidgetRect();
+  const CFX_RectF& RecacheWidgetRect();
   uint32_t GetStatus();
   void ModifyStatus(uint32_t dwAdded, uint32_t dwRemoved);
 
@@ -183,7 +183,7 @@ class CXFA_FFWidget : public CXFA_ContentLayoutItem {
 
   CXFA_FFDocView* m_pDocView;
   CXFA_FFPageView* m_pPageView;
-  CXFA_WidgetAcc* m_pDataAcc;
+  CXFA_WidgetAcc* const m_pDataAcc;
   CFX_RectF m_rtWidget;
 };
 
