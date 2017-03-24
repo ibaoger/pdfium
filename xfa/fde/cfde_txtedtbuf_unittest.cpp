@@ -11,6 +11,7 @@
 class CFDE_TxtEdtBufTest : public testing::Test {
  public:
   void SetUp() override {
+    FPDF_InitLibrary();
     buf_ = pdfium::MakeUnique<CFDE_TxtEdtBuf>();
     buf_->SetChunkSizeForTesting(5);
   }
