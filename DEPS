@@ -190,12 +190,5 @@ hooks = [
     'pattern': '.',
     'action': ['python', 'pdfium/build/mac_toolchain.py'],
   },
-  {
-    # Pull sanitizer-instrumented third-party libraries if requested via
-    # GYP_DEFINES.
-    'name': 'instrumented_libraries',
-    'pattern': '\\.sha1',
-    'action': ['python', 'pdfium/third_party/instrumented_libraries/scripts/download_binaries.py'],
-  },
 
 ]
