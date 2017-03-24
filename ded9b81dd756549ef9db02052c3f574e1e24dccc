@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc547a7a_145262a0",
+        "filename": "testing/tools/test_runner.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-03-24T16:56:30Z",
+      "side": 1,
+      "message": "How about merge the check with https://cs.chromium.org/chromium/src/third_party/pdfium/testing/tools/gold.py?l\u003d73",
+      "revId": "ded9b81dd756549ef9db02052c3f574e1e24dccc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
