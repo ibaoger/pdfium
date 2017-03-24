@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b469216a_a05771ca",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T23:03:02Z",
+      "side": 1,
+      "message": "remind me if there\u0027s a way to fully cleanup a partition allocator.  If so we should do this in FPDF_CloseLibrary().",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 374,
+        "endChar": 42
+      },
+      "revId": "0d5712cd3ff57674f70df2e6114003fbb3a64518",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6308e12b_a9dedee7",
+        "filename": "xfa/fde/cfde_txtedtbuf_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T23:03:02Z",
+      "side": 1,
+      "message": "If we\u0027re going to do this here, we\u0027ll want to terminate the library in the TearDown() method.",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "0d5712cd3ff57674f70df2e6114003fbb3a64518",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
