@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "0c11f90e_8629eacf",
+        "filename": "core/fpdfdoc/cpdf_formfield.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "nit: I usually put the public enums first, then the ctor/dtor, then the rest.",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "524518ff_716df066",
+        "filename": "core/fpdfdoc/cpdf_formfield.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "follow-up: Would like to kill these friends someday.",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 32
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85ee14a8_52286ec6",
         "filename": "core/fpdfdoc/cpdf_interform.cpp",
         "patchSetId": 1
@@ -35,6 +81,98 @@
         "startChar": 35,
         "endLine": 398,
         "endChar": 52
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "157b602f_0ba7496b",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "nit: default ctor makes unique_ptrs null by default, not needed here.",
+      "range": {
+        "startLine": 398,
+        "startChar": 35,
+        "endLine": 398,
+        "endChar": 52
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ceb75a_45b4357e",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "nit: now that it\u0027s an unique ptr, we can probably get away with the single method\n  CPDF_FormField* GetField() const;",
+      "range": {
+        "startLine": 419,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 0
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6b6281b_56369738",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "follow-up: maybe this could be std::vector\u003cunique_ptr\u003cNode\u003e\u003e",
+      "range": {
+        "startLine": 453,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 25
+      },
+      "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5daa39ce_40c67a42",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-24T18:30:45Z",
+      "side": 1,
+      "message": "would be cool if this returned unique_ptr\u003cNode\u003e",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 18
       },
       "revId": "12e413674231a1cb7823f7321c70d67dd3a233b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
