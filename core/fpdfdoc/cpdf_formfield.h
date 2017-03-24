@@ -42,6 +42,11 @@ CFX_WideString FPDF_GetFullName(CPDF_Dictionary* pFieldDict);
 
 class CPDF_FormField {
  public:
+  CPDF_FormField(CPDF_InterForm* pForm, CPDF_Dictionary* pDict);
+  ~CPDF_FormField();
+
+  CFX_WideString GetFullName() const;
+
   enum Type {
     Unknown,
     PushButton,
@@ -54,8 +59,6 @@ class CPDF_FormField {
     ComboBox,
     Sign
   };
-
-  CFX_WideString GetFullName() const;
 
   Type GetType() const { return m_Type; }
   uint32_t GetFlags() const { return m_Flags; }
@@ -131,9 +134,6 @@ class CPDF_FormField {
  private:
   friend class CPDF_InterForm;
   friend class CPDF_FormControl;
-
-  CPDF_FormField(CPDF_InterForm* pForm, CPDF_Dictionary* pDict);
-  ~CPDF_FormField();
 
   CFX_WideString GetValue(bool bDefault) const;
   bool SetValue(const CFX_WideString& value, bool bDefault, bool bNotify);
