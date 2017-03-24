@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a457b7ec_31c2193d",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T17:57:50Z",
+      "side": 1,
+      "message": "Move this line to right above 370?",
+      "revId": "ac49669decb39fe94e585f4532cda22df42f52ee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec82277f_8250b516",
+        "filename": "core/fpdfapi/font/font_int.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T17:57:50Z",
+      "side": 1,
+      "message": "Should this be private?",
+      "revId": "ac49669decb39fe94e585f4532cda22df42f52ee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51ef0922_02d8595c",
+        "filename": "core/fpdfapi/font/font_int.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T17:57:50Z",
+      "side": 1,
+      "message": "Don\u0027t you want this to be private too?",
+      "revId": "ac49669decb39fe94e585f4532cda22df42f52ee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e96d25_088fe12b",
+        "filename": "core/fpdfapi/font/fpdf_font_cid.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T17:57:50Z",
+      "side": 1,
+      "message": "Move to above line 311.",
+      "revId": "ac49669decb39fe94e585f4532cda22df42f52ee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
