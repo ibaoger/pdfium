@@ -224,10 +224,8 @@ void CXFA_TextLayout::InitBreak(CFDE_CSSComputedStyle* pStyle,
     if (!m_pTabstopContext)
       m_pTabstopContext = pdfium::MakeUnique<CXFA_TextTabstopsContext>();
     m_textParser.GetTabstops(pStyle, m_pTabstopContext.get());
-    for (int32_t i = 0; i < m_pTabstopContext->m_iTabCount; i++) {
-      XFA_TABSTOPS* pTab = m_pTabstopContext->m_tabstops.GetDataPtr(i);
-      m_pBreak->AddPositionedTab(pTab->fTabstops);
-    }
+    for (int32_t i = 0; i < m_pTabstopContext->m_iTabCount; i++)
+      m_pBreak->AddPositionedTab(m_pTabstopContext->m_tabstops[i].fTabstops);
   }
 
   float fFontSize = m_textParser.GetFontSize(m_pTextProvider, pStyle);
@@ -987,8 +985,7 @@ void CXFA_TextLayout::DoTabstops(CFDE_CSSComputedStyle* pStyle,
   } else if (iTabstopsIndex > -1) {
     float fLeft = 0;
     if (m_pTabstopContext->m_bTabstops) {
-      XFA_TABSTOPS* pTabstops =
-          m_pTabstopContext->m_tabstops.GetDataPtr(iTabstopsIndex);
+      XFA_TABSTOPS* pTabstops = &m_pTabstopContext->m_tabstops[iTabstopsIndex];
       uint32_t dwAlign = pTabstops->dwAlign;
       if (dwAlign == FX_HashCode_GetW(L"center", false)) {
         fLeft = pPiece->rtPiece.width / 2.0f;

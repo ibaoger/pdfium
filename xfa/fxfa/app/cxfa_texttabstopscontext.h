@@ -7,6 +7,8 @@
 #ifndef XFA_FXFA_APP_CXFA_TEXTTABSTOPSCONTEXT_H_
 #define XFA_FXFA_APP_CXFA_TEXTTABSTOPSCONTEXT_H_
 
+#include <vector>
+
 #include "core/fxcrt/fx_basic.h"
 
 struct XFA_TABSTOPS {
@@ -23,12 +25,12 @@ class CXFA_TextTabstopsContext {
   void RemoveAll();
   void Reset();
 
-  CFX_ArrayTemplate<XFA_TABSTOPS> m_tabstops;
   int32_t m_iTabCount;
   int32_t m_iTabIndex;
   bool m_bTabstops;
   float m_fTabWidth;
   float m_fLeft;
+  std::vector<XFA_TABSTOPS> m_tabstops;
 };
 
 #endif  // XFA_FXFA_APP_CXFA_TEXTTABSTOPSCONTEXT_H_

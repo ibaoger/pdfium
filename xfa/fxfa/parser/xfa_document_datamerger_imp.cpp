@@ -153,8 +153,8 @@ void CreateDataBinding(CXFA_Node* pFormNode,
       case XFA_Element::ChoiceList:
         defValue.GetChildValueContent(wsValue);
         if (pWidgetData->GetChoiceListOpen() == XFA_ATTRIBUTEENUM_MultiSelect) {
-          std::vector<CFX_WideString> wsSelTextArray;
-          pWidgetData->GetSelectedItemsValue(wsSelTextArray);
+          std::vector<CFX_WideString> wsSelTextArray =
+              pWidgetData->GetSelectedItemsValue();
           int32_t iSize = pdfium::CollectionSize<int32_t>(wsSelTextArray);
           if (iSize >= 1) {
             CXFA_Node* pValue = nullptr;

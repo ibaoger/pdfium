@@ -18,21 +18,18 @@ CXFA_TextTabstopsContext::~CXFA_TextTabstopsContext() {}
 void CXFA_TextTabstopsContext::Append(uint32_t dwAlign, float fTabstops) {
   int32_t i = 0;
   for (i = 0; i < m_iTabCount; i++) {
-    XFA_TABSTOPS* pTabstop = m_tabstops.GetDataPtr(i);
-    if (fTabstops < pTabstop->fTabstops) {
+    if (fTabstops < m_tabstops[i].fTabstops)
       break;
-    }
   }
-  m_tabstops.InsertSpaceAt(i, 1);
   XFA_TABSTOPS tabstop;
   tabstop.dwAlign = dwAlign;
   tabstop.fTabstops = fTabstops;
-  m_tabstops.SetAt(i, tabstop);
+  m_tabstops.insert(m_tabstops.begin() + i, tabstop);
   m_iTabCount++;
 }
 
 void CXFA_TextTabstopsContext::RemoveAll() {
-  m_tabstops.RemoveAll();
+  m_tabstops.clear();
   m_iTabCount = 0;
 }
 
