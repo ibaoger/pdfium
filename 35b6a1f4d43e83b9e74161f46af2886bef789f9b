@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a68c666_aea77222",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-03-24T16:20:24Z",
+      "side": 1,
+      "message": "Did you mean to take this out of the #ifdef?\nIt may be OK -- but I would prefer to not change this part unless you\u0027ve found a case that requires it.",
+      "range": {
+        "startLine": 2211,
+        "startChar": 2,
+        "endLine": 2211,
+        "endChar": 7
+      },
+      "revId": "35b6a1f4d43e83b9e74161f46af2886bef789f9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
