@@ -22,6 +22,30 @@
       "revId": "35b6a1f4d43e83b9e74161f46af2886bef789f9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b2f1def_4589d9ea",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-24T16:27:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a68c666_aea77222",
+      "range": {
+        "startLine": 2211,
+        "startChar": 2,
+        "endLine": 2211,
+        "endChar": 7
+      },
+      "revId": "35b6a1f4d43e83b9e74161f46af2886bef789f9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
