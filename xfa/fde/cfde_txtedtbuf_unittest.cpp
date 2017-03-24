@@ -8,12 +8,16 @@
 #include "testing/test_support.h"
 #include "third_party/base/ptr_util.h"
 
-class CFDE_TxtEdtBufTest : public testing::Test {
+class CFDE_TxtEdtBufTest : public pdfium::FPDF_Test {
  public:
   void SetUp() override {
+    Init();
     buf_ = pdfium::MakeUnique<CFDE_TxtEdtBuf>();
     buf_->SetChunkSizeForTesting(5);
   }
+
+  void TearDown() override { Destroy(); }
+
   size_t ChunkCount() const { return buf_->m_chunks.size(); }
 
   std::unique_ptr<CFDE_TxtEdtBuf> buf_;
