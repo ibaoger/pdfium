@@ -70,9 +70,10 @@ class GoldResults(object):
     self._results =  []
     self._outputDir = outputDir
 
-    # make sure the output directory exists.
-    if not os.path.exists(outputDir):
-      os.makedirs(outputDir)
+    # make sure the output directory exists and is empty.
+    if os.path.exists(outputDir):
+      shutil.rmtree(outputDir, ignore_errors=True)
+    os.makedirs(outputDir)
 
     self._ignore_hashes = set()
     if ignore_hashes_file:
