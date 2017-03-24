@@ -5,16 +5,28 @@
 # This file contains PDFium-related build overrides.
 
 # Build PDFium either with or without v8 support.
+# Default to with V8 support.
 pdf_enable_v8_override = true
 
 # Build PDFium either with or without XFA Forms support.
+# Default to without XFA support.
 pdf_enable_xfa_override = false
 
-# Build PDFium against skia (experimental) rather than agg, replacing all PDFium graphics.
+# Build PDFium either using the bundled FreeType, or using the system FreeType.
+# System FreeType only exits on Linux.
+# Default to use the bundled FreeType.
+pdf_bundle_freetype_override = true
+
+# Build PDFium against skia (experimental) rather than agg, replacing all PDFium
+# graphics.
+# Default to using agg.
 pdf_use_skia_override = false
 
-# Build PDFium against skia (experimental) rather than agg, adding only path support.
+# Build PDFium against skia (experimental) rather than agg, adding only path
+# support.
+# Default to using agg.
 pdf_use_skia_paths_override = false
 
 # Build PDFium either with or without experimental win32 GDI APIs.
+# Default to without experimental win32 GDI APIs.
 pdf_use_win32_gdi_override = false
