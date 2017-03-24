@@ -22,6 +22,30 @@
       "revId": "1a89e3691b320b2e577dad8e4617be6356545396",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fa44239_4bc58eb3",
+        "filename": "samples/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:22:37Z",
+      "side": 0,
+      "message": "The samples are only built in standalone builds. The build_overrides/pdfium.gni / BUILD.gn changes makes standalone builds always use bundled freetype, thus making this redundant.",
+      "parentUuid": "c16b05cc_65cbd7b4",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "1a89e3691b320b2e577dad8e4617be6356545396",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "9f3e8535_6796cdab",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:22:37Z",
+      "side": 1,
+      "message": "Yes, all the other variables are pdf_foo.",
+      "parentUuid": "19105e7c_6b2b3674",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 25
+      },
+      "revId": "4a9a79eb26dcd2a93e4682a04b9da7a1562a3fb7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44a24bd6_3b445f63",
         "filename": "build_overrides/pdfium.gni",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0526fa73_361e6509",
+        "filename": "build_overrides/pdfium.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a24bd6_3b445f63",
+      "range": {
+        "startLine": 8,
+        "startChar": 10,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "4a9a79eb26dcd2a93e4682a04b9da7a1562a3fb7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19a735ae_e4045806",
         "filename": "build_overrides/pdfium.gni",
         "patchSetId": 1
@@ -69,6 +117,30 @@
       "revId": "4a9a79eb26dcd2a93e4682a04b9da7a1562a3fb7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58f1f6cc_ff598a1c",
+        "filename": "build_overrides/pdfium.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-24T18:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a735ae_e4045806",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "4a9a79eb26dcd2a93e4682a04b9da7a1562a3fb7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
