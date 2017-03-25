@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a79c50_58f641e2",
+        "filename": "testing/test_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-25T00:21:53Z",
+      "side": 1,
+      "message": "nit: these should be Setup and TearDown overrides themselves.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "19c3fc9f1980abd73d15f7fd5de335e266750764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78283264_84b1f282",
+        "filename": "xfa/fde/cfde_txtedtbuf_unittest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-25T00:21:53Z",
+      "side": 1,
+      "message": "and this becomes FPDF_Test::SetUp();",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "19c3fc9f1980abd73d15f7fd5de335e266750764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac2191f5_949be2b1",
+        "filename": "xfa/fde/cfde_txtedtbuf_unittest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-25T00:21:53Z",
+      "side": 1,
+      "message": "then this goes away entirely.",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 41
+      },
+      "revId": "19c3fc9f1980abd73d15f7fd5de335e266750764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
