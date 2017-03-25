@@ -209,7 +209,7 @@ static_library("pdfium") {
     ]
   }
 
-  if (pdfium_bundle_freetype) {
+  if (pdf_bundle_freetype) {
     deps += [ "third_party:fx_freetype" ]
   } else {
     libs += [ "freetype" ]
@@ -896,6 +896,8 @@ static_library("fxge") {
   deps = [
     ":fxcrt",
   ]
+
+  defines = [ "DEFINE_PS_TABLES" ]
 
   if (pdf_enable_xfa) {
     sources += [
