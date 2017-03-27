@@ -1,4 +1,120 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1490393050 -0700\nnonce AIcUUg8qQer8OtYLpnn/u7TwKAPv6Vlh6fiA7HbPi2gMzQUkKhXSjW4sK9t3MqJmHDqbTNPA9/CA\n\n0000000000000000000000000000000000000000 8dd1718135a51ce941b816cb33c8223a47a609f1 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY1ZfaAAoJEKs2LWFaZv17NIgIAKx6pTqP8sdJCu8WiFroca5z\nEu0bP9Rq4yM64urKm4dg06CDSQJc6zwStPbS/s/TAM3rR1cQPPfrAp+6kQBlLvVJ\niLTcD5EjymWE1SFWud49jW67JSJLEhdNMGSyD8vjAD6zzos0ZFo+bE6r7dnftLgK\ns/3bA3IxpSJpT3VtxJRCFmn3YA1cPM5p1qSD3ssmtdRAXuGHGjinV7RWzlwYU46E\njrKzPPq+LhnO28qFjdug25PzOE7JXTd4dcE9HSNEt8M202xvQsWOBbU38WkbwEsn\nLWjTSd2dvIbT2ORHtI++9u7SaVtdYM2ljH6aRHFPeHnprxsF8KLLSP2kNMSiOPk\u003d\n\u003dhbd+\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "5de709a9_0b8c0759",
+        "filename": "xfa/fxfa/cxfa_ffpageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T19:00:44Z",
+      "side": 1,
+      "message": "!!",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 60
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb1de9f_5bcf4a1f",
+        "filename": "xfa/fxfa/cxfa_ffpageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T19:00:44Z",
+      "side": 1,
+      "message": "curious, does this give better code even after the optimizer has had a whack at it?",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 72
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e489e5f_ca904724",
+        "filename": "xfa/fxfa/cxfa_ffpageview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T19:00:44Z",
+      "side": 1,
+      "message": "reference vs. ptr?",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399b0771_7a132e66",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T19:00:44Z",
+      "side": 1,
+      "message": "const method since it returns const ref?",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dee255d0_65ce54ce",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T19:00:44Z",
+      "side": 1,
+      "message": "though I expect making this const would required marking these two as mutable, but that\u0027s what mutable is for ...",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
