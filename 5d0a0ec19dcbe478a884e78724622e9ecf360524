@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a1f4383_4b769f44",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-27T15:28:33Z",
+      "side": 1,
+      "message": "I don\u0027t know if I like this, since it will not move the file position forward (maybe we can cause infinite loops in certain bad examples?). Maybe len \u003d std::min ?",
+      "range": {
+        "startLine": 730,
+        "startChar": 2,
+        "endLine": 733,
+        "endChar": 0
+      },
+      "revId": "5d0a0ec19dcbe478a884e78724622e9ecf360524",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
