@@ -1187,6 +1187,7 @@ void CFX_SkiaDeviceDriver::PaintStroke(SkPaint* spaint,
     }
     spaint->setPathEffect(
         SkDashPathEffect::Make(intervals, count * 2, pGraphState->m_DashPhase));
+    FX_Free(intervals);
   }
   spaint->setStyle(SkPaint::kStroke_Style);
   spaint->setAntiAlias(true);
@@ -2004,6 +2005,15 @@ bool CFX_SkiaDeviceDriver::StartDIBits(const CFX_DIBSource* pSource,
   return true;
 }
 
+void CFX_SkiaDeviceDriver::CancelDIBits(void* handle) {
+#ifdef _SKIA_SUPPORT_PATHS_
+  if (!m_pBitmap->GetBuffer())
+    return;
+
+  delete reinterpret_cast<CFX_ImageRenderer*>(handle);
+#endif  // _SKIA_SUPPORT_PATHS_
+}
+
 bool CFX_SkiaDeviceDriver::ContinueDIBits(void* handle, IFX_Pause* pPause) {
 #ifdef _SKIA_SUPPORT_
   m_pCache->FlushForDraw();
@@ -2208,9 +2218,7 @@ bool CFX_FxgeDevice::Create(int width,
 }
 
 CFX_FxgeDevice::~CFX_FxgeDevice() {
-#ifdef _SKIA_SUPPORT_
   Flush();
-#endif  // _SKIA_SUPPORT_
   // call destructor of CFX_RenderDevice / CFX_SkiaDeviceDriver immediately
   if (m_bOwnedBitmap && GetBitmap())
     delete GetBitmap();
