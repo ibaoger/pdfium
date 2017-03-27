@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "16626101_62d81f8d",
+        "filename": "core/fpdfapi/render/cpdf_imageloader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T21:34:10Z",
+      "side": 1,
+      "message": "core/fpdfapi/render/cpdf_imagerenderer.cpp:99:      if (m_Loader.m_bCached \u0026\u0026 m_Loader.m_pMask)",
+      "parentUuid": "ff44268f_ee8a2304",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afc8ffb1_c9bb905f",
         "filename": "core/fpdfapi/render/cpdf_type3cache.cpp",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-27T19:36:16Z",
       "side": 1,
       "message": "What does TakeOver specify if this is a retained pt?",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b05769_1091c453",
+        "filename": "core/fpdfapi/render/cpdf_type3cache.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T21:34:10Z",
+      "side": 1,
+      "message": "Oh, I\u0027m just being allgegedly clever.  We could pass it as an ordinary retainptr, and increment/decrement, but since it say takeover, I made the argument an rvalure reference, so that it would actually take over the ptr and leave dust in its wake ...",
+      "parentUuid": "afc8ffb1_c9bb905f",
       "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3937b5_69634025",
+        "filename": "core/fxge/fx_dib.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T21:34:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f14f1f_8c81ffa5",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
