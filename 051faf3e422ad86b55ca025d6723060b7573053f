@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c82d13bf_9f7a1969",
+        "filename": "xfa/fxfa/app/cxfa_textlayout.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T13:40:11Z",
+      "side": 1,
+      "message": "This is only used on 989 drop and change below to:\n\nuint32_t dwAlign \u003d m-pTabstopContext-\u003em_tabstops[iTabstopsIndex].dwAlign;\n\n?",
+      "revId": "051faf3e422ad86b55ca025d6723060b7573053f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6ebb88a_42341e6f",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T13:40:11Z",
+      "side": 1,
+      "message": "nit auto? (or un-auto 133)",
+      "revId": "051faf3e422ad86b55ca025d6723060b7573053f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64df2d97_2e216273",
+        "filename": "xfa/fxfa/app/xfa_ffchoicelist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T13:40:11Z",
+      "side": 1,
+      "message": "cool",
+      "revId": "051faf3e422ad86b55ca025d6723060b7573053f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "400c83f3_a07b09dd",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T13:40:11Z",
+      "side": 1,
+      "message": "Can we remove the default value?",
+      "revId": "051faf3e422ad86b55ca025d6723060b7573053f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
