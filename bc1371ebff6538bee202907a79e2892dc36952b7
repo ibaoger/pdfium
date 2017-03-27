@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff44268f_ee8a2304",
+        "filename": "core/fpdfapi/render/cpdf_imageloader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T19:36:16Z",
+      "side": 1,
+      "message": "Is this flag still needed?",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afc8ffb1_c9bb905f",
+        "filename": "core/fpdfapi/render/cpdf_type3cache.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T19:36:16Z",
+      "side": 1,
+      "message": "What does TakeOver specify if this is a retained pt?",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f14f1f_8c81ffa5",
+        "filename": "core/fxge/fx_dib.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-27T19:36:16Z",
+      "side": 1,
+      "message": "Is this explicit needed as it\u0027s the copy constructor?",
+      "revId": "bc1371ebff6538bee202907a79e2892dc36952b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
