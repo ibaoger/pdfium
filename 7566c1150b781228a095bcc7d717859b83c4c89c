@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f90cbf6_bda93845",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-03-27T18:09:50Z",
+      "side": 1,
+      "message": "good leak catch! instead of free, maybe something like this instead?\n\nstd::unique_ptr\u003cSkScalar, FxFreeDeleter\u003e intervals \u003d ...",
+      "range": {
+        "startLine": 1174,
+        "startChar": 26,
+        "endLine": 1174,
+        "endChar": 36
+      },
+      "revId": "7566c1150b781228a095bcc7d717859b83c4c89c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
