@@ -1863,10 +1863,11 @@ void CXFA_ItemLayoutProcessor::DoLayoutTableContainer(CXFA_Node* pLayoutNode) {
       if (!bMoreColumns)
         continue;
 
-      float fFinalColumnWidth = 0.0f;
-      if (pdfium::IndexInBounds(m_rgSpecifiedColumnWidths, iColCount))
+      float fFinalColumnWidth = pdfium::IndexInBounds(0.0f;
+      if (iColCount <
+          pdfium::CollectionSize<int32_t>(m_rgSpecifiedColumnWidths)) {
         fFinalColumnWidth = m_rgSpecifiedColumnWidths[iColCount];
-
+      }
       for (int32_t i = 0; i < iRowCount; ++i) {
         if (!rgRowItems[i])
           continue;
