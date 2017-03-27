@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e9cd6d_32ba6192",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T20:33:40Z",
+      "side": 1,
+      "message": "if this were 0xD0 we\u0027d have 10110000, then you could test read(1) -\u003e 1, read(1) -\u003e 0, read(2) -\u003e 3, read(4) -\u003e 0, the last one proving you can read up against the end of the byte/stream",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b67383_2b13502b",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T20:33:40Z",
+      "side": 1,
+      "message": "can we get two bits this time?",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c196ad_abf43d63",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T20:33:40Z",
+      "side": 1,
+      "message": "This test is really \"EmptyStream\"  \nI\u0027d imagine \"outofbounds\" needs a valid stream plus a read beyond that.",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e374305_c1c98149",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-27T20:33:40Z",
+      "side": 1,
+      "message": "what happens if we put nullptr here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 51,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
