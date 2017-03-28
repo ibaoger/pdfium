@@ -12,10 +12,12 @@
 #include <map>
 #include <vector>
 
-#include "xfa/fxfa/parser/xfa_layout_itemlayout.h"
+#include "xfa/fxfa/parser/cxfa_itemlayoutprocessor.h"
 
 class CXFA_ContainerRecord;
+class CXFA_LayoutContext;
 class CXFA_LayoutItem;
+class CXFA_Node;
 
 class CXFA_LayoutPageMgr {
  public:
