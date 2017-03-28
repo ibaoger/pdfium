@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f5eff9b5_aaa2f6b7",
+        "filename": "xfa/fxbarcode/BC_UtilCodingConvert.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "follow-up: most are unused, need to figure out which ones actually required.",
+      "parentUuid": "ad2ec82d_98dddc66",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd6bca4d_45282305",
         "filename": "xfa/fxbarcode/common/BC_CommonBitArray.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-28T18:49:37Z",
       "side": 1,
       "message": "Will newBits be initialized to 0\u0027s? The old code was doing a memset of all the values.",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc63092_0104ba6b",
+        "filename": "xfa/fxbarcode/common/BC_CommonBitArray.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Yes, the vector\u003cT\u003e uses the default initializer T(), which returns 0 for int32s",
+      "parentUuid": "bd6bca4d_45282305",
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f90b6998_9740a87f",
+        "filename": "xfa/fxbarcode/common/BC_CommonBitMatrix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9c4f3da_763f9594",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac72a3d_e9c60e82",
         "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e0873e_3291c14f",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac72a3d_e9c60e82",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7beefb08_e950704a",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c58509d4_638fedc4",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce3a968c_1ce4466f",
         "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da3d5688_510eecfe",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce3a968c_1ce4466f",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "c6842fac_0abd4561",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "followup, enough going on in this CL already.",
+      "parentUuid": "c952183f_e5d2bf2c",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83082bb1_bada7e72",
         "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
         "patchSetId": 1
@@ -132,6 +258,24 @@
       "writtenOn": "2017-03-28T18:49:37Z",
       "side": 1,
       "message": "nit {}",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb9e991_d1a40325",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done, lots of style cleanup here to be had.  We\u0027ve not hit it too hard in the past.",
+      "parentUuid": "83082bb1_bada7e72",
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -172,6 +316,24 @@
     },
     {
       "key": {
+        "uuid": "13b77c74_15173571",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "multiline, {} still required if that\u0027s what you were suggesting",
+      "parentUuid": "6d2f8b90_e5576577",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac596465_2e900718",
         "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
         "patchSetId": 1
@@ -186,6 +348,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05223429_6e2819f8",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac596465_2e900718",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -206,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "f308bc03_127fd551",
+        "filename": "xfa/fxbarcode/common/reedsolomon/BC_ReedSolomonGF256Poly.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1607cf67_a37ee1fb",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f859c11_805dc6a2",
         "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
         "patchSetId": 1
@@ -220,6 +418,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9146128_454e334d",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f859c11_805dc6a2",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +456,24 @@
     },
     {
       "key": {
+        "uuid": "1d89b24d_56f991d2",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113b2442_de60a385",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4eb0c1a_ed48b27b",
         "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
         "patchSetId": 1
@@ -251,6 +485,24 @@
       "writtenOn": "2017-03-28T18:49:37Z",
       "side": 1,
       "message": "0U?",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4537e1c8_69b87826",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "0 (no cast) is a perfectly fine value of zero for all assignments of zero.",
+      "parentUuid": "e4eb0c1a_ed48b27b",
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -274,6 +526,24 @@
     },
     {
       "key": {
+        "uuid": "7069f7fc_4eb4a5d0",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0612c523_ae4241f5",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1430da9_65ea9679",
         "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
         "patchSetId": 1
@@ -288,6 +558,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eee3b5c_e547f2ec",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1430da9_65ea9679",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -308,6 +596,24 @@
     },
     {
       "key": {
+        "uuid": "1be72871_bcaeefb4",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15b8d0d9_a82fdb30",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "123959a4_1879f8a4",
         "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.h",
         "patchSetId": 1
@@ -319,6 +625,24 @@
       "writtenOn": "2017-03-28T18:49:37Z",
       "side": 1,
       "message": "const or ptrs? (this and findMinimums)",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "609b5cbe_6771e4d5",
+        "filename": "xfa/fxbarcode/datamatrix/BC_HighLevelEncoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "followup",
+      "parentUuid": "123959a4_1879f8a4",
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -342,6 +666,24 @@
     },
     {
       "key": {
+        "uuid": "14978f20_12b40a9b",
+        "filename": "xfa/fxbarcode/pdf417/BC_PDF417BarcodeMatrix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c56375a6_8cae006f",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dab1f519_68d6d059",
         "filename": "xfa/fxbarcode/pdf417/BC_PDF417BarcodeMatrix.cpp",
         "patchSetId": 1
@@ -356,6 +698,24 @@
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f0183ac_08ed6e7b",
+        "filename": "xfa/fxbarcode/pdf417/BC_PDF417BarcodeMatrix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dab1f519_68d6d059",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -376,6 +736,24 @@
     },
     {
       "key": {
+        "uuid": "51aaaf9e_15b2df87",
+        "filename": "xfa/fxbarcode/pdf417/BC_PDF417BarcodeRow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac2fb53a_c79a3f7d",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1bc1add_ebd928e1",
         "filename": "xfa/fxbarcode/pdf417/BC_PDF417Writer.h",
         "patchSetId": 1
@@ -387,6 +765,24 @@
       "writtenOn": "2017-03-28T18:49:37Z",
       "side": 1,
       "message": "const or *",
+      "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f59dab_710ab276",
+        "filename": "xfa/fxbarcode/pdf417/BC_PDF417Writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T19:06:58Z",
+      "side": 1,
+      "message": "later.",
+      "parentUuid": "d1bc1add_ebd928e1",
       "revId": "e8fc9607ef6a3154a20ead61216a38c2ec1b421c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
