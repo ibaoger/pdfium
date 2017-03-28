@@ -25,8 +25,8 @@ CFX_WideString CXFA_XMLLocale::GetName() const {
   return m_pLocaleData ? m_pLocaleData->GetAttrValue("name") : CFX_WideString();
 }
 
-void CXFA_XMLLocale::GetNumbericSymbol(FX_LOCALENUMSYMBOL eType,
-                                       CFX_WideString& wsNumSymbol) const {
+CFX_WideString CXFA_XMLLocale::GetNumbericSymbol(
+    FX_LOCALENUMSYMBOL eType) const {
   CFX_ByteString bsSymbols;
   CFX_WideString wsName;
   switch (eType) {
@@ -59,45 +59,37 @@ void CXFA_XMLLocale::GetNumbericSymbol(FX_LOCALENUMSYMBOL eType,
       wsName = L"isoname";
       break;
     default:
-      return;
+      return L"";
   }
   CXML_Element* pElement = m_pLocaleData->GetElement("", bsSymbols.AsStringC());
   if (!pElement)
-    return;
+    return L"";
 
-  GetPattern(pElement,
-             CFX_ByteStringC(bsSymbols.c_str(), bsSymbols.GetLength() - 1),
-             wsName.AsStringC(), wsNumSymbol);
+  return GetPattern(
+      pElement, CFX_ByteStringC(bsSymbols.c_str(), bsSymbols.GetLength() - 1),
+      wsName.AsStringC());
 }
 
-void CXFA_XMLLocale::GetDateTimeSymbols(CFX_WideString& wsDtSymbol) const {
+CFX_WideString CXFA_XMLLocale::GetDateTimeSymbols() const {
   if (!m_pLocaleData)
-    return;
+    return L"";
 
   CFX_ByteString bsSpace;
   CXML_Element* pNumberSymbols =
       m_pLocaleData->GetElement(bsSpace.AsStringC(), "dateTimeSymbols");
-  if (!pNumberSymbols)
-    return;
-
-  wsDtSymbol = pNumberSymbols->GetContent(0);
+  return pNumberSymbols ? pNumberSymbols->GetContent(0) : L"";
 }
 
-void CXFA_XMLLocale::GetMonthName(int32_t nMonth,
-                                  CFX_WideString& wsMonthName,
-                                  bool bAbbr) const {
-  wsMonthName = GetCalendarSymbol("month", nMonth, bAbbr);
+CFX_WideString CXFA_XMLLocale::GetMonthName(int32_t nMonth, bool bAbbr) const {
+  return GetCalendarSymbol("month", nMonth, bAbbr);
 }
 
-void CXFA_XMLLocale::GetDayName(int32_t nWeek,
-                                CFX_WideString& wsDayName,
-                                bool bAbbr) const {
-  wsDayName = GetCalendarSymbol("day", nWeek, bAbbr);
+CFX_WideString CXFA_XMLLocale::GetDayName(int32_t nWeek, bool bAbbr) const {
+  return GetCalendarSymbol("day", nWeek, bAbbr);
 }
 
-void CXFA_XMLLocale::GetMeridiemName(CFX_WideString& wsMeridiemName,
-                                     bool bAM) const {
-  wsMeridiemName = GetCalendarSymbol("meridiem", bAM ? 0 : 1, false);
+CFX_WideString CXFA_XMLLocale::GetMeridiemName(bool bAM) const {
+  return GetCalendarSymbol("meridiem", bAM ? 0 : 1, false);
 }
 
 void CXFA_XMLLocale::GetTimeZone(FX_TIMEZONE* tz) const {
@@ -105,41 +97,42 @@ void CXFA_XMLLocale::GetTimeZone(FX_TIMEZONE* tz) const {
   provider.GetTimeZone(tz);
 }
 
-void CXFA_XMLLocale::GetEraName(CFX_WideString& wsEraName, bool bAD) const {
-  wsEraName = GetCalendarSymbol("era", bAD ? 1 : 0, false);
+CFX_WideString CXFA_XMLLocale::GetEraName(bool bAD) const {
+  return GetCalendarSymbol("era", bAD ? 1 : 0, false);
 }
 
 CFX_WideString CXFA_XMLLocale::GetCalendarSymbol(const CFX_ByteStringC& symbol,
                                                  int index,
                                                  bool bAbbr) const {
+  if (!m_pLocaleData)
+    return L"";
+
+  CXML_Element* pChild = m_pLocaleData->GetElement("", "calendarSymbols");
+  if (!pChild)
+    return L"";
+
   CFX_ByteString pstrSymbolNames = symbol + "Names";
+  CXML_Element* pSymbolNames =
+      pChild->GetElement("", pstrSymbolNames.AsStringC());
+  if (!pSymbolNames)
+    return L"";
+
   CFX_WideString wsSymbolName = L"";
-  if (m_pLocaleData) {
-    CXML_Element* pChild = m_pLocaleData->GetElement("", "calendarSymbols");
-    if (pChild) {
-      CXML_Element* pSymbolNames =
-          pChild->GetElement("", pstrSymbolNames.AsStringC());
-      if (pSymbolNames) {
-        if ((!!pSymbolNames->GetAttrInteger("abbr")) != bAbbr) {
-          pSymbolNames = pChild->GetElement("", pstrSymbolNames.AsStringC(), 1);
-        }
-        if (pSymbolNames && (!!pSymbolNames->GetAttrInteger("abbr")) == bAbbr) {
-          CXML_Element* pSymbolName =
-              pSymbolNames->GetElement("", symbol, index);
-          if (pSymbolName)
-            wsSymbolName = pSymbolName->GetContent(0);
-        }
-      }
-    }
-  }
-  return wsSymbolName;
+  if ((!!pSymbolNames->GetAttrInteger("abbr")) != bAbbr)
+    pSymbolNames = pChild->GetElement("", pstrSymbolNames.AsStringC(), 1);
+
+  if (!pSymbolNames || (!!pSymbolNames->GetAttrInteger("abbr")) != bAbbr)
+    return L"";
+
+  CXML_Element* pSymbolName = pSymbolNames->GetElement("", symbol, index);
+  return pSymbolName ? pSymbolName->GetContent(0) : L"";
 }
 
-void CXFA_XMLLocale::GetDatePattern(FX_LOCALEDATETIMESUBCATEGORY eType,
-                                    CFX_WideString& wsPattern) const {
+CFX_WideString CXFA_XMLLocale::GetDatePattern(
+    FX_LOCALEDATETIMESUBCATEGORY eType) const {
   CXML_Element* pElement = m_pLocaleData->GetElement("", "datePatterns");
   if (!pElement)
-    return;
+    return L"";
 
   CFX_WideString wsName;
   switch (eType) {
@@ -157,14 +150,14 @@ void CXFA_XMLLocale::GetDatePattern(FX_LOCALEDATETIMESUBCATEGORY eType,
       wsName = L"long";
       break;
   }
-  GetPattern(pElement, "datePattern", wsName.AsStringC(), wsPattern);
+  return GetPattern(pElement, "datePattern", wsName.AsStringC());
 }
 
-void CXFA_XMLLocale::GetTimePattern(FX_LOCALEDATETIMESUBCATEGORY eType,
-                                    CFX_WideString& wsPattern) const {
+CFX_WideString CXFA_XMLLocale::GetTimePattern(
+    FX_LOCALEDATETIMESUBCATEGORY eType) const {
   CXML_Element* pElement = m_pLocaleData->GetElement("", "timePatterns");
   if (!pElement)
-    return;
+    return L"";
 
   CFX_WideString wsName;
   switch (eType) {
@@ -182,28 +175,24 @@ void CXFA_XMLLocale::GetTimePattern(FX_LOCALEDATETIMESUBCATEGORY eType,
       wsName = L"long";
       break;
   }
-  GetPattern(pElement, "timePattern", wsName.AsStringC(), wsPattern);
+  return GetPattern(pElement, "timePattern", wsName.AsStringC());
 }
 
-void CXFA_XMLLocale::GetNumPattern(FX_LOCALENUMSUBCATEGORY eType,
-                                   CFX_WideString& wsPattern) const {
-  CXML_Element* pElement = m_pLocaleData->GetElement("", "numberPatterns");
-  if (!pElement)
-    return;
-
-  wsPattern = XFA_PatternToString(eType);
+CFX_WideString CXFA_XMLLocale::GetNumPattern(
+    FX_LOCALENUMSUBCATEGORY eType) const {
+  return m_pLocaleData->GetElement("", "numberPatterns")
+             ? XFA_PatternToString(eType)
+             : L"";
 }
 
-void CXFA_XMLLocale::GetPattern(CXML_Element* pElement,
-                                const CFX_ByteStringC& bsTag,
-                                const CFX_WideStringC& wsName,
-                                CFX_WideString& wsPattern) const {
+CFX_WideString CXFA_XMLLocale::GetPattern(CXML_Element* pElement,
+                                          const CFX_ByteStringC& bsTag,
+                                          const CFX_WideStringC& wsName) const {
   int32_t iCount = pElement->CountElements("", bsTag);
   for (int32_t i = 0; i < iCount; i++) {
     CXML_Element* pChild = pElement->GetElement("", bsTag, i);
-    if (pChild->GetAttrValue("name") == wsName) {
-      wsPattern = pChild->GetContent(0);
-      return;
-    }
+    if (pChild->GetAttrValue("name") == wsName)
+      return pChild->GetContent(0);
   }
+  return L"";
 }
