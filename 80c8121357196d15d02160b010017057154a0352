@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3a0b0a_70445dab",
+        "filename": "xfa/fxfa/parser/cxfa_nodelocale.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-28T20:56:48Z",
+      "side": 1,
+      "message": "CFX_WideString() may be theoretically cheaper than promoting the empty string (several other places too).",
+      "range": {
+        "startLine": 166,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 14
+      },
+      "revId": "80c8121357196d15d02160b010017057154a0352",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
