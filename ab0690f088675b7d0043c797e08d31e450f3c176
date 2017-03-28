@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e08fa34a_a9225dfa",
+        "filename": "third_party/libtiff/tif_dirread.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T23:11:45Z",
+      "side": 1,
+      "message": "maybe:\nconst uint32 small_alloc_threshold \u003d (tif-\u003etif_flags\u0026TIFF_BIGTIFF) ? 8 : 4;\nif (datasize \u003c\u003d small_alloc_threshold)\n{\n    ...\n}",
+      "range": {
+        "startLine": 793,
+        "startChar": 13,
+        "endLine": 793,
+        "endChar": 22
+      },
+      "revId": "ab0690f088675b7d0043c797e08d31e450f3c176",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cddc6ee9_61b412fa",
+        "filename": "third_party/libtiff/tif_dirread.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T23:11:45Z",
+      "side": 1,
+      "message": "Similar technique as above to merge the two nearly identical blocks.",
+      "revId": "ab0690f088675b7d0043c797e08d31e450f3c176",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
