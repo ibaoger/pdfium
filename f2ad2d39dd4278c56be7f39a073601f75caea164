@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "346d1340_b9c18183",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T13:47:14Z",
+      "side": 1,
+      "message": "Done. Make it 0xb1 just to be sure the last read returned the last value.",
+      "parentUuid": "7bb4c0af_d5ff526f",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b67383_2b13502b",
         "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "698fa949_5c194517",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T13:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b67383_2b13502b",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1097d807_a6b1e9bd",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T13:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11c196ad_abf43d63",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e374305_c1c98149",
         "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
         "patchSetId": 2
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "4767ff7e_6a75fa14",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T13:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e374305_c1c98149",
+      "range": {
+        "startLine": 36,
+        "startChar": 51,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8253d246_432e5c32",
         "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
         "patchSetId": 2
@@ -129,6 +225,30 @@
       "writtenOn": "2017-03-27T20:43:46Z",
       "side": 1,
       "message": "what happen if we read \u003e 32 bits ?",
+      "range": {
+        "startLine": 43,
+        "startChar": 33,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "f2ad2d39dd4278c56be7f39a073601f75caea164",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86ba464_d29c16e3",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T13:47:14Z",
+      "side": 1,
+      "message": "It\u0027s going to shift just keep shifting so you get the bottom 32 bits.",
+      "parentUuid": "8253d246_432e5c32",
       "range": {
         "startLine": 43,
         "startChar": 33,
