@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1defce29_d9aed573",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithDecoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T16:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8d0a6f3_fa8e46c9",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "08375467a310876c522cfe6ea6b6467703ea0b93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0281c28b_282f74b1",
         "filename": "core/fxcodec/jbig2/JBig2_ArithDecoder.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e9278caf_f2569da1",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithDecoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T16:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0281c28b_282f74b1",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "08375467a310876c522cfe6ea6b6467703ea0b93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e59286d_8db2643b",
         "filename": "core/fxcodec/jbig2/JBig2_BitStream.h",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "08375467a310876c522cfe6ea6b6467703ea0b93",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f2eb9b5_367d57f1",
+        "filename": "core/fxcodec/jbig2/JBig2_BitStream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T16:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e59286d_8db2643b",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "08375467a310876c522cfe6ea6b6467703ea0b93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
