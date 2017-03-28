@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "031c5c36_e2674cf8",
+        "filename": "xfa/fxfa/cxfa_ffpageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T21:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de709a9_0b8c0759",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 60
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb1de9f_5bcf4a1f",
         "filename": "xfa/fxfa/cxfa_ffpageview.cpp",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2017-03-27T19:00:44Z",
       "side": 1,
       "message": "curious, does this give better code even after the optimizer has had a whack at it?",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 72
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e04a7db_c7936041",
+        "filename": "xfa/fxfa/cxfa_ffpageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T21:32:44Z",
+      "side": 1,
+      "message": "I tried the following test program with g++ -O3. The const-ref version produced less code than the non-const version. The disassembly for main() is 105 lines vs 173 lines.\n\n#include \u003cstdio.h\u003e\n#include \u003cvector\u003e\n\nclass Foo {\n public:\n  Foo() {\n    for (int i \u003d 0; i \u003c 100; ++i)\n      vec_.push_back(i);\n  }\n  ~Foo() {}\n\n  const std::vector\u003cint\u003e\u0026 Get() const { return vec_; }\n\n private:\n  std::vector\u003cint\u003e vec_;\n};\n\nint main() {\n  Foo foo;\n  const std::vector\u003cint\u003e\u0026 vec \u003d foo.Get();\n  for (int i : vec)\n    printf(\"%d\\n\", i);\n  return 0;\n}",
+      "parentUuid": "bcb1de9f_5bcf4a1f",
       "range": {
         "startLine": 419,
         "startChar": 0,
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f4abb914_a6e20cf4",
+        "filename": "xfa/fxfa/cxfa_ffpageview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T21:32:44Z",
+      "side": 1,
+      "message": "It\u0027s never a nullptr, so might as well return const-ref.",
+      "parentUuid": "1e489e5f_ca904724",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "399b0771_7a132e66",
         "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
         "patchSetId": 1
@@ -95,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "eefdd96e_f016dd91",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T21:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "399b0771_7a132e66",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dee255d0_65ce54ce",
         "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
         "patchSetId": 1
@@ -115,6 +211,30 @@
       "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f98b4a_282fbd61",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-28T21:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee255d0_65ce54ce",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "8dd1718135a51ce941b816cb33c8223a47a609f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
