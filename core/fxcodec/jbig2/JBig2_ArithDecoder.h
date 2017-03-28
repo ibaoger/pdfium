@@ -24,10 +24,13 @@ class CJBig2_ArithDecoder {
 
   int DECODE(JBig2ArithCtx* pCX);
 
+  bool Complete() const { return m_Complete; }
+
  private:
   void BYTEIN();
   void ReadValueA();
 
+  bool m_Complete;
   unsigned char m_B;
   unsigned int m_C;
   unsigned int m_A;
