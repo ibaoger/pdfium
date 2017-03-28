@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2c76d03_ea36e5d1",
+        "filename": "xfa/fxfa/parser/cxfa_nodelocale.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-28T19:25:36Z",
+      "side": 1,
+      "message": "This method is new. The static\u0027s above were shared with the XML version. This routine was extracted and is used between the two classes now.",
+      "revId": "6ed257dc2c22a420cb6b5157424e85323c1c154f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
