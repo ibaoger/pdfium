@@ -790,44 +790,50 @@ static enum TIFFReadDirEntryErr TIFFReadDirEntryArray(TIFF* tif, TIFFDirEntry* d
 	*count=(uint32)direntry->tdir_count;
 	datasize=(*count)*typesize;
 	assert((tmsize_t)datasize>0);
-	data=_TIFFCheckMalloc(tif, *count, typesize, "ReadDirEntryArray");
-	if (data==0)
-		return(TIFFReadDirEntryErrAlloc);
+	if ((!(tif->tif_flags&TIFF_BIGTIFF) && datasize<=4) ||
+		((tif->tif_flags&TIFF_BIGTIFF) && datasize<=8))
+	{
+		data=_TIFFCheckMalloc(tif, *count, typesize, "ReadDirEntryArray");
+		if (data==0)
+			return(TIFFReadDirEntryErrAlloc);
+		_TIFFmemcpy(data,&direntry->tdir_offset,datasize);
+		*value=data;
+		return(TIFFReadDirEntryErrOk);
+	}
+	uint64 offset;
 	if (!(tif->tif_flags&TIFF_BIGTIFF))
 	{
-		if (datasize<=4)
-			_TIFFmemcpy(data,&direntry->tdir_offset,datasize);
-		else
-		{
-			enum TIFFReadDirEntryErr err;
-			uint32 offset = direntry->tdir_offset.toff_long;
-			if (tif->tif_flags&TIFF_SWAB)
-				TIFFSwabLong(&offset);
-			err=TIFFReadDirEntryData(tif,(uint64)offset,(tmsize_t)datasize,data);
-			if (err!=TIFFReadDirEntryErrOk)
-			{
-				_TIFFfree(data);
-				return(err);
-			}
-		}
+		uint32 small_offset=direntry->tdir_offset.toff_long;
+		if (tif->tif_flags&TIFF_SWAB)
+			TIFFSwabLong(&small_offset);
+		offset=(uint64)small_offset;
 	}
 	else
 	{
-		if (datasize<=8)
-			_TIFFmemcpy(data,&direntry->tdir_offset,datasize);
-		else
-		{
-			enum TIFFReadDirEntryErr err;
-			uint64 offset = direntry->tdir_offset.toff_long8;
-			if (tif->tif_flags&TIFF_SWAB)
-				TIFFSwabLong8(&offset);
-			err=TIFFReadDirEntryData(tif,offset,(tmsize_t)datasize,data);
-			if (err!=TIFFReadDirEntryErrOk)
-			{
-				_TIFFfree(data);
-				return(err);
-			}
-		}
+		offset = direntry->tdir_offset.toff_long8;
+		if (tif->tif_flags&TIFF_SWAB)
+			TIFFSwabLong8(&offset);
+	}
+	if((uint64)(-1) - offset < datasize)
+		return(TIFFReadDirEntryErrIo);
+	if (!isMapped(tif))
+	{
+		if (offset + datasize > TIFFGetFileSize(tif))
+			return(TIFFReadDirEntryErrIo);
+	}
+	else
+	{
+		if(offset + datasize > tif->tif_size)
+			return(TIFFReadDirEntryErrIo);
+	}
+	data=_TIFFCheckMalloc(tif, *count, typesize, "ReadDirEntryArray");
+	if (data==0)
+		return(TIFFReadDirEntryErrAlloc);
+	enum TIFFReadDirEntryErr err=TIFFReadDirEntryData(tif,offset,(tmsize_t)datasize,data);
+	if (err!=TIFFReadDirEntryErrOk)
+	{
+		_TIFFfree(data);
+		return(err);
 	}
 	*value=data;
 	return(TIFFReadDirEntryErrOk);
