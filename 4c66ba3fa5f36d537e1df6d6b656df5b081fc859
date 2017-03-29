@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "763a6c12_e3d5043c",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-29T21:00:00Z",
+      "side": 1,
+      "message": "follow-up: these are missing a C I think",
+      "range": {
+        "startLine": 1240,
+        "startChar": 6,
+        "endLine": 1243,
+        "endChar": 35
+      },
+      "revId": "4c66ba3fa5f36d537e1df6d6b656df5b081fc859",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
