@@ -10,7 +10,6 @@
 #include "core/fxcrt/fx_system.h"
 
 class CFX_DateTime;
-class CFX_DateTime;
 
 bool FX_IsLeapYear(int32_t iYear);
 uint8_t FX_DaysInMonth(int32_t iYear, uint8_t iMonth);
