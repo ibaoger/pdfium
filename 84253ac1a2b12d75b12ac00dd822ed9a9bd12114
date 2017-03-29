@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00a2be90_a722fdcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-29T22:39:01Z",
+      "side": 1,
+      "message": "I\u0027m not sure where the \"Bug: \" syntax is coming from, but let\u0027s stick with BUG\u003dN. Since this is PDFium, we have been using BUG\u003dchromium:N to indicate it\u0027s a Chromium bug.",
+      "revId": "84253ac1a2b12d75b12ac00dd822ed9a9bd12114",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03235c41_7162cad6",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-29T22:39:01Z",
+      "side": 1,
+      "message": "Can you add a note here to explain how we handle the \"required\" dictionary values?\n\n\"Even though some entries are required by the PDF spec, there exist PDFs that omit them. Set some defaults in this case.\"",
+      "revId": "84253ac1a2b12d75b12ac00dd822ed9a9bd12114",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21fcb74b_f755c5a3",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-29T22:39:01Z",
+      "side": 1,
+      "message": "Can you use wording that\u0027s consistant with the previous section?\n\n\"Use a default empty resources if it does not exist.\"",
+      "revId": "84253ac1a2b12d75b12ac00dd822ed9a9bd12114",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
