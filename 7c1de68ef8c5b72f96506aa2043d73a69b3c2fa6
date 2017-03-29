@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c13da764_4a9f332e",
+        "filename": "xfa/fgas/localization/cfx_datetime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:43:16Z",
+      "side": 1,
+      "message": "unneeded? You are declaring it here...",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "7c1de68ef8c5b72f96506aa2043d73a69b3c2fa6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b50ce69c_cec63fad",
+        "filename": "xfa/fgas/localization/fgas_locale.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:43:16Z",
+      "side": 1,
+      "message": "you don\u0027t need to forward declare if you #include",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "7c1de68ef8c5b72f96506aa2043d73a69b3c2fa6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
