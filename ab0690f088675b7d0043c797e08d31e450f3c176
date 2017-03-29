@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b167a57_7fd1c14d",
+        "filename": "third_party/libtiff/tif_dirread.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T15:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e08fa34a_a9225dfa",
+      "range": {
+        "startLine": 793,
+        "startChar": 13,
+        "endLine": 793,
+        "endChar": 22
+      },
+      "revId": "ab0690f088675b7d0043c797e08d31e450f3c176",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cddc6ee9_61b412fa",
         "filename": "third_party/libtiff/tif_dirread.c",
         "patchSetId": 4
