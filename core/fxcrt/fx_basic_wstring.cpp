@@ -607,6 +607,11 @@ void CFX_WideString::FormatV(const wchar_t* pFormat, va_list argList) {
   }
   GetBuffer(nMaxLen);
   if (m_pData) {
+    // For vswprintf(), MSAN won't untaint the buffer on a truncated write's
+    // -1 return code even though the buffer is written.  Probably just as well
+    // not to trust the vendor's implementation to write anything anyways.
+    // See https://crbug.com/705912
+    memset(m_pData->m_String, 0, nMaxLen);
     FXSYS_vswprintf((wchar_t*)m_pData->m_String, nMaxLen + 1,
                     (const wchar_t*)pFormat, argListSave);
     ReleaseBuffer();
