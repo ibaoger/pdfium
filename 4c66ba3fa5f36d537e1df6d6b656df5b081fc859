@@ -22,6 +22,30 @@
       "revId": "4c66ba3fa5f36d537e1df6d6b656df5b081fc859",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de9c3ee9_1c6b8f46",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T21:09:27Z",
+      "side": 1,
+      "message": "neither codepage nor language define any classes. The stream one is a bit weirder. Thhe .h should probably be ifgas_stream.h to match the contents. The cpp I guess would be ifgas_stream.cpp? The content has a lot of classes in a namespace.",
+      "parentUuid": "763a6c12_e3d5043c",
+      "range": {
+        "startLine": 1240,
+        "startChar": 6,
+        "endLine": 1243,
+        "endChar": 35
+      },
+      "revId": "4c66ba3fa5f36d537e1df6d6b656df5b081fc859",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
