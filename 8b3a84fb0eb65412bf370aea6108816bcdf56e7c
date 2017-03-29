@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "425c3f81_a54ab49b",
+        "filename": "xfa/fgas/localization/cfx_decimal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T18:52:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6f0208e_c49907f9",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 10
+      },
+      "revId": "8b3a84fb0eb65412bf370aea6108816bcdf56e7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91ea4d9b_707775f0",
         "filename": "xfa/fgas/localization/cfx_formatstring.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-29T18:47:53Z",
       "side": 1,
       "message": "These don\u0027t format strings, they get dates/times. So why here?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 47
+      },
+      "revId": "8b3a84fb0eb65412bf370aea6108816bcdf56e7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b2f065_57ad4da9",
+        "filename": "xfa/fgas/localization/cfx_formatstring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T18:52:46Z",
+      "side": 1,
+      "message": "They parse the input string which needs a lot of the internal routines of the format string code. This is the simpler way then exposing a bunch of unrelated stuff.",
+      "parentUuid": "91ea4d9b_707775f0",
       "range": {
         "startLine": 15,
         "startChar": 0,
