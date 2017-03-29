@@ -22,6 +22,30 @@
       "revId": "f761a3aa4a001736249e1d7c3dce3b9dc8436a8d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57ff72cb_ed2b4231",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T21:24:21Z",
+      "side": 1,
+      "message": "Weird, I thought that too but ubsan was happy with such shift.\nI\u0027m not sure how big SBNUMSYMS can be, it\u0027s uint32.\nI can compare it to the min of MAXINT32/2 and SBNUMSYMS in my followup CL",
+      "parentUuid": "9d9e883f_c44a5eac",
+      "range": {
+        "startLine": 448,
+        "startChar": 16,
+        "endLine": 448,
+        "endChar": 24
+      },
+      "revId": "f761a3aa4a001736249e1d7c3dce3b9dc8436a8d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
