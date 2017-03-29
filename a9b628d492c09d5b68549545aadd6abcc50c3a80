@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6ef2abe_ba485ca0",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T19:46:22Z",
+      "side": 1,
+      "message": "I don\u0027t think this is going to do what you want it to do? Previously we had an array of CJBIG2_Image\u0027s now we have a vector of unique_ptr of CJBIG2_Image\u0027s. We\u0027re going to write over our unique_ptr bits with Image bits.",
+      "revId": "a9b628d492c09d5b68549545aadd6abcc50c3a80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff8e7c0e_92cd1942",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T19:46:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a9b628d492c09d5b68549545aadd6abcc50c3a80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fbb431d_6427c259",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T19:46:22Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "a9b628d492c09d5b68549545aadd6abcc50c3a80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1034a69f_21d21e62",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T19:46:22Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "a9b628d492c09d5b68549545aadd6abcc50c3a80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
