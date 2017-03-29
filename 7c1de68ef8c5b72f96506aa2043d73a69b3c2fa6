@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e03f071_b71b4fee",
+        "filename": "xfa/fgas/localization/ifx_locale.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:47:53Z",
+      "side": 0,
+      "message": "Here is better IMO",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 47
+      },
+      "revId": "7c1de68ef8c5b72f96506aa2043d73a69b3c2fa6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
