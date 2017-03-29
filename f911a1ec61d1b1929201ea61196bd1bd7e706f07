@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8e004fe_891d9373",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T21:46:52Z",
+      "side": 1,
+      "message": "Please check if my logic here is fine\nmemcpy: dest, src, num\nstd::copy: first, last, dest",
+      "revId": "f911a1ec61d1b1929201ea61196bd1bd7e706f07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd841f2f_67cd3668",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T21:46:52Z",
+      "side": 1,
+      "message": "nVal is immediately read in line 428, so I can use a new variable here",
+      "revId": "f911a1ec61d1b1929201ea61196bd1bd7e706f07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e45d22b9_c5178928",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T21:46:52Z",
+      "side": 1,
+      "message": "Since we allocated stuff of size SBNUMSYMS, assume this check is good enough to avoid overflow.",
+      "revId": "f911a1ec61d1b1929201ea61196bd1bd7e706f07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
