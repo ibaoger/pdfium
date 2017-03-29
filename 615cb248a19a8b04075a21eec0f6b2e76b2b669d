@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "510dfbce_1616f137",
+        "filename": "xfa/fxfa/cxfa_ffwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "Why here?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30270ff8_9d8d6a46",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "if you forward declare a class in the h file I would expect the include in the cpp file (CXFA_Document)",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a4fddbd_d61e0cf0",
+        "filename": "xfa/fxfa/parser/cscript_datawindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afd42b1d_7b3f6b40",
+        "filename": "xfa/fxfa/parser/cscript_hostpseudomodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "ditto here and the next files.",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef38203_2217e54b",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "redefined? xfa/fxfa/cxfa_ffwidget.h",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70de5e51_d193f149",
+        "filename": "xfa/fxfa/parser/cxfa_object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "I\u0027m really confused by how you decide which methods to define in the header and which not to.",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44cfbbdb_7c3850c1",
+        "filename": "xfa/fxfa/parser/cxfa_traversestrategy_xfacontainernode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "unused throughout",
+      "range": {
+        "startLine": 16,
+        "startChar": 34,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07530af1_8909ad7e",
+        "filename": "xfa/fxfa/parser/cxfa_traversestrategy_xfanode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "space",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "332f8806_f85d4b4a",
+        "filename": "xfa/fxfa/parser/xfa_document_datamerger_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T18:36:28Z",
+      "side": 1,
+      "message": "forward decl in cpp file?",
+      "revId": "615cb248a19a8b04075a21eec0f6b2e76b2b669d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
