@@ -29,7 +29,6 @@ class CJBig2_SDDProc {
                                     std::vector<JBig2ArithCtx>* grContext,
                                     IFX_Pause* pPause);
 
- public:
   bool SDHUFF;
   bool SDREFAGG;
   uint32_t SDNUMINSYMS;
@@ -44,6 +43,11 @@ class CJBig2_SDDProc {
   int8_t SDAT[8];
   bool SDRTEMPLATE;
   int8_t SDRAT[4];
+
+ private:
+  CJBig2_SymbolDict* failed(CJBig2_Image** SDNEWSYMS,
+                            uint32_t NSYMSDECODED,
+                            uint32_t* SDNEWSYMWIDTHS);
 };
 
 #endif  // CORE_FXCODEC_JBIG2_JBIG2_SDDPROC_H_
