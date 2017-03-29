@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "acb6a7d5_2ecad869",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73b6bbbd_fcc715a0",
+      "range": {
+        "startLine": 566,
+        "startChar": 59,
+        "endLine": 566,
+        "endChar": 61
+      },
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2781860_ea549f17",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "88df7967_7247a15c",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2781860_ea549f17",
+      "range": {
+        "startLine": 885,
+        "startChar": 27,
+        "endLine": 885,
+        "endChar": 28
+      },
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f792a65_fad523f4",
         "filename": "xfa/fgas/localization/fgas_locale.cpp",
         "patchSetId": 3
@@ -59,6 +107,24 @@
       "writtenOn": "2017-03-29T14:29:34Z",
       "side": 1,
       "message": "Dup code. Only difference with previous else if seems to be line 882. Followup",
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84efa895_44291273",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "The if statement is also different.",
+      "parentUuid": "6f792a65_fad523f4",
       "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "7041bb7d_92e60647",
+        "filename": "xfa/fgas/localization/fgas_locale.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ddd2463_49a8100d",
+      "range": {
+        "startLine": 1428,
+        "startChar": 49,
+        "endLine": 1428,
+        "endChar": 50
+      },
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d561a96_959c889c",
         "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
         "patchSetId": 3
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "eeefd0f3_5241a79d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "Ack. Leaving it for later.",
+      "parentUuid": "8d561a96_959c889c",
+      "range": {
+        "startLine": 1175,
+        "startChar": 1,
+        "endLine": 1178,
+        "endChar": 17
+      },
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d839953a_5f2c2307",
         "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
         "patchSetId": 3
@@ -125,6 +239,24 @@
       "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b48da261_dc263f75",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-29T15:02:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d839953a_5f2c2307",
+      "revId": "f05d2b8256bb3494bad698c8368293d528bb4832",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
