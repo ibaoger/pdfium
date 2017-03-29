@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "afca287c_4e550ea3",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-29T14:29:34Z",
+      "side": 1,
+      "message": "But the rest seems the same. Still, we would need a helper method etc. Let\u0027s leave it like this for now.",
+      "parentUuid": "42678e61_02fd632a",
+      "revId": "80c8121357196d15d02160b010017057154a0352",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70fe910d_f9886e62",
         "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
         "patchSetId": 2
