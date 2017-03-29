@@ -417,7 +417,7 @@ void CFX_WideString::FormatV(const wchar_t* pFormat, va_list argList) {
   int nMaxLen = 0;
   for (const wchar_t* pStr = pFormat; *pStr != 0; pStr++) {
     if (*pStr != '%' || *(pStr = pStr + 1) == '%') {
-      nMaxLen += FXSYS_wcslen(pStr);
+      nMaxLen += 2;
       continue;
     }
     int nItemLen = 0;
@@ -605,6 +605,7 @@ void CFX_WideString::FormatV(const wchar_t* pFormat, va_list argList) {
     }
     nMaxLen += nItemLen;
   }
+  nMaxLen += 32;  // Fudge factor.
   GetBuffer(nMaxLen);
   if (m_pData) {
     // In the following two calls, there's always space in the buffer for
