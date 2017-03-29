@@ -229,8 +229,10 @@ bool CPDF_PageOrganizer::ExportPage(const std::vector<uint16_t>& pageNums,
     }
 
     // 2 Resources - required
-    if (!CopyInheritable(pCurPageDict, pSrcPageDict, "Resources"))
-      return false;
+    if (!CopyInheritable(pCurPageDict, pSrcPageDict, "Resources")) {
+      // Use a default empty resources if this does not work
+      pCurPageDict->SetNewFor<CPDF_Dictionary>("Resources");
+    }
 
     // 3 CropBox - optional
     CopyInheritable(pCurPageDict, pSrcPageDict, "CropBox");
