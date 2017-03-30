@@ -142,7 +142,7 @@ void FXSYS_vsnprintf(char* str, size_t size, const char* fmt, va_list ap) {
 
 FX_FileHandle* FX_OpenFolder(const char* path) {
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-  std::unique_ptr<CFindFileDataA> pData(new CFindFileDataA);
+  auto pData = pdfium::MakeUnqiue<CFindFileDataA>();
   pData->m_Handle = FindFirstFileExA((CFX_ByteString(path) + "/*.*").c_str(),
                                      FindExInfoStandard, &pData->m_FindData,
                                      FindExSearchNameMatch, nullptr, 0);

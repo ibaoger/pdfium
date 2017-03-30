@@ -61,7 +61,7 @@ class CFPDF_FileAvailWrap : public CPDF_DataAvail::FileAvail {
 class CFPDF_FileAccessWrap : public IFX_SeekableReadStream {
  public:
   static CFX_RetainPtr<CFPDF_FileAccessWrap> Create() {
-    return CFX_RetainPtr<CFPDF_FileAccessWrap>(new CFPDF_FileAccessWrap());
+    return pdfium::MakeRetain<CFPDF_FileAccessWrap>();
   }
   ~CFPDF_FileAccessWrap() override {}
 
@@ -76,6 +76,9 @@ class CFPDF_FileAccessWrap : public IFX_SeekableReadStream {
   }
 
  private:
+  template <typename T, typename... Args>
+  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
+
   CFPDF_FileAccessWrap() : m_pFileAccess(nullptr) {}
 
   FPDF_FILEACCESS* m_pFileAccess;
@@ -101,7 +104,7 @@ class CFPDF_DownloadHintsWrap : public CPDF_DataAvail::DownloadHints {
 class CFPDF_DataAvail {
  public:
   CFPDF_DataAvail()
-      : m_FileAvail(new CFPDF_FileAvailWrap),
+      : m_FileAvail(pdfium::MakeUnique<CFPDF_FileAvailWrap>()),
         m_FileRead(CFPDF_FileAccessWrap::Create()) {}
   ~CFPDF_DataAvail() {}
 
@@ -145,11 +148,10 @@ FPDFAvail_GetDocument(FPDF_AVAIL avail, FPDF_BYTESTRING password) {
   if (!pDataAvail)
     return nullptr;
 
-  std::unique_ptr<CPDF_Parser> pParser(new CPDF_Parser);
+  auto pParser = pdfium::MakeUnique<CPDF_Parser>();
   pParser->SetPassword(password);
 
-  std::unique_ptr<CPDF_Document> pDocument(
-      new CPDF_Document(std::move(pParser)));
+  auto pDocument = pdfium::MakeUnique<CPDF_Document>(std::move(pParser));
   CPDF_Parser::Error error = pDocument->GetParser()->StartLinearizedParse(
       pDataAvail->m_pDataAvail->GetFileRead(), pDocument.get());
   if (error != CPDF_Parser::SUCCESS) {

@@ -613,7 +613,7 @@ void CPDF_DIBSource::LoadJpxBitmap() {
   if (!pJpxModule)
     return;
 
-  std::unique_ptr<JpxBitMapContext> context(new JpxBitMapContext(pJpxModule));
+  auto context = pdfium::MakeUnique<JpxBitMapContext>(pJpxModule);
   context->set_decoder(pJpxModule->CreateDecoder(
       m_pStreamAcc->GetData(), m_pStreamAcc->GetSize(), m_pColorSpace));
   if (!context->decoder())

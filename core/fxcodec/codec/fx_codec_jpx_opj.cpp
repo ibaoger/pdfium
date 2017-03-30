@@ -13,6 +13,7 @@
 #include "core/fxcodec/codec/codec_int.h"
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/fx_safe_types.h"
+#include "third_party/base/ptr_util.h"
 #include "third_party/lcms2-2.6/include/lcms2.h"
 #include "third_party/libopenjpeg20/openjpeg.h"
 
@@ -877,7 +878,7 @@ CCodec_JpxModule::~CCodec_JpxModule() {}
 CJPX_Decoder* CCodec_JpxModule::CreateDecoder(const uint8_t* src_buf,
                                               uint32_t src_size,
                                               CPDF_ColorSpace* cs) {
-  std::unique_ptr<CJPX_Decoder> decoder(new CJPX_Decoder(cs));
+  auto decoder = pdfium::MakeUnique<CJPX_Decoder>(cs);
   return decoder->Init(src_buf, src_size) ? decoder.release() : nullptr;
 }
 
