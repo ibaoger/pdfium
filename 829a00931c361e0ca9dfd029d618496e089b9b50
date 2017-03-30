@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d82fc5d6_a25b8f34",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T14:23:11Z",
+      "side": 1,
+      "message": "Add a // Not owned comment.",
+      "revId": "829a00931c361e0ca9dfd029d618496e089b9b50",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8bbb661_b0eb88b4",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T14:23:11Z",
+      "side": 1,
+      "message": "Followup make BS a unqiue_ptr?",
+      "revId": "829a00931c361e0ca9dfd029d618496e089b9b50",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
