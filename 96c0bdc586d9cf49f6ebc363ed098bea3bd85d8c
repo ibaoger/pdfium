@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "526944d3_08758d6b",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1861,
+      "author": {
+        "id": 6735
+      },
+      "writtenOn": "2017-03-30T17:08:31Z",
+      "side": 1,
+      "message": "This was a change that landed in the upgrade to zlib 1.2.11 but I forgot to annotate it.",
+      "parentUuid": "fc76082e_c83eb851",
+      "revId": "96c0bdc586d9cf49f6ebc363ed098bea3bd85d8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbce7492_25fd8c4a",
         "filename": "third_party/zlib_v1211/zlib_namespace.h",
         "patchSetId": 1
