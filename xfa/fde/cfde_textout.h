@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef XFA_FDE_TTO_FDE_TEXTOUT_H_
-#define XFA_FDE_TTO_FDE_TEXTOUT_H_
+#ifndef XFA_FDE_CFDE_TEXTOUT_H_
+#define XFA_FDE_CFDE_TEXTOUT_H_
 
 #include <deque>
 #include <memory>
@@ -39,39 +39,11 @@
 
 class CFDE_Pen;
 class CFDE_RenderDevice;
+class CFDE_TTOLine;
 class CFX_RenderDevice;
 class CFX_TxtBreak;
 struct FX_TXTRUN;
-
-struct FDE_TTOPIECE {
-  FDE_TTOPIECE();
-  FDE_TTOPIECE(const FDE_TTOPIECE& that);
-  ~FDE_TTOPIECE();
-
-  int32_t iStartChar;
-  int32_t iChars;
-  uint32_t dwCharStyles;
-  CFX_RectF rtPiece;
-};
-
-class CFDE_TTOLine {
- public:
-  CFDE_TTOLine();
-  CFDE_TTOLine(const CFDE_TTOLine& ttoLine);
-  ~CFDE_TTOLine();
-
-  bool GetNewReload() const { return m_bNewReload; }
-  void SetNewReload(bool reload) { m_bNewReload = reload; }
-  int32_t AddPiece(int32_t index, const FDE_TTOPIECE& ttoPiece);
-  int32_t GetSize() const;
-  FDE_TTOPIECE* GetPtrAt(int32_t index);
-  void RemoveLast(int32_t iCount);
-  void RemoveAll();
-
- private:
-  bool m_bNewReload;
-  std::deque<FDE_TTOPIECE> m_pieces;
-};
+struct FDE_TTOPIECE;
 
 class CFDE_TextOut {
  public:
@@ -108,7 +80,7 @@ class CFDE_TextOut {
                      const CFX_RectF& rect);
   int32_t GetTotalLines();
 
- protected:
+ private:
   void CalcTextSize(const wchar_t* pwsStr, int32_t iLength, CFX_RectF& rect);
   bool RetrieveLineWidth(CFX_BreakType dwBreakStatus,
                          float& fStartPos,
@@ -172,4 +144,4 @@ class CFDE_TextOut {
   std::vector<CFX_RectF> m_rectArray;
 };
 
-#endif  // XFA_FDE_TTO_FDE_TEXTOUT_H_
+#endif  // XFA_FDE_CFDE_TEXTOUT_H_

@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fde/tto/fde_textout.h"
+#include "xfa/fde/cfde_textout.h"
 
 #include <algorithm>
 
@@ -17,6 +17,36 @@
 #include "xfa/fde/cfde_pen.h"
 #include "xfa/fde/cfde_renderdevice.h"
 #include "xfa/fgas/layout/fgas_textbreak.h"
+
+struct FDE_TTOPIECE {
+  FDE_TTOPIECE();
+  FDE_TTOPIECE(const FDE_TTOPIECE& that);
+  ~FDE_TTOPIECE();
+
+  int32_t iStartChar;
+  int32_t iChars;
+  uint32_t dwCharStyles;
+  CFX_RectF rtPiece;
+};
+
+class CFDE_TTOLine {
+ public:
+  CFDE_TTOLine();
+  CFDE_TTOLine(const CFDE_TTOLine& ttoLine);
+  ~CFDE_TTOLine();
+
+  bool GetNewReload() const { return m_bNewReload; }
+  void SetNewReload(bool reload) { m_bNewReload = reload; }
+  int32_t AddPiece(int32_t index, const FDE_TTOPIECE& ttoPiece);
+  int32_t GetSize() const;
+  FDE_TTOPIECE* GetPtrAt(int32_t index);
+  void RemoveLast(int32_t iCount);
+  void RemoveAll();
+
+ private:
+  bool m_bNewReload;
+  std::deque<FDE_TTOPIECE> m_pieces;
+};
 
 FDE_TTOPIECE::FDE_TTOPIECE() = default;
 
