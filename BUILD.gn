@@ -5,19 +5,32 @@
 import("//testing/test.gni")
 import("pdfium.gni")
 
+config("pdfium_freetype_config") {
+  if (pdf_bundle_freetype) {
+    include_dirs = [
+      "third_party/freetype/include",
+      "third_party/freetype/src/include",
+      "third_party/freetype/src/include/freetype",
+    ]
+    defines = [
+      "FT_CONFIG_MODULES_H=<freetype-custom-config/ftmodule.h>",
+      "FT_CONFIG_OPTIONS_H=<freetype-custom-config/ftoption.h>",
+    ]
+  } else {
+    configs = [ "//build/linux:freetype_from_pkgconfig" ]
+  }
+}
+
 config("pdfium_common_config") {
   cflags = []
   ldflags = []
-  include_dirs = [
-    ".",
-    "third_party/freetype/include",
-    "third_party/freetype/include/freetype",
-  ]
+  include_dirs = [ "." ]
   defines = [
     "OPJ_STATIC",
     "PNG_PREFIX",
     "PNG_USE_READ_MACROS",
   ]
+  configs = [ ":pdfium_freetype_config" ]
 
   if (pdf_use_skia) {
     defines += [ "_SKIA_SUPPORT_" ]
