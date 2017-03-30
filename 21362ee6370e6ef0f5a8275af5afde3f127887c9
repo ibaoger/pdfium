@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa341f5_808e5765",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T07:23:02Z",
+      "side": 0,
+      "message": "bad rebase",
+      "range": {
+        "startLine": 221,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 25
+      },
+      "revId": "21362ee6370e6ef0f5a8275af5afde3f127887c9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
