@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e11890c8_5557b55c",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T08:00:36Z",
+      "side": 1,
+      "message": "FTR, I\u0027ll also note this is needed because the include directory in third_party/freetype is different in Chromium vs PDFium right now, but we\u0027ll fix https://bugs.chromium.org/p/pdfium/issues/detail?id\u003d688 soon enough.",
+      "revId": "b2e432822682a89e336b763bef8fb4f29fb582c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
