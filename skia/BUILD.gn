@@ -33,11 +33,9 @@ config("skia_config") {
     "//third_party/skia/include/pipe",
     "//third_party/skia/include/ports",
     "//third_party/skia/include/utils",
-
-    # TODO(dsinclair): Right way to use //third_party/freetype?
-    "//third_party/freetype/include",
   ]
 
+  configs = [ "../:pdfium_freetype_config" ]
   defines = []
 
   if (skia_support_gpu) {
