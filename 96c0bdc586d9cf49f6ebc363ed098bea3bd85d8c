@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc76082e_c83eb851",
+        "filename": "third_party/zlib_v1211/zlib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1861,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T14:11:32Z",
+      "side": 1,
+      "message": "Is this new?",
+      "revId": "96c0bdc586d9cf49f6ebc363ed098bea3bd85d8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbce7492_25fd8c4a",
+        "filename": "third_party/zlib_v1211/zlib_namespace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T14:11:32Z",
+      "side": 1,
+      "message": "Can we generate a .patch file for this change and upload it as well. Reference it from the README.pdfium file.",
+      "revId": "96c0bdc586d9cf49f6ebc363ed098bea3bd85d8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
