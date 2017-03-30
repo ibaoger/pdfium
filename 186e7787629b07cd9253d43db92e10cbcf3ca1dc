@@ -16,6 +16,24 @@
       "revId": "186e7787629b07cd9253d43db92e10cbcf3ca1dc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42ec1d60_922f9c61",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-30T07:25:32Z",
+      "side": 1,
+      "message": "I\u0027ll update the CL accordingly. If it\u0027s there, would it ensure that freetype_common is used for the tests?",
+      "parentUuid": "953f1fcb_62596e36",
+      "revId": "186e7787629b07cd9253d43db92e10cbcf3ca1dc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
