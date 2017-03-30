@@ -27,22 +27,36 @@ void FXMEM_DefaultFree(void* pointer, int flags);
 #include <new>
 
 #include "third_party/base/allocator/partition_allocator/partition_alloc.h"
+#include "third_party/base/numerics/safe_math.h"
+
+using SafeSize = pdfium::base::CheckedNumeric<size_t>;
 
 extern pdfium::base::PartitionAllocatorGeneric gArrayBufferPartitionAllocator;
+extern pdfium::base::PartitionAllocatorGeneric gGeneralPartitionAllocator;
 extern pdfium::base::PartitionAllocatorGeneric gStringPartitionAllocator;
 
 NEVER_INLINE void FX_OutOfMemoryTerminate();
 
 inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
-  if (num_members < std::numeric_limits<size_t>::max() / member_size) {
-    return realloc(ptr, num_members * member_size);
+  SafeSize size = num_members;
+  size *= member_size;
+  if (!size.IsValid()) {
+    return nullptr;
   }
-  return nullptr;
+  return pdfium::base::PartitionReallocGeneric(
+      gGeneralPartitionAllocator.root(), ptr, size.ValueOrDie(),
+      "GeneralPartition");
 }
 
 inline void* FX_AllocOrDie(size_t num_members, size_t member_size) {
-  // TODO(tsepez): See if we can avoid the implicit memset(0).
-  if (void* result = calloc(num_members, member_size)) {
+  SafeSize size = num_members;
+  size *= member_size;
+  if (!size.IsValid()) {
+    FX_OutOfMemoryTerminate();
+  }
+  if (void* result = pdfium::base::PartitionAllocGeneric(
+          gGeneralPartitionAllocator.root(), size.ValueOrDie(),
+          "GeneralPartition")) {
     return result;
   }
   FX_OutOfMemoryTerminate();  // Never returns.
@@ -50,8 +64,10 @@ inline void* FX_AllocOrDie(size_t num_members, size_t member_size) {
 }
 
 inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
-  if (w < std::numeric_limits<size_t>::max() / h) {
-    return FX_AllocOrDie(w * h, member_size);
+  SafeSize size = w;
+  size *= h;
+  if (size.IsValid()) {
+    return FX_AllocOrDie(size.ValueOrDie(), member_size);
   }
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
