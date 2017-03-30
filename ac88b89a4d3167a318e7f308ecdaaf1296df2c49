@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20c5205b_da462aa6",
+        "filename": "core/fxcrt/fx_basic_wstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T20:49:42Z",
+      "side": 1,
+      "message": "\u003c\u003d 0 for consistency with fx_basic_bstring.cpp?",
+      "revId": "ac88b89a4d3167a318e7f308ecdaaf1296df2c49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
