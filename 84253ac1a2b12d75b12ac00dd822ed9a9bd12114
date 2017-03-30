@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "585f112e_0e40dee6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T14:33:28Z",
+      "side": 1,
+      "message": "This appears to be git cl upload using Bug: instead of BUG\u003d. Maybe they syntax has changed?",
+      "parentUuid": "b4ccad2d_e7e66001",
+      "revId": "84253ac1a2b12d75b12ac00dd822ed9a9bd12114",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03235c41_7162cad6",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 1
