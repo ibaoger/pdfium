@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "652c4b2e_c25a47f0",
+        "filename": "third_party/zlib_v1211/inflate.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T21:27:18Z",
+      "side": 1,
+      "message": "Is there a bug for this? By \"this\" we mean initialzing |dictid| to 0, right? Why do we need that? It\u0027s initialized on line 1333 below before being used for anything.",
+      "revId": "8e3f692b03e97659e855be4ea7c7b45d1c0f20c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
