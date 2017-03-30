@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae82f179_1a2efa1d",
+        "filename": "core/fxcrt/fx_basic_wstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T22:08:31Z",
+      "side": 1,
+      "message": "That\u0027s a big limit. Do we need it to be that big? Maybe it doesn\u0027t matter since we\u0027ll likely finish before we ever get to it?",
+      "revId": "e7c045f14f0ef4a255eb4b4e6ba512c9c46e06d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
