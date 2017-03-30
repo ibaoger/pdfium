@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "9b543d49_32940496",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-30T16:24:39Z",
+      "side": 1,
+      "message": "This feels like a PolyGerrit thing, as Chromium CLs are still using BUG\u003d. I never heard why so I\u0027m sticking with BUG\u003d for consistency. We also forgot to explain what this CL does, oh well.",
+      "parentUuid": "585f112e_0e40dee6",
+      "revId": "84253ac1a2b12d75b12ac00dd822ed9a9bd12114",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03235c41_7162cad6",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 1
