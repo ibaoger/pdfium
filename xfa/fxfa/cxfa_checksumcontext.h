@@ -10,7 +10,7 @@
 #include <memory>
 
 #include "core/fdrm/crypto/fx_crypt.h"
-#include "xfa/fde/xml/cfx_saxreader.h"
+#include "core/fxcrt/xml/cfx_saxreader.h"
 
 class CXFA_ChecksumContext {
  public:

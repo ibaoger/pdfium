@@ -15,7 +15,7 @@ CXFA_SAXReaderHandler::CXFA_SAXReaderHandler(CXFA_ChecksumContext* pContext)
 
 CXFA_SAXReaderHandler::~CXFA_SAXReaderHandler() {}
 
-CXFA_SAXContext* CXFA_SAXReaderHandler::OnTagEnter(
+CFX_SAXContext* CXFA_SAXReaderHandler::OnTagEnter(
     const CFX_ByteStringC& bsTagName,
     CFX_SAXItem::Type eType,
     uint32_t dwStartPos) {
@@ -36,7 +36,7 @@ CXFA_SAXContext* CXFA_SAXReaderHandler::OnTagEnter(
   return &m_SAXContext;
 }
 
-void CXFA_SAXReaderHandler::OnTagAttribute(CXFA_SAXContext* pTag,
+void CXFA_SAXReaderHandler::OnTagAttribute(CFX_SAXContext* pTag,
                                            const CFX_ByteStringC& bsAttri,
                                            const CFX_ByteStringC& bsValue) {
   if (!pTag)
@@ -44,7 +44,7 @@ void CXFA_SAXReaderHandler::OnTagAttribute(CXFA_SAXContext* pTag,
   pTag->m_TextBuf << " " << bsAttri << "=\"" << bsValue << "\"";
 }
 
-void CXFA_SAXReaderHandler::OnTagBreak(CXFA_SAXContext* pTag) {
+void CXFA_SAXReaderHandler::OnTagBreak(CFX_SAXContext* pTag) {
   if (!pTag)
     return;
 
@@ -52,7 +52,7 @@ void CXFA_SAXReaderHandler::OnTagBreak(CXFA_SAXContext* pTag) {
   UpdateChecksum(false);
 }
 
-void CXFA_SAXReaderHandler::OnTagData(CXFA_SAXContext* pTag,
+void CXFA_SAXReaderHandler::OnTagData(CFX_SAXContext* pTag,
                                       CFX_SAXItem::Type eType,
                                       const CFX_ByteStringC& bsData,
                                       uint32_t dwStartPos) {
@@ -68,7 +68,7 @@ void CXFA_SAXReaderHandler::OnTagData(CXFA_SAXContext* pTag,
     textBuf << "]]>";
 }
 
-void CXFA_SAXReaderHandler::OnTagClose(CXFA_SAXContext* pTag,
+void CXFA_SAXReaderHandler::OnTagClose(CFX_SAXContext* pTag,
                                        uint32_t dwEndPos) {
   if (!pTag)
     return;
@@ -82,7 +82,7 @@ void CXFA_SAXReaderHandler::OnTagClose(CXFA_SAXContext* pTag,
   UpdateChecksum(false);
 }
 
-void CXFA_SAXReaderHandler::OnTagEnd(CXFA_SAXContext* pTag,
+void CXFA_SAXReaderHandler::OnTagEnd(CFX_SAXContext* pTag,
                                      const CFX_ByteStringC& bsTagName,
                                      uint32_t dwEndPos) {
   if (!pTag)
@@ -92,7 +92,7 @@ void CXFA_SAXReaderHandler::OnTagEnd(CXFA_SAXContext* pTag,
   UpdateChecksum(false);
 }
 
-void CXFA_SAXReaderHandler::OnTargetData(CXFA_SAXContext* pTag,
+void CXFA_SAXReaderHandler::OnTargetData(CFX_SAXContext* pTag,
                                          CFX_SAXItem::Type eType,
                                          const CFX_ByteStringC& bsData,
                                          uint32_t dwStartPos) {
