@@ -70,7 +70,7 @@ FX_STRSIZE GuessSizeForVSWPrintf(const wchar_t*& pFormat, va_list argList) {
   FX_STRSIZE nMaxLen = 0;
   for (const wchar_t* pStr = pFormat; *pStr != 0; pStr++) {
     if (*pStr != '%' || *(pStr = pStr + 1) == '%') {
-      nMaxLen += FXSYS_wcslen(pStr);
+      nMaxLen += 2;  // At most two characters for the %% case.
       continue;
     }
     int nItemLen = 0;
@@ -252,6 +252,7 @@ FX_STRSIZE GuessSizeForVSWPrintf(const wchar_t*& pFormat, va_list argList) {
     }
     nMaxLen += nItemLen;
   }
+  nMaxLen += 32;  // Fudge factor.
   return nMaxLen;
 }
 
