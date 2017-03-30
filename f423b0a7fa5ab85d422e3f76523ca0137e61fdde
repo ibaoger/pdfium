@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3299dfef_76821c49",
+        "filename": "core/fxge/dib/fx_dib_main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-30T18:34:35Z",
+      "side": 1,
+      "message": "Src vs Source.",
+      "revId": "f423b0a7fa5ab85d422e3f76523ca0137e61fdde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
