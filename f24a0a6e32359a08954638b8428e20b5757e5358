@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a962e82_315af2b9",
+        "filename": "core/fxcrt/fx_basic_wstring.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-30T21:41:18Z",
+      "side": 1,
+      "message": "maybe 128KB.  I don\u0027t think we use this for much.",
+      "range": {
+        "startLine": 634,
+        "startChar": 19,
+        "endLine": 634,
+        "endChar": 35
+      },
+      "revId": "f24a0a6e32359a08954638b8428e20b5757e5358",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
