@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07658512_dd77e5cd",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-30T19:48:47Z",
+      "side": 1,
+      "message": "this should return the unqiue_ptr rather than releasing it on 882.  Now or Later, your call.",
+      "range": {
+        "startLine": 878,
+        "startChar": 0,
+        "endLine": 878,
+        "endChar": 13
+      },
+      "revId": "055c0c7c20f17beeaae91397e6ab06f7541238da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28db237b_89a024bb",
+        "filename": "fpdfsdk/fpdf_dataavail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-30T19:48:47Z",
+      "side": 1,
+      "message": "let\u0027s kill this and just put the friend statement here (where one would look for ctors) and use makeretain in its place.  Later if you like, but straightforward now.",
+      "range": {
+        "startLine": 63,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 3
+      },
+      "revId": "055c0c7c20f17beeaae91397e6ab06f7541238da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
