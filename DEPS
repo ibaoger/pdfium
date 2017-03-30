@@ -15,11 +15,14 @@ vars = {
   'gtest_revision': '8245545b6dc9c4703e6496d1efd19e975ad2b038',
   'icu_revision': '73e24736676b4b438270fda44e5b2c83b49fdd80',
   'instrumented_lib_revision': '61065eb0db191f46bdea202e833f5cd1f1ecedcd',
+  'jpeg_turbo_revision': '7260e4d8b8e1e40b17f03fafdf1cd83296900f76',
   'pdfium_tests_revision': '46cec65c6895ed37a9bf960ce341a5655c7519bf',
   'skia_revision': '90e3cd78991ef337dbd0023efb30ece864694308',
   'tools_memory_revision': '427f10475e1a8d72424c29d00bf689122b738e5d',
   'trace_event_revision': '06294c8a4a6f744ef284cd63cfe54dbf61eea290',
   'v8_revision': '01498094d09202413aab3ab513785261f82b755d',
+  'yasm_binary_revision': '52f9b3f4b0aa06da24ef8b123058bb61ee468881',
+  'yasm_source_revision': '7da28c6c7c6a1387217352ce02b31754deb54d2a',
 }
 
 deps = {
@@ -48,8 +51,16 @@ deps = {
   "third_party/instrumented_libraries":
     Var('chromium_git') + "/chromium/src/third_party/instrumented_libraries.git@" + Var('instrumented_lib_revision'),
 
+  "third_party/libjpeg_turbo":
+    Var('chromium_git') + "/chromium/deps/libjpeg_turbo.git@" +
+        Var('jpeg_turbo_revision'),
+
   "third_party/skia":
     Var('chromium_git') + '/skia.git' + '@' +  Var('skia_revision'),
+
+  'third_party/yasm/source/patched-yasm':
+    Var('chromium_git') + '/chromium/deps/yasm/patched-yasm.git@' +
+        Var('yasm_source_revision'),
 
   "tools/clang":
     Var('chromium_git') + "/chromium/src/tools/clang@" +  Var('clang_revision'),
@@ -74,6 +85,10 @@ deps_os = {
       Var('chromium_git') + "/external/github.com/catapult-project/catapult.git@" + Var('catapult_revision'),
   },
   "win": {
+    'third_party/yasm/binaries':
+      Var('chromium_git') + '/chromium/deps/yasm/binaries.git' + '@' +
+          Var('yasm_binary_revision'),
+
     # TODO(GYP): Remove this when no tools rely on GYP anymore.
     "tools/gyp":
       Var('chromium_git') + '/external/gyp.git' + '@' + 'c61b0b35c8396bfd59efc6cfc11401d912b0f510',
