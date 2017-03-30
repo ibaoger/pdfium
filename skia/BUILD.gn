@@ -304,7 +304,7 @@ component("skia") {
 
   deps = [
     ":skia_opts",
-    "../third_party:fx_zlib",
+    "/third_party/zlib:zlib",
   ]
 
   if (is_linux) {
