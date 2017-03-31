@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "99de4e97_744ea8c4",
+        "filename": "core/fxge/freetype/DEPS",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-31T14:45:47Z",
+      "side": 1,
+      "message": "src/ is the destination for the DEPS checkout of FreeType since we need to use a separate directory for it. It could be any name, but needs to be a subdirectory from where we store PDFium-repository-side files like BUILD.gn and the custom includes. Then, inside FreeType\u0027s repo structure, there is a src/ directory.",
+      "parentUuid": "28b8ed15_054fda27",
+      "range": {
+        "startLine": 2,
+        "startChar": 29,
+        "endLine": 2,
+        "endChar": 32
+      },
+      "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f02eedac_a78784bc",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 8
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "bb3597af_a8e172ba",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-31T14:45:47Z",
+      "side": 1,
+      "message": "Before, these files were edited in place, part of the copy of FreeType\u0027s files into PDFium\u0027s repository. Now we use a copy of these files, as recommended by FreeType, to customize build and configuration options. They are in a ..-custom- directory to explicitly distinguish them from the ones that ship with FreeType and to avoid confusing the files when including them.",
+      "parentUuid": "f02eedac_a78784bc",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 5
+      },
+      "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b355b0c8_4a94fcf6",
         "filename": "third_party/freetype/include/freetype-custom-config/ftmodule.h",
         "patchSetId": 8
@@ -60,6 +108,24 @@
       "writtenOn": "2017-03-31T14:39:41Z",
       "side": 1,
       "message": "Is this and the next the only freetype/include files that were being used, or why were these 2 deleted but not the rest?",
+      "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e6855ea_e51b5a83",
+        "filename": "third_party/freetype/include/freetype-custom-config/ftmodule.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-03-31T14:45:47Z",
+      "side": 1,
+      "message": "These are the only two includes that we customize for PDFium. The rest is used from the vanilla upstream repository.",
+      "parentUuid": "b355b0c8_4a94fcf6",
       "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
