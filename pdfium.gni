@@ -46,6 +46,9 @@ declare_args() {
   # Build a complete static library
   pdf_is_complete_lib = false
 
+  # Build the experimental public files.
+  pdf_use_experimental = false
+
   # Enable coverage information
   use_coverage = false
 }
