@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a67c6110_e915fbd0",
+        "filename": "core/fxge/dib/cfx_filtereddib.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T18:28:26Z",
+      "side": 1,
+      "message": "nit: static cast here and on next line.",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "bcbbe4206ee76dd4e0debadeaaf052caa404159c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7349e4b6_7e8aed79",
+        "filename": "core/fxge/dib/cfx_scanlinecompositor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T18:28:26Z",
+      "side": 1,
+      "message": "nit: can this be private?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "bcbbe4206ee76dd4e0debadeaaf052caa404159c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1ea4003_5362b50e",
+        "filename": "core/fxge/dib/cfx_scanlinecompositor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T18:28:26Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "bcbbe4206ee76dd4e0debadeaaf052caa404159c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e3b1d3_b147449d",
+        "filename": "core/fxge/dib/cfx_scanlinecompositor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T18:28:26Z",
+      "side": 1,
+      "message": "nit: one per line, no blank line above.",
+      "range": {
+        "startLine": 62,
+        "startChar": 3,
+        "endLine": 62,
+        "endChar": 66
+      },
+      "revId": "bcbbe4206ee76dd4e0debadeaaf052caa404159c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
