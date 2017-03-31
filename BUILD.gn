@@ -100,6 +100,8 @@ config("xfa_warnings") {
 
 static_library("pdfium") {
   sources = [
+    "api/document.cpp",
+    "api/pdfium.cpp",
     "fpdfsdk/cba_annotiterator.cpp",
     "fpdfsdk/cba_annotiterator.h",
     "fpdfsdk/cfx_systemhandler.cpp",
@@ -151,6 +153,8 @@ static_library("pdfium") {
     "fpdfsdk/pdfsdk_fieldaction.cpp",
     "fpdfsdk/pdfsdk_fieldaction.h",
     "public/cpp/fpdf_deleters.h",
+    "public/exp/document.h",
+    "public/exp/pdfium.h",
     "public/fpdf_dataavail.h",
     "public/fpdf_doc.h",
     "public/fpdf_edit.h",
