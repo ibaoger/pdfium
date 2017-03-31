@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35a0cd35_9cc808a0",
+        "filename": "core/fxcrt/fx_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-31T19:30:40Z",
+      "side": 1,
+      "message": "Did you mean to remove this too?",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "9d959ca576d3e8e96dda30604de75c13e2b7a00d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
