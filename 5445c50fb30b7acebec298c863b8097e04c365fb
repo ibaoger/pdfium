@@ -67,6 +67,24 @@
       "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43133f7_4fd5b621",
+        "filename": "public/exp/pdfium.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-31T13:20:13Z",
+      "side": 1,
+      "message": "I wonder if this would be good as a series of calls?\n\npdfium_initialize(userPaths);\npdfium_javascript_initialize(void* isolate, int embeddder slot);\n\nThen we add more calls if we need more config.",
+      "parentUuid": "8654e4ef_659aaf3e",
+      "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
