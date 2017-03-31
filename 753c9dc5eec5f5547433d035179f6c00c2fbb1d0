@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5d751b7_ca063b68",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T17:50:35Z",
+      "side": 1,
+      "message": "Yes, this is the magic that allows std::vector\u003cCFX_ByteString\u003e to resize itself via move semantics rather than copy/delete.  It\u0027s showing up in more places in chromium, unless there\u0027s been an about-face.",
+      "parentUuid": "adb49999_40de147a",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "753c9dc5eec5f5547433d035179f6c00c2fbb1d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "274e6dac_cf188930",
         "filename": "core/fxcrt/cfx_widestring.h",
         "patchSetId": 6
