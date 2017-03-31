@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8288db_827f7512",
+        "filename": "core/fxge/dib/cfx_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T19:30:42Z",
+      "side": 1,
+      "message": "initializer list while we are at it?",
+      "revId": "afe6f645728f5a7eb26cdd43e4330df5f503f72f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41e3a343_f7aefc57",
+        "filename": "core/fxge/dib/cfx_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T19:30:42Z",
+      "side": 1,
+      "message": "MakeUnique",
+      "revId": "afe6f645728f5a7eb26cdd43e4330df5f503f72f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ce3b1e3_edd476b4",
+        "filename": "core/fxge/dib/cfx_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T19:30:42Z",
+      "side": 1,
+      "message": "!\u003d 2, and early return",
+      "revId": "afe6f645728f5a7eb26cdd43e4330df5f503f72f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
