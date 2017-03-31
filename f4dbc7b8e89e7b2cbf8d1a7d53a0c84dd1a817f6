@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5de424c3_c3200c1e",
+        "filename": "core/fxcrt/fx_basic_memmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T18:09:51Z",
+      "side": 1,
+      "message": "Also, I think we may need the MEMORY_TOOL_REPLACES_ALLOCATOR #ifdef to avoid borking ASAN (see what blink does) in all these places (not arraybuffers though, that\u0027s v8 GC \u0027s worry).",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "f4dbc7b8e89e7b2cbf8d1a7d53a0c84dd1a817f6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b644cd7a_b48c06ac",
         "filename": "core/fxcrt/fx_memory.h",
         "patchSetId": 3
