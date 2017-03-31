@@ -74,6 +74,30 @@
     },
     {
       "key": {
+        "uuid": "f351c2c7_0683a76d",
+        "filename": "core/fxge/freetype/DEPS",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T19:21:54Z",
+      "side": 1,
+      "message": "It is not possible because that would cause PDFium repo files in third_party/freetype to potentially conflict with another (the FreeType source) repo that tries to sit in third_party/freetype at the same time. gclient sync won\u0027t like it.\n\nThere\u0027s lots example of src/src in Chromium for the same reason. Like their third_party/freetype/src/src.",
+      "parentUuid": "a089a768_6304a933",
+      "range": {
+        "startLine": 2,
+        "startChar": 29,
+        "endLine": 2,
+        "endChar": 32
+      },
+      "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f02eedac_a78784bc",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 8
