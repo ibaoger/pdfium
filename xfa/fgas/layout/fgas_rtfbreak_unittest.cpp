@@ -14,7 +14,7 @@
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fgas/font/cfgas_gefont.h"
 
-class RTFBreakTest : public testing::Test {
+class RTFBreakTest : public pdfium::FPDF_Test {
  public:
   void SetUp() override {
     CFX_GEModule::Get()->GetFontMgr()->SetSystemFontInfo(

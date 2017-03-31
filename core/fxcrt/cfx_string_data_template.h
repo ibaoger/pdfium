@@ -9,6 +9,7 @@
 
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
+#include "third_party/base/allocator/partition_allocator/partition_alloc.h"
 #include "third_party/base/numerics/safe_math.h"
 
 template <typename CharType>
@@ -55,7 +56,8 @@ class CFX_StringDataTemplate {
   void Retain() { ++m_nRefs; }
   void Release() {
     if (--m_nRefs <= 0)
-      pdfium::base::PartitionFree(this);
+      pdfium::base::PartitionFreeGeneric(gStringPartitionAllocator.root(),
+                                         this);
   }
 
   bool CanOperateInPlace(FX_STRSIZE nTotalLen) const {
