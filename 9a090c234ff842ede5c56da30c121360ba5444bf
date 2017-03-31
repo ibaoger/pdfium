@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1490915586 -0700\nnonce AIcUUg98dQ9MiQMQ0w2XEQSFQj+nxFb0FADzt/cjlOyX7et2eYiuuW6pzeG6PCdszg7t63ocCpXy\n\n0000000000000000000000000000000000000000 9a090c234ff842ede5c56da30c121360ba5444bf refs/for/refs/heads/master%m\u003dAdd_missing_makefiles,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY3ZECAAoJEKs2LWFaZv17pv4H/3YrqV9zweXuBhA6cwO4vt1a\ntCL4yGYm5UL+AaHAfFujJmD42cyZ7qI/fyt/tob5Eej5u+l/DClX5kf3TrSB+DPG\nYnSnU6uaGMQ8zwfFV9vQ1zL1mErYuHCYrhJNc2Dw1uk2MaNacSjcWbM9TwOG9C6t\nVL/JjynZ/SMnCGdpn938zt+8fqBTlmqQsR5CqJCATfN2we8nOh0W7AfwM9wK1tF1\n+VHiNcAhefXgJe93t2REkjvb6/iHSLAxBD6teqQ5WoWNgUtNh2GXRQSNBBSzivpo\ndNlwiLtHP/ZQUJ+HZS80DIqSE56xilHxfa4IIxWY+l4uFvI6pcxT+jeCLO/r9Fk\u003d\n\u003d4yqr\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc5d2b1f_7db72164",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T20:43:09Z",
+      "side": 1,
+      "message": "This is the easiest way to make PDFium work as part of a Chromium build. Without this conditional, GN will complain the use_ args are declared in multiple places. The alternative is to move them into some build_override .gni file and do some two repo commit in the right order dance.",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67f17ab0_1253329f",
+        "filename": "third_party/yasm/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-03-31T20:43:09Z",
+      "side": 1,
+      "message": "I basically copied Chromium\u0027s third_party/yasm. The only thing different is I changed the owner here.",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
