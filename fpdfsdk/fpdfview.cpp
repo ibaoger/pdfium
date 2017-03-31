@@ -372,6 +372,7 @@ FPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {
   if (!s_gPartitionAllocatorsInitialized) {
     pdfium::base::PartitionAllocGlobalInit(FX_OutOfMemoryTerminate);
     gArrayBufferPartitionAllocator.init();
+    gGeneralPartitionAllocator.init();
     gStringPartitionAllocator.init();
     s_gPartitionAllocatorsInitialized = true;
   }
