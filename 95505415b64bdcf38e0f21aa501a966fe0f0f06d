@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba98e2e6_73ef7e7c",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T20:12:25Z",
+      "side": 1,
+      "message": "this\u0027ll have to move to line 30.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "95505415b64bdcf38e0f21aa501a966fe0f0f06d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
