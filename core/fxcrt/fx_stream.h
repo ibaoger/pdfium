@@ -16,9 +16,8 @@
 
 class CFindFileDataA;
 typedef CFindFileDataA FX_FileHandle;
-#define FX_FILESIZE int32_t
 
-#else
+#else  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
 #include <dirent.h>
 #include <fcntl.h>
