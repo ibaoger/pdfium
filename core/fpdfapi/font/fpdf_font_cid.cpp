@@ -702,6 +702,7 @@ int CPDF_CMap::CountChar(const char* pString, int size) const {
   return size;
 }
 
+// Coding Scheme: TwoBytes
 int CPDF_CMap::AppendChar(char* str, uint32_t charcode) const {
   switch (m_CodingScheme) {
     case OneByte:

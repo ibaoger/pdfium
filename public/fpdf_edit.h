@@ -412,11 +412,11 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_NewTextObj(FPDF_DOCUMENT document,
 // Set the text for a textobject. If it had text, it will be replaced.
 //
 // text_object  - handle to the text object.
-// text         - string containing the text to be added.
+// text         - the UTF-16LE encoded string containing the text to be added.
 //
 // Returns TRUE on success
 DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetText(FPDF_PAGEOBJECT text_object,
-                                             FPDF_BYTESTRING text);
+                                             FPDF_WIDESTRING text);
 
 // Returns a font object loaded from a stream of data. The font is loaded
 // into the document. The caller does not need to free the returned object.
@@ -434,6 +434,22 @@ DLLEXPORT FPDF_FONT STDCALL FPDFText_LoadFont(FPDF_DOCUMENT document,
                                               uint32_t size,
                                               int font_type,
                                               FPDF_BOOL cid);
+
+// Create a new text object using a loaded font.
+//
+// document   - handle to the document.
+// font       - handle to the font object.
+// font_size  - the font size for the new text object.
+//
+// Returns a handle to a new text object, or NULL on failure
+DLLEXPORT FPDF_PAGEOBJECT STDCALL
+FPDFPageObj_CreateTextObj(FPDF_DOCUMENT document,
+                          FPDF_FONT font,
+                          float font_size);
+
+DLLEXPORT uint8_t* GetFontD(FPDF_DOCUMENT document);
+
+DLLEXPORT uint32_t GetFontS(FPDF_DOCUMENT document);
 
 #ifdef __cplusplus
 }  // extern "C"
