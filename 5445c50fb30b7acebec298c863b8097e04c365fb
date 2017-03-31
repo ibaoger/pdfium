@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c8ec64a_ce501302",
+        "filename": "api/document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-31T03:42:35Z",
+      "side": 1,
+      "message": "If the error code because general status we can extend to cover all the FPDF errors and won\u0027t need this.",
+      "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fc57275_7a7d909c",
+        "filename": "public/exp/document.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-31T03:42:35Z",
+      "side": 1,
+      "message": "Should probably be pdfium_status_t and moved to pdfium.h",
+      "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "872e6f35_0d4925f2",
+        "filename": "public/exp/document.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-31T03:42:35Z",
+      "side": 1,
+      "message": "I didn\u0027t take the path/password here because we\u0027d have to throw on error and, I believe we have exceptions disabled ...",
+      "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8654e4ef_659aaf3e",
+        "filename": "public/exp/pdfium.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-03-31T03:42:35Z",
+      "side": 1,
+      "message": "struct still seemed like the best config option ... but I tried to make the member names a bit clearer.",
+      "revId": "5445c50fb30b7acebec298c863b8097e04c365fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
