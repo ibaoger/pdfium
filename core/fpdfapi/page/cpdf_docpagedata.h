@@ -42,7 +42,7 @@ class CPDF_DocPageData {
                            bool bShading,
                            const CFX_Matrix& matrix);
   void ReleasePattern(const CPDF_Object* pPatternObj);
-  CPDF_Image* GetImage(uint32_t dwStreamObjNum);
+  CFX_RetainPtr<CPDF_Image> GetImage(uint32_t dwStreamObjNum);
   void ReleaseImage(uint32_t dwStreamObjNum);
   CPDF_IccProfile* GetIccProfile(CPDF_Stream* pIccProfileStream);
   void ReleaseIccProfile(const CPDF_IccProfile* pIccProfile);
@@ -55,7 +55,6 @@ class CPDF_DocPageData {
  private:
   using CPDF_CountedFont = CPDF_CountedObject<CPDF_Font>;
   using CPDF_CountedIccProfile = CPDF_CountedObject<CPDF_IccProfile>;
-  using CPDF_CountedImage = CPDF_CountedObject<CPDF_Image>;
   using CPDF_CountedStreamAcc = CPDF_CountedObject<CPDF_StreamAcc>;
 
   using CPDF_ColorSpaceMap =
@@ -64,7 +63,7 @@ class CPDF_DocPageData {
   using CPDF_FontMap = std::map<const CPDF_Dictionary*, CPDF_CountedFont*>;
   using CPDF_IccProfileMap =
       std::map<const CPDF_Stream*, CPDF_CountedIccProfile*>;
-  using CPDF_ImageMap = std::map<uint32_t, CPDF_CountedImage*>;
+  using CPDF_ImageMap = std::map<uint32_t, CFX_RetainPtr<CPDF_Image>>;
   using CPDF_PatternMap = std::map<const CPDF_Object*, CPDF_CountedPattern*>;
 
   CPDF_ColorSpace* GetColorSpaceImpl(CPDF_Object* pCSObj,

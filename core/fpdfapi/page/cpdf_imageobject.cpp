@@ -12,8 +12,7 @@
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 
-CPDF_ImageObject::CPDF_ImageObject()
-    : m_pImage(nullptr), m_pImageOwned(false) {}
+CPDF_ImageObject::CPDF_ImageObject() {}
 
 CPDF_ImageObject::~CPDF_ImageObject() {
   Release();
@@ -48,30 +47,13 @@ void CPDF_ImageObject::CalcBoundingBox() {
   m_Matrix.TransformRect(m_Left, m_Right, m_Top, m_Bottom);
 }
 
-void CPDF_ImageObject::SetOwnedImage(std::unique_ptr<CPDF_Image> pImage) {
-  Release();
-  m_pImage = pImage.release();
-  m_pImageOwned = true;
-}
-
-void CPDF_ImageObject::SetUnownedImage(CPDF_Image* pImage) {
-  Release();
-  m_pImage = pImage;
-  m_pImageOwned = false;
-}
-
 void CPDF_ImageObject::Release() {
-  if (m_pImageOwned) {
-    delete m_pImage;
-    m_pImage = nullptr;
-    m_pImageOwned = false;
-    return;
-  }
-
   if (!m_pImage)
     return;
 
   CPDF_DocPageData* pPageData = m_pImage->GetDocument()->GetPageData();
-  pPageData->ReleaseImage(m_pImage->GetStream()->GetObjNum());
-  m_pImage = nullptr;
+  if (pPageData)
+    pPageData->ReleaseImage(m_pImage->GetStream()->GetObjNum());
+
+  m_pImage.Reset();
 }
