@@ -77,6 +77,15 @@ extern "C" {
 // TODO(palmer): it should be a |size_t|, or at least unsigned.
 typedef int FX_STRSIZE;
 
+// PDFium file sizes match the platform, but PDFium itself does not support
+// files larger than 4GB even if the platform does.
+// TODO(tsepez): support larger files.
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+#define FX_FILESIZE int32_t
+#else  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+#define FX_FILESIZE off_t
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+
 #ifndef ASSERT
 #ifndef NDEBUG
 #define ASSERT assert
