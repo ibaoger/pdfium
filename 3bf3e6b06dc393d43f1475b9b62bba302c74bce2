@@ -50,6 +50,30 @@
     },
     {
       "key": {
+        "uuid": "a089a768_6304a933",
+        "filename": "core/fxge/freetype/DEPS",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-31T15:01:22Z",
+      "side": 1,
+      "message": "It\u0027s not possible to DEPS into just third_party/freetype instead of third_party/freetype/src?",
+      "parentUuid": "99de4e97_744ea8c4",
+      "range": {
+        "startLine": 2,
+        "startChar": 29,
+        "endLine": 2,
+        "endChar": 32
+      },
+      "revId": "3bf3e6b06dc393d43f1475b9b62bba302c74bce2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f02eedac_a78784bc",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 8
