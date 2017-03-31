@@ -73,6 +73,20 @@ executable("pdfium_test") {
   configs += [ ":pdfium_samples_config" ]
 }
 
+executable("pdfium_exp_test") {
+  testonly = true
+  sources = [
+    "pdfium_exp_test.cc",
+  ]
+  deps = [
+    "../:pdfium",
+    "../:test_support",
+    "//build/config/sanitizers:deps",
+    "//build/win:default_exe_manifest",
+  ]
+  configs += [ ":pdfium_samples_config" ]
+}
+
 executable("pdfium_diff") {
   testonly = true
   sources = [
