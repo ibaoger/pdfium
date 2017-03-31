@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b644cd7a_b48c06ac",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T16:18:50Z",
+      "side": 1,
+      "message": "nit: we have FX_SAFE_SIZE_T in core/fxcrt/fx_safe_types.h.",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "f4dbc7b8e89e7b2cbf8d1a7d53a0c84dd1a817f6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d61337f6_1b007d81",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T16:18:50Z",
+      "side": 1,
+      "message": "nit: probably should keep the  // Never returns.",
+      "range": {
+        "startLine": 65,
+        "startChar": 28,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "f4dbc7b8e89e7b2cbf8d1a7d53a0c84dd1a817f6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c621efd_499517e6",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-03-31T16:18:50Z",
+      "side": 1,
+      "message": "As I ponder this ... I have feeling we\u0027re going to want to make this be a function in some fxcrt file, so that we can call it both from here and from tests without going through all the other library setup.",
+      "range": {
+        "startLine": 371,
+        "startChar": 1,
+        "endLine": 378,
+        "endChar": 3
+      },
+      "revId": "f4dbc7b8e89e7b2cbf8d1a7d53a0c84dd1a817f6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
