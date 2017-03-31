@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adb49999_40de147a",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-31T17:48:38Z",
+      "side": 1,
+      "message": "Do we still need this?",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "753c9dc5eec5f5547433d035179f6c00c2fbb1d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "274e6dac_cf188930",
+        "filename": "core/fxcrt/cfx_widestring.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-03-31T17:48:38Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "753c9dc5eec5f5547433d035179f6c00c2fbb1d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
