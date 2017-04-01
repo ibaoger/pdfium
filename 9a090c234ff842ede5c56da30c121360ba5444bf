@@ -20,6 +20,58 @@
     },
     {
       "key": {
+        "uuid": "df737e1e_7d44e836",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-01T19:10:05Z",
+      "side": 1,
+      "message": "Can the use_* go in pdfium.gni inside a !build_with_chrome block so they live with the other use_* things we define?",
+      "parentUuid": "dc5d2b1f_7db72164",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4632e288_c70e9db0",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-01T19:10:05Z",
+      "side": 1,
+      "message": "Why is this one \u003d1 and the one above isn\u0027t?",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96947088_29e395cf",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-01T19:10:05Z",
+      "side": 1,
+      "message": "Doesn\u0027t this CL delete third_party/libjpeg?Isn\u0027t this invalid now?",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67f17ab0_1253329f",
         "filename": "third_party/yasm/OWNERS",
         "patchSetId": 2
@@ -31,6 +83,23 @@
       "writtenOn": "2017-03-31T20:43:09Z",
       "side": 1,
       "message": "I basically copied Chromium\u0027s third_party/yasm. The only thing different is I changed the owner here.",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25f58bab_25d28574",
+        "filename": "third_party/yasm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-01T19:10:05Z",
+      "side": 1,
+      "message": "Should this be renamed to README.pdfium?",
       "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
