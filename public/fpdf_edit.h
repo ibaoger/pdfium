@@ -135,6 +135,13 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page);
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFPageObj_HasTransparency(FPDF_PAGEOBJECT pageObject);
 
+// Get kind of |pageObject|.
+//
+//   pageObject - handle to a page object.
+//
+// Returns one of the FPDF_PAGEOBJ_* values on success, 0 on error.
+DLLEXPORT int STDCALL FPDFPageObj_GetType(FPDF_PAGEOBJECT pageObject);
+
 // Transform |pageObject| by the given matrix.
 //
 //   page_object - handle to a page object.
