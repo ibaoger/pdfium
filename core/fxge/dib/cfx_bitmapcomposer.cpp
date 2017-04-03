@@ -4,10 +4,11 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include <algorithm>
+#include "core/fxge/dib/cfx_bitmapcomposer.h"
 
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxge/cfx_gemodule.h"
+#include "core/fxge/dib/cfx_dibitmap.h"
 #include "core/fxge/ge/cfx_cliprgn.h"
 
 CFX_BitmapComposer::CFX_BitmapComposer() {
