@@ -11,6 +11,19 @@
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxge/cfx_gemodule.h"
 
+#define FX_CCOLOR(val) (255 - (val))
+#define FXDIB_ALPHA_UNION(dest, src) ((dest) + (src) - (dest) * (src) / 255)
+#define FXARGB_COPY(dest, src)                      \
+  *(uint8_t*)(dest) = *(uint8_t*)(src),             \
+  *((uint8_t*)(dest) + 1) = *((uint8_t*)(src) + 1), \
+  *((uint8_t*)(dest) + 2) = *((uint8_t*)(src) + 2), \
+  *((uint8_t*)(dest) + 3) = *((uint8_t*)(src) + 3)
+#define FXARGB_RGBORDERCOPY(dest, src)                                   \
+  *((uint8_t*)(dest) + 3) = *((uint8_t*)(src) + 3),                      \
+                       *(uint8_t*)(dest) = *((uint8_t*)(src) + 2),       \
+                       *((uint8_t*)(dest) + 1) = *((uint8_t*)(src) + 1), \
+                       *((uint8_t*)(dest) + 2) = *((uint8_t*)(src))
+
 namespace {
 
 const uint8_t color_sqrt[256] = {
