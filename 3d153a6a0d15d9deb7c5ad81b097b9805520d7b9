@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eda0e8b_d57cd39c",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "nit: blank before",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33734320_5598564a",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd63a91_3e7c8680",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "\" (and below)",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1342779d_2f27ea1e",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "Nit: don\u0027t use _ to prefix methods (and below)",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ed1715_6f66e198",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "nit: cast",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "512abeff_f4ed6dc8",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "cast",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6edd7b45_7064376b",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "Can these be done in the initializer list?",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210fd32e_cd693bc3",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "not needed",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b4c7e30_57630b39",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "followup, can these be a std::vector or unique_ptr?",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6f7810_f4bb2d66",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "one per line",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcb69cf7_a2d111f7",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc6e6f5_8da5da16",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "casts",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeed182c_cff4d14e",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7fc45f2_db99a2fd",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0059f0d2_eb95ea3c",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "\" (and below)",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca65e7d0_71f620d3",
+        "filename": "core/fxge/dib/cfx_imagestretcher.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "followup, \u0026 to *",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59838e44_8133e699",
+        "filename": "core/fxge/dib/cfx_scanlinecompositor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "casts",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ed13484_fdfb0698",
+        "filename": "core/fxge/fx_dib.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T17:50:24Z",
+      "side": 1,
+      "message": "Sort by value",
+      "revId": "3d153a6a0d15d9deb7c5ad81b097b9805520d7b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
