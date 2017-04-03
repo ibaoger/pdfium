@@ -78,10 +78,10 @@ outline_aa::~outline_aa()
     if(m_num_blocks) {
         cell_aa** ptr = m_cells + m_num_blocks - 1;
         while(m_num_blocks--) {
-            FX_Free(*ptr);
-            ptr--;
+          free(*ptr);
+          ptr--;
         }
-        FX_Free(m_cells);
+        free(m_cells);
     }
 }
 outline_aa::outline_aa() :
@@ -118,8 +118,8 @@ void outline_aa::allocate_block()
         if(m_num_blocks >= m_max_blocks) {
             cell_aa** new_cells = FX_Alloc( cell_aa*, m_max_blocks + cell_block_pool);
             if(m_cells) {
-                FXSYS_memcpy(new_cells, m_cells, m_max_blocks * sizeof(cell_aa*));
-                FX_Free(m_cells);
+              memcpy(new_cells, m_cells, m_max_blocks * sizeof(cell_aa*));
+              free(m_cells);
             }
             m_cells = new_cells;
             m_max_blocks += cell_block_pool;

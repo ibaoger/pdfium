@@ -23,7 +23,7 @@ CJBig2_Segment::CJBig2_Segment() {
   m_Result.vd = nullptr;
 }
 CJBig2_Segment::~CJBig2_Segment() {
-  FX_Free(m_pReferred_to_segment_numbers);
+  free(m_pReferred_to_segment_numbers);
 
   switch (m_nResultType) {
     case JBIG2_IMAGE_POINTER:
@@ -39,6 +39,6 @@ CJBig2_Segment::~CJBig2_Segment() {
       delete m_Result.ht;
       break;
     default:
-      FX_Free(m_Result.vd);
+      free(m_Result.vd);
   }
 }

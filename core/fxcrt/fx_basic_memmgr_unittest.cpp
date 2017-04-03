@@ -25,7 +25,7 @@ TEST(fxcrt, DISABLED_FX_AllocOOM) {
   int* ptr = FX_Alloc(int, 1);
   EXPECT_TRUE(ptr);
   EXPECT_DEATH_IF_SUPPORTED((void)FX_Realloc(int, ptr, kMaxIntAlloc), "");
-  FX_Free(ptr);
+  free(ptr);
 }
 
 TEST(fxcrt, FX_AllocOverflow) {
@@ -37,7 +37,7 @@ TEST(fxcrt, FX_AllocOverflow) {
   ptr = FX_Alloc(int, 1);
   EXPECT_TRUE(ptr);
   EXPECT_DEATH_IF_SUPPORTED((void)FX_Realloc(int, ptr, kOverflowIntAlloc), "");
-  FX_Free(ptr);
+  free(ptr);
 }
 
 TEST(fxcrt, FX_AllocOverflow2D) {
@@ -55,7 +55,7 @@ TEST(fxcrt, DISABLED_FX_TryAllocOOM) {
   int* ptr = FX_Alloc(int, 1);
   EXPECT_TRUE(ptr);
   EXPECT_FALSE(FX_TryRealloc(int, ptr, kMaxIntAlloc));
-  FX_Free(ptr);
+  free(ptr);
 }
 
 TEST(fxcrt, FX_TryAllocOverflow) {
@@ -67,14 +67,14 @@ TEST(fxcrt, FX_TryAllocOverflow) {
   ptr = FX_Alloc(int, 1);
   EXPECT_TRUE(ptr);
   EXPECT_FALSE(FX_TryRealloc(int, ptr, kOverflowIntAlloc));
-  FX_Free(ptr);
+  free(ptr);
 }
 
 TEST(fxcrt, DISABLED_FXMEM_DefaultOOM) {
-  EXPECT_FALSE(FXMEM_DefaultAlloc(kMaxByteAlloc, 0));
+  EXPECT_FALSE(malloc(kMaxByteAlloc));
 
-  void* ptr = FXMEM_DefaultAlloc(1, 0);
+  void* ptr = malloc(1);
   EXPECT_TRUE(ptr);
-  EXPECT_FALSE(FXMEM_DefaultRealloc(ptr, kMaxByteAlloc, 0));
-  FXMEM_DefaultFree(ptr, 0);
+  EXPECT_FALSE(realloc(ptr, kMaxByteAlloc));
+  free(ptr);
 }

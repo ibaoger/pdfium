@@ -173,8 +173,7 @@ void CBC_OneDimWriter::CalcTextInfo(const CFX_ByteString& text,
     leftPositon = 0;
   }
   float penX = 0.0;
-  float penY =
-      (float)FXSYS_abs(cFont->GetDescent()) * (float)fontSize / 1000.0f;
+  float penY = (float)abs(cFont->GetDescent()) * (float)fontSize / 1000.0f;
   float left = leftPositon;
   float top = 0.0;
   charPos[0].m_Origin = CFX_PointF(penX + left, penY + top);
@@ -193,7 +192,7 @@ void CBC_OneDimWriter::CalcTextInfo(const CFX_ByteString& text,
 #endif
     penX += (float)(charPos[i].m_FontCharWidth) * (float)fontSize / 1000.0f;
   }
-  FX_Free(pCharCode);
+  free(pCharCode);
 }
 
 void CBC_OneDimWriter::ShowDeviceChars(CFX_RenderDevice* device,
@@ -266,7 +265,7 @@ void CBC_OneDimWriter::ShowChars(const CFX_WideStringC& contents,
   CFX_ByteString str = FX_UTF8Encode(contents);
   int32_t iLen = str.GetLength();
   FXTEXT_CHARPOS* pCharPos = FX_Alloc(FXTEXT_CHARPOS, iLen);
-  FXSYS_memset(pCharPos, 0, sizeof(FXTEXT_CHARPOS) * iLen);
+  memset(pCharPos, 0, sizeof(FXTEXT_CHARPOS) * iLen);
   float charsLen = 0;
   float geWidth = 0;
   if (m_locTextLoc == BC_TEXT_LOC_ABOVEEMBED ||
@@ -314,7 +313,7 @@ void CBC_OneDimWriter::ShowChars(const CFX_WideStringC& contents,
     ShowBitmapChars(pOutBitmap, str, geWidth, pCharPos, (float)locX,
                     (float)locY, barWidth);
   }
-  FX_Free(pCharPos);
+  free(pCharPos);
 }
 
 void CBC_OneDimWriter::RenderBitmapResult(

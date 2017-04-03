@@ -38,7 +38,7 @@ TEST(fpdf_parser_decode, A85Decode) {
       EXPECT_EQ(ptr->expected[j], result[j]) << "for case " << i << " char "
                                              << j;
     }
-    FX_Free(result);
+    free(result);
   }
 }
 
@@ -73,7 +73,7 @@ TEST(fpdf_parser_decode, HexDecode) {
       EXPECT_EQ(ptr->expected[j], result[j]) << "for case " << i << " char "
                                              << j;
     }
-    FX_Free(result);
+    free(result);
   }
 }
 

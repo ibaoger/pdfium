@@ -1067,7 +1067,7 @@ static GpPen* _GdipCreatePen(const CFX_GraphStateData* pGraphState,
       }
     }
     CallFunc(GdipSetPenDashOffset)(pPen, phase);
-    FX_Free(pDashArray);
+    free(pDashArray);
     pDashArray = nullptr;
   }
   CallFunc(GdipSetPenMiterLimit)(pPen, pGraphState->m_MiterLimit);
@@ -1215,8 +1215,8 @@ bool CGdiplusExt::DrawPath(HDC hDC,
     if (pMatrix)
       CallFunc(GdipDeleteMatrix)(pMatrix);
 
-    FX_Free(points);
-    FX_Free(types);
+    free(points);
+    free(types);
     CallFunc(GdipDeleteGraphics)(pGraphics);
     return false;
   }
@@ -1250,8 +1250,8 @@ bool CGdiplusExt::DrawPath(HDC hDC,
   if (pMatrix) {
     CallFunc(GdipDeleteMatrix)(pMatrix);
   }
-  FX_Free(points);
-  FX_Free(types);
+  free(points);
+  free(types);
   CallFunc(GdipDeletePath)(pGpPath);
   CallFunc(GdipDeleteGraphics)(pGraphics);
   return true;
@@ -1297,7 +1297,7 @@ class GpStream final : public IStream {
     }
     bytes_left = m_InterStream.GetLength() - m_ReadPos;
     bytes_out = std::min(pdfium::base::checked_cast<size_t>(cb), bytes_left);
-    FXSYS_memcpy(Output, m_InterStream.GetBuffer() + m_ReadPos, bytes_out);
+    memcpy(Output, m_InterStream.GetBuffer() + m_ReadPos, bytes_out);
     m_ReadPos += (int32_t)bytes_out;
     if (pcbRead) {
       *pcbRead = (ULONG)bytes_out;
@@ -1485,12 +1485,12 @@ static void FreeDIBitmap(PREVIEW3_DIBITMAP* pInfo) {
       ((CWin32Platform*)CFX_GEModule::Get()->GetPlatformData())->m_GdiplusExt;
   CallFunc(GdipBitmapUnlockBits)(pInfo->pBitmap, pInfo->pBitmapData);
   CallFunc(GdipDisposeImage)(pInfo->pBitmap);
-  FX_Free(pInfo->pBitmapData);
-  FX_Free((LPBYTE)pInfo->pbmi);
+  free(pInfo->pBitmapData);
+  free((LPBYTE)pInfo->pbmi);
   if (pInfo->pStream) {
     pInfo->pStream->Release();
   }
-  FX_Free(pInfo);
+  free(pInfo);
 }
 
 // TODO(tsepez): Really? Really? Move to header.
@@ -1508,16 +1508,16 @@ CFX_RetainPtr<CFX_DIBitmap> CGdiplusExt::LoadDIBitmap(WINDIB_Open_Args_ args) {
   int dest_pitch = (width * pInfo->pbmi->bmiHeader.biBitCount + 31) / 32 * 4;
   LPBYTE pData = FX_Alloc2D(BYTE, dest_pitch, height);
   if (dest_pitch == pInfo->Stride) {
-    FXSYS_memcpy(pData, pInfo->pScan0, dest_pitch * height);
+    memcpy(pData, pInfo->pScan0, dest_pitch * height);
   } else {
     for (int i = 0; i < height; i++) {
-      FXSYS_memcpy(pData + dest_pitch * i, pInfo->pScan0 + pInfo->Stride * i,
-                   dest_pitch);
+      memcpy(pData + dest_pitch * i, pInfo->pScan0 + pInfo->Stride * i,
+             dest_pitch);
     }
   }
   CFX_RetainPtr<CFX_DIBitmap> pDIBitmap = _FX_WindowsDIB_LoadFromBuf(
       pInfo->pbmi, pData, pInfo->pbmi->bmiHeader.biBitCount == 32);
-  FX_Free(pData);
+  free(pData);
   FreeDIBitmap(pInfo);
   return pDIBitmap;
 }

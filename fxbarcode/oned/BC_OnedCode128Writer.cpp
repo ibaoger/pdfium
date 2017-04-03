@@ -215,7 +215,7 @@ uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
     const int32_t* pattern = patterns[j];
     pos += AppendPattern(result, pos, pattern, 7, 1, e);
     if (e != BCExceptionNO) {
-      FX_Free(result);
+      free(result);
       return nullptr;
     }
   }

@@ -119,7 +119,8 @@ uint32_t FXSYS_GetFullPathName(const char* filename,
   if (!buf || (int)buflen < srclen + 1)
     return srclen + 1;
 
-  FXSYS_strcpy(buf, filename);
+  // TODO(dsinclair): Should this be snprintf?
+  strcpy(buf, filename);
   return srclen;
 }
 
@@ -135,9 +136,9 @@ uint32_t FXSYS_GetModuleFileName(void* hModule, char* buf, uint32_t bufsize) {
 #ifdef __cplusplus
 extern "C" {
 #endif
-FXSYS_FILE* FXSYS_wfopen(const wchar_t* filename, const wchar_t* mode) {
-  return FXSYS_fopen(CFX_ByteString::FromUnicode(filename).c_str(),
-                     CFX_ByteString::FromUnicode(mode).c_str());
+FILE* FXSYS_wfopen(const wchar_t* filename, const wchar_t* mode) {
+  return fopen(CFX_ByteString::FromUnicode(filename).c_str(),
+               CFX_ByteString::FromUnicode(mode).c_str());
 }
 char* FXSYS_strlwr(char* str) {
   if (!str) {

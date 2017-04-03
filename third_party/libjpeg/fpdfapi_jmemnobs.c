@@ -25,9 +25,6 @@ extern void * malloc JPP((size_t size));
 extern void free JPP((void *ptr));
 #endif
 
-void*	FXMEM_DefaultAlloc(int byte_size, int);
-void	FXMEM_DefaultFree(void* pointer, int);
-
 /*
  * Memory allocation and freeing are controlled by the regular library
  * routines malloc() and free().
@@ -36,15 +33,13 @@ void	FXMEM_DefaultFree(void* pointer, int);
 GLOBAL(void *)
 jpeg_get_small (j_common_ptr cinfo, size_t sizeofobject)
 {
-//  return (void *) malloc(sizeofobject);
-	return FXMEM_DefaultAlloc(sizeofobject, 0);
+  return (void *) malloc(sizeofobject);
 }
 
 GLOBAL(void)
 jpeg_free_small (j_common_ptr cinfo, void * object, size_t sizeofobject)
 {
-//  free(object);
-	FXMEM_DefaultFree(object, 0);
+	free(object);
 }
 
 
@@ -58,15 +53,13 @@ jpeg_free_small (j_common_ptr cinfo, void * object, size_t sizeofobject)
 GLOBAL(void FAR *)
 jpeg_get_large (j_common_ptr cinfo, size_t sizeofobject)
 {
-//  return (void FAR *) malloc(sizeofobject);
-	return FXMEM_DefaultAlloc(sizeofobject, 0);
+  return (void FAR *) malloc(sizeofobject);
 }
 
 GLOBAL(void)
 jpeg_free_large (j_common_ptr cinfo, void FAR * object, size_t sizeofobject)
 {
-//  free(object);
-	FXMEM_DefaultFree(object, 0);
+	free(object);
 }
 
 

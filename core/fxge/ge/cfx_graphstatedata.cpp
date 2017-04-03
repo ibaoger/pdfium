@@ -26,7 +26,7 @@ CFX_GraphStateData::CFX_GraphStateData(const CFX_GraphStateData& src) {
 void CFX_GraphStateData::Copy(const CFX_GraphStateData& src) {
   m_LineCap = src.m_LineCap;
   m_DashCount = src.m_DashCount;
-  FX_Free(m_DashArray);
+  free(m_DashArray);
   m_DashArray = nullptr;
   m_DashPhase = src.m_DashPhase;
   m_LineJoin = src.m_LineJoin;
@@ -34,16 +34,16 @@ void CFX_GraphStateData::Copy(const CFX_GraphStateData& src) {
   m_LineWidth = src.m_LineWidth;
   if (m_DashCount) {
     m_DashArray = FX_Alloc(float, m_DashCount);
-    FXSYS_memcpy(m_DashArray, src.m_DashArray, m_DashCount * sizeof(float));
+    memcpy(m_DashArray, src.m_DashArray, m_DashCount * sizeof(float));
   }
 }
 
 CFX_GraphStateData::~CFX_GraphStateData() {
-  FX_Free(m_DashArray);
+  free(m_DashArray);
 }
 
 void CFX_GraphStateData::SetDashCount(int count) {
-  FX_Free(m_DashArray);
+  free(m_DashArray);
   m_DashArray = nullptr;
   m_DashCount = count;
   if (count == 0)

@@ -45,7 +45,7 @@ TEST_F(FPDFParserDecodeEmbeddertest, FlateEncode) {
     EXPECT_EQ(std::string((const char*)data.expected, data.expected_size),
               std::string((const char*)buf, buf_size))
         << " for case " << i;
-    FX_Free(buf);
+    free(buf);
   }
 }
 
@@ -82,7 +82,7 @@ TEST_F(FPDFParserDecodeEmbeddertest, FlateDecode) {
     EXPECT_EQ(std::string((const char*)data.expected, data.expected_size),
               std::string((const char*)result, result_size))
         << " for case " << i;
-    FX_Free(result);
+    free(result);
   }
 }
 

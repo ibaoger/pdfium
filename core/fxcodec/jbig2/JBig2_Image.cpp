@@ -69,7 +69,7 @@ CJBig2_Image::CJBig2_Image(const CJBig2_Image& other)
 
 CJBig2_Image::~CJBig2_Image() {
   if (m_bOwnsBuffer) {
-    FX_Free(m_pData);
+    free(m_pData);
   }
 }
 

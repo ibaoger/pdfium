@@ -66,7 +66,7 @@ bool CBC_EAN8::Encode(const CFX_WideStringC& contents,
     return false;
   static_cast<CBC_OneDimWriter*>(m_pBCWriter.get())
       ->RenderResult(encodeContents.AsStringC(), data, outWidth, isDevice, e);
-  FX_Free(data);
+  free(data);
   if (e != BCExceptionNO)
     return false;
   return true;

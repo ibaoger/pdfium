@@ -171,8 +171,8 @@ bool CGdiPrinterDriver::StartDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
   }
   CFX_FloatRect unit_rect = pMatrix->GetUnitRect();
   FX_RECT full_rect = unit_rect.GetOuterRect();
-  if (FXSYS_fabs(pMatrix->b) < 0.5f && pMatrix->a != 0 &&
-      FXSYS_fabs(pMatrix->c) < 0.5f && pMatrix->d != 0) {
+  if (fabs(pMatrix->b) < 0.5f && pMatrix->a != 0 && fabs(pMatrix->c) < 0.5f &&
+      pMatrix->d != 0) {
     bool bFlipX = pMatrix->a < 0;
     bool bFlipY = pMatrix->d > 0;
     return StretchDIBits(pSource, color,
@@ -182,7 +182,7 @@ bool CGdiPrinterDriver::StartDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                          bFlipY ? -full_rect.Height() : full_rect.Height(),
                          nullptr, 0, blend_type);
   }
-  if (FXSYS_fabs(pMatrix->a) >= 0.5f || FXSYS_fabs(pMatrix->d) >= 0.5f)
+  if (fabs(pMatrix->a) >= 0.5f || fabs(pMatrix->d) >= 0.5f)
     return false;
 
   CFX_RetainPtr<CFX_DIBitmap> pTransformed =
@@ -356,7 +356,7 @@ CPSPrinterDriver::CPSPrinterDriver(HDC hDC, int pslevel, bool bCmykOutput)
         }
         m_PSRenderer.SetClip_PathFill(&path, nullptr, FXFILL_WINDING);
       }
-      FX_Free(pData);
+      free(pData);
     }
   }
   ::DeleteObject(hRgn);

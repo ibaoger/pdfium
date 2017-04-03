@@ -1352,8 +1352,8 @@ void CJBig2_Context::huffman_assign_code(int* CODES, int* PREFLEN, int NTEMP) {
     }
     CURLEN = CURLEN + 1;
   }
-  FX_Free(LENCOUNT);
-  FX_Free(FIRSTCODE);
+  free(LENCOUNT);
+  free(FIRSTCODE);
 }
 
 void CJBig2_Context::huffman_assign_code(JBig2HuffmanCode* SBSYMCODES,
@@ -1389,6 +1389,6 @@ void CJBig2_Context::huffman_assign_code(JBig2HuffmanCode* SBSYMCODES,
     }
     CURLEN = CURLEN + 1;
   }
-  FX_Free(LENCOUNT);
-  FX_Free(FIRSTCODE);
+  free(LENCOUNT);
+  free(FIRSTCODE);
 }

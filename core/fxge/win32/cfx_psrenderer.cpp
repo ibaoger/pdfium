@@ -259,8 +259,8 @@ void CFX_PSRenderer::SetGraphState(const CFX_GraphStateData* pGraphState) {
   }
   if (!m_bGraphStateSet ||
       m_CurGraphState.m_DashCount != pGraphState->m_DashCount ||
-      FXSYS_memcmp(m_CurGraphState.m_DashArray, pGraphState->m_DashArray,
-                   sizeof(float) * m_CurGraphState.m_DashCount)) {
+      memcmp(m_CurGraphState.m_DashArray, pGraphState->m_DashArray,
+             sizeof(float) * m_CurGraphState.m_DashCount)) {
     buf << "[";
     for (int i = 0; i < pGraphState->m_DashCount; ++i) {
       buf << pGraphState->m_DashArray[i] << " ";
@@ -294,7 +294,7 @@ static void FaxCompressData(uint8_t* src_buf,
   if (width * height > 128) {
     CCodec_FaxModule::FaxEncode(src_buf, width, height, (width + 7) / 8,
                                 dest_buf, dest_size);
-    FX_Free(src_buf);
+    free(src_buf);
   } else {
     dest_buf->reset(src_buf);
     *dest_size = (width + 7) / 8 * height;
@@ -334,7 +334,7 @@ static void PSCompressData(int PSLevel,
     *output_size = dest_size;
   } else {
     *filter = nullptr;
-    FX_Free(dest_buf);
+    free(dest_buf);
   }
 }
 
@@ -391,7 +391,7 @@ bool CFX_PSRenderer::DrawDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
     uint8_t* src_buf = FX_Alloc(uint8_t, src_size);
     for (int row = 0; row < height; row++) {
       const uint8_t* src_scan = pSource->GetScanline(row);
-      FXSYS_memcpy(src_buf + row * pitch, src_scan, pitch);
+      memcpy(src_buf + row * pitch, src_scan, pitch);
     }
     std::unique_ptr<uint8_t, FxFreeDeleter> output_buf;
     uint32_t output_size;
@@ -470,7 +470,7 @@ bool CFX_PSRenderer::DrawDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
             src_scan += 3;
           }
         } else {
-          FXSYS_memcpy(dest_scan, src_scan, src_pitch);
+          memcpy(dest_scan, src_scan, src_pitch);
         }
       }
       uint8_t* compressed_buf;
@@ -478,7 +478,7 @@ bool CFX_PSRenderer::DrawDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
       PSCompressData(m_PSLevel, output_buf, output_size, &compressed_buf,
                      &compressed_size, &filter);
       if (output_buf != compressed_buf) {
-        FX_Free(output_buf);
+        free(output_buf);
       }
       output_buf = compressed_buf;
       output_size = compressed_size;
@@ -493,7 +493,7 @@ bool CFX_PSRenderer::DrawDIBits(const CFX_RetainPtr<CFX_DIBSource>& pSource,
     buf << " colorimage\n";
     m_pOutput->OutputPS((const char*)buf.GetBuffer(), buf.GetSize());
     WritePSBinary(output_buf, output_size);
-    FX_Free(output_buf);
+    free(output_buf);
   }
   OUTPUT_PS("\nQ\n");
   return true;
@@ -532,14 +532,14 @@ void CFX_PSRenderer::FindPSFontGlyph(CFX_FaceCache* pFaceCache,
           pPSFont->m_Glyphs[j].m_GlyphIndex == charpos.m_GlyphIndex &&
           ((!pPSFont->m_Glyphs[j].m_bGlyphAdjust && !charpos.m_bGlyphAdjust) ||
            (pPSFont->m_Glyphs[j].m_bGlyphAdjust && charpos.m_bGlyphAdjust &&
-            (FXSYS_fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[0] -
-                        charpos.m_AdjustMatrix[0]) < 0.01 &&
-             FXSYS_fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[1] -
-                        charpos.m_AdjustMatrix[1]) < 0.01 &&
-             FXSYS_fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[2] -
-                        charpos.m_AdjustMatrix[2]) < 0.01 &&
-             FXSYS_fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[3] -
-                        charpos.m_AdjustMatrix[3]) < 0.01)))) {
+            (fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[0] -
+                  charpos.m_AdjustMatrix[0]) < 0.01 &&
+             fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[1] -
+                  charpos.m_AdjustMatrix[1]) < 0.01 &&
+             fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[2] -
+                  charpos.m_AdjustMatrix[2]) < 0.01 &&
+             fabs(pPSFont->m_Glyphs[j].m_AdjustMatrix[3] -
+                  charpos.m_AdjustMatrix[3]) < 0.01)))) {
         *ps_fontnum = i;
         *ps_glyphindex = j;
         return;
@@ -677,7 +677,7 @@ void CFX_PSRenderer::WritePSBinary(const uint8_t* data, int len) {
       pEncoders->GetBasicModule()->A85Encode(data, len, &dest_buf,
                                              &dest_size)) {
     m_pOutput->OutputPS((const char*)dest_buf, dest_size);
-    FX_Free(dest_buf);
+    free(dest_buf);
   } else {
     m_pOutput->OutputPS((const char*)data, len);
   }

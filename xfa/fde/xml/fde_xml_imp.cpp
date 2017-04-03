@@ -1161,8 +1161,8 @@ void CFDE_BlockBuffer::GetTextData(CFX_WideString& wsTextData,
       iCopyLength -= ((m_iAllocStep - 1) - iEndInnerIndex);
     }
     wchar_t* pBlockBuf = m_BlockArray[i].get();
-    FXSYS_memcpy(pBuf + iPointer, pBlockBuf + iBufferPointer,
-                 iCopyLength * sizeof(wchar_t));
+    memcpy(pBuf + iPointer, pBlockBuf + iBufferPointer,
+           iCopyLength * sizeof(wchar_t));
     iPointer += iCopyLength;
   }
   wsTextData.ReleaseBuffer(iLength);
@@ -1702,7 +1702,7 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
 
 CFDE_XMLSyntaxParser::~CFDE_XMLSyntaxParser() {
   m_pCurrentBlock = nullptr;
-  FX_Free(m_pBuffer);
+  free(m_pBuffer);
 }
 
 int32_t CFDE_XMLSyntaxParser::GetStatus() const {

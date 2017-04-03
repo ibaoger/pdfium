@@ -265,7 +265,7 @@ class Matrix_3by3 {
 
   Matrix_3by3 Inverse() {
     float det = a * (e * i - f * h) - b * (i * d - f * g) + c * (d * h - e * g);
-    if (FXSYS_fabs(det) < std::numeric_limits<float>::epsilon())
+    if (fabs(det) < std::numeric_limits<float>::epsilon())
       return Matrix_3by3();
 
     return Matrix_3by3(
@@ -847,8 +847,8 @@ CPDF_ICCBasedCS::CPDF_ICCBasedCS(CPDF_Document* pDoc)
       m_pRanges(nullptr) {}
 
 CPDF_ICCBasedCS::~CPDF_ICCBasedCS() {
-  FX_Free(m_pCache);
-  FX_Free(m_pRanges);
+  free(m_pCache);
+  free(m_pRanges);
   if (m_pProfile && m_pDocument)
     m_pDocument->GetPageData()->ReleaseIccProfile(m_pProfile);
 }
@@ -972,7 +972,7 @@ void CPDF_ICCBasedCS::TranslateImageLine(uint8_t* pDestBuf,
         }
         CPDF_ModuleMgr::Get()->GetIccModule()->TranslateScanline(
             m_pProfile->transform(), m_pCache, temp_src, nMaxColors);
-        FX_Free(temp_src);
+        free(temp_src);
       }
       for (int i = 0; i < pixels; i++) {
         int index = 0;
@@ -1043,7 +1043,7 @@ CPDF_IndexedCS::CPDF_IndexedCS(CPDF_Document* pDoc)
       m_pCompMinMax(nullptr) {}
 
 CPDF_IndexedCS::~CPDF_IndexedCS() {
-  FX_Free(m_pCompMinMax);
+  free(m_pCompMinMax);
   CPDF_ColorSpace* pCS = m_pCountedBaseCS ? m_pCountedBaseCS->get() : nullptr;
   if (pCS && m_pDocument) {
     m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());

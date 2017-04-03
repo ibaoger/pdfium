@@ -34,10 +34,10 @@ path_storage::~path_storage()
     if(m_total_blocks) {
         float** coord_blk = m_coord_blocks + m_total_blocks - 1;
         while(m_total_blocks--) {
-            FX_Free(*coord_blk);
-            --coord_blk;
+          free(*coord_blk);
+          --coord_blk;
         }
-        FX_Free(m_coord_blocks);
+        free(m_coord_blocks);
     }
 }
 path_storage::path_storage() :
@@ -57,13 +57,9 @@ void path_storage::allocate_block(unsigned nb)
         unsigned char** new_cmds =
             (unsigned char**)(new_coords + m_max_blocks + block_pool);
         if(m_coord_blocks) {
-            FXSYS_memcpy(new_coords,
-                           m_coord_blocks,
-                           m_max_blocks * sizeof(float*));
-            FXSYS_memcpy(new_cmds,
-                           m_cmd_blocks,
-                           m_max_blocks * sizeof(unsigned char*));
-            FX_Free(m_coord_blocks);
+          memcpy(new_coords, m_coord_blocks, m_max_blocks * sizeof(float*));
+          memcpy(new_cmds, m_cmd_blocks, m_max_blocks * sizeof(unsigned char*));
+          free(m_coord_blocks);
         }
         m_coord_blocks = new_coords;
         m_cmd_blocks = new_cmds;

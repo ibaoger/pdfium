@@ -269,8 +269,8 @@ void CPDF_Image::SetImage(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap) {
       mask_buf.reset(FX_Alloc2D(uint8_t, maskHeight, maskWidth));
       mask_size = maskHeight * maskWidth;  // Safe since checked alloc returned.
       for (int32_t a = 0; a < maskHeight; a++) {
-        FXSYS_memcpy(mask_buf.get() + a * maskWidth,
-                     pMaskBitmap->GetScanline(a), maskWidth);
+        memcpy(mask_buf.get() + a * maskWidth, pMaskBitmap->GetScanline(a),
+               maskWidth);
       }
     }
     pMaskDict->SetNewFor<CPDF_Number>("Length", mask_size);
@@ -288,7 +288,7 @@ void CPDF_Image::SetImage(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap) {
   uint8_t* pDest = dest_buf;
   if (bCopyWithoutAlpha) {
     for (int32_t i = 0; i < BitmapHeight; i++) {
-      FXSYS_memcpy(pDest, src_buf, dest_pitch);
+      memcpy(pDest, src_buf, dest_pitch);
       pDest += dest_pitch;
       src_buf += src_pitch;
     }
@@ -317,7 +317,7 @@ void CPDF_Image::SetImage(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap) {
   m_bIsMask = pBitmap->IsAlphaMask();
   m_Width = BitmapWidth;
   m_Height = BitmapHeight;
-  FX_Free(dest_buf);
+  free(dest_buf);
 }
 
 void CPDF_Image::ResetCache(CPDF_Page* pPage,

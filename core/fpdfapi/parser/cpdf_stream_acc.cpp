@@ -51,15 +51,15 @@ void CPDF_StreamAcc::LoadAllData(const CPDF_Stream* pStream,
     m_dwSize = dwSrcSize;
   }
   if (pSrcData != pStream->GetRawData() && pSrcData != m_pData)
-    FX_Free(pSrcData);
+    free(pSrcData);
   m_pSrcData = nullptr;
   m_bNewBuf = m_pData != pStream->GetRawData();
 }
 
 CPDF_StreamAcc::~CPDF_StreamAcc() {
   if (m_bNewBuf)
-    FX_Free(m_pData);
-  FX_Free(m_pSrcData);
+    free(m_pData);
+  free(m_pSrcData);
 }
 
 const uint8_t* CPDF_StreamAcc::GetData() const {
@@ -82,6 +82,6 @@ std::unique_ptr<uint8_t, FxFreeDeleter> CPDF_StreamAcc::DetachData() {
     return p;
   }
   std::unique_ptr<uint8_t, FxFreeDeleter> p(FX_Alloc(uint8_t, m_dwSize));
-  FXSYS_memcpy(p.get(), m_pData, m_dwSize);
+  memcpy(p.get(), m_pData, m_dwSize);
   return p;
 }

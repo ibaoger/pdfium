@@ -326,11 +326,11 @@ void CPDF_StreamContentParser::AddNameParam(const CFX_ByteStringC& bsName) {
   } else {
     param.m_Type = ContentParam::NAME;
     if (bsName.Find('#') == -1) {
-      FXSYS_memcpy(param.m_Name.m_Buffer, bsName.raw_str(), bsName.GetLength());
+      memcpy(param.m_Name.m_Buffer, bsName.raw_str(), bsName.GetLength());
       param.m_Name.m_Len = bsName.GetLength();
     } else {
       CFX_ByteString str = PDF_NameDecode(bsName);
-      FXSYS_memcpy(param.m_Name.m_Buffer, str.c_str(), str.GetLength());
+      memcpy(param.m_Name.m_Buffer, str.c_str(), str.GetLength());
       param.m_Name.m_Len = str.GetLength();
     }
   }
@@ -1068,7 +1068,7 @@ void CPDF_StreamContentParser::Handle_SetColorPS_Fill() {
   } else {
     m_pCurStates->m_ColorState.SetFillColor(nullptr, values, nvalues);
   }
-  FX_Free(values);
+  free(values);
 }
 
 void CPDF_StreamContentParser::Handle_SetColorPS_Stroke() {
@@ -1096,7 +1096,7 @@ void CPDF_StreamContentParser::Handle_SetColorPS_Stroke() {
   } else {
     m_pCurStates->m_ColorState.SetStrokeColor(nullptr, values, nvalues);
   }
-  FX_Free(values);
+  free(values);
 }
 
 void CPDF_StreamContentParser::Handle_ShadeFill() {
@@ -1339,7 +1339,7 @@ void CPDF_StreamContentParser::Handle_ShowText_Positioning() {
   }
   AddTextObject(pStrs, fInitKerning, pKerning, iSegment);
   delete[] pStrs;
-  FX_Free(pKerning);
+  free(pKerning);
 }
 
 void CPDF_StreamContentParser::Handle_SetTextLeading() {

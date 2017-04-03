@@ -19,9 +19,6 @@
 
 #include "pngpriv.h"
 
-void*	FXMEM_DefaultAlloc(int byte_size, int);
-void	FXMEM_DefaultFree(void* pointer, int);
-
 #if defined(PNG_READ_SUPPORTED) || defined(PNG_WRITE_SUPPORTED)
 /* Free a png_struct */
 void /* PRIVATE */
@@ -95,7 +92,7 @@ png_malloc_base,(png_const_structrp png_ptr, png_alloc_size_t size),
 
       else
 #endif
-         return FXMEM_DefaultAlloc((int)size, 0);
+         return malloc((int)size);
    }
 
    else
@@ -252,7 +249,7 @@ png_free_default,(png_const_structrp png_ptr, png_voidp ptr),PNG_DEPRECATED)
       return;
 #endif /* USER_MEM */
 
-   FXMEM_DefaultFree(ptr, 0);
+   free(ptr);
 }
 
 #ifdef PNG_USER_MEM_SUPPORTED

@@ -340,7 +340,7 @@ bool CFXJSE_Value::Call(CFXJSE_Value* lpReceiver,
   if (lpLocalArgs) {
     for (uint32_t i = 0; i < nArgCount; i++)
       lpLocalArgs[i].~Local();
-    FX_Free(lpLocalArgs);
+    free(lpLocalArgs);
   }
   return bRetValue;
 }

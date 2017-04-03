@@ -205,7 +205,7 @@ void InsertWidthArrayImpl(int* widths, int size, CPDF_Array* pWidthArray) {
     for (i = 0; i < size; i++)
       pWidthArray1->AddNew<CPDF_Number>(widths[i]);
   }
-  FX_Free(widths);
+  free(widths);
 }
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
@@ -223,7 +223,7 @@ CFX_ByteString FPDF_GetPSNameFromTT(HDC hDC) {
     LPBYTE buffer = FX_Alloc(BYTE, size);
     ::GetFontData(hDC, 'eman', 0, buffer, size);
     result = GetNameFromTT(buffer, size, 6);
-    FX_Free(buffer);
+    free(buffer);
   }
   return result;
 }
@@ -961,12 +961,13 @@ CPDF_Font* CPDF_Document::AddWindowsFont(LOGFONTW* pLogFont,
                                          bool bVert,
                                          bool bTranslateName) {
   LOGFONTA lfa;
-  FXSYS_memcpy(&lfa, pLogFont, (char*)lfa.lfFaceName - (char*)&lfa);
+  memcpy(&lfa, pLogFont, (char*)lfa.lfFaceName - (char*)&lfa);
   CFX_ByteString face = CFX_ByteString::FromUnicode(pLogFont->lfFaceName);
   if (face.GetLength() >= LF_FACESIZE)
     return nullptr;
 
-  FXSYS_strcpy(lfa.lfFaceName, face.c_str());
+  // TODO(dsinclair): Should this be snprintf?
+  strcpy(lfa.lfFaceName, face.c_str());
   return AddWindowsFont(&lfa, bVert, bTranslateName);
 }
 
@@ -1012,7 +1013,7 @@ CPDF_Font* CPDF_Document::AddWindowsFont(LOGFONTA* pLogFont,
   int capheight = ptm->otmsCapEmHeight;
   int bbox[4] = {ptm->otmrcFontBox.left, ptm->otmrcFontBox.bottom,
                  ptm->otmrcFontBox.right, ptm->otmrcFontBox.top};
-  FX_Free(tm_buf);
+  free(tm_buf);
   basefont.Replace(" ", "");
   CPDF_Dictionary* pBaseDict = NewIndirect<CPDF_Dictionary>();
   pBaseDict->SetNewFor<CPDF_Name>("Type", "Font");

@@ -505,7 +505,7 @@ CPDF_Encryptor::CPDF_Encryptor(CPDF_CryptoHandler* pHandler,
 
 CPDF_Encryptor::~CPDF_Encryptor() {
   if (m_bNewBuf)
-    FX_Free(m_pData);
+    free(m_pData);
 }
 
 }  // namespace
@@ -778,7 +778,7 @@ bool CPDF_XRefStream::GenerateXRefStream(CPDF_Creator* pCreator, bool bEOF) {
       return false;
     }
     char offset_buf[20];
-    FXSYS_memset(offset_buf, 0, sizeof(offset_buf));
+    memset(offset_buf, 0, sizeof(offset_buf));
     FXSYS_i64toa(m_PrevOffset, offset_buf, 10);
     int32_t offset_len = (int32_t)FXSYS_strlen(offset_buf);
     if (pFile->AppendBlock(offset_buf, offset_len) < 0) {
@@ -1257,7 +1257,7 @@ int32_t CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
     if (object_type == 2) {
       if (m_pXRefStream) {
         if (WriteIndirectObjectToStream(objnum, pBuffer, size) < 0) {
-          FX_Free(pBuffer);
+          free(pBuffer);
           return -1;
         }
       } else {
@@ -1287,7 +1287,7 @@ int32_t CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
         return -1;
       }
     }
-    FX_Free(pBuffer);
+    free(pBuffer);
   }
   return 1;
 }
@@ -1715,7 +1715,7 @@ int32_t CPDF_Creator::WriteDoc_Stage4(IFX_Pause* pPause) {
           return -1;
 
         char offset_buf[20];
-        FXSYS_memset(offset_buf, 0, sizeof(offset_buf));
+        memset(offset_buf, 0, sizeof(offset_buf));
         FXSYS_i64toa(prev, offset_buf, 10);
         if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0)
           return -1;
@@ -1785,7 +1785,7 @@ int32_t CPDF_Creator::WriteDoc_Stage4(IFX_Pause* pPause) {
     return -1;
 
   char offset_buf[20];
-  FXSYS_memset(offset_buf, 0, sizeof(offset_buf));
+  memset(offset_buf, 0, sizeof(offset_buf));
   FXSYS_i64toa(m_XrefStart, offset_buf, 10);
   if (m_File.AppendBlock(offset_buf, FXSYS_strlen(offset_buf)) < 0)
     return -1;

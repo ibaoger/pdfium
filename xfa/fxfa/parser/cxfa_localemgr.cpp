@@ -1054,7 +1054,7 @@ static std::unique_ptr<IFX_Locale> XFA_GetLocaleFromBuffer(const uint8_t* pBuf,
                                                 0, 0, 0, 0, pOut, dwSize);
   if (pOut) {
     pLocale = CXML_Element::Parse(pOut, dwSize);
-    FX_Free(pOut);
+    free(pOut);
   }
   return pLocale ? std::unique_ptr<IFX_Locale>(
                        new CXFA_XMLLocale(std::move(pLocale)))

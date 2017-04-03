@@ -494,7 +494,7 @@ bool CPDFSDK_InterForm::FDFToURLEncodedData(uint8_t*& pBuf,
 
   nBufSize = fdfEncodedData.GetLength();
   pBuf = FX_Alloc(uint8_t, nBufSize);
-  FXSYS_memcpy(pBuf, fdfEncodedData.GetBuffer(), nBufSize);
+  memcpy(pBuf, fdfEncodedData.GetBuffer(), nBufSize);
   return true;
 }
 
@@ -537,7 +537,7 @@ bool CPDFSDK_InterForm::SubmitForm(const CFX_WideString& sDestination,
 
   m_pFormFillEnv->JS_docSubmitForm(pBuffer, nBufSize, sDestination.c_str());
   if (bUrlEncoded)
-    FX_Free(pBuffer);
+    free(pBuffer);
 
   return true;
 }

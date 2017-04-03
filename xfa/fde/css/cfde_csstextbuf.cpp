@@ -21,7 +21,7 @@ CFDE_CSSTextBuf::~CFDE_CSSTextBuf() {
 
 void CFDE_CSSTextBuf::Reset() {
   if (!m_bExtBuf) {
-    FX_Free(m_pBuffer);
+    free(m_pBuffer);
     m_pBuffer = nullptr;
   }
   m_iDatPos = m_iDatLen = m_iBufLen;
@@ -81,6 +81,6 @@ void CFDE_CSSTextBuf::Subtract(int32_t iStart, int32_t iLength) {
   ASSERT(iStart >= 0 && iLength >= 0);
 
   iLength = pdfium::clamp(iLength, 0, m_iDatLen - iStart);
-  FXSYS_memmove(m_pBuffer, m_pBuffer + iStart, iLength * sizeof(wchar_t));
+  memmove(m_pBuffer, m_pBuffer + iStart, iLength * sizeof(wchar_t));
   m_iDatLen = iLength;
 }

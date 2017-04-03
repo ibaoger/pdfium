@@ -289,15 +289,15 @@ bool CPDF_PSEngine::DoOperator(PDF_PSOP op) {
       break;
     case PSOP_ABS:
       d1 = Pop();
-      Push((float)FXSYS_fabs(d1));
+      Push((float)fabs(d1));
       break;
     case PSOP_CEILING:
       d1 = Pop();
-      Push((float)FXSYS_ceil(d1));
+      Push((float)ceil(d1));
       break;
     case PSOP_FLOOR:
       d1 = Pop();
-      Push((float)FXSYS_floor(d1));
+      Push((float)floor(d1));
       break;
     case PSOP_ROUND:
       d1 = Pop();
@@ -309,20 +309,20 @@ bool CPDF_PSEngine::DoOperator(PDF_PSOP op) {
       break;
     case PSOP_SQRT:
       d1 = Pop();
-      Push((float)FXSYS_sqrt(d1));
+      Push((float)sqrt(d1));
       break;
     case PSOP_SIN:
       d1 = Pop();
-      Push((float)FXSYS_sin(d1 * FX_PI / 180.0f));
+      Push((float)sin(d1 * FX_PI / 180.0f));
       break;
     case PSOP_COS:
       d1 = Pop();
-      Push((float)FXSYS_cos(d1 * FX_PI / 180.0f));
+      Push((float)cos(d1 * FX_PI / 180.0f));
       break;
     case PSOP_ATAN:
       d2 = Pop();
       d1 = Pop();
-      d1 = (float)(FXSYS_atan2(d1, d2) * 180.0 / FX_PI);
+      d1 = (float)(atan2(d1, d2) * 180.0 / FX_PI);
       if (d1 < 0) {
         d1 += 360;
       }
@@ -335,11 +335,11 @@ bool CPDF_PSEngine::DoOperator(PDF_PSOP op) {
       break;
     case PSOP_LN:
       d1 = Pop();
-      Push((float)FXSYS_log(d1));
+      Push((float)log(d1));
       break;
     case PSOP_LOG:
       d1 = Pop();
-      Push((float)FXSYS_log10(d1));
+      Push((float)log10(d1));
       break;
     case PSOP_CVI:
       i1 = (int)Pop();
@@ -600,8 +600,8 @@ CPDF_ExpIntFunc::CPDF_ExpIntFunc()
       m_pEndValues(nullptr) {}
 
 CPDF_ExpIntFunc::~CPDF_ExpIntFunc() {
-  FX_Free(m_pBeginValues);
-  FX_Free(m_pEndValues);
+  free(m_pBeginValues);
+  free(m_pEndValues);
 }
 
 bool CPDF_ExpIntFunc::v_Init(CPDF_Object* pObj) {
@@ -650,8 +650,8 @@ CPDF_StitchFunc::CPDF_StitchFunc()
       m_pEncode(nullptr) {}
 
 CPDF_StitchFunc::~CPDF_StitchFunc() {
-  FX_Free(m_pBounds);
-  FX_Free(m_pEncode);
+  free(m_pBounds);
+  free(m_pEncode);
 }
 
 bool CPDF_StitchFunc::v_Init(CPDF_Object* pObj) {
@@ -767,8 +767,8 @@ CPDF_Function::CPDF_Function(Type type)
     : m_pDomains(nullptr), m_pRanges(nullptr), m_Type(type) {}
 
 CPDF_Function::~CPDF_Function() {
-  FX_Free(m_pDomains);
-  FX_Free(m_pRanges);
+  free(m_pDomains);
+  free(m_pRanges);
 }
 
 bool CPDF_Function::Init(CPDF_Object* pObj) {
@@ -801,8 +801,8 @@ bool CPDF_Function::Init(CPDF_Object* pObj) {
   if (m_pRanges && m_nOutputs > old_outputs) {
     m_pRanges = FX_Realloc(float, m_pRanges, m_nOutputs * 2);
     if (m_pRanges) {
-      FXSYS_memset(m_pRanges + (old_outputs * 2), 0,
-                   sizeof(float) * (m_nOutputs - old_outputs) * 2);
+      memset(m_pRanges + (old_outputs * 2), 0,
+             sizeof(float) * (m_nOutputs - old_outputs) * 2);
     }
   }
   return true;

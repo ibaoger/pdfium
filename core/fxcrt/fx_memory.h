@@ -10,17 +10,6 @@
 #include "core/fxcrt/fx_system.h"
 
 #ifdef __cplusplus
-extern "C" {
-#endif
-
-// For external C libraries to malloc through PDFium. These may return nullptr.
-void* FXMEM_DefaultAlloc(size_t byte_size, int flags);
-void* FXMEM_DefaultRealloc(void* pointer, size_t new_size, int flags);
-void FXMEM_DefaultFree(void* pointer, int flags);
-
-#ifdef __cplusplus
-}  // extern "C"
-
 #include <stdlib.h>
 #include <limits>
 #include <memory>
@@ -78,8 +67,6 @@ inline void* FX_ReallocOrDie(void* ptr,
 #define FX_TryRealloc(type, ptr, size) \
   (type*)FX_SafeRealloc(ptr, size, sizeof(type))
 
-#define FX_Free(ptr) free(ptr)
-
 // The FX_ArraySize(arr) macro returns the # of elements in an array arr.
 // The expression is a compile-time constant, and therefore can be
 // used in defining new arrays, for example.  If you use FX_ArraySize on
@@ -95,9 +82,9 @@ inline void* FX_ReallocOrDie(void* ptr,
 template <typename T, size_t N>
 char (&ArraySizeHelper(T (&array)[N]))[N];
 
-// Used with std::unique_ptr to FX_Free raw memory.
+// Used with std::unique_ptr to free raw memory.
 struct FxFreeDeleter {
-  inline void operator()(void* ptr) const { FX_Free(ptr); }
+  inline void operator()(void* ptr) const { free(ptr); }
 };
 
 // Used with std::unique_ptr to Release() objects that can't be deleted.

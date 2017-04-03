@@ -185,14 +185,14 @@ CCodec_JpegDecoder::CCodec_JpegDecoder() {
   m_pScanlineBuf = nullptr;
   m_bStarted = false;
   m_bInited = false;
-  FXSYS_memset(&cinfo, 0, sizeof(cinfo));
-  FXSYS_memset(&jerr, 0, sizeof(jerr));
-  FXSYS_memset(&src, 0, sizeof(src));
+  memset(&cinfo, 0, sizeof(cinfo));
+  memset(&jerr, 0, sizeof(jerr));
+  memset(&src, 0, sizeof(src));
   m_nDefaultScaleDenom = 1;
 }
 
 CCodec_JpegDecoder::~CCodec_JpegDecoder() {
-  FX_Free(m_pScanlineBuf);
+  free(m_pScanlineBuf);
   if (m_bInited)
     jpeg_destroy_decompress(&cinfo);
 }
@@ -253,8 +253,7 @@ bool CCodec_JpegDecoder::Create(const uint8_t* src_buf,
   src.fill_input_buffer = _src_fill_buffer;
   src.resync_to_restart = _src_resync;
   m_bJpegTransform = ColorTransform;
-  if (src_size > 1 &&
-      FXSYS_memcmp(src_buf + src_size - 2, "\xFF\xD9", 2) != 0) {
+  if (src_size > 1 && memcmp(src_buf + src_size - 2, "\xFF\xD9", 2) != 0) {
     ((uint8_t*)src_buf)[src_size - 2] = 0xFF;
     ((uint8_t*)src_buf)[src_size - 1] = 0xD9;
   }
@@ -375,7 +374,7 @@ static void* jpeg_alloc_func(unsigned int size) {
   return FX_Alloc(char, size);
 }
 static void jpeg_free_func(void* p) {
-  FX_Free(p);
+  free(p);
 }
 FXJPEG_Context* CCodec_JpegModule::Start() {
   FXJPEG_Context* p = FX_Alloc(FXJPEG_Context, 1);
@@ -578,7 +577,7 @@ bool CCodec_JpegModule::JpegEncode(const CFX_RetainPtr<CFX_DIBSource>& pSource,
   }
   jpeg_finish_compress(&cinfo);
   jpeg_destroy_compress(&cinfo);
-  FX_Free(line_buf);
+  free(line_buf);
   *dest_size = dest_buf_length - (FX_STRSIZE)dest.free_in_buffer;
 
   return true;
