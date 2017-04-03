@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a3ef76e_fdc8d1fa",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 6781
+      },
+      "writtenOn": "2017-04-03T06:16:48Z",
+      "side": 1,
+      "message": "So here, //third_party/ would point to a) in PDFiums standalone case to PDFiums //third_party/freetype DEPS checkout, and b) in Chromium\u0027s embedded case, to Chromium\u0027s //third-party/freetype? \n\nThis happens to work now but it\u0027s a bit brittle if Chromium or PDFium decides to rename or move their freetype directories and do that not in sync. Do we still need the bundled configuration inside Chromium?",
+      "revId": "984f1d877ac59315f4c070b1d63c9f651221760b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
