@@ -160,9 +160,8 @@ static unsigned long DefaultGetFaceName(struct _FPDF_SYSFONTINFO* pThis,
   if (name.GetLength() >= (long)buf_size)
     return name.GetLength() + 1;
 
-  // TODO(dsinclair): Should this be snprintf?
-  // NOLINTNEXTLINE(runtime/printf)
-  strcpy(buffer, name.c_str());
+  strncpy(buffer, name.c_str(),
+          (name.GetLength() + 1) * sizeof(CFX_ByteString::CharType));
   return name.GetLength() + 1;
 }
 
