@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd8369d4_25e890c1",
+        "filename": "xfa/fwl/cfwl_barcode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-03T19:04:29Z",
+      "side": 0,
+      "message": "This is the only SetVersion() call. Eventually this reaches fxbarcode, where CBC_QRCodeWriter::Encode() always calls the wide string version of CBC_QRCoderEncoder::Encode(). Leaving lots of dead code.",
+      "range": {
+        "startLine": 205,
+        "startChar": 22,
+        "endLine": 205,
+        "endChar": 32
+      },
+      "revId": "96b80633a4fdfd8688a102a5a6aabd6eb5a5c378",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
