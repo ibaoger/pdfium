@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1491005575 -0700\nnonce AIcUUg++iyfOl2zAk/B92fLNKfSZEOwcKl9kXwmjx12DGqEPg5x+ZxZjBnZ3WWBS1Y9T1jsCFJWi\n\n0000000000000000000000000000000000000000 3988446dfb195f0112f3d6216f876e1715576569 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY3vCHAAoJEKs2LWFaZv17bVMH/irXprsophHyz2rhbXFrYWQw\nAUdLnnp8z8rl5QdCD/w2sm0ccvZgKOpdbZnDgP+uUKnJHWanQUWfMbF/dxz8x78t\nDUgGoKDv5J02NLju79K4UBVVL1KX7kJqKge6wrGjoVgHHJ7hsB92x+be087Z3Sbk\nWGEwhtYPIv8zTY2W1ZbE2MGBJ8zGkB+seQMmuoepiSqAhJIJaEnzZ62xrYeADopT\nYG6ID+0JaAFRQvKuQ7LpkVxXBA0X6dvChB29JiUT8GQQIdFs7j07cqbFHMkYq3P0\n9iH8c9vdnXHOh5gJZgGYMyFT3gRbSU6KLjYV6F2/4uobxG6vQrYJKcWkI6waens\u003d\n\u003d2zt3\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "9de1f558_2373af96",
+        "filename": "core/fdrm/crypto/fx_crypt_sha.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-03T17:01:28Z",
+      "side": 1,
+      "message": "follow-up:  Do the obvious follow-up to use 64-bit literals.  Saves like 17 bytes per entry given a terminating nul and an 8 byte ptr for indirection.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 33
+      },
+      "revId": "3988446dfb195f0112f3d6216f876e1715576569",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e803059c_6e88bf09",
+        "filename": "core/fdrm/crypto/fx_crypt_sha.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-03T17:01:28Z",
+      "side": 1,
+      "message": "follow-up:  this probably goes extinct given literals above.",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 37
+      },
+      "revId": "3988446dfb195f0112f3d6216f876e1715576569",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
