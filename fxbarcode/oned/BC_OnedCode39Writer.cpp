@@ -216,13 +216,13 @@ uint8_t* CBC_OnedCode39Writer::Encode(const CFX_ByteString& contents,
   ToIntArray(CHARACTER_ENCODINGS[39], widths);
   int32_t pos = AppendPattern(result, 0, widths, 9, 1, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   int32_t narrowWhite[] = {1};
   pos += AppendPattern(result, pos, narrowWhite, 1, 0, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   for (int32_t l = m_iContentLen - 1; l >= 0; l--) {
@@ -231,21 +231,21 @@ uint8_t* CBC_OnedCode39Writer::Encode(const CFX_ByteString& contents,
         ToIntArray(CHARACTER_ENCODINGS[i], widths);
         pos += AppendPattern(result, pos, widths, 9, 1, e);
         if (e != BCExceptionNO) {
-          FX_Free(result);
+          free(result);
           return nullptr;
         }
       }
     }
     pos += AppendPattern(result, pos, narrowWhite, 1, 0, e);
     if (e != BCExceptionNO) {
-      FX_Free(result);
+      free(result);
       return nullptr;
     }
   }
   ToIntArray(CHARACTER_ENCODINGS[39], widths);
   pos += AppendPattern(result, pos, widths, 9, 1, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   for (int32_t i = 0; i < codeWidth / 2; i++) {

@@ -49,7 +49,7 @@ TEST(fxcodec, A85TestBasic) {
   // Check the output
   for (uint32_t i = 0; i < 12; i++)
     EXPECT_EQ(expected_out[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 }
 
 // Leftover bytes.
@@ -72,7 +72,7 @@ TEST(fxcodec, A85TestLeftoverBytes) {
   // Check the output
   for (uint32_t i = 0; i < 9; i++)
     EXPECT_EQ(expected_out_1leftover[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 
   // 2 Leftover bytes:
   src_size++;
@@ -89,7 +89,7 @@ TEST(fxcodec, A85TestLeftoverBytes) {
   // Check the output
   for (uint32_t i = 0; i < 10; i++)
     EXPECT_EQ(expected_out_2leftover[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 
   // 3 Leftover bytes:
   src_size++;
@@ -106,7 +106,7 @@ TEST(fxcodec, A85TestLeftoverBytes) {
   // Check the output
   for (uint32_t i = 0; i < 11; i++)
     EXPECT_EQ(expected_out_3leftover[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 }
 
 // Test all zeros comes through as "z".
@@ -130,7 +130,7 @@ TEST(fxcodec, A85TestZeros) {
   // Check the output
   for (uint32_t i = 0; i < 8; i++)
     EXPECT_EQ(expected_out[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 
   // Should also work if it is at the start:
   dest_buf = nullptr;
@@ -147,7 +147,7 @@ TEST(fxcodec, A85TestZeros) {
   // Check the output
   for (uint32_t i = 0; i < 8; i++)
     EXPECT_EQ(expected_out_2[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 
   // Try with 2 leftover zero bytes. Make sure we don't get a "z".
   src_size = 6;  // Cut off the last 2 zeros.
@@ -165,7 +165,7 @@ TEST(fxcodec, A85TestZeros) {
   // Check the output
   for (uint32_t i = 0; i < 10; i++)
     EXPECT_EQ(expected_out_leftover[i], dest_buf[i]) << " at " << i;
-  FX_Free(dest_buf);
+  free(dest_buf);
 }
 
 // Make sure we get returns in the expected locations.
@@ -207,5 +207,5 @@ TEST(fxcodec, A85TestLineBreaks) {
   EXPECT_EQ(13, dest_buf[153]);
   EXPECT_EQ(10, dest_buf[154]);
 
-  FX_Free(dest_buf);
+  free(dest_buf);
 }

@@ -23,12 +23,12 @@ static void* bmp_alloc_func(unsigned int size) {
   return FX_Alloc(char, size);
 }
 static void bmp_free_func(void* p) {
-  FX_Free(p);
+  free(p);
 }
 };
 static void bmp_error_data(bmp_decompress_struct_p bmp_ptr,
                            const char* err_msg) {
-  FXSYS_strncpy((char*)bmp_ptr->err_ptr, err_msg, BMP_MAX_ERROR_SIZE - 1);
+  strncpy((char*)bmp_ptr->err_ptr, err_msg, BMP_MAX_ERROR_SIZE - 1);
   longjmp(bmp_ptr->jmpbuf, 1);
 }
 static void bmp_read_scanline(bmp_decompress_struct_p bmp_ptr,
@@ -56,7 +56,7 @@ FXBMP_Context* CCodec_BmpModule::Start() {
   if (!p)
     return nullptr;
 
-  FXSYS_memset(p, 0, sizeof(FXBMP_Context));
+  memset(p, 0, sizeof(FXBMP_Context));
   if (!p)
     return nullptr;
 
@@ -66,7 +66,7 @@ FXBMP_Context* CCodec_BmpModule::Start() {
   p->parent_ptr = (void*)this;
   p->bmp_ptr = bmp_create_decompress();
   if (!p->bmp_ptr) {
-    FX_Free(p);
+    free(p);
     return nullptr;
   }
   p->bmp_ptr->context_ptr = (void*)p;

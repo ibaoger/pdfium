@@ -95,9 +95,9 @@ CFX_Palette::CFX_Palette() {
 }
 
 CFX_Palette::~CFX_Palette() {
-  FX_Free(m_pPalette);
-  FX_Free(m_cLut);
-  FX_Free(m_aLut);
+  free(m_pPalette);
+  free(m_cLut);
+  free(m_aLut);
   m_lut = 0;
 }
 
@@ -105,14 +105,14 @@ bool CFX_Palette::BuildPalette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap) {
   if (!pBitmap) {
     return false;
   }
-  FX_Free(m_pPalette);
+  free(m_pPalette);
   m_pPalette = FX_Alloc(uint32_t, 256);
   int bpp = pBitmap->GetBPP() / 8;
   int width = pBitmap->GetWidth();
   int height = pBitmap->GetHeight();
-  FX_Free(m_cLut);
+  free(m_cLut);
   m_cLut = nullptr;
-  FX_Free(m_aLut);
+  free(m_aLut);
   m_aLut = nullptr;
   m_cLut = FX_Alloc(uint32_t, 4096);
   m_aLut = FX_Alloc(uint32_t, 4096);
@@ -153,7 +153,7 @@ bool ConvertBuffer_1bppMask2Gray(uint8_t* dest_buf,
   reset_gray = 0x00;
   for (int row = 0; row < height; row++) {
     uint8_t* dest_scan = dest_buf + row * dest_pitch;
-    FXSYS_memset(dest_scan, reset_gray, width);
+    memset(dest_scan, reset_gray, width);
     const uint8_t* src_scan = pSrcBitmap->GetScanline(src_top + row);
     for (int col = src_left; col < src_left + width; col++) {
       if (src_scan[col / 8] & (1 << (7 - col % 8))) {
@@ -175,7 +175,7 @@ bool ConvertBuffer_8bppMask2Gray(uint8_t* dest_buf,
   for (int row = 0; row < height; row++) {
     uint8_t* dest_scan = dest_buf + row * dest_pitch;
     const uint8_t* src_scan = pSrcBitmap->GetScanline(src_top + row) + src_left;
-    FXSYS_memcpy(dest_scan, src_scan, width);
+    memcpy(dest_scan, src_scan, width);
   }
   return true;
 }
@@ -215,7 +215,7 @@ bool ConvertBuffer_1bppPlt2Gray(uint8_t* dest_buf,
 
   for (int row = 0; row < height; row++) {
     uint8_t* dest_scan = dest_buf + row * dest_pitch;
-    FXSYS_memset(dest_scan, gray[0], width);
+    memset(dest_scan, gray[0], width);
     const uint8_t* src_scan = pSrcBitmap->GetScanline(src_top + row);
     for (int col = src_left; col < src_left + width; col++) {
       if (src_scan[col / 8] & (1 << (7 - col % 8))) {
@@ -311,7 +311,7 @@ void ConvertBuffer_IndexCopy(uint8_t* dest_buf,
   if (pSrcBitmap->GetBPP() == 1) {
     for (int row = 0; row < height; row++) {
       uint8_t* dest_scan = dest_buf + row * dest_pitch;
-      FXSYS_memset(dest_scan, 0, width);
+      memset(dest_scan, 0, width);
       const uint8_t* src_scan = pSrcBitmap->GetScanline(src_top + row);
       for (int col = src_left; col < src_left + width; col++) {
         if (src_scan[col / 8] & (1 << (7 - col % 8))) {
@@ -325,7 +325,7 @@ void ConvertBuffer_IndexCopy(uint8_t* dest_buf,
       uint8_t* dest_scan = dest_buf + row * dest_pitch;
       const uint8_t* src_scan =
           pSrcBitmap->GetScanline(src_top + row) + src_left;
-      FXSYS_memcpy(dest_scan, src_scan, width);
+      memcpy(dest_scan, src_scan, width);
     }
   }
 }
@@ -353,7 +353,7 @@ bool ConvertBuffer_Plt2PltRgb8(uint8_t* dest_buf,
       dst_plt[i] = FXARGB_MAKE(0xff, r, g, b);
     }
   } else {
-    FXSYS_memcpy(dst_plt, src_plt, plt_size * 4);
+    memcpy(dst_plt, src_plt, plt_size * 4);
   }
   return true;
 }
@@ -416,7 +416,7 @@ bool ConvertBuffer_Rgb2PltRgb8(uint8_t* dest_buf,
         }
     }
   }
-  FXSYS_memcpy(dst_plt, pPalette, sizeof(uint32_t) * 256);
+  memcpy(dst_plt, pPalette, sizeof(uint32_t) * 256);
   return true;
 }
 
@@ -585,7 +585,7 @@ bool ConvertBuffer_24bppRgb2Rgb24(
     uint8_t* dest_scan = dest_buf + row * dest_pitch;
     const uint8_t* src_scan =
         pSrcBitmap->GetScanline(src_top + row) + src_left * 3;
-    FXSYS_memcpy(dest_scan, src_scan, width * 3);
+    memcpy(dest_scan, src_scan, width * 3);
   }
   return true;
 }
@@ -816,7 +816,7 @@ bool CFX_DIBitmap::ConvertFormat(FXDIB_Format dest_format) {
   }
   CFX_RetainPtr<CFX_DIBitmap> pAlphaMask;
   if (dest_format == FXDIB_Argb) {
-    FXSYS_memset(dest_buf, 0xff, dest_pitch * m_Height + 4);
+    memset(dest_buf, 0xff, dest_pitch * m_Height + 4);
     if (m_pAlphaMask) {
       for (int row = 0; row < m_Height; row++) {
         uint8_t* pDstScanline = dest_buf + row * dest_pitch + 3;
@@ -831,13 +831,13 @@ bool CFX_DIBitmap::ConvertFormat(FXDIB_Format dest_format) {
     if (src_format == FXDIB_Argb) {
       pAlphaMask = CloneAlphaMask();
       if (!pAlphaMask) {
-        FX_Free(dest_buf);
+        free(dest_buf);
         return false;
       }
     } else {
       if (!m_pAlphaMask) {
         if (!BuildAlphaMask()) {
-          FX_Free(dest_buf);
+          free(dest_buf);
           return false;
         }
         pAlphaMask = std::move(m_pAlphaMask);
@@ -852,13 +852,13 @@ bool CFX_DIBitmap::ConvertFormat(FXDIB_Format dest_format) {
   ret = ConvertBuffer(dest_format, dest_buf, dest_pitch, m_Width, m_Height,
                       holder, 0, 0, &pal_8bpp);
   if (!ret) {
-    FX_Free(dest_buf);
+    free(dest_buf);
     return false;
   }
   m_pAlphaMask = pAlphaMask;
   m_pPalette = std::move(pal_8bpp);
   if (!m_bExtBuf)
-    FX_Free(m_pBuffer);
+    free(m_pBuffer);
   m_bExtBuf = false;
   m_pBuffer = dest_buf;
   m_bpp = (uint8_t)dest_format;

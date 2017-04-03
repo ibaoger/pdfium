@@ -32,10 +32,10 @@ void CBC_QRCoderBitVector::Init() {
   m_array = FX_Alloc(uint8_t, m_size);
 }
 CBC_QRCoderBitVector::~CBC_QRCoderBitVector() {
-  FX_Free(m_array);
+  free(m_array);
 }
 void CBC_QRCoderBitVector::Clear() {
-  FX_Free(m_array);
+  free(m_array);
   m_sizeInBits = 0;
   m_size = 32;
   m_array = FX_Alloc(uint8_t, m_size);
@@ -117,8 +117,8 @@ uint8_t* CBC_QRCoderBitVector::GetArray() {
 void CBC_QRCoderBitVector::AppendByte(int32_t value) {
   if ((m_sizeInBits >> 3) == m_size) {
     uint8_t* newArray = FX_Alloc(uint8_t, m_size << 1);
-    FXSYS_memcpy(newArray, m_array, m_size);
-    FX_Free(m_array);
+    memcpy(newArray, m_array, m_size);
+    free(m_array);
     m_array = newArray;
     m_size = m_size << 1;
   }

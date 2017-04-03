@@ -189,9 +189,9 @@ static void sycc444_to_rgb(opj_image_t* img) {
     ++g;
     ++b;
   }
-  FX_Free(img->comps[0].data);
-  FX_Free(img->comps[1].data);
-  FX_Free(img->comps[2].data);
+  free(img->comps[0].data);
+  free(img->comps[1].data);
+  free(img->comps[2].data);
   img->comps[0].data = d0;
   img->comps[1].data = d1;
   img->comps[2].data = d2;
@@ -265,11 +265,11 @@ static void sycc422_to_rgb(opj_image_t* img) {
       ++cr;
     }
   }
-  FX_Free(img->comps[0].data);
+  free(img->comps[0].data);
   img->comps[0].data = d0;
-  FX_Free(img->comps[1].data);
+  free(img->comps[1].data);
   img->comps[1].data = d1;
-  FX_Free(img->comps[2].data);
+  free(img->comps[2].data);
   img->comps[2].data = d2;
   img->comps[1].w = maxw;
   img->comps[1].h = maxh;
@@ -401,11 +401,11 @@ void sycc420_to_rgb(opj_image_t* img) {
     }
   }
 
-  FX_Free(img->comps[0].data);
+  free(img->comps[0].data);
   img->comps[0].data = d0;
-  FX_Free(img->comps[1].data);
+  free(img->comps[1].data);
   img->comps[1].data = d1;
-  FX_Free(img->comps[2].data);
+  free(img->comps[2].data);
   img->comps[2].data = d2;
   img->comps[1].w = yw;
   img->comps[1].h = yh;
@@ -521,8 +521,8 @@ void color_apply_icc_profile(opj_image_t* image) {
         *g++ = (int)*out++;
         *b++ = (int)*out++;
       }
-      FX_Free(inbuf);
-      FX_Free(outbuf);
+      free(inbuf);
+      free(outbuf);
     } else {
       unsigned short *inbuf, *outbuf, *in, *out;
       max = max_w * max_h;
@@ -546,8 +546,8 @@ void color_apply_icc_profile(opj_image_t* image) {
         *g++ = (int)*out++;
         *b++ = (int)*out++;
       }
-      FX_Free(inbuf);
-      FX_Free(outbuf);
+      free(inbuf);
+      free(outbuf);
     }
   } else {
     unsigned char *in, *inbuf, *out, *outbuf;
@@ -564,9 +564,9 @@ void color_apply_icc_profile(opj_image_t* image) {
     image->comps[1] = image->comps[0];
     image->comps[2] = image->comps[0];
     image->comps[1].data = FX_Alloc(int, (size_t)max);
-    FXSYS_memset(image->comps[1].data, 0, sizeof(int) * (size_t)max);
+    memset(image->comps[1].data, 0, sizeof(int) * (size_t)max);
     image->comps[2].data = FX_Alloc(int, (size_t)max);
-    FXSYS_memset(image->comps[2].data, 0, sizeof(int) * (size_t)max);
+    memset(image->comps[2].data, 0, sizeof(int) * (size_t)max);
     image->numcomps += 2;
     r = image->comps[0].data;
     for (int i = 0; i < max; ++i) {
@@ -581,8 +581,8 @@ void color_apply_icc_profile(opj_image_t* image) {
       *g++ = (int)*out++;
       *b++ = (int)*out++;
     }
-    FX_Free(inbuf);
-    FX_Free(outbuf);
+    free(inbuf);
+    free(outbuf);
   }
   cmsDeleteTransform(transform);
 }
@@ -662,9 +662,9 @@ void color_apply_conversion(opj_image_t* image) {
       *blue++ = RGB[2];
     }
     cmsDeleteTransform(transform);
-    FX_Free(src0);
-    FX_Free(src1);
-    FX_Free(src2);
+    free(src0);
+    free(src1);
+    free(src2);
     image->color_space = OPJ_CLRSPC_SRGB;
     image->comps[0].prec = 16;
     image->comps[1].prec = 16;
@@ -707,7 +707,7 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
   opj_set_default_decoder_parameters(&parameters);
   parameters.decod_format = 0;
   parameters.cod_format = 3;
-  if (FXSYS_memcmp(m_SrcData, szJP2Header, sizeof(szJP2Header)) == 0) {
+  if (memcmp(m_SrcData, szJP2Header, sizeof(szJP2Header)) == 0) {
     l_codec = opj_create_decompress(OPJ_CODEC_JP2);
     parameters.decod_format = 1;
   } else {
@@ -761,7 +761,7 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
     color_sycc_to_rgb(image);
   }
   if (image->icc_profile_buf) {
-    FX_Free(image->icc_profile_buf);
+    free(image->icc_profile_buf);
     image->icc_profile_buf = nullptr;
     image->icc_profile_len = 0;
   }
@@ -788,7 +788,7 @@ bool CJPX_Decoder::Decode(uint8_t* dest_buf,
   if (pitch<(int)(image->comps[0].w * 8 * image->numcomps + 31)>> 5 << 2)
     return false;
 
-  FXSYS_memset(dest_buf, 0xff, image->y1 * pitch);
+  memset(dest_buf, 0xff, image->y1 * pitch);
   std::vector<uint8_t*> channel_bufs(image->numcomps);
   std::vector<int> adjust_comps(image->numcomps);
   for (uint32_t i = 0; i < image->numcomps; i++) {

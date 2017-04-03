@@ -16,7 +16,7 @@ CPDF_CharPosList::CPDF_CharPosList() {
 }
 
 CPDF_CharPosList::~CPDF_CharPosList() {
-  FX_Free(m_pCharPos);
+  free(m_pCharPos);
 }
 
 void CPDF_CharPosList::Load(const std::vector<uint32_t>& charCodes,

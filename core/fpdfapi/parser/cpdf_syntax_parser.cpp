@@ -48,7 +48,7 @@ CPDF_SyntaxParser::CPDF_SyntaxParser(
       m_pPool(pPool) {}
 
 CPDF_SyntaxParser::~CPDF_SyntaxParser() {
-  FX_Free(m_pFileBuf);
+  free(m_pFileBuf);
 }
 
 bool CPDF_SyntaxParser::GetCharAt(FX_FILESIZE pos, uint8_t& ch) {
@@ -645,13 +645,13 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
         m_Pos = pos.ValueOrDie();
 
       m_Pos += ReadEOLMarkers(m_Pos);
-      FXSYS_memset(m_WordBuffer, 0, kEndStreamStr.GetLength() + 1);
+      memset(m_WordBuffer, 0, kEndStreamStr.GetLength() + 1);
       GetNextWordInternal(nullptr);
       // Earlier version of PDF specification doesn't require EOL marker before
       // 'endstream' keyword. If keyword 'endstream' follows the bytes in
       // specified length, it signals the end of stream.
-      if (FXSYS_memcmp(m_WordBuffer, kEndStreamStr.raw_str(),
-                       kEndStreamStr.GetLength()) == 0) {
+      if (memcmp(m_WordBuffer, kEndStreamStr.raw_str(),
+                 kEndStreamStr.GetLength()) == 0) {
         bSearchForKeyword = false;
       }
     }
@@ -750,14 +750,13 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
   auto pStream =
       pdfium::MakeUnique<CPDF_Stream>(std::move(pData), len, std::move(pDict));
   streamStartPos = m_Pos;
-  FXSYS_memset(m_WordBuffer, 0, kEndObjStr.GetLength() + 1);
+  memset(m_WordBuffer, 0, kEndObjStr.GetLength() + 1);
   GetNextWordInternal(nullptr);
 
   int numMarkers = ReadEOLMarkers(m_Pos);
   if (m_WordSize == static_cast<unsigned int>(kEndObjStr.GetLength()) &&
       numMarkers != 0 &&
-      FXSYS_memcmp(m_WordBuffer, kEndObjStr.raw_str(),
-                   kEndObjStr.GetLength()) == 0) {
+      memcmp(m_WordBuffer, kEndObjStr.raw_str(), kEndObjStr.GetLength()) == 0) {
     m_Pos = streamStartPos;
   }
   return pStream;
@@ -766,7 +765,7 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
 void CPDF_SyntaxParser::InitParser(
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
     uint32_t HeaderOffset) {
-  FX_Free(m_pFileBuf);
+  free(m_pFileBuf);
 
   m_pFileBuf = FX_Alloc(uint8_t, m_BufSize);
   m_HeaderOffset = HeaderOffset;

@@ -273,8 +273,8 @@ float CXFA_TextLayout::StartLayout(float fWidth) {
   if (!m_pLoader)
     m_pLoader = pdfium::MakeUnique<CXFA_LoaderContext>();
 
-  if (fWidth < 0 || (m_pLoader->m_fWidth > -1 &&
-                     FXSYS_fabs(fWidth - m_pLoader->m_fWidth) > 0)) {
+  if (fWidth < 0 ||
+      (m_pLoader->m_fWidth > -1 && fabs(fWidth - m_pLoader->m_fWidth) > 0)) {
     m_pLoader->m_lineHeights.clear();
     m_Blocks.clear();
     Unload();
@@ -597,11 +597,11 @@ bool CXFA_TextLayout::DrawString(CFX_RenderDevice* pFxDevice,
       const XFA_TextPiece* pPiece = pPieceLine->m_textPieces[j].get();
       int32_t iChars = pPiece->iChars;
       if (iCharCount < iChars) {
-        FX_Free(pCharPos);
+        free(pCharPos);
         pCharPos = FX_Alloc(FXTEXT_CHARPOS, iChars);
         iCharCount = iChars;
       }
-      FXSYS_memset(pCharPos, 0, iCharCount * sizeof(FXTEXT_CHARPOS));
+      memset(pCharPos, 0, iCharCount * sizeof(FXTEXT_CHARPOS));
       RenderString(pDevice.get(), pSolidBrush.get(), pPieceLine, j, pCharPos,
                    tmDoc2Device);
     }
@@ -611,7 +611,7 @@ bool CXFA_TextLayout::DrawString(CFX_RenderDevice* pFxDevice,
     }
   }
   pDevice->RestoreState();
-  FX_Free(pCharPos);
+  free(pCharPos);
   return iPieceLines > 0;
 }
 

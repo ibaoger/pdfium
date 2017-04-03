@@ -13,6 +13,6 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
   uint32_t dest_size = 0;
   CCodec_BasicModule encoder_module;
   encoder_module.RunLengthEncode(data, size, &dest_buf, &dest_size);
-  FX_Free(dest_buf);
+  free(dest_buf);
   return 0;
 }

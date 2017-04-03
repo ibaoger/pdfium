@@ -70,7 +70,7 @@ bool CBC_UPCA::Encode(const CFX_WideStringC& contents,
     return false;
   pWriter->RenderResult(encodeContents.AsStringC(), data, outWidth, isDevice,
                         e);
-  FX_Free(data);
+  free(data);
   if (e != BCExceptionNO)
     return false;
   return true;

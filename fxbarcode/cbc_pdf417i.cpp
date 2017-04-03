@@ -49,7 +49,7 @@ bool CBC_PDF417I::Encode(const CFX_WideStringC& contents,
     return false;
   static_cast<CBC_TwoDimWriter*>(m_pBCWriter.get())
       ->RenderResult(data, outWidth, outHeight, e);
-  FX_Free(data);
+  free(data);
   if (e != BCExceptionNO)
     return false;
   return true;

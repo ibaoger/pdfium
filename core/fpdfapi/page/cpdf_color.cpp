@@ -37,7 +37,7 @@ void CPDF_Color::ReleaseBuffer() {
         pPageData->ReleasePattern(pPattern->pattern_obj());
     }
   }
-  FX_Free(m_pBuffer);
+  free(m_pBuffer);
   m_pBuffer = nullptr;
 }
 
@@ -71,7 +71,7 @@ void CPDF_Color::SetValue(float* comps) {
   if (!m_pBuffer)
     return;
   if (m_pCS->GetFamily() != PDFCS_PATTERN)
-    FXSYS_memcpy(m_pBuffer, comps, m_pCS->CountComponents() * sizeof(float));
+    memcpy(m_pBuffer, comps, m_pCS->CountComponents() * sizeof(float));
 }
 
 void CPDF_Color::SetValue(CPDF_Pattern* pPattern, float* comps, int ncomps) {
@@ -79,7 +79,7 @@ void CPDF_Color::SetValue(CPDF_Pattern* pPattern, float* comps, int ncomps) {
     return;
 
   if (!IsPattern()) {
-    FX_Free(m_pBuffer);
+    free(m_pBuffer);
     m_pCS = CPDF_ColorSpace::GetStockCS(PDFCS_PATTERN);
     m_pBuffer = m_pCS->CreateBuf();
   }
@@ -94,7 +94,7 @@ void CPDF_Color::SetValue(CPDF_Pattern* pPattern, float* comps, int ncomps) {
   pvalue->m_nComps = ncomps;
   pvalue->m_pPattern = pPattern;
   if (ncomps)
-    FXSYS_memcpy(pvalue->m_Comps, comps, ncomps * sizeof(float));
+    memcpy(pvalue->m_Comps, comps, ncomps * sizeof(float));
 
   pvalue->m_pCountedPattern = nullptr;
   if (pPattern && pPattern->document()) {
@@ -120,7 +120,7 @@ void CPDF_Color::Copy(const CPDF_Color* pSrc) {
     return;
 
   m_pBuffer = m_pCS->CreateBuf();
-  FXSYS_memcpy(m_pBuffer, pSrc->m_pBuffer, m_pCS->GetBufSize());
+  memcpy(m_pBuffer, pSrc->m_pBuffer, m_pCS->GetBufSize());
   if (m_pCS->GetFamily() != PDFCS_PATTERN)
     return;
 

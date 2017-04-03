@@ -64,7 +64,7 @@ CJBig2_Image* CJBig2_HTRDProc::decode_Arith(CJBig2_ArithDecoder* pArithDecoder,
       HTREG->composeFrom(x, y, HPATS[pat_index], HCOMBOP);
     }
   }
-  FX_Free(GI);
+  free(GI);
   return HTREG.release();
 }
 
@@ -100,6 +100,6 @@ CJBig2_Image* CJBig2_HTRDProc::decode_MMR(CJBig2_BitStream* pStream,
       HTREG->composeFrom(x, y, HPATS[pat_index], HCOMBOP);
     }
   }
-  FX_Free(GI);
+  free(GI);
   return HTREG.release();
 }

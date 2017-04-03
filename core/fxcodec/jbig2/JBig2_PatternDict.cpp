@@ -18,6 +18,6 @@ CJBig2_PatternDict::~CJBig2_PatternDict() {
     for (uint32_t i = 0; i < NUMPATS; i++) {
       delete HDPATS[i];
     }
-    FX_Free(HDPATS);
+    free(HDPATS);
   }
 }

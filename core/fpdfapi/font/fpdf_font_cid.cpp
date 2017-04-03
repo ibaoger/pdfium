@@ -410,11 +410,11 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
       if (nSegs > 1) {
         m_pCMap->m_CodingScheme = CPDF_CMap::MixedFourBytes;
         m_pCMap->m_nCodeRanges = nSegs;
-        FX_Free(m_pCMap->m_pLeadingBytes);
+        free(m_pCMap->m_pLeadingBytes);
         m_pCMap->m_pLeadingBytes =
             FX_Alloc2D(uint8_t, nSegs, sizeof(CMap_CodeRange));
-        FXSYS_memcpy(m_pCMap->m_pLeadingBytes, m_CodeRanges.data(),
-                     nSegs * sizeof(CMap_CodeRange));
+        memcpy(m_pCMap->m_pLeadingBytes, m_CodeRanges.data(),
+               nSegs * sizeof(CMap_CodeRange));
       } else if (nSegs == 1) {
         m_pCMap->m_CodingScheme = (m_CodeRanges[0].m_CharSize == 2)
                                       ? CPDF_CMap::TwoBytes
@@ -505,9 +505,9 @@ CPDF_CMap::CPDF_CMap() {
   m_nCodeRanges = 0;
 }
 CPDF_CMap::~CPDF_CMap() {
-  FX_Free(m_pMapping);
-  FX_Free(m_pAddMapping);
-  FX_Free(m_pLeadingBytes);
+  free(m_pMapping);
+  free(m_pAddMapping);
+  free(m_pLeadingBytes);
 }
 
 bool CPDF_CMap::IsLoaded() const {
@@ -577,10 +577,9 @@ void CPDF_CMap::LoadEmbedded(const uint8_t* pData, uint32_t size) {
   if (m_CodingScheme == MixedFourBytes && parser.m_AddMaps.GetSize()) {
     m_pAddMapping = FX_Alloc(uint8_t, parser.m_AddMaps.GetSize() + 4);
     *(uint32_t*)m_pAddMapping = parser.m_AddMaps.GetSize() / 8;
-    FXSYS_memcpy(m_pAddMapping + 4, parser.m_AddMaps.GetBuffer(),
-                 parser.m_AddMaps.GetSize());
-    FXSYS_qsort(m_pAddMapping + 4, parser.m_AddMaps.GetSize() / 8, 8,
-                CompareDWORD);
+    memcpy(m_pAddMapping + 4, parser.m_AddMaps.GetBuffer(),
+           parser.m_AddMaps.GetSize());
+    qsort(m_pAddMapping + 4, parser.m_AddMaps.GetSize() / 8, 8, CompareDWORD);
   }
 }
 
@@ -596,8 +595,8 @@ uint16_t CPDF_CMap::CIDFromCharCode(uint32_t charcode) const {
   }
   if (charcode >> 16) {
     if (m_pAddMapping) {
-      void* found = FXSYS_bsearch(&charcode, m_pAddMapping + 4,
-                                  *(uint32_t*)m_pAddMapping, 8, CompareCID);
+      void* found = bsearch(&charcode, m_pAddMapping + 4,
+                            *(uint32_t*)m_pAddMapping, 8, CompareCID);
       if (!found)
         return 0;
       return (uint16_t)(((uint32_t*)found)[1] % 65536 + charcode -
@@ -720,7 +719,7 @@ int CPDF_CMap::AppendChar(char* str, uint32_t charcode) const {
           iSize = 1;
         }
         if (iSize > 1) {
-          FXSYS_memset(str, 0, sizeof(uint8_t) * iSize);
+          memset(str, 0, sizeof(uint8_t) * iSize);
         }
         str[iSize - 1] = (uint8_t)charcode;
         return iSize;

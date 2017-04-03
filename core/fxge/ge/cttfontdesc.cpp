@@ -18,7 +18,7 @@ CTTFontDesc::~CTTFontDesc() {
         FXFT_Done_Face(m_TTCFaces[i]);
     }
   }
-  FX_Free(m_pFontData);
+  free(m_pFontData);
 }
 
 int CTTFontDesc::ReleaseFace(FXFT_Face face) {

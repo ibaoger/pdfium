@@ -28,7 +28,7 @@ CFDE_TxtEdtParag::CFDE_TxtEdtParag(CFDE_TxtEdtEngine* pEngine)
 
 CFDE_TxtEdtParag::~CFDE_TxtEdtParag() {
   if (m_lpData)
-    FX_Free(m_lpData);
+    free(m_lpData);
 }
 
 void CFDE_TxtEdtParag::LoadParag() {
@@ -98,7 +98,7 @@ void CFDE_TxtEdtParag::UnloadParag() {
   m_lpData[0]--;
   ASSERT(m_lpData[0] >= 0);
   if (m_lpData[0] == 0) {
-    FX_Free(m_lpData);
+    free(m_lpData);
     m_lpData = nullptr;
   }
 }

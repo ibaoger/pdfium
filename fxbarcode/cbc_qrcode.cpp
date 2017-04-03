@@ -55,7 +55,7 @@ bool CBC_QRCode::Encode(const CFX_WideStringC& contents,
   if (e != BCExceptionNO)
     return false;
   pWriter->RenderResult(data, outWidth, outHeight, e);
-  FX_Free(data);
+  free(data);
   if (e != BCExceptionNO)
     return false;
   return true;

@@ -206,7 +206,7 @@ bool CFX_DIBitmap::CompositeRect(int left,
     for (int row = rect.top; row < rect.bottom; row++) {
       uint8_t* dest_scan = m_pBuffer + row * m_Pitch + rect.left;
       if (src_alpha == 255) {
-        FXSYS_memset(dest_scan, gray, width);
+        memset(dest_scan, gray, width);
       } else {
         for (int col = 0; col < width; col++) {
           *dest_scan = FXDIB_ALPHA_MERGE(*dest_scan, gray, src_alpha);
@@ -237,7 +237,7 @@ bool CFX_DIBitmap::CompositeRect(int left,
       uint8_t left_flag = *dest_scan_top & (255 << (8 - left_shift));
       uint8_t right_flag = *dest_scan_top_r & (255 >> right_shift);
       if (new_width) {
-        FXSYS_memset(dest_scan_top + 1, index ? 255 : 0, new_width - 1);
+        memset(dest_scan_top + 1, index ? 255 : 0, new_width - 1);
         if (!index) {
           *dest_scan_top &= left_flag;
           *dest_scan_top_r &= right_flag;
@@ -285,7 +285,7 @@ bool CFX_DIBitmap::CompositeRect(int left,
           m_pAlphaMask ? (uint8_t*)m_pAlphaMask->GetScanline(row) + rect.left
                        : nullptr;
       if (dest_scan_alpha) {
-        FXSYS_memset(dest_scan_alpha, 0xff, width);
+        memset(dest_scan_alpha, 0xff, width);
       }
       if (Bpp == 4) {
         uint32_t* scan = (uint32_t*)dest_scan;
@@ -332,7 +332,7 @@ bool CFX_DIBitmap::CompositeRect(int left,
           uint8_t back_alpha = *dest_scan_alpha;
           if (back_alpha == 0) {
             *dest_scan_alpha++ = src_alpha;
-            FXSYS_memcpy(dest_scan, color_p, Bpp);
+            memcpy(dest_scan, color_p, Bpp);
             dest_scan += Bpp;
             continue;
           }
@@ -373,10 +373,10 @@ CFX_BitmapComposer::CFX_BitmapComposer() {
 }
 
 CFX_BitmapComposer::~CFX_BitmapComposer() {
-  FX_Free(m_pScanlineV);
-  FX_Free(m_pScanlineAlphaV);
-  FX_Free(m_pClipScanV);
-  FX_Free(m_pAddClipScan);
+  free(m_pScanlineV);
+  free(m_pScanlineAlphaV);
+  free(m_pClipScanV);
+  free(m_pAddClipScan);
 }
 
 void CFX_BitmapComposer::Compose(const CFX_RetainPtr<CFX_DIBitmap>& pDest,
@@ -447,7 +447,7 @@ void CFX_BitmapComposer::DoCompose(uint8_t* dest_scan,
         m_pAddClipScan[i] = clip_scan[i] * m_BitmapAlpha / 255;
       }
     } else {
-      FXSYS_memset(m_pAddClipScan, m_BitmapAlpha, dest_width);
+      memset(m_pAddClipScan, m_BitmapAlpha, dest_width);
     }
     clip_scan = m_pAddClipScan;
   }

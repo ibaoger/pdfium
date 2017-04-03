@@ -457,9 +457,9 @@ TEST(fxcodec, YUV420ToRGB) {
       EXPECT_NE(img.comps[0].w, img.comps[2].w);
       EXPECT_NE(img.comps[0].h, img.comps[2].h);
     }
-    FX_Free(img.comps[0].data);
-    FX_Free(img.comps[1].data);
-    FX_Free(img.comps[2].data);
+    free(img.comps[0].data);
+    free(img.comps[1].data);
+    free(img.comps[2].data);
   }
-  FX_Free(img.comps);
+  free(img.comps);
 }

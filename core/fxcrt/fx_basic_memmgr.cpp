@@ -11,16 +11,6 @@
 pdfium::base::PartitionAllocatorGeneric gArrayBufferPartitionAllocator;
 pdfium::base::PartitionAllocatorGeneric gStringPartitionAllocator;
 
-void* FXMEM_DefaultAlloc(size_t byte_size, int flags) {
-  return (void*)malloc(byte_size);
-}
-void* FXMEM_DefaultRealloc(void* pointer, size_t new_size, int flags) {
-  return realloc(pointer, new_size);
-}
-void FXMEM_DefaultFree(void* pointer, int flags) {
-  free(pointer);
-}
-
 NEVER_INLINE void FX_OutOfMemoryTerminate() {
   // Termimate cleanly if we can, else crash at a specific address (0xbd).
   abort();

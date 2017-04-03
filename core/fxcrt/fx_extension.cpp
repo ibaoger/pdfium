@@ -185,7 +185,7 @@ CFX_MemoryStream::CFX_MemoryStream(uint8_t* pBuffer,
 CFX_MemoryStream::~CFX_MemoryStream() {
   if (m_dwFlags & FX_MEMSTREAM_TakeOver) {
     for (uint8_t* pBlock : m_Blocks)
-      FX_Free(pBlock);
+      free(pBlock);
   }
 }
 
@@ -216,7 +216,7 @@ bool CFX_MemoryStream::ReadBlock(void* buffer,
 
   m_nCurPos = newPos.ValueOrDie();
   if (m_dwFlags & FX_MEMSTREAM_Consecutive) {
-    FXSYS_memcpy(buffer, m_Blocks[0] + (size_t)offset, size);
+    memcpy(buffer, m_Blocks[0] + (size_t)offset, size);
     return true;
   }
   size_t nStartBlock = (size_t)offset / m_nGrowSize;
@@ -226,7 +226,7 @@ bool CFX_MemoryStream::ReadBlock(void* buffer,
     if (nRead > size) {
       nRead = size;
     }
-    FXSYS_memcpy(buffer, m_Blocks[(int)nStartBlock] + (size_t)offset, nRead);
+    memcpy(buffer, m_Blocks[(int)nStartBlock] + (size_t)offset, nRead);
     buffer = ((uint8_t*)buffer) + nRead;
     size -= nRead;
     nStartBlock++;
@@ -267,7 +267,7 @@ bool CFX_MemoryStream::WriteBlock(const void* buffer,
         m_Blocks[0] = FX_Realloc(uint8_t, m_Blocks[0], m_nTotalSize);
       }
     }
-    FXSYS_memcpy(m_Blocks[0] + (size_t)offset, buffer, size);
+    memcpy(m_Blocks[0] + (size_t)offset, buffer, size);
     if (m_nCurSize < m_nCurPos) {
       m_nCurSize = m_nCurPos;
     }
@@ -291,7 +291,7 @@ bool CFX_MemoryStream::WriteBlock(const void* buffer,
     if (nWrite > size) {
       nWrite = size;
     }
-    FXSYS_memcpy(m_Blocks[(int)nStartBlock] + (size_t)offset, buffer, nWrite);
+    memcpy(m_Blocks[(int)nStartBlock] + (size_t)offset, buffer, nWrite);
     buffer = ((uint8_t*)buffer) + nWrite;
     size -= nWrite;
     nStartBlock++;
@@ -422,8 +422,8 @@ CFX_RetainPtr<IFX_MemoryStream> IFX_MemoryStream::Create(bool bConsecutive) {
 float FXSYS_tan(float a) {
   return (float)tan(a);
 }
-float FXSYS_logb(float b, float x) {
-  return FXSYS_log(x) / FXSYS_log(b);
+float logb(float b, float x) {
+  return log(x) / log(b);
 }
 float FXSYS_strtof(const char* pcsStr, int32_t iLength, int32_t* pUsedLen) {
   ASSERT(pcsStr);
@@ -579,7 +579,7 @@ uint32_t FX_Random_MT_Generate(void* pContext) {
 }
 void FX_Random_MT_Close(void* pContext) {
   ASSERT(pContext);
-  FX_Free(pContext);
+  free(pContext);
 }
 void FX_Random_GenerateMT(uint32_t* pBuffer, int32_t iCount) {
   uint32_t dwSeed;
@@ -602,7 +602,7 @@ void FX_Random_GenerateBase(uint32_t* pBuffer, int32_t iCount) {
   ::GetSystemTime(&st1);
   do {
     ::GetSystemTime(&st2);
-  } while (FXSYS_memcmp(&st1, &st2, sizeof(SYSTEMTIME)) == 0);
+  } while (memcmp(&st1, &st2, sizeof(SYSTEMTIME)) == 0);
   uint32_t dwHash1 =
       FX_HashCode_GetA(CFX_ByteStringC((uint8_t*)&st1, sizeof(st1)), true);
   uint32_t dwHash2 =

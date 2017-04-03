@@ -160,7 +160,7 @@ bool CFX_DIBitmap::Create(int width,
     ret = BuildAlphaMask();
     if (!ret) {
       if (!m_bExtBuf) {
-        FX_Free(m_pBuffer);
+        free(m_pBuffer);
         m_pBuffer = nullptr;
         m_Width = m_Height = m_Pitch = 0;
         return false;
@@ -180,14 +180,14 @@ bool CFX_DIBitmap::Copy(const CFX_RetainPtr<CFX_DIBSource>& pSrc) {
   SetPalette(pSrc->GetPalette());
   SetAlphaMask(pSrc->m_pAlphaMask);
   for (int row = 0; row < pSrc->GetHeight(); row++)
-    FXSYS_memcpy(m_pBuffer + row * m_Pitch, pSrc->GetScanline(row), m_Pitch);
+    memcpy(m_pBuffer + row * m_Pitch, pSrc->GetScanline(row), m_Pitch);
 
   return true;
 }
 
 CFX_DIBitmap::~CFX_DIBitmap() {
   if (!m_bExtBuf)
-    FX_Free(m_pBuffer);
+    free(m_pBuffer);
 
   m_pBuffer = nullptr;
 }
@@ -202,7 +202,7 @@ const uint8_t* CFX_DIBitmap::GetScanline(int line) const {
 
 void CFX_DIBitmap::TakeOver(CFX_RetainPtr<CFX_DIBitmap>&& pSrcBitmap) {
   if (!m_bExtBuf)
-    FX_Free(m_pBuffer);
+    free(m_pBuffer);
 
   m_pBuffer = pSrcBitmap->m_pBuffer;
   m_pPalette = std::move(pSrcBitmap->m_pPalette);
@@ -223,20 +223,19 @@ void CFX_DIBitmap::Clear(uint32_t color) {
   }
   switch (GetFormat()) {
     case FXDIB_1bppMask:
-      FXSYS_memset(m_pBuffer, (color & 0xff000000) ? 0xff : 0,
-                   m_Pitch * m_Height);
+      memset(m_pBuffer, (color & 0xff000000) ? 0xff : 0, m_Pitch * m_Height);
       break;
     case FXDIB_1bppRgb: {
       int index = FindPalette(color);
-      FXSYS_memset(m_pBuffer, index ? 0xff : 0, m_Pitch * m_Height);
+      memset(m_pBuffer, index ? 0xff : 0, m_Pitch * m_Height);
       break;
     }
     case FXDIB_8bppMask:
-      FXSYS_memset(m_pBuffer, color >> 24, m_Pitch * m_Height);
+      memset(m_pBuffer, color >> 24, m_Pitch * m_Height);
       break;
     case FXDIB_8bppRgb: {
       int index = FindPalette(color);
-      FXSYS_memset(m_pBuffer, index, m_Pitch * m_Height);
+      memset(m_pBuffer, index, m_Pitch * m_Height);
       break;
     }
     case FXDIB_Rgb:
@@ -244,7 +243,7 @@ void CFX_DIBitmap::Clear(uint32_t color) {
       int a, r, g, b;
       ArgbDecode(color, a, r, g, b);
       if (r == g && g == b) {
-        FXSYS_memset(m_pBuffer, r, m_Pitch * m_Height);
+        memset(m_pBuffer, r, m_Pitch * m_Height);
       } else {
         int byte_pos = 0;
         for (int col = 0; col < m_Width; col++) {
@@ -253,7 +252,7 @@ void CFX_DIBitmap::Clear(uint32_t color) {
           m_pBuffer[byte_pos++] = r;
         }
         for (int row = 1; row < m_Height; row++) {
-          FXSYS_memcpy(m_pBuffer + row * m_Pitch, m_pBuffer, m_Pitch);
+          memcpy(m_pBuffer + row * m_Pitch, m_pBuffer, m_Pitch);
         }
       }
       break;
@@ -270,7 +269,7 @@ void CFX_DIBitmap::Clear(uint32_t color) {
         ((uint32_t*)m_pBuffer)[i] = color;
       }
       for (int row = 1; row < m_Height; row++) {
-        FXSYS_memcpy(m_pBuffer + row * m_Pitch, m_pBuffer, m_Pitch);
+        memcpy(m_pBuffer + row * m_Pitch, m_pBuffer, m_Pitch);
       }
       break;
     }
@@ -320,7 +319,7 @@ bool CFX_DIBitmap::TransferBitmap(
             m_pBuffer + (dest_top + row) * m_Pitch + dest_left * Bpp;
         const uint8_t* src_scan =
             pSrcBitmap->GetScanline(src_top + row) + src_left * Bpp;
-        FXSYS_memcpy(dest_scan, src_scan, width * Bpp);
+        memcpy(dest_scan, src_scan, width * Bpp);
       }
     }
   } else {
@@ -429,10 +428,10 @@ bool CFX_DIBitmap::TransferMask(int dest_left,
         for (int col = 0; col < width; col++) {
           int src_bitpos = src_left + col;
           if (src_scan[src_bitpos / 8] & (1 << (7 - src_bitpos % 8))) {
-            FXSYS_memcpy(dest_color_pos, color_p, comps);
+            memcpy(dest_color_pos, color_p, comps);
             *dest_alpha_pos = 0xff;
           } else {
-            FXSYS_memset(dest_color_pos, 0, comps);
+            memset(dest_color_pos, 0, comps);
             *dest_alpha_pos = 0;
           }
           dest_color_pos += comps;
@@ -441,7 +440,7 @@ bool CFX_DIBitmap::TransferMask(int dest_left,
       } else {
         src_scan += src_left;
         for (int col = 0; col < width; col++) {
-          FXSYS_memcpy(dest_color_pos, color_p, comps);
+          memcpy(dest_color_pos, color_p, comps);
           dest_color_pos += comps;
           *dest_alpha_pos++ = (alpha * (*src_scan++) / 255);
         }
@@ -598,12 +597,12 @@ bool CFX_DIBitmap::LoadChannel(FXDIB_Channel destChannel, int value) {
   }
   int Bpp = GetBPP() / 8;
   if (Bpp == 1) {
-    FXSYS_memset(m_pBuffer, value, m_Height * m_Pitch);
+    memset(m_pBuffer, value, m_Height * m_Pitch);
     return true;
   }
   if (destChannel == FXDIB_Alpha && m_pAlphaMask) {
-    FXSYS_memset(m_pAlphaMask->GetBuffer(), value,
-                 m_pAlphaMask->GetHeight() * m_pAlphaMask->GetPitch());
+    memset(m_pAlphaMask->GetBuffer(), value,
+           m_pAlphaMask->GetHeight() * m_pAlphaMask->GetPitch());
     return true;
   }
   for (int row = 0; row < m_Height; row++) {
@@ -694,7 +693,7 @@ bool CFX_DIBitmap::GetGrayData(void* pIccTransform) {
       if (!pMask->Create(m_Width, m_Height, FXDIB_8bppMask))
         return false;
 
-      FXSYS_memset(pMask->GetBuffer(), gray[0], pMask->GetPitch() * m_Height);
+      memset(pMask->GetBuffer(), gray[0], pMask->GetPitch() * m_Height);
       for (int row = 0; row < m_Height; row++) {
         uint8_t* src_pos = m_pBuffer + row * m_Pitch;
         uint8_t* dest_pos = (uint8_t*)pMask->GetScanline(row);
@@ -1168,11 +1167,11 @@ void CFX_BitmapStorer::ComposeScanline(int line,
           ? const_cast<uint8_t*>(m_pBitmap->m_pAlphaMask->GetScanline(line))
           : nullptr;
   if (dest_buf)
-    FXSYS_memcpy(dest_buf, scanline, m_pBitmap->GetPitch());
+    memcpy(dest_buf, scanline, m_pBitmap->GetPitch());
 
   if (dest_alpha_buf) {
-    FXSYS_memcpy(dest_alpha_buf, scan_extra_alpha,
-                 m_pBitmap->m_pAlphaMask->GetPitch());
+    memcpy(dest_alpha_buf, scan_extra_alpha,
+           m_pBitmap->m_pAlphaMask->GetPitch());
   }
 }
 

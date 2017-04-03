@@ -280,7 +280,7 @@ CFX_Font::~CFX_Font() {
 #ifdef PDF_ENABLE_XFA
   delete m_pOwnedStream;
 #endif  // PDF_ENABLE_XFA
-  FX_Free(m_pGsubData);
+  free(m_pGsubData);
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_ && !defined _SKIA_SUPPORT_
   ReleasePlatformResource();
 #endif

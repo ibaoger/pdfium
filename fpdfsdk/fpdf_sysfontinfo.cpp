@@ -67,7 +67,7 @@ class CFX_ExternalFontInfo final : public IFX_SystemFontInfo {
     char* buffer = FX_Alloc(char, size);
     size = m_pInfo->GetFaceName(m_pInfo, hFont, buffer, size);
     name = CFX_ByteString(buffer, size);
-    FX_Free(buffer);
+    free(buffer);
     return true;
   }
 
@@ -159,7 +159,9 @@ static unsigned long DefaultGetFaceName(struct _FPDF_SYSFONTINFO* pThis,
     return 0;
   if (name.GetLength() >= (long)buf_size)
     return name.GetLength() + 1;
-  FXSYS_strcpy(buffer, name.c_str());
+
+  // TODO(dsinclair): Should this be snprintf?
+  strcpy(buffer, name.c_str());
   return name.GetLength() + 1;
 }
 
@@ -199,5 +201,5 @@ DLLEXPORT FPDF_SYSFONTINFO* STDCALL FPDF_GetDefaultSystemFontInfo() {
 
 DLLEXPORT void FPDF_FreeDefaultSystemFontInfo(
     FPDF_SYSFONTINFO* pDefaultFontInfo) {
-  FX_Free(static_cast<FPDF_SYSFONTINFO_DEFAULT*>(pDefaultFontInfo));
+  free(static_cast<FPDF_SYSFONTINFO_DEFAULT*>(pDefaultFontInfo));
 }

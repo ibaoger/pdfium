@@ -19,8 +19,7 @@ extern "C" {
 
 static void _png_error_data(png_structp png_ptr, png_const_charp error_msg) {
   if (png_get_error_ptr(png_ptr)) {
-    FXSYS_strncpy((char*)png_get_error_ptr(png_ptr), error_msg,
-                  PNG_ERROR_SIZE - 1);
+    strncpy((char*)png_get_error_ptr(png_ptr), error_msg, PNG_ERROR_SIZE - 1);
   }
   longjmp(png_jmpbuf(png_ptr), 1);
 }
@@ -56,7 +55,7 @@ static void _png_load_bmp_attribute(png_structp png_ptr,
     png_timep t = nullptr;
     png_get_tIME(png_ptr, info_ptr, &t);
     if (t) {
-      FXSYS_memset(pAttribute->m_strTime, 0, sizeof(pAttribute->m_strTime));
+      memset(pAttribute->m_strTime, 0, sizeof(pAttribute->m_strTime));
       FXSYS_snprintf((char*)pAttribute->m_strTime,
                      sizeof(pAttribute->m_strTime), "%4u:%2u:%2u %2u:%2u:%2u",
                      t->year, t->month, t->day, t->hour, t->minute, t->second);
@@ -74,16 +73,16 @@ static void _png_load_bmp_attribute(png_structp png_ptr,
     for (i = 0; i < num_text; i++) {
       len = FXSYS_strlen(text[i].key);
       buf = "Time";
-      if (!FXSYS_memcmp(buf, text[i].key, std::min(len, FXSYS_strlen(buf)))) {
+      if (!memcmp(buf, text[i].key, std::min(len, FXSYS_strlen(buf)))) {
         if (!bTime) {
-          FXSYS_memset(pAttribute->m_strTime, 0, sizeof(pAttribute->m_strTime));
-          FXSYS_memcpy(
+          memset(pAttribute->m_strTime, 0, sizeof(pAttribute->m_strTime));
+          memcpy(
               pAttribute->m_strTime, text[i].text,
               std::min(sizeof(pAttribute->m_strTime) - 1, text[i].text_length));
         }
       } else {
         buf = "Author";
-        if (!FXSYS_memcmp(buf, text[i].key, std::min(len, FXSYS_strlen(buf)))) {
+        if (!memcmp(buf, text[i].key, std::min(len, FXSYS_strlen(buf)))) {
           pAttribute->m_strAuthor =
               CFX_ByteString(reinterpret_cast<uint8_t*>(text[i].text),
                              static_cast<FX_STRSIZE>(text[i].text_length));
@@ -106,7 +105,7 @@ static void* _png_alloc_func(unsigned int size) {
   return FX_Alloc(char, size);
 }
 static void _png_free_func(void* p) {
-  FX_Free(p);
+  free(p);
 }
 };
 static void _png_get_header_func(png_structp png_ptr, png_infop info_ptr) {
@@ -216,19 +215,19 @@ FXPNG_Context* CCodec_PngModule::Start() {
   p->png_ptr =
       png_create_read_struct(PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
   if (!p->png_ptr) {
-    FX_Free(p);
+    free(p);
     return nullptr;
   }
   p->info_ptr = png_create_info_struct(p->png_ptr);
   if (!p->info_ptr) {
     png_destroy_read_struct(&(p->png_ptr), nullptr, nullptr);
-    FX_Free(p);
+    free(p);
     return nullptr;
   }
   if (setjmp(png_jmpbuf(p->png_ptr))) {
     if (p) {
       png_destroy_read_struct(&(p->png_ptr), &(p->info_ptr), nullptr);
-      FX_Free(p);
+      free(p);
     }
     return nullptr;
   }
@@ -252,7 +251,7 @@ bool CCodec_PngModule::Input(FXPNG_Context* ctx,
                              CFX_DIBAttribute* pAttribute) {
   if (setjmp(png_jmpbuf(ctx->png_ptr))) {
     if (pAttribute &&
-        0 == FXSYS_strcmp(m_szLastError, "Read Header Callback Error")) {
+        0 == strcmp(m_szLastError, "Read Header Callback Error")) {
       _png_load_bmp_attribute(ctx->png_ptr, ctx->info_ptr, pAttribute);
     }
     return false;

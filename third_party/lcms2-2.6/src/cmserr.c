@@ -262,14 +262,14 @@ cmsBool  _cmsRegisterMemHandlerPlugin(cmsContext ContextID, cmsPluginBase* Plugi
 // Generic allocate
 void* CMSEXPORT _cmsMalloc(cmsContext ContextID, cmsUInt32Number size)
 {
-    return FXMEM_DefaultAlloc(size, 1);
+    return malloc(size);
 }
 
 // Generic allocate & zero
 void* CMSEXPORT _cmsMallocZero(cmsContext ContextID, cmsUInt32Number size)
 {
-	void* p = FXMEM_DefaultAlloc(size, 1);
-	if (p) FXSYS_memset(p, 0, size);
+	void* p = malloc(size);
+	if (p) memset(p, 0, size);
 	return p;
 }
 
@@ -286,20 +286,20 @@ void* CMSEXPORT _cmsCalloc(cmsContext ContextID, cmsUInt32Number num, cmsUInt32N
 // Generic reallocate
 void* CMSEXPORT _cmsRealloc(cmsContext ContextID, void* Ptr, cmsUInt32Number size)
 {
-	return FXMEM_DefaultRealloc(Ptr, size, 1);
+	return realloc(Ptr, size);
 }
 
 // Generic free memory
 void CMSEXPORT _cmsFree(cmsContext ContextID, void* Ptr)
 {
-	if (Ptr != NULL) FXMEM_DefaultFree(Ptr, 0);
+	if (Ptr != NULL) free(Ptr);
 }
 
 // Generic block duplication
 void* CMSEXPORT _cmsDupMem(cmsContext ContextID, const void* Org, cmsUInt32Number size)
 {
-	void* p = FXMEM_DefaultAlloc(size, 1);
-	FXSYS_memmove(p, Org, size);
+	void* p = malloc(size);
+	memmove(p, Org, size);
 	return p;
 }
 

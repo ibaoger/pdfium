@@ -15,16 +15,16 @@
 class CFPF_SkiaPathFont : public CFPF_SkiaFontDescriptor {
  public:
   CFPF_SkiaPathFont() : m_pPath(nullptr) {}
-  ~CFPF_SkiaPathFont() override { FX_Free(m_pPath); }
+  ~CFPF_SkiaPathFont() override { free(m_pPath); }
 
   // CFPF_SkiaFontDescriptor
   int32_t GetType() const override { return FPF_SKIAFONTTYPE_Path; }
 
   void SetPath(const char* pPath) {
-    FX_Free(m_pPath);
+    free(m_pPath);
     int32_t iSize = FXSYS_strlen(pPath);
     m_pPath = FX_Alloc(char, iSize + 1);
-    FXSYS_memcpy(m_pPath, pPath, iSize * sizeof(char));
+    memcpy(m_pPath, pPath, iSize * sizeof(char));
     m_pPath[iSize] = 0;
   }
   char* m_pPath;

@@ -359,8 +359,7 @@ void CFX_Graphics::FillPathWithPattern(CFX_Path* path,
 
   auto mask = pdfium::MakeRetain<CFX_DIBitmap>();
   mask->Create(data.width, data.height, FXDIB_1bppMask);
-  FXSYS_memcpy(mask->GetBuffer(), data.maskBits,
-               mask->GetPitch() * data.height);
+  memcpy(mask->GetBuffer(), data.maskBits, mask->GetPitch() * data.height);
   CFX_FloatRect rectf = path->GetPathData()->GetBoundingBox();
   if (matrix)
     matrix->TransformRect(rectf);
@@ -452,7 +451,7 @@ void CFX_Graphics::FillPathWithShading(CFX_Path* path,
             if (b2_4ac < 0) {
               continue;
             }
-            float root = (FXSYS_sqrt(b2_4ac));
+            float root = (sqrt(b2_4ac));
             float s1, s2;
             if (a > 0) {
               s1 = (-b - root) / (2 * a);

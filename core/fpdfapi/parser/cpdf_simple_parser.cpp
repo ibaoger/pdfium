@@ -154,7 +154,7 @@ bool CPDF_SimpleParser::FindTagParamFromStart(const CFX_ByteStringC& token,
     }
     CFX_ByteStringC word = GetWord();
     if (word.IsEmpty()) {
-      FX_Free(pBuf);
+      free(pBuf);
       return false;
     }
     if (word == token) {
@@ -162,7 +162,7 @@ bool CPDF_SimpleParser::FindTagParamFromStart(const CFX_ByteStringC& token,
         continue;
       }
       m_dwCurPos = pBuf[buf_index];
-      FX_Free(pBuf);
+      free(pBuf);
       return true;
     }
   }

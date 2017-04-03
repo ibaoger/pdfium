@@ -57,17 +57,17 @@ void CCodec_ProgressiveDecoder::CFXCODEC_WeightTable::Calc(int dest_len,
   } else {
     base = 0.0f;
   }
-  m_ItemSize = (int)(sizeof(int) * 2 +
-                     sizeof(int) * (FXSYS_ceil(FXSYS_fabs((float)scale)) + 1));
+  m_ItemSize =
+      (int)(sizeof(int) * 2 + sizeof(int) * (ceil(fabs((float)scale)) + 1));
   m_DestMin = dest_min;
   m_pWeightTables.resize((dest_max - dest_min) * m_ItemSize + 4);
-  if (FXSYS_fabs((float)scale) < 1.0f) {
+  if (fabs((float)scale) < 1.0f) {
     for (int dest_pixel = dest_min; dest_pixel < dest_max; dest_pixel++) {
       PixelWeight& pixel_weights = *GetPixelWeight(dest_pixel);
       double src_pos = dest_pixel * scale + scale / 2 + base;
       if (bInterpol) {
-        pixel_weights.m_SrcStart = (int)FXSYS_floor((float)src_pos - 1.0f / 2);
-        pixel_weights.m_SrcEnd = (int)FXSYS_floor((float)src_pos + 1.0f / 2);
+        pixel_weights.m_SrcStart = (int)floor((float)src_pos - 1.0f / 2);
+        pixel_weights.m_SrcEnd = (int)floor((float)src_pos + 1.0f / 2);
         if (pixel_weights.m_SrcStart < src_min) {
           pixel_weights.m_SrcStart = src_min;
         }
@@ -83,7 +83,7 @@ void CCodec_ProgressiveDecoder::CFXCODEC_WeightTable::Calc(int dest_len,
         }
       } else {
         pixel_weights.m_SrcStart = pixel_weights.m_SrcEnd =
-            (int)FXSYS_floor((float)src_pos);
+            (int)floor((float)src_pos);
         pixel_weights.m_Weights[0] = 65536;
       }
     }
@@ -95,11 +95,11 @@ void CCodec_ProgressiveDecoder::CFXCODEC_WeightTable::Calc(int dest_len,
     double src_end = src_start + scale;
     int start_i, end_i;
     if (src_start < src_end) {
-      start_i = (int)FXSYS_floor((float)src_start);
-      end_i = (int)FXSYS_ceil((float)src_end);
+      start_i = (int)floor((float)src_start);
+      end_i = (int)ceil((float)src_end);
     } else {
-      start_i = (int)FXSYS_floor((float)src_end);
-      end_i = (int)FXSYS_ceil((float)src_start);
+      start_i = (int)floor((float)src_end);
+      end_i = (int)ceil((float)src_start);
     }
     if (start_i < src_min) {
       start_i = src_min;
@@ -304,9 +304,9 @@ CCodec_ProgressiveDecoder::~CCodec_ProgressiveDecoder() {
     m_pCodecMgr->GetPngModule()->Finish(m_pPngContext);
   if (m_pTiffContext)
     m_pCodecMgr->GetTiffModule()->DestroyDecoder(m_pTiffContext);
-  FX_Free(m_pSrcBuf);
-  FX_Free(m_pDecodeBuf);
-  FX_Free(m_pSrcPalette);
+  free(m_pSrcBuf);
+  free(m_pDecodeBuf);
+  free(m_pSrcPalette);
 }
 
 bool CCodec_ProgressiveDecoder::JpegReadMoreData(CCodec_JpegModule* pJpegModule,
@@ -331,7 +331,7 @@ bool CCodec_ProgressiveDecoder::JpegReadMoreData(CCodec_JpegModule* pJpegModule,
   } else {
     uint32_t dwConsume = m_SrcSize - dwAvail;
     if (dwAvail) {
-      FXSYS_memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
+      memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
     }
     if (dwSize > dwConsume) {
       dwSize = dwConsume;
@@ -593,7 +593,7 @@ bool CCodec_ProgressiveDecoder::GifReadMoreData(ICodec_GifModule* pGifModule,
   } else {
     uint32_t dwConsume = m_SrcSize - dwAvail;
     if (dwAvail) {
-      FXSYS_memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
+      memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
     }
     if (dwSize > dwConsume) {
       dwSize = dwConsume;
@@ -682,7 +682,7 @@ bool CCodec_ProgressiveDecoder::GifInputRecordPositionBuf(
       case 3: {
         uint8_t gray =
             FXRGB2GRAY(FXARGB_R(argb), FXARGB_G(argb), FXARGB_B(argb));
-        FXSYS_memset(pScanline, gray, sizeX);
+        memset(pScanline, gray, sizeX);
         break;
       }
       case 8: {
@@ -724,11 +724,11 @@ void CCodec_ProgressiveDecoder::GifReadScanline(int32_t row_num,
   if (m_GifTransIndex != -1 && m_pDeviceBitmap->HasAlpha()) {
     pal_index = m_GifTransIndex;
   }
-  FXSYS_memset(m_pDecodeBuf, pal_index, m_SrcWidth);
+  memset(m_pDecodeBuf, pal_index, m_SrcWidth);
   bool bLastPass = (row_num % 2) == 1;
   int32_t line = row_num + m_GifFrameRect.top;
   int32_t left = m_GifFrameRect.left;
-  FXSYS_memcpy(m_pDecodeBuf + left, row_buf, img_width);
+  memcpy(m_pDecodeBuf + left, row_buf, img_width);
   int src_top = m_clipBox.top;
   int src_bottom = m_clipBox.bottom;
   int des_top = m_startY;
@@ -762,7 +762,7 @@ void CCodec_ProgressiveDecoder::GifReadScanline(int32_t row_num,
       uint8_t* scan_des =
           (uint8_t*)pDIBitmap->GetScanline(cur_row) + des_ScanOffet;
       uint32_t size = m_sizeX * des_Bpp;
-      FXSYS_memmove(scan_des, scan_src, size);
+      memmove(scan_des, scan_src, size);
     }
   }
   if (bLastPass)
@@ -872,7 +872,7 @@ bool CCodec_ProgressiveDecoder::BmpReadMoreData(ICodec_BmpModule* pBmpModule,
   } else {
     uint32_t dwConsume = m_SrcSize - dwAvail;
     if (dwAvail) {
-      FXSYS_memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
+      memmove(m_pSrcBuf, m_pSrcBuf + dwConsume, dwAvail);
     }
     if (dwSize > dwConsume) {
       dwSize = dwConsume;
@@ -897,7 +897,7 @@ void CCodec_ProgressiveDecoder::BmpReadScanline(int32_t row_num,
                                                 uint8_t* row_buf) {
   CFX_RetainPtr<CFX_DIBitmap> pDIBitmap = m_pDeviceBitmap;
   ASSERT(pDIBitmap);
-  FXSYS_memcpy(m_pDecodeBuf, row_buf, m_ScanlineSize);
+  memcpy(m_pDecodeBuf, row_buf, m_ScanlineSize);
   int src_top = m_clipBox.top;
   int src_bottom = m_clipBox.bottom;
   int des_top = m_startY;
@@ -941,7 +941,7 @@ void CCodec_ProgressiveDecoder::ResampleVertBT(
       uint8_t* scan_des =
           (uint8_t*)pDeviceBitmap->GetScanline(des_row) + des_ScanOffet;
       uint32_t size = m_sizeX * des_Bpp;
-      FXSYS_memmove(scan_des, scan_src, size);
+      memmove(scan_des, scan_src, size);
     }
     return;
   }
@@ -1015,9 +1015,9 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
   if (size > FXCODEC_BLOCK_SIZE) {
     size = FXCODEC_BLOCK_SIZE;
   }
-  FX_Free(m_pSrcBuf);
+  free(m_pSrcBuf);
   m_pSrcBuf = FX_Alloc(uint8_t, size);
-  FXSYS_memset(m_pSrcBuf, 0, size);
+  memset(m_pSrcBuf, 0, size);
   m_SrcSize = size;
   switch (imageType) {
     case FXCODEC_IMAGE_BMP: {
@@ -1056,11 +1056,11 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
       if (readResult == 1) {
         m_SrcBPC = 8;
         m_clipBox = FX_RECT(0, 0, m_SrcWidth, m_SrcHeight);
-        FX_Free(m_pSrcPalette);
+        free(m_pSrcPalette);
         if (m_SrcPaletteNumber) {
           m_pSrcPalette = FX_Alloc(FX_ARGB, m_SrcPaletteNumber);
-          FXSYS_memcpy(m_pSrcPalette, pPalette,
-                       m_SrcPaletteNumber * sizeof(uint32_t));
+          memcpy(m_pSrcPalette, pPalette,
+                 m_SrcPaletteNumber * sizeof(uint32_t));
         } else {
           m_pSrcPalette = nullptr;
         }
@@ -1148,9 +1148,9 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
           return false;
         }
         if (m_pSrcBuf && input_size > m_SrcSize) {
-          FX_Free(m_pSrcBuf);
+          free(m_pSrcBuf);
           m_pSrcBuf = FX_Alloc(uint8_t, input_size);
-          FXSYS_memset(m_pSrcBuf, 0, input_size);
+          memset(m_pSrcBuf, 0, input_size);
           m_SrcSize = input_size;
         }
         bResult = m_pFile->ReadBlock(m_pSrcBuf, m_offSet, input_size);
@@ -1531,7 +1531,7 @@ void CCodec_ProgressiveDecoder::ReSampleScanline(
               pPixelWeights->m_Weights[j - pPixelWeights->m_SrcStart];
           des_g += pixel_weight * src_scan[j];
         }
-        FXSYS_memset(des_scan, (uint8_t)(des_g >> 16), 3);
+        memset(des_scan, (uint8_t)(des_g >> 16), 3);
         des_scan += des_Bpp;
       } break;
       case 8: {
@@ -1664,7 +1664,7 @@ void CCodec_ProgressiveDecoder::ResampleVert(
           uint8_t* scan_des =
               (uint8_t*)pDeviceBitmap->GetScanline(des_row) + des_ScanOffet;
           uint32_t size = m_sizeX * des_Bpp;
-          FXSYS_memmove(scan_des, scan_src, size);
+          memmove(scan_des, scan_src, size);
         }
       }
       return;
@@ -1739,12 +1739,12 @@ void CCodec_ProgressiveDecoder::ResampleVert(
         uint8_t* scan_des =
             (uint8_t*)pDeviceBitmap->GetScanline(des_row) + des_ScanOffet;
         uint32_t size = m_sizeX * des_Bpp;
-        FXSYS_memmove(scan_des, scan_src, size);
+        memmove(scan_des, scan_src, size);
       }
     }
     return;
   }
-  int multiple = (int)FXSYS_ceil((float)scale_y - 1);
+  int multiple = (int)ceil((float)scale_y - 1);
   if (multiple > 0) {
     uint8_t* scan_src =
         (uint8_t*)pDeviceBitmap->GetScanline(des_row) + des_ScanOffet;
@@ -1755,7 +1755,7 @@ void CCodec_ProgressiveDecoder::ResampleVert(
       uint8_t* scan_des =
           (uint8_t*)pDeviceBitmap->GetScanline(des_row + i) + des_ScanOffet;
       uint32_t size = m_sizeX * des_Bpp;
-      FXSYS_memmove(scan_des, scan_src, size);
+      memmove(scan_des, scan_src, size);
     }
   }
 }
@@ -1874,19 +1874,19 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
   if (start_x < 0 || out_range_x > 0) {
     float scaleX = (float)m_clipBox.Width() / (float)size_x;
     if (start_x < 0) {
-      m_clipBox.left -= (int32_t)FXSYS_ceil((float)start_x * scaleX);
+      m_clipBox.left -= (int32_t)ceil((float)start_x * scaleX);
     }
     if (out_range_x > 0) {
-      m_clipBox.right -= (int32_t)FXSYS_floor((float)out_range_x * scaleX);
+      m_clipBox.right -= (int32_t)floor((float)out_range_x * scaleX);
     }
   }
   if (start_y < 0 || out_range_y > 0) {
     float scaleY = (float)m_clipBox.Height() / (float)size_y;
     if (start_y < 0) {
-      m_clipBox.top -= (int32_t)FXSYS_ceil((float)start_y * scaleY);
+      m_clipBox.top -= (int32_t)ceil((float)start_y * scaleY);
     }
     if (out_range_y > 0) {
-      m_clipBox.bottom -= (int32_t)FXSYS_floor((float)out_range_y * scaleY);
+      m_clipBox.bottom -= (int32_t)floor((float)out_range_y * scaleY);
     }
   }
   if (m_clipBox.IsEmpty()) {
@@ -1910,9 +1910,9 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
       }
       int scanline_size = (m_SrcWidth + down_scale - 1) / down_scale;
       scanline_size = (scanline_size * m_SrcComponents + 3) / 4 * 4;
-      FX_Free(m_pDecodeBuf);
+      free(m_pDecodeBuf);
       m_pDecodeBuf = FX_Alloc(uint8_t, scanline_size);
-      FXSYS_memset(m_pDecodeBuf, 0, scanline_size);
+      memset(m_pDecodeBuf, 0, scanline_size);
       m_WeightHorz.Calc(m_sizeX, 0, m_sizeX, m_clipBox.Width(), 0,
                         m_clipBox.Width(), m_bInterpol);
       m_WeightVert.Calc(m_sizeY, m_clipBox.Height());
@@ -1975,9 +1975,9 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
       }
       GetTransMethod(m_pDeviceBitmap->GetFormat(), m_SrcFormat);
       int scanline_size = (m_SrcWidth * m_SrcComponents + 3) / 4 * 4;
-      FX_Free(m_pDecodeBuf);
+      free(m_pDecodeBuf);
       m_pDecodeBuf = FX_Alloc(uint8_t, scanline_size);
-      FXSYS_memset(m_pDecodeBuf, 0, scanline_size);
+      memset(m_pDecodeBuf, 0, scanline_size);
       m_WeightHorzOO.Calc(m_sizeX, m_clipBox.Width(), m_bInterpol);
       m_WeightVert.Calc(m_sizeY, m_clipBox.Height());
       m_status = FXCODEC_STATUS_DECODE_TOBECONTINUE;
@@ -1994,9 +1994,9 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
       m_SrcFormat = FXCodec_8bppRgb;
       GetTransMethod(m_pDeviceBitmap->GetFormat(), m_SrcFormat);
       int scanline_size = (m_SrcWidth + 3) / 4 * 4;
-      FX_Free(m_pDecodeBuf);
+      free(m_pDecodeBuf);
       m_pDecodeBuf = FX_Alloc(uint8_t, scanline_size);
-      FXSYS_memset(m_pDecodeBuf, 0, scanline_size);
+      memset(m_pDecodeBuf, 0, scanline_size);
       m_WeightHorz.Calc(m_sizeX, 0, m_sizeX, m_clipBox.Width(), 0,
                         m_clipBox.Width(), m_bInterpol);
       m_WeightVert.Calc(m_sizeY, m_clipBox.Height());
@@ -2025,9 +2025,9 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
       }
       GetTransMethod(m_pDeviceBitmap->GetFormat(), m_SrcFormat);
       m_ScanlineSize = (m_SrcWidth * m_SrcComponents + 3) / 4 * 4;
-      FX_Free(m_pDecodeBuf);
+      free(m_pDecodeBuf);
       m_pDecodeBuf = FX_Alloc(uint8_t, m_ScanlineSize);
-      FXSYS_memset(m_pDecodeBuf, 0, m_ScanlineSize);
+      memset(m_pDecodeBuf, 0, m_ScanlineSize);
       m_WeightHorz.Calc(m_sizeX, 0, m_sizeX, m_clipBox.Width(), 0,
                         m_clipBox.Width(), m_bInterpol);
       m_WeightVert.Calc(m_sizeY, m_clipBox.Height());
@@ -2100,9 +2100,9 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::ContinueDecode(IFX_Pause* pPause) {
           return m_status;
         }
         if (m_pSrcBuf && input_size > m_SrcSize) {
-          FX_Free(m_pSrcBuf);
+          free(m_pSrcBuf);
           m_pSrcBuf = FX_Alloc(uint8_t, input_size);
-          FXSYS_memset(m_pSrcBuf, 0, input_size);
+          memset(m_pSrcBuf, 0, input_size);
           m_SrcSize = input_size;
         }
         bool bResult = m_pFile->ReadBlock(m_pSrcBuf, m_offSet, input_size);

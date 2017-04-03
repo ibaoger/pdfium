@@ -132,7 +132,7 @@ uint8_t* CBC_OnedEAN8Writer::Encode(const CFX_ByteString& contents,
   int32_t pos = 0;
   pos += AppendPattern(result, pos, START_END_PATTERN, 3, 1, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   int32_t i = 0;
@@ -140,26 +140,26 @@ uint8_t* CBC_OnedEAN8Writer::Encode(const CFX_ByteString& contents,
     int32_t digit = FXSYS_atoi(contents.Mid(i, 1).c_str());
     pos += AppendPattern(result, pos, L_PATTERNS[digit], 4, 0, e);
     if (e != BCExceptionNO) {
-      FX_Free(result);
+      free(result);
       return nullptr;
     }
   }
   pos += AppendPattern(result, pos, MIDDLE_PATTERN, 5, 0, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   for (i = 4; i <= 7; i++) {
     int32_t digit = FXSYS_atoi(contents.Mid(i, 1).c_str());
     pos += AppendPattern(result, pos, L_PATTERNS[digit], 4, 1, e);
     if (e != BCExceptionNO) {
-      FX_Free(result);
+      free(result);
       return nullptr;
     }
   }
   pos += AppendPattern(result, pos, START_END_PATTERN, 3, 1, e);
   if (e != BCExceptionNO) {
-    FX_Free(result);
+    free(result);
     return nullptr;
   }
   return result;
@@ -182,7 +182,7 @@ void CBC_OnedEAN8Writer::ShowChars(
   CFX_ByteString str = FX_UTF8Encode(contents);
   int32_t iLength = str.GetLength();
   FXTEXT_CHARPOS* pCharPos = FX_Alloc(FXTEXT_CHARPOS, iLength);
-  FXSYS_memset(pCharPos, 0, sizeof(FXTEXT_CHARPOS) * iLength);
+  memset(pCharPos, 0, sizeof(FXTEXT_CHARPOS) * iLength);
   CFX_ByteString tempStr = str.Mid(0, 4);
   int32_t iLen = tempStr.GetLength();
   int32_t strWidth = 7 * multiple * 4;
@@ -256,7 +256,7 @@ void CBC_OnedEAN8Writer::ShowChars(
                            static_cast<float>(iFontSize), &affine_matrix1,
                            m_fontColor, FXTEXT_CLEARTYPE);
   }
-  FX_Free(pCharPos);
+  free(pCharPos);
 }
 
 void CBC_OnedEAN8Writer::RenderResult(const CFX_WideStringC& contents,

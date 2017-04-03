@@ -33,7 +33,7 @@ CPDF_ContentParser::CPDF_ContentParser()
 
 CPDF_ContentParser::~CPDF_ContentParser() {
   if (!m_pSingleStream)
-    FX_Free(m_pData);
+    free(m_pData);
 }
 
 void CPDF_ContentParser::Start(CPDF_Page* pPage) {
@@ -142,7 +142,7 @@ void CPDF_ContentParser::Continue(IFX_Pause* pPause) {
           m_pData = FX_Alloc(uint8_t, m_Size);
           uint32_t pos = 0;
           for (const auto& stream : m_StreamArray) {
-            FXSYS_memcpy(m_pData + pos, stream->GetData(), stream->GetSize());
+            memcpy(m_pData + pos, stream->GetData(), stream->GetSize());
             pos += stream->GetSize();
             m_pData[pos++] = ' ';
           }

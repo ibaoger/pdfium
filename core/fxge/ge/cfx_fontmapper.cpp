@@ -216,7 +216,7 @@ CFX_ByteString GetFontFamily(CFX_ByteString fontName, int nStyle) {
       fontName = "FreeStyleScript";
     return fontName;
   }
-  AltFontFamily* found = reinterpret_cast<AltFontFamily*>(FXSYS_bsearch(
+  AltFontFamily* found = reinterpret_cast<AltFontFamily*>(bsearch(
       fontName.c_str(), g_AltFontFamilies, FX_ArraySize(g_AltFontFamilies),
       sizeof(AltFontFamily), CompareFontFamilyString));
   return found ? CFX_ByteString(found->m_pFontFamily) : fontName;
@@ -280,7 +280,7 @@ CFX_FontMapper::CFX_FontMapper(CFX_FontMgr* mgr)
     : m_bListLoaded(false), m_pFontMgr(mgr) {
   m_MMFaces[0] = nullptr;
   m_MMFaces[1] = nullptr;
-  FXSYS_memset(m_FoxitFaces, 0, sizeof(m_FoxitFaces));
+  memset(m_FoxitFaces, 0, sizeof(m_FoxitFaces));
 }
 
 CFX_FontMapper::~CFX_FontMapper() {
@@ -707,7 +707,7 @@ FXFT_Face CFX_FontMapper::FindSubstFont(const CFX_ByteString& name,
   if (bItalic && !FXFT_Is_Face_Italic(face)) {
     if (italic_angle == 0)
       italic_angle = -12;
-    else if (FXSYS_abs(italic_angle) < 5)
+    else if (abs(italic_angle) < 5)
       italic_angle = 0;
     pSubstFont->m_ItalicAngle = italic_angle;
   }
@@ -809,8 +809,8 @@ FXFT_Face CFX_FontMapper::GetCachedFace(void* hFont,
 
 int PDF_GetStandardFontName(CFX_ByteString* name) {
   AltFontName* found = static_cast<AltFontName*>(
-      FXSYS_bsearch(name->c_str(), g_AltFontNames, FX_ArraySize(g_AltFontNames),
-                    sizeof(AltFontName), CompareString));
+      bsearch(name->c_str(), g_AltFontNames, FX_ArraySize(g_AltFontNames),
+              sizeof(AltFontName), CompareString));
   if (!found)
     return -1;
 

@@ -53,7 +53,7 @@ uint32_t DecodeAllScanlines(std::unique_ptr<CCodec_ScanlineDecoder> pDecoder,
     if (!pLine)
       break;
 
-    FXSYS_memcpy(dest_buf + row * pitch, pLine, pitch);
+    memcpy(dest_buf + row * pitch, pLine, pitch);
   }
   return pDecoder->GetSrcOffset();
 }
@@ -184,7 +184,7 @@ std::unique_ptr<CPDF_Stream> CPDF_StreamParser::ReadInlineStream(
     if (OrigSize > m_Size - m_Pos)
       OrigSize = m_Size - m_Pos;
     pData.reset(FX_Alloc(uint8_t, OrigSize));
-    FXSYS_memcpy(pData.get(), m_pBuf + m_Pos, OrigSize);
+    memcpy(pData.get(), m_pBuf + m_Pos, OrigSize);
     dwStreamSize = OrigSize;
     m_Pos += OrigSize;
   } else {
@@ -193,7 +193,7 @@ std::unique_ptr<CPDF_Stream> CPDF_StreamParser::ReadInlineStream(
     dwStreamSize =
         PDF_DecodeInlineStream(m_pBuf + m_Pos, m_Size - m_Pos, width, height,
                                Decoder, pParam, pIgnore, dwDestSize);
-    FX_Free(pIgnore);
+    free(pIgnore);
     if (static_cast<int>(dwStreamSize) < 0)
       return nullptr;
 
@@ -217,7 +217,7 @@ std::unique_ptr<CPDF_Stream> CPDF_StreamParser::ReadInlineStream(
     }
     m_Pos = dwSavePos;
     pData.reset(FX_Alloc(uint8_t, dwStreamSize));
-    FXSYS_memcpy(pData.get(), m_pBuf + m_Pos, dwStreamSize);
+    memcpy(pData.get(), m_pBuf + m_Pos, dwStreamSize);
     m_Pos += dwStreamSize;
   }
   pDict->SetNewFor<CPDF_Number>("Length", (int)dwStreamSize);

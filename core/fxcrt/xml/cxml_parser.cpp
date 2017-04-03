@@ -164,7 +164,7 @@ CXML_DataStmAcc::CXML_DataStmAcc(
 }
 
 CXML_DataStmAcc::~CXML_DataStmAcc() {
-  FX_Free(m_pBuffer);
+  free(m_pBuffer);
 }
 
 bool CXML_DataStmAcc::IsEOF() {

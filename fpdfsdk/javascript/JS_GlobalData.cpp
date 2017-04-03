@@ -305,7 +305,7 @@ void CJS_GlobalData::LoadGlobalPersistentVariables() {
         }
       }
     }
-    FX_Free(pBuffer);
+    free(pBuffer);
   }
 }
 

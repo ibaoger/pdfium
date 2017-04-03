@@ -117,35 +117,16 @@ void FXSYS_vsnprintf(char* str, size_t size, const char* fmt, va_list ap);
 #else
 #define FXSYS_snprintf (void)snprintf
 #define FXSYS_vsnprintf (void)vsnprintf
-#endif
-
-#define FXSYS_sprintf DO_NOT_USE_SPRINTF_DIE_DIE_DIE
-#define FXSYS_vsprintf DO_NOT_USE_VSPRINTF_DIE_DIE_DIE
-#define FXSYS_strncmp strncmp
-#define FXSYS_strcmp strcmp
-#define FXSYS_strcpy strcpy
-#define FXSYS_strncpy strncpy
-#define FXSYS_strstr strstr
-#define FXSYS_FILE FILE
-#define FXSYS_fopen fopen
-#define FXSYS_fclose fclose
-#define FXSYS_SEEK_END SEEK_END
-#define FXSYS_SEEK_SET SEEK_SET
-#define FXSYS_fseek fseek
-#define FXSYS_ftell ftell
-#define FXSYS_fread fread
-#define FXSYS_fwrite fwrite
-#define FXSYS_fprintf fprintf
-#define FXSYS_fflush fflush
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_ && _MSC_VER < 1900
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 #ifdef _NATIVE_WCHAR_T_DEFINED
 #define FXSYS_wfopen(f, m) _wfopen((const wchar_t*)(f), (const wchar_t*)(m))
 #else
 #define FXSYS_wfopen _wfopen
-#endif
+#endif  // _NATIVE_WCHAR_T_DEFINED
 #else
-FXSYS_FILE* FXSYS_wfopen(const wchar_t* filename, const wchar_t* mode);
+FILE* FXSYS_wfopen(const wchar_t* filename, const wchar_t* mode);
 #endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
 #ifdef __cplusplus
@@ -185,20 +166,7 @@ extern "C" {
 #else
 #define FXSYS_strlen(ptr) ((FX_STRSIZE)strlen(ptr))
 #define FXSYS_wcslen(ptr) ((FX_STRSIZE)wcslen(ptr))
-#endif
-
-#define FXSYS_wcscmp wcscmp
-#define FXSYS_wcsstr wcsstr
-#define FXSYS_wcsncmp wcsncmp
-#define FXSYS_vswprintf vswprintf
-#define FXSYS_mbstowcs mbstowcs
-#define FXSYS_wcstombs wcstombs
-#define FXSYS_memcmp memcmp
-#define FXSYS_memcpy memcpy
-#define FXSYS_memmove memmove
-#define FXSYS_memset memset
-#define FXSYS_qsort qsort
-#define FXSYS_bsearch bsearch
+#endif  // __cplusplus
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 #define FXSYS_GetACP GetACP
@@ -206,6 +174,10 @@ extern "C" {
 #define FXSYS_strlwr _strlwr
 #define FXSYS_strupr _strupr
 #define FXSYS_stricmp _stricmp
+#define FXSYS_pow(a, b) (float)powf(a, b)
+#define FXSYS_GetFullPathName GetFullPathName
+#define FXSYS_GetModuleFileName GetModuleFileName
+
 #ifdef _NATIVE_WCHAR_T_DEFINED
 #define FXSYS_wcsicmp(str1, str2) _wcsicmp((wchar_t*)(str1), (wchar_t*)(str2))
 #define FXSYS_WideCharToMultiByte(p1, p2, p3, p4, p5, p6, p7, p8) \
@@ -220,10 +192,10 @@ extern "C" {
 #define FXSYS_MultiByteToWideChar MultiByteToWideChar
 #define FXSYS_wcslwr _wcslwr
 #define FXSYS_wcsupr _wcsupr
-#endif
-#define FXSYS_GetFullPathName GetFullPathName
-#define FXSYS_GetModuleFileName GetModuleFileName
+#endif  // _NATIVE_WCHAR_T_DEFINED
+
 #else
+#define FXSYS_pow(a, b) (float)pow(a, b)
 int FXSYS_GetACP();
 char* FXSYS_itoa(int value, char* str, int radix);
 int FXSYS_WideCharToMultiByte(uint32_t codepage,
@@ -251,35 +223,16 @@ int FXSYS_stricmp(const char*, const char*);
 int FXSYS_wcsicmp(const wchar_t* str1, const wchar_t* str2);
 wchar_t* FXSYS_wcslwr(wchar_t* str);
 wchar_t* FXSYS_wcsupr(wchar_t* str);
+
 #endif  // _FXM_PLATFORM == _FXM_PLATFORM_WINDOWS_
 
-#if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-#define FXSYS_pow(a, b) (float)powf(a, b)
-#else
-#define FXSYS_pow(a, b) (float)pow(a, b)
-#endif
-#define FXSYS_sqrt(a) (float)sqrt(a)
-#define FXSYS_fabs(a) (float)fabs(a)
-#define FXSYS_atan2(a, b) (float)atan2(a, b)
-#define FXSYS_ceil(a) (float)ceil(a)
-#define FXSYS_floor(a) (float)floor(a)
-#define FXSYS_cos(a) (float)cos(a)
-#define FXSYS_acos(a) (float)acos(a)
-#define FXSYS_sin(a) (float)sin(a)
-#define FXSYS_log(a) (float)log(a)
-#define FXSYS_log10(a) (float)log10(a)
-#define FXSYS_fmod(a, b) (float)fmod(a, b)
-#define FXSYS_abs abs
 #define FXDWORD_GET_LSBFIRST(p)                                                \
   ((static_cast<uint32_t>(p[3]) << 24) | (static_cast<uint32_t>(p[2]) << 16) | \
    (static_cast<uint32_t>(p[1]) << 8) | (static_cast<uint32_t>(p[0])))
 #define FXDWORD_GET_MSBFIRST(p)                                                \
   ((static_cast<uint32_t>(p[0]) << 24) | (static_cast<uint32_t>(p[1]) << 16) | \
    (static_cast<uint32_t>(p[2]) << 8) | (static_cast<uint32_t>(p[3])))
-#define FXSYS_HIBYTE(word) ((uint8_t)((word) >> 8))
-#define FXSYS_LOBYTE(word) ((uint8_t)(word))
-#define FXSYS_HIWORD(dword) ((uint16_t)((dword) >> 16))
-#define FXSYS_LOWORD(dword) ((uint16_t)(dword))
+
 int32_t FXSYS_atoi(const char* str);
 uint32_t FXSYS_atoui(const char* str);
 int32_t FXSYS_wtoi(const wchar_t* str);
@@ -287,10 +240,11 @@ int64_t FXSYS_atoi64(const char* str);
 int64_t FXSYS_wtoi64(const wchar_t* str);
 const char* FXSYS_i64toa(int64_t value, char* str, int radix);
 int FXSYS_round(float f);
-#define FXSYS_sqrt2(a, b) (float)FXSYS_sqrt((a) * (a) + (b) * (b))
+#define FXSYS_sqrt2(a, b) (float)sqrt((a) * (a) + (b) * (b))
+
 #ifdef __cplusplus
-};
-#endif
+};      // extern "C"
+#endif  // __cplusplus
 
 // To print a size_t value in a portable way:
 //   size_t size;
@@ -330,7 +284,7 @@ int FXSYS_round(float f);
 #define NEVER_INLINE __attribute__((__noinline__))
 #endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
-// Handle differnces between platform's variadic function implementations.
+// Handle differences between platform's variadic function implementations.
 #if defined(__ARMCC_VERSION) ||                                              \
     (!defined(_MSC_VER) && (_FX_CPU_ == _FX_X64_ || _FX_CPU_ == _FX_IA64_ || \
                             _FX_CPU_ == _FX_ARM64_)) ||                      \
