@@ -159,7 +159,10 @@ static unsigned long DefaultGetFaceName(struct _FPDF_SYSFONTINFO* pThis,
     return 0;
   if (name.GetLength() >= (long)buf_size)
     return name.GetLength() + 1;
-  FXSYS_strcpy(buffer, name.c_str());
+
+  // TODO(dsinclair): Should this be snprintf?
+  // NOLINTNEXTLINE(runtime/printf)
+  strcpy(buffer, name.c_str());
   return name.GetLength() + 1;
 }
 
