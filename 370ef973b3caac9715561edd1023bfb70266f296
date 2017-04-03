@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "261179ee_ad5d2d58",
+        "filename": "core/fxcrt/fx_basic_memmgr_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T14:56:29Z",
+      "side": 1,
+      "message": "Can this be removed?",
+      "revId": "370ef973b3caac9715561edd1023bfb70266f296",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
