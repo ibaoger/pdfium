@@ -7,9 +7,11 @@
 #ifndef CORE_FPDFAPI_RENDER_CPDF_TRANSFERFUNC_H_
 #define CORE_FPDFAPI_RENDER_CPDF_TRANSFERFUNC_H_
 
+#include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxge/fx_dib.h"
 
 class CPDF_Document;
+class CFX_DIBSource;
 
 class CPDF_TransferFunc {
  public:
