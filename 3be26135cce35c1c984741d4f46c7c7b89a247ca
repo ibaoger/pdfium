@@ -22,6 +22,30 @@
       "revId": "3be26135cce35c1c984741d4f46c7c7b89a247ca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5651576_3ee295da",
+        "filename": "xfa/fde/xml/cfde_xmlchardata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-03T20:48:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0d05052_e168aabb",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "3be26135cce35c1c984741d4f46c7c7b89a247ca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
