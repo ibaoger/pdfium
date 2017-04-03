@@ -1303,7 +1303,8 @@ bool CPDF_RenderStatus::ProcessPath(CPDF_PathObject* pPathObj,
       fill_argb, stroke_argb, FillType, m_curBlend);
 }
 
-CPDF_TransferFunc* CPDF_RenderStatus::GetTransferFunc(CPDF_Object* pObj) const {
+CFX_RetainPtr<CPDF_TransferFunc> CPDF_RenderStatus::GetTransferFunc(
+    CPDF_Object* pObj) const {
   ASSERT(pObj);
   CPDF_DocRenderData* pDocCache = m_pContext->GetDocument()->GetRenderData();
   return pDocCache ? pDocCache->GetTransferFunc(pObj) : nullptr;
