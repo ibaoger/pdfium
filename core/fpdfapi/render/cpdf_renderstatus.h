@@ -141,10 +141,10 @@ class CPDF_RenderStatus {
   CFX_RetainPtr<CFX_DIBitmap> LoadSMask(CPDF_Dictionary* pSMaskDict,
                                         FX_RECT* pClipRect,
                                         const CFX_Matrix* pMatrix);
-  static CPDF_Type3Cache* GetCachedType3(CPDF_Type3Font* pFont);
+  static CFX_RetainPtr<CPDF_Type3Cache> GetCachedType3(CPDF_Type3Font* pFont);
   static CPDF_GraphicStates* CloneObjStates(const CPDF_GraphicStates* pPathObj,
                                             bool bStroke);
-  CPDF_TransferFunc* GetTransferFunc(CPDF_Object* pObject) const;
+  CFX_RetainPtr<CPDF_TransferFunc> GetTransferFunc(CPDF_Object* pObject) const;
   FX_ARGB GetFillArgb(CPDF_PageObject* pObj, bool bType3 = false) const;
   FX_ARGB GetStrokeArgb(CPDF_PageObject* pObj) const;
   bool GetObjectClippedRect(const CPDF_PageObject* pObj,
