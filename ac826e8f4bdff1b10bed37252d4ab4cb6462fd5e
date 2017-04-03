@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "c6ca5815_98b5c02e",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-03T23:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b87d9ef_c073a369",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 18
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef126941_0e21d233",
         "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
         "patchSetId": 2
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "030c1f87_ef40b08a",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-03T23:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef126941_0e21d233",
+      "range": {
+        "startLine": 266,
+        "startChar": 18,
+        "endLine": 266,
+        "endChar": 37
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad2252ac_9c48facf",
         "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2017-04-03T19:23:54Z",
       "side": 1,
       "message": "do we hand these off to something, or can the vector just contain the pair directly?",
+      "range": {
+        "startLine": 562,
+        "startChar": 14,
+        "endLine": 562,
+        "endChar": 30
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec50c47_e78b68ef",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-03T23:27:32Z",
+      "side": 1,
+      "message": "Sure. I rewrote CBC_QRCoderBlockPair to make work better with std::vector.",
+      "parentUuid": "ad2252ac_9c48facf",
       "range": {
         "startLine": 562,
         "startChar": 14,
