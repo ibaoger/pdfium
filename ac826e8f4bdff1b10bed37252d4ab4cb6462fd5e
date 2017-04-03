@@ -1,4 +1,74 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1491036814 -0700\nnonce AIcUUg+No4w0WO9hw6VG/C+r3xj8q6Jqym4ydR6f60/GU4YLOaFmWbN8Y6ZsRZfd/odKoMtZm5EW\n\n0000000000000000000000000000000000000000 ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e refs/for/refs/heads/master%m\u003dwin,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY32qOAAoJEKs2LWFaZv17++gH+gNtYPEVpUoIm4736YSYxpRy\nk9YFNR3I/C0/0yYlY3XweBCOFyEAZ32w4yFeB3M2Ii5CQfPjap1oQZJViH5lYp8u\nIWARcbGRCQLUMOYLWjJE2YgHnqRDHx76/flsC9j1EQt5JUYPQ4AECW4YzAYfR+3M\nJlFBu6btB1Owi9WO/wDeVHnRwCIEpTCMluFRMakVtiL+WOI4LHeax1z/SQkufF+S\nGZRSD5Rf+a3oER2tTvnZ2D9togZ9eHW91GRYmy7ObQMqrMJEfJpIEXZUBlQ+6clV\nghahw93N4cX9vrqIunqA0EJMNyGBMySmMvm7q9X4ZemPjEIEM1F1N5Q7nDBS2Js\u003d\n\u003dDs1A\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b87d9ef_c073a369",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-03T19:23:54Z",
+      "side": 1,
+      "message": "nit: hurts my eyes,  maybe \nif (code \u003c 0 || static_cast\u003csize_t\u003e(code) \u003c FX_ArraySize(g_alphaNumericTable))\n  return -1;\n\nif that all fits on one line.",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 18
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef126941_0e21d233",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-03T19:23:54Z",
+      "side": 1,
+      "message": "nit: over ()-ized",
+      "range": {
+        "startLine": 266,
+        "startChar": 18,
+        "endLine": 266,
+        "endChar": 37
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad2252ac_9c48facf",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-03T19:23:54Z",
+      "side": 1,
+      "message": "do we hand these off to something, or can the vector just contain the pair directly?",
+      "range": {
+        "startLine": 562,
+        "startChar": 14,
+        "endLine": 562,
+        "endChar": 30
+      },
+      "revId": "ac826e8f4bdff1b10bed37252d4ab4cb6462fd5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
