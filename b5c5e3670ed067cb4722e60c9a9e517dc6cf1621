@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "73af2029_e4710203",
+        "filename": "core/fxge/dib/cfx_bitmapcomposer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-03T17:44:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "760522fc_e9a32df6",
+      "revId": "b5c5e3670ed067cb4722e60c9a9e517dc6cf1621",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "602323c4_1e3e6282",
         "filename": "core/fxge/dib/cfx_imagestretcher.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "b5c5e3670ed067cb4722e60c9a9e517dc6cf1621",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "331a5694_8edfec33",
+        "filename": "core/fxge/dib/cfx_imagestretcher.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-03T17:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "602323c4_1e3e6282",
+      "revId": "b5c5e3670ed067cb4722e60c9a9e517dc6cf1621",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
