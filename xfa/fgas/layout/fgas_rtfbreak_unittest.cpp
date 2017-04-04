@@ -14,9 +14,10 @@
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fgas/font/cfgas_gefont.h"
 
-class RTFBreakTest : public testing::Test {
+class RTFBreakTest : public pdfium::FPDF_Test {
  public:
   void SetUp() override {
+    FPDF_Test::SetUp();
     CFX_GEModule::Get()->GetFontMgr()->SetSystemFontInfo(
         IFX_SystemFontInfo::CreateDefault(nullptr));
 

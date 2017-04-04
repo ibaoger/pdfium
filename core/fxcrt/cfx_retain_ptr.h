@@ -95,7 +95,7 @@ class CFX_Retainable {
   void Release() {
     ASSERT(m_nRefCount > 0);
     if (--m_nRefCount == 0)
-      delete this;
+      FX_Free(this);
   }
 
   intptr_t m_nRefCount = 0;

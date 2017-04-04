@@ -26,32 +26,52 @@ void FXMEM_DefaultFree(void* pointer, int flags);
 #include <memory>
 #include <new>
 
+#include "core/fxcrt/fx_safe_types.h"
 #include "third_party/base/allocator/partition_allocator/partition_alloc.h"
 
 extern pdfium::base::PartitionAllocatorGeneric gArrayBufferPartitionAllocator;
+extern pdfium::base::PartitionAllocatorGeneric gGeneralPartitionAllocator;
 extern pdfium::base::PartitionAllocatorGeneric gStringPartitionAllocator;
 
+void FXMEM_InitalizePartitionAlloc();
 NEVER_INLINE void FX_OutOfMemoryTerminate();
 
-inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
-  if (num_members < std::numeric_limits<size_t>::max() / member_size) {
-    return realloc(ptr, num_members * member_size);
+inline void* FX_SafeAlloc(size_t count, size_t size) {
+  FX_SAFE_SIZE_T total = size;
+  total *= count;
+  if (!total.IsValid()) {
+    return nullptr;
   }
-  return nullptr;
+  return pdfium::base::PartitionAllocGeneric(gGeneralPartitionAllocator.root(),
+                                             total.ValueOrDie(),
+                                             "GeneralPartition");
+}
+
+inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
+  FX_SAFE_SIZE_T size = num_members;
+  size *= member_size;
+  if (!size.IsValid()) {
+    return nullptr;
+  }
+  return pdfium::base::PartitionReallocGeneric(
+      gGeneralPartitionAllocator.root(), ptr, size.ValueOrDie(),
+      "GeneralPartition");
 }
 
 inline void* FX_AllocOrDie(size_t num_members, size_t member_size) {
-  // TODO(tsepez): See if we can avoid the implicit memset(0).
-  if (void* result = calloc(num_members, member_size)) {
-    return result;
+  void* result = FX_SafeAlloc(num_members, member_size);
+  if (!result) {
+    FX_OutOfMemoryTerminate();  // Never returns.
   }
-  FX_OutOfMemoryTerminate();  // Never returns.
-  return nullptr;             // Suppress compiler warning.
+  memset(result, 0, num_members * member_size);
+  return result;
 }
 
 inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
-  if (w < std::numeric_limits<size_t>::max() / h) {
-    return FX_AllocOrDie(w * h, member_size);
+  FX_SAFE_SIZE_T size = w;
+  size *= h;
+  if (size.IsValid()) {
+    return FX_AllocOrDie(size.ValueOrDie(), member_size);
   }
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
@@ -67,18 +87,19 @@ inline void* FX_ReallocOrDie(void* ptr,
   return nullptr;             // Suppress compiler warning.
 }
 
-// Never returns nullptr.
+// These never return nullptr.
 #define FX_Alloc(type, size) (type*)FX_AllocOrDie(size, sizeof(type))
 #define FX_Alloc2D(type, w, h) (type*)FX_AllocOrDie2D(w, h, sizeof(type))
 #define FX_Realloc(type, ptr, size) \
   (type*)FX_ReallocOrDie(ptr, size, sizeof(type))
 
-// May return nullptr.
-#define FX_TryAlloc(type, size) (type*)calloc(size, sizeof(type))
-#define FX_TryRealloc(type, ptr, size) \
-  (type*)FX_SafeRealloc(ptr, size, sizeof(type))
+// These may return nullptr.
+#define FX_TryAlloc(type, count) (type*)FX_SafeAlloc(count, sizeof(type))
+#define FX_TryRealloc(type, ptr, count) \
+  (type*)FX_SafeRealloc(ptr, count, sizeof(type))
 
-#define FX_Free(ptr) free(ptr)
+#define FX_Free(ptr) \
+  pdfium::base::PartitionFreeGeneric(gGeneralPartitionAllocator.root(), ptr)
 
 // The FX_ArraySize(arr) macro returns the # of elements in an array arr.
 // The expression is a compile-time constant, and therefore can be
