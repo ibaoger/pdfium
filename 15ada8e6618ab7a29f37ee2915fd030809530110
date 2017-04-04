@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5858c3ee_14707b8d",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T16:54:58Z",
+      "side": 1,
+      "message": "do we ever change this?  can it be a kSomethingConstant",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ba06da0_7fa51d11",
         "filename": "core/fxcrt/cfx_blockbuffer.cpp",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 2,
         "endLine": 21,
         "endChar": 13
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd6a390_bd56e44a",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T16:54:58Z",
+      "side": 1,
+      "message": "nit:  or brace-initialization, eg.\n  return {iRealIndex / m_iAllocStep, iRealIndex % m_iAllocStep};",
+      "range": {
+        "startLine": 129,
+        "startChar": 9,
+        "endLine": 129,
+        "endChar": 78
       },
       "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -48,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "93a56560_6258adff",
+        "filename": "core/fxcrt/cfx_blockbuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T16:54:58Z",
+      "side": 1,
+      "message": "yeah, lets make this a pointer, Dan, and lose the comment.",
+      "parentUuid": "330f49a5_05808c99",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f0f728e_4a61c394",
         "filename": "core/fxcrt/cfx_blockbuffer.h",
         "patchSetId": 1
@@ -64,6 +134,29 @@
         "startChar": 7,
         "endLine": 44,
         "endChar": 12
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd21552_de347823",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T16:54:58Z",
+      "side": 1,
+      "message": "should this return the same kinda of tuple as the other method?",
+      "range": {
+        "startLine": 132,
+        "startChar": 34,
+        "endLine": 132,
+        "endChar": 51
       },
       "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
