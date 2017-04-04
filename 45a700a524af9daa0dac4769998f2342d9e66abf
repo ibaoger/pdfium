@@ -45,6 +45,75 @@
       "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e6b2d12_e4c3da32",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T21:06:25Z",
+      "side": 1,
+      "message": "There is a variable m_FileLen, use that?",
+      "range": {
+        "startLine": 730,
+        "startChar": 10,
+        "endLine": 730,
+        "endChar": 34
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05f4e563_fea64580",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T21:06:25Z",
+      "side": 1,
+      "message": "len \u003d std::min(len, ...)",
+      "range": {
+        "startLine": 730,
+        "startChar": 4,
+        "endLine": 730,
+        "endChar": 7
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ddf9435_a101386c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T21:06:25Z",
+      "side": 1,
+      "message": "Why the change \u003c to \u003c\u003d?",
+      "range": {
+        "startLine": 731,
+        "startChar": 11,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
