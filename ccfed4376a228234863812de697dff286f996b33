@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1491343745 -0700\nnonce AFMZ2Gy3ibwphGkBAwh65yXlB+M9+CRcm50B9nUnKuFKw+iwatX15MsIktJgN+5yHSSRvGOlHWT+\n\n0000000000000000000000000000000000000000 ccfed4376a228234863812de697dff286f996b33 refs/for/refs/heads/master%m\u003dcast_more_refactoring,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY5BmBAAoJEKs2LWFaZv17yBcH/0uJ2pOithT7GMKHW4ekUIXU\n6ur5D4fvHJhJuFyOnZXcUykOS0JhFD6M+CnqPF0XTo/brX1b1nQ3/kOyz7KlqvuU\nQOPtxgne9BiPW9GET0yzfGPUiWaFvDOruwHdYl4ZKTE53pYHzJ/CSiz43cvqHr89\nNG42QTJDToBnvs0dKa8Z7A7fAPrdoRlQD04/upcU4kdf7ghFwJbYIvqLJaOnaSyl\nMQcRM8SRRMTXKdpGyHqI3iuoVQ89scZhIsgK+t+UkJ61KJN1CPebRfcSzd5dP06N\nTbk+2GzGGeleXKPMQcI+ifCUlmrTorvlxI+uLbhcAgi2Ff28qvG2Gc7/j6yD6FY\u003d\n\u003dbdtP\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c7fe658_e281aeeb",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T22:19:16Z",
+      "side": 1,
+      "message": "This is an int, let\u0027s keep it that way",
+      "range": {
+        "startLine": 82,
+        "startChar": 42,
+        "endLine": 82,
+        "endChar": 46
+      },
+      "revId": "ccfed4376a228234863812de697dff286f996b33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1523cd17_081b9cc8",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T22:19:16Z",
+      "side": 1,
+      "message": "if GetProcessingStatus doesn\u0027t change anything, we can just call it once, and no need for pContext",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "ccfed4376a228234863812de697dff286f996b33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
