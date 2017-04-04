@@ -22,6 +22,30 @@
       "revId": "72e699a6a0376e31fc32637170561c517069323c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242762f0_c5a5dcef",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:07:19Z",
+      "side": 1,
+      "message": "Unfortunately, we do sometimes return true without changing the handle. So without the out param, we cannot distinguish between return true without changing the handle vs return false.",
+      "parentUuid": "50febcda_438c8b30",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 7
+      },
+      "revId": "72e699a6a0376e31fc32637170561c517069323c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
