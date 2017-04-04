@@ -38,6 +38,24 @@
     },
     {
       "key": {
+        "uuid": "8e4a0375_af23a9cf",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T05:18:52Z",
+      "side": 1,
+      "message": "You mean, only put the declare_args() block inside if (!build_with_chromium), and leave the rest outside?",
+      "parentUuid": "df737e1e_7d44e836",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4632e288_c70e9db0",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 2
@@ -55,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "ce2d4175_2393b40b",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T05:18:52Z",
+      "side": 1,
+      "message": "Because it\u0027s copied verbatim from Chromium, and the Chromium GN build does this because the prior GYP build did this. I didn\u0027t keep looking to see why but I suspect it\u0027s because different people wrote the two different .gyp files.",
+      "parentUuid": "4632e288_c70e9db0",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96947088_29e395cf",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 2
@@ -66,6 +102,24 @@
       "writtenOn": "2017-04-01T19:10:05Z",
       "side": 1,
       "message": "Doesn\u0027t this CL delete third_party/libjpeg?Isn\u0027t this invalid now?",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de82a35d_550db825",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T05:18:52Z",
+      "side": 1,
+      "message": "It\u0027s valid in a Chromium checkout if they have //third_party/libjpeg. I\u0027m trying to keep this GN group the same as Chromum\u0027s. Maybe I should just add a comment to say this config is not supported in standalone PDFium without additional work?",
+      "parentUuid": "96947088_29e395cf",
       "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
