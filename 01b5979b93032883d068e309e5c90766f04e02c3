@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ed8e3b8_da34ed80",
+        "filename": "xfa/fde/xml/cfde_xmlchardata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T17:00:09Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "44af7c0c_c75096d8",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "01b5979b93032883d068e309e5c90766f04e02c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90d68316_23c60917",
         "filename": "xfa/fde/xml/cfde_xmltext.cpp",
         "patchSetId": 2
