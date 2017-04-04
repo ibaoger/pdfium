@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5432095f_ba2bcf8c",
+        "filename": "fpdfsdk/fpdf_structtree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T04:57:12Z",
+      "side": 1,
+      "message": "Should we make a function out of lines 83-91 and share it with 64-72? Especially if we intend to continue adding more functions to extract tagged data.",
+      "revId": "ed93518c9e20f7ab5ed3df4b25098032dad8e25d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
