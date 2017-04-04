@@ -66,6 +66,40 @@ DLLEXPORT FPDF_BOOL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
   return true;
 }
 
+DLLEXPORT FPDF_BOOL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
+                                          unsigned int* R,
+                                          unsigned int* G,
+                                          unsigned int* B,
+                                          unsigned int* A) {
+  if (!path)
+    return false;
+
+  auto* pPathObj = reinterpret_cast<CPDF_PathObject*>(path);
+
+  const CPDF_Color* pFillColor = pPathObj->m_ColorState.GetFillColor();
+  if (!pFillColor || pFillColor->GetColorSpace() !=
+                         CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB))
+    return false;
+
+  int intRed, intBlue, intGreen;
+  if (!pFillColor->GetRGB(&intRed, &intGreen, &intBlue))
+    return false;
+
+  if (R)
+    *R = intRed;
+
+  if (G)
+    *G = intGreen;
+
+  if (B)
+    *B = intBlue;
+
+  if (A)
+    *A = pPathObj->m_GeneralState.GetFillAlpha() / 255.f;
+
+  return true;
+}
+
 DLLEXPORT FPDF_BOOL FPDFPath_MoveTo(FPDF_PAGEOBJECT path, float x, float y) {
   if (!path)
     return false;
