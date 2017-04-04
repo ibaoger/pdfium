@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a54d764f_2d8911ba",
+        "filename": "xfa/fde/xml/cfde_xmlnode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:49:32Z",
+      "side": 1,
+      "message": "So make Clone pure virtual instead of this implementation?",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 1
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714b3d3f_12f2f0cb",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:49:32Z",
+      "side": 1,
+      "message": "seems like this variable is unneeded.",
+      "range": {
+        "startLine": 529,
+        "startChar": 22,
+        "endLine": 529,
+        "endChar": 38
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e21765_435320de",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:49:32Z",
+      "side": 1,
+      "message": "followup: unique_ptr for this",
+      "range": {
+        "startLine": 534,
+        "startChar": 12,
+        "endLine": 534,
+        "endChar": 29
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfbf6851_2aec27b9",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:49:32Z",
+      "side": 1,
+      "message": "if (!pFakeRoot)\n  return;",
+      "range": {
+        "startLine": 1334,
+        "startChar": 2,
+        "endLine": 1334,
+        "endChar": 16
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
