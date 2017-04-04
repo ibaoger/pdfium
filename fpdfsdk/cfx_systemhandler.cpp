@@ -107,7 +107,7 @@ bool CFX_SystemHandler::FindNativeTrueTypeFont(CFX_ByteString sFontFaceName) {
   return false;
 }
 
-CPDF_Font* CFX_SystemHandler::AddNativeTrueTypeFontToPDF(
+CFX_RetainPtr<CPDF_Font> CFX_SystemHandler::AddNativeTrueTypeFontToPDF(
     CPDF_Document* pDoc,
     CFX_ByteString sFontFaceName,
     uint8_t nCharset) {

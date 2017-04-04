@@ -10,6 +10,7 @@
 #include <memory>
 #include <vector>
 
+#include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/fx_font.h"
@@ -25,30 +26,25 @@ class CPDF_Type1Font;
 class CPDF_Type3Font;
 class CPDF_ToUnicodeMap;
 
-class CPDF_Font {
+class CPDF_Font : public CFX_Retainable {
  public:
-  static std::unique_ptr<CPDF_Font> Create(CPDF_Document* pDoc,
-                                           CPDF_Dictionary* pFontDict);
-  static CPDF_Font* GetStockFont(CPDF_Document* pDoc,
-                                 const CFX_ByteStringC& fontname);
   static const uint32_t kInvalidCharCode = static_cast<uint32_t>(-1);
 
-  virtual ~CPDF_Font();
+  static CFX_RetainPtr<CPDF_Font> Create(CPDF_Document* pDoc,
+                                         CPDF_Dictionary* pFontDict);
+  static CFX_RetainPtr<CPDF_Font> GetStockFont(CPDF_Document* pDoc,
+                                               const CFX_ByteStringC& fontname);
 
   virtual bool IsType1Font() const;
   virtual bool IsTrueTypeFont() const;
   virtual bool IsType3Font() const;
   virtual bool IsCIDFont() const;
-  virtual const CPDF_Type1Font* AsType1Font() const;
-  virtual CPDF_Type1Font* AsType1Font();
-  virtual const CPDF_TrueTypeFont* AsTrueTypeFont() const;
-  virtual CPDF_TrueTypeFont* AsTrueTypeFont();
-  virtual const CPDF_Type3Font* AsType3Font() const;
-  virtual CPDF_Type3Font* AsType3Font();
-  virtual const CPDF_CIDFont* AsCIDFont() const;
-  virtual CPDF_CIDFont* AsCIDFont();
+  virtual CFX_RetainPtr<CPDF_Type1Font> AsType1Font();
+  virtual CFX_RetainPtr<CPDF_TrueTypeFont> AsTrueTypeFont();
+  virtual CFX_RetainPtr<CPDF_Type3Font> AsType3Font();
+  virtual CFX_RetainPtr<CPDF_CIDFont> AsCIDFont();
 
-  virtual bool IsVertWriting() const;
+  virtual bool IsVertWriting();
   virtual bool IsUnicodeCompatible() const;
   virtual uint32_t GetNextChar(const char* pString,
                                int nStrLen,
@@ -64,7 +60,7 @@ class CPDF_Font {
   CFX_SubstFont* GetSubstFont() const { return m_Font.GetSubstFont(); }
   bool IsEmbedded() const { return IsType3Font() || m_pFontFile != nullptr; }
   CPDF_Dictionary* GetFontDict() const { return m_pFontDict; }
-  bool IsStandardFont() const;
+  bool IsStandardFont();
   FXFT_Face GetFace() const { return m_Font.GetFace(); }
   void AppendChar(CFX_ByteString& str, uint32_t charcode) const;
 
@@ -84,6 +80,7 @@ class CPDF_Font {
 
  protected:
   CPDF_Font();
+  ~CPDF_Font() override;
 
   virtual bool Load() = 0;
 

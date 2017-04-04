@@ -625,7 +625,7 @@ uint32_t CPDF_Document::GetUserPermissions() const {
   return m_pParser->GetPermissions();
 }
 
-CPDF_Font* CPDF_Document::LoadFont(CPDF_Dictionary* pFontDict) {
+CFX_RetainPtr<CPDF_Font> CPDF_Document::LoadFont(CPDF_Dictionary* pFontDict) {
   ASSERT(pFontDict);
   return m_pDocPage->GetFont(pFontDict);
 }
@@ -770,8 +770,9 @@ void CPDF_Document::DeletePage(int iPage) {
   m_PageList.erase(m_PageList.begin() + iPage);
 }
 
-CPDF_Font* CPDF_Document::AddStandardFont(const char* font,
-                                          CPDF_FontEncoding* pEncoding) {
+CFX_RetainPtr<CPDF_Font> CPDF_Document::AddStandardFont(
+    const char* font,
+    CPDF_FontEncoding* pEncoding) {
   CFX_ByteString name(font);
   if (PDF_GetStandardFontName(&name) < 0)
     return nullptr;
@@ -871,7 +872,9 @@ CPDF_Dictionary* CPDF_Document::ProcessbCJK(
   return pFontDict;
 }
 
-CPDF_Font* CPDF_Document::AddFont(CFX_Font* pFont, int charset, bool bVert) {
+CFX_RetainPtr<CPDF_Font> CPDF_Document::AddFont(CFX_Font* pFont,
+                                                int charset,
+                                                bool bVert) {
   if (!pFont)
     return nullptr;
 
@@ -958,9 +961,9 @@ CPDF_Font* CPDF_Document::AddFont(CFX_Font* pFont, int charset, bool bVert) {
 }
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-CPDF_Font* CPDF_Document::AddWindowsFont(LOGFONTW* pLogFont,
-                                         bool bVert,
-                                         bool bTranslateName) {
+CFX_RetainPtr<CPDF_Font> CPDF_Document::AddWindowsFont(LOGFONTW* pLogFont,
+                                                       bool bVert,
+                                                       bool bTranslateName) {
   LOGFONTA lfa;
   memcpy(&lfa, pLogFont, (char*)lfa.lfFaceName - (char*)&lfa);
   CFX_ByteString face = CFX_ByteString::FromUnicode(pLogFont->lfFaceName);
@@ -972,9 +975,9 @@ CPDF_Font* CPDF_Document::AddWindowsFont(LOGFONTW* pLogFont,
   return AddWindowsFont(&lfa, bVert, bTranslateName);
 }
 
-CPDF_Font* CPDF_Document::AddWindowsFont(LOGFONTA* pLogFont,
-                                         bool bVert,
-                                         bool bTranslateName) {
+CFX_RetainPtr<CPDF_Font> CPDF_Document::AddWindowsFont(LOGFONTA* pLogFont,
+                                                       bool bVert,
+                                                       bool bTranslateName) {
   pLogFont->lfHeight = -1000;
   pLogFont->lfWidth = 0;
   HGDIOBJ hFont = CreateFontIndirectA(pLogFont);

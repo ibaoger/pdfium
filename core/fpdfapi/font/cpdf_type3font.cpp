@@ -33,12 +33,8 @@ bool CPDF_Type3Font::IsType3Font() const {
   return true;
 }
 
-const CPDF_Type3Font* CPDF_Type3Font::AsType3Font() const {
-  return this;
-}
-
-CPDF_Type3Font* CPDF_Type3Font::AsType3Font() {
-  return this;
+CFX_RetainPtr<CPDF_Type3Font> CPDF_Type3Font::AsType3Font() {
+  return CFX_RetainPtr<CPDF_Type3Font>(this);
 }
 
 bool CPDF_Type3Font::Load() {

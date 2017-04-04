@@ -67,29 +67,28 @@ void CBA_FontMap::Initialize() {
     CPWL_FontMap::Initialize();
 }
 
-void CBA_FontMap::SetDefaultFont(CPDF_Font* pFont,
+void CBA_FontMap::SetDefaultFont(const CFX_RetainPtr<CPDF_Font>& pFont,
                                  const CFX_ByteString& sFontName) {
   ASSERT(pFont);
-
   if (m_pDefaultFont)
     return;
 
   m_pDefaultFont = pFont;
   m_sDefaultFontName = sFontName;
 
-  int32_t nCharset = FXFONT_DEFAULT_CHARSET;
-  if (const CFX_SubstFont* pSubstFont = m_pDefaultFont->GetSubstFont())
-    nCharset = pSubstFont->m_Charset;
+  const CFX_SubstFont* pSubstFont = m_pDefaultFont->GetSubstFont();
+  int32_t nCharset =
+      pSubstFont ? pSubstFont->m_Charset : FXFONT_DEFAULT_CHARSET;
   AddFontData(m_pDefaultFont, m_sDefaultFontName, nCharset);
 }
 
-CPDF_Font* CBA_FontMap::FindFontSameCharset(CFX_ByteString& sFontAlias,
-                                            int32_t nCharset) {
+CFX_RetainPtr<CPDF_Font> CBA_FontMap::FindFontSameCharset(
+    CFX_ByteString& sFontAlias,
+    int32_t nCharset) {
   if (m_pAnnotDict->GetStringFor("Subtype") != "Widget")
     return nullptr;
 
-  CPDF_Document* pDocument = GetDocument();
-  CPDF_Dictionary* pRootDict = pDocument->GetRoot();
+  CPDF_Dictionary* pRootDict = GetDocument()->GetRoot();
   if (!pRootDict)
     return nullptr;
 
@@ -108,9 +107,10 @@ CPDF_Document* CBA_FontMap::GetDocument() {
   return m_pDocument;
 }
 
-CPDF_Font* CBA_FontMap::FindResFontSameCharset(CPDF_Dictionary* pResDict,
-                                               CFX_ByteString& sFontAlias,
-                                               int32_t nCharset) {
+CFX_RetainPtr<CPDF_Font> CBA_FontMap::FindResFontSameCharset(
+    CPDF_Dictionary* pResDict,
+    CFX_ByteString& sFontAlias,
+    int32_t nCharset) {
   if (!pResDict)
     return nullptr;
 
@@ -119,7 +119,7 @@ CPDF_Font* CBA_FontMap::FindResFontSameCharset(CPDF_Dictionary* pResDict,
     return nullptr;
 
   CPDF_Document* pDocument = GetDocument();
-  CPDF_Font* pFind = nullptr;
+  CFX_RetainPtr<CPDF_Font> pFind;
   for (const auto& it : *pFonts) {
     const CFX_ByteString& csKey = it.first;
     if (!it.second)
@@ -131,7 +131,7 @@ CPDF_Font* CBA_FontMap::FindResFontSameCharset(CPDF_Dictionary* pResDict,
     if (pElement->GetStringFor("Type") != "Font")
       continue;
 
-    CPDF_Font* pFont = pDocument->LoadFont(pElement);
+    CFX_RetainPtr<CPDF_Font> pFont = pDocument->LoadFont(pElement);
     if (!pFont)
       continue;
     const CFX_SubstFont* pSubst = pFont->GetSubstFont();
@@ -145,12 +145,12 @@ CPDF_Font* CBA_FontMap::FindResFontSameCharset(CPDF_Dictionary* pResDict,
   return pFind;
 }
 
-void CBA_FontMap::AddedFont(CPDF_Font* pFont,
+void CBA_FontMap::AddedFont(const CFX_RetainPtr<CPDF_Font>& pFont,
                             const CFX_ByteString& sFontAlias) {
   AddFontToAnnotDict(pFont, sFontAlias);
 }
 
-void CBA_FontMap::AddFontToAnnotDict(CPDF_Font* pFont,
+void CBA_FontMap::AddFontToAnnotDict(const CFX_RetainPtr<CPDF_Font>& pFont,
                                      const CFX_ByteString& sAlias) {
   if (!pFont)
     return;
@@ -194,7 +194,8 @@ void CBA_FontMap::AddFontToAnnotDict(CPDF_Font* pFont,
   }
 }
 
-CPDF_Font* CBA_FontMap::GetAnnotDefaultFont(CFX_ByteString& sAlias) {
+CFX_RetainPtr<CPDF_Font> CBA_FontMap::GetAnnotDefaultFont(
+    CFX_ByteString& sAlias) {
   CPDF_Dictionary* pAcroFormDict = nullptr;
   const bool bWidget = (m_pAnnotDict->GetStringFor("Subtype") == "Widget");
   if (bWidget) {

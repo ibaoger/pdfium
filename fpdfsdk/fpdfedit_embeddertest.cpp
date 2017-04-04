@@ -77,7 +77,7 @@ class FPDFEditEmbeddertest : public EmbedderTest, public TestSaver {
   }
 
   void CheckCompositeFontWidths(CPDF_Array* widths_array,
-                                CPDF_Font* typed_font) {
+                                const CFX_RetainPtr<CPDF_Font>& typed_font) {
     // Check that W array is in a format that conforms to PDF spec 1.7 section
     // "Glyph Metrics in CIDFonts" (these checks are not
     // implementation-specific).
@@ -545,14 +545,14 @@ TEST_F(FPDFEditEmbeddertest, DoubleGenerating) {
 TEST_F(FPDFEditEmbeddertest, LoadSimpleType1Font) {
   CreateNewDocument();
   // TODO(npm): use other fonts after disallowing loading any font as any type
-  const CPDF_Font* stock_font =
+  const CFX_RetainPtr<CPDF_Font> stock_font =
       CPDF_Font::GetStockFont(cpdf_doc(), "Times-Bold");
   const uint8_t* data = stock_font->m_Font.GetFontData();
   const uint32_t size = stock_font->m_Font.GetSize();
   FPDF_FONT font =
       FPDFText_LoadFont(document(), data, size, FPDF_FONT_TYPE1, false);
   ASSERT_TRUE(font);
-  CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+  CFX_RetainPtr<CPDF_Font> typed_font(reinterpret_cast<CPDF_Font*>(font));
   EXPECT_TRUE(typed_font->IsType1Font());
 
   CPDF_Dictionary* font_dict = typed_font->GetFontDict();
@@ -575,13 +575,14 @@ TEST_F(FPDFEditEmbeddertest, LoadSimpleType1Font) {
 
 TEST_F(FPDFEditEmbeddertest, LoadSimpleTrueTypeFont) {
   CreateNewDocument();
-  const CPDF_Font* stock_font = CPDF_Font::GetStockFont(cpdf_doc(), "Courier");
+  CFX_RetainPtr<CPDF_Font> stock_font =
+      CPDF_Font::GetStockFont(cpdf_doc(), "Courier");
   const uint8_t* data = stock_font->m_Font.GetFontData();
   const uint32_t size = stock_font->m_Font.GetSize();
   FPDF_FONT font =
       FPDFText_LoadFont(document(), data, size, FPDF_FONT_TRUETYPE, false);
   ASSERT_TRUE(font);
-  CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+  CFX_RetainPtr<CPDF_Font> typed_font(reinterpret_cast<CPDF_Font*>(font));
   EXPECT_TRUE(typed_font->IsTrueTypeFont());
 
   CPDF_Dictionary* font_dict = typed_font->GetFontDict();
@@ -604,14 +605,14 @@ TEST_F(FPDFEditEmbeddertest, LoadSimpleTrueTypeFont) {
 
 TEST_F(FPDFEditEmbeddertest, LoadCIDType0Font) {
   CreateNewDocument();
-  const CPDF_Font* stock_font =
+  CFX_RetainPtr<CPDF_Font> stock_font =
       CPDF_Font::GetStockFont(cpdf_doc(), "Times-Roman");
   const uint8_t* data = stock_font->m_Font.GetFontData();
   const uint32_t size = stock_font->m_Font.GetSize();
   FPDF_FONT font =
       FPDFText_LoadFont(document(), data, size, FPDF_FONT_TYPE1, 1);
   ASSERT_TRUE(font);
-  CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+  CFX_RetainPtr<CPDF_Font> typed_font(reinterpret_cast<CPDF_Font*>(font));
   EXPECT_TRUE(typed_font->IsCIDFont());
 
   // Check font dictionary entries
@@ -659,7 +660,7 @@ TEST_F(FPDFEditEmbeddertest, LoadCIDType0Font) {
 
 TEST_F(FPDFEditEmbeddertest, LoadCIDType2Font) {
   CreateNewDocument();
-  const CPDF_Font* stock_font =
+  CFX_RetainPtr<CPDF_Font> stock_font =
       CPDF_Font::GetStockFont(cpdf_doc(), "Helvetica-Oblique");
   const uint8_t* data = stock_font->m_Font.GetFontData();
   const uint32_t size = stock_font->m_Font.GetSize();
@@ -667,7 +668,7 @@ TEST_F(FPDFEditEmbeddertest, LoadCIDType2Font) {
   FPDF_FONT font =
       FPDFText_LoadFont(document(), data, size, FPDF_FONT_TRUETYPE, 1);
   ASSERT_TRUE(font);
-  CPDF_Font* typed_font = reinterpret_cast<CPDF_Font*>(font);
+  CFX_RetainPtr<CPDF_Font> typed_font(reinterpret_cast<CPDF_Font*>(font));
   EXPECT_TRUE(typed_font->IsCIDFont());
 
   // Check font dictionary entries
