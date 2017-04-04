@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "f1ac290f_0c3b051f",
+        "filename": "core/fxcrt/cfx_blockbuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T16:58:43Z",
+      "side": 1,
+      "message": "It\u0027s used in a pile of places in XMLSyntaxParser, I\u0027d rather leave the comment and then figure out how to fix it so syntax parser isn\u0027t fiddling with the buffers points behind the scenes.",
+      "parentUuid": "93a56560_6258adff",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f0f728e_4a61c394",
         "filename": "core/fxcrt/cfx_blockbuffer.h",
         "patchSetId": 1
@@ -141,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "48ec8b8b_7ac9f2d8",
+        "filename": "core/fxcrt/cfx_blockbuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T16:58:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f0f728e_4a61c394",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 12
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fd21552_de347823",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
         "patchSetId": 1
@@ -152,6 +200,30 @@
       "writtenOn": "2017-04-04T16:54:58Z",
       "side": 1,
       "message": "should this return the same kinda of tuple as the other method?",
+      "range": {
+        "startLine": 132,
+        "startChar": 34,
+        "endLine": 132,
+        "endChar": 51
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8afa0ff5_1be584f9",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T16:58:43Z",
+      "side": 1,
+      "message": "It wouldn\u0027t be the same, it would be a \u003cwchar_t*, int32_t\u003e. The other is an internal method which does \u003cint32_t, int32_t\u003e",
+      "parentUuid": "5fd21552_de347823",
       "range": {
         "startLine": 132,
         "startChar": 34,
@@ -198,6 +270,30 @@
       "writtenOn": "2017-04-04T16:02:39Z",
       "side": 1,
       "message": "followup: return CFX_WideString",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 3
+      },
+      "revId": "15ada8e6618ab7a29f37ee2915fd030809530110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9724fa2_1a5f4b1b",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T16:58:43Z",
+      "side": 1,
+      "message": "Yes. I\u0027m working on it.",
+      "parentUuid": "badc25d8_e82885f9",
       "range": {
         "startLine": 55,
         "startChar": 3,
