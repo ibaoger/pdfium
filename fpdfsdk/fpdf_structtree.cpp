@@ -72,6 +72,25 @@ FPDF_StructElement_GetAltText(FPDF_STRUCTELEMENT struct_element,
   return len;
 }
 
+DLLEXPORT unsigned long STDCALL
+FPDF_StructElement_GetType(FPDF_STRUCTELEMENT struct_element,
+                           void* buffer,
+                           unsigned long buflen) {
+  IPDF_StructElement* elem = ToStructTreeElement(struct_element);
+  if (!elem)
+    return 0;
+
+  CFX_WideString str = elem->GetType().UTF8Decode();
+  if (str.IsEmpty())
+    return 0;
+
+  CFX_ByteString encodedStr = str.UTF16LE_Encode();
+  const unsigned long len = encodedStr.GetLength();
+  if (buffer && len <= buflen)
+    memcpy(buffer, encodedStr.c_str(), len);
+  return len;
+}
+
 DLLEXPORT int STDCALL
 FPDF_StructElement_CountChildren(FPDF_STRUCTELEMENT struct_element) {
   IPDF_StructElement* elem = ToStructTreeElement(struct_element);
