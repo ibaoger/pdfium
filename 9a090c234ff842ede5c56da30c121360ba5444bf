@@ -56,6 +56,24 @@
     },
     {
       "key": {
+        "uuid": "3985c325_37b6c7ed",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T13:10:50Z",
+      "side": 1,
+      "message": "I mean, can we remove the declare_args section from here, add it to the pdfium.gni file and wrap that inside the !build_with_chromium. Then all of our declared args will be in one place.\n\nThen, you don\u0027t need the !build_with_chromium, wrapper here at all.",
+      "parentUuid": "8e4a0375_af23a9cf",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4632e288_c70e9db0",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 2
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "It\u0027s valid in a Chromium checkout if they have //third_party/libjpeg. I\u0027m trying to keep this GN group the same as Chromum\u0027s. Maybe I should just add a comment to say this config is not supported in standalone PDFium without additional work?",
       "parentUuid": "96947088_29e395cf",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "884999ff_38dd49a7",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T13:10:50Z",
+      "side": 1,
+      "message": "Yea, a comment would be good. If we move the !build_with_chromium, this should probably get wrapped.",
+      "parentUuid": "de82a35d_550db825",
       "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
