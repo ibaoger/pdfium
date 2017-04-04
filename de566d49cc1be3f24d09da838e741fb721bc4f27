@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a294ae59_b6297681",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T20:56:17Z",
+      "side": 1,
+      "message": "Correct, but cpdf_pagecontentgenerator is only for objects that we can add using our methods. This get method could potentially support any path object, even those originally present in the PDF.",
+      "parentUuid": "8e782f47_139d72f8",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "de566d49cc1be3f24d09da838e741fb721bc4f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffe41ed8_54cc05eb",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 1

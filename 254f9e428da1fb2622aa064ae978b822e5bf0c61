@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b21c073_32649242",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T20:56:17Z",
+      "side": 1,
+      "message": "declare one per line:\nunsigned int R;\nunsigned int G; etc",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 24
+      },
+      "revId": "254f9e428da1fb2622aa064ae978b822e5bf0c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded124a2_2eb0eb0a",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T20:56:17Z",
+      "side": 1,
+      "message": "you can get rid of the spaces in line 78, 80, 86",
+      "revId": "254f9e428da1fb2622aa064ae978b822e5bf0c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
