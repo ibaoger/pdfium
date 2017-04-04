@@ -279,7 +279,7 @@ CPDF_DefaultAppearance CPDF_FormControl::GetDefaultAppearance() {
   return m_pField->m_pForm->GetDefaultAppearance();
 }
 
-CPDF_Font* CPDF_FormControl::GetDefaultControlFont() {
+CFX_RetainPtr<CPDF_Font> CPDF_FormControl::GetDefaultControlFont() {
   CPDF_DefaultAppearance cDA = GetDefaultAppearance();
   CFX_ByteString csFontNameTag;
   float fFontSize;
@@ -293,13 +293,16 @@ CPDF_Font* CPDF_FormControl::GetDefaultControlFont() {
     if (pFonts) {
       CPDF_Dictionary* pElement = pFonts->GetDictFor(csFontNameTag);
       if (pElement) {
-        CPDF_Font* pFont = m_pField->m_pForm->m_pDocument->LoadFont(pElement);
+        CFX_RetainPtr<CPDF_Font> pFont =
+            m_pField->m_pForm->m_pDocument->LoadFont(pElement);
         if (pFont)
           return pFont;
       }
     }
   }
-  if (CPDF_Font* pFormFont = m_pField->m_pForm->GetFormFont(csFontNameTag))
+  CFX_RetainPtr<CPDF_Font> pFormFont =
+      m_pField->m_pForm->GetFormFont(csFontNameTag);
+  if (pFormFont)
     return pFormFont;
 
   CPDF_Dictionary* pPageDict = m_pWidgetDict->GetDictFor("P");
@@ -309,7 +312,8 @@ CPDF_Font* CPDF_FormControl::GetDefaultControlFont() {
     if (pFonts) {
       CPDF_Dictionary* pElement = pFonts->GetDictFor(csFontNameTag);
       if (pElement) {
-        CPDF_Font* pFont = m_pField->m_pForm->m_pDocument->LoadFont(pElement);
+        CFX_RetainPtr<CPDF_Font> pFont =
+            m_pField->m_pForm->m_pDocument->LoadFont(pElement);
         if (pFont)
           return pFont;
       }

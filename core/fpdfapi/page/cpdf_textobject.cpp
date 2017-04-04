@@ -31,7 +31,7 @@ void CPDF_TextObject::GetItemInfo(int index, CPDF_TextObjectItem* pInfo) const {
   if (pInfo->m_CharCode == CPDF_Font::kInvalidCharCode)
     return;
 
-  CPDF_Font* pFont = m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = m_TextState.GetFont();
   if (!pFont->IsCIDFont())
     return;
   if (!pFont->AsCIDFont()->IsVertWriting())
@@ -140,7 +140,7 @@ void CPDF_TextObject::SetSegments(const CFX_ByteString* pStrs,
                                   int nsegs) {
   m_CharCodes.clear();
   m_CharPos.clear();
-  CPDF_Font* pFont = m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = m_TextState.GetFont();
   int nChars = 0;
   for (int i = 0; i < nsegs; ++i)
     nChars += pFont->CountChar(pStrs[i].c_str(), pStrs[i].GetLength());
@@ -168,9 +168,9 @@ void CPDF_TextObject::SetText(const CFX_ByteString& str) {
 
 float CPDF_TextObject::GetCharWidth(uint32_t charcode) const {
   float fontsize = m_TextState.GetFontSize() / 1000;
-  CPDF_Font* pFont = m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = m_TextState.GetFont();
   bool bVertWriting = false;
-  CPDF_CIDFont* pCIDFont = pFont->AsCIDFont();
+  CFX_RetainPtr<CPDF_CIDFont> pCIDFont = pFont->AsCIDFont();
   if (pCIDFont)
     bVertWriting = pCIDFont->IsVertWriting();
   if (!bVertWriting)
@@ -180,7 +180,7 @@ float CPDF_TextObject::GetCharWidth(uint32_t charcode) const {
   return pCIDFont->GetVertWidth(CID) * fontsize;
 }
 
-CPDF_Font* CPDF_TextObject::GetFont() const {
+CFX_RetainPtr<CPDF_Font> CPDF_TextObject::GetFont() const {
   return m_TextState.GetFont();
 }
 
@@ -194,9 +194,9 @@ CFX_PointF CPDF_TextObject::CalcPositionData(float horz_scale) {
   float max_x = -10000 * 1.0f;
   float min_y = 10000 * 1.0f;
   float max_y = -10000 * 1.0f;
-  CPDF_Font* pFont = m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = m_TextState.GetFont();
   bool bVertWriting = false;
-  CPDF_CIDFont* pCIDFont = pFont->AsCIDFont();
+  CFX_RetainPtr<CPDF_CIDFont> pCIDFont = pFont->AsCIDFont();
   if (pCIDFont)
     bVertWriting = pCIDFont->IsVertWriting();
 

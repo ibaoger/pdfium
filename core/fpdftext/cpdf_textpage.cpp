@@ -616,7 +616,8 @@ void CPDF_TextPage::ProcessFormObject(CPDF_FormObject* pFormObj,
   }
 }
 
-int CPDF_TextPage::GetCharWidth(uint32_t charCode, CPDF_Font* pFont) const {
+int CPDF_TextPage::GetCharWidth(uint32_t charCode,
+                                const CFX_RetainPtr<CPDF_Font>& pFont) const {
   if (charCode == CPDF_Font::kInvalidCharCode)
     return 0;
 
@@ -835,7 +836,7 @@ FPDFText_MarkedContent CPDF_TextPage::PreMarkedContent(PDFTEXT_Obj Obj) {
   if (nItems < 1)
     return FPDFText_MarkedContent::Pass;
 
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   bExist = false;
   for (FX_STRSIZE i = 0; i < nItems; i++) {
     if (pFont->CharCodeFromUnicode(actText.GetAt(i)) !=
@@ -881,7 +882,7 @@ void CPDF_TextPage::ProcessMarkedContent(PDFTEXT_Obj Obj) {
   if (nItems < 1)
     return;
 
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   CFX_Matrix matrix = pTextObj->GetTextMatrix();
   matrix.Concat(Obj.m_formMatrix);
 
@@ -933,7 +934,7 @@ void CPDF_TextPage::SwapTempTextBuf(int32_t iCharListStartAppend,
 }
 
 bool CPDF_TextPage::IsRightToLeft(const CPDF_TextObject* pTextObj,
-                                  const CPDF_Font* pFont,
+                                  const CFX_RetainPtr<CPDF_Font>& pFont,
                                   int nItems) const {
   CFX_WideString str;
   for (int32_t i = 0; i < nItems; i++) {
@@ -955,8 +956,9 @@ void CPDF_TextPage::ProcessTextObject(PDFTEXT_Obj Obj) {
   CPDF_TextObject* pTextObj = Obj.m_pTextObj;
   if (fabs(pTextObj->m_Right - pTextObj->m_Left) < 0.01f)
     return;
+
   CFX_Matrix formMatrix = Obj.m_formMatrix;
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   CFX_Matrix matrix = pTextObj->GetTextMatrix();
   matrix.Concat(formMatrix);
 

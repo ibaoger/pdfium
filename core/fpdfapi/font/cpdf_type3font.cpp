@@ -33,12 +33,8 @@ bool CPDF_Type3Font::IsType3Font() const {
   return true;
 }
 
-const CPDF_Type3Font* CPDF_Type3Font::AsType3Font() const {
-  return this;
-}
-
-CPDF_Type3Font* CPDF_Type3Font::AsType3Font() {
-  return this;
+CFX_RetainPtr<CPDF_Type3Font> CPDF_Type3Font::AsType3Font() {
+  return CFX_RetainPtr<CPDF_Type3Font>(this);
 }
 
 bool CPDF_Type3Font::Load() {
@@ -105,9 +101,10 @@ CPDF_Type3Char* CPDF_Type3Font::LoadChar(uint32_t charcode) {
   if (!pStream)
     return nullptr;
 
-  auto pNewChar = pdfium::MakeUnique<CPDF_Type3Char>(new CPDF_Form(
+  auto pForm = pdfium::MakeUnique<CPDF_Form>(
       m_pDocument, m_pFontResources ? m_pFontResources : m_pPageResources,
-      pStream, nullptr));
+      pStream, nullptr);
+  auto pNewChar = pdfium::MakeUnique<CPDF_Type3Char>(std::move(pForm));
 
   // This can trigger recursion into this method. The content of |m_CacheMap|
   // can change as a result. Thus after it returns, check the cache again for

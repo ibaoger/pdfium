@@ -17,11 +17,11 @@ void CPDF_TextState::Emplace() {
   m_Ref.Emplace();
 }
 
-CPDF_Font* CPDF_TextState::GetFont() const {
-  return m_Ref.GetObject()->m_pFont;
+CFX_RetainPtr<CPDF_Font> CPDF_TextState::GetFont() const {
+  return CFX_RetainPtr<CPDF_Font>(m_Ref.GetObject()->m_pFont);
 }
 
-void CPDF_TextState::SetFont(CPDF_Font* pFont) {
+void CPDF_TextState::SetFont(const CFX_RetainPtr<CPDF_Font>& pFont) {
   m_Ref.GetPrivateCopy()->SetFont(pFont);
 }
 
@@ -116,7 +116,7 @@ CPDF_TextState::TextData::TextData(const TextData& that)
     m_CTM[i] = that.m_CTM[i];
 
   if (m_pDocument && m_pFont) {
-    m_pFont = m_pDocument->GetPageData()->GetFont(m_pFont->GetFontDict());
+    m_pFont = m_pDocument->GetPageData()->GetFont(m_pFont->GetFontDict()).Get();
   }
 }
 
@@ -124,18 +124,18 @@ CPDF_TextState::TextData::~TextData() {
   if (m_pDocument && m_pFont) {
     CPDF_DocPageData* pPageData = m_pDocument->GetPageData();
     if (pPageData && !pPageData->IsForceClear())
-      pPageData->ReleaseFont(m_pFont->GetFontDict());
+      pPageData->MaybePurgeFont(m_pFont->GetFontDict());
   }
 }
 
-void CPDF_TextState::TextData::SetFont(CPDF_Font* pFont) {
+void CPDF_TextState::TextData::SetFont(const CFX_RetainPtr<CPDF_Font>& pFont) {
   CPDF_Document* pDoc = m_pDocument;
   CPDF_DocPageData* pPageData = pDoc ? pDoc->GetPageData() : nullptr;
   if (pPageData && m_pFont && !pPageData->IsForceClear())
-    pPageData->ReleaseFont(m_pFont->GetFontDict());
+    pPageData->MaybePurgeFont(m_pFont->GetFontDict());
 
   m_pDocument = pFont ? pFont->m_pDocument : nullptr;
-  m_pFont = pFont;
+  m_pFont = pFont.Get();
 }
 
 float CPDF_TextState::TextData::GetFontSizeV() const {

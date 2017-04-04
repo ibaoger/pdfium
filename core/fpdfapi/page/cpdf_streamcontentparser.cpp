@@ -1143,14 +1143,13 @@ void CPDF_StreamContentParser::Handle_MoveTextPoint_SetLeading() {
 
 void CPDF_StreamContentParser::Handle_SetFont() {
   float fs = GetNumber(0);
-  if (fs == 0) {
+  if (fs == 0)
     fs = m_DefFontSize;
-  }
+
   m_pCurStates->m_TextState.SetFontSize(fs);
-  CPDF_Font* pFont = FindFont(GetString(1));
-  if (pFont) {
+  CFX_RetainPtr<CPDF_Font> pFont = FindFont(GetString(1));
+  if (pFont)
     m_pCurStates->m_TextState.SetFont(pFont);
-  }
 }
 
 CPDF_Object* CPDF_StreamContentParser::FindResourceObj(
@@ -1168,14 +1167,15 @@ CPDF_Object* CPDF_StreamContentParser::FindResourceObj(
   return pPageDict ? pPageDict->GetDirectObjectFor(name) : nullptr;
 }
 
-CPDF_Font* CPDF_StreamContentParser::FindFont(const CFX_ByteString& name) {
+CFX_RetainPtr<CPDF_Font> CPDF_StreamContentParser::FindFont(
+    const CFX_ByteString& name) {
   CPDF_Dictionary* pFontDict = ToDictionary(FindResourceObj("Font", name));
   if (!pFontDict) {
     m_bResourceMissing = true;
     return CPDF_Font::GetStockFont(m_pDocument, "Helvetica");
   }
 
-  CPDF_Font* pFont = m_pDocument->LoadFont(pFontDict);
+  CFX_RetainPtr<CPDF_Font> pFont = m_pDocument->LoadFont(pFontDict);
   if (pFont && pFont->IsType3Font()) {
     pFont->AsType3Font()->SetPageResources(m_pResources);
     pFont->AsType3Font()->CheckType3FontMetrics();
@@ -1227,7 +1227,7 @@ void CPDF_StreamContentParser::AddTextObject(CFX_ByteString* pStrs,
                                              float fInitKerning,
                                              float* pKerning,
                                              int nsegs) {
-  CPDF_Font* pFont = m_pCurStates->m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = m_pCurStates->m_TextState.GetFont();
   if (!pFont) {
     return;
   }
