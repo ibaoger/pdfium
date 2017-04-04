@@ -55,7 +55,7 @@ void CPDF_ContentParser::Start(CPDF_Page* pPage) {
   }
   if (CPDF_Stream* pStream = pContent->AsStream()) {
     m_nStreams = 0;
-    m_pSingleStream = pdfium::MakeUnique<CPDF_StreamAcc>();
+    m_pSingleStream = pdfium::MakeRetain<CPDF_StreamAcc>();
     m_pSingleStream->LoadAllData(pStream, false);
   } else if (CPDF_Array* pArray = pContent->AsArray()) {
     m_nStreams = pArray->GetCount();
@@ -114,7 +114,7 @@ void CPDF_ContentParser::Start(CPDF_Form* pForm,
     pState->SetSoftMask(nullptr);
   }
   m_nStreams = 0;
-  m_pSingleStream = pdfium::MakeUnique<CPDF_StreamAcc>();
+  m_pSingleStream = pdfium::MakeRetain<CPDF_StreamAcc>();
   m_pSingleStream->LoadAllData(pForm->m_pFormStream, false);
   m_pData = (uint8_t*)m_pSingleStream->GetData();
   m_Size = m_pSingleStream->GetSize();
@@ -156,7 +156,7 @@ void CPDF_ContentParser::Continue(IFX_Pause* pPause) {
       } else {
         CPDF_Array* pContent =
             m_pObjectHolder->m_pFormDict->GetArrayFor("Contents");
-        m_StreamArray[m_CurrentOffset] = pdfium::MakeUnique<CPDF_StreamAcc>();
+        m_StreamArray[m_CurrentOffset] = pdfium::MakeRetain<CPDF_StreamAcc>();
         CPDF_Stream* pStreamObj = ToStream(
             pContent ? pContent->GetDirectObjectAt(m_CurrentOffset) : nullptr);
         m_StreamArray[m_CurrentOffset]->LoadAllData(pStreamObj, false);
