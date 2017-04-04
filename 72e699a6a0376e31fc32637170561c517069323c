@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50febcda_438c8b30",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T17:46:29Z",
+      "side": 1,
+      "message": "for these kinds of functions, do we ever return true with a null handle or false with a non-null handle?\nAs much as overloading is dubious, can we make this return the handle or null on failure and avoid the out parameter?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 7
+      },
+      "revId": "72e699a6a0376e31fc32637170561c517069323c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
