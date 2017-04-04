@@ -65,18 +65,18 @@
 
 namespace {
 
-void ReleaseCachedType3(CPDF_Type3Font* pFont) {
+void ReleaseCachedType3(const CFX_RetainPtr<CPDF_Type3Font>& pFont) {
   CPDF_Document* pDoc = pFont->m_pDocument;
   if (!pDoc)
     return;
 
   pDoc->GetRenderData()->MaybePurgeCachedType3(pFont);
-  pDoc->GetPageData()->ReleaseFont(pFont->GetFontDict());
+  pDoc->GetPageData()->MaybePurgeFont(pFont->GetFontDict());
 }
 
 class CPDF_RefType3Cache {
  public:
-  explicit CPDF_RefType3Cache(CPDF_Type3Font* pType3Font)
+  explicit CPDF_RefType3Cache(const CFX_RetainPtr<CPDF_Type3Font>& pType3Font)
       : m_dwCount(0), m_pType3Font(pType3Font) {}
 
   ~CPDF_RefType3Cache() {
@@ -85,7 +85,7 @@ class CPDF_RefType3Cache {
   }
 
   uint32_t m_dwCount;
-  CPDF_Type3Font* const m_pType3Font;
+  CFX_RetainPtr<CPDF_Type3Font> m_pType3Font;
 };
 
 uint32_t CountOutputs(
@@ -1700,7 +1700,7 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
   if (text_render_mode == TextRenderingMode::MODE_INVISIBLE)
     return true;
 
-  CPDF_Font* pFont = textobj->m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = textobj->m_TextState.GetFont();
   if (pFont->IsType3Font())
     return ProcessType3Text(textobj, pObj2Device);
 
@@ -1797,7 +1797,7 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
 }
 
 CFX_RetainPtr<CPDF_Type3Cache> CPDF_RenderStatus::GetCachedType3(
-    CPDF_Type3Font* pFont) {
+    const CFX_RetainPtr<CPDF_Type3Font>& pFont) {
   CPDF_Document* pDoc = pFont->m_pDocument;
   if (!pDoc)
     return nullptr;
@@ -1809,7 +1809,8 @@ CFX_RetainPtr<CPDF_Type3Cache> CPDF_RenderStatus::GetCachedType3(
 // TODO(npm): Font fallback for type 3 fonts? (Completely separate code!!)
 bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
                                          const CFX_Matrix* pObj2Device) {
-  CPDF_Type3Font* pType3Font = textobj->m_TextState.GetFont()->AsType3Font();
+  CFX_RetainPtr<CPDF_Type3Font> pType3Font =
+      textobj->m_TextState.GetFont()->AsType3Font();
   if (pdfium::ContainsValue(m_Type3FontCache, pType3Font))
     return true;
 
@@ -1971,13 +1972,14 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
   return true;
 }
 
-void CPDF_RenderStatus::DrawTextPathWithPattern(const CPDF_TextObject* textobj,
-                                                const CFX_Matrix* pObj2Device,
-                                                CPDF_Font* pFont,
-                                                float font_size,
-                                                const CFX_Matrix* pTextMatrix,
-                                                bool bFill,
-                                                bool bStroke) {
+void CPDF_RenderStatus::DrawTextPathWithPattern(
+    const CPDF_TextObject* textobj,
+    const CFX_Matrix* pObj2Device,
+    const CFX_RetainPtr<CPDF_Font>& pFont,
+    float font_size,
+    const CFX_Matrix* pTextMatrix,
+    bool bFill,
+    bool bStroke) {
   if (!bStroke) {
     CPDF_PathObject path;
     std::vector<std::unique_ptr<CPDF_TextObject>> pCopy;

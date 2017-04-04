@@ -33,15 +33,14 @@ class CPDF_StreamAcc;
 
 class CPDF_CIDFont : public CPDF_Font {
  public:
-  CPDF_CIDFont();
-  ~CPDF_CIDFont() override;
+  template <typename T, typename... Args>
+  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   static float CIDTransformToFloat(uint8_t ch);
 
   // CPDF_Font:
   bool IsCIDFont() const override;
-  const CPDF_CIDFont* AsCIDFont() const override;
-  CPDF_CIDFont* AsCIDFont() override;
+  CFX_RetainPtr<CPDF_CIDFont> AsCIDFont() override;
   int GlyphFromCharCode(uint32_t charcode, bool* pVertGlyph) override;
   int GetCharWidthF(uint32_t charcode) override;
   FX_RECT GetCharBBox(uint32_t charcode) override;
@@ -50,7 +49,7 @@ class CPDF_CIDFont : public CPDF_Font {
                        int& offset) const override;
   int CountChar(const char* pString, int size) const override;
   int AppendChar(char* str, uint32_t charcode) const override;
-  bool IsVertWriting() const override;
+  bool IsVertWriting() override;
   bool IsUnicodeCompatible() const override;
   bool Load() override;
   CFX_WideString UnicodeFromCharCode(uint32_t charcode) const override;
@@ -63,6 +62,9 @@ class CPDF_CIDFont : public CPDF_Font {
   int GetCharSize(uint32_t charcode) const;
 
  protected:
+  CPDF_CIDFont();
+  ~CPDF_CIDFont() override;
+
   void LoadGB2312();
   int GetGlyphIndex(uint32_t unicodeb, bool* pVertGlyph);
   int GetVerticalGlyph(int index, bool* pVertGlyph);

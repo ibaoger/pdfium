@@ -106,7 +106,7 @@ class CPDF_FormControl {
   CPDF_AAction GetAdditionalAction();
   CPDF_DefaultAppearance GetDefaultAppearance();
 
-  CPDF_Font* GetDefaultControlFont();
+  CFX_RetainPtr<CPDF_Font> GetDefaultControlFont();
   int GetControlAlignment();
 
  private:

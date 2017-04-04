@@ -528,7 +528,7 @@ bool CPWL_Edit::IsTextFull() const {
   return m_pEdit->IsTextFull();
 }
 
-float CPWL_Edit::GetCharArrayAutoFontSize(CPDF_Font* pFont,
+float CPWL_Edit::GetCharArrayAutoFontSize(const CFX_RetainPtr<CPDF_Font>& pFont,
                                           const CFX_FloatRect& rcPlate,
                                           int32_t nCharArray) {
   if (pFont && !pFont->IsStandardFont()) {
