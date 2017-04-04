@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "23b55a60_cad36fb1",
+        "filename": "xfa/fde/xml/cfde_xmlchardata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:24:44Z",
+      "side": 1,
+      "message": "Well, this literally creates a new copy...\nOk, followup :)",
+      "parentUuid": "4f58061f_03d9fca0",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "01b5979b93032883d068e309e5c90766f04e02c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90d68316_23c60917",
         "filename": "xfa/fde/xml/cfde_xmltext.cpp",
         "patchSetId": 2
