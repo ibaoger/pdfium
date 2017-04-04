@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1491265206 -0700\nnonce AIcUUg/q1Zv/NckVBVAwGwLB9xu91abvavDUc03pW4ktzBDRKmVwbEuCS6vTtbhxLhDZhIvngP4D\n\n0000000000000000000000000000000000000000 4bf1178e0c87b2df80eba2e43061323829cf16a8 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY4ua2AAoJEKs2LWFaZv17PFIIAKvzx7+6VsLm2sr6g605ao+R\nZ5sAIgiwUjVHHegzd7nfHybGQyNUT1dvZkT1UOnQnklAsUUvodPE8swWJoK4hVw+\nhY3pyKKqAzsDVyj+p/QWi+4XdYVTFt2HwUahK5FSv0wgP7lbeZrbxec4X7+kCcSI\nxIsn6r6KHgU2IqLKu6f8ECqIWLR4pE99tV+WDzt+R6uxHkLDOrl6s3wJDvgnkjYM\nLU2OrMgZpVWXfv2PL+xonJW9uAkUIySozIbWdT39eV3mHG6nMx440ECoQPLL+tav\n7YkS/+xdDhDzShuaL0uFeOSKshrcXmzW1UxdEc+J9P8XvewMUOa0DjmR+6BzND0\u003d\n\u003dzX+h\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5a6f5d6_70f25c5d",
+        "filename": "core/fdrm/crypto/fx_crypt_sha.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-04T17:49:37Z",
+      "side": 1,
+      "message": "Do these need a LL suffix or a UINT64_C() macro around them to be portable to all platforms?",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 22
+      },
+      "revId": "4bf1178e0c87b2df80eba2e43061323829cf16a8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
