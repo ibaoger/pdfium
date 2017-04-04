@@ -7,7 +7,7 @@
 #include "xfa/fde/xml/cfde_xmlchardata.h"
 
 CFDE_XMLCharData::CFDE_XMLCharData(const CFX_WideString& wsCData)
-    : CFDE_XMLNode(), m_wsCharData(wsCData) {}
+    : CFDE_XMLText(wsCData) {}
 
 CFDE_XMLCharData::~CFDE_XMLCharData() {}
 
@@ -16,6 +16,5 @@ FDE_XMLNODETYPE CFDE_XMLCharData::GetType() const {
 }
 
 CFDE_XMLNode* CFDE_XMLCharData::Clone(bool bRecursive) {
-  CFDE_XMLCharData* pClone = new CFDE_XMLCharData(m_wsCharData);
-  return pClone;
+  return new CFDE_XMLCharData(GetText());
 }
