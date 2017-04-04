@@ -73,34 +73,28 @@ void CBC_CommonBitMatrix::Flip(int32_t x, int32_t y) {
 void CBC_CommonBitMatrix::Clear() {
   memset(m_bits, 0, m_rowSize * m_height * sizeof(int32_t));
 }
-void CBC_CommonBitMatrix::SetRegion(int32_t left,
+
+bool CBC_CommonBitMatrix::SetRegion(int32_t left,
                                     int32_t top,
                                     int32_t width,
-                                    int32_t height,
-                                    int32_t& e) {
-  if (top < 0 || left < 0) {
-    e = BCExceptionLeftAndTopMustBeNonnegative;
-    return;
-  }
-  if (height < 1 || width < 1) {
-    e = BCExceptionHeightAndWidthMustBeAtLeast1;
-    return;
-  }
+                                    int32_t height) {
+  if (top < 0 || left < 0 || height < 1 || width < 1)
+    return false;
+
   int32_t right = left + width;
   int32_t bottom = top + height;
-  if (m_height < bottom || m_width < right) {
-    e = BCExceptionRegionMustFitInsideMatrix;
-    return;
-  }
-  int32_t y;
-  for (y = top; y < bottom; y++) {
+  if (m_height < bottom || m_width < right)
+    return false;
+
+  for (int32_t y = top; y < bottom; y++) {
     int32_t offset = y * m_rowSize;
-    int32_t x;
-    for (x = left; x < right; x++) {
+    for (int32_t x = left; x < right; x++) {
       m_bits[offset + (x >> 5)] |= 1 << (x & 0x1f);
     }
   }
+  return true;
 }
+
 CBC_CommonBitArray* CBC_CommonBitMatrix::GetRow(int32_t y,
                                                 CBC_CommonBitArray* row) {
   CBC_CommonBitArray* rowArray = nullptr;
@@ -137,11 +131,4 @@ int32_t CBC_CommonBitMatrix::GetHeight() {
 }
 int32_t CBC_CommonBitMatrix::GetRowSize() {
   return m_rowSize;
-}
-int32_t CBC_CommonBitMatrix::GetDimension(int32_t& e) {
-  if (m_width != m_height) {
-    e = BCExceptionCanNotCallGetDimensionOnNonSquareMatrix;
-    return 0;
-  }
-  return m_width;
 }
