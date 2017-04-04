@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d4cbe43_cc7a2afc",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:07:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94b33ce2_767da931",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10fa58ef_1a0aeb6b",
         "filename": "core/fxcrt/cfx_blockbuffer.cpp",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4705552d_803610d3",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:07:37Z",
+      "side": 1,
+      "message": "iIndexInBlock was always initialized to 0. This maintains the same behaviour.",
+      "parentUuid": "3b0ee20a_6f255787",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29d3f60a_1d2ac19d",
         "filename": "core/fxcrt/cfx_blockbuffer.cpp",
         "patchSetId": 2
@@ -116,6 +164,30 @@
       "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "813c7784_78a5d4b4",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29d3f60a_1d2ac19d",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
