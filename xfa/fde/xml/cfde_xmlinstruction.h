@@ -21,27 +21,37 @@ class CFDE_XMLInstruction : public CFDE_XMLNode {
   FDE_XMLNODETYPE GetType() const override;
   CFDE_XMLNode* Clone(bool bRecursive) override;
 
-  void GetTargetName(CFX_WideString& wsTarget) const { wsTarget = m_wsTarget; }
+  CFX_WideString GetTargetName() const { return m_wsTarget; }
+  const std::vector<CFX_WideString>& GetTargetData() const {
+    return m_TargetData;
+  }
+
   int32_t CountAttributes() const;
+  const std::vector<CFX_WideString>& GetAttributes() const {
+    return m_Attributes;
+  }
   bool GetAttribute(int32_t index,
-                    CFX_WideString& wsAttriName,
-                    CFX_WideString& wsAttriValue) const;
+                    CFX_WideString* wsAttriName,
+                    CFX_WideString* wsAttriValue) const;
   bool HasAttribute(const wchar_t* pwsAttriName) const;
-  void GetString(const wchar_t* pwsAttriName,
-                 CFX_WideString& wsAttriValue,
-                 const wchar_t* pwsDefValue = nullptr) const;
+  CFX_WideString GetString(const wchar_t* pwsAttriName,
+                           const CFX_WideString& pwsDefValue) const;
   void SetString(const CFX_WideString& wsAttriName,
                  const CFX_WideString& wsAttriValue);
-  int32_t GetInteger(const wchar_t* pwsAttriName, int32_t iDefValue = 0) const;
+
+  int32_t GetInteger(const wchar_t* pwsAttriName, int32_t iDefValue) const;
   void SetInteger(const wchar_t* pwsAttriName, int32_t iAttriValue);
-  float GetFloat(const wchar_t* pwsAttriName, float fDefValue = 0) const;
+
+  float GetFloat(const wchar_t* pwsAttriName, float fDefValue) const;
   void SetFloat(const wchar_t* pwsAttriName, float fAttriValue);
+
   void RemoveAttribute(const wchar_t* pwsAttriName);
   int32_t CountData() const;
   bool GetData(int32_t index, CFX_WideString& wsData) const;
   void AppendData(const CFX_WideString& wsData);
   void RemoveData(int32_t index);
 
+ private:
   CFX_WideString m_wsTarget;
   std::vector<CFX_WideString> m_Attributes;
   std::vector<CFX_WideString> m_TargetData;

@@ -3435,7 +3435,7 @@ void CXFA_Node::Script_Packet_Content(CFXJSE_Value* pValue,
     CFDE_XMLNode* pXMLNode = GetXMLMappingNode();
     if (pXMLNode && pXMLNode->GetType() == FDE_XMLNODE_Element) {
       CFDE_XMLElement* pXMLElement = static_cast<CFDE_XMLElement*>(pXMLNode);
-      pXMLElement->GetTextData(wsTextData);
+      wsTextData = pXMLElement->GetTextData();
     }
     pValue->SetString(wsTextData.UTF8Encode().AsStringC());
   }
@@ -4305,7 +4305,7 @@ bool CXFA_Node::TryNamespace(CFX_WideString& wsNamespace) {
     if (!pXMLNode || pXMLNode->GetType() != FDE_XMLNODE_Element) {
       return false;
     }
-    static_cast<CFDE_XMLElement*>(pXMLNode)->GetNamespaceURI(wsNamespace);
+    wsNamespace = static_cast<CFDE_XMLElement*>(pXMLNode)->GetNamespaceURI();
     return true;
   } else if (GetPacketID() == XFA_XDPPACKET_Datasets) {
     CFDE_XMLNode* pXMLNode = GetXMLMappingNode();
@@ -4321,7 +4321,7 @@ bool CXFA_Node::TryNamespace(CFX_WideString& wsNamespace) {
           static_cast<CFDE_XMLElement*>(pXMLNode),
           GetCData(XFA_ATTRIBUTE_QualifiedName), wsNamespace);
     }
-    static_cast<CFDE_XMLElement*>(pXMLNode)->GetNamespaceURI(wsNamespace);
+    wsNamespace = static_cast<CFDE_XMLElement*>(pXMLNode)->GetNamespaceURI();
     return true;
   } else {
     CXFA_Node* pModelNode = GetModelNode();

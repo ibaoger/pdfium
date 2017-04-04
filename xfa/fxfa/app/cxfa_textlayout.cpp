@@ -81,8 +81,7 @@ CFDE_XMLNode* CXFA_TextLayout::GetXMLContainerNode() {
        pXMLChild = pXMLChild->GetNodeItem(CFDE_XMLNode::NextSibling)) {
     if (pXMLChild->GetType() == FDE_XMLNODE_Element) {
       CFDE_XMLElement* pXMLElement = static_cast<CFDE_XMLElement*>(pXMLChild);
-      CFX_WideString wsTag;
-      pXMLElement->GetLocalTagName(wsTag);
+      CFX_WideString wsTag = pXMLElement->GetLocalTagName();
       if (wsTag == L"body" || wsTag == L"html") {
         pXMLContainer = pXMLChild;
         break;
@@ -727,7 +726,7 @@ bool CXFA_TextLayout::LoadRichText(
         bContentNode = true;
       } else if (pXMLNode->GetType() == FDE_XMLNODE_Element) {
         pElement = static_cast<CFDE_XMLElement*>(pXMLNode);
-        pElement->GetLocalTagName(wsName);
+        wsName = pElement->GetLocalTagName();
       }
       if (wsName == L"ol") {
         bIsOl = true;
@@ -773,7 +772,7 @@ bool CXFA_TextLayout::LoadRichText(
             bContentNode ? pParentStyle.Get() : pStyle.Get());
         CFX_WideString wsText;
         if (bContentNode && iTabCount == 0) {
-          static_cast<CFDE_XMLText*>(pXMLNode)->GetText(wsText);
+          wsText = static_cast<CFDE_XMLText*>(pXMLNode)->GetText();
         } else if (wsName == L"br") {
           wsText = L'\n';
         } else if (wsName == L"li") {

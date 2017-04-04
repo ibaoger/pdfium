@@ -177,9 +177,8 @@ void XFA_GetPlainTextFromRichText(CFDE_XMLNode* pXMLNode,
   switch (pXMLNode->GetType()) {
     case FDE_XMLNODE_Element: {
       CFDE_XMLElement* pXMLElement = static_cast<CFDE_XMLElement*>(pXMLNode);
-      CFX_WideString wsTag;
-      pXMLElement->GetLocalTagName(wsTag);
-      uint32_t uTag = FX_HashCode_GetW(wsTag.AsStringC(), true);
+      uint32_t uTag =
+          FX_HashCode_GetW(pXMLElement->GetLocalTagName().AsStringC(), true);
       if (uTag == 0x0001f714) {
         wsPlainText += L"\n";
       } else if (uTag == 0x00000070) {
@@ -194,14 +193,10 @@ void XFA_GetPlainTextFromRichText(CFDE_XMLNode* pXMLNode,
       }
     } break;
     case FDE_XMLNODE_Text: {
-      CFX_WideString wsContent;
-      static_cast<CFDE_XMLText*>(pXMLNode)->GetText(wsContent);
-      wsPlainText += wsContent;
+      wsPlainText += static_cast<CFDE_XMLText*>(pXMLNode)->GetText();
     } break;
     case FDE_XMLNODE_CharData: {
-      CFX_WideString wsCharData;
-      static_cast<CFDE_XMLCharData*>(pXMLNode)->GetCharData(wsCharData);
-      wsPlainText += wsCharData;
+      wsPlainText += static_cast<CFDE_XMLCharData*>(pXMLNode)->GetCharData();
     } break;
     default:
       break;

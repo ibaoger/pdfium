@@ -36,7 +36,7 @@ CFDE_XMLNode* CFDE_XMLElement::Clone(bool bRecursive) {
     while (pChild) {
       switch (pChild->GetType()) {
         case FDE_XMLNODE_Text:
-          wsText += ((CFDE_XMLText*)pChild)->m_wsText;
+          wsText += static_cast<CFDE_XMLText*>(pChild)->GetText();
           break;
         default:
           break;
@@ -48,49 +48,37 @@ CFDE_XMLNode* CFDE_XMLElement::Clone(bool bRecursive) {
   return pClone;
 }
 
-void CFDE_XMLElement::GetTagName(CFX_WideString& wsTag) const {
-  wsTag = m_wsTag;
-}
-
-void CFDE_XMLElement::GetLocalTagName(CFX_WideString& wsTag) const {
+CFX_WideString CFDE_XMLElement::GetLocalTagName() const {
   FX_STRSIZE iFind = m_wsTag.Find(L':', 0);
-  if (iFind < 0) {
-    wsTag = m_wsTag;
-  } else {
-    wsTag = m_wsTag.Right(m_wsTag.GetLength() - iFind - 1);
-  }
+  return iFind < 0 ? m_wsTag : m_wsTag.Right(m_wsTag.GetLength() - iFind - 1);
 }
 
-void CFDE_XMLElement::GetNamespacePrefix(CFX_WideString& wsPrefix) const {
+CFX_WideString CFDE_XMLElement::GetNamespacePrefix() const {
   FX_STRSIZE iFind = m_wsTag.Find(L':', 0);
-  if (iFind < 0) {
-    wsPrefix.clear();
-  } else {
-    wsPrefix = m_wsTag.Left(iFind);
-  }
+  return iFind < 0 ? CFX_WideString() : m_wsTag.Left(iFind);
 }
 
-void CFDE_XMLElement::GetNamespaceURI(CFX_WideString& wsNamespace) const {
-  CFX_WideString wsAttri(L"xmlns"), wsPrefix;
-  GetNamespacePrefix(wsPrefix);
+CFX_WideString CFDE_XMLElement::GetNamespaceURI() const {
+  CFX_WideString wsAttri(L"xmlns");
+  CFX_WideString wsPrefix = GetNamespacePrefix();
   if (wsPrefix.GetLength() > 0) {
     wsAttri += L":";
     wsAttri += wsPrefix;
   }
-  wsNamespace.clear();
+
   CFDE_XMLNode* pNode = (CFDE_XMLNode*)this;
   while (pNode) {
-    if (pNode->GetType() != FDE_XMLNODE_Element) {
+    if (pNode->GetType() != FDE_XMLNODE_Element)
       break;
-    }
+
     CFDE_XMLElement* pElement = (CFDE_XMLElement*)pNode;
     if (!pElement->HasAttribute(wsAttri.c_str())) {
       pNode = pNode->GetNodeItem(CFDE_XMLNode::Parent);
       continue;
     }
-    pElement->GetString(wsAttri.c_str(), wsNamespace);
-    break;
+    return pElement->GetString(wsAttri.c_str(), CFX_WideString());
   }
+  return CFX_WideString();
 }
 
 int32_t CFDE_XMLElement::CountAttributes() const {
@@ -98,14 +86,14 @@ int32_t CFDE_XMLElement::CountAttributes() const {
 }
 
 bool CFDE_XMLElement::GetAttribute(int32_t index,
-                                   CFX_WideString& wsAttriName,
-                                   CFX_WideString& wsAttriValue) const {
+                                   CFX_WideString* wsAttriName,
+                                   CFX_WideString* wsAttriValue) const {
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_Attributes);
   ASSERT(index > -1 && index < iCount / 2);
   for (int32_t i = 0; i < iCount; i += 2) {
     if (index == 0) {
-      wsAttriName = m_Attributes[i];
-      wsAttriValue = m_Attributes[i + 1];
+      *wsAttriName = m_Attributes[i];
+      *wsAttriValue = m_Attributes[i + 1];
       return true;
     }
     index--;
@@ -122,17 +110,15 @@ bool CFDE_XMLElement::HasAttribute(const wchar_t* pwsAttriName) const {
   return false;
 }
 
-void CFDE_XMLElement::GetString(const wchar_t* pwsAttriName,
-                                CFX_WideString& wsAttriValue,
-                                const wchar_t* pwsDefValue) const {
+CFX_WideString CFDE_XMLElement::GetString(
+    const wchar_t* pwsAttriName,
+    const CFX_WideString& pwsDefValue) const {
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_Attributes);
   for (int32_t i = 0; i < iCount; i += 2) {
-    if (m_Attributes[i].Compare(pwsAttriName) == 0) {
-      wsAttriValue = m_Attributes[i + 1];
-      return;
-    }
+    if (m_Attributes[i].Compare(pwsAttriName) == 0)
+      return m_Attributes[i + 1];
   }
-  wsAttriValue = pwsDefValue;
+  return pwsDefValue;
 }
 
 void CFDE_XMLElement::SetString(const CFX_WideString& wsAttriName,
@@ -196,28 +182,27 @@ void CFDE_XMLElement::RemoveAttribute(const wchar_t* pwsAttriName) {
   }
 }
 
-void CFDE_XMLElement::GetTextData(CFX_WideString& wsText) const {
+CFX_WideString CFDE_XMLElement::GetTextData() const {
   CFX_WideTextBuf buffer;
   CFDE_XMLNode* pChild = m_pChild;
   while (pChild) {
     switch (pChild->GetType()) {
       case FDE_XMLNODE_Text:
-        buffer << ((CFDE_XMLText*)pChild)->m_wsText;
+        buffer << static_cast<CFDE_XMLText*>(pChild)->GetText();
         break;
       case FDE_XMLNODE_CharData:
-        buffer << ((CFDE_XMLCharData*)pChild)->m_wsCharData;
+        buffer << static_cast<CFDE_XMLCharData*>(pChild)->GetCharData();
         break;
       default:
         break;
     }
     pChild = pChild->m_pNext;
   }
-  wsText = buffer.AsStringC();
+  return buffer.MakeString();
 }
 
 void CFDE_XMLElement::SetTextData(const CFX_WideString& wsText) {
-  if (wsText.GetLength() < 1) {
+  if (wsText.GetLength() < 1)
     return;
-  }
   InsertChildNode(new CFDE_XMLText(wsText));
 }

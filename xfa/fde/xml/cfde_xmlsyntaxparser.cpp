@@ -500,10 +500,9 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
                 if (ch == m_SkipChar) {
                   m_SkipStack.pop();
                   if (m_SkipStack.empty()) {
-                    if (m_iDataLength >= 9) {
-                      CFX_WideString wsHeader;
-                      m_BlockBuffer.GetTextData(wsHeader, 0, 7);
-                    }
+                    if (m_iDataLength >= 9)
+                      (void)m_BlockBuffer.GetTextData(0, 7);
+
                     m_iTextDataLength = m_iDataLength;
                     m_BlockBuffer.Reset();
                     m_pCurrentBlock =
@@ -636,8 +635,8 @@ void CFDE_XMLSyntaxParser::ParseTextChar(wchar_t character) {
   m_iDataLength++;
   if (m_iEntityStart > -1 && character == L';') {
     CFX_WideString csEntity;
-    m_BlockBuffer.GetTextData(csEntity, m_iEntityStart + 1,
-                              (m_iDataLength - 1) - m_iEntityStart - 1);
+    csEntity = m_BlockBuffer.GetTextData(
+        m_iEntityStart + 1, (m_iDataLength - 1) - m_iEntityStart - 1);
     int32_t iLen = csEntity.GetLength();
     if (iLen > 0) {
       if (csEntity[0] == L'#') {

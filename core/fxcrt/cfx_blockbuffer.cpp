@@ -82,24 +82,21 @@ int32_t CFX_BlockBuffer::DeleteTextChars(int32_t iCount, bool bDirection) {
   return m_iDataLength;
 }
 
-void CFX_BlockBuffer::GetTextData(CFX_WideString& wsTextData,
-                                  int32_t iStart,
-                                  int32_t iLength) const {
-  wsTextData.clear();
+CFX_WideString CFX_BlockBuffer::GetTextData(int32_t iStart,
+                                            int32_t iLength) const {
   int32_t iMaybeDataLength = m_iBufferSize - 1 - m_iStartPosition;
-  if (iStart < 0 || iStart > iMaybeDataLength) {
-    return;
-  }
-  if (iLength == -1 || iLength > iMaybeDataLength) {
+  if (iStart < 0 || iStart > iMaybeDataLength)
+    return CFX_WideString();
+  if (iLength == -1 || iLength > iMaybeDataLength)
     iLength = iMaybeDataLength;
-  }
-  if (iLength <= 0) {
-    return;
-  }
+  if (iLength <= 0)
+    return CFX_WideString();
+
+  CFX_WideString wsTextData;
   wchar_t* pBuf = wsTextData.GetBuffer(iLength);
-  if (!pBuf) {
-    return;
-  }
+  if (!pBuf)
+    return CFX_WideString();
+
   int32_t iStartBlockIndex = 0;
   int32_t iStartInnerIndex = 0;
   TextDataIndex2BufIndex(iStart, iStartBlockIndex, iStartInnerIndex);
@@ -114,15 +111,16 @@ void CFX_BlockBuffer::GetTextData(CFX_WideString& wsTextData,
       iCopyLength -= iStartInnerIndex;
       iBufferPointer = iStartInnerIndex;
     }
-    if (i == iEndBlockIndex) {
+    if (i == iEndBlockIndex)
       iCopyLength -= ((m_iAllocStep - 1) - iEndInnerIndex);
-    }
+
     wchar_t* pBlockBuf = m_BlockArray[i].get();
     memcpy(pBuf + iPointer, pBlockBuf + iBufferPointer,
            iCopyLength * sizeof(wchar_t));
     iPointer += iCopyLength;
   }
   wsTextData.ReleaseBuffer(iLength);
+  return wsTextData;
 }
 
 void CFX_BlockBuffer::TextDataIndex2BufIndex(const int32_t iIndex,

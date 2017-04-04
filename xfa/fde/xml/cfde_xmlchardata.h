@@ -18,11 +18,10 @@ class CFDE_XMLCharData : public CFDE_XMLDeclaration {
   FDE_XMLNODETYPE GetType() const override;
   CFDE_XMLNode* Clone(bool bRecursive) override;
 
-  void GetCharData(CFX_WideString& wsCharData) const {
-    wsCharData = m_wsCharData;
-  }
+  CFX_WideString GetCharData() const { return m_wsCharData; }
   void SetCharData(const CFX_WideString& wsCData) { m_wsCharData = wsCData; }
 
+ private:
   CFX_WideString m_wsCharData;
 };
 

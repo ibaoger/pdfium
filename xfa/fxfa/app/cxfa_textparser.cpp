@@ -277,7 +277,7 @@ std::unique_ptr<CXFA_CSSTagProvider> CXFA_TextParser::ParseTagInfo(
   CFX_WideString wsName;
   if (pXMLNode->GetType() == FDE_XMLNODE_Element) {
     CFDE_XMLElement* pXMLElement = static_cast<CFDE_XMLElement*>(pXMLNode);
-    pXMLElement->GetLocalTagName(wsName);
+    wsName = pXMLElement->GetLocalTagName();
     tagProvider->SetTagName(wsName);
     tagProvider->m_bTagAvailable = TagValidate(wsName);
 

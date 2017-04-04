@@ -38,14 +38,14 @@ int32_t CFDE_XMLInstruction::CountAttributes() const {
 }
 
 bool CFDE_XMLInstruction::GetAttribute(int32_t index,
-                                       CFX_WideString& wsAttriName,
-                                       CFX_WideString& wsAttriValue) const {
+                                       CFX_WideString* wsAttriName,
+                                       CFX_WideString* wsAttriValue) const {
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_Attributes);
   ASSERT(index > -1 && index < iCount / 2);
   for (int32_t i = 0; i < iCount; i += 2) {
     if (index == 0) {
-      wsAttriName = m_Attributes[i];
-      wsAttriValue = m_Attributes[i + 1];
+      *wsAttriName = m_Attributes[i];
+      *wsAttriValue = m_Attributes[i + 1];
       return true;
     }
     index--;
@@ -63,17 +63,15 @@ bool CFDE_XMLInstruction::HasAttribute(const wchar_t* pwsAttriName) const {
   return false;
 }
 
-void CFDE_XMLInstruction::GetString(const wchar_t* pwsAttriName,
-                                    CFX_WideString& wsAttriValue,
-                                    const wchar_t* pwsDefValue) const {
+CFX_WideString CFDE_XMLInstruction::GetString(
+    const wchar_t* pwsAttriName,
+    const CFX_WideString& pwsDefValue) const {
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_Attributes);
   for (int32_t i = 0; i < iCount; i += 2) {
-    if (m_Attributes[i].Compare(pwsAttriName) == 0) {
-      wsAttriValue = m_Attributes[i + 1];
-      return;
-    }
+    if (m_Attributes[i].Compare(pwsAttriName) == 0)
+      return m_Attributes[i + 1];
   }
-  wsAttriValue = pwsDefValue;
+  return pwsDefValue;
 }
 
 void CFDE_XMLInstruction::SetString(const CFX_WideString& wsAttriName,

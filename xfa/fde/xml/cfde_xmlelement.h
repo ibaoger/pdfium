@@ -21,34 +21,34 @@ class CFDE_XMLElement : public CFDE_XMLNode {
   FDE_XMLNODETYPE GetType() const override;
   CFDE_XMLNode* Clone(bool bRecursive) override;
 
-  void GetTagName(CFX_WideString& wsTag) const;
-  void GetLocalTagName(CFX_WideString& wsTag) const;
+  CFX_WideString GetTagName() const { return m_wsTag; }
+  CFX_WideString GetLocalTagName() const;
 
-  void GetNamespacePrefix(CFX_WideString& wsPrefix) const;
-  void GetNamespaceURI(CFX_WideString& wsNamespace) const;
+  CFX_WideString GetNamespacePrefix() const;
+  CFX_WideString GetNamespaceURI() const;
 
   int32_t CountAttributes() const;
   bool GetAttribute(int32_t index,
-                    CFX_WideString& wsAttriName,
-                    CFX_WideString& wsAttriValue) const;
+                    CFX_WideString* wsAttriName,
+                    CFX_WideString* wsAttriValue) const;
   bool HasAttribute(const wchar_t* pwsAttriName) const;
   void RemoveAttribute(const wchar_t* pwsAttriName);
 
-  void GetString(const wchar_t* pwsAttriName,
-                 CFX_WideString& wsAttriValue,
-                 const wchar_t* pwsDefValue = nullptr) const;
+  CFX_WideString GetString(const wchar_t* pwsAttriName,
+                           const CFX_WideString& pwsDefValue) const;
   void SetString(const CFX_WideString& wsAttriName,
                  const CFX_WideString& wsAttriValue);
 
-  int32_t GetInteger(const wchar_t* pwsAttriName, int32_t iDefValue = 0) const;
+  int32_t GetInteger(const wchar_t* pwsAttriName, int32_t iDefValue) const;
   void SetInteger(const wchar_t* pwsAttriName, int32_t iAttriValue);
 
-  float GetFloat(const wchar_t* pwsAttriName, float fDefValue = 0) const;
+  float GetFloat(const wchar_t* pwsAttriName, float fDefValue) const;
   void SetFloat(const wchar_t* pwsAttriName, float fAttriValue);
 
-  void GetTextData(CFX_WideString& wsText) const;
+  CFX_WideString GetTextData() const;
   void SetTextData(const CFX_WideString& wsText);
 
+ private:
   CFX_WideString m_wsTag;
   std::vector<CFX_WideString> m_Attributes;
 };

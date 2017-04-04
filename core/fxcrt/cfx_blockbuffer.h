@@ -34,9 +34,7 @@ class CFX_BlockBuffer {
 
   void SetTextChar(int32_t iIndex, wchar_t ch);
   int32_t DeleteTextChars(int32_t iCount, bool bDirection = true);
-  void GetTextData(CFX_WideString& wsTextData,
-                   int32_t iStart = 0,
-                   int32_t iLength = -1) const;
+  CFX_WideString GetTextData(int32_t iStart = 0, int32_t iLength = -1) const;
 
  private:
   inline void TextDataIndex2BufIndex(const int32_t iIndex,
