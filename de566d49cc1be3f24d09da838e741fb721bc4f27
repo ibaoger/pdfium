@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "216398e7_6e47be74",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:01:48Z",
+      "side": 1,
+      "message": "also check for the other pointers here.",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 11
+      },
+      "revId": "de566d49cc1be3f24d09da838e741fb721bc4f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61902cc5_8fe7596a",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:01:48Z",
+      "side": 1,
+      "message": "We want this method to work even without this check, no?",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "de566d49cc1be3f24d09da838e741fb721bc4f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffe41ed8_54cc05eb",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:01:48Z",
+      "side": 1,
+      "message": "Maybe we can do\npPathObj-\u003em_ColorState.GetFillRGB\nfollowed by FXSYS_GetRValue etc.",
+      "revId": "de566d49cc1be3f24d09da838e741fb721bc4f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a17858_98d85a30",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T18:01:48Z",
+      "side": 1,
+      "message": "Did you mean * 255.f? And static_cast from float to unsigned int",
+      "range": {
+        "startLine": 98,
+        "startChar": 49,
+        "endLine": 98,
+        "endChar": 56
+      },
+      "revId": "de566d49cc1be3f24d09da838e741fb721bc4f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
