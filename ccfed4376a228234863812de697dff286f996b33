@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "798bc85a_f2c62535",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T22:27:44Z",
+      "side": 1,
+      "message": "Whoops!",
+      "parentUuid": "9c7fe658_e281aeeb",
+      "range": {
+        "startLine": 82,
+        "startChar": 42,
+        "endLine": 82,
+        "endChar": 46
+      },
+      "revId": "ccfed4376a228234863812de697dff286f996b33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1523cd17_081b9cc8",
         "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "ccfed4376a228234863812de697dff286f996b33",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "837b7903_8097036c",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T22:27:44Z",
+      "side": 1,
+      "message": "Done. I changed GetProcessingStatus() to a const method.",
+      "parentUuid": "1523cd17_081b9cc8",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "ccfed4376a228234863812de697dff286f996b33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
