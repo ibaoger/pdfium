@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75a8e14c_0fd126f7",
+        "filename": "xfa/fde/xml/cfde_xmlnode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:02:38Z",
+      "side": 1,
+      "message": "You can\u0027t instantiate a class with a pure virtual.",
+      "parentUuid": "a54d764f_2d8911ba",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 1
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "714b3d3f_12f2f0cb",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cf52e5c0_16b6f209",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:02:38Z",
+      "side": 1,
+      "message": "It\u0027s either this or static_cast to call SetTextData as pCloneXML is an XMLNode not an XMLElement.",
+      "parentUuid": "714b3d3f_12f2f0cb",
+      "range": {
+        "startLine": 529,
+        "startChar": 22,
+        "endLine": 529,
+        "endChar": 38
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4e21765_435320de",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa6b21c_594e0e54",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-04T19:02:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c4e21765_435320de",
+      "range": {
+        "startLine": 534,
+        "startChar": 12,
+        "endLine": 534,
+        "endChar": 29
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
