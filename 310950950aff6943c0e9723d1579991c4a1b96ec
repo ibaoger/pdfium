@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "d808f656_7a88a96e",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T19:20:19Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "cf52e5c0_16b6f209",
+      "range": {
+        "startLine": 529,
+        "startChar": 22,
+        "endLine": 529,
+        "endChar": 38
+      },
+      "revId": "310950950aff6943c0e9723d1579991c4a1b96ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4e21765_435320de",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 6
