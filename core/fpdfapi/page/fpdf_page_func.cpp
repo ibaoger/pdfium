@@ -90,10 +90,10 @@ class CPDF_PSFunc : public CPDF_Function {
 };
 
 bool CPDF_PSFunc::v_Init(CPDF_Object* pObj) {
-  CPDF_StreamAcc acc;
-  acc.LoadAllData(pObj->AsStream(), false);
-  return m_PS.Parse(reinterpret_cast<const char*>(acc.GetData()),
-                    acc.GetSize());
+  auto pAcc = pdfium::MakeRetain<CPDF_StreamAcc>();
+  pAcc->LoadAllData(pObj->AsStream(), false);
+  return m_PS.Parse(reinterpret_cast<const char*>(pAcc->GetData()),
+                    pAcc->GetSize());
 }
 
 bool CPDF_PSFunc::v_Call(float* inputs, float* results) const {
@@ -487,7 +487,7 @@ bool CPDF_SampledFunc::v_Init(CPDF_Object* pObj) {
     return false;
 
   m_SampleMax = 0xffffffff >> (32 - m_nBitsPerSample);
-  m_pSampleStream = pdfium::MakeUnique<CPDF_StreamAcc>();
+  m_pSampleStream = pdfium::MakeRetain<CPDF_StreamAcc>();
   m_pSampleStream->LoadAllData(pStream, false);
   FX_SAFE_UINT32 nTotalSampleBits = 1;
   m_EncodeInfo.resize(m_nInputs);
