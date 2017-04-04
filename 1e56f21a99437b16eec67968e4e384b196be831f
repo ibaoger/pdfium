@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94b33ce2_767da931",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T19:00:13Z",
+      "side": 1,
+      "message": "Another option: just have this static variable in the header, and not constant in namespace nor method here.\nAny is fine",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10fa58ef_1a0aeb6b",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T19:00:13Z",
+      "side": 1,
+      "message": "I would prefer -1 or some value that cannot be returned from the % below",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d3f60a_1d2ac19d",
+        "filename": "core/fxcrt/cfx_blockbuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-04T19:00:13Z",
+      "side": 1,
+      "message": "remove? It\u0027s set in line 46",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "1e56f21a99437b16eec67968e4e384b196be831f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
