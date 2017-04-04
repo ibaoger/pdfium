@@ -74,7 +74,7 @@ bool GenerateWidgetAP(CPDF_Document* pDoc,
     pDRFontDict->SetNewFor<CPDF_Reference>(sFontName.Mid(1), pDoc,
                                            pFontDict->GetObjNum());
   }
-  CPDF_Font* pDefFont = pDoc->LoadFont(pFontDict);
+  CFX_RetainPtr<CPDF_Font> pDefFont = pDoc->LoadFont(pFontDict);
   if (!pDefFont)
     return false;
 
@@ -510,7 +510,7 @@ CFX_ByteString GetDashPatternString(const CPDF_Dictionary& pAnnotDict) {
 
 CFX_ByteString GetPopupContentsString(CPDF_Document* pDoc,
                                       const CPDF_Dictionary& pAnnotDict,
-                                      CPDF_Font* pDefFont,
+                                      const CFX_RetainPtr<CPDF_Font>& pDefFont,
                                       const CFX_ByteString& sFontName) {
   CFX_WideString swValue(pAnnotDict.GetUnicodeTextFor("T"));
   swValue += L'\n';
@@ -958,7 +958,7 @@ bool CPVT_GenerateAP::GeneratePopupAP(CPDF_Document* pDoc,
 
   CFX_ByteString sFontName = "FONT";
   auto pResourceFontDict = GenerateResourceFontDict(pDoc, sFontName);
-  CPDF_Font* pDefFont = pDoc->LoadFont(pResourceFontDict.get());
+  CFX_RetainPtr<CPDF_Font> pDefFont = pDoc->LoadFont(pResourceFontDict.get());
   if (!pDefFont)
     return false;
 
@@ -1331,7 +1331,7 @@ CFX_ByteString CPVT_GenerateAP::GetPDFWordString(IPVT_FontMap* pFontMap,
   if (!pFontMap)
     return sWord;
 
-  if (CPDF_Font* pPDFFont = pFontMap->GetPDFFont(nFontIndex)) {
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = pFontMap->GetPDFFont(nFontIndex)) {
     if (pPDFFont->GetBaseFont().Compare("Symbol") == 0 ||
         pPDFFont->GetBaseFont().Compare("ZapfDingbats") == 0) {
       sWord.Format("%c", Word);

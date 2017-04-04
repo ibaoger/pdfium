@@ -1459,20 +1459,17 @@ int Document::CountWords(CPDF_TextObject* pTextObj) {
     return 0;
 
   int nWords = 0;
-
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   if (!pFont)
     return 0;
 
   bool bIsLatin = false;
-
   for (int i = 0, sz = pTextObj->CountChars(); i < sz; i++) {
     uint32_t charcode = CPDF_Font::kInvalidCharCode;
     float kerning;
-
     pTextObj->GetCharInfo(i, &charcode, &kerning);
-    CFX_WideString swUnicode = pFont->UnicodeFromCharCode(charcode);
 
+    CFX_WideString swUnicode = pFont->UnicodeFromCharCode(charcode);
     uint16_t unicode = 0;
     if (swUnicode.GetLength() > 0)
       unicode = swUnicode[0];
@@ -1484,7 +1481,6 @@ int Document::CountWords(CPDF_TextObject* pTextObj) {
     if (unicode != 0x20)
       nWords++;
   }
-
   return nWords;
 }
 
@@ -1492,7 +1488,7 @@ CFX_WideString Document::GetObjWordStr(CPDF_TextObject* pTextObj,
                                        int nWordIndex) {
   CFX_WideString swRet;
 
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   if (!pFont)
     return L"";
 

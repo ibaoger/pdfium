@@ -9,15 +9,14 @@
 
 #include <stdint.h>
 
+#include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fxcrt/fx_string.h"
-
-class CPDF_Font;
 
 class IPVT_FontMap {
  public:
   virtual ~IPVT_FontMap() {}
 
-  virtual CPDF_Font* GetPDFFont(int32_t nFontIndex) = 0;
+  virtual CFX_RetainPtr<CPDF_Font> GetPDFFont(int32_t nFontIndex) = 0;
   virtual CFX_ByteString GetPDFFontAlias(int32_t nFontIndex) = 0;
   virtual int32_t GetWordFontIndex(uint16_t word,
                                    int32_t charset,

@@ -6,6 +6,8 @@
 
 #include "core/fpdfapi/font/cpdf_type3char.h"
 
+#include <utility>
+
 #include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
@@ -21,10 +23,11 @@ bool CPDF_Type3Char::LoadBitmap(CPDF_RenderContext* pContext) {
   if (m_pBitmap || !m_pForm)
     return true;
 
-  if (m_pForm->GetPageObjectList()->size() != 1 || m_bColored)
+  auto pForm = std::move(m_pForm);
+  if (pForm->GetPageObjectList()->size() != 1 || m_bColored)
     return false;
 
-  auto& pPageObj = m_pForm->GetPageObjectList()->front();
+  auto& pPageObj = pForm->GetPageObjectList()->front();
   if (!pPageObj->IsImage())
     return false;
 
@@ -33,6 +36,6 @@ bool CPDF_Type3Char::LoadBitmap(CPDF_RenderContext* pContext) {
       pPageObj->AsImage()->GetImage()->LoadDIBSource();
   if (pSource)
     m_pBitmap = pSource->Clone();
-  m_pForm.reset();
+
   return true;
 }
