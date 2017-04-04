@@ -66,24 +66,20 @@ FXCODEC_STATUS CCodec_Jbig2Module::StartDecode(
   pJbig2Context->m_pContext = pdfium::MakeUnique<CJBig2_Context>(
       global_stream, src_stream, pJBig2DocumentContext->GetSymbolDictCache(),
       pPause, false);
-  if (!pJbig2Context->m_pContext)
+  auto& pContext = pJbig2Context->m_pContext;
+  int ret = pContext->getFirstPage(dest_buf, width, height, dest_pitch, pPause);
+  if (pContext->GetProcessingStatus() != FXCODEC_STATUS_DECODE_FINISH)
+    return pContext->GetProcessingStatus();
+
+  pJbig2Context->m_pContext.reset();
+  if (ret != JBIG2_SUCCESS)
     return FXCODEC_STATUS_ERROR;
 
-  int ret = pJbig2Context->m_pContext->getFirstPage(dest_buf, width, height,
-                                                    dest_pitch, pPause);
-  if (pJbig2Context->m_pContext->GetProcessingStatus() ==
-      FXCODEC_STATUS_DECODE_FINISH) {
-    pJbig2Context->m_pContext.reset();
-    if (ret != JBIG2_SUCCESS)
-      return FXCODEC_STATUS_ERROR;
-
-    int dword_size = height * dest_pitch / 4;
-    uint32_t* dword_buf = (uint32_t*)dest_buf;
-    for (int i = 0; i < dword_size; i++)
-      dword_buf[i] = ~dword_buf[i];
-    return FXCODEC_STATUS_DECODE_FINISH;
-  }
-  return pJbig2Context->m_pContext->GetProcessingStatus();
+  int dword_size = height * dest_pitch / 4;
+  uint32_t* dword_buf = (uint32_t*)dest_buf;
+  for (int i = 0; i < dword_size; i++)
+    dword_buf[i] = ~dword_buf[i];
+  return FXCODEC_STATUS_DECODE_FINISH;
 }
 
 FXCODEC_STATUS CCodec_Jbig2Module::ContinueDecode(
