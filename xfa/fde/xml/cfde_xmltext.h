@@ -19,9 +19,10 @@ class CFDE_XMLText : public CFDE_XMLNode {
   FDE_XMLNODETYPE GetType() const override;
   CFDE_XMLNode* Clone(bool bRecursive) override;
 
-  void GetText(CFX_WideString& wsText) const { wsText = m_wsText; }
+  CFX_WideString GetText() const { return m_wsText; }
   void SetText(const CFX_WideString& wsText) { m_wsText = wsText; }
 
+ private:
   CFX_WideString m_wsText;
 };
 

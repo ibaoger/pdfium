@@ -36,7 +36,7 @@ CFDE_XMLNode* CFDE_XMLElement::Clone(bool bRecursive) {
     while (pChild) {
       switch (pChild->GetType()) {
         case FDE_XMLNODE_Text:
-          wsText += ((CFDE_XMLText*)pChild)->m_wsText;
+          wsText += static_cast<CFDE_XMLText*>(pChild)->GetText();
           break;
         default:
           break;
@@ -202,10 +202,8 @@ void CFDE_XMLElement::GetTextData(CFX_WideString& wsText) const {
   while (pChild) {
     switch (pChild->GetType()) {
       case FDE_XMLNODE_Text:
-        buffer << ((CFDE_XMLText*)pChild)->m_wsText;
-        break;
       case FDE_XMLNODE_CharData:
-        buffer << ((CFDE_XMLCharData*)pChild)->m_wsCharData;
+        buffer << static_cast<CFDE_XMLText*>(pChild)->GetText();
         break;
       default:
         break;

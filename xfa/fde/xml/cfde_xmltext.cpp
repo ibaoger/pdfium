@@ -16,6 +16,5 @@ FDE_XMLNODETYPE CFDE_XMLText::GetType() const {
 }
 
 CFDE_XMLNode* CFDE_XMLText::Clone(bool bRecursive) {
-  CFDE_XMLText* pClone = new CFDE_XMLText(m_wsText);
-  return pClone;
+  return new CFDE_XMLText(m_wsText);
 }
