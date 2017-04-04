@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "919887ea_cd846d81",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T22:09:36Z",
+      "side": 1,
+      "message": "It feels clearer to me. |pContext| is just a temporary shorthand.",
+      "parentUuid": "e6bc3a1c_c610e52b",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "23e338b258e9dd48495320ff89dec491ba5843b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdf1c4b4_dab6b3e7",
         "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
         "patchSetId": 1
@@ -46,6 +70,30 @@
       "revId": "23e338b258e9dd48495320ff89dec491ba5843b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e871ba45_a4e769e2",
+        "filename": "core/fxcodec/codec/fx_codec_jbig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-04T22:09:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf1c4b4_dab6b3e7",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 33
+      },
+      "revId": "23e338b258e9dd48495320ff89dec491ba5843b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
