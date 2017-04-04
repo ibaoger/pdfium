@@ -95,7 +95,7 @@ class CPWL_Edit : public CPWL_EditCtrl {
 
   bool IsTextFull() const;
 
-  static float GetCharArrayAutoFontSize(CPDF_Font* pFont,
+  static float GetCharArrayAutoFontSize(const CFX_RetainPtr<CPDF_Font>& pFont,
                                         const CFX_FloatRect& rcPlate,
                                         int32_t nCharArray);
 

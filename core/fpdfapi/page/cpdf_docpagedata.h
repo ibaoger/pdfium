@@ -32,10 +32,10 @@ class CPDF_DocPageData {
   void Clear(bool bRelease = false);
   bool IsForceClear() const { return m_bForceClear; }
 
-  CPDF_Font* GetFont(CPDF_Dictionary* pFontDict);
-  CPDF_Font* GetStandardFont(const CFX_ByteString& fontName,
-                             CPDF_FontEncoding* pEncoding);
-  void ReleaseFont(const CPDF_Dictionary* pFontDict);
+  CFX_RetainPtr<CPDF_Font> GetFont(CPDF_Dictionary* pFontDict);
+  CFX_RetainPtr<CPDF_Font> GetStandardFont(const CFX_ByteString& fontName,
+                                           CPDF_FontEncoding* pEncoding);
+  void MaybePurgeFont(const CPDF_Dictionary* pFontDict);
 
   CPDF_ColorSpace* GetColorSpace(CPDF_Object* pCSObj,
                                  const CPDF_Dictionary* pResources);
@@ -60,8 +60,6 @@ class CPDF_DocPageData {
   CPDF_CountedPattern* FindPatternPtr(CPDF_Object* pPatternObj) const;
 
  private:
-  using CPDF_CountedFont = CPDF_CountedObject<CPDF_Font>;
-
   CPDF_ColorSpace* GetColorSpaceImpl(CPDF_Object* pCSObj,
                                      const CPDF_Dictionary* pResources,
                                      std::set<CPDF_Object*>* pVisited);
@@ -71,7 +69,7 @@ class CPDF_DocPageData {
   std::map<CFX_ByteString, CPDF_Stream*> m_HashProfileMap;
   std::map<const CPDF_Object*, CPDF_CountedColorSpace*> m_ColorSpaceMap;
   std::map<const CPDF_Stream*, CFX_RetainPtr<CPDF_StreamAcc>> m_FontFileMap;
-  std::map<const CPDF_Dictionary*, CPDF_CountedFont*> m_FontMap;
+  std::map<const CPDF_Dictionary*, CFX_RetainPtr<CPDF_Font>> m_FontMap;
   std::map<const CPDF_Stream*, CFX_RetainPtr<CPDF_IccProfile>> m_IccProfileMap;
   std::map<uint32_t, CFX_RetainPtr<CPDF_Image>> m_ImageMap;
   std::map<const CPDF_Object*, CPDF_CountedPattern*> m_PatternMap;

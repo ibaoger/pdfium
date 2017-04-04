@@ -60,9 +60,10 @@ class CFX_SystemHandler {
   void SetCursor(int32_t nCursorType);
 
   bool FindNativeTrueTypeFont(CFX_ByteString sFontFaceName);
-  CPDF_Font* AddNativeTrueTypeFontToPDF(CPDF_Document* pDoc,
-                                        CFX_ByteString sFontFaceName,
-                                        uint8_t nCharset);
+  CFX_RetainPtr<CPDF_Font> AddNativeTrueTypeFontToPDF(
+      CPDF_Document* pDoc,
+      CFX_ByteString sFontFaceName,
+      uint8_t nCharset);
 
   int32_t SetTimer(int32_t uElapse, TimerCallback lpTimerFunc);
   void KillTimer(int32_t nID);

@@ -44,7 +44,7 @@ class CPDF_TextObject : public CPDF_PageObject {
   float GetCharWidth(uint32_t charcode) const;
   CFX_PointF GetPos() const { return m_Pos; }
   CFX_Matrix GetTextMatrix() const;
-  CPDF_Font* GetFont() const;
+  CFX_RetainPtr<CPDF_Font> GetFont() const;
   float GetFontSize() const;
 
   void SetText(const CFX_ByteString& text);

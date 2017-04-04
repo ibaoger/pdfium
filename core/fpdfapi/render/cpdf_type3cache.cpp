@@ -80,7 +80,8 @@ int DetectFirstLastScan(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
 
 }  // namespace
 
-CPDF_Type3Cache::CPDF_Type3Cache(CPDF_Type3Font* pFont) : m_pFont(pFont) {}
+CPDF_Type3Cache::CPDF_Type3Cache(const CFX_RetainPtr<CPDF_Type3Font>& pFont)
+    : m_pFont(pFont) {}
 
 CPDF_Type3Cache::~CPDF_Type3Cache() {}
 

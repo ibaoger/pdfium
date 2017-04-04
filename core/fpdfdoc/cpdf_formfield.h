@@ -9,6 +9,7 @@
 
 #include <vector>
 
+#include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fpdfdoc/cpdf_aaction.h"
 #include "core/fpdfdoc/cpdf_formfield.h"
 #include "core/fxcrt/fx_basic.h"
@@ -30,7 +31,6 @@
 #define FORMFLAG_NOEXPORT 0x04
 
 class CPDF_Dictionary;
-class CPDF_Font;
 class CPDF_FormControl;
 class CPDF_InterForm;
 class CPDF_String;
@@ -129,7 +129,7 @@ class CPDF_FormField {
 #endif  // PDF_ENABLE_XFA
 
   float GetFontSize() const { return m_FontSize; }
-  CPDF_Font* GetFont() const { return m_pFont; }
+  CFX_RetainPtr<CPDF_Font> GetFont() const { return m_pFont; }
 
  private:
   friend class CPDF_InterForm;
@@ -161,7 +161,7 @@ class CPDF_FormField {
   CPDF_Dictionary* m_pDict;
   std::vector<CPDF_FormControl*> m_ControlList;  // Owned by InterForm parent.
   float m_FontSize;
-  CPDF_Font* m_pFont;
+  CFX_RetainPtr<CPDF_Font> m_pFont;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_FORMFIELD_H_
