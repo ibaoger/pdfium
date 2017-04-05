@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9186a7de_bb6a586b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T17:25:59Z",
+      "side": 1,
+      "message": "super-super-super nit: naming: An XMLElementNode is an Element, but an XMLAttributeNode isn\u0027t an Attribute, rather it has an attribute table.  So the name would have to be something like XMLAttributeHoldingNode, but that\u0027s a lousy name, and I can\u0027t think of any better ones.  Maybe you can.",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 55
+      },
+      "revId": "15a30c70252c853d9199cf2df38ed434ff3798cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
