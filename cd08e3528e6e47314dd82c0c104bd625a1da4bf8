@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "8734cfd4_ab163200",
+        "filename": "core/fpdfapi/font/cpdf_type3char.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:17:53Z",
+      "side": 1,
+      "message": "sigh.",
+      "parentUuid": "cc7f8c53_c6c4ab35",
+      "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fe05861_1c94eb25",
         "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
         "patchSetId": 11
@@ -118,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "6d4add5f_83f392ba",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:17:53Z",
+      "side": 1,
+      "message": "The ordering is suspect; let\u0027s try making the clear() go away entirely.",
+      "parentUuid": "4fe05861_1c94eb25",
+      "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5b68e57_7291d778",
         "filename": "fpdfsdk/pdfwindow/PWL_FontMap.h",
         "patchSetId": 11
@@ -129,6 +165,24 @@
       "writtenOn": "2017-04-05T20:59:32Z",
       "side": 1,
       "message": "Why not just put it in the .cpp file?",
+      "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ab125f_66187303",
+        "filename": "fpdfsdk/pdfwindow/PWL_FontMap.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:17:53Z",
+      "side": 1,
+      "message": "Ooops, meant to tidy that up.  The inline trick just evades the chrome-style compiler warning .",
+      "parentUuid": "d5b68e57_7291d778",
       "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
