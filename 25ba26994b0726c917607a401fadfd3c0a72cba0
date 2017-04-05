@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f3f65f3f_698f7391",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T20:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdac371c_2cf39891",
+      "range": {
+        "startLine": 629,
+        "startChar": 1,
+        "endLine": 629,
+        "endChar": 36
+      },
+      "revId": "25ba26994b0726c917607a401fadfd3c0a72cba0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "293abe06_89e533c1",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "25ba26994b0726c917607a401fadfd3c0a72cba0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "255e5575_33c52efb",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T20:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "293abe06_89e533c1",
+      "range": {
+        "startLine": 641,
+        "startChar": 31,
+        "endLine": 641,
+        "endChar": 33
+      },
+      "revId": "25ba26994b0726c917607a401fadfd3c0a72cba0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
