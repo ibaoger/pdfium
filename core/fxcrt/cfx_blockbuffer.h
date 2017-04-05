@@ -25,10 +25,10 @@ class CFX_BlockBuffer {
 
   std::pair<wchar_t*, int32_t> GetAvailableBlock();
   int32_t GetAllocStep() const;
+  int32_t GetDataLength() const { return m_iDataLength; }
 
-  // This is ... scary. This returns a ref, which the XMLSyntaxParser stores
-  // and modifies.
-  int32_t& GetDataLengthRef() { return m_iDataLength; }
+  bool Empty() const { return m_iDataLength == 0; }
+  void IncrementLength() { m_iDataLength++; }
 
   void Reset(bool bReserveData) {
     if (!bReserveData)
