@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "281e9b7b_3057c0bb",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea909c9_58be5183",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 11
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72c49bf3_05c75263",
         "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-05T17:15:47Z",
       "side": 1,
       "message": "Is AppendData() a no-op if m_ws1 is empty?  Maybe always call it an let it decide?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 31
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a069fe38_f7c6936f",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:55:38Z",
+      "side": 1,
+      "message": "It would push back a blank string. Which the second case in this file doesn\u0027t check for, so it seems like the blank is valid to be pushed on if it occurs.",
+      "parentUuid": "72c49bf3_05c75263",
       "range": {
         "startLine": 149,
         "startChar": 4,
@@ -68,6 +116,30 @@
       "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3191add9_0e52c422",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b969f501_4ead9a6b",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 17
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
