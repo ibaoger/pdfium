@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d74b50ef_b25d06fd",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T18:08:55Z",
+      "side": 1,
+      "message": "since we short-circuit the rendering to .png etc, we should give an error if --png --show--structure combination (for example) is specified.  One way to do this would to define a new output format of dump, alteratively check the the format is NONE here, and that show_structure is false for all the other output format args ...",
+      "range": {
+        "startLine": 504,
+        "startChar": 6,
+        "endLine": 505,
+        "endChar": 37
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2068e39f_ecb5134e",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T18:08:55Z",
+      "side": 1,
+      "message": "You really ought to bounds check here.\n\nor just\n\nstd::string result;\nresult.reserve(buf_size);\nfor (unsigned long i \u003d 0; i \u003c buf_size; ++i)\n   result.push_back(buf[i]);\n\nor maybe if you want to be really really cool there might be a way to make this work\n\nstd::string result;\nresult.reserve(buf_size);\nstd::copy(buf, buf + buf_size, std::back_inserter(result));",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 632,
+        "endChar": 31
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a30e46d5_6a6871fa",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T18:08:55Z",
+      "side": 1,
+      "message": "the usual trick is to just use an integer for indent and increment by one at each level, and print via\n\nprintf(\"%*s%ls\", indent * 2, \"\", ConvertToWString ... );",
+      "range": {
+        "startLine": 638,
+        "startChar": 2,
+        "endLine": 638,
+        "endChar": 32
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2626ae7_841bc6e3",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T18:08:55Z",
+      "side": 1,
+      "message": "do we want this to go to stderr?",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 661,
+        "endChar": 11
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd4537c_926a4509",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T18:08:55Z",
+      "side": 1,
+      "message": "do we want to do this after we send events to the page, since the event might mutate the structure?",
+      "range": {
+        "startLine": 689,
+        "startChar": 1,
+        "endLine": 692,
+        "endChar": 3
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
