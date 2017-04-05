@@ -40,7 +40,7 @@ CPDF_VariableText::Provider::~Provider() {}
 
 int32_t CPDF_VariableText::Provider::GetCharWidth(int32_t nFontIndex,
                                                   uint16_t word) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex)) {
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex)) {
     uint32_t charcode = pPDFFont->CharCodeFromUnicode(word);
     if (charcode != CPDF_Font::kInvalidCharCode)
       return pPDFFont->GetCharWidthF(charcode);
@@ -49,13 +49,13 @@ int32_t CPDF_VariableText::Provider::GetCharWidth(int32_t nFontIndex,
 }
 
 int32_t CPDF_VariableText::Provider::GetTypeAscent(int32_t nFontIndex) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
     return pPDFFont->GetTypeAscent();
   return 0;
 }
 
 int32_t CPDF_VariableText::Provider::GetTypeDescent(int32_t nFontIndex) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
     return pPDFFont->GetTypeDescent();
   return 0;
 }
@@ -63,11 +63,11 @@ int32_t CPDF_VariableText::Provider::GetTypeDescent(int32_t nFontIndex) {
 int32_t CPDF_VariableText::Provider::GetWordFontIndex(uint16_t word,
                                                       int32_t charset,
                                                       int32_t nFontIndex) {
-  if (CPDF_Font* pDefFont = m_pFontMap->GetPDFFont(0)) {
+  if (CFX_RetainPtr<CPDF_Font> pDefFont = m_pFontMap->GetPDFFont(0)) {
     if (pDefFont->CharCodeFromUnicode(word) != CPDF_Font::kInvalidCharCode)
       return 0;
   }
-  if (CPDF_Font* pSysFont = m_pFontMap->GetPDFFont(1)) {
+  if (CFX_RetainPtr<CPDF_Font> pSysFont = m_pFontMap->GetPDFFont(1)) {
     if (pSysFont->CharCodeFromUnicode(word) != CPDF_Font::kInvalidCharCode)
       return 1;
   }

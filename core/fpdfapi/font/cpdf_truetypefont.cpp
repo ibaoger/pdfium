@@ -18,16 +18,14 @@ const uint8_t kPrefix[4] = {0x00, 0xf0, 0xf1, 0xf2};
 
 CPDF_TrueTypeFont::CPDF_TrueTypeFont() {}
 
+CPDF_TrueTypeFont::~CPDF_TrueTypeFont() {}
+
 bool CPDF_TrueTypeFont::IsTrueTypeFont() const {
   return true;
 }
 
-const CPDF_TrueTypeFont* CPDF_TrueTypeFont::AsTrueTypeFont() const {
-  return this;
-}
-
-CPDF_TrueTypeFont* CPDF_TrueTypeFont::AsTrueTypeFont() {
-  return this;
+CFX_RetainPtr<CPDF_TrueTypeFont> CPDF_TrueTypeFont::AsTrueTypeFont() {
+  return CFX_RetainPtr<CPDF_TrueTypeFont>(this);
 }
 
 bool CPDF_TrueTypeFont::Load() {
