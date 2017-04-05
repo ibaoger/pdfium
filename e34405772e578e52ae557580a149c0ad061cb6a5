@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "83e4f7f4_478f55d2",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:09:37Z",
+      "side": 1,
+      "message": "This is not an embedder test. There is no \"unsigned short\" here. And there is uint8_t. But it\u0027s just a matter of preference, so I\u0027m ok with not changing it.",
+      "parentUuid": "01e68b9e_51ef4d17",
+      "range": {
+        "startLine": 627,
+        "startChar": 36,
+        "endLine": 627,
+        "endChar": 50
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8ae3bba_dcbe476b",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "It isn\u0027t a wchar_t. It\u0027s a UTF16-LE string.",
       "parentUuid": "d8ae3bba_dcbe476b",
+      "range": {
+        "startLine": 638,
+        "startChar": 61,
+        "endLine": 638,
+        "endChar": 66
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b273d35_0fac0d72",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:09:37Z",
+      "side": 1,
+      "message": "What do you mean? c_str will just give the pointer to the wchar_t array.",
+      "parentUuid": "74d7474b_7fce8e7d",
       "range": {
         "startLine": 638,
         "startChar": 61,
