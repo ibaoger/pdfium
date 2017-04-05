@@ -22,6 +22,30 @@
       "revId": "15a30c70252c853d9199cf2df38ed434ff3798cb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da5c44cf_1970f0e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:45:17Z",
+      "side": 1,
+      "message": "I think all names are bad. We have XMLElement, XMLInstructionElement, XMLNode, XMLCharData, XMLText, XMLDoc, XMLParser and XMLSyntaxParser.\n\nElement inherits from Node, the AttiributeNode is an extension of Node with attributes which I think makes sense?",
+      "parentUuid": "9186a7de_bb6a586b",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 55
+      },
+      "revId": "15a30c70252c853d9199cf2df38ed434ff3798cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
