@@ -65,16 +65,18 @@ bool FT_UseType1Charmap(FXFT_Face face) {
 
 CPDF_Type1Font::CPDF_Type1Font() : m_Base14Font(-1) {}
 
+CPDF_Type1Font::~CPDF_Type1Font() {}
+
 bool CPDF_Type1Font::IsType1Font() const {
   return true;
 }
 
-const CPDF_Type1Font* CPDF_Type1Font::AsType1Font() const {
-  return this;
+CFX_RetainPtr<CPDF_Type1Font> CPDF_Type1Font::AsType1Font() {
+  return CFX_RetainPtr<CPDF_Type1Font>(this);
 }
 
-CPDF_Type1Font* CPDF_Type1Font::AsType1Font() {
-  return this;
+bool CPDF_Type1Font::IsStandardFont() const {
+  return m_pFontFile && GetBase14Font() >= 0;
 }
 
 bool CPDF_Type1Font::Load() {

@@ -244,7 +244,7 @@ void CPDF_PageContentGenerator::ProcessGraphics(CFX_ByteTextBuf* buf,
 void CPDF_PageContentGenerator::ProcessText(CFX_ByteTextBuf* buf,
                                             CPDF_TextObject* pTextObj) {
   *buf << "BT " << pTextObj->GetTextMatrix() << " Tm ";
-  CPDF_Font* pFont = pTextObj->GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pTextObj->GetFont();
   if (!pFont)
     pFont = CPDF_Font::GetStockFont(m_pDocument, "Helvetica");
   FontData fontD;
