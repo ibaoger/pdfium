@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "504a6117_d1ad88a8",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T14:18:09Z",
+      "side": 1,
+      "message": "uint8_t instead of unsigned short, similarly throughout.",
+      "range": {
+        "startLine": 627,
+        "startChar": 36,
+        "endLine": 627,
+        "endChar": 50
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ae3bba_dcbe476b",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T14:18:09Z",
+      "side": 1,
+      "message": "so you are doing wchar_t* -\u003e wstring -\u003e wchar_t*. Unneeded intermediate step?",
+      "range": {
+        "startLine": 638,
+        "startChar": 61,
+        "endLine": 638,
+        "endChar": 66
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3e2535a_a69a9005",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T14:18:09Z",
+      "side": 1,
+      "message": "sizeof multiplying here just in case?",
+      "range": {
+        "startLine": 640,
+        "startChar": 17,
+        "endLine": 640,
+        "endChar": 25
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c030edc8_991590e9",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T14:18:09Z",
+      "side": 1,
+      "message": "can len be 0 in line 637 as well?",
+      "range": {
+        "startLine": 642,
+        "startChar": 2,
+        "endLine": 642,
+        "endChar": 14
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
