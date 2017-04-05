@@ -12,17 +12,22 @@
 
 class CPDF_Type1Font : public CPDF_SimpleFont {
  public:
-  CPDF_Type1Font();
+  template <typename T, typename... Args>
+  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   // CPDF_Font:
+  bool IsStandardFont() const override;
   bool IsType1Font() const override;
-  const CPDF_Type1Font* AsType1Font() const override;
-  CPDF_Type1Font* AsType1Font() override;
+  CFX_RetainPtr<CPDF_Type1Font> AsType1Font() override;
+
   int GlyphFromCharCodeExt(uint32_t charcode) override;
 
   int GetBase14Font() const { return m_Base14Font; }
 
  private:
+  CPDF_Type1Font();
+  ~CPDF_Type1Font() override;
+
   // CPDF_Font:
   bool Load() override;
 

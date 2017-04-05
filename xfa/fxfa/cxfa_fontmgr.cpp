@@ -1751,7 +1751,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
   auto it = m_PDFFontMgrMap.find(hDoc);
   CXFA_PDFFontMgr* pMgr =
       it != m_PDFFontMgrMap.end() ? it->second.get() : nullptr;
-  CPDF_Font* pPDFFont = nullptr;
+  CFX_RetainPtr<CPDF_Font> pPDFFont;
   CFX_RetainPtr<CFGAS_GEFont> pFont;
   if (pMgr) {
     pFont =

@@ -39,6 +39,9 @@ const char* const g_sDEStandardFontName[] = {"Courier",
 
 }  // namespace
 
+CPWL_FontMap_Data::CPWL_FontMap_Data() = default;
+CPWL_FontMap_Data::~CPWL_FontMap_Data() = default;
+
 CPWL_FontMap::CPWL_FontMap(CFX_SystemHandler* pSystemHandler)
     : m_pSystemHandler(pSystemHandler) {
   ASSERT(m_pSystemHandler);
@@ -58,7 +61,7 @@ CPDF_Document* CPWL_FontMap::GetDocument() {
   return m_pPDFDoc.get();
 }
 
-CPDF_Font* CPWL_FontMap::GetPDFFont(int32_t nFontIndex) {
+CFX_RetainPtr<CPDF_Font> CPWL_FontMap::GetPDFFont(int32_t nFontIndex) {
   if (pdfium::IndexInBounds(m_Data, nFontIndex) && m_Data[nFontIndex])
     return m_Data[nFontIndex]->pFont;
 
@@ -180,7 +183,7 @@ int32_t CPWL_FontMap::GetFontIndex(const CFX_ByteString& sFontName,
     return nFontIndex;
 
   CFX_ByteString sAlias;
-  CPDF_Font* pFont = nullptr;
+  CFX_RetainPtr<CPDF_Font> pFont;
   if (bFind)
     pFont = FindFontSameCharset(sAlias, nCharset);
 
@@ -193,12 +196,13 @@ int32_t CPWL_FontMap::GetFontIndex(const CFX_ByteString& sFontName,
   return AddFontData(pFont, sAlias, nCharset);
 }
 
-CPDF_Font* CPWL_FontMap::FindFontSameCharset(CFX_ByteString& sFontAlias,
-                                             int32_t nCharset) {
+CFX_RetainPtr<CPDF_Font> CPWL_FontMap::FindFontSameCharset(
+    CFX_ByteString& sFontAlias,
+    int32_t nCharset) {
   return nullptr;
 }
 
-int32_t CPWL_FontMap::AddFontData(CPDF_Font* pFont,
+int32_t CPWL_FontMap::AddFontData(const CFX_RetainPtr<CPDF_Font>& pFont,
                                   const CFX_ByteString& sFontAlias,
                                   int32_t nCharset) {
   auto pNewData = pdfium::MakeUnique<CPWL_FontMap_Data>();
@@ -209,7 +213,7 @@ int32_t CPWL_FontMap::AddFontData(CPDF_Font* pFont,
   return pdfium::CollectionSize<int32_t>(m_Data) - 1;
 }
 
-void CPWL_FontMap::AddedFont(CPDF_Font* pFont,
+void CPWL_FontMap::AddedFont(const CFX_RetainPtr<CPDF_Font>& pFont,
                              const CFX_ByteString& sFontAlias) {}
 
 CFX_ByteString CPWL_FontMap::GetNativeFont(int32_t nCharset) {
@@ -223,35 +227,35 @@ CFX_ByteString CPWL_FontMap::GetNativeFont(int32_t nCharset) {
   return sFontName;
 }
 
-CPDF_Font* CPWL_FontMap::AddFontToDocument(CPDF_Document* pDoc,
-                                           CFX_ByteString& sFontName,
-                                           uint8_t nCharset) {
+CFX_RetainPtr<CPDF_Font> CPWL_FontMap::AddFontToDocument(
+    CPDF_Document* pDoc,
+    CFX_ByteString& sFontName,
+    uint8_t nCharset) {
   if (IsStandardFont(sFontName))
     return AddStandardFont(pDoc, sFontName);
 
   return AddSystemFont(pDoc, sFontName, nCharset);
 }
 
-CPDF_Font* CPWL_FontMap::AddStandardFont(CPDF_Document* pDoc,
-                                         CFX_ByteString& sFontName) {
+CFX_RetainPtr<CPDF_Font> CPWL_FontMap::AddStandardFont(
+    CPDF_Document* pDoc,
+    CFX_ByteString& sFontName) {
   if (!pDoc)
     return nullptr;
 
-  CPDF_Font* pFont = nullptr;
-
+  CFX_RetainPtr<CPDF_Font> pFont;
   if (sFontName == "ZapfDingbats") {
     pFont = pDoc->AddStandardFont(sFontName.c_str(), nullptr);
   } else {
     CPDF_FontEncoding fe(PDFFONT_ENCODING_WINANSI);
     pFont = pDoc->AddStandardFont(sFontName.c_str(), &fe);
   }
-
   return pFont;
 }
 
-CPDF_Font* CPWL_FontMap::AddSystemFont(CPDF_Document* pDoc,
-                                       CFX_ByteString& sFontName,
-                                       uint8_t nCharset) {
+CFX_RetainPtr<CPDF_Font> CPWL_FontMap::AddSystemFont(CPDF_Document* pDoc,
+                                                     CFX_ByteString& sFontName,
+                                                     uint8_t nCharset) {
   if (!pDoc)
     return nullptr;
 

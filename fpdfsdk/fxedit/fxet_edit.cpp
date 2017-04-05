@@ -58,7 +58,7 @@ CFX_ByteString GetFontSetString(IPVT_FontMap* pFontMap,
 
 void DrawTextString(CFX_RenderDevice* pDevice,
                     const CFX_PointF& pt,
-                    CPDF_Font* pFont,
+                    const CFX_RetainPtr<CPDF_Font>& pFont,
                     float fFontSize,
                     CFX_Matrix* pUser2Device,
                     const CFX_ByteString& str,
@@ -149,7 +149,7 @@ IPVT_FontMap* CFX_Edit_Provider::GetFontMap() {
 }
 
 int32_t CFX_Edit_Provider::GetCharWidth(int32_t nFontIndex, uint16_t word) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex)) {
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex)) {
     uint32_t charcode = word;
 
     if (pPDFFont->IsUnicodeCompatible())
@@ -165,14 +165,14 @@ int32_t CFX_Edit_Provider::GetCharWidth(int32_t nFontIndex, uint16_t word) {
 }
 
 int32_t CFX_Edit_Provider::GetTypeAscent(int32_t nFontIndex) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
     return pPDFFont->GetTypeAscent();
 
   return 0;
 }
 
 int32_t CFX_Edit_Provider::GetTypeDescent(int32_t nFontIndex) {
-  if (CPDF_Font* pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
+  if (CFX_RetainPtr<CPDF_Font> pPDFFont = m_pFontMap->GetPDFFont(nFontIndex))
     return pPDFFont->GetTypeDescent();
 
   return 0;

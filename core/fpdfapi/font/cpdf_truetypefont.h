@@ -12,14 +12,17 @@
 
 class CPDF_TrueTypeFont : public CPDF_SimpleFont {
  public:
-  CPDF_TrueTypeFont();
+  template <typename T, typename... Args>
+  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   // CPDF_Font:
   bool IsTrueTypeFont() const override;
-  const CPDF_TrueTypeFont* AsTrueTypeFont() const override;
-  CPDF_TrueTypeFont* AsTrueTypeFont() override;
+  CFX_RetainPtr<CPDF_TrueTypeFont> AsTrueTypeFont() override;
 
- protected:
+ private:
+  CPDF_TrueTypeFont();
+  ~CPDF_TrueTypeFont() override;
+
   // CPDF_Font:
   bool Load() override;
 

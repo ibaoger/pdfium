@@ -15,7 +15,7 @@ CFX_ByteString GetPDFWordString(IPVT_FontMap* pFontMap,
                                 int32_t nFontIndex,
                                 uint16_t Word,
                                 uint16_t SubWord) {
-  CPDF_Font* pPDFFont = pFontMap->GetPDFFont(nFontIndex);
+  CFX_RetainPtr<CPDF_Font> pPDFFont = pFontMap->GetPDFFont(nFontIndex);
   if (!pPDFFont)
     return CFX_ByteString();
 
