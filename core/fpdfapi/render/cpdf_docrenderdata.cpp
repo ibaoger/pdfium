@@ -45,7 +45,7 @@ void CPDF_DocRenderData::Clear(bool bRelease) {
 }
 
 CFX_RetainPtr<CPDF_Type3Cache> CPDF_DocRenderData::GetCachedType3(
-    CPDF_Type3Font* pFont) {
+    const CFX_RetainPtr<CPDF_Type3Font>& pFont) {
   auto it = m_Type3FaceMap.find(pFont);
   if (it != m_Type3FaceMap.end())
     return it->second;
@@ -55,7 +55,8 @@ CFX_RetainPtr<CPDF_Type3Cache> CPDF_DocRenderData::GetCachedType3(
   return pCache;
 }
 
-void CPDF_DocRenderData::MaybePurgeCachedType3(CPDF_Type3Font* pFont) {
+void CPDF_DocRenderData::MaybePurgeCachedType3(
+    const CFX_RetainPtr<CPDF_Type3Font>& pFont) {
   auto it = m_Type3FaceMap.find(pFont);
   if (it != m_Type3FaceMap.end() && it->second->HasOneRef())
     m_Type3FaceMap.erase(it);
