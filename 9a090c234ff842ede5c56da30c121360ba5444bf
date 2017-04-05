@@ -74,6 +74,24 @@
     },
     {
       "key": {
+        "uuid": "9dafdcc2_82bfdc88",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-05T22:55:36Z",
+      "side": 1,
+      "message": "The verbatim copy wrapped in !build_with_chromium has the advantage that maintainence is easier. Barring any drastic changes, if Chromium\u0027s build config changes, we just make the same change. If we choose to do something else, we may need to do a little more work to keep up. Having the args in pdfium.gni has its appeal. I\u0027m not dead set of verbatim, BTW.\n\nAnother question is why does Chromium have its libjpeg use_ variables in third_party/BUILD.gn and not in a more centralized place like build/. Maybe Dirk can help answer this and give guidance on what\u0027s the best way of setting up our build files.",
+      "parentUuid": "3985c325_37b6c7ed",
+      "revId": "9a090c234ff842ede5c56da30c121360ba5444bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4632e288_c70e9db0",
         "filename": "third_party/BUILD.gn",
         "patchSetId": 2
