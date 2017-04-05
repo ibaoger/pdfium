@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "e3261599_4718c706",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T15:32:36Z",
+      "side": 1,
+      "message": "The initial buffer is UTF16-LE, which needs to be converted to something useful. If you just try to print the buffer you\u0027ll get the first character and nothing. This the same conversion we do in CFX_WideString when getting one of these buffers.",
+      "parentUuid": "3b273d35_0fac0d72",
+      "range": {
+        "startLine": 638,
+        "startChar": 61,
+        "endLine": 638,
+        "endChar": 66
+      },
+      "revId": "e34405772e578e52ae557580a149c0ad061cb6a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3e2535a_a69a9005",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
