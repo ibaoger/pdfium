@@ -7,6 +7,7 @@
 #ifndef XFA_FDE_XML_CFDE_XMLSYNTAXPARSER_H_
 #define XFA_FDE_XML_CFDE_XMLSYNTAXPARSER_H_
 
+#include <memory>
 #include <stack>
 
 #include "core/fxcrt/cfx_blockbuffer.h"
@@ -42,7 +43,7 @@ class CFDE_XMLSyntaxParser {
 
   int32_t GetStatus() const;
   int32_t GetCurrentPos() const {
-    return m_iParsedChars + (m_pStart - m_pBuffer);
+    return m_iParsedChars + (m_pStart - m_pBuffer.get());
   }
   FX_FILESIZE GetCurrentBinaryPos() const;
   int32_t GetCurrentNodeNumber() const { return m_iCurrentNodeNum; }
@@ -105,17 +106,17 @@ class CFDE_XMLSyntaxParser {
   int32_t m_iLastNodeNum;
   int32_t m_iParsedChars;
   int32_t m_iParsedBytes;
-  wchar_t* m_pBuffer;
+  std::unique_ptr<wchar_t, FxFreeDeleter> m_pBuffer;
   int32_t m_iBufferChars;
   bool m_bEOS;
-  wchar_t* m_pStart;
-  wchar_t* m_pEnd;
+  wchar_t* m_pStart;  // Pointer into m_pBuffer
+  wchar_t* m_pEnd;    // Pointer into m_pBuffer
   FDE_XMLNODE m_CurNode;
   std::stack<FDE_XMLNODE> m_XMLNodeStack;
   CFX_BlockBuffer m_BlockBuffer;
   int32_t m_iAllocStep;
   int32_t& m_iDataLength;
-  wchar_t* m_pCurrentBlock;
+  wchar_t* m_pCurrentBlock;  // Pointer into CFX_BlockBuffer
   int32_t m_iIndexInBlock;
   int32_t m_iTextDataLength;
   FDE_XmlSyntaxResult m_syntaxParserResult;

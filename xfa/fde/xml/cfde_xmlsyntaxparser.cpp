@@ -86,7 +86,6 @@ CFDE_XMLSyntaxParser::CFDE_XMLSyntaxParser(
       m_iLastNodeNum(-1),
       m_iParsedChars(0),
       m_iParsedBytes(0),
-      m_pBuffer(nullptr),
       m_iBufferChars(0),
       m_bEOS(false),
       m_pStart(nullptr),
@@ -117,22 +116,24 @@ CFDE_XMLSyntaxParser::CFDE_XMLSyntaxParser(
     return;
   }
 
-  m_pBuffer = FX_Alloc(
-      wchar_t, pdfium::base::ValueOrDieForType<size_t>(alloc_size_safe));
-  m_pStart = m_pBuffer;
-  m_pEnd = m_pBuffer;
+  m_pBuffer.reset(FX_Alloc(
+      wchar_t, pdfium::base::ValueOrDieForType<size_t>(alloc_size_safe)));
+  m_pStart = m_pBuffer.get();
+  m_pEnd = m_pBuffer.get();
 
   m_BlockBuffer.InitBuffer();
   std::tie(m_pCurrentBlock, m_iIndexInBlock) =
       m_BlockBuffer.GetAvailableBlock();
 }
 
+CFDE_XMLSyntaxParser::~CFDE_XMLSyntaxParser() {}
+
 FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
   if (m_syntaxParserResult == FDE_XmlSyntaxResult::Error ||
       m_syntaxParserResult == FDE_XmlSyntaxResult::EndOfString) {
     return m_syntaxParserResult;
   }
-  ASSERT(m_pStream && m_pBuffer && m_BlockBuffer.IsInitialized());
+
   int32_t iStreamLength = m_pStream->GetLength();
   int32_t iPos;
 
@@ -143,13 +144,13 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
         m_syntaxParserResult = FDE_XmlSyntaxResult::EndOfString;
         return m_syntaxParserResult;
       }
-      m_iParsedChars += (m_pEnd - m_pBuffer);
+      m_iParsedChars += (m_pEnd - m_pBuffer.get());
       m_iParsedBytes = m_iCurrentPos;
       if (m_pStream->GetPosition() != m_iCurrentPos) {
         m_pStream->Seek(FX_STREAMSEEK_Begin, m_iCurrentPos);
       }
       m_iBufferChars =
-          m_pStream->ReadString(m_pBuffer, m_iXMLPlaneSize, m_bEOS);
+          m_pStream->ReadString(m_pBuffer.get(), m_iXMLPlaneSize, m_bEOS);
       iPos = m_pStream->GetPosition();
       if (m_iBufferChars < 1) {
         m_iCurrentPos = iStreamLength;
@@ -157,8 +158,8 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
         return m_syntaxParserResult;
       }
       m_iCurrentPos = iPos;
-      m_pStart = m_pBuffer;
-      m_pEnd = m_pBuffer + m_iBufferChars;
+      m_pStart = m_pBuffer.get();
+      m_pEnd = m_pBuffer.get() + m_iBufferChars;
     }
 
     while (m_pStart < m_pEnd) {
@@ -592,10 +593,6 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
   return FDE_XmlSyntaxResult::Text;
 }
 
-CFDE_XMLSyntaxParser::~CFDE_XMLSyntaxParser() {
-  FX_Free(m_pBuffer);
-}
-
 int32_t CFDE_XMLSyntaxParser::GetStatus() const {
   if (!m_pStream)
     return -1;
@@ -616,8 +613,8 @@ FX_FILESIZE CFDE_XMLSyntaxParser::GetCurrentBinaryPos() const {
   if (!m_pStream)
     return 0;
 
-  int32_t nSrcLen = m_pStart - m_pBuffer;
-  int32_t nDstLen = GetUTF8EncodeLength(m_pBuffer, nSrcLen);
+  int32_t nSrcLen = m_pStart - m_pBuffer.get();
+  int32_t nDstLen = GetUTF8EncodeLength(m_pBuffer.get(), nSrcLen);
   return m_iParsedBytes + nDstLen;
 }
 
