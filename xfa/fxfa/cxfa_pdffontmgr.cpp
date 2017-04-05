@@ -30,7 +30,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_PDFFontMgr::FindFont(
     const CFX_ByteString& strPsName,
     bool bBold,
     bool bItalic,
-    CPDF_Font** pDstPDFFont,
+    CFX_RetainPtr<CPDF_Font>* pDstPDFFont,
     bool bStrictMatch) {
   CPDF_Document* pDoc = m_pDoc->GetPDFDoc();
   if (!pDoc)
@@ -59,7 +59,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_PDFFontMgr::FindFont(
     if (!pFontDict || pFontDict->GetStringFor("Type") != "Font") {
       return nullptr;
     }
-    CPDF_Font* pPDFFont = pDoc->LoadFont(pFontDict);
+    CFX_RetainPtr<CPDF_Font> pPDFFont = pDoc->LoadFont(pFontDict);
     if (!pPDFFont) {
       return nullptr;
     }
@@ -75,7 +75,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_PDFFontMgr::FindFont(
 CFX_RetainPtr<CFGAS_GEFont> CXFA_PDFFontMgr::GetFont(
     const CFX_WideStringC& wsFontFamily,
     uint32_t dwFontStyles,
-    CPDF_Font** pPDFFont,
+    CFX_RetainPtr<CPDF_Font>* pPDFFont,
     bool bStrictMatch) {
   uint32_t dwHashCode = FX_HashCode_GetW(wsFontFamily, false);
   CFX_ByteString strKey;
@@ -197,12 +197,12 @@ bool CXFA_PDFFontMgr::GetCharWidth(const CFX_RetainPtr<CFGAS_GEFont>& pFont,
   if (it == m_FDE2PDFFont.end())
     return false;
 
-  CPDF_Font* pPDFFont = it->second;
+  CFX_RetainPtr<CPDF_Font> pPDFFont = it->second;
   *pWidth = pPDFFont->GetCharWidthF(pPDFFont->CharCodeFromUnicode(wUnicode));
   return true;
 }
 
 void CXFA_PDFFontMgr::SetFont(const CFX_RetainPtr<CFGAS_GEFont>& pFont,
-                              CPDF_Font* pPDFFont) {
+                              const CFX_RetainPtr<CPDF_Font>& pPDFFont) {
   m_FDE2PDFFont[pFont] = pPDFFont;
 }

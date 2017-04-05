@@ -65,29 +65,6 @@
 
 namespace {
 
-void ReleaseCachedType3(CPDF_Type3Font* pFont) {
-  CPDF_Document* pDoc = pFont->m_pDocument;
-  if (!pDoc)
-    return;
-
-  pDoc->GetRenderData()->MaybePurgeCachedType3(pFont);
-  pDoc->GetPageData()->ReleaseFont(pFont->GetFontDict());
-}
-
-class CPDF_RefType3Cache {
- public:
-  explicit CPDF_RefType3Cache(CPDF_Type3Font* pType3Font)
-      : m_dwCount(0), m_pType3Font(pType3Font) {}
-
-  ~CPDF_RefType3Cache() {
-    while (m_dwCount--)
-      ReleaseCachedType3(m_pType3Font);
-  }
-
-  uint32_t m_dwCount;
-  CPDF_Type3Font* const m_pType3Font;
-};
-
 uint32_t CountOutputs(
     const std::vector<std::unique_ptr<CPDF_Function>>& funcs) {
   uint32_t total = 0;
@@ -1700,7 +1677,7 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
   if (text_render_mode == TextRenderingMode::MODE_INVISIBLE)
     return true;
 
-  CPDF_Font* pFont = textobj->m_TextState.GetFont();
+  CFX_RetainPtr<CPDF_Font> pFont = textobj->m_TextState.GetFont();
   if (pFont->IsType3Font())
     return ProcessType3Text(textobj, pObj2Device);
 
@@ -1797,7 +1774,7 @@ bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
 }
 
 CFX_RetainPtr<CPDF_Type3Cache> CPDF_RenderStatus::GetCachedType3(
-    CPDF_Type3Font* pFont) {
+    const CFX_RetainPtr<CPDF_Type3Font>& pFont) {
   CPDF_Document* pDoc = pFont->m_pDocument;
   if (!pDoc)
     return nullptr;
@@ -1809,7 +1786,8 @@ CFX_RetainPtr<CPDF_Type3Cache> CPDF_RenderStatus::GetCachedType3(
 // TODO(npm): Font fallback for type 3 fonts? (Completely separate code!!)
 bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
                                          const CFX_Matrix* pObj2Device) {
-  CPDF_Type3Font* pType3Font = textobj->m_TextState.GetFont()->AsType3Font();
+  CFX_RetainPtr<CPDF_Type3Font> pType3Font =
+      textobj->m_TextState.GetFont()->AsType3Font();
   if (pdfium::ContainsValue(m_Type3FontCache, pType3Font))
     return true;
 
@@ -1829,7 +1807,6 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
   else if (fill_alpha < 255)
     return false;
 
-  CPDF_RefType3Cache refTypeCache(pType3Font);
   for (int iChar = 0; iChar < pdfium::CollectionSize<int>(textobj->m_CharCodes);
        iChar++) {
     uint32_t charcode = textobj->m_CharCodes[iChar];
@@ -1906,7 +1883,6 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
     } else if (pType3Char->m_pBitmap) {
       if (device_class == FXDC_DISPLAY) {
         CFX_RetainPtr<CPDF_Type3Cache> pCache = GetCachedType3(pType3Font);
-        refTypeCache.m_dwCount++;
         CFX_GlyphBitmap* pBitmap = pCache->LoadGlyph(charcode, &matrix, sa, sd);
         if (!pBitmap)
           continue;
@@ -1971,13 +1947,14 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
   return true;
 }
 
-void CPDF_RenderStatus::DrawTextPathWithPattern(const CPDF_TextObject* textobj,
-                                                const CFX_Matrix* pObj2Device,
-                                                CPDF_Font* pFont,
-                                                float font_size,
-                                                const CFX_Matrix* pTextMatrix,
-                                                bool bFill,
-                                                bool bStroke) {
+void CPDF_RenderStatus::DrawTextPathWithPattern(
+    const CPDF_TextObject* textobj,
+    const CFX_Matrix* pObj2Device,
+    const CFX_RetainPtr<CPDF_Font>& pFont,
+    float font_size,
+    const CFX_Matrix* pTextMatrix,
+    bool bFill,
+    bool bStroke) {
   if (!bStroke) {
     CPDF_PathObject path;
     std::vector<std::unique_ptr<CPDF_TextObject>> pCopy;
