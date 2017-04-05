@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae4df890_16f1de96",
+        "filename": "core/fxcrt/cfx_blockbuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T21:41:06Z",
+      "side": 1,
+      "message": "should we change the m_iDataLength to size_t or something unsigned while we\u0027re at it?",
+      "range": {
+        "startLine": 28,
+        "startChar": 41,
+        "endLine": 28,
+        "endChar": 54
+      },
+      "revId": "83e25179e52070018b620d6fb62d3b83cca7addd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9a5ec72_de76ac03",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T21:41:06Z",
+      "side": 1,
+      "message": "unneeded ()",
+      "range": {
+        "startLine": 633,
+        "startChar": 42,
+        "endLine": 633,
+        "endChar": 43
+      },
+      "revId": "83e25179e52070018b620d6fb62d3b83cca7addd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
