@@ -94,6 +94,54 @@
     },
     {
       "key": {
+        "uuid": "5c648bee_60550d49",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T00:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05f4e563_fea64580",
+      "range": {
+        "startLine": 730,
+        "startChar": 4,
+        "endLine": 730,
+        "endChar": 7
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f5dd890_a3919795",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T00:09:07Z",
+      "side": 1,
+      "message": "They are the same thing, but changed. We should probably get rid of m_FileLen and just use FileAccess-\u003eGetSize() so there is only once source of truth.",
+      "parentUuid": "8e6b2d12_e4c3da32",
+      "range": {
+        "startLine": 730,
+        "startChar": 10,
+        "endLine": 730,
+        "endChar": 34
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ddf9435_a101386c",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2017-04-04T21:06:25Z",
       "side": 1,
       "message": "Why the change \u003c to \u003c\u003d?",
+      "range": {
+        "startLine": 731,
+        "startChar": 11,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "45a700a524af9daa0dac4769998f2342d9e66abf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3149891e_4d5ecbb7",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T00:09:07Z",
+      "side": 1,
+      "message": "Because the 0 case is going to make a 0 byte stream below which doesn\u0027t really make sense.",
+      "parentUuid": "4ddf9435_a101386c",
       "range": {
         "startLine": 731,
         "startChar": 11,
