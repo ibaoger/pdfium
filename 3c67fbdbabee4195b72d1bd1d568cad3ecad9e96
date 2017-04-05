@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fd9f961c_f142fc04",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 0,
+      "message": "we do some unique_ptr stuff that means the counts inside this class get bumped.  But the other change you suggested means it can go back to const.",
+      "parentUuid": "b74cb6e5_ec79ffe4",
+      "revId": "3c67fbdbabee4195b72d1bd1d568cad3ecad9e96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a93d717_6763ccf2",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 13
@@ -30,6 +48,30 @@
       "writtenOn": "2017-04-05T22:30:17Z",
       "side": 0,
       "message": "Unsure why these calls are no longer necessary",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 57
+      },
+      "revId": "3c67fbdbabee4195b72d1bd1d568cad3ecad9e96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8629f776_ac01a501",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 0,
+      "message": "Superseded by actual reference counts.",
+      "parentUuid": "3a93d717_6763ccf2",
       "range": {
         "startLine": 73,
         "startChar": 2,

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f976de5e_188e6be3",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ef254ea_c760689b",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "668a79c4_e42e6a14",
         "filename": "core/fpdfapi/font/cpdf_font.cpp",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd98599_e9610a38",
+        "filename": "core/fpdfapi/font/cpdf_font.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "668a79c4_e42e6a14",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 68
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "490a6431_f2a74c3d",
+        "filename": "core/fpdfapi/font/cpdf_truetypefont.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b4351e_50dd2235",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa90ba74_dca409c9",
         "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-05T22:30:17Z",
       "side": 1,
       "message": "Just making sure there\u0027s only one ref here? auto it gives you one, the one in the map gives you another",
+      "range": {
+        "startLine": 154,
+        "startChar": 43,
+        "endLine": 154,
+        "endChar": 52
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f8c5504_ea1abad9",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T23:20:15Z",
+      "side": 1,
+      "message": "I don\u0027t think so.  it is an iterator to the object, not a copy of the object, hence the -\u003e vs the . \nfor a range-based for loop, however, you\u0027re right that a auto\u0026 needs to be present to avoid the copy.  But this isn\u0027t that.",
+      "parentUuid": "aa90ba74_dca409c9",
       "range": {
         "startLine": 154,
         "startChar": 43,
