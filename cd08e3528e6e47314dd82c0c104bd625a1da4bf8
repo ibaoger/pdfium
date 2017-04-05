@@ -42,6 +42,47 @@
     },
     {
       "key": {
+        "uuid": "20c8964a_4dedd2a2",
+        "filename": "core/fpdfapi/font/cpdf_font.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-05T21:04:31Z",
+      "side": 1,
+      "message": "Sure, since that\u0027s the only time we call it.",
+      "parentUuid": "4e0a93c3_280dd019",
+      "range": {
+        "startLine": 38,
+        "startChar": 15,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7f8c53_c6c4ab35",
+        "filename": "core/fpdfapi/font/cpdf_type3char.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-05T21:04:31Z",
+      "side": 1,
+      "message": "BTW, |m_pForm| is public and it\u0027s being reset() externally too. Sigh.",
+      "revId": "cd08e3528e6e47314dd82c0c104bd625a1da4bf8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fe05861_1c94eb25",
         "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
         "patchSetId": 11
