@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08a9375a_783d5378",
+        "filename": "xfa/fde/xml/cfde_xmlattributenode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "or just:\nattrs_.erase(name);",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "525935c8_80c7cef3",
+        "filename": "xfa/fde/xml/cfde_xmlattributenode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "Can this be a ref so that we don\u0027t copy the whole map, or is this needed?",
+      "range": {
+        "startLine": 26,
+        "startChar": 47,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ae9146b_f37b17a2",
+        "filename": "xfa/fde/xml/cfde_xmlattributenode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "It feels like the map should be public, instead of having all these methods",
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256ebf25_c0cd2e89",
+        "filename": "xfa/fde/xml/cfde_xmldoc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "rename |it|, maybe |target|?",
+      "range": {
+        "startLine": 89,
+        "startChar": 18,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a394ed55_26538bd7",
+        "filename": "xfa/fde/xml/cfde_xmldoc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "Followup: helper for this duplicated for loop",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c8fecd_e660243d",
+        "filename": "xfa/fde/xml/cfde_xmlelement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "I don\u0027t see why use the getter when it\u0027s its own variable.",
+      "range": {
+        "startLine": 45,
+        "startChar": 21,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a119067_782f1a3b",
+        "filename": "xfa/fde/xml/cfde_xmlelement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "Followup: nodes own their children with unique_ptr.",
+      "range": {
+        "startLine": 101,
+        "startChar": 18,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b379a16_90c023a4",
+        "filename": "xfa/fde/xml/cfde_xmlnode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "{}s or wsTag \u003d bQualifiedName? ... : ...",
+      "range": {
+        "startLine": 112,
+        "startChar": 28,
+        "endLine": 112,
+        "endChar": 29
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ba90bd_ddb2df90",
+        "filename": "xfa/fde/xml/cfde_xmlnode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "moar repetition",
+      "range": {
+        "startLine": 354,
+        "startChar": 8,
+        "endLine": 354,
+        "endChar": 11
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a366df63_7009a18e",
+        "filename": "xfa/fde/xml/cfde_xmlnode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "ditto |it|",
+      "range": {
+        "startLine": 370,
+        "startChar": 18,
+        "endLine": 370,
+        "endChar": 20
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a11e9b_8247126f",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3985,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 3985,
+        "startChar": 32,
+        "endLine": 3985,
+        "endChar": 52
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e881438_6933c00a",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "unneeded space",
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6190cc40_3be6b8c1",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "If this is a const method, merge this if with the next, and only size\u003e1 needed",
+      "range": {
+        "startLine": 1231,
+        "startChar": 34,
+        "endLine": 1231,
+        "endChar": 59
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec9296c_60edc143",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T15:01:08Z",
+      "side": 1,
+      "message": "ditto merge",
+      "range": {
+        "startLine": 1237,
+        "startChar": 5,
+        "endLine": 1238,
+        "endChar": 71
+      },
+      "revId": "9934f33322ad6abb5e4e52708662a35ce8d97d13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
