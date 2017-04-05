@@ -36,14 +36,13 @@ CPDF_DocPageData::~CPDF_DocPageData() {
 
   for (auto& it : m_PatternMap)
     delete it.second;
-  m_PatternMap.clear();
 
-  for (auto& it : m_FontMap)
-    delete it.second;
+  m_PatternMap.clear();
   m_FontMap.clear();
 
   for (auto& it : m_ColorSpaceMap)
     delete it.second;
+
   m_ColorSpaceMap.clear();
 }
 
@@ -59,13 +58,11 @@ void CPDF_DocPageData::Clear(bool bForceRelease) {
       ptData->clear();
   }
 
-  for (auto& it : m_FontMap) {
-    CPDF_CountedFont* fontData = it.second;
-    if (!fontData->get())
-      continue;
-
-    if (bForceRelease || fontData->use_count() < 2) {
-      fontData->clear();
+  for (auto it = m_FontMap.begin(); it != m_FontMap.end();) {
+    auto curr_it = it++;
+    if (bForceRelease || curr_it->second->HasOneRef()) {
+      curr_it->second->Purge();
+      m_FontMap.erase(curr_it);
     }
   }
 
@@ -103,55 +100,43 @@ void CPDF_DocPageData::Clear(bool bForceRelease) {
   m_ImageMap.clear();
 }
 
-CPDF_Font* CPDF_DocPageData::GetFont(CPDF_Dictionary* pFontDict) {
+CFX_RetainPtr<CPDF_Font> CPDF_DocPageData::GetFont(CPDF_Dictionary* pFontDict) {
   if (!pFontDict)
     return nullptr;
 
-  CPDF_CountedFont* pFontData = nullptr;
   auto it = m_FontMap.find(pFontDict);
-  if (it != m_FontMap.end()) {
-    pFontData = it->second;
-    if (pFontData->get()) {
-      return pFontData->AddRef();
-    }
-  }
-  std::unique_ptr<CPDF_Font> pFont = CPDF_Font::Create(m_pPDFDoc, pFontDict);
+  if (it != m_FontMap.end())
+    return it->second;
+
+  auto pFont = CPDF_Font::Create(m_pPDFDoc, pFontDict);
   if (!pFont)
     return nullptr;
 
-  if (pFontData) {
-    pFontData->reset(std::move(pFont));
-  } else {
-    pFontData = new CPDF_CountedFont(std::move(pFont));
-    m_FontMap[pFontDict] = pFontData;
-  }
-  return pFontData->AddRef();
+  m_FontMap[pFontDict] = pFont;
+  return pFont;
 }
 
-CPDF_Font* CPDF_DocPageData::GetStandardFont(const CFX_ByteString& fontName,
-                                             CPDF_FontEncoding* pEncoding) {
+CFX_RetainPtr<CPDF_Font> CPDF_DocPageData::GetStandardFont(
+    const CFX_ByteString& fontName,
+    CPDF_FontEncoding* pEncoding) {
   if (fontName.IsEmpty())
     return nullptr;
 
   for (auto& it : m_FontMap) {
-    CPDF_CountedFont* fontData = it.second;
-    CPDF_Font* pFont = fontData->get();
-    if (!pFont)
+    if (it.second->GetBaseFont() != fontName)
       continue;
-    if (pFont->GetBaseFont() != fontName)
+    if (it.second->IsEmbedded())
       continue;
-    if (pFont->IsEmbedded())
+    if (!it.second->IsType1Font())
       continue;
-    if (!pFont->IsType1Font())
-      continue;
-    if (pFont->GetFontDict()->KeyExist("Widths"))
+    if (it.second->GetFontDict()->KeyExist("Widths"))
       continue;
 
-    CPDF_Type1Font* pT1Font = pFont->AsType1Font();
+    CFX_RetainPtr<CPDF_Type1Font> pT1Font = it.second->AsType1Font();
     if (pEncoding && !pT1Font->GetEncoding()->IsIdentical(pEncoding))
       continue;
 
-    return fontData->AddRef();
+    return it.second;
   }
 
   CPDF_Dictionary* pDict = m_pPDFDoc->NewIndirect<CPDF_Dictionary>();
@@ -163,33 +148,21 @@ CPDF_Font* CPDF_DocPageData::GetStandardFont(const CFX_ByteString& fontName,
                   pEncoding->Realize(m_pPDFDoc->GetByteStringPool()));
   }
 
-  std::unique_ptr<CPDF_Font> pFont = CPDF_Font::Create(m_pPDFDoc, pDict);
+  auto pFont = CPDF_Font::Create(m_pPDFDoc, pDict);
   if (!pFont)
     return nullptr;
 
-  CPDF_CountedFont* fontData = new CPDF_CountedFont(std::move(pFont));
-  m_FontMap[pDict] = fontData;
-  return fontData->AddRef();
+  m_FontMap[pDict] = pFont;
+  return pFont;
 }
 
-void CPDF_DocPageData::ReleaseFont(const CPDF_Dictionary* pFontDict) {
+void CPDF_DocPageData::MaybePurgeFont(const CPDF_Dictionary* pFontDict) {
   if (!pFontDict)
     return;
 
   auto it = m_FontMap.find(pFontDict);
-  if (it == m_FontMap.end())
-    return;
-
-  CPDF_CountedFont* pFontData = it->second;
-  if (!pFontData->get())
-    return;
-
-  pFontData->RemoveRef();
-  if (pFontData->use_count() > 1)
-    return;
-
-  // We have font data only in m_FontMap cache. Clean it.
-  pFontData->clear();
+  if (it != m_FontMap.end() && it->second->HasOneRef())
+    m_FontMap.erase(it);
 }
 
 CPDF_ColorSpace* CPDF_DocPageData::GetColorSpace(

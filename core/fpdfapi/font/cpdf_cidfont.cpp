@@ -220,12 +220,8 @@ bool CPDF_CIDFont::IsCIDFont() const {
   return true;
 }
 
-const CPDF_CIDFont* CPDF_CIDFont::AsCIDFont() const {
-  return this;
-}
-
-CPDF_CIDFont* CPDF_CIDFont::AsCIDFont() {
-  return this;
+CFX_RetainPtr<CPDF_CIDFont> CPDF_CIDFont::AsCIDFont() {
+  return CFX_RetainPtr<CPDF_CIDFont>(this);
 }
 
 uint16_t CPDF_CIDFont::CIDFromCharCode(uint32_t charcode) const {
@@ -233,7 +229,7 @@ uint16_t CPDF_CIDFont::CIDFromCharCode(uint32_t charcode) const {
                  : static_cast<uint16_t>(charcode);
 }
 
-bool CPDF_CIDFont::IsVertWriting() const {
+bool CPDF_CIDFont::IsVertWriting() {
   return m_pCMap && m_pCMap->IsVertWriting();
 }
 

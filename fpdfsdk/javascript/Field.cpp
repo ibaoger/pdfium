@@ -2438,7 +2438,7 @@ bool Field::textFont(CJS_Runtime* pRuntime,
       nFieldType != FIELDTYPE_LISTBOX && nFieldType != FIELDTYPE_TEXTFIELD) {
     return false;
   }
-  CPDF_Font* pFont = pFormControl->GetDefaultControlFont();
+  CFX_RetainPtr<CPDF_Font> pFont = pFormControl->GetDefaultControlFont();
   if (!pFont)
     return false;
 
