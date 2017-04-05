@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "616f0b3e_656877e5",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d74b50ef_b25d06fd",
+      "range": {
+        "startLine": 504,
+        "startChar": 6,
+        "endLine": 505,
+        "endChar": 37
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2068e39f_ecb5134e",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc2f14f6_7f6f4e07",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2068e39f_ecb5134e",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 632,
+        "endChar": 31
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0d8c675f_720bfb63",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a30e46d5_6a6871fa",
+      "range": {
+        "startLine": 638,
+        "startChar": 2,
+        "endLine": 638,
+        "endChar": 32
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2626ae7_841bc6e3",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce56356a_71c643dd",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2626ae7_841bc6e3",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 661,
+        "endChar": 11
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c0ba4eb0_b1e9165f",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "Because I don\u0027t want to get the image output if I want to just see the structure.",
+      "parentUuid": "4739fd40_de45da45",
+      "range": {
+        "startLine": 691,
+        "startChar": 4,
+        "endLine": 691,
+        "endChar": 12
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fd4537c_926a4509",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-05T18:08:55Z",
       "side": 1,
       "message": "do we want to do this after we send events to the page, since the event might mutate the structure?",
+      "range": {
+        "startLine": 689,
+        "startChar": 1,
+        "endLine": 692,
+        "endChar": 3
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b59191_4d5f6926",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-05T19:43:20Z",
+      "side": 1,
+      "message": "I don\u0027t know if JS can modify this? This isn\u0027t the elements from the page, it\u0027s a parallel hierarchy in the document as far as I can tell.",
+      "parentUuid": "8fd4537c_926a4509",
       "range": {
         "startLine": 689,
         "startChar": 1,
