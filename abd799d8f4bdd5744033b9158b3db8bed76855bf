@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eea909c9_58be5183",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T17:15:47Z",
+      "side": 1,
+      "message": "maybe cast to instruction once here right after checking, e.g.\nauto* pInstruction \u003d static_cast\u003cCFDE_XMLInstruction*\u003e(m_pChild);",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 11
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c49bf3_05c75263",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T17:15:47Z",
+      "side": 1,
+      "message": "Is AppendData() a no-op if m_ws1 is empty?  Maybe always call it an let it decide?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 31
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b969f501_4ead9a6b",
+        "filename": "xfa/fde/xml/cfde_xmlparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T17:15:47Z",
+      "side": 1,
+      "message": "here we set it, and then clear it at 155, so we\u0027re using it as a \"local\".  Just append the result of gettargetdata()?",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 17
+      },
+      "revId": "abd799d8f4bdd5744033b9158b3db8bed76855bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
