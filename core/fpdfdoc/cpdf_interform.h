@@ -27,9 +27,9 @@ class CPDF_Object;
 class CPDF_Page;
 class IPDF_FormNotify;
 
-CPDF_Font* AddNativeInterFormFont(CPDF_Dictionary*& pFormDict,
-                                  CPDF_Document* pDocument,
-                                  CFX_ByteString& csNameTag);
+CFX_RetainPtr<CPDF_Font> AddNativeInterFormFont(CPDF_Dictionary*& pFormDict,
+                                                CPDF_Document* pDocument,
+                                                CFX_ByteString& csNameTag);
 
 class CPDF_InterForm {
  public:
@@ -42,12 +42,13 @@ class CPDF_InterForm {
                                                 const char* csType,
                                                 int iMinLen,
                                                 const char* csPrefix);
-  static CPDF_Font* AddStandardFont(CPDF_Document* pDocument,
-                                    CFX_ByteString csFontName);
+  static CFX_RetainPtr<CPDF_Font> AddStandardFont(CPDF_Document* pDocument,
+                                                  CFX_ByteString csFontName);
   static CFX_ByteString GetNativeFont(uint8_t iCharSet, void* pLogFont);
   static uint8_t GetNativeCharSet();
-  static CPDF_Font* AddNativeFont(uint8_t iCharSet, CPDF_Document* pDocument);
-  static CPDF_Font* AddNativeFont(CPDF_Document* pDocument);
+  static CFX_RetainPtr<CPDF_Font> AddNativeFont(uint8_t iCharSet,
+                                                CPDF_Document* pDocument);
+  static CFX_RetainPtr<CPDF_Font> AddNativeFont(CPDF_Document* pDocument);
 
   size_t CountFields(const CFX_WideString& csFieldName) const;
   CPDF_FormField* GetField(uint32_t index,
@@ -64,7 +65,7 @@ class CPDF_InterForm {
   CPDF_FormField* GetFieldInCalculationOrder(int index);
   int FindFieldInCalculationOrder(const CPDF_FormField* pField);
 
-  CPDF_Font* GetFormFont(CFX_ByteString csNameTag);
+  CFX_RetainPtr<CPDF_Font> GetFormFont(CFX_ByteString csNameTag);
   CPDF_DefaultAppearance GetDefaultAppearance() const;
   int GetFormAlignment() const;
 

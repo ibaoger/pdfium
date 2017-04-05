@@ -73,11 +73,11 @@ CPDF_Dictionary* LoadFontDesc(CPDF_Document* pDoc,
   return fontDesc;
 }
 
-void* LoadSimpleFont(CPDF_Document* pDoc,
-                     std::unique_ptr<CFX_Font> pFont,
-                     const uint8_t* data,
-                     uint32_t size,
-                     int font_type) {
+CFX_RetainPtr<CPDF_Font> LoadSimpleFont(CPDF_Document* pDoc,
+                                        std::unique_ptr<CFX_Font> pFont,
+                                        const uint8_t* data,
+                                        uint32_t size,
+                                        int font_type) {
   CPDF_Dictionary* fontDict = pDoc->NewIndirect<CPDF_Dictionary>();
   fontDict->SetNewFor<CPDF_Name>("Type", "Font");
   fontDict->SetNewFor<CPDF_Name>(
@@ -113,11 +113,11 @@ void* LoadSimpleFont(CPDF_Document* pDoc,
   return pDoc->LoadFont(fontDict);
 }
 
-void* LoadCompositeFont(CPDF_Document* pDoc,
-                        std::unique_ptr<CFX_Font> pFont,
-                        const uint8_t* data,
-                        uint32_t size,
-                        int font_type) {
+CFX_RetainPtr<CPDF_Font> LoadCompositeFont(CPDF_Document* pDoc,
+                                           std::unique_ptr<CFX_Font> pFont,
+                                           const uint8_t* data,
+                                           uint32_t size,
+                                           int font_type) {
   CPDF_Dictionary* fontDict = pDoc->NewIndirect<CPDF_Dictionary>();
   fontDict->SetNewFor<CPDF_Name>("Type", "Font");
   fontDict->SetNewFor<CPDF_Name>("Subtype", "Type0");
@@ -224,7 +224,8 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_NewTextObj(FPDF_DOCUMENT document,
   if (!pDoc)
     return nullptr;
 
-  CPDF_Font* pFont = CPDF_Font::GetStockFont(pDoc, CFX_ByteStringC(font));
+  CFX_RetainPtr<CPDF_Font> pFont =
+      CPDF_Font::GetStockFont(pDoc, CFX_ByteStringC(font));
   if (!pFont)
     return nullptr;
 
@@ -265,5 +266,7 @@ DLLEXPORT FPDF_FONT STDCALL FPDFText_LoadFont(FPDF_DOCUMENT document,
     return nullptr;
 
   return cid ? LoadCompositeFont(pDoc, std::move(pFont), data, size, font_type)
-             : LoadSimpleFont(pDoc, std::move(pFont), data, size, font_type);
+                   .Get()
+             : LoadSimpleFont(pDoc, std::move(pFont), data, size, font_type)
+                   .Get();
 }

@@ -164,21 +164,26 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessStandardText) {
   // Checking font whose font dictionary is not yet indirect object.
   auto pDoc = pdfium::MakeUnique<CPDF_Document>(nullptr);
   pDoc->CreateNewDoc();
+
   CPDF_Dictionary* pPageDict = pDoc->CreateNewPage(0);
   auto pTestPage = pdfium::MakeUnique<CPDF_Page>(pDoc.get(), pPageDict, false);
   CPDF_PageContentGenerator generator(pTestPage.get());
   auto pTextObj = pdfium::MakeUnique<CPDF_TextObject>();
-  CPDF_Font* pFont = CPDF_Font::GetStockFont(pDoc.get(), "Times-Roman");
+  CFX_RetainPtr<CPDF_Font> pFont =
+      CPDF_Font::GetStockFont(pDoc.get(), "Times-Roman");
   pTextObj->m_TextState.SetFont(pFont);
   pTextObj->m_TextState.SetFontSize(10.0f);
   pTextObj->Transform(CFX_Matrix(1, 0, 0, 1, 100, 100));
   pTextObj->SetText("Hello World");
+
   CFX_ByteTextBuf buf;
   TestProcessText(&generator, &buf, pTextObj.get());
+
   CFX_ByteString textString = buf.MakeString();
   EXPECT_LT(61, textString.GetLength());
   EXPECT_EQ("BT 1 0 0 1 100 100 Tm /", textString.Left(23));
   EXPECT_EQ(" 10 Tf <48656C6C6F20576F726C64> Tj ET\n", textString.Right(38));
+
   CPDF_Dictionary* fontDict = TestGetResource(
       &generator, "Font", textString.Mid(23, textString.GetLength() - 61));
   ASSERT_TRUE(fontDict);
@@ -202,7 +207,9 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessText) {
     CPDF_Dictionary* pDict = pDoc->NewIndirect<CPDF_Dictionary>();
     pDict->SetNewFor<CPDF_Name>("Type", "Font");
     pDict->SetNewFor<CPDF_Name>("Subtype", "TrueType");
-    CPDF_Font* pFont = CPDF_Font::GetStockFont(pDoc.get(), "Arial");
+
+    CFX_RetainPtr<CPDF_Font> pFont =
+        CPDF_Font::GetStockFont(pDoc.get(), "Arial");
     pDict->SetNewFor<CPDF_Name>("BaseFont", pFont->GetBaseFont());
 
     CPDF_Dictionary* pDesc = pDoc->NewIndirect<CPDF_Dictionary>();
@@ -211,11 +218,10 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessText) {
     pDict->SetNewFor<CPDF_Reference>("FontDescriptor", pDoc.get(),
                                      pDesc->GetObjNum());
 
-    CPDF_Font* loadedFont = pDoc->LoadFont(pDict);
+    CFX_RetainPtr<CPDF_Font> loadedFont = pDoc->LoadFont(pDict);
     pTextObj->m_TextState.SetFont(loadedFont);
     pTextObj->m_TextState.SetFontSize(15.5f);
     pTextObj->SetText("I am indirect");
-
     TestProcessText(&generator, &buf, pTextObj.get());
   }
 

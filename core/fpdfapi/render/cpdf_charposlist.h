@@ -18,10 +18,12 @@ class CPDF_CharPosList {
  public:
   CPDF_CharPosList();
   ~CPDF_CharPosList();
+
   void Load(const std::vector<uint32_t>& charCodes,
             const std::vector<float>& charPos,
-            CPDF_Font* pFont,
+            const CFX_RetainPtr<CPDF_Font>& pFont,
             float font_size);
+
   FXTEXT_CHARPOS* m_pCharPos;
   uint32_t m_nChars;
 };
