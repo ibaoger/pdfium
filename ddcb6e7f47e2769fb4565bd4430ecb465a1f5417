@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "4739fd40_de45da45",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T19:31:53Z",
+      "side": 1,
+      "message": "I missed this return. Why avoid doing the rest if this option is set?",
+      "range": {
+        "startLine": 691,
+        "startChar": 4,
+        "endLine": 691,
+        "endChar": 12
+      },
+      "revId": "ddcb6e7f47e2769fb4565bd4430ecb465a1f5417",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fd4537c_926a4509",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 4
