@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b13e696c_46261dce",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:21:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 147,
+        "startChar": 24,
+        "endLine": 147,
+        "endChar": 50
+      },
+      "revId": "45c86805479ba0a75a25c299ee35eee97b1184b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202faca8_fac72fad",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:21:51Z",
+      "side": 1,
+      "message": "nit: overparens",
+      "range": {
+        "startLine": 46,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 55
+      },
+      "revId": "45c86805479ba0a75a25c299ee35eee97b1184b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dcbaf93_bb2a294e",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-05T21:21:51Z",
+      "side": 1,
+      "message": "OK, alternative would be to use std::vector\u003cwchar_t\u003e and its .data() method.",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 52
+      },
+      "revId": "45c86805479ba0a75a25c299ee35eee97b1184b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
