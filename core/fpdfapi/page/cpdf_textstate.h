@@ -7,11 +7,11 @@
 #ifndef CORE_FPDFAPI_PAGE_CPDF_TEXTSTATE_H_
 #define CORE_FPDFAPI_PAGE_CPDF_TEXTSTATE_H_
 
+#include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fxcrt/cfx_shared_copy_on_write.h"
 #include "core/fxcrt/fx_basic.h"
 
 class CPDF_Document;
-class CPDF_Font;
 
 // See PDF Reference 1.7, page 402, table 5.3.
 enum class TextRenderingMode {
@@ -32,8 +32,8 @@ class CPDF_TextState {
 
   void Emplace();
 
-  CPDF_Font* GetFont() const;
-  void SetFont(CPDF_Font* pFont);
+  CFX_RetainPtr<CPDF_Font> GetFont() const;
+  void SetFont(const CFX_RetainPtr<CPDF_Font>& pFont);
 
   float GetFontSize() const;
   void SetFontSize(float size);
@@ -65,13 +65,13 @@ class CPDF_TextState {
     TextData(const TextData& src);
     ~TextData();
 
-    void SetFont(CPDF_Font* pFont);
+    void SetFont(const CFX_RetainPtr<CPDF_Font>& pFont);
     float GetFontSizeV() const;
     float GetFontSizeH() const;
     float GetBaselineAngle() const;
     float GetShearAngle() const;
 
-    CPDF_Font* m_pFont;
+    CFX_RetainPtr<CPDF_Font> m_pFont;
     CPDF_Document* m_pDocument;
     float m_FontSize;
     float m_CharSpace;

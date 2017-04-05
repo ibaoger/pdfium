@@ -18,11 +18,11 @@ class CPDF_RenderContext;
 
 class CPDF_Type3Char {
  public:
-  // Takes ownership of |pForm|.
-  explicit CPDF_Type3Char(CPDF_Form* pForm);
+  explicit CPDF_Type3Char(std::unique_ptr<CPDF_Form> pForm);
   ~CPDF_Type3Char();
 
   bool LoadBitmap(CPDF_RenderContext* pContext);
+  void WillBeDestroyed();
 
   std::unique_ptr<CPDF_Form> m_pForm;
   CFX_RetainPtr<CFX_DIBitmap> m_pBitmap;

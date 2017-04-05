@@ -70,7 +70,7 @@ class CPDF_RenderStatus {
   CPDF_RenderOptions m_Options;
   CPDF_Dictionary* m_pFormResource;
   CPDF_Dictionary* m_pPageResource;
-  std::vector<CPDF_Type3Font*> m_Type3FontCache;
+  std::vector<CFX_RetainPtr<CPDF_Type3Font>> m_Type3FontCache;
 
  private:
   friend class CPDF_ImageRenderer;
@@ -126,7 +126,7 @@ class CPDF_RenderStatus {
                    CFX_PathData* pClippingPath);
   void DrawTextPathWithPattern(const CPDF_TextObject* textobj,
                                const CFX_Matrix* pObj2Device,
-                               CPDF_Font* pFont,
+                               const CFX_RetainPtr<CPDF_Font>& pFont,
                                float font_size,
                                const CFX_Matrix* pTextMatrix,
                                bool bFill,
@@ -141,7 +141,8 @@ class CPDF_RenderStatus {
   CFX_RetainPtr<CFX_DIBitmap> LoadSMask(CPDF_Dictionary* pSMaskDict,
                                         FX_RECT* pClipRect,
                                         const CFX_Matrix* pMatrix);
-  static CFX_RetainPtr<CPDF_Type3Cache> GetCachedType3(CPDF_Type3Font* pFont);
+  static CFX_RetainPtr<CPDF_Type3Cache> GetCachedType3(
+      const CFX_RetainPtr<CPDF_Type3Font>& pFont);
   static CPDF_GraphicStates* CloneObjStates(const CPDF_GraphicStates* pPathObj,
                                             bool bStroke);
   CFX_RetainPtr<CPDF_TransferFunc> GetTransferFunc(CPDF_Object* pObject) const;

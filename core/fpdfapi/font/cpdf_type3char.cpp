@@ -6,14 +6,16 @@
 
 #include "core/fpdfapi/font/cpdf_type3char.h"
 
+#include <utility>
+
 #include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fxge/fx_dib.h"
 
-CPDF_Type3Char::CPDF_Type3Char(CPDF_Form* pForm)
-    : m_pForm(pForm), m_bColored(false) {}
+CPDF_Type3Char::CPDF_Type3Char(std::unique_ptr<CPDF_Form> pForm)
+    : m_pForm(std::move(pForm)), m_bColored(false) {}
 
 CPDF_Type3Char::~CPDF_Type3Char() {}
 
@@ -33,6 +35,11 @@ bool CPDF_Type3Char::LoadBitmap(CPDF_RenderContext* pContext) {
       pPageObj->AsImage()->GetImage()->LoadDIBSource();
   if (pSource)
     m_pBitmap = pSource->Clone();
+
   m_pForm.reset();
   return true;
+}
+
+void CPDF_Type3Char::WillBeDestroyed() {
+  m_pForm.reset();  // Possibly circular reference.
 }

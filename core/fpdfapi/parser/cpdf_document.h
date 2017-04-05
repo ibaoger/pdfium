@@ -70,7 +70,7 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   CPDF_DocRenderData* GetRenderData() const { return m_pDocRender.get(); }
 
   // |pFontDict| must not be null.
-  CPDF_Font* LoadFont(CPDF_Dictionary* pFontDict);
+  CFX_RetainPtr<CPDF_Font> LoadFont(CPDF_Dictionary* pFontDict);
   CPDF_ColorSpace* LoadColorSpace(CPDF_Object* pCSObj,
                                   CPDF_Dictionary* pResources = nullptr);
 
@@ -89,15 +89,16 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   void CreateNewDoc();
   CPDF_Dictionary* CreateNewPage(int iPage);
 
-  CPDF_Font* AddStandardFont(const char* font, CPDF_FontEncoding* pEncoding);
-  CPDF_Font* AddFont(CFX_Font* pFont, int charset, bool bVert);
+  CFX_RetainPtr<CPDF_Font> AddStandardFont(const char* font,
+                                           CPDF_FontEncoding* pEncoding);
+  CFX_RetainPtr<CPDF_Font> AddFont(CFX_Font* pFont, int charset, bool bVert);
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-  CPDF_Font* AddWindowsFont(LOGFONTA* pLogFont,
-                            bool bVert,
-                            bool bTranslateName = false);
-  CPDF_Font* AddWindowsFont(LOGFONTW* pLogFont,
-                            bool bVert,
-                            bool bTranslateName = false);
+  CFX_RetainPtr<CPDF_Font> AddWindowsFont(LOGFONTA* pLogFont,
+                                          bool bVert,
+                                          bool bTranslateName = false);
+  CFX_RetainPtr<CPDF_Font> AddWindowsFont(LOGFONTW* pLogFont,
+                                          bool bVert,
+                                          bool bTranslateName = false);
 #endif
 
  protected:

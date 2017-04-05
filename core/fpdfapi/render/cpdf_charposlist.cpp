@@ -21,12 +21,12 @@ CPDF_CharPosList::~CPDF_CharPosList() {
 
 void CPDF_CharPosList::Load(const std::vector<uint32_t>& charCodes,
                             const std::vector<float>& charPos,
-                            CPDF_Font* pFont,
+                            const CFX_RetainPtr<CPDF_Font>& pFont,
                             float FontSize) {
   int nChars = pdfium::CollectionSize<int>(charCodes);
   m_pCharPos = FX_Alloc(FXTEXT_CHARPOS, nChars);
   m_nChars = 0;
-  CPDF_CIDFont* pCIDFont = pFont->AsCIDFont();
+  CFX_RetainPtr<CPDF_CIDFont> pCIDFont = pFont->AsCIDFont();
   bool bVertWriting = pCIDFont && pCIDFont->IsVertWriting();
   for (int iChar = 0; iChar < nChars; iChar++) {
     uint32_t CharCode = charCodes[iChar];

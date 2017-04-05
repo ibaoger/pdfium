@@ -26,19 +26,20 @@ class CXFA_PDFFontMgr {
 
   CFX_RetainPtr<CFGAS_GEFont> GetFont(const CFX_WideStringC& wsFontFamily,
                                       uint32_t dwFontStyles,
-                                      CPDF_Font** pPDFFont,
+                                      CFX_RetainPtr<CPDF_Font>* pPDFFont,
                                       bool bStrictMatch);
   bool GetCharWidth(const CFX_RetainPtr<CFGAS_GEFont>& pFont,
                     wchar_t wUnicode,
                     bool bCharCode,
                     int32_t* pWidth);
-  void SetFont(const CFX_RetainPtr<CFGAS_GEFont>& pFont, CPDF_Font* pPDFFont);
+  void SetFont(const CFX_RetainPtr<CFGAS_GEFont>& pFont,
+               const CFX_RetainPtr<CPDF_Font>& pPDFFont);
 
  private:
   CFX_RetainPtr<CFGAS_GEFont> FindFont(const CFX_ByteString& strFamilyName,
                                        bool bBold,
                                        bool bItalic,
-                                       CPDF_Font** pPDFFont,
+                                       CFX_RetainPtr<CPDF_Font>* pPDFFont,
                                        bool bStrictMatch);
   CFX_ByteString PsNameToFontName(const CFX_ByteString& strPsName,
                                   bool bBold,
@@ -50,7 +51,7 @@ class CXFA_PDFFontMgr {
                              bool bStrictMatch);
 
   CXFA_FFDoc* const m_pDoc;
-  std::map<CFX_RetainPtr<CFGAS_GEFont>, CPDF_Font*> m_FDE2PDFFont;
+  std::map<CFX_RetainPtr<CFGAS_GEFont>, CFX_RetainPtr<CPDF_Font>> m_FDE2PDFFont;
   std::map<CFX_ByteString, CFX_RetainPtr<CFGAS_GEFont>> m_FontMap;
 };
 
