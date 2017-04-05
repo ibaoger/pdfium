@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ef254ea_c760689b",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T22:30:17Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "668a79c4_e42e6a14",
+        "filename": "core/fpdfapi/font/cpdf_font.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T22:30:17Z",
+      "side": 1,
+      "message": "Isn\u0027t this unnecessary? CPDF_CIDFont overrides this method. So can\u0027t it just be\nreturn m_Font.IsVertical();",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 68
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19b4351e_50dd2235",
+        "filename": "core/fpdfapi/font/cpdf_truetypefont.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T22:30:17Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa90ba74_dca409c9",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-05T22:30:17Z",
+      "side": 1,
+      "message": "Just making sure there\u0027s only one ref here? auto it gives you one, the one in the map gives you another",
+      "range": {
+        "startLine": 154,
+        "startChar": 43,
+        "endLine": 154,
+        "endChar": 52
+      },
+      "revId": "daac1d6b3d2bafe9d2cae2cda67f83a8766223ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
