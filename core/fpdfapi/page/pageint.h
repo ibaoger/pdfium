@@ -189,13 +189,13 @@ class CPDF_PatternCS : public CPDF_ColorSpace {
   ~CPDF_PatternCS() override;
 
   // CPDF_ColorSpace:
+  void WillBeDestroyed() override;
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
-  CPDF_ColorSpace* GetBaseCS() const override;
+  CFX_RetainPtr<CPDF_ColorSpace> GetBaseCS() const override;
 
  private:
-  CPDF_ColorSpace* m_pBaseCS;
-  CPDF_CountedColorSpace* m_pCountedBaseCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pBaseCS;
 };
 
 #define MAX_PATTERN_COLORCOMPS 16

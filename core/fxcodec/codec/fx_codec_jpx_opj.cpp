@@ -673,7 +673,7 @@ void color_apply_conversion(opj_image_t* image) {
   }
 }
 
-CJPX_Decoder::CJPX_Decoder(CPDF_ColorSpace* cs)
+CJPX_Decoder::CJPX_Decoder(const CFX_RetainPtr<CPDF_ColorSpace>& cs)
     : image(nullptr), l_codec(nullptr), l_stream(nullptr), m_ColorSpace(cs) {}
 
 CJPX_Decoder::~CJPX_Decoder() {
@@ -863,7 +863,7 @@ CCodec_JpxModule::~CCodec_JpxModule() {}
 std::unique_ptr<CJPX_Decoder> CCodec_JpxModule::CreateDecoder(
     const uint8_t* src_buf,
     uint32_t src_size,
-    CPDF_ColorSpace* cs) {
+    const CFX_RetainPtr<CPDF_ColorSpace>& cs) {
   auto decoder = pdfium::MakeUnique<CJPX_Decoder>(cs);
   return decoder->Init(src_buf, src_size) ? std::move(decoder) : nullptr;
 }

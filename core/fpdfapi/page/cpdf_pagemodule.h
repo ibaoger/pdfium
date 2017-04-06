@@ -19,15 +19,15 @@ class CPDF_PageModule {
   ~CPDF_PageModule();
 
   CPDF_FontGlobals* GetFontGlobals();
-  CPDF_ColorSpace* GetStockCS(int family);
+  CFX_RetainPtr<CPDF_ColorSpace> GetStockCS(int family);
   void ClearStockFont(CPDF_Document* pDoc);
 
  private:
   CPDF_FontGlobals m_FontGlobals;
-  CPDF_DeviceCS m_StockGrayCS;
-  CPDF_DeviceCS m_StockRGBCS;
-  CPDF_DeviceCS m_StockCMYKCS;
-  CPDF_PatternCS m_StockPatternCS;
+  CFX_RetainPtr<CPDF_DeviceCS> m_StockGrayCS;
+  CFX_RetainPtr<CPDF_DeviceCS> m_StockRGBCS;
+  CFX_RetainPtr<CPDF_DeviceCS> m_StockCMYKCS;
+  CFX_RetainPtr<CPDF_PatternCS> m_StockPatternCS;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_PAGEMODULE_H_

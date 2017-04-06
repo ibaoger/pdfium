@@ -39,8 +39,12 @@ class CPDF_ColorState {
   CPDF_Color* GetMutableStrokeColor();
   bool HasStrokeColor() const;
 
-  void SetFillColor(CPDF_ColorSpace* pCS, float* pValue, uint32_t nValues);
-  void SetStrokeColor(CPDF_ColorSpace* pCS, float* pValue, uint32_t nValues);
+  void SetFillColor(const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
+                    float* pValue,
+                    uint32_t nValues);
+  void SetStrokeColor(const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
+                      float* pValue,
+                      uint32_t nValues);
   void SetFillPattern(CPDF_Pattern* pattern, float* pValue, uint32_t nValues);
   void SetStrokePattern(CPDF_Pattern* pattern, float* pValue, uint32_t nValues);
 
@@ -63,7 +67,7 @@ class CPDF_ColorState {
 
   void SetColor(CPDF_Color& color,
                 uint32_t& rgb,
-                CPDF_ColorSpace* pCS,
+                const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                 float* pValue,
                 uint32_t nValues);
 

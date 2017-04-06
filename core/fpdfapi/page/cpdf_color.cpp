@@ -43,12 +43,13 @@ void CPDF_Color::ReleaseBuffer() {
 
 void CPDF_Color::ReleaseColorSpace() {
   if (m_pCS && m_pCS->m_pDocument) {
-    m_pCS->m_pDocument->GetPageData()->ReleaseColorSpace(m_pCS->GetArray());
-    m_pCS = nullptr;
+    CPDF_Array* pArray = m_pCS->GetArray();
+    m_pCS.Reset();  // Drop our reference first.
+    m_pCS->m_pDocument->GetPageData()->MaybePurgeColorSpace(pArray);
   }
 }
 
-void CPDF_Color::SetColorSpace(CPDF_ColorSpace* pCS) {
+void CPDF_Color::SetColorSpace(const CFX_RetainPtr<CPDF_ColorSpace>& pCS) {
   if (m_pCS == pCS) {
     if (!m_pBuffer)
       m_pBuffer = pCS->CreateBuf();

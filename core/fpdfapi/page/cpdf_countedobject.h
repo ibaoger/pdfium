@@ -44,7 +44,7 @@ class CPDF_CountedObject {
   size_t m_nCount;
   T* m_pObj;
 };
-using CPDF_CountedColorSpace = CPDF_CountedObject<CPDF_ColorSpace>;
+
 using CPDF_CountedPattern = CPDF_CountedObject<CPDF_Pattern>;
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_COUNTEDOBJECT_H_

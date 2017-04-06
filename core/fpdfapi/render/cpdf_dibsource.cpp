@@ -131,9 +131,11 @@ CPDF_DIBSource::~CPDF_DIBSource() {
   FX_Free(m_pLineBuf);
   m_pCachedBitmap.Reset();  // TODO(tsepez): determine if required early here.
   FX_Free(m_pCompData);
-  CPDF_ColorSpace* pCS = m_pColorSpace;
-  if (pCS && m_pDocument)
-    m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());
+  if (m_pColorSpace && m_pDocument) {
+    CPDF_Array* pArray = m_pColorSpace->GetArray();
+    m_pColorSpace.Reset();  // Drop our reference first
+    m_pDocument->GetPageData()->MaybePurgeColorSpace(pArray);
+  }
 }
 
 bool CPDF_DIBSource::Load(CPDF_Document* pDoc, const CPDF_Stream* pStream) {
