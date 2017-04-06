@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c07bb03d_0bf4d428",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:59:18Z",
+      "side": 1,
+      "message": "It\u0027s the length from where we are to the start start of ... whatever it\u0027s tracking with start. This is walking from the beginning of the buffer to that position and calculating the number of utf8 characters.",
+      "parentUuid": "6c4383d1_fd7c4bae",
+      "range": {
+        "startLine": 54,
+        "startChar": 61,
+        "endLine": 54,
+        "endChar": 76
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21443421_812f7eb1",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
         "patchSetId": 2
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I checked and can\u0027t conclude the same. Fine, I will do it as a followup to this CL then.",
       "parentUuid": "f3231e86_2b47ee95",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e51e008_e76557c9",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:59:18Z",
+      "side": 1,
+      "message": "m_pStart is added to m_iParsedChars in GetCurrentPos() which returns an int32_t. Which means we should update both of those and whatever is calling GetCurrentPos().\n\nLeaving it as in32_t is safer to get the using vectors. We can figure out how far it ripples later if needed.",
+      "parentUuid": "d8a73cb4_37003b00",
       "range": {
         "startLine": 110,
         "startChar": 2,
