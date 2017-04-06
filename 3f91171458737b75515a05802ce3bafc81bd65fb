@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ca13e31_d57905b4",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:41:00Z",
+      "side": 1,
+      "message": "I don\u0027t know if it\u0027s the length. It\u0027s safer to leave it passing what it was before.",
+      "parentUuid": "461f06a2_33107503",
+      "range": {
+        "startLine": 54,
+        "startChar": 61,
+        "endLine": 54,
+        "endChar": 76
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21443421_812f7eb1",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8edf6da4_55373bc3",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:41:00Z",
+      "side": 1,
+      "message": "Probably, I think this is clearer what we\u0027re doing.",
+      "parentUuid": "21443421_812f7eb1",
+      "range": {
+        "startLine": 429,
+        "startChar": 29,
+        "endLine": 429,
+        "endChar": 55
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61c6b999_b3cf89a0",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-06T14:35:26Z",
       "side": 1,
       "message": "size_t, ditto the next one",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3231e86_2b47ee95",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:41:00Z",
+      "side": 1,
+      "message": "These interact with various other things in here, keeping it as int32_t saves lot of casting.",
+      "parentUuid": "61c6b999_b3cf89a0",
       "range": {
         "startLine": 110,
         "startChar": 2,
