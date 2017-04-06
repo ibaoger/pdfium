@@ -82,6 +82,16 @@ FPDF_StructElement_GetType(FPDF_STRUCTELEMENT struct_element,
               : 0;
 }
 
+DLLEXPORT unsigned long STDCALL
+FPDF_StructElement_GetTitle(FPDF_STRUCTELEMENT struct_element,
+                            void* buffer,
+                            unsigned long buflen) {
+  IPDF_StructElement* elem = ToStructTreeElement(struct_element);
+  return elem
+             ? WideStringToBuffer(elem->GetTitle().UTF8Decode(), buffer, buflen)
+             : 0;
+}
+
 DLLEXPORT int STDCALL
 FPDF_StructElement_CountChildren(FPDF_STRUCTELEMENT struct_element) {
   IPDF_StructElement* elem = ToStructTreeElement(struct_element);

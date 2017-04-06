@@ -66,6 +66,7 @@ class CPDF_StructElement final : public CFX_Retainable,
   // IPDF_StructElement
   IPDF_StructTree* GetTree() const override;
   const CFX_ByteString& GetType() const override;
+  const CFX_ByteString& GetTitle() const override;
   IPDF_StructElement* GetParent() const override;
   CPDF_Dictionary* GetDict() const override;
   int CountKids() const override;
@@ -113,6 +114,7 @@ class CPDF_StructElement final : public CFX_Retainable,
   CPDF_StructElement* const m_pParent;
   CPDF_Dictionary* const m_pDict;
   CFX_ByteString m_Type;
+  CFX_ByteString m_Title;
   std::vector<CPDF_StructKid> m_Kids;
 };
 

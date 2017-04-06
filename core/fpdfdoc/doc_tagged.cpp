@@ -176,7 +176,8 @@ CPDF_StructElement::CPDF_StructElement(CPDF_StructTree* pTree,
     : m_pTree(pTree),
       m_pParent(pParent),
       m_pDict(pDict),
-      m_Type(pDict->GetStringFor("S")) {
+      m_Type(pDict->GetStringFor("S")),
+      m_Title(pDict->GetStringFor("T")) {
   if (pTree->m_pRoleMap) {
     CFX_ByteString mapped = pTree->m_pRoleMap->GetStringFor(m_Type);
     if (!mapped.IsEmpty())
@@ -191,6 +192,10 @@ IPDF_StructTree* CPDF_StructElement::GetTree() const {
 
 const CFX_ByteString& CPDF_StructElement::GetType() const {
   return m_Type;
+}
+
+const CFX_ByteString& CPDF_StructElement::GetTitle() const {
+  return m_Title;
 }
 
 IPDF_StructElement* CPDF_StructElement::GetParent() const {

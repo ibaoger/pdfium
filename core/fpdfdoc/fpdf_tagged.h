@@ -34,6 +34,7 @@ class IPDF_StructElement {
  public:
   virtual IPDF_StructTree* GetTree() const = 0;
   virtual const CFX_ByteString& GetType() const = 0;
+  virtual const CFX_ByteString& GetTitle() const = 0;
   virtual IPDF_StructElement* GetParent() const = 0;
   virtual CPDF_Dictionary* GetDict() const = 0;
   virtual int CountKids() const = 0;
