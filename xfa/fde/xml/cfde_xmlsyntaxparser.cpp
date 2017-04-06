@@ -51,7 +51,8 @@ bool IsXMLNameChar(wchar_t ch, bool bFirstChar) {
   return false;
 }
 
-int32_t GetUTF8EncodeLength(const std::vector<wchar_t>& src, int32_t iSrcLen) {
+int32_t GetUTF8EncodeLength(const std::vector<wchar_t>& src,
+                            FX_FILESIZE iSrcLen) {
   uint32_t unicode = 0;
   int32_t iDstNum = 0;
   const wchar_t* pSrc = src.data();
@@ -85,8 +86,8 @@ CFDE_XMLSyntaxParser::CFDE_XMLSyntaxParser(
       m_iCurrentPos(0),
       m_iCurrentNodeNum(-1),
       m_iLastNodeNum(-1),
-      m_iParsedChars(0),
       m_iParsedBytes(0),
+      m_iParsedChars(0),
       m_iBufferChars(0),
       m_bEOS(false),
       m_pStart(0),
@@ -612,8 +613,7 @@ FX_FILESIZE CFDE_XMLSyntaxParser::GetCurrentBinaryPos() const {
   if (!m_pStream)
     return 0;
 
-  int32_t nSrcLen = m_pStart;
-  int32_t nDstLen = GetUTF8EncodeLength(m_Buffer, nSrcLen);
+  int32_t nDstLen = GetUTF8EncodeLength(m_Buffer, m_pStart);
   return m_iParsedBytes + nDstLen;
 }
 
