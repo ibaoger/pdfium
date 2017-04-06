@@ -45,6 +45,29 @@
       "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b065d0ca_4e0bea61",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T20:29:01Z",
+      "side": 1,
+      "message": "We\u0027ll have to put this back to testing::Test, otherwise we\u0027ll get a double destruction of something from our unique_ptr vs. library terminate.",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
