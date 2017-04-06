@@ -20,7 +20,9 @@ vars = {
   'skia_revision': '90e3cd78991ef337dbd0023efb30ece864694308',
   'tools_memory_revision': '427f10475e1a8d72424c29d00bf689122b738e5d',
   'trace_event_revision': '06294c8a4a6f744ef284cd63cfe54dbf61eea290',
-  'v8_revision': '01498094d09202413aab3ab513785261f82b755d',
+  'v8_jinja2_revision': 'd34383206fa42d52faa10bb9931d6d538f3a57e0',
+  'v8_markupsafe_revision': '8f45f5cfa0009d2a70589bcda0349b8cb2b72783',
+  'v8_revision': '07b2253a044bffa43697c6a43aaccb68c7e82af4',
   'zlib_revision': 'eed2732a73838fd581cb25819ab1c4f478d6b38f',
 }
 
@@ -77,6 +79,14 @@ deps = {
 
   "v8":
     Var('chromium_git') + "/v8/v8.git@" + Var('v8_revision'),
+
+  "v8/third_party/jinja2":
+    Var("chromium_git") + "/chromium/src/third_party/jinja2.git@" +
+        Var("v8_jinja2_revision"),
+
+  "v8/third_party/markupsafe":
+    Var("chromium_git") + "/chromium/src/third_party/markupsafe.git@" +
+        Var("v8_markupsafe_revision"),
 }
 
 deps_os = {
