@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b74b4064_c37acd51",
+        "filename": "core/fxge/dib/cfx_bitmapcomposer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T19:16:01Z",
+      "side": 1,
+      "message": "Is i used outside the for? Or just for the loop counter in each for? If it\u0027s just the loop counter, lets move it into the for declaration to make it clearer.",
+      "revId": "9ceef705b0ee29a0787ddf5cc7c4cc98bab27472",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b88dd27_e2880519",
+        "filename": "core/fxge/dib/cfx_bitmapcomposer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T19:16:01Z",
+      "side": 1,
+      "message": "Can these be vectors instead of unique_ptrs?",
+      "revId": "9ceef705b0ee29a0787ddf5cc7c4cc98bab27472",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
