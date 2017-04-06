@@ -22,6 +22,30 @@
       "revId": "a76c302fab15c563b77eb940f1788844ebb69783",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91072f3_4ec3e5e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T17:55:51Z",
+      "side": 1,
+      "message": "I\u0027d contend that used in tests is still unused. I don\u0027t know if the code will have the same structure in the future, or if there is a better way to write it. We\u0027re unsure how we want to present the information through the public API which will change how this code works.\n\nSo, when I say may come back, I mean the overall idea may come back, I don\u0027t know if this exact code will come back.",
+      "parentUuid": "a70d0755_26cc7a4e",
+      "range": {
+        "startLine": 10,
+        "startChar": 59,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "a76c302fab15c563b77eb940f1788844ebb69783",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
