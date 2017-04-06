@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6c4383d1_fd7c4bae",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T14:54:12Z",
+      "side": 1,
+      "message": "The only caller to this passes m_pStart as the srclen so it\u0027s not the length.",
+      "parentUuid": "7ca13e31_d57905b4",
+      "range": {
+        "startLine": 54,
+        "startChar": 61,
+        "endLine": 54,
+        "endChar": 76
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21443421_812f7eb1",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "These interact with various other things in here, keeping it as int32_t saves lot of casting.",
       "parentUuid": "61c6b999_b3cf89a0",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "3f91171458737b75515a05802ce3bafc81bd65fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a73cb4_37003b00",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T14:54:12Z",
+      "side": 1,
+      "message": "I checked and can\u0027t conclude the same. Fine, I will do it as a followup to this CL then.",
+      "parentUuid": "f3231e86_2b47ee95",
       "range": {
         "startLine": 110,
         "startChar": 2,
