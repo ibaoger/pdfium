@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39c6896e_0a3fa0e7",
+        "filename": "public/fpdf_structtree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T18:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff073a4_0f2eeed4",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81fe0525_8a76c7d0",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5907ceef_092475fb",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T18:44:41Z",
+      "side": 1,
+      "message": "Done. The original idea was that there is no reason to do the memset before the next call if the buffer was unchanged by this call.",
+      "parentUuid": "81fe0525_8a76c7d0",
+      "range": {
+        "startLine": 647,
+        "startChar": 3,
+        "endLine": 647,
+        "endChar": 32
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93dd5f0_96f19e2f",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-06T18:00:59Z",
       "side": 1,
       "message": "I don\u0027t think we need this one if we stick to the \n  memset();\n  getmumblefoo();\n\npattern.",
+      "range": {
+        "startLine": 653,
+        "startChar": 2,
+        "endLine": 654,
+        "endChar": 3
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "966cf549_f77ead6b",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T18:44:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f93dd5f0_96f19e2f",
       "range": {
         "startLine": 653,
         "startChar": 2,
