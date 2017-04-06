@@ -22,6 +22,30 @@
       "revId": "5f73f9bf0a1c97cff565d9a4b3d17655662a86b4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f89c740e_69860dd3",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T18:28:45Z",
+      "side": 1,
+      "message": "True, 629 does guard against  the same thing, but the distance between the two lines is going to make it a lot easier in the future to change m_iEntityStart in the middle there and not realize it causes issues for this check. So, this is mostly just a safety check at this point.",
+      "parentUuid": "8865f7ea_bdc9e398",
+      "range": {
+        "startLine": 686,
+        "startChar": 8,
+        "endLine": 686,
+        "endChar": 27
+      },
+      "revId": "5f73f9bf0a1c97cff565d9a4b3d17655662a86b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
