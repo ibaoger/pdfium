@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "b5cd1f9e_9ce04d85",
+        "filename": "fxbarcode/qrcode/BC_QRCoderECBlocksData.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-06T21:24:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ede1301_74691233",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "e44a0cea4f57b0d300ec4b0f7166d4abba557299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "088492c5_633aa988",
         "filename": "fxbarcode/qrcode/BC_QRCoderECBlocksData.h",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2017-04-06T17:50:19Z",
       "side": 1,
       "message": "MakeUnique",
+      "range": {
+        "startLine": 85,
+        "startChar": 9,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "e44a0cea4f57b0d300ec4b0f7166d4abba557299",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a5f6a80_cda4389e",
+        "filename": "fxbarcode/qrcode/BC_QRCoderVersion.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-06T21:24:12Z",
+      "side": 1,
+      "message": "Was a private ctor.",
+      "parentUuid": "75cbd0d7_0aebfe3c",
       "range": {
         "startLine": 85,
         "startChar": 9,
