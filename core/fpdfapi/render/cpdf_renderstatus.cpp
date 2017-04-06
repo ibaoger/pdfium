@@ -102,7 +102,7 @@ void DrawAxialShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
                       CFX_Matrix* pObject2Bitmap,
                       CPDF_Dictionary* pDict,
                       const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-                      CPDF_ColorSpace* pCS,
+                      const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                       int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
   CPDF_Array* pCoords = pDict->GetArrayFor("Coords");
@@ -188,7 +188,7 @@ void DrawRadialShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
                        CFX_Matrix* pObject2Bitmap,
                        CPDF_Dictionary* pDict,
                        const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-                       CPDF_ColorSpace* pCS,
+                       const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                        int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
   CPDF_Array* pCoords = pDict->GetArrayFor("Coords");
@@ -321,7 +321,7 @@ void DrawFuncShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
                      CFX_Matrix* pObject2Bitmap,
                      CPDF_Dictionary* pDict,
                      const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-                     CPDF_ColorSpace* pCS,
+                     const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                      int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
   CPDF_Array* pDomain = pDict->GetArrayFor("Domain");
@@ -478,7 +478,7 @@ void DrawFreeGouraudShading(
     CFX_Matrix* pObject2Bitmap,
     CPDF_Stream* pShadingStream,
     const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-    CPDF_ColorSpace* pCS,
+    CFX_RetainPtr<CPDF_ColorSpace> pCS,
     int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
 
@@ -519,7 +519,7 @@ void DrawLatticeGouraudShading(
     CFX_Matrix* pObject2Bitmap,
     CPDF_Stream* pShadingStream,
     const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-    CPDF_ColorSpace* pCS,
+    const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
     int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
 
@@ -812,7 +812,7 @@ void DrawCoonPatchMeshes(
     CFX_Matrix* pObject2Bitmap,
     CPDF_Stream* pShadingStream,
     const std::vector<std::unique_ptr<CPDF_Function>>& funcs,
-    CPDF_ColorSpace* pCS,
+    const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
     int fill_mode,
     int alpha) {
   ASSERT(pBitmap->GetFormat() == FXDIB_Argb);
@@ -1496,7 +1496,7 @@ bool CPDF_RenderStatus::ProcessTransparency(CPDF_PageObject* pPageObj,
                               ->GetStream()
                               ->GetDict()
                               ->GetDirectObjectFor("ColorSpace");
-    CPDF_ColorSpace* pColorSpace =
+    CFX_RetainPtr<CPDF_ColorSpace> pColorSpace =
         pDocument->LoadColorSpace(pCSObj, pPageResources);
     if (pColorSpace) {
       int format = pColorSpace->GetFamily();
@@ -1504,7 +1504,8 @@ bool CPDF_RenderStatus::ProcessTransparency(CPDF_PageObject* pPageObj,
           format == PDFCS_DEVICEN) {
         blend_type = FXDIB_BLEND_DARKEN;
       }
-      pDocument->GetPageData()->ReleaseColorSpace(pCSObj);
+      pColorSpace.Reset();  // Drop our reference first.
+      pDocument->GetPageData()->MaybePurgeColorSpace(pCSObj);
     }
   }
   if (!pSMaskDict && group_alpha == 1.0f && blend_type == FXDIB_BLEND_NORMAL &&
@@ -2036,7 +2037,7 @@ void CPDF_RenderStatus::DrawShading(CPDF_ShadingPattern* pPattern,
                                     bool bAlphaMode) {
   const auto& funcs = pPattern->GetFuncs();
   CPDF_Dictionary* pDict = pPattern->GetShadingObject()->GetDict();
-  CPDF_ColorSpace* pColorSpace = pPattern->GetCS();
+  CFX_RetainPtr<CPDF_ColorSpace> pColorSpace = pPattern->GetCS();
   if (!pColorSpace)
     return;
 
@@ -2572,7 +2573,7 @@ CFX_RetainPtr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
       if (pDict && pDict->GetDictFor("Group")) {
         pCSObj = pDict->GetDictFor("Group")->GetDirectObjectFor("CS");
       }
-      const CPDF_ColorSpace* pCS =
+      CFX_RetainPtr<CPDF_ColorSpace> pCS =
           m_pContext->GetDocument()->LoadColorSpace(pCSObj);
       if (pCS) {
         // Store Color Space Family to use in CPDF_RenderStatus::Initialize.
@@ -2598,7 +2599,7 @@ CFX_RetainPtr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
         pCS->GetRGB(pFloats, &R, &G, &B);
         back_color = 0xff000000 | ((int32_t)(R * 255) << 16) |
                      ((int32_t)(G * 255) << 8) | (int32_t)(B * 255);
-        m_pContext->GetDocument()->GetPageData()->ReleaseColorSpace(pCSObj);
+        m_pContext->GetDocument()->GetPageData()->MaybePurgeColorSpace(pCSObj);
       }
     }
     bitmap.Clear(back_color);

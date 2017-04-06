@@ -73,7 +73,7 @@ CFX_FloatRect GetShadingBBox(CPDF_ShadingPattern* pShading,
                              const CFX_Matrix& matrix) {
   ShadingType type = pShading->GetShadingType();
   CPDF_Stream* pStream = ToStream(pShading->GetShadingObject());
-  CPDF_ColorSpace* pCS = pShading->GetCS();
+  CFX_RetainPtr<CPDF_ColorSpace> pCS = pShading->GetCS();
   if (!pStream || !pCS)
     return CFX_FloatRect(0, 0, 0, 0);
 
@@ -695,7 +695,7 @@ void CPDF_StreamContentParser::Handle_ConcatMatrix() {
 }
 
 void CPDF_StreamContentParser::Handle_SetColorSpace_Fill() {
-  CPDF_ColorSpace* pCS = FindColorSpace(GetString(0));
+  CFX_RetainPtr<CPDF_ColorSpace> pCS = FindColorSpace(GetString(0));
   if (!pCS)
     return;
 
@@ -703,7 +703,7 @@ void CPDF_StreamContentParser::Handle_SetColorSpace_Fill() {
 }
 
 void CPDF_StreamContentParser::Handle_SetColorSpace_Stroke() {
-  CPDF_ColorSpace* pCS = FindColorSpace(GetString(0));
+  CFX_RetainPtr<CPDF_ColorSpace> pCS = FindColorSpace(GetString(0));
   if (!pCS)
     return;
 
@@ -862,13 +862,15 @@ void CPDF_StreamContentParser::Handle_EOFillPath() {
 
 void CPDF_StreamContentParser::Handle_SetGray_Fill() {
   float value = GetNumber(0);
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICEGRAY);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICEGRAY);
   m_pCurStates->m_ColorState.SetFillColor(pCS, &value, 1);
 }
 
 void CPDF_StreamContentParser::Handle_SetGray_Stroke() {
   float value = GetNumber(0);
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICEGRAY);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICEGRAY);
   m_pCurStates->m_ColorState.SetStrokeColor(pCS, &value, 1);
 }
 
@@ -916,7 +918,8 @@ void CPDF_StreamContentParser::Handle_SetCMYKColor_Fill() {
   for (int i = 0; i < 4; i++) {
     values[i] = GetNumber(3 - i);
   }
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICECMYK);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICECMYK);
   m_pCurStates->m_ColorState.SetFillColor(pCS, values, 4);
 }
 
@@ -928,7 +931,8 @@ void CPDF_StreamContentParser::Handle_SetCMYKColor_Stroke() {
   for (int i = 0; i < 4; i++) {
     values[i] = GetNumber(3 - i);
   }
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICECMYK);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICECMYK);
   m_pCurStates->m_ColorState.SetStrokeColor(pCS, values, 4);
 }
 
@@ -993,7 +997,8 @@ void CPDF_StreamContentParser::Handle_SetRGBColor_Fill() {
   for (int i = 0; i < 3; i++) {
     values[i] = GetNumber(2 - i);
   }
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
   m_pCurStates->m_ColorState.SetFillColor(pCS, values, 3);
 }
 
@@ -1005,7 +1010,8 @@ void CPDF_StreamContentParser::Handle_SetRGBColor_Stroke() {
   for (int i = 0; i < 3; i++) {
     values[i] = GetNumber(2 - i);
   }
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
   m_pCurStates->m_ColorState.SetStrokeColor(pCS, values, 3);
 }
 
@@ -1183,7 +1189,7 @@ CPDF_Font* CPDF_StreamContentParser::FindFont(const CFX_ByteString& name) {
   return pFont;
 }
 
-CPDF_ColorSpace* CPDF_StreamContentParser::FindColorSpace(
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_StreamContentParser::FindColorSpace(
     const CFX_ByteString& name) {
   if (name == "Pattern") {
     return CPDF_ColorSpace::GetStockCS(PDFCS_PATTERN);

@@ -172,7 +172,7 @@ bool CPDF_ImageRenderer::StartRenderDIBSource() {
   CPDF_Object* pCSObj =
       m_pImageObject->GetImage()->GetStream()->GetDict()->GetDirectObjectFor(
           "ColorSpace");
-  CPDF_ColorSpace* pColorSpace =
+  CFX_RetainPtr<CPDF_ColorSpace> pColorSpace =
       pDocument->LoadColorSpace(pCSObj, pPageResources);
   if (!pColorSpace)
     return StartDIBSource();
@@ -181,7 +181,7 @@ bool CPDF_ImageRenderer::StartRenderDIBSource() {
       format == PDFCS_DEVICEN) {
     m_BlendType = FXDIB_BLEND_DARKEN;
   }
-  pDocument->GetPageData()->ReleaseColorSpace(pCSObj);
+  pDocument->GetPageData()->MaybePurgeColorSpace(pCSObj);
   return StartDIBSource();
 }
 

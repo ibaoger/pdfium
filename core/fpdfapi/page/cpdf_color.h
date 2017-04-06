@@ -22,19 +22,19 @@ class CPDF_Color {
 
   void Copy(const CPDF_Color* pSrc);
 
-  void SetColorSpace(CPDF_ColorSpace* pCS);
+  void SetColorSpace(const CFX_RetainPtr<CPDF_ColorSpace>& pCS);
   void SetValue(float* comp);
   void SetValue(CPDF_Pattern* pPattern, float* comp, int ncomps);
 
   bool GetRGB(int* R, int* G, int* B) const;
   CPDF_Pattern* GetPattern() const;
-  const CPDF_ColorSpace* GetColorSpace() const { return m_pCS; }
+  CFX_RetainPtr<CPDF_ColorSpace> GetColorSpace() const { return m_pCS; }
 
  protected:
   void ReleaseBuffer();
   void ReleaseColorSpace();
 
-  CPDF_ColorSpace* m_pCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pCS;
   float* m_pBuffer;
 };
 

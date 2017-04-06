@@ -25,6 +25,7 @@
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/cfx_maybe_owned.h"
 #include "core/fxcrt/fx_memory.h"
+#include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 
 namespace {
@@ -140,6 +141,7 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
   ~CPDF_ICCBasedCS() override;
 
   // CPDF_ColorSpace:
+  void WillBeDestroyed() override;
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
   bool v_GetCMYK(float* pBuf,
@@ -165,7 +167,7 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
   bool IsValidComponents(int32_t nComps) const;
   void PopulateRanges(CPDF_Dictionary* pDict);
 
-  CFX_MaybeOwned<CPDF_ColorSpace> m_pAlterCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pAlterCS;
   CFX_RetainPtr<CPDF_IccProfile> m_pProfile;
   uint8_t* m_pCache;
   float* m_pRanges;
@@ -176,15 +178,13 @@ class CPDF_IndexedCS : public CPDF_ColorSpace {
   explicit CPDF_IndexedCS(CPDF_Document* pDoc);
   ~CPDF_IndexedCS() override;
 
+  void WillBeDestroyed() override;
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
-
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
-  CPDF_ColorSpace* GetBaseCS() const override;
-
+  CFX_RetainPtr<CPDF_ColorSpace> GetBaseCS() const override;
   void EnableStdConversion(bool bEnabled) override;
 
-  CPDF_ColorSpace* m_pBaseCS;
-  CPDF_CountedColorSpace* m_pCountedBaseCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pBaseCS;
   int m_nBaseComponents;
   int m_MaxIndex;
   CFX_ByteString m_Table;
@@ -197,6 +197,7 @@ class CPDF_SeparationCS : public CPDF_ColorSpace {
   ~CPDF_SeparationCS() override;
 
   // CPDF_ColorSpace:
+  void WillBeDestroyed() override;
   void GetDefaultValue(int iComponent,
                        float* value,
                        float* min,
@@ -205,7 +206,7 @@ class CPDF_SeparationCS : public CPDF_ColorSpace {
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
   void EnableStdConversion(bool bEnabled) override;
 
-  std::unique_ptr<CPDF_ColorSpace> m_pAltCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pAltCS;
   std::unique_ptr<CPDF_Function> m_pFunc;
   enum { None, All, Colorant } m_Type;
 };
@@ -216,6 +217,7 @@ class CPDF_DeviceNCS : public CPDF_ColorSpace {
   ~CPDF_DeviceNCS() override;
 
   // CPDF_ColorSpace:
+  void WillBeDestroyed() override;
   void GetDefaultValue(int iComponent,
                        float* value,
                        float* min,
@@ -224,7 +226,7 @@ class CPDF_DeviceNCS : public CPDF_ColorSpace {
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
   void EnableStdConversion(bool bEnabled) override;
 
-  std::unique_ptr<CPDF_ColorSpace> m_pAltCS;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pAltCS;
   std::unique_ptr<CPDF_Function> m_pFunc;
 };
 
@@ -349,7 +351,7 @@ void XYZ_to_sRGB_WhitePoint(float X,
 
 }  // namespace
 
-CPDF_ColorSpace* CPDF_ColorSpace::ColorspaceFromName(
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_ColorSpace::ColorspaceFromName(
     const CFX_ByteString& name) {
   if (name == "DeviceRGB" || name == "RGB")
     return CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
@@ -362,29 +364,28 @@ CPDF_ColorSpace* CPDF_ColorSpace::ColorspaceFromName(
   return nullptr;
 }
 
-CPDF_ColorSpace* CPDF_ColorSpace::GetStockCS(int family) {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_ColorSpace::GetStockCS(int family) {
   return CPDF_ModuleMgr::Get()->GetPageModule()->GetStockCS(family);
 }
 
-std::unique_ptr<CPDF_ColorSpace> CPDF_ColorSpace::Load(CPDF_Document* pDoc,
-                                                       CPDF_Object* pObj) {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_ColorSpace::Load(CPDF_Document* pDoc,
+                                                     CPDF_Object* pObj) {
   if (!pObj)
     return nullptr;
 
-  if (pObj->IsName()) {
-    return std::unique_ptr<CPDF_ColorSpace>(
-        ColorspaceFromName(pObj->GetString()));
-  }
+  if (pObj->IsName())
+    return ColorspaceFromName(pObj->GetString());
+
   if (CPDF_Stream* pStream = pObj->AsStream()) {
     CPDF_Dictionary* pDict = pStream->GetDict();
     if (!pDict)
       return nullptr;
 
     for (const auto& it : *pDict) {
-      std::unique_ptr<CPDF_ColorSpace> pRet;
+      CFX_RetainPtr<CPDF_ColorSpace> pRet;
       CPDF_Object* pValue = it.second.get();
       if (ToName(pValue))
-        pRet.reset(ColorspaceFromName(pValue->GetString()));
+        pRet = ColorspaceFromName(pValue->GetString());
       if (pRet)
         return pRet;
     }
@@ -401,34 +402,34 @@ std::unique_ptr<CPDF_ColorSpace> CPDF_ColorSpace::Load(CPDF_Document* pDoc,
 
   CFX_ByteString familyname = pFamilyObj->GetString();
   if (pArray->GetCount() == 1)
-    return std::unique_ptr<CPDF_ColorSpace>(ColorspaceFromName(familyname));
+    return ColorspaceFromName(familyname);
 
-  std::unique_ptr<CPDF_ColorSpace> pCS;
+  CFX_RetainPtr<CPDF_ColorSpace> pCS;
   switch (familyname.GetID()) {
     case FXBSTR_ID('C', 'a', 'l', 'G'):
-      pCS.reset(new CPDF_CalGray(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_CalGray>(pDoc);
       break;
     case FXBSTR_ID('C', 'a', 'l', 'R'):
-      pCS.reset(new CPDF_CalRGB(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_CalRGB>(pDoc);
       break;
     case FXBSTR_ID('L', 'a', 'b', 0):
-      pCS.reset(new CPDF_LabCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_LabCS>(pDoc);
       break;
     case FXBSTR_ID('I', 'C', 'C', 'B'):
-      pCS.reset(new CPDF_ICCBasedCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_ICCBasedCS>(pDoc);
       break;
     case FXBSTR_ID('I', 'n', 'd', 'e'):
     case FXBSTR_ID('I', 0, 0, 0):
-      pCS.reset(new CPDF_IndexedCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_IndexedCS>(pDoc);
       break;
     case FXBSTR_ID('S', 'e', 'p', 'a'):
-      pCS.reset(new CPDF_SeparationCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_SeparationCS>(pDoc);
       break;
     case FXBSTR_ID('D', 'e', 'v', 'i'):
-      pCS.reset(new CPDF_DeviceNCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_DeviceNCS>(pDoc);
       break;
     case FXBSTR_ID('P', 'a', 't', 't'):
-      pCS.reset(new CPDF_PatternCS(pDoc));
+      pCS = pdfium::MakeRetain<CPDF_PatternCS>(pDoc);
       break;
     default:
       return nullptr;
@@ -438,16 +439,6 @@ std::unique_ptr<CPDF_ColorSpace> CPDF_ColorSpace::Load(CPDF_Document* pDoc,
     return nullptr;
 
   return pCS;
-}
-
-void CPDF_ColorSpace::Release() {
-  if (this == GetStockCS(PDFCS_DEVICERGB) ||
-      this == GetStockCS(PDFCS_DEVICEGRAY) ||
-      this == GetStockCS(PDFCS_DEVICECMYK) ||
-      this == GetStockCS(PDFCS_PATTERN)) {
-    return;
-  }
-  delete this;
 }
 
 int CPDF_ColorSpace::GetBufSize() const {
@@ -556,7 +547,7 @@ void CPDF_ColorSpace::TranslateImageLine(uint8_t* dest_buf,
   }
 }
 
-CPDF_ColorSpace* CPDF_ColorSpace::GetBaseCS() const {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_ColorSpace::GetBaseCS() const {
   return nullptr;
 }
 
@@ -577,6 +568,8 @@ CPDF_ColorSpace::CPDF_ColorSpace(CPDF_Document* pDoc,
       m_dwStdConversion(0) {}
 
 CPDF_ColorSpace::~CPDF_ColorSpace() {}
+
+void CPDF_ColorSpace::WillBeDestroyed() {}
 
 bool CPDF_ColorSpace::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
@@ -856,6 +849,10 @@ CPDF_ICCBasedCS::~CPDF_ICCBasedCS() {
   }
 }
 
+void CPDF_ICCBasedCS::WillBeDestroyed() {
+  m_pAlterCS.Reset();
+}
+
 bool CPDF_ICCBasedCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   CPDF_Stream* pStream = pArray->GetStreamAt(1);
   if (!pStream)
@@ -1008,7 +1005,7 @@ bool CPDF_ICCBasedCS::FindAlternateProfile(CPDF_Document* pDoc,
   if (pAlterCS->CountComponents() != m_nComponents)
     return false;
 
-  m_pAlterCS = std::move(pAlterCS);
+  m_pAlterCS = pAlterCS;
   return true;
 }
 
@@ -1040,17 +1037,14 @@ void CPDF_ICCBasedCS::PopulateRanges(CPDF_Dictionary* pDict) {
 }
 
 CPDF_IndexedCS::CPDF_IndexedCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_INDEXED, 1),
-      m_pBaseCS(nullptr),
-      m_pCountedBaseCS(nullptr),
-      m_pCompMinMax(nullptr) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_INDEXED, 1), m_pCompMinMax(nullptr) {}
 
 CPDF_IndexedCS::~CPDF_IndexedCS() {
   FX_Free(m_pCompMinMax);
-  CPDF_ColorSpace* pCS = m_pCountedBaseCS ? m_pCountedBaseCS->get() : nullptr;
-  if (pCS && m_pDocument) {
-    m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());
-  }
+}
+
+void CPDF_IndexedCS::WillBeDestroyed() {
+  m_pBaseCS.Reset();
 }
 
 bool CPDF_IndexedCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
@@ -1066,7 +1060,6 @@ bool CPDF_IndexedCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   if (!m_pBaseCS)
     return false;
 
-  m_pCountedBaseCS = pDocPageData->FindColorSpacePtr(m_pBaseCS->GetArray());
   m_nBaseComponents = m_pBaseCS->CountComponents();
   m_pCompMinMax = FX_Alloc2D(float, m_nBaseComponents, 2);
   float defvalue;
@@ -1114,7 +1107,7 @@ bool CPDF_IndexedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
   return m_pBaseCS->GetRGB(comps, R, G, B);
 }
 
-CPDF_ColorSpace* CPDF_IndexedCS::GetBaseCS() const {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_IndexedCS::GetBaseCS() const {
   return m_pBaseCS;
 }
 
@@ -1125,15 +1118,12 @@ void CPDF_IndexedCS::EnableStdConversion(bool bEnabled) {
 }
 
 CPDF_PatternCS::CPDF_PatternCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_PATTERN, 1),
-      m_pBaseCS(nullptr),
-      m_pCountedBaseCS(nullptr) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_PATTERN, 1) {}
 
-CPDF_PatternCS::~CPDF_PatternCS() {
-  CPDF_ColorSpace* pCS = m_pCountedBaseCS ? m_pCountedBaseCS->get() : nullptr;
-  if (pCS && m_pDocument) {
-    m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());
-  }
+CPDF_PatternCS::~CPDF_PatternCS() {}
+
+void CPDF_PatternCS::WillBeDestroyed() {
+  m_pBaseCS.Reset();
 }
 
 bool CPDF_PatternCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
@@ -1151,7 +1141,6 @@ bool CPDF_PatternCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   if (m_pBaseCS->GetFamily() == PDFCS_PATTERN)
     return false;
 
-  m_pCountedBaseCS = pDocPageData->FindColorSpacePtr(m_pBaseCS->GetArray());
   m_nComponents = m_pBaseCS->CountComponents() + 1;
   return m_pBaseCS->CountComponents() <= MAX_PATTERN_COLORCOMPS;
 }
@@ -1169,7 +1158,7 @@ bool CPDF_PatternCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
   return false;
 }
 
-CPDF_ColorSpace* CPDF_PatternCS::GetBaseCS() const {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_PatternCS::GetBaseCS() const {
   return m_pBaseCS;
 }
 
@@ -1177,6 +1166,10 @@ CPDF_SeparationCS::CPDF_SeparationCS(CPDF_Document* pDoc)
     : CPDF_ColorSpace(pDoc, PDFCS_SEPARATION, 1) {}
 
 CPDF_SeparationCS::~CPDF_SeparationCS() {}
+
+void CPDF_SeparationCS::WillBeDestroyed() {
+  m_pAltCS.Reset();
+}
 
 void CPDF_SeparationCS::GetDefaultValue(int iComponent,
                                         float* value,
@@ -1255,6 +1248,10 @@ CPDF_DeviceNCS::CPDF_DeviceNCS(CPDF_Document* pDoc)
     : CPDF_ColorSpace(pDoc, PDFCS_DEVICEN, 0) {}
 
 CPDF_DeviceNCS::~CPDF_DeviceNCS() {}
+
+void CPDF_DeviceNCS::WillBeDestroyed() {
+  m_pAltCS.Reset();
+}
 
 void CPDF_DeviceNCS::GetDefaultValue(int iComponent,
                                      float* value,

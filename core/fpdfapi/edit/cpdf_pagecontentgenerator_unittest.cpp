@@ -117,7 +117,8 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessGraphics) {
   pPathObj->m_bStroke = true;
 
   float rgb[3] = {0.5f, 0.7f, 0.35f};
-  CPDF_ColorSpace* pCS = CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS =
+      CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB);
   pPathObj->m_ColorState.SetFillColor(pCS, rgb, 3);
 
   float rgb2[3] = {1, 0.9f, 0};

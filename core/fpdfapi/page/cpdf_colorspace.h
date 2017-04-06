@@ -9,6 +9,7 @@
 
 #include <memory>
 
+#include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 
@@ -28,14 +29,15 @@ class CPDF_Array;
 class CPDF_Document;
 class CPDF_Object;
 
-class CPDF_ColorSpace {
+class CPDF_ColorSpace : public CFX_Retainable {
  public:
-  static CPDF_ColorSpace* GetStockCS(int Family);
-  static CPDF_ColorSpace* ColorspaceFromName(const CFX_ByteString& name);
-  static std::unique_ptr<CPDF_ColorSpace> Load(CPDF_Document* pDoc,
-                                               CPDF_Object* pCSObj);
+  static CFX_RetainPtr<CPDF_ColorSpace> GetStockCS(int Family);
+  static CFX_RetainPtr<CPDF_ColorSpace> ColorspaceFromName(
+      const CFX_ByteString& name);
+  static CFX_RetainPtr<CPDF_ColorSpace> Load(CPDF_Document* pDoc,
+                                             CPDF_Object* pCSObj);
 
-  void Release();
+  virtual void WillBeDestroyed();
 
   int GetBufSize() const;
   float* CreateBuf();
@@ -62,7 +64,7 @@ class CPDF_ColorSpace {
                                   bool bTransMask) const;
 
   CPDF_Array*& GetArray() { return m_pArray; }
-  virtual CPDF_ColorSpace* GetBaseCS() const;
+  virtual CFX_RetainPtr<CPDF_ColorSpace> GetBaseCS() const;
 
   virtual void EnableStdConversion(bool bEnabled);
 
@@ -70,7 +72,7 @@ class CPDF_ColorSpace {
 
  protected:
   CPDF_ColorSpace(CPDF_Document* pDoc, int family, uint32_t nComponents);
-  virtual ~CPDF_ColorSpace();
+  ~CPDF_ColorSpace() override;
 
   virtual bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray);
   virtual bool v_GetCMYK(float* pBuf,
@@ -85,19 +87,5 @@ class CPDF_ColorSpace {
   CPDF_Array* m_pArray;
   uint32_t m_dwStdConversion;
 };
-
-namespace std {
-
-// Make std::unique_ptr<CPDF_ColorSpace> call Release() rather than
-// simply deleting the object.
-template <>
-struct default_delete<CPDF_ColorSpace> {
-  void operator()(CPDF_ColorSpace* pColorSpace) const {
-    if (pColorSpace)
-      pColorSpace->Release();
-  }
-};
-
-}  // namespace std
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_COLORSPACE_H_
