@@ -22,6 +22,30 @@
       "revId": "2dd3dd12405ef3777a84eeed76a501401a9612c1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a18b0d9a_4865d4a3",
+        "filename": "core/fxge/win32/fx_win32_dib.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T18:28:42Z",
+      "side": 1,
+      "message": "It\u0027s a Windows function which will set the out param to null if it fails. But done just to be on the safe side.",
+      "parentUuid": "494f7cc9_3c030964",
+      "range": {
+        "startLine": 199,
+        "startChar": 14,
+        "endLine": 199,
+        "endChar": 30
+      },
+      "revId": "2dd3dd12405ef3777a84eeed76a501401a9612c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
