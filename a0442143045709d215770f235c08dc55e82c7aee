@@ -68,6 +68,30 @@
       "revId": "a0442143045709d215770f235c08dc55e82c7aee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee97a2e0_c6dae075",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T17:58:51Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense to say delete a negative or zero characters, so I skipped the call here to make it clear it would do nothing.\n\nI have a feeling this is an edge case anyway and we should always have the right values here, it shouldn\u0027t be negative. Plus, it would be nice to convert this file to size_t to match the buffer at some point.",
+      "parentUuid": "3942f8b0_fe9fb435",
+      "range": {
+        "startLine": 686,
+        "startChar": 5,
+        "endLine": 687,
+        "endChar": 76
+      },
+      "revId": "a0442143045709d215770f235c08dc55e82c7aee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
