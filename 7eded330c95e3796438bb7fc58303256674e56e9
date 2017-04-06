@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77b0bb3f_6665b0ae",
+        "filename": "core/fpdfdoc/cpdf_structelement.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T15:14:38Z",
+      "side": 1,
+      "message": "Maybe this should be a class inside of CPDF_StructElement",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 6
+      },
+      "revId": "7eded330c95e3796438bb7fc58303256674e56e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55585cd7_12f48261",
+        "filename": "core/fpdfdoc/cpdf_structelement.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T15:14:38Z",
+      "side": 1,
+      "message": "Uhm since I know you are removing some of these, I don\u0027t know if there are default params left after... Remove if there are",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "7eded330c95e3796438bb7fc58303256674e56e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7961882e_331c6edc",
+        "filename": "core/fpdfdoc/cpdf_structtree.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T15:14:38Z",
+      "side": 1,
+      "message": "can this be private?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "7eded330c95e3796438bb7fc58303256674e56e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
