@@ -69,6 +69,24 @@
       "revId": "9ceef705b0ee29a0787ddf5cc7c4cc98bab27472",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3e2603_51ef61d2",
+        "filename": "core/fxge/dib/cfx_bitmapcomposer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T19:34:08Z",
+      "side": 1,
+      "message": "Mostly to get rid of the FxFreeDeleter and FX_Alloc calls.",
+      "parentUuid": "e7fa0b18_b0fb19ed",
+      "revId": "9ceef705b0ee29a0787ddf5cc7c4cc98bab27472",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
