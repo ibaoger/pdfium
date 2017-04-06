@@ -69,14 +69,14 @@ bool CPDF_ColorState::HasStrokeColor() const {
   return pColor && !pColor->IsNull();
 }
 
-void CPDF_ColorState::SetFillColor(CPDF_ColorSpace* pCS,
+void CPDF_ColorState::SetFillColor(const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                                    float* pValue,
                                    uint32_t nValues) {
   ColorData* pData = m_Ref.GetPrivateCopy();
   SetColor(pData->m_FillColor, pData->m_FillRGB, pCS, pValue, nValues);
 }
 
-void CPDF_ColorState::SetStrokeColor(CPDF_ColorSpace* pCS,
+void CPDF_ColorState::SetStrokeColor(const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                                      float* pValue,
                                      uint32_t nValues) {
   ColorData* pData = m_Ref.GetPrivateCopy();
@@ -122,7 +122,7 @@ void CPDF_ColorState::SetStrokePattern(CPDF_Pattern* pPattern,
 
 void CPDF_ColorState::SetColor(CPDF_Color& color,
                                uint32_t& rgb,
-                               CPDF_ColorSpace* pCS,
+                               const CFX_RetainPtr<CPDF_ColorSpace>& pCS,
                                float* pValue,
                                uint32_t nValues) {
   if (pCS)

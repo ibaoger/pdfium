@@ -120,7 +120,7 @@ class CPDF_DIBSource : public CFX_DIBSource {
   const CPDF_Stream* m_pStream;
   CFX_RetainPtr<CPDF_StreamAcc> m_pStreamAcc;
   const CPDF_Dictionary* m_pDict;
-  CPDF_ColorSpace* m_pColorSpace;
+  CFX_RetainPtr<CPDF_ColorSpace> m_pColorSpace;
   uint32_t m_Family;
   uint32_t m_bpc;
   uint32_t m_bpc_orig;
