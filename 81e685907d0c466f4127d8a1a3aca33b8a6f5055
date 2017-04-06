@@ -22,6 +22,29 @@
       "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5463c26c_623f801c",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T20:04:45Z",
+      "side": 1,
+      "message": "This memset has to move into FX_SafeAlloc itself, otherwise the TryAlloc() call wont\u0027 zero it as well.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 1
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
