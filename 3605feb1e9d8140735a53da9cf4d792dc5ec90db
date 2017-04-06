@@ -22,6 +22,30 @@
       "revId": "3605feb1e9d8140735a53da9cf4d792dc5ec90db",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "244e6de5_bbd2a4a3",
+        "filename": "DEPS",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6810
+      },
+      "writtenOn": "2017-04-06T21:13:00Z",
+      "side": 1,
+      "message": "PS8 fixes this.",
+      "parentUuid": "45030c92_8950671c",
+      "range": {
+        "startLine": 68,
+        "startChar": 12,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "3605feb1e9d8140735a53da9cf4d792dc5ec90db",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
