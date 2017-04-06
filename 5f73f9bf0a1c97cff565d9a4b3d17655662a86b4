@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8865f7ea_bdc9e398",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T18:21:43Z",
+      "side": 1,
+      "message": "I still think this check is unnecessary because of line 629. If it was necessary, it would not be equivalent to the delete that took an int, since before it was Delete(pos - neg integers) \u003d Delete(maybe pos integer), and now it would not delete.",
+      "range": {
+        "startLine": 686,
+        "startChar": 8,
+        "endLine": 686,
+        "endChar": 27
+      },
+      "revId": "5f73f9bf0a1c97cff565d9a4b3d17655662a86b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
