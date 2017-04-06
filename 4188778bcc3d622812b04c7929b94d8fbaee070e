@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ff073a4_0f2eeed4",
+        "filename": "public/fpdf_structtree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T18:00:59Z",
+      "side": 1,
+      "message": "these two dashes should line up under the dash on line 99.",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81fe0525_8a76c7d0",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T18:00:59Z",
+      "side": 1,
+      "message": "nit: I\u0027d move this memset out of the if, and put it directly before the next call to getmumblefoo().",
+      "range": {
+        "startLine": 647,
+        "startChar": 3,
+        "endLine": 647,
+        "endChar": 32
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f93dd5f0_96f19e2f",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T18:00:59Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this one if we stick to the \n  memset();\n  getmumblefoo();\n\npattern.",
+      "range": {
+        "startLine": 653,
+        "startChar": 2,
+        "endLine": 654,
+        "endChar": 3
+      },
+      "revId": "4188778bcc3d622812b04c7929b94d8fbaee070e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
