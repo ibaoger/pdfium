@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "2890c74d_d34cebf5",
+        "filename": "fxbarcode/common/BC_CommonBitMatrix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-06T01:43:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3a7c4bf_b8a19c78",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "f65b9fde9d3f0a22e0fe35527d06162d5a837661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f230a5_dd06c906",
         "filename": "fxbarcode/common/BC_CommonBitMatrix.h",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "f65b9fde9d3f0a22e0fe35527d06162d5a837661",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "658cc905_3c30cb2d",
+        "filename": "fxbarcode/common/BC_CommonBitMatrix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-06T01:43:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f230a5_dd06c906",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "f65b9fde9d3f0a22e0fe35527d06162d5a837661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
