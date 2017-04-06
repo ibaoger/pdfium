@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "77210c33_c891b876",
+        "filename": "core/fpdfdoc/cpdf_structelement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f6552bc_28a52c6c",
+      "range": {
+        "startLine": 23,
+        "startChar": 17,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "8a204c32f1c9bc3df94c3f97ac41825cb06a7bfd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fd3b8d2_351358c1",
         "filename": "core/fpdfdoc/cpdf_structelement.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-06T14:42:14Z",
       "side": 1,
       "message": "I think uint8_t is better here",
+      "range": {
+        "startLine": 25,
+        "startChar": 30,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "8a204c32f1c9bc3df94c3f97ac41825cb06a7bfd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "616e4213_8e2490a6",
+        "filename": "core/fpdfdoc/cpdf_structelement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-06T14:50:07Z",
+      "side": 1,
+      "message": "Sure, doesn\u0027t really matter though.",
+      "parentUuid": "3fd3b8d2_351358c1",
       "range": {
         "startLine": 25,
         "startChar": 30,
