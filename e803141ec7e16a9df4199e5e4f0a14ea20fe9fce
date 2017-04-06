@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1491442943 -0700\nnonce AFMZ2GzdCPFQxNUo17na82yRuLDnlFRcZcQUP4zZeRmAKwYGFYVGMMypmQULOMzWgn0hqMkp9cIY\n\n0000000000000000000000000000000000000000 e803141ec7e16a9df4199e5e4f0a14ea20fe9fce refs/for/refs/heads/master%m\u003dLight_cleaning_in_CBC_CommonBitMatrix,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY5Zz/AAoJEKs2LWFaZv170GEH/3dJzUbkgpE6XuRbobp1N/Lz\nUuJcQ/YdxwvGIe78nfx6kjEWyzYFLRANvfQTyQCPJxjn3e/7fL2JOq/A6TU1exKO\nGpRjqbRgPCwck6qXs6sZheu+PGZXmL5Ta1OlmsWIfLMP30VfHFQ5sO2S4JMtqE2a\nadEVWyfBZgqdxn0G7UpBTW3/sQ8BntMsd9+xhjxh2ESZSI9IOZRBV0y89pe4SZCz\nycbLrDYW9cZMnkEzmSGGYKh/UQPV+ogAb3h6QEfAqfIl8MUAIOF9VeU/ZZ5t1atd\nnGJQSMefMyduxOQNm+xurkahZLSTjXSNrrvk0AGxkJe59eL9VgATxa7Derf9sYo\u003d\n\u003dw/L6\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
