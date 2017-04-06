@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df779ed0_49d6cbdd",
+        "filename": "core/fxcrt/cfx_retain_ptr.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-06T18:44:09Z",
+      "side": 1,
+      "message": "No, this isn\u0027t  right.  We need to delete objects created with |new|.  There shouldn\u0027t be a need to change this.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
