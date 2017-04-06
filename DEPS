@@ -20,7 +20,7 @@ vars = {
   'skia_revision': '90e3cd78991ef337dbd0023efb30ece864694308',
   'tools_memory_revision': '427f10475e1a8d72424c29d00bf689122b738e5d',
   'trace_event_revision': '06294c8a4a6f744ef284cd63cfe54dbf61eea290',
-  'v8_revision': '01498094d09202413aab3ab513785261f82b755d',
+  'v8_revision': '07b2253a044bffa43697c6a43aaccb68c7e82af4',
   'zlib_revision': 'eed2732a73838fd581cb25819ab1c4f478d6b38f',
 }
 
