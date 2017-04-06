@@ -92,6 +92,30 @@
       "revId": "a0442143045709d215770f235c08dc55e82c7aee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "425e2758_81036c20",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-06T18:03:56Z",
+      "side": 1,
+      "message": "I was concerned at the possibility of m_iEntityStart being negative here, but that\u0027s not possible due to line 629. So I think you could  take out the m_iEntityStart \u003e 0 (if it is 0, we still want to delete).",
+      "parentUuid": "ee97a2e0_c6dae075",
+      "range": {
+        "startLine": 686,
+        "startChar": 5,
+        "endLine": 687,
+        "endChar": 76
+      },
+      "revId": "a0442143045709d215770f235c08dc55e82c7aee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
