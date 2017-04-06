@@ -9,13 +9,13 @@
 
 #include <vector>
 
+#include "core/fpdfapi/page/cpdf_colorspace.h"
 #include "third_party/libopenjpeg20/openjpeg.h"
 
-class CPDF_ColorSpace;
 
 class CJPX_Decoder {
  public:
-  explicit CJPX_Decoder(CPDF_ColorSpace* cs);
+  explicit CJPX_Decoder(const CFX_RetainPtr<CPDF_ColorSpace>& cs);
   ~CJPX_Decoder();
 
   bool Init(const unsigned char* src_data, uint32_t src_size);
@@ -30,7 +30,7 @@ class CJPX_Decoder {
   opj_image_t* image;
   opj_codec_t* l_codec;
   opj_stream_t* l_stream;
-  const CPDF_ColorSpace* const m_ColorSpace;
+  CFX_RetainPtr<CPDF_ColorSpace> m_ColorSpace;
 };
 
 #endif  // CORE_FXCODEC_CODEC_CJPX_DECODER_H_

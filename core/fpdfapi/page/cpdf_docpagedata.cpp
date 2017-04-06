@@ -43,8 +43,7 @@ CPDF_DocPageData::~CPDF_DocPageData() {
   m_FontMap.clear();
 
   for (auto& it : m_ColorSpaceMap)
-    delete it.second;
-  m_ColorSpaceMap.clear();
+    it.second->WillBeDestroyed();
 }
 
 void CPDF_DocPageData::Clear(bool bForceRelease) {
@@ -66,17 +65,6 @@ void CPDF_DocPageData::Clear(bool bForceRelease) {
 
     if (bForceRelease || fontData->use_count() < 2) {
       fontData->clear();
-    }
-  }
-
-  for (auto& it : m_ColorSpaceMap) {
-    CPDF_CountedColorSpace* csData = it.second;
-    if (!csData->get())
-      continue;
-
-    if (bForceRelease || csData->use_count() < 2) {
-      csData->get()->Release();
-      csData->reset(nullptr);
     }
   }
 
@@ -192,14 +180,14 @@ void CPDF_DocPageData::ReleaseFont(const CPDF_Dictionary* pFontDict) {
   pFontData->clear();
 }
 
-CPDF_ColorSpace* CPDF_DocPageData::GetColorSpace(
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_DocPageData::GetColorSpace(
     CPDF_Object* pCSObj,
     const CPDF_Dictionary* pResources) {
   std::set<CPDF_Object*> visited;
   return GetColorSpaceImpl(pCSObj, pResources, &visited);
 }
 
-CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_DocPageData::GetColorSpaceImpl(
     CPDF_Object* pCSObj,
     const CPDF_Dictionary* pResources,
     std::set<CPDF_Object*>* pVisited) {
@@ -211,7 +199,8 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
 
   if (pCSObj->IsName()) {
     CFX_ByteString name = pCSObj->GetString();
-    CPDF_ColorSpace* pCS = CPDF_ColorSpace::ColorspaceFromName(name);
+    CFX_RetainPtr<CPDF_ColorSpace> pCS =
+        CPDF_ColorSpace::ColorspaceFromName(name);
     if (!pCS && pResources) {
       CPDF_Dictionary* pList = pResources->GetDictFor("ColorSpace");
       if (pList) {
@@ -256,59 +245,37 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
                              pVisited);
   }
 
-  CPDF_CountedColorSpace* csData = nullptr;
   auto it = m_ColorSpaceMap.find(pCSObj);
-  if (it != m_ColorSpaceMap.end()) {
-    csData = it->second;
-    if (csData->get()) {
-      return csData->AddRef();
-    }
-  }
+  if (it != m_ColorSpaceMap.end())
+    return it->second;
 
-  std::unique_ptr<CPDF_ColorSpace> pCS =
-      CPDF_ColorSpace::Load(m_pPDFDoc, pArray);
+  CFX_RetainPtr<CPDF_ColorSpace> pCS = CPDF_ColorSpace::Load(m_pPDFDoc, pArray);
   if (!pCS)
     return nullptr;
 
-  if (csData) {
-    csData->reset(std::move(pCS));
-  } else {
-    csData = new CPDF_CountedColorSpace(std::move(pCS));
-    m_ColorSpaceMap[pCSObj] = csData;
-  }
-  return csData->AddRef();
+  m_ColorSpaceMap[pCSObj] = pCS;
+  return pCS;
 }
 
-CPDF_ColorSpace* CPDF_DocPageData::GetCopiedColorSpace(CPDF_Object* pCSObj) {
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_DocPageData::GetCopiedColorSpace(
+    CPDF_Object* pCSObj) {
   if (!pCSObj)
     return nullptr;
 
   auto it = m_ColorSpaceMap.find(pCSObj);
-  if (it != m_ColorSpaceMap.end())
-    return it->second->AddRef();
+  if (it == m_ColorSpaceMap.end())
+    return nullptr;
 
-  return nullptr;
+  return it->second;
 }
 
-void CPDF_DocPageData::ReleaseColorSpace(const CPDF_Object* pColorSpace) {
+void CPDF_DocPageData::MaybePurgeColorSpace(const CPDF_Object* pColorSpace) {
   if (!pColorSpace)
     return;
 
   auto it = m_ColorSpaceMap.find(pColorSpace);
-  if (it == m_ColorSpaceMap.end())
-    return;
-
-  CPDF_CountedColorSpace* pCountedColorSpace = it->second;
-  if (!pCountedColorSpace->get())
-    return;
-
-  pCountedColorSpace->RemoveRef();
-  if (pCountedColorSpace->use_count() > 1)
-    return;
-
-  // We have item only in m_ColorSpaceMap cache. Clean it.
-  pCountedColorSpace->get()->Release();
-  pCountedColorSpace->reset(nullptr);
+  if (it != m_ColorSpaceMap.end() && it->second->HasOneRef())
+    m_ColorSpaceMap.erase(it);
 }
 
 CPDF_Pattern* CPDF_DocPageData::GetPattern(CPDF_Object* pPatternObj,
@@ -457,7 +424,7 @@ void CPDF_DocPageData::MaybePurgeFontFileStreamAcc(
     m_FontFileMap.erase(it);
 }
 
-CPDF_CountedColorSpace* CPDF_DocPageData::FindColorSpacePtr(
+CFX_RetainPtr<CPDF_ColorSpace> CPDF_DocPageData::FindColorSpacePtr(
     CPDF_Object* pCSObj) const {
   if (!pCSObj)
     return nullptr;

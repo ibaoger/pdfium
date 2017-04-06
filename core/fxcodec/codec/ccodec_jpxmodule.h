@@ -20,9 +20,10 @@ class CCodec_JpxModule {
   CCodec_JpxModule();
   ~CCodec_JpxModule();
 
-  std::unique_ptr<CJPX_Decoder> CreateDecoder(const uint8_t* src_buf,
-                                              uint32_t src_size,
-                                              CPDF_ColorSpace* cs);
+  std::unique_ptr<CJPX_Decoder> CreateDecoder(
+      const uint8_t* src_buf,
+      uint32_t src_size,
+      const CFX_RetainPtr<CPDF_ColorSpace>& cs);
   void GetImageInfo(CJPX_Decoder* pDecoder,
                     uint32_t* width,
                     uint32_t* height,

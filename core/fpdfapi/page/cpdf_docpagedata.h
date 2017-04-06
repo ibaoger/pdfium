@@ -37,10 +37,12 @@ class CPDF_DocPageData {
                              CPDF_FontEncoding* pEncoding);
   void ReleaseFont(const CPDF_Dictionary* pFontDict);
 
-  CPDF_ColorSpace* GetColorSpace(CPDF_Object* pCSObj,
-                                 const CPDF_Dictionary* pResources);
-  CPDF_ColorSpace* GetCopiedColorSpace(CPDF_Object* pCSObj);
-  void ReleaseColorSpace(const CPDF_Object* pColorSpace);
+  CFX_RetainPtr<CPDF_ColorSpace> GetColorSpace(
+      CPDF_Object* pCSObj,
+      const CPDF_Dictionary* pResources);
+  CFX_RetainPtr<CPDF_ColorSpace> GetCopiedColorSpace(CPDF_Object* pCSObj);
+  CFX_RetainPtr<CPDF_ColorSpace> FindColorSpacePtr(CPDF_Object* pCSObj) const;
+  void MaybePurgeColorSpace(const CPDF_Object* pColorSpace);
 
   CPDF_Pattern* GetPattern(CPDF_Object* pPatternObj,
                            bool bShading,
@@ -56,25 +58,25 @@ class CPDF_DocPageData {
   CFX_RetainPtr<CPDF_StreamAcc> GetFontFileStreamAcc(CPDF_Stream* pFontStream);
   void MaybePurgeFontFileStreamAcc(const CPDF_Stream* pFontStream);
 
-  CPDF_CountedColorSpace* FindColorSpacePtr(CPDF_Object* pCSObj) const;
   CPDF_CountedPattern* FindPatternPtr(CPDF_Object* pPatternObj) const;
 
  private:
   using CPDF_CountedFont = CPDF_CountedObject<CPDF_Font>;
 
-  CPDF_ColorSpace* GetColorSpaceImpl(CPDF_Object* pCSObj,
-                                     const CPDF_Dictionary* pResources,
-                                     std::set<CPDF_Object*>* pVisited);
+  CFX_RetainPtr<CPDF_ColorSpace> GetColorSpaceImpl(
+      CPDF_Object* pCSObj,
+      const CPDF_Dictionary* pResources,
+      std::set<CPDF_Object*>* pVisited);
 
   CPDF_Document* const m_pPDFDoc;
   bool m_bForceClear;
   std::map<CFX_ByteString, CPDF_Stream*> m_HashProfileMap;
-  std::map<const CPDF_Object*, CPDF_CountedColorSpace*> m_ColorSpaceMap;
+  std::map<const CPDF_Object*, CFX_RetainPtr<CPDF_ColorSpace>> m_ColorSpaceMap;
   std::map<const CPDF_Stream*, CFX_RetainPtr<CPDF_StreamAcc>> m_FontFileMap;
   std::map<const CPDF_Dictionary*, CPDF_CountedFont*> m_FontMap;
   std::map<const CPDF_Stream*, CFX_RetainPtr<CPDF_IccProfile>> m_IccProfileMap;
-  std::map<uint32_t, CFX_RetainPtr<CPDF_Image>> m_ImageMap;
   std::map<const CPDF_Object*, CPDF_CountedPattern*> m_PatternMap;
+  std::map<uint32_t, CFX_RetainPtr<CPDF_Image>> m_ImageMap;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_DOCPAGEDATA_H_
