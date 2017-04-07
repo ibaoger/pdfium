@@ -34,6 +34,24 @@
       "revId": "9b2b8b190ca1769138b3fcb73c5f608d37166189",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1deec95_24260714",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-07T17:56:25Z",
+      "side": 1,
+      "message": "I was thinking of using std::vector and resize() as needed. I suppose that could be better or worse depending on how many reallocs happen underneath. Whereas the current code is more consistent.",
+      "parentUuid": "9f401cc6_17c7fabb",
+      "revId": "9b2b8b190ca1769138b3fcb73c5f608d37166189",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
