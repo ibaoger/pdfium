@@ -1089,3 +1089,8 @@ TEST(fxcrt, EmptyByteString) {
   const char* cstr = empty_str.c_str();
   EXPECT_EQ(0, FXSYS_strlen(cstr));
 }
+
+TEST(fxcrt, ByteStringInitializerList) {
+  CFX_ByteString many_str({"clams", " and ", "oysters"});
+  EXPECT_EQ("clams and oysters", many_str);
+}

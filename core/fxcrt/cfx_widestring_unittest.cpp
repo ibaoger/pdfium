@@ -945,3 +945,8 @@ TEST(fxcrt, EmptyWideString) {
   const wchar_t* cstr = empty_str.c_str();
   EXPECT_EQ(0, FXSYS_wcslen(cstr));
 }
+
+TEST(fxcrt, WidStringInitializerList) {
+  CFX_WideString many_str({L"clams", L" and ", L"oysters"});
+  EXPECT_EQ(L"clams and oysters", many_str);
+}
