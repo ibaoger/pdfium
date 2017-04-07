@@ -78,7 +78,7 @@ CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
 CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
                             size_t nIndex,
                             size_t& nCurIndex,
-                            CFX_ByteString& csName,
+                            CFX_ByteString* csName,
                             CPDF_Array** ppFind,
                             int nLevel = 0) {
   if (nLevel > nMaxRecursion)
@@ -93,7 +93,7 @@ CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
     }
     if (ppFind)
       *ppFind = pNames;
-    csName = pNames->GetStringAt((nIndex - nCurIndex) * 2);
+    *csName = pNames->GetStringAt((nIndex - nCurIndex) * 2);
     return pNames->GetDirectObjectAt((nIndex - nCurIndex) * 2 + 1);
   }
   CPDF_Array* pKids = pNode->GetArrayFor("Kids");
@@ -165,7 +165,7 @@ int CPDF_NameTree::GetIndex(const CFX_ByteString& csName) const {
 }
 
 CPDF_Object* CPDF_NameTree::LookupValue(int nIndex,
-                                        CFX_ByteString& csName) const {
+                                        CFX_ByteString* csName) const {
   if (!m_pRoot)
     return nullptr;
   size_t nCurIndex = 0;

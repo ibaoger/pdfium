@@ -17,7 +17,7 @@ int CPDF_DocJSActions::CountJSActions() const {
 }
 
 CPDF_Action CPDF_DocJSActions::GetJSAction(int index,
-                                           CFX_ByteString& csName) const {
+                                           CFX_ByteString* csName) const {
   ASSERT(m_pDocument);
   CPDF_NameTree name_tree(m_pDocument, "JavaScript");
   CPDF_Object* pAction = name_tree.LookupValue(index, csName);
