@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6795b30_b2055a9f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-07T20:52:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fa4c1b5_2390a5e5",
+      "range": {
+        "startLine": 948,
+        "startChar": 15,
+        "endLine": 948,
+        "endChar": 22
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "addb38dc_4eeadf47",
         "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333d1e35_8e016292",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-07T20:52:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addb38dc_4eeadf47",
+      "range": {
+        "startLine": 366,
+        "startChar": 19,
+        "endLine": 366,
+        "endChar": 29
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e66c2c07_bf983503",
+        "filename": "core/fpdfdoc/cpdf_defaultappearance.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-07T20:52:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feac374b_7a7ed7cc",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1d3c3e_8fc9f32b",
         "filename": "core/fpdfdoc/cpdf_interform.cpp",
         "patchSetId": 6
@@ -91,6 +163,30 @@
       "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d69ed500_7dc94f2d",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-07T20:52:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1d3c3e_8fc9f32b",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -137,6 +233,30 @@
       "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d4fecf_e3952fee",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-07T20:52:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c492877_9a2280db",
+      "range": {
+        "startLine": 2488,
+        "startChar": 9,
+        "endLine": 2488,
+        "endChar": 12
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
