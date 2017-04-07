@@ -1035,9 +1035,7 @@ void CXFA_FM2JSContext::Date2Num(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString dateString;
-  ValueToUTF8String(dateValue.get(), dateString);
-
+  CFX_ByteString dateString = ValueToUTF8String(dateValue.get());
   CFX_ByteString formatString;
   if (argc > 1) {
     std::unique_ptr<CFXJSE_Value> formatValue = GetSimpleValue(pThis, args, 1);
@@ -1045,7 +1043,7 @@ void CXFA_FM2JSContext::Date2Num(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(formatValue.get(), formatString);
+    formatString = ValueToUTF8String(formatValue.get());
   }
 
   CFX_ByteString localString;
@@ -1055,12 +1053,12 @@ void CXFA_FM2JSContext::Date2Num(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localValue.get(), localString);
+    localString = ValueToUTF8String(localValue.get());
   }
 
   CFX_ByteString szIsoDateString;
   if (!Local2IsoDate(pThis, dateString.AsStringC(), formatString.AsStringC(),
-                     localString.AsStringC(), szIsoDateString)) {
+                     localString.AsStringC(), &szIsoDateString)) {
     args.GetReturnValue()->SetInteger(0);
     return;
   }
@@ -1099,11 +1097,11 @@ void CXFA_FM2JSContext::DateFmt(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(argLocal.get(), szLocal);
+    szLocal = ValueToUTF8String(argLocal.get());
   }
 
   CFX_ByteString formatStr;
-  GetStandardDateFormat(pThis, iStyle, szLocal.AsStringC(), formatStr);
+  GetStandardDateFormat(pThis, iStyle, szLocal.AsStringC(), &formatStr);
   args.GetReturnValue()->SetString(formatStr.AsStringC());
 }
 
@@ -1116,15 +1114,12 @@ void CXFA_FM2JSContext::IsoDate2Num(CFXJSE_Value* pThis,
         ->ThrowParamCountMismatchException(L"IsoDate2Num");
     return;
   }
-
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
   if (argOne->IsNull()) {
     args.GetReturnValue()->SetNull();
     return;
   }
-
-  CFX_ByteString szArgString;
-  ValueToUTF8String(argOne.get(), szArgString);
+  CFX_ByteString szArgString = ValueToUTF8String(argOne.get());
   args.GetReturnValue()->SetInteger(DateString2Num(szArgString.AsStringC()));
 }
 
@@ -1146,9 +1141,7 @@ void CXFA_FM2JSContext::IsoTime2Num(CFXJSE_Value* pThis,
 
   CXFA_Document* pDoc = pContext->GetDocument();
   CXFA_LocaleMgr* pMgr = pDoc->GetLocalMgr();
-
-  CFX_ByteString szArgString;
-  ValueToUTF8String(argOne.get(), szArgString);
+  CFX_ByteString szArgString = ValueToUTF8String(argOne.get());
   szArgString = szArgString.Mid(szArgString.Find('T', 0) + 1);
   if (szArgString.IsEmpty()) {
     args.GetReturnValue()->SetInteger(0);
@@ -1213,11 +1206,11 @@ void CXFA_FM2JSContext::LocalDateFmt(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(argLocal.get(), szLocal);
+    szLocal = ValueToUTF8String(argLocal.get());
   }
 
   CFX_ByteString formatStr;
-  GetLocalDateFormat(pThis, iStyle, szLocal.AsStringC(), formatStr, false);
+  GetLocalDateFormat(pThis, iStyle, szLocal.AsStringC(), &formatStr, false);
   args.GetReturnValue()->SetString(formatStr.AsStringC());
 }
 
@@ -1251,11 +1244,11 @@ void CXFA_FM2JSContext::LocalTimeFmt(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(argLocal.get(), szLocal);
+    szLocal = ValueToUTF8String(argLocal.get());
   }
 
   CFX_ByteString formatStr;
-  GetLocalTimeFormat(pThis, iStyle, szLocal.AsStringC(), formatStr, false);
+  GetLocalTimeFormat(pThis, iStyle, szLocal.AsStringC(), &formatStr, false);
   args.GetReturnValue()->SetString(formatStr.AsStringC());
 }
 
@@ -1287,7 +1280,7 @@ void CXFA_FM2JSContext::Num2Date(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(formatValue.get(), formatString);
+    formatString = ValueToUTF8String(formatValue.get());
   }
 
   CFX_ByteString localString;
@@ -1297,7 +1290,7 @@ void CXFA_FM2JSContext::Num2Date(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localValue.get(), localString);
+    localString = ValueToUTF8String(localValue.get());
   }
 
   int32_t iYear = 1900;
@@ -1396,7 +1389,7 @@ void CXFA_FM2JSContext::Num2Date(CFXJSE_Value* pThis,
   szIsoDateString.Format("%d%02d%02d", iYear + i, iMonth, iDay);
   CFX_ByteString szLocalDateString;
   IsoDate2Local(pThis, szIsoDateString.AsStringC(), formatString.AsStringC(),
-                localString.AsStringC(), szLocalDateString);
+                localString.AsStringC(), &szLocalDateString);
   args.GetReturnValue()->SetString(szLocalDateString.AsStringC());
 }
 
@@ -1429,7 +1422,7 @@ void CXFA_FM2JSContext::Num2GMTime(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(formatValue.get(), formatString);
+    formatString = ValueToUTF8String(formatValue.get());
   }
 
   CFX_ByteString localString;
@@ -1439,12 +1432,12 @@ void CXFA_FM2JSContext::Num2GMTime(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localValue.get(), localString);
+    localString = ValueToUTF8String(localValue.get());
   }
 
   CFX_ByteString szGMTTimeString;
   Num2AllTime(pThis, iTime, formatString.AsStringC(), localString.AsStringC(),
-              true, szGMTTimeString);
+              true, &szGMTTimeString);
   args.GetReturnValue()->SetString(szGMTTimeString.AsStringC());
 }
 
@@ -1476,7 +1469,7 @@ void CXFA_FM2JSContext::Num2Time(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(formatValue.get(), formatString);
+    formatString = ValueToUTF8String(formatValue.get());
   }
 
   CFX_ByteString localString;
@@ -1486,12 +1479,12 @@ void CXFA_FM2JSContext::Num2Time(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localValue.get(), localString);
+    localString = ValueToUTF8String(localValue.get());
   }
 
   CFX_ByteString szLocalTimeString;
   Num2AllTime(pThis, (int32_t)fTime, formatString.AsStringC(),
-              localString.AsStringC(), false, szLocalTimeString);
+              localString.AsStringC(), false, &szLocalTimeString);
   args.GetReturnValue()->SetString(szLocalTimeString.AsStringC());
 }
 
@@ -1528,7 +1521,7 @@ void CXFA_FM2JSContext::Time2Num(CFXJSE_Value* pThis,
     args.GetReturnValue()->SetNull();
     return;
   }
-  ValueToUTF8String(timeValue.get(), timeString);
+  timeString = ValueToUTF8String(timeValue.get());
 
   CFX_ByteString formatString;
   if (argc > 1) {
@@ -1537,7 +1530,7 @@ void CXFA_FM2JSContext::Time2Num(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(formatValue.get(), formatString);
+    formatString = ValueToUTF8String(formatValue.get());
   }
 
   CFX_ByteString localString;
@@ -1547,7 +1540,7 @@ void CXFA_FM2JSContext::Time2Num(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localValue.get(), localString);
+    localString = ValueToUTF8String(localValue.get());
   }
 
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
@@ -1627,11 +1620,11 @@ void CXFA_FM2JSContext::TimeFmt(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(argLocal.get(), szLocal);
+    szLocal = ValueToUTF8String(argLocal.get());
   }
 
   CFX_ByteString formatStr;
-  GetStandardTimeFormat(pThis, iStyle, szLocal.AsStringC(), formatStr);
+  GetStandardTimeFormat(pThis, iStyle, szLocal.AsStringC(), &formatStr);
   args.GetReturnValue()->SetString(formatStr.AsStringC());
 }
 
@@ -1915,7 +1908,7 @@ bool CXFA_FM2JSContext::Local2IsoDate(CFXJSE_Value* pThis,
                                       const CFX_ByteStringC& szDate,
                                       const CFX_ByteStringC& szFormat,
                                       const CFX_ByteStringC& szLocale,
-                                      CFX_ByteString& strIsoDate) {
+                                      CFX_ByteString* strIsoDate) {
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
   if (!pDoc)
     return false;
@@ -1943,7 +1936,7 @@ bool CXFA_FM2JSContext::Local2IsoDate(CFXJSE_Value* pThis,
   CXFA_LocaleValue widgetValue(XFA_VT_DATE, CFX_WideString::FromUTF8(szDate),
                                wsFormat, pLocale, pMgr);
   CFX_DateTime dt = widgetValue.GetDate();
-  strIsoDate.Format("%4d-%02d-%02d", dt.GetYear(), dt.GetMonth(), dt.GetDay());
+  strIsoDate->Format("%4d-%02d-%02d", dt.GetYear(), dt.GetMonth(), dt.GetDay());
   return true;
 }
 
@@ -1952,7 +1945,7 @@ bool CXFA_FM2JSContext::Local2IsoTime(CFXJSE_Value* pThis,
                                       const CFX_ByteStringC& szTime,
                                       const CFX_ByteStringC& szFormat,
                                       const CFX_ByteStringC& szLocale,
-                                      CFX_ByteString& strIsoTime) {
+                                      CFX_ByteString* strIsoTime) {
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
   if (!pDoc)
     return false;
@@ -1981,8 +1974,8 @@ bool CXFA_FM2JSContext::Local2IsoTime(CFXJSE_Value* pThis,
   CXFA_LocaleValue widgetValue(XFA_VT_TIME, CFX_WideString::FromUTF8(szTime),
                                wsFormat, pLocale, pMgr);
   CFX_DateTime utime = widgetValue.GetTime();
-  strIsoTime.Format("%02d:%02d:%02d.%03d", utime.GetHour(), utime.GetMinute(),
-                    utime.GetSecond(), utime.GetMillisecond());
+  strIsoTime->Format("%02d:%02d:%02d.%03d", utime.GetHour(), utime.GetMinute(),
+                     utime.GetSecond(), utime.GetMillisecond());
   return true;
 }
 
@@ -1991,7 +1984,7 @@ bool CXFA_FM2JSContext::IsoDate2Local(CFXJSE_Value* pThis,
                                       const CFX_ByteStringC& szDate,
                                       const CFX_ByteStringC& szFormat,
                                       const CFX_ByteStringC& szLocale,
-                                      CFX_ByteString& strLocalDate) {
+                                      CFX_ByteString* strLocalDate) {
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
   if (!pDoc)
     return false;
@@ -2020,7 +2013,7 @@ bool CXFA_FM2JSContext::IsoDate2Local(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strLocalDate = wsRet.UTF8Encode();
+  *strLocalDate = wsRet.UTF8Encode();
   return true;
 }
 
@@ -2029,7 +2022,7 @@ bool CXFA_FM2JSContext::IsoTime2Local(CFXJSE_Value* pThis,
                                       const CFX_ByteStringC& szTime,
                                       const CFX_ByteStringC& szFormat,
                                       const CFX_ByteStringC& szLocale,
-                                      CFX_ByteString& strLocalTime) {
+                                      CFX_ByteString* strLocalTime) {
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
   if (!pDoc)
     return false;
@@ -2059,7 +2052,7 @@ bool CXFA_FM2JSContext::IsoTime2Local(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strLocalTime = wsRet.UTF8Encode();
+  *strLocalTime = wsRet.UTF8Encode();
   return true;
 }
 
@@ -2068,7 +2061,7 @@ bool CXFA_FM2JSContext::GetGMTTime(CFXJSE_Value* pThis,
                                    const CFX_ByteStringC& szTime,
                                    const CFX_ByteStringC& szFormat,
                                    const CFX_ByteStringC& szLocale,
-                                   CFX_ByteString& strGMTTime) {
+                                   CFX_ByteString* strGMTTime) {
   CXFA_Document* pDoc = ToJSContext(pThis, nullptr)->GetDocument();
   if (!pDoc)
     return false;
@@ -2098,7 +2091,7 @@ bool CXFA_FM2JSContext::GetGMTTime(CFXJSE_Value* pThis,
   CFX_WideString wsRet;
   widgetValue.FormatPatterns(wsRet, wsFormat, pLocale,
                              XFA_VALUEPICTURE_Display);
-  strGMTTime = wsRet.UTF8Encode();
+  *strGMTTime = wsRet.UTF8Encode();
   return true;
 }
 
@@ -2163,7 +2156,7 @@ int32_t CXFA_FM2JSContext::DateString2Num(const CFX_ByteStringC& szDateString) {
 void CXFA_FM2JSContext::GetLocalDateFormat(CFXJSE_Value* pThis,
                                            int32_t iStyle,
                                            const CFX_ByteStringC& szLocalStr,
-                                           CFX_ByteString& strFormat,
+                                           CFX_ByteString* strFormat,
                                            bool bStandard) {
   FX_LOCALEDATETIMESUBCATEGORY strStyle;
   switch (iStyle) {
@@ -2205,14 +2198,14 @@ void CXFA_FM2JSContext::GetLocalDateFormat(CFXJSE_Value* pThis,
     AlternateDateTimeSymbols(strRet, pLocale->GetDateTimeSymbols(),
                              g_sAltTable_Date);
   }
-  strFormat = strRet.UTF8Encode();
+  *strFormat = strRet.UTF8Encode();
 }
 
 // static
 void CXFA_FM2JSContext::GetLocalTimeFormat(CFXJSE_Value* pThis,
                                            int32_t iStyle,
                                            const CFX_ByteStringC& szLocalStr,
-                                           CFX_ByteString& strFormat,
+                                           CFX_ByteString* strFormat,
                                            bool bStandard) {
   FX_LOCALEDATETIMESUBCATEGORY strStyle;
   switch (iStyle) {
@@ -2254,14 +2247,14 @@ void CXFA_FM2JSContext::GetLocalTimeFormat(CFXJSE_Value* pThis,
     AlternateDateTimeSymbols(strRet, pLocale->GetDateTimeSymbols(),
                              g_sAltTable_Time);
   }
-  strFormat = strRet.UTF8Encode();
+  *strFormat = strRet.UTF8Encode();
 }
 
 // static
 void CXFA_FM2JSContext::GetStandardDateFormat(CFXJSE_Value* pThis,
                                               int32_t iStyle,
                                               const CFX_ByteStringC& szLocalStr,
-                                              CFX_ByteString& strFormat) {
+                                              CFX_ByteString* strFormat) {
   GetLocalDateFormat(pThis, iStyle, szLocalStr, strFormat, true);
 }
 
@@ -2269,7 +2262,7 @@ void CXFA_FM2JSContext::GetStandardDateFormat(CFXJSE_Value* pThis,
 void CXFA_FM2JSContext::GetStandardTimeFormat(CFXJSE_Value* pThis,
                                               int32_t iStyle,
                                               const CFX_ByteStringC& szLocalStr,
-                                              CFX_ByteString& strFormat) {
+                                              CFX_ByteString* strFormat) {
   GetLocalTimeFormat(pThis, iStyle, szLocalStr, strFormat, true);
 }
 
@@ -2279,7 +2272,7 @@ void CXFA_FM2JSContext::Num2AllTime(CFXJSE_Value* pThis,
                                     const CFX_ByteStringC& szFormat,
                                     const CFX_ByteStringC& szLocale,
                                     bool bGM,
-                                    CFX_ByteString& strTime) {
+                                    CFX_ByteString* strTime) {
   int32_t iHour = 0;
   int32_t iMin = 0;
   int32_t iSec = 0;
@@ -2308,7 +2301,7 @@ void CXFA_FM2JSContext::Num2AllTime(CFXJSE_Value* pThis,
                          strTime);
   }
   if (!iRet)
-    strTime = "";
+    strTime->clear();
 }
 
 // static
@@ -2791,17 +2784,15 @@ void CXFA_FM2JSContext::Choose(CFXJSE_Value* pThis,
           jsObjectValue->GetObjectProperty(
               propertyValue->ToString().AsStringC(), newPropertyValue.get());
         }
-        CFX_ByteString bsChoosed;
-        ValueToUTF8String(newPropertyValue.get(), bsChoosed);
-        args.GetReturnValue()->SetString(bsChoosed.AsStringC());
+        CFX_ByteString bsChosen = ValueToUTF8String(newPropertyValue.get());
+        args.GetReturnValue()->SetString(bsChosen.AsStringC());
         bFound = true;
       }
     } else {
       iValueIndex++;
       if (iValueIndex == iIndex) {
-        CFX_ByteString bsChoosed;
-        ValueToUTF8String(argIndexValue.get(), bsChoosed);
-        args.GetReturnValue()->SetString(bsChoosed.AsStringC());
+        CFX_ByteString bsChosen = ValueToUTF8String(argIndexValue.get());
+        args.GetReturnValue()->SetString(bsChosen.AsStringC());
         bFound = true;
       }
     }
@@ -2892,12 +2883,9 @@ void CXFA_FM2JSContext::Within(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString oneString;
-  CFX_ByteString lowString;
-  CFX_ByteString heightString;
-  ValueToUTF8String(argOne.get(), oneString);
-  ValueToUTF8String(argLow.get(), lowString);
-  ValueToUTF8String(argHigh.get(), heightString);
+  CFX_ByteString oneString = ValueToUTF8String(argOne.get());
+  CFX_ByteString lowString = ValueToUTF8String(argLow.get());
+  CFX_ByteString heightString = ValueToUTF8String(argHigh.get());
   args.GetReturnValue()->SetInteger(
       (oneString.Compare(lowString.AsStringC()) >= 0) &&
       (oneString.Compare(heightString.AsStringC()) <= 0));
@@ -2929,8 +2917,7 @@ void CXFA_FM2JSContext::Eval(CFXJSE_Value* pThis,
 
   v8::Isolate* pIsolate = pContext->GetScriptRuntime();
   std::unique_ptr<CFXJSE_Value> scriptValue = GetSimpleValue(pThis, args, 0);
-  CFX_ByteString utf8ScriptString;
-  ValueToUTF8String(scriptValue.get(), utf8ScriptString);
+  CFX_ByteString utf8ScriptString = ValueToUTF8String(scriptValue.get());
   if (utf8ScriptString.IsEmpty()) {
     args.GetReturnValue()->SetNull();
     return;
@@ -3024,8 +3011,7 @@ void CXFA_FM2JSContext::UnitType(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString unitspanString;
-  ValueToUTF8String(unitspanValue.get(), unitspanString);
+  CFX_ByteString unitspanString = ValueToUTF8String(unitspanValue.get());
   if (unitspanString.IsEmpty()) {
     args.GetReturnValue()->SetString("in");
     return;
@@ -3137,8 +3123,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString unitspanString;
-  ValueToUTF8String(unitspanValue.get(), unitspanString);
+  CFX_ByteString unitspanString = ValueToUTF8String(unitspanValue.get());
   const char* pData = unitspanString.c_str();
   if (!pData) {
     args.GetReturnValue()->SetInteger(0);
@@ -3176,8 +3161,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
   CFX_ByteString strUnit;
   if (argc > 1) {
     std::unique_ptr<CFXJSE_Value> unitValue = GetSimpleValue(pThis, args, 1);
-    CFX_ByteString unitTempString;
-    ValueToUTF8String(unitValue.get(), unitTempString);
+    CFX_ByteString unitTempString = ValueToUTF8String(unitValue.get());
     const char* pChar = unitTempString.c_str();
     int32_t uVal = 0;
     while (IsWhitespace(pChar[uVal]))
@@ -3281,15 +3265,13 @@ void CXFA_FM2JSContext::At(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString stringTwo;
-  ValueToUTF8String(argTwo.get(), stringTwo);
+  CFX_ByteString stringTwo = ValueToUTF8String(argTwo.get());
   if (stringTwo.IsEmpty()) {
     args.GetReturnValue()->SetInteger(1);
     return;
   }
 
-  CFX_ByteString stringOne;
-  ValueToUTF8String(argOne.get(), stringOne);
+  CFX_ByteString stringOne = ValueToUTF8String(argOne.get());
   FX_STRSIZE iPosition = stringOne.Find(stringTwo.AsStringC());
   args.GetReturnValue()->SetInteger(iPosition + 1);
 }
@@ -3312,10 +3294,7 @@ void CXFA_FM2JSContext::Concat(CFXJSE_Value* pThis,
       continue;
 
     bAllNull = false;
-
-    CFX_ByteString valueStr;
-    ValueToUTF8String(value.get(), valueStr);
-    resultString += valueStr;
+    resultString += ValueToUTF8String(value.get());
   }
 
   if (bAllNull) {
@@ -3343,8 +3322,7 @@ void CXFA_FM2JSContext::Decode(CFXJSE_Value* pThis,
       return;
     }
 
-    CFX_ByteString toDecodeString;
-    ValueToUTF8String(argOne.get(), toDecodeString);
+    CFX_ByteString toDecodeString = ValueToUTF8String(argOne.get());
     CFX_ByteTextBuf resultBuf;
     DecodeURL(toDecodeString.AsStringC(), resultBuf);
     args.GetReturnValue()->SetString(resultBuf.AsStringC());
@@ -3358,12 +3336,8 @@ void CXFA_FM2JSContext::Decode(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString toDecodeString;
-  ValueToUTF8String(argOne.get(), toDecodeString);
-
-  CFX_ByteString identifyString;
-  ValueToUTF8String(argTwo.get(), identifyString);
-
+  CFX_ByteString toDecodeString = ValueToUTF8String(argOne.get());
+  CFX_ByteString identifyString = ValueToUTF8String(argTwo.get());
   CFX_ByteTextBuf resultBuf;
   if (identifyString.EqualNoCase("html"))
     DecodeHTML(toDecodeString.AsStringC(), resultBuf);
@@ -3610,8 +3584,7 @@ void CXFA_FM2JSContext::Encode(CFXJSE_Value* pThis,
       return;
     }
 
-    CFX_ByteString toEncodeString;
-    ValueToUTF8String(argOne.get(), toEncodeString);
+    CFX_ByteString toEncodeString = ValueToUTF8String(argOne.get());
     CFX_ByteTextBuf resultBuf;
     EncodeURL(toEncodeString.AsStringC(), resultBuf);
     args.GetReturnValue()->SetString(resultBuf.AsStringC());
@@ -3625,10 +3598,8 @@ void CXFA_FM2JSContext::Encode(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString toEncodeString;
-  ValueToUTF8String(argOne.get(), toEncodeString);
-  CFX_ByteString identifyString;
-  ValueToUTF8String(argTwo.get(), identifyString);
+  CFX_ByteString toEncodeString = ValueToUTF8String(argOne.get());
+  CFX_ByteString identifyString = ValueToUTF8String(argTwo.get());
   CFX_ByteTextBuf resultBuf;
   if (identifyString.EqualNoCase("html"))
     EncodeHTML(toEncodeString.AsStringC(), resultBuf);
@@ -3916,12 +3887,10 @@ void CXFA_FM2JSContext::Format(CFXJSE_Value* pThis,
   }
 
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
-  CFX_ByteString szPattern;
-  ValueToUTF8String(argOne.get(), szPattern);
+  CFX_ByteString szPattern = ValueToUTF8String(argOne.get());
 
   std::unique_ptr<CFXJSE_Value> argTwo = GetSimpleValue(pThis, args, 1);
-  CFX_ByteString szValue;
-  ValueToUTF8String(argTwo.get(), szValue);
+  CFX_ByteString szValue = ValueToUTF8String(argTwo.get());
 
   CXFA_Document* pDoc = pContext->GetDocument();
   CXFA_LocaleMgr* pMgr = pDoc->GetLocalMgr();
@@ -4000,8 +3969,7 @@ void CXFA_FM2JSContext::Left(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString sourceString;
-  ValueToUTF8String(argOne.get(), sourceString);
+  CFX_ByteString sourceString = ValueToUTF8String(argOne.get());
   int32_t count = std::max(0, ValueToInteger(pThis, argTwo.get()));
   args.GetReturnValue()->SetString(sourceString.Left(count).AsStringC());
 }
@@ -4021,8 +3989,7 @@ void CXFA_FM2JSContext::Len(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString sourceString;
-  ValueToUTF8String(argOne.get(), sourceString);
+  CFX_ByteString sourceString = ValueToUTF8String(argOne.get());
   args.GetReturnValue()->SetInteger(sourceString.GetLength());
 }
 
@@ -4036,15 +4003,14 @@ void CXFA_FM2JSContext::Lower(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString argString;
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
   if (ValueIsNull(pThis, argOne.get())) {
     args.GetReturnValue()->SetNull();
     return;
   }
 
-  ValueToUTF8String(argOne.get(), argString);
   CFX_WideTextBuf lowStringBuf;
+  CFX_ByteString argString = ValueToUTF8String(argOne.get());
   CFX_WideString wsArgString = CFX_WideString::FromUTF8(argString.AsStringC());
   const wchar_t* pData = wsArgString.c_str();
   int32_t i = 0;
@@ -4079,8 +4045,7 @@ void CXFA_FM2JSContext::Ltrim(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString sourceString;
-  ValueToUTF8String(argOne.get(), sourceString);
+  CFX_ByteString sourceString = ValueToUTF8String(argOne.get());
   sourceString.TrimLeft();
   args.GetReturnValue()->SetString(sourceString.AsStringC());
 }
@@ -4102,11 +4067,8 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString szPattern;
-  ValueToUTF8String(argOne.get(), szPattern);
-  CFX_ByteString szValue;
-  ValueToUTF8String(argTwo.get(), szValue);
-
+  CFX_ByteString szPattern = ValueToUTF8String(argOne.get());
+  CFX_ByteString szValue = ValueToUTF8String(argTwo.get());
   CXFA_Document* pDoc = pContext->GetDocument();
   CXFA_LocaleMgr* pMgr = pDoc->GetLocalMgr();
   CXFA_Node* pThisNode = ToNode(pDoc->GetScriptContext()->GetThisObject());
@@ -4231,14 +4193,14 @@ void CXFA_FM2JSContext::Replace(CFXJSE_Value* pThis,
   CFX_ByteString oneString;
   CFX_ByteString twoString;
   if (!ValueIsNull(pThis, argOne.get()) && !ValueIsNull(pThis, argTwo.get())) {
-    ValueToUTF8String(argOne.get(), oneString);
-    ValueToUTF8String(argTwo.get(), twoString);
+    oneString = ValueToUTF8String(argOne.get());
+    twoString = ValueToUTF8String(argTwo.get());
   }
 
   CFX_ByteString threeString;
   if (argc > 2) {
     std::unique_ptr<CFXJSE_Value> argThree = GetSimpleValue(pThis, args, 2);
-    ValueToUTF8String(argThree.get(), threeString);
+    threeString = ValueToUTF8String(argThree.get());
   }
 
   int32_t iFindLen = twoString.GetLength();
@@ -4292,8 +4254,7 @@ void CXFA_FM2JSContext::Right(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString sourceString;
-  ValueToUTF8String(argOne.get(), sourceString);
+  CFX_ByteString sourceString = ValueToUTF8String(argOne.get());
   int32_t count = std::max(0, ValueToInteger(pThis, argTwo.get()));
   args.GetReturnValue()->SetString(sourceString.Right(count).AsStringC());
 }
@@ -4313,8 +4274,7 @@ void CXFA_FM2JSContext::Rtrim(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString sourceString;
-  ValueToUTF8String(argOne.get(), sourceString);
+  CFX_ByteString sourceString = ValueToUTF8String(argOne.get());
   sourceString.TrimRight();
   args.GetReturnValue()->SetString(sourceString.AsStringC());
 }
@@ -4481,7 +4441,7 @@ void CXFA_FM2JSContext::Stuff(CFXJSE_Value* pThis,
   std::unique_ptr<CFXJSE_Value> deleteValue = GetSimpleValue(pThis, args, 2);
   if (!sourceValue->IsNull() && !startValue->IsNull() &&
       !deleteValue->IsNull()) {
-    ValueToUTF8String(sourceValue.get(), sourceString);
+    sourceString = ValueToUTF8String(sourceValue.get());
     iLength = sourceString.GetLength();
     iStart = pdfium::clamp(
         static_cast<int32_t>(ValueToFloat(pThis, startValue.get())), 1,
@@ -4492,7 +4452,7 @@ void CXFA_FM2JSContext::Stuff(CFXJSE_Value* pThis,
 
   if (argc > 3) {
     std::unique_ptr<CFXJSE_Value> insertValue = GetSimpleValue(pThis, args, 3);
-    ValueToUTF8String(insertValue.get(), insertString);
+    insertString = ValueToUTF8String(insertValue.get());
   }
 
   iStart -= 1;
@@ -4531,10 +4491,9 @@ void CXFA_FM2JSContext::Substr(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString szSourceStr;
   int32_t iStart = 0;
   int32_t iCount = 0;
-  ValueToUTF8String(stringValue.get(), szSourceStr);
+  CFX_ByteString szSourceStr = ValueToUTF8String(stringValue.get());
   int32_t iLength = szSourceStr.GetLength();
   if (iLength == 0) {
     args.GetReturnValue()->SetString("");
@@ -4589,10 +4548,8 @@ void CXFA_FM2JSContext::Upper(CFXJSE_Value* pThis,
     return;
   }
 
-  CFX_ByteString argString;
-  ValueToUTF8String(argOne.get(), argString);
-
   CFX_WideTextBuf upperStringBuf;
+  CFX_ByteString argString = ValueToUTF8String(argOne.get());
   CFX_WideString wsArgString = CFX_WideString::FromUTF8(argString.AsStringC());
   const wchar_t* pData = wsArgString.c_str();
   int32_t i = 0;
@@ -4648,7 +4605,7 @@ void CXFA_FM2JSContext::WordNum(CFXJSE_Value* pThis,
       args.GetReturnValue()->SetNull();
       return;
     }
-    ValueToUTF8String(localeValue.get(), localeString);
+    localeString = ValueToUTF8String(localeValue.get());
   }
 
   if (fNumber < 0.0f || fNumber > 922337203685477550.0f) {
@@ -4831,8 +4788,7 @@ void CXFA_FM2JSContext::Get(CFXJSE_Value* pThis,
     return;
 
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
-  CFX_ByteString urlString;
-  ValueToUTF8String(argOne.get(), urlString);
+  CFX_ByteString urlString = ValueToUTF8String(argOne.get());
   CFX_RetainPtr<IFX_SeekableReadStream> pFile = pAppProvider->DownloadURL(
       CFX_WideString::FromUTF8(urlString.AsStringC()));
   if (!pFile)
@@ -4863,30 +4819,28 @@ void CXFA_FM2JSContext::Post(CFXJSE_Value* pThis,
   if (!pAppProvider)
     return;
 
-  CFX_ByteString bsURL;
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
-  ValueToUTF8String(argOne.get(), bsURL);
+  CFX_ByteString bsURL = ValueToUTF8String(argOne.get());
 
-  CFX_ByteString bsData;
   std::unique_ptr<CFXJSE_Value> argTwo = GetSimpleValue(pThis, args, 1);
-  ValueToUTF8String(argTwo.get(), bsData);
+  CFX_ByteString bsData = ValueToUTF8String(argTwo.get());
 
   CFX_ByteString bsContentType;
   if (argc > 2) {
     std::unique_ptr<CFXJSE_Value> argThree = GetSimpleValue(pThis, args, 2);
-    ValueToUTF8String(argThree.get(), bsContentType);
+    bsContentType = ValueToUTF8String(argThree.get());
   }
 
   CFX_ByteString bsEncode;
   if (argc > 3) {
     std::unique_ptr<CFXJSE_Value> argFour = GetSimpleValue(pThis, args, 3);
-    ValueToUTF8String(argFour.get(), bsEncode);
+    bsEncode = ValueToUTF8String(argFour.get());
   }
 
   CFX_ByteString bsHeader;
   if (argc > 4) {
     std::unique_ptr<CFXJSE_Value> argFive = GetSimpleValue(pThis, args, 4);
-    ValueToUTF8String(argFive.get(), bsHeader);
+    bsHeader = ValueToUTF8String(argFive.get());
   }
 
   CFX_WideString decodedResponse;
@@ -4921,18 +4875,16 @@ void CXFA_FM2JSContext::Put(CFXJSE_Value* pThis,
   if (!pAppProvider)
     return;
 
-  CFX_ByteString bsURL;
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
-  ValueToUTF8String(argOne.get(), bsURL);
+  CFX_ByteString bsURL = ValueToUTF8String(argOne.get());
 
-  CFX_ByteString bsData;
   std::unique_ptr<CFXJSE_Value> argTwo = GetSimpleValue(pThis, args, 1);
-  ValueToUTF8String(argTwo.get(), bsData);
+  CFX_ByteString bsData = ValueToUTF8String(argTwo.get());
 
   CFX_ByteString bsEncode;
   if (argc > 2) {
     std::unique_ptr<CFXJSE_Value> argThree = GetSimpleValue(pThis, args, 2);
-    ValueToUTF8String(argThree.get(), bsEncode);
+    bsEncode = ValueToUTF8String(argThree.get());
   }
 
   if (!pAppProvider->PutRequestURL(
@@ -5399,9 +5351,8 @@ void CXFA_FM2JSContext::dot_accessor(CFXJSE_Value* pThis,
   }
 
   CFX_ByteString szName = args.GetUTF8String(2);
-  CFX_ByteString szSomExp;
-  GenerateSomExpression(szName.AsStringC(), args.GetInt32(3), iIndexValue,
-                        bIsStar, szSomExp);
+  CFX_ByteString szSomExp = GenerateSomExpression(
+      szName.AsStringC(), args.GetInt32(3), iIndexValue, bIsStar);
 
   std::unique_ptr<CFXJSE_Value> argAccessor = args.GetValue(0);
   if (argAccessor->IsArray()) {
@@ -5517,10 +5468,9 @@ void CXFA_FM2JSContext::dotdot_accessor(CFXJSE_Value* pThis,
     iIndexValue = ValueToInteger(pThis, args.GetValue(4).get());
   }
 
-  CFX_ByteString szSomExp;
   CFX_ByteString szName = args.GetUTF8String(2);
-  GenerateSomExpression(szName.AsStringC(), args.GetInt32(3), iIndexValue,
-                        bIsStar, szSomExp);
+  CFX_ByteString szSomExp = GenerateSomExpression(
+      szName.AsStringC(), args.GetInt32(3), iIndexValue, bIsStar);
 
   std::unique_ptr<CFXJSE_Value> argAccessor = args.GetValue(0);
   if (argAccessor->IsArray()) {
@@ -5628,8 +5578,7 @@ void CXFA_FM2JSContext::eval_translation(CFXJSE_Value* pThis,
   }
 
   std::unique_ptr<CFXJSE_Value> argOne = GetSimpleValue(pThis, args, 0);
-  CFX_ByteString argString;
-  ValueToUTF8String(argOne.get(), argString);
+  CFX_ByteString argString = ValueToUTF8String(argOne.get());
   if (argString.IsEmpty()) {
     pContext->ThrowArgumentMismatchException();
     return;
@@ -5927,18 +5876,17 @@ bool CXFA_FM2JSContext::simpleValueCompare(CFXJSE_Value* pThis,
     return false;
 
   if (firstValue->IsString()) {
-    CFX_ByteString firstString, secondString;
-    ValueToUTF8String(firstValue, firstString);
-    ValueToUTF8String(secondValue, secondString);
+    CFX_ByteString firstString = ValueToUTF8String(firstValue);
+    CFX_ByteString secondString = ValueToUTF8String(secondValue);
     return firstString == secondString;
   }
   if (firstValue->IsNumber()) {
     float first = ValueToFloat(pThis, firstValue);
     float second = ValueToFloat(pThis, secondValue);
-    return (first == second);
+    return first == second;
   }
   if (firstValue->IsBoolean())
-    return (firstValue->ToBoolean() == secondValue->ToBoolean());
+    return firstValue->ToBoolean() == secondValue->ToBoolean();
 
   return firstValue->IsNull() && secondValue && secondValue->IsNull();
 }
@@ -6031,24 +5979,23 @@ bool CXFA_FM2JSContext::SetObjectDefaultValue(CFXJSE_Value* pValue,
 }
 
 // static
-void CXFA_FM2JSContext::GenerateSomExpression(const CFX_ByteStringC& szName,
-                                              int32_t iIndexFlags,
-                                              int32_t iIndexValue,
-                                              bool bIsStar,
-                                              CFX_ByteString& szSomExp) {
-  if (bIsStar) {
-    szSomExp = szName + "[*]";
-    return;
-  }
-  if (iIndexFlags == 0) {
-    szSomExp = szName;
-    return;
-  }
+CFX_ByteString CXFA_FM2JSContext::GenerateSomExpression(
+    const CFX_ByteStringC& szName,
+    int32_t iIndexFlags,
+    int32_t iIndexValue,
+    bool bIsStar) {
+  if (bIsStar)
+    return CFX_ByteString(szName, "[*]");
+
+  if (iIndexFlags == 0)
+    return CFX_ByteString(szName);
+
   if (iIndexFlags == 1 || iIndexValue == 0) {
-    szSomExp = szName + "[" +
-               CFX_ByteString::FormatInteger(iIndexValue, FXFORMAT_SIGNED) +
-               "]";
-  } else if (iIndexFlags == 2) {
+    return CFX_ByteString(szName, "[") +
+           CFX_ByteString::FormatInteger(iIndexValue, FXFORMAT_SIGNED) + "]";
+  }
+  CFX_ByteString szSomExp;
+  if (iIndexFlags == 2) {
     szSomExp = (iIndexValue < 0) ? (szName + "[-") : (szName + "[+");
     iIndexValue = (iIndexValue < 0) ? (0 - iIndexValue) : iIndexValue;
     szSomExp += CFX_ByteString::FormatInteger(iIndexValue);
@@ -6059,6 +6006,7 @@ void CXFA_FM2JSContext::GenerateSomExpression(const CFX_ByteStringC& szName,
     szSomExp += CFX_ByteString::FormatInteger(iIndexValue);
     szSomExp += "]";
   }
+  return szSomExp;
 }
 
 // static
@@ -6310,17 +6258,12 @@ double CXFA_FM2JSContext::ExtractDouble(CFXJSE_Value* pThis,
 }
 
 // static
-void CXFA_FM2JSContext::ValueToUTF8String(CFXJSE_Value* arg,
-                                          CFX_ByteString& szOutputString) {
-  if (!arg)
-    return;
-
-  if (arg->IsNull() || arg->IsUndefined())
-    szOutputString = "";
-  else if (arg->IsBoolean())
-    szOutputString = arg->ToBoolean() ? "1" : "0";
-  else
-    szOutputString = arg->ToString();
+CFX_ByteString CXFA_FM2JSContext::ValueToUTF8String(CFXJSE_Value* arg) {
+  if (!arg || arg->IsNull() || arg->IsUndefined())
+    return CFX_ByteString();
+  if (arg->IsBoolean())
+    return arg->ToBoolean() ? "1" : "0";
+  return arg->ToString();
 }
 
 // static.
