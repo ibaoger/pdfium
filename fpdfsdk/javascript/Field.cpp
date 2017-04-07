@@ -2482,11 +2482,9 @@ bool Field::textSize(CJS_Runtime* pRuntime,
   if (!pFormControl)
     return false;
 
+  float fFontSize = 0.0f;
   CPDF_DefaultAppearance FieldAppearance = pFormControl->GetDefaultAppearance();
-
-  CFX_ByteString csFontNameTag;
-  float fFontSize;
-  FieldAppearance.GetFont(csFontNameTag, fFontSize);
+  FieldAppearance.GetFont(fFontSize);
   vp << (int)fFontSize;
   return true;
 }
