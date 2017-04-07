@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "690bdecb_133c86f5",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:07:05Z",
+      "side": 0,
+      "message": "!!(0\u003e\u003e8) \u003d\u003d false.",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 50
+      },
+      "revId": "6a5c20cd08748da5969cbab756c3e8a6dd27bfbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
