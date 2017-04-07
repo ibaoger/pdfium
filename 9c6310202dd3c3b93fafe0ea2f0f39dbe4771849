@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fa4c1b5_2390a5e5",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "nit: cast here and 983, 995",
+      "range": {
+        "startLine": 948,
+        "startChar": 15,
+        "endLine": 948,
+        "endChar": 22
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "addb38dc_4eeadf47",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "unneeded casts on last_buf.",
+      "range": {
+        "startLine": 366,
+        "startChar": 19,
+        "endLine": 366,
+        "endChar": 29
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feac374b_7a7ed7cc",
+        "filename": "core/fpdfdoc/cpdf_defaultappearance.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "pointer to float",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f1d3c3e_8fc9f32b",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "looks like only one of the CFX_ByteString variables are needed",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b40de383_8207a96e",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 160,
+        "startChar": 30,
+        "endLine": 160,
+        "endChar": 33
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c492877_9a2280db",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-07T20:31:48Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 2488,
+        "startChar": 9,
+        "endLine": 2488,
+        "endChar": 12
+      },
+      "revId": "9c6310202dd3c3b93fafe0ea2f0f39dbe4771849",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
