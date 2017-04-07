@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57332d3b_1c5b75bf",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-07T00:49:37Z",
+      "side": 1,
+      "message": "For later: We may want to think about doing everything in 1 buffer in the first place, instead of stitching multiple buffers together.",
+      "revId": "9b2b8b190ca1769138b3fcb73c5f608d37166189",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
