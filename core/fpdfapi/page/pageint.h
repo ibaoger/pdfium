@@ -144,7 +144,7 @@ class CPDF_IccProfile : public CFX_Retainable {
   bool IsValid() const { return IsSRGB() || IsSupported(); }
   bool IsSRGB() const { return m_bsRGB; }
   bool IsSupported() const { return !!m_pTransform; }
-  void* transform() { return m_pTransform; }
+  // void* transform() { return m_pTransform; }
   uint32_t GetComponents() const { return m_nSrcComponents; }
 
  private:
