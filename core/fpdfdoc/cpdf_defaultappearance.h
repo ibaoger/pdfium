@@ -28,8 +28,8 @@ class CPDF_DefaultAppearance {
   CFX_ByteString GetStr() const { return m_csDA; }
 
   bool HasFont();
+  CFX_ByteString GetFont(float& fFontSize);
   CFX_ByteString GetFontString();
-  void GetFont(CFX_ByteString& csFontNameTag, float& fFontSize);
 
   bool HasColor(PaintOperation nOperation = PaintOperation::FILL);
   CFX_ByteString GetColorString(
