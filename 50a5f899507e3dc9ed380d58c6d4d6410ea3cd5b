@@ -70,6 +70,30 @@
       "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74486c57_f5a14ce0",
+        "filename": "core/fxcodec/jbig2/JBig2_HuffmanTable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-10T20:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18066ea5_c7d43767",
+      "range": {
+        "startLine": 73,
+        "startChar": 15,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
