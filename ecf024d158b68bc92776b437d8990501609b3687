@@ -22,6 +22,30 @@
       "revId": "ecf024d158b68bc92776b437d8990501609b3687",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dfea6b2_66bab3ea",
+        "filename": "core/fxcodec/jbig2/JBig2_TrdProc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-10T20:11:09Z",
+      "side": 1,
+      "message": "Switched to a checked_numeric.",
+      "parentUuid": "5f124e29_eb19eda6",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 13
+      },
+      "revId": "ecf024d158b68bc92776b437d8990501609b3687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
