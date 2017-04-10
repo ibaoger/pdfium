@@ -46,6 +46,30 @@
       "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18066ea5_c7d43767",
+        "filename": "core/fxcodec/jbig2/JBig2_HuffmanTable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-10T18:26:22Z",
+      "side": 1,
+      "message": "Sure, that should work",
+      "parentUuid": "78d5af58_8ea16abc",
+      "range": {
+        "startLine": 73,
+        "startChar": 15,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
