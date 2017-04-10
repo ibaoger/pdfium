@@ -45,57 +45,64 @@ CXFA_FMFunctionDefinition::CXFA_FMFunctionDefinition(
 CXFA_FMFunctionDefinition::~CXFA_FMFunctionDefinition() {}
 
 void CXFA_FMFunctionDefinition::ToJavaScript(CFX_WideTextBuf& javascript) {
-  if (m_isGlobal && m_pExpressions.empty()) {
-    javascript << L"// comments only";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
     return;
   }
-  if (m_isGlobal) {
-    javascript << L"(\n";
+  CFX_WideTextBuf tempJS;
+  if (m_isGlobal && m_pExpressions.empty()) {
+    tempJS << L"// comments only";
+    javascript << tempJS;
+    m_wsJavascript = tempJS.AsStringC();
+    return;
   }
-  javascript << L"function ";
+  if (m_isGlobal)
+    tempJS << L"(\n";
+  tempJS << L"function ";
   if (m_wsName.GetAt(0) == L'!') {
     CFX_WideString tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName.Mid(1);
-    javascript << tempName;
+    tempJS << tempName;
   } else {
-    javascript << m_wsName;
+    tempJS << m_wsName;
   }
-  javascript << L"(";
+  tempJS << L"(";
   bool bNeedComma = false;
   for (const auto& identifier : m_pArguments) {
     if (bNeedComma)
-      javascript << L", ";
+      tempJS << L", ";
     if (identifier.GetAt(0) == L'!') {
       CFX_WideString tempIdentifier =
           EXCLAMATION_IN_IDENTIFIER + identifier.Mid(1);
-      javascript << tempIdentifier;
+      tempJS << tempIdentifier;
     } else {
-      javascript << identifier;
+      tempJS << identifier;
     }
     bNeedComma = true;
   }
-  javascript << L")\n{\n";
-  javascript << L"var ";
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = null;\n";
+  tempJS << L")\n{\n";
+  tempJS << L"var ";
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = null;\n";
   for (const auto& expr : m_pExpressions) {
     if (expr == m_pExpressions.back())
-      expr->ToImpliedReturnJS(javascript);
+      expr->ToImpliedReturnJS(tempJS);
     else
-      expr->ToJavaScript(javascript);
+      expr->ToJavaScript(tempJS);
   }
-  javascript << L"return ";
+  tempJS << L"return ";
   if (m_isGlobal) {
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    javascript << RUNTIMEFUNCTIONRETURNVALUE;
-    javascript << L")";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+    tempJS << L")";
   } else {
-    javascript << RUNTIMEFUNCTIONRETURNVALUE;
+    tempJS << RUNTIMEFUNCTIONRETURNVALUE;
   }
-  javascript << L";\n}\n";
-  if (m_isGlobal) {
-    javascript << L").call(this);\n";
-  }
+  tempJS << L";\n}\n";
+  if (m_isGlobal)
+    tempJS << L").call(this);\n";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMFunctionDefinition::ToImpliedReturnJS(CFX_WideTextBuf&) {}
@@ -111,24 +118,30 @@ CXFA_FMVarExpression::CXFA_FMVarExpression(
 CXFA_FMVarExpression::~CXFA_FMVarExpression() {}
 
 void CXFA_FMVarExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"var ";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"var ";
   CFX_WideString tempName(m_wsName);
-  if (m_wsName.GetAt(0) == L'!') {
+  if (m_wsName.GetAt(0) == L'!')
     tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName.Mid(1);
-  }
-  javascript << tempName;
-  javascript << L" = ";
+  tempJS << tempName;
+  tempJS << L" = ";
   if (m_pInit) {
-    m_pInit->ToJavaScript(javascript);
-    javascript << tempName;
-    javascript << L" = ";
-    javascript << XFA_FM_EXPTypeToString(VARFILTER);
-    javascript << L"(";
-    javascript << tempName;
-    javascript << L");\n";
+    m_pInit->ToJavaScript(tempJS);
+    tempJS << tempName;
+    tempJS << L" = ";
+    tempJS << XFA_FM_EXPTypeToString(VARFILTER);
+    tempJS << L"(";
+    tempJS << tempName;
+    tempJS << L");\n";
   } else {
-    javascript << L"\"\";\n";
+    tempJS << L"\"\";\n";
   }
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMVarExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
@@ -206,21 +219,35 @@ CXFA_FMBlockExpression::CXFA_FMBlockExpression(
 CXFA_FMBlockExpression::~CXFA_FMBlockExpression() {}
 
 void CXFA_FMBlockExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"{\n";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"{\n";
   for (const auto& expr : m_ExpressionList)
-    expr->ToJavaScript(javascript);
-  javascript << L"}\n";
+    expr->ToJavaScript(tempJS);
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMBlockExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << L"{\n";
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"{\n";
   for (const auto& expr : m_ExpressionList) {
     if (expr == m_ExpressionList.back())
-      expr->ToImpliedReturnJS(javascript);
+      expr->ToImpliedReturnJS(tempJS);
     else
-      expr->ToJavaScript(javascript);
+      expr->ToJavaScript(tempJS);
   }
-  javascript << L"}\n";
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }
 
 CXFA_FMDoExpression::CXFA_FMDoExpression(
@@ -251,55 +278,69 @@ CXFA_FMIfExpression::CXFA_FMIfExpression(
 CXFA_FMIfExpression::~CXFA_FMIfExpression() {}
 
 void CXFA_FMIfExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"if (";
-  if (m_pExpression) {
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pExpression->ToJavaScript(javascript);
-    javascript << L")";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
   }
-  javascript << L")\n";
+  CFX_WideTextBuf tempJS;
+  tempJS << L"if (";
+  if (m_pExpression) {
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pExpression->ToJavaScript(tempJS);
+    tempJS << L")";
+  }
+  tempJS << L")\n";
   if (m_pIfExpression) {
-    m_pIfExpression->ToJavaScript(javascript);
+    m_pIfExpression->ToJavaScript(tempJS);
   }
   if (m_pElseExpression) {
     if (m_pElseExpression->GetExpType() == XFA_FM_EXPTYPE_IF) {
-      javascript << L"else\n";
-      javascript << L"{\n";
-      m_pElseExpression->ToJavaScript(javascript);
-      javascript << L"}\n";
+      tempJS << L"else\n";
+      tempJS << L"{\n";
+      m_pElseExpression->ToJavaScript(tempJS);
+      tempJS << L"}\n";
     } else {
-      javascript << L"else\n";
-      m_pElseExpression->ToJavaScript(javascript);
+      tempJS << L"else\n";
+      m_pElseExpression->ToJavaScript(tempJS);
     }
   }
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMIfExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = 0;\n";
-  javascript << L"if (";
-  if (m_pExpression) {
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pExpression->ToJavaScript(javascript);
-    javascript << L")";
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
   }
-  javascript << L")\n";
+  CFX_WideTextBuf tempJS;
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = 0;\n";
+  tempJS << L"if (";
+  if (m_pExpression) {
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pExpression->ToJavaScript(tempJS);
+    tempJS << L")";
+  }
+  tempJS << L")\n";
   if (m_pIfExpression) {
-    m_pIfExpression->ToImpliedReturnJS(javascript);
+    m_pIfExpression->ToImpliedReturnJS(tempJS);
   }
   if (m_pElseExpression) {
     if (m_pElseExpression->GetExpType() == XFA_FM_EXPTYPE_IF) {
-      javascript << L"else\n";
-      javascript << L"{\n";
-      m_pElseExpression->ToImpliedReturnJS(javascript);
-      javascript << L"}\n";
+      tempJS << L"else\n";
+      tempJS << L"{\n";
+      m_pElseExpression->ToImpliedReturnJS(tempJS);
+      tempJS << L"}\n";
     } else {
-      javascript << L"else\n";
-      m_pElseExpression->ToImpliedReturnJS(javascript);
+      tempJS << L"else\n";
+      m_pElseExpression->ToImpliedReturnJS(tempJS);
     }
   }
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }
 
 CXFA_FMLoopExpression::~CXFA_FMLoopExpression() {}
@@ -319,19 +360,33 @@ CXFA_FMWhileExpression::CXFA_FMWhileExpression(
 CXFA_FMWhileExpression::~CXFA_FMWhileExpression() {}
 
 void CXFA_FMWhileExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"while (";
-  m_pCondition->ToJavaScript(javascript);
-  javascript << L")\n";
-  m_pExpression->ToJavaScript(javascript);
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"while (";
+  m_pCondition->ToJavaScript(tempJS);
+  tempJS << L")\n";
+  m_pExpression->ToJavaScript(tempJS);
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMWhileExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = 0;\n";
-  javascript << L"while (";
-  m_pCondition->ToJavaScript(javascript);
-  javascript << L")\n";
-  m_pExpression->ToImpliedReturnJS(javascript);
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = 0;\n";
+  tempJS << L"while (";
+  m_pCondition->ToJavaScript(tempJS);
+  tempJS << L")\n";
+  m_pExpression->ToImpliedReturnJS(tempJS);
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }
 
 CXFA_FMBreakExpression::CXFA_FMBreakExpression(uint32_t line)
@@ -387,103 +442,117 @@ CXFA_FMForExpression::CXFA_FMForExpression(
 CXFA_FMForExpression::~CXFA_FMForExpression() {}
 
 void CXFA_FMForExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"{\nvar ";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"{\nvar ";
   CFX_WideString tempVariant;
   if (m_wsVariant.GetAt(0) == L'!') {
     tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant.Mid(1);
-    javascript << tempVariant;
+    tempJS << tempVariant;
   } else {
     tempVariant = m_wsVariant;
-    javascript << m_wsVariant;
+    tempJS << m_wsVariant;
   }
-  javascript << L" = null;\n";
-  javascript << L"for (";
-  javascript << tempVariant;
-  javascript << L" = ";
-  javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-  javascript << L"(";
-  m_pAssignment->ToJavaScript(javascript);
-  javascript << L"); ";
-  javascript << tempVariant;
+  tempJS << L" = null;\n";
+  tempJS << L"for (";
+  tempJS << tempVariant;
+  tempJS << L" = ";
+  tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+  tempJS << L"(";
+  m_pAssignment->ToJavaScript(tempJS);
+  tempJS << L"); ";
+  tempJS << tempVariant;
   if (m_iDirection == 1) {
-    javascript << L" <= ";
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pAccessor->ToJavaScript(javascript);
-    javascript << L"); ";
-    javascript << tempVariant;
-    javascript << L" += ";
+    tempJS << L" <= ";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pAccessor->ToJavaScript(tempJS);
+    tempJS << L"); ";
+    tempJS << tempVariant;
+    tempJS << L" += ";
   } else {
-    javascript << L" >= ";
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pAccessor->ToJavaScript(javascript);
-    javascript << L"); ";
-    javascript << tempVariant;
-    javascript << L" -= ";
+    tempJS << L" >= ";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pAccessor->ToJavaScript(tempJS);
+    tempJS << L"); ";
+    tempJS << tempVariant;
+    tempJS << L" -= ";
   }
   if (m_pStep) {
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pStep->ToJavaScript(javascript);
-    javascript << L")";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pStep->ToJavaScript(tempJS);
+    tempJS << L")";
   } else {
-    javascript << L"1";
+    tempJS << L"1";
   }
-  javascript << L")\n";
-  m_pList->ToJavaScript(javascript);
-  javascript << L"}\n";
+  tempJS << L")\n";
+  m_pList->ToJavaScript(tempJS);
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMForExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = 0;\n";
-  javascript << L"{\nvar ";
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = 0;\n";
+  tempJS << L"{\nvar ";
   CFX_WideString tempVariant;
   if (m_wsVariant.GetAt(0) == L'!') {
     tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant.Mid(1);
-    javascript << tempVariant;
+    tempJS << tempVariant;
   } else {
     tempVariant = m_wsVariant;
-    javascript << m_wsVariant;
+    tempJS << m_wsVariant;
   }
-  javascript << L" = null;\n";
-  javascript << L"for (";
-  javascript << tempVariant;
-  javascript << L" = ";
-  javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-  javascript << L"(";
-  m_pAssignment->ToJavaScript(javascript);
-  javascript << L"); ";
-  javascript << tempVariant;
+  tempJS << L" = null;\n";
+  tempJS << L"for (";
+  tempJS << tempVariant;
+  tempJS << L" = ";
+  tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+  tempJS << L"(";
+  m_pAssignment->ToJavaScript(tempJS);
+  tempJS << L"); ";
+  tempJS << tempVariant;
   if (m_iDirection == 1) {
-    javascript << L" <= ";
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pAccessor->ToJavaScript(javascript);
-    javascript << L"); ";
-    javascript << tempVariant;
-    javascript << L" += ";
+    tempJS << L" <= ";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pAccessor->ToJavaScript(tempJS);
+    tempJS << L"); ";
+    tempJS << tempVariant;
+    tempJS << L" += ";
   } else {
-    javascript << L" >= ";
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pAccessor->ToJavaScript(javascript);
-    javascript << L"); ";
-    javascript << tempVariant;
-    javascript << L" -= ";
+    tempJS << L" >= ";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pAccessor->ToJavaScript(tempJS);
+    tempJS << L"); ";
+    tempJS << tempVariant;
+    tempJS << L" -= ";
   }
   if (m_pStep) {
-    javascript << XFA_FM_EXPTypeToString(GETFMVALUE);
-    javascript << L"(";
-    m_pStep->ToJavaScript(javascript);
-    javascript << L")";
+    tempJS << XFA_FM_EXPTypeToString(GETFMVALUE);
+    tempJS << L"(";
+    m_pStep->ToJavaScript(tempJS);
+    tempJS << L")";
   } else {
-    javascript << L"1";
+    tempJS << L"1";
   }
-  javascript << L")\n";
-  m_pList->ToImpliedReturnJS(javascript);
-  javascript << L"}\n";
+  tempJS << L")\n";
+  m_pList->ToImpliedReturnJS(tempJS);
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }
 
 CXFA_FMForeachExpression::CXFA_FMForeachExpression(
@@ -499,98 +568,112 @@ CXFA_FMForeachExpression::CXFA_FMForeachExpression(
 CXFA_FMForeachExpression::~CXFA_FMForeachExpression() {}
 
 void CXFA_FMForeachExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"{\n";
-  javascript << L"var ";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"{\n";
+  tempJS << L"var ";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
         EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
-    javascript << tempIdentifier;
+    tempJS << tempIdentifier;
   } else {
-    javascript << m_wsIdentifier;
+    tempJS << m_wsIdentifier;
   }
-  javascript << L" = null;\n";
-  javascript << L"var ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L" = ";
-  javascript << XFA_FM_EXPTypeToString(CONCATFMOBJECT);
-  javascript << L"(";
+  tempJS << L" = null;\n";
+  tempJS << L"var ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L" = ";
+  tempJS << XFA_FM_EXPTypeToString(CONCATFMOBJECT);
+  tempJS << L"(";
 
   for (const auto& expr : m_pAccessors) {
-    expr->ToJavaScript(javascript);
+    expr->ToJavaScript(tempJS);
     if (expr != m_pAccessors.back())
-      javascript << L", ";
+      tempJS << L", ";
   }
-  javascript << L");\n";
-  javascript << L"var ";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << (L" = 0;\n");
-  javascript << L"while(";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << L" < ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L".length)\n{\n";
+  tempJS << L");\n";
+  tempJS << L"var ";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << (L" = 0;\n");
+  tempJS << L"while(";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << L" < ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L".length)\n{\n";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
         EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
-    javascript << tempIdentifier;
+    tempJS << tempIdentifier;
   } else {
-    javascript << m_wsIdentifier;
+    tempJS << m_wsIdentifier;
   }
-  javascript << L" = ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L"[";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << L"++];\n";
-  m_pList->ToJavaScript(javascript);
-  javascript << L"}\n";
-  javascript << L"}\n";
+  tempJS << L" = ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L"[";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << L"++];\n";
+  m_pList->ToJavaScript(tempJS);
+  tempJS << L"}\n";
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMForeachExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = 0;\n";
-  javascript << L"{\n";
-  javascript << L"var ";
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = 0;\n";
+  tempJS << L"{\n";
+  tempJS << L"var ";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
         EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
-    javascript << tempIdentifier;
+    tempJS << tempIdentifier;
   } else {
-    javascript << m_wsIdentifier;
+    tempJS << m_wsIdentifier;
   }
-  javascript << L" = null;\n";
-  javascript << L"var ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L" = ";
-  javascript << XFA_FM_EXPTypeToString(CONCATFMOBJECT);
-  javascript << L"(";
+  tempJS << L" = null;\n";
+  tempJS << L"var ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L" = ";
+  tempJS << XFA_FM_EXPTypeToString(CONCATFMOBJECT);
+  tempJS << L"(";
   for (const auto& expr : m_pAccessors) {
-    expr->ToJavaScript(javascript);
+    expr->ToJavaScript(tempJS);
     if (expr != m_pAccessors.back())
-      javascript << L", ";
+      tempJS << L", ";
   }
-  javascript << L");\n";
-  javascript << L"var ";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << L" = 0;\n";
-  javascript << L"while(";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << L" < ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L".length)\n{\n";
+  tempJS << L");\n";
+  tempJS << L"var ";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << L" = 0;\n";
+  tempJS << L"while(";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << L" < ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L".length)\n{\n";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
         EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
-    javascript << tempIdentifier;
+    tempJS << tempIdentifier;
   } else {
-    javascript << m_wsIdentifier;
+    tempJS << m_wsIdentifier;
   }
-  javascript << L" = ";
-  javascript << RUNTIMEBLOCKTEMPARRAY;
-  javascript << L"[";
-  javascript << RUNTIMEBLOCKTEMPARRAYINDEX;
-  javascript << L"++];\n";
-  m_pList->ToImpliedReturnJS(javascript);
-  javascript << L"}\n";
-  javascript << L"}\n";
+  tempJS << L" = ";
+  tempJS << RUNTIMEBLOCKTEMPARRAY;
+  tempJS << L"[";
+  tempJS << RUNTIMEBLOCKTEMPARRAYINDEX;
+  tempJS << L"++];\n";
+  m_pList->ToImpliedReturnJS(tempJS);
+  tempJS << L"}\n";
+  tempJS << L"}\n";
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }

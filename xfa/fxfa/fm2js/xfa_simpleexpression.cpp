@@ -240,63 +240,77 @@ CXFA_FMAssignExpression::CXFA_FMAssignExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMAssignExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"if (";
-  javascript << gs_lpStrExpFuncName[ISFMOBJECT];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L"))\n{\n";
-  javascript << gs_lpStrExpFuncName[ASSIGN];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L");\n}\n";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"if (";
+  tempJS << gs_lpStrExpFuncName[ISFMOBJECT];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L"))\n{\n";
+  tempJS << gs_lpStrExpFuncName[ASSIGN];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L");\n}\n";
   CFX_WideTextBuf tempExp1;
   m_pExp1->ToJavaScript(tempExp1);
   if (m_pExp1->GetOperatorToken() == TOKidentifier &&
       tempExp1.AsStringC() != L"this") {
-    javascript << L"else\n{\n";
-    javascript << tempExp1;
-    javascript << L" = ";
-    javascript << gs_lpStrExpFuncName[ASSIGN];
-    javascript << L"(";
-    m_pExp1->ToJavaScript(javascript);
-    javascript << L", ";
-    m_pExp2->ToJavaScript(javascript);
-    javascript << L");\n}\n";
+    tempJS << L"else\n{\n";
+    tempJS << tempExp1;
+    tempJS << L" = ";
+    tempJS << gs_lpStrExpFuncName[ASSIGN];
+    tempJS << L"(";
+    m_pExp1->ToJavaScript(tempJS);
+    tempJS << L", ";
+    m_pExp2->ToJavaScript(tempJS);
+    tempJS << L");\n}\n";
   }
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 void CXFA_FMAssignExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
-  javascript << L"if (";
-  javascript << gs_lpStrExpFuncName[ISFMOBJECT];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L"))\n{\n";
-  javascript << RUNTIMEFUNCTIONRETURNVALUE;
-  javascript << L" = ";
-  javascript << gs_lpStrExpFuncName[ASSIGN];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L");\n}\n";
+  if (!m_wsImpliedReturnJS.IsEmpty()) {
+    javascript << m_wsImpliedReturnJS;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"if (";
+  tempJS << gs_lpStrExpFuncName[ISFMOBJECT];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L"))\n{\n";
+  tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+  tempJS << L" = ";
+  tempJS << gs_lpStrExpFuncName[ASSIGN];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L");\n}\n";
   CFX_WideTextBuf tempExp1;
   m_pExp1->ToJavaScript(tempExp1);
   if (m_pExp1->GetOperatorToken() == TOKidentifier &&
       tempExp1.AsStringC() != L"this") {
-    javascript << L"else\n{\n";
-    javascript << RUNTIMEFUNCTIONRETURNVALUE;
-    javascript << L" = ";
-    javascript << tempExp1;
-    javascript << L" = ";
-    javascript << gs_lpStrExpFuncName[ASSIGN];
-    javascript << L"(";
-    m_pExp1->ToJavaScript(javascript);
-    javascript << L", ";
-    m_pExp2->ToJavaScript(javascript);
-    javascript << L");\n}\n";
+    tempJS << L"else\n{\n";
+    tempJS << RUNTIMEFUNCTIONRETURNVALUE;
+    tempJS << L" = ";
+    tempJS << tempExp1;
+    tempJS << L" = ";
+    tempJS << gs_lpStrExpFuncName[ASSIGN];
+    tempJS << L"(";
+    m_pExp1->ToJavaScript(tempJS);
+    tempJS << L", ";
+    m_pExp2->ToJavaScript(tempJS);
+    tempJS << L");\n}\n";
   }
+  javascript << tempJS;
+  m_wsImpliedReturnJS = tempJS.AsStringC();
 }
 
 CXFA_FMLogicalOrExpression::CXFA_FMLogicalOrExpression(
@@ -307,12 +321,19 @@ CXFA_FMLogicalOrExpression::CXFA_FMLogicalOrExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMLogicalOrExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << gs_lpStrExpFuncName[LOGICALOR];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << gs_lpStrExpFuncName[LOGICALOR];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMLogicalAndExpression::CXFA_FMLogicalAndExpression(
@@ -323,12 +344,19 @@ CXFA_FMLogicalAndExpression::CXFA_FMLogicalAndExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMLogicalAndExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << gs_lpStrExpFuncName[LOGICALAND];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << gs_lpStrExpFuncName[LOGICALAND];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMEqualityExpression::CXFA_FMEqualityExpression(
@@ -339,24 +367,31 @@ CXFA_FMEqualityExpression::CXFA_FMEqualityExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMEqualityExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
   switch (m_op) {
     case TOKeq:
     case TOKkseq:
-      javascript << gs_lpStrExpFuncName[EQUALITY];
+      tempJS << gs_lpStrExpFuncName[EQUALITY];
       break;
     case TOKne:
     case TOKksne:
-      javascript << gs_lpStrExpFuncName[NOTEQUALITY];
+      tempJS << gs_lpStrExpFuncName[NOTEQUALITY];
       break;
     default:
       ASSERT(false);
       break;
   }
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMRelationalExpression::CXFA_FMRelationalExpression(
@@ -367,32 +402,39 @@ CXFA_FMRelationalExpression::CXFA_FMRelationalExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMRelationalExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
   switch (m_op) {
     case TOKlt:
     case TOKkslt:
-      javascript << gs_lpStrExpFuncName[LESS];
+      tempJS << gs_lpStrExpFuncName[LESS];
       break;
     case TOKgt:
     case TOKksgt:
-      javascript << gs_lpStrExpFuncName[GREATER];
+      tempJS << gs_lpStrExpFuncName[GREATER];
       break;
     case TOKle:
     case TOKksle:
-      javascript << gs_lpStrExpFuncName[LESSEQUAL];
+      tempJS << gs_lpStrExpFuncName[LESSEQUAL];
       break;
     case TOKge:
     case TOKksge:
-      javascript << gs_lpStrExpFuncName[GREATEREQUAL];
+      tempJS << gs_lpStrExpFuncName[GREATEREQUAL];
       break;
     default:
       ASSERT(false);
       break;
   }
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMAdditiveExpression::CXFA_FMAdditiveExpression(
@@ -403,22 +445,29 @@ CXFA_FMAdditiveExpression::CXFA_FMAdditiveExpression(
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
 void CXFA_FMAdditiveExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
   switch (m_op) {
     case TOKplus:
-      javascript << gs_lpStrExpFuncName[PLUS];
+      tempJS << gs_lpStrExpFuncName[PLUS];
       break;
     case TOKminus:
-      javascript << gs_lpStrExpFuncName[MINUS];
+      tempJS << gs_lpStrExpFuncName[MINUS];
       break;
     default:
       ASSERT(false);
       break;
   }
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMMultiplicativeExpression::CXFA_FMMultiplicativeExpression(
@@ -430,22 +479,29 @@ CXFA_FMMultiplicativeExpression::CXFA_FMMultiplicativeExpression(
 
 void CXFA_FMMultiplicativeExpression::ToJavaScript(
     CFX_WideTextBuf& javascript) {
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
   switch (m_op) {
     case TOKmul:
-      javascript << gs_lpStrExpFuncName[MULTIPLE];
+      tempJS << gs_lpStrExpFuncName[MULTIPLE];
       break;
     case TOKdiv:
-      javascript << gs_lpStrExpFuncName[DIVIDE];
+      tempJS << gs_lpStrExpFuncName[DIVIDE];
       break;
     default:
       ASSERT(false);
       break;
   }
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMPosExpression::CXFA_FMPosExpression(
@@ -535,86 +591,89 @@ uint32_t CXFA_FMCallExpression::IsMethodWithObjParam(
 }
 
 void CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
   CFX_WideTextBuf funcName;
   m_pExp->ToJavaScript(funcName);
   if (m_bIsSomMethod) {
-    javascript << funcName;
-    javascript << L"(";
+    tempJS << funcName;
+    tempJS << L"(";
     uint32_t methodPara = IsMethodWithObjParam(funcName.AsStringC());
     if (methodPara > 0) {
       for (size_t i = 0; i < m_Arguments.size(); ++i) {
         // Currently none of our expressions use objects for a parameter over
         // the 6th. Make sure we don't overflow the shift when doing this
         // check. If we ever need more the 32 object params we can revisit.
-        if (i < 32 && (methodPara & (0x01 << i)) > 0) {
-          javascript << gs_lpStrExpFuncName[GETFMJSOBJ];
-        } else {
-          javascript << gs_lpStrExpFuncName[GETFMVALUE];
-        }
-        javascript << L"(";
+        if (i < 32 && (methodPara & (0x01 << i)) > 0)
+          tempJS << gs_lpStrExpFuncName[GETFMJSOBJ];
+        else
+          tempJS << gs_lpStrExpFuncName[GETFMVALUE];
+        tempJS << L"(";
         const auto& expr = m_Arguments[i];
-        expr->ToJavaScript(javascript);
-        javascript << L")";
-        if (i + 1 < m_Arguments.size()) {
-          javascript << L", ";
-        }
+        expr->ToJavaScript(tempJS);
+        tempJS << L")";
+        if (i + 1 < m_Arguments.size())
+          tempJS << L", ";
       }
     } else {
       for (const auto& expr : m_Arguments) {
-        javascript << gs_lpStrExpFuncName[GETFMVALUE];
-        javascript << L"(";
-        expr->ToJavaScript(javascript);
-        javascript << L")";
+        tempJS << gs_lpStrExpFuncName[GETFMVALUE];
+        tempJS << L"(";
+        expr->ToJavaScript(tempJS);
+        tempJS << L")";
         if (expr != m_Arguments.back())
-          javascript << L", ";
+          tempJS << L", ";
       }
     }
-    javascript << L")";
+    tempJS << L")";
   } else {
     bool isEvalFunc = false;
     bool isExistsFunc = false;
     if (IsBuildInFunc(&funcName)) {
       if (funcName.AsStringC() == L"Eval") {
         isEvalFunc = true;
-        javascript << L"eval.call(this, ";
-        javascript << gs_lpStrExpFuncName[CALL];
-        javascript << L"Translate";
+        tempJS << L"eval.call(this, ";
+        tempJS << gs_lpStrExpFuncName[CALL];
+        tempJS << L"Translate";
       } else if (funcName.AsStringC() == L"Exists") {
         isExistsFunc = true;
-        javascript << gs_lpStrExpFuncName[CALL];
-        javascript << funcName;
+        tempJS << gs_lpStrExpFuncName[CALL];
+        tempJS << funcName;
       } else {
-        javascript << gs_lpStrExpFuncName[CALL];
-        javascript << funcName;
+        tempJS << gs_lpStrExpFuncName[CALL];
+        tempJS << funcName;
       }
     } else {
-      javascript << funcName;
+      tempJS << funcName;
     }
-    javascript << L"(";
+    tempJS << L"(";
     if (isExistsFunc) {
-      javascript << L"\n(\nfunction ()\n{\ntry\n{\n";
+      tempJS << L"\n(\nfunction ()\n{\ntry\n{\n";
       if (!m_Arguments.empty()) {
         const auto& expr = m_Arguments[0];
-        javascript << L"return ";
-        expr->ToJavaScript(javascript);
-        javascript << L";\n}\n";
+        tempJS << L"return ";
+        expr->ToJavaScript(tempJS);
+        tempJS << L";\n}\n";
       } else {
-        javascript << L"return 0;\n}\n";
+        tempJS << L"return 0;\n}\n";
       }
-      javascript
-          << L"catch(accessExceptions)\n{\nreturn 0;\n}\n}\n).call(this)\n";
+      tempJS << L"catch(accessExceptions)\n{\nreturn 0;\n}\n}\n).call(this)\n";
     } else {
       for (const auto& expr : m_Arguments) {
-        expr->ToJavaScript(javascript);
+        expr->ToJavaScript(tempJS);
         if (expr != m_Arguments.back())
-          javascript << L", ";
+          tempJS << L", ";
       }
     }
-    javascript << L")";
-    if (isEvalFunc) {
-      javascript << L")";
-    }
+    tempJS << L")";
+    if (isEvalFunc)
+      tempJS << L")";
   }
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMDotAccessorExpression::CXFA_FMDotAccessorExpression(
@@ -632,34 +691,39 @@ CXFA_FMDotAccessorExpression::CXFA_FMDotAccessorExpression(
 CXFA_FMDotAccessorExpression::~CXFA_FMDotAccessorExpression() {}
 
 void CXFA_FMDotAccessorExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << gs_lpStrExpFuncName[DOT];
-  javascript << L"(";
-  if (m_pExp1) {
-    m_pExp1->ToJavaScript(javascript);
-  } else {
-    javascript << L"null";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
   }
-  javascript << L", ";
-  javascript << L"\"";
-  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier) {
-    m_pExp1->ToJavaScript(javascript);
-  }
-  javascript << L"\", ";
+  CFX_WideTextBuf tempJS;
+  tempJS << gs_lpStrExpFuncName[DOT];
+  tempJS << L"(";
+  if (m_pExp1)
+    m_pExp1->ToJavaScript(tempJS);
+  else
+    tempJS << L"null";
+  tempJS << L", ";
+  tempJS << L"\"";
+  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier)
+    m_pExp1->ToJavaScript(tempJS);
+  tempJS << L"\", ";
   if (m_op == TOKdotscream) {
-    javascript << L"\"#";
-    javascript << m_wsIdentifier;
-    javascript << L"\", ";
+    tempJS << L"\"#";
+    tempJS << m_wsIdentifier;
+    tempJS << L"\", ";
   } else if (m_op == TOKdotstar) {
-    javascript << L"\"*\", ";
+    tempJS << L"\"*\", ";
   } else if (m_op == TOKcall) {
-    javascript << L"\"\", ";
+    tempJS << L"\"\", ";
   } else {
-    javascript << L"\"";
-    javascript << m_wsIdentifier;
-    javascript << L"\", ";
+    tempJS << L"\"";
+    tempJS << m_wsIdentifier;
+    tempJS << L"\", ";
   }
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMIndexExpression::CXFA_FMIndexExpression(
@@ -714,20 +778,26 @@ CXFA_FMDotDotAccessorExpression::~CXFA_FMDotDotAccessorExpression() {}
 
 void CXFA_FMDotDotAccessorExpression::ToJavaScript(
     CFX_WideTextBuf& javascript) {
-  javascript << gs_lpStrExpFuncName[DOTDOT];
-  javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L", ";
-  javascript << L"\"";
-  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier) {
-    m_pExp1->ToJavaScript(javascript);
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
   }
-  javascript << L"\", ";
-  javascript << L"\"";
-  javascript << m_wsIdentifier;
-  javascript << L"\", ";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L")";
+  CFX_WideTextBuf tempJS;
+  tempJS << gs_lpStrExpFuncName[DOTDOT];
+  tempJS << L"(";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L", ";
+  tempJS << L"\"";
+  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier)
+    m_pExp1->ToJavaScript(tempJS);
+  tempJS << L"\", ";
+  tempJS << L"\"";
+  tempJS << m_wsIdentifier;
+  tempJS << L"\", ";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L")";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }
 
 CXFA_FMMethodCallExpression::CXFA_FMMethodCallExpression(
@@ -740,22 +810,29 @@ CXFA_FMMethodCallExpression::CXFA_FMMethodCallExpression(
                            std::move(pCallExp)) {}
 
 void CXFA_FMMethodCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
-  javascript << L"(\nfunction ()\n{\n";
-  javascript << L"var method_return_value = null;\n";
-  javascript << L"var accessor_object = ";
-  m_pExp1->ToJavaScript(javascript);
-  javascript << L";\n";
-  javascript << L"if (";
-  javascript << gs_lpStrExpFuncName[ISFMARRAY];
-  javascript << L"(accessor_object))\n{\n";
-  javascript << L"for(var index = accessor_object.length - 1; index > 1; "
-                L"index--)\n{\n";
-  javascript << L"method_return_value = accessor_object[index].";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L";\n}\n}\n";
-  javascript << L"else\n{\nmethod_return_value = accessor_object.";
-  m_pExp2->ToJavaScript(javascript);
-  javascript << L";\n}\n";
-  javascript << L"return method_return_value;\n";
-  javascript << L"}\n).call(this)";
+  if (!m_wsJavascript.IsEmpty()) {
+    javascript << m_wsJavascript;
+    return;
+  }
+  CFX_WideTextBuf tempJS;
+  tempJS << L"(\nfunction ()\n{\n";
+  tempJS << L"var method_return_value = null;\n";
+  tempJS << L"var accessor_object = ";
+  m_pExp1->ToJavaScript(tempJS);
+  tempJS << L";\n";
+  tempJS << L"if (";
+  tempJS << gs_lpStrExpFuncName[ISFMARRAY];
+  tempJS << L"(accessor_object))\n{\n";
+  tempJS << L"for(var index = accessor_object.length - 1; index > 1; "
+            L"index--)\n{\n";
+  tempJS << L"method_return_value = accessor_object[index].";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L";\n}\n}\n";
+  tempJS << L"else\n{\nmethod_return_value = accessor_object.";
+  m_pExp2->ToJavaScript(tempJS);
+  tempJS << L";\n}\n";
+  tempJS << L"return method_return_value;\n";
+  tempJS << L"}\n).call(this)";
+  javascript << tempJS;
+  m_wsJavascript = tempJS.AsStringC();
 }

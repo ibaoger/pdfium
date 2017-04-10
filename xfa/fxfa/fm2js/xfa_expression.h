@@ -54,6 +54,7 @@ class CXFA_FMFunctionDefinition : public CXFA_FMExpression {
 
  private:
   CFX_WideStringC m_wsName;
+  CFX_WideStringC m_wsJavascript;
   std::vector<CFX_WideStringC> m_pArguments;
   std::vector<std::unique_ptr<CXFA_FMExpression>> m_pExpressions;
   bool m_isGlobal;
@@ -71,6 +72,7 @@ class CXFA_FMVarExpression : public CXFA_FMExpression {
 
  private:
   CFX_WideStringC m_wsName;
+  CFX_WideStringC m_wsJavascript;
   std::unique_ptr<CXFA_FMExpression> m_pInit;
 };
 
@@ -98,6 +100,8 @@ class CXFA_FMBlockExpression : public CXFA_FMExpression {
   void ToImpliedReturnJS(CFX_WideTextBuf&) override;
 
  private:
+  CFX_WideStringC m_wsJavascript;
+  CFX_WideStringC m_wsImpliedReturnJS;
   std::vector<std::unique_ptr<CXFA_FMExpression>> m_ExpressionList;
 };
 
@@ -125,6 +129,8 @@ class CXFA_FMIfExpression : public CXFA_FMExpression {
   void ToImpliedReturnJS(CFX_WideTextBuf&) override;
 
  private:
+  CFX_WideStringC m_wsJavascript;
+  CFX_WideStringC m_wsImpliedReturnJS;
   std::unique_ptr<CXFA_FMSimpleExpression> m_pExpression;
   std::unique_ptr<CXFA_FMExpression> m_pIfExpression;
   std::unique_ptr<CXFA_FMExpression> m_pElseExpression;
@@ -149,6 +155,8 @@ class CXFA_FMWhileExpression : public CXFA_FMLoopExpression {
   void ToImpliedReturnJS(CFX_WideTextBuf&) override;
 
  private:
+  CFX_WideStringC m_wsJavascript;
+  CFX_WideStringC m_wsImpliedReturnJS;
   std::unique_ptr<CXFA_FMSimpleExpression> m_pCondition;
   std::unique_ptr<CXFA_FMExpression> m_pExpression;
 };
@@ -185,6 +193,8 @@ class CXFA_FMForExpression : public CXFA_FMLoopExpression {
 
  private:
   CFX_WideStringC m_wsVariant;
+  CFX_WideStringC m_wsJavascript;
+  CFX_WideStringC m_wsImpliedReturnJS;
   std::unique_ptr<CXFA_FMSimpleExpression> m_pAssignment;
   std::unique_ptr<CXFA_FMSimpleExpression> m_pAccessor;
   int32_t m_iDirection;
@@ -207,6 +217,8 @@ class CXFA_FMForeachExpression : public CXFA_FMLoopExpression {
 
  private:
   CFX_WideStringC m_wsIdentifier;
+  CFX_WideStringC m_wsJavascript;
+  CFX_WideStringC m_wsImpliedReturnJS;
   std::vector<std::unique_ptr<CXFA_FMSimpleExpression>> m_pAccessors;
   std::unique_ptr<CXFA_FMExpression> m_pList;
 };
