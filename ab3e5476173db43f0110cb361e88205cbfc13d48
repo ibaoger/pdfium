@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "731d997c_b78e2fb3",
+        "filename": "core/fxcodec/jbig2/JBig2_TrdProc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-10T20:56:40Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 149,
+        "startChar": 13,
+        "endLine": 149,
+        "endChar": 21
+      },
+      "revId": "ab3e5476173db43f0110cb361e88205cbfc13d48",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
