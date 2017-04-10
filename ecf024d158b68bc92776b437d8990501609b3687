@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f124e29_eb19eda6",
+        "filename": "core/fxcodec/jbig2/JBig2_TrdProc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-10T18:21:10Z",
+      "side": 1,
+      "message": "This means that an undefined shift already happened, it would need to be something like\nif (nval \u003e MAXINT / 2)\nAlso, can this be unsigned?",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 13
+      },
+      "revId": "ecf024d158b68bc92776b437d8990501609b3687",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
