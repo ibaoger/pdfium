@@ -76,6 +76,8 @@ CJBig2_Image* CJBig2_TRDProc::decode_Huffman(CJBig2_BitStream* pStream,
         uint32_t nTmp;
         if (pStream->read1Bit(&nTmp) != 0)
           return nullptr;
+        if (nVal < 0)
+          return nullptr;
 
         nVal = (nVal << 1) | nTmp;
         nBits++;
