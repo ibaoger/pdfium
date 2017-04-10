@@ -22,6 +22,30 @@
       "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d5af58_8ea16abc",
+        "filename": "core/fxcodec/jbig2/JBig2_HuffmanTable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-10T18:23:12Z",
+      "side": 1,
+      "message": "What about just doing if (RANGELEN(NTEMP) \u003e\u003d32) return false?",
+      "parentUuid": "e33acabe_da98b39b",
+      "range": {
+        "startLine": 73,
+        "startChar": 15,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "50a5f899507e3dc9ed380d58c6d4d6410ea3cd5b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
