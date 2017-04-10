@@ -6337,8 +6337,7 @@ int32_t CXFA_FM2JSContext::Translate(const CFX_WideStringC& wsFormcalc,
     wsError = program.GetError().message;
     return status;
   }
-  program.TranslateProgram(wsJavascript);
-  return 0;
+  return program.TranslateProgram(wsJavascript);
 }
 
 CXFA_FM2JSContext::CXFA_FM2JSContext(v8::Isolate* pScriptIsolate,

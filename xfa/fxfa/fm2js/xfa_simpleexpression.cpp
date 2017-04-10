@@ -120,9 +120,13 @@ CFX_WideStringC XFA_FM_EXPTypeToString(
 CXFA_FMSimpleExpression::CXFA_FMSimpleExpression(uint32_t line, XFA_FM_TOKEN op)
     : m_line(line), m_op(op) {}
 
-void CXFA_FMSimpleExpression::ToJavaScript(CFX_WideTextBuf& javascript) {}
+bool CXFA_FMSimpleExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  return true;
+}
 
-void CXFA_FMSimpleExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {}
+bool CXFA_FMSimpleExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
+  return true;
+}
 
 XFA_FM_TOKEN CXFA_FMSimpleExpression::GetOperatorToken() const {
   return m_op;
@@ -131,8 +135,9 @@ XFA_FM_TOKEN CXFA_FMSimpleExpression::GetOperatorToken() const {
 CXFA_FMNullExpression::CXFA_FMNullExpression(uint32_t line)
     : CXFA_FMSimpleExpression(line, TOKnull) {}
 
-void CXFA_FMNullExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMNullExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"null";
+  return true;
 }
 
 CXFA_FMNumberExpression::CXFA_FMNumberExpression(uint32_t line,
@@ -141,8 +146,9 @@ CXFA_FMNumberExpression::CXFA_FMNumberExpression(uint32_t line,
 
 CXFA_FMNumberExpression::~CXFA_FMNumberExpression() {}
 
-void CXFA_FMNumberExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMNumberExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << m_wsNumber;
+  return true;
 }
 
 CXFA_FMStringExpression::CXFA_FMStringExpression(uint32_t line,
@@ -151,7 +157,7 @@ CXFA_FMStringExpression::CXFA_FMStringExpression(uint32_t line,
 
 CXFA_FMStringExpression::~CXFA_FMStringExpression() {}
 
-void CXFA_FMStringExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMStringExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   CFX_WideString tempStr(m_wsString);
   if (tempStr.GetLength() > 2) {
     javascript.AppendChar(L'\"');
@@ -175,6 +181,7 @@ void CXFA_FMStringExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   } else {
     javascript << tempStr;
   }
+  return true;
 }
 
 CXFA_FMIdentifierExpression::CXFA_FMIdentifierExpression(
@@ -185,7 +192,7 @@ CXFA_FMIdentifierExpression::CXFA_FMIdentifierExpression(
 
 CXFA_FMIdentifierExpression::~CXFA_FMIdentifierExpression() {}
 
-void CXFA_FMIdentifierExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMIdentifierExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   CFX_WideString tempStr(m_wsIdentifier);
   if (tempStr == L"$") {
     tempStr = L"this";
@@ -207,6 +214,7 @@ void CXFA_FMIdentifierExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
     tempStr = EXCLAMATION_IN_IDENTIFIER + tempStr.Mid(1);
   }
   javascript << tempStr;
+  return true;
 }
 
 CXFA_FMUnaryExpression::CXFA_FMUnaryExpression(
@@ -217,7 +225,9 @@ CXFA_FMUnaryExpression::CXFA_FMUnaryExpression(
 
 CXFA_FMUnaryExpression::~CXFA_FMUnaryExpression() {}
 
-void CXFA_FMUnaryExpression::ToJavaScript(CFX_WideTextBuf& javascript) {}
+bool CXFA_FMUnaryExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  return true;
+}
 
 CXFA_FMBinExpression::CXFA_FMBinExpression(
     uint32_t line,
@@ -230,7 +240,9 @@ CXFA_FMBinExpression::CXFA_FMBinExpression(
 
 CXFA_FMBinExpression::~CXFA_FMBinExpression() {}
 
-void CXFA_FMBinExpression::ToJavaScript(CFX_WideTextBuf& javascript) {}
+bool CXFA_FMBinExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+  return true;
+}
 
 CXFA_FMAssignExpression::CXFA_FMAssignExpression(
     uint32_t line,
@@ -239,20 +251,24 @@ CXFA_FMAssignExpression::CXFA_FMAssignExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMAssignExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMAssignExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"if (";
   javascript << gs_lpStrExpFuncName[ISFMOBJECT];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp1;
+  if (!m_pExp1->ToJavaScript(tempExp1))
+    return false;
+  javascript << tempExp1;
   javascript << L"))\n{\n";
   javascript << gs_lpStrExpFuncName[ASSIGN];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  javascript << tempExp1;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp2;
+  if (!m_pExp2->ToJavaScript(tempExp2))
+    return false;
+  javascript << tempExp2;
   javascript << L");\n}\n";
-  CFX_WideTextBuf tempExp1;
-  m_pExp1->ToJavaScript(tempExp1);
   if (m_pExp1->GetOperatorToken() == TOKidentifier &&
       tempExp1.AsStringC() != L"this") {
     javascript << L"else\n{\n";
@@ -260,29 +276,34 @@ void CXFA_FMAssignExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
     javascript << L" = ";
     javascript << gs_lpStrExpFuncName[ASSIGN];
     javascript << L"(";
-    m_pExp1->ToJavaScript(javascript);
+    javascript << tempExp1;
     javascript << L", ";
-    m_pExp2->ToJavaScript(javascript);
+    javascript << tempExp2;
     javascript << L");\n}\n";
   }
+  return !CFXA_IsTooBig(javascript);
 }
 
-void CXFA_FMAssignExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
+bool CXFA_FMAssignExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
   javascript << L"if (";
   javascript << gs_lpStrExpFuncName[ISFMOBJECT];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp1;
+  if (!m_pExp1->ToJavaScript(tempExp1))
+    return false;
+  javascript << tempExp1;
   javascript << L"))\n{\n";
   javascript << RUNTIMEFUNCTIONRETURNVALUE;
   javascript << L" = ";
   javascript << gs_lpStrExpFuncName[ASSIGN];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  javascript << tempExp1;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp2;
+  if (!m_pExp2->ToJavaScript(tempExp2))
+    return false;
+  javascript << tempExp2;
   javascript << L");\n}\n";
-  CFX_WideTextBuf tempExp1;
-  m_pExp1->ToJavaScript(tempExp1);
   if (m_pExp1->GetOperatorToken() == TOKidentifier &&
       tempExp1.AsStringC() != L"this") {
     javascript << L"else\n{\n";
@@ -292,11 +313,12 @@ void CXFA_FMAssignExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
     javascript << L" = ";
     javascript << gs_lpStrExpFuncName[ASSIGN];
     javascript << L"(";
-    m_pExp1->ToJavaScript(javascript);
+    javascript << tempExp1;
     javascript << L", ";
-    m_pExp2->ToJavaScript(javascript);
+    javascript << tempExp2;
     javascript << L");\n}\n";
   }
+  return !CFXA_IsTooBig(javascript);
 }
 
 CXFA_FMLogicalOrExpression::CXFA_FMLogicalOrExpression(
@@ -306,13 +328,16 @@ CXFA_FMLogicalOrExpression::CXFA_FMLogicalOrExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMLogicalOrExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMLogicalOrExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[LOGICALOR];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMLogicalAndExpression::CXFA_FMLogicalAndExpression(
@@ -322,13 +347,16 @@ CXFA_FMLogicalAndExpression::CXFA_FMLogicalAndExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMLogicalAndExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMLogicalAndExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[LOGICALAND];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMEqualityExpression::CXFA_FMEqualityExpression(
@@ -338,7 +366,7 @@ CXFA_FMEqualityExpression::CXFA_FMEqualityExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMEqualityExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMEqualityExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   switch (m_op) {
     case TOKeq:
     case TOKkseq:
@@ -353,10 +381,13 @@ void CXFA_FMEqualityExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       break;
   }
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMRelationalExpression::CXFA_FMRelationalExpression(
@@ -366,7 +397,7 @@ CXFA_FMRelationalExpression::CXFA_FMRelationalExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMRelationalExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMRelationalExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   switch (m_op) {
     case TOKlt:
     case TOKkslt:
@@ -389,10 +420,13 @@ void CXFA_FMRelationalExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       break;
   }
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMAdditiveExpression::CXFA_FMAdditiveExpression(
@@ -402,7 +436,7 @@ CXFA_FMAdditiveExpression::CXFA_FMAdditiveExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMAdditiveExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMAdditiveExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   switch (m_op) {
     case TOKplus:
       javascript << gs_lpStrExpFuncName[PLUS];
@@ -415,10 +449,13 @@ void CXFA_FMAdditiveExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       break;
   }
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMMultiplicativeExpression::CXFA_FMMultiplicativeExpression(
@@ -428,7 +465,7 @@ CXFA_FMMultiplicativeExpression::CXFA_FMMultiplicativeExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp2)
     : CXFA_FMBinExpression(line, op, std::move(pExp1), std::move(pExp2)) {}
 
-void CXFA_FMMultiplicativeExpression::ToJavaScript(
+bool CXFA_FMMultiplicativeExpression::ToJavaScript(
     CFX_WideTextBuf& javascript) {
   switch (m_op) {
     case TOKmul:
@@ -442,10 +479,13 @@ void CXFA_FMMultiplicativeExpression::ToJavaScript(
       break;
   }
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMPosExpression::CXFA_FMPosExpression(
@@ -453,11 +493,13 @@ CXFA_FMPosExpression::CXFA_FMPosExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp)
     : CXFA_FMUnaryExpression(line, TOKplus, std::move(pExp)) {}
 
-void CXFA_FMPosExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMPosExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[POSITIVE];
   javascript << L"(";
-  m_pExp->ToJavaScript(javascript);
+  if (!m_pExp->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMNegExpression::CXFA_FMNegExpression(
@@ -465,11 +507,13 @@ CXFA_FMNegExpression::CXFA_FMNegExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp)
     : CXFA_FMUnaryExpression(line, TOKminus, std::move(pExp)) {}
 
-void CXFA_FMNegExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMNegExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[NEGATIVE];
   javascript << L"(";
-  m_pExp->ToJavaScript(javascript);
+  if (!m_pExp->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMNotExpression::CXFA_FMNotExpression(
@@ -477,11 +521,13 @@ CXFA_FMNotExpression::CXFA_FMNotExpression(
     std::unique_ptr<CXFA_FMSimpleExpression> pExp)
     : CXFA_FMUnaryExpression(line, TOKksnot, std::move(pExp)) {}
 
-void CXFA_FMNotExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMNotExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[NOT];
   javascript << L"(";
-  m_pExp->ToJavaScript(javascript);
+  if (!m_pExp->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMCallExpression::CXFA_FMCallExpression(
@@ -534,9 +580,10 @@ uint32_t CXFA_FMCallExpression::IsMethodWithObjParam(
   return parameters;
 }
 
-void CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   CFX_WideTextBuf funcName;
-  m_pExp->ToJavaScript(funcName);
+  if (!m_pExp->ToJavaScript(funcName))
+    return false;
   if (m_bIsSomMethod) {
     javascript << funcName;
     javascript << L"(";
@@ -553,20 +600,26 @@ void CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
         }
         javascript << L"(";
         const auto& expr = m_Arguments[i];
-        expr->ToJavaScript(javascript);
+        if (!expr->ToJavaScript(javascript))
+          return false;
         javascript << L")";
         if (i + 1 < m_Arguments.size()) {
           javascript << L", ";
         }
+        if (CFXA_IsTooBig(javascript))
+          return false;
       }
     } else {
       for (const auto& expr : m_Arguments) {
         javascript << gs_lpStrExpFuncName[GETFMVALUE];
         javascript << L"(";
-        expr->ToJavaScript(javascript);
+        if (!expr->ToJavaScript(javascript))
+          return false;
         javascript << L")";
         if (expr != m_Arguments.back())
           javascript << L", ";
+        if (CFXA_IsTooBig(javascript))
+          return false;
       }
     }
     javascript << L")";
@@ -596,18 +649,22 @@ void CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       if (!m_Arguments.empty()) {
         const auto& expr = m_Arguments[0];
         javascript << L"return ";
-        expr->ToJavaScript(javascript);
+        if (!expr->ToJavaScript(javascript))
+          return false;
         javascript << L";\n}\n";
       } else {
         javascript << L"return 0;\n}\n";
       }
-      javascript
-          << L"catch(accessExceptions)\n{\nreturn 0;\n}\n}\n).call(this)\n";
+      javascript << L"catch(accessExceptions)\n";
+      javascript << L"{\nreturn 0;\n}\n}\n).call(this)\n";
     } else {
       for (const auto& expr : m_Arguments) {
-        expr->ToJavaScript(javascript);
+        if (!expr->ToJavaScript(javascript))
+          return false;
         if (expr != m_Arguments.back())
           javascript << L", ";
+        if (CFXA_IsTooBig(javascript))
+          return false;
       }
     }
     javascript << L")";
@@ -615,6 +672,7 @@ void CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       javascript << L")";
     }
   }
+  return true;
 }
 
 CXFA_FMDotAccessorExpression::CXFA_FMDotAccessorExpression(
@@ -631,19 +689,21 @@ CXFA_FMDotAccessorExpression::CXFA_FMDotAccessorExpression(
 
 CXFA_FMDotAccessorExpression::~CXFA_FMDotAccessorExpression() {}
 
-void CXFA_FMDotAccessorExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMDotAccessorExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[DOT];
   javascript << L"(";
+  CFX_WideTextBuf tempExp1;
   if (m_pExp1) {
-    m_pExp1->ToJavaScript(javascript);
+    if (!m_pExp1->ToJavaScript(tempExp1))
+      return false;
+    javascript << tempExp1;
   } else {
     javascript << L"null";
   }
   javascript << L", ";
   javascript << L"\"";
-  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier) {
-    m_pExp1->ToJavaScript(javascript);
-  }
+  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier)
+    javascript << tempExp1;
   javascript << L"\", ";
   if (m_op == TOKdotscream) {
     javascript << L"\"#";
@@ -658,8 +718,10 @@ void CXFA_FMDotAccessorExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
     javascript << m_wsIdentifier;
     javascript << L"\", ";
   }
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMIndexExpression::CXFA_FMIndexExpression(
@@ -671,7 +733,7 @@ CXFA_FMIndexExpression::CXFA_FMIndexExpression(
       m_accessorIndex(accessorIndex),
       m_bIsStarIndex(bIsStarIndex) {}
 
-void CXFA_FMIndexExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMIndexExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   switch (m_accessorIndex) {
     case ACCESSOR_NO_INDEX:
       javascript << L"0";
@@ -691,11 +753,13 @@ void CXFA_FMIndexExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   if (!m_bIsStarIndex) {
     javascript << L", ";
     if (m_pExp) {
-      m_pExp->ToJavaScript(javascript);
+      if (!m_pExp->ToJavaScript(javascript))
+        return false;
     } else {
       javascript << L"0";
     }
   }
+  return true;
 }
 
 CXFA_FMDotDotAccessorExpression::CXFA_FMDotDotAccessorExpression(
@@ -712,22 +776,26 @@ CXFA_FMDotDotAccessorExpression::CXFA_FMDotDotAccessorExpression(
 
 CXFA_FMDotDotAccessorExpression::~CXFA_FMDotDotAccessorExpression() {}
 
-void CXFA_FMDotDotAccessorExpression::ToJavaScript(
+bool CXFA_FMDotDotAccessorExpression::ToJavaScript(
     CFX_WideTextBuf& javascript) {
   javascript << gs_lpStrExpFuncName[DOTDOT];
   javascript << L"(";
-  m_pExp1->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp1;
+  if (!m_pExp1->ToJavaScript(tempExp1))
+    return false;
+  javascript << tempExp1;
   javascript << L", ";
   javascript << L"\"";
-  if (m_pExp1 && m_pExp1->GetOperatorToken() == TOKidentifier) {
-    m_pExp1->ToJavaScript(javascript);
-  }
+  if (m_pExp1->GetOperatorToken() == TOKidentifier)
+    javascript << tempExp1;
   javascript << L"\", ";
   javascript << L"\"";
   javascript << m_wsIdentifier;
   javascript << L"\", ";
-  m_pExp2->ToJavaScript(javascript);
+  if (!m_pExp2->ToJavaScript(javascript))
+    return false;
   javascript << L")";
+  return true;
 }
 
 CXFA_FMMethodCallExpression::CXFA_FMMethodCallExpression(
@@ -739,11 +807,12 @@ CXFA_FMMethodCallExpression::CXFA_FMMethodCallExpression(
                            std::move(pAccessorExp1),
                            std::move(pCallExp)) {}
 
-void CXFA_FMMethodCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
+bool CXFA_FMMethodCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"(\nfunction ()\n{\n";
   javascript << L"var method_return_value = null;\n";
   javascript << L"var accessor_object = ";
-  m_pExp1->ToJavaScript(javascript);
+  if (!m_pExp1->ToJavaScript(javascript))
+    return false;
   javascript << L";\n";
   javascript << L"if (";
   javascript << gs_lpStrExpFuncName[ISFMARRAY];
@@ -751,11 +820,19 @@ void CXFA_FMMethodCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"for(var index = accessor_object.length - 1; index > 1; "
                 L"index--)\n{\n";
   javascript << L"method_return_value = accessor_object[index].";
-  m_pExp2->ToJavaScript(javascript);
+  CFX_WideTextBuf tempExp2;
+  if (!m_pExp2->ToJavaScript(tempExp2))
+    return false;
+  javascript << tempExp2;
   javascript << L";\n}\n}\n";
   javascript << L"else\n{\nmethod_return_value = accessor_object.";
-  m_pExp2->ToJavaScript(javascript);
+  javascript << tempExp2;
   javascript << L";\n}\n";
   javascript << L"return method_return_value;\n";
   javascript << L"}\n).call(this)";
+  return true;
+}
+
+bool CFXA_IsTooBig(const CFX_WideTextBuf& javascript) {
+  return javascript.GetSize() > 256 * 1024 * 1024;
 }
