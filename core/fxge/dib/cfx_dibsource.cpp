@@ -22,19 +22,19 @@ namespace {
 
 class CFX_Palette {
  public:
-  CFX_Palette();
+  explicit CFX_Palette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap);
   ~CFX_Palette();
 
-  bool BuildPalette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap);
-  uint32_t* GetPalette() const { return m_pPalette; }
-  uint32_t* GetColorLut() const { return m_cLut; }
-  uint32_t* GetAmountLut() const { return m_aLut; }
+  const uint32_t* GetPalette() { return m_Palette; }
+  const uint32_t* GetColorLut() const { return m_cLut; }
+  const uint32_t* GetAmountLut() const { return m_aLut; }
   int32_t Getlut() const { return m_lut; }
+  void SetAmountLut(int row, uint32_t value) { m_aLut[row] = value; }
 
- protected:
-  uint32_t* m_pPalette;
-  uint32_t* m_cLut;
-  uint32_t* m_aLut;
+ private:
+  uint32_t m_Palette[256];
+  uint32_t m_cLut[4096];
+  uint32_t m_aLut[4096];
   int m_lut;
 };
 
@@ -68,10 +68,10 @@ void Qsort(uint32_t* alut, uint32_t* clut, int l, int r) {
   }
 }
 
-void ColorDecode(uint32_t pal_v, uint8_t& r, uint8_t& g, uint8_t& b) {
-  r = static_cast<uint8_t>((pal_v & 0xf00) >> 4);
-  g = static_cast<uint8_t>(pal_v & 0x0f0);
-  b = static_cast<uint8_t>((pal_v & 0x00f) << 4);
+void ColorDecode(uint32_t pal_v, uint8_t* r, uint8_t* g, uint8_t* b) {
+  *r = static_cast<uint8_t>((pal_v & 0xf00) >> 4);
+  *g = static_cast<uint8_t>(pal_v & 0x0f0);
+  *b = static_cast<uint8_t>((pal_v & 0x00f) << 4);
 }
 
 void Obtain_Pal(uint32_t* aLut,
@@ -87,42 +87,24 @@ void Obtain_Pal(uint32_t* aLut,
     uint8_t r;
     uint8_t g;
     uint8_t b;
-    ColorDecode(color, r, g, b);
+    ColorDecode(color, &r, &g, &b);
     dest_pal[row] = (static_cast<uint32_t>(r) << 16) |
                     (static_cast<uint32_t>(g) << 8) | b | 0xff000000;
     aLut[lut_offset] = row;
   }
 }
 
-CFX_Palette::CFX_Palette()
-    : m_pPalette(nullptr), m_cLut(nullptr), m_aLut(nullptr), m_lut(0) {}
-
-CFX_Palette::~CFX_Palette() {
-  FX_Free(m_pPalette);
-  FX_Free(m_cLut);
-  FX_Free(m_aLut);
-}
-
-bool CFX_Palette::BuildPalette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap) {
-  if (!pBitmap) {
-    return false;
-  }
-  FX_Free(m_pPalette);
-  m_pPalette = FX_Alloc(uint32_t, 256);
+CFX_Palette::CFX_Palette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap)
+    : m_lut(0) {
   int bpp = pBitmap->GetBPP() / 8;
   int width = pBitmap->GetWidth();
   int height = pBitmap->GetHeight();
-  FX_Free(m_cLut);
-  m_cLut = nullptr;
-  FX_Free(m_aLut);
-  m_aLut = nullptr;
-  m_cLut = FX_Alloc(uint32_t, 4096);
-  m_aLut = FX_Alloc(uint32_t, 4096);
-  int row, col;
-  m_lut = 0;
-  for (row = 0; row < height; row++) {
-    uint8_t* scan_line = (uint8_t*)pBitmap->GetScanline(row);
-    for (col = 0; col < width; col++) {
+  memset(m_Palette, 0, sizeof(m_Palette));
+  memset(m_aLut, 0, sizeof(m_aLut));
+  memset(m_cLut, 0, sizeof(m_cLut));
+  for (int row = 0; row < height; ++row) {
+    uint8_t* scan_line = const_cast<uint8_t*>(pBitmap->GetScanline(row));
+    for (int col = 0; col < width; ++col) {
       uint8_t* src_port = scan_line + col * bpp;
       uint32_t b = src_port[0] & 0xf0;
       uint32_t g = src_port[1] & 0xf0;
@@ -131,7 +113,7 @@ bool CFX_Palette::BuildPalette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap) {
       m_aLut[index]++;
     }
   }
-  for (row = 0; row < 4096; row++) {
+  for (int row = 0; row < 4096; ++row) {
     if (m_aLut[row] != 0) {
       m_aLut[m_lut] = m_aLut[row];
       m_cLut[m_lut] = row;
@@ -139,9 +121,10 @@ bool CFX_Palette::BuildPalette(const CFX_RetainPtr<CFX_DIBSource>& pBitmap) {
     }
   }
   Qsort(m_aLut, m_cLut, 0, m_lut - 1);
-  Obtain_Pal(m_aLut, m_cLut, m_pPalette, m_lut);
-  return true;
+  Obtain_Pal(m_aLut, m_cLut, m_Palette, m_lut);
 }
+
+CFX_Palette::~CFX_Palette() {}
 
 bool ConvertBuffer_1bppMask2Gray(uint8_t* dest_buf,
                                  int dest_pitch,
@@ -370,15 +353,13 @@ bool ConvertBuffer_Rgb2PltRgb8(uint8_t* dest_buf,
                                int src_top,
                                uint32_t* dst_plt) {
   int bpp = pSrcBitmap->GetBPP() / 8;
-  CFX_Palette palette;
-  palette.BuildPalette(pSrcBitmap);
-  uint32_t* cLut = palette.GetColorLut();
-  uint32_t* aLut = palette.GetAmountLut();
-  if (!cLut || !aLut) {
+  if (!pSrcBitmap)
     return false;
-  }
+  CFX_Palette palette(pSrcBitmap);
+  const uint32_t* cLut = palette.GetColorLut();
+  const uint32_t* aLut = palette.GetAmountLut();
   int lut = palette.Getlut();
-  uint32_t* pPalette = palette.GetPalette();
+  const uint32_t* pal = palette.GetPalette();
   if (lut > 256) {
     int err;
     int min_err;
@@ -388,10 +369,10 @@ bool ConvertBuffer_Rgb2PltRgb8(uint8_t* dest_buf,
       uint8_t r;
       uint8_t g;
       uint8_t b;
-      ColorDecode(cLut[row], r, g, b);
-      int clrindex = 0;
+      ColorDecode(cLut[row], &r, &g, &b);
+      uint32_t clrindex = 0;
       for (int col = 0; col < 256; col++) {
-        uint32_t p_color = *(pPalette + col);
+        uint32_t p_color = pal[col];
         int d_r = r - static_cast<uint8_t>(p_color >> 16);
         int d_g = g - static_cast<uint8_t>(p_color >> 8);
         int d_b = b - static_cast<uint8_t>(p_color);
@@ -401,7 +382,7 @@ bool ConvertBuffer_Rgb2PltRgb8(uint8_t* dest_buf,
           clrindex = col;
         }
       }
-      aLut[row] = clrindex;
+      palette.SetAmountLut(row, clrindex);
     }
   }
   int32_t lut_1 = lut - 1;
@@ -422,7 +403,7 @@ bool ConvertBuffer_Rgb2PltRgb8(uint8_t* dest_buf,
         }
     }
   }
-  memcpy(dst_plt, pPalette, sizeof(uint32_t) * 256);
+  memcpy(dst_plt, pal, sizeof(uint32_t) * 256);
   return true;
 }
 
