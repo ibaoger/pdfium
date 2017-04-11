@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b2e7356_e62e7a5a",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T15:28:41Z",
+      "side": 1,
+      "message": "just curious, will the return in 806 not work if this is set to CFGAS_FileReadStreamImp instead? Just trying to avoid the cast",
+      "range": {
+        "startLine": 800,
+        "startChar": 18,
+        "endLine": 800,
+        "endChar": 33
+      },
+      "revId": "1bda43ad177ffa78db6ab6ee2819b19cfeb75999",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
