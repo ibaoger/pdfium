@@ -54,29 +54,6 @@ CFX_RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(
   return pFont;
 }
 
-#if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-// static
-CFX_RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(const uint8_t* pBuffer,
-                                                   int32_t iLength,
-                                                   CFGAS_FontMgr* pFontMgr) {
-  auto pFont = pdfium::MakeRetain<CFGAS_GEFont>(pFontMgr);
-  if (pFont->LoadFontInternal(pBuffer, iLength))
-    return nullptr;
-  return pFont;
-}
-
-// static
-CFX_RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(
-    const CFX_RetainPtr<IFGAS_Stream>& pFontStream,
-    CFGAS_FontMgr* pFontMgr,
-    bool bSaveStream) {
-  auto pFont = pdfium::MakeRetain<CFGAS_GEFont>(pFontMgr);
-  if (!pFont->LoadFontInternal(pFontStream, bSaveStream))
-    return nullptr;
-  return pFont;
-}
-#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-
 CFGAS_GEFont::CFGAS_GEFont(CFGAS_FontMgr* pFontMgr)
     :
 #if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_

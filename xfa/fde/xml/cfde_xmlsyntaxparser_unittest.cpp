@@ -28,9 +28,10 @@ TEST_F(CFDE_XMLSyntaxParserTest, CData) {
       L"      app.alert(\"Tclams\");\n"
       L"  ";
 
+  size_t len = strlen(input);
   CFX_RetainPtr<IFGAS_Stream> stream =
       IFGAS_Stream::CreateReadStream(IFX_MemoryStream::Create(
-          reinterpret_cast<uint8_t*>(const_cast<char*>(input)), strlen(input)));
+          reinterpret_cast<uint8_t*>(const_cast<char*>(input)), len));
   stream->SetCodePage(FX_CODEPAGE_UTF8);
 
   CFDE_XMLSyntaxParser parser(stream);
