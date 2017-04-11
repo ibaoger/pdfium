@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "26f3e2a1_98f9b61b",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T21:54:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe545a51_ed8c18af",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "892d4be116bfc7ed8b56a70379d9f4b08c896d6f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc5bf1b3_6eb2add6",
         "filename": "core/fxge/dib/cfx_dibsource.cpp",
         "patchSetId": 4
@@ -93,6 +117,30 @@
       "revId": "892d4be116bfc7ed8b56a70379d9f4b08c896d6f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba1f9853_30959d68",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T21:54:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "396eb64d_a9472eb3",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "892d4be116bfc7ed8b56a70379d9f4b08c896d6f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
