@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7353fdf_4ab43395",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-11T16:57:18Z",
+      "side": 1,
+      "message": "why assert?",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "6194b47c9ac963c4866b0d4668a2aa5cb6a46f0c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
