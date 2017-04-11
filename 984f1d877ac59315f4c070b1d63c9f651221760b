@@ -34,6 +34,24 @@
       "revId": "984f1d877ac59315f4c070b1d63c9f651221760b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0794c74_271bb3e4",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-04-11T08:25:28Z",
+      "side": 1,
+      "message": "Okay. We might need to have FreeType on Mac for Blink soon as well, to deliver variable fonts on older OS Xes. I\u0027ll start looking into it, then we can change the bundling style on Mac as well.",
+      "parentUuid": "707d03bf_662506df",
+      "revId": "984f1d877ac59315f4c070b1d63c9f651221760b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
