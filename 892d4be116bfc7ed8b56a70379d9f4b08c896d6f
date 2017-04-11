@@ -22,6 +22,30 @@
       "revId": "892d4be116bfc7ed8b56a70379d9f4b08c896d6f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ea37e6_b8edd5a6",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T21:10:48Z",
+      "side": 1,
+      "message": "Quicksort is not stable anyways, so is the concern here efficiency? I could just add a labmda operator here to compare only based on the first operator.",
+      "parentUuid": "bc5bf1b3_6eb2add6",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "892d4be116bfc7ed8b56a70379d9f4b08c896d6f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
