@@ -141,6 +141,30 @@
       "revId": "6194b47c9ac963c4866b0d4668a2aa5cb6a46f0c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c8e64a_1493f76a",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:22:36Z",
+      "side": 1,
+      "message": "Why not? It\u0027s a failure if the string doesn\u0027t match. If the string doesn\u0027t match, we probably aren\u0027t going to get the \u0027\u003e\u0027 in the case of \u003cscript\u003e so the next statement is also going to fail. We just end up with redundant output.\n\nAs soon as the first thing is wrong we know the parse failed.",
+      "parentUuid": "7cd6b039_cb77ba84",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "6194b47c9ac963c4866b0d4668a2aa5cb6a46f0c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
