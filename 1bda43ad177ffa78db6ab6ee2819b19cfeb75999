@@ -22,6 +22,30 @@
       "revId": "1bda43ad177ffa78db6ab6ee2819b19cfeb75999",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d79d8d1_a275305f",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T15:38:58Z",
+      "side": 1,
+      "message": "Yea, the CFGAS_Stream constructor takes a IFGAS_StreamImp. If you do auto here it will be a CFGAS_FileReadStreamImp and the compiler yells at me.",
+      "parentUuid": "7b2e7356_e62e7a5a",
+      "range": {
+        "startLine": 800,
+        "startChar": 18,
+        "endLine": 800,
+        "endChar": 33
+      },
+      "revId": "1bda43ad177ffa78db6ab6ee2819b19cfeb75999",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
