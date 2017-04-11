@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "154ac663_cc27266b",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T19:56:59Z",
+      "side": 1,
+      "message": "Ok, moving back to vector.",
+      "parentUuid": "7cd4a83f_6ebf9645",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b089a518_393a39ae",
         "filename": "core/fxge/dib/cfx_dibsource.cpp",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2017-04-11T19:23:04Z",
       "side": 1,
       "message": "these behave like vector\u003cpair\u003e sorted by first (alut)?",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d384e23_2b2aba5a",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T19:56:59Z",
+      "side": 1,
+      "message": "Ok, let\u0027s do that.",
+      "parentUuid": "b089a518_393a39ae",
       "range": {
         "startLine": 42,
         "startChar": 2,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "31be092c_133a64bb",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T19:56:59Z",
+      "side": 1,
+      "message": "This does look wrong",
+      "parentUuid": "b57f8c45_4491d447",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbabbe71_b4755015",
         "filename": "core/fxge/dib/cfx_dibsource.cpp",
         "patchSetId": 3
@@ -115,6 +187,30 @@
       "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef74981_108497b8",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T19:56:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cbabbe71_b4755015",
+      "range": {
+        "startLine": 63,
+        "startChar": 5,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
