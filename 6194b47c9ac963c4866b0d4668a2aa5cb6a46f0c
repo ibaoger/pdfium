@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "56ed855a_8dcaa327",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T17:03:31Z",
+      "side": 1,
+      "message": "nit: unneeded variable",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "6194b47c9ac963c4866b0d4668a2aa5cb6a46f0c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7353fdf_4ab43395",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2017-04-11T16:57:18Z",
       "side": 1,
       "message": "why assert?",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "6194b47c9ac963c4866b0d4668a2aa5cb6a46f0c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "767f67e4_68b3de51",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T17:03:31Z",
+      "side": 1,
+      "message": "DoSyntaxParse probably will fail after the first fail. But I think the string comparisons can remain EXPECT_EQ",
+      "parentUuid": "b7353fdf_4ab43395",
       "range": {
         "startLine": 38,
         "startChar": 2,
