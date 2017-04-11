@@ -22,6 +22,30 @@
       "revId": "d4ca235af1d98ebce3992e55b75d2e031e2bfde9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ff42a74_3d8a39c0",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-11T21:58:19Z",
+      "side": 1,
+      "message": "Oh yes, I thought I had ref\u0027d them. Thanks.",
+      "parentUuid": "b26123f2_12df5d7b",
+      "range": {
+        "startLine": 91,
+        "startChar": 21,
+        "endLine": 91,
+        "endChar": 50
+      },
+      "revId": "d4ca235af1d98ebce3992e55b75d2e031e2bfde9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
