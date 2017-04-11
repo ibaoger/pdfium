@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c49db82_89ef6abc",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6009,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "char sign \u003d \"\";\nif (iIndexFlags \u003d\u003d 2 \u0026\u0026 iIndexValue \u003e\u003d 0)\n  sign \u003d \"+\";\nelse if ((iIndexFlags \u003d\u003d 2\u0026\u0026 iIndexValue \u003c 0) || (iIndexFlags !\u003d 2 \u0026\u0026 iIndexValue \u003e\u003d 0)\n  sign \u003d \"-\";\n\nreturn szName + \"[\" + sign + CFX_ByteString::FormatInteger((iIndexValue \u003c 0) ? (0 - iIndexValue) : iIndexValue) + \"]\";\n\nIt looks like the only difference between the two blocks above is the decision for \"\", \"-\" or \"+\" after the \"[\"",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d8c2ac0_0761ad4d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "Can this return an empty string and true? If not, can we return the string instead of a bool?",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd1bb35_cbd2591d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "Not called?",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f197371_1c444e7d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "We don\u0027t check the return value, return the string?",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3440e6c2_bb26328d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "If this returns false we just call Clear on the string, can we return the string instead and clear if it would be false?",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3f86b10_6bfd3b23",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "Same as IsoTime2Local",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c1aeb5e_9380c4e4",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "Return CFX_ByteString?",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "199665d8_79d50271",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d346fb0_66aab01d",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766a342a_8cab4b80",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "795d910f_5c413f5a",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:19:22Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "aead20e08ade12d26375e1ed5e21f2864b009c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
