@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32df970d_09701eed",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-11T21:45:02Z",
+      "side": 1,
+      "message": "Note:  I put this in on friday to avoid, in this case, two copes for two separate string adds.\nThe deal is there is now an initializer_list ctor which takes arbitrarily-long lists and cats them all together in a single copy.",
+      "range": {
+        "startLine": 1999,
+        "startChar": 6,
+        "endLine": 1999,
+        "endChar": 71
+      },
+      "revId": "08ef6bcd56281a1db2f0b373e8746e7478a027d9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
