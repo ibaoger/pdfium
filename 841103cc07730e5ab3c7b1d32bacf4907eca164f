@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0eb0a419_3b339a52",
+        "filename": "xfa/fgas/font/cfgas_gefont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:57:23Z",
+      "side": 1,
+      "message": "Yaa for delete it and see what happens, heh.",
+      "revId": "841103cc07730e5ab3c7b1d32bacf4907eca164f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b96aea9_8c84f435",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T20:57:23Z",
+      "side": 1,
+      "message": "This never touched fxcrt, it was just so that CFX_FileRead could be an internal anonymous class in ffapp but used in ffdoc.",
+      "revId": "841103cc07730e5ab3c7b1d32bacf4907eca164f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
