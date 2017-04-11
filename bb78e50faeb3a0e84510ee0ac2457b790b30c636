@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8c65d96_f2d68d9f",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T13:29:00Z",
+      "side": 0,
+      "message": "Only called by CreateWriteStream which always passed ACCESS_WRITE | ACCESS_APPEND",
+      "revId": "bb78e50faeb3a0e84510ee0ac2457b790b30c636",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

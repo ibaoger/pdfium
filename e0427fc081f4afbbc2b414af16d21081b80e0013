@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e04c2b5_16813a41",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T13:29:00Z",
+      "side": 1,
+      "message": "Only called by CreateStream which always passes 0 for dwAccess. This class is only used in CreateStream().",
+      "revId": "e0427fc081f4afbbc2b414af16d21081b80e0013",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9871ba18_1e6095fa",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-11T13:29:00Z",
+      "side": 1,
+      "message": "Only called by CreateReadStream which passed ACCESS_READ.",
+      "revId": "e0427fc081f4afbbc2b414af16d21081b80e0013",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
