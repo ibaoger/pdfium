@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cd4a83f_6ebf9645",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-11T19:25:48Z",
+      "side": 1,
+      "message": "We only instantiate this class in one place, and immediately initialize these.  However, its a stack local palette, which means this is a bit too big to really be a stack object.  So even though we always hold the memory, we ought avoid stack bloat.  Maybe vector(4096) as part of the ctor initializer list.",
+      "parentUuid": "da5a5da6_4000fffa",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "b871d9058e798b0264d857fe3a0f0f0c8ec3c78c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b089a518_393a39ae",
         "filename": "core/fxge/dib/cfx_dibsource.cpp",
         "patchSetId": 3
