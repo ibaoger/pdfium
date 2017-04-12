@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4184253_40876111",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "Could m_iPosition and iOffset types be FX_FILESIZE?",
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e89715_314227d7",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "nit: cast",
+      "range": {
+        "startLine": 208,
+        "startChar": 25,
+        "endLine": 208,
+        "endChar": 32
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47116e85_ead788a8",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "ditto cast",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 35
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84591a09_7128b328",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "nit: unneded if",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 19
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e7083d_1e00c6e2",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "nit: space after return",
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0354c4_e8c30b71",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T20:03:10Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
