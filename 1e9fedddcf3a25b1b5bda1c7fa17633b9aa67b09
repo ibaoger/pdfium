@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "fccf6ead_c1c4d85b",
+        "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T17:07:03Z",
+      "side": 1,
+      "message": "Ok, but we can really help the fuzzer out here by not letting it generate things that are going to get caught early on before hitting the more interesting internals.\n\nFromUTF8 wasn\u0027t our friend because it\u0027s too easy to generate things that flunk decoding, esp. with long strings.  Can\u0027t remember if our decoder tries to re-sync, skipping the offense, or just gives us.\n\nWhat we know is:\nFor windows, wchar is 16bits, simply munging it together 2 bytes into 1 should be ok.\nFor other platforms wchar is 32bits, but only 2^21 are legal (??? presumably).  So we\u0027d like to munge 3 bytes into 1 and mask the top.  Of course, we might want some illegal chars in the mess, but if they are handled properly, and fail early, then having too many of them hamstrings the fuzzer.  We don\u0027t want to artificially hamstring the fuzzer.\n\nThis looks to be a good candiate for a helper method in the test_support code we have in testing/",
+      "parentUuid": "0aa1d2de_ec5f9d82",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aac32297_5ecd2d40",
         "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
         "patchSetId": 3
