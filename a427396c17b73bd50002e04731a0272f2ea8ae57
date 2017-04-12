@@ -19,6 +19,75 @@
     },
     {
       "key": {
+        "uuid": "5a08f5f7_7e43266c",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "clampy mcclampface.  (e.g. https://cs.chromium.org/chromium/src/third_party/pdfium/third_party/base/stl_util.h?rcl\u003d445831ebcec3426f5642d32336d654fb391ca07a\u0026l\u003d73 )",
+      "range": {
+        "startLine": 181,
+        "startChar": 16,
+        "endLine": 181,
+        "endChar": 33
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76f47e23_3e834612",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "might be nice to make this a safe type while we\u0027re at it.",
+      "range": {
+        "startLine": 197,
+        "startChar": 5,
+        "endLine": 197,
+        "endChar": 16
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b04364_e293601c",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "non-const ref vs ptr",
+      "range": {
+        "startLine": 205,
+        "startChar": 44,
+        "endLine": 205,
+        "endChar": 48
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2e89715_314227d7",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 2
@@ -35,6 +104,75 @@
         "startChar": 25,
         "endLine": 208,
         "endChar": 32
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e3e3ec_c7651e35",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "over()",
+      "range": {
+        "startLine": 216,
+        "startChar": 9,
+        "endLine": 216,
+        "endChar": 48
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae1665f_dcdfdb6b",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "pdfium::clamp",
+      "range": {
+        "startLine": 243,
+        "startChar": 16,
+        "endLine": 243,
+        "endChar": 19
+      },
+      "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c11dc95_1016f089",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:04:28Z",
+      "side": 1,
+      "message": "might be nice to make this a safe type. This could overflow by repeated calling it.",
+      "range": {
+        "startLine": 254,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 15
       },
       "revId": "a427396c17b73bd50002e04731a0272f2ea8ae57",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
