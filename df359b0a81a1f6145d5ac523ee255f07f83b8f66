@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82319197_e64936e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T15:41:16Z",
+      "side": 1,
+      "message": "Remove this (and the blank after) so the title becomes line 9?",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2498a687_08ad80fc",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T15:41:16Z",
+      "side": 1,
+      "message": "abbreviated?",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d31f4d9_0df7b2a5",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T15:41:16Z",
+      "side": 1,
+      "message": "Do these need to be public?",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7608a8c_a9f3e182",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T15:41:16Z",
+      "side": 1,
+      "message": "ld (or zu or whatever the correct format for size_t is) and drop the cast?",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "866c4477_3b6c7ab9",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T15:41:16Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
