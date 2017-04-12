@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0769f953_e9a841f1",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T20:23:33Z",
+      "side": 1,
+      "message": "Seek can\u0027t fail, it just sets the internal position. The read data methods clamp the amount read to the length given or the remaining data in the file, so we could get a truncated read potentially.",
+      "parentUuid": "2fc831f2_8088960d",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 14
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e53e689f_bb97f73f",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-12T20:11:32Z",
       "side": 1,
       "message": "auto should be OK here, subclass promoted to super as needed.",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 34
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa8ea5c2_44ac3ddf",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T20:23:33Z",
+      "side": 1,
+      "message": "I could either auto here and cast on 571, or set it here and no cast on 571. (This gets cleaned up in a later CL)",
+      "parentUuid": "e53e689f_bb97f73f",
       "range": {
         "startLine": 565,
         "startChar": 2,
@@ -68,6 +116,30 @@
       "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "925c1232_7a0648a9",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T20:23:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16b0b2a5_954e1494",
+      "range": {
+        "startLine": 580,
+        "startChar": 2,
+        "endLine": 580,
+        "endChar": 27
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
