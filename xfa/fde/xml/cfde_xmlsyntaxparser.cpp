@@ -146,7 +146,7 @@ FDE_XmlSyntaxResult CFDE_XMLSyntaxParser::DoSyntaxParse() {
         m_pStream->Seek(FX_STREAMSEEK_Begin, m_iCurrentPos);
       }
       m_iBufferChars =
-          m_pStream->ReadString(m_Buffer.data(), m_iXMLPlaneSize, m_bEOS);
+          m_pStream->ReadString(m_Buffer.data(), m_iXMLPlaneSize, &m_bEOS);
       iPos = m_pStream->GetPosition();
       if (m_iBufferChars < 1) {
         m_iCurrentPos = iStreamLength;
