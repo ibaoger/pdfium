@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fc831f2_8088960d",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:11:32Z",
+      "side": 1,
+      "message": "can this fail?  how about the read?  what happens if we have a 2-byte long stream.  UMR.",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 14
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53e689f_bb97f73f",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:11:32Z",
+      "side": 1,
+      "message": "auto should be OK here, subclass promoted to super as needed.",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 34
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b0b2a5_954e1494",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:11:32Z",
+      "side": 1,
+      "message": "auto, avoids cast below.",
+      "range": {
+        "startLine": 580,
+        "startChar": 2,
+        "endLine": 580,
+        "endChar": 27
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
