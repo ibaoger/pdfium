@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "aac32297_5ecd2d40",
+        "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T14:21:08Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be the size?",
+      "range": {
+        "startLine": 15,
+        "startChar": 73,
+        "endLine": 15,
+        "endChar": 75
+      },
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d14a3e3b_e5f1aa0c",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
         "patchSetId": 3
@@ -101,6 +124,24 @@
       "side": 1,
       "message": "It looks a bit cleaner, but I don\u0027t think it\u0027s clearer. This is obvious that we\u0027re making a CXFA_FileRead which wasn\u0027t obvious at all before.",
       "parentUuid": "02a2bd76_fd6f430a",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62376d27_60b21622",
+        "filename": "xfa/fxfa/cxfa_ffapp_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T14:21:08Z",
+      "side": 1,
+      "message": "Why does that need to be obvious if it\u0027s wrapped in the IFX_SeekableReadStream?",
+      "parentUuid": "d39e637a_f8f9c90c",
       "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
