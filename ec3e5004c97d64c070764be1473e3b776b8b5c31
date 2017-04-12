@@ -56,6 +56,30 @@
       "revId": "ec3e5004c97d64c070764be1473e3b776b8b5c31",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f36a17c5_11b78f2a",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T18:30:22Z",
+      "side": 0,
+      "message": "Because the bEOS is already be set in the ReadString method and it already checks things like Position \u003e\u003d Length",
+      "parentUuid": "e19773a4_4bcfc2a3",
+      "range": {
+        "startLine": 581,
+        "startChar": 2,
+        "endLine": 582,
+        "endChar": 16
+      },
+      "revId": "ec3e5004c97d64c070764be1473e3b776b8b5c31",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
