@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3988ff1f_92c0f242",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-04-12T22:56:05Z",
+      "side": 1,
+      "message": "Since we are at it, could we rephrase it so that make clear it is only needed on Linux?",
+      "range": {
+        "startLine": 90,
+        "startChar": 47,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "ede841c476d290ae529c038dbd5d1ddb10e2b167",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb164dd4_2594ce84",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-04-12T22:56:05Z",
+      "side": 1,
+      "message": "Ditto here, don\u0027t want people on other platform to confuse",
+      "range": {
+        "startLine": 99,
+        "startChar": 16,
+        "endLine": 99,
+        "endChar": 26
+      },
+      "revId": "ede841c476d290ae529c038dbd5d1ddb10e2b167",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
