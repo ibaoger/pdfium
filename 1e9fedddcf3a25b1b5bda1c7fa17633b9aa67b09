@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "33611416_d0c877bd",
+        "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T17:21:44Z",
+      "side": 1,
+      "message": "No, if the parser wants uint8_t then giving it such is fine.  I thought it wanted a widestring always",
+      "parentUuid": "dd33d0d5_0d88646d",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aac32297_5ecd2d40",
         "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
         "patchSetId": 3
