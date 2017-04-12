@@ -30,7 +30,6 @@ class IFGAS_Stream : public CFX_Retainable {
   static CFX_RetainPtr<IFGAS_Stream> CreateWideStringReadStream(
       const CFX_WideString& buffer);
 
-  virtual uint32_t GetAccessModes() const = 0;
   virtual int32_t GetLength() const = 0;
   virtual int32_t Seek(FX_STREAMSEEK eSeek, int32_t iOffset) = 0;
   virtual int32_t GetPosition() = 0;
