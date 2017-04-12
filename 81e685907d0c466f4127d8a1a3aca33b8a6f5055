@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7d9bda26_fd8c2205",
+        "filename": "core/fxcrt/cfx_retain_ptr.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-04-12T00:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df779ed0_49d6cbdd",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5463c26c_623f801c",
         "filename": "core/fxcrt/fx_memory.h",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261cee4d_dc61a764",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-04-12T00:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5463c26c_623f801c",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 1
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "Alternatively, I\u0027d suggest that we rename FPDF_Test to PartitionTest, and simply have it\u0027s set up call your new FXMEM_Initialize function(), so that we don\u0027t drag in the whole library for these unit tests.  I think that will fix things.",
       "parentUuid": "b065d0ca_4e0bea61",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "81e685907d0c466f4127d8a1a3aca33b8a6f5055",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "791bee11_7500d8f7",
+        "filename": "xfa/fgas/layout/fgas_rtfbreak_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-04-12T00:06:55Z",
+      "side": 1,
+      "message": "Yes, a change has landed to make |FPDF_Test::SetUp| do nothing but call the new |FXMEM_InitalizePartitionAlloc|.\n\nBut, I can also rename |FPDF_Test| to |PartitionTest|. I\u0027ll do that in this CL, since it\u0027s easy.",
+      "parentUuid": "2b4688b0_c1a2dc2d",
       "range": {
         "startLine": 17,
         "startChar": 28,
