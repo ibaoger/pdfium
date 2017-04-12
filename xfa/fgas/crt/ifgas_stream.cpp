@@ -40,11 +40,6 @@ class IFGAS_StreamImp {
 
  protected:
   IFGAS_StreamImp();
-
-  uint32_t GetAccessModes() const { return m_dwAccess; }
-
- private:
-  uint32_t m_dwAccess;
 };
 
 class CFGAS_FileReadStreamImp : public IFGAS_StreamImp {
@@ -103,42 +98,12 @@ class CFGAS_FileWriteStreamImp : public IFGAS_StreamImp {
   int32_t m_iPosition;
 };
 
-class CFGAS_Stream : public IFGAS_Stream {
- public:
-  template <typename T, typename... Args>
-  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
-
-  // IFGAS_Stream
-  uint32_t GetAccessModes() const override;
-  int32_t GetLength() const override;
-  int32_t Seek(FX_STREAMSEEK eSeek, int32_t iOffset) override;
-  int32_t GetPosition() override;
-  bool IsEOF() const override;
-  int32_t ReadData(uint8_t* pBuffer, int32_t iBufferSize) override;
-  int32_t ReadString(wchar_t* pStr, int32_t iMaxLength, bool& bEOS) override;
-  int32_t WriteData(const uint8_t* pBuffer, int32_t iBufferSize) override;
-  int32_t WriteString(const wchar_t* pStr, int32_t iLength) override;
-  void Flush() override;
-  bool SetLength(int32_t iLength) override;
-  int32_t GetBOM(uint8_t bom[4]) const override;
-  uint16_t GetCodePage() const override;
-  uint16_t SetCodePage(uint16_t wCodePage) override;
-
- private:
-  CFGAS_Stream(std::unique_ptr<IFGAS_StreamImp> imp, uint32_t dwAccess);
-  ~CFGAS_Stream() override;
-
-  std::unique_ptr<IFGAS_StreamImp> m_pStreamImp;
-  uint32_t m_dwAccess;
-};
-
 class CFGAS_TextStream : public IFGAS_Stream {
  public:
   template <typename T, typename... Args>
   friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   // IFGAS_Stream
-  uint32_t GetAccessModes() const override;
   int32_t GetLength() const override;
   int32_t Seek(FX_STREAMSEEK eSeek, int32_t iOffset) override;
   int32_t GetPosition() override;
@@ -154,15 +119,20 @@ class CFGAS_TextStream : public IFGAS_Stream {
   uint16_t SetCodePage(uint16_t wCodePage) override;
 
  private:
-  explicit CFGAS_TextStream(const CFX_RetainPtr<IFGAS_Stream>& pStream);
+  explicit CFGAS_TextStream(std::unique_ptr<IFGAS_StreamImp> imp,
+                            uint32_t dwAccess);
   ~CFGAS_TextStream() override;
 
   void InitStream();
+  bool IsWriteStream() const {
+    return (m_dwAccess & FX_STREAMACCESS_Write) != 0;
+  }
 
   uint16_t m_wCodePage;
   int32_t m_wBOMLength;
   uint32_t m_dwBOM;
-  CFX_RetainPtr<IFGAS_Stream> m_pStreamImp;
+  uint32_t m_dwAccess;
+  std::unique_ptr<IFGAS_StreamImp> m_pStreamImp;
 };
 
 class CFGAS_WideStringReadStream : public IFGAS_Stream {
@@ -171,7 +141,6 @@ class CFGAS_WideStringReadStream : public IFGAS_Stream {
   friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   // IFGAS_Stream
-  uint32_t GetAccessModes() const override;
   int32_t GetLength() const override;
   int32_t Seek(FX_STREAMSEEK eSeek, int32_t iOffset) override;
   int32_t GetPosition() override;
@@ -194,7 +163,7 @@ class CFGAS_WideStringReadStream : public IFGAS_Stream {
   int32_t m_iPosition;
 };
 
-IFGAS_StreamImp::IFGAS_StreamImp() : m_dwAccess(0) {}
+IFGAS_StreamImp::IFGAS_StreamImp() {}
 
 CFGAS_FileReadStreamImp::CFGAS_FileReadStreamImp()
     : m_pFileRead(nullptr), m_iPosition(0), m_iLength(0) {}
@@ -327,11 +296,13 @@ void CFGAS_FileWriteStreamImp::Flush() {
   }
 }
 
-CFGAS_TextStream::CFGAS_TextStream(const CFX_RetainPtr<IFGAS_Stream>& pStream)
+CFGAS_TextStream::CFGAS_TextStream(std::unique_ptr<IFGAS_StreamImp> imp,
+                                   uint32_t dwAccess)
     : m_wCodePage(FX_CODEPAGE_DefANSI),
       m_wBOMLength(0),
       m_dwBOM(0),
-      m_pStreamImp(pStream) {
+      m_dwAccess(dwAccess),
+      m_pStreamImp(std::move(imp)) {
   ASSERT(m_pStreamImp);
   InitStream();
 }
@@ -384,10 +355,6 @@ void CFGAS_TextStream::InitStream() {
   m_pStreamImp->Seek(FX_STREAMSEEK_Begin, std::max(m_wBOMLength, iPosition));
 }
 
-uint32_t CFGAS_TextStream::GetAccessModes() const {
-  return m_pStreamImp->GetAccessModes();
-}
-
 int32_t CFGAS_TextStream::GetLength() const {
   return m_pStreamImp->GetLength();
 }
@@ -405,24 +372,38 @@ bool CFGAS_TextStream::IsEOF() const {
 }
 
 int32_t CFGAS_TextStream::ReadData(uint8_t* pBuffer, int32_t iBufferSize) {
-  return m_pStreamImp->ReadData(pBuffer, iBufferSize);
+  ASSERT(pBuffer && iBufferSize > 0);
+
+  if (IsWriteStream())
+    return -1;
+
+  int32_t iLen = std::min(
+      m_pStreamImp->GetLength() - m_pStreamImp->GetPosition(), iBufferSize);
+  if (iLen <= 0)
+    return 0;
+
+  return m_pStreamImp->ReadData(pBuffer, iLen);
 }
 
 int32_t CFGAS_TextStream::WriteData(const uint8_t* pBuffer,
                                     int32_t iBufferSize) {
+  ASSERT(pBuffer && iBufferSize > 0);
+
+  if (!IsWriteStream())
+    return -1;
   return m_pStreamImp->WriteData(pBuffer, iBufferSize);
 }
 
 void CFGAS_TextStream::Flush() {
+  if (!IsWriteStream())
+    return;
   m_pStreamImp->Flush();
 }
 
 bool CFGAS_TextStream::SetLength(int32_t iLength) {
+  if (!IsWriteStream())
+    return false;
   return m_pStreamImp->SetLength(iLength);
-}
-
-uint16_t CFGAS_TextStream::GetCodePage() const {
-  return m_wCodePage;
 }
 
 int32_t CFGAS_TextStream::GetBOM(uint8_t bom[4]) const {
@@ -431,6 +412,10 @@ int32_t CFGAS_TextStream::GetBOM(uint8_t bom[4]) const {
 
   *(uint32_t*)bom = m_dwBOM;
   return m_wBOMLength;
+}
+
+uint16_t CFGAS_TextStream::GetCodePage() const {
+  return m_wCodePage;
 }
 
 uint16_t CFGAS_TextStream::SetCodePage(uint16_t wCodePage) {
@@ -446,7 +431,7 @@ int32_t CFGAS_TextStream::ReadString(wchar_t* pStr,
                                      int32_t iMaxLength,
                                      bool& bEOS) {
   ASSERT(pStr && iMaxLength > 0);
-  if (!m_pStreamImp)
+  if (IsWriteStream())
     return -1;
 
   if (m_wCodePage == FX_CODEPAGE_UTF16LE ||
@@ -490,7 +475,7 @@ int32_t CFGAS_TextStream::ReadString(wchar_t* pStr,
 
 int32_t CFGAS_TextStream::WriteString(const wchar_t* pStr, int32_t iLength) {
   ASSERT(pStr && iLength > 0);
-  if ((m_pStreamImp->GetAccessModes() & FX_STREAMACCESS_Write) == 0)
+  if (!IsWriteStream())
     return -1;
 
   if (m_wCodePage == FX_CODEPAGE_UTF8) {
@@ -506,128 +491,11 @@ int32_t CFGAS_TextStream::WriteString(const wchar_t* pStr, int32_t iLength) {
   return iLength;
 }
 
-CFGAS_Stream::CFGAS_Stream(std::unique_ptr<IFGAS_StreamImp> imp,
-                           uint32_t dwAccess)
-    : m_pStreamImp(std::move(imp)), m_dwAccess(dwAccess) {}
-
-CFGAS_Stream::~CFGAS_Stream() {}
-
-uint32_t CFGAS_Stream::GetAccessModes() const {
-  return m_dwAccess;
-}
-
-int32_t CFGAS_Stream::GetLength() const {
-  return m_pStreamImp ? m_pStreamImp->GetLength() : -1;
-}
-
-int32_t CFGAS_Stream::Seek(FX_STREAMSEEK eSeek, int32_t iOffset) {
-  if (!m_pStreamImp)
-    return -1;
-  return m_pStreamImp->Seek(eSeek, iOffset);
-}
-
-int32_t CFGAS_Stream::GetPosition() {
-  if (!m_pStreamImp)
-    return -1;
-  return m_pStreamImp->GetPosition();
-}
-
-bool CFGAS_Stream::IsEOF() const {
-  return m_pStreamImp ? m_pStreamImp->IsEOF() : true;
-}
-
-int32_t CFGAS_Stream::ReadData(uint8_t* pBuffer, int32_t iBufferSize) {
-  ASSERT(pBuffer && iBufferSize > 0);
-  if (!m_pStreamImp)
-    return -1;
-
-  int32_t iLen = std::min(
-      m_pStreamImp->GetLength() - m_pStreamImp->GetPosition(), iBufferSize);
-  if (iLen <= 0)
-    return 0;
-
-  return m_pStreamImp->ReadData(pBuffer, iLen);
-}
-
-int32_t CFGAS_Stream::ReadString(wchar_t* pStr,
-                                 int32_t iMaxLength,
-                                 bool& bEOS) {
-  ASSERT(pStr && iMaxLength > 0);
-  if (!m_pStreamImp)
-    return -1;
-
-  int32_t iLen =
-      std::min((m_pStreamImp->GetLength() - m_pStreamImp->GetPosition()) / 2,
-               iMaxLength);
-  if (iLen <= 0)
-    return 0;
-  return m_pStreamImp->ReadString(pStr, iLen, bEOS);
-}
-
-int32_t CFGAS_Stream::WriteData(const uint8_t* pBuffer, int32_t iBufferSize) {
-  ASSERT(pBuffer && iBufferSize > 0);
-  if (!m_pStreamImp)
-    return -1;
-  if ((m_dwAccess & FX_STREAMACCESS_Write) == 0)
-    return -1;
-  return m_pStreamImp->WriteData(pBuffer, iBufferSize);
-}
-
-int32_t CFGAS_Stream::WriteString(const wchar_t* pStr, int32_t iLength) {
-  ASSERT(pStr && iLength > 0);
-  if (!m_pStreamImp)
-    return -1;
-  if ((m_dwAccess & FX_STREAMACCESS_Write) == 0)
-    return -1;
-  return m_pStreamImp->WriteString(pStr, iLength);
-}
-
-void CFGAS_Stream::Flush() {
-  if (!m_pStreamImp)
-    return;
-  if ((m_dwAccess & FX_STREAMACCESS_Write) == 0)
-    return;
-  m_pStreamImp->Flush();
-}
-
-bool CFGAS_Stream::SetLength(int32_t iLength) {
-  if (!m_pStreamImp)
-    return false;
-  if ((m_dwAccess & FX_STREAMACCESS_Write) == 0)
-    return false;
-  return m_pStreamImp->SetLength(iLength);
-}
-
-int32_t CFGAS_Stream::GetBOM(uint8_t bom[4]) const {
-  if (!m_pStreamImp)
-    return -1;
-  return 0;
-}
-
-uint16_t CFGAS_Stream::GetCodePage() const {
-#if _FX_ENDIAN_ == _FX_LITTLE_ENDIAN_
-  return FX_CODEPAGE_UTF16LE;
-#else
-  return FX_CODEPAGE_UTF16BE;
-#endif
-}
-uint16_t CFGAS_Stream::SetCodePage(uint16_t wCodePage) {
-#if _FX_ENDIAN_ == _FX_LITTLE_ENDIAN_
-  return FX_CODEPAGE_UTF16LE;
-#else
-  return FX_CODEPAGE_UTF16BE;
-#endif
-}
-
 CFGAS_WideStringReadStream::CFGAS_WideStringReadStream(
     const CFX_WideString& wsBuffer)
     : m_wsBuffer(wsBuffer), m_iPosition(0) {}
 
 CFGAS_WideStringReadStream::~CFGAS_WideStringReadStream() {}
-
-uint32_t CFGAS_WideStringReadStream::GetAccessModes() const {
-  return 0;
-}
 
 int32_t CFGAS_WideStringReadStream::GetLength() const {
   return m_wsBuffer.GetLength() * sizeof(wchar_t);
@@ -715,8 +583,7 @@ CFX_RetainPtr<IFGAS_Stream> IFGAS_Stream::CreateReadStream(
            ->LoadFileRead(pFileRead)) {
     return nullptr;
   }
-  return pdfium::MakeRetain<CFGAS_TextStream>(
-      pdfium::MakeRetain<CFGAS_Stream>(std::move(pImp), 0));
+  return pdfium::MakeRetain<CFGAS_TextStream>(std::move(pImp), 0);
 }
 
 // static
@@ -732,8 +599,8 @@ CFX_RetainPtr<IFGAS_Stream> IFGAS_Stream::CreateWriteStream(
     return nullptr;
   }
 
-  return pdfium::MakeRetain<CFGAS_TextStream>(
-      pdfium::MakeRetain<CFGAS_Stream>(std::move(pImp), FX_STREAMACCESS_Write));
+  return pdfium::MakeRetain<CFGAS_TextStream>(std::move(pImp),
+                                              FX_STREAMACCESS_Write);
 }
 
 // static
