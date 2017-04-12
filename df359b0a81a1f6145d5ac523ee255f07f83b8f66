@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "61cbb0c6_1938b273",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-04-12T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2498a687_08ad80fc",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d31f4d9_0df7b2a5",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2017-04-12T15:41:16Z",
       "side": 1,
       "message": "Do these need to be public?",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4190705_d84d2f44",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-04-12T15:54:14Z",
+      "side": 1,
+      "message": "It\u0027s helpful when adding inline debugging , e.g.:\n\nif (1245 \u003c\u003d m_pCache-\u003em_debugSaveCounter)\n  m_pCache-\u003eDumpClipStacks();",
+      "parentUuid": "8d31f4d9_0df7b2a5",
       "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "1ff1ca98_fec00926",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-04-12T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7608a8c_a9f3e182",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "866c4477_3b6c7ab9",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 1
@@ -84,6 +138,24 @@
       "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b467f6_16b2aff3",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-04-12T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "866c4477_3b6c7ab9",
+      "revId": "df359b0a81a1f6145d5ac523ee255f07f83b8f66",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
