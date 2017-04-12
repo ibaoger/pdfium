@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9ec888b_be6e74b6",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-12T22:35:00Z",
+      "side": 1,
+      "message": "But it\u0027s right there on line 89.",
+      "revId": "4d0352e88c25b0ccef5d4c3b9ca73e28c8a71d27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e95cc085_c9f1972f",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-12T22:35:00Z",
+      "side": 1,
+      "message": "... and GN will automatically use the new args to generate build files.",
+      "revId": "4d0352e88c25b0ccef5d4c3b9ca73e28c8a71d27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
