@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea134f6a_9ad35315",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T17:18:42Z",
+      "side": 1,
+      "message": "nit: std::vector\u003cuint8_t\u003e buf(iBytes) and lose the resize.",
+      "range": {
+        "startLine": 476,
+        "startChar": 27,
+        "endLine": 476,
+        "endChar": 31
+      },
+      "revId": "ec3e5004c97d64c070764be1473e3b776b8b5c31",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
