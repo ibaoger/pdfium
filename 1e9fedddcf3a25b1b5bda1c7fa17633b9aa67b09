@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "dd33d0d5_0d88646d",
+        "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T17:19:37Z",
+      "side": 1,
+      "message": "Was there something that needed to be done in this CL? Or is this followup work? (Not really sure what you\u0027re proposing to add).\n\nI believe this is the right input to the syntax parser, as it takes uint8 data. There is a second wrapper that I merged in later that was CXFA_WideTextRead which deals with wide strings, we could switch to using that if we wanted?",
+      "parentUuid": "fccf6ead_c1c4d85b",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aac32297_5ecd2d40",
         "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
         "patchSetId": 3
