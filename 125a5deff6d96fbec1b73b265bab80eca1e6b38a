@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6f1b043_fcbd7968",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T19:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "098817b6_e121273a",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 10
+      },
+      "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18718d17_43520f4b",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "ae12c87f_db465c45",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T19:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18718d17_43520f4b",
+      "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfc37ac1_a308c663",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-04-12T18:43:21Z",
       "side": 1,
       "message": "So we now disallow reading from write streams? It makes sense, but I think this check was not here before",
+      "range": {
+        "startLine": 377,
+        "startChar": 6,
+        "endLine": 377,
+        "endChar": 19
+      },
+      "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebcd2dad_95b2d5e2",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T19:04:59Z",
+      "side": 1,
+      "message": "Yea, these checks are new. If you look at the WriteStreamImpl above both of the read methods just return 0. The ReadStreamImpl has empty write methods. So, I made this consistent in checking the stream type.",
+      "parentUuid": "cfc37ac1_a308c663",
       "range": {
         "startLine": 377,
         "startChar": 6,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "2d45a3d4_e3ac96c9",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T19:04:59Z",
+      "side": 1,
+      "message": "Turns out we only used the return value, removed the param.",
+      "parentUuid": "cf7202cd_843fae88",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 13
+      },
+      "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59b01658_06f79117",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 2
@@ -108,6 +198,30 @@
       "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d62484bf_3d973fe2",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T19:04:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59b01658_06f79117",
+      "range": {
+        "startLine": 434,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 20
+      },
+      "revId": "125a5deff6d96fbec1b73b265bab80eca1e6b38a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
