@@ -58,15 +58,11 @@ gclient sync
 cd pdfium
 ```
 
-##<a name="GenBuild"></a> Generate the build files
+## Generate the build files
 
 We use GN to generate the build files and
 [Ninja](http://martine.github.io/ninja/) (also included with the depot\_tools
 checkout) to execute the build files.
-
-```
-gn gen <directory>
-```
 
 ### Selecting build configuration
 
@@ -96,11 +92,14 @@ use_sysroot = false  # Currently must be false on Linux.
 Note, you must set `pdf_is_standalone = true` if you want the sample
 applications like `pdfium_test` to build.
 
-When complete the arguments will be stored in `<directory>/args.gn`.
+When complete the arguments will be stored in `<directory>/args.gn`, and
+GN will automatically use the new arguments to generate build files.
+Should your files fail to generate, please double-check that you have set
+use\_sysroot as indicated above.
 
 ## Building the code
 
-If you used Ninja, you can build the sample program by:
+You can build the sample program by:
 `ninja -C <directory>/pdfium_test` You can build the entire product (which
 includes a few unit tests) by: `ninja -C <directory>`.
 
