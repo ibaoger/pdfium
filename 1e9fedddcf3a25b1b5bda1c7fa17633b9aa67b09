@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0aa1d2de_ec5f9d82",
+        "filename": "testing/libfuzzer/pdf_cfx_saxreader_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T01:09:03Z",
+      "side": 1,
+      "message": "As far as I know, clusterfuzz doesn\u0027t provide UTF8. It just provides data. I\u0027d used FromUTF8 before because that was how I knew to get a string to a WideString which I needed to call the CXFA_WideTextRead constructor. It looks like this was more complicated then needed and we can just pass the data through a memory stream.",
+      "parentUuid": "b37f81ed_d00f816c",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d14a3e3b_e5f1aa0c",
         "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "609f6ce8_c1fa541c",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T01:09:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d14a3e3b_e5f1aa0c",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02a2bd76_fd6f430a",
         "filename": "xfa/fxfa/cxfa_ffapp_unittest.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-04-11T21:37:01Z",
       "side": 1,
       "message": "I\u0027d rather have the MakeSeekableReadStream, looks cleaner",
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d39e637a_f8f9c90c",
+        "filename": "xfa/fxfa/cxfa_ffapp_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T01:09:03Z",
+      "side": 1,
+      "message": "It looks a bit cleaner, but I don\u0027t think it\u0027s clearer. This is obvious that we\u0027re making a CXFA_FileRead which wasn\u0027t obvious at all before.",
+      "parentUuid": "02a2bd76_fd6f430a",
       "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "f22f9110_72f835dd",
+        "filename": "xfa/fxfa/cxfa_fileread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T01:09:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "64616eb2_f9c532cf",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1834e128_43fe7a26",
         "filename": "xfa/fxfa/cxfa_fileread.cpp",
         "patchSetId": 3
@@ -87,6 +165,30 @@
       "writtenOn": "2017-04-11T21:37:01Z",
       "side": 1,
       "message": "nit: static_cast",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "1e9fedddcf3a25b1b5bda1c7fa17633b9aa67b09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3378d6ab_b5285bc9",
+        "filename": "xfa/fxfa/cxfa_fileread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T01:09:03Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "1834e128_43fe7a26",
       "range": {
         "startLine": 51,
         "startChar": 13,
