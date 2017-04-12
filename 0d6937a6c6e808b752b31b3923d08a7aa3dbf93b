@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "041eb492_ea4241f4",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-12T20:43:04Z",
+      "side": 1,
+      "message": "When I tried it gave a compile error. (If you take a look at the next CL this is gone anyway as I removed the LoadFileRead and LoadFileWrite methods and then folded this into the TextStream creation call on 571.)",
+      "parentUuid": "1051aef5_e823de4e",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 34
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16b0b2a5_954e1494",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 5
