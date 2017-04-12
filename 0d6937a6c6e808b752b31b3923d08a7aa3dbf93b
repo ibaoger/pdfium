@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e5c52290_8ee30622",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:37:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0769f953_e9a841f1",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 14
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e53e689f_bb97f73f",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I could either auto here and cast on 571, or set it here and no cast on 571. (This gets cleaned up in a later CL)",
       "parentUuid": "e53e689f_bb97f73f",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 34
+      },
+      "revId": "0d6937a6c6e808b752b31b3923d08a7aa3dbf93b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1051aef5_e823de4e",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T20:37:42Z",
+      "side": 1,
+      "message": "how about auto here and no cast on 571? I thought the std::unique_ptr could infer this.",
+      "parentUuid": "aa8ea5c2_44ac3ddf",
       "range": {
         "startLine": 565,
         "startChar": 2,
