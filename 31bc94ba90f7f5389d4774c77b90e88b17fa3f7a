@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "273817b4_7ef99421",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T16:30:18Z",
+      "side": 1,
+      "message": "nit: many of these int32_t should probably be FX_STRSIZE, since were talking about the length of a string or negative on error, which is the convention implied by FX_STRSIZE.",
+      "range": {
+        "startLine": 563,
+        "startChar": 0,
+        "endLine": 563,
+        "endChar": 7
+      },
+      "revId": "31bc94ba90f7f5389d4774c77b90e88b17fa3f7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f48efe8d_5ca89ddf",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 3
@@ -42,6 +65,29 @@
         "startChar": 22,
         "endLine": 579,
         "endChar": 32
+      },
+      "revId": "31bc94ba90f7f5389d4774c77b90e88b17fa3f7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808da6d3_4fadec4e",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T16:30:18Z",
+      "side": 1,
+      "message": "this scares me, we\u0027re passing wchar_t pointers, sizeof(whar) is only 2 on windows.  Otherwise, why div by 2?  Can you research this? Srry.",
+      "range": {
+        "startLine": 586,
+        "startChar": 54,
+        "endLine": 586,
+        "endChar": 55
       },
       "revId": "31bc94ba90f7f5389d4774c77b90e88b17fa3f7a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
