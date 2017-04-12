@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c976bfd9_64c31f90",
+        "filename": "testing/libfuzzer/pdf_xml_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T17:17:04Z",
+      "side": 1,
+      "message": "nit: maybe write it out since the type info is no longer immediately present on the line itself.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 6
+      },
+      "revId": "0090c04e52c09c16321602d5efdee06cc29c8c9c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "848082bb_186a6031",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-12T17:17:04Z",
+      "side": 1,
+      "message": "same here with writing it out the long way.",
+      "range": {
+        "startLine": 326,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 6
+      },
+      "revId": "0090c04e52c09c16321602d5efdee06cc29c8c9c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
