@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8180db5b_8b58eb19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T19:12:55Z",
+      "side": 1,
+      "message": "It will now show the cyrillic characters which were missing. It does not fix the bad glyphs showing up currently.",
+      "parentUuid": "62b78287_148cabfa",
+      "revId": "3bdd985820c4d63c65b83af56e5a3f6df9fc1c7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23a13ea1_d3fdffc1",
         "filename": "core/fpdfapi/font/cpdf_simplefont.cpp",
         "patchSetId": 3
@@ -51,6 +69,24 @@
       "revId": "3bdd985820c4d63c65b83af56e5a3f6df9fc1c7e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2051ca6_967214b8",
+        "filename": "core/fpdfapi/font/cpdf_simplefont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-12T19:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23a13ea1_d3fdffc1",
+      "revId": "3bdd985820c4d63c65b83af56e5a3f6df9fc1c7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
