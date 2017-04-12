@@ -457,8 +457,10 @@ int CPDF_Font::FallbackGlyphFromCharcode(int fallbackFont, uint32_t charcode) {
   if (!pdfium::IndexInBounds(m_FontFallbacks, fallbackFont))
     return -1;
 
+  CFX_WideString str = UnicodeFromCharCode(charcode);
+  int unicode = !str.IsEmpty() ? str.GetAt(0) : charcode;
   int glyph =
-      FXFT_Get_Char_Index(m_FontFallbacks[fallbackFont]->GetFace(), charcode);
+      FXFT_Get_Char_Index(m_FontFallbacks[fallbackFont]->GetFace(), unicode);
   if (glyph == 0 || glyph == 0xffff)
     return -1;
   return glyph;
