@@ -17,16 +17,16 @@
 #include "testing/test_support.h"
 #include "third_party/base/ptr_util.h"
 
-class CPDF_PageContentGeneratorTest : public pdfium::FPDF_Test {
+class CPDF_PageContentGeneratorTest : public pdfium::PartitionTest {
  protected:
   void SetUp() override {
-    FPDF_Test::SetUp();
+    PartitionTest::SetUp();
     CPDF_ModuleMgr::Get()->InitPageModule();
   }
 
   void TearDown() override {
     CPDF_ModuleMgr::Destroy();
-    FPDF_Test::TearDown();
+    PartitionTest::TearDown();
   }
 
   void TestProcessPath(CPDF_PageContentGenerator* pGen,

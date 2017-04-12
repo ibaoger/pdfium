@@ -14,7 +14,7 @@
 #include "testing/test_support.h"
 #include "third_party/base/ptr_util.h"
 
-class CXFAFileReadTest : public pdfium::FPDF_Test {};
+class CXFAFileReadTest : public pdfium::PartitionTest {};
 
 TEST_F(CXFAFileReadTest, NoStreams) {
   std::vector<CPDF_Stream*> streams;

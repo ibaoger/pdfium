@@ -883,7 +883,11 @@ FXFT_Face CFGAS_FontMgr::LoadFace(
   if (!library)
     return nullptr;
 
-  FXFT_Stream ftStream = FX_Alloc(FXFT_StreamRec, 1);
+  // TODO(palmer): FX_Alloc is the wrong allocator for this. It uses PA, but
+  // this memory will be free'd with ft_free, which is free.
+  // FXFT_Stream ftStream = FX_Alloc(FXFT_StreamRec, 1);
+  FXFT_Stream ftStream =
+      static_cast<FXFT_Stream>(ft_scalloc(sizeof(FXFT_StreamRec), 1));
   memset(ftStream, 0, sizeof(FXFT_StreamRec));
   ftStream->base = nullptr;
   ftStream->descriptor.pointer = static_cast<void*>(pFontStream.Get());
@@ -899,7 +903,7 @@ FXFT_Face CFGAS_FontMgr::LoadFace(
 
   FXFT_Face pFace = nullptr;
   if (FXFT_Open_Face(library, &ftArgs, iFaceIndex, &pFace)) {
-    FX_Free(ftStream);
+    ft_sfree(ftStream);
     return nullptr;
   }
 

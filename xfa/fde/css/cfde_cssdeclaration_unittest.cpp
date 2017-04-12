@@ -7,7 +7,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/test_support.h"
 
-class CFDE_CSSDecalrationTest : public pdfium::FPDF_Test {};
+class CFDE_CSSDecalrationTest : public pdfium::PartitionTest {};
 
 TEST_F(CFDE_CSSDecalrationTest, HexEncodingParsing) {
   FX_ARGB color;

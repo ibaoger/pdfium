@@ -10,7 +10,7 @@
 #include "testing/test_support.h"
 #include "xfa/fgas/crt/ifgas_stream.h"
 
-class CFDE_XMLSyntaxParserTest : public pdfium::FPDF_Test {};
+class CFDE_XMLSyntaxParserTest : public pdfium::PartitionTest {};
 
 TEST_F(CFDE_XMLSyntaxParserTest, CData) {
   const wchar_t* input =

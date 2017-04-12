@@ -214,11 +214,10 @@ int TestSaver::WriteBlockCallback(FPDF_FILEWRITE* pFileWrite,
 
 namespace pdfium {
 
-void FPDF_Test::SetUp() {
+void PartitionTest::SetUp() {
   FXMEM_InitalizePartitionAlloc();
 }
 
-void FPDF_Test::TearDown() {
-}
+void PartitionTest::TearDown() {}
 
 }  // namespace pdfium

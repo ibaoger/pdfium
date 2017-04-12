@@ -10,7 +10,7 @@
 #include "testing/test_support.h"
 #include "third_party/base/ptr_util.h"
 
-class CFDE_CSSValueListParserTest : public pdfium::FPDF_Test {};
+class CFDE_CSSValueListParserTest : public pdfium::PartitionTest {};
 
 TEST_F(CFDE_CSSValueListParserTest, rgb_short) {
   FDE_CSSPrimitiveType type;

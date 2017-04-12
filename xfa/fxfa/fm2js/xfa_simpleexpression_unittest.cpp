@@ -12,7 +12,7 @@
 #include "third_party/base/ptr_util.h"
 #include "xfa/fxfa/fm2js/xfa_lexer.h"
 
-class FMCallExpressionTest : public pdfium::FPDF_Test {};
+class FMCallExpressionTest : public pdfium::PartitionTest {};
 
 TEST_F(FMCallExpressionTest, more_than_32_arguments) {
   // Use sign as it has 3 object parameters at positions 0, 5, and 6.

@@ -9,6 +9,7 @@
 #include "core/fxcrt/fx_memory.h"
 
 pdfium::base::PartitionAllocatorGeneric gArrayBufferPartitionAllocator;
+pdfium::base::PartitionAllocatorGeneric gGeneralPartitionAllocator;
 pdfium::base::PartitionAllocatorGeneric gStringPartitionAllocator;
 
 void FXMEM_InitalizePartitionAlloc() {
@@ -16,19 +17,25 @@ void FXMEM_InitalizePartitionAlloc() {
   if (!s_gPartitionAllocatorsInitialized) {
     pdfium::base::PartitionAllocGlobalInit(FX_OutOfMemoryTerminate);
     gArrayBufferPartitionAllocator.init();
+    gGeneralPartitionAllocator.init();
     gStringPartitionAllocator.init();
     s_gPartitionAllocatorsInitialized = true;
   }
 }
 
 void* FXMEM_DefaultAlloc(size_t byte_size, int flags) {
-  return (void*)malloc(byte_size);
+  return pdfium::base::PartitionAllocGeneric(gGeneralPartitionAllocator.root(),
+                                             byte_size, "GeneralPartition");
 }
+
 void* FXMEM_DefaultRealloc(void* pointer, size_t new_size, int flags) {
-  return realloc(pointer, new_size);
+  return pdfium::base::PartitionReallocGeneric(
+      gGeneralPartitionAllocator.root(), pointer, new_size, "GeneralPartition");
 }
+
 void FXMEM_DefaultFree(void* pointer, int flags) {
-  free(pointer);
+  pdfium::base::PartitionFreeGeneric(gGeneralPartitionAllocator.root(),
+                                     pointer);
 }
 
 NEVER_INLINE void FX_OutOfMemoryTerminate() {

@@ -9,6 +9,7 @@
 
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
+#include "third_party/base/allocator/partition_allocator/partition_alloc.h"
 #include "third_party/base/numerics/safe_math.h"
 
 template <typename CharType>

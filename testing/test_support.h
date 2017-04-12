@@ -59,7 +59,7 @@ struct FreeDeleter {
   inline void operator()(void* ptr) const { free(ptr); }
 };
 
-class FPDF_Test : public ::testing::Test {
+class PartitionTest : public ::testing::Test {
  public:
   void SetUp() override;
   void TearDown() override;
