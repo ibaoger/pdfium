@@ -1271,11 +1271,10 @@ void CXFA_Node::Script_NodeClass_LoadXML(CFXJSE_Arguments* pArguments) {
     ThrowParamCountMismatchException(L"loadXML");
     return;
   }
-  CFX_WideString wsExpression;
+
   bool bIgnoreRoot = true;
   bool bOverwrite = 0;
-  wsExpression =
-      CFX_WideString::FromUTF8(pArguments->GetUTF8String(0).AsStringC());
+  CFX_ByteString wsExpression = pArguments->GetUTF8String(0);
   if (wsExpression.IsEmpty())
     return;
   if (iLength >= 2)
