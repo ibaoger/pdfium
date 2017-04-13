@@ -2,6 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include <memory>
+#include <string>
+
+#include "public/cpp/fpdf_deleters.h"
 #include "public/fpdf_formfill.h"
 #include "testing/embedder_test.h"
 #include "testing/embedder_test_mock_delegate.h"
@@ -12,7 +16,7 @@
 using testing::_;
 using testing::Return;
 
-class FPDFFormFillEmbeddertest : public EmbedderTest {};
+class FPDFFormFillEmbeddertest : public EmbedderTest, public TestSaver {};
 
 TEST_F(FPDFFormFillEmbeddertest, FirstTest) {
   EmbedderTestMockDelegate mock;
@@ -197,3 +201,55 @@ TEST_F(FPDFFormFillEmbeddertest, BUG_679649) {
 }
 
 #endif  // PDF_ENABLE_V8
+
+TEST_F(FPDFFormFillEmbeddertest, FormText) {
+  const char lastMD5[] = "8f91b62895fc505d9e17ff2d633756d4";
+  {
+    EXPECT_TRUE(OpenDocument("form.pdf"));
+    FPDF_PAGE page = LoadPage(0);
+    ASSERT_TRUE(page);
+    std::unique_ptr<void, FPDFBitmapDeleter> bitmap1(RenderPage(page));
+    CompareBitmap(bitmap1.get(), 300, 300, "23baecc6e94d4c8b894cd39aa04c584c");
+
+    // Click on the textfield
+    EXPECT_EQ(FPDF_FORMFIELD_TEXTFIELD,
+              FPDFPage_HasFormFieldAtPoint(form_handle(), page, 120.0, 120.0));
+    FORM_OnMouseMove(form_handle(), page, 0, 120.0, 120.0);
+    FORM_OnLButtonDown(form_handle(), page, 0, 120.0, 120.0);
+    FORM_OnLButtonUp(form_handle(), page, 0, 120.0, 120.0);
+
+    // Write "ABC"
+    FORM_OnChar(form_handle(), page, 65, 0);
+    FORM_OnChar(form_handle(), page, 66, 0);
+    FORM_OnChar(form_handle(), page, 67, 0);
+    std::unique_ptr<void, FPDFBitmapDeleter> bitmap2(RenderPage(page));
+    CompareBitmap(bitmap2.get(), 300, 300, "499df95d477dfe35ee65b823c69743b5");
+
+    // Take out focus by clicking out of the textfield
+    FORM_OnMouseMove(form_handle(), page, 0, 15.0, 15.0);
+    FORM_OnLButtonDown(form_handle(), page, 0, 15.0, 15.0);
+    FORM_OnLButtonUp(form_handle(), page, 0, 15.0, 15.0);
+    std::unique_ptr<void, FPDFBitmapDeleter> bitmap3(RenderPage(page));
+    CompareBitmap(bitmap3.get(), 300, 300, lastMD5);
+
+    EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+    UnloadPage(page);
+  }
+  // Check saved document
+  std::string new_file = GetString();
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  std::unique_ptr<void, FPDFDocumentDeleter> new_doc(
+      FPDF_LoadCustomDocument(&file_access, nullptr));
+  ASSERT_TRUE(new_doc.get());
+  EXPECT_EQ(1, FPDF_GetPageCount(new_doc.get()));
+  std::unique_ptr<void, FPDFPageDeleter> new_page(
+      FPDF_LoadPage(new_doc.get(), 0));
+  ASSERT_TRUE(new_page.get());
+  std::unique_ptr<void, FPDFBitmapDeleter> new_bitmap(
+      RenderPage(new_page.get()));
+  CompareBitmap(new_bitmap.get(), 300, 300, lastMD5);
+}
