@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4126dd54_e1be1f10",
+        "filename": "testing/resources/text_form.pdf",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-13T19:33:30Z",
+      "side": 1,
+      "message": "aha, typo in prev version!",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "d9da26758c951e6ecd7bd6bff9f72393099a99a7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
