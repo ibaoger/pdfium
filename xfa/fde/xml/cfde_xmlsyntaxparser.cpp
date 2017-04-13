@@ -80,7 +80,7 @@ int32_t GetUTF8EncodeLength(const std::vector<wchar_t>& src,
 }  // namespace
 
 CFDE_XMLSyntaxParser::CFDE_XMLSyntaxParser(
-    const CFX_RetainPtr<IFGAS_Stream>& pStream)
+    const CFX_RetainPtr<CFGAS_Stream>& pStream)
     : m_pStream(pStream),
       m_iXMLPlaneSize(32 * 1024),
       m_iCurrentPos(0),

@@ -106,7 +106,7 @@ CFDE_TxtEdtPage* CFDE_TxtEdtEngine::GetPage(int32_t nIndex) {
 }
 
 void CFDE_TxtEdtEngine::SetTextByStream(
-    const CFX_RetainPtr<IFGAS_Stream>& pStream) {
+    const CFX_RetainPtr<CFGAS_Stream>& pStream) {
   ResetEngine();
   int32_t nIndex = 0;
   if (pStream && pStream->GetLength()) {
