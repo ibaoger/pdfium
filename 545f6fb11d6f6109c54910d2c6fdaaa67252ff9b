@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "143512e6_41336440",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "nit: srclen and dstlen are no longer pointer, drop the p",
+      "range": {
+        "startLine": 159,
+        "startChar": 56,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5aa81a4_fcfbde98",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "I thought you didn\u0027t like this? :)",
+      "range": {
+        "startLine": 248,
+        "startChar": 6,
+        "endLine": 248,
+        "endChar": 13
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef20d957_de268dd5",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 256,
+        "startChar": 5,
+        "endLine": 256,
+        "endChar": 11
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec65cf28_8111c7be",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "These two cases are the same.",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 12
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac4f015e_7984b74b",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 337,
+        "startChar": 3,
+        "endLine": 344,
+        "endChar": 3
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe4628e_0be29d72",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "Maybe write should be allowed to fail (return 0)",
+      "range": {
+        "startLine": 358,
+        "startChar": 4,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dbfa22d_c526aa2d",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "Move to line 522",
+      "range": {
+        "startLine": 511,
+        "startChar": 4,
+        "endLine": 511,
+        "endChar": 36
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60722ea8_8c56b527",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-13T15:46:36Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 565,
+        "startChar": 1,
+        "endLine": 572,
+        "endChar": 3
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
