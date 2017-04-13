@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44988a99_20d8440b",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T15:23:40Z",
+      "side": 1,
+      "message": "This will have to generate a string where it didnt\u0027 before. A few other places in this fill will make CFX_WideStrings where before the L\"static\" was passed through.",
+      "revId": "083322cc19b58c84b294577e486ce9555673df26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
