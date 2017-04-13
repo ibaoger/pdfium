@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39e2ecc5_58168ef3",
+        "filename": "xfa/fxfa/cxfa_fileread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T16:39:58Z",
+      "side": 1,
+      "message": "These need to be added because either they are from IFX_SeekableWriteStream or the IFX_SeekableReadStream gave them default values which IFX_SeekableStream says have to be implemented ...",
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
