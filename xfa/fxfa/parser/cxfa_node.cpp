@@ -1419,7 +1419,8 @@ void CXFA_Node::Script_NodeClass_SaveXML(CFXJSE_Arguments* pArguments) {
       return;
     }
     pStream->SetCodePage(FX_CODEPAGE_UTF8);
-    pStream->WriteData(bsXMLHeader.raw_str(), bsXMLHeader.GetLength());
+    pStream->WriteString(CFX_WideString::FromLocal(bsXMLHeader));
+
     if (GetPacketID() == XFA_XDPPACKET_Form)
       XFA_DataExporter_RegenerateFormFile(this, pStream, nullptr, true);
     else
