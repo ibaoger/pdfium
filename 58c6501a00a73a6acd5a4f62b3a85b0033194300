@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "7465eeb7_486aa786",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ce16a7_3e63b9d3",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d85eaa02_0492b3e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6a84bb_37a96d71",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c12d8f8_b526c007",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "1f1f1e8e_d3c54b85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02a30264_734add9d",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85d9a330_15512921",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done (although, it\u0027s window width dependent ....)",
+      "parentUuid": "1c12d8f8_b526c007",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ca3522_63475969",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a723ad57_e5a29e30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "25ca3522_63475969",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "006139a6_1752b403",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b42ecd5f_691331ad",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24401855_19c1e33e",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2017-04-13T16:58:47Z",
       "side": 1,
       "message": "overflow?",
+      "range": {
+        "startLine": 95,
+        "startChar": 11,
+        "endLine": 95,
+        "endChar": 51
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbd84001_3c830f67",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Yes, but I\u0027m leaving it for a followup given it was existing behaviour.",
+      "parentUuid": "24401855_19c1e33e",
       "range": {
         "startLine": 95,
         "startChar": 11,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "88ccbc1d_256aca34",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a45f508_35ad6257",
+      "range": {
+        "startLine": 106,
+        "startChar": 11,
+        "endLine": 106,
+        "endChar": 34
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455d70e6_1dcf36c2",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 1
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "eb143ee9_b12966e1",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "455d70e6_1dcf36c2",
+      "range": {
+        "startLine": 297,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 65
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09f5a33c_a3fe8f56",
         "filename": "xfa/fxfa/cxfa_fileread.cpp",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2017-04-13T16:58:47Z",
       "side": 1,
       "message": "maybe not.  I could see a caller wanting to be agnostic about whether reads are supported, and just expecting to get back an error.  Should this return -1 ?",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "58c6501a00a73a6acd5a4f62b3a85b0033194300",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0edfaa28_5d557cd9",
+        "filename": "xfa/fxfa/cxfa_fileread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T19:41:48Z",
+      "side": 1,
+      "message": "I\u0027d prefer to remove this class then use it more generally if possible. I\u0027ve left the assert in so we\u0027d see the issue in DEBUG and changed the return to -1 so it would at least return an error in PROD.",
+      "parentUuid": "09f5a33c_a3fe8f56",
       "range": {
         "startLine": 59,
         "startChar": 2,
