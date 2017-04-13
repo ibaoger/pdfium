@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fgas/crt/ifgas_stream.h"
+#include "xfa/fgas/crt/cfgas_stream.h"
 
 #if _FX_OS_ == _FX_WIN32_DESKTOP_ || _FX_OS_ == _FX_WIN32_MOBILE_ || \
     _FX_OS_ == _FX_WIN64_
@@ -22,39 +22,6 @@
 #include "xfa/fgas/crt/fgas_codepage.h"
 
 namespace {
-
-class CFGAS_Stream : public IFGAS_Stream {
- public:
-  template <typename T, typename... Args>
-  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
-
-  // IFGAS_Stream
-  FX_FILESIZE GetLength() const override { return m_pStream->GetSize(); }
-  FX_FILESIZE GetPosition() override { return m_iPosition; }
-  FX_STRSIZE GetBOMLength() const override { return std::max(0, m_wBOMLength); }
-  FX_STRSIZE ReadString(wchar_t* pStr,
-                        FX_STRSIZE iMaxLength,
-                        bool* bEOS) override;
-  void Seek(FX_STREAMSEEK eSeek, FX_FILESIZE iOffset) override;
-  bool IsEOF() const override { return m_iPosition >= GetLength(); }
-  void WriteString(const CFX_WideStringC& str) override;
-  uint16_t GetCodePage() const override { return m_wCodePage; }
-  void SetCodePage(uint16_t wCodePage) override;
-
- private:
-  CFGAS_Stream(const CFX_RetainPtr<IFX_SeekableStream>& stream,
-               bool isWriteSteam);
-  ~CFGAS_Stream() override;
-
-  FX_STRSIZE ReadData(uint8_t* pBuffer, FX_STRSIZE iBufferSize);
-  void WriteData(const CFX_WideStringC& str);
-
-  uint16_t m_wCodePage;
-  FX_STRSIZE m_wBOMLength;
-  bool m_IsWriteStream;
-  FX_FILESIZE m_iPosition;
-  CFX_RetainPtr<IFX_SeekableStream> m_pStream;
-};
 
 // Returns {src bytes consumed, dst bytes produced}.
 std::pair<FX_STRSIZE, FX_STRSIZE> UTF8Decode(const char* pSrc,
@@ -160,6 +127,8 @@ void SwapByteOrder(wchar_t* pStr, FX_STRSIZE iLength) {
     pStr++;
   }
 }
+
+}  // namespace
 
 #if _FX_ENDIAN_ == _FX_LITTLE_ENDIAN_
 #define BOM_MASK 0x00FFFFFF
@@ -310,24 +279,6 @@ FX_STRSIZE CFGAS_Stream::ReadString(wchar_t* pStr,
   return iMaxLength;
 }
 
-void CFGAS_Stream::WriteData(const CFX_WideStringC& str) {
-  if (!m_IsWriteStream)
-    return;
-  if (str.GetLength() == 0)
-    return;
-
-  if (m_pStream->WriteBlock(str.c_str(), m_iPosition,
-                            str.GetLength() * sizeof(wchar_t))) {
-    pdfium::base::CheckedNumeric<FX_STRSIZE> new_pos = m_iPosition;
-    new_pos += str.GetLength();
-    // TODO(dsinclair): Not sure what to do if we over flow ....
-    if (!new_pos.IsValid())
-      return;
-
-    m_iPosition = new_pos.ValueOrDie();
-  }
-}
-
 void CFGAS_Stream::WriteString(const CFX_WideStringC& str) {
   if (!m_IsWriteStream)
     return;
@@ -336,25 +287,15 @@ void CFGAS_Stream::WriteString(const CFX_WideStringC& str) {
   if (m_wCodePage != FX_CODEPAGE_UTF8)
     return;
 
-  WriteData(str);
-}
+  if (!m_pStream->WriteBlock(str.c_str(), m_iPosition,
+                             str.GetLength() * sizeof(wchar_t)))
+    return;
 
-}  // namespace
+  pdfium::base::CheckedNumeric<FX_STRSIZE> new_pos = m_iPosition;
+  new_pos += str.GetLength();
+  // TODO(dsinclair): Not sure what to do if we over flow ....
+  if (!new_pos.IsValid())
+    return;
 
-// static
-CFX_RetainPtr<IFGAS_Stream> IFGAS_Stream::CreateReadStream(
-    const CFX_RetainPtr<IFX_SeekableStream>& pFileRead) {
-  if (!pFileRead)
-    return nullptr;
-
-  return pdfium::MakeRetain<CFGAS_Stream>(pFileRead, false);
-}
-
-// static
-CFX_RetainPtr<IFGAS_Stream> IFGAS_Stream::CreateWriteStream(
-    const CFX_RetainPtr<IFX_SeekableStream>& pFileWrite) {
-  if (!pFileWrite)
-    return nullptr;
-
-  return pdfium::MakeRetain<CFGAS_Stream>(pFileWrite, true);
+  m_iPosition = new_pos.ValueOrDie();
 }
