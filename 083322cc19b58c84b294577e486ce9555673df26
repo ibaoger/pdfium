@@ -16,6 +16,24 @@
       "revId": "083322cc19b58c84b294577e486ce9555673df26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f718808_e721852c",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-13T16:03:27Z",
+      "side": 1,
+      "message": "This is why it should take a CFX_WideStringC ...",
+      "parentUuid": "44988a99_20d8440b",
+      "revId": "083322cc19b58c84b294577e486ce9555673df26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
