@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1112c00a_8465f803",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-13T07:10:38Z",
+      "side": 1,
+      "message": "nit: Add a blank line before this. We separate conditional the #includes.",
+      "revId": "a9bb4902399b1c94ebb9c9e5a7d1ec455cb043d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d3d5d27_b19d1a57",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-13T07:10:38Z",
+      "side": 1,
+      "message": "Did you mean to write use_system_zlib here? The variable is otherwise unused.",
+      "range": {
+        "startLine": 328,
+        "startChar": 8,
+        "endLine": 328,
+        "endChar": 26
+      },
+      "revId": "a9bb4902399b1c94ebb9c9e5a7d1ec455cb043d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
