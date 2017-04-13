@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66226cab_d5a591c2",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "143512e6_41336440",
+      "range": {
+        "startLine": 159,
+        "startChar": 56,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5aa81a4_fcfbde98",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "367986fe_35769e05",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Done. I don\u0027t, but i\u0027m also lazy, heh.",
+      "parentUuid": "c5aa81a4_fcfbde98",
+      "range": {
+        "startLine": 248,
+        "startChar": 6,
+        "endLine": 248,
+        "endChar": 13
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "671c2fbb_f14e6a05",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef20d957_de268dd5",
+      "range": {
+        "startLine": 256,
+        "startChar": 5,
+        "endLine": 256,
+        "endChar": 11
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec65cf28_8111c7be",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-13T15:46:36Z",
       "side": 1,
       "message": "These two cases are the same.",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 12
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "633412f9_41c5c3c0",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "+\u003d vs \u003d",
+      "parentUuid": "ec65cf28_8111c7be",
       "range": {
         "startLine": 274,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c40fff7f_aba19386",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac4f015e_7984b74b",
+      "range": {
+        "startLine": 337,
+        "startChar": 3,
+        "endLine": 344,
+        "endChar": 3
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fe4628e_0be29d72",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-13T15:46:36Z",
       "side": 1,
       "message": "Maybe write should be allowed to fail (return 0)",
+      "range": {
+        "startLine": 358,
+        "startChar": 4,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7093cbc7_935559f2",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Possibly, I\u0027m going to leave this for a followup because none of the callers will be checking for failure. We\u0027ll need to figure out to do in all those cases if we change this.",
+      "parentUuid": "3fe4628e_0be29d72",
       "range": {
         "startLine": 358,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "14d1053a_06ff6ee6",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dbfa22d_c526aa2d",
+      "range": {
+        "startLine": 511,
+        "startChar": 4,
+        "endLine": 511,
+        "endChar": 36
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60722ea8_8c56b527",
         "filename": "xfa/fgas/crt/ifgas_stream.cpp",
         "patchSetId": 7
@@ -183,6 +351,30 @@
       "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc2468d3_2db9096d",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T17:47:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60722ea8_8c56b527",
+      "range": {
+        "startLine": 565,
+        "startChar": 1,
+        "endLine": 572,
+        "endChar": 3
+      },
+      "revId": "545f6fb11d6f6109c54910d2c6fdaaa67252ff9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
