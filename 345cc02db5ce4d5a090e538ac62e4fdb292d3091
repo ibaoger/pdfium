@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "455e2b9a_ef39d63c",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-13T20:32:06Z",
+      "side": 1,
+      "message": "Were these return paths leaks in the past as m_pAcroForm would not have been freed?",
+      "revId": "345cc02db5ce4d5a090e538ac62e4fdb292d3091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
