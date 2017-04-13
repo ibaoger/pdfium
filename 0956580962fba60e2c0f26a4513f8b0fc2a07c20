@@ -93,6 +93,30 @@
       "revId": "0956580962fba60e2c0f26a4513f8b0fc2a07c20",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad8ea749_f7a70a36",
+        "filename": "testing/resources/form.pdf",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-13T19:13:46Z",
+      "side": 1,
+      "message": "The problem with hand-written PDFs is that when we want to edit them, we need to go thru a lot of work to make the XREF table sane, as well as to keep some binary offsets sane.  If we need to edit this, then there\u0027s a lot of work.\n\n.in is something I cobbled together to solve those two annoying issues.  Its exactly like a pdf,\nexcept a few declarations (e.g. objects, the xref table) are replaced by macros. \n\nthe script testing/toos/fixup_pdf_template.py peforms the expansion, and documents the syntax.\nYou\u0027ll want to just look at some existing files as an example.",
+      "parentUuid": "736c3a92_8b6cdcf1",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "0956580962fba60e2c0f26a4513f8b0fc2a07c20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
