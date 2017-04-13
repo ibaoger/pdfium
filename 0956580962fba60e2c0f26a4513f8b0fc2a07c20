@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c95f7141_e036a963",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-13T17:31:49Z",
+      "side": 1,
+      "message": "nit: maybe consolidate these into a single ifdef block at line 208 .",
+      "range": {
+        "startLine": 218,
+        "startChar": 3,
+        "endLine": 218,
+        "endChar": 57
+      },
+      "revId": "0956580962fba60e2c0f26a4513f8b0fc2a07c20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3d18914_e2a6841e",
+        "filename": "testing/resources/form.pdf",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-13T17:31:49Z",
+      "side": 1,
+      "message": "got a .in file from which this was generated?  Or did you produce this in some other manner?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "0956580962fba60e2c0f26a4513f8b0fc2a07c20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
