@@ -31,16 +31,14 @@ CFWL_NoteDriver::CFWL_NoteDriver()
   PushNoteLoop(m_pNoteLoop.get());
 }
 
-CFWL_NoteDriver::~CFWL_NoteDriver() {
-  ClearEventTargets(true);
-}
+CFWL_NoteDriver::~CFWL_NoteDriver() {}
 
 void CFWL_NoteDriver::SendEvent(CFWL_Event* pNote) {
   if (m_eventTargets.empty())
     return;
 
   for (const auto& pair : m_eventTargets) {
-    CFWL_EventTarget* pEventTarget = pair.second;
+    CFWL_EventTarget* pEventTarget = pair.second.get();
     if (pEventTarget && !pEventTarget->IsInvalid())
       pEventTarget->ProcessEvent(pNote);
   }
@@ -56,7 +54,7 @@ void CFWL_NoteDriver::RegisterEventTarget(CFWL_Widget* pListener,
     pListener->SetEventKey(key);
   }
   if (!m_eventTargets[key])
-    m_eventTargets[key] = new CFWL_EventTarget(pListener);
+    m_eventTargets[key] = pdfium::MakeUnique<CFWL_EventTarget>(pListener);
 
   m_eventTargets[key]->SetEventSource(pEventSource);
 }
@@ -445,13 +443,11 @@ CFWL_Widget* CFWL_NoteDriver::GetMessageForm(CFWL_Widget* pDstTarget) {
   return pMessageForm;
 }
 
-void CFWL_NoteDriver::ClearEventTargets(bool bRemoveAll) {
+void CFWL_NoteDriver::ClearEventTargets() {
   auto it = m_eventTargets.begin();
   while (it != m_eventTargets.end()) {
     auto old = it++;
-    if (old->second && (bRemoveAll || old->second->IsInvalid())) {
-      delete old->second;
+    if (old->second && old->second->IsInvalid())
       m_eventTargets.erase(old);
-    }
   }
 }
