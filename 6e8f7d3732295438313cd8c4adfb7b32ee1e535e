@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8d284e9_f84e153c",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-15T00:08:58Z",
+      "side": 1,
+      "message": "this really needs to be a helper method.",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "6e8f7d3732295438313cd8c4adfb7b32ee1e535e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
