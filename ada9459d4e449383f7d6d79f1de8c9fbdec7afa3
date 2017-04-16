@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24c93e15_fc419a41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "omit",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8556270f_ab592503",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Put this in Reset() ?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc6f7e8_a275e75b",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Doesn\u0027t negative length mean \"calculate the string length\" ?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22be6b20_7962675e",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Can we avoid constructing |csEntity| if we already know the length \u003c\u003d 0?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7291d47_fbcfb79a",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Can we put FXSYS_toHexDigit() to use here?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27012795_08249ed7",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Wait, does the \" - 2\" belong here?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69421e1a_c8b0fbc8",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Missing a \"!\" ?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b547408f_c7c47f5f",
+        "filename": "core/fxcrt/xml/cfx_saxreader_unittest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:11:35Z",
+      "side": 1,
+      "message": "Two copyright notices?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
