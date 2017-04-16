@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dfdc4a0_4328d105",
+        "filename": "core/fxcrt/xml/cfx_saxreader.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:19:45Z",
+      "side": 1,
+      "message": "Add an empty virtual dtor.",
+      "revId": "2dce287147cfa6e545b6b7557c91d9628cbe5596",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9476ee60_03824be6",
+        "filename": "core/fxcrt/xml/cfx_saxreaderhandler.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-16T04:19:45Z",
+      "side": 1,
+      "message": "and override",
+      "revId": "2dce287147cfa6e545b6b7557c91d9628cbe5596",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
