@@ -20,9 +20,12 @@
  * limitations under the License.
  */
 
+#include "fxbarcode/oned/BC_OnedCode128Writer.h"
+
+#include <memory>
+
 #include "fxbarcode/BC_Writer.h"
 #include "fxbarcode/oned/BC_OneDimWriter.h"
-#include "fxbarcode/oned/BC_OnedCode128Writer.h"
 
 namespace {
 
@@ -82,22 +85,19 @@ BC_TYPE CBC_OnedCode128Writer::GetType() {
 }
 bool CBC_OnedCode128Writer::CheckContentValidity(
     const CFX_WideStringC& contents) {
-  bool ret = true;
+  if (m_codeFormat != BC_CODE128_B && m_codeFormat != BC_CODE128_C)
+    return false;
+
   int32_t position = 0;
   int32_t patternIndex = -1;
-  if (m_codeFormat == BC_CODE128_B || m_codeFormat == BC_CODE128_C) {
-    while (position < contents.GetLength()) {
-      patternIndex = (int32_t)contents.GetAt(position);
-      if (patternIndex < 32 || patternIndex > 126 || patternIndex == 34) {
-        ret = false;
-        break;
-      }
-      position++;
+  while (position < contents.GetLength()) {
+    patternIndex = (int32_t)contents.GetAt(position);
+    if (patternIndex < 32 || patternIndex > 126 || patternIndex == 34) {
+      return false;
     }
-  } else {
-    ret = false;
+    position++;
   }
-  return ret;
+  return true;
 }
 CFX_WideString CBC_OnedCode128Writer::FilterContents(
     const CFX_WideStringC& contents) {
@@ -142,32 +142,18 @@ bool CBC_OnedCode128Writer::SetTextLocation(BC_TEXT_LOC location) {
   m_locTextLoc = location;
   return true;
 }
-uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
-                                       BCFORMAT format,
-                                       int32_t& outWidth,
-                                       int32_t& outHeight,
-                                       int32_t hints,
-                                       int32_t& e) {
-  if (format != BCFORMAT_CODE_128) {
-    e = BCExceptionOnlyEncodeCODE_128;
+
+uint8_t* CBC_OnedCode128Writer::EncodeWithHint(const CFX_ByteString& contents,
+                                               BCFORMAT format,
+                                               int32_t& outWidth,
+                                               int32_t& outHeight,
+                                               int32_t hints) {
+  if (format != BCFORMAT_CODE_128)
     return nullptr;
-  }
-  uint8_t* ret =
-      CBC_OneDimWriter::Encode(contents, format, outWidth, outHeight, hints, e);
-  if (e != BCExceptionNO)
-    return nullptr;
-  return ret;
+  return CBC_OneDimWriter::EncodeWithHint(contents, format, outWidth, outHeight,
+                                          hints);
 }
-uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
-                                       BCFORMAT format,
-                                       int32_t& outWidth,
-                                       int32_t& outHeight,
-                                       int32_t& e) {
-  uint8_t* ret = Encode(contents, format, outWidth, outHeight, 0, e);
-  if (e != BCExceptionNO)
-    return nullptr;
-  return ret;
-}
+
 bool CBC_OnedCode128Writer::IsDigits(const CFX_ByteString& contents,
                                      int32_t start,
                                      int32_t length) {
@@ -180,13 +166,11 @@ bool CBC_OnedCode128Writer::IsDigits(const CFX_ByteString& contents,
   return true;
 }
 
-uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
-                                       int32_t& outLength,
-                                       int32_t& e) {
-  if (contents.GetLength() < 1 || contents.GetLength() > 80) {
-    e = BCExceptionGeneric;
+uint8_t* CBC_OnedCode128Writer::EncodeImpl(const CFX_ByteString& contents,
+                                           int32_t& outLength) {
+  if (contents.GetLength() < 1 || contents.GetLength() > 80)
     return nullptr;
-  }
+
   std::vector<const int32_t*> patterns;
   int32_t checkSum = 0;
   if (m_codeFormat == BC_CODE128_B) {
@@ -194,7 +178,6 @@ uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
   } else if (m_codeFormat == BC_CODE128_C) {
     checkSum = Encode128C(contents, &patterns);
   } else {
-    e = BCExceptionFormatException;
     return nullptr;
   }
   checkSum %= 103;
@@ -209,17 +192,16 @@ uint8_t* CBC_OnedCode128Writer::Encode(const CFX_ByteString& contents,
     }
   }
   outLength = codeWidth;
-  uint8_t* result = FX_Alloc(uint8_t, outLength);
+  std::unique_ptr<uint8_t, FxFreeDeleter> result(FX_Alloc(uint8_t, outLength));
   int32_t pos = 0;
   for (size_t j = 0; j < patterns.size(); j++) {
     const int32_t* pattern = patterns[j];
-    pos += AppendPattern(result, pos, pattern, 7, 1, e);
-    if (e != BCExceptionNO) {
-      FX_Free(result);
+    int32_t e = BCExceptionNO;
+    pos += AppendPattern(result.get(), pos, pattern, 7, 1, e);
+    if (e != BCExceptionNO)
       return nullptr;
-    }
   }
-  return result;
+  return result.release();
 }
 
 int32_t CBC_OnedCode128Writer::Encode128B(

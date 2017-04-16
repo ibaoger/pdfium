@@ -20,21 +20,13 @@ class CBC_OnedCode128Writer : public CBC_OneDimWriter {
   ~CBC_OnedCode128Writer() override;
 
   // CBC_OneDimWriter
-  uint8_t* Encode(const CFX_ByteString& contents,
-                  BCFORMAT format,
-                  int32_t& outWidth,
-                  int32_t& outHeight,
-                  int32_t hints,
-                  int32_t& e) override;
-  uint8_t* Encode(const CFX_ByteString& contents,
-                  BCFORMAT format,
-                  int32_t& outWidth,
-                  int32_t& outHeight,
-                  int32_t& e) override;
-  uint8_t* Encode(const CFX_ByteString& contents,
-                  int32_t& outLength,
-                  int32_t& e) override;
-
+  uint8_t* EncodeWithHint(const CFX_ByteString& contents,
+                          BCFORMAT format,
+                          int32_t& outWidth,
+                          int32_t& outHeight,
+                          int32_t hints) override;
+  uint8_t* EncodeImpl(const CFX_ByteString& contents,
+                      int32_t& outLength) override;
   bool CheckContentValidity(const CFX_WideStringC& contents) override;
   CFX_WideString FilterContents(const CFX_WideStringC& contents) override;
 

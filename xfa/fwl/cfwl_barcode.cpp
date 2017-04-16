@@ -52,9 +52,7 @@ void CFWL_Barcode::DrawWidget(CFX_Graphics* pGraphics,
     if (pMatrix)
       mt.Concat(*pMatrix);
 
-    int32_t errorCode = 0;
-    m_pBarcodeEngine->RenderDevice(pGraphics->GetRenderDevice(), pMatrix,
-                                   errorCode);
+    m_pBarcodeEngine->RenderDevice(pGraphics->GetRenderDevice(), pMatrix);
     return;
   }
   CFWL_Edit::DrawWidget(pGraphics, pMatrix);
@@ -206,8 +204,7 @@ void CFWL_Barcode::GenerateBarcodeImageCache() {
   if (m_dwAttributeMask & FWL_BCDATTRIBUTE_TRUNCATED)
     m_pBarcodeEngine->SetTruncated(m_bTruncated);
 
-  int32_t errorCode = 0;
-  m_dwStatus = m_pBarcodeEngine->Encode(GetText().AsStringC(), true, errorCode)
+  m_dwStatus = m_pBarcodeEngine->Encode(GetText().AsStringC(), true)
                    ? XFA_BCS_EncodeSuccess
                    : 0;
 }
