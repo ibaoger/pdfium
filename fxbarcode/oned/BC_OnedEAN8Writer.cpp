@@ -61,6 +61,14 @@ bool CBC_OnedEAN8Writer::CheckContentValidity(const CFX_WideStringC& contents) {
     }
   }
   return true;
+  for (int32_t i = 0; i < contents.GetLength(); i++) {
+    if (contents.GetAt(i) >= '0' && contents.GetAt(i) <= '9') {
+      continue;
+    } else {
+      return false;
+    }
+  }
+  return true;
 }
 CFX_WideString CBC_OnedEAN8Writer::FilterContents(
     const CFX_WideStringC& contents) {
