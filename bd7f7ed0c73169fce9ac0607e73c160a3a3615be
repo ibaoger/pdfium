@@ -1,4 +1,143 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1492332456 -0700\nnonce AFMZ2GzUHjTt1sS9D8+SQVYcQ6b9HT3nyzhyVODmwtA1LlkAfho6gOdQ0fVWfTOL8c83rTfm3Jru\n\n0000000000000000000000000000000000000000 bd7f7ed0c73169fce9ac0607e73c160a3a3615be refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY8y+oAAoJEKs2LWFaZv17ZGUH/iBDTjoUyVNjSYYw98l6fEAE\n1FvrtuLKwJyUpdX/RFwPmjfgkKi1OkGOFo5co3trF5nc1v8gpFpm8OU0JlRquiP1\njH6yodlHuRZwlVBBiZAmjT4J9aFb142xXlHQCXUyPTvzsHGnVpdZk2esd8N/M6Gd\nsriSBecixRBHfndDcyeCyis5Br6TxsDIAlGF37bhhNIUQExRMIxWeIJIDWdSWiSW\nzuqDZdnA93xU6ZcMTV11I0xTB7vW5v3MqY167nGb6JfVSU5Nup+AXPqn/l+wZSpp\neYBBSBlCQQOzqIovwnlUblhQKQfp1ZsKrmV8WYXwLrOCLfftvuBg9H5fZ9h3tRc\u003d\n\u003dCPk0\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "f81ebdcc_f9373de9",
+        "filename": "fxbarcode/cbc_code128.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "maybe move to line 44 to avoid call at line 46?",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d60aa3_63aea041",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "contents.Find() despite its icky return semantics?",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 33
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a5fbf6f_8fec1fa8",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "? opers ???",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 22
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87323c7c_be6dc43b",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "Infinite recursion?",
+      "range": {
+        "startLine": 144,
+        "startChar": 33,
+        "endLine": 144,
+        "endChar": 41
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a0df83_11ae8fc9",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "these all look like int8_t\u0027s to me.  Maybe save some zeros?",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1206b8db_a6297fbc",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T19:22:58Z",
+      "side": 1,
+      "message": "pity these don\u0027t have iterators.  std::all_of() might be cool.",
+      "range": {
+        "startLine": 60,
+        "startChar": 26,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
