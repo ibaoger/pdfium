@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6aad460c_1b268d37",
+        "filename": "fxbarcode/BC_TwoDimWriter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T19:11:40Z",
+      "side": 0,
+      "message": "I think we can still attach a bitmap to a CFX_RenderDevice, like we do in FPDF_RenderPageBitmap().",
+      "parentUuid": "d42c4d2c_1112b8ea",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "ba91bed89a9fecfae3e175abcd4e333057e3f9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ed0ea98_8b417a60",
         "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
         "patchSetId": 1
