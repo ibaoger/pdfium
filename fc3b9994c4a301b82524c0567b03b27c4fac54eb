@@ -23,6 +23,30 @@
       "revId": "fc3b9994c4a301b82524c0567b03b27c4fac54eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45580611_607bf3dd",
+        "filename": "docs/getting-started.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T19:03:21Z",
+      "side": 1,
+      "message": "I believe so. The example doesn\u0027t do V8 initialization. e.g. InitializeV8ForPDFium() from test_support.cpp.\n\ndocs/v8-getting-started.md is empty, but that\u0027s another story.",
+      "parentUuid": "9c027e05_34ec57a6",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "fc3b9994c4a301b82524c0567b03b27c4fac54eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
