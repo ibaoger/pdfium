@@ -4,10 +4,12 @@
 
 #include "core/fxcrt/cfx_bytestring.h"
 
+#include <algorithm>
 #include <vector>
 
 #include "testing/fx_string_testhelpers.h"
 #include "testing/gtest/include/gtest/gtest.h"
+#include "third_party/base/stl_util.h"
 
 TEST(fxcrt, ByteStringOperatorSubscript) {
   // CFX_ByteString includes the NUL terminator for non-empty strings.
@@ -1029,6 +1031,73 @@ TEST(fxcrt, ByteStringCOperatorNE) {
   EXPECT_TRUE(c_string1 != byte_string_c);
   EXPECT_TRUE(c_string2 != byte_string_c);
   EXPECT_TRUE(c_string3 != byte_string_c);
+}
+
+TEST(fxcrt, ByteStringCNullIterator) {
+  CFX_ByteStringC null_str;
+  uint32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : null_str) {
+    sum += c;  // Avoid unused arg warnings.
+    any_present = true;
+  }
+  EXPECT_FALSE(any_present);
+  EXPECT_EQ(0u, sum);
+}
+
+TEST(fxcrt, ByteStringCEmptyIterator) {
+  CFX_ByteStringC empty_str("");
+  uint32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : empty_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_FALSE(any_present);
+  EXPECT_EQ(0u, sum);
+}
+
+TEST(fxcrt, ByteStringCOneCharIterator) {
+  CFX_ByteStringC one_str("a");
+  uint32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : one_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_TRUE(any_present);
+  EXPECT_EQ('a', static_cast<int32_t>(sum));
+}
+
+TEST(fxcrt, ByteStringCMultiCharIterator) {
+  CFX_ByteStringC one_str("abc");
+  uint32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : one_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_TRUE(any_present);
+  EXPECT_EQ('a' + 'b' + 'c', static_cast<int32_t>(sum));
+}
+
+TEST(fxcrt, ByteStringCAnyAllNoneOf) {
+  CFX_ByteStringC str("aaaaaaaaaaaaaaaaab");
+  EXPECT_FALSE(std::all_of(str.begin(), str.end(), [](const uint8_t& c) {
+    return c == static_cast<uint8_t>('a');
+  }));
+
+  EXPECT_FALSE(std::none_of(str.begin(), str.end(), [](const uint8_t& c) {
+    return c == static_cast<uint8_t>('a');
+  }));
+
+  EXPECT_TRUE(std::any_of(str.begin(), str.end(), [](const uint8_t& c) {
+    return c == static_cast<uint8_t>('a');
+  }));
+
+  EXPECT_TRUE(pdfium::ContainsValue(str, 'a'));
+  EXPECT_TRUE(pdfium::ContainsValue(str, 'b'));
+  EXPECT_FALSE(pdfium::ContainsValue(str, 'z'));
 }
 
 TEST(fxcrt, ByteStringFormatWidth) {
