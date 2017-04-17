@@ -871,6 +871,70 @@ TEST(fxcrt, WideStringCFind) {
   EXPECT_EQ(2, hibyte_string.Find(L'\xff08'));
 }
 
+TEST(fxcrt, WideStringCNullIterator) {
+  CFX_WideStringC null_str;
+  int32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : null_str) {
+    sum += c;  // Avoid unused arg warnings.
+    any_present = true;
+  }
+  EXPECT_FALSE(any_present);
+  EXPECT_EQ(0, sum);
+}
+
+TEST(fxcrt, WideStringCEmptyIterator) {
+  CFX_WideStringC empty_str(L"");
+  int32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : empty_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_FALSE(any_present);
+  EXPECT_EQ(0, sum);
+}
+
+TEST(fxcrt, WideStringCOneCharIterator) {
+  CFX_WideStringC one_str(L"a");
+  int32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : one_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_TRUE(any_present);
+  EXPECT_EQ(L'a', sum);
+}
+
+TEST(fxcrt, WideStringCMultiCharIterator) {
+  CFX_WideStringC one_str(L"abc");
+  int32_t sum = 0;
+  bool any_present = false;
+  for (const auto& c : one_str) {
+    any_present = true;
+    sum += c;  // Avoid unused arg warnings.
+  }
+  EXPECT_TRUE(any_present);
+  EXPECT_EQ(L'a' + L'b' + L'c', sum);
+}
+
+TEST(fxcrt, WideStringCAnyAllNoneOf) {
+  CFX_WideStringC str(L"aaaaaaaaaaaaaaaaab");
+  EXPECT_FALSE(std::all_of(str.begin(), str.end(),
+                           [](const wchar_t& c) { return c == L'a'; }));
+
+  EXPECT_FALSE(std::none_of(str.begin(), str.end(),
+                            [](const wchar_t& c) { return c == L'a'; }));
+
+  EXPECT_TRUE(std::any_of(str.begin(), str.end(),
+                          [](const wchar_t& c) { return c == L'a'; }));
+
+  EXPECT_TRUE(pdfium::ContainsValue(str, L'a'));
+  EXPECT_TRUE(pdfium::ContainsValue(str, L'b'));
+  EXPECT_FALSE(pdfium::ContainsValue(str, L'z'));
+}
+
 TEST(fxcrt, WideStringFormatWidth) {
   {
     CFX_WideString str;
