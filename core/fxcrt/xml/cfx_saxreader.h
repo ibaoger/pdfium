@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <stack>
+#include <vector>
 
 #include "core/fxcrt/fx_basic.h"
 
@@ -101,10 +102,12 @@ class CFX_SAXReader {
                      uint32_t dwLen = -1,
                      uint32_t dwParseMode = 0);
   int32_t ContinueParse(IFX_Pause* pPause = nullptr);
+  void SetHandler(CFX_SAXReader::HandlerIface* pHandler) {
+    m_pHandler = pHandler;
+  }
+
+ private:
   void SkipCurrentNode();
-  void SetHandler(HandlerIface* pHandler) { m_pHandler = pHandler; }
-  void AppendData(uint8_t ch);
-  void AppendName(uint8_t ch);
   void ParseText();
   void ParseNodeStart();
   void ParseInstruction();
@@ -120,9 +123,16 @@ class CFX_SAXReader {
   void ParseTagClose();
   void ParseTagEnd();
   void ParseTargetData();
-
- private:
+  void ParseInternal();
   void Reset();
+  void ClearData();
+  void ClearName();
+  void AppendToData(uint8_t ch);
+  void AppendToName(uint8_t ch);
+  void BackUpAndReplaceDataAt(int32_t index, uint8_t ch);
+  bool IsEntityStart(uint8_t ch) const;
+  bool IsEntityEnd(uint8_t ch) const;
+  int32_t CurrentDataIndex() const;
   void Push();
   void Pop();
   CFX_SAXItem* GetCurrentItem() const;
@@ -152,14 +162,9 @@ class CFX_SAXReader {
   std::stack<char> m_SkipStack;
   uint8_t m_SkipChar;
   uint32_t m_dwNodePos;
-  uint8_t* m_pszData;
-  int32_t m_iDataSize;
-  int32_t m_iDataLength;
-  int32_t m_iEntityStart;
-  int32_t m_iDataPos;
-  uint8_t* m_pszName;
-  int32_t m_iNameSize;
-  int32_t m_iNameLength;
+  std::vector<uint8_t> m_Data;
+  int32_t m_iEntityStart;  // Index into m_Data.
+  std::vector<uint8_t> m_Name;
   uint32_t m_dwParseMode;
   std::unique_ptr<CFX_SAXCommentContext> m_pCommentContext;
 };
