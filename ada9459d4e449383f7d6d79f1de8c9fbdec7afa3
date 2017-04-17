@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c65848d4_b68cd8cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c93e15_fc419a41",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8556270f_ab592503",
         "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
         "patchSetId": 14
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cdd4ef93_23a2141c",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8556270f_ab592503",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecc6f7e8_a275e75b",
         "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
         "patchSetId": 14
@@ -53,6 +95,24 @@
       "writtenOn": "2017-04-16T04:11:35Z",
       "side": 1,
       "message": "Doesn\u0027t negative length mean \"calculate the string length\" ?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36c10c85_0782a547",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Char* and uint8_t* constructors differ in that only the char* does a length calculation on negative.  We assume that the uint8_t case might have 0s.",
+      "parentUuid": "ecc6f7e8_a275e75b",
       "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "aa31dfa1_6bb76a3a",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Yea, but this is cheap.  There\u0027s no alloc etc.",
+      "parentUuid": "22be6b20_7962675e",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7291d47_fbcfb79a",
         "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
         "patchSetId": 14
@@ -87,6 +165,24 @@
       "writtenOn": "2017-04-16T04:11:35Z",
       "side": 1,
       "message": "Can we put FXSYS_toHexDigit() to use here?",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f594efee_b7a47042",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "follow-up",
+      "parentUuid": "d7291d47_fbcfb79a",
       "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "8750d351_fd5f068e",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "No, that\u0027s obviously a botch.  Done.",
+      "parentUuid": "27012795_08249ed7",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69421e1a_c8b0fbc8",
         "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
         "patchSetId": 14
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "96a8f03e_ce7c0233",
+        "filename": "core/fxcrt/xml/cfx_saxreader.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69421e1a_c8b0fbc8",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b547408f_c7c47f5f",
         "filename": "core/fxcrt/xml/cfx_saxreader_unittest.cpp",
         "patchSetId": 14
@@ -141,6 +273,24 @@
       "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f230bad_8876ddc9",
+        "filename": "core/fxcrt/xml/cfx_saxreader_unittest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-17T20:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b547408f_c7c47f5f",
+      "revId": "ada9459d4e449383f7d6d79f1de8c9fbdec7afa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
