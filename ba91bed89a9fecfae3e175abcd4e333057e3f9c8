@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ed0ea98_8b417a60",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T18:56:41Z",
+      "side": 0,
+      "message": "Always true once we remove the |pOutBitmap| check on line 257 above.",
+      "revId": "ba91bed89a9fecfae3e175abcd4e333057e3f9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fce98b0_7eb3783e",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T18:56:41Z",
+      "side": 0,
+      "message": "This would have called ShowChars() with a valid |pOutBitmap|.",
+      "revId": "ba91bed89a9fecfae3e175abcd4e333057e3f9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9c1b42_ff167dec",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T18:56:41Z",
+      "side": 0,
+      "message": "And now this is the only caller left.",
+      "revId": "ba91bed89a9fecfae3e175abcd4e333057e3f9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f70c7290_e498ba62",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-17T18:56:41Z",
+      "side": 0,
+      "message": "Always NULL.",
+      "revId": "ba91bed89a9fecfae3e175abcd4e333057e3f9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
