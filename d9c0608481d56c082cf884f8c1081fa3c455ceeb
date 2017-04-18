@@ -22,6 +22,30 @@
       "revId": "d9c0608481d56c082cf884f8c1081fa3c455ceeb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18892982_8bab0550",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f331774_d02ef8d6",
+      "range": {
+        "startLine": 344,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 11
+      },
+      "revId": "d9c0608481d56c082cf884f8c1081fa3c455ceeb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
