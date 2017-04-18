@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "406e9d10_fa5c1cae",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 0,
+      "message": "Why is the encoder no longer needed here?",
+      "range": {
+        "startLine": 546,
+        "startChar": 2,
+        "endLine": 546,
+        "endChar": 24
+      },
+      "revId": "cec01808e8b155f598b2a9ea527736ce774e76a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

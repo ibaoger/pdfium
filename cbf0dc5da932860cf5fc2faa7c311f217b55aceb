@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f548b30_37a4fa85",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "This is WriteString, data for us is uint8_t*. Ditto some of the WriteData\u0027s below",
+      "range": {
+        "startLine": 37,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a670da6a_1fb5e13b",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be +\u003d str.GetLength() * sizeof(wchar_t)? If it is, just create variable size after line 326",
+      "range": {
+        "startLine": 330,
+        "startChar": 15,
+        "endLine": 330,
+        "endChar": 16
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e557bf_b62cc42b",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "should this be sizeof(wchar_t)?",
+      "range": {
+        "startLine": 440,
+        "startChar": 24,
+        "endLine": 440,
+        "endChar": 25
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bafe7221_8d7eab84",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "Could we do this check only in one of the methods? This method calls WriteData which is also doing the check.",
+      "range": {
+        "startLine": 480,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 11
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acda3aef_ea3ac167",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "This is only used as CFX_WideStringC, so could we keep it of that type instead of multiple .AsStringC calls?",
+      "range": {
+        "startLine": 359,
+        "startChar": 17,
+        "endLine": 359,
+        "endChar": 26
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "868d090e_629d7a32",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:00:51Z",
+      "side": 1,
+      "message": "Could we have an additional CFX_ByteStringC variable to avoid doing the UTF8Encode twice?",
+      "range": {
+        "startLine": 1408,
+        "startChar": 12,
+        "endLine": 1408,
+        "endChar": 37
+      },
+      "revId": "cbf0dc5da932860cf5fc2faa7c311f217b55aceb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
