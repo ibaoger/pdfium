@@ -9,8 +9,8 @@
 
 #include <memory>
 
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
-#include "xfa/fgas/crt/cfgas_stream.h"
 
 enum FDE_XMLNODETYPE {
   FDE_XMLNODE_Unknown = 0,
@@ -64,7 +64,7 @@ class CFDE_XMLNode {
   bool InsertNodeItem(CFDE_XMLNode::NodeItem eItem, CFDE_XMLNode* pNode);
   CFDE_XMLNode* RemoveNodeItem(CFDE_XMLNode::NodeItem eItem);
 
-  void SaveXMLNode(const CFX_RetainPtr<CFGAS_Stream>& pXMLStream);
+  void SaveXMLNode(const CFX_RetainPtr<CFX_BufferedStream>& pXMLStream);
 
   CFDE_XMLNode* m_pParent;
   CFDE_XMLNode* m_pChild;

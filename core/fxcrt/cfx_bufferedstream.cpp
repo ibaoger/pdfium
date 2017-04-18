@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fgas/crt/cfgas_stream.h"
+#include "core/fxcrt/cfx_bufferedstream.h"
 
 #if _FX_OS_ == _FX_WIN32_DESKTOP_ || _FX_OS_ == _FX_WIN32_MOBILE_ || \
     _FX_OS_ == _FX_WIN64_
@@ -17,10 +17,10 @@
 #include <utility>
 #include <vector>
 
+#include "core/fxcrt/fx_codepage.h"
 #include "core/fxcrt/fx_ext.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
-#include "xfa/fgas/crt/fgas_codepage.h"
 
 namespace {
 
@@ -145,8 +145,9 @@ void SwapByteOrder(wchar_t* pStr, FX_STRSIZE iLength) {
 #define BOM_UTF16_LE 0xFFFE0000
 #endif  // _FX_ENDIAN_ == _FX_LITTLE_ENDIAN_
 
-CFGAS_Stream::CFGAS_Stream(const CFX_RetainPtr<IFX_SeekableStream>& stream,
-                           bool isWriteStream)
+CFX_BufferedStream::CFX_BufferedStream(
+    const CFX_RetainPtr<IFX_SeekableStream>& stream,
+    bool isWriteStream)
     : m_wCodePage(FX_CODEPAGE_DefANSI),
       m_wBOMLength(0),
       m_IsWriteStream(isWriteStream),
@@ -160,7 +161,7 @@ CFGAS_Stream::CFGAS_Stream(const CFX_RetainPtr<IFX_SeekableStream>& stream,
   }
 
   FX_FILESIZE iPosition = GetPosition();
-  Seek(CFGAS_Stream::Pos::Begin, 0);
+  Seek(CFX_BufferedStream::Pos::Begin, 0);
 
   uint32_t bom;
   ReadData(reinterpret_cast<uint8_t*>(&bom), 3);
@@ -183,21 +184,22 @@ CFGAS_Stream::CFGAS_Stream(const CFX_RetainPtr<IFX_SeekableStream>& stream,
     }
   }
 
-  Seek(CFGAS_Stream::Pos::Begin,
+  Seek(CFX_BufferedStream::Pos::Begin,
        std::max(static_cast<FX_FILESIZE>(m_wBOMLength), iPosition));
 }
 
-CFGAS_Stream::CFGAS_Stream(uint8_t* data, FX_STRSIZE size)
-    : CFGAS_Stream(IFX_MemoryStream::Create(data, size), false) {}
+CFX_BufferedStream::CFX_BufferedStream(uint8_t* data, FX_STRSIZE size)
+    : CFX_BufferedStream(IFX_MemoryStream::Create(data, size), false) {}
 
-CFGAS_Stream::~CFGAS_Stream() {}
+CFX_BufferedStream::~CFX_BufferedStream() {}
 
-void CFGAS_Stream::Seek(CFGAS_Stream::Pos eSeek, FX_FILESIZE iOffset) {
+void CFX_BufferedStream::Seek(CFX_BufferedStream::Pos eSeek,
+                              FX_FILESIZE iOffset) {
   switch (eSeek) {
-    case CFGAS_Stream::Pos::Begin:
+    case CFX_BufferedStream::Pos::Begin:
       m_iPosition = iOffset;
       break;
-    case CFGAS_Stream::Pos::Current:
+    case CFX_BufferedStream::Pos::Current:
       m_iPosition += iOffset;
       break;
   }
@@ -205,13 +207,14 @@ void CFGAS_Stream::Seek(CFGAS_Stream::Pos eSeek, FX_FILESIZE iOffset) {
       pdfium::clamp(m_iPosition, static_cast<FX_FILESIZE>(0), GetLength());
 }
 
-void CFGAS_Stream::SetCodePage(uint16_t wCodePage) {
+void CFX_BufferedStream::SetCodePage(uint16_t wCodePage) {
   if (m_wBOMLength > 0)
     return;
   m_wCodePage = wCodePage;
 }
 
-FX_STRSIZE CFGAS_Stream::ReadData(uint8_t* pBuffer, FX_STRSIZE iBufferSize) {
+FX_STRSIZE CFX_BufferedStream::ReadData(uint8_t* pBuffer,
+                                        FX_STRSIZE iBufferSize) {
   ASSERT(pBuffer && iBufferSize > 0);
 
   if (m_IsWriteStream)
@@ -234,9 +237,9 @@ FX_STRSIZE CFGAS_Stream::ReadData(uint8_t* pBuffer, FX_STRSIZE iBufferSize) {
   return 0;
 }
 
-FX_STRSIZE CFGAS_Stream::ReadString(wchar_t* pStr,
-                                    FX_STRSIZE iMaxLength,
-                                    bool* bEOS) {
+FX_STRSIZE CFX_BufferedStream::ReadString(wchar_t* pStr,
+                                          FX_STRSIZE iMaxLength,
+                                          bool* bEOS) {
   ASSERT(pStr && iMaxLength > 0);
 
   if (m_IsWriteStream)
@@ -273,7 +276,7 @@ FX_STRSIZE CFGAS_Stream::ReadString(wchar_t* pStr,
       FX_STRSIZE iSrc = 0;
       std::tie(iSrc, iMaxLength) = UTF8Decode(
           reinterpret_cast<const char*>(buf.data()), iLen, pStr, iMaxLength);
-      Seek(CFGAS_Stream::Pos::Current, iSrc - iLen);
+      Seek(CFX_BufferedStream::Pos::Current, iSrc - iLen);
     } else {
       iMaxLength = 0;
     }
@@ -283,7 +286,7 @@ FX_STRSIZE CFGAS_Stream::ReadString(wchar_t* pStr,
   return iMaxLength;
 }
 
-void CFGAS_Stream::WriteString(const CFX_WideStringC& str) {
+void CFX_BufferedStream::WriteString(const CFX_WideStringC& str) {
   if (!m_IsWriteStream || str.GetLength() == 0 ||
       m_wCodePage != FX_CODEPAGE_UTF8) {
     return;

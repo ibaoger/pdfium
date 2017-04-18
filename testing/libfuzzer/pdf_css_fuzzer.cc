@@ -4,11 +4,11 @@
 
 #include <memory>
 
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_string.h"
 #include "xfa/fde/css/cfde_csssyntaxparser.h"
 #include "xfa/fde/css/fde_css.h"
-#include "xfa/fgas/crt/cfgas_stream.h"
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
   CFX_WideString input = CFX_WideString::FromUTF8(
