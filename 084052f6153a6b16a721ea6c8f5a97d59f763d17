@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e449ffc_cc7e241f",
+        "filename": "xfa/fgas/crt/ifgas_stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:13:25Z",
+      "side": 1,
+      "message": "nit: ++pStr; ditto line 217",
+      "range": {
+        "startLine": 208,
+        "startChar": 6,
+        "endLine": 208,
+        "endChar": 13
+      },
+      "revId": "084052f6153a6b16a721ea6c8f5a97d59f763d17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
