@@ -29,7 +29,7 @@ class CXFA_SimpleParser {
   int32_t StartParse(const CFX_RetainPtr<IFX_SeekableStream>& pStream,
                      XFA_XDPPACKET ePacketID);
   int32_t DoParse(IFX_Pause* pPause);
-  int32_t ParseXMLData(const CFX_WideString& wsXML,
+  int32_t ParseXMLData(const CFX_ByteString& wsXML,
                        CFDE_XMLNode*& pXMLNode,
                        IFX_Pause* pPause);
   void ConstructXFANode(CXFA_Node* pXFANode, CFDE_XMLNode* pXMLNode);
