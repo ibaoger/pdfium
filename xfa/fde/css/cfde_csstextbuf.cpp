@@ -42,7 +42,7 @@ bool CFDE_CSSTextBuf::EstimateSize(int32_t iAllocSize) {
 }
 
 int32_t CFDE_CSSTextBuf::LoadFromStream(
-    const CFX_RetainPtr<IFGAS_Stream>& pTxtStream,
+    const CFX_RetainPtr<CFGAS_Stream>& pTxtStream,
     int32_t iStreamOffset,
     int32_t iMaxChars,
     bool& bEOS) {
