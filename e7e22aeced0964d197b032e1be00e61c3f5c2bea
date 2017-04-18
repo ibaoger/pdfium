@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edd10dde_138855a7",
+        "filename": "xfa/fwl/cfwl_notedriver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T13:10:36Z",
+      "side": 1,
+      "message": "Can pEventTarget ever be null here? We create it when we add, and we erase it when done. What about just:\n\nif (pair.second-\u003eIsValid())\n  pair.second-\u003eProcessEvent(pNote);",
+      "revId": "e7e22aeced0964d197b032e1be00e61c3f5c2bea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9090f07b_dae8b21c",
+        "filename": "xfa/fwl/cfwl_notedriver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T13:10:36Z",
+      "side": 1,
+      "message": "Can old-\u003esecond ever be false?",
+      "revId": "e7e22aeced0964d197b032e1be00e61c3f5c2bea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
