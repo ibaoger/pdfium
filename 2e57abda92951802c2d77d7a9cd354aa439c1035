@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "429b3d04_1c88dfe5",
+        "filename": "core/fxcrt/cfx_bufferedstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T21:03:26Z",
+      "side": 1,
+      "message": "CFX_SeekableStreamProxy.",
+      "parentUuid": "e09accbb_7e816841",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb451d0d_61a9feac",
         "filename": "core/fxcrt/cfx_bufferedstream.h",
         "patchSetId": 1
