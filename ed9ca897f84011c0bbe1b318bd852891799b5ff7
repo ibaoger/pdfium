@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75483918_a4834881",
+        "filename": "xfa/fde/css/cfde_csstextbuf.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "nit: bool*",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 35
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f808c1a_2ede2ca8",
+        "filename": "xfa/fde/xml/cfde_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "Maybe have a constructor that takes in input and length",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18475f69_648d006d",
+        "filename": "xfa/fgas/crt/cfgas_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "I think we should still update the m_iPosition in this case, to a big value",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 299,
+        "endChar": 11
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b9d950_cf222863",
+        "filename": "xfa/fgas/crt/cfgas_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "nit: year",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb715563_8e452587",
+        "filename": "xfa/fgas/crt/cfgas_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "Maybe change this to a bool to know if we seek from beginning or current position?",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2036d49_13a83cbd",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "nit: remove \u003dfalse",
+      "range": {
+        "startLine": 346,
+        "startChar": 50,
+        "endLine": 346,
+        "endChar": 55
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b14f06_4fca522c",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T16:37:47Z",
+      "side": 1,
+      "message": "Unneeded",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 15
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
