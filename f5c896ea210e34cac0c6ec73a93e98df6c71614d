@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bac30c1_766eb3fe",
+        "filename": "fpdfsdk/javascript/global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T13:13:07Z",
+      "side": 1,
+      "message": "Can we flip this around so this is the \u003d\u003d end? Looks like other cases use \u003d\u003d as the early exit?",
+      "revId": "f5c896ea210e34cac0c6ec73a93e98df6c71614d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace7d6ed_b461065c",
+        "filename": "fpdfsdk/javascript/global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T13:13:07Z",
+      "side": 1,
+      "message": "nit: Move the break\u0027s inside the }\u0027s",
+      "revId": "f5c896ea210e34cac0c6ec73a93e98df6c71614d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
