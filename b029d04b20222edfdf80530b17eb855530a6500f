@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d04592fc_0ce830f8",
+        "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-18T00:52:08Z",
+      "side": 1,
+      "message": "Because there\u0027s a NUL at the end, right?",
+      "revId": "b029d04b20222edfdf80530b17eb855530a6500f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29367f35_b8670d57",
+        "filename": "third_party/base/stl_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-18T00:52:08Z",
+      "side": 1,
+      "message": "Should we make the same change to Chromium\u0027s base/stl_util.h? (first?)",
+      "revId": "b029d04b20222edfdf80530b17eb855530a6500f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
