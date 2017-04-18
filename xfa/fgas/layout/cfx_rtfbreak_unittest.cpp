@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fgas/layout/fgas_rtfbreak.h"
+#include "xfa/fgas/layout/cfx_rtfbreak.h"
 
 #include <memory>
 
