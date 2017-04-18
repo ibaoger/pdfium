@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "e8985faa_a640d09e",
+        "filename": "core/fxcrt/cfx_bufferedstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T21:43:45Z",
+      "side": 1,
+      "message": "Unfortunately, its not really a delegate in the strict sense since IFX_SeekableStream isn\u0027t calling back into it to accomplish specific tasks.  The layering doesn\u0027t correspond to that name.",
+      "parentUuid": "c107905b_02adea13",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb451d0d_61a9feac",
         "filename": "core/fxcrt/cfx_bufferedstream.h",
         "patchSetId": 1
