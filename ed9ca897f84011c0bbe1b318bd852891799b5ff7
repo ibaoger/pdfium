@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "e921932a_2b40a333",
+        "filename": "xfa/fgas/crt/cfgas_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T17:13:00Z",
+      "side": 1,
+      "message": "maybe nest the enum and lose some FX_STREAM.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb715563_8e452587",
         "filename": "xfa/fgas/crt/cfgas_stream.h",
         "patchSetId": 5
@@ -105,6 +128,30 @@
       "writtenOn": "2017-04-18T16:37:47Z",
       "side": 1,
       "message": "Maybe change this to a bool to know if we seek from beginning or current position?",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "ed9ca897f84011c0bbe1b318bd852891799b5ff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a71b46a8_1e872940",
+        "filename": "xfa/fgas/crt/cfgas_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T17:13:00Z",
+      "side": 1,
+      "message": "OTOH I like the enum to add clarity at the call site.",
+      "parentUuid": "fb715563_8e452587",
       "range": {
         "startLine": 31,
         "startChar": 12,
