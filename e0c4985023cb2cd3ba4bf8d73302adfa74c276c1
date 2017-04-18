@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "270416c0_577c151d",
+        "filename": "xfa/fgas/layout/cfx_linebreak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:28:10Z",
+      "side": 1,
+      "message": "Why is this necessary? There is no CFX_LineBreak here.",
+      "revId": "e0c4985023cb2cd3ba4bf8d73302adfa74c276c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46ad42ed_547d7035",
+        "filename": "xfa/fgas/layout/cfx_rtfbreak_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T15:28:10Z",
+      "side": 1,
+      "message": "nit: rename",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "e0c4985023cb2cd3ba4bf8d73302adfa74c276c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
