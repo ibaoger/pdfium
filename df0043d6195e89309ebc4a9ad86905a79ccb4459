@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cb0655c_af338a76",
+        "filename": "testing/libfuzzer/pdf_xml_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T15:50:57Z",
+      "side": 1,
+      "message": "The input size is size_t so, unsigned int. FX_STRSIZE is int. This is just making sure the size we\u0027ve given will fit in our string routines. Probably a good idea to keep.",
+      "parentUuid": "14b697e3_9e158287",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "df0043d6195e89309ebc4a9ad86905a79ccb4459",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74d5ddce_737f0ba1",
         "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-18T15:24:04Z",
       "side": 1,
       "message": "nit: CDFE_XMLNode**",
+      "range": {
+        "startLine": 321,
+        "startChar": 40,
+        "endLine": 321,
+        "endChar": 55
+      },
+      "revId": "df0043d6195e89309ebc4a9ad86905a79ccb4459",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1e2459d_54de62d7",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-18T15:50:57Z",
+      "side": 1,
+      "message": "Changed to return.",
+      "parentUuid": "74d5ddce_737f0ba1",
       "range": {
         "startLine": 321,
         "startChar": 40,
