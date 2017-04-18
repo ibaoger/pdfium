@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e479d72c_2bb03459",
+        "filename": "core/fxcrt/cfx_bufferedstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T21:39:40Z",
+      "side": 1,
+      "message": "Should the year change now?",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56f3a504_cc1ad40d",
         "filename": "core/fxcrt/cfx_bufferedstream.h",
         "patchSetId": 1
@@ -109,6 +132,30 @@
       "side": 1,
       "message": "I vote for CFX_SeekableStreamProxy.",
       "parentUuid": "429b3d04_1c88dfe5",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c107905b_02adea13",
+        "filename": "core/fxcrt/cfx_bufferedstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-18T21:39:40Z",
+      "side": 1,
+      "message": "Yay naming game. Another option:\nCFX_SeekableStreamDelegate",
+      "parentUuid": "4e1dc68c_f230f236",
       "range": {
         "startLine": 16,
         "startChar": 6,
