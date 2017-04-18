@@ -1239,3 +1239,13 @@ TEST(fxcrt, ByteStringAnyAllNoneOf) {
   EXPECT_TRUE(pdfium::ContainsValue(str, 'b'));
   EXPECT_FALSE(pdfium::ContainsValue(str, 'z'));
 }
+
+TEST(fxcrt, ByteLiteralContainsValue) {
+  const char allowed_chars[] = {'a', 'b', 'c', 'd'};
+  EXPECT_TRUE(pdfium::ContainsValue(allowed_chars, 'a'));
+  EXPECT_FALSE(pdfium::ContainsValue(allowed_chars, 'z'));
+  EXPECT_FALSE(pdfium::ContainsValue(allowed_chars, 0));
+
+  const char bad_allowed_chars[] = "abcd";
+  EXPECT_TRUE(pdfium::ContainsValue(bad_allowed_chars, 0));  // Hence bad.
+}
