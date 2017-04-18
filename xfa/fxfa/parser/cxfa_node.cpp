@@ -1271,11 +1271,10 @@ void CXFA_Node::Script_NodeClass_LoadXML(CFXJSE_Arguments* pArguments) {
     ThrowParamCountMismatchException(L"loadXML");
     return;
   }
-  CFX_WideString wsExpression;
+
   bool bIgnoreRoot = true;
   bool bOverwrite = 0;
-  wsExpression =
-      CFX_WideString::FromUTF8(pArguments->GetUTF8String(0).AsStringC());
+  CFX_ByteString wsExpression = pArguments->GetUTF8String(0);
   if (wsExpression.IsEmpty())
     return;
   if (iLength >= 2)
@@ -1286,10 +1285,8 @@ void CXFA_Node::Script_NodeClass_LoadXML(CFXJSE_Arguments* pArguments) {
       new CXFA_SimpleParser(m_pDocument, false));
   if (!pParser)
     return;
-  CFDE_XMLNode* pXMLNode = nullptr;
-  int32_t iParserStatus =
-      pParser->ParseXMLData(wsExpression, pXMLNode, nullptr);
-  if (iParserStatus != XFA_PARSESTATUS_Done || !pXMLNode)
+  CFDE_XMLNode* pXMLNode = pParser->ParseXMLData(wsExpression, nullptr);
+  if (!pXMLNode)
     return;
   if (bIgnoreRoot &&
       (pXMLNode->GetType() != FDE_XMLNODE_Element ||
