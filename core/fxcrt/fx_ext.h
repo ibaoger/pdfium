@@ -58,14 +58,14 @@ inline bool FXSYS_iswspace(wchar_t c) {
 }
 
 inline int FXSYS_toHexDigit(const char c) {
-  if (!std::isxdigit(c))
+  if ((c & 0x80) || !std::isxdigit(c))
     return 0;
   char upchar = std::toupper(c);
   return upchar > '9' ? upchar - 'A' + 10 : upchar - '0';
 }
 
 inline bool FXSYS_isDecimalDigit(const char c) {
-  return !!std::isdigit(c);
+  return !((c & 0x80) || !std::isdigit(c));
 }
 
 inline bool FXSYS_isDecimalDigit(const wchar_t c) {
@@ -73,7 +73,7 @@ inline bool FXSYS_isDecimalDigit(const wchar_t c) {
 }
 
 inline int FXSYS_toDecimalDigit(const char c) {
-  return std::isdigit(c) ? c - '0' : 0;
+  return (c & 0x80) || !std::isdigit(c) ? 0 : c - '0';
 }
 
 inline int FXSYS_toDecimalDigit(const wchar_t c) {
