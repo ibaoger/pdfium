@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56f3a504_cc1ad40d",
+        "filename": "core/fxcrt/cfx_bufferedstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T20:58:56Z",
+      "side": 1,
+      "message": "A CFX_BufferedStream isnt an IFX_Stream of any kind, so I\u0027m still scratching my head about a name that makes this clear but isn\u0027t atrocious.\n\nIronically, this class doesn\u0027t contain its own buffer.\n\nCFX_StreamAdapter is bad because we also have a streamacc.",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb451d0d_61a9feac",
+        "filename": "core/fxcrt/cfx_bufferedstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T20:58:56Z",
+      "side": 1,
+      "message": "nit:  I\u0027d move this to be the first member, packs better against the uint16 and is probably the most fundamental member of the class in some abstract sense.",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 23
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
