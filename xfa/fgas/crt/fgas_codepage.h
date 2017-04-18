@@ -133,6 +133,4 @@
 #define FX_CHARSET_US 254
 #define FX_CHARSET_OEM 255
 
-uint16_t FX_GetCodePageFromCharset(uint8_t charset);
-
 #endif  // XFA_FGAS_CRT_FGAS_CODEPAGE_H_
