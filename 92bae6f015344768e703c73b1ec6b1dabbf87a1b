@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8f0823af_055e5ad1",
+        "filename": "xfa/fgas/crt/fgas_codepage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T17:31:04Z",
+      "side": 1,
+      "message": "maybe blank line before this new kind of constant",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 25
+      },
+      "revId": "92bae6f015344768e703c73b1ec6b1dabbf87a1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc930f5e_c91f3ebb",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 3
@@ -36,6 +59,30 @@
       "writtenOn": "2017-04-18T15:34:45Z",
       "side": 1,
       "message": "Can we some standard binary search instead of implementing our own here?",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "92bae6f015344768e703c73b1ec6b1dabbf87a1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "655e4c19_0bbca843",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-18T17:31:04Z",
+      "side": 1,
+      "message": "std::lower_bound() with a custom comparator.  Also std::begin() and std::end() are our friends if you want to avoid FX_ArraySize.\nMaybe grep for iMid and do these all in one CL -- there\u0027s got to be 18 copies of these lurking in the code.",
+      "parentUuid": "24098427_f4118020",
       "range": {
         "startLine": 69,
         "startChar": 2,
