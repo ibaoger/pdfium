@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3de3d600_de23671b",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "No, but it prevents shifting in every iteration (not that it\u0027s expensive, I just like variables).",
+      "parentUuid": "e8bbd833_61b45673",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebf70f53_e30b76af",
         "filename": "core/fxge/dib/cfx_dibitmap.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c28c2e1_1ae16c04",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebf70f53_e30b76af",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0293eb5f_b3b3d851",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d3a09f4_724cd627",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "651c15cf_f2e7dfa4",
         "filename": "core/fxge/dib/cfx_dibitmap.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4dea4cc_65819704",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "651c15cf_f2e7dfa4",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "74c4ac33_602eafe6",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e3b2304_0d53f2d3",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "213bf789_0196f3f1",
         "filename": "core/fxge/dib/cfx_dibitmap.cpp",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2017-04-19T21:22:32Z",
       "side": 1,
       "message": "nit: 1 per line",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a8d5c52_b9e07577",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done. Maybe they could be declared on line 748 instead, but leaving as is for now.",
+      "parentUuid": "213bf789_0196f3f1",
       "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -124,6 +232,30 @@
       "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f6f328_5e1d74f1",
+        "filename": "core/fxge/dib/cfx_dibitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T22:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73ed35eb_75b7aca5",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
