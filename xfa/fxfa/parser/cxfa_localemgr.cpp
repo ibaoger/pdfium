@@ -14,6 +14,7 @@
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/xml/cxml_element.h"
 #include "core/fxge/cfx_gemodule.h"
+#include "xfa/fgas/crt/fgas_language.h"
 #include "xfa/fxfa/parser/cxfa_node.h"
 #include "xfa/fxfa/parser/cxfa_nodelocale.h"
 #include "xfa/fxfa/parser/cxfa_xmllocale.h"
@@ -1062,7 +1063,7 @@ static std::unique_ptr<IFX_Locale> XFA_GetLocaleFromBuffer(const uint8_t* pBuf,
 }
 
 static uint16_t XFA_GetLanguage(CFX_WideString wsLanguage) {
-  uint16_t dwLangueID = XFA_LANGID_en_US;
+  uint16_t dwLangueID = FX_LANG_en_US;
   if (wsLanguage.GetLength() < 2) {
     return dwLangueID;
   }
@@ -1074,50 +1075,50 @@ static uint16_t XFA_GetLanguage(CFX_WideString wsLanguage) {
   switch (dwIDFirst) {
     case FXBSTR_ID(0, 0, 'z', 'h'): {
       if (dwIDSecond == FXBSTR_ID(0, 0, 'c', 'n')) {
-        dwLangueID = XFA_LANGID_zh_CN;
+        dwLangueID = FX_LANG_zh_CN;
       } else if (dwIDSecond == FXBSTR_ID(0, 0, 't', 'w')) {
-        dwLangueID = XFA_LANGID_zh_TW;
+        dwLangueID = FX_LANG_zh_TW;
       } else if (dwIDSecond == FXBSTR_ID(0, 0, 'h', 'k')) {
-        dwLangueID = XFA_LANGID_zh_HK;
+        dwLangueID = FX_LANG_zh_HK;
       }
     } break;
     case FXBSTR_ID(0, 0, 'j', 'a'):
-      dwLangueID = XFA_LANGID_ja_JP;
+      dwLangueID = FX_LANG_ja_JP;
       break;
     case FXBSTR_ID(0, 0, 'k', 'o'):
-      dwLangueID = XFA_LANGID_ko_KR;
+      dwLangueID = FX_LANG_ko_KR;
       break;
     case FXBSTR_ID(0, 0, 'e', 'n'): {
       if (dwIDSecond == FXBSTR_ID(0, 0, 'g', 'b')) {
-        dwLangueID = XFA_LANGID_en_GB;
+        dwLangueID = FX_LANG_en_GB;
       } else {
-        dwLangueID = XFA_LANGID_en_US;
+        dwLangueID = FX_LANG_en_US;
       }
     } break;
     case FXBSTR_ID(0, 0, 'd', 'e'):
-      dwLangueID = XFA_LANGID_de_DE;
+      dwLangueID = FX_LANG_de_DE;
       break;
     case FXBSTR_ID(0, 0, 'f', 'r'):
-      dwLangueID = XFA_LANGID_fr_FR;
+      dwLangueID = FX_LANG_fr_FR;
       break;
     case FXBSTR_ID(0, 0, 'e', 's'): {
       if (dwIDSecond == FXBSTR_ID(0, 0, 'e', 's')) {
-        dwLangueID = XFA_LANGID_es_ES;
+        dwLangueID = FX_LANG_es_ES;
       } else {
-        dwLangueID = XFA_LANGID_es_LA;
+        dwLangueID = FX_LANG_es_LA;
       }
     } break;
     case FXBSTR_ID(0, 0, 'i', 't'):
-      dwLangueID = XFA_LANGID_it_IT;
+      dwLangueID = FX_LANG_it_IT;
       break;
     case FXBSTR_ID(0, 0, 'p', 't'):
-      dwLangueID = XFA_LANGID_pt_BR;
+      dwLangueID = FX_LANG_pt_BR;
       break;
     case FXBSTR_ID(0, 0, 'n', 'l'):
-      dwLangueID = XFA_LANGID_nl_NL;
+      dwLangueID = FX_LANG_nl_NL;
       break;
     case FXBSTR_ID(0, 0, 'r', 'u'):
-      dwLangueID = XFA_LANGID_ru_RU;
+      dwLangueID = FX_LANG_ru_RU;
       break;
   }
   return dwLangueID;
@@ -1162,35 +1163,35 @@ IFX_Locale* CXFA_LocaleMgr::GetDefLocale() {
 
 std::unique_ptr<IFX_Locale> CXFA_LocaleMgr::GetLocale(uint16_t lcid) {
   switch (lcid) {
-    case XFA_LANGID_zh_CN:
+    case FX_LANG_zh_CN:
       return XFA_GetLocaleFromBuffer(g_zhCN_Locale, sizeof(g_zhCN_Locale));
-    case XFA_LANGID_zh_TW:
+    case FX_LANG_zh_TW:
       return XFA_GetLocaleFromBuffer(g_zhTW_Locale, sizeof(g_zhTW_Locale));
-    case XFA_LANGID_zh_HK:
+    case FX_LANG_zh_HK:
       return XFA_GetLocaleFromBuffer(g_zhHK_Locale, sizeof(g_zhHK_Locale));
-    case XFA_LANGID_ja_JP:
+    case FX_LANG_ja_JP:
       return XFA_GetLocaleFromBuffer(g_jaJP_Locale, sizeof(g_jaJP_Locale));
-    case XFA_LANGID_ko_KR:
+    case FX_LANG_ko_KR:
       return XFA_GetLocaleFromBuffer(g_koKR_Locale, sizeof(g_koKR_Locale));
-    case XFA_LANGID_en_GB:
+    case FX_LANG_en_GB:
       return XFA_GetLocaleFromBuffer(g_enGB_Locale, sizeof(g_enGB_Locale));
-    case XFA_LANGID_es_LA:
+    case FX_LANG_es_LA:
       return XFA_GetLocaleFromBuffer(g_esLA_Locale, sizeof(g_esLA_Locale));
-    case XFA_LANGID_es_ES:
+    case FX_LANG_es_ES:
       return XFA_GetLocaleFromBuffer(g_esES_Locale, sizeof(g_esES_Locale));
-    case XFA_LANGID_de_DE:
+    case FX_LANG_de_DE:
       return XFA_GetLocaleFromBuffer(g_deDE_Loacale, sizeof(g_deDE_Loacale));
-    case XFA_LANGID_fr_FR:
+    case FX_LANG_fr_FR:
       return XFA_GetLocaleFromBuffer(g_frFR_Locale, sizeof(g_frFR_Locale));
-    case XFA_LANGID_it_IT:
+    case FX_LANG_it_IT:
       return XFA_GetLocaleFromBuffer(g_itIT_Locale, sizeof(g_itIT_Locale));
-    case XFA_LANGID_pt_BR:
+    case FX_LANG_pt_BR:
       return XFA_GetLocaleFromBuffer(g_ptBR_Locale, sizeof(g_ptBR_Locale));
-    case XFA_LANGID_nl_NL:
+    case FX_LANG_nl_NL:
       return XFA_GetLocaleFromBuffer(g_nlNL_Locale, sizeof(g_nlNL_Locale));
-    case XFA_LANGID_ru_RU:
+    case FX_LANG_ru_RU:
       return XFA_GetLocaleFromBuffer(g_ruRU_Locale, sizeof(g_ruRU_Locale));
-    case XFA_LANGID_en_US:
+    case FX_LANG_en_US:
     default:
       return XFA_GetLocaleFromBuffer(g_enUS_Locale, sizeof(g_enUS_Locale));
   }
