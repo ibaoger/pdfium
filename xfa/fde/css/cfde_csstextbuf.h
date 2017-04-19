@@ -7,8 +7,8 @@
 #ifndef XFA_FDE_CSS_CFDE_CSSTEXTBUF_H_
 #define XFA_FDE_CSS_CFDE_CSSTEXTBUF_H_
 
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
-#include "core/fxcrt/cfx_seekablestreamproxy.h"
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
 

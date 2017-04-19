@@ -13,8 +13,8 @@
 #include <set>
 #include <vector>
 
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
-#include "core/fxcrt/cfx_seekablestreamproxy.h"
 #include "core/fxcrt/fx_ext.h"
 #include "core/fxge/cfx_fontmapper.h"
 #include "core/fxge/fx_freetype.h"

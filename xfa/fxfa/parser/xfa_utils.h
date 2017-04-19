@@ -7,11 +7,11 @@
 #ifndef XFA_FXFA_PARSER_XFA_UTILS_H_
 #define XFA_FXFA_PARSER_XFA_UTILS_H_
 
-#include "core/fxcrt/cfx_seekablestreamproxy.h"
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "xfa/fxfa/fxfa_basic.h"
 
-class CFDE_XMLElement;
-class CFDE_XMLNode;
+class CFX_XMLElement;
+class CFX_XMLNode;
 class CXFA_LocaleValue;
 class CXFA_Node;
 class CXFA_WidgetData;
@@ -20,7 +20,7 @@ double XFA_GetFractionalScale(uint32_t idx);
 int XFA_GetMaxFractionalScale();
 
 bool XFA_FDEExtension_ResolveNamespaceQualifier(
-    CFDE_XMLElement* pNode,
+    CFX_XMLElement* pNode,
     const CFX_WideStringC& wsQualifier,
     CFX_WideString* wsNamespaceURI);
 
@@ -147,8 +147,8 @@ CXFA_LocaleValue XFA_GetLocaleValue(CXFA_WidgetData* pWidgetData);
 double XFA_ByteStringToDouble(const CFX_ByteStringC& szStringVal);
 int32_t XFA_MapRotation(int32_t nRotation);
 
-bool XFA_RecognizeRichText(CFDE_XMLElement* pRichTextXMLNode);
-void XFA_GetPlainTextFromRichText(CFDE_XMLNode* pXMLNode,
+bool XFA_RecognizeRichText(CFX_XMLElement* pRichTextXMLNode);
+void XFA_GetPlainTextFromRichText(CFX_XMLNode* pXMLNode,
                                   CFX_WideString& wsPlainText);
 bool XFA_FieldIsMultiListBox(CXFA_Node* pFieldNode);
 

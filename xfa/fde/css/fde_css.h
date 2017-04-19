@@ -7,7 +7,7 @@
 #ifndef XFA_FDE_CSS_FDE_CSS_H_
 #define XFA_FDE_CSS_FDE_CSS_H_
 
-#include "core/fxcrt/cfx_seekablestreamproxy.h"
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxge/fx_dib.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 

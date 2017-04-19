@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef CORE_FXCRT_CFX_SEEKABLESTREAMPROXY_H_
-#define CORE_FXCRT_CFX_SEEKABLESTREAMPROXY_H_
+#ifndef CORE_FXCRT_CFX_BUFFEREDSTREAM_H_
+#define CORE_FXCRT_CFX_BUFFEREDSTREAM_H_
 
 #include <algorithm>
 
@@ -51,4 +51,4 @@ class CFX_SeekableStreamProxy : public CFX_Retainable {
   CFX_RetainPtr<IFX_SeekableStream> m_pStream;
 };
 
-#endif  // CORE_FXCRT_CFX_SEEKABLESTREAMPROXY_H_
+#endif  // CORE_FXCRT_CFX_BUFFEREDSTREAM_H_

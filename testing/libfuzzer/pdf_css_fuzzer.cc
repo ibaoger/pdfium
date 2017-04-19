@@ -4,8 +4,8 @@
 
 #include <memory>
 
+#include "core/fxcrt/cfx_bufferedstream.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
-#include "core/fxcrt/cfx_seekablestreamproxy.h"
 #include "core/fxcrt/fx_string.h"
 #include "xfa/fde/css/cfde_csssyntaxparser.h"
 #include "xfa/fde/css/fde_css.h"
