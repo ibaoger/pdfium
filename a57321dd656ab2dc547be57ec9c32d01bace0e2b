@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5eba56d2_91483346",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Because those are the names that matched up with charset number to the FXFONT variant.",
+      "parentUuid": "f845976a_c4ea83fc",
+      "range": {
+        "startLine": 185,
+        "startChar": 15,
+        "endLine": 185,
+        "endChar": 21
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0a49bc8_1c03e7ee",
         "filename": "core/fpdfdoc/cpdf_interform.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-19T15:59:23Z",
       "side": 1,
       "message": "Are there codepage constants we can use here? Otherwise, we should look into defining them.",
+      "range": {
+        "startLine": 578,
+        "startChar": 9,
+        "endLine": 578,
+        "endChar": 12
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9d7ab9_9fc92110",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Yup, done.",
+      "parentUuid": "d0a49bc8_1c03e7ee",
       "range": {
         "startLine": 578,
         "startChar": 9,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ee277298_cc581a7d",
+        "filename": "core/fxcrt/fx_codepage.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Not sure what you mean by overloading the defines? It\u0027s the value that matters not the name, the MSWin ones matched the value so that was the change that was made.\n\nThe _MAC_ ones are used in cfgas_fontmgr.cpp",
+      "parentUuid": "9d5cc09c_6998ab4c",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe5f5221_bce52e4b",
         "filename": "core/fxge/ge/cfx_folderfontinfo.cpp",
         "patchSetId": 6
@@ -85,6 +151,30 @@
       "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a50859_6909cd01",
+        "filename": "core/fxge/ge/cfx_folderfontinfo.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe5f5221_bce52e4b",
+      "range": {
+        "startLine": 289,
+        "startChar": 78,
+        "endLine": 289,
+        "endChar": 79
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "89145577_caa80841",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b6f3ae_18fdcba0",
+      "range": {
+        "startLine": 586,
+        "startChar": 66,
+        "endLine": 586,
+        "endChar": 67
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dac2b5_fd8e9ead",
         "filename": "fpdfsdk/cfx_systemhandler.cpp",
         "patchSetId": 6
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "fca0188f_97ab6e29",
+        "filename": "fpdfsdk/cfx_systemhandler.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dac2b5_fd8e9ead",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81e4a03e_a084cbd9",
         "filename": "fpdfsdk/fpdf_charset_assert.cpp",
         "patchSetId": 6
@@ -145,6 +283,24 @@
       "writtenOn": "2017-04-19T15:59:23Z",
       "side": 1,
       "message": "Could this go in fpdftext.cpp? I think that\u0027s better than a new file just for asserts",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6026b86_7fa2e523",
+        "filename": "fpdfsdk/fpdf_charset_assert.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "It could but it isn\u0027t really related to fpdftext.cpp.",
+      "parentUuid": "81e4a03e_a084cbd9",
       "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -171,6 +327,30 @@
       "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46eed0ff_d5d6d7fc",
+        "filename": "fpdfsdk/pdfwindow/PWL_FontMap.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:10:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1d707bd_9045d0ee",
+      "range": {
+        "startLine": 291,
+        "startChar": 17,
+        "endLine": 291,
+        "endChar": 45
+      },
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
