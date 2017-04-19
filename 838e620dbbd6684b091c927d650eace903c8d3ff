@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fafdac6b_82ea605d",
+        "filename": "core/fxcrt/xml/cfx_xmlparser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T01:47:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c353239_2cee28b1",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "838e620dbbd6684b091c927d650eace903c8d3ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2c7b239_93a03727",
         "filename": "core/fxcrt/xml/cfx_xmlparser.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-18T21:47:48Z",
       "side": 1,
       "message": "missed one!",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "838e620dbbd6684b091c927d650eace903c8d3ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "636ae206_eee6218d",
+        "filename": "core/fxcrt/xml/cfx_xmlparser.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T01:47:38Z",
+      "side": 1,
+      "message": "I don\u0027t typically update the copyright year when I move the file, trying to keep them as just move/renames.",
+      "parentUuid": "a2c7b239_93a03727",
       "range": {
         "startLine": 1,
         "startChar": 16,
@@ -68,6 +116,30 @@
       "revId": "838e620dbbd6684b091c927d650eace903c8d3ff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "624540b6_50a4de03",
+        "filename": "core/fxcrt/xml/cfx_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T01:47:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e8b6064_8ebdb79e",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "838e620dbbd6684b091c927d650eace903c8d3ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
