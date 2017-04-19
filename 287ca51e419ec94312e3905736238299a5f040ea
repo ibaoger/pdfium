@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60282c39_794cb969",
+        "filename": "xfa/fgas/crt/fgas_language.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T15:31:51Z",
+      "side": 1,
+      "message": "No need for a separate header file for defines that are only used in the localemgr.cpp file",
+      "revId": "287ca51e419ec94312e3905736238299a5f040ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59e25d8f_bace0b01",
+        "filename": "xfa/fxfa/parser/cxfa_localemgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T15:31:51Z",
+      "side": 1,
+      "message": "nit {}",
+      "range": {
+        "startLine": 1077,
+        "startChar": 51,
+        "endLine": 1077,
+        "endChar": 52
+      },
+      "revId": "287ca51e419ec94312e3905736238299a5f040ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bed81c2_b8bdee33",
+        "filename": "xfa/fxfa/parser/cxfa_localemgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T15:31:51Z",
+      "side": 1,
+      "message": "ditto or:\ndwLangueID \u003d dwIDSecond \u003d\u003d FXBSTR_ID(0, 0, \u0027g\u0027, \u0027b\u0027)? ...",
+      "range": {
+        "startLine": 1092,
+        "startChar": 51,
+        "endLine": 1092,
+        "endChar": 52
+      },
+      "revId": "287ca51e419ec94312e3905736238299a5f040ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76d27a1a_7776829b",
+        "filename": "xfa/fxfa/parser/cxfa_localemgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T15:31:51Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "287ca51e419ec94312e3905736238299a5f040ea",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
