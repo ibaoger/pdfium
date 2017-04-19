@@ -12,6 +12,7 @@
 
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/cfx_maybe_owned.h"
+#include "core/fxcrt/fx_codepage.h"
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/cfx_windowsdevice.h"
