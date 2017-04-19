@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "9d4b6cfe_3b552919",
+        "filename": "core/fxcrt/fx_codepage.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T16:44:10Z",
+      "side": 1,
+      "message": "defines are used to have names in the code instead of values, so I think the name matters.\nHowever, after looking at the usage of the FXFONT defines from before where MSWin has been added, this seems reasonable.",
+      "parentUuid": "ee277298_cc581a7d",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe5f5221_bce52e4b",
         "filename": "core/fxge/ge/cfx_folderfontinfo.cpp",
         "patchSetId": 6
@@ -301,6 +319,24 @@
       "side": 1,
       "message": "It could but it isn\u0027t really related to fpdftext.cpp.",
       "parentUuid": "81e4a03e_a084cbd9",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbc5dd4e_84c335cd",
+        "filename": "fpdfsdk/fpdf_charset_assert.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T16:44:10Z",
+      "side": 1,
+      "message": "Ok, fpdf_sysfontinfo seems to be the correct place.",
+      "parentUuid": "d6026b86_7fa2e523",
       "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
