@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8bbd833_61b45673",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "Is this var needed? (And in other loop)",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebf70f53_e30b76af",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "nit: ++i",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d3a09f4_724cd627",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "++i",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651c15cf_f2e7dfa4",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "one per line",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e3b2304_0d53f2d3",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "nit one per line",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "213bf789_0196f3f1",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T21:22:32Z",
+      "side": 1,
+      "message": "nit: 1 per line",
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
