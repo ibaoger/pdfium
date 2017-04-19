@@ -131,10 +131,16 @@ class CPDF_FormField {
   float GetFontSize() const { return m_FontSize; }
   CPDF_Font* GetFont() const { return m_pFont; }
 
- private:
-  friend class CPDF_InterForm;
-  friend class CPDF_FormControl;
+  CPDF_Dictionary* GetDict() const { return m_pDict; }
+  CPDF_InterForm* GetForm() const { return m_pForm; }
 
+  CFX_WideString GetCheckValue(bool bDefault) const;
+
+  void AddFormControl(CPDF_FormControl* pFormControl) {
+    m_ControlList.push_back(pFormControl);
+  }
+
+ private:
   CFX_WideString GetValue(bool bDefault) const;
   bool SetValue(const CFX_WideString& value, bool bDefault, bool bNotify);
 
@@ -143,7 +149,6 @@ class CPDF_FormField {
   CFX_WideString GetOptionText(int index, int sub_index) const;
 
   void LoadDA();
-  CFX_WideString GetCheckValue(bool bDefault) const;
   bool SetCheckValue(const CFX_WideString& value, bool bDefault, bool bNotify);
 
   bool NotifyBeforeSelectionChange(const CFX_WideString& value);
