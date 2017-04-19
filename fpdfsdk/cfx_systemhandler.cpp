@@ -9,6 +9,7 @@
 #include <memory>
 
 #include "core/fpdfapi/parser/cpdf_document.h"
+#include "core/fxcrt/fx_codepage.h"
 #include "core/fxge/cfx_fontmapper.h"
 #include "core/fxge/cfx_fontmgr.h"
 #include "core/fxge/cfx_gemodule.h"
@@ -21,13 +22,13 @@
 namespace {
 
 int CharSet2CP(int charset) {
-  if (charset == FXFONT_SHIFTJIS_CHARSET)
+  if (charset == FX_CHARSET_ShiftJIS)
     return 932;
-  if (charset == FXFONT_GB2312_CHARSET)
+  if (charset == FX_CHARSET_ChineseSimplified)
     return 936;
-  if (charset == FXFONT_HANGUL_CHARSET)
+  if (charset == FX_CHARSET_Hangul)
     return 949;
-  if (charset == FXFONT_CHINESEBIG5_CHARSET)
+  if (charset == FX_CHARSET_ChineseTraditional)
     return 950;
   return 0;
 }
