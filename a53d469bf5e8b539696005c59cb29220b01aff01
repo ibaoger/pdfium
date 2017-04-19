@@ -101,6 +101,29 @@
       "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73ed35eb_75b7aca5",
+        "filename": "core/fxge/dib/cfx_dibitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-04-19T21:48:43Z",
+      "side": 1,
+      "message": "Would ConvertRGBColorScale and ConvertCMYKColorScale be clearer?",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "a53d469bf5e8b539696005c59cb29220b01aff01",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
