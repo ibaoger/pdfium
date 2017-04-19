@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faad5264_10fa9fe8",
+        "filename": "core/fxcrt/fx_codepage.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-19T15:59:23Z",
+      "side": 0,
+      "message": "I\u0027m not really bothered by having these unused codepage defines. On the other hand I see no plan to use them any time soon, so I suppose it\u0027s safe to remove them.",
+      "revId": "0d86ecb08e1b2c204333b1f1f6b0b014e5b2971c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
