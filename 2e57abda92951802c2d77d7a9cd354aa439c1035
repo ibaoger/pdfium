@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a792bfeb_3b21d296",
+        "filename": "core/fxcrt/cfx_bufferedstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T12:50:05Z",
+      "side": 1,
+      "message": "fixed.",
+      "parentUuid": "e479d72c_2bb03459",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2e57abda92951802c2d77d7a9cd354aa439c1035",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56f3a504_cc1ad40d",
         "filename": "core/fxcrt/cfx_bufferedstream.h",
         "patchSetId": 1
