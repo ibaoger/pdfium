@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4586be2_4e6dac80",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T14:49:55Z",
+      "side": 1,
+      "message": "I put this in fpdfsdk because core/ can\u0027t see public/. We don\u0027t want to allow that access so fpdfsdk made the most sense for the assert file.",
+      "revId": "f93aed1d0267084a040d6000fd361b4279f331bd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
