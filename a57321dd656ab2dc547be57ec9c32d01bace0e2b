@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "350410c9_3a8f3cd5",
+        "filename": "core/fxcrt/fx_codepage.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:48:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d4b6cfe_3b552919",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe5f5221_bce52e4b",
         "filename": "core/fxge/ge/cfx_folderfontinfo.cpp",
         "patchSetId": 6
@@ -337,6 +355,24 @@
       "side": 1,
       "message": "Ok, fpdf_sysfontinfo seems to be the correct place.",
       "parentUuid": "d6026b86_7fa2e523",
+      "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ef838f4_b9ea9d66",
+        "filename": "fpdfsdk/fpdf_charset_assert.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-19T16:48:05Z",
+      "side": 1,
+      "message": "Fair enough, done.",
+      "parentUuid": "bbc5dd4e_84c335cd",
       "revId": "a57321dd656ab2dc547be57ec9c32d01bace0e2b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
