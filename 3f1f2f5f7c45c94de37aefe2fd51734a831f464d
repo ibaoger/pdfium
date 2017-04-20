@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c3cfcbdf_040652bc",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:50:21Z",
+      "side": 1,
+      "message": "You may want to move this to a header so that we can write a quick unitetest for your search.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 2
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7ffc7a4_39513746",
         "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
         "patchSetId": 1
@@ -19,6 +42,52 @@
     },
     {
       "key": {
+        "uuid": "9914ff9f_c673ebec",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:50:21Z",
+      "side": 1,
+      "message": "we can lose this in favor of std::end().",
+      "range": {
+        "startLine": 166,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc9d154d_418d3643",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:50:21Z",
+      "side": 1,
+      "message": "std::begin(g_BarCodeData), std::end(g_BarCodeData),",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 19
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d333f73_0fc05d8d",
         "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
         "patchSetId": 1
@@ -30,6 +99,30 @@
       "writtenOn": "2017-04-20T19:44:28Z",
       "side": 1,
       "message": "should this compare the hashes instead?",
+      "range": {
+        "startLine": 177,
+        "startChar": 47,
+        "endLine": 177,
+        "endChar": 66
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f33b2401_d1080a91",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:50:21Z",
+      "side": 1,
+      "message": "This fixes a longstanding bug where strings that happened to collide would be also acceptable.",
+      "parentUuid": "5d333f73_0fc05d8d",
       "range": {
         "startLine": 177,
         "startChar": 47,
