@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ff70ecf_e4d72f33",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "nit {}",
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5f4d44a_faafbad4",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "nit: cast",
+      "range": {
+        "startLine": 40,
+        "startChar": 52,
+        "endLine": 40,
+        "endChar": 59
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49eccdbd_8f7ae0dc",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "nit: cast",
+      "range": {
+        "startLine": 51,
+        "startChar": 15,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c33b38_21c1158d",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 19
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d015936_ccf47bc1",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 223,
+        "startChar": 18,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29f7d737_b342c16f",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "followup: MaybeOwn the blocks",
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a12d13a7_bd39f2ba",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "No need for casts here I think",
+      "range": {
+        "startLine": 150,
+        "startChar": 17,
+        "endLine": 150,
+        "endChar": 70
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc3706d0_9a5f384b",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 192,
+        "startChar": 26,
+        "endLine": 192,
+        "endChar": 32
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303ca7b8_e8bd61e0",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "ditto because this is almost the same code as above",
+      "range": {
+        "startLine": 211,
+        "startChar": 17,
+        "endLine": 211,
+        "endChar": 70
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2a2346_28d26020",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "std::max",
+      "range": {
+        "startLine": 260,
+        "startChar": 3,
+        "endLine": 261,
+        "endChar": 22
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81315132_28c64065",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T16:29:55Z",
+      "side": 1,
+      "message": "If CFX_MemoryStream is the only IFX_MemoryStream, we can get rid of the interface",
+      "range": {
+        "startLine": 307,
+        "startChar": 28,
+        "endLine": 307,
+        "endChar": 44
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
