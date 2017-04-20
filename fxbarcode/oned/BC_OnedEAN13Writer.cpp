@@ -20,6 +20,9 @@
  * limitations under the License.
  */
 
+#include <algorithm>
+#include <cwctype>
+
 #include "core/fxge/cfx_fxgedevice.h"
 #include "core/fxge/cfx_gemodule.h"
 #include "fxbarcode/BC_Writer.h"
@@ -51,8 +54,7 @@ CBC_OnedEAN13Writer::~CBC_OnedEAN13Writer() {}
 
 bool CBC_OnedEAN13Writer::CheckContentValidity(
     const CFX_WideStringC& contents) {
-  return std::all_of(contents.begin(), contents.end(),
-                     [](const wchar_t& w) { return w >= L'0' && w <= L'9'; });
+  return std::all_of(contents.begin(), contents.end(), std::iswdigit);
 }
 
 CFX_WideString CBC_OnedEAN13Writer::FilterContents(
