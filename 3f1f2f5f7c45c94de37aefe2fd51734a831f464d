@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7ffc7a4_39513746",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "do we need space here?",
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d333f73_0fc05d8d",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "should this compare the hashes instead?",
+      "range": {
+        "startLine": 177,
+        "startChar": 47,
+        "endLine": 177,
+        "endChar": 66
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b23570_7dac2001",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "should this receive a bool pointer?",
+      "range": {
+        "startLine": 250,
+        "startChar": 41,
+        "endLine": 250,
+        "endChar": 48
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26983e0a_68b7320a",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "ditto char",
+      "range": {
+        "startLine": 256,
+        "startChar": 42,
+        "endLine": 256,
+        "endChar": 49
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3f8a14_eb5edc51",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "ditto int",
+      "range": {
+        "startLine": 260,
+        "startChar": 40,
+        "endLine": 260,
+        "endChar": 46
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f34e5904_ed97ec87",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-04-20T19:44:28Z",
+      "side": 1,
+      "message": "ditto float",
+      "range": {
+        "startLine": 274,
+        "startChar": 48,
+        "endLine": 274,
+        "endChar": 56
+      },
+      "revId": "3f1f2f5f7c45c94de37aefe2fd51734a831f464d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
