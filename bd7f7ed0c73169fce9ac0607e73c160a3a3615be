@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "37809bdf_0511575f",
+        "filename": "fxbarcode/cbc_code128.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f81ebdcc_f9373de9",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60d60aa3_63aea041",
         "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
         "patchSetId": 1
@@ -46,6 +70,30 @@
       "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07371b1f_9c5124e0",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60d60aa3_63aea041",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 33
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4ce360b7_52cd2b1c",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a5fbf6f_8fec1fa8",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 22
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87323c7c_be6dc43b",
         "filename": "fxbarcode/oned/BC_OnedCodaBarWriter.cpp",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2017-04-17T19:22:58Z",
       "side": 1,
       "message": "Infinite recursion?",
+      "range": {
+        "startLine": 144,
+        "startChar": 33,
+        "endLine": 144,
+        "endChar": 41
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a81e4910_33463f27",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "CBC_OneDimWriter::EncodeWithHint() is a concrete base class impl.",
+      "parentUuid": "87323c7c_be6dc43b",
       "range": {
         "startLine": 144,
         "startChar": 33,
@@ -118,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "4715d3e6_2f144895",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a0df83_11ae8fc9",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1206b8db_a6297fbc",
         "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
         "patchSetId": 1
@@ -138,6 +258,30 @@
       "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed96cfb7_f3573e7a",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:59:14Z",
+      "side": 1,
+      "message": "Done, though I noticed it\u0027s comparing the result against \u00279\u0027 even though it\u0027s a wide string.",
+      "parentUuid": "1206b8db_a6297fbc",
+      "range": {
+        "startLine": 60,
+        "startChar": 26,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
