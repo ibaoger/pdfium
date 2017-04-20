@@ -14,6 +14,7 @@
 #include "core/fxcodec/codec/ccodec_progressivedecoder.h"
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/cfx_maybe_owned.h"
+#include "core/fxcrt/cfx_memorystream.h"
 #include "core/fxge/cfx_gemodule.h"
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
@@ -1061,13 +1062,14 @@ CFX_RetainPtr<CFX_DIBitmap> XFA_LoadImageData(CXFA_FFDoc* pDoc,
       int32_t iLength = bsData.GetLength();
       pImageBuffer = FX_Alloc(uint8_t, iLength);
       int32_t iRead = XFA_Base64Decode(bsData.c_str(), pImageBuffer);
-      if (iRead > 0) {
-        pImageFileRead = IFX_MemoryStream::Create(pImageBuffer, iRead);
-      }
+      if (iRead > 0)
+        pImageFileRead =
+            pdfium::MakeRetain<CFX_MemoryStream>(pImageBuffer, iRead, false);
     } else {
       bsContent = CFX_ByteString::FromUnicode(wsImage);
-      pImageFileRead = IFX_MemoryStream::Create(
-          const_cast<uint8_t*>(bsContent.raw_str()), bsContent.GetLength());
+      pImageFileRead = pdfium::MakeRetain<CFX_MemoryStream>(
+          const_cast<uint8_t*>(bsContent.raw_str()), bsContent.GetLength(),
+          false);
     }
   } else {
     CFX_WideString wsURL = wsHref;
