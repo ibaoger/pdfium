@@ -80,8 +80,8 @@ inline FX_CMYK CmykEncode(int c, int m, int y, int k) {
   return (c << 24) | (m << 16) | (y << 8) | k;
 }
 
-void ArgbDecode(FX_ARGB argb, int& a, int& r, int& g, int& b);
-void ArgbDecode(FX_ARGB argb, int& a, FX_COLORREF& rgb);
+void ArgbDecode(FX_ARGB argb, int* a, int* r, int* g, int* b);
+void ArgbDecode(FX_ARGB argb, int* a, FX_COLORREF* rgb);
 inline FX_ARGB ArgbEncode(int a, int r, int g, int b) {
   return (a << 24) | (r << 16) | (g << 8) | b;
 }

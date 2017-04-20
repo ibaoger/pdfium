@@ -72,16 +72,16 @@ FX_RECT FXDIB_SwapClipBox(FX_RECT& clip,
   return rect;
 }
 
-void ArgbDecode(uint32_t argb, int& a, int& r, int& g, int& b) {
-  a = FXARGB_A(argb);
-  r = FXARGB_R(argb);
-  g = FXARGB_G(argb);
-  b = FXARGB_B(argb);
+void ArgbDecode(uint32_t argb, int* a, int* r, int* g, int* b) {
+  *a = FXARGB_A(argb);
+  *r = FXARGB_R(argb);
+  *g = FXARGB_G(argb);
+  *b = FXARGB_B(argb);
 }
 
-void ArgbDecode(uint32_t argb, int& a, FX_COLORREF& rgb) {
-  a = FXARGB_A(argb);
-  rgb = FXSYS_RGB(FXARGB_R(argb), FXARGB_G(argb), FXARGB_B(argb));
+void ArgbDecode(uint32_t argb, int* a, FX_COLORREF* rgb) {
+  *a = FXARGB_A(argb);
+  *rgb = FXSYS_RGB(FXARGB_R(argb), FXARGB_G(argb), FXARGB_B(argb));
 }
 
 uint32_t ArgbEncode(int a, FX_COLORREF rgb) {
