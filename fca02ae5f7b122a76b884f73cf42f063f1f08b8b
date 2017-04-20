@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ea135b9_108dca94",
+        "filename": "core/fxcrt/xml/cfx_xmlsyntaxparser_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T21:47:04Z",
+      "side": 1,
+      "message": "Do we need a few more calls that pass in bFirstChar\u003dfalse?",
+      "revId": "fca02ae5f7b122a76b884f73cf42f063f1f08b8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
