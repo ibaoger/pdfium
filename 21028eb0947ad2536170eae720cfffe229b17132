@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "7a5255f5_a1818974",
+        "filename": "fpdfsdk/javascript/PublicMethods.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf8b7b4_3452f291",
+      "range": {
+        "startLine": 139,
+        "startChar": 34,
+        "endLine": 139,
+        "endChar": 35
+      },
+      "revId": "21028eb0947ad2536170eae720cfffe229b17132",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c9d964b_2ef60a33",
         "filename": "fpdfsdk/javascript/PublicMethods.cpp",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2017-04-20T22:28:29Z",
       "side": 1,
       "message": "nit: or just pEvent-\u003eRc() \u003d false; (and below)",
+      "range": {
+        "startLine": 976,
+        "startChar": 7,
+        "endLine": 977,
+        "endChar": 20
+      },
+      "revId": "21028eb0947ad2536170eae720cfffe229b17132",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c796330f_52c3f903",
+        "filename": "fpdfsdk/javascript/PublicMethods.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T23:05:40Z",
+      "side": 1,
+      "message": "Done, but it does look a little bit odd.",
+      "parentUuid": "7c9d964b_2ef60a33",
       "range": {
         "startLine": 976,
         "startChar": 7,
