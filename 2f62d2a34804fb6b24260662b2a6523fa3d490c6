@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6913ab8c_0daebae0",
+        "filename": "core/fxge/dib/cfx_imagestretcher.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:10:35Z",
+      "side": 1,
+      "message": "or maybe just brace-init\n\n  return {XSYS_GetCValue(cmyk), ... };",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 71
+      },
+      "revId": "2f62d2a34804fb6b24260662b2a6523fa3d490c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8072ab3a_c06cc2c9",
+        "filename": "core/fxge/dib/fx_dib_main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T19:10:35Z",
+      "side": 1,
+      "message": "ditto here and next one, too.",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "2f62d2a34804fb6b24260662b2a6523fa3d490c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
