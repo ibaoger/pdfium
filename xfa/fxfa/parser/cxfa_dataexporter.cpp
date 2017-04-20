@@ -6,6 +6,8 @@
 
 #include "xfa/fxfa/parser/cxfa_dataexporter.h"
 
+#include <algorithm>
+#include <iterator>
 #include <vector>
 
 #include "core/fxcrt/cfx_memorystream.h"
@@ -49,25 +51,23 @@ CFX_WideString ExportEncodeAttribute(const CFX_WideString& str) {
   return textBuf.MakeString();
 }
 
-const uint16_t g_XMLValidCharRange[][2] = {{0x09, 0x09},
-                                           {0x0A, 0x0A},
-                                           {0x0D, 0x0D},
-                                           {0x20, 0xD7FF},
-                                           {0xE000, 0xFFFD}};
+struct CharRange {
+  uint16_t first;
+  uint16_t last;
+};
+
+const CharRange g_XMLValidCharRange[] = {{0x09, 0x09},
+                                         {0x0A, 0x0A},
+                                         {0x0D, 0x0D},
+                                         {0x20, 0xD7FF},
+                                         {0xE000, 0xFFFD}};
+
 bool IsXMLValidChar(wchar_t ch) {
-  int32_t iStart = 0;
-  int32_t iEnd = FX_ArraySize(g_XMLValidCharRange) - 1;
-  while (iStart <= iEnd) {
-    int32_t iMid = (iStart + iEnd) / 2;
-    if (ch < g_XMLValidCharRange[iMid][0]) {
-      iEnd = iMid - 1;
-    } else if (ch > g_XMLValidCharRange[iMid][1]) {
-      iStart = iMid + 1;
-    } else {
-      return true;
-    }
-  }
-  return false;
+  return std::any_of(std::begin(g_XMLValidCharRange),
+                     std::end(g_XMLValidCharRange),
+                     [ch](const CharRange& range) {
+                       return ch >= range.first && ch <= range.last;
+                     });
 }
 
 CFX_WideString ExportEncodeContent(const CFX_WideStringC& str) {
