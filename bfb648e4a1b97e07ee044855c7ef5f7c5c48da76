@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ff16409_818ef415",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T19:14:53Z",
+      "side": 1,
+      "message": "This should be ArgbDecode",
+      "revId": "bfb648e4a1b97e07ee044855c7ef5f7c5c48da76",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
