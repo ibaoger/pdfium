@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c4e92db_bae81205",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T20:39:40Z",
+      "side": 1,
+      "message": "What about just:\nif (ch \u003d\u003d 0x09 || ch \u003d\u003d 0x0A || ch \u003d\u003d 0x0D)\n  return true;\nif ((ch \u003e\u003d 0x20 \u0026\u0026 ch \u003c\u003d 0xD7FF) || (ch \u003e\u003d 0xe000 \u0026\u0026 ch \u003c\u003d 0xfffd))\n  return true;\nreturn false;",
+      "revId": "8da1f26c831c00d2bc66ebc45a9a4725e9c0bfa8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
