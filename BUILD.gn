@@ -169,6 +169,21 @@ static_library("pdfium") {
     "public/fpdfview.h",
   ]
 
+  if (pdf_experimental_api) {
+    sources += [
+      "api/pdfium.cpp",
+      "api/pdfium.h",
+      "api/pdfium_config.cpp",
+      "api/pdfium_document.cpp",
+      "api/pdfium_unsupported_feature_delegate.cpp",
+      "public/exp/pdfium.h",
+      "public/exp/pdfium_config.h",
+      "public/exp/pdfium_document.h",
+      "public/exp/pdfium_status.h",
+      "public/exp/pdfium_unsupported_feature_delegate.h",
+    ]
+  }
+
   libs = []
   configs += [ ":pdfium_core_config" ]
 

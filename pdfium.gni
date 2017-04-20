@@ -52,4 +52,7 @@ declare_args() {
 
   # Enable coverage information
   use_coverage = false
+
+  # Build the experimental C++ API.
+  pdf_experimental_api = false
 }
