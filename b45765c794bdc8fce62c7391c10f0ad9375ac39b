@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4240a00_a11073b2",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-20T22:16:49Z",
+      "side": 1,
+      "message": "Do we just need to update this now to match https://codereview.chromium.org/2829893003/diff/20001/third_party/freetype/BUILD.gn ?",
+      "revId": "b45765c794bdc8fce62c7391c10f0ad9375ac39b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
