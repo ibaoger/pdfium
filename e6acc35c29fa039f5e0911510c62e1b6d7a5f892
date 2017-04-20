@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60e10249_cf86f338",
+        "filename": "core/fxge/dib/cfx_imagestretcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T18:14:19Z",
+      "side": 1,
+      "message": "std::tie(c1, m1, y1, k1) \u003d CmykDecode(m_pSource-\u003eGetPalettEntry(1));",
+      "revId": "e6acc35c29fa039f5e0911510c62e1b6d7a5f892",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e4f123_bd2b5d02",
+        "filename": "core/fxge/fx_dib.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T18:14:19Z",
+      "side": 1,
+      "message": "std::tuple\u003ca, r, g, b\u003e ArgbDecode(FX_ARGB argb);",
+      "revId": "e6acc35c29fa039f5e0911510c62e1b6d7a5f892",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
