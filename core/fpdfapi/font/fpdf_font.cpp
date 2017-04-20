@@ -253,8 +253,11 @@ void CPDF_ToUnicodeMap::Load(CPDF_Stream* pStream) {
         }
         CFX_ByteString start(parser.GetWord());
         if (start == "[") {
+          printf("low %u high %u\n", lowcode, highcode);
           for (uint32_t code = lowcode; code <= highcode; code++) {
             CFX_ByteString dest(parser.GetWord());
+            if (code == 60)
+              printf("Word for 60: %s\n", dest.c_str());
             CFX_WideString destcode = StringToWideString(dest.AsStringC());
             int len = destcode.GetLength();
             if (len == 0) {
@@ -312,4 +315,6 @@ void CPDF_ToUnicodeMap::Load(CPDF_Stream* pStream) {
   } else {
     m_pBaseMap = nullptr;
   }
+  printf("Map size %u\n", (uint)m_Map.size());
+  printf("map60: %u map77: %u map91: %u\n\n", m_Map[60], m_Map[77], m_Map[91]);
 }
