@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "93578904_1c02341a",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-20T23:07:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a81e4910_33463f27",
+      "range": {
+        "startLine": 144,
+        "startChar": 33,
+        "endLine": 144,
+        "endChar": 41
+      },
+      "revId": "bd7f7ed0c73169fce9ac0607e73c160a3a3615be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2a0df83_11ae8fc9",
         "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
         "patchSetId": 1
