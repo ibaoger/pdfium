@@ -49,22 +49,6 @@
 #include "public/fpdf_formfill.h"
 #endif  // PDF_ENABLE_XFA
 
-#ifdef PDF_ENABLE_XFA_BMP
-#include "core/fxcodec/codec/ccodec_bmpmodule.h"
-#endif
-
-#ifdef PDF_ENABLE_XFA_GIF
-#include "core/fxcodec/codec/ccodec_gifmodule.h"
-#endif
-
-#ifdef PDF_ENABLE_XFA_PNG
-#include "core/fxcodec/codec/ccodec_pngmodule.h"
-#endif
-
-#ifdef PDF_ENABLE_XFA_TIFF
-#include "core/fxcodec/codec/ccodec_tiffmodule.h"
-#endif
-
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 #include "core/fxge/cfx_windowsdevice.h"
 #endif
@@ -381,30 +365,8 @@ FPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {
   CPDF_ModuleMgr* pModuleMgr = CPDF_ModuleMgr::Get();
   pModuleMgr->SetCodecModule(g_pCodecModule);
   pModuleMgr->InitPageModule();
-  pModuleMgr->LoadEmbeddedGB1CMaps();
-  pModuleMgr->LoadEmbeddedJapan1CMaps();
-  pModuleMgr->LoadEmbeddedCNS1CMaps();
-  pModuleMgr->LoadEmbeddedKorea1CMaps();
-
-#ifdef PDF_ENABLE_XFA_BMP
-  pModuleMgr->GetCodecModule()->SetBmpModule(
-      pdfium::MakeUnique<CCodec_BmpModule>());
-#endif
-
-#ifdef PDF_ENABLE_XFA_GIF
-  pModuleMgr->GetCodecModule()->SetGifModule(
-      pdfium::MakeUnique<CCodec_GifModule>());
-#endif
-
-#ifdef PDF_ENABLE_XFA_PNG
-  pModuleMgr->GetCodecModule()->SetPngModule(
-      pdfium::MakeUnique<CCodec_PngModule>());
-#endif
-
-#ifdef PDF_ENABLE_XFA_TIFF
-  pModuleMgr->GetCodecModule()->SetTiffModule(
-      pdfium::MakeUnique<CCodec_TiffModule>());
-#endif
+  pModuleMgr->LoadEmbeddedMaps();
+  pModuleMgr->LoadCodecModules();
 
 #ifdef PDF_ENABLE_XFA
   FXJSE_Initialize();
