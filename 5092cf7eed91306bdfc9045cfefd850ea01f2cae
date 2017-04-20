@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4d6aa04c_4e850473",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ff70ecf_e4d72f33",
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5f4d44a_faafbad4",
         "filename": "core/fxcrt/fx_extension.cpp",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2350192_1cd4a9f6",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5f4d44a_faafbad4",
+      "range": {
+        "startLine": 40,
+        "startChar": 52,
+        "endLine": 40,
+        "endChar": 59
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "83438e5e_e4706fb6",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49eccdbd_8f7ae0dc",
+      "range": {
+        "startLine": 51,
+        "startChar": 15,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97c33b38_21c1158d",
         "filename": "core/fxcrt/fx_extension.cpp",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3611eaa_ca6c5d7e",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97c33b38_21c1158d",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 19
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "1f08d745_a0d5566c",
+        "filename": "core/fxcrt/fx_extension.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d015936_ccf47bc1",
+      "range": {
+        "startLine": 223,
+        "startChar": 18,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29f7d737_b342c16f",
         "filename": "core/fxcrt/fx_stream.cpp",
         "patchSetId": 2
@@ -125,6 +239,24 @@
       "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b0d634_2eb29727",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29f7d737_b342c16f",
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "d6b821fe_b888e01d",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a12d13a7_bd39f2ba",
+      "range": {
+        "startLine": 150,
+        "startChar": 17,
+        "endLine": 150,
+        "endChar": 70
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3706d0_9a5f384b",
         "filename": "core/fxcrt/fx_stream.cpp",
         "patchSetId": 2
@@ -171,6 +327,30 @@
       "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4158f841_321d5cfd",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc3706d0_9a5f384b",
+      "range": {
+        "startLine": 192,
+        "startChar": 26,
+        "endLine": 192,
+        "endChar": 32
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "221e0dec_71ad34b3",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "303ca7b8_e8bd61e0",
+      "range": {
+        "startLine": 211,
+        "startChar": 17,
+        "endLine": 211,
+        "endChar": 70
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd2a2346_28d26020",
         "filename": "core/fxcrt/fx_stream.cpp",
         "patchSetId": 2
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "2c70414e_4b5131e2",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2a2346_28d26020",
+      "range": {
+        "startLine": 260,
+        "startChar": 3,
+        "endLine": 261,
+        "endChar": 22
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81315132_28c64065",
         "filename": "core/fxcrt/fx_stream.cpp",
         "patchSetId": 2
@@ -231,6 +459,30 @@
       "writtenOn": "2017-04-20T16:29:55Z",
       "side": 1,
       "message": "If CFX_MemoryStream is the only IFX_MemoryStream, we can get rid of the interface",
+      "range": {
+        "startLine": 307,
+        "startChar": 28,
+        "endLine": 307,
+        "endChar": 44
+      },
+      "revId": "5092cf7eed91306bdfc9045cfefd850ea01f2cae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00fc99ff_56abac2d",
+        "filename": "core/fxcrt/fx_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-20T16:41:31Z",
+      "side": 1,
+      "message": "Followup",
+      "parentUuid": "81315132_28c64065",
       "range": {
         "startLine": 307,
         "startChar": 28,
