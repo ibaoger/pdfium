@@ -16,6 +16,24 @@
       "revId": "568f7b66e0eae97a06bcbba45ca621860fb65e3d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d97a49_cc8e83a7",
+        "filename": "core/fpdfapi/render/cpdf_type3cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T20:51:49Z",
+      "side": 1,
+      "message": "not quite, it uses member m_pFont :\n\n\nconst CPDF_Type3Char* pChar \u003d m_pFont-\u003eLoadChar(charcode);",
+      "parentUuid": "c88d9aef_3b11eb52",
+      "revId": "568f7b66e0eae97a06bcbba45ca621860fb65e3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
