@@ -1,5 +1,3 @@
-// Copyright 2014 PDFium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
@@ -20,7 +18,8 @@
  * limitations under the License.
  */
 
-#include "fxbarcode/BC_Dimension.h"
+#include "fxbarcode/datamatrix/BC_TextEncoder.h"
+
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
 #include "fxbarcode/datamatrix/BC_C40Encoder.h"
 #include "fxbarcode/datamatrix/BC_Encoder.h"
@@ -28,7 +27,7 @@
 #include "fxbarcode/datamatrix/BC_HighLevelEncoder.h"
 #include "fxbarcode/datamatrix/BC_SymbolInfo.h"
 #include "fxbarcode/datamatrix/BC_SymbolShapeHint.h"
-#include "fxbarcode/datamatrix/BC_TextEncoder.h"
+#include "fxbarcode/utils.h"
 
 CBC_TextEncoder::CBC_TextEncoder() {}
 CBC_TextEncoder::~CBC_TextEncoder() {}
