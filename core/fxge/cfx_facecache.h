@@ -33,12 +33,12 @@ class CFX_FaceCache {
 #endif
 
  private:
-  CFX_GlyphBitmap* RenderGlyph(const CFX_Font* pFont,
-                               uint32_t glyph_index,
-                               bool bFontStyle,
-                               const CFX_Matrix* pMatrix,
-                               int dest_width,
-                               int anti_alias);
+  std::unique_ptr<CFX_GlyphBitmap> RenderGlyph(const CFX_Font* pFont,
+                                               uint32_t glyph_index,
+                                               bool bFontStyle,
+                                               const CFX_Matrix* pMatrix,
+                                               int dest_width,
+                                               int anti_alias);
   CFX_GlyphBitmap* RenderGlyph_Nativetext(const CFX_Font* pFont,
                                           uint32_t glyph_index,
                                           const CFX_Matrix* pMatrix,
