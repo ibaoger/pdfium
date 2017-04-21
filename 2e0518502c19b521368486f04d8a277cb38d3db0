@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "376e4c9f_93a08233",
+        "filename": "core/fxge/ge/cfx_fontmgr.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-21T22:50:49Z",
+      "side": 1,
+      "message": "Can\u0027t you just re-order the member declarations so they get destroyed in the right order?",
+      "revId": "2e0518502c19b521368486f04d8a277cb38d3db0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f948e8_89005a39",
+        "filename": "core/fxge/ge/cttfontdesc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-21T22:50:49Z",
+      "side": 1,
+      "message": "return --m_RefCount; ?",
+      "revId": "2e0518502c19b521368486f04d8a277cb38d3db0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
