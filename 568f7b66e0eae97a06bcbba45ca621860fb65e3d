@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88d9aef_3b11eb52",
+        "filename": "core/fpdfapi/render/cpdf_type3cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-21T20:46:34Z",
+      "side": 1,
+      "message": "This can probably go into an anonymous namespace?",
+      "revId": "568f7b66e0eae97a06bcbba45ca621860fb65e3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
