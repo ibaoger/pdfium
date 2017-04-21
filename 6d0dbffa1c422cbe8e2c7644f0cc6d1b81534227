@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ced5a957_4e38bede",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T16:14:41Z",
+      "side": 1,
+      "message": "can this be a static method?",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 7
+      },
+      "revId": "6d0dbffa1c422cbe8e2c7644f0cc6d1b81534227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "560c7be6_954feb1e",
+        "filename": "xfa/fxfa/app/xfa_ffbarcode_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T16:14:41Z",
+      "side": 1,
+      "message": "nit: I\u0027d been testing first, last and one from the middle.",
+      "range": {
+        "startLine": 16,
+        "startChar": 45,
+        "endLine": 16,
+        "endChar": 55
+      },
+      "revId": "6d0dbffa1c422cbe8e2c7644f0cc6d1b81534227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3a737b_e25402b3",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T16:14:41Z",
+      "side": 1,
+      "message": "nit: static_cast and below",
+      "range": {
+        "startLine": 1240,
+        "startChar": 13,
+        "endLine": 1240,
+        "endChar": 23
+      },
+      "revId": "6d0dbffa1c422cbe8e2c7644f0cc6d1b81534227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c96a78_4805f087",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T16:14:41Z",
+      "side": 1,
+      "message": "nit: static_cast and below",
+      "range": {
+        "startLine": 1273,
+        "startChar": 11,
+        "endLine": 1273,
+        "endChar": 29
+      },
+      "revId": "6d0dbffa1c422cbe8e2c7644f0cc6d1b81534227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74446fb6_3166c893",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T16:14:41Z",
+      "side": 1,
+      "message": "maybe invert test and lose the {}s in the process.",
+      "range": {
+        "startLine": 1329,
+        "startChar": 3,
+        "endLine": 1329,
+        "endChar": 63
+      },
+      "revId": "6d0dbffa1c422cbe8e2c7644f0cc6d1b81534227",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
