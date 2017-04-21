@@ -1,4 +1,74 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1492750917 -0700\nnonce AFMZ2Gxqli9cjkuOfQDRdpCZadxlfankMzTvoF+1dWhaef1aBfgi1dq1Lv+axT45P93miJTMXDia\n\n0000000000000000000000000000000000000000 23548681a914ec8e983598360eb3de8cd8802e96 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY+ZJFAAoJEKs2LWFaZv177WEIAJVYSxVs7orizmS9VbLjr2SY\nJOL1/25Jo7c1ayYvyWuSk2bzYW7Ys/FomT+FDI38G2qLCvalkiw9L+d6AiMNaGa8\nHpxU6IaragjvPAD4XZ6D16hDgYK3HhcL0HqfcOFentRKn+UWT8l7A2a/Col1fTWl\npfQnKKCZ8tdp5V9eV58Eavita18pb9/aLf0wc0ptsuE337fmlMasaY9CaEyVVk/0\nx4pRQ+O5vuS4hL4FTxlrBEHbqvCOhy17OBJ6Rkl4+vLBO04WWMiLWd5tUjKj49qS\nhUBrWtaIukL8pZM6aobxy0MYkgDYWvOU59by16vpyD3PsCG88sS0bLYhlvescPg\u003d\n\u003dr+QL\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7ed4e84_ac10bdb9",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T18:41:30Z",
+      "side": 1,
+      "message": "Ok, but three allocs involved here ... could be one given a wchar_t[2] to start with.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "23548681a914ec8e983598360eb3de8cd8802e96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13299b10_07234a65",
+        "filename": "fxbarcode/datamatrix/BC_EdifactEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T18:41:30Z",
+      "side": 1,
+      "message": "this might diff better if it came before the previous methods, is this ordering required to get things declared before use?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "23548681a914ec8e983598360eb3de8cd8802e96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "338137c5_9a215a97",
+        "filename": "fxbarcode/pdf417/BC_PDF417ErrorCorrection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T18:41:30Z",
+      "side": 1,
+      "message": "O(N^2) due to conservative growth strategy for our strings.",
+      "range": {
+        "startLine": 161,
+        "startChar": 3,
+        "endLine": 161,
+        "endChar": 31
+      },
+      "revId": "23548681a914ec8e983598360eb3de8cd8802e96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
