@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "369da4ec_66c84b30",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-21T22:45:35Z",
+      "side": 1,
+      "message": "aha! avoided a string duplication ...",
+      "range": {
+        "startLine": 707,
+        "startChar": 3,
+        "endLine": 707,
+        "endChar": 39
+      },
+      "revId": "35a39097b3b4b96f3ce6d6b947a455e7def21aff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
