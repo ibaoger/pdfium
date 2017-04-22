@@ -471,7 +471,7 @@ TEST_F(FPDFEditEmbeddertest, AddStandardFontText) {
 #elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
   const char md5_3[] = "174f30c36c73adb265c0f6ddb3a61c87";
 #else
-  const char md5_3[] = "abfa9246d60f821b5b7638efd32dfd92";
+  const char md5_3[] = "8b300d3c6dfc12fa9af97e12ed5bd80a";
 #endif
   CompareBitmap(page_bitmap, 612, 792, md5_3);
   FPDFBitmap_Destroy(page_bitmap);
