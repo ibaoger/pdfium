@@ -8,24 +8,22 @@
 
 #include <utility>
 
+#include "core/fxcrt/fx_extension.h"
 #include "third_party/base/ptr_util.h"
 
 namespace {
 
 bool IsCSSChar(wchar_t wch) {
-  return (wch >= 'a' && wch <= 'z') || (wch >= 'A' && wch <= 'Z');
+  return FXSYS_iswalpha(wch);
 }
 
 int32_t GetCSSNameLen(const wchar_t* psz, const wchar_t* pEnd) {
   const wchar_t* pStart = psz;
   while (psz < pEnd) {
     wchar_t wch = *psz;
-    if (IsCSSChar(wch) || (wch >= '0' && wch <= '9') || wch == '_' ||
-        wch == '-') {
-      ++psz;
-    } else {
+    if (!IsCSSChar(wch) && !std::iswdigit(wch) && wch != '_' && wch != '-')
       break;
-    }
+    ++psz;
   }
   return psz - pStart;
 }
