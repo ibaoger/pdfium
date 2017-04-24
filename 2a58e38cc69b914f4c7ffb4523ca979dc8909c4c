@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c536935d_c68bee02",
+        "filename": "core/fxge/ge/cfx_facecache.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-24T13:51:32Z",
+      "side": 1,
+      "message": "This can move inside the if to 331 and 342 as in both cases it checks if (pGlyphBitmap) and returns.",
+      "revId": "2a58e38cc69b914f4c7ffb4523ca979dc8909c4c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
