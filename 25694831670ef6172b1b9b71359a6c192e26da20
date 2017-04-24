@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de4cd49c_c709562f",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-24T18:18:46Z",
+      "side": 0,
+      "message": "Surely they meant 0x80? The above entries cover everything \u003c 0x80 already.",
+      "revId": "25694831670ef6172b1b9b71359a6c192e26da20",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
