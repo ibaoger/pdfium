@@ -1,4 +1,120 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493056560 -0700\nnonce AFMZ2Gy6/YnevfRBBbv2JmyYeQ4A6TtyLXc3Pqm1yOtLD00vjkoST+e8FZaiEcrnEq/x87aSHBZn\n\n0000000000000000000000000000000000000000 2865b05499739b2f6c15fb03c73d0af1e3b83283 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY/jwwAAoJEKs2LWFaZv1754EIAL3eakBYcK1z1C4eEIZA8anp\ntfdDwqoZk/67F/foVZPnS6Gzoylv+67a0sj80VvguGAsU+WBaJsMyNu8Dy8qL54x\nOJAefyukjpq4Z6vhvlCIal0VGSiPOdKKwx/VoXabqeHZuy2jch4yH0NX2e8tc4X7\n0xbP7oQ28fJyUj2a5EYlw/gW9jR0QI7bGlm9RnaSCCyKV2QY/cZdRmMbFzcTOYHH\nDRPxQWSnVwXi7ZcWd6EyPuij30LW37iYe2sMgftxFg5uArnq+wsWilac2K3ULuku\nVY7SKO9/+CVTpOEQaB2PRv4sOOMF+rBBhwJDEfulNaQBZ5RH+/gzbfDsnG8mwuQ\u003d\n\u003dRd+b\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "43aa3b3f_7cb9e92a",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T18:32:45Z",
+      "side": 1,
+      "message": "pointer?",
+      "range": {
+        "startLine": 134,
+        "startChar": 46,
+        "endLine": 134,
+        "endChar": 63
+      },
+      "revId": "2865b05499739b2f6c15fb03c73d0af1e3b83283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81339523_d135e52b",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T18:32:45Z",
+      "side": 1,
+      "message": "can we omit this test since we\u0027d return earlier?",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 14
+      },
+      "revId": "2865b05499739b2f6c15fb03c73d0af1e3b83283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e042b00_aa79584f",
+        "filename": "fxbarcode/datamatrix/BC_X12Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T18:32:45Z",
+      "side": 1,
+      "message": "maybe early returns and lose the elses",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 9
+      },
+      "revId": "2865b05499739b2f6c15fb03c73d0af1e3b83283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bb7a2c_a4ebfc38",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T18:32:45Z",
+      "side": 1,
+      "message": "Worry about ++ multi-evaluation in possible macro.",
+      "range": {
+        "startLine": 231,
+        "startChar": 21,
+        "endLine": 231,
+        "endChar": 67
+      },
+      "revId": "2865b05499739b2f6c15fb03c73d0af1e3b83283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16293192_86d1d441",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T18:32:45Z",
+      "side": 1,
+      "message": "position might be out of range when previous ++ applied.",
+      "range": {
+        "startLine": 232,
+        "startChar": 38,
+        "endLine": 232,
+        "endChar": 47
+      },
+      "revId": "2865b05499739b2f6c15fb03c73d0af1e3b83283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
