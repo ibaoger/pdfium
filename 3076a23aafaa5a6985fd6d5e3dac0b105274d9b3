@@ -1,4 +1,73 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493056013 -0700\nnonce AFMZ2GzzBzMXvRkgr8FkTRIC73xDonm+WsO2pCiO+L+hgotUEuTHuIneSWJ6BrNlzUDHmKiM/G91\n\n0000000000000000000000000000000000000000 3076a23aafaa5a6985fd6d5e3dac0b105274d9b3 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY/joNAAoJEKs2LWFaZv17kDcH/2pmJEHevl235Lykd5A2KzO1\nle0YGHhLufMZVw5DIL6p2dKgsf0h3zbPD15sQVtT88V7XRcuLTnW86xzgfnjoepy\nf+0VNmEeY1l8VNDTzDnd9idx5iX0V0cASYUbR3+7LgiolsHwLRl/7Iablbl6vjSA\nL6ggFfR95M8O6cGLlk4DmJwkGDznm14LHU0IGGe+QwhPoB6pQpPEeBZL3gmq5npi\nPoyqDnefPZxXAKFD1xc3s9uLBvcc7eefVpMODdzZ/xdrKX2kK5WiKk6xsZ8nDtHs\nMfRwXAwRp/BOcc4zjplndOmPQS4oQ0j9tkjMMf1g0pCeIxfXBT2WOSDWlZDYZDk\u003d\n\u003dqW6P\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b3817cb_13889bee",
+        "filename": "xfa/fde/css/cfde_cssselector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-24T20:56:29Z",
+      "side": 1,
+      "message": "Is this method even worthwhile? Can we just put the FXSYS_iswalpha(wch) at the callsites?",
+      "revId": "3076a23aafaa5a6985fd6d5e3dac0b105274d9b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaaf9529_8f0c620d",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-24T20:56:29Z",
+      "side": 1,
+      "message": "Remove and call directly?",
+      "revId": "3076a23aafaa5a6985fd6d5e3dac0b105274d9b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f56dab88_aa2034d2",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-24T20:56:29Z",
+      "side": 1,
+      "message": "Is there a wide string version of std::isxdigit?",
+      "revId": "3076a23aafaa5a6985fd6d5e3dac0b105274d9b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70bb8c0b_179feddd",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-24T20:56:29Z",
+      "side": 1,
+      "message": "Remove and call directly?",
+      "revId": "3076a23aafaa5a6985fd6d5e3dac0b105274d9b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
