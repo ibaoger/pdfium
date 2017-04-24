@@ -3,6 +3,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "442a845a_e345c264",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T23:16:42Z",
+      "side": 1,
+      "message": "nit: maybe range-based for loop while we\u0027re at it.",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 47
+      },
+      "revId": "004e7114ddd2a9cdcbb80fdb3f9da341ba9f76e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9209855_13cc25a9",
         "filename": "fxbarcode/oned/BC_OnedCode128Writer_unittest.cpp",
         "patchSetId": 1
@@ -14,6 +37,24 @@
       "writtenOn": "2017-04-24T23:05:49Z",
       "side": 1,
       "message": "Should I use a macro to automatically calculate |num_patterns| ?",
+      "revId": "004e7114ddd2a9cdcbb80fdb3f9da341ba9f76e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "273942f3_8150e9b1",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-24T23:16:42Z",
+      "side": 1,
+      "message": "No, the macro could be wrong and we\u0027d not noticeit.",
+      "parentUuid": "f9209855_13cc25a9",
       "revId": "004e7114ddd2a9cdcbb80fdb3f9da341ba9f76e9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
