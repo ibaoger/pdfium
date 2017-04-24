@@ -160,3 +160,17 @@ TEST(fxcrt, FXSYS_i64toa) {
 }
 
 #endif  // _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
+
+TEST(fxcrt, FXSYS_wcsftime) {
+  // Ensure wcsftime handles bad years, etc. without crashing.
+  struct tm bad_time = {};
+  bad_time.tm_year = -1;
+  bad_time.tm_mon = -1;
+  bad_time.tm_mday = -1;
+  bad_time.tm_hour = -1;
+  bad_time.tm_min = -1;
+  bad_time.tm_sec = -1;
+
+  wchar_t buf[100];
+  wcsftime(buf, sizeof(buf), L"%y-%m-%dT%H:%M:%S", &bad_time);
+}
