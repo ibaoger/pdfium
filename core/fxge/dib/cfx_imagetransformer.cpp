@@ -387,6 +387,9 @@ bool CFX_ImageTransformer::Continue(IFX_Pause* pPause) {
                                        res_y);
           if (src_col_l >= 0 && src_col_l <= stretch_width && src_row_l >= 0 &&
               src_row_l <= stretch_height) {
+
+printf("SRC_ROW_L %d >= 0 %d ... < 0 %d\n", src_row_l, src_row_l >= 0, src_row_l < 0);
+printf("SRC_ROW_L %d >= 0 %d ... < 0 %d\n", src_row_l, src_row_l >= 0, src_row_l < 0);
             if (src_col_l == stretch_width) {
               src_col_l--;
             }
