@@ -22,6 +22,9 @@
 
 #include "fxbarcode/oned/BC_OnedCode128Writer.h"
 
+#include <algorithm>
+#include <cctype>
+#include <cwctype>
 #include <memory>
 
 #include "fxbarcode/BC_Writer.h"
@@ -150,12 +153,8 @@ bool CBC_OnedCode128Writer::IsDigits(const CFX_ByteString& contents,
                                      int32_t start,
                                      int32_t length) {
   int32_t end = start + length;
-  for (int32_t i = start; i < end; i++) {
-    if (contents[i] < '0' || contents[i] > '9') {
-      return false;
-    }
-  }
-  return true;
+  return std::all_of(contents.begin() + start, contents.begin() + end,
+                     std::iswdigit);
 }
 
 uint8_t* CBC_OnedCode128Writer::EncodeImpl(const CFX_ByteString& contents,
@@ -228,17 +227,13 @@ int32_t CBC_OnedCode128Writer::Encode128C(
   while (position < contents.GetLength()) {
     int32_t patternIndex = 0;
     char ch = contents.GetAt(position);
-    if (ch < '0' || ch > '9') {
+    if (std::isdigit(ch)) {
+      patternIndex = FXSYS_atoi(contents.Mid(position++, 2).c_str());
+      if (std::isdigit(contents.GetAt(position)))
+        ++position;
+    } else {
       patternIndex = (int32_t)ch;
       position++;
-    } else {
-      patternIndex = FXSYS_atoi(contents.Mid(position, 2).c_str());
-      if (contents.GetAt(position + 1) < '0' ||
-          contents.GetAt(position + 1) > '9') {
-        position += 1;
-      } else {
-        position += 2;
-      }
     }
     patterns->push_back(CODE_PATTERNS[patternIndex]);
     checkSum += patternIndex * checkWeight;

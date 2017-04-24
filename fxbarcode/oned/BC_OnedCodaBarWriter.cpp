@@ -20,11 +20,13 @@
  * limitations under the License.
  */
 
+#include "fxbarcode/oned/BC_OnedCodaBarWriter.h"
+
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_Writer.h"
 #include "fxbarcode/common/BC_CommonBitArray.h"
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
 #include "fxbarcode/oned/BC_OneDimWriter.h"
-#include "fxbarcode/oned/BC_OnedCodaBarWriter.h"
 
 namespace {
 
@@ -151,10 +153,7 @@ uint8_t* CBC_OnedCodaBarWriter::EncodeImpl(const CFX_ByteString& contents,
   char ch;
   int32_t position = 0;
   for (int32_t index = 0; index < data.GetLength(); index++) {
-    ch = data.GetAt(index);
-    if (((ch >= 'a') && (ch <= 'z'))) {
-      ch = ch - 32;
-    }
+    ch = FXSYS_toupper(data.GetAt(index));
     switch (ch) {
       case 'T':
         ch = 'A';

@@ -22,6 +22,7 @@
 
 #include "fxbarcode/pdf417/BC_PDF417HighLevelEncoder.h"
 
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_UtilCodingConvert.h"
 #include "fxbarcode/pdf417/BC_PDF417Compaction.h"
 #include "fxbarcode/utils.h"
@@ -318,24 +319,31 @@ void CBC_PDF417HighLevelEncoder::encodeNumeric(CFX_WideString msg,
     idx += len;
   }
 }
+
 bool CBC_PDF417HighLevelEncoder::isDigit(wchar_t ch) {
-  return ch >= '0' && ch <= '9';
+  return !!std::iswdigit(ch);
 }
+
 bool CBC_PDF417HighLevelEncoder::isAlphaUpper(wchar_t ch) {
-  return ch == ' ' || (ch >= 'A' && ch <= 'Z');
+  return ch == ' ' || FXSYS_isupper(ch);
 }
+
 bool CBC_PDF417HighLevelEncoder::isAlphaLower(wchar_t ch) {
-  return ch == ' ' || (ch >= 'a' && ch <= 'z');
+  return ch == ' ' || FXSYS_islower(ch);
 }
+
 bool CBC_PDF417HighLevelEncoder::isMixed(wchar_t ch) {
   return MIXED[ch] != -1;
 }
+
 bool CBC_PDF417HighLevelEncoder::isPunctuation(wchar_t ch) {
   return PUNCTUATION[ch] != -1;
 }
+
 bool CBC_PDF417HighLevelEncoder::isText(wchar_t ch) {
   return ch == '\t' || ch == '\n' || ch == '\r' || (ch >= 32 && ch <= 126);
 }
+
 int32_t CBC_PDF417HighLevelEncoder::determineConsecutiveDigitCount(
     CFX_WideString msg,
     int32_t startpos) {

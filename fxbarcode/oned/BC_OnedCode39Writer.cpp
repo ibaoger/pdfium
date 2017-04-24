@@ -22,8 +22,10 @@
 
 #include "fxbarcode/oned/BC_OnedCode39Writer.h"
 
+#include <algorithm>
 #include <memory>
 
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_Writer.h"
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
 #include "fxbarcode/oned/BC_OneDimWriter.h"
@@ -41,6 +43,14 @@ const int32_t CHARACTER_ENCODINGS[44] = {
     0x106, 0x046, 0x016, 0x181, 0x0C1, 0x1C0, 0x091, 0x190, 0x0D0,
     0x085, 0x184, 0x0C4, 0x094, 0x0A8, 0x0A2, 0x08A, 0x02A};
 
+const wchar_t kMaxChar = 175;
+
+bool IsValidChar(wchar_t ch) {
+  return std::iswdigit(ch) || FXSYS_isupper(ch) || ch == L'-' || ch == L'.' ||
+         ch == L' ' || ch == L'*' || ch == L'$' || ch == L'/' || ch == L'+' ||
+         ch == L'%';
+}
+
 }  // namespace
 
 CBC_OnedCode39Writer::CBC_OnedCode39Writer() : m_iWideNarrRatio(3) {}
@@ -49,18 +59,7 @@ CBC_OnedCode39Writer::~CBC_OnedCode39Writer() {}
 
 bool CBC_OnedCode39Writer::CheckContentValidity(
     const CFX_WideStringC& contents) {
-  for (int32_t i = 0; i < contents.GetLength(); i++) {
-    wchar_t ch = contents.GetAt(i);
-    if ((ch >= (wchar_t)'0' && ch <= (wchar_t)'9') ||
-        (ch >= (wchar_t)'A' && ch <= (wchar_t)'Z') || ch == (wchar_t)'-' ||
-        ch == (wchar_t)'.' || ch == (wchar_t)' ' || ch == (wchar_t)'*' ||
-        ch == (wchar_t)'$' || ch == (wchar_t)'/' || ch == (wchar_t)'+' ||
-        ch == (wchar_t)'%') {
-      continue;
-    }
-    return false;
-  }
-  return true;
+  return std::all_of(contents.begin(), contents.end(), IsValidChar);
 }
 
 CFX_WideString CBC_OnedCode39Writer::FilterContents(
@@ -68,22 +67,17 @@ CFX_WideString CBC_OnedCode39Writer::FilterContents(
   CFX_WideString filtercontents;
   for (int32_t i = 0; i < contents.GetLength(); i++) {
     wchar_t ch = contents.GetAt(i);
-    if (ch == (wchar_t)'*' && (i == 0 || i == contents.GetLength() - 1)) {
+    if (ch == L'*' && (i == 0 || i == contents.GetLength() - 1))
       continue;
-    }
-    if (ch > 175) {
+
+    if (ch > kMaxChar) {
       i++;
       continue;
-    } else {
-      ch = Upper(ch);
     }
-    if ((ch >= (wchar_t)'0' && ch <= (wchar_t)'9') ||
-        (ch >= (wchar_t)'A' && ch <= (wchar_t)'Z') || ch == (wchar_t)'-' ||
-        ch == (wchar_t)'.' || ch == (wchar_t)' ' || ch == (wchar_t)'*' ||
-        ch == (wchar_t)'$' || ch == (wchar_t)'/' || ch == (wchar_t)'+' ||
-        ch == (wchar_t)'%') {
+
+    ch = FXSYS_toupper(ch);
+    if (IsValidChar(ch))
       filtercontents += ch;
-    }
   }
   return filtercontents;
 }
@@ -93,21 +87,16 @@ CFX_WideString CBC_OnedCode39Writer::RenderTextContents(
   CFX_WideString renderContents;
   for (int32_t i = 0; i < contents.GetLength(); i++) {
     wchar_t ch = contents.GetAt(i);
-    if (ch == (wchar_t)'*' && (i == 0 || i == contents.GetLength() - 1)) {
+    if (ch == L'*' && (i == 0 || i == contents.GetLength() - 1))
       continue;
-    }
-    if (ch > 175) {
+
+    if (ch > kMaxChar) {
       i++;
       continue;
     }
-    if ((ch >= (wchar_t)'0' && ch <= (wchar_t)'9') ||
-        (ch >= (wchar_t)'A' && ch <= (wchar_t)'Z') ||
-        (ch >= (wchar_t)'a' && ch <= (wchar_t)'z') || ch == (wchar_t)'-' ||
-        ch == (wchar_t)'.' || ch == (wchar_t)' ' || ch == (wchar_t)'*' ||
-        ch == (wchar_t)'$' || ch == (wchar_t)'/' || ch == (wchar_t)'+' ||
-        ch == (wchar_t)'%') {
+
+    if (IsValidChar(ch) || FXSYS_islower(ch))
       renderContents += ch;
-    }
   }
   return renderContents;
 }

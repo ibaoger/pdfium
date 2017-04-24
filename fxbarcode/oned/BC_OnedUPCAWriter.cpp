@@ -22,6 +22,8 @@
 
 #include "fxbarcode/oned/BC_OnedUPCAWriter.h"
 
+#include <algorithm>
+#include <cwctype>
 #include <vector>
 
 #include "core/fxge/cfx_fxgedevice.h"
@@ -43,11 +45,7 @@ void CBC_OnedUPCAWriter::Init() {
 CBC_OnedUPCAWriter::~CBC_OnedUPCAWriter() {}
 
 bool CBC_OnedUPCAWriter::CheckContentValidity(const CFX_WideStringC& contents) {
-  for (FX_STRSIZE i = 0; i < contents.GetLength(); ++i) {
-    if (contents.GetAt(i) < '0' || contents.GetAt(i) > '9')
-      return false;
-  }
-  return true;
+  return std::all_of(contents.begin(), contents.end(), std::iswdigit);
 }
 
 CFX_WideString CBC_OnedUPCAWriter::FilterContents(
@@ -60,9 +58,9 @@ CFX_WideString CBC_OnedUPCAWriter::FilterContents(
       i++;
       continue;
     }
-    if (ch >= '0' && ch <= '9') {
+
+    if (std::iswdigit(ch))
       filtercontents += ch;
-    }
   }
   return filtercontents;
 }
