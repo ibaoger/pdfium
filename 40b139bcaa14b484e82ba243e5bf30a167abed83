@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1492824787 -0700\nnonce AFMZ2Gz/7B1dnh5iTbJcfd/iUxbNNIeeAYKTEoE9TpPHC/ScMVPHNeX3YwiN8rwPspGbcqT5QOUs\n\n0000000000000000000000000000000000000000 40b139bcaa14b484e82ba243e5bf30a167abed83 refs/for/refs/heads/master%m\u003dfix_win_embedder_test,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY+rLTAAoJEKs2LWFaZv17J1AH/iTJqNbjhPUmNJyUiamDhzP3\nME8wUibxQBsd9Gq+mF453GU+chfMI+lR5lrNrAXs6Tjd76cbEIkgegxitdEYjq0D\n9mglbYMslGbyhP62G5tVfFeo1L7lwGxBF6ZYQ54BSYS+0if1+ruGdAQ2qNkpgnS6\n20F2dY2veCxiwRKIs3lM+5QSvXxrm7W7cLh+qElErP+eQv96fTHZMqZHZCGIJOSD\n/1RoQBvOGR50tVPDhEPp2XiKtsSo2qZVlaRFjmxNWtVlctc7lUiWUb0gqhhzdBe7\ngxSc3xImRn8Js+EVLvh4jgJJKBw2ah1igBr7TOxzp/DU5by09Ef1uzABpTbunFc\u003d\n\u003d2uNK\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8901dc5_436e43ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6715
+      },
+      "writtenOn": "2017-04-24T08:35:25Z",
+      "side": 1,
+      "message": "Perhaps add BUG\u003dpdfium:705?",
+      "revId": "40b139bcaa14b484e82ba243e5bf30a167abed83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
