@@ -40,6 +40,7 @@ CPDF_ShadingPattern::CPDF_ShadingPattern(CPDF_Document* pDoc,
       m_pShadingObj(pPatternObj),
       m_pCS(nullptr),
       m_pCountedCS(nullptr) {
+  assert(m_pDocument);
   if (!bShading) {
     CPDF_Dictionary* pDict = m_pPatternObj->GetDict();
     m_Pattern2Form = pDict->GetMatrixFor("Matrix");
@@ -50,7 +51,7 @@ CPDF_ShadingPattern::CPDF_ShadingPattern(CPDF_Document* pDoc,
 
 CPDF_ShadingPattern::~CPDF_ShadingPattern() {
   CPDF_ColorSpace* pCS = m_pCountedCS ? m_pCountedCS->get() : nullptr;
-  if (pCS && m_pDocument)
+  if (pCS)
     m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());
 }
 

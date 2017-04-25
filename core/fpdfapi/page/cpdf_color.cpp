@@ -31,7 +31,7 @@ void CPDF_Color::ReleaseBuffer() {
     PatternValue* pvalue = (PatternValue*)m_pBuffer;
     CPDF_Pattern* pPattern =
         pvalue->m_pCountedPattern ? pvalue->m_pCountedPattern->get() : nullptr;
-    if (pPattern && pPattern->document()) {
+    if (pPattern) {
       CPDF_DocPageData* pPageData = pPattern->document()->GetPageData();
       if (pPageData)
         pPageData->ReleasePattern(pPattern->pattern_obj());
@@ -86,7 +86,7 @@ void CPDF_Color::SetValue(CPDF_Pattern* pPattern, float* comps, int ncomps) {
 
   CPDF_DocPageData* pDocPageData = nullptr;
   PatternValue* pvalue = (PatternValue*)m_pBuffer;
-  if (pvalue->m_pPattern && pvalue->m_pPattern->document()) {
+  if (pvalue->m_pPattern) {
     pDocPageData = pvalue->m_pPattern->document()->GetPageData();
     if (pDocPageData)
       pDocPageData->ReleasePattern(pvalue->m_pPattern->pattern_obj());
@@ -97,7 +97,7 @@ void CPDF_Color::SetValue(CPDF_Pattern* pPattern, float* comps, int ncomps) {
     memcpy(pvalue->m_Comps, comps, ncomps * sizeof(float));
 
   pvalue->m_pCountedPattern = nullptr;
-  if (pPattern && pPattern->document()) {
+  if (pPattern) {
     if (!pDocPageData)
       pDocPageData = pPattern->document()->GetPageData();
 
@@ -126,7 +126,7 @@ void CPDF_Color::Copy(const CPDF_Color* pSrc) {
 
   PatternValue* pValue = reinterpret_cast<PatternValue*>(m_pBuffer);
   CPDF_Pattern* pPattern = pValue->m_pPattern;
-  if (pPattern && pPattern->document()) {
+  if (pPattern) {
     pValue->m_pPattern = pPattern->document()->GetPageData()->GetPattern(
         pPattern->pattern_obj(), false, pPattern->parent_matrix());
   }

@@ -16,6 +16,7 @@ CPDF_TilingPattern::CPDF_TilingPattern(CPDF_Document* pDoc,
                                        CPDF_Object* pPatternObj,
                                        const CFX_Matrix& parentMatrix)
     : CPDF_Pattern(TILING, pDoc, pPatternObj, parentMatrix) {
+  assert(m_pDocument);
   CPDF_Dictionary* pDict = m_pPatternObj->GetDict();
   m_Pattern2Form = pDict->GetMatrixFor("Matrix");
   m_bColored = pDict->GetIntegerFor("PaintType") == 1;
