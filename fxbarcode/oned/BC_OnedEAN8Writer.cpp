@@ -76,9 +76,9 @@ CFX_WideString CBC_OnedEAN8Writer::FilterContents(
       i++;
       continue;
     }
-    if (ch >= '0' && ch <= '9') {
+
+    if (std::iswdigit(ch))
       filtercontents += ch;
-    }
   }
   return filtercontents;
 }

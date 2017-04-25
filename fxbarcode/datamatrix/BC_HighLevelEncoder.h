@@ -73,7 +73,6 @@ class CBC_HighLevelEncoder : public CBC_SymbolShapeHint {
   static bool isNativeX12(wchar_t ch);
   static bool isX12TermSep(wchar_t ch);
   static bool isNativeEDIFACT(wchar_t ch);
-  static bool isSpecialB256(wchar_t ch);
 };
 
 #endif  // FXBARCODE_DATAMATRIX_BC_HIGHLEVELENCODER_H_

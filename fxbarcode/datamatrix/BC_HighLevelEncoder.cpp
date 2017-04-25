@@ -24,6 +24,7 @@
 #include <memory>
 #include <vector>
 
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_Dimension.h"
 #include "fxbarcode/BC_UtilCodingConvert.h"
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
@@ -220,11 +221,7 @@ int32_t CBC_HighLevelEncoder::lookAheadTest(CFX_WideString msg,
     } else {
       charCounts[EDIFACT_ENCODATION] += 13.0f / 4.0f;
     }
-    if (isSpecialB256(c)) {
-      charCounts[BASE256_ENCODATION] += 4;
-    } else {
-      charCounts[BASE256_ENCODATION]++;
-    }
+    charCounts[BASE256_ENCODATION]++;
     if (charsProcessed >= 4) {
       std::vector<int32_t> intCharCounts(6);
       std::vector<uint8_t> mins(6);
@@ -279,12 +276,15 @@ int32_t CBC_HighLevelEncoder::lookAheadTest(CFX_WideString msg,
     }
   }
 }
+
 bool CBC_HighLevelEncoder::isDigit(wchar_t ch) {
-  return ch >= '0' && ch <= '9';
+  return !!std::iswdigit(ch);
 }
+
 bool CBC_HighLevelEncoder::isExtendedASCII(wchar_t ch) {
   return ch >= 128 && ch <= 255;
 }
+
 int32_t CBC_HighLevelEncoder::determineConsecutiveDigitCount(CFX_WideString msg,
                                                              int32_t startpos) {
   int32_t count = 0;
@@ -339,22 +339,23 @@ int32_t CBC_HighLevelEncoder::getMinimumCount(std::vector<uint8_t>& mins) {
   }
   return minCount;
 }
+
 bool CBC_HighLevelEncoder::isNativeC40(wchar_t ch) {
-  return (ch == ' ') || (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z');
+  return ch == ' ' || std::iswdigit(ch) || FXSYS_isupper(ch);
 }
+
 bool CBC_HighLevelEncoder::isNativeText(wchar_t ch) {
-  return (ch == ' ') || (ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'z');
+  return ch == ' ' || std::iswdigit(ch) || FXSYS_islower(ch);
 }
+
 bool CBC_HighLevelEncoder::isNativeX12(wchar_t ch) {
-  return isX12TermSep(ch) || (ch == ' ') || (ch >= '0' && ch <= '9') ||
-         (ch >= 'A' && ch <= 'Z');
+  return isX12TermSep(ch) || isNativeC40(ch);
 }
+
 bool CBC_HighLevelEncoder::isX12TermSep(wchar_t ch) {
   return (ch == '\r') || (ch == '*') || (ch == '>');
 }
+
 bool CBC_HighLevelEncoder::isNativeEDIFACT(wchar_t ch) {
   return ch >= ' ' && ch <= '^';
-}
-bool CBC_HighLevelEncoder::isSpecialB256(wchar_t ch) {
-  return false;
 }

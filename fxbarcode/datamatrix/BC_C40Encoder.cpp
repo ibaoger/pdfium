@@ -20,9 +20,11 @@
  * limitations under the License.
  */
 
+#include "fxbarcode/datamatrix/BC_C40Encoder.h"
+
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_Dimension.h"
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
-#include "fxbarcode/datamatrix/BC_C40Encoder.h"
 #include "fxbarcode/datamatrix/BC_Encoder.h"
 #include "fxbarcode/datamatrix/BC_EncoderContext.h"
 #include "fxbarcode/datamatrix/BC_HighLevelEncoder.h"
@@ -100,7 +102,7 @@ void CBC_C40Encoder::handleEOD(CBC_EncoderContext& context,
   }
   int32_t available = context.m_symbolInfo->m_dataCapacity - curCodewordCount;
   if (rest == 2) {
-    buffer += (wchar_t)'\0';
+    buffer += L'\0';
     while (buffer.GetLength() >= 3) {
       writeNextTriplet(context, buffer);
     }
@@ -128,49 +130,55 @@ void CBC_C40Encoder::handleEOD(CBC_EncoderContext& context,
   }
   context.signalEncoderChange(ASCII_ENCODATION);
 }
+
 int32_t CBC_C40Encoder::encodeChar(wchar_t c, CFX_WideString& sb, int32_t& e) {
   if (c == ' ') {
-    sb += (wchar_t)'\3';
+    sb += L'\3';
     return 1;
-  } else if ((c >= '0') && (c <= '9')) {
-    sb += (wchar_t)(c - 48 + 4);
+  }
+  if (std::iswdigit(c)) {
+    sb += c - '0' + 4;
     return 1;
-  } else if ((c >= 'A') && (c <= 'Z')) {
-    sb += (wchar_t)(c - 65 + 14);
+  }
+  if (FXSYS_isupper(c)) {
+    sb += c - 'A' + 14;
     return 1;
-  } else if (c <= 0x1f) {
-    sb += (wchar_t)'\0';
+  }
+  if (c <= 0x1f) {
+    sb += L'\0';
     sb += c;
     return 2;
-  } else if ((c >= '!') && (c <= '/')) {
-    sb += (wchar_t)'\1';
-    sb += (wchar_t)(c - 33);
-    return 2;
-  } else if ((c >= ':') && (c <= '@')) {
-    sb += (wchar_t)'\1';
-    sb += (wchar_t)(c - 58 + 15);
-    return 2;
-  } else if ((c >= '[') && (c <= '_')) {
-    sb += (wchar_t)'\1';
-    sb += (wchar_t)(c - 91 + 22);
-    return 2;
-  } else if ((c >= 60) && (c <= 0x7f)) {
-    sb += (wchar_t)'\2';
-    sb += (wchar_t)(c - 96);
-    return 2;
-  } else if (c >= 80) {
-    sb += (wchar_t)'\1';
-    sb += (wchar_t)0x001e;
-    int32_t len = 2;
-    len += encodeChar((c - 128), sb, e);
-    if (e != BCExceptionNO)
-      return 0;
-    return len;
-  } else {
-    e = BCExceptionIllegalArgument;
-    return 0;
   }
+  if (c >= '!' && c <= '/') {
+    sb += L'\1';
+    sb += c - '!';
+    return 2;
+  }
+  if (c >= ':' && c <= '@') {
+    sb += L'\1';
+    sb += c - ':' + 15;
+    return 2;
+  }
+  if (c >= '[' && c <= '_') {
+    sb += L'\1';
+    sb += c - '[' + 22;
+    return 2;
+  }
+  if (c >= '<' && c <= 0x7f) {
+    sb += L'\2';
+    sb += c - '`';
+    return 2;
+  }
+  assert(c >= 0x80);
+  sb += L'\1';
+  sb += 0x001e;
+  int32_t len = 2;
+  len += encodeChar(c - 0x80, sb, e);
+  if (e != BCExceptionNO)
+    return 0;
+  return len;
 }
+
 int32_t CBC_C40Encoder::backtrackOneCharacter(CBC_EncoderContext& context,
                                               CFX_WideString& buffer,
                                               CFX_WideString& removed,

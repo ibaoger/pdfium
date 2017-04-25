@@ -70,12 +70,13 @@ CFX_WideString CBC_OnedEAN13Writer::FilterContents(
       i++;
       continue;
     }
-    if (ch >= '0' && ch <= '9') {
+
+    if (std::iswdigit(ch))
       filtercontents += ch;
-    }
   }
   return filtercontents;
 }
+
 int32_t CBC_OnedEAN13Writer::CalcChecksum(const CFX_ByteString& contents) {
   int32_t odd = 0;
   int32_t even = 0;

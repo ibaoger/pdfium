@@ -20,6 +20,9 @@
  * limitations under the License.
  */
 
+#include "fxbarcode/datamatrix/BC_X12Encoder.h"
+
+#include "core/fxcrt/fx_extension.h"
 #include "fxbarcode/BC_Dimension.h"
 #include "fxbarcode/common/BC_CommonBitMatrix.h"
 #include "fxbarcode/datamatrix/BC_C40Encoder.h"
@@ -28,7 +31,6 @@
 #include "fxbarcode/datamatrix/BC_HighLevelEncoder.h"
 #include "fxbarcode/datamatrix/BC_SymbolInfo.h"
 #include "fxbarcode/datamatrix/BC_SymbolShapeHint.h"
-#include "fxbarcode/datamatrix/BC_X12Encoder.h"
 
 CBC_X12Encoder::CBC_X12Encoder() {}
 CBC_X12Encoder::~CBC_X12Encoder() {}
@@ -79,19 +81,20 @@ void CBC_X12Encoder::handleEOD(CBC_EncoderContext& context,
     context.signalEncoderChange(ASCII_ENCODATION);
   }
 }
+
 int32_t CBC_X12Encoder::encodeChar(wchar_t c, CFX_WideString& sb, int32_t& e) {
   if (c == '\r') {
-    sb += (wchar_t)'\0';
+    sb += L'\0';
   } else if (c == '*') {
-    sb += (wchar_t)'\1';
+    sb += L'\1';
   } else if (c == '>') {
-    sb += (wchar_t)'\2';
+    sb += L'\2';
   } else if (c == ' ') {
-    sb += (wchar_t)'\3';
-  } else if (c >= '0' && c <= '9') {
-    sb += (wchar_t)(c - 48 + 4);
-  } else if (c >= 'A' && c <= 'Z') {
-    sb += (wchar_t)(c - 65 + 14);
+    sb += L'\3';
+  } else if (std::iswdigit(c)) {
+    sb += c - '0' + 4;
+  } else if (FXSYS_isupper(c)) {
+    sb += c - 'A' + 14;
   } else {
     CBC_HighLevelEncoder::illegalCharacter(c, e);
     if (e != BCExceptionNO)
