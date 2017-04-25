@@ -46,6 +46,30 @@
       "revId": "2fdd18d3c7d4a3dbfc2f3d16eb3996ffed312e21",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "971e6f94_e041c273",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T23:23:48Z",
+      "side": 1,
+      "message": "Nah, the documentation for unique_ptr insists that it be set to null first then destroyed.\nThe problem is that the use is triggered from this dtor and happens before it completes, so the memory isn\u0027t free.  I think this is the use-after-poision case that one of the sanitizers might catch.",
+      "parentUuid": "eb93100f_f0ad8c2d",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 12
+      },
+      "revId": "2fdd18d3c7d4a3dbfc2f3d16eb3996ffed312e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
