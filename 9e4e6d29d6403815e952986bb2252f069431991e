@@ -3,6 +3,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "da4fec11_1be1a864",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "maybe std::all_of() for consistency with others.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fdf9b3b_595c5ff4",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "nit: or maybe position++ in expression on previous line.",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "570eed43_737fa7d9",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "we just incremented it, so this can\u0027t happen?",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 184,
+        "endChar": 22
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d2b5161_3aa695fb",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "... then can postincrement in previous expression/",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 20
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45dc9a8c_a966ded0",
         "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
         "patchSetId": 1
@@ -14,6 +106,47 @@
       "writtenOn": "2017-04-25T20:19:05Z",
       "side": 1,
       "message": "On the last iteration, this ends up reading the NUL, so we don\u0027t actually go out of bounds.",
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96aea31_33e5871a",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "Yep, bytestrings are guaranteed terminated.",
+      "parentUuid": "45dc9a8c_a966ded0",
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eff3a0d_e26e28e4",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T20:38:14Z",
+      "side": 1,
+      "message": "same logic as above?",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 22
+      },
       "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
