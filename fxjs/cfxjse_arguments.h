@@ -9,9 +9,8 @@
 
 #include <memory>
 
+#include "fxjs/cfxjse_class.h"
 #include "fxjs/fxjse.h"
-
-class CFXJSE_Class;
 
 class CFXJSE_Arguments {
  public:

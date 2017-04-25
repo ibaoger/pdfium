@@ -7,7 +7,6 @@
 #ifndef FXJS_CFXJSE_CLASS_H_
 #define FXJS_CFXJSE_CLASS_H_
 
-#include "fxjs/cfxjse_arguments.h"
 #include "fxjs/fxjse.h"
 #include "v8/include/v8.h"
 
@@ -26,14 +25,13 @@ class CFXJSE_Class {
       v8::Local<v8::ObjectTemplate>& hObjectTemplate,
       const FXJSE_CLASS_DESCRIPTOR* lpClassDefinition);
 
+  explicit CFXJSE_Class(CFXJSE_Context* lpContext);
   ~CFXJSE_Class();
 
   CFXJSE_Context* GetContext() { return m_pContext; }
   v8::Global<v8::FunctionTemplate>& GetTemplate() { return m_hTemplate; }
 
  protected:
-  explicit CFXJSE_Class(CFXJSE_Context* lpContext);
-
   CFX_ByteString m_szClassName;
   const FXJSE_CLASS_DESCRIPTOR* m_lpClassDefinition;
   CFXJSE_Context* m_pContext;
