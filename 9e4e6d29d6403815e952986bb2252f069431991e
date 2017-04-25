@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "2c9aa169_186d8674",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T21:45:13Z",
+      "side": 1,
+      "message": "I tried, but it didn\u0027t come out looking that much simpler.",
+      "parentUuid": "da4fec11_1be1a864",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fdf9b3b_595c5ff4",
         "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8b3a8872_c4a17902",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T21:45:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fdf9b3b_595c5ff4",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "570eed43_737fa7d9",
         "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2017-04-25T20:38:14Z",
       "side": 1,
       "message": "we just incremented it, so this can\u0027t happen?",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 184,
+        "endChar": 22
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91e70376_0e48c86b",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T21:45:13Z",
+      "side": 1,
+      "message": "You mean, this always eval to true.",
+      "parentUuid": "570eed43_737fa7d9",
       "range": {
         "startLine": 184,
         "startChar": 5,
@@ -92,6 +164,30 @@
       "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "048aebab_dd106d49",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T21:45:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d2b5161_3aa695fb",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 20
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -150,6 +246,30 @@
       "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e09b6e7b_b0f5e9d0",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T21:45:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eff3a0d_e26e28e4",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 22
+      },
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
