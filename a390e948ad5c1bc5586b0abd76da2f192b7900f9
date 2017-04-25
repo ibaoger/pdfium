@@ -23,6 +23,30 @@
       "revId": "a390e948ad5c1bc5586b0abd76da2f192b7900f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0e7cab8_1872f96f",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T22:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d8a21d_86a1b8a0",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 46
+      },
+      "revId": "a390e948ad5c1bc5586b0abd76da2f192b7900f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
