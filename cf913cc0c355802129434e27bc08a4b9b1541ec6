@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e32c552_b22efe99",
+        "filename": "testing/resources/pixel/bug_714187.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T18:30:38Z",
+      "side": 1,
+      "message": "nit: two spaces, not tab.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 1
+      },
+      "revId": "cf913cc0c355802129434e27bc08a4b9b1541ec6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e07b8c38_d9f01978",
+        "filename": "testing/resources/pixel/bug_714187.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-25T18:30:38Z",
+      "side": 1,
+      "message": "nit: to make this look more like other indented languages, I\u0027ve been doing\n\n{{object 1 0}} \u003c\u003c\n  /Type /Catalog\n  /Pages 2 0 R\n\u003e\u003e\n\nwith the \u003c\u003c on the same line, and the closing on at the same level as tag.",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "cf913cc0c355802129434e27bc08a4b9b1541ec6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
