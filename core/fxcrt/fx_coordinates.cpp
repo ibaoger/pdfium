@@ -4,11 +4,12 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
+#include "core/fxcrt/fx_coordinates.h"
+
 #include <limits.h>
 
 #include <algorithm>
 
-#include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_extension.h"
 
 namespace {
