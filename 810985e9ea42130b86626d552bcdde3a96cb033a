@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8203d731_adac81be",
+        "filename": "core/fxcrt/fx_system.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-25T17:26:12Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::min() and ::max()?",
+      "revId": "810985e9ea42130b86626d552bcdde3a96cb033a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
