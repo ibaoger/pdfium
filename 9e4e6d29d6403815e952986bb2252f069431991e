@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493148115 -0700\nnonce AFMZ2GyM88Hk7QDh9K4134uuLt1jlP2ZPWKu93AGSTbpJN71Bz88GmVcVoDKAI+BAgcaT8HgloVj\n\n0000000000000000000000000000000000000000 9e4e6d29d6403815e952986bb2252f069431991e refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJY/6HTAAoJEKs2LWFaZv17qhkH/20BZKhWCbmwgh9zePwXKW15\n6cEQ33R9MLEvuQrIAUvIjFF080TncXMIbohajQoVhmRsKD4p2UmfNampcpsndp5Z\nLkBAWh9iv+64nDgbrE3sbMrt9jJUqI9Bry6kEGtmiWRoSKoMp1YN6+jy8WwAT96T\n2d+jBfMtbak6eWaoNNrRJ1015aAcCNp9GsVTyqWUPiNxmfUEsnMNFsEzpdn11Kmu\n1mYDlYlQn94JipvqJmqlawdpI2ZJnbdTYmN1/AKBdG/RpK4Yg1wAxmx7wBJOcPc2\n9eoJLiubJg1YSVQGQXVUgKCQsO9mrN5dGAnWkLphir6OhSmpOT2IdQVf9bjpjDA\u003d\n\u003dbTxG\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "45dc9a8c_a966ded0",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-25T20:19:05Z",
+      "side": 1,
+      "message": "On the last iteration, this ends up reading the NUL, so we don\u0027t actually go out of bounds.",
+      "revId": "9e4e6d29d6403815e952986bb2252f069431991e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
