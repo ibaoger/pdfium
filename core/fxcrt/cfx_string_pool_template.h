@@ -7,7 +7,7 @@
 #ifndef CORE_FXCRT_CFX_STRING_POOL_TEMPLATE_H_
 #define CORE_FXCRT_CFX_STRING_POOL_TEMPLATE_H_
 
-#include <unordered_set>
+#include <set>
 
 #include "core/fxcrt/fx_string.h"
 
@@ -18,7 +18,7 @@ class CFX_StringPoolTemplate {
   void Clear() { m_Pool.clear(); }
 
  private:
-  std::unordered_set<StringType> m_Pool;
+  std::set<StringType> m_Pool;
 };
 
 using CFX_ByteStringPool = CFX_StringPoolTemplate<CFX_ByteString>;

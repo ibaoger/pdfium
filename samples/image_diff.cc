@@ -166,7 +166,7 @@ float PercentageDifferent(const Image& baseline, const Image& actual) {
   return CalculateDifferencePercentage(actual, pixels_different);
 }
 
-// FIXME: Replace with unordered_map when available.
+// FIXME: Replace with map when available.
 typedef std::map<uint32_t, int32_t> RgbaToCountMap;
 
 float HistogramPercentageDifferent(const Image& baseline, const Image& actual) {
