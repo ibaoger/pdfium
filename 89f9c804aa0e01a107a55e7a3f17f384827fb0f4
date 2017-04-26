@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493243205 -0700\nnonce AFMZ2Gxs6Jbw7TH1xxguSBZq0mlVQea7LDb7DgrVB8dpGweH7jIhdSx0crsFzBZb62jCqqvOLbLb\n\n0000000000000000000000000000000000000000 89f9c804aa0e01a107a55e7a3f17f384827fb0f4 refs/for/refs/heads/master%m\u003daddress_comments,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZARVFAAoJEKs2LWFaZv17pf4H/R6E403bGaQ2uUSzxMhRNSxr\nGvZX0NscPudS69CGvHlOGk9FjAYMvZTYydTILrB31o2Qw7/3oy0d+87UUhQhS9t3\noxHu0NZubQNw+abkSqEghEJJSaXPJ3NBYuSIC43XkJmzop6zH6nVSbZFA8kA2xJe\nPBUh+vB1lrKs6wjRb4ZYFtzSXxB8UiLop6DjuIlo5gA2CtRmyA5BznMxWiacobul\npFZJASz+kJ+u/sf32sR3Cv/p83YPjGoIFNT1QUvhqifg6RADqdqcESR4b9Eaih4X\nq3lwinb3Bx3aDR+//8itr0IGa2BUsp8Q+r6ICDiUROfishz+8k3+zSYkFQxgZSg\u003d\n\u003dvVBI\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
