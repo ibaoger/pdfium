@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23a8d9b7_6e8fd058",
+        "filename": "core/fpdfapi/page/cpdf_page.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-26T20:46:23Z",
+      "side": 0,
+      "message": "sorry, couldn\u0027t help myself, just don\u0027t like initializing superclass members outside of it ...",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "2e2a4fcd43677c5882dcf00cb4b99635cb2cfcd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc506c5a_d5fbf662",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-26T20:46:23Z",
+      "side": 0,
+      "message": "called pObj-\u003eIsString() at 1328, so non-null.",
+      "range": {
+        "startLine": 1336,
+        "startChar": 18,
+        "endLine": 1336,
+        "endChar": 42
+      },
+      "revId": "2e2a4fcd43677c5882dcf00cb4b99635cb2cfcd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
