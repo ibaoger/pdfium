@@ -138,7 +138,8 @@ DLLEXPORT int STDCALL FPDFPage_GetRotation(FPDF_PAGE page) {
   while (pDict) {
     if (pDict->KeyExist("Rotate")) {
       CPDF_Object* pRotateObj = pDict->GetObjectFor("Rotate")->GetDirect();
-      return pRotateObj ? pRotateObj->GetInteger() / 90 : 0;
+      int rotation = pRotateObj ? pRotateObj->GetInteger() / 90 % 4 : 0;
+      return rotation < 0 ? rotation + 4 : rotation;
     }
     if (!pDict->KeyExist("Parent"))
       break;
