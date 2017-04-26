@@ -570,11 +570,13 @@ void CPDF_ColorSpace::EnableStdConversion(bool bEnabled) {
 CPDF_ColorSpace::CPDF_ColorSpace(CPDF_Document* pDoc,
                                  int family,
                                  uint32_t nComponents)
-    : m_pDocument(pDoc),
-      m_Family(family),
+    : m_Family(family),
       m_nComponents(nComponents),
       m_pArray(nullptr),
-      m_dwStdConversion(0) {}
+      m_dwStdConversion(0),
+      m_pDocument(pDoc) {
+  assert(m_pDocument);
+}
 
 CPDF_ColorSpace::~CPDF_ColorSpace() {}
 
@@ -849,10 +851,10 @@ CPDF_ICCBasedCS::CPDF_ICCBasedCS(CPDF_Document* pDoc)
 CPDF_ICCBasedCS::~CPDF_ICCBasedCS() {
   FX_Free(m_pCache);
   FX_Free(m_pRanges);
-  if (m_pProfile && m_pDocument) {
+  if (m_pProfile) {
     CPDF_Stream* pStream = m_pProfile->GetStream();
     m_pProfile.Reset();  // Give up our reference first.
-    auto* pPageData = m_pDocument->GetPageData();
+    auto* pPageData = document()->GetPageData();
     if (pPageData)
       pPageData->MaybePurgeIccProfile(pStream);
   }
@@ -1050,8 +1052,8 @@ CPDF_IndexedCS::CPDF_IndexedCS(CPDF_Document* pDoc)
 CPDF_IndexedCS::~CPDF_IndexedCS() {
   FX_Free(m_pCompMinMax);
   CPDF_ColorSpace* pCS = m_pCountedBaseCS ? m_pCountedBaseCS->get() : nullptr;
-  if (pCS && m_pDocument) {
-    auto* pPageData = m_pDocument->GetPageData();
+  if (pCS) {
+    auto* pPageData = document()->GetPageData();
     if (pPageData)
       pPageData->ReleaseColorSpace(pCS->GetArray());
   }
@@ -1135,8 +1137,8 @@ CPDF_PatternCS::CPDF_PatternCS(CPDF_Document* pDoc)
 
 CPDF_PatternCS::~CPDF_PatternCS() {
   CPDF_ColorSpace* pCS = m_pCountedBaseCS ? m_pCountedBaseCS->get() : nullptr;
-  if (pCS && m_pDocument) {
-    auto* pPageData = m_pDocument->GetPageData();
+  if (pCS) {
+    auto* pPageData = document()->GetPageData();
     if (pPageData)
       pPageData->ReleaseColorSpace(pCS->GetArray());
   }
