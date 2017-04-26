@@ -28,7 +28,9 @@
 #include "third_party/base/stl_util.h"
 
 CPDF_DocPageData::CPDF_DocPageData(CPDF_Document* pPDFDoc)
-    : m_pPDFDoc(pPDFDoc), m_bForceClear(false) {}
+    : m_pPDFDoc(pPDFDoc), m_bForceClear(false) {
+  assert(m_pPDFDoc);
+}
 
 CPDF_DocPageData::~CPDF_DocPageData() {
   Clear(false);

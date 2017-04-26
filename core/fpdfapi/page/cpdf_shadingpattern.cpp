@@ -31,17 +31,15 @@ CPDF_ShadingPattern::CPDF_ShadingPattern(CPDF_Document* pDoc,
                                          CPDF_Object* pPatternObj,
                                          bool bShading,
                                          const CFX_Matrix& parentMatrix)
-    : CPDF_Pattern(SHADING,
-                   pDoc,
-                   bShading ? nullptr : pPatternObj,
-                   parentMatrix),
+    : CPDF_Pattern(pDoc, bShading ? nullptr : pPatternObj, parentMatrix),
       m_ShadingType(kInvalidShading),
       m_bShadingObj(bShading),
       m_pShadingObj(pPatternObj),
       m_pCS(nullptr),
       m_pCountedCS(nullptr) {
+  assert(document());
   if (!bShading) {
-    CPDF_Dictionary* pDict = m_pPatternObj->GetDict();
+    CPDF_Dictionary* pDict = pattern_obj()->GetDict();
     m_Pattern2Form = pDict->GetMatrixFor("Matrix");
     m_pShadingObj = pDict->GetDirectObjectFor("Shading");
     m_Pattern2Form.Concat(parentMatrix);
@@ -50,8 +48,8 @@ CPDF_ShadingPattern::CPDF_ShadingPattern(CPDF_Document* pDoc,
 
 CPDF_ShadingPattern::~CPDF_ShadingPattern() {
   CPDF_ColorSpace* pCS = m_pCountedCS ? m_pCountedCS->get() : nullptr;
-  if (pCS && m_pDocument)
-    m_pDocument->GetPageData()->ReleaseColorSpace(pCS->GetArray());
+  if (pCS)
+    document()->GetPageData()->ReleaseColorSpace(pCS->GetArray());
 }
 
 CPDF_TilingPattern* CPDF_ShadingPattern::AsTilingPattern() {
@@ -86,7 +84,7 @@ bool CPDF_ShadingPattern::Load() {
   if (!pCSObj)
     return false;
 
-  CPDF_DocPageData* pDocPageData = m_pDocument->GetPageData();
+  CPDF_DocPageData* pDocPageData = document()->GetPageData();
   m_pCS = pDocPageData->GetColorSpace(pCSObj, nullptr);
   if (m_pCS)
     m_pCountedCS = pDocPageData->FindColorSpacePtr(m_pCS->GetArray());

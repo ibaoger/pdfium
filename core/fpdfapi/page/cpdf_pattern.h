@@ -30,15 +30,15 @@ class CPDF_Pattern {
   const CFX_Matrix& parent_matrix() const { return m_ParentMatrix; }
 
  protected:
-  CPDF_Pattern(PatternType type,
-               CPDF_Document* pDoc,
+  CPDF_Pattern(CPDF_Document* pDoc,
                CPDF_Object* pObj,
                const CFX_Matrix& parentMatrix);
 
-  const PatternType m_PatternType;
+  CFX_Matrix m_Pattern2Form;
+
+ private:
   CPDF_Document* const m_pDocument;
   CPDF_Object* const m_pPatternObj;
-  CFX_Matrix m_Pattern2Form;
   const CFX_Matrix m_ParentMatrix;
 };
 
