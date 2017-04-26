@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d21fdde6_7d481e7c",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-26T19:42:22Z",
+      "side": 0,
+      "message": "Checked on line 317 already.",
+      "revId": "2e2a4fcd43677c5882dcf00cb4b99635cb2cfcd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb4e8ed_8185db86",
+        "filename": "core/fpdfapi/page/cpdf_pattern.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-26T19:42:22Z",
+      "side": 0,
+      "message": "Never used. Callers all use As{Shading,Tiling}Pattern() instead.",
+      "revId": "2e2a4fcd43677c5882dcf00cb4b99635cb2cfcd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
