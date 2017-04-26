@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "3614ac63_20bbb5ed",
+        "filename": "core/fpdfapi/page/cpdf_pattern.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-26T22:40:24Z",
+      "side": 1,
+      "message": "Yes, in core/fpdfapi/page/cpdf_docpagedata.cpp. Looks like these line up with the values in the PDF?",
+      "parentUuid": "cf0fada8_d6983ce3",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "2382c93969d93f755449fd53752d500f926c0007",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ebc1274_f7af9656",
         "filename": "core/fpdfapi/page/cpdf_pattern.h",
         "patchSetId": 7
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9b366408_4f8a93b5",
+        "filename": "core/fpdfapi/page/cpdf_pattern.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-26T22:40:24Z",
+      "side": 1,
+      "message": "Nay.",
+      "parentUuid": "7ebc1274_f7af9656",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 68
+      },
+      "revId": "2382c93969d93f755449fd53752d500f926c0007",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ddf9af4_c8706c31",
         "filename": "core/fpdfapi/page/cpdf_pattern.h",
         "patchSetId": 7
@@ -60,6 +108,30 @@
       "writtenOn": "2017-04-26T19:50:00Z",
       "side": 1,
       "message": "maybe private and add a protected acessor method()?",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "2382c93969d93f755449fd53752d500f926c0007",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a05f3e9_53d9e7f0",
+        "filename": "core/fpdfapi/page/cpdf_pattern.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-26T22:40:24Z",
+      "side": 1,
+      "message": "Added a protected setter.",
+      "parentUuid": "1ddf9af4_c8706c31",
       "range": {
         "startLine": 38,
         "startChar": 2,
