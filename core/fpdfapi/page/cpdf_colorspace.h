@@ -66,7 +66,8 @@ class CPDF_ColorSpace {
 
   virtual void EnableStdConversion(bool bEnabled);
 
-  CPDF_Document* const m_pDocument;
+  // Never NULL.
+  CPDF_Document* document() { return m_pDocument; }
 
  protected:
   CPDF_ColorSpace(CPDF_Document* pDoc, int family, uint32_t nComponents);
@@ -84,6 +85,9 @@ class CPDF_ColorSpace {
   uint32_t m_nComponents;
   CPDF_Array* m_pArray;
   uint32_t m_dwStdConversion;
+
+ private:
+  CPDF_Document* const m_pDocument;
 };
 
 namespace std {
