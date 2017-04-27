@@ -4,7 +4,11 @@
 
 #include <memory>
 
+#include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_string.h"
+#include "core/fxge/cfx_renderdevice.h"
+#include "testing/null_ifx_renderdevicedriver.h"
+#include "third_party/base/ptr_util.h"
 #include "xfa/fwl/cfx_barcode.h"
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
@@ -33,6 +37,10 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
   if (!barcode.Encode(content, false))
     return 0;
 
-  // TODO(tsepez): Output to device.
+  CFX_Matrix matrix;
+  CFX_RenderDevice device;
+  device.SetDeviceDriver(pdfium::MakeUnique<NullIFXRenderDeviceDriver>());
+  barcode.RenderDevice(&device, &matrix);
+
   return 0;
 }
