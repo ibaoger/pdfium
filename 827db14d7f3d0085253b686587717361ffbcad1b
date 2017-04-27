@@ -16,6 +16,24 @@
       "revId": "827db14d7f3d0085253b686587717361ffbcad1b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "089746ac_b60ed280",
+        "filename": "core/fxcrt/fxcrt_windows.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-27T16:55:07Z",
+      "side": 0,
+      "message": "Not sure.  Having a pure virtual interface to platform-dependent code doesn\u0027t seem that unreasonable.",
+      "parentUuid": "83b2be40_0c2c864e",
+      "revId": "827db14d7f3d0085253b686587717361ffbcad1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
