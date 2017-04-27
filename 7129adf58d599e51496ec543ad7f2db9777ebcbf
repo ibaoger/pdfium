@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "d596c6de_78f6dad7",
+        "filename": "testing/libfuzzer/pdf_cfx_barcode_fuzzer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-27T21:48:47Z",
+      "side": 1,
+      "message": "Maybe s comment about how |data| is structured then?",
+      "parentUuid": "fef6e6ed_73a3a8d3",
+      "revId": "7129adf58d599e51496ec543ad7f2db9777ebcbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad8ae3be_50ceaecd",
         "filename": "xfa/fwl/cfx_barcode_unittest.cpp",
         "patchSetId": 8
