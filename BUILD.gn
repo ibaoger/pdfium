@@ -228,6 +228,7 @@ static_library("test_support") {
     "testing/fx_string_testhelpers.cpp",
     "testing/fx_string_testhelpers.h",
     "testing/mock_ifx_renderdevicedriver.h",
+    "testing/null_ifx_renderdevicedriver.h",
     "testing/test_support.cpp",
     "testing/test_support.h",
     "testing/utils/path_service.cpp",
