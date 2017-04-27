@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc400405_55aac11d",
+        "filename": "testing/libfuzzer/pdf_cfx_barcode_fuzzer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-27T21:47:27Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "73a42b8f_d8c922a6",
+      "revId": "7129adf58d599e51496ec543ad7f2db9777ebcbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c5e1ede_b8af753f",
         "filename": "testing/libfuzzer/pdf_cfx_barcode_fuzzer.cc",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-27T21:39:23Z",
       "side": 1,
       "message": "Can these be sizeof(BC_TYPE) ? Not obvious that it\u0027s 4.",
+      "revId": "7129adf58d599e51496ec543ad7f2db9777ebcbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef6e6ed_73a3a8d3",
+        "filename": "testing/libfuzzer/pdf_cfx_barcode_fuzzer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-27T21:47:27Z",
+      "side": 1,
+      "message": "Acutally, I wanted to make the next use aligned with the start of a wchar_t for the string, even though I\u0027m only picking up one byte here.",
+      "parentUuid": "2c5e1ede_b8af753f",
       "revId": "7129adf58d599e51496ec543ad7f2db9777ebcbf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
