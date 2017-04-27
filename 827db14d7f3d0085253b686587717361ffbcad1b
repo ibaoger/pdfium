@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83b2be40_0c2c864e",
+        "filename": "core/fxcrt/fxcrt_windows.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-27T02:32:43Z",
+      "side": 0,
+      "message": "Possible followup. Thoughts on removing IFXCRT_FileAccess and renaming the two classes to just CFXCRT_FileAccess? They obviously can\u0027t be compiled at the same time anyway as they\u0027re platform dependent.",
+      "revId": "827db14d7f3d0085253b686587717361ffbcad1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

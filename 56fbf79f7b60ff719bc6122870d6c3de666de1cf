@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc236b6d_085530de",
+        "filename": "core/fpdfdoc/cpdf_filespec.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-04-27T02:32:43Z",
+      "side": 1,
+      "message": "What about moving GetFileName and SetFileName to statics which accept a CPDF_Object. (In the case of SetFileName it could probably just accept a Dictionary and simplify the code). Then, we don\u0027t have to instantiate the CPDF_FileSpec at all. (In the two uses I see it is just created to call one of these two methods and then destroyed.)",
+      "revId": "56fbf79f7b60ff719bc6122870d6c3de666de1cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
