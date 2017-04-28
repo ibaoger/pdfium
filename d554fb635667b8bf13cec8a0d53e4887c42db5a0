@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96ebcfd0_240db2b2",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T19:11:51Z",
+      "side": 1,
+      "message": "Doesn\u0027t GetPageRotation() have to handle \"Parent\" case, if a page itself does not have a rotation?",
+      "revId": "d554fb635667b8bf13cec8a0d53e4887c42db5a0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2067ccb8_f9247849",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T19:11:51Z",
+      "side": 1,
+      "message": "with a -90 degree rotation",
+      "revId": "d554fb635667b8bf13cec8a0d53e4887c42db5a0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f66aa25_6da4e594",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T19:11:51Z",
+      "side": 1,
+      "message": "Can we test FPDFPage_GetRotation() instead?",
+      "revId": "d554fb635667b8bf13cec8a0d53e4887c42db5a0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
