@@ -17,6 +17,7 @@
 
 using testing::_;
 using testing::AtLeast;
+using testing::AtMost;
 
 class BarcodeTest : public testing::Test {
  public:
@@ -42,10 +43,10 @@ class BarcodeTest : public testing::Test {
     if (!barcode_->Create(type))
       return false;
 
-    barcode_->SetModuleHeight(300);
-    barcode_->SetModuleWidth(420);
-    barcode_->SetHeight(298);
-    barcode_->SetWidth(418);
+    barcode_->SetModuleHeight(60);
+    barcode_->SetModuleWidth(80);
+    barcode_->SetHeight(58);
+    barcode_->SetWidth(78);
     return true;
   }
 
@@ -64,10 +65,9 @@ class BarcodeTest : public testing::Test {
 TEST_F(BarcodeTest, Code39) {
   EXPECT_TRUE(Create(BC_CODE39));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
-
   EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
   EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
-  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtMost(50000));
   HandoffDriverToDevice();
   RenderDevice();
 }
@@ -75,49 +75,99 @@ TEST_F(BarcodeTest, Code39) {
 TEST_F(BarcodeTest, CodaBar) {
   EXPECT_TRUE(Create(BC_CODABAR));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Code128) {
   EXPECT_TRUE(Create(BC_CODE128));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Code128_B) {
   EXPECT_TRUE(Create(BC_CODE128_B));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Code128_C) {
   EXPECT_TRUE(Create(BC_CODE128_C));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Ean8) {
   EXPECT_TRUE(Create(BC_EAN8));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, UPCA) {
   EXPECT_TRUE(Create(BC_UPCA));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Ean13) {
   EXPECT_TRUE(Create(BC_EAN13));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, Pdf417) {
   EXPECT_TRUE(Create(BC_PDF417));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, DataMatrix) {
   EXPECT_TRUE(Create(BC_DATAMATRIX));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
 
 TEST_F(BarcodeTest, QrCode) {
   EXPECT_TRUE(Create(BC_QR_CODE));
   EXPECT_TRUE(barcode()->Encode(L"clams", false));
+  EXPECT_CALL(*driver(), GetDeviceCaps(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), GetClipBox(_)).Times(AtLeast(1));
+  EXPECT_CALL(*driver(), DrawPath(_, _, _, _, _, _, _)).Times(AtLeast(1));
+  HandoffDriverToDevice();
+  RenderDevice();
 }
