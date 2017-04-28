@@ -8,6 +8,7 @@
 #define CORE_FPDFAPI_PAGE_CPDF_COUNTEDOBJECT_H_
 
 #include <memory>
+#include <utility>
 
 #include "core/fpdfapi/page/cpdf_colorspace.h"
 #include "core/fpdfapi/page/cpdf_pattern.h"
@@ -17,22 +18,21 @@ template <class T>
 class CPDF_CountedObject {
  public:
   explicit CPDF_CountedObject(std::unique_ptr<T> ptr)
-      : m_nCount(1), m_pObj(ptr.release()) {}
+      : m_nCount(1), m_pObj(std::move(ptr)) {}
   void reset(std::unique_ptr<T> ptr) {  // CAUTION: tosses prior ref counts.
     m_nCount = 1;
-    m_pObj = ptr.release();
+    m_pObj = std::move(ptr);
   }
   void clear() {  // Now you're all weak ptrs ...
-    // Guard against accidental re-entry.
-    T* pObj = m_pObj;
-    m_pObj = nullptr;
-    delete pObj;
+    // Guards against accidental re-entry by nulling m_pObj first.
+    std::unique_ptr<T> temp;
+    m_pObj.swap(temp);
   }
-  T* get() const { return m_pObj; }
+  T* get() const { return m_pObj.get(); }
   T* AddRef() {
     ASSERT(m_pObj);
     ++m_nCount;
-    return m_pObj;
+    return m_pObj.get();
   }
   void RemoveRef() {
     if (m_nCount)
@@ -42,7 +42,7 @@ class CPDF_CountedObject {
 
  protected:
   size_t m_nCount;
-  T* m_pObj;
+  std::unique_ptr<T> m_pObj;
 };
 using CPDF_CountedColorSpace = CPDF_CountedObject<CPDF_ColorSpace>;
 using CPDF_CountedPattern = CPDF_CountedObject<CPDF_Pattern>;
