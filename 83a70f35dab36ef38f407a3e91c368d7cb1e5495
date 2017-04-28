@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493416586 -0700\nnonce AFMZ2GyrTgU8jQvupnoPBubvPWkNsTjg+ZkanlUuCR01/ZXgZdnunPnYDKWVoXo0B2Z/n6eQzfgs\n\n0000000000000000000000000000000000000000 83a70f35dab36ef38f407a3e91c368d7cb1e5495 refs/for/refs/heads/master%m\u003drebase,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZA7qLAAoJEKs2LWFaZv17NOUH/A1jlmwu5EtNtdQl85HtDKCW\ncW2JOxgLaX6MK41ma0NrcnhgIjLLFVVTwdeR/rx3pb+3Efce5DDy3dX6GBoXGrZo\nR0J0PTmlDBcVrqSJE0n0mcN7F6uAq0iYVVHNc4ilWZ3HdKaajFEhYcKJPJrpKM/e\ndeTTV4yfSCyhizRroe5nRKdptb1Gco2PUQouxqy4qch/Yv3EHE7TTFTSBoCy6IvP\nY9qGUY1JEEB5Ta3JpycKO3JQvmCYyyRK25l7oMEkOPept+hvw0ngeIYPw0Fq+FeT\nucjoZsaZcL2b0wDoxhsJPY3Wq2u0G+axM3MEr5wEDsjq4fu0fBKPQuEvwlI5LeU\u003d\n\u003dqJEn\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5488fc9_84a5bafa",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-28T22:33:53Z",
+      "side": 1,
+      "message": "maybe this guy gets the same treatment.",
+      "range": {
+        "startLine": 199,
+        "startChar": 16,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "83a70f35dab36ef38f407a3e91c368d7cb1e5495",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "082a1e7b_a5352b99",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-28T22:33:53Z",
+      "side": 1,
+      "message": "nit: maybe document what return value means.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 9
+      },
+      "revId": "83a70f35dab36ef38f407a3e91c368d7cb1e5495",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
