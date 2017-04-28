@@ -274,13 +274,28 @@ bool CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
   CFX_Matrix matri(m_outputHScale, 0.0, 0.0, (float)m_Height, 0.0, 0.0);
   matri.Concat(*matrix);
   for (int32_t x = 0; x < m_output->GetWidth(); x++) {
+    int32_t yStart = 0;
+    bool drawing = false;
     for (int32_t y = 0; y < m_output->GetHeight(); y++) {
-      CFX_PathData rect;
-      rect.AppendRect((float)x, (float)y, (float)(x + 1), (float)(y + 1));
-      if (m_output->Get(x, y)) {
-        CFX_GraphStateData data;
-        device->DrawPath(&rect, &matri, &data, m_barColor, 0, FXFILL_WINDING);
+      bool draw = m_output->Get(x, y);
+      if (!drawing) {
+        if (draw) {
+          drawing = true;
+          yStart = y;
+        }
+        continue;
       }
+
+      if (draw && y != m_output->GetHeight() - 1)
+        continue;
+
+      drawing = false;
+      int32_t yEnd = draw ? y + 1 : y;
+      CFX_PathData rect;
+      rect.AppendRect(static_cast<float>(x), static_cast<float>(yStart),
+                      static_cast<float>((x + 1)), static_cast<float>(yEnd));
+      CFX_GraphStateData data;
+      device->DrawPath(&rect, &matri, &data, m_barColor, 0, FXFILL_WINDING);
     }
   }
   return m_locTextLoc == BC_TEXT_LOC_NONE || contents.Find(' ') == -1 ||
