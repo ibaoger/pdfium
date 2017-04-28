@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "e73c3848_1ae67c8c",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T22:50:38Z",
+      "side": 1,
+      "message": "It will, but there are several overrides so it gets messy. Thus I\u0027m doing this one small piece at a time.",
+      "parentUuid": "c5488fc9_84a5bafa",
+      "range": {
+        "startLine": 199,
+        "startChar": 16,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "83a70f35dab36ef38f407a3e91c368d7cb1e5495",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "082a1e7b_a5352b99",
         "filename": "fxbarcode/datamatrix/BC_C40Encoder.h",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "83a70f35dab36ef38f407a3e91c368d7cb1e5495",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9185d04b_465c3a02",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T22:50:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082a1e7b_a5352b99",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 9
+      },
+      "revId": "83a70f35dab36ef38f407a3e91c368d7cb1e5495",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
