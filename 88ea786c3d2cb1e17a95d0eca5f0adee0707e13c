@@ -17,6 +17,24 @@
       "revId": "88ea786c3d2cb1e17a95d0eca5f0adee0707e13c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f406570_59e97ee7",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-04-28T17:19:51Z",
+      "side": 1,
+      "message": "Sure, I can look into that. I think we need more tests here though. I tried removing this line locally and no test failed.\n\nRenderResult() below is what does the generation. It sounds like you are saying it should generate path data, instead of writing pixels into |m_output|, and reinterpreting that as path data here. Maybe I\u0027ll give that a try, but first some tests.",
+      "parentUuid": "9a5c621c_9c89060f",
+      "revId": "88ea786c3d2cb1e17a95d0eca5f0adee0707e13c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
