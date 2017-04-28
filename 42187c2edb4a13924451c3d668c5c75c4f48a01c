@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b55c89c8_373e0c3c",
+        "filename": "xfa/fxfa/parser/xfa_document_datamerger_imp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-28T22:22:43Z",
+      "side": 1,
+      "message": "the other one was prefixed with |s|, no idea why but be consistent.",
+      "range": {
+        "startLine": 819,
+        "startChar": 18,
+        "endLine": 819,
+        "endChar": 28
+      },
+      "revId": "42187c2edb4a13924451c3d668c5c75c4f48a01c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
