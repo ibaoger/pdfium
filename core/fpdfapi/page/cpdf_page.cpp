@@ -176,6 +176,12 @@ CFX_Matrix CPDF_Page::GetDisplayMatrix(int xPos,
   return matrix;
 }
 
+int CPDF_Page::GetRotation() const {
+  CPDF_Object* pRotate = GetPageAttr("Rotate");
+  int rotate = pRotate ? (pRotate->GetInteger() / 90) % 4 : 0;
+  return (rotate < 0) ? (rotate + 4) : rotate;
+}
+
 bool GraphicsData::operator<(const GraphicsData& other) const {
   if (fillAlpha != other.fillAlpha)
     return fillAlpha < other.fillAlpha;
