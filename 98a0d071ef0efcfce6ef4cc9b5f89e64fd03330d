@@ -46,6 +46,30 @@
       "revId": "98a0d071ef0efcfce6ef4cc9b5f89e64fd03330d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f323383_4d841411",
+        "filename": "xfa/fxfa/fm2js/xfa_simpleexpression.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-04-28T18:28:21Z",
+      "side": 1,
+      "message": "Web search says:\n\nTo embed a double quote within a string literal, specify two double quote characters, as in \"He said \"\"She said.\"\"\"",
+      "parentUuid": "6c2e283f_b7e76d8d",
+      "range": {
+        "startLine": 165,
+        "startChar": 7,
+        "endLine": 165,
+        "endChar": 12
+      },
+      "revId": "98a0d071ef0efcfce6ef4cc9b5f89e64fd03330d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
