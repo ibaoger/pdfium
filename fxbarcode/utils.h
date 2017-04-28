@@ -59,7 +59,6 @@ enum BCFORMAT {
 #define BCFORMAT_ECLEVEL_H 3
 #include <ctype.h>
 #define BCExceptionNO 0
-#define BCExceptionHeightAndWidthMustBeAtLeast1 5
 #define BCExceptionIllegalArgument 16
 #define BCExceptionNoContents 26
 #define BCExceptionDegreeIsNegative 31
@@ -85,11 +84,6 @@ enum BCFORMAT {
 #define BCExceptionIllegalArgumentNotGigits 93
 #define BCExceptionIllegalStateIllegalMode 94
 #define BCExceptionNonEncodableCharacterDetected 96
-#define BCExceptionErrorCorrectionLevelMustBeBetween0And8 97
-#define BCExceptionNoRecommendationPossible 98
-#define BCExceptionIllegalArgumentnMustBeAbove0 99
-#define BCExceptionUnableToFitMessageInColumns 100
-#define BCExceptionEncodedMessageContainsTooManyCodeWords 101
 #define BCExceptionGeneric 107
 
 #endif  // FXBARCODE_UTILS_H_
