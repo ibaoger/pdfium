@@ -27,12 +27,9 @@ class CBC_C40Encoder : public CBC_Encoder {
   virtual int32_t encodeChar(wchar_t c, CFX_WideString& sb, int32_t& e);
 
  private:
-  int32_t backtrackOneCharacter(CBC_EncoderContext& context,
-                                CFX_WideString& buffer,
-                                CFX_WideString& removed,
-                                int32_t lastCharSize,
-                                int32_t& e);
-  static CFX_WideString encodeToCodewords(CFX_WideString sb, int32_t startPos);
+  int32_t BacktrackOneCharacter(CBC_EncoderContext* context,
+                                CFX_WideString* buffer,
+                                int32_t lastCharSize);
 };
 
 #endif  // FXBARCODE_DATAMATRIX_BC_C40ENCODER_H_
