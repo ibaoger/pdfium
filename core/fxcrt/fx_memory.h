@@ -36,7 +36,8 @@ void FXMEM_InitalizePartitionAlloc();
 NEVER_INLINE void FX_OutOfMemoryTerminate();
 
 inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
-  if (num_members < std::numeric_limits<size_t>::max() / member_size) {
+  if (member_size != 0 &&
+      num_members < std::numeric_limits<size_t>::max() / member_size) {
     return realloc(ptr, num_members * member_size);
   }
   return nullptr;
@@ -44,17 +45,17 @@ inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
 
 inline void* FX_AllocOrDie(size_t num_members, size_t member_size) {
   // TODO(tsepez): See if we can avoid the implicit memset(0).
-  if (void* result = calloc(num_members, member_size)) {
+  if (void* result = calloc(num_members, member_size))
     return result;
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
 
 inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
-  if (w < std::numeric_limits<size_t>::max() / h) {
+  if (h != 0 && w < std::numeric_limits<size_t>::max() / h)
     return FX_AllocOrDie(w * h, member_size);
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
@@ -62,9 +63,9 @@ inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
 inline void* FX_ReallocOrDie(void* ptr,
                              size_t num_members,
                              size_t member_size) {
-  if (void* result = FX_SafeRealloc(ptr, num_members, member_size)) {
+  if (void* result = FX_SafeRealloc(ptr, num_members, member_size))
     return result;
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
