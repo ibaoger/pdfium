@@ -16,6 +16,24 @@
       "revId": "8945455b406ac60eda161349bebc6858b7afab39",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b32e4b7e_75312dec",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-04-28T20:33:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a21c26e_bf2647c8",
+      "revId": "8945455b406ac60eda161349bebc6858b7afab39",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
