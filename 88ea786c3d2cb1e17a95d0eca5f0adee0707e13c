@@ -35,6 +35,24 @@
       "revId": "88ea786c3d2cb1e17a95d0eca5f0adee0707e13c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91487382_7019eefc",
+        "filename": "fxbarcode/oned/BC_OneDimWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 6585
+      },
+      "writtenOn": "2017-04-29T02:40:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f406570_59e97ee7",
+      "revId": "88ea786c3d2cb1e17a95d0eca5f0adee0707e13c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
