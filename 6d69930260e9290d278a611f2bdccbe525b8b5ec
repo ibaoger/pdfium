@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "1570f9fc_48b5de50",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-01T20:21:54Z",
+      "side": 1,
+      "message": "Done, removed useless enum, too.",
+      "parentUuid": "39472cc0_7ef7f077",
+      "revId": "6d69930260e9290d278a611f2bdccbe525b8b5ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0651ec7e_01ac8d5e",
         "filename": "xfa/fxfa/cxfa_ffpageview.h",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2017-05-01T19:32:26Z",
       "side": 1,
       "message": "Can these params be removed, or have the defaults removed?",
+      "revId": "6d69930260e9290d278a611f2bdccbe525b8b5ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "966aa3f7_59061993",
+        "filename": "xfa/fxfa/cxfa_ffpageview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-01T20:21:54Z",
+      "side": 1,
+      "message": "Defaults removed (were never called without explicit values).",
+      "parentUuid": "0651ec7e_01ac8d5e",
       "revId": "6d69930260e9290d278a611f2bdccbe525b8b5ec",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
