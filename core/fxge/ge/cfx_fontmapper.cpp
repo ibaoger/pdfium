@@ -356,6 +356,10 @@ void CFX_FontMapper::LoadInstalledFonts() {
     return;
 
   m_pFontInfo->EnumFontList(this);
+  printf("Fonts Loaded:\n");
+  for(const auto& font : m_InstalledTTFonts)
+    printf("%s\n", TT_NormalizeName(font.c_str()).c_str());
+  printf("End of fonts loaded\n");
   m_bListLoaded = true;
 }
 
