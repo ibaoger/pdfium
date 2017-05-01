@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <iostream>
 #include <map>
 #include <sstream>
 #include <string>
@@ -699,6 +700,30 @@ bool RenderPage(const std::string& name,
     DumpPageStructure(page.get(), page_index);
     return true;
   }
+
+  const uint8_t* data = GetFontD(doc);
+  const uint32_t size = GetFontS(doc);
+  FPDF_FONT font = FPDFText_LoadFont(doc, data, size, FPDF_FONT_TRUETYPE, 1);
+
+  FPDF_PAGEOBJECT text_object = FPDFPageObj_CreateTextObj(doc, font, 12.0f);
+  std::wstring wstr = L"The quick brown fox jumps over the lazy dog.";
+  // wstr += static_cast<wchar_t>(45208);
+  std::unique_ptr<unsigned short, pdfium::FreeDeleter> text =
+      GetFPDFWideString(wstr);
+  (FPDFText_SetText(text_object, text.get()));
+  FPDFPageObj_Transform(text_object, 1, 0, 0, 1, 200, 200);
+  FPDFPage_InsertObject(page.get(), text_object);
+
+  FPDF_PAGEOBJECT text_object2 = FPDFPageObj_CreateTextObj(doc, font, 18.0f);
+  std::wstring wstr2 =
+      L"Korean: 나는 한국어가 너무 재미 있기 때문에 한국어로 쓰고 있습니다.";
+  std::unique_ptr<unsigned short, pdfium::FreeDeleter> text2 =
+      GetFPDFWideString(wstr2);
+  (FPDFText_SetText(text_object2, text2.get()));
+  FPDFPageObj_Transform(text_object2, 1, 0, 0, 1, 100, 500);
+  FPDFPage_InsertObject(page.get(), text_object2);
+
+  (FPDFPage_GenerateContent(page.get()));
 
   std::unique_ptr<void, FPDFTextPageDeleter> text_page(
       FPDFText_LoadPage(page.get()));
