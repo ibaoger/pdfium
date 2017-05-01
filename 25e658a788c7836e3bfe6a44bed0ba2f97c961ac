@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493602807 -0700\nnonce AFMZ2GwvKzKFXKI0fggrpZDh633UDt7r/M+O2SVkL+Ip5EAajf/vV7clyei6dCm5sHeX5Luz7yUy\n\n0000000000000000000000000000000000000000 25e658a788c7836e3bfe6a44bed0ba2f97c961ac refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZBpH3AAoJEKs2LWFaZv17dGoIAKpO9RPR42UkJU0nIlKP6MVH\ne0HQX/jWXDgksREWH5ocdi+A5TiSbZ+aULBLvBQmkhohtNb4i+CZk0/e4RqVbdR0\n98/lNB5WYA3892cgTfzicx/KPPlYZg9Yi62xJTNqqeYostyG3L9PKGrVJSqB0WhN\nCBYqWiWMvqDFMcUVgsL31B14YK3oH/rNM5HsMmY2UwuLO6eZofNEucc8QUTpdAoz\n/XFu8jbKUouSB2geeYvweBjXVzMkYp3ccqLnVv+Iq2haVJV7UDwuXYX5NRhBVQWU\ncRThH3fwkhbyvwwagR0YTN/t3keJuuKXkvdMC2RSBNq0Zk9SbkwaW0vedGkOff0\u003d\n\u003dzYR9\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3da59361_07252211",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-01T14:35:48Z",
+      "side": 1,
+      "message": "Do we know what triggered this change? Is it aliasing or something else?",
+      "revId": "25e658a788c7836e3bfe6a44bed0ba2f97c961ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
