@@ -48,16 +48,17 @@ void CGifLZWDecoder::InitTable(uint8_t code_len) {
   code_first = 0;
   ClearTable();
 }
+
 void CGifLZWDecoder::ClearTable() {
   code_size_cur = code_size + 1;
   code_next = code_end + 1;
-  code_old = (uint16_t)-1;
+  code_old = static_cast<uint16_t>(-1);
   memset(code_table, 0, sizeof(tag_Table) * GIF_MAX_LZW_CODE);
   memset(stack, 0, GIF_MAX_LZW_CODE);
-  for (uint16_t i = 0; i < code_clear; i++) {
-    code_table[i].suffix = (uint8_t)i;
-  }
+  for (uint16_t i = 0; i < code_clear; i++)
+    code_table[i].suffix = static_cast<uint8_t>(i);
 }
+
 void CGifLZWDecoder::DecodeString(uint16_t code) {
   stack_size = 0;
   while (true) {
@@ -67,30 +68,31 @@ void CGifLZWDecoder::DecodeString(uint16_t code) {
     stack[GIF_MAX_LZW_CODE - 1 - stack_size++] = code_table[code].suffix;
     code = code_table[code].prefix;
   }
-  stack[GIF_MAX_LZW_CODE - 1 - stack_size++] = (uint8_t)code;
-  code_first = (uint8_t)code;
+  stack[GIF_MAX_LZW_CODE - 1 - stack_size++] = static_cast<uint8_t>(code);
+  code_first = static_cast<uint8_t>(code);
 }
+
 void CGifLZWDecoder::AddCode(uint16_t prefix_code, uint8_t append_char) {
-  if (code_next == GIF_MAX_LZW_CODE) {
+  if (code_next == GIF_MAX_LZW_CODE)
     return;
-  }
+
   code_table[code_next].prefix = prefix_code;
   code_table[code_next].suffix = append_char;
   if (++code_next < GIF_MAX_LZW_CODE) {
-    if (code_next >> code_size_cur) {
+    if (code_next >> code_size_cur)
       code_size_cur++;
-    }
   }
 }
+
 int32_t CGifLZWDecoder::Decode(uint8_t* des_buf, uint32_t& des_size) {
-  if (des_size == 0) {
+  if (des_size == 0)
     return 3;
-  }
+
   uint32_t i = 0;
   if (stack_size != 0) {
     if (des_size < stack_size) {
       memcpy(des_buf, &stack[GIF_MAX_LZW_CODE - stack_size], des_size);
-      stack_size -= (uint16_t)des_size;
+      stack_size -= static_cast<uint16_t>(des_size);
       return 3;
     }
     memcpy(des_buf, &stack[GIF_MAX_LZW_CODE - stack_size], stack_size);
@@ -128,7 +130,7 @@ int32_t CGifLZWDecoder::Decode(uint8_t* des_buf, uint32_t& des_size) {
       bits_left += 8;
     }
     while (bits_left >= code_size_cur) {
-      code = (uint16_t)code_store & ((1 << code_size_cur) - 1);
+      code = static_cast<uint16_t>(code_store) & ((1 << code_size_cur) - 1);
       code_store >>= code_size_cur;
       bits_left -= code_size_cur;
       if (code == code_clear) {
@@ -138,7 +140,7 @@ int32_t CGifLZWDecoder::Decode(uint8_t* des_buf, uint32_t& des_size) {
         des_size = i;
         return 1;
       } else {
-        if (code_old != (uint16_t)-1) {
+        if (code_old != static_cast<uint16_t>(-1)) {
           if (code_next < GIF_MAX_LZW_CODE) {
             if (code == code_next) {
               AddCode(code_old, code_first);
@@ -161,7 +163,7 @@ int32_t CGifLZWDecoder::Decode(uint8_t* des_buf, uint32_t& des_size) {
         code_old = code;
         if (i + stack_size > des_size) {
           memcpy(des_buf, &stack[GIF_MAX_LZW_CODE - stack_size], des_size - i);
-          stack_size -= (uint16_t)(des_size - i);
+          stack_size -= static_cast<uint16_t>(des_size - i);
           return 3;
         }
         memcpy(des_buf, &stack[GIF_MAX_LZW_CODE - stack_size], stack_size);
@@ -177,6 +179,7 @@ int32_t CGifLZWDecoder::Decode(uint8_t* des_buf, uint32_t& des_size) {
   }
   return 0;
 }
+
 static bool gif_grow_buf(uint8_t*& dst_buf, uint32_t& dst_len, uint32_t size) {
   if (dst_len < size) {
     uint32_t len_org = dst_len;
@@ -194,6 +197,7 @@ static bool gif_grow_buf(uint8_t*& dst_buf, uint32_t& dst_len, uint32_t size) {
   }
   return true;
 }
+
 static inline void gif_cut_index(uint8_t& val,
                                  uint32_t index,
                                  uint8_t index_bit,
@@ -202,6 +206,7 @@ static inline void gif_cut_index(uint8_t& val,
   uint32_t cut = ((1 << (index_bit - index_bit_use)) - 1) << index_bit_use;
   val |= ((index & cut) >> index_bit_use) << bit_use;
 }
+
 static inline uint8_t gif_cut_buf(const uint8_t* buf,
                                   uint32_t& offset,
                                   uint8_t bit_cut,
@@ -213,9 +218,8 @@ static inline uint8_t gif_cut_buf(const uint8_t* buf,
     uint8_t ret = ((index & buf[offset]) >> (7 - bit_offset));
     bit_offset += bit_cut;
     if (bit_offset >= 8) {
-      if (bit_offset > 8) {
+      if (bit_offset > 8)
         ret |= ((index & (buf[offset + 1] << 8)) >> 8);
-      }
       bit_offset -= 8;
       offset++;
     }
@@ -225,9 +229,11 @@ static inline uint8_t gif_cut_buf(const uint8_t* buf,
   bit_num += bit_cut;
   return buf[offset++];
 }
+
 CGifLZWEncoder::CGifLZWEncoder() {
   memset(this, 0, sizeof(CGifLZWEncoder));
 }
+
 CGifLZWEncoder::~CGifLZWEncoder() {}
 void CGifLZWEncoder::ClearTable() {
   index_bit_cur = code_size + 1;
@@ -238,6 +244,7 @@ void CGifLZWEncoder::ClearTable() {
     code_table[i].suffix = 0;
   }
 }
+
 void CGifLZWEncoder::Start(uint8_t code_len,
                            const uint8_t* src_buf,
                            uint8_t*& dst_buf,
@@ -262,56 +269,53 @@ void CGifLZWEncoder::Start(uint8_t code_len,
   code_table[index_num].suffix = gif_cut_buf(src_buf, src_offset, src_bit_cut,
                                              src_bit_offset, src_bit_num);
 }
+
 void CGifLZWEncoder::WriteBlock(uint8_t*& dst_buf,
                                 uint32_t& dst_len,
                                 uint32_t& offset) {
-  if (!gif_grow_buf(dst_buf, dst_len, offset + GIF_DATA_BLOCK + 1)) {
+  if (!gif_grow_buf(dst_buf, dst_len, offset + GIF_DATA_BLOCK + 1))
     longjmp(jmp, 1);
-  }
   dst_buf[offset++] = index_buf_len;
   memcpy(&dst_buf[offset], index_buf, index_buf_len);
   offset += index_buf_len;
   memset(index_buf, 0, GIF_DATA_BLOCK);
   index_buf_len = 0;
 }
+
 void CGifLZWEncoder::EncodeString(uint32_t index,
                                   uint8_t*& dst_buf,
                                   uint32_t& dst_len,
                                   uint32_t& offset) {
   uint8_t index_bit_use;
   index_bit_use = 0;
-  if (index_buf_len == GIF_DATA_BLOCK) {
+  if (index_buf_len == GIF_DATA_BLOCK)
     WriteBlock(dst_buf, dst_len, offset);
-  }
   gif_cut_index(index_buf[index_buf_len], index, index_bit_cur, index_bit_use,
                 bit_offset);
-  if (index_bit_cur <= (8 - bit_offset)) {
+  if (index_bit_cur <= 8 - bit_offset) {
     bit_offset += index_bit_cur;
-  } else if (index_bit_cur <= (16 - bit_offset)) {
-    index_bit_use += (8 - bit_offset);
+  } else if (index_bit_cur <= 16 - bit_offset) {
+    index_bit_use += 8 - bit_offset;
     bit_offset = 0;
     index_buf_len++;
-    if (index_buf_len == GIF_DATA_BLOCK) {
+    if (index_buf_len == GIF_DATA_BLOCK)
       WriteBlock(dst_buf, dst_len, offset);
-    }
     gif_cut_index(index_buf[index_buf_len], index, index_bit_cur, index_bit_use,
                   bit_offset);
     bit_offset = index_bit_cur - index_bit_use;
   } else {
-    index_bit_use += (8 - bit_offset);
+    index_bit_use += 8 - bit_offset;
     bit_offset = 0;
     index_buf_len++;
-    if (index_buf_len == GIF_DATA_BLOCK) {
+    if (index_buf_len == GIF_DATA_BLOCK)
       WriteBlock(dst_buf, dst_len, offset);
-    }
     gif_cut_index(index_buf[index_buf_len], index, index_bit_cur, index_bit_use,
                   bit_offset);
     index_bit_use += 8;
     bit_offset = 0;
     index_buf_len++;
-    if (index_buf_len == GIF_DATA_BLOCK) {
+    if (index_buf_len == GIF_DATA_BLOCK)
       WriteBlock(dst_buf, dst_len, offset);
-    }
     gif_cut_index(index_buf[index_buf_len], index, index_bit_cur, index_bit_use,
                   bit_offset);
     bit_offset = index_bit_cur - index_bit_use;
@@ -319,27 +323,26 @@ void CGifLZWEncoder::EncodeString(uint32_t index,
   if (bit_offset == 8) {
     bit_offset = 0;
     index_buf_len++;
-    if (index_buf_len == GIF_DATA_BLOCK) {
+    if (index_buf_len == GIF_DATA_BLOCK)
       WriteBlock(dst_buf, dst_len, offset);
-    }
   }
   if (index == code_end) {
     index_buf_len++;
     WriteBlock(dst_buf, dst_len, offset);
   }
-  if (index_num++ >> index_bit_cur) {
+  if (index_num++ >> index_bit_cur)
     index_bit_cur++;
-  }
 }
+
 bool CGifLZWEncoder::Encode(const uint8_t* src_buf,
                             uint32_t src_len,
                             uint8_t*& dst_buf,
                             uint32_t& dst_len,
                             uint32_t& offset) {
-  uint8_t suffix;
-  if (setjmp(jmp)) {
+  if (setjmp(jmp))
     return false;
-  }
+
+  uint8_t suffix;
   while (src_bit_num < src_len) {
     if (!LookUpInTable(src_buf, src_offset, src_bit_offset)) {
       EncodeString(code_table[index_num].prefix, dst_buf, dst_len, offset);
@@ -362,6 +365,7 @@ bool CGifLZWEncoder::Encode(const uint8_t* src_buf,
   src_bit_num = 0;
   return true;
 }
+
 bool CGifLZWEncoder::LookUpInTable(const uint8_t* buf,
                                    uint32_t& offset,
                                    uint8_t& out_bit_offset) {
@@ -378,6 +382,7 @@ bool CGifLZWEncoder::LookUpInTable(const uint8_t* buf,
   table_cur = code_end + 1;
   return false;
 }
+
 void CGifLZWEncoder::Finish(uint8_t*& dst_buf,
                             uint32_t& dst_len,
                             uint32_t& offset) {
@@ -386,6 +391,7 @@ void CGifLZWEncoder::Finish(uint8_t*& dst_buf,
   bit_offset = 0;
   ClearTable();
 }
+
 gif_decompress_struct_p gif_create_decompress() {
   gif_decompress_struct_p gif_ptr = FX_Alloc(gif_decompress_struct, 1);
   memset(gif_ptr, 0, sizeof(gif_decompress_struct));
@@ -395,6 +401,7 @@ gif_decompress_struct_p gif_create_decompress() {
   gif_ptr->pt_ptr_arr_ptr = new std::vector<GifPlainText*>;
   return gif_ptr;
 }
+
 void gif_destroy_decompress(gif_decompress_struct_pp gif_ptr_ptr) {
   if (!gif_ptr_ptr || !*gif_ptr_ptr)
     return;
@@ -410,9 +417,8 @@ void gif_destroy_decompress(gif_decompress_struct_pp gif_ptr_ptr) {
       FX_Free(p->image_info_ptr);
       FX_Free(p->image_gce_ptr);
       FX_Free(p->image_row_buf);
-      if (p->local_pal_ptr && p->local_pal_ptr != gif_ptr->global_pal_ptr) {
+      if (p->local_pal_ptr && p->local_pal_ptr != gif_ptr->global_pal_ptr)
         FX_Free(p->local_pal_ptr);
-      }
       FX_Free(p);
     }
     gif_ptr->img_ptr_arr_ptr->clear();
@@ -434,6 +440,7 @@ void gif_destroy_decompress(gif_decompress_struct_pp gif_ptr_ptr) {
   }
   FX_Free(gif_ptr);
 }
+
 gif_compress_struct_p gif_create_compress() {
   gif_compress_struct_p gif_ptr = FX_Alloc(gif_compress_struct, 1);
   memset(gif_ptr, 0, sizeof(gif_compress_struct));
@@ -486,6 +493,7 @@ gif_compress_struct_p gif_create_compress() {
   gif_ptr->pte_ptr->block_size = 12;
   return gif_ptr;
 }
+
 void gif_destroy_compress(gif_compress_struct_pp gif_ptr_ptr) {
   if (!gif_ptr_ptr || !*gif_ptr_ptr)
     return;
@@ -503,12 +511,14 @@ void gif_destroy_compress(gif_compress_struct_pp gif_ptr_ptr) {
   FX_Free(gif_ptr->pte_ptr);
   FX_Free(gif_ptr);
 }
+
 void gif_error(gif_decompress_struct_p gif_ptr, const char* err_msg) {
-  if (gif_ptr && gif_ptr->gif_error_fn) {
+  if (gif_ptr && gif_ptr->gif_error_fn)
     gif_ptr->gif_error_fn(gif_ptr, err_msg);
-  }
 }
+
 void gif_warn(gif_decompress_struct_p gif_ptr, const char* err_msg) {}
+
 int32_t gif_read_header(gif_decompress_struct_p gif_ptr) {
   if (!gif_ptr)
     return 0;
@@ -553,6 +563,7 @@ int32_t gif_read_header(gif_decompress_struct_p gif_ptr) {
   gif_ptr->pixel_aspect = gif_lsd_ptr->pixel_aspect;
   return 1;
 }
+
 int32_t gif_get_frame(gif_decompress_struct_p gif_ptr) {
   if (!gif_ptr)
     return 0;
@@ -641,15 +652,14 @@ int32_t gif_get_frame(gif_decompress_struct_p gif_ptr) {
       }
       default: {
         ret = gif_decode_extension(gif_ptr);
-        if (ret != 1) {
+        if (ret != 1)
           return ret;
-        }
-        continue;
       }
     }
   }
   return 1;
 }
+
 void gif_takeover_gce_ptr(gif_decompress_struct_p gif_ptr,
                           GifGCE** gce_ptr_ptr) {
   *gce_ptr_ptr = nullptr;
@@ -658,6 +668,7 @@ void gif_takeover_gce_ptr(gif_decompress_struct_p gif_ptr,
     gif_ptr->gce_ptr = nullptr;
   }
 }
+
 int32_t gif_decode_extension(gif_decompress_struct_p gif_ptr) {
   uint8_t* data_size_ptr = nullptr;
   uint8_t* data_ptr = nullptr;
@@ -683,9 +694,9 @@ int32_t gif_decode_extension(gif_decompress_struct_p gif_ptr) {
     case GIF_D_STATUS_EXT_PTE: {
       ASSERT(sizeof(GifPTE) == 13);
       GifPTE* gif_pte_ptr = nullptr;
-      if (!gif_read_data(gif_ptr, (uint8_t**)&gif_pte_ptr, 13)) {
+      if (!gif_read_data(gif_ptr, (uint8_t**)&gif_pte_ptr, 13))
         return 2;
-      }
+
       GifPlainText* gif_pt_ptr = FX_Alloc(GifPlainText, 1);
       memset(gif_pt_ptr, 0, sizeof(GifPlainText));
       gif_takeover_gce_ptr(gif_ptr, &gif_pt_ptr->gce_ptr);
@@ -766,6 +777,7 @@ int32_t gif_decode_extension(gif_decompress_struct_p gif_ptr) {
   gif_save_decoding_status(gif_ptr, GIF_D_STATUS_SIG);
   return 1;
 }
+
 int32_t gif_decode_image_info(gif_decompress_struct_p gif_ptr) {
   if (gif_ptr->width == 0 || gif_ptr->height == 0) {
     gif_error(gif_ptr, "No Image Header Info");
@@ -1007,6 +1019,7 @@ int32_t gif_load_frame(gif_decompress_struct_p gif_ptr, int32_t frame_num) {
   gif_error(gif_ptr, "Decode Image Data Error");
   return 0;
 }
+
 void gif_decoding_failure_at_tail_cleanup(gif_decompress_struct_p gif_ptr,
                                           GifImage* gif_image_ptr) {
   FX_Free(gif_image_ptr->image_row_buf);
@@ -1014,12 +1027,14 @@ void gif_decoding_failure_at_tail_cleanup(gif_decompress_struct_p gif_ptr,
   gif_save_decoding_status(gif_ptr, GIF_D_STATUS_TAIL);
   gif_error(gif_ptr, "Decode Image Data Error");
 }
+
 void gif_save_decoding_status(gif_decompress_struct_p gif_ptr, int32_t status) {
   gif_ptr->decode_status = status;
   gif_ptr->next_in += gif_ptr->skip_size;
   gif_ptr->avail_in -= gif_ptr->skip_size;
   gif_ptr->skip_size = 0;
 }
+
 uint8_t* gif_read_data(gif_decompress_struct_p gif_ptr,
                        uint8_t** des_buf_pp,
                        uint32_t data_size) {
@@ -1030,6 +1045,7 @@ uint8_t* gif_read_data(gif_decompress_struct_p gif_ptr,
   gif_ptr->skip_size += data_size;
   return *des_buf_pp;
 }
+
 void gif_input_buffer(gif_decompress_struct_p gif_ptr,
                       uint8_t* src_buf,
                       uint32_t src_size) {
@@ -1037,25 +1053,27 @@ void gif_input_buffer(gif_decompress_struct_p gif_ptr,
   gif_ptr->avail_in = src_size;
   gif_ptr->skip_size = 0;
 }
+
 uint32_t gif_get_avail_input(gif_decompress_struct_p gif_ptr,
                              uint8_t** avail_buf_ptr) {
   if (avail_buf_ptr) {
     *avail_buf_ptr = nullptr;
-    if (gif_ptr->avail_in > 0) {
+    if (gif_ptr->avail_in > 0)
       *avail_buf_ptr = gif_ptr->next_in;
-    }
   }
   return gif_ptr->avail_in;
 }
+
 int32_t gif_get_frame_num(gif_decompress_struct_p gif_ptr) {
   return pdfium::CollectionSize<int32_t>(*gif_ptr->img_ptr_arr_ptr);
 }
+
 static bool gif_write_header(gif_compress_struct_p gif_ptr,
                              uint8_t*& dst_buf,
                              uint32_t& dst_len) {
-  if (gif_ptr->cur_offset) {
+  if (gif_ptr->cur_offset)
     return true;
-  }
+
   dst_len = sizeof(GifHeader) + sizeof(GifLSD) + sizeof(GifGF);
   dst_buf = FX_TryAlloc(uint8_t, dst_len);
   if (!dst_buf)
@@ -1073,29 +1091,29 @@ static bool gif_write_header(gif_compress_struct_p gif_ptr,
   dst_buf[gif_ptr->cur_offset++] = gif_ptr->lsd_ptr->pixel_aspect;
   if (gif_ptr->global_pal) {
     uint16_t size = sizeof(GifPalette) * gif_ptr->gpal_num;
-    if (!gif_grow_buf(dst_buf, dst_len, gif_ptr->cur_offset + size)) {
+    if (!gif_grow_buf(dst_buf, dst_len, gif_ptr->cur_offset + size))
       return false;
-    }
+
     memcpy(&dst_buf[gif_ptr->cur_offset], gif_ptr->global_pal, size);
     gif_ptr->cur_offset += size;
   }
   return true;
 }
+
 void interlace_buf(const uint8_t* buf, uint32_t pitch, uint32_t height) {
   std::vector<uint8_t*> pass[4];
   uint32_t row = 0;
   uint8_t* temp;
   while (row < height) {
     size_t j;
-    if (row % 8 == 0) {
+    if (row % 8 == 0)
       j = 0;
-    } else if (row % 4 == 0) {
+    else if (row % 4 == 0)
       j = 1;
-    } else if (row % 2 == 0) {
+    else if (row % 2 == 0)
       j = 2;
-    } else {
+    else
       j = 3;
-    }
     temp = FX_Alloc(uint8_t, pitch);
     memcpy(temp, &buf[pitch * row], pitch);
     pass[j].push_back(temp);
@@ -1108,6 +1126,7 @@ void interlace_buf(const uint8_t* buf, uint32_t pitch, uint32_t height) {
     }
   }
 }
+
 static void gif_write_block_data(const uint8_t* src_buf,
                                  uint32_t src_len,
                                  uint8_t*& dst_buf,
@@ -1121,16 +1140,17 @@ static void gif_write_block_data(const uint8_t* src_buf,
     src_offset += GIF_DATA_BLOCK;
     src_len -= GIF_DATA_BLOCK;
   }
-  dst_buf[dst_offset++] = (uint8_t)src_len;
+  dst_buf[dst_offset++] = static_cast<uint8_t>(src_len);
   memcpy(&dst_buf[dst_offset], &src_buf[src_offset], src_len);
   dst_offset += src_len;
 }
+
 static bool gif_write_data(gif_compress_struct_p gif_ptr,
                            uint8_t*& dst_buf,
                            uint32_t& dst_len) {
-  if (!gif_grow_buf(dst_buf, dst_len, gif_ptr->cur_offset + GIF_DATA_BLOCK)) {
+  if (!gif_grow_buf(dst_buf, dst_len, gif_ptr->cur_offset + GIF_DATA_BLOCK))
     return false;
-  }
+
   if (memcmp(gif_ptr->header_ptr->version, "89a", 3) == 0) {
     dst_buf[gif_ptr->cur_offset++] = GIF_SIG_EXTENSION;
     dst_buf[gif_ptr->cur_offset++] = GIF_BLOCK_GCE;
@@ -1162,9 +1182,9 @@ static bool gif_write_data(gif_compress_struct_p gif_ptr,
   dst_buf[gif_ptr->cur_offset++] = gif_ptr->image_info_ptr->local_flag;
   if (gif_ptr->local_pal) {
     uint32_t pal_size = sizeof(GifPalette) * gif_ptr->lpal_num;
-    if (!gif_grow_buf(dst_buf, dst_len, pal_size + gif_ptr->cur_offset)) {
+    if (!gif_grow_buf(dst_buf, dst_len, pal_size + gif_ptr->cur_offset))
       return false;
-    }
+
     memcpy(&dst_buf[gif_ptr->cur_offset], gif_ptr->local_pal, pal_size);
     gif_ptr->cur_offset += pal_size;
   }
@@ -1179,10 +1199,10 @@ static bool gif_write_data(gif_compress_struct_p gif_ptr,
   }
   if (code_bit >= 31)
     return false;
+
   gif_ptr->img_encoder_ptr->Start(code_bit, gif_ptr->src_buf, dst_buf,
                                   gif_ptr->cur_offset);
-  uint32_t i;
-  for (i = 0; i < gif_ptr->src_row; i++) {
+  for (uint32_t i = 0; i < gif_ptr->src_row; i++) {
     if (!gif_ptr->img_encoder_ptr->Encode(
             &gif_ptr->src_buf[i * gif_ptr->src_pitch],
             gif_ptr->src_width * (code_bit + 1), dst_buf, dst_len,
@@ -1234,25 +1254,24 @@ static bool gif_write_data(gif_compress_struct_p gif_ptr,
   dst_buf[gif_ptr->cur_offset++] = GIF_SIG_TRAILER;
   return true;
 }
+
 bool gif_encode(gif_compress_struct_p gif_ptr,
                 uint8_t*& dst_buf,
                 uint32_t& dst_len) {
-  if (!gif_write_header(gif_ptr, dst_buf, dst_len)) {
+  if (!gif_write_header(gif_ptr, dst_buf, dst_len))
     return false;
-  }
+
   uint32_t cur_offset = gif_ptr->cur_offset;
   bool res = true;
-  if (gif_ptr->frames) {
+  if (gif_ptr->frames)
     gif_ptr->cur_offset--;
-  }
   if (!gif_write_data(gif_ptr, dst_buf, dst_len)) {
     gif_ptr->cur_offset = cur_offset;
     res = false;
   }
   dst_len = gif_ptr->cur_offset;
   dst_buf[dst_len - 1] = GIF_SIG_TRAILER;
-  if (res) {
+  if (res)
     gif_ptr->frames++;
-  }
   return res;
 }
