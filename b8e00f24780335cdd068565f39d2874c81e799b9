@@ -16,6 +16,24 @@
       "revId": "b8e00f24780335cdd068565f39d2874c81e799b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c51280f_14f1e718",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "6c2d2be5_461fe0cc",
+      "revId": "b8e00f24780335cdd068565f39d2874c81e799b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

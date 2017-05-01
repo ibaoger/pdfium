@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b30ba741_316dc247",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be425166_64c197ad",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a9700c0_eb3443de",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-01T20:26:27Z",
       "side": 1,
       "message": "This returns 0, 1, 2, does it actually use those 3 return values?",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f55f43a_ca0003a4",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "3a9700c0_eb3443de",
       "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e8e4f4ca_5214fded",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aec983a0_f2bf7a72",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d372783_74733b44",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2076e3_d3bf70ea",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d372783_74733b44",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "9ab80874_405fed1c",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb270f7a_2d3e4d69",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4f90fb_76202223",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2017-05-01T20:26:27Z",
       "side": 1,
       "message": "For these, are they used outside the class or can they also be in the anon namespace?",
+      "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2ab4184_7ac89bb5",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-01T21:18:58Z",
+      "side": 1,
+      "message": "Moved what was possible to namespace, then compiler said a bunch was unused.",
+      "parentUuid": "6a4f90fb_76202223",
       "revId": "42e6b9ba16bfcab8c229dfa14da6f0683dc2fb99",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
