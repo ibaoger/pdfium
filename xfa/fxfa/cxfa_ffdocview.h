@@ -55,8 +55,8 @@ class CXFA_FFDocView {
   int32_t ProcessWidgetEvent(CXFA_EventParam* pParam,
                              CXFA_WidgetAcc* pWidgetAcc);
   CXFA_FFWidgetHandler* GetWidgetHandler();
-  CXFA_WidgetAccIterator* CreateWidgetAccIterator(
-      XFA_WIDGETORDER eOrder = XFA_WIDGETORDER_PreOrder);
+  std::unique_ptr<CXFA_WidgetAccIterator> CreateWidgetAccIterator(
+      XFA_WIDGETORDER eOrder);
   CXFA_FFWidget* GetFocusWidget();
   void KillFocus();
   bool SetFocus(CXFA_FFWidget* hWidget);
