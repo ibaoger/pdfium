@@ -7,6 +7,7 @@
 #ifndef FXBARCODE_PDF417_BC_PDF417BARCODEMATRIX_H_
 #define FXBARCODE_PDF417_BC_PDF417BARCODEMATRIX_H_
 
+#include <memory>
 #include <vector>
 
 #include "core/fxcrt/fx_basic.h"
@@ -30,7 +31,7 @@ class CBC_BarcodeMatrix {
   int32_t getHeight();
 
  private:
-  std::vector<CBC_BarcodeRow*> m_matrix;
+  std::vector<std::unique_ptr<CBC_BarcodeRow>> m_matrix;
   std::vector<uint8_t> m_matrixOut;
   int32_t m_currentRow;
   int32_t m_height;
