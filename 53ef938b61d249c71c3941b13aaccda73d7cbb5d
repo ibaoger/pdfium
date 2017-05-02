@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f260b5_57666138",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "nit: can we write these as \\xNNNN escapes?  That allows us to avoid making assumptions about something called the source character set (e.g. what characters can appear in a c++ program, even in string literals\"",
+      "range": {
+        "startLine": 809,
+        "startChar": 27,
+        "endLine": 809,
+        "endChar": 41
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "721edc3b_b42e4652",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "nit: maybe break these after each \"\\n\", unless clang-format wants to mangle it more.",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 65
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bed71c9_7ef8bbc9",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "can we use some pre-existing FX_ routine to do this?",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e06f0402_763acc3d",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "maybe this is really a size_t.",
+      "range": {
+        "startLine": 134,
+        "startChar": 10,
+        "endLine": 134,
+        "endChar": 17
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f0b5913_7668df86",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "... then we can avoid using a uint8_t as an iterator variable, which should be avoided.",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 17
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a44f6633_0a1d9c06",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "can the same value appear more than once?  This is testing the value, not the position.",
+      "range": {
+        "startLine": 184,
+        "startChar": 6,
+        "endLine": 184,
+        "endChar": 33
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bf094fa_53bc241a",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 56
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45a974a_8a7e0baa",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 294,
+        "startChar": 4,
+        "endLine": 294,
+        "endChar": 14
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2caedfd1_7d1713ce",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T20:57:45Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 392,
+        "startChar": 4,
+        "endLine": 392,
+        "endChar": 21
+      },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
