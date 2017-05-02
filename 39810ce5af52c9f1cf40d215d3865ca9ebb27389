@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb92111_86ed3954",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T17:36:41Z",
+      "side": 1,
+      "message": "we probably should add FPDFText_SetTextWid(), and leave this public API unchanged for compatibility.",
+      "range": {
+        "startLine": 239,
+        "startChar": 27,
+        "endLine": 239,
+        "endChar": 44
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bdf5ca6_9bc22e18",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T17:36:41Z",
+      "side": 1,
+      "message": "nit: humor me, I\u0027m trying to wipe out all |new|s, so this would be an auto \u003d MakeUnique ...",
+      "range": {
+        "startLine": 301,
+        "startChar": 30,
+        "endLine": 301,
+        "endChar": 33
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b3b9af7_dc88af9f",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T17:36:41Z",
+      "side": 1,
+      "message": ".. and this is a return pTextObj.release();",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 18
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
