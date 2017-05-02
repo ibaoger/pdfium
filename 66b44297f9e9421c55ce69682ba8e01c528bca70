@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aad31b16_be48ebd8",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "536c7aa8_7e440834",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cda2f3eb_1ed95497",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc953fc0_99d56ec0",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cda2f3eb_1ed95497",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f0575354_d3a5d545",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c45a8d5_609545bb",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc010434_640efc07",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "ff22f042_f73baba6",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc010434_640efc07",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cedd6cab_1dc050a8",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2017-05-02T14:15:02Z",
       "side": 1,
       "message": "We appear to always provide err_msg_ptr in the constructor, can we assert it is set and remove the conditionals?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6453ee8_743b4c6e",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Yes but we could be providing a nullptr. I can try and see if it doesn\u0027t break.",
+      "parentUuid": "cedd6cab_1dc050a8",
       "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "13046dc1_dbe578b9",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e066a60_c35d536d",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a288395_9329165d",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -118,6 +226,24 @@
       "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac30bb2_694397f0",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a288395_9329165d",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "e5fdd181_c904a00b",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "No, this is a horrendous reinterpret_cast.",
+      "parentUuid": "b63d9d3b_97d3d250",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ef529ec_e2a7b212",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -149,6 +293,24 @@
       "writtenOn": "2017-05-02T14:15:02Z",
       "side": 1,
       "message": "ditto (and below)",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a199ae6_7d93c2ad",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T14:46:09Z",
+      "side": 1,
+      "message": "Done, please check",
+      "parentUuid": "1ef529ec_e2a7b212",
       "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
