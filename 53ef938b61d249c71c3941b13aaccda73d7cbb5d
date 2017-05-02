@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad399e17_2912a72d",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "Japanese? or Hangul",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "99f260b5_57666138",
         "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
         "patchSetId": 1
@@ -48,6 +65,40 @@
     },
     {
       "key": {
+        "uuid": "84a4d92a_d77d2201",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "Maybe FXSYS_i64toa with an added padding parameter?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5720bcd_1b790b5e",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "pBuffer-\u003eAppendChar?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bed71c9_7ef8bbc9",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -65,6 +116,74 @@
         "endLine": 97,
         "endChar": 1
       },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb2b6f34_d25f5f81",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "What are the two int32_t\u0027s, \u003cglyph, and charcode\u003e?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed0bff11_408362ae",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "s/map_char/charcode_to_unicode/ ?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a1b01d3_bd5d3722",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "vector of unicode characters of side v?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095dde36_a23a1eb0",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "Does for (auto iter : to_unicode)  work?",
       "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -94,6 +213,40 @@
     },
     {
       "key": {
+        "uuid": "b52cacf3_a01fad9b",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "Can we add brackets to make this clearer?",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f162b29_c9a00678",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "Can this get pulled out into a CombineNonConsecutiveUnicode method (or something?)",
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f0b5913_7668df86",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -111,6 +264,23 @@
         "endLine": 152,
         "endChar": 17
       },
+      "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a53a3f_fa48eedc",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T21:09:20Z",
+      "side": 1,
+      "message": "CombineConsecutiveUnicode()?",
       "revId": "53ef938b61d249c71c3941b13aaccda73d7cbb5d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
