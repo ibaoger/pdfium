@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f9078d5_963c9674",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T18:24:56Z",
+      "side": 1,
+      "message": "Oh, I should mention that as of a few weeks ago, you can do range-based for loops across these ... something to save away for next time.\n \n  for (wchar_t wc : encodedText) {",
+      "range": {
+        "startLine": 248,
+        "startChar": 3,
+        "endLine": 248,
+        "endChar": 53
+      },
+      "revId": "7603cd947483ea7a50734d4104f6e2e393c65fe3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
