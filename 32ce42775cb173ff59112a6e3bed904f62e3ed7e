@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7786ee3b_1ace0e1c",
+        "filename": "fpdfsdk/fsdk_actionhandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T23:19:23Z",
+      "side": 1,
+      "message": "Would it be better to resize |posArray| first since we already know what size it should be?",
+      "revId": "32ce42775cb173ff59112a6e3bed904f62e3ed7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b47810c_1a263fda",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1616,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T23:19:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "32ce42775cb173ff59112a6e3bed904f62e3ed7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
