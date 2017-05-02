@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "14ef6a78_58f33f3f",
+        "filename": "fpdfsdk/fsdk_actionhandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T23:21:42Z",
+      "side": 1,
+      "message": "maybe, I wanted to avoid the if size \u003e 2 test, subtracting 2, etc.   This way it comes out the right size witout any math.",
+      "parentUuid": "7786ee3b_1ace0e1c",
+      "revId": "32ce42775cb173ff59112a6e3bed904f62e3ed7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b47810c_1a263fda",
         "filename": "fpdfsdk/javascript/Document.cpp",
         "patchSetId": 1
