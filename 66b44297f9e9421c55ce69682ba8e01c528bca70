@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "536c7aa8_7e440834",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "followup: can stack be a std::stack? Can code_table be a vector?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda2f3eb_1ed95497",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "nit: \u0026 -\u003e * for des_size",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c45a8d5_609545bb",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "followup: do these return values have meanings? Can we name them?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc010434_640efc07",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "Move this to 360?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cedd6cab_1dc050a8",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "We appear to always provide err_msg_ptr in the constructor, can we assert it is set and remove the conditionals?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e066a60_c35d536d",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "Nit, don\u0027t need else after continue or return.",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a288395_9329165d",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "followup:\nsed -i\"\" -e\u0027s/gif_decompress_struct_pp/gif_decompress_struct**/\u0027\nsed -i\"\" -e\u0027s/gif_decompress_struct_p/gif_decompress_struct*/\u0027",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b63d9d3b_97d3d250",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "static_cast?",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ef529ec_e2a7b212",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-02T14:15:02Z",
+      "side": 1,
+      "message": "ditto (and below)",
+      "revId": "66b44297f9e9421c55ce69682ba8e01c528bca70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
