@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db0ad86e_da7a377a",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T18:13:18Z",
+      "side": 1,
+      "message": "This is a recently added API added in https://pdfium-review.googlesource.com/c/2711/, so I think it\u0027s OK to change it to a better state. It\u0027s currently not being used internally, I doubt it\u0027s already being used externally.",
+      "parentUuid": "5cb92111_86ed3954",
+      "range": {
+        "startLine": 239,
+        "startChar": 27,
+        "endLine": 239,
+        "endChar": 44
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5bdf5ca6_9bc22e18",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c194d8_84568932",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T18:13:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bdf5ca6_9bc22e18",
+      "range": {
+        "startLine": 301,
+        "startChar": 30,
+        "endLine": 301,
+        "endChar": 33
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "32ab37b5_ac864609",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T18:13:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b3b9af7_dc88af9f",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 18
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "811ad6be_15c166cc",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f8bbdc_fbe9c852",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-02T18:13:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "811ad6be_15c166cc",
+      "range": {
+        "startLine": 467,
+        "startChar": 23,
+        "endLine": 467,
+        "endChar": 28
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
