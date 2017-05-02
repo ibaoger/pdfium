@@ -68,6 +68,29 @@
       "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811ad6be_15c166cc",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-02T17:37:46Z",
+      "side": 1,
+      "message": "maybe FPDFFont_Close",
+      "range": {
+        "startLine": 467,
+        "startChar": 23,
+        "endLine": 467,
+        "endChar": 28
+      },
+      "revId": "39810ce5af52c9f1cf40d215d3865ca9ebb27389",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
