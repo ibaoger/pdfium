@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fc9f32e_39bff311",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T19:07:55Z",
+      "side": 1,
+      "message": "|gce_ptr_ptr| has to eval to true since we just dereferenced it on the line above.",
+      "range": {
+        "startLine": 24,
+        "startChar": 26,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "ec3a9e27d9e37ef9074c0097481d4a9dfd57549f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad890333_71b7a28f",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T19:07:55Z",
+      "side": 1,
+      "message": "This only returns 1 or 2. Can we adjust that to true/false, or does this align in some way with the gif_decode_image_info() return values?",
+      "revId": "ec3a9e27d9e37ef9074c0097481d4a9dfd57549f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dbfd835_036f1095",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T19:07:55Z",
+      "side": 1,
+      "message": "These can be static_assert()s at the top of the file or where GifImageInfo is defined.",
+      "revId": "ec3a9e27d9e37ef9074c0097481d4a9dfd57549f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57712f96_48521c31",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-02T19:07:55Z",
+      "side": 1,
+      "message": "I wonder if these can become smart pointers.",
+      "revId": "ec3a9e27d9e37ef9074c0097481d4a9dfd57549f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
