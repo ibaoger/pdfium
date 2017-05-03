@@ -16,6 +16,24 @@
       "revId": "0ef8dce0e50c65ec891c8e75c946431fde9624ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e301edc_f2230d6e",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-03T19:25:23Z",
+      "side": 1,
+      "message": "Ah, right, I misread that as passing whole file length.  Fixing.",
+      "parentUuid": "d3466c08_cfb685c4",
+      "revId": "0ef8dce0e50c65ec891c8e75c946431fde9624ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
