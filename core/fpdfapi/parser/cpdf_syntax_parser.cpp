@@ -814,73 +814,36 @@ bool CPDF_SyntaxParser::IsWholeWord(FX_FILESIZE startpos,
   return true;
 }
 
-// TODO(dsinclair): Split into a SearchWordForward and SearchWordBackwards
-// and drop the bool.
-bool CPDF_SyntaxParser::SearchWord(const CFX_ByteStringC& tag,
-                                   bool bWholeWord,
-                                   bool bForward,
-                                   FX_FILESIZE limit) {
+bool CPDF_SyntaxParser::BackwardsSearchToWord(const CFX_ByteStringC& tag,
+                                              FX_FILESIZE limit) {
   int32_t taglen = tag.GetLength();
   if (taglen == 0)
     return false;
 
   FX_FILESIZE pos = m_Pos;
-  int32_t offset = 0;
-  if (!bForward)
-    offset = taglen - 1;
-
-  const uint8_t* tag_data = tag.raw_str();
+  int32_t offset = taglen - 1;
   uint8_t byte;
   while (1) {
-    if (bForward) {
-      if (limit && pos >= m_Pos + limit)
-        return false;
-
-      if (!GetCharAt(pos, byte))
-        return false;
-
-    } else {
-      if (limit && pos <= m_Pos - limit)
-        return false;
-
-      if (!GetCharAtBackward(pos, byte))
-        return false;
-    }
-
-    if (byte == tag_data[offset]) {
-      if (bForward) {
-        offset++;
-        if (offset < taglen) {
-          pos++;
-          continue;
-        }
-      } else {
-        offset--;
-        if (offset >= 0) {
-          pos--;
-          continue;
-        }
+    if (limit && pos <= m_Pos - limit)
+      return false;
+    if (!GetCharAtBackward(pos, byte))
+      return false;
+    if (byte == tag[offset]) {
+      offset--;
+      if (offset >= 0) {
+        pos--;
+        continue;
       }
-
-      FX_FILESIZE startpos = bForward ? pos - taglen + 1 : pos;
-      if (!bWholeWord || IsWholeWord(startpos, limit, tag, false)) {
-        m_Pos = startpos;
+      if (IsWholeWord(pos, limit, tag, false)) {
+        m_Pos = pos;
         return true;
       }
     }
-
-    if (bForward) {
-      offset = byte == tag_data[0] ? 1 : 0;
-      pos++;
-    } else {
-      offset = byte == tag_data[taglen - 1] ? taglen - 2 : taglen - 1;
-      pos--;
-    }
-
+    offset = byte == tag[taglen - 1] ? taglen - 2 : taglen - 1;
+    pos--;
     if (pos < 0)
       return false;
   }
-
   return false;
 }
 

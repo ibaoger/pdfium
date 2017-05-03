@@ -761,12 +761,10 @@ bool CPDF_DataAvail::CheckEnd(DownloadHints* pHints) {
       buffer, static_cast<size_t>(dwSize), false);
   m_syntaxParser.InitParser(file, 0);
   m_syntaxParser.RestorePos(dwSize - 1);
-
-  if (!m_syntaxParser.SearchWord("startxref", true, false, dwSize)) {
+  if (!m_syntaxParser.BackwardsSearchToWord("startxref", 0)) {
     m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
     return true;
   }
-
   m_syntaxParser.GetNextWord(nullptr);
 
   bool bNumber;
