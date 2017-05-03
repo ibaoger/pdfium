@@ -159,7 +159,7 @@ CPDF_Parser::Error CPDF_Parser::StartParse(
   m_pDocument = pDocument;
 
   bool bXRefRebuilt = false;
-  if (m_pSyntax->SearchWord("startxref", true, false, 4096)) {
+  if (m_pSyntax->BackwardsSearchWord("startxref", 4096)) {
     m_SortedOffset.insert(m_pSyntax->SavePos());
     m_pSyntax->GetKeyword();
 

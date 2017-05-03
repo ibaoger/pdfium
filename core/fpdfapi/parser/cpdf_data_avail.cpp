@@ -762,7 +762,7 @@ bool CPDF_DataAvail::CheckEnd(DownloadHints* pHints) {
   m_syntaxParser.InitParser(file, 0);
   m_syntaxParser.RestorePos(dwSize - 1);
 
-  if (!m_syntaxParser.SearchWord("startxref", true, false, dwSize)) {
+  if (!m_syntaxParser.BackwardsSearchWord("startxref", 0)) {
     m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
     return true;
   }
