@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22797863_1936088c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-03T16:30:35Z",
+      "side": 1,
+      "message": "nit: These are really GetPos() and SetPos(), not save and restore, since there is no reason to believe these will be called in some sort of nested order.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "12976abfe0e34fb9e4091bc930dde87b4293d6f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
