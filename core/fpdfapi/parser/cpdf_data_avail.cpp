@@ -748,25 +748,22 @@ bool CPDF_DataAvail::IsLinearizedFile(uint8_t* pData, uint32_t dwLen) {
 bool CPDF_DataAvail::CheckEnd(DownloadHints* pHints) {
   uint32_t req_pos = (uint32_t)(m_dwFileLen > 1024 ? m_dwFileLen - 1024 : 0);
   uint32_t dwSize = (uint32_t)(m_dwFileLen - req_pos);
-
   if (!m_pFileAvail->IsDataAvail(req_pos, dwSize)) {
     pHints->AddSegment(req_pos, dwSize);
     return false;
   }
 
-  uint8_t buffer[1024];
-  m_pFileRead->ReadBlock(buffer, req_pos, dwSize);
+  std::vector<uint8_t> buffer(1024);
+  m_pFileRead->ReadBlock(buffer.data(), req_pos, dwSize);
 
   auto file = pdfium::MakeRetain<CFX_MemoryStream>(
-      buffer, static_cast<size_t>(dwSize), false);
+      buffer.data(), static_cast<size_t>(dwSize), false);
   m_syntaxParser.InitParser(file, 0);
   m_syntaxParser.SetPos(dwSize - 1);
-
-  if (!m_syntaxParser.SearchWord("startxref", true, false, dwSize)) {
+  if (!m_syntaxParser.BackwardsSearchToWord("startxref", dwSize)) {
     m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
     return true;
   }
-
   m_syntaxParser.GetNextWord(nullptr);
 
   bool bNumber;
