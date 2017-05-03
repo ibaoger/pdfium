@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "af4a3993_73630ce9",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-03T14:36:51Z",
+      "side": 1,
+      "message": "Yes, my guess is that this is the size expected by gif. It\u0027s hardcoded in 167.",
+      "parentUuid": "8ba1f9c2_dec48759",
+      "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a410431_9d6c8d93",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-03T13:21:46Z",
       "side": 1,
       "message": "This isn\u0027t quite the same, the old code had gif_ptr-\u003egce_ptr always nullptr afterwards. This will have it as gce_ptr_ptr.",
+      "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa9778d_2e7057f3",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-03T14:36:51Z",
+      "side": 1,
+      "message": "gif_ptr-\u003egce_ptr becomes *gce_ptr_ptr, which was assigned nullptr in line 28.",
+      "parentUuid": "4a410431_9d6c8d93",
       "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "81088454_d1a7a050",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-03T14:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27e73347_c958b460",
+      "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3b2ce9f_66535485",
         "filename": "core/fxcodec/lgif/fx_gif.h",
         "patchSetId": 1
@@ -73,6 +127,30 @@
       "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d9e5bf7_eb0ca6eb",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-03T14:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b2ce9f_66535485",
+      "range": {
+        "startLine": 122,
+        "startChar": 52,
+        "endLine": 122,
+        "endChar": 58
+      },
+      "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
