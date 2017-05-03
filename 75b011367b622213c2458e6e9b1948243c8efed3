@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "1705d2d3_ab5a8dd5",
+        "filename": "core/fdrm/crypto/fx_crypt_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-03T01:25:02Z",
+      "side": 1,
+      "message": "Done. Hopefully no sign/unsigned comparison errors.",
+      "parentUuid": "85adabcb_76d6779b",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 17
+      },
+      "revId": "75b011367b622213c2458e6e9b1948243c8efed3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9ad4773_3bddb77f",
         "filename": "core/fdrm/crypto/fx_crypt_unittest.cpp",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "584d001f_31d56ac9",
+        "filename": "core/fdrm/crypto/fx_crypt_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-03T01:25:02Z",
+      "side": 1,
+      "message": "Just what we happen to return right now.",
+      "parentUuid": "f9ad4773_3bddb77f",
+      "range": {
+        "startLine": 221,
+        "startChar": 7,
+        "endLine": 239,
+        "endChar": 25
+      },
+      "revId": "75b011367b622213c2458e6e9b1948243c8efed3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ce66097_880d578a",
         "filename": "core/fdrm/crypto/fx_crypt_unittest.cpp",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2017-05-03T01:01:27Z",
       "side": 1,
       "message": "hmm.  I thought this would have given a type mismatch error between signed and unsigned.",
+      "range": {
+        "startLine": 269,
+        "startChar": 10,
+        "endLine": 269,
+        "endChar": 39
+      },
+      "revId": "75b011367b622213c2458e6e9b1948243c8efed3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a1202f_f9e991e1",
+        "filename": "core/fdrm/crypto/fx_crypt_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-03T01:25:02Z",
+      "side": 1,
+      "message": "It worked, so I left it as is.",
+      "parentUuid": "4ce66097_880d578a",
       "range": {
         "startLine": 269,
         "startChar": 10,
