@@ -357,6 +357,23 @@ void CFX_FontMapper::LoadInstalledFonts() {
 
   m_pFontInfo->EnumFontList(this);
   m_bListLoaded = true;
+  for (auto font : m_InstalledTTFonts) {
+    auto cjk = std::unique_ptr<CFX_Font>(new CFX_Font());
+    cjk->LoadSubst(font.c_str(), true, 524320, 400, 0, 0, false);
+    int numUns = 0;
+    // 4E00 — 9FFF   CJK Unified Ideographs
+    for (int uni = 0x4E00; uni <= 0x9FFF; ++uni) {
+      int glyph = FXFT_Get_Char_Index(cjk->GetFace(), uni);
+      if (glyph == 0) {
+        // printf("uni %u unsupported\n", uni);
+        numUns++;
+      }
+    }
+    if (numUns < 20000) {
+      printf("Font: %s ", cjk->GetFaceName().c_str());
+      printf("numUns %d\n", numUns);
+    }
+  }
 }
 
 CFX_ByteString CFX_FontMapper::MatchInstalledFonts(
