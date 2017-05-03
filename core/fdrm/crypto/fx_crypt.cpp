@@ -153,23 +153,16 @@ void CRYPT_ArcFourSetup(CRYPT_rc4_context* s,
   }
 }
 
-void CRYPT_ArcFourCrypt(CRYPT_rc4_context* s,
-                        unsigned char* data,
-                        uint32_t length) {
-  int i, x, y, *m, a, b;
-  x = s->x;
-  y = s->y;
-  m = s->m;
-  for (i = 0; i < (int)length; i++) {
-    x = (x + 1) & 0xFF;
-    a = m[x];
-    y = (y + a) & 0xFF;
-    m[x] = b = m[y];
-    m[y] = a;
-    data[i] ^= m[(a + b) & 0xFF];
+void CRYPT_ArcFourCrypt(CRYPT_rc4_context* s, uint8_t* data, uint32_t length) {
+  for (uint32_t i = 0; i < length; ++i) {
+    s->x = (s->x + 1) & 0xFF;
+    int a = s->m[s->x];
+    s->y = (s->y + a) & 0xFF;
+    int b = s->m[s->y];
+    s->m[s->x] = b;
+    s->m[s->y] = a;
+    data[i] ^= s->m[(a + b) & 0xFF];
   }
-  s->x = x;
-  s->y = y;
 }
 
 void CRYPT_ArcFourCryptBlock(uint8_t* pData,
