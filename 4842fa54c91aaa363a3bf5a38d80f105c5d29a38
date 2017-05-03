@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "a5675c1d_c75d2273",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-03T14:42:35Z",
+      "side": 1,
+      "message": "Ah, missed the assignment, thanks.",
+      "parentUuid": "7aa9778d_2e7057f3",
+      "revId": "4842fa54c91aaa363a3bf5a38d80f105c5d29a38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27e73347_c958b460",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 1
