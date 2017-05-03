@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3466c08_cfb685c4",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-03T19:18:39Z",
+      "side": 1,
+      "message": "Previously the limit was dwSize, now it\u0027s 0? It looks like this used to say search all but the first 1k if the document is \u003e 1k otherwise search all?",
+      "revId": "0ef8dce0e50c65ec891c8e75c946431fde9624ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
