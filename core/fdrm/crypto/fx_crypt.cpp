@@ -153,9 +153,7 @@ void CRYPT_ArcFourSetup(CRYPT_rc4_context* s,
   }
 }
 
-void CRYPT_ArcFourCrypt(CRYPT_rc4_context* s,
-                        unsigned char* data,
-                        uint32_t length) {
+void CRYPT_ArcFourCrypt(CRYPT_rc4_context* s, uint8_t* data, uint32_t length) {
   int i, x, y, *m, a, b;
   x = s->x;
   y = s->y;
