@@ -7,6 +7,7 @@
 #ifndef CORE_FPDFAPI_PARSER_CPDF_SYNTAX_PARSER_H_
 #define CORE_FPDFAPI_PARSER_CPDF_SYNTAX_PARSER_H_
 
+#include <algorithm>
 #include <memory>
 
 #include "core/fxcrt/cfx_string_pool_template.h"
@@ -30,7 +31,7 @@ class CPDF_SyntaxParser {
                   uint32_t HeaderOffset);
 
   FX_FILESIZE SavePos() const { return m_Pos; }
-  void RestorePos(FX_FILESIZE pos) { m_Pos = pos; }
+  void RestorePos(FX_FILESIZE pos) { m_Pos = std::min(pos, m_FileLen); }
 
   std::unique_ptr<CPDF_Object> GetObject(CPDF_IndirectObjectHolder* pObjList,
                                          uint32_t objnum,
