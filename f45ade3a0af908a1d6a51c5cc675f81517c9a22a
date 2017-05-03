@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f732b169_3e65ebfe",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-03T21:34:52Z",
+      "side": 1,
+      "message": "Are we just doing \"to hex\" here? Surely we have something for this in fxcrt?",
+      "revId": "f45ade3a0af908a1d6a51c5cc675f81517c9a22a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "684cca4e_4334164c",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-03T21:34:52Z",
+      "side": 1,
+      "message": "const auto\u0026, since |iter| is really a std::pair? Ditto in other for-loops below.",
+      "revId": "f45ade3a0af908a1d6a51c5cc675f81517c9a22a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
