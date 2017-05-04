@@ -217,7 +217,7 @@ int CompareCID(const void* key, const void* element) {
 
 int CheckCodeRange(uint8_t* codes,
                    int size,
-                   CMap_CodeRange* pRanges,
+                   CPDF_CMap::CodeRange* pRanges,
                    int nRanges) {
   int iSeg = nRanges - 1;
   while (iSeg >= 0) {
@@ -244,7 +244,7 @@ int CheckCodeRange(uint8_t* codes,
 }
 
 int GetCharSizeImpl(uint32_t charcode,
-                    CMap_CodeRange* pRanges,
+                    CPDF_CMap::CodeRange* pRanges,
                     int iRangesSize) {
   if (!iRangesSize)
     return 1;
@@ -412,9 +412,9 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
         m_pCMap->m_nCodeRanges = nSegs;
         FX_Free(m_pCMap->m_pLeadingBytes);
         m_pCMap->m_pLeadingBytes =
-            FX_Alloc2D(uint8_t, nSegs, sizeof(CMap_CodeRange));
+            FX_Alloc2D(uint8_t, nSegs, sizeof(CPDF_CMap::CodeRange));
         memcpy(m_pCMap->m_pLeadingBytes, m_CodeRanges.data(),
-               nSegs * sizeof(CMap_CodeRange));
+               nSegs * sizeof(CPDF_CMap::CodeRange));
       } else if (nSegs == 1) {
         m_pCMap->m_CodingScheme = (m_CodeRanges[0].m_CharSize == 2)
                                       ? CPDF_CMap::TwoBytes
@@ -426,7 +426,7 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
         return;
       }
       if (m_CodeSeq % 2) {
-        CMap_CodeRange range;
+        CPDF_CMap::CodeRange range;
         if (CMap_GetCodeRange(range, m_LastWord.AsStringC(), word))
           m_CodeRanges.push_back(range);
       }
@@ -457,7 +457,7 @@ uint32_t CPDF_CMapParser::CMap_GetCode(const CFX_ByteStringC& word) {
 }
 
 // Static.
-bool CPDF_CMapParser::CMap_GetCodeRange(CMap_CodeRange& range,
+bool CPDF_CMapParser::CMap_GetCodeRange(CPDF_CMap::CodeRange& range,
                                         const CFX_ByteStringC& first,
                                         const CFX_ByteStringC& second) {
   if (first.GetLength() == 0 || first.GetAt(0) != '<')
@@ -629,7 +629,7 @@ uint32_t CPDF_CMap::GetNextChar(const char* pString,
       uint8_t codes[4];
       int char_size = 1;
       codes[0] = ((uint8_t*)pString)[offset++];
-      CMap_CodeRange* pRanges = (CMap_CodeRange*)m_pLeadingBytes;
+      auto* pRanges = reinterpret_cast<CPDF_CMap::CodeRange*>(m_pLeadingBytes);
       while (1) {
         int ret = CheckCodeRange(codes, char_size, pRanges, m_nCodeRanges);
         if (ret == 0) {
@@ -713,7 +713,8 @@ int CPDF_CMap::AppendChar(char* str, uint32_t charcode) const {
     case MixedTwoBytes:
     case MixedFourBytes:
       if (charcode < 0x100) {
-        CMap_CodeRange* pRanges = (CMap_CodeRange*)m_pLeadingBytes;
+        auto* pRanges =
+            reinterpret_cast<CPDF_CMap::CodeRange*>(m_pLeadingBytes);
         int iSize = GetCharSizeImpl(charcode, pRanges, m_nCodeRanges);
         if (iSize == 0) {
           iSize = 1;
