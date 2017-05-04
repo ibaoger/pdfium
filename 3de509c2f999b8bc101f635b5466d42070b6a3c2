@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae8a417c_5fd093a5",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T16:01:48Z",
+      "side": 0,
+      "message": "Was this not being used before? If not, then I don\u0027t think it makes sense to have only Ready and Done as the render status options... so might as well just remove them all.",
+      "revId": "3de509c2f999b8bc101f635b5466d42070b6a3c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
