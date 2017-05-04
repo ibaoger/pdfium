@@ -22,6 +22,30 @@
       "revId": "86acaefced14e8e0e7475ce411fe357a1a612d87",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d5aadf4_ddf99e5a",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-04T18:21:46Z",
+      "side": 1,
+      "message": "I think passing the rect to the constructor is clearer as it\u0027s what we actually care about.",
+      "parentUuid": "a821b9bb_a699c5cd",
+      "range": {
+        "startLine": 106,
+        "startChar": 46,
+        "endLine": 106,
+        "endChar": 55
+      },
+      "revId": "86acaefced14e8e0e7475ce411fe357a1a612d87",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
