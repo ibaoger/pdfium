@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ac97580_0d5d4b83",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T17:59:13Z",
+      "side": 1,
+      "message": "isn\u0027t this just rectClip as previously set on 102?  no matter.\n\nAlternatively, we could put is back the way it was and just make rendercontext local too?",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "b56a246d77dcce745587eb32771b926b3672fb39",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
