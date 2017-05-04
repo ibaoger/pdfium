@@ -22,6 +22,29 @@
       "revId": "daca8779010a1cdc81ebda56dac1400fa0cef3d4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9697e270_8e615ec7",
+        "filename": "core/fxge/dib/cstretchengine.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T23:30:22Z",
+      "side": 1,
+      "message": "how do we feel nowadays about this vs. std::vector\u003cuint8_t\u003e m_pDestScanLine;\n\nWe |malloc| far too much compared to other C++ code ??",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 42
+      },
+      "revId": "daca8779010a1cdc81ebda56dac1400fa0cef3d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
