@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4996a075_681aed8b",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-04T14:18:27Z",
+      "side": 1,
+      "message": "This is duplicated, but it\u0027s debug code so I think it\u0027s fine.",
+      "revId": "082c86c38047a5b1478a2ec9385b4fe9cd3e1212",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
