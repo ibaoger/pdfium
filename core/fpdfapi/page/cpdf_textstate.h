@@ -70,6 +70,7 @@ class CPDF_TextState {
     float GetFontSizeH() const;
     float GetBaselineAngle() const;
     float GetShearAngle() const;
+    void ReleaseFont();
 
     CPDF_Font* m_pFont;
     CPDF_Document* m_pDocument;
