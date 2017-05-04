@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493923749 -0700\nnonce APbwY4qIonmt+21IRoUX7EkDQSWcuF7KRkhoBjjOJRlW+Enaxdrp8dCGkYhUVSMvsG3XJTr2bm2q\n\n0000000000000000000000000000000000000000 5d3c7781b989a83df6884489b95d92b07c0d567f refs/for/refs/heads/master%m\u003denglish,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZC3elAAoJEKs2LWFaZv17tJQH/jbNdAOOQYGh9IpmPORLXDyT\nRCrzHLEqrenaZp/JqVDFfaMMUXO07amV04z1JAWwdq+FFRCicnBtDv+/9gMw+4oq\nYSiIFAIxXhEPak0wUrSq2uNbPBgkplhG4gJYD5wppDIfochynUVt7n2OIi/2EoGm\nvVA9BjsYUqQDBgYWLxr0jJ4i4KJLWYKUQKOEOhu5dzuu6t5GJZMJWlQCUUJMQaB8\n1gy2BYyvNZDr0/7MxRxmEQM3yL03aDe5luy4hdz8emEJrvGc1LyvqVA8Fejitl/7\nQGitMSVMMUNCelTzukdr6H7RpfcrHvGfEKEH8OjjYLxyxC0MOPnKjyfeaHfRy7E\u003d\n\u003dU0WR\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d868b4_8da4c326",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-04T18:54:33Z",
+      "side": 1,
+      "message": "Is this true? Our testing scripts assume out/Debug by default and you have to pass a build directory otherwise. Should we just say out/Debug?",
+      "revId": "5d3c7781b989a83df6884489b95d92b07c0d567f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
