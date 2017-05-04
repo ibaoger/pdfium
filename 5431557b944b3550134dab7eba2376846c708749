@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0072813b_8a6f5888",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T14:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dde2a82_73927d67",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "5431557b944b3550134dab7eba2376846c708749",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c804ecbc_4056ed33",
         "filename": "core/fxge/dib/cfx_scanlinecompositor.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "5431557b944b3550134dab7eba2376846c708749",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20ba91f_526a1bfe",
+        "filename": "core/fxge/dib/cfx_scanlinecompositor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3206,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T14:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c804ecbc_4056ed33",
+      "range": {
+        "startLine": 3206,
+        "startChar": 33,
+        "endLine": 3206,
+        "endChar": 50
+      },
+      "revId": "5431557b944b3550134dab7eba2376846c708749",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
