@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ae720ca9_0a703437",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-04T19:19:54Z",
+      "side": 1,
+      "message": "We went looking but nothing quite matched. This needed the result to always be 4-bytes which the method we found, FXSYS_i64toa, was a bit different.",
+      "parentUuid": "5acdbd54_6979017c",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 1
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ab8b3fb_cb04a0bf",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
