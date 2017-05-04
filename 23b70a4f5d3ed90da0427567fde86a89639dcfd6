@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4be62835_a5bc4f8f",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T23:53:51Z",
+      "side": 1,
+      "message": "Ok, since this is being requested over and over, I\u0027ll move it to fxcrt. If someone can think of a simplification possibly using existent methods then please shed light or followup.",
+      "parentUuid": "ae720ca9_0a703437",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 1
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ab8b3fb_cb04a0bf",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -84,6 +108,24 @@
       "writtenOn": "2017-05-04T18:56:51Z",
       "side": 1,
       "message": "Should we add some unit tests for these methods?",
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f7122a8_d7b5b88a",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T23:53:51Z",
+      "side": 1,
+      "message": "Makes sense. So I guess move this to a static method in the class or at least declare in header, to make it accessible to the unittest class?",
+      "parentUuid": "6ab8b3fb_cb04a0bf",
       "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -233,6 +275,30 @@
       "writtenOn": "2017-05-04T19:10:33Z",
       "side": 1,
       "message": "I didn\u0027t look at the spec, but did we want \u003cd00d\u003e\u003cd1fff\u003e vs \u003cd00dd1ff\u003e",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 11
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4d78806_33345544",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T23:53:51Z",
+      "side": 1,
+      "message": "\u003cd00dd1ff\u003e",
+      "parentUuid": "85e087f2_08249e16",
       "range": {
         "startLine": 124,
         "startChar": 2,
