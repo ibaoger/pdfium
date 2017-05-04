@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9e32b1b2_bfcaab69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T18:01:20Z",
+      "side": 1,
+      "message": "nit: CXFA_",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "b56a246d77dcce745587eb32771b926b3672fb39",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ac97580_0d5d4b83",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 2
