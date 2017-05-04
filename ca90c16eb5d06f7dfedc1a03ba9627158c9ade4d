@@ -16,6 +16,24 @@
       "revId": "ca90c16eb5d06f7dfedc1a03ba9627158c9ade4d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e862f20_41de6385",
+        "filename": "core/fpdfapi/font/fpdf_font_cid.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T22:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4185122f_0f028366",
+      "revId": "ca90c16eb5d06f7dfedc1a03ba9627158c9ade4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
