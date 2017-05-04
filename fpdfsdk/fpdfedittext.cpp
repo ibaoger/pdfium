@@ -92,8 +92,7 @@ const char ToUnicodeStart[] =
 
 const char hex[] = "0123456789ABCDEF";
 
-void AddNum(CFX_ByteTextBuf* pBuffer, uint32_t number) {
-  *pBuffer << "<";
+void AddNumber(CFX_ByteTextBuf* pBuffer, uint32_t number) {
   char ans[4];
   for (size_t i = 0; i < 4; ++i) {
     ans[3 - i] = hex[number % 16];
@@ -101,6 +100,30 @@ void AddNum(CFX_ByteTextBuf* pBuffer, uint32_t number) {
   }
   for (size_t i = 0; i < 4; ++i)
     pBuffer->AppendChar(ans[i]);
+}
+
+void AddCharcode(CFX_ByteTextBuf* pBuffer, uint32_t number) {
+  ASSERT(number <= 0xFFFF);
+  *pBuffer << "<";
+  AddNumber(pBuffer, number);
+  *pBuffer << ">";
+}
+
+// PDF spec 1.7 asks the unicode values to be UTF-16BE encoded.
+// See https://en.wikipedia.org/wiki/UTF-16#Description
+void AddUT16BE(CFX_ByteTextBuf* pBuffer, uint32_t unicode) {
+  ASSERT(unicode <= 0xD7FF || (unicode > 0xDFFF && unicode <= 0x10FFFF));
+  *pBuffer << "<";
+  if (unicode <= 0xFFFF) {
+    AddNumber(pBuffer, unicode);
+    *pBuffer << ">";
+    return;
+  }
+  unicode -= 0x010000;
+  // High ten bits plus 0xD800
+  AddNumber(pBuffer, 0xD800 + unicode / 0x400);
+  // Low ten bits plus 0xDC00
+  AddNumber(pBuffer, 0xDC00 + unicode % 0x400);
   *pBuffer << ">";
 }
 
@@ -173,37 +196,37 @@ CPDF_Stream* LoadUnicode(CPDF_Document* pDoc,
   }
   // Add maps to buffer
   buffer << static_cast<uint32_t>(char_to_uni.size()) << " beginbfchar\n";
-  for (auto iter : char_to_uni) {
-    AddNum(&buffer, iter.first);
+  for (const auto& iter : char_to_uni) {
+    AddCharcode(&buffer, iter.first);
     buffer << " ";
-    AddNum(&buffer, iter.second);
+    AddUT16BE(&buffer, iter.second);
     buffer << "\n";
   }
   buffer << "endbfchar\n"
          << static_cast<uint32_t>(map_range_vector.size() + map_range.size())
          << " beginbfrange\n";
-  for (auto iter : map_range_vector) {
+  for (const auto& iter : map_range_vector) {
     const std::pair<uint32_t, uint32_t>& charcodeRange = iter.first;
-    AddNum(&buffer, charcodeRange.first);
+    AddCharcode(&buffer, charcodeRange.first);
     buffer << " ";
-    AddNum(&buffer, charcodeRange.second);
+    AddCharcode(&buffer, charcodeRange.second);
     buffer << " [";
     const std::vector<uint32_t>& unicodes = iter.second;
     for (size_t i = 0; i < unicodes.size(); ++i) {
       uint32_t uni = unicodes[i];
-      AddNum(&buffer, uni);
+      AddUT16BE(&buffer, uni);
       if (i != unicodes.size() - 1)
         buffer << " ";
     }
     buffer << "]\n";
   }
-  for (auto iter : map_range) {
+  for (const auto& iter : map_range) {
     const std::pair<uint32_t, uint32_t>& charcodeRange = iter.first;
-    AddNum(&buffer, charcodeRange.first);
+    AddCharcode(&buffer, charcodeRange.first);
     buffer << " ";
-    AddNum(&buffer, charcodeRange.second);
+    AddCharcode(&buffer, charcodeRange.second);
     buffer << " ";
-    AddNum(&buffer, iter.second);
+    AddUT16BE(&buffer, iter.second);
     buffer << "\n";
   }
   // TODO(npm): Encrypt / Compress?
