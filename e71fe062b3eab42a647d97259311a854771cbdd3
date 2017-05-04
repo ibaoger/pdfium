@@ -22,6 +22,30 @@
       "revId": "e71fe062b3eab42a647d97259311a854771cbdd3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6540f3a4_bed4a03b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-04T17:47:59Z",
+      "side": 1,
+      "message": "It was used in the constructor, but only to read a value. Done.",
+      "parentUuid": "c70e493f_a497cc54",
+      "range": {
+        "startLine": 107,
+        "startChar": 56,
+        "endLine": 107,
+        "endChar": 59
+      },
+      "revId": "e71fe062b3eab42a647d97259311a854771cbdd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
