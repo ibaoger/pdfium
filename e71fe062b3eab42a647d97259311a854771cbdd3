@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c70e493f_a497cc54",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T17:09:18Z",
+      "side": 1,
+      "message": "This will end up storing a pointer to local in the heap-allocated object; hence the object can\u0027t outlive the call frame, which is always dicey.  Is the |gs| only used in DoRender() ?  If so, pass it as an arg there?",
+      "range": {
+        "startLine": 107,
+        "startChar": 56,
+        "endLine": 107,
+        "endChar": 59
+      },
+      "revId": "e71fe062b3eab42a647d97259311a854771cbdd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
