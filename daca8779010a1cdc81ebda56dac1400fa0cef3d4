@@ -45,6 +45,30 @@
       "revId": "daca8779010a1cdc81ebda56dac1400fa0cef3d4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f97f64_a449ef72",
+        "filename": "core/fxge/dib/cstretchengine.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T23:51:07Z",
+      "side": 1,
+      "message": "I was going to use vectors for these but then I got scared. The code somtimes uses unsigned char* instead of uint8_t*, even for allocation: FX_TryAlloc(unsigned char, ...). If you\u0027re ok with assuming sizeof(uint8_t) \u003d\u003d sizeof(unsigned char) then I can go ahead and use vectors instead. Otherwise the size of the vector would be ugly: sizeof(unsigned char) / sizeof(uint8_t) * alloc_size. I would mostly use .data() for now, and maybe improve the usage in a followup.",
+      "parentUuid": "9697e270_8e615ec7",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 42
+      },
+      "revId": "daca8779010a1cdc81ebda56dac1400fa0cef3d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
