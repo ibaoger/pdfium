@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493887273 -0700\nnonce APbwY4o8idWTchP3tEINWEYBB4+bd07HrNUjIuHo8CgfqDsZUM7gEwrZWapzw8U0myoiCQrqYRNr\n\n0000000000000000000000000000000000000000 d263be7f805b56c6fd2f107ddd3ce92c1cd73c15 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZCukpAAoJEKs2LWFaZv17OEgIAMg0xIG01JDv6PWwtmy3x43O\nkXmtHQqhejs5lkbtjcSOE5nG10kpt+cGgk6xCqZ0+35c6nw6rn5ruZEGmSE1dZxh\nBKGFJ4etnGN5ChI33+PjdNM3SH0BBIZUOJuZrpyztT90sZ253x5/43SPcqZqlVQg\nBf0eBlI2J9u8p8Iip3LNFL6WS9JPVSeOhCv3LPb4kdvhdpv3M7b056CagFAXVax3\nk+Y/u4EdTcavALXioxPi7LH5tJ0qQwmH0byn2pxqaJJyd5VGMIH4o2C2jL4rDKT7\nwow9ZtMFHUPsPYTB1RNdBhNxuiGQSI9aRk9n9GS81lcT9veR2kjj/ou/L4ILgBk\u003d\n\u003dYejI\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dc21ded_da26fa98",
+        "filename": "core/fpdfapi/page/cpdf_textstate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T17:52:21Z",
+      "side": 1,
+      "message": "nit: private method?",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 3
+      },
+      "revId": "d263be7f805b56c6fd2f107ddd3ce92c1cd73c15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f14362_e6d721dd",
+        "filename": "core/fpdfapi/parser/cpdf_document.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-04T17:52:21Z",
+      "side": 1,
+      "message": "nit: is called during destruction.",
+      "range": {
+        "startLine": 62,
+        "startChar": 40,
+        "endLine": 62,
+        "endChar": 61
+      },
+      "revId": "d263be7f805b56c6fd2f107ddd3ce92c1cd73c15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
