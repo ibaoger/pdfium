@@ -16,6 +16,24 @@
       "revId": "746babded81e9de3fc132fd670386382c031fa74",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58cd35b6_83a815c8",
+        "filename": "third_party/libopenjpeg20/pi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-04T16:08:55Z",
+      "side": 0,
+      "message": "*p_dx_min is really a min, set to a default value in line 759.",
+      "parentUuid": "6d616b79_d6c4977b",
+      "revId": "746babded81e9de3fc132fd670386382c031fa74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
