@@ -1,0 +1,24 @@
+diff --git a/third_party/libopenjpeg20/pi.c b/third_party/libopenjpeg20/pi.c
+index 083674222..c40decfbc 100644
+--- a/third_party/libopenjpeg20/pi.c
++++ b/third_party/libopenjpeg20/pi.c
+@@ -789,11 +789,15 @@ static void opj_get_all_encoding_parameters(   const opj_image_t *p_image,
+                        l_pdy = l_tccp->prch[resno];
+                        *lResolutionPtr++ = l_pdx;
+                        *lResolutionPtr++ = l_pdy;
+-                       l_dx = l_img_comp->dx * (1u << (l_pdx + l_level_no));
+-                       l_dy = l_img_comp->dy * (1u << (l_pdy + l_level_no));
+                        /* take the minimum size for l_dx for each comp and resolution*/
+-                       *p_dx_min = (OPJ_UINT32)opj_int_min((OPJ_INT32)*p_dx_min, (OPJ_INT32)l_dx);
+-                       *p_dy_min = (OPJ_UINT32)opj_int_min((OPJ_INT32)*p_dy_min, (OPJ_INT32)l_dy);
++                       if (l_pdx + l_level_no < 32) {
++                               l_dx = l_img_comp->dx * (1u << (l_pdx + l_level_no));
++                               *p_dx_min = opj_uint_min(*p_dx_min, l_dx);
++                       }
++                       if (l_pdy + l_level_no < 32) {
++                               l_dy = l_img_comp->dy * (1u << (l_pdy + l_level_no));
++                               *p_dy_min = opj_uint_min(*p_dy_min, l_dy);
++                       }
+ 
+                        /* various calculations of extents*/
+                        l_rx0 = opj_int_ceildivpow2(l_tcx0, (OPJ_INT32)l_level_no);
