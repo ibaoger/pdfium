@@ -1087,7 +1087,7 @@ bool CPDF_RenderStatus::ContinueSingleObject(CPDF_PageObject* pObj,
                                              const CFX_Matrix* pObj2Device,
                                              IFX_Pause* pPause) {
   if (m_pImageRenderer) {
-    if (m_pImageRenderer->Continue(pPause))
+    if (m_pImageRenderer->Continue())
       return true;
 
     if (!m_pImageRenderer->GetResult())
@@ -1926,7 +1926,7 @@ bool CPDF_RenderStatus::ProcessType3Text(CPDF_TextObject* textobj,
         CPDF_ImageRenderer renderer;
         if (renderer.Start(this, pType3Char->m_pBitmap, fill_argb, 255,
                            &image_matrix, 0, false, FXDIB_BLEND_NORMAL)) {
-          renderer.Continue(nullptr);
+          renderer.Continue();
         }
         if (!renderer.GetResult())
           return false;
@@ -2396,7 +2396,7 @@ bool CPDF_RenderStatus::ProcessImage(CPDF_ImageObject* pImageObj,
                                      const CFX_Matrix* pObj2Device) {
   CPDF_ImageRenderer render;
   if (render.Start(this, pImageObj, pObj2Device, m_bStdCS, m_curBlend))
-    render.Continue(nullptr);
+    render.Continue();
   return render.GetResult();
 }
 

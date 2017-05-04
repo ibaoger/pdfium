@@ -256,7 +256,7 @@ void CPDF_ImageRenderer::CalculateDrawImage(
   CPDF_ImageRenderer image_render;
   if (image_render.Start(&bitmap_render, pDIBSource, 0xffffffff, 255,
                          pNewMatrix, m_Flags, true, FXDIB_BLEND_NORMAL)) {
-    image_render.Continue(nullptr);
+    image_render.Continue();
   }
   if (m_Loader.m_MatteColor == 0xffffffff)
     return;
@@ -359,7 +359,7 @@ bool CPDF_ImageRenderer::DrawMaskedImage() {
   CPDF_ImageRenderer image_render;
   if (image_render.Start(&bitmap_render, m_pDIBSource, 0, 255, &new_matrix,
                          m_Flags, true, FXDIB_BLEND_NORMAL)) {
-    image_render.Continue(nullptr);
+    image_render.Continue();
   }
   CFX_FxgeDevice bitmap_device2;
   if (!bitmap_device2.Create(rect.Width(), rect.Height(), FXDIB_8bppRgb,
@@ -534,9 +534,9 @@ bool CPDF_ImageRenderer::StartBitmapAlpha() {
   return false;
 }
 
-bool CPDF_ImageRenderer::Continue(IFX_Pause* pPause) {
+bool CPDF_ImageRenderer::Continue() {
   if (m_Status == 2) {
-    if (m_pTransformer->Continue(pPause))
+    if (m_pTransformer->Continue(nullptr))
       return true;
 
     CFX_RetainPtr<CFX_DIBitmap> pBitmap = m_pTransformer->DetachBitmap();
@@ -560,14 +560,14 @@ bool CPDF_ImageRenderer::Continue(IFX_Pause* pPause) {
   }
   if (m_Status == 3)
     return m_pRenderStatus->m_pDevice->ContinueDIBits(m_DeviceHandle.get(),
-                                                      pPause);
+                                                      nullptr);
 
   if (m_Status == 4) {
-    if (m_Loader.Continue(pPause))
+    if (m_Loader.Continue())
       return true;
 
     if (StartRenderDIBSource())
-      return Continue(pPause);
+      return Continue();
   }
   return false;
 }
