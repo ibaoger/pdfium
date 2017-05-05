@@ -59,7 +59,7 @@
 #endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
-#include <Carbon/Carbon.h>
+#include <CoreGraphics/CoreGraphics.h>
 #include <libkern/OSAtomic.h>
 #endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
 

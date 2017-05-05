@@ -215,6 +215,8 @@ static_library("pdfium") {
       "AppKit.framework",
       "CoreFoundation.framework",
     ]
+  } else if (is_ios) {
+    libs += [ "CoreGraphics.framework" ]
   }
 
   if (pdf_is_complete_lib) {
@@ -991,7 +993,7 @@ static_library("fxge") {
     deps += [ "third_party:fx_agg" ]
   }
 
-  if (is_mac) {
+  if (is_mac || is_ios) {
     sources += [ "core/fxge/apple/fx_apple_platform.cpp" ]
   }
 
@@ -1012,7 +1014,7 @@ static_library("fxge") {
     configs -= [ "//build/config/win:lean_and_mean" ]
   }
 
-  if (is_mac) {
+  if (is_mac || is_ios) {
     sources += [
       "core/fxge/apple/apple_int.h",
       "core/fxge/apple/fx_mac_imp.cpp",
