@@ -3,6 +3,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "99a262af_7bb883f7",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T16:54:54Z",
+      "side": 1,
+      "message": "leaves old string unchanged on error.  Let\u0027s not deal with that now, but ...",
+      "range": {
+        "startLine": 456,
+        "startChar": 1,
+        "endLine": 456,
+        "endChar": 20
+      },
+      "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26c5c514_a31edab1",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T16:54:54Z",
+      "side": 1,
+      "message": "... Since we\u0027re here, doesn\u0027t it kinda feel like this should be a static method that returns the new string rather than *maybe* clobbering the contents of the existing string",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 1
+      },
+      "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ae88aed_e2bcc746",
         "filename": "core/fxge/ge/cfx_fontmgr.cpp",
         "patchSetId": 1
