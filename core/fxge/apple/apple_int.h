@@ -15,7 +15,7 @@
 #include "core/fxge/fx_dib.h"
 #include "core/fxge/ifx_renderdevicedriver.h"
 
-#include <Carbon/Carbon.h>
+#include <CoreGraphics/CoreGraphics.h>
 
 class CQuartz2D {
  public:
