@@ -19,6 +19,7 @@
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
+#include "core/fxcrt/fx_extension.h"
 #include "core/fxge/cfx_fontmgr.h"
 #include "core/fxge/fx_font.h"
 #include "fpdfsdk/fsdk_define.h"
@@ -45,7 +46,7 @@ CPDF_Dictionary* LoadFontDesc(CPDF_Document* pDoc,
   if (FXFT_Is_Face_Bold(pFont->GetFace()))
     flags |= FXFONT_BOLD;
 
-  // TODO(npm): How do I know if a  font is symbolic, script, allcap, smallcap
+  // TODO(npm): How do I know if a font is symbolic, script, allcap, smallcap?
   flags |= FXFONT_NONSYMBOLIC;
 
   fontDesc->SetNewFor<CPDF_Number>("Flags", flags);
@@ -90,15 +91,11 @@ const char ToUnicodeStart[] =
     "1 begincodespacerange\n"
     "<0000> <FFFFF>\n";
 
-const char hex[] = "0123456789ABCDEF";
-
 void AddNum(CFX_ByteTextBuf* pBuffer, uint32_t number) {
   *pBuffer << "<";
   char ans[4];
-  for (size_t i = 0; i < 4; ++i) {
-    ans[3 - i] = hex[number % 16];
-    number /= 16;
-  }
+  FXSYS_CharToHexChars(number / 256, ans);
+  FXSYS_CharToHexChars(number % 256, ans + 2);
   for (size_t i = 0; i < 4; ++i)
     pBuffer->AppendChar(ans[i]);
   *pBuffer << ">";
