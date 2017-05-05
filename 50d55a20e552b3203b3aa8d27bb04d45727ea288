@@ -22,6 +22,30 @@
       "revId": "50d55a20e552b3203b3aa8d27bb04d45727ea288",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c6c5313_10d40c31",
+        "filename": "core/fxge/dib/cstretchengine.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T21:12:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2e8821_76c9f86a",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 43
+      },
+      "revId": "50d55a20e552b3203b3aa8d27bb04d45727ea288",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
