@@ -65,8 +65,7 @@ class CPDF_Creator {
   int32_t WriteIndirectObjectToStream(const CPDF_Object* pObj);
   int32_t WriteIndirectObj(uint32_t objnum, const CPDF_Object* pObj);
   int32_t WriteIndirectObjectToStream(uint32_t objnum,
-                                      const uint8_t* pBuffer,
-                                      uint32_t dwSize);
+                                      const std::vector<uint8_t>& pBuffer);
 
   int32_t WriteStream(const CPDF_Object* pStream,
                       uint32_t objnum,
