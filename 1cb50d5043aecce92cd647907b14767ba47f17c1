@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "047259bc_5c62f7d5",
+        "filename": "core/fpdfapi/font/fpdf_font_cid.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T19:42:39Z",
+      "side": 0,
+      "message": "Note: The mixed two-byte case will have loaded up the leading bytes as pure uint8_t pairs, but GetCharSizeImpl() will interpret them as a vector of ranges.",
+      "range": {
+        "startLine": 697,
+        "startChar": 20,
+        "endLine": 697,
+        "endChar": 35
+      },
+      "revId": "1cb50d5043aecce92cd647907b14767ba47f17c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
