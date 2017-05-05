@@ -133,7 +133,7 @@ class CPDF_CMapParser {
   explicit CPDF_CMapParser(CPDF_CMap* pMap);
   ~CPDF_CMapParser();
 
-  void ParseWord(const CFX_ByteStringC& str);
+  bool ParseWord(const CFX_ByteStringC& str);
   bool HasAdditionalMappings() const {
     return !m_AdditionalCharcodeToCIDMappings.empty();
   }
