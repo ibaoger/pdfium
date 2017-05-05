@@ -1208,15 +1208,13 @@ int32_t CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
     if (!bExistInMap)
       m_pDocument->DeleteIndirectObject(objnum);
   } else {
-    uint8_t* pBuffer;
-    uint32_t size;
-    m_pParser->GetIndirectBinary(objnum, pBuffer, size);
-    if (!pBuffer)
+    std::vector<uint8_t> buffer = m_pParser->GetIndirectBinary(objnum);
+    if (!buffer.empty())
       return 0;
     if (object_type == 2) {
       if (m_pXRefStream) {
-        if (WriteIndirectObjectToStream(objnum, pBuffer, size) < 0) {
-          FX_Free(pBuffer);
+        if (WriteIndirectObjectToStream(objnum, buffer.data(), buffer.size()) <
+            0) {
           return -1;
         }
       } else {
@@ -1227,24 +1225,23 @@ int32_t CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
           return -1;
 
         m_Offset += len + 7;
-        if (m_File.AppendBlock(pBuffer, size) < 0)
+        if (m_File.AppendBlock(buffer.data(), buffer.size()) < 0)
           return -1;
 
-        m_Offset += size;
+        m_Offset += buffer.size();
         if (m_File.AppendString("\r\nendobj\r\n") < 0)
           return -1;
 
         m_Offset += 10;
       }
     } else {
-      if (m_File.AppendBlock(pBuffer, size) < 0)
+      if (m_File.AppendBlock(buffer.data(), buffer.size()) < 0)
         return -1;
 
-      m_Offset += size;
+      m_Offset += buffer.size();
       if (AppendObjectNumberToXRef(objnum) < 0)
         return -1;
     }
-    FX_Free(pBuffer);
   }
   return 1;
 }
