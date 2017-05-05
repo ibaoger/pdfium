@@ -321,6 +321,25 @@ if (!build_with_chromium) {
   }
 }
 
+declare_args() {
+  use_system_zlib = false
+}
+
+config("system_zlib_config") {
+  libs = [ "z" ]
+  defines = [ "USE_SYSTEM_ZLIB" ]
+}
+
+group("zlib") {
+  if (use_system_zlib) {
+    public_configs = [ ":system_zlib_config" ]
+  } else {
+    public_deps = [
+      "//third_party/zlib",
+    ]
+  }
+}
+
 config("fx_libopenjpeg_warnings") {
   visibility = [ ":*" ]
   if (is_win) {
@@ -398,7 +417,7 @@ static_library("fx_lpng") {
   defines = []
   cflags = []
   deps = [
-    "//third_party/zlib",
+    ":zlib",
   ]
 
   if (current_cpu == "x86" || current_cpu == "x64") {
@@ -437,8 +456,8 @@ if (pdf_enable_xfa) {
       configs -= [ "//build/config/win:lean_and_mean" ]
     }
     deps = [
+      ":zlib",
       "//third_party:jpeg",
-      "//third_party/zlib",
     ]
     sources = [
       "libtiff/tif_aux.c",
