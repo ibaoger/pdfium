@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a7276af_226456f5",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-05T14:05:23Z",
+      "side": 1,
+      "message": "I believe this should be in the pdfium.gni file to match the other declare args.",
+      "revId": "77a185e1795431d32a1a6a3c3837de20d9b95805",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
