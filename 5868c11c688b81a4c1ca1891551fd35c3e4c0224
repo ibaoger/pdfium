@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aac37a84_9241969e",
+        "filename": "core/fxge/dib/cstretchengine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T20:37:20Z",
+      "side": 1,
+      "message": "nit: maybe a temporary for this value, followed by one assignment for each member based upon it.",
+      "range": {
+        "startLine": 156,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 32
+      },
+      "revId": "5868c11c688b81a4c1ca1891551fd35c3e4c0224",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
