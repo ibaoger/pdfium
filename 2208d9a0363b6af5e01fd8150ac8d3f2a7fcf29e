@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26db6b84_784f5990",
+        "filename": "core/fxcrt/fx_extension_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T19:50:53Z",
+      "side": 1,
+      "message": "nit: EXPECT_STREQ() is your friend.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "2208d9a0363b6af5e01fd8150ac8d3f2a7fcf29e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6025764a_1d0266b5",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T19:50:53Z",
+      "side": 1,
+      "message": "super-super-super-nit:  I might be tempted to write this as:\n\nDLLEXPORT void STDCALL FPDFFont_Close(FPDF_FONT font) {\n  CPDF_Font* pFont \u003d reinterpret_cast\u003cCPDF_Font*\u003e(font);\n  if (pFont)\n    return;\n\nWhy?  Someday we might make a method that applies some theoretical check to the caller\u0027s argument, returning null if its bad.  Then we can just drop in this hypothetical method in place of reinterpret_cast.",
+      "range": {
+        "startLine": 439,
+        "startChar": 1,
+        "endLine": 442,
+        "endChar": 55
+      },
+      "revId": "2208d9a0363b6af5e01fd8150ac8d3f2a7fcf29e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "103d5b15_2faa0774",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T19:50:53Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 56
+      },
+      "revId": "2208d9a0363b6af5e01fd8150ac8d3f2a7fcf29e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
