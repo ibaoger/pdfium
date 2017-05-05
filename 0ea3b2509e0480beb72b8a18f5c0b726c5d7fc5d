@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1493949865 -0700\nnonce APbwY4qsK0V3/9uWjT6ChLh89YYYxNvGVISe/9Bt1PCL0333XzzGrrCbyJYcBLIqpKRs/FW+imyT\n\n0000000000000000000000000000000000000000 0ea3b2509e0480beb72b8a18f5c0b726c5d7fc5d refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZC92pAAoJEKs2LWFaZv17W0gIAK7qqm7SHJbrGu3SIZJVnu3E\n645mTBfBXCnuT1k14nIzR0iN9xGFBv1GcElhiUgem8yT8bRjz1D7S6gSRsmHI7fc\npwmbTYIOMUr499cWoBJegY1QfyhjBxQxgYuxn6ZIOAdG3jdoH1NHGW35g961U7ZL\nljBugyspL9nYJNMH7CErC4tdTmkU6u3VQbdtCzJawgwvETg/u735GxzBftYoWfzU\n1IDE5afxF+d5mluLffa57yZDfw1FcFdxIzjw3FRUzVZP7jUSii5pVHMDTZQeSkWY\noZtBgxC5JWpEiyP58qxkPeTu3T3NMoUSL9VhFjruENP3AhMh7LNN06i23OI3lAY\u003d\n\u003d7mRG\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c115403_15220c42",
+        "filename": "core/fxcrt/fx_extension.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T13:57:46Z",
+      "side": 1,
+      "message": "Input is not really a char, it\u0027s an integer.",
+      "range": {
+        "startLine": 79,
+        "startChar": 11,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "0ea3b2509e0480beb72b8a18f5c0b726c5d7fc5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
