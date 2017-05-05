@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc2c95a1_d587e2a8",
+        "filename": "core/fdrm/crypto/fx_crypt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T22:59:19Z",
+      "side": 1,
+      "message": "note: re-ordered just because an overflow of the subsequent array won\u0027t trash these fn pointers.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "2a3dcc66914863da746a22a40f124e2a6bd8de8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb5e1895_3777c4f8",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T22:59:19Z",
+      "side": 1,
+      "message": "note: dubious wrapper of previous ctx.",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 8
+      },
+      "revId": "2a3dcc66914863da746a22a40f124e2a6bd8de8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
