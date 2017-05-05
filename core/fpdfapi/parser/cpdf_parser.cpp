@@ -1179,19 +1179,15 @@ FX_FILESIZE CPDF_Parser::GetObjectSize(uint32_t objnum) const {
   return *it - offset;
 }
 
-void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
-                                    uint8_t*& pBuffer,
-                                    uint32_t& size) {
-  pBuffer = nullptr;
-  size = 0;
+std::vector<uint8_t> CPDF_Parser::GetIndirectBinary(uint32_t objnum) {
   if (!IsValidObjectNumber(objnum))
-    return;
+    return std::vector<uint8_t>();
 
   if (GetObjectType(objnum) == 2) {
     CFX_RetainPtr<CPDF_StreamAcc> pObjStream =
         GetObjectStream(m_ObjectInfo[objnum].pos);
     if (!pObjStream)
-      return;
+      return std::vector<uint8_t>();
 
     int32_t offset = GetStreamFirst(pObjStream);
     const uint8_t* pData = pObjStream->GetData();
@@ -1207,27 +1203,25 @@ void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
       if (thisnum != objnum)
         continue;
 
+      size_t size;
       if (i == 1) {
         size = totalsize - (thisoff + offset);
       } else {
         syntax.GetDirectNum();  // Skip nextnum.
-        uint32_t nextoff = syntax.GetDirectNum();
-        size = nextoff - thisoff;
+        size = syntax.GetDirectNum() - thisoff;
       }
-
-      pBuffer = FX_Alloc(uint8_t, size);
-      memcpy(pBuffer, pData + thisoff + offset, size);
-      return;
+      return std::vector<uint8_t>(pData + thisoff + offset,
+                                  pData + thisoff + offset + size);
     }
-    return;
+    return std::vector<uint8_t>();
   }
 
   if (GetObjectType(objnum) != 1)
-    return;
+    return std::vector<uint8_t>();
 
   FX_FILESIZE pos = m_ObjectInfo[objnum].pos;
   if (pos == 0)
-    return;
+    return std::vector<uint8_t>();
 
   FX_FILESIZE SavedPos = m_pSyntax->GetPos();
   m_pSyntax->SetPos(pos);
@@ -1236,30 +1230,30 @@ void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
   CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
   if (!bIsNumber) {
     m_pSyntax->SetPos(SavedPos);
-    return;
+    return std::vector<uint8_t>();
   }
 
   uint32_t parser_objnum = FXSYS_atoui(word.c_str());
   if (parser_objnum && parser_objnum != objnum) {
     m_pSyntax->SetPos(SavedPos);
-    return;
+    return std::vector<uint8_t>();
   }
 
   word = m_pSyntax->GetNextWord(&bIsNumber);
   if (!bIsNumber) {
     m_pSyntax->SetPos(SavedPos);
-    return;
+    return std::vector<uint8_t>();
   }
 
   if (m_pSyntax->GetKeyword() != "obj") {
     m_pSyntax->SetPos(SavedPos);
-    return;
+    return std::vector<uint8_t>();
   }
 
   auto it = m_SortedOffset.find(pos);
   if (it == m_SortedOffset.end() || ++it == m_SortedOffset.end()) {
     m_pSyntax->SetPos(SavedPos);
-    return;
+    return std::vector<uint8_t>();
   }
 
   FX_FILESIZE nextoff = *it;
@@ -1276,7 +1270,6 @@ void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
       }
     }
   }
-
   if (!bNextOffValid) {
     m_pSyntax->SetPos(pos);
     while (1) {
@@ -1289,11 +1282,12 @@ void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
     nextoff = m_pSyntax->GetPos();
   }
 
-  size = (uint32_t)(nextoff - pos);
-  pBuffer = FX_Alloc(uint8_t, size);
+  uint32_t size = (uint32_t)(nextoff - pos);
+  std::vector<uint8_t> buffer(size);
   m_pSyntax->SetPos(pos);
-  m_pSyntax->ReadBlock(pBuffer, size);
+  m_pSyntax->ReadBlock(buffer.data(), size);
   m_pSyntax->SetPos(SavedPos);
+  return buffer;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObjectAt(

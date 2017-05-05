@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_memory.h"
@@ -121,6 +122,7 @@ class CFX_FileBufferArchive {
   int32_t AppendByte(uint8_t byte);
   int32_t AppendDWord(uint32_t i);
   int32_t AppendString(const CFX_ByteStringC& lpsz);
+  int32_t AppendVector(const std::vector<uint8_t>& vec);
   void AttachFile(const CFX_RetainPtr<IFX_WriteStream>& pFile);
 
  private:

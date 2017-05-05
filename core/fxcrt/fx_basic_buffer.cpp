@@ -8,10 +8,12 @@
 #include <limits>
 #include <memory>
 #include <utility>
+#include <vector>
 
 #include "core/fxcrt/fx_basic.h"
 #include "core/fxcrt/fx_safe_types.h"
 #include "third_party/base/numerics/safe_conversions.h"
+#include "third_party/base/stl_util.h"
 
 CFX_BinaryBuf::CFX_BinaryBuf()
     : m_AllocStep(0), m_AllocSize(0), m_DataSize(0) {}
@@ -278,6 +280,10 @@ int32_t CFX_FileBufferArchive::AppendDWord(uint32_t i) {
 
 int32_t CFX_FileBufferArchive::AppendString(const CFX_ByteStringC& lpsz) {
   return AppendBlock(lpsz.raw_str(), lpsz.GetLength());
+}
+
+int32_t CFX_FileBufferArchive::AppendVector(const std::vector<uint8_t>& vec) {
+  return AppendBlock(vec.data(), pdfium::CollectionSize<FX_STRSIZE>(vec));
 }
 
 void CFX_FileBufferArchive::AttachFile(
