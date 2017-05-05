@@ -319,10 +319,10 @@ CPDF_CMapParser::CPDF_CMapParser(CPDF_CMap* pCMap)
 
 CPDF_CMapParser::~CPDF_CMapParser() {}
 
-void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
-  if (word.IsEmpty()) {
-    return;
-  }
+bool CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
+  if (word.IsEmpty())
+    return false;
+
   if (word == "begincidchar") {
     m_Status = 1;
     m_CodeSeq = 0;
@@ -350,13 +350,13 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
     uint16_t StartCID;
     if (m_Status == 1) {
       if (m_CodeSeq < 2) {
-        return;
+        return true;
       }
       EndCode = StartCode = m_CodePoints[0];
       StartCID = (uint16_t)m_CodePoints[1];
     } else {
       if (m_CodeSeq < 3) {
-        return;
+        return true;
       }
       StartCode = m_CodePoints[0];
       EndCode = m_CodePoints[1];
@@ -396,7 +396,7 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
       m_Status = 0;
     } else {
       if (word.GetLength() == 0 || word.GetAt(0) != '<') {
-        return;
+        return true;
       }
       if (m_CodeSeq % 2) {
         CPDF_CMap::CodeRange range;
@@ -407,6 +407,7 @@ void CPDF_CMapParser::ParseWord(const CFX_ByteStringC& word) {
     }
   }
   m_LastWord = word;
+  return true;
 }
 
 // Static.
@@ -523,15 +524,12 @@ void CPDF_CMap::LoadPredefined(CPDF_CMapManager* pMgr,
 
 void CPDF_CMap::LoadEmbedded(const uint8_t* pData, uint32_t size) {
   m_DirectCharcodeToCIDTable = std::vector<uint16_t>(65536);
+
   CPDF_CMapParser parser(this);
   CPDF_SimpleParser syntax(pData, size);
-  while (1) {
-    CFX_ByteStringC word = syntax.GetWord();
-    if (word.IsEmpty()) {
-      break;
-    }
-    parser.ParseWord(word);
-  }
+  while (parser.ParseWord(syntax.GetWord()))
+    continue;
+
   if (m_CodingScheme == MixedFourBytes && parser.HasAdditionalMappings()) {
     m_AdditionalCharcodeToCIDMappings = parser.TakeAdditionalMappings();
     std::sort(
