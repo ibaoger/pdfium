@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e8ff085_d47db9bf",
+        "filename": "skia/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-05T21:20:36Z",
+      "side": 1,
+      "message": "../third_party:zlib",
+      "revId": "7d4c323361710b2acbc466d3300887230724553b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
