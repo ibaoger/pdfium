@@ -3,6 +3,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ae88aed_e2bcc746",
+        "filename": "core/fxge/ge/cfx_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T16:22:51Z",
+      "side": 1,
+      "message": "Why is this being added? I think this may be false.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 20
+      },
+      "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a49ca6b_27656ff5",
         "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
         "patchSetId": 1
@@ -14,6 +37,29 @@
       "writtenOn": "2017-05-05T01:00:33Z",
       "side": 1,
       "message": "Format the format string.",
+      "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56dc9e06_37be67fe",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5846,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T16:22:51Z",
+      "side": 1,
+      "message": "Could this be a bug?",
+      "range": {
+        "startLine": 5846,
+        "startChar": 45,
+        "endLine": 5846,
+        "endChar": 47
+      },
       "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
