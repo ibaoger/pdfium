@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85231656_8e2d929b",
+        "filename": "core/fpdfapi/font/fpdf_font_cid.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T21:03:34Z",
+      "side": 1,
+      "message": "note: the point of the CL is that I wanted to write this exact line here.",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 1
+      },
+      "revId": "7c2dd249f875173f0640af8fe98a2574aa526bd0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
