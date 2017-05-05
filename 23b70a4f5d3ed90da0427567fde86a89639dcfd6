@@ -155,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "cd423c93_9190f991",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b04be0d4_157bf73a",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 18
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d63e976_9eda4d12",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -166,6 +190,30 @@
       "writtenOn": "2017-05-04T19:10:33Z",
       "side": 1,
       "message": "nit: not exactly, utf-16be would be binary byes, and this will contain ASCII hex digits, which are always implicitly big endian per common usage, eg. \"102\" is one hundred two, not two hundred one.\nI think what they mean is that surrogate pairs should be ordered as in UTF-16BE.",
+      "range": {
+        "startLine": 112,
+        "startChar": 45,
+        "endLine": 112,
+        "endChar": 62
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74d4f89d_30ca4420",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Ok I\u0027ll quote what the spec says.",
+      "parentUuid": "0d63e976_9eda4d12",
       "range": {
         "startLine": 112,
         "startChar": 45,
@@ -224,6 +272,54 @@
     },
     {
       "key": {
+        "uuid": "93bbe257_22620ffd",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4813a6cf_9efacd02",
+      "range": {
+        "startLine": 114,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 14
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14e8ca81_9da7c0b4",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa125edb_be036b4f",
+      "range": {
+        "startLine": 114,
+        "startChar": 5,
+        "endLine": 114,
+        "endChar": 15
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "879be09b_7824e944",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -247,6 +343,30 @@
     },
     {
       "key": {
+        "uuid": "07ba0fec_ddcb0971",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "879be09b_7824e944",
+      "range": {
+        "startLine": 116,
+        "startChar": 10,
+        "endLine": 119,
+        "endChar": 19
+      },
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe4dbcb4_3c4682ad",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 1
@@ -261,6 +381,24 @@
       "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "841a822c_bd7a0303",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T19:12:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe4dbcb4_3c4682ad",
+      "revId": "23b70a4f5d3ed90da0427567fde86a89639dcfd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
