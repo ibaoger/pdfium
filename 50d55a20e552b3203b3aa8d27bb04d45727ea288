@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc2e8821_76c9f86a",
+        "filename": "core/fxge/dib/cstretchengine.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T21:06:33Z",
+      "side": 1,
+      "message": "actually, lose these two lines and just write:\n        pixel_weights.m_SrcStart \u003d std::max(pixel_pos, src_min);\n        pixel_weights.m_SrcEnd \u003d std::min(pixel_pos, src_max - 1);",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 43
+      },
+      "revId": "50d55a20e552b3203b3aa8d27bb04d45727ea288",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
