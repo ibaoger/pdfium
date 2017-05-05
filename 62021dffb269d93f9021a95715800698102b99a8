@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52e6b175_36aa9a8a",
+        "filename": "third_party/libopenjpeg20/bio.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-05T20:28:43Z",
+      "side": 1,
+      "message": "Actually the max_shift is n-1, so changing to 32.",
+      "range": {
+        "startLine": 165,
+        "startChar": 10,
+        "endLine": 165,
+        "endChar": 12
+      },
+      "revId": "62021dffb269d93f9021a95715800698102b99a8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
