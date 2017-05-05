@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98f9c47a_2ca0e1fe",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-05T01:00:33Z",
+      "side": 0,
+      "message": "This is defined in core/fxcrt/fx_string.h. Other functions defined in core/fxcrt/fx_string.h are implemented in core/fxcrt/fx_basic_util.cpp, so I moved this over there.",
+      "revId": "e8c1d4144e8407c0631116a954fa347dd39375ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae4d77ec_2be1889f",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-05T01:00:33Z",
+      "side": 0,
+      "message": "Never used.",
+      "revId": "e8c1d4144e8407c0631116a954fa347dd39375ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
