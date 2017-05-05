@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "2fa51c35_faa337f6",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4186,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T16:45:16Z",
+      "side": 1,
+      "message": "Feels like this could take place in a fixed_length char[32] buffer on the stack instead of mallocating the formatstring under the covers?\n\neven better, maybe just two calls to Format() (if Format handles the usual fprintf variants)\n\nif (precision)\n  foo.Format(\"%.*f\", precision, floaty);\nelse\n  foo.Format(\"%f\", floaty);",
+      "parentUuid": "9a49ca6b_27656ff5",
+      "revId": "5911774c458bccbe9f5079dfc640d397f6a53a3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56dc9e06_37be67fe",
         "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
         "patchSetId": 1

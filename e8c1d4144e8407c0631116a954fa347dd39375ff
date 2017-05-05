@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f25f89f9_f6c1e704",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-05T16:45:16Z",
+      "side": 0,
+      "message": "Right, esp. since the this one is written in terms of C-sytle strings, not  CFX_ strings.",
+      "parentUuid": "98f9c47a_2ca0e1fe",
+      "revId": "e8c1d4144e8407c0631116a954fa347dd39375ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae4d77ec_2be1889f",
         "filename": "core/fxcrt/cfx_bytestring.h",
         "patchSetId": 1
