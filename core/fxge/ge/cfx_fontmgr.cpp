@@ -49,10 +49,10 @@ const BuiltinFont g_MMFonts[2] = {
 CFX_ByteString KeyNameFromFace(const CFX_ByteString& face_name,
                                int weight,
                                bool bItalic) {
-  CFX_ByteString key(face_name);
-  key += ',';
-  key += CFX_ByteString::FormatInteger(weight);
-  key += bItalic ? 'I' : 'N';
+  ASSERT(weight >= 0);
+  CFX_ByteString key;
+  key.Format(",%d%c", weight, bItalic ? 'I' : 'N');
+  key = face_name + key;
   return key;
 }
 

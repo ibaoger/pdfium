@@ -5,6 +5,7 @@
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
 #include "core/fpdfapi/parser/cpdf_number.h"
+
 #include "third_party/base/ptr_util.h"
 
 CPDF_Number::CPDF_Number() : m_bInteger(true), m_Integer(0) {}
@@ -52,6 +53,11 @@ void CPDF_Number::SetString(const CFX_ByteString& str) {
 }
 
 CFX_ByteString CPDF_Number::GetString() const {
-  return m_bInteger ? CFX_ByteString::FormatInteger(m_Integer, FXFORMAT_SIGNED)
-                    : CFX_ByteString::FormatFloat(m_Float);
+  char buf[32];
+  if (m_bInteger) {
+    FXSYS_itoa(m_Integer, buf, 10);
+    return CFX_ByteString(buf);
+  }
+  FX_STRSIZE len = FX_ftoa(m_Float, buf);
+  return CFX_ByteString(buf, len);
 }

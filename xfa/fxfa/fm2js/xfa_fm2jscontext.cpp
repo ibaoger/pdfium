@@ -4181,13 +4181,13 @@ void CXFA_FM2JSContext::Str(CFXJSE_Value* pThis,
         0, static_cast<int32_t>(ValueToFloat(pThis, precisionValue.get())));
   }
 
+  CFX_ByteString formatStr;
+  if (iPrecision)
+    formatStr.Format("%%.%df", iPrecision);
+  else
+    formatStr = "%f";
+
   CFX_ByteString numberString;
-  CFX_ByteString formatStr = "%";
-  if (iPrecision) {
-    formatStr += ".";
-    formatStr += CFX_ByteString::FormatInteger(iPrecision);
-  }
-  formatStr += "f";
   numberString.Format(formatStr.c_str(), fNumber);
 
   const char* pData = numberString.c_str();
@@ -5835,21 +5835,18 @@ CFX_ByteString CXFA_FM2JSContext::GenerateSomExpression(
     return CFX_ByteString(szName);
 
   if (iIndexFlags == 1 || iIndexValue == 0) {
-    return CFX_ByteString(szName, "[") +
-           CFX_ByteString::FormatInteger(iIndexValue, FXFORMAT_SIGNED) + "]";
+    CFX_ByteString str;
+    str.Format("%s[%d]", szName.c_str(), iIndexValue);
+    return str;
   }
+  const char* pLeftBracket;
+  if (iIndexFlags == 2)
+    pLeftBracket = iIndexValue < 0 ? "[-" : "[+";
+  else
+    pLeftBracket = iIndexValue < 0 ? "[" : "[-";
   CFX_ByteString szSomExp;
-  if (iIndexFlags == 2) {
-    szSomExp = (iIndexValue < 0) ? (szName + "[-") : (szName + "[+");
-    iIndexValue = (iIndexValue < 0) ? (0 - iIndexValue) : iIndexValue;
-    szSomExp += CFX_ByteString::FormatInteger(iIndexValue);
-    szSomExp += "]";
-  } else {
-    szSomExp = (iIndexValue < 0) ? (szName + "[") : (szName + "[-");
-    iIndexValue = (iIndexValue < 0) ? (0 - iIndexValue) : iIndexValue;
-    szSomExp += CFX_ByteString::FormatInteger(iIndexValue);
-    szSomExp += "]";
-  }
+  szSomExp.Format("%s%s%d]", szName.c_str(), pLeftBracket,
+                  std::abs(iIndexValue));
   return szSomExp;
 }
 

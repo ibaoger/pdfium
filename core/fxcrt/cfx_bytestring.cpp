@@ -25,39 +25,6 @@ template struct std::hash<CFX_ByteString>;
 
 namespace {
 
-int Buffer_itoa(char* buf, int i, uint32_t flags) {
-  if (i == 0) {
-    buf[0] = '0';
-    return 1;
-  }
-  char buf1[32];
-  int buf_pos = 31;
-  uint32_t u = i;
-  if ((flags & FXFORMAT_SIGNED) && i < 0) {
-    u = -i;
-  }
-  int base = 10;
-  const char* str = "0123456789abcdef";
-  if (flags & FXFORMAT_HEX) {
-    base = 16;
-    if (flags & FXFORMAT_CAPITAL) {
-      str = "0123456789ABCDEF";
-    }
-  }
-  while (u != 0) {
-    buf1[buf_pos--] = str[u % base];
-    u = u / base;
-  }
-  if ((flags & FXFORMAT_SIGNED) && i < 0) {
-    buf1[buf_pos--] = '-';
-  }
-  int len = 31 - buf_pos;
-  for (int ii = 0; ii < len; ii++) {
-    buf[ii] = buf1[ii + buf_pos + 1];
-  }
-  return len;
-}
-
 const char* FX_strstr(const char* haystack,
                       int haystack_len,
                       const char* needle,
@@ -482,15 +449,6 @@ void CFX_ByteString::AllocCopy(CFX_ByteString& dest,
   dest.m_pData.Swap(pNewData);
 }
 
-#define FORCE_ANSI 0x10000
-#define FORCE_UNICODE 0x20000
-#define FORCE_INT64 0x40000
-
-CFX_ByteString CFX_ByteString::FormatInteger(int i, uint32_t flags) {
-  char buf[32];
-  return CFX_ByteString(buf, Buffer_itoa(buf, i, flags));
-}
-
 void CFX_ByteString::FormatV(const char* pFormat, va_list argList) {
   va_list argListSave;
   FX_VA_COPY(argListSave, argList);
@@ -816,55 +774,4 @@ void CFX_ByteString::TrimLeft() {
 
 uint32_t CFX_ByteString::GetID(FX_STRSIZE start_pos) const {
   return AsStringC().GetID(start_pos);
-}
-FX_STRSIZE FX_ftoa(float d, char* buf) {
-  buf[0] = '0';
-  buf[1] = '\0';
-  if (d == 0.0f) {
-    return 1;
-  }
-  bool bNegative = false;
-  if (d < 0) {
-    bNegative = true;
-    d = -d;
-  }
-  int scale = 1;
-  int scaled = FXSYS_round(d);
-  while (scaled < 100000) {
-    if (scale == 1000000) {
-      break;
-    }
-    scale *= 10;
-    scaled = FXSYS_round(d * scale);
-  }
-  if (scaled == 0) {
-    return 1;
-  }
-  char buf2[32];
-  int buf_size = 0;
-  if (bNegative) {
-    buf[buf_size++] = '-';
-  }
-  int i = scaled / scale;
-  FXSYS_itoa(i, buf2, 10);
-  FX_STRSIZE len = FXSYS_strlen(buf2);
-  memcpy(buf + buf_size, buf2, len);
-  buf_size += len;
-  int fraction = scaled % scale;
-  if (fraction == 0) {
-    return buf_size;
-  }
-  buf[buf_size++] = '.';
-  scale /= 10;
-  while (fraction) {
-    buf[buf_size++] = '0' + fraction / scale;
-    fraction %= scale;
-    scale /= 10;
-  }
-  return buf_size;
-}
-CFX_ByteString CFX_ByteString::FormatFloat(float d, int precision) {
-  char buf[32];
-  FX_STRSIZE len = FX_ftoa(d, buf);
-  return CFX_ByteString(buf, len);
 }
