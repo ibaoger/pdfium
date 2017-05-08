@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2c85688b_718045aa",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T19:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43932730_bd50658d",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 8
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e0551c9_43fce1e1",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 1
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "39d12d03_089ff8a2",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T19:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8d47c7b_cb2258f4",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 20
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5f10d03_e18bd1fb",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T19:26:57Z",
+      "side": 1,
+      "message": "The caller already checked, removed.",
+      "parentUuid": "4e0551c9_43fce1e1",
+      "range": {
+        "startLine": 263,
+        "startChar": 44,
+        "endLine": 263,
+        "endChar": 56
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e4847db_a784f440",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-08T18:47:35Z",
       "side": 1,
       "message": "kinda wish the truncation were made explicit here.",
+      "range": {
+        "startLine": 317,
+        "startChar": 20,
+        "endLine": 317,
+        "endChar": 34
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3fb98c5_df079bd7",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T19:26:57Z",
+      "side": 1,
+      "message": "How so? Not sure what you\u0027re looking for.",
+      "parentUuid": "1e4847db_a784f440",
       "range": {
         "startLine": 317,
         "startChar": 20,
