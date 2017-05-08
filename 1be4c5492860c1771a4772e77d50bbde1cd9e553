@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08cd952c_69e562ef",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T19:22:38Z",
+      "side": 1,
+      "message": "For this and the above, you\u0027d prefer if they were a CheckedNumeric() to guard against overflow?",
+      "revId": "1be4c5492860c1771a4772e77d50bbde1cd9e553",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
