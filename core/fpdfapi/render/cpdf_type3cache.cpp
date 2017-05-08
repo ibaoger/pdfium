@@ -148,7 +148,8 @@ std::unique_ptr<CFX_GlyphBitmap> CPDF_Type3Cache::RenderGlyph(
       pResBitmap = pBitmap->StretchTo(
           (int)(FXSYS_round(image_matrix.a) * retinaScaleX),
           (int)((bFlipped ? top_line - bottom_line : bottom_line - top_line) *
-                retinaScaleY));
+                retinaScaleY),
+          0, nullptr);
       top = top_line;
       if (image_matrix.a < 0) {
         image_matrix.Scale(retinaScaleX, retinaScaleY);
@@ -160,7 +161,7 @@ std::unique_ptr<CFX_GlyphBitmap> CPDF_Type3Cache::RenderGlyph(
   }
   if (!pResBitmap) {
     image_matrix.Scale(retinaScaleX, retinaScaleY);
-    pResBitmap = pBitmap->TransformTo(&image_matrix, left, top);
+    pResBitmap = pBitmap->TransformTo(&image_matrix, &left, &top);
   }
   if (!pResBitmap)
     return nullptr;
