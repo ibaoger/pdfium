@@ -13,6 +13,7 @@
 
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_basic.h"
+#include "third_party/base/numerics/safe_math.h"
 
 class CPDF_Array;
 class CPDF_CryptoHandler;
@@ -37,10 +38,37 @@ class CPDF_Creator {
   int32_t Continue();
   bool SetFileVersion(int32_t fileVersion = 17);
 
- private:
-  friend class CPDF_ObjectStream;
-  friend class CPDF_XRefStream;
+  CFX_FileBufferArchive* GetFile() { return &m_File; }
 
+  FX_FILESIZE GetOffset() const { return m_Offset; }
+  void IncrementOffset(FX_FILESIZE inc) {
+    pdfium::base::CheckedNumeric<FX_FILESIZE> size = m_Offset;
+    size += inc;
+    m_Offset = size.ValueOrDie();
+  }
+  uint32_t GetNextObjectNumber() { return ++m_dwLastObjNum; }
+  uint32_t GetLastObjectNumber() const { return m_dwLastObjNum; }
+  int32_t GetObjectStreamSize() const { return m_ObjectStreamSize; }
+  CPDF_CryptoHandler* GetCryptoHandler() { return m_pCryptoHandler.Get(); }
+  CPDF_Document* GetDocument() const { return m_pDocument; }
+  CPDF_Array* GetIDArray() const { return m_pIDArray.get(); }
+  CPDF_Dictionary* GetEncryptDict() const { return m_pEncryptDict; }
+  uint32_t GetEncryptObjectNumber() const { return m_dwEncryptObjNum; }
+
+  uint32_t GetObjectOffset(uint32_t objnum) { return m_ObjectOffsets[objnum]; }
+  bool HasObjectNumber(uint32_t objnum) {
+    return m_ObjectOffsets.find(objnum) != m_ObjectOffsets.end();
+  }
+  FX_FILESIZE OffsetForObject(uint32_t objnum) {
+    ASSERT(HasObjectNumber(objnum));
+    return m_ObjectOffsets[objnum];
+  }
+  void SetObjectOffset(uint32_t objnum, FX_FILESIZE offset) {
+    m_ObjectOffsets[objnum] = offset;
+  }
+  bool IsIncremental() const { return !!(m_dwFlags & FPDFCREATE_INCREMENTAL); }
+
+ private:
   bool Create(uint32_t flags);
   void Clear();
 
@@ -71,6 +99,8 @@ class CPDF_Creator {
   int32_t WriteStream(const CPDF_Object* pStream,
                       uint32_t objnum,
                       CPDF_CryptoHandler* pCrypto);
+
+  bool IsXRefNeedEnd();
 
   CPDF_Document* const m_pDocument;
   CPDF_Parser* const m_pParser;
