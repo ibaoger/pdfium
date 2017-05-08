@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b0d94b2_be30c997",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T19:58:29Z",
+      "side": 1,
+      "message": "seems like this is really a CPDF_Object method.  There\u0027s nothing in it but CFX_ buffers and object/",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
