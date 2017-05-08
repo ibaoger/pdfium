@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb90e8f0_50dbddc3",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T16:24:45Z",
+      "side": 1,
+      "message": "rather than returning the map, we might want to provide operations upon it to the callers instead.  It feels like this should abstract it so we can change the representation here under the covers without re-writing callers.",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "9d5332b44b1158db8f8d8f8d4c777be623a07ad3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb79940f_8e64dc71",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T16:24:45Z",
+      "side": 1,
+      "message": "maybe an opportunity to check for overflow?",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "9d5332b44b1158db8f8d8f8d4c777be623a07ad3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "562dcf58_7e779c7a",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T16:24:45Z",
+      "side": 1,
+      "message": "nit: or just return !!(...); if you want to be cool.",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "9d5332b44b1158db8f8d8f8d4c777be623a07ad3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
