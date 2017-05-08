@@ -29,6 +29,10 @@ class CPDF_XRefStream;
 
 class CPDF_Creator {
  public:
+  static int32_t AppendObject(const CPDF_Object* pObj,
+                              CFX_FileBufferArchive* pFile,
+                              FX_FILESIZE& offset);
+
   explicit CPDF_Creator(CPDF_Document* pDoc);
   ~CPDF_Creator();
 
