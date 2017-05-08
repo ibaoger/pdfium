@@ -22,6 +22,30 @@
       "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73878613_0629e5a7",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T20:37:09Z",
+      "side": 1,
+      "message": "Anyway, go ahead and land this if you like, but file a follow-up bug to make into a virtual CDPF_object method",
+      "parentUuid": "6b0d94b2_be30c997",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
