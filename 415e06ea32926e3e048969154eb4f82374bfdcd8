@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b86f6b3f_6dd063a9",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T20:19:14Z",
+      "side": 1,
+      "message": "are we sure pCreator-\u003em_pEncryptDict is always non-null?  There may be docs without one of these ... I thought.",
+      "range": {
+        "startLine": 772,
+        "startChar": 3,
+        "endLine": 772,
+        "endChar": 77
+      },
+      "revId": "415e06ea32926e3e048969154eb4f82374bfdcd8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd0c6600_3bb86e05",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1740,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T20:19:14Z",
+      "side": 1,
+      "message": "Ok for now, but let\u0027s file a bug to stop making random values seeded on addresses (at worst it can lead to an ASLR bypass if we can reverse the MT_mumble operation and leak an address.",
+      "range": {
+        "startLine": 1740,
+        "startChar": 24,
+        "endLine": 1740,
+        "endChar": 50
+      },
+      "revId": "415e06ea32926e3e048969154eb4f82374bfdcd8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
