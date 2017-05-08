@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ee2ea47_e37736af",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:07:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77bd3310_19451577",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "cbe0f5c8d597249457cacd3fe50f03dd5063e010",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6826552a_68af3833",
         "filename": "core/fpdfapi/edit/cpdf_creator.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3d389faa_1b6cd113",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:07:51Z",
+      "side": 1,
+      "message": "Sigh, no.",
+      "parentUuid": "6826552a_68af3833",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "cbe0f5c8d597249457cacd3fe50f03dd5063e010",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "865d9b8d_c7f68029",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 3
@@ -59,6 +107,24 @@
       "writtenOn": "2017-05-08T20:03:00Z",
       "side": 1,
       "message": "I think it\u0027s fine here, but this is just a reminder to be careful when moving variables into a for loop :)",
+      "revId": "cbe0f5c8d597249457cacd3fe50f03dd5063e010",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7b3062a_13ae03a1",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:07:51Z",
+      "side": 1,
+      "message": "This shouldn\u0027t effect the flags I think.",
+      "parentUuid": "865d9b8d_c7f68029",
       "revId": "cbe0f5c8d597249457cacd3fe50f03dd5063e010",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
