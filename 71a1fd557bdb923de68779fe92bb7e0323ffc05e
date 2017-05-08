@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43932730_bd50658d",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:47:35Z",
+      "side": 1,
+      "message": "nit: const for both of these.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 8
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e0551c9_43fce1e1",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:47:35Z",
+      "side": 1,
+      "message": "do we need this?  Maybe caller should make the test at line 266 instead?",
+      "range": {
+        "startLine": 263,
+        "startChar": 44,
+        "endLine": 263,
+        "endChar": 56
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8d47c7b_cb2258f4",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:47:35Z",
+      "side": 1,
+      "message": "Actually WriteEncryptDictObjectReference() is more accurate.",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 20
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e4847db_a784f440",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:47:35Z",
+      "side": 1,
+      "message": "kinda wish the truncation were made explicit here.",
+      "range": {
+        "startLine": 317,
+        "startChar": 20,
+        "endLine": 317,
+        "endChar": 34
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
