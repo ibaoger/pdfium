@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c12c75d7_ab0e044b",
+        "filename": "core/fpdfapi/edit/cpdf_creator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:00:52Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "73878613_0629e5a7",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3b56820_4ec25155",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "25b484bf_e2e06871",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:00:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3b56820_4ec25155",
+      "range": {
+        "startLine": 686,
+        "startChar": 2,
+        "endLine": 686,
+        "endChar": 14
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "867dd6ad_ce4d24ad",
         "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
         "patchSetId": 3
@@ -83,6 +131,30 @@
       "writtenOn": "2017-05-08T20:41:46Z",
       "side": 1,
       "message": "duplicates the above static method?",
+      "range": {
+        "startLine": 1014,
+        "startChar": 2,
+        "endLine": 1019,
+        "endChar": 26
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9328eb_35dafb3b",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-08T21:00:52Z",
+      "side": 1,
+      "message": "Some of them, not others. Fixed what I could.",
+      "parentUuid": "867dd6ad_ce4d24ad",
       "range": {
         "startLine": 1014,
         "startChar": 2,
