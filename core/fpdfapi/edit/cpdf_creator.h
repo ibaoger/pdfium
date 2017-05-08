@@ -37,10 +37,35 @@ class CPDF_Creator {
   int32_t Continue();
   bool SetFileVersion(int32_t fileVersion = 17);
 
- private:
-  friend class CPDF_ObjectStream;
-  friend class CPDF_XRefStream;
+  int32_t AppendObject(const CPDF_Object* pObj,
+                       CFX_FileBufferArchive* pFile,
+                       FX_FILESIZE& offset);
 
+  CPDF_Document* GetDocument() const { return m_pDocument; }
+  CPDF_Array* GetIDArray() const { return m_pIDArray.get(); }
+  int32_t GetObjectStreamSize() const { return m_ObjectStreamSize; }
+
+  uint32_t GetNextObjectNumber() { return ++m_dwLastObjNum; }
+  uint32_t GetLastObjectNumber() const { return m_dwLastObjNum; }
+
+  std::map<uint32_t, FX_FILESIZE>* GetObjectOffsets() {
+    return &m_ObjectOffsets;
+  }
+  void IncrementOffset(FX_FILESIZE size) { m_Offset += size; }
+  FX_FILESIZE GetOffset() const { return m_Offset; }
+  bool IsIncremental() const {
+    return (m_dwFlags & FPDFCREATE_INCREMENTAL) != 0;
+  }
+
+  CPDF_Dictionary* GetEncryptDict() const { return m_pEncryptDict; }
+  uint32_t GetEncryptObjectNumber() const { return m_dwEncryptObjNum; }
+  CPDF_CryptoHandler* GetCryptoHandler() const {
+    return m_pCryptoHandler.Get();
+  }
+
+  CFX_FileBufferArchive* GetFile() { return &m_File; }
+
+ private:
   bool Create(uint32_t flags);
   void Clear();
 
