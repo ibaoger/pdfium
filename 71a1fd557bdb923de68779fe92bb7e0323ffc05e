@@ -187,6 +187,30 @@
       "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9609c234_11e9cc27",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-08T19:29:57Z",
+      "side": 1,
+      "message": "I think he means static_cast\u003cuint8_t\u003e",
+      "parentUuid": "c3fb98c5_df079bd7",
+      "range": {
+        "startLine": 317,
+        "startChar": 20,
+        "endLine": 317,
+        "endChar": 34
+      },
+      "revId": "71a1fd557bdb923de68779fe92bb7e0323ffc05e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
