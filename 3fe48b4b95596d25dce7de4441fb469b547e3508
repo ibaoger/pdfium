@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bc43b0e_b34d9045",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T21:37:55Z",
+      "side": 1,
+      "message": "CL description now out of data.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "3fe48b4b95596d25dce7de4441fb469b547e3508",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
