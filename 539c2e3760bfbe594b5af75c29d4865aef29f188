@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec3cfab0_d4553847",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-08T20:03:00Z",
+      "side": 0,
+      "message": "We could keep this variable, since it\u0027s being used \u003e1 times.",
+      "range": {
+        "startLine": 548,
+        "startChar": 7,
+        "endLine": 548,
+        "endChar": 19
+      },
+      "revId": "539c2e3760bfbe594b5af75c29d4865aef29f188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
