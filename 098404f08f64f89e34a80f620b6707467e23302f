@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62662b9e_1d01e7e5",
+        "filename": "third_party/lcms2-2.6/0018-verify-size-before-reading.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:15:09Z",
+      "side": 1,
+      "message": "nit: read two uint32_t items.",
+      "range": {
+        "startLine": 12,
+        "startChar": 45,
+        "endLine": 12,
+        "endChar": 68
+      },
+      "revId": "098404f08f64f89e34a80f620b6707467e23302f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e99f275_80466559",
+        "filename": "third_party/lcms2-2.6/0018-verify-size-before-reading.patch",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-08T18:15:09Z",
+      "side": 1,
+      "message": "nit: can we divide by (2 * sizeof(uint32_t) instead?",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "098404f08f64f89e34a80f620b6707467e23302f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
