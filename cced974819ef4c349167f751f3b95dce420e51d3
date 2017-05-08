@@ -16,6 +16,29 @@
       "revId": "cced974819ef4c349167f751f3b95dce420e51d3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c5e9139_142fb743",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-08T18:58:19Z",
+      "side": 1,
+      "message": "I would make this a pointer",
+      "range": {
+        "startLine": 688,
+        "startChar": 35,
+        "endLine": 688,
+        "endChar": 54
+      },
+      "revId": "cced974819ef4c349167f751f3b95dce420e51d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
