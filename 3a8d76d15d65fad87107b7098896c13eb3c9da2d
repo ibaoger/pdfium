@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f20b13c6_8da1e0cf",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:23:32Z",
+      "side": 1,
+      "message": "nit: unneeded variable",
+      "range": {
+        "startLine": 520,
+        "startChar": 20,
+        "endLine": 520,
+        "endChar": 24
+      },
+      "revId": "3a8d76d15d65fad87107b7098896c13eb3c9da2d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d04466f_94af70b7",
         "filename": "core/fpdfapi/edit/cpdf_objectstream.h",
         "patchSetId": 1
@@ -49,6 +72,29 @@
       "side": 1,
       "message": "The only non-move changes are adding the accessors which I don\u0027t think makes much of a difference?",
       "parentUuid": "0bf46eaa_1f9958f3",
+      "revId": "3a8d76d15d65fad87107b7098896c13eb3c9da2d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a903dcb0_2064e5a3",
+        "filename": "core/fpdfapi/edit/cpdf_objectstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:23:32Z",
+      "side": 1,
+      "message": "I don\u0027t like this name too much. I\u0027d rather something like:\nGetItemObjNum",
+      "range": {
+        "startLine": 42,
+        "startChar": 11,
+        "endLine": 42,
+        "endChar": 29
+      },
       "revId": "3a8d76d15d65fad87107b7098896c13eb3c9da2d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
