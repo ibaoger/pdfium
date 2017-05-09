@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2da610e_bc1dca62",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T17:50:27Z",
+      "side": 1,
+      "message": "Can these store unique_ptr?",
+      "range": {
+        "startLine": 25,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 49
+      },
+      "revId": "31cc9988383dc56be3d1c5b25191484ae2904c1f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a24b604_fbdee6ee",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T17:50:27Z",
+      "side": 1,
+      "message": "Any reason these need to be ptrs? Can we just store the vector instead?",
+      "revId": "31cc9988383dc56be3d1c5b25191484ae2904c1f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4ae5568_90bf446a",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T17:50:27Z",
+      "side": 1,
+      "message": "This can be a maybe_owned.",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "31cc9988383dc56be3d1c5b25191484ae2904c1f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
