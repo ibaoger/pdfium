@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "db80aa25_7127e364",
+        "filename": "core/fpdfapi/edit/cpdf_objectstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T16:19:20Z",
+      "side": 1,
+      "message": "The only non-move changes are adding the accessors which I don\u0027t think makes much of a difference?",
+      "parentUuid": "0bf46eaa_1f9958f3",
+      "revId": "3a8d76d15d65fad87107b7098896c13eb3c9da2d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df6c09fd_d6e0f42e",
         "filename": "core/fpdfapi/edit/cpdf_xrefstream.h",
         "patchSetId": 1
