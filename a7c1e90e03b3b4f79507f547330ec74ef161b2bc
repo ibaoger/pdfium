@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "131b57f0_1e51e556",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Followup: if Start is called immediately after constructor, fold start into constructor.",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a227d5ca_a7ad4717",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Remove line 28?",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e50482_cc2c91e1",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "followup: Is finish called right before the destructor? Can we fold it into the destructor?",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68273808_455cf509",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "static_cast",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b8312df_24990fed",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Can we just add the module pointer into CGifDecompressr and then create that class directly instead of proxying through this one?",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5a5a0bd_b4be3484",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Shuffling some of these around to put the uint8\u0027s together could get better packing.",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58930d6c_08568b70",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Do we ever call this without a gif_ptr? (And the ones below. Seems like it\u0027s checked randomly?)",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da098433_e41c7b2c",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "Can we just remove this one?",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15214351_475717bd",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-09T15:32:46Z",
+      "side": 1,
+      "message": "followup: These should be methods on CGifDecompressor",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
