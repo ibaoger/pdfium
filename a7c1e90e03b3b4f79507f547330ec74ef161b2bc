@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f6952052_6d378568",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "It seems the modules are obtained from a codecMgr, so Start will just \"reset\" the module.\nBut there seems to be no need for that here, so I could possibly do that.",
+      "parentUuid": "131b57f0_1e51e556",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a227d5ca_a7ad4717",
         "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb656918_7b60d387",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a227d5ca_a7ad4717",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "51df5766_18327f1f",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87e50482_cc2c91e1",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68273808_455cf509",
         "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "760831b0_f57a44dc",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68273808_455cf509",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b8312df_24990fed",
         "filename": "core/fxcodec/lgif/cgifdecompressor.h",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2017-05-09T15:32:46Z",
       "side": 1,
       "message": "Can we just add the module pointer into CGifDecompressr and then create that class directly instead of proxying through this one?",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1988adc1_9e982ae4",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Yes that\u0027s what I meant in the TODO. It\u0027s a large change because FXGIF_Context is used all over ccodec_gifmodule and fx_codec_progress, so I\u0027ll do it in a followup.",
+      "parentUuid": "1b8312df_24990fed",
       "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "57b0c7fa_474ebb7f",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Not a packing expert. How about this?",
+      "parentUuid": "f5a5a0bd_b4be3484",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58930d6c_08568b70",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -118,6 +226,24 @@
       "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b9b8638_0c2df9c0",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58930d6c_08568b70",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "3b3b4c77_35639da7",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da098433_e41c7b2c",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15214351_475717bd",
         "filename": "core/fxcodec/lgif/fx_gif.h",
         "patchSetId": 2
@@ -152,6 +296,24 @@
       "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2a64169_dac3b301",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T16:07:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "15214351_475717bd",
+      "revId": "a7c1e90e03b3b4f79507f547330ec74ef161b2bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
