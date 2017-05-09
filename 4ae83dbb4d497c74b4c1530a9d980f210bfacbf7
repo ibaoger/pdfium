@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "0528a1e0_3e72002c",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T18:45:58Z",
+      "side": 1,
+      "message": "This looks wrong, maybe\nif (createIdArray)",
+      "range": {
+        "startLine": 939,
+        "startChar": 2,
+        "endLine": 939,
+        "endChar": 21
+      },
+      "revId": "4ae83dbb4d497c74b4c1530a9d980f210bfacbf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fdf52f9_0d876104",
         "filename": "core/fpdfapi/edit/cpdf_creator.h",
         "patchSetId": 1
@@ -41,6 +64,52 @@
         "startChar": 7,
         "endLine": 60,
         "endChar": 20
+      },
+      "revId": "4ae83dbb4d497c74b4c1530a9d980f210bfacbf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace3537c_84069551",
+        "filename": "core/fpdfapi/edit/cpdf_objectstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T18:45:58Z",
+      "side": 1,
+      "message": "nit: cast",
+      "range": {
+        "startLine": 82,
+        "startChar": 28,
+        "endLine": 82,
+        "endChar": 36
+      },
+      "revId": "4ae83dbb4d497c74b4c1530a9d980f210bfacbf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19da0353_39b5b397",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T18:45:58Z",
+      "side": 1,
+      "message": "len assignment not needed",
+      "range": {
+        "startLine": 297,
+        "startChar": 4,
+        "endLine": 297,
+        "endChar": 28
       },
       "revId": "4ae83dbb4d497c74b4c1530a9d980f210bfacbf7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
