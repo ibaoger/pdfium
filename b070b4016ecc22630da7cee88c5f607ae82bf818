@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a21aa0_e1dc37b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-09T21:46:09Z",
+      "side": 1,
+      "message": "CXML_Element",
+      "range": {
+        "startLine": 7,
+        "startChar": 58,
+        "endLine": 7,
+        "endChar": 70
+      },
+      "revId": "b070b4016ecc22630da7cee88c5f607ae82bf818",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cf4d21d_2e486858",
+        "filename": "core/fxcrt/xml/cxml_content.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-09T21:46:09Z",
+      "side": 1,
+      "message": "(For later) Combine with the ctor?",
+      "revId": "b070b4016ecc22630da7cee88c5f607ae82bf818",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f34264_127556a3",
+        "filename": "core/fxcrt/xml/cxml_element.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-09T21:46:09Z",
+      "side": 1,
+      "message": "Does anyone pass in a value other than 0?\n\nAlso, maybe size_t or uint32_t someday?",
+      "revId": "b070b4016ecc22630da7cee88c5f607ae82bf818",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
