@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8323add8_adde91ec",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-09T14:57:35Z",
+      "side": 1,
+      "message": "The size of the vector is this because sizeof(GifPalette) \u003d\u003d 3.",
+      "range": {
+        "startLine": 439,
+        "startChar": 36,
+        "endLine": 439,
+        "endChar": 55
+      },
+      "revId": "28f8bb067e09718c899831193a03956c6cf52239",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
