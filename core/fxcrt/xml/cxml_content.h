@@ -7,9 +7,17 @@
 #ifndef CORE_FXCRT_XML_CXML_CONTENT_H_
 #define CORE_FXCRT_XML_CXML_CONTENT_H_
 
-class CXML_Content {
+#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/xml/cxml_object.h"
+
+class CXML_Content : public CXML_Object {
  public:
-  CXML_Content() : m_bCDATA(false), m_Content() {}
+  CXML_Content();
+  ~CXML_Content() override;
+
+  // CXML_Object:
+  CXML_Content* AsContent() override;
+  const CXML_Content* AsContent() const override;
 
   void Set(bool bCDATA, const CFX_WideStringC& content) {
     m_bCDATA = bCDATA;
