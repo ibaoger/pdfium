@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "784c2fd0_b468a397",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T17:37:25Z",
+      "side": 1,
+      "message": "I\u0027ve been ever so slowly throwing us off that bridge for a while now. Just, no-one has noticed, heh.",
+      "parentUuid": "e3d5060c_f9fa2e97",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f333c963_0d8906f4",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "ea01283e_58fcb81a",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T17:37:25Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4b001640_a014dd73",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f34336f8_879c381e",
         "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
         "patchSetId": 1
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "ac39cb70_797d0b1a",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T17:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34336f8_879c381e",
+      "range": {
+        "startLine": 72,
+        "startChar": 5,
+        "endLine": 72,
+        "endChar": 16
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd7fd80b_b55b1938",
         "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
         "patchSetId": 1
@@ -108,6 +180,30 @@
       "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2fab0b1_39c7629e",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T17:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd7fd80b_b55b1938",
+      "range": {
+        "startLine": 230,
+        "startChar": 39,
+        "endLine": 230,
+        "endChar": 46
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
