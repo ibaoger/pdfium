@@ -1,0 +1,47 @@
+diff --git a/third_party/libopenjpeg20/t1.c b/third_party/libopenjpeg20/t1.c
+index 1ad850c77..cc7671d30 100644
+--- a/third_party/libopenjpeg20/t1.c
++++ b/third_party/libopenjpeg20/t1.c
+@@ -1412,31 +1412,35 @@ static OPJ_BOOL opj_t1_decode_cblk(opj_t1_t *t1,
+                }
+ 
+                for (passno = 0; (passno < seg->real_num_passes) && (bpno_plus_one >= 1); ++passno) {
++            OPJ_INT32 bpno = bpno_plus_one;
++            if (bpno > 30) {
++                bpno = 30;
++            }
+             switch (passtype) {
+                 case 0:
+                     if (type == T1_TYPE_RAW) {
+-                        opj_t1_dec_sigpass_raw(t1, bpno_plus_one, (OPJ_INT32)orient, (OPJ_INT32)cblksty);
++                        opj_t1_dec_sigpass_raw(t1, bpno, (OPJ_INT32)orient, (OPJ_INT32)cblksty);
+                     } else {
+                         if (cblksty & J2K_CCP_CBLKSTY_VSC) {
+-                            opj_t1_dec_sigpass_mqc_vsc(t1, bpno_plus_one, (OPJ_INT32)orient);
++                            opj_t1_dec_sigpass_mqc_vsc(t1, bpno, (OPJ_INT32)orient);
+                         } else {
+-                            opj_t1_dec_sigpass_mqc(t1, bpno_plus_one, (OPJ_INT32)orient);
++                            opj_t1_dec_sigpass_mqc(t1, bpno, (OPJ_INT32)orient);
+                         }
+                     }
+                     break;
+                 case 1:
+                     if (type == T1_TYPE_RAW) {
+-                            opj_t1_dec_refpass_raw(t1, bpno_plus_one, (OPJ_INT32)cblksty);
++                            opj_t1_dec_refpass_raw(t1, bpno, (OPJ_INT32)cblksty);
+                     } else {
+                         if (cblksty & J2K_CCP_CBLKSTY_VSC) {
+-                            opj_t1_dec_refpass_mqc_vsc(t1, bpno_plus_one);
++                            opj_t1_dec_refpass_mqc_vsc(t1, bpno);
+                         } else {
+-                            opj_t1_dec_refpass_mqc(t1, bpno_plus_one);
++                            opj_t1_dec_refpass_mqc(t1, bpno);
+                         }
+                     }
+                     break;
+                 case 2:
+-                    opj_t1_dec_clnpass(t1, bpno_plus_one, (OPJ_INT32)orient, (OPJ_INT32)cblksty);
++                    opj_t1_dec_clnpass(t1, bpno, (OPJ_INT32)orient, (OPJ_INT32)cblksty);
+                     break;
+             }
+ 
