@@ -17,6 +17,24 @@
       "revId": "6e620ebcbbf0a4d38c82c2384039bdeae5a366c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d6c440e_9d047588",
+        "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-10T17:06:23Z",
+      "side": 1,
+      "message": "It has an operator implemented. I thought it was confusing too. Fix in a separate CL?",
+      "parentUuid": "a48ad13a_88c08afa",
+      "revId": "6e620ebcbbf0a4d38c82c2384039bdeae5a366c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
