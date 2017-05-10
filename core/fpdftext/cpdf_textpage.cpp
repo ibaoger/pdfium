@@ -436,11 +436,9 @@ CFX_WideString CPDF_TextPage::GetPageText(int start, int nCount) const {
   if (start < 0)
     start = 0;
 
-  if (nCount == -1) {
-    nCount = pdfium::CollectionSize<int>(m_CharList) - start;
-    return CFX_WideString(
-        m_TextBuf.AsStringC().Mid(start, m_TextBuf.AsStringC().GetLength()));
-  }
+  if (nCount == -1)
+    return CFX_WideString(m_TextBuf.AsStringC()(start, INT_MAX));
+
   if (nCount <= 0 || m_CharList.empty())
     return L"";
   if (nCount + start > pdfium::CollectionSize<int>(m_CharList) - 1)
@@ -468,10 +466,10 @@ CFX_WideString CPDF_TextPage::GetPageText(int start, int nCount) const {
       return L"";
     charinfo = m_CharList[start + nCount - nCountOffset - 1];
   }
-  nCount = start + nCount - nCountOffset - startindex;
-  if (nCount <= 0)
+  int nLast = start + nCount - nCountOffset;
+  if (nLast <= startindex)
     return L"";
-  return CFX_WideString(m_TextBuf.AsStringC().Mid(startindex, nCount));
+  return CFX_WideString(m_TextBuf.AsStringC()(startindex, nLast));
 }
 
 int CPDF_TextPage::CountRects(int start, int nCount) {
