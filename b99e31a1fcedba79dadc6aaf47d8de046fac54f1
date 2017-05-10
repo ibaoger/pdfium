@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3d5060c_f9fa2e97",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-10T17:00:38Z",
+      "side": 1,
+      "message": "have we decided to jump off this bridge?  I was assuming we\u0027d keep with the m_pFoo until a script came along ... poke dcheng?",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f333c963_0d8906f4",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 1
@@ -13,6 +36,75 @@
       "writtenOn": "2017-05-10T16:37:26Z",
       "side": 1,
       "message": "This is going to get used immediately. The file will have WriteBlock called on each chunk so we don\u0027t want to change m_Offset here it will get done in the file.",
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b001640_a014dd73",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-10T17:00:38Z",
+      "side": 1,
+      "message": "nit: can we make all the of the variables that are archivestreams be not called |File|. maybe pArchive ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f34336f8_879c381e",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-10T17:00:38Z",
+      "side": 1,
+      "message": "saved by windows compiler error, eh?  return false.",
+      "range": {
+        "startLine": 72,
+        "startChar": 5,
+        "endLine": 72,
+        "endChar": 16
+      },
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd7fd80b_b55b1938",
+        "filename": "core/fpdfapi/edit/cpdf_xrefstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-10T17:00:38Z",
+      "side": 1,
+      "message": "similarly, this could be called GetArchive",
+      "range": {
+        "startLine": 230,
+        "startChar": 39,
+        "endLine": 230,
+        "endChar": 46
+      },
       "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
