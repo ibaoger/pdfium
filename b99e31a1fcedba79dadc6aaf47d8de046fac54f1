@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f333c963_0d8906f4",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T16:37:26Z",
+      "side": 1,
+      "message": "This is going to get used immediately. The file will have WriteBlock called on each chunk so we don\u0027t want to change m_Offset here it will get done in the file.",
+      "revId": "b99e31a1fcedba79dadc6aaf47d8de046fac54f1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
