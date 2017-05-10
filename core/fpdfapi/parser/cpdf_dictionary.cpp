@@ -263,3 +263,39 @@ bool CPDF_Dictionary::WriteTo(IFX_ArchiveStream* archive) const {
   }
   return archive->WriteString(">>");
 }
+
+bool CPDF_Dictionary::WriteDirectTo(IFX_ArchiveStream* archive,
+                                    uint32_t objnum,
+                                    bool encrypt,
+                                    CPDF_CryptoHandler* crypto_handler) const {
+  if (!encrypt || !crypto_handler)
+    return WriteTo(archive);
+
+  if (!archive->WriteString("<<"))
+    return false;
+
+  bool bSignDict = IsSignatureDict();
+  for (const auto& it : *this) {
+    bool bSignValue = false;
+    const CFX_ByteString& key = it.first;
+    CPDF_Object* pValue = it.second.get();
+    if (!archive->WriteString("/") ||
+        !archive->WriteString(PDF_NameEncode(key).AsStringC())) {
+      return false;
+    }
+
+    if (bSignDict && key == "Contents")
+      bSignValue = true;
+    if (!pValue->IsInline()) {
+      if (!archive->WriteString(" ") ||
+          !archive->WriteDWord(pValue->GetObjNum()) ||
+          !archive->WriteString(" 0 R ")) {
+        return false;
+      }
+    } else if (!pValue->WriteDirectTo(archive, objnum, !bSignValue,
+                                      crypto_handler)) {
+      return false;
+    }
+  }
+  return archive->WriteString(">>");
+}

@@ -34,7 +34,10 @@ class CPDF_String : public CPDF_Object {
   CPDF_String* AsString() override;
   const CPDF_String* AsString() const override;
   bool WriteTo(IFX_ArchiveStream* archive) const override;
-
+  bool WriteDirectTo(IFX_ArchiveStream* archive,
+                     uint32_t objnum,
+                     bool encrypt,
+                     CPDF_CryptoHandler* crypto_handler) const override;
   bool IsHex() const { return m_bHex; }
 
  protected:

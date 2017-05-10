@@ -8,6 +8,8 @@
 
 #include <utility>
 
+#include "core/fpdfapi/edit/cpdf_encryptor.h"
+#include "core/fpdfapi/edit/cpdf_flateencoder.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
@@ -139,5 +141,26 @@ bool CPDF_Stream::WriteTo(IFX_ArchiveStream* archive) const {
   auto pAcc = pdfium::MakeRetain<CPDF_StreamAcc>(this);
   pAcc->LoadAllData(true);
   return archive->WriteBlock(pAcc->GetData(), pAcc->GetSize()) &&
+         archive->WriteString("\r\nendstream");
+}
+
+bool CPDF_Stream::WriteDirectTo(IFX_ArchiveStream* archive,
+                                uint32_t objnum,
+                                bool encrypt,
+                                CPDF_CryptoHandler* crypto_handler) const {
+  CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(this), true);
+  CPDF_Encryptor encryptor(crypto_handler, objnum, encoder.GetData(),
+                           encoder.GetSize());
+
+  if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
+      encryptor.GetSize()) {
+    encoder.CloneDict();
+    encoder.GetDict()->SetNewFor<CPDF_Number>(
+        "Length", static_cast<int>(encryptor.GetSize()));
+  }
+  return encoder.GetDict()->WriteDirectTo(archive, objnum, true,
+                                          crypto_handler) &&
+         archive->WriteString("stream\r\n") &&
+         archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) &&
          archive->WriteString("\r\nendstream");
 }

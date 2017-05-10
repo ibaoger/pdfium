@@ -8,6 +8,7 @@
 
 #include <utility>
 
+#include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "third_party/base/ptr_util.h"
 
@@ -68,4 +69,23 @@ CFX_WideString CPDF_String::GetUnicodeText() const {
 bool CPDF_String::WriteTo(IFX_ArchiveStream* archive) const {
   return archive->WriteString(
       PDF_EncodeString(GetString(), IsHex()).AsStringC());
+}
+
+bool CPDF_String::WriteDirectTo(IFX_ArchiveStream* archive,
+                                uint32_t objnum,
+                                bool encrypt,
+                                CPDF_CryptoHandler* crypto_handler) const {
+  if (!encrypt || !crypto_handler)
+    return WriteTo(archive);
+
+  CFX_ByteString str = GetString();
+  CPDF_Encryptor encryptor(
+      crypto_handler, objnum,
+      reinterpret_cast<uint8_t*>(const_cast<char*>(str.c_str())),
+      str.GetLength());
+
+  return archive->WriteString(
+      PDF_EncodeString(CFX_ByteString(encryptor.GetData(), encryptor.GetSize()),
+                       IsHex())
+          .AsStringC());
 }

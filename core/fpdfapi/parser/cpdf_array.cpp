@@ -212,3 +212,26 @@ bool CPDF_Array::WriteTo(IFX_ArchiveStream* archive) const {
   }
   return archive->WriteString("]");
 }
+
+bool CPDF_Array::WriteDirectTo(IFX_ArchiveStream* archive,
+                               uint32_t objnum,
+                               bool encrypt,
+                               CPDF_CryptoHandler* crypto_handler) const {
+  if (!archive->WriteString("["))
+    return false;
+
+  for (size_t i = 0; i < GetCount(); i++) {
+    CPDF_Object* pElement = GetObjectAt(i);
+    if (!pElement->IsInline()) {
+      if (!archive->WriteString(" ") ||
+          !archive->WriteDWord(pElement->GetObjNum()) ||
+          !archive->WriteString(" 0 R")) {
+        return false;
+      }
+    } else if (!pElement->WriteDirectTo(archive, objnum, true,
+                                        crypto_handler)) {
+      return false;
+    }
+  }
+  return archive->WriteString("]");
+}

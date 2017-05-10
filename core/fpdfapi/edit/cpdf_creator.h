@@ -79,7 +79,6 @@ class CPDF_Creator {
   bool WriteOldObjs();
   bool WriteNewObjs();
   bool WriteIndirectObj(const CPDF_Object* pObj);
-  bool WriteDirectObj(uint32_t objnum, const CPDF_Object* pObj, bool bEncrypt);
   bool WriteIndirectObj(uint32_t objnum, const CPDF_Object* pObj);
   bool WriteIndirectObjectToStream(uint32_t objnum,
                                    const uint8_t* pBuffer,
