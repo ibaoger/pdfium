@@ -936,6 +936,16 @@ TEST(fxcrt, WideStringCAnyAllNoneOf) {
   EXPECT_FALSE(pdfium::ContainsValue(str, L'z'));
 }
 
+TEST(fxcrt, WideStringCSlice) {
+  CFX_WideStringC empty;
+  EXPECT_EQ(L"", empty(-1, 17));
+
+  CFX_WideStringC str(L"Mr. Boffo");
+  EXPECT_EQ(L"Mr", str(0, 2));
+  EXPECT_EQ(L"Bo", str(4, 6));
+  EXPECT_EQ(L"Mr. Boffo", str(-1, 17));
+}
+
 TEST(fxcrt, WideStringFormatWidth) {
   {
     CFX_WideString str;

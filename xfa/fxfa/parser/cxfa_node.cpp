@@ -76,7 +76,7 @@ int32_t GetCount(CXFA_Node* pInstMgrNode) {
       CFX_WideStringC wsName = pNode->GetCData(XFA_ATTRIBUTE_Name);
       CFX_WideStringC wsInstName = pInstMgrNode->GetCData(XFA_ATTRIBUTE_Name);
       if (wsInstName.GetLength() < 1 || wsInstName.GetAt(0) != '_' ||
-          wsInstName.Mid(1) != wsName) {
+          wsInstName(1, INT_MAX) != wsName) {
         return iCount;
       }
       dwNameHash = pNode->GetNameHash();
@@ -197,7 +197,7 @@ CXFA_Node* GetItem(CXFA_Node* pInstMgrNode, int32_t iIndex) {
       CFX_WideStringC wsName = pNode->GetCData(XFA_ATTRIBUTE_Name);
       CFX_WideStringC wsInstName = pInstMgrNode->GetCData(XFA_ATTRIBUTE_Name);
       if (wsInstName.GetLength() < 1 || wsInstName.GetAt(0) != '_' ||
-          wsInstName.Mid(1) != wsName) {
+          wsInstName(1, INT_MAX) != wsName) {
         return nullptr;
       }
       dwNameHash = pNode->GetNameHash();
@@ -2734,7 +2734,7 @@ void CXFA_Node::Script_Subform_InstanceManager(CFXJSE_Value* pValue,
     if (pNode->GetElementType() == XFA_Element::InstanceManager) {
       CFX_WideStringC wsInstMgrName = pNode->GetCData(XFA_ATTRIBUTE_Name);
       if (wsInstMgrName.GetLength() >= 1 && wsInstMgrName.GetAt(0) == '_' &&
-          wsInstMgrName.Mid(1) == wsName) {
+          wsInstMgrName(1, INT_MAX) == wsName) {
         pInstanceMgr = pNode;
       }
       break;
@@ -3158,10 +3158,7 @@ int32_t CXFA_Node::InstanceManager_SetInstances(int32_t iDesired) {
     return 0;
   }
   if (iDesired < iCount) {
-    CFX_WideStringC wsInstManagerName = GetCData(XFA_ATTRIBUTE_Name);
-    CFX_WideString wsInstanceName =
-        CFX_WideString(wsInstManagerName.IsEmpty() ? wsInstManagerName
-                                                   : wsInstManagerName.Mid(1));
+    CFX_WideString wsInstanceName(GetCData(XFA_ATTRIBUTE_Name)(1, INT_MAX));
     uint32_t dInstanceNameHash =
         FX_HashCode_GetW(wsInstanceName.AsStringC(), false);
     CXFA_Node* pPrevSibling =
@@ -4661,7 +4658,7 @@ CXFA_Node* CXFA_Node::GetInstanceMgrOfSubform() {
         CFX_WideStringC wsName = GetCData(XFA_ATTRIBUTE_Name);
         CFX_WideStringC wsInstName = pNode->GetCData(XFA_ATTRIBUTE_Name);
         if (wsInstName.GetLength() > 0 && wsInstName.GetAt(0) == '_' &&
-            wsInstName.Mid(1) == wsName) {
+            wsInstName(1, INT_MAX) == wsName) {
           pInstanceMgr = pNode;
         }
         break;
