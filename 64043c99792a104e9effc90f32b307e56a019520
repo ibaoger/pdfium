@@ -457,6 +457,24 @@
     },
     {
       "key": {
+        "uuid": "1a3148fd_41f14eed",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T18:07:40Z",
+      "side": 1,
+      "message": "std::copy is more c++ then memcpy",
+      "parentUuid": "d756bb1c_ea12c21c",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1800a9f6_ae4d83c5",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2

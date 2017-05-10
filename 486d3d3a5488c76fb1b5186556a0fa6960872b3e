@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab64fda_fb8f8f2e",
+        "filename": "core/fxcodec/codec/ccodec_pngmodule.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T18:07:40Z",
+      "side": 1,
+      "message": "Can these two lines be removed as well?",
+      "revId": "486d3d3a5488c76fb1b5186556a0fa6960872b3e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
