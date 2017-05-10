@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cae62f7a_ce59dbe1",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Just m_Images, it\u0027s cleaner. (The fact it\u0027s a vector doesn\u0027t matter)",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e40ac46_210e4cf1",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "cast",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "343323bd_257384e7",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Can you make this if (size !\u003d 0) to make it clear as size is an int.",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf361ab5_58bf62b6",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Do we expect m_strTime to be null terminated anywhere? This seems like it could be an issue if size is the length without \\0.",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be882be4_6ccbbf28",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Sigh, can we add a followup to the list to make m_strTime a CFX_ByteString like m_strAuthor?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b909830_b768ec94",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "This isn\u0027t a pointer anymore.  Any idea what cmt stands for?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d59663f7_dae83111",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "cast",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "908c193a_604d49a0",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Break inside the }",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97fa4ee2_a8f991f2",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "cast",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2be05e6_dcd65808",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Move the break\u0027s inside the }\u0027s",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d40b66_e482f6d5",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "casts",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "459899ea_bc029ca1",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Why / 3? Won\u0027t we copy in more data then we have room for in the next line?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b1d2ce_4d1f5454",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "std::copy?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1800a9f6_ae4d83c5",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "std::swap?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728ae453_71ddc6f3",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:42:44Z",
+      "side": 1,
+      "message": "Not a pointer. (In general, can we just drop the _ptr flags? The fact that GiftGCE is a ptr doesn\u0027t really need to be advertised in every usage.",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
