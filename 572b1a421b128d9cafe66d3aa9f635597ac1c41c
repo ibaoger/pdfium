@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70ae5b28_cad3162b",
+        "filename": "xfa/fxfa/fm2js/xfa_expression.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T20:17:18Z",
+      "side": 1,
+      "message": "Could go in a single if",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 19
+      },
+      "revId": "572b1a421b128d9cafe66d3aa9f635597ac1c41c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e1c929_d7c7c525",
+        "filename": "xfa/fxfa/fm2js/xfa_expression.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T20:17:18Z",
+      "side": 1,
+      "message": "return m_pExpression-\u003eToImpliedReturnJS(javascript);",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 383,
+        "endChar": 14
+      },
+      "revId": "572b1a421b128d9cafe66d3aa9f635597ac1c41c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bea461d_1a39ca19",
+        "filename": "xfa/fxfa/fm2js/xfa_program.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T20:17:18Z",
+      "side": 1,
+      "message": "Maybe return bool?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 7
+      },
+      "revId": "572b1a421b128d9cafe66d3aa9f635597ac1c41c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
