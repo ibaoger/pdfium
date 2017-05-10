@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a54d9076_ad93f468",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cae62f7a_ce59dbe1",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e40ac46_210e4cf1",
         "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a31dba_be8fbcbc",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e40ac46_210e4cf1",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2bb343a5_a2c5f479",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "343323bd_257384e7",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf361ab5_58bf62b6",
         "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-05-10T13:42:44Z",
       "side": 1,
       "message": "Do we expect m_strTime to be null terminated anywhere? This seems like it could be an issue if size is the length without \\0.",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca790c78_481e4650",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Seems like this is unused, removing",
+      "parentUuid": "bf361ab5_58bf62b6",
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "003f2d4d_533e6a1b",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be882be4_6ccbbf28",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b909830_b768ec94",
         "filename": "core/fxcodec/lgif/cgifdecompressor.h",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2017-05-10T13:42:44Z",
       "side": 1,
       "message": "This isn\u0027t a pointer anymore.  Any idea what cmt stands for?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53d5fd0_e07dcbcc",
+        "filename": "core/fxcodec/lgif/cgifdecompressor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done, and no, so leaving cmt for now",
+      "parentUuid": "1b909830_b768ec94",
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "1d6e82fa_f8563ba3",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d59663f7_dae83111",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "908c193a_604d49a0",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -135,6 +261,24 @@
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d57b2de_503b53c6",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "908c193a_604d49a0",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "86a749de_cf88d1d7",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97fa4ee2_a8f991f2",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2be05e6_dcd65808",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -169,6 +331,24 @@
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86359ae8_c2846974",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2be05e6_dcd65808",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "3c8999d2_83e1eab2",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34d40b66_e482f6d5",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "459899ea_bc029ca1",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2017-05-10T13:42:44Z",
       "side": 1,
       "message": "Why / 3? Won\u0027t we copy in more data then we have room for in the next line?",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42316dc2_ea65b6eb",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "sizeof(GifPalette) \u003d\u003d 3. loc_pal_size was sizeof(gif_image-\u003em_LocalPalettes). Note the cast to uint8_t*",
+      "parentUuid": "459899ea_bc029ca1",
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "d756bb1c_ea12c21c",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "Sure, what\u0027s the benefit of one vs the other?",
+      "parentUuid": "28b1d2ce_4d1f5454",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1800a9f6_ae4d83c5",
         "filename": "core/fxcodec/lgif/fx_gif.cpp",
         "patchSetId": 2
@@ -240,6 +474,24 @@
     },
     {
       "key": {
+        "uuid": "05a0b089_075205b5",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "For a unique_ptr? Nope",
+      "parentUuid": "1800a9f6_ae4d83c5",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "728ae453_71ddc6f3",
         "filename": "core/fxcodec/lgif/fx_gif.h",
         "patchSetId": 2
@@ -251,6 +503,24 @@
       "writtenOn": "2017-05-10T13:42:44Z",
       "side": 1,
       "message": "Not a pointer. (In general, can we just drop the _ptr flags? The fact that GiftGCE is a ptr doesn\u0027t really need to be advertised in every usage.",
+      "revId": "64043c99792a104e9effc90f32b307e56a019520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef0086ca_be223520",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-10T17:57:30Z",
+      "side": 1,
+      "message": "GifPlainTexts seem to be set but never used, so I\u0027m just removing this class altogether.",
+      "parentUuid": "728ae453_71ddc6f3",
       "revId": "64043c99792a104e9effc90f32b307e56a019520",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
