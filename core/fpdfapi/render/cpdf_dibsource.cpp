@@ -206,7 +206,7 @@ bool CPDF_DIBSource::Load(CPDF_Document* pDoc, const CPDF_Stream* pStream) {
   return true;
 }
 
-int CPDF_DIBSource::ContinueToLoadMask() {
+bool CPDF_DIBSource::ContinueToLoadMask() {
   if (m_bImageMask) {
     m_bpp = 1;
     m_bpc = 1;
@@ -219,29 +219,28 @@ int CPDF_DIBSource::ContinueToLoadMask() {
   } else {
     m_bpp = 24;
   }
-  if (!m_bpc || !m_nComponents) {
-    return 0;
-  }
+  if (!m_bpc || !m_nComponents)
+    return false;
+
   FX_SAFE_UINT32 pitch = CalculatePitch32(m_bpp, m_Width);
-  if (!pitch.IsValid()) {
-    return 0;
-  }
+  if (!pitch.IsValid())
+    return false;
+
   m_pLineBuf = FX_Alloc(uint8_t, pitch.ValueOrDie());
-  if (m_pColorSpace && m_bStdCS) {
+  if (m_pColorSpace && m_bStdCS)
     m_pColorSpace->EnableStdConversion(true);
-  }
+
   LoadPalette();
   if (m_bColorKey) {
     m_bpp = 32;
     m_AlphaFlag = 2;
     pitch = CalculatePitch32(m_bpp, m_Width);
-    if (!pitch.IsValid()) {
-      return 0;
-    }
+    if (!pitch.IsValid())
+      return false;
     m_pMaskedLine = FX_Alloc(uint8_t, pitch.ValueOrDie());
   }
   m_Pitch = pitch.ValueOrDie();
-  return 1;
+  return true;
 }
 
 int CPDF_DIBSource::StartLoadDIBSource(CPDF_Document* pDoc,
@@ -272,45 +271,40 @@ int CPDF_DIBSource::StartLoadDIBSource(CPDF_Document* pDoc,
                      pPageResources)) {
     return 0;
   }
-  if (m_bDoBpcCheck && (m_bpc == 0 || m_nComponents == 0)) {
+  if (m_bDoBpcCheck && (m_bpc == 0 || m_nComponents == 0))
     return 0;
-  }
+
   FX_SAFE_UINT32 src_size =
       CalculatePitch8(m_bpc, m_nComponents, m_Width) * m_Height;
-  if (!src_size.IsValid()) {
+  if (!src_size.IsValid())
     return 0;
-  }
+
   m_pStreamAcc = pdfium::MakeRetain<CPDF_StreamAcc>(pStream);
   m_pStreamAcc->LoadAllData(false, src_size.ValueOrDie(), true);
-  if (m_pStreamAcc->GetSize() == 0 || !m_pStreamAcc->GetData()) {
+  if (m_pStreamAcc->GetSize() == 0 || !m_pStreamAcc->GetData())
     return 0;
-  }
-  int ret = CreateDecoder();
-  if (!ret)
-    return ret;
 
-  if (ret != 1) {
-    if (!ContinueToLoadMask()) {
-      return 0;
-    }
-    if (m_bHasMask) {
-      StratLoadMask();
-    }
-    return ret;
-  }
-  if (!ContinueToLoadMask()) {
+  int bCreatedDecoder = CreateDecoder();
+  if (!bCreatedDecoder)
     return 0;
-  }
+
+  if (!ContinueToLoadMask())
+    return 0;
+
   if (m_bHasMask) {
-    ret = StratLoadMask();
+    int bLoadedMask = StartLoadMask();
+    if (bLoadedMask == 2)
+      return 2;
+    ASSERT(bLoadedMask == 1);
   }
-  if (ret == 2) {
-    return ret;
-  }
-  if (m_pColorSpace && m_bStdCS) {
+
+  if (bCreatedDecoder == 2)
+    return 2;
+
+  if (m_pColorSpace && m_bStdCS)
     m_pColorSpace->EnableStdConversion(false);
-  }
-  return ret;
+
+  return 1;
 }
 
 int CPDF_DIBSource::ContinueLoadDIBSource(IFX_Pause* pPause) {
@@ -693,7 +687,7 @@ void CPDF_DIBSource::LoadJpxBitmap() {
   m_bpc = 8;
 }
 
-int CPDF_DIBSource::StratLoadMask() {
+int CPDF_DIBSource::StartLoadMask() {
   m_MatteColor = 0XFFFFFFFF;
   m_pMaskStream = m_pDict->GetStreamFor("SMask");
   if (m_pMaskStream) {
@@ -722,14 +716,14 @@ int CPDF_DIBSource::ContinueLoadMaskDIB(IFX_Pause* pPause) {
 
   int ret = m_pMask->ContinueLoadDIBSource(pPause);
   if (ret == 2)
-    return ret;
+    return 2;
 
   if (m_pColorSpace && m_bStdCS)
     m_pColorSpace->EnableStdConversion(false);
 
   if (!ret) {
     m_pMask.Reset();
-    return ret;
+    return 0;
   }
   return 1;
 }
@@ -747,10 +741,8 @@ int CPDF_DIBSource::StartLoadMaskDIB() {
       m_Status = 2;
     return 2;
   }
-  if (!ret) {
+  if (!ret)
     m_pMask.Reset();
-    return 1;
-  }
   return 1;
 }
 
