@@ -54,7 +54,8 @@ void CXFA_FMFunctionDefinition::ToJavaScript(CFX_WideTextBuf& javascript) {
   }
   javascript << L"function ";
   if (m_wsName.GetAt(0) == L'!') {
-    CFX_WideString tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName.Mid(1);
+    CFX_WideString tempName =
+        EXCLAMATION_IN_IDENTIFIER + m_wsName(1, FX_STRSIZE_MAX);
     javascript << tempName;
   } else {
     javascript << m_wsName;
@@ -66,7 +67,7 @@ void CXFA_FMFunctionDefinition::ToJavaScript(CFX_WideTextBuf& javascript) {
       javascript << L", ";
     if (identifier.GetAt(0) == L'!') {
       CFX_WideString tempIdentifier =
-          EXCLAMATION_IN_IDENTIFIER + identifier.Mid(1);
+          EXCLAMATION_IN_IDENTIFIER + identifier(1, FX_STRSIZE_MAX);
       javascript << tempIdentifier;
     } else {
       javascript << identifier;
@@ -113,9 +114,9 @@ CXFA_FMVarExpression::~CXFA_FMVarExpression() {}
 void CXFA_FMVarExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"var ";
   CFX_WideString tempName(m_wsName);
-  if (m_wsName.GetAt(0) == L'!') {
-    tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName.Mid(1);
-  }
+  if (m_wsName.GetAt(0) == L'!')
+    tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName(1, FX_STRSIZE_MAX);
+
   javascript << tempName;
   javascript << L" = ";
   if (m_pInit) {
@@ -135,7 +136,7 @@ void CXFA_FMVarExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
   javascript << L"var ";
   CFX_WideString tempName(m_wsName);
   if (m_wsName.GetAt(0) == L'!') {
-    tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName.Mid(1);
+    tempName = EXCLAMATION_IN_IDENTIFIER + m_wsName(1, FX_STRSIZE_MAX);
   }
   javascript << tempName;
   javascript << L" = ";
@@ -390,7 +391,7 @@ void CXFA_FMForExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"{\nvar ";
   CFX_WideString tempVariant;
   if (m_wsVariant.GetAt(0) == L'!') {
-    tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant.Mid(1);
+    tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant(1, FX_STRSIZE_MAX);
     javascript << tempVariant;
   } else {
     tempVariant = m_wsVariant;
@@ -441,7 +442,7 @@ void CXFA_FMForExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
   javascript << L"{\nvar ";
   CFX_WideString tempVariant;
   if (m_wsVariant.GetAt(0) == L'!') {
-    tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant.Mid(1);
+    tempVariant = EXCLAMATION_IN_IDENTIFIER + m_wsVariant(1, FX_STRSIZE_MAX);
     javascript << tempVariant;
   } else {
     tempVariant = m_wsVariant;
@@ -503,7 +504,7 @@ void CXFA_FMForeachExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L"var ";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
-        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
+        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier(1, FX_STRSIZE_MAX);
     javascript << tempIdentifier;
   } else {
     javascript << m_wsIdentifier;
@@ -531,7 +532,7 @@ void CXFA_FMForeachExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   javascript << L".length)\n{\n";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
-        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
+        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier(1, FX_STRSIZE_MAX);
     javascript << tempIdentifier;
   } else {
     javascript << m_wsIdentifier;
@@ -553,7 +554,7 @@ void CXFA_FMForeachExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
   javascript << L"var ";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
-        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
+        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier(1, FX_STRSIZE_MAX);
     javascript << tempIdentifier;
   } else {
     javascript << m_wsIdentifier;
@@ -580,7 +581,7 @@ void CXFA_FMForeachExpression::ToImpliedReturnJS(CFX_WideTextBuf& javascript) {
   javascript << L".length)\n{\n";
   if (m_wsIdentifier.GetAt(0) == L'!') {
     CFX_WideString tempIdentifier =
-        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier.Mid(1);
+        EXCLAMATION_IN_IDENTIFIER + m_wsIdentifier(1, FX_STRSIZE_MAX);
     javascript << tempIdentifier;
   } else {
     javascript << m_wsIdentifier;

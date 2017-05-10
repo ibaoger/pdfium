@@ -76,6 +76,7 @@ extern "C" {
 // allow -1 as a placeholder for "unknown".
 // TODO(palmer): it should be a |size_t|, or at least unsigned.
 typedef int FX_STRSIZE;
+#define FX_STRSIZE_MAX INT_MAX
 
 // PDFium file sizes match the platform, but PDFium itself does not support
 // files larger than 2GB even if the platform does. The value must be signed
