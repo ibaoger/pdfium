@@ -2778,10 +2778,13 @@ void CXFA_FM2JSContext::Eval(CFXJSE_Value* pThis,
   }
 
   CFX_WideTextBuf wsJavaScriptBuf;
-  CFX_WideString wsError;
-  CXFA_FM2JSContext::Translate(
-      CFX_WideString::FromUTF8(utf8ScriptString.AsStringC()).AsStringC(),
-      wsJavaScriptBuf, wsError);
+  if (CXFA_FM2JSContext::Translate(
+          CFX_WideString::FromUTF8(utf8ScriptString.AsStringC()).AsStringC(),
+          wsJavaScriptBuf)) {
+    pContext->ThrowCompilerErrorException();
+    return;
+  }
+
   std::unique_ptr<CFXJSE_Context> pNewContext(
       CFXJSE_Context::Create(pIsolate, nullptr, nullptr));
 
@@ -5430,10 +5433,7 @@ void CXFA_FM2JSContext::eval_translation(CFXJSE_Value* pThis,
 
   CFX_WideString scriptString = CFX_WideString::FromUTF8(argString.AsStringC());
   CFX_WideTextBuf wsJavaScriptBuf;
-  CFX_WideString wsError;
-  CXFA_FM2JSContext::Translate(scriptString.AsStringC(), wsJavaScriptBuf,
-                               wsError);
-  if (!wsError.IsEmpty()) {
+  if (CXFA_FM2JSContext::Translate(scriptString.AsStringC(), wsJavaScriptBuf)) {
     pContext->ThrowCompilerErrorException();
     return;
   }
@@ -6112,19 +6112,16 @@ CFX_ByteString CXFA_FM2JSContext::ValueToUTF8String(CFXJSE_Value* arg) {
 
 // static.
 int32_t CXFA_FM2JSContext::Translate(const CFX_WideStringC& wsFormcalc,
-                                     CFX_WideTextBuf& wsJavascript,
-                                     CFX_WideString& wsError) {
+                                     CFX_WideTextBuf& wsJavascript) {
   if (wsFormcalc.IsEmpty()) {
     wsJavascript.Clear();
-    wsError.clear();
     return 0;
   }
   CXFA_FMProgram program(wsFormcalc);
   int32_t status = program.ParseProgram();
-  if (status) {
-    wsError = program.GetError().message;
+  if (status)
     return status;
-  }
+
   program.TranslateProgram(wsJavascript);
   return 0;
 }
