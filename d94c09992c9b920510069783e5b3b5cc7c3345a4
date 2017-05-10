@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd4d4650_5e998fa9",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:27:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08758512_c7251833",
+      "revId": "d94c09992c9b920510069783e5b3b5cc7c3345a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc7ab7ad_b375aaed",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-05-09T21:13:42Z",
       "side": 1,
       "message": "Can these ifs be merged?",
+      "range": {
+        "startLine": 530,
+        "startChar": 7,
+        "endLine": 536,
+        "endChar": 0
+      },
+      "revId": "d94c09992c9b920510069783e5b3b5cc7c3345a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa60f5b1_c40e5c56",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:27:35Z",
+      "side": 1,
+      "message": "Yes, but I think it reads better this way. The wrapping on the first if is already terrible.",
+      "parentUuid": "dc7ab7ad_b375aaed",
       "range": {
         "startLine": 530,
         "startChar": 7,
@@ -62,6 +104,30 @@
       "revId": "d94c09992c9b920510069783e5b3b5cc7c3345a4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7e607b_552f208a",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-10T13:27:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9f3dafc_733e8a11",
+      "range": {
+        "startLine": 544,
+        "startChar": 11,
+        "endLine": 544,
+        "endChar": 19
+      },
+      "revId": "d94c09992c9b920510069783e5b3b5cc7c3345a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
