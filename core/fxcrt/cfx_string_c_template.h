@@ -16,7 +16,7 @@
 
 // An immutable string with caller-provided storage which must outlive the
 // string itself. These are not necessarily nul-terminated, so that substring
-// extraction (via the Mid(), Left(), and Right() methods) is copy-free.
+// extraction (via ()-operator slicing) is copy-free.
 template <typename T>
 class CFX_StringCTemplate {
  public:
@@ -128,33 +128,16 @@ class CFX_StringCTemplate {
     return found ? found - m_Ptr : -1;
   }
 
-  CFX_StringCTemplate Mid(FX_STRSIZE index, FX_STRSIZE count = -1) const {
-    index = std::max(0, index);
-    if (index > m_Length)
-      return CFX_StringCTemplate();
-
-    if (count < 0 || count > m_Length - index)
-      count = m_Length - index;
-
-    return CFX_StringCTemplate(m_Ptr + index, count);
-  }
-
-  CFX_StringCTemplate Left(FX_STRSIZE count) const {
-    if (count <= 0)
-      return CFX_StringCTemplate();
-
-    return CFX_StringCTemplate(m_Ptr, std::min(count, m_Length));
-  }
-
-  CFX_StringCTemplate Right(FX_STRSIZE count) const {
-    if (count <= 0)
-      return CFX_StringCTemplate();
-
-    count = std::min(count, m_Length);
-    return CFX_StringCTemplate(m_Ptr + m_Length - count, count);
-  }
-
   const UnsignedType& operator[](size_t index) const { return m_Ptr[index]; }
+
+  // Overload operator() to provide string "Slice" capability.
+  CFX_StringCTemplate operator()(FX_STRSIZE first, FX_STRSIZE last) const {
+    if (!m_Length)
+      return CFX_StringCTemplate();
+    first = pdfium::clamp(first, 0, m_Length - 1);
+    last = pdfium::clamp(last, first, m_Length);
+    return CFX_StringCTemplate(m_Ptr + first, last - first);
+  }
 
   bool operator<(const CFX_StringCTemplate& that) const {
     int result = FXSYS_cmp(reinterpret_cast<const CharType*>(m_Ptr),
