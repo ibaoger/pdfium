@@ -51,8 +51,8 @@ FX_FILESIZE CPDF_ObjectStream::End(CPDF_Creator* pCreator) {
   if (m_Items.empty())
     return 0;
 
-  CFX_FileBufferArchive* pFile = pCreator->GetFile();
-  FX_FILESIZE ObjOffset = pCreator->GetOffset();
+  IFX_ArchiveStream* pFile = pCreator->GetFile();
+  FX_FILESIZE ObjOffset = pFile->CurrentOffset();
   if (!m_dwObjNum)
     m_dwObjNum = pCreator->GetNextObjectNumber();
 
@@ -60,29 +60,14 @@ FX_FILESIZE CPDF_ObjectStream::End(CPDF_Creator* pCreator) {
   for (const auto& pair : m_Items)
     tempBuffer << pair.objnum << " " << pair.offset << " ";
 
-  int32_t len = pFile->AppendDWord(m_dwObjNum);
-  if (len < 0)
+  if (!pFile->WriteDWord(m_dwObjNum) ||
+      !pFile->WriteString(" 0 obj\r\n<</Type /ObjStm /N ") ||
+      !pFile->WriteDWord(pdfium::CollectionSize<uint32_t>(m_Items)) ||
+      !pFile->WriteString("/First ") ||
+      !pFile->WriteDWord(static_cast<uint32_t>(tempBuffer.GetLength())) ||
+      !pFile->WriteString("/Length ")) {
     return -1;
-  pCreator->IncrementOffset(len);
-
-  len = pFile->AppendString(" 0 obj\r\n<</Type /ObjStm /N ");
-  if (len < 0)
-    return -1;
-  pCreator->IncrementOffset(len);
-
-  len = pFile->AppendDWord(pdfium::CollectionSize<uint32_t>(m_Items));
-  if (len < 0)
-    return -1;
-  pCreator->IncrementOffset(len);
-
-  if (pFile->AppendString("/First ") < 0)
-    return -1;
-
-  len = pFile->AppendDWord(static_cast<uint32_t>(tempBuffer.GetLength()));
-  if (len < 0 || pFile->AppendString("/Length ") < 0)
-    return -1;
-  pCreator->IncrementOffset(len + 15);
-
+  }
   tempBuffer << m_Buffer;
 
   CPDF_FlateEncoder encoder(tempBuffer.GetBuffer(), tempBuffer.GetLength(),
@@ -90,26 +75,13 @@ FX_FILESIZE CPDF_ObjectStream::End(CPDF_Creator* pCreator) {
   CPDF_Encryptor encryptor(pCreator->GetCryptoHandler(), m_dwObjNum,
                            encoder.GetData(), encoder.GetSize());
 
-  len = pFile->AppendDWord(encryptor.GetSize());
-  if (len < 0)
-    return -1;
-  pCreator->IncrementOffset(len);
-
-  if (pFile->AppendString("/Filter /FlateDecode") < 0)
-    return -1;
-  pCreator->IncrementOffset(20);
-
-  len = pFile->AppendString(">>stream\r\n");
-  if (len < 0 ||
-      pFile->AppendBlock(encryptor.GetData(), encryptor.GetSize()) < 0) {
+  if (!pFile->WriteDWord(encryptor.GetSize()) ||
+      !pFile->WriteString("/Filter /FlateDecode") ||
+      !pFile->WriteString(">>stream\r\n") ||
+      !pFile->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
+      !pFile->WriteString("\r\nendstream\r\nendobj\r\n")) {
     return -1;
   }
-  pCreator->IncrementOffset(len + encryptor.GetSize());
-
-  len = pFile->AppendString("\r\nendstream\r\nendobj\r\n");
-  if (len < 0)
-    return -1;
-  pCreator->IncrementOffset(len);
 
   return ObjOffset;
 }
