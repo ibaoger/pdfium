@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f139cd83_1e81b74d",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-10T20:50:57Z",
+      "side": 1,
+      "message": "Do we want a StartsWith() method for these?",
+      "revId": "3e80fe7e38961d3a3d873d32661a8dcc36be8337",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4176e2b0_3f3311b0",
+        "filename": "core/fxcrt/cfx_widestring_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-10T20:50:57Z",
+      "side": 1,
+      "message": "Do we really want users to be able to pass in negative numbers for the start point?",
+      "range": {
+        "startLine": 941,
+        "startChar": 23,
+        "endLine": 941,
+        "endChar": 25
+      },
+      "revId": "3e80fe7e38961d3a3d873d32661a8dcc36be8337",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "674edab7_de7b2bd8",
+        "filename": "core/fxcrt/xml/cxml_parser.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-10T20:50:57Z",
+      "side": 1,
+      "message": "Do we want to provide end() like STL?",
+      "range": {
+        "startLine": 88,
+        "startChar": 36,
+        "endLine": 88,
+        "endChar": 43
+      },
+      "revId": "3e80fe7e38961d3a3d873d32661a8dcc36be8337",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
