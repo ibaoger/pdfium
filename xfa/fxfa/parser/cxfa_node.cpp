@@ -75,15 +75,13 @@ int32_t GetCount(CXFA_Node* pInstMgrNode) {
     if (iCount == 0) {
       CFX_WideStringC wsName = pNode->GetCData(XFA_ATTRIBUTE_Name);
       CFX_WideStringC wsInstName = pInstMgrNode->GetCData(XFA_ATTRIBUTE_Name);
-      if (wsInstName.GetLength() < 1 || wsInstName.GetAt(0) != '_' ||
-          wsInstName.Mid(1) != wsName) {
+      if (wsInstName[{0, 1}] != L"_" ||
+          wsInstName[{1, FX_STRSIZE_MAX}] != wsName)
         return iCount;
-      }
       dwNameHash = pNode->GetNameHash();
     }
     if (dwNameHash != pNode->GetNameHash())
       break;
-
     iCount++;
   }
   return iCount;
@@ -196,15 +194,13 @@ CXFA_Node* GetItem(CXFA_Node* pInstMgrNode, int32_t iIndex) {
     if (iCount == 0) {
       CFX_WideStringC wsName = pNode->GetCData(XFA_ATTRIBUTE_Name);
       CFX_WideStringC wsInstName = pInstMgrNode->GetCData(XFA_ATTRIBUTE_Name);
-      if (wsInstName.GetLength() < 1 || wsInstName.GetAt(0) != '_' ||
-          wsInstName.Mid(1) != wsName) {
+      if (wsInstName[{0, 1}] != L"_" ||
+          wsInstName[{1, FX_STRSIZE_MAX}] != wsName)
         return nullptr;
-      }
       dwNameHash = pNode->GetNameHash();
     }
     if (dwNameHash != pNode->GetNameHash())
       break;
-
     iCount++;
     if (iCount > iIndex)
       return pNode;
@@ -2733,10 +2729,9 @@ void CXFA_Node::Script_Subform_InstanceManager(CFXJSE_Value* pValue,
        pNode = pNode->GetNodeItem(XFA_NODEITEM_PrevSibling)) {
     if (pNode->GetElementType() == XFA_Element::InstanceManager) {
       CFX_WideStringC wsInstMgrName = pNode->GetCData(XFA_ATTRIBUTE_Name);
-      if (wsInstMgrName.GetLength() >= 1 && wsInstMgrName.GetAt(0) == '_' &&
-          wsInstMgrName.Mid(1) == wsName) {
+      if (wsInstMgrName[{0, 1}] == L"_" &&
+          wsInstMgrName[{1, FX_STRSIZE_MAX}] == wsName)
         pInstanceMgr = pNode;
-      }
       break;
     }
   }
@@ -2744,7 +2739,6 @@ void CXFA_Node::Script_Subform_InstanceManager(CFXJSE_Value* pValue,
     pValue->SetNull();
     return;
   }
-
   pValue->Assign(
       m_pDocument->GetScriptContext()->GetJSValueFromMap(pInstanceMgr));
 }
@@ -3158,10 +3152,8 @@ int32_t CXFA_Node::InstanceManager_SetInstances(int32_t iDesired) {
     return 0;
   }
   if (iDesired < iCount) {
-    CFX_WideStringC wsInstManagerName = GetCData(XFA_ATTRIBUTE_Name);
-    CFX_WideString wsInstanceName =
-        CFX_WideString(wsInstManagerName.IsEmpty() ? wsInstManagerName
-                                                   : wsInstManagerName.Mid(1));
+    CFX_WideString wsInstanceName(
+        GetCData(XFA_ATTRIBUTE_Name)[{1, FX_STRSIZE_MAX}]);
     uint32_t dInstanceNameHash =
         FX_HashCode_GetW(wsInstanceName.AsStringC(), false);
     CXFA_Node* pPrevSibling =
@@ -4647,9 +4639,9 @@ CXFA_Node* CXFA_Node::GetInstanceMgrOfSubform() {
   CXFA_Node* pInstanceMgr = nullptr;
   if (m_ePacket == XFA_XDPPACKET_Form) {
     CXFA_Node* pParentNode = GetNodeItem(XFA_NODEITEM_Parent);
-    if (!pParentNode || pParentNode->GetElementType() == XFA_Element::Area) {
+    if (!pParentNode || pParentNode->GetElementType() == XFA_Element::Area)
       return pInstanceMgr;
-    }
+
     for (CXFA_Node* pNode = GetNodeItem(XFA_NODEITEM_PrevSibling); pNode;
          pNode = pNode->GetNodeItem(XFA_NODEITEM_PrevSibling)) {
       XFA_Element eType = pNode->GetElementType();
@@ -4660,10 +4652,9 @@ CXFA_Node* CXFA_Node::GetInstanceMgrOfSubform() {
       if (eType == XFA_Element::InstanceManager) {
         CFX_WideStringC wsName = GetCData(XFA_ATTRIBUTE_Name);
         CFX_WideStringC wsInstName = pNode->GetCData(XFA_ATTRIBUTE_Name);
-        if (wsInstName.GetLength() > 0 && wsInstName.GetAt(0) == '_' &&
-            wsInstName.Mid(1) == wsName) {
+        if (wsInstName[{0, 1}] == L"_" &&
+            wsInstName[{1, FX_STRSIZE_MAX}] == wsName)
           pInstanceMgr = pNode;
-        }
         break;
       }
     }

@@ -845,38 +845,6 @@ TEST(fxcrt, ByteStringCFind) {
   EXPECT_EQ(2, hibyte_string.Find('\x8c'));
 }
 
-TEST(fxcrt, ByteStringCMid) {
-  CFX_ByteStringC null_string;
-  EXPECT_EQ(null_string, null_string.Mid(0, 1));
-  EXPECT_EQ(null_string, null_string.Mid(1, 1));
-
-  CFX_ByteStringC empty_string("");
-  EXPECT_EQ(empty_string, empty_string.Mid(0, 1));
-  EXPECT_EQ(empty_string, empty_string.Mid(1, 1));
-
-  CFX_ByteStringC single_character("a");
-  EXPECT_EQ(empty_string, single_character.Mid(0, 0));
-  EXPECT_EQ(single_character, single_character.Mid(0, 1));
-  EXPECT_EQ(empty_string, single_character.Mid(1, 0));
-  EXPECT_EQ(empty_string, single_character.Mid(1, 1));
-
-  CFX_ByteStringC longer_string("abcdef");
-  EXPECT_EQ(longer_string, longer_string.Mid(0, 6));
-  EXPECT_EQ(longer_string, longer_string.Mid(0, 187));
-  EXPECT_EQ(longer_string, longer_string.Mid(-42, 6));
-  EXPECT_EQ(longer_string, longer_string.Mid(-42, 187));
-
-  CFX_ByteStringC leading_substring("ab");
-  EXPECT_EQ(leading_substring, longer_string.Mid(0, 2));
-  EXPECT_EQ(leading_substring, longer_string.Mid(-1, 2));
-
-  CFX_ByteStringC middle_substring("bcde");
-  EXPECT_EQ(middle_substring, longer_string.Mid(1, 4));
-
-  CFX_ByteStringC trailing_substring("ef");
-  EXPECT_EQ(trailing_substring, longer_string.Mid(4, 2));
-  EXPECT_EQ(trailing_substring, longer_string.Mid(4, 3));
-}
 
 TEST(fxcrt, ByteStringCGetAt) {
   CFX_ByteString short_string("a");
@@ -1095,6 +1063,20 @@ TEST(fxcrt, ByteStringCAnyAllNoneOf) {
   EXPECT_TRUE(pdfium::ContainsValue(str, 'a'));
   EXPECT_TRUE(pdfium::ContainsValue(str, 'b'));
   EXPECT_FALSE(pdfium::ContainsValue(str, 'z'));
+}
+
+TEST(fxcrt, ByteStringCSlice) {
+  CFX_ByteStringC empty;
+  EXPECT_EQ("", (empty[{-1, 17}]));
+
+  CFX_ByteStringC str("Mr. Boffo");
+  EXPECT_EQ("", (str[{0, 0}]));
+  EXPECT_EQ("", (str[{1, 1}]));
+  EXPECT_EQ("M", (str[{0, 1}]));
+  EXPECT_EQ("Mr", (str[{0, 2}]));
+  EXPECT_EQ("Bo", (str[{4, 6}]));
+  EXPECT_EQ("Mr. Boffo", (str[{-1, FX_STRSIZE_MAX}]));
+  EXPECT_EQ("", (str[{3, 2}]));
 }
 
 TEST(fxcrt, ByteStringFormatWidth) {
