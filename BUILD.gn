@@ -879,6 +879,8 @@ static_library("fxge") {
   sources = [
     "core/fxconvert/cfx_psrenderer.cpp",
     "core/fxconvert/cfx_psrenderer.h",
+    "core/fxconvert/cpdf_psrenderdevice.cpp",
+    "core/fxconvert/cpdf_psrenderdevice.h",
     "core/fxge/android/cfpf_skiabufferfont.h",
     "core/fxge/android/cfpf_skiadevicemodule.cpp",
     "core/fxge/android/cfpf_skiadevicemodule.h",

@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "core/fxcodec/fx_codec.h"
+#include "core/fxconvert/cpdf_psrenderdevice.h"
 #include "core/fxcrt/cfx_maybe_owned.h"
 #include "core/fxcrt/fx_codepage.h"
 #include "core/fxcrt/fx_memory.h"
@@ -25,6 +26,7 @@
 #include "core/fxge/ge/fx_text_int.h"
 #include "core/fxge/ifx_systemfontinfo.h"
 #include "core/fxge/win32/cfx_windowsdib.h"
+#include "core/fxge/win32/cpsoutput.h"
 #include "core/fxge/win32/dwrite_int.h"
 #include "core/fxge/win32/win32_int.h"
 #include "third_party/base/ptr_util.h"
@@ -1385,7 +1387,41 @@ IFX_RenderDeviceDriver* CFX_WindowsDevice::CreateDriver(HDC hDC) {
 
   if (g_pdfium_print_postscript_level == 2 ||
       g_pdfium_print_postscript_level == 3) {
-    return new CPSPrinterDriver(hDC, g_pdfium_print_postscript_level, false);
+    auto device = pdfium::MakeUnique<CPDF_PSRenderDevice>(
+        pdfium::MakeUnique<CPSOutput>(hDC), g_pdfium_print_postscript_level,
+        false);
+
+    device->SetHorizontalSize(::GetDeviceCaps(hDC, HORZSIZE));
+    device->SetVerticalSize(::GetDeviceCaps(hDC, VERTSIZE));
+    device->SetWidth(::GetDeviceCaps(hDC, HORZRES));
+    device->SetHeight(::GetDeviceCaps(hDC, VERTRES));
+    device->SetBitsPerPixel(::GetDeviceCaps(hDC, BITSPIXEL));
+
+    HRGN hRgn = ::CreateRectRgn(0, 0, 1, 1);
+    int ret = ::GetClipRgn(hDC, hRgn);
+    if (ret == 1) {
+      ret = ::GetRegionData(hRgn, 0, NULL);
+      if (ret) {
+        RGNDATA* pData = reinterpret_cast<RGNDATA*>(FX_Alloc(uint8_t, ret));
+        ret = ::GetRegionData(hRgn, ret, pData);
+        if (ret) {
+          CFX_PathData path;
+          for (uint32_t i = 0; i < pData->rdh.nCount; i++) {
+            RECT* pRect = reinterpret_cast<RECT*>(pData->Buffer +
+                                                  pData->rdh.nRgnSize * i);
+            path.AppendRect(static_cast<float>(pRect->left),
+                            static_cast<float>(pRect->bottom),
+                            static_cast<float>(pRect->right),
+                            static_cast<float>(pRect->top));
+          }
+          device->SetClip_PathFill(&path, nullptr, FXFILL_WINDING);
+        }
+        FX_Free(pData);
+      }
+    }
+    ::DeleteObject(hRgn);
+    return device.release();
   }
+
   return new CGdiPrinterDriver(hDC);
 }
