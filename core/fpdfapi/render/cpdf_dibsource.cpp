@@ -1361,7 +1361,7 @@ void CPDF_DIBSource::DownSampleScanline32Bit(int orig_Bpp,
     if (src_x == last_src_x) {
       argb = last_argb;
     } else {
-      CFX_FixedBufGrow<uint8_t, 128> extracted_components(m_nComponents);
+      std::vector<uint8_t> extracted_components(m_nComponents);
       const uint8_t* pSrcPixel = nullptr;
       if (m_bpc % 8 != 0) {
         // No need to check for 32-bit overflow, as |src_x| is bounded by
@@ -1375,25 +1375,22 @@ void CPDF_DIBSource::DownSampleScanline32Bit(int orig_Bpp,
               GetBits8(pSrcPixel, src_bit_pos, m_bpc) * unit_To8Bpc);
           src_bit_pos += m_bpc;
         }
-        pSrcPixel = extracted_components;
+        pSrcPixel = extracted_components.data();
       } else {
         pSrcPixel = pSrcLine + src_x * orig_Bpp;
         if (m_bpc == 16) {
           for (uint32_t j = 0; j < m_nComponents; ++j)
             extracted_components[j] = pSrcPixel[j * 2];
-          pSrcPixel = extracted_components;
+          pSrcPixel = extracted_components.data();
         }
       }
 
       if (m_pColorSpace) {
         uint8_t color[4];
         const bool bTransMask = TransMask();
-        if (m_bDefaultDecode) {
-          m_pColorSpace->TranslateImageLine(color, pSrcPixel, 1, 0, 0,
-                                            bTransMask);
-        } else {
+        if (!m_bDefaultDecode) {
           for (uint32_t j = 0; j < m_nComponents; ++j) {
-            float component_value = static_cast<float>(extracted_components[j]);
+            float component_value = static_cast<float>(pSrcPixel[j]);
             int color_value = static_cast<int>(
                 (m_pCompData[j].m_DecodeMin +
                  m_pCompData[j].m_DecodeStep * component_value) *
@@ -1402,9 +1399,10 @@ void CPDF_DIBSource::DownSampleScanline32Bit(int orig_Bpp,
             extracted_components[j] =
                 color_value > 255 ? 255 : (color_value < 0 ? 0 : color_value);
           }
-          m_pColorSpace->TranslateImageLine(color, extracted_components, 1, 0,
-                                            0, bTransMask);
         }
+        const uint8_t* pSrc =
+            m_bDefaultDecode ? pSrcPixel : extracted_components.data();
+        m_pColorSpace->TranslateImageLine(color, pSrc, 1, 0, 0, bTransMask);
         argb = FXARGB_MAKE(0xFF, color[2], color[1], color[0]);
       } else {
         argb = FXARGB_MAKE(0xFF, pSrcPixel[2], pSrcPixel[1], pSrcPixel[0]);
