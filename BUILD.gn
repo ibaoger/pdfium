@@ -877,6 +877,8 @@ static_library("fxcrt") {
 
 static_library("fxge") {
   sources = [
+    "core/fxconvert/cfx_psrenderer.cpp",
+    "core/fxconvert/cfx_psrenderer.h",
     "core/fxge/android/cfpf_skiabufferfont.h",
     "core/fxge/android/cfpf_skiadevicemodule.cpp",
     "core/fxge/android/cfpf_skiadevicemodule.h",
@@ -1011,8 +1013,6 @@ static_library("fxge") {
 
   if (is_win) {
     sources += [
-      "core/fxge/win32/cfx_psrenderer.cpp",
-      "core/fxge/win32/cfx_psrenderer.h",
       "core/fxge/win32/cpsoutput.cpp",
       "core/fxge/win32/cpsoutput.h",
       "core/fxge/win32/dwrite_int.h",

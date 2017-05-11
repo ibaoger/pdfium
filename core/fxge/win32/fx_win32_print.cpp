@@ -338,7 +338,9 @@ CPSPrinterDriver::CPSPrinterDriver(HDC hDC, int pslevel, bool bCmykOutput)
   m_Height = ::GetDeviceCaps(m_hDC, VERTRES);
   m_nBitsPerPixel = ::GetDeviceCaps(m_hDC, BITSPIXEL);
   m_pPSOutput = pdfium::MakeUnique<CPSOutput>(m_hDC);
-  m_PSRenderer.Init(m_pPSOutput.get(), pslevel, m_Width, m_Height, bCmykOutput);
+  m_PSRenderer = pdfium::MakeUnique<CFX_PSRenderer>(
+      m_pPSOutput.get(), pslevel, m_Width, m_Height, bCmykOutput);
+
   HRGN hRgn = ::CreateRectRgn(0, 0, 1, 1);
   int ret = ::GetClipRgn(hDC, hRgn);
   if (ret == 1) {
@@ -356,7 +358,7 @@ CPSPrinterDriver::CPSPrinterDriver(HDC hDC, int pslevel, bool bCmykOutput)
                           static_cast<float>(pRect->right),
                           static_cast<float>(pRect->top));
         }
-        m_PSRenderer.SetClip_PathFill(&path, nullptr, FXFILL_WINDING);
+        m_PSRenderer->SetClip_PathFill(&path, nullptr, FXFILL_WINDING);
       }
       FX_Free(pData);
     }
@@ -389,25 +391,26 @@ int CPSPrinterDriver::GetDeviceCaps(int caps_id) const {
 }
 
 bool CPSPrinterDriver::StartRendering() {
-  return m_PSRenderer.StartRendering();
+  m_PSRenderer->StartRendering();
+  return true;
 }
 
 void CPSPrinterDriver::EndRendering() {
-  m_PSRenderer.EndRendering();
+  m_PSRenderer->EndRendering();
 }
 
 void CPSPrinterDriver::SaveState() {
-  m_PSRenderer.SaveState();
+  m_PSRenderer->SaveState();
 }
 
 void CPSPrinterDriver::RestoreState(bool bKeepSaved) {
-  m_PSRenderer.RestoreState(bKeepSaved);
+  m_PSRenderer->RestoreState(bKeepSaved);
 }
 
 bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
                                         const CFX_Matrix* pObject2Device,
                                         int fill_mode) {
-  m_PSRenderer.SetClip_PathFill(pPathData, pObject2Device, fill_mode);
+  m_PSRenderer->SetClip_PathFill(pPathData, pObject2Device, fill_mode);
   return true;
 }
 
@@ -415,7 +418,7 @@ bool CPSPrinterDriver::SetClip_PathStroke(
     const CFX_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
-  m_PSRenderer.SetClip_PathStroke(pPathData, pObject2Device, pGraphState);
+  m_PSRenderer->SetClip_PathStroke(pPathData, pObject2Device, pGraphState);
   return true;
 }
 
@@ -429,12 +432,12 @@ bool CPSPrinterDriver::DrawPath(const CFX_PathData* pPathData,
   if (blend_type != FXDIB_BLEND_NORMAL) {
     return false;
   }
-  return m_PSRenderer.DrawPath(pPathData, pObject2Device, pGraphState,
-                               fill_color, stroke_color, fill_mode & 3);
+  return m_PSRenderer->DrawPath(pPathData, pObject2Device, pGraphState,
+                                fill_color, stroke_color, fill_mode & 3);
 }
 
 bool CPSPrinterDriver::GetClipBox(FX_RECT* pRect) {
-  *pRect = m_PSRenderer.GetClipBox();
+  *pRect = m_PSRenderer->GetClipBox();
   return true;
 }
 
@@ -446,7 +449,7 @@ bool CPSPrinterDriver::SetDIBits(const CFX_RetainPtr<CFX_DIBSource>& pBitmap,
                                  int blend_type) {
   if (blend_type != FXDIB_BLEND_NORMAL)
     return false;
-  return m_PSRenderer.SetDIBits(pBitmap, color, left, top);
+  return m_PSRenderer->SetDIBits(pBitmap, color, left, top);
 }
 
 bool CPSPrinterDriver::StretchDIBits(
@@ -461,8 +464,8 @@ bool CPSPrinterDriver::StretchDIBits(
     int blend_type) {
   if (blend_type != FXDIB_BLEND_NORMAL)
     return false;
-  return m_PSRenderer.StretchDIBits(pBitmap, color, dest_left, dest_top,
-                                    dest_width, dest_height, flags);
+  return m_PSRenderer->StretchDIBits(pBitmap, color, dest_left, dest_top,
+                                     dest_width, dest_height, flags);
 }
 
 bool CPSPrinterDriver::StartDIBits(const CFX_RetainPtr<CFX_DIBSource>& pBitmap,
@@ -479,7 +482,7 @@ bool CPSPrinterDriver::StartDIBits(const CFX_RetainPtr<CFX_DIBSource>& pBitmap,
     return false;
 
   *handle = nullptr;
-  return m_PSRenderer.DrawDIBits(pBitmap, color, pMatrix, render_flags);
+  return m_PSRenderer->DrawDIBits(pBitmap, color, pMatrix, render_flags);
 }
 
 bool CPSPrinterDriver::DrawDeviceText(int nChars,
@@ -488,8 +491,8 @@ bool CPSPrinterDriver::DrawDeviceText(int nChars,
                                       const CFX_Matrix* pObject2Device,
                                       float font_size,
                                       uint32_t color) {
-  return m_PSRenderer.DrawText(nChars, pCharPos, pFont, pObject2Device,
-                               font_size, color);
+  return m_PSRenderer->DrawText(nChars, pCharPos, pFont, pObject2Device,
+                                font_size, color);
 }
 
 void* CPSPrinterDriver::GetPlatformSurface() const {
