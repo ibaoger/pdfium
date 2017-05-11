@@ -17,10 +17,7 @@
 #include "xfa/fxfa/cxfa_ffpageview.h"
 
 CPDFXFA_Page::CPDFXFA_Page(CPDFXFA_Context* pContext, int page_index)
-    : m_pXFAPageView(nullptr),
-      m_pContext(pContext),
-      m_iPageIndex(page_index),
-      m_iRef(1) {}
+    : m_pXFAPageView(nullptr), m_pContext(pContext), m_iPageIndex(page_index) {}
 
 CPDFXFA_Page::~CPDFXFA_Page() {
   if (m_pContext)
