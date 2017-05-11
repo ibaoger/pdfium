@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89299acf_bd3e79f5",
+        "filename": "core/fxge/ge/cfx_gemodule.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-11T18:31:02Z",
+      "side": 1,
+      "message": "nit: can this be MakeUnique too?",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 32
+      },
+      "revId": "5ea56bd52406c8b87e625637bd084c16d9b133f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
