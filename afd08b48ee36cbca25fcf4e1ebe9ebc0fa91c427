@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbcd5344_c5174b7e",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-11T17:56:46Z",
+      "side": 1,
+      "message": "maybe this should be a method invoked against g_pCodecModule  ?",
+      "range": {
+        "startLine": 368,
+        "startChar": 2,
+        "endLine": 368,
+        "endChar": 33
+      },
+      "revId": "afd08b48ee36cbca25fcf4e1ebe9ebc0fa91c427",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
