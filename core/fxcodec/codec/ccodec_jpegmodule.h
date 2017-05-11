@@ -59,11 +59,9 @@ class CCodec_JpegModule {
   bool ReadScanline(FXJPEG_Context* pContext, uint8_t* dest_buf);
   uint32_t GetAvailInput(FXJPEG_Context* pContext, uint8_t** avail_buf_ptr);
 
-#if _FX_OS_ == _FX_WIN32_DESKTOP_ || _FX_OS_ == _FX_WIN64_DESKTOP_
   static bool JpegEncode(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                          uint8_t** dest_buf,
                          FX_STRSIZE* dest_size);
-#endif
 };
 
 #endif  // CORE_FXCODEC_CODEC_CCODEC_JPEGMODULE_H_

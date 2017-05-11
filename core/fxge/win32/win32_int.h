@@ -11,9 +11,9 @@
 
 #include <memory>
 
+#include "core/fxconvert/cfx_psrenderer.h"
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/ifx_renderdevicedriver.h"
-#include "core/fxge/win32/cfx_psrenderer.h"
 #include "core/fxge/win32/cpsoutput.h"
 #include "core/fxge/win32/dwrite_int.h"
 
@@ -332,7 +332,7 @@ class CPSPrinterDriver : public IFX_RenderDeviceDriver {
   int m_HorzSize;
   int m_VertSize;
   std::unique_ptr<CPSOutput> m_pPSOutput;
-  CFX_PSRenderer m_PSRenderer;
+  std::unique_ptr<CFX_PSRenderer> m_PSRenderer;
 };
 
 #endif  // CORE_FXGE_WIN32_WIN32_INT_H_

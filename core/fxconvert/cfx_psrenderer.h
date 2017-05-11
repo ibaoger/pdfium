@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef CORE_FXGE_WIN32_CFX_PSRENDERER_H_
-#define CORE_FXGE_WIN32_CFX_PSRENDERER_H_
+#ifndef CORE_FXCONVERT_CFX_PSRENDERER_H_
+#define CORE_FXCONVERT_CFX_PSRENDERER_H_
 
 #include <memory>
 #include <vector>
@@ -13,7 +13,6 @@
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/cfx_graphstatedata.h"
-#include "core/fxge/win32/cpsoutput.h"
 
 class CFX_DIBSource;
 class CFX_FaceCache;
@@ -26,15 +25,14 @@ class FXTEXT_CHARPOS;
 
 class CFX_PSRenderer {
  public:
-  CFX_PSRenderer();
+  CFX_PSRenderer(IFX_WriteStream* stream,
+                 int pslevel,
+                 int width,
+                 int height,
+                 bool bCmykOutput);
   ~CFX_PSRenderer();
 
-  void Init(CPSOutput* pOutput,
-            int pslevel,
-            int width,
-            int height,
-            bool bCmykOutput);
-  bool StartRendering();
+  void StartRendering();
   void EndRendering();
   void SaveState();
   void RestoreState(bool bKeepSaved);
@@ -85,7 +83,7 @@ class CFX_PSRenderer {
                        int* ps_glyphindex);
   void WritePSBinary(const uint8_t* data, int len);
 
-  CPSOutput* m_pOutput;
+  IFX_WriteStream* m_pStream;
   int m_PSLevel;
   CFX_GraphStateData m_CurGraphState;
   bool m_bGraphStateSet;
@@ -95,7 +93,6 @@ class CFX_PSRenderer {
   FX_RECT m_ClipBox;
   std::vector<std::unique_ptr<CPSFont>> m_PSFontList;
   std::vector<FX_RECT> m_ClipBoxStack;
-  bool m_bInited;
 };
 
-#endif  // CORE_FXGE_WIN32_CFX_PSRENDERER_H_
+#endif  // CORE_FXCONVERT_CFX_PSRENDERER_H_
