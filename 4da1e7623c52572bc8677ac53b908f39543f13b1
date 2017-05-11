@@ -16,6 +16,24 @@
       "revId": "4da1e7623c52572bc8677ac53b908f39543f13b1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35ee088d_f2492b36",
+        "filename": "core/fxconvert/cfx_psrenderer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T15:19:06Z",
+      "side": 0,
+      "message": "And of course ... is required because we never call StartRendering which seems like a bug ....",
+      "parentUuid": "4e6c48c9_7fd6e0e8",
+      "revId": "4da1e7623c52572bc8677ac53b908f39543f13b1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
