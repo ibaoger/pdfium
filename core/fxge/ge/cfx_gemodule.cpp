@@ -21,7 +21,6 @@ CFX_GEModule* g_pGEModule = nullptr;
 CFX_GEModule::CFX_GEModule()
     : m_FTLibrary(nullptr),
       m_pFontMgr(new CFX_FontMgr),
-      m_pCodecModule(nullptr),
       m_pPlatformData(nullptr),
       m_pUserFontPaths(nullptr) {}
 
@@ -43,10 +42,8 @@ void CFX_GEModule::Destroy() {
   g_pGEModule = nullptr;
 }
 
-void CFX_GEModule::Init(const char** userFontPaths,
-                        CCodec_ModuleMgr* pCodecModule) {
+void CFX_GEModule::Init(const char** userFontPaths) {
   ASSERT(g_pGEModule);
-  m_pCodecModule = pCodecModule;
   m_pUserFontPaths = userFontPaths;
   InitPlatform();
   SetTextGamma(2.2f);
