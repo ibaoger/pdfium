@@ -6,6 +6,10 @@
 
 #include "core/fxge/cfx_gemodule.h"
 
+#include <memory>
+#include <utility>
+
+#include "core/fxcodec/fx_codec.h"
 #include "core/fxge/cfx_fontcache.h"
 #include "core/fxge/cfx_fontmgr.h"
 #include "core/fxge/ge/cfx_folderfontinfo.h"
@@ -21,7 +25,6 @@ CFX_GEModule* g_pGEModule = nullptr;
 CFX_GEModule::CFX_GEModule()
     : m_FTLibrary(nullptr),
       m_pFontMgr(new CFX_FontMgr),
-      m_pCodecModule(nullptr),
       m_pPlatformData(nullptr),
       m_pUserFontPaths(nullptr) {}
 
@@ -44,9 +47,9 @@ void CFX_GEModule::Destroy() {
 }
 
 void CFX_GEModule::Init(const char** userFontPaths,
-                        CCodec_ModuleMgr* pCodecModule) {
+                        std::unique_ptr<CCodec_ModuleMgr> pCodecModule) {
   ASSERT(g_pGEModule);
-  m_pCodecModule = pCodecModule;
+  m_pCodecModule = std::move(pCodecModule);
   m_pUserFontPaths = userFontPaths;
   InitPlatform();
   SetTextGamma(2.2f);
