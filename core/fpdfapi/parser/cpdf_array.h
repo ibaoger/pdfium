@@ -35,6 +35,10 @@ class CPDF_Array : public CPDF_Object {
   CPDF_Array* AsArray() override;
   const CPDF_Array* AsArray() const override;
   bool WriteTo(IFX_ArchiveStream* archive) const override;
+  bool WriteDirectTo(IFX_ArchiveStream* archive,
+                     uint32_t objnum,
+                     bool encrypt,
+                     CPDF_CryptoHandler* crypto_handler) const override;
 
   bool IsEmpty() const { return m_Objects.empty(); }
   size_t GetCount() const { return m_Objects.size(); }
