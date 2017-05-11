@@ -38,6 +38,13 @@ std::unique_ptr<CPDF_Object> CPDF_Object::CloneNonCyclic(
   return Clone();
 }
 
+bool CPDF_Object::WriteDirectTo(IFX_ArchiveStream* archive,
+                                uint32_t objnum,
+                                bool encrypt,
+                                CPDF_CryptoHandler* crypto_handler) const {
+  return WriteTo(archive);
+}
+
 CFX_ByteString CPDF_Object::GetString() const {
   return CFX_ByteString();
 }

@@ -208,7 +208,8 @@ bool CPDF_Creator::WriteStream(const CPDF_Object* pStream,
     encoder.GetDict()->SetNewFor<CPDF_Number>(
         "Length", static_cast<int>(encryptor.GetSize()));
   }
-  if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
+  if (!encoder.GetDict()->WriteDirectTo(m_Archive.get(), objnum, true,
+                                        m_pCryptoHandler.Get()) ||
       !m_Archive->WriteString("stream\r\n") ||
       !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
       !m_Archive->WriteString("\r\nendstream")) {
@@ -227,7 +228,11 @@ bool CPDF_Creator::WriteIndirectObj(uint32_t objnum, const CPDF_Object* pObj) {
         pObj != m_pMetadata ? m_pCryptoHandler.Get() : nullptr;
     if (!WriteStream(pObj, objnum, pHandler))
       return false;
-  } else if (!WriteDirectObj(objnum, pObj, true)) {
+  } else if (pObj == m_pEncryptDict) {
+    if (!pObj->WriteTo(m_Archive.get()))
+      return false;
+  } else if (!pObj->WriteDirectTo(m_Archive.get(), objnum, true,
+                                  m_pCryptoHandler.Get())) {
     return false;
   }
 
@@ -265,117 +270,6 @@ bool CPDF_Creator::WriteIndirectObj(const CPDF_Object* pObj) {
     return true;
   if (!m_pXRefStream->End(this, false) || !m_pXRefStream->Start())
     return false;
-  return true;
-}
-
-bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
-                                  const CPDF_Object* pObj,
-                                  bool bEncrypt) {
-  switch (pObj->GetType()) {
-    case CPDF_Object::BOOLEAN:
-    case CPDF_Object::NAME:
-    case CPDF_Object::NULLOBJ:
-    case CPDF_Object::NUMBER:
-    case CPDF_Object::REFERENCE:
-      if (!pObj->WriteTo(m_Archive.get()))
-        return false;
-      break;
-
-    case CPDF_Object::STRING: {
-      CFX_ByteString str = pObj->GetString();
-      bool bHex = pObj->AsString()->IsHex();
-      if (!m_pCryptoHandler || !bEncrypt) {
-        if (!pObj->WriteTo(m_Archive.get()))
-          return false;
-        break;
-      }
-      CPDF_Encryptor encryptor(m_pCryptoHandler.Get(), objnum,
-                               (uint8_t*)str.c_str(), str.GetLength());
-      CFX_ByteString content = PDF_EncodeString(
-          CFX_ByteString(encryptor.GetData(), encryptor.GetSize()), bHex);
-      if (!m_Archive->WriteString(content.AsStringC()))
-        return false;
-      break;
-    }
-    case CPDF_Object::STREAM: {
-      CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(pObj->AsStream()),
-                                true);
-      CPDF_Encryptor encryptor(m_pCryptoHandler.Get(), objnum,
-                               encoder.GetData(), encoder.GetSize());
-      if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
-          encryptor.GetSize()) {
-        encoder.CloneDict();
-        encoder.GetDict()->SetNewFor<CPDF_Number>(
-            "Length", static_cast<int>(encryptor.GetSize()));
-      }
-      if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-          !m_Archive->WriteString("stream\r\n") ||
-          !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
-          !m_Archive->WriteString("\r\nendstream")) {
-        return false;
-      }
-
-      break;
-    }
-    case CPDF_Object::ARRAY: {
-      if (!m_Archive->WriteString("["))
-        return false;
-
-      const CPDF_Array* p = pObj->AsArray();
-      for (size_t i = 0; i < p->GetCount(); i++) {
-        CPDF_Object* pElement = p->GetObjectAt(i);
-        if (!pElement->IsInline()) {
-          if (!m_Archive->WriteString(" ") ||
-              !m_Archive->WriteDWord(pElement->GetObjNum()) ||
-              !m_Archive->WriteString(" 0 R")) {
-            return false;
-          }
-        } else if (!WriteDirectObj(objnum, pElement, true)) {
-          return false;
-        }
-      }
-      if (!m_Archive->WriteString("]"))
-        return false;
-      break;
-    }
-    case CPDF_Object::DICTIONARY: {
-      if (!m_pCryptoHandler || pObj == m_pEncryptDict) {
-        if (!pObj->WriteTo(m_Archive.get()))
-          return false;
-        break;
-      }
-
-      if (!m_Archive->WriteString("<<"))
-        return false;
-
-      const CPDF_Dictionary* p = pObj->AsDictionary();
-      bool bSignDict = p->IsSignatureDict();
-      for (const auto& it : *p) {
-        bool bSignValue = false;
-        const CFX_ByteString& key = it.first;
-        CPDF_Object* pValue = it.second.get();
-        if (!m_Archive->WriteString("/") ||
-            !m_Archive->WriteString(PDF_NameEncode(key).AsStringC())) {
-          return false;
-        }
-
-        if (bSignDict && key == "Contents")
-          bSignValue = true;
-        if (!pValue->IsInline()) {
-          if (!m_Archive->WriteString(" ") ||
-              !m_Archive->WriteDWord(pValue->GetObjNum()) ||
-              !m_Archive->WriteString(" 0 R ")) {
-            return false;
-          }
-        } else if (!WriteDirectObj(objnum, pValue, !bSignValue)) {
-          return false;
-        }
-      }
-      if (!m_Archive->WriteString(">>"))
-        return false;
-      break;
-    }
-  }
   return true;
 }
 

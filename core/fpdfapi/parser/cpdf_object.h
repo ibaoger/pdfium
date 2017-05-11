@@ -11,6 +11,7 @@
 #include <set>
 #include <type_traits>
 
+#include "core/fpdfapi/parser/cpdf_crypto_handler.h"
 #include "core/fxcrt/fx_basic.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
@@ -90,6 +91,10 @@ class CPDF_Object {
   virtual const CPDF_String* AsString() const;
 
   virtual bool WriteTo(IFX_ArchiveStream* archive) const = 0;
+  virtual bool WriteDirectTo(IFX_ArchiveStream* archive,
+                             uint32_t objnum,
+                             bool encrypt,
+                             CPDF_CryptoHandler* crypto_handler) const;
 
  protected:
   friend class CPDF_Array;
