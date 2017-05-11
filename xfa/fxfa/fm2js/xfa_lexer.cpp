@@ -479,6 +479,8 @@ void CXFA_FMLexer::Error(const wchar_t* msg, ...) {
   va_start(ap, msg);
   m_pErrorInfo->message.FormatV(msg, ap);
   va_end(ap);
+  if (m_pErrorInfo->message.IsEmpty())
+    m_pErrorInfo->message = L"Unformattable error message";
 }
 
 bool CXFA_FMLexer::HasError() const {

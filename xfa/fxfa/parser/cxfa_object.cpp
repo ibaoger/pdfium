@@ -59,6 +59,8 @@ void CXFA_Object::ThrowException(const wchar_t* str, ...) const {
   va_start(arg_ptr, str);
   wsMessage.FormatV(str, arg_ptr);
   va_end(arg_ptr);
+  if (wsMessage.IsEmpty())
+    wsMessage = L"Unformattable error message";
   FXJSE_ThrowMessage(wsMessage.UTF8Encode().AsStringC());
 }
 
