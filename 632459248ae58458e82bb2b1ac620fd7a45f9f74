@@ -1,0 +1,197 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62bb9422_991592bc",
+        "filename": "api/pdfium.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "g_pdfium ?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2f2dbe0_b538e812",
+        "filename": "api/pdfium.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "palmer/tsepez misspelled this.",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a87031bb_7a088d93",
+        "filename": "api/pdfium.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Do we really need this check? Should we document the expected usage in the public API header instead?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919b4096_c854a1a6",
+        "filename": "api/pdfium.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Can we name this something else? PDFium feels too generic.",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5bb6b9f_a08e9d2d",
+        "filename": "api/pdfium_document.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Pretty sure it can\u0027t.",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86f66c37_096431d1",
+        "filename": "core/fpdfapi/cpdf_modulemgr.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Can these changes be their own CL?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e52d31_9836fc9d",
+        "filename": "public/exp/pdfium.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Do we need to do some kind of PDFIUM_EXPORT for public APIs?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dffd91d9_7862f793",
+        "filename": "public/exp/pdfium.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "delegate",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b1ca6e2_49331947",
+        "filename": "public/exp/pdfium_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "private, with setters / accessor? And/or specify these via the ctor?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f687fa71_db248b8e",
+        "filename": "public/exp/pdfium_document.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "Why not full(er) path?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81567836_d727070d",
+        "filename": "public/exp/pdfium_document.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T01:46:59Z",
+      "side": 1,
+      "message": "I haven\u0027t seend too many places in Chromium return std::pairs. This is probably going to make everyone very familiar with std::tie().",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
