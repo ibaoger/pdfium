@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cb9906f_0857c3c5",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-11T18:15:38Z",
+      "side": 1,
+      "message": "nit: g_bLibraryInitialized.",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 19
+      },
+      "revId": "3d25b72bed87ca1f97dde53793d30613718b0891",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
