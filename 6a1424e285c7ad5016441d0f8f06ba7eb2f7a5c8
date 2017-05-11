@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75ef255d_a88c91f5",
+        "filename": "core/fxge/ge/cfx_facecache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T18:53:25Z",
+      "side": 0,
+      "message": "table[i] \u003d\u003d i, so pData[i] \u003d pData[i] ....",
+      "revId": "6a1424e285c7ad5016441d0f8f06ba7eb2f7a5c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a29834a_eb0e83fb",
+        "filename": "core/fxge/ge/cfx_gemodule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T18:53:25Z",
+      "side": 0,
+      "message": "gammaValue is 2.2, so it becomes 1, which means the below calculation always ends up assigning table[i] \u003d i.",
+      "revId": "6a1424e285c7ad5016441d0f8f06ba7eb2f7a5c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
