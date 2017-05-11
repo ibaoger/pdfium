@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03e06bac_2cc2b9c9",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-11T19:52:43Z",
+      "side": 1,
+      "message": "follow-on: we may hit this a lot.  Maybe this should be a templated helper function in our version of stl_uitl.h ?",
+      "range": {
+        "startLine": 513,
+        "startChar": 32,
+        "endLine": 515,
+        "endChar": 76
+      },
+      "revId": "7774f00ab6b63d40a6aa035dc3283d7cc4b0d750",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
