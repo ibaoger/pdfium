@@ -509,6 +509,7 @@ DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadDocument(FPDF_STRING file_path,
     ProcessParseError(error);
     return nullptr;
   }
+  CheckUnSupportError(pDocument.get(), error);
   return FPDFDocumentFromCPDFDocument(pDocument.release());
 }
 
