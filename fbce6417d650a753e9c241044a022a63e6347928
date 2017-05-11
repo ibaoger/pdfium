@@ -16,6 +16,24 @@
       "revId": "fbce6417d650a753e9c241044a022a63e6347928",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6464290d_11ee5aab",
+        "filename": "third_party/libopenjpeg20/t1.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-11T14:25:34Z",
+      "side": 1,
+      "message": "I don\u0027t know, I\u0027m not even sure what bpno means and it\u0027s not documented. We can certainly do what you say, I was just trying to minimize the impact caused by avoiding the undefined shift.",
+      "parentUuid": "1696c177_b2e5442f",
+      "revId": "fbce6417d650a753e9c241044a022a63e6347928",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
