@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "218da030_de175487",
+        "filename": "xfa/fxfa/fm2js/xfa_expression.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T00:19:41Z",
+      "side": 1,
+      "message": "Well, in this case, only one of the calls is taken, but I\u0027ll check the others.",
+      "parentUuid": "143d985d_fe29091f",
+      "range": {
+        "startLine": 217,
+        "startChar": 9,
+        "endLine": 217,
+        "endChar": 13
+      },
+      "revId": "a0a1a2609687c1c9e669849c684c0575d6f4dcc7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "767074e7_96170f5a",
         "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2017-04-11T15:00:56Z",
       "side": 1,
       "message": "Do we want to use the return value of this method? It\u0027s currently not being considered.",
+      "range": {
+        "startLine": 6326,
+        "startChar": 27,
+        "endLine": 6326,
+        "endChar": 36
+      },
+      "revId": "a0a1a2609687c1c9e669849c684c0575d6f4dcc7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02608890_6a64b989",
+        "filename": "xfa/fxfa/fm2js/xfa_fm2jscontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6326,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-11T00:19:41Z",
+      "side": 1,
+      "message": "Took care of this in another CL.",
+      "parentUuid": "767074e7_96170f5a",
       "range": {
         "startLine": 6326,
         "startChar": 27,
