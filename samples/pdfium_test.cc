@@ -57,11 +57,11 @@ enum OutputFormat {
   OUTPUT_TEXT,
   OUTPUT_PPM,
   OUTPUT_PNG,
+  OUTPUT_PS2,
+  OUTPUT_PS3,
 #ifdef _WIN32
   OUTPUT_BMP,
   OUTPUT_EMF,
-  OUTPUT_PS2,
-  OUTPUT_PS3,
 #endif
 #ifdef PDF_ENABLE_SKIA
   OUTPUT_SKP,
@@ -308,6 +308,19 @@ int CALLBACK EnhMetaFileProc(HDC hdc,
   items.push_back(record);
   return 1;
 }
+#endif  // _WIN32
+
+struct FileWriter : public FPDF_FILEWRITE_ {
+ public:
+  FILE* fp_;
+};
+
+int FileBlockWriter(struct FPDF_FILEWRITE_* pThis,
+                    const void* pData,
+                    unsigned long size) {
+  fwrite(pData, sizeof(char), size, static_cast<FileWriter*>(pThis)->fp_);
+  return 1;
+}
 
 void WritePS(FPDF_PAGE page, const char* pdf_name, int num) {
   char filename[256];
@@ -316,29 +329,17 @@ void WritePS(FPDF_PAGE page, const char* pdf_name, int num) {
   if (!fp)
     return;
 
-  HDC dc = CreateEnhMetaFileA(nullptr, nullptr, nullptr, nullptr);
+  FileWriter writer;
+  writer.version = 1;
+  writer.WriteBlock = &FileBlockWriter;
+  writer.fp_ = fp;
 
   int width = static_cast<int>(FPDF_GetPageWidth(page));
   int height = static_cast<int>(FPDF_GetPageHeight(page));
-  FPDF_RenderPage(dc, page, 0, 0, width, height, 0,
-                  FPDF_ANNOT | FPDF_PRINTING | FPDF_NO_CATCH);
+  FPDF_RenderPageStream(&writer, page, width, height, 0);
 
-  HENHMETAFILE emf = CloseEnhMetaFile(dc);
-  std::vector<const ENHMETARECORD*> items;
-  EnumEnhMetaFile(nullptr, emf, &EnhMetaFileProc, &items, nullptr);
-  for (const ENHMETARECORD* record : items) {
-    if (record->iType != EMR_GDICOMMENT)
-      continue;
-
-    const auto* comment = reinterpret_cast<const EMRGDICOMMENT*>(record);
-    const char* data = reinterpret_cast<const char*>(comment->Data);
-    uint16_t size = *reinterpret_cast<const uint16_t*>(data);
-    fwrite(data + sizeof(uint16_t), size, 1, fp);
-  }
   fclose(fp);
-  DeleteEnhMetaFile(emf);
 }
-#endif  // _WIN32
 
 #ifdef PDF_ENABLE_SKIA
 static std::string WriteSkp(const char* pdf_name,
@@ -516,6 +517,13 @@ bool ParseCommandLine(const std::vector<std::string>& args,
         return false;
       }
       options->output_format = OUTPUT_EMF;
+    } else if (cur_arg == "--bmp") {
+      if (options->output_format != OUTPUT_NONE) {
+        fprintf(stderr, "Duplicate or conflicting --bmp argument\n");
+        return false;
+      }
+      options->output_format = OUTPUT_BMP;
+#endif  // _WIN32
     } else if (cur_arg == "--ps2") {
       if (options->output_format != OUTPUT_NONE) {
         fprintf(stderr, "Duplicate or conflicting --ps2 argument\n");
@@ -528,13 +536,6 @@ bool ParseCommandLine(const std::vector<std::string>& args,
         return false;
       }
       options->output_format = OUTPUT_PS3;
-    } else if (cur_arg == "--bmp") {
-      if (options->output_format != OUTPUT_NONE) {
-        fprintf(stderr, "Duplicate or conflicting --bmp argument\n");
-        return false;
-      }
-      options->output_format = OUTPUT_BMP;
-#endif  // _WIN32
 
 #ifdef PDF_ENABLE_V8
 #ifdef V8_USE_EXTERNAL_STARTUP_DATA
@@ -790,12 +791,11 @@ bool RenderPage(const std::string& name,
       case OUTPUT_EMF:
         WriteEmf(page.get(), name.c_str(), page_index);
         break;
-
+#endif
       case OUTPUT_PS2:
       case OUTPUT_PS3:
         WritePS(page.get(), name.c_str(), page_index);
         break;
-#endif
       case OUTPUT_TEXT:
         WriteText(page.get(), name.c_str(), page_index);
         break;
@@ -957,12 +957,10 @@ void RenderPdf(const std::string& name,
   FORM_DoDocumentJSAction(form.get());
   FORM_DoDocumentOpenAction(form.get());
 
-#if _WIN32
   if (options.output_format == OUTPUT_PS2)
     FPDF_SetPrintPostscriptLevel(2);
   else if (options.output_format == OUTPUT_PS3)
     FPDF_SetPrintPostscriptLevel(3);
-#endif
 
   int page_count = FPDF_GetPageCount(doc.get());
   int rendered_pages = 0;
@@ -1032,9 +1030,9 @@ static const char kUsageString[] =
 #ifdef _WIN32
     "  --bmp - write page images <pdf-name>.<page-number>.bmp\n"
     "  --emf - write page meta files <pdf-name>.<page-number>.emf\n"
+#endif  // _WIN32
     "  --ps2 - write page raw PostScript (Lvl 2) <pdf-name>.<page-number>.ps\n"
     "  --ps3 - write page raw PostScript (Lvl 3) <pdf-name>.<page-number>.ps\n"
-#endif  // _WIN32
     "  --txt - write page text in UTF32-LE <pdf-name>.<page-number>.txt\n"
     "  --png - write page images <pdf-name>.<page-number>.png\n"
     "  --ppm - write page images <pdf-name>.<page-number>.ppm\n"

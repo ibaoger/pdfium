@@ -103,6 +103,9 @@ class CFX_RenderDevice {
     return m_pDeviceDriver.get();
   }
 
+  void StartRendering();
+  void EndRendering();
+
   void SaveState();
   void RestoreState(bool bKeepSaved);
 

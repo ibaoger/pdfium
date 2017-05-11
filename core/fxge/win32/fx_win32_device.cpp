@@ -1388,7 +1388,7 @@ IFX_RenderDeviceDriver* CFX_WindowsDevice::CreateDriver(HDC hDC) {
   if (g_pdfium_print_postscript_level == 2 ||
       g_pdfium_print_postscript_level == 3) {
     auto device = pdfium::MakeUnique<CPDF_PSRenderDevice>(
-        pdfium::MakeUnique<CPSOutput>(hDC), g_pdfium_print_postscript_level,
+        pdfium::MakeRetain<CPSOutput>(hDC), g_pdfium_print_postscript_level,
         false);
 
     device->SetHorizontalSize(::GetDeviceCaps(hDC, HORZSIZE));

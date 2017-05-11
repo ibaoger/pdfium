@@ -38,7 +38,10 @@ void CPDF_ProgressiveRenderer::Start(IFX_Pause* pPause) {
     return;
   }
   m_Status = ToBeContinued;
+
+  m_pDevice->StartRendering();
   Continue(pPause);
+  m_pDevice->EndRendering();
 }
 
 void CPDF_ProgressiveRenderer::Continue(IFX_Pause* pPause) {

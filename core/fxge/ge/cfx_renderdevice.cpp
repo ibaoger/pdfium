@@ -387,6 +387,14 @@ void CFX_RenderDevice::SetDeviceDriver(
   InitDeviceInfo();
 }
 
+void CFX_RenderDevice::StartRendering() {
+  m_pDeviceDriver->StartRendering();
+}
+
+void CFX_RenderDevice::EndRendering() {
+  m_pDeviceDriver->EndRendering();
+}
+
 void CFX_RenderDevice::InitDeviceInfo() {
   m_Width = m_pDeviceDriver->GetDeviceCaps(FXDC_PIXEL_WIDTH);
   m_Height = m_pDeviceDriver->GetDeviceCaps(FXDC_PIXEL_HEIGHT);

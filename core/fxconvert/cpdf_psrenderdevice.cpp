@@ -12,18 +12,17 @@
 #include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/dib/cfx_imagerenderer.h"
 
-CPDF_PSRenderDevice::CPDF_PSRenderDevice(
-    std::unique_ptr<IFX_WriteStream> stream,
-    int pslevel,
-    bool bCmykOutput)
-    : m_Stream(std::move(stream)),
+CPDF_PSRenderDevice::CPDF_PSRenderDevice(CFX_RetainPtr<IFX_WriteStream> stream,
+                                         int pslevel,
+                                         bool bCmykOutput)
+    : m_Stream(stream),
       m_bCmykOutput(bCmykOutput),
       m_Width(0),
       m_Height(0),
       m_nBitsPerPixel(0),
       m_HorzSize(0),
       m_VertSize(0),
-      m_PSRenderer(m_Stream.get(), pslevel, m_Width, m_Height, bCmykOutput) {}
+      m_PSRenderer(m_Stream.Get(), pslevel, m_Width, m_Height, bCmykOutput) {}
 
 CPDF_PSRenderDevice::~CPDF_PSRenderDevice() {
   EndRendering();
@@ -156,5 +155,5 @@ bool CPDF_PSRenderDevice::DrawDeviceText(int nChars,
 }
 
 void* CPDF_PSRenderDevice::GetPlatformSurface() const {
-  return m_Stream.get();
+  return m_Stream.Get();
 }

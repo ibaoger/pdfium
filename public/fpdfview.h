@@ -122,6 +122,34 @@ typedef struct _FS_RECTF_ {
 // Const Pointer to FS_RECTF structure.
 typedef const FS_RECTF* FS_LPCRECTF;
 
+// Structure for custom file write
+typedef struct FPDF_FILEWRITE_ {
+  //
+  // Version number of the interface. Currently must be 1.
+  //
+  int version;
+
+  //
+  // Method: WriteBlock
+  //          Output a block of data in your custom way.
+  // Interface Version:
+  //          1
+  // Implementation Required:
+  //          Yes
+  // Comments:
+  //          Called by function FPDF_SaveDocument
+  // Parameters:
+  //          pThis       -   Pointer to the structure itself
+  //          pData       -   Pointer to a buffer to output
+  //          size        -   The size of the buffer.
+  // Return value:
+  //          Should be non-zero if successful, zero for error.
+  //
+  int (*WriteBlock)(struct FPDF_FILEWRITE_* pThis,
+                    const void* pData,
+                    unsigned long size);
+} FPDF_FILEWRITE;
+
 #if defined(_WIN32) && defined(FPDFSDK_EXPORTS)
 // On Windows system, functions are exported in a DLL
 #define DLLEXPORT __declspec(dllexport)
@@ -649,6 +677,21 @@ DLLEXPORT FPDF_RECORDER STDCALL FPDF_RenderPageSkp(FPDF_PAGE page,
                                                    int size_x,
                                                    int size_y);
 #endif
+
+// EXPERIMENTAL, do not use.
+#define FPDF_FORMAT_PS 1
+DLLEXPORT void STDCALL FPDF_RenderPageStream(FPDF_FILEWRITE* writer,
+                                             FPDF_PAGE page,
+                                             int size_x,
+                                             int size_y,
+                                             int format);
+
+DLLEXPORT void STDCALL FPDF_RenderStream(FPDF_FILEWRITE* writer,
+                                         FPDF_DOCUMENT doc,
+                                         int size_x,
+                                         int size_y,
+                                         int format);
+/// END EXPERIMENTAL
 
 // Function: FPDF_ClosePage
 //          Close a loaded PDF page.

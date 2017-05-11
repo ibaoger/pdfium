@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "core/fxconvert/cfx_psrenderer.h"
+#include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxge/ifx_renderdevicedriver.h"
 
@@ -23,7 +24,7 @@ class IFX_WriteStream;
 
 class CPDF_PSRenderDevice : public IFX_RenderDeviceDriver {
  public:
-  CPDF_PSRenderDevice(std::unique_ptr<IFX_WriteStream> stream,
+  CPDF_PSRenderDevice(CFX_RetainPtr<IFX_WriteStream> stream,
                       int ps_level,
                       bool bCmykOutput);
   ~CPDF_PSRenderDevice() override;
@@ -85,7 +86,7 @@ class CPDF_PSRenderDevice : public IFX_RenderDeviceDriver {
   void* GetPlatformSurface() const override;
 
  private:
-  std::unique_ptr<IFX_WriteStream> m_Stream;
+  CFX_RetainPtr<IFX_WriteStream> m_Stream;
   bool m_bCmykOutput;
   int m_Width;
   int m_Height;

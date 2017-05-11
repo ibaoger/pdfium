@@ -26,6 +26,7 @@
 #include "core/fpdfdoc/cpdf_occontext.h"
 #include "core/fpdfdoc/cpdf_viewerpreferences.h"
 #include "core/fxcodec/fx_codec.h"
+#include "core/fxconvert/cpdf_psrenderdevice.h"
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_safe_types.h"
 #include "core/fxge/cfx_fxgedevice.h"
@@ -33,6 +34,7 @@
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/cpdfsdk_pageview.h"
 #include "fpdfsdk/fsdk_define.h"
+#include "fpdfsdk/fsdk_filewriteadapter.h"
 #include "fpdfsdk/fsdk_pauseadapter.h"
 #include "fpdfsdk/javascript/ijs_runtime.h"
 #include "public/fpdf_ext.h"
@@ -1449,3 +1451,36 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
   }
   return (FPDF_DEST)pDestObj;
 }
+
+DLLEXPORT void STDCALL FPDF_RenderPageStream(FPDF_FILEWRITE* writer,
+                                             FPDF_PAGE page,
+                                             int size_x,
+                                             int size_y,
+                                             int format) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!pPage)
+    return;
+
+  CPDF_PageRenderContext* pContext = new CPDF_PageRenderContext;
+  pPage->SetRenderContext(pdfium::WrapUnique(pContext));
+
+  auto driver = pdfium::MakeUnique<CPDF_PSRenderDevice>(
+      pdfium::MakeRetain<FSDK_FileWriteAdapter>(writer),
+      g_pdfium_print_postscript_level, false);
+  driver->SetWidth(size_x);
+  driver->SetHeight(size_y);
+
+  auto device = pdfium::MakeUnique<CFX_FxgeDevice>();
+  device->SetDeviceDriver(std::move(driver));
+  pContext->m_pDevice = std::move(device);
+
+  FPDF_RenderPage_Retail(pContext, page, 0, 0, size_x, size_y, 0, 0, true,
+                         nullptr);
+  pPage->SetRenderContext(nullptr);
+}
+
+DLLEXPORT void STDCALL FPDF_RenderStream(FPDF_FILEWRITE* writer,
+                                         FPDF_DOCUMENT doc,
+                                         int size_x,
+                                         int size_y,
+                                         int format) {}

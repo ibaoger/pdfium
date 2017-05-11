@@ -14,34 +14,6 @@
 extern "C" {
 #endif
 
-// Structure for custom file write
-typedef struct FPDF_FILEWRITE_ {
-  //
-  // Version number of the interface. Currently must be 1.
-  //
-  int version;
-
-  //
-  // Method: WriteBlock
-  //          Output a block of data in your custom way.
-  // Interface Version:
-  //          1
-  // Implementation Required:
-  //          Yes
-  // Comments:
-  //          Called by function FPDF_SaveDocument
-  // Parameters:
-  //          pThis       -   Pointer to the structure itself
-  //          pData       -   Pointer to a buffer to output
-  //          size        -   The size of the buffer.
-  // Return value:
-  //          Should be non-zero if successful, zero for error.
-  //
-  int (*WriteBlock)(struct FPDF_FILEWRITE_* pThis,
-                    const void* pData,
-                    unsigned long size);
-} FPDF_FILEWRITE;
-
 /** @brief Incremental. */
 #define FPDF_INCREMENTAL 1
 /** @brief No Incremental. */
