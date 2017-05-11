@@ -84,8 +84,8 @@ void FX_XML_SplitQualifiedName(const CFX_ByteStringC& bsFullName,
   if (iStart == -1) {
     bsName = bsFullName;
   } else {
-    bsSpace = bsFullName.Mid(0, iStart);
-    bsName = bsFullName.Mid(iStart + 1);
+    bsSpace = bsFullName[{0, iStart}];
+    bsName = bsFullName[{iStart + 1, FX_STRSIZE_MAX}];
   }
 }
 
