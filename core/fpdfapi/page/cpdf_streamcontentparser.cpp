@@ -628,7 +628,7 @@ void CPDF_StreamContentParser::Handle_BeginImage() {
     if (type != CPDF_StreamParser::Name) {
       break;
     }
-    CFX_ByteString key(m_pSyntax->GetWord().Mid(1));
+    CFX_ByteString key(m_pSyntax->GetWord()(1, FX_STRSIZE_MAX));
     auto pObj = m_pSyntax->ReadNextObject(false, false, 0);
     if (!key.IsEmpty()) {
       uint32_t dwObjNum = pObj ? pObj->GetObjNum() : 0;
@@ -1532,7 +1532,7 @@ uint32_t CPDF_StreamContentParser::Parse(const uint8_t* pData,
         AddNumberParam(syntax.GetWord());
         break;
       case CPDF_StreamParser::Name:
-        AddNameParam(syntax.GetWord().Mid(1));
+        AddNameParam(syntax.GetWord()(1, FX_STRSIZE_MAX));
         break;
       default:
         AddObjectParam(syntax.GetObject());
