@@ -55,7 +55,7 @@ CFX_WideString CPDF_FileSpec::DecodeFileName(const CFX_WideStringC& filepath) {
     return CFX_WideString();
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
-  if (filepath.Left(sizeof("/Mac") - 1) == CFX_WideStringC(L"/Mac"))
+  if (filepath(0, 4) == L"/Mac")
     return ChangeSlashToPlatform(filepath.c_str() + 1);
   return ChangeSlashToPlatform(filepath.c_str());
 #elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
@@ -137,7 +137,7 @@ CFX_WideString CPDF_FileSpec::EncodeFileName(const CFX_WideStringC& filepath) {
     return L'/' + ChangeSlashToPDF(filepath.c_str());
   return ChangeSlashToPDF(filepath.c_str());
 #elif _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
-  if (filepath.Left(sizeof("Mac") - 1) == L"Mac")
+  if (filepath(0, 3) == L"Mac")
     return L'/' + ChangeSlashToPDF(filepath.c_str());
   return ChangeSlashToPDF(filepath.c_str());
 #else
