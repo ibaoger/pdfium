@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "494e2097_5fd19790",
+        "filename": "api/pdfium.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T02:36:49Z",
+      "side": 1,
+      "message": "It\u0027s documented, we can remove this if we don\u0027t think it\u0027s needed.",
+      "parentUuid": "a87031bb_7a088d93",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "919b4096_c854a1a6",
         "filename": "api/pdfium.h",
         "patchSetId": 4
@@ -64,6 +82,24 @@
       "writtenOn": "2017-05-11T01:46:59Z",
       "side": 1,
       "message": "Can we name this something else? PDFium feels too generic.",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8db8ed4_d363e72c",
+        "filename": "api/pdfium.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T02:36:49Z",
+      "side": 1,
+      "message": "I couldn\u0027t come up with anything better ...",
+      "parentUuid": "919b4096_c854a1a6",
       "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -115,6 +151,24 @@
       "writtenOn": "2017-05-11T01:46:59Z",
       "side": 1,
       "message": "Do we need to do some kind of PDFIUM_EXPORT for public APIs?",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a11a11_314a5454",
+        "filename": "public/exp/pdfium.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T02:36:49Z",
+      "side": 1,
+      "message": "Is that needed for c++ or just c?",
+      "parentUuid": "18e52d31_9836fc9d",
       "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -178,6 +232,24 @@
     },
     {
       "key": {
+        "uuid": "e01f65d6_0e54343d",
+        "filename": "public/exp/pdfium_document.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T02:36:49Z",
+      "side": 1,
+      "message": "Having the full path in public/ causes pain when using externally. You  end up adding -I pdfium/src to compile and then having public/foo.h as the path which is really weird in a 3rd party library.\n\nThis way, you\u0027d have include \u003cpdfium.h\u003e which is a bit nicer, and in theory, if we installed the headers to usr/local/include/pdfium you\u0027d have pdfium/pdfium.h which is nicest.",
+      "parentUuid": "f687fa71_db248b8e",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81567836_d727070d",
         "filename": "public/exp/pdfium_document.h",
         "patchSetId": 4
@@ -189,6 +261,24 @@
       "writtenOn": "2017-05-11T01:46:59Z",
       "side": 1,
       "message": "I haven\u0027t seend too many places in Chromium return std::pairs. This is probably going to make everyone very familiar with std::tie().",
+      "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1962a623_b6374ff0",
+        "filename": "public/exp/pdfium_document.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-11T02:36:49Z",
+      "side": 1,
+      "message": "Heh, I like it, but I\u0027m not sure how others feel about it. I\u0027m a fan of the multi return value, and the go way of having result, err as the returns.",
+      "parentUuid": "81567836_d727070d",
       "revId": "632459248ae58458e82bb2b1ac620fd7a45f9f74",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
