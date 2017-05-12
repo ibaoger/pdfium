@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c47e0ef0_9c5315c3",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-12T21:56:18Z",
+      "side": 1,
+      "message": "Maybe they meant to pass |true| here, but no matter.  Followup would be to find better ownership.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 66
+      },
+      "revId": "40fd099a152381b78144281a16fffd4c53d15520",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
