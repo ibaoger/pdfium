@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1badeac_d415433a",
+        "filename": "core/fxcodec/lgif/fx_gif.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-12T18:23:15Z",
+      "side": 1,
+      "message": "nit: maybe put a NOTREACHED(); after each of these if we have such a thing in pdfium, the return never executes but the compiler can\u0027t know that.",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 3
+      },
+      "revId": "1b35091e4b65d3d4436e63d13e417fefe89e205b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
