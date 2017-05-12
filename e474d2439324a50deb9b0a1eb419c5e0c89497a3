@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "60ba0df0_987017fc",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-12T16:34:33Z",
+      "side": 1,
+      "message": "const CFX_RetainPtr\u003cIFX_WriteStream\u003e\u0026 pStream,",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44424c8a_c8ef9bec",
+        "filename": "core/fxge/win32/cfx_psrenderer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-12T16:34:33Z",
+      "side": 1,
+      "message": "IFX_WriteStreams are \"retainables\", and this should be a CFX_RetainPtr\u003cIFX_WriteStream\u003e just because, unless this would create a cyclic dependency (not likely).",
+      "range": {
+        "startLine": 89,
+        "startChar": 3,
+        "endLine": 89,
+        "endChar": 42
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5086a186_79bf0ced",
         "filename": "core/fxge/win32/cpsoutput.h",
         "patchSetId": 3
