@@ -566,7 +566,7 @@ void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
   if (!pRenderDev)
     return;
 
-  auto pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(pRenderDev, false);
+  auto pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(pRenderDev);
   auto pRenderContext = pdfium::MakeUnique<CFDE_RenderContext>();
   pRenderDevice->SetClipRect(rtClip);
   pRenderContext->StartRender(pRenderDevice.get(), pPage, mt);
