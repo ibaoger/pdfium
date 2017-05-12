@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38709d52_69168745",
+        "filename": "core/fxcrt/fx_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-12T16:11:21Z",
+      "side": 1,
+      "message": "Can we just have the implementation in here instead of having it twice in its subclasses?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "revId": "2b9bcd8653083e265c0d2cdf97bbd2d8b1e28ab0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
