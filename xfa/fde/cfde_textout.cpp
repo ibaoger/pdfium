@@ -121,12 +121,12 @@ void CFDE_TextOut::SetDIBitmap(const CFX_RetainPtr<CFX_DIBitmap>& pDIB) {
   m_pRenderDevice.reset();
   CFX_DefaultRenderDevice* device = new CFX_DefaultRenderDevice;
   device->Attach(pDIB, false, nullptr, false);
-  m_pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(device, false);
+  m_pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(device);
 }
 
 void CFDE_TextOut::SetRenderDevice(CFX_RenderDevice* pDevice) {
   ASSERT(pDevice);
-  m_pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(pDevice, false);
+  m_pRenderDevice = pdfium::MakeUnique<CFDE_RenderDevice>(pDevice);
 }
 
 void CFDE_TextOut::SetClipRect(const CFX_Rect& rtClip) {
