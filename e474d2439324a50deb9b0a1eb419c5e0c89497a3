@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6efaa08_87b2824d",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T01:32:08Z",
+      "side": 1,
+      "message": "Followup",
+      "parentUuid": "0ba5be9d_9a356082",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 29
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46a6480d_1653026e",
         "filename": "core/fxge/win32/cfx_psrenderer.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-12T16:25:15Z",
       "side": 1,
       "message": "Maybe it\u0027s clearer if we return this one, and it can be a unique_ptr or vector",
+      "range": {
+        "startLine": 42,
+        "startChar": 20,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec2f53c8_32ef4ffa",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T01:32:08Z",
+      "side": 1,
+      "message": "Followup.",
+      "parentUuid": "46a6480d_1653026e",
       "range": {
         "startLine": 42,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "71b77096_0979b29f",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T01:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ba0df0_987017fc",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44424c8a_c8ef9bec",
         "filename": "core/fxge/win32/cfx_psrenderer.h",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "033658ef_efef6a4f",
+        "filename": "core/fxge/win32/cfx_psrenderer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T01:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44424c8a_c8ef9bec",
+      "range": {
+        "startLine": 89,
+        "startChar": 3,
+        "endLine": 89,
+        "endChar": 42
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5086a186_79bf0ced",
         "filename": "core/fxge/win32/cpsoutput.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2017-05-12T16:25:15Z",
       "side": 1,
       "message": "WriteBlock?",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "e474d2439324a50deb9b0a1eb419c5e0c89497a3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9190a53_fb162cb7",
+        "filename": "core/fxge/win32/cpsoutput.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T01:32:08Z",
+      "side": 1,
+      "message": "The fun of writing for Windows on a Mac, heh.",
+      "parentUuid": "5086a186_79bf0ced",
       "range": {
         "startLine": 21,
         "startChar": 7,
