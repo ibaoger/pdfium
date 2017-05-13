@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "01d36ea6_1a65400a",
+        "filename": "core/fxcrt/fx_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T00:54:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "892279ee_995aa318",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "2b9bcd8653083e265c0d2cdf97bbd2d8b1e28ab0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38709d52_69168745",
         "filename": "core/fxcrt/fx_stream.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Hmm.  Not sure what the right design is here.  We\u0027d like to have a pure virtual API, and we\u0027d also like to avoid inflicting duplicate impls on the subclasses.  Maybe just continue to be verbose at the call sites as is done today?",
       "parentUuid": "38709d52_69168745",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "revId": "2b9bcd8653083e265c0d2cdf97bbd2d8b1e28ab0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67d73d29_f77ecb90",
+        "filename": "core/fxcrt/fx_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-13T00:54:54Z",
+      "side": 1,
+      "message": "I\u0027m fine with the duplication at this point as it\u0027s pretty simple. Keeping this as pure virtual seems nice.",
+      "parentUuid": "dd092f4d_50116255",
       "range": {
         "startLine": 45,
         "startChar": 2,
