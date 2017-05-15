@@ -34,6 +34,23 @@
       "revId": "a41466412eb0c401c30c91580970e19547fd2f76",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f3def51_1ec25ab6",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-15T18:51:23Z",
+      "side": 1,
+      "message": "Note for later: We should check and see if |pBuffer| is being leaked above when returning false.",
+      "revId": "a41466412eb0c401c30c91580970e19547fd2f76",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
