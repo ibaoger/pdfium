@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edb73388_d931240b",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-15T19:26:48Z",
+      "side": 1,
+      "message": "Shall we just return a reference?",
+      "revId": "ef480d3e81242bafdf289f428b0dd3cafd04cade",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e19f15_075a4c80",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-15T19:26:48Z",
+      "side": 1,
+      "message": "Move this down towards line 139, and drop |pWidgetAcc| which is only used once here?",
+      "revId": "ef480d3e81242bafdf289f428b0dd3cafd04cade",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
