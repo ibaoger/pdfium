@@ -96,12 +96,21 @@ CXFA_FMToken::CXFA_FMToken(uint32_t uLineNum)
 
 CXFA_FMLexer::CXFA_FMLexer(const CFX_WideStringC& wsFormCalc,
                            CXFA_FMErrorInfo* pErrorInfo)
-    : m_ptr(wsFormCalc.c_str()), m_uCurrentLine(1), m_pErrorInfo(pErrorInfo) {}
+    : m_ptr(wsFormCalc.c_str()),
+      m_end(m_ptr + wsFormCalc.GetLength() - 1),
+      m_uCurrentLine(1),
+      m_pErrorInfo(pErrorInfo) {}
 
 CXFA_FMLexer::~CXFA_FMLexer() {}
 
 CXFA_FMToken* CXFA_FMLexer::NextToken() {
-  m_pToken = Scan();
+  // Make sure we don't walk off the end of the string.
+  if (m_ptr > m_end) {
+    m_pToken = pdfium::MakeUnique<CXFA_FMToken>(m_uCurrentLine);
+    m_pToken->m_type = TOKeof;
+  } else {
+    m_pToken = Scan();
+  }
   return m_pToken.get();
 }
 
@@ -115,6 +124,10 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
   }
 
   while (1) {
+    // Make sure we don't walk off the end of the string.
+    if (m_ptr > m_end)
+      return p;
+
     if (!IsValid(m_ptr)) {
       ch = *m_ptr;
       Error(kFMErrUnsupportedChar, ch);
@@ -165,6 +178,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       }
       case '=':
         ++m_ptr;
+        if (m_ptr > m_end) {
+          Error(kFMErrEndOfInput);
+          return p;
+        }
+
         if (IsValid(m_ptr)) {
           ch = *m_ptr;
           if (ch == '=') {
@@ -180,6 +198,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '<':
         ++m_ptr;
+        if (m_ptr > m_end) {
+          Error(kFMErrEndOfInput);
+          return p;
+        }
+
         if (IsValid(m_ptr)) {
           ch = *m_ptr;
           if (ch == '=') {
@@ -198,6 +221,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '>':
         ++m_ptr;
+        if (m_ptr > m_end) {
+          Error(kFMErrEndOfInput);
+          return p;
+        }
+
         if (IsValid(m_ptr)) {
           ch = *m_ptr;
           if (ch == '=') {
@@ -253,6 +281,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '/': {
         ++m_ptr;
+        if (m_ptr > m_end) {
+          Error(kFMErrEndOfInput);
+          return p;
+        }
+
         if (!IsValid(m_ptr)) {
           ch = *m_ptr;
           Error(kFMErrUnsupportedChar, ch);
@@ -270,6 +303,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       }
       case '.':
         ++m_ptr;
+        if (m_ptr > m_end) {
+          Error(kFMErrEndOfInput);
+          return p;
+        }
+
         if (IsValid(m_ptr)) {
           ch = *m_ptr;
           if (ch == '.') {
@@ -332,6 +370,11 @@ void CXFA_FMLexer::String(CXFA_FMToken* t,
   const wchar_t* pStart = p;
   uint16_t ch = 0;
   ++p;
+  if (p > m_end) {
+    Error(kFMErrEndOfInput);
+    return;
+  }
+
   ch = *p;
   while (ch) {
     if (!IsValid(p)) {
@@ -343,11 +386,21 @@ void CXFA_FMLexer::String(CXFA_FMToken* t,
     }
     if (ch != '"') {
       ++p;
+      if (p > m_end) {
+        Error(kFMErrEndOfInput);
+        return;
+      }
+
       ch = *p;
       continue;
     }
 
     ++p;
+    if (p > m_end) {
+      Error(kFMErrEndOfInput);
+      return;
+    }
+
     if (!IsValid(p)) {
       ch = *p;
       pEnd = p;
@@ -360,6 +413,10 @@ void CXFA_FMLexer::String(CXFA_FMToken* t,
       break;
 
     ++p;
+    if (p > m_end) {
+      Error(kFMErrEndOfInput);
+      return;
+    }
     ch = *p;
   }
   pEnd = p;
@@ -373,9 +430,13 @@ void CXFA_FMLexer::Identifiers(CXFA_FMToken* t,
   uint16_t ch = 0;
   ch = *p;
   ++p;
+  if (p > m_end) {
+    Error(kFMErrEndOfInput);
+    return;
+  }
+
   if (!IsValid(p)) {
     pEnd = p;
-    t->m_wstring = CFX_WideStringC(pStart, (pEnd - pStart));
     Error(kFMErrUnsupportedChar, ch);
     return;
   }
@@ -384,7 +445,6 @@ void CXFA_FMLexer::Identifiers(CXFA_FMToken* t,
   while (ch) {
     if (!IsValid(p)) {
       pEnd = p;
-      t->m_wstring = CFX_WideStringC(pStart, (pEnd - pStart));
       Error(kFMErrUnsupportedChar, ch);
       return;
     }
@@ -398,6 +458,10 @@ void CXFA_FMLexer::Identifiers(CXFA_FMToken* t,
       break;
     }
     ++p;
+    if (p > m_end) {
+      Error(kFMErrEndOfInput);
+      return;
+    }
   }
   pEnd = p;
   t->m_wstring = CFX_WideStringC(pStart, (pEnd - pStart));
@@ -407,20 +471,37 @@ void CXFA_FMLexer::Identifiers(CXFA_FMToken* t,
 void CXFA_FMLexer::Comment(const wchar_t* p, const wchar_t*& pEnd) {
   unsigned ch = 0;
   ++p;
+  if (p > m_end) {
+    Error(kFMErrEndOfInput);
+    return;
+  }
+
   ch = *p;
   while (ch) {
-    if (ch == 0x0D) {
+    if (ch == L'\r') {
       ++p;
+      if (p > m_end) {
+        Error(kFMErrEndOfInput);
+        return;
+      }
       pEnd = p;
       return;
     }
-    if (ch == 0x0A) {
+    if (ch == L'\n') {
       ++m_uCurrentLine;
       ++p;
+      if (p > m_end) {
+        Error(kFMErrEndOfInput);
+        return;
+      }
       pEnd = p;
       return;
     }
     ++p;
+    if (p > m_end) {
+      Error(kFMErrEndOfInput);
+      return;
+    }
     ch = *p;
   }
   pEnd = p;
