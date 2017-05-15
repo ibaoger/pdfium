@@ -9,6 +9,7 @@
 #include <utility>
 
 #include "core/fxcrt/fx_extension.h"
+#include "third_party/base/logging.h"
 
 namespace {
 
@@ -384,7 +385,7 @@ bool CXFA_FMEqualityExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       javascript << gs_lpStrExpFuncName[NOTEQUALITY];
       break;
     default:
-      ASSERT(false);
+      NOTREACHED();
       break;
   }
   javascript << L"(";
@@ -423,7 +424,7 @@ bool CXFA_FMRelationalExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       javascript << gs_lpStrExpFuncName[GREATEREQUAL];
       break;
     default:
-      ASSERT(false);
+      NOTREACHED();
       break;
   }
   javascript << L"(";
@@ -452,7 +453,7 @@ bool CXFA_FMAdditiveExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
       javascript << gs_lpStrExpFuncName[MINUS];
       break;
     default:
-      ASSERT(false);
+      NOTREACHED();
       break;
   }
   javascript << L"(";
@@ -482,7 +483,7 @@ bool CXFA_FMMultiplicativeExpression::ToJavaScript(
       javascript << gs_lpStrExpFuncName[DIVIDE];
       break;
     default:
-      ASSERT(false);
+      NOTREACHED();
       break;
   }
   javascript << L"(";
