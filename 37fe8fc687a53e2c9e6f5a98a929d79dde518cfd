@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daf1ecbc_816fe1c3",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-15T21:21:02Z",
+      "side": 1,
+      "message": "Couldn\u0027t we just do the check here? Make it a private method, return your new error if it happens to overflow.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "37fe8fc687a53e2c9e6f5a98a929d79dde518cfd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024a3cf8_df1c2c8c",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-15T21:21:02Z",
+      "side": 1,
+      "message": "Not needed here, no ++ directly in this method",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 30
+      },
+      "revId": "37fe8fc687a53e2c9e6f5a98a929d79dde518cfd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
