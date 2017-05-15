@@ -24,8 +24,6 @@ class CPDF_XRefStream;
 
 #define FPDFCREATE_INCREMENTAL 1
 #define FPDFCREATE_NO_ORIGINAL 2
-#define FPDFCREATE_PROGRESSIVE 4
-#define FPDFCREATE_OBJECTSTREAM 8
 
 class CPDF_Creator {
  public:
@@ -57,9 +55,6 @@ class CPDF_Creator {
   }
   bool IsIncremental() const { return !!(m_dwFlags & FPDFCREATE_INCREMENTAL); }
   bool IsOriginal() const { return !(m_dwFlags & FPDFCREATE_NO_ORIGINAL); }
-  bool HasObjectStream() const {
-    return !!(m_dwFlags & FPDFCREATE_OBJECTSTREAM);
-  }
 
  private:
   void Clear();
