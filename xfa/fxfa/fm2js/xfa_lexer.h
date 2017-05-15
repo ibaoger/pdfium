@@ -108,9 +108,9 @@ class CXFA_FMLexer {
   ~CXFA_FMLexer();
 
   CXFA_FMToken* NextToken();
-  uint32_t Number(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
-  uint32_t String(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
-  uint32_t Identifiers(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  void Number(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  void String(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  void Identifiers(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
   void Comment(const wchar_t* p, const wchar_t*& pEnd);
   XFA_FM_TOKEN IsKeyword(const CFX_WideStringC& p);
   void SetCurrentLine(uint32_t line) { m_uCurrentLine = line; }
