@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "4ac55c9b_64f2a111",
+        "filename": "core/fxcrt/cfx_unowned_ptr.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-16T17:59:16Z",
+      "side": 1,
+      "message": "Or just do the #if in the body of the dtor.",
+      "parentUuid": "f8e278db_86964387",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3476bcdc_7870743f",
         "filename": "core/fxcrt/cfx_unowned_ptr_unittest.cpp",
         "patchSetId": 9
