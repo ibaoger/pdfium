@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b00f2bd1_fe2b835a",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Why this comment in this particular place? This is the argument in all of your changes here. Maybe add a comment before line 117",
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3798f68_496767d9",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this include an out of bounds character?",
+      "range": {
+        "startLine": 416,
+        "startChar": 19,
+        "endLine": 416,
+        "endChar": 34
+      },
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e381a899_6ff27ed5",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Maybe you should return nullptr or something different from the out-of-bounds character pointer in these cases.",
+      "range": {
+        "startLine": 456,
+        "startChar": 4,
+        "endLine": 456,
+        "endChar": 12
+      },
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b24201_7d237b24",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer_unittest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Add a TODO",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2d81cbe_a12b254a",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer_unittest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Test NextToken should be EOF (not needed in all of them, but I don\u0027t see this being tested)",
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e172cd48_c1a76342",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer_unittest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:37:21Z",
+      "side": 1,
+      "message": "Why write the same strings twice",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
