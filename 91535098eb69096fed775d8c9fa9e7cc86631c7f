@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fff2e7fe_404d2a4b",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-16T19:08:11Z",
+      "side": 1,
+      "message": "released",
+      "range": {
+        "startLine": 80,
+        "startChar": 38,
+        "endLine": 80,
+        "endChar": 45
+      },
+      "revId": "91535098eb69096fed775d8c9fa9e7cc86631c7f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dc329c2_d28655e4",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-16T19:08:11Z",
+      "side": 1,
+      "message": "Can we check and be more certain?",
+      "range": {
+        "startLine": 81,
+        "startChar": 20,
+        "endLine": 81,
+        "endChar": 26
+      },
+      "revId": "91535098eb69096fed775d8c9fa9e7cc86631c7f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27e668b3_fa1e9bbf",
+        "filename": "xfa/fxfa/parser/cxfa_document.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-16T19:08:11Z",
+      "side": 1,
+      "message": "Not used?",
+      "revId": "91535098eb69096fed775d8c9fa9e7cc86631c7f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
