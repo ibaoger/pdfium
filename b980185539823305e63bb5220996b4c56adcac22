@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ade8f7b_79b79d56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e1d0fd4_bcbf71c0",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38f3389a_d7746361",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "b980185539823305e63bb5220996b4c56adcac22",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e202d5c6_daaa6a4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38f3389a_d7746361",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "24c8d928_ab494e29",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "It\u0027s redundant.  \"I didn\u0027t know the unowned ptr was not owned\" would seem like a feeble excuse, for example.",
+      "parentUuid": "e274624a_f555f771",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5deb03e_234659b4",
         "filename": "core/fxcrt/cfx_unowned_ptr.h",
         "patchSetId": 9
@@ -67,6 +121,24 @@
       "revId": "b980185539823305e63bb5220996b4c56adcac22",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc4b959_039efc69",
+        "filename": "core/fxcrt/cfx_unowned_ptr.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5deb03e_234659b4",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "f9437f12_a7259748",
+        "filename": "core/fxcrt/cfx_unowned_ptr.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "I don\u0027t think so.  Without this, the struct is POD -- I hope -- and we don\u0027t even contemplate doing anything.",
+      "parentUuid": "4ac55c9b_64f2a111",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3476bcdc_7870743f",
         "filename": "core/fxcrt/cfx_unowned_ptr_unittest.cpp",
         "patchSetId": 9
@@ -122,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "446a8a8c_c9798683",
+        "filename": "core/fxcrt/cfx_unowned_ptr_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3476bcdc_7870743f",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a95b2e8_f40b81ad",
         "filename": "core/fxcrt/cfx_unowned_ptr_unittest.cpp",
         "patchSetId": 9
@@ -136,6 +244,24 @@
       "revId": "b980185539823305e63bb5220996b4c56adcac22",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "117d0489_5bb89447",
+        "filename": "core/fxcrt/cfx_unowned_ptr_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T18:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a95b2e8_f40b81ad",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
