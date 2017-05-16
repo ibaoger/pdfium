@@ -1672,8 +1672,6 @@ if (pdf_enable_xfa) {
       "xfa/fxfa/fm2js/cxfa_fmlexer.h",
       "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
       "xfa/fxfa/fm2js/cxfa_fmparse.h",
-      "xfa/fxfa/fm2js/cxfa_fmprogram.cpp",
-      "xfa/fxfa/fm2js/cxfa_fmprogram.h",
       "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
       "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.h",
       "xfa/fxfa/fxfa.h",
@@ -1909,6 +1907,7 @@ test("pdfium_unittests") {
       "xfa/fxfa/app/xfa_ffbarcode_unittest.cpp",
       "xfa/fxfa/cxfa_ffapp_unittest.cpp",
       "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+      "xfa/fxfa/fm2js/cxfa_fmparse_unittest.cpp",
       "xfa/fxfa/fm2js/cxfa_fmsimpleexpression_unittest.cpp",
       "xfa/fxfa/parser/xfa_utils_unittest.cpp",
     ]
