@@ -257,6 +257,30 @@
       "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0570d75c_c8226b7f",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer_unittest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:55:35Z",
+      "side": 1,
+      "message": "I think a variable would look better, but I don\u0027t mind",
+      "parentUuid": "9ec42877_9e997790",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "eae0666d54723b96122813f18183768ff4f5e41e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
