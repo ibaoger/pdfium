@@ -108,21 +108,21 @@ class CXFA_FMLexer {
   ~CXFA_FMLexer();
 
   CXFA_FMToken* NextToken();
-  uint32_t Number(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
-  uint32_t String(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
-  uint32_t Identifiers(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
-  void Comment(const wchar_t* p, const wchar_t*& pEnd);
-  XFA_FM_TOKEN IsKeyword(const CFX_WideStringC& p);
   void SetCurrentLine(uint32_t line) { m_uCurrentLine = line; }
   void SetToken(std::unique_ptr<CXFA_FMToken> pToken) {
     m_pToken = std::move(pToken);
   }
   const wchar_t* SavePos() { return m_ptr; }
   void RestorePos(const wchar_t* pPos) { m_ptr = pPos; }
-  void Error(const wchar_t* msg, ...);
   bool HasError() const;
 
  private:
+  uint32_t Number(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  uint32_t String(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  uint32_t Identifiers(CXFA_FMToken* t, const wchar_t* p, const wchar_t*& pEnd);
+  void Comment(const wchar_t* p, const wchar_t*& pEnd);
+  XFA_FM_TOKEN IsKeyword(const CFX_WideStringC& p);
+  void Error(const wchar_t* msg, ...);
   std::unique_ptr<CXFA_FMToken> Scan();
 
   const wchar_t* m_ptr;
