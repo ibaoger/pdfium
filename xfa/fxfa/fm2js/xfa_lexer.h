@@ -95,6 +95,7 @@ const wchar_t* XFA_FM_KeywordToString(XFA_FM_TOKEN op);
 class CXFA_FMToken {
  public:
   CXFA_FMToken();
+  ~CXFA_FMToken();
   explicit CXFA_FMToken(uint32_t uLineNum);
 
   CFX_WideStringC m_wstring;

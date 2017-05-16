@@ -28,7 +28,7 @@ class CFX_UnownedPtr {
 #if defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
   ~CFX_UnownedPtr() {
     if (m_pObj)
-      reinterpret_cast<volatile uint8_t*>(m_pObj)[0];
+      reinterpret_cast<const volatile uint8_t*>(m_pObj)[0];
   }
 #endif
 
