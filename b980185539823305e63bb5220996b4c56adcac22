@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "29504c73_99e9f183",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-16T19:07:09Z",
+      "side": 1,
+      "message": "In the long run, yes. In the current term, do we know if all our owned pointers are actually owned? This is a nicer way to add the // not owned comment that\u0027s pretty explicit.",
+      "parentUuid": "24c8d928_ab494e29",
+      "revId": "b980185539823305e63bb5220996b4c56adcac22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5deb03e_234659b4",
         "filename": "core/fxcrt/cfx_unowned_ptr.h",
         "patchSetId": 9
