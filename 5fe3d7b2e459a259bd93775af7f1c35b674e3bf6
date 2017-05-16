@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b44374cd_38448700",
+        "filename": "xfa/fxfa/fm2js/xfa_lexer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-16T16:04:02Z",
+      "side": 1,
+      "message": "Can this be GetPos? And below SetPos.",
+      "range": {
+        "startLine": 118,
+        "startChar": 17,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "5fe3d7b2e459a259bd93775af7f1c35b674e3bf6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
