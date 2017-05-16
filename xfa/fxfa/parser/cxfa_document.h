@@ -12,6 +12,7 @@
 #include <set>
 #include <vector>
 
+#include "core/fxcrt/cfx_unowned_ptr.h"
 #include "xfa/fxfa/fxfa.h"
 #include "xfa/fxfa/parser/cxfa_localemgr.h"
 
