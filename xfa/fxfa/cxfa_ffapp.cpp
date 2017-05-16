@@ -25,7 +25,6 @@
 
 CXFA_FFApp::CXFA_FFApp(IXFA_AppProvider* pProvider)
     : m_pProvider(pProvider),
-      m_pWidgetMgrDelegate(nullptr),
       m_pFWLApp(pdfium::MakeUnique<CFWL_App>(this)) {}
 
 CXFA_FFApp::~CXFA_FFApp() {}
