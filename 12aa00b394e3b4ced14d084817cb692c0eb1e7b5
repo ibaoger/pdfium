@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29f5025c_7dc8a784",
+        "filename": "fpdfsdk/pdfwindow/PWL_EditCtrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-16T01:59:26Z",
+      "side": 1,
+      "message": "pSH-\u003eSetCursor(IsWndHorV() ? FXCT_VBEAM : FXCT_HBEAM);",
+      "revId": "12aa00b394e3b4ced14d084817cb692c0eb1e7b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
