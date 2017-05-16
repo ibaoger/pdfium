@@ -760,43 +760,28 @@ void CPWL_ScrollBar::OnNotify(CPWL_Wnd* pWnd,
 
   switch (msg) {
     case PNM_LBUTTONDOWN:
-      if (pWnd == m_pMinButton) {
+      if (pWnd == m_pMinButton.get())
         OnMinButtonLBDown(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pMaxButton) {
+      if (pWnd == m_pMaxButton.get())
         OnMaxButtonLBDown(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
+      if (pWnd == m_pPosButton.get())
         OnPosButtonLBDown(*(CFX_PointF*)lParam);
-      }
       break;
     case PNM_LBUTTONUP:
-      if (pWnd == m_pMinButton) {
+      if (pWnd == m_pMinButton.get())
         OnMinButtonLBUp(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pMaxButton) {
+      if (pWnd == m_pMaxButton.get())
         OnMaxButtonLBUp(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
+      if (pWnd == m_pPosButton.get())
         OnPosButtonLBUp(*(CFX_PointF*)lParam);
-      }
       break;
     case PNM_MOUSEMOVE:
-      if (pWnd == m_pMinButton) {
+      if (pWnd == m_pMinButton.get())
         OnMinButtonMouseMove(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pMaxButton) {
+      if (pWnd == m_pMaxButton.get())
         OnMaxButtonMouseMove(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
+      if (pWnd == m_pPosButton.get())
         OnPosButtonMouseMove(*(CFX_PointF*)lParam);
-      }
       break;
     case PNM_SETSCROLLINFO: {
       PWL_SCROLL_INFO* pInfo = reinterpret_cast<PWL_SCROLL_INFO*>(lParam);
@@ -834,17 +819,17 @@ void CPWL_ScrollBar::CreateButtons(const PWL_CREATEPARAM& cp) {
       PWS_VISIBLE | PWS_CHILD | PWS_BORDER | PWS_BACKGROUND | PWS_NOREFRESHCLIP;
 
   if (!m_pMinButton) {
-    m_pMinButton = new CPWL_SBButton(m_sbType, PSBT_MIN);
+    m_pMinButton = pdfium::MakeUnique<CPWL_SBButton>(m_sbType, PSBT_MIN);
     m_pMinButton->Create(scp);
   }
 
   if (!m_pMaxButton) {
-    m_pMaxButton = new CPWL_SBButton(m_sbType, PSBT_MAX);
+    m_pMaxButton = pdfium::MakeUnique<CPWL_SBButton>(m_sbType, PSBT_MAX);
     m_pMaxButton->Create(scp);
   }
 
   if (!m_pPosButton) {
-    m_pPosButton = new CPWL_SBButton(m_sbType, PSBT_POS);
+    m_pPosButton = pdfium::MakeUnique<CPWL_SBButton>(m_sbType, PSBT_POS);
     m_pPosButton->SetVisible(false);
     m_pPosButton->Create(scp);
   }

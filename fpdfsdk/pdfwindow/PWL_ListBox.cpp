@@ -63,7 +63,7 @@ void CPWL_List_Notify::IOnInvalidateRect(CFX_FloatRect* pRect) {
 }
 
 CPWL_ListBox::CPWL_ListBox()
-    : m_pList(new CFX_ListCtrl),
+    : m_pList(pdfium::MakeUnique<CFX_ListCtrl>()),
       m_bMouseDown(false),
       m_bHoverSel(false),
       m_pFillerNotify(nullptr) {}

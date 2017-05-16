@@ -16,10 +16,10 @@
 #include "fpdfsdk/pdfwindow/PWL_Utils.h"
 #include "fpdfsdk/pdfwindow/PWL_Wnd.h"
 #include "public/fpdf_fwlevent.h"
+#include "third_party/base/ptr_util.h"
 
 CPWL_EditCtrl::CPWL_EditCtrl()
-    : m_pEdit(new CFX_Edit),
-      m_pEditCaret(nullptr),
+    : m_pEdit(pdfium::MakeUnique<CFX_Edit>()),
       m_bMouseDown(false),
       m_nCharSet(FX_CHARSET_Default) {}
 
@@ -31,7 +31,6 @@ void CPWL_EditCtrl::OnCreate(PWL_CREATEPARAM& cp) {
 
 void CPWL_EditCtrl::OnCreated() {
   SetFontSize(GetCreationParam().fFontSize);
-
   m_pEdit->SetFontMap(GetFontMap());
   m_pEdit->SetNotify(this);
   m_pEdit->Initialize();
@@ -43,14 +42,14 @@ bool CPWL_EditCtrl::IsWndHorV() {
 }
 
 void CPWL_EditCtrl::SetCursor() {
-  if (IsValid()) {
-    if (CFX_SystemHandler* pSH = GetSystemHandler()) {
-      if (IsWndHorV())
-        pSH->SetCursor(FXCT_VBEAM);
-      else
-        pSH->SetCursor(FXCT_HBEAM);
-    }
-  }
+  if (!IsValid())
+    return;
+
+  CFX_SystemHandler* pSH = GetSystemHandler();
+  if (!pSH)
+    return;
+
+  pSH->SetCursor(IsWndHorV() ? FXCT_VBEAM : FXCT_HBEAM);
 }
 
 void CPWL_EditCtrl::RePosChildWnd() {
@@ -107,7 +106,7 @@ void CPWL_EditCtrl::CreateEditCaret(const PWL_CREATEPARAM& cp) {
   if (m_pEditCaret)
     return;
 
-  m_pEditCaret = new CPWL_Caret;
+  m_pEditCaret = pdfium::MakeUnique<CPWL_Caret>();
   m_pEditCaret->SetInvalidRect(GetClientRect());
 
   PWL_CREATEPARAM ecp = cp;
@@ -116,7 +115,6 @@ void CPWL_EditCtrl::CreateEditCaret(const PWL_CREATEPARAM& cp) {
   ecp.dwBorderWidth = 0;
   ecp.nBorderStyle = BorderStyle::SOLID;
   ecp.rcRectWnd = CFX_FloatRect(0, 0, 0, 0);
-
   m_pEditCaret->Create(ecp);
 }
 
