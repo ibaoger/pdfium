@@ -35,44 +35,48 @@ namespace {
 
 constexpr uint32_t kInvalidGlyphIndex = static_cast<uint32_t>(-1);
 
+constexpr uint32_t kMinPixel = 0;
+constexpr uint32_t kMaxPixel = 255;
+
+constexpr int kMaxGlyphDimension = 2048;
+
 void ContrastAdjust(uint8_t* pDataIn,
                     uint8_t* pDataOut,
                     int nWidth,
                     int nHeight,
                     int nSrcRowBytes,
                     int nDstRowBytes) {
-  int col, row, temp;
-  int max = 0, min = 255;
-  float rate;
-  for (row = 0; row < nHeight; row++) {
+  int max = kMinPixel;
+  int min = kMaxPixel;
+  for (int row = 0; row < nHeight; row++) {
     uint8_t* pRow = pDataIn + row * nSrcRowBytes;
-    for (col = 0; col < nWidth; col++) {
-      temp = *pRow++;
-      max = std::max(temp, max);
-      min = std::min(temp, min);
+    for (int col = 0; col < nWidth; col++) {
+      int val = pRow[col];
+      max = std::max(val, max);
+      min = std::min(val, min);
     }
   }
-  temp = max - min;
-  if (temp == 0 || temp == 255) {
+  int diff = max - min;
+  if (diff == kMinPixel || diff == kMaxPixel) {
     int rowbytes = std::min(abs(nSrcRowBytes), nDstRowBytes);
-    for (row = 0; row < nHeight; row++) {
+    for (int row = 0; row < nHeight; row++) {
       memcpy(pDataOut + row * nDstRowBytes, pDataIn + row * nSrcRowBytes,
              rowbytes);
     }
     return;
   }
-  rate = 255.f / temp;
-  for (row = 0; row < nHeight; row++) {
+  float rate = 255.f / diff;
+  for (int row = 0; row < nHeight; row++) {
     uint8_t* pSrcRow = pDataIn + row * nSrcRowBytes;
     uint8_t* pDstRow = pDataOut + row * nDstRowBytes;
-    for (col = 0; col < nWidth; col++) {
-      temp = static_cast<int>((*(pSrcRow++) - min) * rate + 0.5);
-      temp = std::min(temp, 255);
-      temp = std::max(temp, 0);
-      *pDstRow++ = (uint8_t)temp;
+    for (int col = 0; col < nWidth; col++) {
+      int val = static_cast<int>((pSrcRow[col] - min) * rate + 0.5);
+      pDstRow[col] =
+          static_cast<uint8_t>(pdfium::clamp(val, kMinPixel, kMaxPixel));
     }
   }
 }
+
 }  // namespace
 
 CFX_FaceCache::CFX_FaceCache(FXFT_Face face)
@@ -179,7 +183,7 @@ std::unique_ptr<CFX_GlyphBitmap> CFX_FaceCache::RenderGlyph(
     return nullptr;
   int bmwidth = FXFT_Get_Bitmap_Width(FXFT_Get_Glyph_Bitmap(m_Face));
   int bmheight = FXFT_Get_Bitmap_Rows(FXFT_Get_Glyph_Bitmap(m_Face));
-  if (bmwidth > 2048 || bmheight > 2048)
+  if (bmwidth > kMaxGlyphDimension || bmheight > kMaxGlyphDimension)
     return nullptr;
   int dib_width = bmwidth;
   auto pGlyphBitmap = pdfium::MakeUnique<CFX_GlyphBitmap>();
@@ -199,8 +203,9 @@ std::unique_ptr<CFX_GlyphBitmap> CFX_FaceCache::RenderGlyph(
     int bytes = anti_alias == FXFT_RENDER_MODE_LCD ? 3 : 1;
     for (int i = 0; i < bmheight; i++) {
       for (int n = 0; n < bmwidth; n++) {
-        uint8_t data =
-            (pSrcBuf[i * src_pitch + n / 8] & (0x80 >> (n % 8))) ? 255 : 0;
+        uint8_t data = (pSrcBuf[i * src_pitch + n / 8] & (0x80 >> (n % 8)))
+                           ? kMaxPixel
+                           : kMinPixel;
         for (int b = 0; b < bytes; b++)
           pDestBuf[i * dest_pitch + n * bytes + b] = data;
       }
