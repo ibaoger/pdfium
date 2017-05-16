@@ -69,6 +69,30 @@
       "revId": "9386f2ba8d40ee0dfe933c621128c04d90c4cabb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30d060f4_071144d9",
+        "filename": "core/fpdfapi/font/cpdf_truetypefont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-16T01:10:27Z",
+      "side": 1,
+      "message": "We know its null-terminated, and we don\u0027t want to natch on \".notdefintheslightest\", so strcmp it is.",
+      "parentUuid": "20486b41_877f5776",
+      "range": {
+        "startLine": 132,
+        "startChar": 29,
+        "endLine": 132,
+        "endChar": 36
+      },
+      "revId": "9386f2ba8d40ee0dfe933c621128c04d90c4cabb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
