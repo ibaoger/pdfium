@@ -13,6 +13,7 @@
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fxcrt/cfx_retain_ptr.h"
+#include "core/fxcrt/cfx_unowned_ptr.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fwl/cfwl_app.h"
 #include "xfa/fxfa/fxfa.h"
@@ -44,7 +45,7 @@ class CXFA_FFApp {
   IFWL_AdapterTimerMgr* GetTimerMgr() const;
   CXFA_FontMgr* GetXFAFontMgr() const;
   CFWL_WidgetMgrDelegate* GetWidgetMgrDelegate() const {
-    return m_pWidgetMgrDelegate;
+    return m_pWidgetMgrDelegate.Get();
   }
 
   void ClearEventTargets();
@@ -70,7 +71,7 @@ class CXFA_FFApp {
   std::unique_ptr<CFX_FontSourceEnum_File> m_pFontSource;
 #endif
   std::unique_ptr<CXFA_FWLAdapterWidgetMgr> m_pAdapterWidgetMgr;
-  CFWL_WidgetMgrDelegate* m_pWidgetMgrDelegate;  // not owned.
+  CFX_UnownedPtr<CFWL_WidgetMgrDelegate> m_pWidgetMgrDelegate;
 
   // |m_pFWLApp| has to be released first, then |m_pFWLTheme| since the former
   // may refers to theme manager and the latter refers to font manager.

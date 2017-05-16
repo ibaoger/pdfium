@@ -189,6 +189,8 @@ CPWL_ComboBox::CPWL_ComboBox()
       m_nSelectItem(-1),
       m_pFillerNotify(nullptr) {}
 
+CPWL_ComboBox::~CPWL_ComboBox() {}
+
 CFX_ByteString CPWL_ComboBox::GetClassName() const {
   return "CPWL_ComboBox";
 }
@@ -264,7 +266,7 @@ void CPWL_ComboBox::CreateChildWnd(const PWL_CREATEPARAM& cp) {
 void CPWL_ComboBox::CreateEdit(const PWL_CREATEPARAM& cp) {
   if (!m_pEdit) {
     m_pEdit = new CPWL_CBEdit;
-    m_pEdit->AttachFFLData(m_pFormFiller);
+    m_pEdit->AttachFFLData(m_pFormFiller.Get());
 
     PWL_CREATEPARAM ecp = cp;
     ecp.pParentWnd = this;
@@ -305,7 +307,7 @@ void CPWL_ComboBox::CreateButton(const PWL_CREATEPARAM& cp) {
 void CPWL_ComboBox::CreateListBox(const PWL_CREATEPARAM& cp) {
   if (!m_pList) {
     m_pList = new CPWL_CBListBox;
-    m_pList->AttachFFLData(m_pFormFiller);
+    m_pList->AttachFFLData(m_pFormFiller.Get());
     PWL_CREATEPARAM lcp = cp;
     lcp.pParentWnd = this;
     lcp.dwFlags =
