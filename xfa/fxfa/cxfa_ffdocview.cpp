@@ -143,14 +143,16 @@ void CXFA_FFDocView::StopLayout() {
                                  nullptr);
   }
   m_CalculateAccs.clear();
-  if (m_pFocusAcc && !m_pFocusWidget) {
-    SetFocusWidgetAcc(m_pFocusAcc);
-  }
+  if (m_pFocusAcc && !m_pFocusWidget)
+    SetFocusWidgetAcc(m_pFocusAcc.Get());
+
   m_iStatus = XFA_DOCVIEW_LAYOUTSTATUS_End;
 }
+
 int32_t CXFA_FFDocView::GetLayoutStatus() {
   return m_iStatus;
 }
+
 void CXFA_FFDocView::ShowNullTestMsg() {
   int32_t iCount = pdfium::CollectionSize<int32_t>(m_arrNullTestMsg);
   CXFA_FFApp* pApp = m_pDoc->GetApp();
@@ -316,8 +318,8 @@ CXFA_FFDocView::CreateWidgetAccIterator() {
   return pdfium::MakeUnique<CXFA_WidgetAccIterator>(pFormRoot);
 }
 
-CXFA_FFWidget* CXFA_FFDocView::GetFocusWidget() {
-  return m_pFocusWidget;
+CXFA_FFWidget* CXFA_FFDocView::GetFocusWidget() const {
+  return m_pFocusWidget.Get();
 }
 
 void CXFA_FFDocView::KillFocus() {
@@ -329,12 +331,13 @@ void CXFA_FFDocView::KillFocus() {
   m_pFocusWidget = nullptr;
   m_pOldFocusWidget = nullptr;
 }
+
 bool CXFA_FFDocView::SetFocus(CXFA_FFWidget* hWidget) {
   CXFA_FFWidget* pNewFocus = hWidget;
-  if (m_pOldFocusWidget == pNewFocus) {
+  if (m_pOldFocusWidget == pNewFocus)
     return false;
-  }
-  CXFA_FFWidget* pOldFocus = m_pOldFocusWidget;
+
+  CXFA_FFWidget* pOldFocus = m_pOldFocusWidget.Get();
   m_pOldFocusWidget = pNewFocus;
   if (pOldFocus) {
     if (m_pFocusWidget != m_pOldFocusWidget &&
@@ -345,15 +348,15 @@ bool CXFA_FFDocView::SetFocus(CXFA_FFWidget* hWidget) {
       if (!pOldFocus->IsLoaded()) {
         pOldFocus->LoadWidget();
       }
-      pOldFocus->OnSetFocus(m_pFocusWidget);
+      pOldFocus->OnSetFocus(m_pFocusWidget.Get());
       m_pFocusWidget = pOldFocus;
       pOldFocus->OnKillFocus(pNewFocus);
     }
   }
-  if (m_pFocusWidget == m_pOldFocusWidget) {
+  if (m_pFocusWidget == m_pOldFocusWidget)
     return false;
-  }
-  pNewFocus = m_pOldFocusWidget;
+
+  pNewFocus = m_pOldFocusWidget.Get();
   if (m_pListFocusWidget && pNewFocus == m_pListFocusWidget) {
     m_pFocusAcc = nullptr;
     m_pFocusWidget = nullptr;
@@ -362,29 +365,30 @@ bool CXFA_FFDocView::SetFocus(CXFA_FFWidget* hWidget) {
     return false;
   }
   if (pNewFocus && (pNewFocus->GetStatus() & XFA_WidgetStatus_Visible)) {
-    if (!pNewFocus->IsLoaded()) {
+    if (!pNewFocus->IsLoaded())
       pNewFocus->LoadWidget();
-    }
-    pNewFocus->OnSetFocus(m_pFocusWidget);
+    pNewFocus->OnSetFocus(m_pFocusWidget.Get());
   }
   m_pFocusAcc = pNewFocus ? pNewFocus->GetDataAcc() : nullptr;
   m_pFocusWidget = pNewFocus;
   m_pOldFocusWidget = m_pFocusWidget;
   return true;
 }
+
 CXFA_WidgetAcc* CXFA_FFDocView::GetFocusWidgetAcc() {
-  return m_pFocusAcc;
+  return m_pFocusAcc.Get();
 }
+
 void CXFA_FFDocView::SetFocusWidgetAcc(CXFA_WidgetAcc* pWidgetAcc) {
   CXFA_FFWidget* pNewFocus =
       pWidgetAcc ? pWidgetAcc->GetNextWidget(nullptr) : nullptr;
   if (SetFocus(pNewFocus)) {
     m_pFocusAcc = pWidgetAcc;
-    if (m_iStatus == XFA_DOCVIEW_LAYOUTSTATUS_End) {
-      m_pDoc->GetDocEnvironment()->SetFocusWidget(m_pDoc, m_pFocusWidget);
-    }
+    if (m_iStatus == XFA_DOCVIEW_LAYOUTSTATUS_End)
+      m_pDoc->GetDocEnvironment()->SetFocusWidget(m_pDoc, m_pFocusWidget.Get());
   }
 }
+
 void CXFA_FFDocView::DeleteLayoutItem(CXFA_FFWidget* pWidget) {
   if (m_pFocusAcc == pWidget->GetDataAcc()) {
     m_pFocusAcc = nullptr;
@@ -392,6 +396,7 @@ void CXFA_FFDocView::DeleteLayoutItem(CXFA_FFWidget* pWidget) {
     m_pOldFocusWidget = nullptr;
   }
 }
+
 static int32_t XFA_ProcessEvent(CXFA_FFDocView* pDocView,
                                 CXFA_WidgetAcc* pWidgetAcc,
                                 CXFA_EventParam* pParam) {
