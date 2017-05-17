@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15ee1366_ab408dda",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-17T22:02:55Z",
+      "side": 1,
+      "message": "does this match what happens in pdfium_test or chromium itself?",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 26
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc454065_83574c04",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-17T22:02:55Z",
+      "side": 1,
+      "message": "nit: one of these probably needs to be renamed .",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b942bb7_fe5f2768",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-17T22:02:55Z",
+      "side": 1,
+      "message": "suggestion: maybe somewhere in fxjs we need a custom deleter for isolates, then we can unique_ptr them",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
