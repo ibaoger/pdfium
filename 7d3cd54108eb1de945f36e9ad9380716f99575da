@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "61761f22_974a1f50",
+        "filename": "testing/libfuzzer/pdf_font_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-17T20:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46dfd11e_82979fda",
+      "revId": "7d3cd54108eb1de945f36e9ad9380716f99575da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25452159_aca8bfe1",
         "filename": "testing/libfuzzer/pdf_font_fuzzer.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-05-17T20:40:43Z",
       "side": 1,
       "message": "Do we want to bail out if this returns a nullptr?",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "7d3cd54108eb1de945f36e9ad9380716f99575da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d01fc8ac_9ce76e76",
+        "filename": "testing/libfuzzer/pdf_font_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-17T20:49:08Z",
+      "side": 1,
+      "message": "I think the other methods will just bail out anyways, but yes that\u0027s better.",
+      "parentUuid": "25452159_aca8bfe1",
       "range": {
         "startLine": 24,
         "startChar": 6,
