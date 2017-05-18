@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1495067404 -0700\nnonce APbwY4opqYmAtYvvqX2xqbeaK5asy0OMtSi4NwJuubCERxfaR/dEOeBWYfa1BjP6q9SDLRUOICFe\n\n0000000000000000000000000000000000000000 cd1dccfe91bf38d721176a6d6599a059a90dded3 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZHOsMAAoJEKs2LWFaZv171RIIANfvb6LD+XkJPCaLJMtMex3E\nu7BDN91P2/HpTOor6zaYAcVUzmA+XvnAUOWOsOXOJFaeAIUb5Dk6VPuYdKleUVow\nUItXtV7e0kS+akJKgk7db2DAG5cukBGCQeVeJ4Wxlvr7IZImTD6I1Nswognp92kr\nuY2xDHOFQdVHgYbBKBwTpdx+2k6u8V7FoMilh7KenADq5+1S4/VGwRpnO/eyB2UC\n01CjuAHksQkeuE5KhTFjPs1EEylpmlAKFq36+WS2sdusMF2HCD/INB54bka4cpNw\nFGnqAEeIlYsk0hsQYD1/ZS9BHmMcsQekLsuuDIQwsb77A0sWZVLou8zHRqS58T0\u003d\n\u003dusJM\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ca1c8f2_2b1ad33c",
+        "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-18T00:51:22Z",
+      "side": 1,
+      "message": "This block may be useless, but I\u0027m not 100% sure so I\u0027m leaving it in.",
+      "revId": "cd1dccfe91bf38d721176a6d6599a059a90dded3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
