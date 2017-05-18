@@ -360,7 +360,7 @@ FPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {
   pModule->Init(cfg ? cfg->m_pUserFontPaths : nullptr);
 
   CPDF_ModuleMgr* pModuleMgr = CPDF_ModuleMgr::Get();
-  pModuleMgr->SetCodecModule(pModule->GetCodecModule());
+  pModuleMgr->InitCodecModule();
   pModuleMgr->InitPageModule();
   pModuleMgr->LoadEmbeddedMaps();
   pModuleMgr->LoadCodecModules();
