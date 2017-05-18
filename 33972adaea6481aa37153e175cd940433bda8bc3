@@ -16,6 +16,24 @@
       "revId": "33972adaea6481aa37153e175cd940433bda8bc3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc3b655_cefe734e",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T17:47:02Z",
+      "side": 1,
+      "message": "There just needs to be one present in the CJS_Runtime\u0027s stack of contexts so that GetCurrentEventContext() will be non-null when called from other JS code whilst the JS is running.",
+      "parentUuid": "8e9874db_3e095eef",
+      "revId": "33972adaea6481aa37153e175cd940433bda8bc3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
