@@ -18,7 +18,7 @@ void CPDF_TextState::Emplace() {
 }
 
 CPDF_Font* CPDF_TextState::GetFont() const {
-  return m_Ref.GetObject()->m_pFont;
+  return m_Ref.GetObject()->m_pFont.Get();
 }
 
 void CPDF_TextState::SetFont(CPDF_Font* pFont) {
@@ -151,7 +151,7 @@ void CPDF_TextState::TextData::ReleaseFont() {
 
   CPDF_DocPageData* pPageData = m_pDocument->GetPageData();
   if (pPageData && !pPageData->IsForceClear())
-    pPageData->ReleaseFont(m_pFont->GetFontDict());
+    pPageData->ReleaseFont(m_pFont.Release()->GetFontDict());
 }
 
 bool SetTextRenderingModeFromInt(int iMode, TextRenderingMode* mode) {
