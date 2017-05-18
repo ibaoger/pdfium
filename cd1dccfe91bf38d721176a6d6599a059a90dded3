@@ -17,6 +17,29 @@
       "revId": "cd1dccfe91bf38d721176a6d6599a059a90dded3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc88d556_1a3cee4a",
+        "filename": "core/fpdfapi/render/cpdf_pagerendercache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T19:43:56Z",
+      "side": 1,
+      "message": "follow-on: Add operator\u003c() to CACHEINFO and std::sort()",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "cd1dccfe91bf38d721176a6d6599a059a90dded3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
