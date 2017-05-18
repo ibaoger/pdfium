@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "079bdf73_50d11d99",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T20:03:19Z",
+      "side": 1,
+      "message": "Can this also be CFX_UnownedPtr\u003c\u003e as it\u0027s owned by the embedder?",
+      "revId": "916654be7a5ec652e1f41e320762211193e1b584",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
