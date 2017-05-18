@@ -140,6 +140,30 @@
       "revId": "df5d2b6bce03dfafe4d1c2cd1a2d03e54d8b4821",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d992c7bc_3f345f6e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T15:27:18Z",
+      "side": 1,
+      "message": "Ack. There are other possible ways to fix the error. This is the one I believe is correct. You could also return a different string that is valid formcalc if you wanted.",
+      "parentUuid": "c26d1635_bcd2278e",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 37
+      },
+      "revId": "df5d2b6bce03dfafe4d1c2cd1a2d03e54d8b4821",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
