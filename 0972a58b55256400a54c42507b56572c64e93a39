@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "654697ca_046bec31",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-18T22:58:19Z",
+      "side": 1,
+      "message": "Is this ever called with bNotify equal to false?",
+      "range": {
+        "startLine": 963,
+        "startChar": 33,
+        "endLine": 963,
+        "endChar": 45
+      },
+      "revId": "0972a58b55256400a54c42507b56572c64e93a39",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb2efc1_dde3bb0d",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-18T22:58:19Z",
+      "side": 1,
+      "message": "The default value for bSyncData was true, are you sure this is correct?",
+      "range": {
+        "startLine": 1122,
+        "startChar": 57,
+        "endLine": 1122,
+        "endChar": 62
+      },
+      "revId": "0972a58b55256400a54c42507b56572c64e93a39",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
