@@ -1,4 +1,97 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1495093814 -0700\nnonce APbwY4qSZ2bq4Vw3Qy0/6f5wcpBuKvuygml18smOWZnXzqdfy2FPLUi77Jl/NjPz9mKekBQ1pEwV\n\n0000000000000000000000000000000000000000 5d39bc5a145528de2cffe1b48f572e850a8c0da6 refs/for/refs/heads/master%m\u003dbetter_test_source,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZHVI2AAoJEKs2LWFaZv17qoAH/3Mihz9aOr95y0vID8bmH3Lw\naJZWnBl8xmbUCmDObN2q2xIqFjvgXOdnNGyUINfRKyzWmb0Gr5aEZK2NHK/wsMfm\n6SokZQz3kXLJ/kNld55Q/9OatFlpcBCCNmCC5a7YCpAW2XfSVBuVHHcD0KOAfc5Y\n13wraMDjtUBBCiPlRtB66w80edZzGlM/2hK8zm0rLA/Jtu0F+FStB78oGxVCCnhx\nDeO2k+ZbZP33N1eNqV7X0KJH745s2lrAtKmBuJMaxxPfO1ONGGWaUOtjObvbG1WN\nhWIBEWVTQYbaOQJny8xDrtLozsjI+kAhHEfb3KoBaqvFHwW4EVYuUOO7HsUaBIQ\u003d\n\u003dn+4h\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3373492a_32a082db",
+        "filename": "testing/resources/pixel/bug_718762.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-18T08:05:40Z",
+      "side": 1,
+      "message": "The image has to be very big and down sampled for the bug to occur.",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "5d39bc5a145528de2cffe1b48f572e850a8c0da6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45ed9558_73df6d39",
+        "filename": "testing/resources/pixel/bug_718762.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-18T08:05:40Z",
+      "side": 1,
+      "message": "The image also needs to have 4 components. Imagemagick did the RGB to CMYK conversion via: convert rgb.jpg -colorspace cmyk cmyk.jpg.",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "5d39bc5a145528de2cffe1b48f572e850a8c0da6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2501a17d_caaf6572",
+        "filename": "testing/resources/pixel/bug_718762.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-18T08:05:40Z",
+      "side": 1,
+      "message": "Having binary data in .in files results in garbled PDFs, so another around of encoding here.",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "5d39bc5a145528de2cffe1b48f572e850a8c0da6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72002e0c_0d278375",
+        "filename": "testing/resources/pixel/bug_718762.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-18T08:05:40Z",
+      "side": 1,
+      "message": "A 5000x5000 JPEG of all red pixels is 160 KB but mostly zeros. So it needs to be compressed down to 363 bytes.",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "5d39bc5a145528de2cffe1b48f572e850a8c0da6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
