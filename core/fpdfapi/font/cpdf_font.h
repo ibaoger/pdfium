@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
+#include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/fx_font.h"
@@ -63,7 +64,9 @@ class CPDF_Font {
   const CFX_ByteString& GetBaseFont() const { return m_BaseFont; }
   CFX_SubstFont* GetSubstFont() const { return m_Font.GetSubstFont(); }
   bool IsEmbedded() const { return IsType3Font() || m_pFontFile != nullptr; }
-  CPDF_Dictionary* GetFontDict() const { return m_pFontDict; }
+  CPDF_Dictionary* GetFontDict() const { return m_pFontDict.Get(); }
+  void DestroyFontDict() { delete m_pFontDict.Release(); }
+
   bool IsStandardFont() const;
   FXFT_Face GetFace() const { return m_Font.GetFace(); }
   void AppendChar(CFX_ByteString* str, uint32_t charcode) const;
@@ -78,7 +81,7 @@ class CPDF_Font {
   virtual int GetCharWidthF(uint32_t charcode) = 0;
   virtual FX_RECT GetCharBBox(uint32_t charcode) = 0;
 
-  CPDF_Document* GetDocument() { return m_pDocument; }
+  CPDF_Document* GetDocument() const { return m_pDocument.Get(); }
   CFX_Font* GetFont() { return &m_Font; }
   const CFX_Font* GetFont() const { return &m_Font; }
   CFX_Font* GetFontFallback(int position);
@@ -101,12 +104,12 @@ class CPDF_Font {
                                const std::vector<CFX_ByteString>& charnames,
                                int charcode);
 
-  CPDF_Document* m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> m_pDocument;
   CFX_Font m_Font;
   std::vector<std::unique_ptr<CFX_Font>> m_FontFallbacks;
   CFX_ByteString m_BaseFont;
   CFX_RetainPtr<CPDF_StreamAcc> m_pFontFile;
-  CPDF_Dictionary* m_pFontDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pFontDict;
   mutable std::unique_ptr<CPDF_ToUnicodeMap> m_pToUnicodeMap;
   mutable bool m_bToUnicodeLoaded;
   int m_Flags;

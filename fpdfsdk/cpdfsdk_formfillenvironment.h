@@ -204,7 +204,7 @@ class CPDFSDK_FormFillEnvironment
   bool IsJSInitiated() const { return m_pInfo && m_pInfo->m_pJsPlatform; }
   CFX_ByteString GetAppName() const { return ""; }
   CFX_SystemHandler* GetSysHandler() const { return m_pSysHandler.get(); }
-  FPDF_FORMFILLINFO* GetFormFillInfo() const { return m_pInfo; }
+  FPDF_FORMFILLINFO* GetFormFillInfo() const { return m_pInfo.Get(); }
 
   // Creates if not present.
   CFFL_InteractiveFormFiller* GetInteractiveFormFiller();
@@ -214,7 +214,7 @@ class CPDFSDK_FormFillEnvironment
   CPDFSDK_InterForm* GetInterForm();              // Creates if not present.
 
  private:
-  FPDF_FORMFILLINFO* const m_pInfo;
+  CFX_UnownedPtr<FPDF_FORMFILLINFO> m_pInfo;
   std::unique_ptr<CPDFSDK_AnnotHandlerMgr> m_pAnnotHandlerMgr;
   std::unique_ptr<CPDFSDK_ActionHandler> m_pActionHandler;
   std::unique_ptr<IJS_Runtime> m_pJSRuntime;
