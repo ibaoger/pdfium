@@ -36,6 +36,7 @@ class CFX_UnownedPtr {
     m_pObj = that;
     return *this;
   }
+
   CFX_UnownedPtr& operator=(const CFX_UnownedPtr& that) {
 #if defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
     Probe();
@@ -48,14 +49,32 @@ class CFX_UnownedPtr {
   bool operator==(const CFX_UnownedPtr& that) const {
     return Get() == that.Get();
   }
-  bool operator==(const T* that) const { return Get() == that; }
   bool operator!=(const CFX_UnownedPtr& that) const { return !(*this == that); }
-  bool operator!=(const T* that) const { return !(*this == that); }
   bool operator<(const CFX_UnownedPtr& that) const {
     return std::less<T*>()(Get(), that.Get());
   }
 
+  template <typename U>
+  bool operator==(const U* that) const {
+    return Get() == that;
+  }
+
+  template <typename U>
+  bool operator!=(const U* that) const {
+    return !(*this == that);
+  }
+
   T* Get() const { return m_pObj; }
+
+  T* Release() {
+#if defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
+    Probe();
+#endif
+    T* pTemp = nullptr;
+    std::swap(pTemp, m_pObj);
+    return pTemp;
+  }
+
   explicit operator bool() const { return !!m_pObj; }
   T& operator*() const { return *m_pObj; }
   T* operator->() const { return m_pObj; }
@@ -70,5 +89,15 @@ class CFX_UnownedPtr {
 
   T* m_pObj = nullptr;
 };
+
+template <typename T, typename U>
+inline bool operator==(const U* lhs, const CFX_UnownedPtr<T>& rhs) {
+  return rhs == lhs;
+}
+
+template <typename T, typename U>
+inline bool operator!=(const U* lhs, const CFX_UnownedPtr<T>& rhs) {
+  return rhs != lhs;
+}
 
 #endif  // CORE_FXCRT_CFX_UNOWNED_PTR_H_
