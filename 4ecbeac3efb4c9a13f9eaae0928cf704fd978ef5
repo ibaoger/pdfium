@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54e51fd3_c20b3f9a",
+        "filename": "testing/DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "nit: or just \u0027+fpdfsdk\u0027.  I think I\u0027m OK with test harness calling anything under that.",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28816730_bc57e2ff",
+        "filename": "testing/DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "nit: or just \u0027+xfa\u0027 by the same reasoning.",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b800c4_1ed74807",
+        "filename": "testing/xfa_js_embedder_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "nit: use UnderlyingFromFPDFDocument() here and avoid the cast.",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 61
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a912e0e_abd722c7",
+        "filename": "testing/xfa_js_embedder_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "follow-up:  this method should probably be called GetXFAFFDoc() to indicate it returns a FF something.  The two identical calls in a row look strange.",
+      "range": {
+        "startLine": 47,
+        "startChar": 25,
+        "endLine": 47,
+        "endChar": 37
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89972285_b76082d4",
+        "filename": "testing/xfa_js_embedder_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "nit: since its doesnt need to persist string, this should be a const CFX_ByteStringC\u0026",
+      "range": {
+        "startLine": 53,
+        "startChar": 38,
+        "endLine": 53,
+        "endChar": 54
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83b67935_340444ca",
+        "filename": "testing/xfa_js_embedder_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-18T16:48:52Z",
+      "side": 1,
+      "message": "fprintf to stderr?\n\nIf input is changed to a StringC, then its not null-terminated, and the equivalent printf specifier is\n\nprintf(\"JS: %.*s\\n\", input.GetLength(), input.c_str());",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 36
+      },
+      "revId": "4ecbeac3efb4c9a13f9eaae0928cf704fd978ef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
