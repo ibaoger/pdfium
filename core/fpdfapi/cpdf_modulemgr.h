@@ -38,8 +38,8 @@ class CPDF_ModuleMgr {
   static void Destroy();
   static const int kFileBufSize = 512;
 
-  void SetCodecModule(CCodec_ModuleMgr* pModule) { m_pCodecModule = pModule; }
-  CCodec_ModuleMgr* GetCodecModule() { return m_pCodecModule; }
+  void InitCodecModule();
+  CCodec_ModuleMgr* GetCodecModule() const { return m_pCodecModule.get(); }
 
   void InitPageModule();
   CPDF_PageModule* GetPageModule() const { return m_pPageModule.get(); }
@@ -71,7 +71,7 @@ class CPDF_ModuleMgr {
   void LoadEmbeddedJapan1CMaps();
   void LoadEmbeddedKorea1CMaps();
 
-  CCodec_ModuleMgr* m_pCodecModule;
+  std::unique_ptr<CCodec_ModuleMgr> m_pCodecModule;
   std::unique_ptr<CPDF_PageModule> m_pPageModule;
   std::unique_ptr<CFSDK_UnsupportInfo_Adapter> m_pUnsupportInfoAdapter;
 };

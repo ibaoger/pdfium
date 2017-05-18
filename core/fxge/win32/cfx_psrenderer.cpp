@@ -8,6 +8,7 @@
 
 #include <memory>
 
+#include "core/fpdfapi/cpdf_modulemgr.h"
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxcrt/cfx_maybe_owned.h"
 #include "core/fxge/cfx_facecache.h"
@@ -48,17 +49,17 @@ void PSCompressData(int PSLevel,
   if (src_size < 1024)
     return;
 
-  CCodec_ModuleMgr* pEncoders = CFX_GEModule::Get()->GetCodecModule();
+  CCodec_ModuleMgr* pEncoders = CPDF_ModuleMgr::Get()->GetCodecModule();
   uint8_t* dest_buf = nullptr;
   uint32_t dest_size = src_size;
   if (PSLevel >= 3) {
-    if (pEncoders && pEncoders->GetFlateModule()->Encode(
-                         src_buf, src_size, &dest_buf, &dest_size)) {
+    if (pEncoders->GetFlateModule()->Encode(src_buf, src_size, &dest_buf,
+                                            &dest_size)) {
       *filter = "/FlateDecode filter ";
     }
   } else {
-    if (pEncoders && pEncoders->GetBasicModule()->RunLengthEncode(
-                         src_buf, src_size, &dest_buf, &dest_size)) {
+    if (pEncoders->GetBasicModule()->RunLengthEncode(src_buf, src_size,
+                                                     &dest_buf, &dest_size)) {
       *filter = "/RunLengthDecode filter ";
     }
   }
@@ -681,9 +682,8 @@ bool CFX_PSRenderer::DrawText(int nChars,
 void CFX_PSRenderer::WritePSBinary(const uint8_t* data, int len) {
   uint8_t* dest_buf;
   uint32_t dest_size;
-  CCodec_ModuleMgr* pEncoders = CFX_GEModule::Get()->GetCodecModule();
-  if (pEncoders &&
-      pEncoders->GetBasicModule()->A85Encode(data, len, &dest_buf,
+  CCodec_ModuleMgr* pEncoders = CPDF_ModuleMgr::Get()->GetCodecModule();
+  if (pEncoders->GetBasicModule()->A85Encode(data, len, &dest_buf,
                                              &dest_size)) {
     m_pStream->WriteBlock(dest_buf, dest_size);
     FX_Free(dest_buf);
