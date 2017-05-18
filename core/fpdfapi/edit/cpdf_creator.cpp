@@ -139,21 +139,19 @@ int32_t OutputIndex(IFX_ArchiveStream* archive, FX_FILESIZE offset) {
 
 CPDF_Creator::CPDF_Creator(CPDF_Document* pDoc,
                            const CFX_RetainPtr<IFX_WriteStream>& archive)
-    : m_pDocument(pDoc),
-      m_pParser(pDoc->GetParser()),
-      m_bSecurityChanged(false),
-      m_pEncryptDict(m_pParser ? m_pParser->GetEncryptDict() : nullptr),
+    : m_bSecurityChanged(false),
       m_dwEncryptObjNum(0),
+      m_dwLastObjNum(pDoc->GetLastObjNum()),
+      m_pDocument(pDoc),
+      m_pParser(pDoc->GetParser()),
+      m_pEncryptDict(m_pParser ? m_pParser->GetEncryptDict() : nullptr),
       m_pCryptoHandler(m_pParser ? m_pParser->GetCryptoHandler() : nullptr),
-      m_pMetadata(nullptr),
-      m_dwLastObjNum(m_pDocument->GetLastObjNum()),
       m_Archive(pdfium::MakeUnique<CFX_FileBufferArchive>(archive)),
       m_SavedOffset(0),
       m_iStage(-1),
       m_dwFlags(0),
       m_CurObjNum(0),
       m_XrefStart(0),
-      m_pIDArray(nullptr),
       m_FileVersion(0) {}
 
 CPDF_Creator::~CPDF_Creator() {}
@@ -513,7 +511,7 @@ int32_t CPDF_Creator::WriteDoc_Stage2() {
     if (m_pEncryptDict && m_pEncryptDict->IsInline()) {
       m_dwLastObjNum += 1;
       FX_FILESIZE saveOffset = m_Archive->CurrentOffset();
-      if (!WriteIndirectObj(m_dwLastObjNum, m_pEncryptDict))
+      if (!WriteIndirectObj(m_dwLastObjNum, m_pEncryptDict.Get()))
         return -1;
 
       m_ObjectOffsets[m_dwLastObjNum] = saveOffset;
@@ -819,10 +817,10 @@ void CPDF_Creator::InitID() {
       CFX_ByteString user_pass = m_pParser->GetPassword();
       uint32_t flag = PDF_ENCRYPT_CONTENT;
       CPDF_SecurityHandler handler;
-      handler.OnCreate(m_pEncryptDict, m_pIDArray.get(), user_pass.raw_str(),
-                       user_pass.GetLength(), flag);
+      handler.OnCreate(m_pEncryptDict.Get(), m_pIDArray.get(),
+                       user_pass.raw_str(), user_pass.GetLength(), flag);
       m_pCryptoHandler = pdfium::MakeRetain<CPDF_CryptoHandler>();
-      m_pCryptoHandler->Init(m_pEncryptDict, &handler);
+      m_pCryptoHandler->Init(m_pEncryptDict.Get(), &handler);
       m_bSecurityChanged = true;
     }
   }
