@@ -181,12 +181,13 @@ bool CPWL_CBButton::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
 }
 
 CPWL_ComboBox::CPWL_ComboBox()
-    : m_bPopup(false),
+    : m_pEdit(nullptr),
+      m_pButton(nullptr),
+      m_pList(nullptr),
+      m_bPopup(false),
       m_nPopupWhere(0),
       m_nSelectItem(-1),
       m_pFillerNotify(nullptr) {}
-
-CPWL_ComboBox::~CPWL_ComboBox() {}
 
 CFX_ByteString CPWL_ComboBox::GetClassName() const {
   return "CPWL_ComboBox";
@@ -281,24 +282,25 @@ void CPWL_ComboBox::CreateEdit(const PWL_CREATEPARAM& cp) {
   ecp.rcRectWnd = CFX_FloatRect(0, 0, 0, 0);
   ecp.dwBorderWidth = 0;
   ecp.nBorderStyle = BorderStyle::SOLID;
+
   m_pEdit->Create(ecp);
 }
 
 void CPWL_ComboBox::CreateButton(const PWL_CREATEPARAM& cp) {
-  if (m_pButton)
-    return;
+  if (!m_pButton) {
+    m_pButton = new CPWL_CBButton;
 
-  m_pButton = pdfium::MakeUnique<CPWL_CBButton>();
+    PWL_CREATEPARAM bcp = cp;
+    bcp.pParentWnd = this;
+    bcp.dwFlags = PWS_VISIBLE | PWS_CHILD | PWS_BORDER | PWS_BACKGROUND;
+    bcp.sBackgroundColor = PWL_SCROLLBAR_BKCOLOR;
+    bcp.sBorderColor = PWL_DEFAULT_BLACKCOLOR;
+    bcp.dwBorderWidth = 2;
+    bcp.nBorderStyle = BorderStyle::BEVELED;
+    bcp.eCursorType = FXCT_ARROW;
 
-  PWL_CREATEPARAM bcp = cp;
-  bcp.pParentWnd = this;
-  bcp.dwFlags = PWS_VISIBLE | PWS_CHILD | PWS_BORDER | PWS_BACKGROUND;
-  bcp.sBackgroundColor = PWL_SCROLLBAR_BKCOLOR;
-  bcp.sBorderColor = PWL_DEFAULT_BLACKCOLOR;
-  bcp.dwBorderWidth = 2;
-  bcp.nBorderStyle = BorderStyle::BEVELED;
-  bcp.eCursorType = FXCT_ARROW;
-  m_pButton->Create(bcp);
+    m_pButton->Create(bcp);
+  }
 }
 
 void CPWL_ComboBox::CreateListBox(const PWL_CREATEPARAM& cp) {
@@ -585,14 +587,14 @@ void CPWL_ComboBox::OnNotify(CPWL_Wnd* pWnd,
                              intptr_t lParam) {
   switch (msg) {
     case PNM_LBUTTONDOWN:
-      if (pWnd == m_pButton.get()) {
+      if (pWnd == m_pButton) {
         SetPopup(!m_bPopup);
         return;
       }
       break;
     case PNM_LBUTTONUP:
       if (m_pEdit && m_pList) {
-        if (pWnd == m_pList.get()) {
+        if (pWnd == m_pList) {
           SetSelectText();
           SelectAll();
           m_pEdit->SetFocus();
@@ -600,7 +602,6 @@ void CPWL_ComboBox::OnNotify(CPWL_Wnd* pWnd,
           return;
         }
       }
-      break;
   }
 
   CPWL_Wnd::OnNotify(pWnd, msg, wParam, lParam);
