@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45990c91_f911e35f",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T00:57:39Z",
+      "side": 1,
+      "message": "This is what pdfium_test does. It also has to be this way because setting up for form fill environment sets the isolate which is loaded by the XFA_Context during LoadXFA. If the isolate isn\u0027t set things go badly if we set it later.",
+      "parentUuid": "15ee1366_ab408dda",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 26
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b4638d9_dfc1aac5",
         "filename": "xfa/fxfa/fm2js/DEPS",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-17T22:06:38Z",
       "side": 1,
       "message": "Note:  This is a layering violation, FPDFSDK -\u003e XFA -\u003e core is the general rule.",
+      "range": {
+        "startLine": 2,
+        "startChar": 4,
+        "endLine": 2,
+        "endChar": 11
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "044d8653_480ed551",
+        "filename": "xfa/fxfa/fm2js/DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T00:57:39Z",
+      "side": 1,
+      "message": "Yea, just didn\u0027t see a better way. Will make a JSEEmbedderTest in testing that can be subclassed from here. That should fix the layering.",
+      "parentUuid": "6b4638d9_dfc1aac5",
       "range": {
         "startLine": 2,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2aed2b69_86bb9ad3",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T00:57:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bc454065_83574c04",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b942bb7_fe5f2768",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-05-17T22:02:55Z",
       "side": 1,
       "message": "suggestion: maybe somewhere in fxjs we need a custom deleter for isolates, then we can unique_ptr them",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "f587a159152e2b56549eb1a14c523c92b2721e13",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaf560cd_bfb4b2d8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T00:57:39Z",
+      "side": 1,
+      "message": "followup: makes sense.",
+      "parentUuid": "8b942bb7_fe5f2768",
       "range": {
         "startLine": 43,
         "startChar": 3,
