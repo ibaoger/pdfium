@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1495099596 -0700\nnonce APbwY4rXL15OJfA3k9HxaAEafdBZ/7P+gGQiGVYmFQ1bQxixLUGxPh0ZJCWsnQJM2Prbqmoz+qmA\n\n0000000000000000000000000000000000000000 f1d53a6d423413fbe19ea5a2cbbe5b064ff0a229 refs/for/refs/heads/master%m\u003dwin,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZHWjMAAoJEKs2LWFaZv17HvkIAKqbDmBCQxWVrn7ggdUNiDs3\ndKOKI0Rk7a4BJi5S4NclDo5GSWFVsefESRzcmJmhPkLcA6oPMwo5G6NiaW75Bcg5\n9WBIMeZDsgSEPrlMxN4aWOWp0i/lqBfJVcIt/UDjnvWnAGZNKXcy8Vd/yFUzCii6\nT4F3ozYJ+2VE0OlhjMZiQoh2R3zjv36Up2Rk8lbxKy734zBOg/lIfHdXjm9p7dw5\nPDX7DX+ZVBoXrR9BSKJfDK9Q+RLXGr2o80MV6r2fiYFxSg0pECbEpAxu7XYAhrgY\nBTzyfUttooG5aZGOzhYmSYnryNGZVvI+K7axpEMjq/cgwSPajD/FdQhZls55iTs\u003d\n\u003dbMUE\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "df872627_857c12d8",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T17:48:35Z",
+      "side": 1,
+      "message": "What about just making a single Init() call that calls all 4 of these internally?",
+      "revId": "f1d53a6d423413fbe19ea5a2cbbe5b064ff0a229",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6568b7b4_7b20ead8",
+        "filename": "xfa/fxfa/DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-18T17:48:35Z",
+      "side": 1,
+      "message": "Shoudl we just say core/ here? xfa/ can depend on anything in core I believe?",
+      "revId": "f1d53a6d423413fbe19ea5a2cbbe5b064ff0a229",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
