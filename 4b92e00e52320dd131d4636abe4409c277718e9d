@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "26fdc80f_0077290c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:03:42Z",
+      "side": 1,
+      "message": "Not according to http://help.adobe.com/en_US/livecycle/es/FormCalc.pdf page 20.",
+      "parentUuid": "561bbe83_d40ff27f",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d95195da_82cc9760",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "396fd6ab_fa787a7f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:03:42Z",
+      "side": 1,
+      "message": "Yes. Spec, page 16. \u0027If during the evaluation of an expression an intermediate step yields NaN, +Inf, or -Inf, FormCalc generates an error exception and propagates that error for the remainder of the expression. As\nsuch, the expression\u0027s value will always be 0\u0027",
+      "parentUuid": "d95195da_82cc9760",
+      "range": {
+        "startLine": 51,
+        "startChar": 17,
+        "endLine": 51,
+        "endChar": 26
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5eafb0b_1b9e807c",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -83,6 +131,30 @@
       "writtenOn": "2017-05-19T14:11:11Z",
       "side": 1,
       "message": "Don\u0027t understand this one",
+      "range": {
+        "startLine": 56,
+        "startChar": 16,
+        "endLine": 56,
+        "endChar": 43
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7834021e_c054668d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:03:42Z",
+      "side": 1,
+      "message": "Spec page 20. If 1 \u003c 2 then return 1. So, the result should be 1.",
+      "parentUuid": "b5eafb0b_1b9e807c",
       "range": {
         "startLine": 56,
         "startChar": 16,
