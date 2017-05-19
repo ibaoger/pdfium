@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f99b123a_04c18611",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T23:52:14Z",
+      "side": 1,
+      "message": "std::iswdigit()",
+      "range": {
+        "startLine": 41,
+        "startChar": 28,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c37b458c_d1a66125",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T23:52:14Z",
+      "side": 1,
+      "message": "FXSYS_iswalnum()",
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37120433_51acad76",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T23:52:14Z",
+      "side": 1,
+      "message": "Not email, BTW.",
+      "range": {
+        "startLine": 84,
+        "startChar": 51,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b0e07da_b9492cce",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T23:52:14Z",
+      "side": 1,
+      "message": "Just want to double check and make sure Adobe Reader also extracts the \";bar\" part.",
+      "range": {
+        "startLine": 122,
+        "startChar": 70,
+        "endLine": 122,
+        "endChar": 74
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
