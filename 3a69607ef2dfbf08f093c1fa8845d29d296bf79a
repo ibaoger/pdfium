@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1495154774 -0700\nnonce APbwY4q+VJplXPc5LoeY2RZZUdRS8hmVgAiKxgYoUbnKwsm+Oi3FZWKelcmnYJjOA2gBSo9eHwkv\n\n0000000000000000000000000000000000000000 3a69607ef2dfbf08f093c1fa8845d29d296bf79a refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZHkBWAAoJEKs2LWFaZv17FAAIAKum+kxtk+BzZJlcmy2zEhCs\nX+amrJ+vD7OGwLY4epTKULB9DR2/Qm8zg4LFGayKSxARC6EjBji+riVTYmK6x18G\nUwJtc/sFpqdOwfsBVJmkPHpy7m0scxkADDHlIDG7ZbJZL9ShjB/QZnxW1gW8KmBv\n/DGGDrfsPruC82d0W3gSuyHhwIN3dg8GpURHPMuV4D7s0lssSRCY+D5E4Pye9h84\nfk9JwK/ladZtXGJZIjqyUjA15mFGndpUMNbn8eqDNZp2+rLK+LDEa9T7xLdpr3XJ\nAIH1xQtj+QFt0kfWA4kPXL7mUVF5d0BBsEcdwy6Gs5sqG5AVJK7b4zbrkRm1hPQ\u003d\n\u003dyX0E\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "121c3f5c_d840705d",
+        "filename": "core/fpdfapi/render/cpdf_pagerendercache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-19T16:40:04Z",
+      "side": 1,
+      "message": "nit: I might have written this as a push_back of a brace-initialized pair of these values, so that I wouldn\u0027t have to know how big it is (and hence don\u0027t need to be have correct ++ on indexing).",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "3a69607ef2dfbf08f093c1fa8845d29d296bf79a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
