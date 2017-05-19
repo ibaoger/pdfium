@@ -15,12 +15,12 @@
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_memory.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
+#include "xfa/fxfa/cxfa_pdffontmgr.h"
 
 #define FXFONT_SUBST_ITALIC 0x02
 
 class CFGAS_FontMgr;
 class CFX_UnicodeEncoding;
-class CXFA_PDFFontMgr;
 
 class CFGAS_GEFont : public CFX_Retainable {
  public:
@@ -50,7 +50,9 @@ class CFGAS_GEFont : public CFX_Retainable {
   bool GetBBox(CFX_Rect* bbox);
   CFX_RetainPtr<CFGAS_GEFont> GetSubstFont(int32_t iGlyphIndex);
   CFX_Font* GetDevFont() const { return m_pFont; }
-  void SetFontProvider(CXFA_PDFFontMgr* pProvider) { m_pProvider = pProvider; }
+  void SetFontProvider(CXFA_PDFFontMgr* pProvider) {
+    m_pProvider.Reset(pProvider);
+  }
 #if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
   void SetLogicalFontStyle(uint32_t dwLogFontStyle) {
     m_bUseLogFontStyle = true;
@@ -102,7 +104,7 @@ class CFGAS_GEFont : public CFX_Retainable {
   std::unique_ptr<CFX_UnicodeEncoding> m_pFontEncoding;
   std::map<wchar_t, int32_t> m_CharWidthMap;
   std::map<wchar_t, CFX_Rect> m_BBoxMap;
-  CFX_UnownedPtr<CXFA_PDFFontMgr> m_pProvider;
+  CXFA_PDFFontMgr::ObservedPtr m_pProvider;
   std::vector<CFX_RetainPtr<CFGAS_GEFont>> m_SubstFonts;
   std::map<wchar_t, CFX_RetainPtr<CFGAS_GEFont>> m_FontMapper;
 };
