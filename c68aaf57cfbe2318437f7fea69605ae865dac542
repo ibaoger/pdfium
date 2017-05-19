@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68047719_81d75c6e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-19T18:11:53Z",
+      "side": 1,
+      "message": "nit: .in and .pdf",
+      "range": {
+        "startLine": 254,
+        "startChar": 9,
+        "endLine": 254,
+        "endChar": 19
+      },
+      "revId": "c68aaf57cfbe2318437f7fea69605ae865dac542",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab16113f_dcd06db0",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-19T18:11:53Z",
+      "side": 1,
+      "message": "I\u0027d prefer if it said \"Remove foo.pdf to prevent shadowing foo.in\" at the point it finds this out .",
+      "range": {
+        "startLine": 279,
+        "startChar": 10,
+        "endLine": 279,
+        "endChar": 85
+      },
+      "revId": "c68aaf57cfbe2318437f7fea69605ae865dac542",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
