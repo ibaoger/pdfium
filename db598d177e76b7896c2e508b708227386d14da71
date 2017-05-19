@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "373aafbe_6fc24141",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:23:09Z",
+      "side": 1,
+      "message": "Won\u0027t this strip out \u0027.in\u0027 if that\u0027s anywhere in the name?",
+      "range": {
+        "startLine": 261,
+        "startChar": 27,
+        "endLine": 261,
+        "endChar": 45
+      },
+      "revId": "db598d177e76b7896c2e508b708227386d14da71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "827ec0e3_a6a351fe",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:23:09Z",
+      "side": 1,
+      "message": "I would check this first, since:\na) You can do it without manipulating the path at all.\nb) It will filter out irrelevant files earlier.\n\nYou can also continue the for loop when startswith() returns false, to prevent too many levels of indentations.",
+      "revId": "db598d177e76b7896c2e508b708227386d14da71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d59c8be5_3adc5224",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:23:09Z",
+      "side": 1,
+      "message": "space, no parens.",
+      "range": {
+        "startLine": 264,
+        "startChar": 10,
+        "endLine": 264,
+        "endChar": 11
+      },
+      "revId": "db598d177e76b7896c2e508b708227386d14da71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
