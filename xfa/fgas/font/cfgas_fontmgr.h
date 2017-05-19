@@ -20,6 +20,7 @@
 #include "core/fxge/cfx_fontmapper.h"
 #include "core/fxge/fx_freetype.h"
 #include "core/fxge/ifx_systemfontinfo.h"
+#include "xfa/fxfa/cxfa_pdffontmgr.h"
 
 #define FX_FONTSTYLE_Normal 0x00
 #define FX_FONTSTYLE_FixedPitch 0x01
@@ -32,7 +33,6 @@
 #define FX_FONTSTYLE_ExactMatch 0x80000000
 
 class CFX_FontSourceEnum_File;
-class CXFA_PDFFontMgr;
 class CFGAS_FontMgr;
 class CFGAS_GEFont;
 
