@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a12645db_d3509041",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Change this to ! and return end early?",
+      "range": {
+        "startLine": 24,
+        "startChar": 28,
+        "endLine": 24,
+        "endChar": 29
+      },
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f754912e_ffe2db3f",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "kHttpScheme?",
+      "range": {
+        "startLine": 121,
+        "startChar": 23,
+        "endLine": 121,
+        "endChar": 33
+      },
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb7c1100_1f6d0618",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Can we name this kWWWStart so it\u0027s more obvious what it is?",
+      "range": {
+        "startLine": 123,
+        "startChar": 23,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a46639c2_c934754c",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Add a comment to say checking for https. I was comparing to the old code and it took a few seconds to find the https check.",
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f4c5bab_56061454",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Update comment?",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7228c934_799ab0f8",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Can we put these in alphabetical order?",
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6199db3_3de0a854",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "const wchar_t* const, ditto elsewhere.",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb614622_851b7df3",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-19T19:36:13Z",
+      "side": 1,
+      "message": "Can we add a test case like: http://www.example.com/foo;bar as well?",
+      "revId": "45509c911e0bb4d30fe72b9fcba35cbef8ebdef5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
