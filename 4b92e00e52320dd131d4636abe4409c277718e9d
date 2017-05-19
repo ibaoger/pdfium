@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "baa9e41f_1b4a1d54",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "Well yes, but more precisely it is equivalent to not (1 \u003d\u003d 1), the last expression in the list.",
+      "parentUuid": "9972260a_43989b05",
+      "range": {
+        "startLine": 103,
+        "startChar": 16,
+        "endLine": 103,
+        "endChar": 34
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "430636ae_8d62fdb4",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "Not according to the spec, page 17.",
       "parentUuid": "430636ae_8d62fdb4",
+      "range": {
+        "startLine": 109,
+        "startChar": 25,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba95bb2_2aa053db",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "Reading the definition in that same page, there is no reason for that result to be true. Couldn\u0027t this be a typo in the spec?",
+      "parentUuid": "416b9666_7f909251",
       "range": {
         "startLine": 109,
         "startChar": 25,
@@ -308,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "b6dedcd4_f90e5f0a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "Ah, looks like true is not a keyword? Or maybe because it\u0027s \"true\", with quotes",
+      "parentUuid": "7cd0d9d2_d10b99cd",
+      "range": {
+        "startLine": 111,
+        "startChar": 33,
+        "endLine": 111,
+        "endChar": 37
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4c60a10_ab207090",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -348,6 +420,29 @@
         "startChar": 17,
         "endLine": 255,
         "endChar": 54
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bea6d84_ba292b9c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "The base (the initial date) for time and the base for FormCalc\u0027s Date are different, that\u0027s why this is failing.",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 38
       },
       "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -402,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "3b2c6557_ecf46cce",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "Why risk it when it is easy to fix? Call time again after the Execute call, and check that value matches one of the two days.",
+      "parentUuid": "8661451c_b27f4c9d",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 337,
+        "endChar": 38
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08ff2942_2adee861",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -434,6 +553,115 @@
       "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9e7d8d0_3d15f652",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "Is this case-sensitive? I read that the keywords aren\u0027t, but not sure about this.",
+      "range": {
+        "startLine": 458,
+        "startChar": 47,
+        "endLine": 458,
+        "endChar": 58
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3b1424_6def563d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "ditto comments above for time()",
+      "range": {
+        "startLine": 535,
+        "startChar": 33,
+        "endLine": 535,
+        "endChar": 37
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb71e9e_bb8c521f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "These are failing with close values but I\u0027m not sure if there\u0027s just rounding errors or also implementation",
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8284a81c_284c4292",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "nit: use only ascii",
+      "range": {
+        "startLine": 1035,
+        "startChar": 71,
+        "endLine": 1035,
+        "endChar": 76
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79c6c3f5_db30bb24",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-19T18:47:54Z",
+      "side": 1,
+      "message": "I will agree with the bot with not needing this \u0027and\u0027.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 20,
+        "endLine": 1383,
+        "endChar": 23
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
