@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "9972260a_43989b05",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "It means:  (2 \u003c 3) not (1 \u003d\u003d 1). According to spec page 14.",
+      "parentUuid": "bb597bd0_c734fe9f",
+      "range": {
+        "startLine": 103,
+        "startChar": 16,
+        "endLine": 103,
+        "endChar": 34
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "430636ae_8d62fdb4",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -201,6 +225,30 @@
       "writtenOn": "2017-05-19T16:13:43Z",
       "side": 1,
       "message": "false?",
+      "range": {
+        "startLine": 109,
+        "startChar": 25,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416b9666_7f909251",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "Not according to the spec, page 17.",
+      "parentUuid": "430636ae_8d62fdb4",
       "range": {
         "startLine": 109,
         "startChar": 25,
@@ -236,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "7cd0d9d2_d10b99cd",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "Not according to the spec, page 17.",
+      "parentUuid": "27e71805_49d70c4a",
+      "range": {
+        "startLine": 111,
+        "startChar": 33,
+        "endLine": 111,
+        "endChar": 37
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4c60a10_ab207090",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -247,6 +319,30 @@
       "writtenOn": "2017-05-19T16:13:43Z",
       "side": 1,
       "message": "So I guess is this is failing because we consider strings as 0 instead of disregarding them.",
+      "range": {
+        "startLine": 255,
+        "startChar": 17,
+        "endLine": 255,
+        "endChar": 54
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da55e513_d33547f6",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "Possibly, haven\u0027t looked into anything more then the top level failures.",
+      "parentUuid": "e4c60a10_ab207090",
       "range": {
         "startLine": 255,
         "startChar": 17,
@@ -282,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "8661451c_b27f4c9d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "Yes, it\u0027s hard to test time/date stuff. It\u0027s a flake I\u0027m willing to risk.",
+      "parentUuid": "be31bdef_f59b0dd5",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 337,
+        "endChar": 38
+      },
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08ff2942_2adee861",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 3
@@ -296,6 +416,24 @@
       "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b6ac70_287fe24b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-19T16:52:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "08ff2942_2adee861",
+      "revId": "4b92e00e52320dd131d4636abe4409c277718e9d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
