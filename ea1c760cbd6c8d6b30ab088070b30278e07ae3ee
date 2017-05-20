@@ -22,6 +22,30 @@
       "revId": "ea1c760cbd6c8d6b30ab088070b30278e07ae3ee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bcbe179_2362da27",
+        "filename": "xfa/fxfa/cxfa_ffdocview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-20T00:03:32Z",
+      "side": 1,
+      "message": "I spent some time thinking about this, and I like it as-is.\n\nIt\u0027s still const -- in that its assigned in a ctor intializer list, and never changes.  Its a clue to the reader\nthat you don\u0027t have to worry about this value changing in any of our methods.\n\nconst  CFX_UnownedPtr\u003cCXFA_FFDoc\u003e  m_pDoc is right, but I worry about someone reverting this\nvia simple substitution and getting\n\n  const CXFA_FFDoc* m_pDoc ; \n\nwhich isn\u0027t what we intended.",
+      "parentUuid": "629df034_fbb42d71",
+      "range": {
+        "startLine": 119,
+        "startChar": 29,
+        "endLine": 119,
+        "endChar": 34
+      },
+      "revId": "ea1c760cbd6c8d6b30ab088070b30278e07ae3ee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
