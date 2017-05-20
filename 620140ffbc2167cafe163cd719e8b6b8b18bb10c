@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b34166d_f9a227bf",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-05-20T05:29:04Z",
+      "side": 1,
+      "message": "Here we just want to check ascii digits, regardless locale.",
+      "parentUuid": "f99b123a_04c18611",
+      "range": {
+        "startLine": 41,
+        "startChar": 28,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c37b458c_d1a66125",
         "filename": "core/fpdftext/cpdf_linkextract.cpp",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-19T23:52:14Z",
       "side": 1,
       "message": "FXSYS_iswalnum()",
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa420257_568f21e3",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-05-20T05:29:04Z",
+      "side": 1,
+      "message": "FXSYS_iswalnum() seems not right, check alphas regardless locale, but check digits based on locale?\n\nAnyway, we don\u0027t need to worry about locale here. Simple comparison would be good.",
+      "parentUuid": "c37b458c_d1a66125",
       "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "cd0357e4_27a1c4c9",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-05-20T05:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37120433_51acad76",
+      "range": {
+        "startLine": 84,
+        "startChar": 51,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b0e07da_b9492cce",
         "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-05-19T23:52:14Z",
       "side": 1,
       "message": "Just want to double check and make sure Adobe Reader also extracts the \";bar\" part.",
+      "range": {
+        "startLine": 122,
+        "startChar": 70,
+        "endLine": 122,
+        "endChar": 74
+      },
+      "revId": "620140ffbc2167cafe163cd719e8b6b8b18bb10c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce111734_4af5eb3f",
+        "filename": "core/fpdftext/fpdf_text_int_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-05-20T05:29:04Z",
+      "side": 1,
+      "message": "Yes, they did this too.",
+      "parentUuid": "9b0e07da_b9492cce",
       "range": {
         "startLine": 122,
         "startChar": 70,
