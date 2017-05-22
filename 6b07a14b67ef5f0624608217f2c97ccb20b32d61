@@ -1,4 +1,74 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1495239080 -0700\nnonce APbwY4onUZP2+JrHIj58bGf6EWTs5zALEkIzytxvPJZ2huI8t6D6FdUFNPyvKafmSsQQIz1S1Oy4\n\n0000000000000000000000000000000000000000 6b07a14b67ef5f0624608217f2c97ccb20b32d61 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZH4moAAoJEKs2LWFaZv179uUIAL0nRxyZbUf0CPJmUm25SNfU\nH6tSkm1bF9jB/x6FSiAlVRZ6Deky7WB1v3PuZ2ien7aSbxqzKYHGDOPF9BDUh3Ep\nmBg+4v8ZbK6AEBjfxu1MMBCsT13SWFsVJxdpGP4tWG3q9LHuvIGjIYTbfigay4U1\n6olsyaMz4w8FtnZrQAQwLfxs0zKJnLb7NvaAcgnFUj0qByAm7aSnR6O66CZkwy5D\nHckVkJL/UKzzuEKoF2VIVtC0oDwhQRrKu8D89k6+AT7zfy7lTZGUGsIelHux7yoz\nX5/yMnOZnlg2u3LM2jw5BhYiZBNPBJA0d4Ggxs9hFMappurj6jqPwrAXY59CP5g\u003d\n\u003d2nzP\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa2a45d8_83168c58",
+        "filename": "fxbarcode/datamatrix/BC_DataMatrixWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-22T16:28:57Z",
+      "side": 1,
+      "message": "can we get negative values here?",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 49
+      },
+      "revId": "6b07a14b67ef5f0624608217f2c97ccb20b32d61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4c8f560_bb4a1c7a",
+        "filename": "fxbarcode/datamatrix/BC_DataMatrixWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-22T16:28:57Z",
+      "side": 1,
+      "message": "nit: over (), also below.",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 77,
+        "endChar": 42
+      },
+      "revId": "6b07a14b67ef5f0624608217f2c97ccb20b32d61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "683d68d7_c17b08ef",
+        "filename": "fxbarcode/datamatrix/BC_SymbolInfo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-22T16:28:57Z",
+      "side": 1,
+      "message": "safe numerics?",
+      "range": {
+        "startLine": 187,
+        "startChar": 8,
+        "endLine": 187,
+        "endChar": 51
+      },
+      "revId": "6b07a14b67ef5f0624608217f2c97ccb20b32d61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
