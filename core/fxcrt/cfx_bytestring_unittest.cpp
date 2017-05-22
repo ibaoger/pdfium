@@ -786,6 +786,12 @@ TEST(fxcrt, ByteStringCFromVector) {
   CFX_ByteStringC lower_a_string(lower_a_vec);
   EXPECT_EQ(10, lower_a_string.GetLength());
   EXPECT_EQ("aaaaaaaaaa", lower_a_string);
+
+  std::vector<uint8_t> cleared_vec;
+  cleared_vec.push_back(42);
+  cleared_vec.pop_back();
+  CFX_ByteStringC cleared_string(cleared_vec);
+  EXPECT_EQ(0, cleared_string.GetLength());
 }
 
 TEST(fxcrt, ByteStringCGetID) {
