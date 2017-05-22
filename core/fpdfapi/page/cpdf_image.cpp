@@ -323,7 +323,7 @@ void CPDF_Image::SetImage(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap) {
 
 void CPDF_Image::ResetCache(CPDF_Page* pPage,
                             const CFX_RetainPtr<CFX_DIBitmap>& pBitmap) {
-  pPage->GetRenderCache()->ResetBitmap(m_pStream.Get(), pBitmap);
+  pPage->GetRenderCache()->ResetBitmap(this, pBitmap);
 }
 
 CFX_RetainPtr<CFX_DIBSource> CPDF_Image::LoadDIBSource() const {
