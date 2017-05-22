@@ -49,8 +49,8 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   ~CPDF_Document() override;
 
   CPDF_Parser* GetParser() const { return m_pParser.get(); }
-  CPDF_Dictionary* GetRoot() const { return m_pRootDict; }
-  CPDF_Dictionary* GetInfo() const { return m_pInfoDict; }
+  CPDF_Dictionary* GetRoot() const { return m_pRootDict.Get(); }
+  CPDF_Dictionary* GetInfo() const { return m_pInfoDict.Get(); }
 
   void DeletePage(int iPage);
   int GetPageCount() const;
@@ -131,8 +131,8 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   void ResetTraversal();
 
   std::unique_ptr<CPDF_Parser> m_pParser;
-  CPDF_Dictionary* m_pRootDict;
-  CPDF_Dictionary* m_pInfoDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pRootDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pInfoDict;
   // Vector of pairs to know current position in the page tree. The index in the
   // vector corresponds to the level being described. The pair contains a
   // pointer to the dictionary being processed at the level, and an index of the
