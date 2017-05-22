@@ -162,7 +162,7 @@ DLLEXPORT int STDCALL FPDFPage_HasFormFieldAtPoint(FPDF_FORMHANDLE hHandle,
     return -1;
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (pPage) {
-    CPDF_InterForm interform(pPage->m_pDocument);
+    CPDF_InterForm interform(pPage->m_pDocument.Get());
     CPDF_FormControl* pFormCtrl = interform.GetControlAtPoint(
         pPage,
         CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)),
@@ -232,7 +232,7 @@ DLLEXPORT int STDCALL FPDFPage_FormFieldZOrderAtPoint(FPDF_FORMHANDLE hHandle,
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (!pPage)
     return -1;
-  CPDF_InterForm interform(pPage->m_pDocument);
+  CPDF_InterForm interform(pPage->m_pDocument.Get());
   int z_order = -1;
   (void)interform.GetControlAtPoint(
       pPage, CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)),
@@ -741,7 +741,7 @@ DLLEXPORT void STDCALL FORM_DoPageAAction(FPDF_PAGE page,
     return;
 
   CPDFSDK_ActionHandler* pActionHandler = pFormFillEnv->GetActionHander();
-  CPDF_Dictionary* pPageDict = pPDFPage->m_pFormDict;
+  CPDF_Dictionary* pPageDict = pPDFPage->m_pFormDict.Get();
   CPDF_AAction aa(pPageDict->GetDictFor("AA"));
   if (FPDFPAGE_AACTION_OPEN == aaType) {
     if (aa.ActionExist(CPDF_AAction::OpenPage)) {
