@@ -58,6 +58,12 @@ gclient sync
 cd pdfium
 ```
 
+Additional build dependencies need to be installed by running:
+
+```
+./build/install-build-deps.sh
+```
+
 ## Generate the build files
 
 We use GN to generate the build files and
@@ -76,7 +82,7 @@ This will launch an editor in which you can set the following arguments.
 A typical `<directory>` name is `out/Debug`.
 
 ```
-use_goma = true  # Googlers only.
+use_goma = true  # Googlers only. Make sure goma is installed and running.
 is_debug = true  # Enable debugging features.
 
 pdf_use_skia = false  # Set true to enable experimental skia backend.
