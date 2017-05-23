@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6d7be70_75286c5a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Can you add a TODO somewhere in the top of the file regarding commented testcases?",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "054bd4ef_43de14b8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Can we at least have a comment objecting to this atrocity?",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d1ce4bb_04675774",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Why are we commenting instead of just disabling?",
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a578e5_6c317a95",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "So you didn\u0027t like my idea to avoid flakiness for the tests that use time?",
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "409a6365_995fe187",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "If this is only broken on Mac then we can ifdef the test on OS !\u003d Mac instead of disable.",
+      "range": {
+        "startLine": 520,
+        "startChar": 20,
+        "endLine": 520,
+        "endChar": 17
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d258b01_76743be6",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "ditto commenting",
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ff6c83_51345d2a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Is this returns a double, then our test struct should use double and we should not use EXPECT_FLOAT_EQ. Ditto all places that use ToDouble()",
+      "range": {
+        "startLine": 612,
+        "startChar": 4,
+        "endLine": 612,
+        "endChar": 52
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09769416_b681702c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "EXPECT_FALSE",
+      "range": {
+        "startLine": 826,
+        "startChar": 2,
+        "endLine": 826,
+        "endChar": 19
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cbc2733_7130505d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Nit: explicitly state floatness: 5.08f here and everywhere we actually mean float instead of double.",
+      "range": {
+        "startLine": 983,
+        "startChar": 64,
+        "endLine": 983,
+        "endChar": 68
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e166e1b6_157eb833",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "Ping on not using these characters, instead \\x or \\u to encode them.",
+      "range": {
+        "startLine": 1049,
+        "startChar": 71,
+        "endLine": 1049,
+        "endChar": 76
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ab2e25_d371e30e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T21:28:19Z",
+      "side": 1,
+      "message": "nit: .89f",
+      "range": {
+        "startLine": 1210,
+        "startChar": 19,
+        "endLine": 1210,
+        "endChar": 28
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
