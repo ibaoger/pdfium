@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc8aa7df_a90c8201",
+        "filename": "core/fpdfdoc/cpdf_bookmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T23:57:46Z",
+      "side": 1,
+      "message": "not needed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 31,
+        "endLine": 17,
+        "endChar": 49
+      },
+      "revId": "adbbf7ccd911c3bc8d82239821ac894448efd1ed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aa2337b_ce53f7fe",
+        "filename": "core/fpdfdoc/cpdf_dest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T23:57:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "adbbf7ccd911c3bc8d82239821ac894448efd1ed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b98e8cf_0254a077",
+        "filename": "core/fpdfdoc/cpdf_dest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T23:57:46Z",
+      "side": 1,
+      "message": "The ctor ordering is different from the header.",
+      "revId": "adbbf7ccd911c3bc8d82239821ac894448efd1ed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53ea0678_621a8682",
+        "filename": "core/fpdfdoc/cpdf_dest_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T23:57:46Z",
+      "side": 1,
+      "message": "Can we add some extra braces so there are 3 separate |dest| variables eachin their own scope?",
+      "revId": "adbbf7ccd911c3bc8d82239821ac894448efd1ed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "426e371f_ac95eed6",
+        "filename": "core/fpdfdoc/cpdf_formfield.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T23:57:46Z",
+      "side": 1,
+      "message": "BTW, can we avoid calling FPDF_GetFieldAttr() twice? Ditto below with \"Ff\".",
+      "revId": "adbbf7ccd911c3bc8d82239821ac894448efd1ed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
