@@ -22,6 +22,30 @@
       "revId": "486a4cff38ccd074bb7dfdb36ce102a39fe870c2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cbc8fcf_0170c988",
+        "filename": "core/fxcodec/lgif/cgifcontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-23T23:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae63701_417c10da",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "486a4cff38ccd074bb7dfdb36ce102a39fe870c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
