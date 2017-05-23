@@ -19,13 +19,14 @@ TEST(cpdf_dest, GetXYZ) {
   float y;
   float zoom;
 
-  auto dest = pdfium::MakeUnique<CPDF_Dest>();
-  EXPECT_FALSE(dest->GetXYZ(&hasX, &hasY, &hasZoom, &x, &y, &zoom));
-
+  // |array| must outlive |dest|.
   auto array = pdfium::MakeUnique<CPDF_Array>();
   array->AddNew<CPDF_Number>(0);  // Page Index.
   array->AddNew<CPDF_Name>("XYZ");
   array->AddNew<CPDF_Number>(4);  // X
+
+  auto dest = pdfium::MakeUnique<CPDF_Dest>();
+  EXPECT_FALSE(dest->GetXYZ(&hasX, &hasY, &hasZoom, &x, &y, &zoom));
 
   // Not enough entries.
   dest = pdfium::MakeUnique<CPDF_Dest>(array.get());
