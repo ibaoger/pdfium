@@ -31,10 +31,18 @@ bool CPDF_Type3Char::LoadBitmap(CPDF_RenderContext* pContext) {
     return false;
 
   m_ImageMatrix = pPageObj->AsImage()->matrix();
-  CFX_RetainPtr<CFX_DIBSource> pSource =
-      pPageObj->AsImage()->GetImage()->LoadDIBSource();
-  if (pSource)
-    m_pBitmap = pSource->Clone(nullptr);
+  {
+    // |pSource| actually gets assigned a CPDF_DibSource, which has pointers
+    // into objects owned by the form.  Make sure it is out of scope before
+    // clearing the form.
+    CFX_RetainPtr<CFX_DIBSource> pSource =
+        pPageObj->AsImage()->GetImage()->LoadDIBSource();
+
+    // Non-virtual Clone() only copies the parent CFX_DibSource members, none
+    // of which point to objects owned by the form, it may outlive the form.
+    if (pSource)
+      m_pBitmap = pSource->Clone(nullptr);
+  }
   m_pForm.reset();
   return true;
 }
