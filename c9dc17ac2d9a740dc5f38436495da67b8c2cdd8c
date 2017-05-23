@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "20b08332_d2ebadca",
+        "filename": "fxbarcode/datamatrix/BC_HighLevelEncoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T01:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28719ecc_195830a6",
+      "range": {
+        "startLine": 55,
+        "startChar": 21,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "c9dc17ac2d9a740dc5f38436495da67b8c2cdd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d93327a_894fbd20",
         "filename": "fxbarcode/datamatrix/BC_HighLevelEncoder.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2017-05-22T16:21:53Z",
       "side": 1,
       "message": "nit: do these really need to be public?",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "c9dc17ac2d9a740dc5f38436495da67b8c2cdd8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "315a23c2_a84b5ac7",
+        "filename": "fxbarcode/datamatrix/BC_HighLevelEncoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-23T01:03:58Z",
+      "side": 1,
+      "message": "Yes. They are used in other fxbarcode files.",
+      "parentUuid": "1d93327a_894fbd20",
       "range": {
         "startLine": 43,
         "startChar": 3,
