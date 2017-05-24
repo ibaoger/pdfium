@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec1a4c7_40fac371",
+        "filename": "core/fpdfapi/page/cpdf_image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-24T21:01:29Z",
+      "side": 1,
+      "message": "no longer needed",
+      "range": {
+        "startLine": 85,
+        "startChar": 40,
+        "endLine": 85,
+        "endChar": 49
+      },
+      "revId": "0a0c11d1c3336eb4155270d4ceff2470bc9e453f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
