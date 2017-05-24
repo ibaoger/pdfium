@@ -66,7 +66,7 @@ class CPDF_DocPageData {
                                      const CPDF_Dictionary* pResources,
                                      std::set<CPDF_Object*>* pVisited);
 
-  CPDF_Document* const m_pPDFDoc;
+  CFX_UnownedPtr<CPDF_Document> const m_pPDFDoc;
   bool m_bForceClear;
   std::map<CFX_ByteString, CPDF_Stream*> m_HashProfileMap;
   std::map<const CPDF_Object*, CPDF_CountedColorSpace*> m_ColorSpaceMap;

@@ -22,7 +22,7 @@ class CPDF_TransferFunc : public CFX_Retainable {
   CFX_RetainPtr<CFX_DIBSource> TranslateImage(
       const CFX_RetainPtr<CFX_DIBSource>& pSrc);
 
-  CPDF_Document* const m_pPDFDoc;
+  CFX_UnownedPtr<CPDF_Document> const m_pPDFDoc;
   bool m_bIdentity;
   uint8_t m_Samples[256 * 3];
 

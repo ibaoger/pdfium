@@ -236,7 +236,7 @@ class CFGAS_FontMgr : public CFX_Observable<CFGAS_FontMgr> {
   CFX_RetainPtr<IFX_SeekableReadStream> CreateFontStream(
       const CFX_ByteString& bsFaceName);
 
-  CFX_FontSourceEnum_File* const m_pFontSource;
+  CFX_UnownedPtr<CFX_FontSourceEnum_File> const m_pFontSource;
   std::vector<std::unique_ptr<CFX_FontDescriptor>> m_InstalledFonts;
   std::map<uint32_t, std::unique_ptr<std::vector<CFX_FontDescriptorInfo>>>
       m_Hash2CandidateList;

@@ -34,7 +34,7 @@ class CPDF_Image : public CFX_Retainable {
     return m_pStream ? m_pStream->GetDict() : nullptr;
   }
   CPDF_Dictionary* GetOC() const { return m_pOC; }
-  CPDF_Document* GetDocument() const { return m_pDocument; }
+  CPDF_Document* GetDocument() const { return m_pDocument.Get(); }
 
   int32_t GetPixelHeight() const { return m_Height; }
   int32_t GetPixelWidth() const { return m_Width; }
@@ -78,7 +78,7 @@ class CPDF_Image : public CFX_Retainable {
   bool m_bIsInline = false;
   bool m_bIsMask = false;
   bool m_bInterpolate = false;
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
   CFX_MaybeOwned<CPDF_Stream> m_pStream;
   CFX_MaybeOwned<CPDF_Dictionary> m_pDict;
   CPDF_Dictionary* m_pOC = nullptr;

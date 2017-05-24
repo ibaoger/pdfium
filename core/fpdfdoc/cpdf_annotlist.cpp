@@ -83,18 +83,19 @@ CPDF_AnnotList::CPDF_AnnotList(CPDF_Page* pPage)
       // provides its own Popup annotations.
       continue;
     }
-    pAnnots->ConvertToIndirectObjectAt(i, m_pDocument);
-    m_AnnotList.push_back(pdfium::MakeUnique<CPDF_Annot>(pDict, m_pDocument));
+    pAnnots->ConvertToIndirectObjectAt(i, m_pDocument.Get());
+    m_AnnotList.push_back(
+        pdfium::MakeUnique<CPDF_Annot>(pDict, m_pDocument.Get()));
     if (bRegenerateAP && subtype == "Widget" &&
         CPDF_InterForm::IsUpdateAPEnabled()) {
-      FPDF_GenerateAP(m_pDocument, pDict);
+      FPDF_GenerateAP(m_pDocument.Get(), pDict);
     }
   }
 
   size_t nAnnotListSize = m_AnnotList.size();
   for (size_t i = 0; i < nAnnotListSize; ++i) {
     std::unique_ptr<CPDF_Annot> pPopupAnnot(
-        CreatePopupAnnot(m_AnnotList[i].get(), m_pDocument));
+        CreatePopupAnnot(m_AnnotList[i].get(), m_pDocument.Get()));
     if (pPopupAnnot)
       m_AnnotList.push_back(std::move(pPopupAnnot));
   }

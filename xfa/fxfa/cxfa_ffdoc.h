@@ -49,7 +49,9 @@ class CXFA_FFDoc {
   CXFA_FFDoc(CXFA_FFApp* pApp, IXFA_DocEnvironment* pDocEnvironment);
   ~CXFA_FFDoc();
 
-  IXFA_DocEnvironment* GetDocEnvironment() const { return m_pDocEnvironment; }
+  IXFA_DocEnvironment* GetDocEnvironment() const {
+    return m_pDocEnvironment.Get();
+  }
   XFA_DocType GetDocType() const { return m_dwDocType; }
 
   int32_t StartLoad();
@@ -78,7 +80,7 @@ class CXFA_FFDoc {
                   bool bXDP = true);
 
  private:
-  IXFA_DocEnvironment* const m_pDocEnvironment;
+  CFX_UnownedPtr<IXFA_DocEnvironment> const m_pDocEnvironment;
   std::unique_ptr<CXFA_DocumentParser> m_pDocumentParser;
   CFX_RetainPtr<IFX_SeekableStream> m_pStream;
   CXFA_FFApp* m_pApp;

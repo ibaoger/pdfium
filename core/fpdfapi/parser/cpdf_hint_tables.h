@@ -51,10 +51,10 @@ class CPDF_HintTables {
                          const std::vector<FX_FILESIZE>& szArray);
 
   // Owner, outlives this object.
-  CPDF_DataAvail* const m_pDataAvail;
+  CFX_UnownedPtr<CPDF_DataAvail> const m_pDataAvail;
 
   // Owned by |m_pDataAvail|.
-  CPDF_LinearizedHeader* const m_pLinearized;
+  CFX_UnownedPtr<CPDF_LinearizedHeader> const m_pLinearized;
 
   uint32_t m_nFirstPageSharedObjs;
   FX_FILESIZE m_szFirstPageObjOffset;

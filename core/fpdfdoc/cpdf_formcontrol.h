@@ -47,11 +47,12 @@ class CPDF_FormControl {
   enum HighlightingMode { None = 0, Invert, Outline, Push, Toggle };
 
   CPDF_FormControl(CPDF_FormField* pField, CPDF_Dictionary* pWidgetDict);
+  ~CPDF_FormControl();
 
   CPDF_FormField::Type GetType() const { return m_pField->GetType(); }
-  const CPDF_InterForm* GetInterForm() const { return m_pForm; }
-  CPDF_FormField* GetField() const { return m_pField; }
-  CPDF_Dictionary* GetWidget() const { return m_pWidgetDict; }
+  const CPDF_InterForm* GetInterForm() const { return m_pForm.Get(); }
+  CPDF_FormField* GetField() const { return m_pField.Get(); }
+  CPDF_Dictionary* GetWidget() const { return m_pWidgetDict.Get(); }
   CFX_FloatRect GetRect() const { return m_pWidgetDict->GetRectFor("Rect"); }
 
   void DrawControl(CFX_RenderDevice* pDevice,
@@ -126,9 +127,9 @@ class CPDF_FormControl {
   CPDF_Stream* GetIcon(const CFX_ByteString& csEntry);
   CPDF_ApSettings GetMK() const;
 
-  CPDF_FormField* const m_pField;
-  CPDF_Dictionary* const m_pWidgetDict;
-  const CPDF_InterForm* const m_pForm;
+  CFX_UnownedPtr<CPDF_FormField> const m_pField;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pWidgetDict;
+  CFX_UnownedPtr<const CPDF_InterForm> const m_pForm;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_FORMCONTROL_H_
