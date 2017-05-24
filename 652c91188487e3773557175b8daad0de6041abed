@@ -16,6 +16,24 @@
       "revId": "652c91188487e3773557175b8daad0de6041abed",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9432a618_bb6d57eb",
+        "filename": "core/fpdfapi/page/cpdf_textstate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-24T22:34:15Z",
+      "side": 1,
+      "message": "Exactly.  Fonts are hard; what with countedfont and lots of other klugery going on.",
+      "parentUuid": "5c45faa8_486841a2",
+      "revId": "652c91188487e3773557175b8daad0de6041abed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
