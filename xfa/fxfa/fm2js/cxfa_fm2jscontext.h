@@ -449,7 +449,7 @@ class CXFA_FM2JSContext : public CFXJSE_HostObject {
   v8::Isolate* m_pIsolate;
   CFXJSE_Class* m_pFMClass;
   std::unique_ptr<CFXJSE_Value> m_pValue;
-  CXFA_Document* const m_pDocument;
+  CFX_UnownedPtr<CXFA_Document> const m_pDocument;
 };
 
 #endif  // XFA_FXFA_FM2JS_CXFA_FM2JSCONTEXT_H_

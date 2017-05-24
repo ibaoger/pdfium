@@ -118,7 +118,7 @@ class CJS_PropValue {
  private:
   bool m_bIsSetting;
   CJS_Value m_Value;
-  CJS_Runtime* const m_pJSRuntime;
+  CFX_UnownedPtr<CJS_Runtime> const m_pJSRuntime;
 };
 
 class CJS_Array {

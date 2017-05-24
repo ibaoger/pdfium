@@ -23,7 +23,7 @@ class CPDF_ActionFields {
   CPDF_Object* GetField(size_t iIndex) const;
 
  private:
-  const CPDF_Action* const m_pAction;
+  CFX_UnownedPtr<const CPDF_Action> const m_pAction;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_ACTIONFIELDS_H_

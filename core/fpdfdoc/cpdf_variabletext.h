@@ -58,7 +58,7 @@ class CPDF_VariableText {
 
    private:
     CPVT_WordPlace m_CurPos;
-    CPDF_VariableText* const m_pVT;
+    CFX_UnownedPtr<CPDF_VariableText> const m_pVT;
   };
 
   class Provider {
@@ -76,7 +76,7 @@ class CPDF_VariableText {
     virtual int32_t GetDefaultFontIndex();
 
    private:
-    IPVT_FontMap* const m_pFontMap;
+    CFX_UnownedPtr<IPVT_FontMap> const m_pFontMap;
   };
 
   CPDF_VariableText();

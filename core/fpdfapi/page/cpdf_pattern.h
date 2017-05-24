@@ -38,8 +38,8 @@ class CPDF_Pattern {
   void SetPatternToFormMatrix();
 
  private:
-  CPDF_Document* const m_pDocument;
-  CPDF_Object* const m_pPatternObj;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
+  CFX_UnownedPtr<CPDF_Object> const m_pPatternObj;
   CFX_Matrix m_Pattern2Form;
   const CFX_Matrix m_ParentMatrix;
 };

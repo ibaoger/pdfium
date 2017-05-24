@@ -78,7 +78,7 @@ class CXFA_FFDoc {
                   bool bXDP = true);
 
  private:
-  IXFA_DocEnvironment* const m_pDocEnvironment;
+  CFX_UnownedPtr<IXFA_DocEnvironment> const m_pDocEnvironment;
   std::unique_ptr<CXFA_DocumentParser> m_pDocumentParser;
   CFX_RetainPtr<IFX_SeekableStream> m_pStream;
   CXFA_FFApp* m_pApp;

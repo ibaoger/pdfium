@@ -68,7 +68,7 @@ class CPDF_ApSettings {
   CFX_WideString GetCaption(const CFX_ByteString& csEntry) const;
   CPDF_Stream* GetIcon(const CFX_ByteString& csEntry) const;
 
-  CPDF_Dictionary* const m_pDict;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pDict;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_APSETTINGS_H_

@@ -160,7 +160,7 @@ class CPDFSDK_Widget : public CPDFSDK_BAAnnot {
   void AddImageToAppearance(const CFX_ByteString& sAPType, CPDF_Stream* pImage);
   void RemoveAppearance(const CFX_ByteString& sAPType);
 
-  CPDFSDK_InterForm* const m_pInterForm;
+  CFX_UnownedPtr<CPDFSDK_InterForm> const m_pInterForm;
   bool m_bAppModified;
   int32_t m_nAppAge;
   int32_t m_nValueAge;

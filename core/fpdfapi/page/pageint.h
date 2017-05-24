@@ -152,7 +152,7 @@ class CPDF_IccProfile : public CFX_Retainable {
   ~CPDF_IccProfile() override;
 
   const bool m_bsRGB;
-  CPDF_Stream* const m_pStream;
+  CFX_UnownedPtr<CPDF_Stream> const m_pStream;
   void* m_pTransform = nullptr;
   uint32_t m_nSrcComponents = 0;
 };

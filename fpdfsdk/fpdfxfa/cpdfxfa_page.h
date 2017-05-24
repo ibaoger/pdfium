@@ -73,7 +73,7 @@ class CPDFXFA_Page : public CFX_Retainable {
  private:
   std::unique_ptr<CPDF_Page> m_pPDFPage;
   CXFA_FFPageView* m_pXFAPageView;
-  CPDFXFA_Context* const m_pContext;
+  CFX_UnownedPtr<CPDFXFA_Context> const m_pContext;
   const int m_iPageIndex;
   int m_iRef;
 };

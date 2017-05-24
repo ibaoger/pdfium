@@ -78,7 +78,7 @@ class CPDF_Image : public CFX_Retainable {
   bool m_bIsInline = false;
   bool m_bIsMask = false;
   bool m_bInterpolate = false;
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
   CFX_MaybeOwned<CPDF_Stream> m_pStream;
   CFX_MaybeOwned<CPDF_Dictionary> m_pDict;
   CPDF_Dictionary* m_pOC = nullptr;

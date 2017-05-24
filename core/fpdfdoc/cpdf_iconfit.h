@@ -24,7 +24,7 @@ class CPDF_IconFit {
   const CPDF_Dictionary* GetDict() const { return m_pDict; }
 
  private:
-  const CPDF_Dictionary* const m_pDict;
+  CFX_UnownedPtr<const CPDF_Dictionary> const m_pDict;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_ICONFIT_H_

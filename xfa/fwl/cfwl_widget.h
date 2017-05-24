@@ -148,8 +148,8 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
                   IFWL_ThemeProvider* pTheme,
                   const CFX_Matrix* pMatrix);
 
-  const CFWL_App* const m_pOwnerApp;
-  CFWL_WidgetMgr* const m_pWidgetMgr;
+  CFX_UnownedPtr<const CFWL_App> const m_pOwnerApp;
+  CFX_UnownedPtr<CFWL_WidgetMgr> const m_pWidgetMgr;
   std::unique_ptr<CFWL_WidgetProperties> m_pProperties;
   CFWL_Widget* m_pOuter;
   int32_t m_iLock;

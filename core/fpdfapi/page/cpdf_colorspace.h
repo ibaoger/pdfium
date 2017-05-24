@@ -67,7 +67,7 @@ class CPDF_ColorSpace {
 
   virtual void EnableStdConversion(bool bEnabled);
 
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
 
  protected:
   CPDF_ColorSpace(CPDF_Document* pDoc, int family, uint32_t nComponents);

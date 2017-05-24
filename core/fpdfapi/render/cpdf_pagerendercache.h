@@ -45,7 +45,7 @@ class CPDF_PageRenderCache {
  private:
   void ClearImageCacheEntry(CPDF_Stream* pStream);
 
-  CPDF_Page* const m_pPage;
+  CFX_UnownedPtr<CPDF_Page> const m_pPage;
   CPDF_ImageCacheEntry* m_pCurImageCacheEntry;
   std::map<CPDF_Stream*, CPDF_ImageCacheEntry*> m_ImageCache;
   uint32_t m_nTimeCount;

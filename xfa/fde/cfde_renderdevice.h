@@ -118,7 +118,7 @@ class CFDE_RenderDevice {
                  float fPenWidth,
                  CFX_GraphStateData& graphState);
 
-  CFX_RenderDevice* const m_pDevice;
+  CFX_UnownedPtr<CFX_RenderDevice> const m_pDevice;
   CFX_RectF m_rtClip;
   int32_t m_iCharCount;
 };

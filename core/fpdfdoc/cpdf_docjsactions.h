@@ -23,7 +23,7 @@ class CPDF_DocJSActions {
   CPDF_Document* GetDocument() const { return m_pDocument; }
 
  private:
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_DOCJSACTIONS_H_

@@ -37,7 +37,7 @@ class CFWL_App {
   CFWL_NoteDriver* GetNoteDriver() const { return m_pNoteDriver.get(); }
 
  private:
-  CXFA_FFApp* const m_pAdapterNative;
+  CFX_UnownedPtr<CXFA_FFApp> const m_pAdapterNative;
   std::unique_ptr<CFWL_WidgetMgr> m_pWidgetMgr;
   std::unique_ptr<CFWL_NoteDriver> m_pNoteDriver;
 };

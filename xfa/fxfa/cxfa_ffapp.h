@@ -52,7 +52,7 @@ class CXFA_FFApp {
 
  private:
   std::unique_ptr<CXFA_FFDocHandler> m_pDocHandler;
-  IXFA_AppProvider* const m_pProvider;
+  CFX_UnownedPtr<IXFA_AppProvider> const m_pProvider;
 
   // The fonts stored in the font manager may have been created by the default
   // font manager. The GEFont::LoadFont call takes the manager as a param and

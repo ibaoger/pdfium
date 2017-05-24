@@ -30,7 +30,7 @@ class CJPX_Decoder {
   opj_image_t* image;
   opj_codec_t* l_codec;
   opj_stream_t* l_stream;
-  const CPDF_ColorSpace* const m_ColorSpace;
+  CFX_UnownedPtr<const CPDF_ColorSpace> const m_ColorSpace;
 };
 
 #endif  // CORE_FXCODEC_CODEC_CJPX_DECODER_H_

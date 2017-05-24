@@ -86,7 +86,7 @@ class CPDF_RefType3Cache {
   }
 
   uint32_t m_dwCount;
-  CPDF_Type3Font* const m_pType3Font;
+  CFX_UnownedPtr<CPDF_Type3Font> const m_pType3Font;
 };
 
 uint32_t CountOutputs(

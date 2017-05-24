@@ -56,9 +56,9 @@ class CPDF_StructElement : public CFX_Retainable {
   void LoadKids(CPDF_Dictionary* pDict);
   void LoadKid(uint32_t PageObjNum, CPDF_Object* pObj, CPDF_StructKid* pKid);
 
-  CPDF_StructTree* const m_pTree;
-  CPDF_StructElement* const m_pParent;
-  CPDF_Dictionary* const m_pDict;
+  CFX_UnownedPtr<CPDF_StructTree> const m_pTree;
+  CFX_UnownedPtr<CPDF_StructElement> const m_pParent;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pDict;
   CFX_ByteString m_Type;
   CFX_ByteString m_Title;
   std::vector<CPDF_StructKid> m_Kids;

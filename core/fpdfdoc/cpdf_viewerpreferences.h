@@ -33,7 +33,7 @@ class CPDF_ViewerPreferences {
  private:
   CPDF_Dictionary* GetViewerPreferences() const;
 
-  CPDF_Document* const m_pDoc;
+  CFX_UnownedPtr<CPDF_Document> const m_pDoc;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_VIEWERPREFERENCES_H_

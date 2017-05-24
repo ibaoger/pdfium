@@ -45,7 +45,7 @@ class CPDF_AAction {
   CPDF_Dictionary* GetDict() const { return m_pDict; }
 
  private:
-  CPDF_Dictionary* const m_pDict;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pDict;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_AACTION_H_

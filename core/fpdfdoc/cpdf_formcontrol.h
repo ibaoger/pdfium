@@ -126,9 +126,9 @@ class CPDF_FormControl {
   CPDF_Stream* GetIcon(const CFX_ByteString& csEntry);
   CPDF_ApSettings GetMK() const;
 
-  CPDF_FormField* const m_pField;
-  CPDF_Dictionary* const m_pWidgetDict;
-  const CPDF_InterForm* const m_pForm;
+  CFX_UnownedPtr<CPDF_FormField> const m_pField;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pWidgetDict;
+  CFX_UnownedPtr<const CPDF_InterForm> const m_pForm;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_FORMCONTROL_H_

@@ -20,7 +20,7 @@ class CPDF_BookmarkTree {
   CPDF_Document* GetDocument() const { return m_pDocument; }
 
  private:
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_BOOKMARKTREE_H_

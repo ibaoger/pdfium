@@ -37,7 +37,7 @@ class CJBig2_ArithDecoder {
   unsigned int m_C;
   unsigned int m_A;
   unsigned int m_CT;
-  CJBig2_BitStream* const m_pStream;
+  CFX_UnownedPtr<CJBig2_BitStream> const m_pStream;
 };
 
 #endif  // CORE_FXCODEC_JBIG2_JBIG2_ARITHDECODER_H_

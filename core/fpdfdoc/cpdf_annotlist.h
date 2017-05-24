@@ -57,7 +57,7 @@ class CPDF_AnnotList {
                    CPDF_RenderOptions* pOptions,
                    FX_RECT* clip_rect);
 
-  CPDF_Document* const m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> const m_pDocument;
   std::vector<std::unique_ptr<CPDF_Annot>> m_AnnotList;
 };
 

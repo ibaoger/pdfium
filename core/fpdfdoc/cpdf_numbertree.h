@@ -17,7 +17,7 @@ class CPDF_NumberTree {
   CPDF_Object* LookupValue(int num) const;
 
  protected:
-  CPDF_Dictionary* const m_pRoot;
+  CFX_UnownedPtr<CPDF_Dictionary> const m_pRoot;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_NUMBERTREE_H_
