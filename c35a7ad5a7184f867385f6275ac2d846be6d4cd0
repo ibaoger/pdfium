@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb7b2bbe_0d2b2ce5",
+        "filename": "core/fpdfapi/font/cpdf_type3char.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-24T00:03:04Z",
+      "side": 1,
+      "message": "Not sure what you mean. What other Clone() function is there to contrast with?",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "c35a7ad5a7184f867385f6275ac2d846be6d4cd0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
