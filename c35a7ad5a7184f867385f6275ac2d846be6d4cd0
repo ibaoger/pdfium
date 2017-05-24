@@ -22,6 +22,30 @@
       "revId": "c35a7ad5a7184f867385f6275ac2d846be6d4cd0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f133bf1_27b9bf8f",
+        "filename": "core/fpdfapi/font/cpdf_type3char.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-24T00:21:27Z",
+      "side": 1,
+      "message": "e.g. Clone is non-virtual, and hence can\u0027t overloaded by CPDF_DIBSource as one might expect.  So you don\u0027t actually get a clone as you would with the CPDF_Object sub-classes for instance. \n\nLemme see if I can write better.",
+      "parentUuid": "fb7b2bbe_0d2b2ce5",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "c35a7ad5a7184f867385f6275ac2d846be6d4cd0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
