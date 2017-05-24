@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d1c2d1_21584591",
+        "filename": "core/fxcodec/codec/ccodec_progressivedecoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-24T01:45:11Z",
+      "side": 1,
+      "message": "Actually, we \"own\" a bunch of these, but they are not pointers that can be deleted in a straight-forward manner.",
+      "revId": "910429cb360074e07a6c83494cd8d6f1da82a9c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
