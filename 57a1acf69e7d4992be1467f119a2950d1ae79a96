@@ -436,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "2077eb9b_a1e7302e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-24T14:52:13Z",
+      "side": 1,
+      "message": "tsepez@ asked for this when I did my CID font loading tests. I don\u0027t completely understand the reasoning behind it.",
+      "parentUuid": "c01fad9e_65d1ac22",
+      "range": {
+        "startLine": 1049,
+        "startChar": 71,
+        "endLine": 1049,
+        "endChar": 76
+      },
+      "revId": "57a1acf69e7d4992be1467f119a2950d1ae79a96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8ab2e25_d371e30e",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
         "patchSetId": 7
