@@ -101,12 +101,11 @@ void EmbedderTest::TearDown() {
   if (document_) {
     FORM_DoDocumentAAction(form_handle_, FPDFDOC_AACTION_WC);
     FPDFDOC_ExitFormFillEnvironment(form_handle_);
-    FPDF_CloseDocument(document_);
   }
-
   FPDFAvail_Destroy(avail_);
+  if (document_)
+    FPDF_CloseDocument(document_);
   FPDF_DestroyLibrary();
-
   delete loader_;
 }
 

@@ -491,7 +491,7 @@ bool CPDF_DataAvail::CheckPage(DownloadHints* pHints) {
   size_t iPages = m_PagesArray.size();
   for (size_t i = 0; i < iPages; ++i) {
     std::unique_ptr<CPDF_Object> pPages = std::move(m_PagesArray[i]);
-    if (pPages && !GetPageKids(m_pCurrentParser, pPages.get())) {
+    if (pPages && !GetPageKids(m_pCurrentParser.Get(), pPages.get())) {
       m_PagesArray.clear();
       m_docStatus = PDF_DATAAVAIL_ERROR;
       return false;
@@ -551,7 +551,7 @@ bool CPDF_DataAvail::CheckPages(DownloadHints* pHints) {
     return false;
   }
 
-  if (!GetPageKids(m_pCurrentParser, pPages.get())) {
+  if (!GetPageKids(m_pCurrentParser.Get(), pPages.get())) {
     m_docStatus = PDF_DATAAVAIL_ERROR;
     return false;
   }
@@ -1503,7 +1503,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
       }
 
       std::vector<CPDF_Object*> obj_array;
-      obj_array.push_back(m_pPageDict);
+      obj_array.push_back(m_pPageDict.Get());
       if (!AreObjectsAvailable(obj_array, true, pHints, m_objs_array))
         return DataNotAvailable;
 
@@ -1528,7 +1528,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   if (m_pPageDict && !m_bNeedDownLoadResource) {
     m_pPageResource = m_pPageDict->GetObjectFor("Resources");
     m_bNeedDownLoadResource =
-        m_pPageResource || HaveResourceAncestor(m_pPageDict);
+        m_pPageResource || HaveResourceAncestor(m_pPageDict.Get());
   }
 
   if (m_bNeedDownLoadResource) {
@@ -1551,7 +1551,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
 bool CPDF_DataAvail::CheckResources(DownloadHints* pHints) {
   if (m_objs_array.empty()) {
     std::vector<CPDF_Object*> obj_array;
-    obj_array.push_back(m_pPageResource);
+    obj_array.push_back(m_pPageResource.Get());
     if (!AreObjectsAvailable(obj_array, true, pHints, m_objs_array))
       return false;
 
@@ -1606,7 +1606,7 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
     m_syntaxParser.InitParser(
         m_pFileRead, pdfium::base::checked_cast<uint32_t>(szPageStartPos));
     m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
-        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument));
+        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument.Get()));
   }
   if (!ValidatePage(index))
     return nullptr;
