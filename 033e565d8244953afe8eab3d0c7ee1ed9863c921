@@ -16,6 +16,24 @@
       "revId": "033e565d8244953afe8eab3d0c7ee1ed9863c921",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b897461_38ae38f8",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T14:44:11Z",
+      "side": 0,
+      "message": "ok",
+      "parentUuid": "28f5d8fa_152f06e8",
+      "revId": "033e565d8244953afe8eab3d0c7ee1ed9863c921",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
