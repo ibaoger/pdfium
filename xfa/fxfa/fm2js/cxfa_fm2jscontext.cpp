@@ -958,8 +958,7 @@ void CXFA_FM2JSContext::Round(CFXJSE_Value* pThis,
   }
 
   CFX_Decimal decimalValue((float)dValue, uPrecision);
-  CFX_WideString wsValue = decimalValue;
-  args.GetReturnValue()->SetString(wsValue.UTF8Encode().AsStringC());
+  args.GetReturnValue()->SetDouble(decimalValue);
 }
 
 // static
