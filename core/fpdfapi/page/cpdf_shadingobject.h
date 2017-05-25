@@ -26,7 +26,7 @@ class CPDF_ShadingObject : public CPDF_PageObject {
 
   void CalcBoundingBox();
 
-  CPDF_ShadingPattern* m_pShading;
+  CFX_UnownedPtr<CPDF_ShadingPattern> m_pShading;
   CFX_Matrix m_Matrix;
 };
 

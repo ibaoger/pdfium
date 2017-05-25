@@ -27,7 +27,11 @@ class CPDF_RenderContext {
  public:
   class Layer {
    public:
-    CPDF_PageObjectHolder* m_pObjectHolder;
+    Layer();
+    Layer(const Layer& that);
+    ~Layer();
+
+    CFX_UnownedPtr<CPDF_PageObjectHolder> m_pObjectHolder;
     CFX_Matrix m_Matrix;
   };
 

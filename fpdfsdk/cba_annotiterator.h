@@ -37,7 +37,7 @@ class CBA_AnnotIterator {
                            std::vector<size_t>* aSelect);
 
   TabOrder m_eTabOrder;
-  CPDFSDK_PageView* m_pPageView;
+  CFX_UnownedPtr<CPDFSDK_PageView> m_pPageView;
   CPDF_Annot::Subtype m_nAnnotSubtype;
   std::vector<CPDFSDK_Annot*> m_Annots;
 };

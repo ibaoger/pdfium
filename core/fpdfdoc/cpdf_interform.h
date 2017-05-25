@@ -109,12 +109,12 @@ class CPDF_InterForm {
   static bool s_bUpdateAP;
 
   CFX_UnownedPtr<CPDF_Document> const m_pDocument;
-  CPDF_Dictionary* m_pFormDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pFormDict;
   std::map<const CPDF_Dictionary*, std::unique_ptr<CPDF_FormControl>>
       m_ControlMap;
   std::unique_ptr<CFieldTree> m_pFieldTree;
   CFX_ByteString m_bsEncoding;
-  IPDF_FormNotify* m_pFormNotify;
+  CFX_UnownedPtr<IPDF_FormNotify> m_pFormNotify;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_INTERFORM_H_

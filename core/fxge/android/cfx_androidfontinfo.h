@@ -39,7 +39,7 @@ class CFX_AndroidFontInfo : public IFX_SystemFontInfo {
   void DeleteFont(void* hFont) override;
 
  protected:
-  CFPF_SkiaFontMgr* m_pFontMgr;
+  CFX_UnownedPtr<CFPF_SkiaFontMgr> m_pFontMgr;
 };
 
 #endif  // CORE_FXGE_ANDROID_CFX_ANDROIDFONTINFO_H_

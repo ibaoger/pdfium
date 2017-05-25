@@ -84,13 +84,11 @@ class CFX_RenderDevice {
  public:
   class StateRestorer {
    public:
-    explicit StateRestorer(CFX_RenderDevice* pDevice) : m_pDevice(pDevice) {
-      m_pDevice->SaveState();
-    }
-    ~StateRestorer() { m_pDevice->RestoreState(false); }
+    explicit StateRestorer(CFX_RenderDevice* pDevice);
+    ~StateRestorer();
 
    private:
-    CFX_RenderDevice* m_pDevice;
+    CFX_UnownedPtr<CFX_RenderDevice> m_pDevice;
   };
 
   CFX_RenderDevice();

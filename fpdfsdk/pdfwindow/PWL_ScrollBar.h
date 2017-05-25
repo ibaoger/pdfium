@@ -169,9 +169,9 @@ class CPWL_ScrollBar : public CPWL_Wnd {
 
   PWL_SCROLLBAR_TYPE m_sbType;
   PWL_SCROLL_INFO m_OriginInfo;
-  CPWL_SBButton* m_pMinButton;
-  CPWL_SBButton* m_pMaxButton;
-  CPWL_SBButton* m_pPosButton;
+  CFX_UnownedPtr<CPWL_SBButton> m_pMinButton;
+  CFX_UnownedPtr<CPWL_SBButton> m_pMaxButton;
+  CFX_UnownedPtr<CPWL_SBButton> m_pPosButton;
   PWL_SCROLL_PRIVATEDATA m_sData;
   bool m_bMouseDown;
   bool m_bMinOrMax;

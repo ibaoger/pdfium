@@ -84,9 +84,16 @@ class PAGECHAR_INFO {
 };
 
 struct PDFTEXT_Obj {
-  CPDF_TextObject* m_pTextObj;
+  PDFTEXT_Obj();
+  PDFTEXT_Obj(const PDFTEXT_Obj& that);
+  ~PDFTEXT_Obj();
+
+  CFX_UnownedPtr<CPDF_TextObject> m_pTextObj;
   CFX_Matrix m_formMatrix;
 };
+inline PDFTEXT_Obj::PDFTEXT_Obj() = default;
+inline PDFTEXT_Obj::PDFTEXT_Obj(const PDFTEXT_Obj& that) = default;
+inline PDFTEXT_Obj::~PDFTEXT_Obj() = default;
 
 class CPDF_TextPage {
  public:

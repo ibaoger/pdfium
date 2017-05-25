@@ -1266,8 +1266,8 @@ class SkiaState {
   CFX_GraphStateData m_clipState;
   CFX_GraphStateData m_drawState;
   CFX_Matrix m_clipMatrix;
-  CFX_SkiaDeviceDriver* m_pDriver;
-  CFX_TypeFace* m_pTypeFace;
+  CFX_UnownedPtr<CFX_SkiaDeviceDriver> m_pDriver;
+  CFX_UnownedPtr<CFX_TypeFace> m_pTypeFace;
   float m_fontSize;
   uint32_t m_fillColor;
   uint32_t m_strokeColor;

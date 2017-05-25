@@ -27,13 +27,13 @@ class CFXJSE_Class {
   explicit CFXJSE_Class(CFXJSE_Context* lpContext);
   ~CFXJSE_Class();
 
-  CFXJSE_Context* GetContext() const { return m_pContext; }
+  CFXJSE_Context* GetContext() const { return m_pContext.Get(); }
   v8::Global<v8::FunctionTemplate>& GetTemplate() { return m_hTemplate; }
 
  protected:
   CFX_ByteString m_szClassName;
-  const FXJSE_CLASS_DESCRIPTOR* m_lpClassDefinition;
-  CFXJSE_Context* m_pContext;
+  CFX_UnownedPtr<const FXJSE_CLASS_DESCRIPTOR> m_lpClassDefinition;
+  CFX_UnownedPtr<CFXJSE_Context> m_pContext;
   v8::Global<v8::FunctionTemplate> m_hTemplate;
   friend class CFXJSE_Context;
   friend class CFXJSE_Value;
