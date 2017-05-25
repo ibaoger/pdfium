@@ -283,5 +283,7 @@ void CPDF_PageContentGenerator::ProcessText(CFX_ByteTextBuf* buf,
     if (charcode != CPDF_Font::kInvalidCharCode)
       pFont->AppendChar(&text, charcode);
   }
+  ProcessGraphics(buf, pTextObj);
   *buf << PDF_EncodeString(text, true) << " Tj ET\n";
+  *buf << " Q\n";
 }
