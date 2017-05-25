@@ -8,7 +8,6 @@
 
 #include "core/fpdfapi/page/cpdf_meshstream.h"
 #include "core/fpdfapi/page/cpdf_shadingpattern.h"
-#include "core/fpdfapi/page/pageint.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
