@@ -149,3 +149,19 @@ DLLEXPORT FPDF_BOOL FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
   pPathObj->m_bStroke = stroke != 0;
   return true;
 }
+
+DLLEXPORT void STDCALL FPDFPath_SetLineJoin(FPDF_PAGEOBJECT page_object, int line_join) {
+	CPDF_PageObject* pPageObj = reinterpret_cast<CPDF_PageObject*>(page_object);
+	CFX_GraphStateData::LineJoin lineJoin = static_cast<CFX_GraphStateData::LineJoin>(line_join);
+	if (!pPageObj)
+		return;
+	pPageObj->m_GraphState.SetLineJoin(lineJoin);
+}
+
+DLLEXPORT void STDCALL FPDFPath_SetLineCap(FPDF_PAGEOBJECT page_object, int line_cap) {
+	CPDF_PageObject* pPageObj = reinterpret_cast<CPDF_PageObject*>(page_object);
+	CFX_GraphStateData::LineCap lineCap = static_cast<CFX_GraphStateData::LineCap>(line_cap);
+		if (!pPageObj)
+		return;
+	pPageObj->m_GraphState.SetLineCap(lineCap);
+}
