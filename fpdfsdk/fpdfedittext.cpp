@@ -447,6 +447,22 @@ DLLEXPORT FPDF_FONT STDCALL FPDFText_LoadFont(FPDF_DOCUMENT document,
              : LoadSimpleFont(pDoc, std::move(pFont), data, size, font_type);
 }
 
+DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetFillColor(FPDF_PAGEOBJECT text_object,
+                                          unsigned int R,
+                                          unsigned int G,
+                                          unsigned int B,
+                                          unsigned int A) {
+  if (!text_object || R > 255 || G > 255 || B > 255 || A > 255)
+    return false;
+
+  auto* pTextObj = reinterpret_cast<CPDF_TextObject*>(text_object);
+  pTextObj->m_GeneralState.SetFillAlpha(A / 255.f);
+  float rgb[3] = {R / 255.f, G / 255.f, B / 255.f};
+  pTextObj->m_ColorState.SetFillColor(
+  CPDF_ColorSpace::GetStockCS(PDFCS_DEVICERGB), rgb, 3);
+  return true;
+}
+
 DLLEXPORT void STDCALL FPDFFont_Close(FPDF_FONT font) {
   CPDF_Font* pFont = static_cast<CPDF_Font*>(font);
   if (!pFont)
