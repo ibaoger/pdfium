@@ -61,15 +61,15 @@ class CPDF_RenderStatus {
   bool ContinueSingleObject(CPDF_PageObject* pObj,
                             const CFX_Matrix* pObj2Device,
                             IFX_Pause* pPause);
-  CPDF_RenderContext* GetContext() { return m_pContext; }
+  CPDF_RenderContext* GetContext() const { return m_pContext.Get(); }
 
 #if defined _SKIA_SUPPORT_
   void DebugVerifyDeviceIsPreMultiplied() const;
 #endif
 
   CPDF_RenderOptions m_Options;
-  CPDF_Dictionary* m_pFormResource;
-  CPDF_Dictionary* m_pPageResource;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pFormResource;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pPageResource;
   std::vector<CPDF_Type3Font*> m_Type3FontCache;
 
  private:
@@ -157,13 +157,13 @@ class CPDF_RenderStatus {
   static const int kRenderMaxRecursionDepth = 64;
   static int s_CurrentRecursionDepth;
 
-  CPDF_RenderContext* m_pContext;
+  CFX_UnownedPtr<CPDF_RenderContext> m_pContext;
   bool m_bStopped;
   CFX_RenderDevice* m_pDevice;
   CFX_Matrix m_DeviceMatrix;
   CPDF_ClipPath m_LastClipPath;
-  const CPDF_PageObject* m_pCurObj;
-  const CPDF_PageObject* m_pStopObj;
+  CFX_UnownedPtr<const CPDF_PageObject> m_pCurObj;
+  CFX_UnownedPtr<const CPDF_PageObject> m_pStopObj;
   CPDF_GraphicStates m_InitialStates;
   std::unique_ptr<CPDF_ImageRenderer> m_pImageRenderer;
   bool m_bPrint;
@@ -172,7 +172,7 @@ class CPDF_RenderStatus {
   bool m_bStdCS;
   uint32_t m_GroupFamily;
   bool m_bLoadMask;
-  CPDF_Type3Char* m_pType3Char;
+  CFX_UnownedPtr<CPDF_Type3Char> m_pType3Char;
   FX_ARGB m_T3FillColor;
   int m_curBlend;
 };

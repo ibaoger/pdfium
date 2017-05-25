@@ -20,6 +20,7 @@ struct JBig2ArithCtx;
 class CJBig2_GRDProc {
  public:
   CJBig2_GRDProc();
+  ~CJBig2_GRDProc();
 
   CJBig2_Image* decode_Arith(CJBig2_ArithDecoder* pArithDecoder,
                              JBig2ArithCtx* gbContext);
@@ -112,7 +113,7 @@ class CJBig2_GRDProc {
   uint8_t* m_pLine;
   FXCODEC_STATUS m_ProssiveStatus;
   CJBig2_Image** m_pImage;
-  CJBig2_ArithDecoder* m_pArithDecoder;
+  CFX_UnownedPtr<CJBig2_ArithDecoder> m_pArithDecoder;
   JBig2ArithCtx* m_gbContext;
   uint16_t m_DecodeType;
   int m_LTP;

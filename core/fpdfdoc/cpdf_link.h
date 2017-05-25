@@ -15,17 +15,18 @@ class CPDF_Dictionary;
 
 class CPDF_Link {
  public:
-  CPDF_Link() : m_pDict(nullptr) {}
-  explicit CPDF_Link(CPDF_Dictionary* pDict) : m_pDict(pDict) {}
+  CPDF_Link();
+  explicit CPDF_Link(CPDF_Dictionary* pDict);
+  CPDF_Link(const CPDF_Link& that);
+  ~CPDF_Link();
 
-  CPDF_Dictionary* GetDict() const { return m_pDict; }
-
+  CPDF_Dictionary* GetDict() const { return m_pDict.Get(); }
   CFX_FloatRect GetRect();
   CPDF_Dest GetDest(CPDF_Document* pDoc);
   CPDF_Action GetAction();
 
  private:
-  CPDF_Dictionary* m_pDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pDict;
 };
 
 #endif  // CORE_FPDFDOC_CPDF_LINK_H_

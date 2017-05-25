@@ -631,7 +631,7 @@ void CPDF_DIBSource::LoadJpxBitmap() {
   CCodec_JpxModule* pJpxModule = CPDF_ModuleMgr::Get()->GetJpxModule();
   auto context = pdfium::MakeUnique<JpxBitMapContext>(pJpxModule);
   context->set_decoder(pJpxModule->CreateDecoder(
-      m_pStreamAcc->GetData(), m_pStreamAcc->GetSize(), m_pColorSpace));
+      m_pStreamAcc->GetData(), m_pStreamAcc->GetSize(), m_pColorSpace.Get()));
   if (!context->decoder())
     return;
 

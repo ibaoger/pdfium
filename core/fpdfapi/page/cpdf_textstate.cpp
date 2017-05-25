@@ -18,7 +18,7 @@ void CPDF_TextState::Emplace() {
 }
 
 CPDF_Font* CPDF_TextState::GetFont() const {
-  return m_Ref.GetObject()->m_pFont;
+  return m_Ref.GetObject()->m_pFont.Get();
 }
 
 void CPDF_TextState::SetFont(CPDF_Font* pFont) {

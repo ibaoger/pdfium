@@ -27,12 +27,12 @@ class CFDF_Document : public CPDF_IndirectObjectHolder {
   ~CFDF_Document() override;
 
   bool WriteBuf(CFX_ByteTextBuf& buf) const;
-  CPDF_Dictionary* GetRoot() const { return m_pRootDict; }
+  CPDF_Dictionary* GetRoot() const { return m_pRootDict.Get(); }
 
  protected:
   void ParseStream(const CFX_RetainPtr<IFX_SeekableReadStream>& pFile);
 
-  CPDF_Dictionary* m_pRootDict;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pRootDict;
   CFX_RetainPtr<IFX_SeekableReadStream> m_pFile;
 };
 

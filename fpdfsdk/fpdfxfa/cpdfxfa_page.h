@@ -29,7 +29,7 @@ class CPDFXFA_Page : public CFX_Retainable {
   CPDFXFA_Context* GetContext() const { return m_pContext.Get(); }
   int GetPageIndex() const { return m_iPageIndex; }
   CPDF_Page* GetPDFPage() const { return m_pPDFPage.get(); }
-  CXFA_FFPageView* GetXFAPageView() const { return m_pXFAPageView; }
+  CXFA_FFPageView* GetXFAPageView() const { return m_pXFAPageView.Get(); }
 
   void SetXFAPageView(CXFA_FFPageView* pPageView) {
     m_pXFAPageView = pPageView;
@@ -73,7 +73,7 @@ class CPDFXFA_Page : public CFX_Retainable {
 
  private:
   std::unique_ptr<CPDF_Page> m_pPDFPage;
-  CXFA_FFPageView* m_pXFAPageView;
+  CFX_UnownedPtr<CXFA_FFPageView> m_pXFAPageView;
   CFX_UnownedPtr<CPDFXFA_Context> const m_pContext;
   const int m_iPageIndex;
   int m_iRef;

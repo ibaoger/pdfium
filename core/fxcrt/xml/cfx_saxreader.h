@@ -29,10 +29,10 @@ class CFX_SAXItem {
     CharData,
   };
 
-  explicit CFX_SAXItem(uint32_t id)
-      : m_pNode(nullptr), m_eNode(Type::Unknown), m_dwID(id), m_bSkip(false) {}
+  explicit CFX_SAXItem(uint32_t id);
+  ~CFX_SAXItem();
 
-  CFX_SAXContext* m_pNode;
+  CFX_UnownedPtr<CFX_SAXContext> m_pNode;
   Type m_eNode;
   const uint32_t m_dwID;
   bool m_bSkip;

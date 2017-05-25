@@ -29,7 +29,7 @@
 namespace {
 
 typedef struct {
-  CFX_PathData* m_pPath;
+  CFX_UnownedPtr<CFX_PathData> m_pPath;
   int m_CurX;
   int m_CurY;
   float m_CoordUnit;

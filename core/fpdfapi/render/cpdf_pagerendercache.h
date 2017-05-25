@@ -32,7 +32,7 @@ class CPDF_PageRenderCache {
                    const CFX_RetainPtr<CFX_DIBitmap>& pBitmap);
   CPDF_Page* GetPage() const { return m_pPage.Get(); }
   CPDF_ImageCacheEntry* GetCurImageCacheEntry() const {
-    return m_pCurImageCacheEntry;
+    return m_pCurImageCacheEntry.Get();
   }
 
   bool StartGetCachedBitmap(const CFX_RetainPtr<CPDF_Image>& pImage,
@@ -47,7 +47,7 @@ class CPDF_PageRenderCache {
   void ClearImageCacheEntry(CPDF_Stream* pStream);
 
   CFX_UnownedPtr<CPDF_Page> const m_pPage;
-  CPDF_ImageCacheEntry* m_pCurImageCacheEntry;
+  CFX_UnownedPtr<CPDF_ImageCacheEntry> m_pCurImageCacheEntry;
   std::map<CPDF_Stream*, CPDF_ImageCacheEntry*> m_ImageCache;
   uint32_t m_nTimeCount;
   uint32_t m_nCacheSize;

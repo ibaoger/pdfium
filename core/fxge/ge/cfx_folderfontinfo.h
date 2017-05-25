@@ -62,7 +62,7 @@ class CFX_FolderFontInfo : public IFX_SystemFontInfo {
 
   std::map<CFX_ByteString, std::unique_ptr<CFX_FontFaceInfo>> m_FontList;
   std::vector<CFX_ByteString> m_PathList;
-  CFX_FontMapper* m_pMapper;
+  CFX_UnownedPtr<CFX_FontMapper> m_pMapper;
 };
 
 #endif  // CORE_FXGE_GE_CFX_FOLDERFONTINFO_H_

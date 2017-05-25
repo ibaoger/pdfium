@@ -125,7 +125,7 @@ class CPDF_DIBSource : public CFX_DIBSource {
   CFX_UnownedPtr<const CPDF_Stream> m_pStream;
   CFX_UnownedPtr<const CPDF_Dictionary> m_pDict;
   CFX_RetainPtr<CPDF_StreamAcc> m_pStreamAcc;
-  CPDF_ColorSpace* m_pColorSpace;
+  CFX_UnownedPtr<CPDF_ColorSpace> m_pColorSpace;
   uint32_t m_Family;
   uint32_t m_bpc;
   uint32_t m_bpc_orig;

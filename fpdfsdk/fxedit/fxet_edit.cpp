@@ -145,8 +145,8 @@ CFX_Edit_Provider::CFX_Edit_Provider(IPVT_FontMap* pFontMap)
 
 CFX_Edit_Provider::~CFX_Edit_Provider() {}
 
-IPVT_FontMap* CFX_Edit_Provider::GetFontMap() {
-  return m_pFontMap;
+IPVT_FontMap* CFX_Edit_Provider::GetFontMap() const {
+  return m_pFontMap.Get();
 }
 
 int32_t CFX_Edit_Provider::GetCharWidth(int32_t nFontIndex, uint16_t word) {

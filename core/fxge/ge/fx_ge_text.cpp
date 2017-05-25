@@ -50,7 +50,7 @@ FX_RECT FXGE_GetGlyphsBBox(const std::vector<FXTEXT_GLYPHPOS>& glyphs,
   FX_RECT rect(0, 0, 0, 0);
   bool bStarted = false;
   for (const FXTEXT_GLYPHPOS& glyph : glyphs) {
-    const CFX_GlyphBitmap* pGlyph = glyph.m_pGlyph;
+    const CFX_GlyphBitmap* pGlyph = glyph.m_pGlyph.Get();
     if (!pGlyph)
       continue;
 

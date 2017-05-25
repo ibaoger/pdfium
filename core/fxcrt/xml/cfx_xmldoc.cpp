@@ -122,10 +122,10 @@ void CFX_XMLDoc::SaveXMLNode(
       if (pNode->m_pChild) {
         ws = L"\n>";
         pXMLStream->WriteString(ws.AsStringC());
-        CFX_XMLNode* pChild = pNode->m_pChild;
+        CFX_XMLNode* pChild = pNode->m_pChild.Get();
         while (pChild) {
           SaveXMLNode(pXMLStream, static_cast<CFX_XMLNode*>(pChild));
-          pChild = pChild->m_pNext;
+          pChild = pChild->m_pNext.Get();
         }
         ws = L"</";
         ws += static_cast<CFX_XMLElement*>(pNode)->GetName();

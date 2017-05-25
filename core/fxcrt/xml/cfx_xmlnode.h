@@ -66,10 +66,10 @@ class CFX_XMLNode {
 
   void SaveXMLNode(const CFX_RetainPtr<CFX_SeekableStreamProxy>& pXMLStream);
 
-  CFX_XMLNode* m_pParent;
-  CFX_XMLNode* m_pChild;
-  CFX_XMLNode* m_pPrior;
-  CFX_XMLNode* m_pNext;
+  CFX_UnownedPtr<CFX_XMLNode> m_pParent;
+  CFX_UnownedPtr<CFX_XMLNode> m_pChild;
+  CFX_UnownedPtr<CFX_XMLNode> m_pPrior;
+  CFX_UnownedPtr<CFX_XMLNode> m_pNext;
 };
 
 #endif  // CORE_FXCRT_XML_CFX_XMLNODE_H_

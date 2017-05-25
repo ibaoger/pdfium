@@ -56,7 +56,7 @@ class CFX_BitmapComposer : public IFX_ScanlineComposer {
                         const uint8_t* scan_extra_alpha);
 
   CFX_RetainPtr<CFX_DIBitmap> m_pBitmap;
-  const CFX_ClipRgn* m_pClipRgn;
+  CFX_UnownedPtr<const CFX_ClipRgn> m_pClipRgn;
   FXDIB_Format m_SrcFormat;
   int m_DestLeft;
   int m_DestTop;

@@ -204,7 +204,7 @@ class CPDF_DataAvail final {
   uint32_t m_dwRootObjNum;
   uint32_t m_dwInfoObjNum;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
-  CPDF_Object* m_pTrailer;
+  CFX_UnownedPtr<CPDF_Object> m_pTrailer;
   bool m_bDocAvail;
   FX_FILESIZE m_dwHeaderOffset;
   FX_FILESIZE m_dwLastXRefOffset;
@@ -213,7 +213,7 @@ class CPDF_DataAvail final {
   FX_FILESIZE m_dwCurrentOffset;
   PDF_DATAAVAIL_STATUS m_docStatus;
   FX_FILESIZE m_dwFileLen;
-  CPDF_Document* m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> m_pDocument;
   std::set<uint32_t> m_ObjectSet;
   std::vector<CPDF_Object*> m_objs_array;
   FX_FILESIZE m_Pos;
@@ -229,15 +229,15 @@ class CPDF_DataAvail final {
   bool m_bMainXRefLoadedOK;
   bool m_bPagesTreeLoad;
   bool m_bPagesLoad;
-  CPDF_Parser* m_pCurrentParser;
+  CFX_UnownedPtr<CPDF_Parser> m_pCurrentParser;
   FX_FILESIZE m_dwCurrentXRefSteam;
   bool m_bAnnotsLoad;
   bool m_bHaveAcroForm;
   uint32_t m_dwAcroFormObjNum;
   bool m_bAcroFormLoad;
   std::vector<std::unique_ptr<CPDF_Object>> m_Acroforms;
-  CPDF_Dictionary* m_pPageDict;
-  CPDF_Object* m_pPageResource;
+  CFX_UnownedPtr<CPDF_Dictionary> m_pPageDict;
+  CFX_UnownedPtr<CPDF_Object> m_pPageResource;
   bool m_bNeedDownLoadResource;
   bool m_bPageLoadedOK;
   bool m_bLinearizedFormParamLoad;

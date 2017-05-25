@@ -799,7 +799,7 @@ void CPDF_TextPage::ProcessTextObject(
 }
 
 FPDFText_MarkedContent CPDF_TextPage::PreMarkedContent(PDFTEXT_Obj Obj) {
-  CPDF_TextObject* pTextObj = Obj.m_pTextObj;
+  CPDF_TextObject* pTextObj = Obj.m_pTextObj.Get();
   if (!pTextObj->m_ContentMark.HasRef())
     return FPDFText_MarkedContent::Pass;
 
@@ -862,7 +862,7 @@ FPDFText_MarkedContent CPDF_TextPage::PreMarkedContent(PDFTEXT_Obj Obj) {
 }
 
 void CPDF_TextPage::ProcessMarkedContent(PDFTEXT_Obj Obj) {
-  CPDF_TextObject* pTextObj = Obj.m_pTextObj;
+  CPDF_TextObject* pTextObj = Obj.m_pTextObj.Get();
   if (!pTextObj->m_ContentMark.HasRef())
     return;
 
@@ -952,7 +952,7 @@ bool CPDF_TextPage::IsRightToLeft(const CPDF_TextObject* pTextObj,
 }
 
 void CPDF_TextPage::ProcessTextObject(PDFTEXT_Obj Obj) {
-  CPDF_TextObject* pTextObj = Obj.m_pTextObj;
+  CPDF_TextObject* pTextObj = Obj.m_pTextObj.Get();
   if (fabs(pTextObj->m_Right - pTextObj->m_Left) < 0.01f)
     return;
   CFX_Matrix formMatrix = Obj.m_formMatrix;

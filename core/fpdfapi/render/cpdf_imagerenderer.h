@@ -72,7 +72,7 @@ class CPDF_ImageRenderer {
   CFX_RetainPtr<CFX_DIBitmap> m_pClone;
   int m_BitmapAlpha;
   bool m_bPatternColor;
-  CPDF_Pattern* m_pPattern;
+  CFX_UnownedPtr<CPDF_Pattern> m_pPattern;
   FX_ARGB m_FillArgb;
   uint32_t m_Flags;
   std::unique_ptr<CFX_ImageTransformer> m_pTransformer;

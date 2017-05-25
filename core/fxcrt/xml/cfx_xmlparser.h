@@ -35,8 +35,8 @@ class CFX_XMLParser {
  private:
   CFX_RetainPtr<CFX_SeekableStreamProxy> m_pStream;
   std::unique_ptr<CFX_XMLSyntaxParser> m_pParser;
-  CFX_XMLNode* m_pParent;
-  CFX_XMLNode* m_pChild;
+  CFX_UnownedPtr<CFX_XMLNode> m_pParent;
+  CFX_UnownedPtr<CFX_XMLNode> m_pChild;
   std::stack<CFX_XMLNode*> m_NodeStack;
   CFX_WideString m_ws1;
   CFX_WideString m_ws2;

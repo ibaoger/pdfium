@@ -40,7 +40,7 @@ class CFX_UnicodeEncoding {
   virtual uint32_t GlyphFromCharCode(uint32_t charcode);
 
  protected:
-  CFX_Font* m_pFont;  // Unowned, not nullptr.
+  CFX_UnownedPtr<CFX_Font> m_pFont;  // Unowned, not nullptr.
 };
 
 #endif  // CORE_FXGE_CFX_UNICODEENCODING_H_

@@ -52,13 +52,13 @@ class CPDFSDK_Annot : public CFX_Observable<CPDFSDK_Annot> {
 #endif  // PDF_ENABLE_XFA
 
   void SetPage(CPDFSDK_PageView* pPageView);
-  CPDFSDK_PageView* GetPageView() const { return m_pPageView; }
+  CPDFSDK_PageView* GetPageView() const { return m_pPageView.Get(); }
 
   bool IsSelected();
   void SetSelected(bool bSelected);
 
  protected:
-  CPDFSDK_PageView* m_pPageView;
+  CFX_UnownedPtr<CPDFSDK_PageView> m_pPageView;
   bool m_bSelected;
 };
 

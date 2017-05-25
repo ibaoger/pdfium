@@ -44,7 +44,7 @@ class CGifContext {
   int32_t decode_status;
   uint32_t skip_size;
 
-  CCodec_GifModule* m_Module;
+  CFX_UnownedPtr<CCodec_GifModule> m_Module;
   char* err_ptr;
   CFX_ByteString cmt_data;
   std::unique_ptr<GifGCE> m_GifGCE;

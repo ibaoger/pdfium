@@ -43,6 +43,11 @@ const uint32_t kSaxFileBufSize = 32768;
 
 }  // namespace
 
+CFX_SAXItem::CFX_SAXItem(uint32_t id)
+    : m_pNode(nullptr), m_eNode(Type::Unknown), m_dwID(id), m_bSkip(false) {}
+
+CFX_SAXItem::~CFX_SAXItem() {}
+
 CFX_SAXFile::CFX_SAXFile()
     : m_dwStart(0),
       m_dwEnd(0),
@@ -646,7 +651,7 @@ void CFX_SAXReader::NotifyData() {
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Tag)
     m_pHandler->OnTagData(
-        pItem->m_pNode,
+        pItem->m_pNode.Get(),
         m_bCharData ? CFX_SAXItem::Type::CharData : CFX_SAXItem::Type::Text,
         CFX_ByteStringC(m_Data), m_File.m_dwCur + m_dwDataOffset);
 }
@@ -676,7 +681,7 @@ void CFX_SAXReader::NotifyAttribute() {
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Tag ||
       pItem->m_eNode == CFX_SAXItem::Type::Instruction) {
-    m_pHandler->OnTagAttribute(pItem->m_pNode, CFX_ByteStringC(m_Name),
+    m_pHandler->OnTagAttribute(pItem->m_pNode.Get(), CFX_ByteStringC(m_Name),
                                CFX_ByteStringC(m_Data));
   }
 }
@@ -690,7 +695,7 @@ void CFX_SAXReader::NotifyBreak() {
     return;
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Tag)
-    m_pHandler->OnTagBreak(pItem->m_pNode);
+    m_pHandler->OnTagBreak(pItem->m_pNode.Get());
 }
 
 void CFX_SAXReader::NotifyClose() {
@@ -703,7 +708,7 @@ void CFX_SAXReader::NotifyClose() {
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Tag ||
       pItem->m_eNode == CFX_SAXItem::Type::Instruction) {
-    m_pHandler->OnTagClose(pItem->m_pNode, m_dwNodePos);
+    m_pHandler->OnTagClose(pItem->m_pNode.Get(), m_dwNodePos);
   }
 }
 
@@ -716,7 +721,8 @@ void CFX_SAXReader::NotifyEnd() {
     return;
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Tag)
-    m_pHandler->OnTagEnd(pItem->m_pNode, CFX_ByteStringC(m_Data), m_dwNodePos);
+    m_pHandler->OnTagEnd(pItem->m_pNode.Get(), CFX_ByteStringC(m_Data),
+                         m_dwNodePos);
 }
 
 void CFX_SAXReader::NotifyTargetData() {
@@ -728,10 +734,10 @@ void CFX_SAXReader::NotifyTargetData() {
     return;
 
   if (pItem->m_eNode == CFX_SAXItem::Type::Instruction) {
-    m_pHandler->OnTargetData(pItem->m_pNode, pItem->m_eNode,
+    m_pHandler->OnTargetData(pItem->m_pNode.Get(), pItem->m_eNode,
                              CFX_ByteStringC(m_Name), m_dwNodePos);
   } else if (pItem->m_eNode == CFX_SAXItem::Type::Comment) {
-    m_pHandler->OnTargetData(pItem->m_pNode, pItem->m_eNode,
+    m_pHandler->OnTargetData(pItem->m_pNode.Get(), pItem->m_eNode,
                              CFX_ByteStringC(m_Data), m_dwNodePos);
   }
 }

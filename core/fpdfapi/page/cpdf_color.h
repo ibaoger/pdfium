@@ -8,6 +8,7 @@
 #define CORE_FPDFAPI_PAGE_CPDF_COLOR_H_
 
 #include "core/fpdfapi/page/cpdf_colorspace.h"
+#include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_system.h"
 
 class CPDF_Pattern;
@@ -28,13 +29,13 @@ class CPDF_Color {
 
   bool GetRGB(int* R, int* G, int* B) const;
   CPDF_Pattern* GetPattern() const;
-  const CPDF_ColorSpace* GetColorSpace() const { return m_pCS; }
+  const CPDF_ColorSpace* GetColorSpace() const { return m_pCS.Get(); }
 
  protected:
   void ReleaseBuffer();
   void ReleaseColorSpace();
 
-  CPDF_ColorSpace* m_pCS;
+  CFX_UnownedPtr<CPDF_ColorSpace> m_pCS;
   float* m_pBuffer;
 };
 

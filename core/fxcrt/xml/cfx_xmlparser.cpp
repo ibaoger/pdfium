@@ -26,7 +26,7 @@ CFX_XMLParser::CFX_XMLParser(
       m_pChild(nullptr),
       m_syntaxParserResult(FX_XmlSyntaxResult::None) {
   ASSERT(m_pParent && m_pStream);
-  m_NodeStack.push(m_pParent);
+  m_NodeStack.push(m_pParent.Get());
 }
 
 CFX_XMLParser::~CFX_XMLParser() {}
@@ -64,7 +64,7 @@ int32_t CFX_XMLParser::DoParser() {
           break;
         }
         m_ws1 = m_pParser->GetTagName();
-        m_ws2 = static_cast<CFX_XMLElement*>(m_pChild)->GetName();
+        m_ws2 = static_cast<CFX_XMLElement*>(m_pChild.Get())->GetName();
         if (m_ws1.GetLength() > 0 && m_ws1 != m_ws2) {
           m_syntaxParserResult = FX_XmlSyntaxResult::Error;
           break;
@@ -88,7 +88,7 @@ int32_t CFX_XMLParser::DoParser() {
         m_ws1 = m_pParser->GetTargetName();
         if (m_ws1 == L"originalXFAVersion" || m_ws1 == L"acrobat") {
           m_pChild = new CFX_XMLInstruction(m_ws1);
-          m_pParent->InsertChildNode(m_pChild);
+          m_pParent->InsertChildNode(m_pChild.Get());
         } else {
           m_pChild = nullptr;
         }
@@ -97,13 +97,13 @@ int32_t CFX_XMLParser::DoParser() {
       case FX_XmlSyntaxResult::TagName:
         m_ws1 = m_pParser->GetTagName();
         m_pChild = new CFX_XMLElement(m_ws1);
-        m_pParent->InsertChildNode(m_pChild);
-        m_NodeStack.push(m_pChild);
+        m_pParent->InsertChildNode(m_pChild.Get());
+        m_NodeStack.push(m_pChild.Get());
         m_pParent = m_pChild;
 
         if (m_dwCheckStatus != 0x03 && m_NodeStack.size() == 3) {
           CFX_WideString wsTag =
-              static_cast<CFX_XMLElement*>(m_pChild)->GetLocalTagName();
+              static_cast<CFX_XMLElement*>(m_pChild.Get())->GetLocalTagName();
           if (wsTag == L"template") {
             m_dwCheckStatus |= 0x01;
             m_dwCurrentCheckStatus = 0x01;
@@ -124,20 +124,21 @@ int32_t CFX_XMLParser::DoParser() {
         if (m_pChild) {
           m_ws2 = m_pParser->GetAttributeName();
           if (m_pChild->GetType() == FX_XMLNODE_Element)
-            static_cast<CFX_XMLElement*>(m_pChild)->SetString(m_ws1, m_ws2);
+            static_cast<CFX_XMLElement*>(m_pChild.Get())
+                ->SetString(m_ws1, m_ws2);
         }
         m_ws1.clear();
         break;
       case FX_XmlSyntaxResult::Text:
         m_ws1 = m_pParser->GetTextData();
         m_pChild = new CFX_XMLText(m_ws1);
-        m_pParent->InsertChildNode(m_pChild);
+        m_pParent->InsertChildNode(m_pChild.Get());
         m_pChild = m_pParent;
         break;
       case FX_XmlSyntaxResult::CData:
         m_ws1 = m_pParser->GetTextData();
         m_pChild = new CFX_XMLCharData(m_ws1);
-        m_pParent->InsertChildNode(m_pChild);
+        m_pParent->InsertChildNode(m_pChild.Get());
         m_pChild = m_pParent;
         break;
       case FX_XmlSyntaxResult::TargetData:
@@ -146,7 +147,7 @@ int32_t CFX_XMLParser::DoParser() {
             m_syntaxParserResult = FX_XmlSyntaxResult::Error;
             break;
           }
-          auto* instruction = static_cast<CFX_XMLInstruction*>(m_pChild);
+          auto* instruction = static_cast<CFX_XMLInstruction*>(m_pChild.Get());
           if (!m_ws1.IsEmpty())
             instruction->AppendData(m_ws1);
           instruction->AppendData(m_pParser->GetTargetData());

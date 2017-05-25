@@ -189,8 +189,8 @@ class CPDF_IndexedCS : public CPDF_ColorSpace {
 
   void EnableStdConversion(bool bEnabled) override;
 
-  CPDF_ColorSpace* m_pBaseCS;
-  CPDF_CountedColorSpace* m_pCountedBaseCS;
+  CFX_UnownedPtr<CPDF_ColorSpace> m_pBaseCS;
+  CFX_UnownedPtr<CPDF_CountedColorSpace> m_pCountedBaseCS;
   int m_nBaseComponents;
   int m_MaxIndex;
   CFX_ByteString m_Table;
@@ -1125,7 +1125,7 @@ bool CPDF_IndexedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
 }
 
 CPDF_ColorSpace* CPDF_IndexedCS::GetBaseCS() const {
-  return m_pBaseCS;
+  return m_pBaseCS.Get();
 }
 
 void CPDF_IndexedCS::EnableStdConversion(bool bEnabled) {

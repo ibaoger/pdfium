@@ -86,7 +86,7 @@ class CBC_OneDimWriter : public CBC_Writer {
   bool m_bPrintChecksum;
   int32_t m_iDataLenth;
   bool m_bCalcChecksum;
-  CFX_Font* m_pFont;
+  CFX_UnownedPtr<CFX_Font> m_pFont;
   float m_fFontSize;
   int32_t m_iFontStyle;
   uint32_t m_fontColor;

@@ -38,7 +38,7 @@ class CBC_EncoderContext {
   CFX_WideString m_codewords;
   int32_t m_pos;
   int32_t m_newEncoding;
-  CBC_SymbolInfo* m_symbolInfo;
+  CFX_UnownedPtr<CBC_SymbolInfo> m_symbolInfo;
 
  private:
   int32_t getTotalMessageCharCount();

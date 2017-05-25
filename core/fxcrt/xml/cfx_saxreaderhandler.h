@@ -41,7 +41,7 @@ class CFX_SAXReaderHandler : public CFX_SAXReader::HandlerIface {
  private:
   void UpdateChecksum(bool bCheckSpace);
 
-  CFX_ChecksumContext* m_pContext;
+  CFX_UnownedPtr<CFX_ChecksumContext> m_pContext;
   CFX_SAXContext m_SAXContext;
 };
 

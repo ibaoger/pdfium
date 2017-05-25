@@ -28,17 +28,18 @@ class CPDF_ScaledRenderBuffer {
                   const CPDF_PageObject* pObj,
                   const CPDF_RenderOptions* pOptions,
                   int max_dpi);
-  CFX_RenderDevice* GetDevice() {
-    return m_pBitmapDevice ? m_pBitmapDevice.get() : m_pDevice;
+
+  CFX_RenderDevice* GetDevice() const {
+    return m_pBitmapDevice ? m_pBitmapDevice.get() : m_pDevice.Get();
   }
   CFX_Matrix* GetMatrix() { return &m_Matrix; }
   void OutputToDevice();
 
  private:
-  CFX_RenderDevice* m_pDevice;
-  CPDF_RenderContext* m_pContext;
+  CFX_UnownedPtr<CFX_RenderDevice> m_pDevice;
+  CFX_UnownedPtr<CPDF_RenderContext> m_pContext;
   FX_RECT m_Rect;
-  const CPDF_PageObject* m_pObject;
+  CFX_UnownedPtr<const CPDF_PageObject> m_pObject;
   std::unique_ptr<CFX_DefaultRenderDevice> m_pBitmapDevice;
   CFX_Matrix m_Matrix;
 };

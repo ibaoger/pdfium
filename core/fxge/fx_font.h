@@ -218,7 +218,7 @@ class FXTEXT_GLYPHPOS {
   FXTEXT_GLYPHPOS(const FXTEXT_GLYPHPOS&);
   ~FXTEXT_GLYPHPOS();
 
-  const CFX_GlyphBitmap* m_pGlyph;
+  CFX_UnownedPtr<const CFX_GlyphBitmap> m_pGlyph;
   CFX_Point m_Origin;
   CFX_PointF m_fOrigin;
 };

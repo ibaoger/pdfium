@@ -104,7 +104,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void SetEditCaret(bool bVisible);
 
   std::unique_ptr<CFX_Edit> m_pEdit;
-  CPWL_Caret* m_pEditCaret;
+  CFX_UnownedPtr<CPWL_Caret> m_pEditCaret;
   bool m_bMouseDown;
 
  private:
