@@ -22,6 +22,30 @@
       "revId": "d39d6199d70f650515bf1f4be8cd19e4d4a60e53",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a71d9f0_d888b8bd",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T13:53:00Z",
+      "side": 0,
+      "message": "The Is* methods check if the V8 object has that Type. The ToBoolean below will cast the Integer value to a bool and return it. So, since the value returns 1/0 it works correctly.",
+      "parentUuid": "1f03638c_58393153",
+      "range": {
+        "startLine": 828,
+        "startChar": 21,
+        "endLine": 828,
+        "endChar": 30
+      },
+      "revId": "d39d6199d70f650515bf1f4be8cd19e4d4a60e53",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
