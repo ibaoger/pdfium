@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5c715498_624260ac",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T18:31:14Z",
+      "side": 1,
+      "message": "Can we move this code to an internal namespaced method that is also called by FPDFPath_SetFillColor since they\u0027re almost identical?",
+      "revId": "d163b795fbb306070c6807e398b285e30979d4d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdccb7ec_d87239b7",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 3
