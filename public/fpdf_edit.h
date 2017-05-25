@@ -296,6 +296,15 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
                                                             float w,
                                                             float h);
 
+// Set the blend mode of |pageObject|.
+//
+// pageObject - handle to a page object.
+// blend_mode - string containing the blend mode.
+//
+// Blend mode can be one of following: ColorBurn, ColorDodge, Darken, Difference,
+// Exclusion, HardLight, Lighten, Multiply, Normal, Overlay, Screen, SoftLight
+DLLEXPORT void STDCALL FPDFPageObj_SetBlendMode(FPDF_PAGEOBJECT page,
+                                                FPDF_BYTESTRING blend_mode);
 // Set the stroke RGBA of a path. Range of values: 0 - 255.
 //
 // path   - the handle to the path object.

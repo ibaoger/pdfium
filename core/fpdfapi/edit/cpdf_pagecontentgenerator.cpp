@@ -219,7 +219,8 @@ void CPDF_PageContentGenerator::ProcessGraphics(CFX_ByteTextBuf* buf,
   GraphicsData graphD;
   graphD.fillAlpha = pPageObj->m_GeneralState.GetFillAlpha();
   graphD.strokeAlpha = pPageObj->m_GeneralState.GetStrokeAlpha();
-  if (graphD.fillAlpha == 1.0f && graphD.strokeAlpha == 1.0f)
+  int blend_type = pPageObj->m_GeneralState.GetBlendType();
+  if (graphD.fillAlpha == 1.0f && graphD.strokeAlpha == 1.0f && (blend_type == FXDIB_BLEND_UNSUPPORTED || blend_type == FXDIB_BLEND_NORMAL))
     return;
 
   CFX_ByteString name;
@@ -228,14 +229,50 @@ void CPDF_PageContentGenerator::ProcessGraphics(CFX_ByteTextBuf* buf,
     name = it->second;
   } else {
     auto gsDict = pdfium::MakeUnique<CPDF_Dictionary>();
+    if (graphD.fillAlpha != 1.0f) {
     gsDict->SetNewFor<CPDF_Number>("ca", graphD.fillAlpha);
+    }
+    if (graphD.strokeAlpha != 1.0f) {
     gsDict->SetNewFor<CPDF_Number>("CA", graphD.strokeAlpha);
+    }
+    if (blend_type != FXDIB_BLEND_UNSUPPORTED && blend_type != FXDIB_BLEND_NORMAL) {
+        gsDict->SetNewFor<CPDF_Name>("BM", GetBlendTypeExternal(blend_type));
+    }
     CPDF_Object* pDict = m_pDocument->AddIndirectObject(std::move(gsDict));
     uint32_t dwObjNum = pDict->GetObjNum();
     name = RealizeResource(dwObjNum, "ExtGState");
     m_pPage->m_GraphicsMap[graphD] = name;
   }
   *buf << "/" << PDF_NameEncode(name) << " gs ";
+}
+CFX_ByteString CPDF_PageContentGenerator::GetBlendTypeExternal(const int blent_type) {
+    switch (blent_type) {
+    case FXDIB_BLEND_NORMAL:
+        return CFX_ByteString("Normal");
+    case FXDIB_BLEND_MULTIPLY:
+        return CFX_ByteString("Multiply");
+    case FXDIB_BLEND_SCREEN:
+        return CFX_ByteString("Screen");
+    case FXDIB_BLEND_OVERLAY:
+        return CFX_ByteString("Overlay");
+    case FXDIB_BLEND_DARKEN:
+        return CFX_ByteString("Darken");
+    case FXDIB_BLEND_LIGHTEN:
+        return CFX_ByteString("Lighten");
+    case FXDIB_BLEND_COLORDODGE:
+        return CFX_ByteString("ColorDodge");
+    case FXDIB_BLEND_COLORBURN:
+        return CFX_ByteString("ColorBurn");
+    case FXDIB_BLEND_HARDLIGHT:
+        return CFX_ByteString("HardLight");
+    case FXDIB_BLEND_SOFTLIGHT:
+        return CFX_ByteString("SoftLight");
+    case FXDIB_BLEND_DIFFERENCE:
+        return CFX_ByteString("Difference");
+    case FXDIB_BLEND_EXCLUSION:
+        return CFX_ByteString("Exclusion");
+    }
+    return CFX_ByteString("Normal");
 }
 
 // This method adds text to the buffer, BT begins the text object, ET ends it.
