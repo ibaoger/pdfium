@@ -97,3 +97,11 @@ FX_RECT CPDF_PageObject::GetBBox(const CFX_Matrix* pMatrix) const {
   }
   return rect.GetOuterRect();
 }
+
+CFX_FloatRect CPDF_PageObject::GetBounds(const CFX_Matrix* pMatrix) const {
+  CFX_FloatRect rect(m_Left, m_Bottom, m_Right, m_Top);
+  if (pMatrix) {
+    pMatrix->TransformRect(rect);
+  }
+  return rect;
+}

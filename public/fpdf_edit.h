@@ -296,6 +296,21 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
                                                             float w,
                                                             float h);
 
+// Get the bounding box of |pageObject|.
+//
+// pageObject - handle to a page object.
+// left       - left
+// bottom     - bottom
+// right      - right
+// top        - top
+//
+// Returns TRUE on success.
+DLLEXPORT int STDCALL FPDFPageObj_GetBounds(FPDF_PAGEOBJECT pageObject,
+                                            float* left,
+                                            float* bottom,
+                                            float* right,
+                                            float* top);
+
 // Set the stroke RGBA of a path. Range of values: 0 - 255.
 //
 // path   - the handle to the path object.

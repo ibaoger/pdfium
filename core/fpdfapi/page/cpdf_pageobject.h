@@ -56,6 +56,7 @@ class CPDF_PageObject : public CPDF_GraphicStates {
     return CFX_FloatRect(m_Left, m_Bottom, m_Right, m_Top);
   }
   FX_RECT GetBBox(const CFX_Matrix* pMatrix) const;
+  CFX_FloatRect GetBounds(const CFX_Matrix* pMatrix) const;
 
   float m_Left;
   float m_Right;
