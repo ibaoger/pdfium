@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28f5d8fa_152f06e8",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 0,
+      "message": "I\u0027d almost keep these just due to the #ifndef. That way we know the blocks ends inside the #endif. (Especially with the if {} surrounding it from outside the ifdef)",
+      "revId": "033e565d8244953afe8eab3d0c7ee1ed9863c921",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

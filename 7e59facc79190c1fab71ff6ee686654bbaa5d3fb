@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "decb70b4_769901d9",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "return pFile \u0026\u0026 pFile-\u003eReadBlock(buffer, offset, count) ? count : 0?",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c2fbbd3_ca036a75",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "followup, unique_ptr?",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bf06693_411e64e6",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "return m_Face \u0026\u0026 FXFT_Is_Face_TT_OT(m_Face) \u003d\u003d FXFT_FACE_FLAG_SFNT;",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef2e559_674442f2",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "cast  (and a few below)",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0feab9e_a1638e47",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "nit: remove space",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a4820b_242615d0",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "return m_Face \u0026\u0026 ...",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a461c2e5_f6ae400b",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "380361a5_5e9e615c",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-25T14:30:49Z",
+      "side": 1,
+      "message": "nit add blank line",
+      "revId": "7e59facc79190c1fab71ff6ee686654bbaa5d3fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
