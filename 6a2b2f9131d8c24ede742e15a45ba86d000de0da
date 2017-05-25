@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3a89801_22c0aa10",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "Can you run \u0027git cl format\u0027 so that your code gets formatted? Here, the line length is too large, and there\u0027s also indentations missing elsewhere.",
+      "range": {
+        "startLine": 223,
+        "startChar": 2,
+        "endLine": 223,
+        "endChar": 140
+      },
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11cdbb25_735176fa",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "nit: no brackets {} in if statements where the body is a single line.",
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e87137_27a3dc6f",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "nit: space between methods",
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26314d52_b797dc32",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 248,
+        "startChar": 73,
+        "endLine": 248,
+        "endChar": 83
+      },
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264a426c_3d9c50c7",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "Maybe add a getter method for the m_BlendMode of CPDF_GeneralState instead.",
+      "range": {
+        "startLine": 248,
+        "startChar": 42,
+        "endLine": 248,
+        "endChar": 62
+      },
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6acdd6_d6509f82",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "nit: space after line 270",
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8295b8b9_6c7072dc",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-25T20:22:18Z",
+      "side": 1,
+      "message": "nit: space after 307",
+      "revId": "6a2b2f9131d8c24ede742e15a45ba86d000de0da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
