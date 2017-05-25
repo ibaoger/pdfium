@@ -57,7 +57,6 @@ class CPDF_Page : public CPDF_PageObjectHolder {
   CFX_FloatRect GetPageBBox() const { return m_BBox; }
   const CFX_Matrix& GetPageMatrix() const { return m_PageMatrix; }
   int GetPageRotation() const;
-  CPDF_Object* GetPageAttr(const CFX_ByteString& name) const;
   CPDF_PageRenderCache* GetRenderCache() const { return m_pPageRender.get(); }
 
   CPDF_PageRenderContext* GetRenderContext() const {
@@ -73,6 +72,9 @@ class CPDF_Page : public CPDF_PageObjectHolder {
 
  protected:
   void StartParse();
+
+  CPDF_Object* GetPageAttr(const CFX_ByteString& name) const;
+  CFX_FloatRect GetBox(const CFX_ByteString& name) const;
 
   float m_PageWidth;
   float m_PageHeight;
