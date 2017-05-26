@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "42a6d568_e0d7b2a6",
+        "filename": "core/fxcrt/fx_coordinates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-26T01:21:58Z",
+      "side": 1,
+      "message": "I reordered everything in declaration order. LTRB for FX_RECT, and LBRT for CFX_FloatRect.",
+      "parentUuid": "3f639613_d2ef243f",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 6
+      },
+      "revId": "85108d82edbd4fd19e95727889210f0f36ea783a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d1be3eb_ae48342a",
         "filename": "core/fxcrt/fx_coordinates.cpp",
         "patchSetId": 2
