@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75dc5acd_7d3cd10c",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:39:24Z",
+      "side": 1,
+      "message": "nit: no {} in this case.",
+      "range": {
+        "startLine": 103,
+        "startChar": 14,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fd6ab64_b960111c",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:39:24Z",
+      "side": 1,
+      "message": "Right now we don\u0027t need the input parameter for GetBounds, so let\u0027s get rid of it. We can add it later on if needed.",
+      "range": {
+        "startLine": 316,
+        "startChar": 43,
+        "endLine": 316,
+        "endChar": 50
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587a22d3_90fb7977",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:39:24Z",
+      "side": 1,
+      "message": "This should be FPDF_BOOL",
+      "range": {
+        "startLine": 308,
+        "startChar": 10,
+        "endLine": 308,
+        "endChar": 13
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
