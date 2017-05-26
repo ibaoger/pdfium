@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd26176c_05ed3ced",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:34:57Z",
+      "side": 1,
+      "message": "Should we do the bounds check with line_join instead?  so the if in line 161 would go before this line, and use line_join. Not sure what cast will do here if line_join is out of bounds, but it will probably give one of the three options in the enum.",
+      "range": {
+        "startLine": 159,
+        "startChar": 31,
+        "endLine": 159,
+        "endChar": 39
+      },
+      "revId": "fdf2346682e9907a93868269f79149b394d88137",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa5f7681_31a737a9",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:34:57Z",
+      "side": 1,
+      "message": "nit: long if statements do need braces {}",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 11
+      },
+      "revId": "fdf2346682e9907a93868269f79149b394d88137",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c56d42f8_d9c7f474",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:34:57Z",
+      "side": 1,
+      "message": "ditto above comments.",
+      "revId": "fdf2346682e9907a93868269f79149b394d88137",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e876fd47_42ee658f",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T13:34:57Z",
+      "side": 1,
+      "message": "What I meant is we want a blank line between methods, so between lines 329-330 and 336-337.",
+      "revId": "fdf2346682e9907a93868269f79149b394d88137",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
