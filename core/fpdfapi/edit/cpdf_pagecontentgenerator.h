@@ -36,7 +36,6 @@ class CPDF_PageContentGenerator {
   void ProcessText(CFX_ByteTextBuf* buf, CPDF_TextObject* pTextObj);
   CFX_ByteString RealizeResource(uint32_t dwResourceObjNum,
                                  const CFX_ByteString& bsType);
-
   CFX_UnownedPtr<CPDF_Page> const m_pPage;
   CFX_UnownedPtr<CPDF_Document> const m_pDocument;
   std::vector<CFX_UnownedPtr<CPDF_PageObject>> m_pageObjects;
