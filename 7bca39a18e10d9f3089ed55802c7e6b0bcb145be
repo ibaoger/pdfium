@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "233f1c2e_a894800e",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T15:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75dc5acd_7d3cd10c",
+      "range": {
+        "startLine": 103,
+        "startChar": 14,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fd6ab64_b960111c",
         "filename": "fpdfsdk/fpdfeditpage.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4785d5f3_811e5fbc",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T15:36:12Z",
+      "side": 1,
+      "message": "Removing the input parameter makes it the same as GetRect, so I just removed GetBounds and changed this to use GetRect.",
+      "parentUuid": "7fd6ab64_b960111c",
+      "range": {
+        "startLine": 316,
+        "startChar": 43,
+        "endLine": 316,
+        "endChar": 50
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "587a22d3_90fb7977",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aacdd80_f27a7941",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T15:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "587a22d3_90fb7977",
+      "range": {
+        "startLine": 308,
+        "startChar": 10,
+        "endLine": 308,
+        "endChar": 13
+      },
+      "revId": "7bca39a18e10d9f3089ed55802c7e6b0bcb145be",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
