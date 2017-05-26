@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d86cb12_c6a2137a",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T16:48:21Z",
+      "side": 1,
+      "message": "I understand what you are saying, but that is more than I want to accomplish with this issue.",
+      "parentUuid": "fcb88734_b1b16f03",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 14
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42c2dd33_fc9da3d2",
         "filename": "core/fpdfapi/page/cpdf_generalstate.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-26T16:19:39Z",
       "side": 1,
       "message": "Can\u0027t this just be named GetBlendMode() and return m_BlendMode? See analogous example in line 111.",
+      "range": {
+        "startLine": 81,
+        "startChar": 34,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a26a88ab_249240e8",
+        "filename": "core/fpdfapi/page/cpdf_generalstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T16:48:21Z",
+      "side": 1,
+      "message": "That could allow an invalid value to be passed for the blend mode since it is passed in as a string from the public API. The public API could also be changed to take in an int with #defines.",
+      "parentUuid": "42c2dd33_fc9da3d2",
       "range": {
         "startLine": 81,
         "startChar": 34,
