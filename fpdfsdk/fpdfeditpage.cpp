@@ -304,3 +304,19 @@ DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate) {
   rotate %= 4;
   pPage->m_pFormDict->SetNewFor<CPDF_Number>("Rotate", rotate * 90);
 }
+DLLEXPORT FPDF_BOOL STDCALL FPDFPageObj_GetBounds(FPDF_PAGEOBJECT pageObject,
+                                                  float* left,
+                                                  float* bottom,
+                                                  float* right,
+                                                  float* top) {
+  if (!pageObject)
+    return false;
+
+  CPDF_PageObject* pPageObj = static_cast<CPDF_PageObject*>(pageObject);
+  CFX_FloatRect bbox = pPageObj->GetRect();
+  *left = bbox.left;
+  *bottom = bbox.bottom;
+  *right = bbox.right;
+  *top = bbox.top;
+  return true;
+}
