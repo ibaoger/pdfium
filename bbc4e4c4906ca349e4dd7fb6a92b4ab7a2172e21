@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcb88734_b1b16f03",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T16:19:39Z",
+      "side": 1,
+      "message": "I think GraphicsData should be augmented with the blend type. This will be part of the gs dictionary. The idea is that this should contain all of the information in it. And we will only create a new gs dict if a previous one did not exist. If you don\u0027t understand, I can do it as a followup.",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 14
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c2dd33_fc9da3d2",
+        "filename": "core/fpdfapi/page/cpdf_generalstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T16:19:39Z",
+      "side": 1,
+      "message": "Can\u0027t this just be named GetBlendMode() and return m_BlendMode? See analogous example in line 111.",
+      "range": {
+        "startLine": 81,
+        "startChar": 34,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
