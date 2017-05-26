@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56de6f59_cb21d46b",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T16:23:22Z",
+      "side": 1,
+      "message": "please add blank space between 306-307.",
+      "revId": "15ee47c6be9e537b4596b53159e9edcb509fad86",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd5fe92_489494a7",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T16:23:22Z",
+      "side": 1,
+      "message": "\u0027pointer where left coordinate will be stored\u0027, ditto below for bottom, right, top.",
+      "range": {
+        "startLine": 302,
+        "startChar": 16,
+        "endLine": 302,
+        "endChar": 20
+      },
+      "revId": "15ee47c6be9e537b4596b53159e9edcb509fad86",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
