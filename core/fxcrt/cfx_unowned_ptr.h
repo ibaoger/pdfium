@@ -23,16 +23,16 @@ class CFX_UnownedPtr {
   // NOLINTNEXTLINE(runtime/explicit)
   CFX_UnownedPtr(std::nullptr_t ptr) {}
 
-  ~CFX_UnownedPtr() { Probe(); }
+  ~CFX_UnownedPtr() { ProbeForLowSeverityLifetimeIssue(); }
 
   CFX_UnownedPtr& operator=(T* that) {
-    Probe();
+    ProbeForLowSeverityLifetimeIssue();
     m_pObj = that;
     return *this;
   }
 
   CFX_UnownedPtr& operator=(const CFX_UnownedPtr& that) {
-    Probe();
+    ProbeForLowSeverityLifetimeIssue();
     if (*this != that)
       m_pObj = that.Get();
     return *this;
@@ -59,7 +59,7 @@ class CFX_UnownedPtr {
   T* Get() const { return m_pObj; }
 
   T* Release() {
-    Probe();
+    ProbeForLowSeverityLifetimeIssue();
     T* pTemp = nullptr;
     std::swap(pTemp, m_pObj);
     return pTemp;
@@ -70,7 +70,7 @@ class CFX_UnownedPtr {
   T* operator->() const { return m_pObj; }
 
  private:
-  inline void Probe() {
+  inline void ProbeForLowSeverityLifetimeIssue() {
 #if defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
     if (m_pObj)
       reinterpret_cast<const volatile uint8_t*>(m_pObj)[0];
