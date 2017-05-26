@@ -27,6 +27,7 @@ class CPDF_GeneralState {
 
   void SetRenderIntent(const CFX_ByteString& ri);
 
+  CFX_ByteString GetBlendTypeExternal() const;
   int GetBlendType() const;
   void SetBlendType(int type);
 
