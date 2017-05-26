@@ -26,10 +26,14 @@ class CPDF_PageContentGenerator {
   ~CPDF_PageContentGenerator();
 
   void GenerateContent();
+  void GenerateContentOver();
 
  private:
   friend class CPDF_PageContentGeneratorTest;
 
+  void ProcessPageObjects(
+      CFX_ByteTextBuf* buf,
+      const std::vector<CFX_UnownedPtr<CPDF_PageObject>> pageObjects);
   void ProcessPath(CFX_ByteTextBuf* buf, CPDF_PathObject* pPathObj);
   void ProcessImage(CFX_ByteTextBuf* buf, CPDF_ImageObject* pImageObj);
   void ProcessGraphics(CFX_ByteTextBuf* buf, CPDF_PageObject* pPageObj);
@@ -40,6 +44,7 @@ class CPDF_PageContentGenerator {
   CFX_UnownedPtr<CPDF_Page> const m_pPage;
   CFX_UnownedPtr<CPDF_Document> const m_pDocument;
   std::vector<CFX_UnownedPtr<CPDF_PageObject>> m_pageObjects;
+  std::vector<CFX_UnownedPtr<CPDF_PageObject>> m_overPageObjects;
 };
 
 #endif  // CORE_FPDFAPI_EDIT_CPDF_PAGECONTENTGENERATOR_H_

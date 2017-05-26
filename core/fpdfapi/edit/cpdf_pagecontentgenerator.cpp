@@ -17,6 +17,7 @@
 #include "core/fpdfapi/page/cpdf_path.h"
 #include "core/fpdfapi/page/cpdf_pathobject.h"
 #include "core/fpdfapi/page/cpdf_textobject.h"
+#include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
@@ -54,20 +55,17 @@ CPDF_PageContentGenerator::CPDF_PageContentGenerator(CPDF_Page* pPage)
     if (pObj)
       m_pageObjects.emplace_back(pObj.get());
   }
+  for (const auto& pObj : *pPage->GetOverPageObjectList()) {
+    if (pObj)
+      m_overPageObjects.emplace_back(pObj.get());
+  }
 }
 
 CPDF_PageContentGenerator::~CPDF_PageContentGenerator() {}
 
 void CPDF_PageContentGenerator::GenerateContent() {
   CFX_ByteTextBuf buf;
-  for (auto& pPageObj : m_pageObjects) {
-    if (CPDF_ImageObject* pImageObject = pPageObj->AsImage())
-      ProcessImage(&buf, pImageObject);
-    else if (CPDF_PathObject* pPathObj = pPageObj->AsPath())
-      ProcessPath(&buf, pPathObj);
-    else if (CPDF_TextObject* pTextObj = pPageObj->AsText())
-      ProcessText(&buf, pTextObj);
-  }
+  ProcessPageObjects(&buf, m_pageObjects);
   CPDF_Dictionary* pPageDict = m_pPage->m_pFormDict.Get();
   CPDF_Object* pContent =
       pPageDict ? pPageDict->GetDirectObjectFor("Contents") : nullptr;
@@ -78,6 +76,48 @@ void CPDF_PageContentGenerator::GenerateContent() {
   pStream->SetData(buf.GetBuffer(), buf.GetLength());
   pPageDict->SetNewFor<CPDF_Reference>("Contents", m_pDocument.Get(),
                                        pStream->GetObjNum());
+}
+
+void CPDF_PageContentGenerator::GenerateContentOver() {
+  CFX_ByteTextBuf overBuf;
+  ProcessPageObjects(&overBuf, m_overPageObjects);
+  CPDF_Dictionary* pPageDict = m_pPage->m_pFormDict.Get();
+  CPDF_Object* pContentObj =
+      pPageDict ? pPageDict->GetObjectFor("Contents") : nullptr;
+  CPDF_Document* pDoc = m_pDocument.Get();
+  if (!pDoc)
+    return;
+  CPDF_Stream* pOverStream = pDoc->NewIndirect<CPDF_Stream>();
+  pOverStream->SetData(overBuf.GetBuffer(), overBuf.GetLength());
+
+  CPDF_Array* pArray = ToArray(pContentObj);
+  if (pArray) {
+    pArray->AddNew<CPDF_Reference>(pDoc, pOverStream->GetObjNum());
+    return;
+  }
+  CPDF_Reference* pReference = ToReference(pContentObj);
+  if (!pReference)
+    return;
+
+  CPDF_Object* pDirectObj = pReference->GetDirect();
+  if (!pDirectObj)
+    return;
+
+  CPDF_Array* pObjArray = pDirectObj->AsArray();
+  if (pObjArray) {
+    pObjArray->AddNew<CPDF_Reference>(pDoc, pOverStream->GetObjNum());
+    return;
+  }
+  if (pDirectObj->IsStream()) {
+    CPDF_Array* pContentArray = pDoc->NewIndirect<CPDF_Array>();
+    pContentArray->AddNew<CPDF_Reference>(pDoc, pDirectObj->GetObjNum());
+    pContentArray->AddNew<CPDF_Reference>(pDoc, pOverStream->GetObjNum());
+    pPageDict->SetNewFor<CPDF_Reference>("Contents", pDoc,
+                                         pContentArray->GetObjNum());
+    return;
+  }
+  pPageDict->SetNewFor<CPDF_Reference>("Contents", pDoc,
+                                       pOverStream->GetObjNum());
 }
 
 CFX_ByteString CPDF_PageContentGenerator::RealizeResource(
@@ -105,6 +145,19 @@ CFX_ByteString CPDF_PageContentGenerator::RealizeResource(
   pResList->SetNewFor<CPDF_Reference>(name, m_pDocument.Get(),
                                       dwResourceObjNum);
   return name;
+}
+
+void CPDF_PageContentGenerator::ProcessPageObjects(
+    CFX_ByteTextBuf* buf,
+    const std::vector<CFX_UnownedPtr<CPDF_PageObject>> pageObjects) {
+  for (auto& pPageObj : pageObjects) {
+    if (CPDF_ImageObject* pImageObject = pPageObj->AsImage())
+      ProcessImage(buf, pImageObject);
+    else if (CPDF_PathObject* pPathObj = pPageObj->AsPath())
+      ProcessPath(buf, pPathObj);
+    else if (CPDF_TextObject* pTextObj = pPageObj->AsText())
+      ProcessText(buf, pTextObj);
+  }
 }
 
 void CPDF_PageContentGenerator::ProcessImage(CFX_ByteTextBuf* buf,

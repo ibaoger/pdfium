@@ -96,6 +96,14 @@ DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate);
 DLLEXPORT void STDCALL FPDFPage_InsertObject(FPDF_PAGE page,
                                              FPDF_PAGEOBJECT page_obj);
 
+// Insert |page_obj| over |page|.
+//
+//   page     - handle to a page
+//   page_obj - handle to a page object. The |page_obj| will be automatically
+//              freed.
+DLLEXPORT void STDCALL FPDFPage_InsertObjectOver(FPDF_PAGE page,
+                                                 FPDF_PAGEOBJECT page_obj);
+
 // Get number of page objects inside |page|.
 //
 //   page - handle to a page.
@@ -127,6 +135,16 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasTransparency(FPDF_PAGE page);
 // Before you save the page to a file, or reload the page, you must call
 // |FPDFPage_GenerateContent| or any changes to |page| will be lost.
 DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page);
+
+// Generate the over content of |page|.
+//
+//   page - handle to a page.
+//
+// Returns TRUE on success.
+//
+// Before you save the page to a file, or reload the page, you must call
+// |FPDFPage_GenerateContent| or any changes to |page| will be lost.
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContentOver(FPDF_PAGE page);
 
 // Checks if |pageObject| contains transparency.
 //

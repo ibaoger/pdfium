@@ -61,6 +61,38 @@ bool IsPageObject(CPDF_Page* pPage) {
   return pObject && !pObject->GetString().Compare("Page");
 }
 
+void CalcBoundingBox(CPDF_PageObject* pPageObj) {
+  switch (pPageObj->GetType()) {
+    case CPDF_PageObject::TEXT: {
+      break;
+    }
+    case CPDF_PageObject::PATH: {
+      CPDF_PathObject* pPathObj = pPageObj->AsPath();
+      pPathObj->CalcBoundingBox();
+      break;
+    }
+    case CPDF_PageObject::IMAGE: {
+      CPDF_ImageObject* pImageObj = pPageObj->AsImage();
+      pImageObj->CalcBoundingBox();
+      break;
+    }
+    case CPDF_PageObject::SHADING: {
+      CPDF_ShadingObject* pShadingObj = pPageObj->AsShading();
+      pShadingObj->CalcBoundingBox();
+      break;
+    }
+    case CPDF_PageObject::FORM: {
+      CPDF_FormObject* pFormObj = pPageObj->AsForm();
+      pFormObj->CalcBoundingBox();
+      break;
+    }
+    default: {
+      NOTREACHED();
+      break;
+    }
+  }
+}
+
 }  // namespace
 
 DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_CreateNewDocument() {
@@ -146,35 +178,22 @@ DLLEXPORT void STDCALL FPDFPage_InsertObject(FPDF_PAGE page,
     return;
 
   pPage->GetPageObjectList()->push_back(std::move(pPageObjHolder));
-  switch (pPageObj->GetType()) {
-    case CPDF_PageObject::TEXT: {
-      break;
-    }
-    case CPDF_PageObject::PATH: {
-      CPDF_PathObject* pPathObj = pPageObj->AsPath();
-      pPathObj->CalcBoundingBox();
-      break;
-    }
-    case CPDF_PageObject::IMAGE: {
-      CPDF_ImageObject* pImageObj = pPageObj->AsImage();
-      pImageObj->CalcBoundingBox();
-      break;
-    }
-    case CPDF_PageObject::SHADING: {
-      CPDF_ShadingObject* pShadingObj = pPageObj->AsShading();
-      pShadingObj->CalcBoundingBox();
-      break;
-    }
-    case CPDF_PageObject::FORM: {
-      CPDF_FormObject* pFormObj = pPageObj->AsForm();
-      pFormObj->CalcBoundingBox();
-      break;
-    }
-    default: {
-      NOTREACHED();
-      break;
-    }
-  }
+  CalcBoundingBox(pPageObj);
+}
+
+DLLEXPORT void STDCALL FPDFPage_InsertObjectOver(FPDF_PAGE page,
+                                                 FPDF_PAGEOBJECT page_obj) {
+  CPDF_PageObject* pPageObj = static_cast<CPDF_PageObject*>(page_obj);
+  if (!pPageObj)
+    return;
+
+  std::unique_ptr<CPDF_PageObject> pPageObjHolder(pPageObj);
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!IsPageObject(pPage))
+    return;
+
+  pPage->GetOverPageObjectList()->push_back(std::move(pPageObjHolder));
+  CalcBoundingBox(pPageObj);
 }
 
 DLLEXPORT int STDCALL FPDFPage_CountObject(FPDF_PAGE page) {
@@ -249,6 +268,15 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page) {
   return true;
 }
 
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContentOver(FPDF_PAGE page) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!IsPageObject(pPage))
+    return false;
+
+  CPDF_PageContentGenerator CG(pPage);
+  CG.GenerateContentOver();
+  return true;
+}
 DLLEXPORT void STDCALL FPDFPageObj_Transform(FPDF_PAGEOBJECT page_object,
                                              double a,
                                              double b,

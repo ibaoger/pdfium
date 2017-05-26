@@ -38,6 +38,11 @@ class CPDF_PageObjectHolder {
     return &m_PageObjectList;
   }
 
+  CPDF_PageObjectList* GetOverPageObjectList() { return &m_OverPageObjectList; }
+  const CPDF_PageObjectList* GetOverPageObjectList() const {
+    return &m_OverPageObjectList;
+  }
+
   bool BackgroundAlphaNeeded() const { return m_bBackgroundAlphaNeeded; }
   void SetBackgroundAlphaNeeded(bool needed) {
     m_bBackgroundAlphaNeeded = needed;
@@ -69,6 +74,7 @@ class CPDF_PageObjectHolder {
   ParseState m_ParseState;
   std::unique_ptr<CPDF_ContentParser> m_pParser;
   CPDF_PageObjectList m_PageObjectList;
+  CPDF_PageObjectList m_OverPageObjectList;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_PAGEOBJECTHOLDER_H_
