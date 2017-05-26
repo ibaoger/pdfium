@@ -165,6 +165,30 @@
       "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e039bb_8f7bd08a",
+        "filename": "core/fpdfapi/page/cpdf_generalstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T18:47:43Z",
+      "side": 1,
+      "message": "Ok, fine. But call it GetBlendModeExternal, or just GetBlendMode. Also, you are missing some, like hue. Make sure you are covering all the options, see https://cs.chromium.org/chromium/src/third_party/pdfium/core/fxge/fx_dib.h?type\u003dcs\u0026l\u003d53",
+      "parentUuid": "8a97b0a4_3a201a3b",
+      "range": {
+        "startLine": 81,
+        "startChar": 34,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
