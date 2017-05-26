@@ -304,3 +304,21 @@ DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate) {
   rotate %= 4;
   pPage->m_pFormDict->SetNewFor<CPDF_Number>("Rotate", rotate * 90);
 }
+
+FPDF_BOOL FPDFPageObj_SetFillColor(FPDF_PAGEOBJECT page_object,
+                                   unsigned int R,
+                                   unsigned int G,
+                                   unsigned int B,
+                                   unsigned int A) {
+  if (!page_object || !R || !G || !B || !A)
+    return false;
+
+  auto* pPageObj = static_cast<CPDF_PageObject*>(page_object);
+  uint32_t fillRGB = pPageObj->m_ColorState.GetFillRGB();
+  *R = FXSYS_GetRValue(fillRGB);
+  *G = FXSYS_GetGValue(fillRGB);
+  *B = FXSYS_GetBValue(fillRGB);
+  *A = static_cast<unsigned int>(pPageObj->m_GeneralState.GetFillAlpha() *
+                                 255.f);
+  return true;
+}
