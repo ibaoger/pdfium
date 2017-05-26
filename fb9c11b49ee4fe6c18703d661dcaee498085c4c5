@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9980d236_384d4f60",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T20:10:30Z",
+      "side": 0,
+      "message": "nit: no deleted blank line",
+      "revId": "fb9c11b49ee4fe6c18703d661dcaee498085c4c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
