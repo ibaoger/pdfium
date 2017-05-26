@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a5ecbe7_7d0af3b3",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-26T19:11:20Z",
+      "side": 1,
+      "message": "You removed the wrong brace.",
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1700786_edfe2f88",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-26T19:11:20Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2501c81_cdeef58c",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-26T19:11:20Z",
+      "side": 1,
+      "message": "Drop the m_",
+      "range": {
+        "startLine": 36,
+        "startChar": 54,
+        "endLine": 36,
+        "endChar": 56
+      },
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
