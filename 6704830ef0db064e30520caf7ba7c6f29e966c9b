@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c01c6ca1_e5389ef3",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-26T19:21:31Z",
+      "side": 1,
+      "message": "Ooopsie.  Done.\n\nAnd git cl format didn\u0027t move the close in another two spaces.  Weird.",
+      "parentUuid": "8a5ecbe7_7d0af3b3",
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1700786_edfe2f88",
         "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecbd37e9_20145364",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-26T19:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1700786_edfe2f88",
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e39f1e87_1a3f6d9f",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-26T19:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2501c81_cdeef58c",
+      "range": {
+        "startLine": 36,
+        "startChar": 54,
+        "endLine": 36,
+        "endChar": 56
+      },
+      "revId": "6704830ef0db064e30520caf7ba7c6f29e966c9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
