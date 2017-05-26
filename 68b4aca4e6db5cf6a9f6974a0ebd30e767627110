@@ -23,6 +23,30 @@
       "revId": "68b4aca4e6db5cf6a9f6974a0ebd30e767627110",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca027df0_8944ce59",
+        "filename": "fxbarcode/datamatrix/BC_EncoderContext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-26T01:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "012efbea_f9d7a87f",
+      "range": {
+        "startLine": 45,
+        "startChar": 26,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "68b4aca4e6db5cf6a9f6974a0ebd30e767627110",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
