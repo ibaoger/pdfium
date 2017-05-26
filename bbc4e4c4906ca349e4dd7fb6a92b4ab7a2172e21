@@ -141,6 +141,30 @@
       "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a97b0a4_3a201a3b",
+        "filename": "core/fpdfapi/page/cpdf_generalstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T17:31:19Z",
+      "side": 1,
+      "message": "But now we use the string version when generating the content.",
+      "parentUuid": "196ad2a4_8e0d3056",
+      "range": {
+        "startLine": 81,
+        "startChar": 34,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "bbc4e4c4906ca349e4dd7fb6a92b4ab7a2172e21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
