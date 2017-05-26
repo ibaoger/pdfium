@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c08ae1c0_361dc8c5",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T16:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56de6f59_cb21d46b",
+      "revId": "15ee47c6be9e537b4596b53159e9edcb509fad86",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cd5fe92_489494a7",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "15ee47c6be9e537b4596b53159e9edcb509fad86",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b4f1cbd_8072e8af",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-26T16:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd5fe92_489494a7",
+      "range": {
+        "startLine": 302,
+        "startChar": 16,
+        "endLine": 302,
+        "endChar": 20
+      },
+      "revId": "15ee47c6be9e537b4596b53159e9edcb509fad86",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
