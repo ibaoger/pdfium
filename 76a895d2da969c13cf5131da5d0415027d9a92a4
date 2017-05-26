@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c44b75_d7a52e24",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T15:57:19Z",
+      "side": 1,
+      "message": "This was accidentally changed? I don\u0027t think it\u0027s right.",
+      "range": {
+        "startLine": 253,
+        "startChar": 46,
+        "endLine": 253,
+        "endChar": 53
+      },
+      "revId": "76a895d2da969c13cf5131da5d0415027d9a92a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2960e3ae_df89db3a",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-05-26T15:57:19Z",
+      "side": 1,
+      "message": "This looks like the wrong stuff, did you accidentally copy GetFill instead of SetFill?",
+      "range": {
+        "startLine": 316,
+        "startChar": 3,
+        "endLine": 322,
+        "endChar": 40
+      },
+      "revId": "76a895d2da969c13cf5131da5d0415027d9a92a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
