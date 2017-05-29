@@ -89,15 +89,6 @@ void CRYPT_SHA1Update(CRYPT_sha1_context* context,
 void CRYPT_SHA1Finish(CRYPT_sha1_context* context, uint8_t digest[20]);
 void CRYPT_SHA1Generate(const uint8_t* data, uint32_t size, uint8_t digest[20]);
 
-void CRYPT_SHA256Start(CRYPT_sha2_context* context);
-void CRYPT_SHA256Update(CRYPT_sha2_context* context,
-                        const uint8_t* data,
-                        uint32_t size);
-void CRYPT_SHA256Finish(CRYPT_sha2_context* context, uint8_t digest[32]);
-void CRYPT_SHA256Generate(const uint8_t* data,
-                          uint32_t size,
-                          uint8_t digest[32]);
-
 void CRYPT_SHA384Start(CRYPT_sha2_context* context);
 void CRYPT_SHA384Update(CRYPT_sha2_context* context,
                         const uint8_t* data,

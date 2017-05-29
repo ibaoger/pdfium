@@ -270,6 +270,10 @@ static_library("fdrm") {
     "core/fdrm/crypto/fx_crypt.h",
     "core/fdrm/crypto/fx_crypt_aes.cpp",
     "core/fdrm/crypto/fx_crypt_sha.cpp",
+    "core/fdrm/crypto/sha2.cpp",
+    "core/fdrm/crypto/sha2.h",
+    "core/fdrm/crypto/sha256.cpp",
+    "core/fdrm/crypto/sha256.h",
   ]
   configs += [ ":pdfium_core_config" ]
   deps = [
@@ -1876,6 +1880,7 @@ if (pdf_enable_xfa) {
 test("pdfium_unittests") {
   sources = [
     "core/fdrm/crypto/fx_crypt_unittest.cpp",
+    "core/fdrm/crypto/sha256_unittest.cpp",
     "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
     "core/fpdfapi/font/cpdf_cmapparser_unittest.cpp",
     "core/fpdfapi/font/cpdf_tounicodemap_unittest.cpp",
