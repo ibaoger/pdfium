@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a073624a_7199872e",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-29T15:04:51Z",
+      "side": 1,
+      "message": "The problem is that the current APIs remove the existing content. This only problematic when pdfium does not know how to re-generate the content. You can see this with the unit test I added. Try replacing the new \"over\" methods with the original ones.",
+      "parentUuid": "0c7cb34f_7498d2e3",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "031352a8_2f1cbe5d",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-29T14:45:54Z",
       "side": 1,
       "message": "I\u0027m not a fan of adding this API, it\u0027s going to be confusing as to when you call GenerateContent and GenerateContentOver.",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38b1bda0_d3bec189",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-29T15:04:51Z",
+      "side": 1,
+      "message": "See the comments below. I think we have come up with a better solution.",
+      "parentUuid": "031352a8_2f1cbe5d",
       "revId": "976fe256985dfcccf515dd041793729e03cddc21",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
