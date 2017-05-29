@@ -1,0 +1,385 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4dda36c_89d924d1",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "nit: Remove blank line.",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620ef95d_019dde6c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "This should use CPDFPageFromFPDFPage() helper. If there is a nullptr, then something is going wrong and we should fix it.\n\nThe reason to use the helper is that there is an intermediate type (UnderlyingDocumentType) that changes based on if XFA is enabled or not, and the page cast method goes through the underlying document.",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a057a650_6f39c6f1",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "nit: no ()\u0027s",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f4371d3_016f34be",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Just checking, the GetArrayFor always returns the array in the same order, correct? (i.e. we aren\u0027t building the array on the fly or anything?)",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f34dd6d_a29bfb6e",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "nit: add {}s if either the body is \u003e 1 line or the if  conditional is \u003e 1 line.",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fe3b6aa_3be96ea9",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "CPDFDictionaryToFPDFAnnot() instead of static_cast",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aed2ec11_c110ea68",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Should this take different flags so we can get the other colours? We\u0027d probably also want to get PaintOperation::FILL?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c9787c0_3b3824ef",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Tkae a look a fpdf_structtree.cpp, FPDF_StructElement_GetTitle. Don\u0027t something similar to the WideStringToBuffer(...) would simplify this.",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f315291c_c7d2c884",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "ditto on WideStringToBuffer",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c440650_7555d092",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Would you be able to update pdfium_test to have a --annot flag which will dump annotation information to the console? Then we can have a simple way to write out annotation information from a file and see how things look?",
+      "range": {
+        "startLine": 24,
+        "startChar": 24,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7c472f4_a984a996",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Can this be FPDF_ANNOT* instead of void**?",
+      "range": {
+        "startLine": 35,
+        "startChar": 46,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc18c863_1dfbcb55",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "Can you add what type the string is, probably UTF16-LE or something?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66694e65_0a418f82",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "What about returning an in here and we have a set of defines of FPDF_ANNOT_UNDERLINE 0, etc?",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c973469d_88c9e6c5",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "I\u0027d shorten this to FPDFAnnot_",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4cb5ffb_f6d3c655",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "What is rg? Is that alpha?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a94bab5_ddd13fcf",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "What do you think about normalizing the colour before we return? Could we always return RGBA? (Can you check our other APIs that work with colour to see their default return if it\u0027s RGBA, BGRA or something else?)",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e39dead_98962750",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "FPDFAnnot_GetPoints? _GetBoundingBox? I\u0027m not sure if the Quad is relevant, any ideas for a better name?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21f571e6_ee17542a",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "What\u0027s the difference between the rectangle and the QuadPoints?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccf5e2cc_7a7a430f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "s/if failed/otherwise/",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81b3f3aa_51b5e248",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "For calls returning text contents can you follow the example of FPDF_StructTree_GetAltText?\n\nBasically, the return value is the length of the string we want to write. If the length we want to write is \u003e bufLen then |buffer| is unchanged and we just return the length, otherwise, write buffer and return the length.",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc3a9ff2_3287715f",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T18:05:58Z",
+      "side": 1,
+      "message": "I\u0027d go with FPDF_ANNOT",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
