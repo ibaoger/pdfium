@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "6f75e7a1_279d5fa6",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T17:34:57Z",
+      "side": 1,
+      "message": "For the generation code, I think we should be able to generate those items. Even if we don\u0027t have API to display them or work with them, when passed through PDFium they should still be functional after the save.\n\nCan you summarize the API that you are thinking of?",
+      "parentUuid": "09a66269_2cf839f5",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "031352a8_2f1cbe5d",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 1
