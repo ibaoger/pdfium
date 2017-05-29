@@ -17,6 +17,7 @@
 #include "core/fpdfapi/page/cpdf_page.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
+#include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "core/fpdfapi/render/cpdf_progressiverenderer.h"
@@ -301,6 +302,10 @@ CPDF_Page* CPDFPageFromFPDFPage(FPDF_PAGE page) {
 #else   // PDF_ENABLE_XFA
   return UnderlyingFromFPDFPage(page);
 #endif  // PDF_ENABLE_XFA
+}
+
+CPDF_Dictionary* CPDFDictionaryFromFPDFAnnotation(FPDF_ANNOTATION annot) {
+  return ToDictionary(static_cast<CPDF_Object*>(annot));
 }
 
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {

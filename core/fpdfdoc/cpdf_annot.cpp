@@ -88,6 +88,7 @@ void CPDF_Annot::GenerateAPIfNeeded() {
     return;
 
   CPDF_Dictionary* pDict = m_pAnnotDict.Get();
+
   bool result = false;
   if (m_nSubtype == CPDF_Annot::Subtype::CIRCLE)
     result = CPVT_GenerateAP::GenerateCircleAP(m_pDocument, pDict);
