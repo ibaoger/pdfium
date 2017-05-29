@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c7cb34f_7498d2e3",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T14:45:54Z",
+      "side": 1,
+      "message": "How is this diferent from InsertObject? It\u0027s strange to have these two separate APIs.",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "031352a8_2f1cbe5d",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-29T14:45:54Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of adding this API, it\u0027s going to be confusing as to when you call GenerateContent and GenerateContentOver.",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
