@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "09a66269_2cf839f5",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-29T16:42:11Z",
+      "side": 1,
+      "message": "Even so, this would break again if new PDF features are added to the spec that pdfium does not support (or want to).\n\nI think it makes more sense to not have to regenerate what\u0027s already there unless we need to.",
+      "parentUuid": "588c96ee_696b18ed",
+      "revId": "976fe256985dfcccf515dd041793729e03cddc21",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "031352a8_2f1cbe5d",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 1
