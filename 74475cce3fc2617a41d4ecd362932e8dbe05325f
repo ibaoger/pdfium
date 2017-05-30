@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07ecdbde_a8256662",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: else after continue",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 432,
+        "endChar": 17
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5bd3b69_df004f1a",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: not needed, deref\u0027d on 285",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 23
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d471c7bc_26ff498f",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: check return value?",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 22
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0818407_5e405637",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: I\u0027d be happier if these were \u0026wsDate, \u0026wsTime, etc.",
+      "range": {
+        "startLine": 403,
+        "startChar": 38,
+        "endLine": 403,
+        "endChar": 53
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1688761_77512a8d",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: static for speed.   :)",
+      "range": {
+        "startLine": 434,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 23
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5466f20a_67240e52",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: return CFX_Widestring rather than out param",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65bb8db4_351cf55e",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-30T16:54:04Z",
+      "side": 1,
+      "message": "nit: either of these strings const?",
+      "range": {
+        "startLine": 57,
+        "startChar": 27,
+        "endLine": 57,
+        "endChar": 41
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
