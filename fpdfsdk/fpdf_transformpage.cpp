@@ -214,6 +214,7 @@ FPDFPageObj_TransformClipPath(FPDF_PAGEOBJECT page_object,
   if (!pPageObj->IsShading())
     pPageObj->TransformClipPath(matrix);
   pPageObj->TransformGeneralState(matrix);
+  pPageObj->SetDirty(true);
 }
 
 DLLEXPORT FPDF_CLIPPATH STDCALL FPDF_CreateClipPath(float left,

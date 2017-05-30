@@ -421,6 +421,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetText(FPDF_PAGEOBJECT text_object,
         &byteText, pTextObj->GetFont()->CharCodeFromUnicode(wc));
   }
   pTextObj->SetText(byteText);
+  pTextObj->SetDirty(true);
   return true;
 }
 
