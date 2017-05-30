@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "88a760d4_045714c1",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4dda36c_89d924d1",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620ef95d_019dde6c",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "7d2cfa2e_085d2b98",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Interesting, the helper function works when I test the API in pdium_test.cc :).",
+      "parentUuid": "620ef95d_019dde6c",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a057a650_6f39c6f1",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 1
@@ -56,6 +98,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50546e1c_89401eb2",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a057a650_6f39c6f1",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "ddc4eac3_630e7fa7",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "9f4371d3_016f34be",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34dd6d_a29bfb6e",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 1
@@ -90,6 +168,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46624799_e0cf5fce",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34dd6d_a29bfb6e",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "2fad2136_aa8ffc79",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fe3b6aa_3be96ea9",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aed2ec11_c110ea68",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 1
@@ -124,6 +238,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c25d5b2_9518ae90",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Yes, that\u0027s something I was thinking about but didn\u0027t add yet. \nGetColor now takes a flag to get both C and IC (interior) colors.\nSimiarly, GetContents can also get Contents and T (author).\nAs for FILL - now that I\u0027m just returning the color numbers, we don\u0027t actually need it any more.",
+      "parentUuid": "aed2ec11_c110ea68",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -144,6 +276,24 @@
     },
     {
       "key": {
+        "uuid": "e8c0b74a_fc447370",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Is it still necessary to make WideStringToBuffer reusable if only GetContents does this now?",
+      "parentUuid": "6c9787c0_3b3824ef",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f315291c_c7d2c884",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 1
@@ -155,6 +305,24 @@
       "writtenOn": "2017-05-29T18:05:58Z",
       "side": 1,
       "message": "ditto on WideStringToBuffer",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a7133bc_4d6247c6",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "See above",
+      "parentUuid": "f315291c_c7d2c884",
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -184,6 +352,30 @@
     },
     {
       "key": {
+        "uuid": "a15c50b7_c2ba1f34",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c440650_7555d092",
+      "range": {
+        "startLine": 24,
+        "startChar": 24,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c472f4_a984a996",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -207,6 +399,30 @@
     },
     {
       "key": {
+        "uuid": "753df799_0e43e6d6",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c472f4_a984a996",
+      "range": {
+        "startLine": 35,
+        "startChar": 46,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc18c863_1dfbcb55",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -221,6 +437,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b700bfcc_199d4191",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc18c863_1dfbcb55",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -264,6 +498,48 @@
     },
     {
       "key": {
+        "uuid": "c548426f_ecba12ee",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Should it still be FPDFAnnot_ even if the data type has to be FPDF_ANNOTATION?",
+      "parentUuid": "c973469d_88c9e6c5",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32cd4fdd_452a53cc",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done. Just making sure: this wouldn\u0027t be a duplicate of CPDF_Annot\u0027s Subtype enum class, because that enum class is internal, right?",
+      "parentUuid": "66694e65_0a418f82",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4cb5ffb_f6d3c655",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -278,6 +554,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3984d3_39a8e2ee",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "RG is just letters at the end to indicate the format. I didn\u0027t spend time on figuring out the best way to express this, sorry about the confusion. But normalizing everything into RGB sounds like a better idea!",
+      "parentUuid": "b4cb5ffb_f6d3c655",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -298,6 +592,24 @@
     },
     {
       "key": {
+        "uuid": "dbfd2483_25659fed",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done. Normalizing sounds like a good idea!\nIt seems that most of our APIs (e.g. fpdf_edit.h) passes R, G, B, A separately in unsigned ints, so I did that.",
+      "parentUuid": "8a94bab5_ddd13fcf",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e39dead_98962750",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -309,6 +621,24 @@
       "writtenOn": "2017-05-29T18:05:58Z",
       "side": 1,
       "message": "FPDFAnnot_GetPoints? _GetBoundingBox? I\u0027m not sure if the Quad is relevant, any ideas for a better name?",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3a5e99a_f7cf6d81",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Would something like \"GetTextPoints\" work?",
+      "parentUuid": "8e39dead_98962750",
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -332,6 +662,24 @@
     },
     {
       "key": {
+        "uuid": "f885ae3d_545eefc9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Added a comment to explain.",
+      "parentUuid": "21f571e6_ee17542a",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ccf5e2cc_7a7a430f",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -346,6 +694,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e28aedb_8062cb8d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccf5e2cc_7a7a430f",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -366,6 +732,24 @@
     },
     {
       "key": {
+        "uuid": "d7d1efc4_55b46f77",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81b3f3aa_51b5e248",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3a9ff2_3287715f",
         "filename": "public/fpdfview.h",
         "patchSetId": 1
@@ -377,6 +761,24 @@
       "writtenOn": "2017-05-29T18:05:58Z",
       "side": 1,
       "message": "I\u0027d go with FPDF_ANNOT",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c1441b2_fc7c314f",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-30T22:25:05Z",
+      "side": 1,
+      "message": "There\u0027s already a flag called FPDF_ANNOT and used in many places. Any alternative suggestion?",
+      "parentUuid": "fc3a9ff2_3287715f",
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
