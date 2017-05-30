@@ -58,6 +58,10 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   CPDF_Dictionary* GetPage(int iPage);
   int GetPageIndex(uint32_t objnum);
   uint32_t GetUserPermissions() const;
+  bool GetPreserveExistingContent() const { return m_bPreserveExistingContent; }
+  void SetPreserveExistingContent(bool value) {
+    m_bPreserveExistingContent = value;
+  }
 
   // Returns a valid pointer, unless it is called during destruction.
   CPDF_DocPageData* GetPageData() const { return m_pDocPage.get(); }
@@ -146,6 +150,7 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   // Index of the next page that will be traversed from the page tree.
   int m_iNextPageToTraverse;
   bool m_bReachedMaxPageLevel;
+  bool m_bPreserveExistingContent;
   bool m_bLinearized;
   int m_iFirstPageNo;
   uint32_t m_dwFirstPageObjNum;
