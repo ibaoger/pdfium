@@ -9,6 +9,7 @@
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxge/dib/cfx_dibitmap.h"
 #include "core/fxge/ge/cfx_cliprgn.h"
+#include "third_party/base/ptr_util.h"
 
 CFX_BitmapComposer::CFX_BitmapComposer()
     : m_bRgbByteOrder(false), m_BlendType(FXDIB_BLEND_NORMAL) {}
@@ -27,7 +28,10 @@ void CFX_BitmapComposer::Compose(const CFX_RetainPtr<CFX_DIBitmap>& pDest,
                                  int alpha_flag,
                                  int blend_type) {
   m_pBitmap = pDest;
-  m_pClipRgn = pClipRgn;
+  if (pClipRgn)
+    m_pClipRgn = pdfium::MakeUnique<CFX_ClipRgn>(*pClipRgn);
+  else
+    m_pClipRgn.reset();
   m_DestLeft = dest_rect.left;
   m_DestTop = dest_rect.top;
   m_DestWidth = dest_rect.Width();
