@@ -46,3 +46,12 @@ std::ostream& operator<<(std::ostream& out, const CFX_WideStringC& str) {
 std::ostream& operator<<(std::ostream& out, const CFX_WideString& str) {
   return output_string(out, str);
 }
+
+std::ostream& operator<<(std::ostream& os, const CFX_DateTime& dt) {
+  os << dt.GetYear() << "-" << std::to_string(dt.GetMonth()) << "-"
+     << std::to_string(dt.GetDay()) << " " << std::to_string(dt.GetHour())
+     << ":" << std::to_string(dt.GetMinute()) << ":"
+     << std::to_string(dt.GetSecond()) << "."
+     << std::to_string(dt.GetMillisecond());
+  return os;
+}
