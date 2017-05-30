@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6bfa21c_a34216ae",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07ecdbde_a8256662",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 432,
+        "endChar": 17
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5bd3b69_df004f1a",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f3c3e999_ebf3cebd",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5bd3b69_df004f1a",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 23
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d471c7bc_26ff498f",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-05-30T16:54:04Z",
       "side": 1,
       "message": "nit: check return value?",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 22
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6dbef76_b86896e6",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter. If the method returns false then dt would not be modified so it\u0027s CFX_DateTime() which is what we\u0027d return anyway.",
+      "parentUuid": "d471c7bc_26ff498f",
       "range": {
         "startLine": 284,
         "startChar": 2,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "50c2ea63_799374e2",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Me too, followup.",
+      "parentUuid": "f0818407_5e405637",
+      "range": {
+        "startLine": 403,
+        "startChar": 38,
+        "endLine": 403,
+        "endChar": 53
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1688761_77512a8d",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
         "patchSetId": 1
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a76da3a8_e4a9d0f0",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1688761_77512a8d",
+      "range": {
+        "startLine": 434,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 23
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5466f20a_67240e52",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-05-30T16:54:04Z",
       "side": 1,
       "message": "nit: return CFX_Widestring rather than out param",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07357487_1fa6eb53",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Followup, trying to add some tests first.",
+      "parentUuid": "5466f20a_67240e52",
       "range": {
         "startLine": 54,
         "startChar": 7,
@@ -160,6 +304,30 @@
       "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8fa11ac_5d47d473",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:51:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65bb8db4_351cf55e",
+      "range": {
+        "startLine": 57,
+        "startChar": 27,
+        "endLine": 57,
+        "endChar": 41
+      },
+      "revId": "74475cce3fc2617a41d4ecd362932e8dbe05325f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
