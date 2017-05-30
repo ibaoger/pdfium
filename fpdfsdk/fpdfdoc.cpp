@@ -415,3 +415,12 @@ DLLEXPORT unsigned long STDCALL FPDF_GetPageLabel(FPDF_DOCUMENT document,
     return 0;
   return Utf16EncodeMaybeCopyAndReturnLength(str, buffer, buflen);
 }
+
+DLLEXPORT FPDF_BOOL STDCALL FPDF_PreserveExistingContent(FPDF_DOCUMENT document,
+                                                         FPDF_BOOL value) {
+  CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
+  if (!pDoc)
+    return FALSE;
+  pDoc->SetPreserveExistingContent(value);
+  return TRUE;
+}

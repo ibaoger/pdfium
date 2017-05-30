@@ -318,6 +318,21 @@ DLLEXPORT unsigned long STDCALL FPDF_GetPageLabel(FPDF_DOCUMENT document,
                                                   void* buffer,
                                                   unsigned long buflen);
 
+// Preserve existing content on the |document|.
+//
+//   document    - handle to the document.
+//   value       - Set to true to preserve existing content on the |document|.
+//                 Set to false (default) to re-generate all existing content
+//                 when a page on the |document| is generated.
+
+//
+// Returns true on success.
+//
+// When TRUE, only changes to new objects will be saved when the contents of a
+// page are generated.
+DLLEXPORT FPDF_BOOL STDCALL FPDF_PreserveExistingContent(FPDF_DOCUMENT document,
+                                                         FPDF_BOOL value);
+
 #ifdef __cplusplus
 }  // extern "C"
 #endif  // __cplusplus
