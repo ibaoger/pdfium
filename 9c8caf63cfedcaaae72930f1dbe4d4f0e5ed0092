@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "246b8b6e_e9faedea",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T20:18:43Z",
+      "side": 1,
+      "message": "I believe the size() check on line 67 is required otherwise we\u0027d bail out early and not generate an empty document.\n\nMy suggestion was to change this to something like:\n\nif (ProcessPageObjects(\u0026buf) \u003d\u003d 0)\n  return;\n\nOr, even better, just make processPageObjects return a boolean that\u0027s true if any object was dirty then this just becomes\n\nif (!ProcessPageObject(\u0026buf))\n  return;",
+      "parentUuid": "eba9e40e_4f4004ce",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc6e9846_8e78ed00",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 7
