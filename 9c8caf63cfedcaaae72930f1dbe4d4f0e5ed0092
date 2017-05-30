@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eba9e40e_4f4004ce",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-30T19:58:20Z",
+      "side": 1,
+      "message": "I added the size check because FPDFEditEmbeddertest.EmptyCreation was failing without it.",
+      "parentUuid": "f318e0c4_728b6056",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc6e9846_8e78ed00",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2017-05-30T19:01:57Z",
       "side": 1,
       "message": "Why the change from GetDirectObject to GetObject?",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00c408b7_6b458cd9",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-30T19:58:20Z",
+      "side": 1,
+      "message": "I was trying to keep this logic as close as possible to the logic here: https://cs.chromium.org/chromium/src/third_party/pdfium/fpdfsdk/fpdf_transformpage.cpp?type\u003dcs\u0026l\u003d281",
+      "parentUuid": "dc6e9846_8e78ed00",
       "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2227135b_54ac9e33",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-30T19:58:20Z",
+      "side": 1,
+      "message": "I believe it does. The underlying container is an std::map. RemoveFor does an erase and SetNewFor uses the [] operator. \n\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_dictionary.cpp?type\u003dcs\u0026l\u003d201\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_dictionary.cpp?type\u003dcs\u0026l\u003d185",
+      "parentUuid": "4bc5209a_0b6e84ab",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea1552d3_358ec0a7",
         "filename": "core/fpdfapi/page/cpdf_pageobject.h",
         "patchSetId": 7
@@ -67,6 +121,24 @@
       "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f46db4f_5f88cd83",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-30T19:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1552d3_358ec0a7",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
