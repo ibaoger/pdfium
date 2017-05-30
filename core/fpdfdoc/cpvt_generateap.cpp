@@ -452,17 +452,6 @@ bool GenerateWidgetAP(CPDF_Document* pDoc,
   return true;
 }
 
-CFX_ByteString GetColorStringWithDefault(CPDF_Array* pColor,
-                                         const CPVT_Color& crDefaultColor,
-                                         PaintOperation nOperation) {
-  if (pColor) {
-    CPVT_Color color = CPVT_Color::ParseColor(*pColor);
-    return CPVT_GenerateAP::GenerateColorAP(color, nOperation);
-  }
-
-  return CPVT_GenerateAP::GenerateColorAP(crDefaultColor, nOperation);
-}
-
 float GetBorderWidth(const CPDF_Dictionary& pAnnotDict) {
   if (CPDF_Dictionary* pBorderStyleDict = pAnnotDict.GetDictFor("BS")) {
     if (pBorderStyleDict->KeyExist("W"))
@@ -1363,4 +1352,17 @@ CFX_ByteString CPVT_GenerateAP::GetFontSetString(IPVT_FontMap* pFontMap,
       sRet << "/" << sFontAlias << " " << fFontSize << " Tf\n";
   }
   return sRet.MakeString();
+}
+
+// Static.
+CFX_ByteString CPVT_GenerateAP::GetColorStringWithDefault(
+    CPDF_Array* pColor,
+    const CPVT_Color& crDefaultColor,
+    PaintOperation nOperation) {
+  if (pColor) {
+    CPVT_Color color = CPVT_Color::ParseColor(*pColor);
+    return CPVT_GenerateAP::GenerateColorAP(color, nOperation);
+  }
+
+  return CPVT_GenerateAP::GenerateColorAP(crDefaultColor, nOperation);
 }
