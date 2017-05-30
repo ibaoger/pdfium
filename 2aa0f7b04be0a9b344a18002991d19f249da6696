@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec4c1202_c3313e3c",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "If (!pPageObj-\u003eIsDirty())\n  continue;\n\nWe prefer early continue/exit vs indenting.",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cd0f95f_fbe4ddc9",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "Do you think this should be true? This page object is now dirty even if the one we\u0027re copying from was not dirty as this one has changed.",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89023d91_b26e23b6",
+        "filename": "fpdfsdk/fpdf_transformpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "This isn\u0027t needed as TransformGeneralStatue calls SetDirty automatically.",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bae6a1ad_e44ab3dd",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "The object returned from GetImage, does it know the pImgObj that pointed to it? Can we have the GetImage class set pImgObj dirty on SetImage automatically? Or do we just not have the parent pointer at this point?",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c8a3d06_64ada5bc",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "This should be done automatically in the Transform() method and not here",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44bc2fcd_52158d62",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "Does m_GeneratlState have a PageObj pointer we could do this automatically through?",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "375e02aa_a526e297",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52eb9faf_77f9d1d1",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "This can be done directly in SetText",
+      "revId": "2aa0f7b04be0a9b344a18002991d19f249da6696",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f318e0c4_728b6056",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "What about changing ProcessPageObjects to return the count of objects then if the count of dirty objects is  \u003d\u003d 0 we return?",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc6e9846_8e78ed00",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "Why the change from GetDirectObject to GetObject?",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bc5209a_0b6e84ab",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "Does calling this without removing the old \"Contents\" do the right thing?",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1552d3_358ec0a7",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T19:01:57Z",
+      "side": 1,
+      "message": "bool IsDirty() const { ... }",
+      "revId": "9c8caf63cfedcaaae72930f1dbe4d4f0e5ed0092",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
