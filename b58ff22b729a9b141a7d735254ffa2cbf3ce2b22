@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea422d6_fdb45c79",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 0,
+      "message": "Is this change related to this cl or just general cleanup?",
+      "revId": "b58ff22b729a9b141a7d735254ffa2cbf3ce2b22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

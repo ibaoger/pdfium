@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a5c55e6_1f400f52",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "missing ;",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d741c37f_48d24176",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "If we set each page object to flag itself as dirty when modified, can\u0027t this just loop over all page objects and check if they\u0027re dirty? If none are dirty, then preserve old contents. If any are dirty then we re-write. We\u0027d probably want a second flag to know if the object was read from the file or has been appended.\n\nThen, we don\u0027t need the PreserveExistingContent flag as it will just \u0027do the right thing\u0027?",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0770b6d_3eaac5be",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "s/FALSE/false",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c2667a_af00e367",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "Should the copy be marked as dirty?",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "851eb030_fe1ce1db",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this dirty the page object?",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e80e7b_65cea4a0",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "Should this dirty the page object?",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4983c6e9_a0fcd67a",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "This seems like it\u0027s a dirty marker? if so, let\u0027s name it dirty.\n\nSetDirty(bool)\nbool IsDirty() const",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a819258a_1bb7c65d",
+        "filename": "fpdfsdk/fpdfeditpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-30T17:10:03Z",
+      "side": 1,
+      "message": "Should\u0027t any method which modifies the page object mark it as needing generation?",
+      "revId": "2fc9d828ff06a321c6848f1bf73d7f6e482c0c1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
