@@ -6,7 +6,7 @@
 
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 
-CPDF_PageObject::CPDF_PageObject() {}
+CPDF_PageObject::CPDF_PageObject() : m_bNeedsGenerating(FALSE) {}
 
 CPDF_PageObject::~CPDF_PageObject() {}
 

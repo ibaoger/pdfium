@@ -348,6 +348,7 @@ CPDF_Document::CPDF_Document(std::unique_ptr<CPDF_Parser> pParser)
       m_bLinearized(false),
       m_iFirstPageNo(0),
       m_dwFirstPageObjNum(0),
+      m_bPreserveExistingContent(false),
       m_pDocPage(pdfium::MakeUnique<CPDF_DocPageData>(this)),
       m_pDocRender(pdfium::MakeUnique<CPDF_DocRenderData>(this)) {
   if (pParser)
