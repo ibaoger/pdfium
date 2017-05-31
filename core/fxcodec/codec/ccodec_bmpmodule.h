@@ -24,7 +24,7 @@ class CCodec_BmpModule {
   CCodec_BmpModule();
   ~CCodec_BmpModule();
 
-  FXBMP_Context* Start();
+  FXBMP_Context* Start(Delegate* pDelegate);
   void Finish(FXBMP_Context* pContext);
   uint32_t GetAvailInput(FXBMP_Context* pContext, uint8_t** avail_buf_ptr);
   void Input(FXBMP_Context* pContext,
@@ -39,12 +39,6 @@ class CCodec_BmpModule {
                      uint32_t** pal_pp,
                      CFX_DIBAttribute* pAttribute);
   int32_t LoadImage(FXBMP_Context* pContext);
-  Delegate* GetDelegate() const { return m_pDelegate.Get(); }
-  void SetDelegate(Delegate* pDelegate) { m_pDelegate = pDelegate; }
-
- protected:
-  CFX_UnownedPtr<Delegate> m_pDelegate;
-  char m_szLastError[256];
 };
 
 #endif  // CORE_FXCODEC_CODEC_CCODEC_BMPMODULE_H_
