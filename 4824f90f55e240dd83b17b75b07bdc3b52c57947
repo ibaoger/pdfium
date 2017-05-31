@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2fbfe47_209a780a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T21:44:16Z",
+      "side": 1,
+      "message": "CL",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "4824f90f55e240dd83b17b75b07bdc3b52c57947",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e545f67_b25f1c8b",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T21:44:16Z",
+      "side": 1,
+      "message": "Is this an out parameter? Maybe just return it, now that the method returns void.",
+      "range": {
+        "startLine": 58,
+        "startChar": 21,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "4824f90f55e240dd83b17b75b07bdc3b52c57947",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
