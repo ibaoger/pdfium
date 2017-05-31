@@ -19,6 +19,7 @@
 
 #include "core/fdrm/crypto/fx_crypt.h"
 #include "public/cpp/fpdf_deleters.h"
+#include "public/fpdf_annot.h"
 #include "public/fpdf_dataavail.h"
 #include "public/fpdf_edit.h"
 #include "public/fpdf_ext.h"
@@ -57,6 +58,7 @@ enum OutputFormat {
   OUTPUT_TEXT,
   OUTPUT_PPM,
   OUTPUT_PNG,
+  OUTPUT_ANNOT,
 #ifdef _WIN32
   OUTPUT_BMP,
   OUTPUT_EMF,
@@ -190,6 +192,93 @@ void WriteText(FPDF_PAGE page, const char* pdf_name, int num) {
     uint32_t c = FPDFText_GetUnicode(textpage.get(), i);
     fwrite(&c, sizeof(c), 1, fp);
   }
+  (void)fclose(fp);
+}
+
+void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
+  // Open the output text file.
+  char filename[256];
+  int chars_formatted =
+      snprintf(filename, sizeof(filename), "%s.%d.annot.txt", pdf_name, num);
+  if (chars_formatted < 0 ||
+      static_cast<size_t>(chars_formatted) >= sizeof(filename)) {
+    fprintf(stderr, "Filename %s is too long\n", filename);
+    return;
+  }
+  FILE* fp = fopen(filename, "w");
+  if (!fp) {
+    fprintf(stderr, "Failed to open %s for output\n", filename);
+    return;
+  }
+
+  int annot_count = FPDFPage_GetAnnotCount(page);
+  fprintf(fp, "Number of annotations: %d\n\n", annot_count);
+
+  // Iterate through all annotations on this page.
+  for (int i = 0; i < annot_count; i++) {
+    // Retrieve the annotation object and its subtype.
+    fprintf(fp, "Annotation #%d:\n", i + 1);
+    FPDF_ANNOTATION annot;
+    if (!FPDFPage_GetAnnot(page, i, &annot)) {
+      fprintf(fp, "Failed to retrieve annotation!\n\n");
+      continue;
+    }
+    int subtype = FPDFAnnot_GetSubtype(annot);
+    fprintf(fp, "Subtype: %d\n", subtype);
+
+    // Retrieve the annotation's color and interior color.
+    unsigned int R;
+    unsigned int G;
+    unsigned int B;
+    unsigned int A;
+    if (!FPDFAnnot_GetColor(annot, FPDFANNOT_COLORTYPE_Color, &R, &G, &B, &A)) {
+      fprintf(fp, "Failed to retrieve color.\n");
+    } else {
+      fprintf(fp, "Color in RGBA: %d %d %d %d\n", R, G, B, A);
+    }
+    if (!FPDFAnnot_GetColor(annot, FPDFANNOT_COLORTYPE_InteriorColor, &R, &G,
+                            &B, &A)) {
+      fprintf(fp, "Failed to retrieve interior color.\n");
+    } else {
+      fprintf(fp, "Interior color in RGBA: %d %d %d %d\n", R, G, B, A);
+    }
+
+    // Retrieve the annotation's contents and author.
+    unsigned long len =
+        FPDFAnnot_GetText(annot, FPDFANNOT_TEXTTYPE_Contents, nullptr, 0);
+    std::vector<char> buf(len + 1);
+    FPDFAnnot_GetText(annot, FPDFANNOT_TEXTTYPE_Contents, buf.data(), len + 1);
+    fprintf(fp, "Content: %s\n", buf.data());
+    len = FPDFAnnot_GetText(annot, FPDFANNOT_TEXTTYPE_Author, nullptr, 0);
+    buf.clear();
+    buf.resize(len + 1);
+    FPDFAnnot_GetText(annot, FPDFANNOT_TEXTTYPE_Author, buf.data(), len + 1);
+    fprintf(fp, "Author: %s\n", buf.data());
+
+    // Retrieve the annotation's quadpoints if it is a markup annotation.
+    FS_QUADPOINTSF quadpoints;
+    if (subtype == FPDF_ANNOT_LINK || subtype == FPDF_ANNOT_HIGHLIGHT ||
+        subtype == FPDF_ANNOT_UNDERLINE || subtype == FPDF_ANNOT_SQUIGGLY ||
+        subtype == FPDF_ANNOT_STRIKEOUT) {
+      if (!FPDFAnnot_GetAttachmentPoints(annot, &quadpoints)) {
+        fprintf(fp, "Failed to retrieve quadpoints.\n");
+      } else {
+        fprintf(fp, "Quadpoints: (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n",
+                quadpoints.x1, quadpoints.y1, quadpoints.x2, quadpoints.y2,
+                quadpoints.x3, quadpoints.y3, quadpoints.x4, quadpoints.y4);
+      }
+    }
+
+    // Retrieve the annotation's rectangle coordinates.
+    FS_RECTF rect;
+    if (!FPDFAnnot_GetRect(annot, &rect)) {
+      fprintf(fp, "Failed to retrieve rectangle.\n\n");
+    } else {
+      fprintf(fp, "Rectangle: l - %f, b - %f, r - %f, t - %f\n\n", rect.left,
+              rect.bottom, rect.right, rect.top);
+    }
+  }
+
   (void)fclose(fp);
 }
 
@@ -494,6 +583,12 @@ bool ParseCommandLine(const std::vector<std::string>& args,
         return false;
       }
       options->output_format = OUTPUT_TEXT;
+    } else if (cur_arg == "--annot") {
+      if (options->output_format != OUTPUT_NONE) {
+        fprintf(stderr, "Duplicate or conflicting --annot argument\n");
+        return false;
+      }
+      options->output_format = OUTPUT_ANNOT;
 #ifdef PDF_ENABLE_SKIA
     } else if (cur_arg == "--skp") {
       if (options->output_format != OUTPUT_NONE) {
@@ -805,6 +900,10 @@ bool RenderPage(const std::string& name,
 #endif
       case OUTPUT_TEXT:
         WriteText(page.get(), name.c_str(), page_index);
+        break;
+
+      case OUTPUT_ANNOT:
+        WriteAnnot(page.get(), name.c_str(), page_index);
         break;
 
       case OUTPUT_PNG:
