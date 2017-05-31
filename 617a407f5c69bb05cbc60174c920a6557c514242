@@ -155,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "1f124123_41fc4200",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T21:21:17Z",
+      "side": 1,
+      "message": "OK, but we planned on deleting |pStream| before. Would that have resulted in potentially missing data?",
+      "parentUuid": "bcd0c9dd_19519234",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ab5dead_425e160b",
         "filename": "core/fpdfapi/page/cpdf_pageobject.h",
         "patchSetId": 11
