@@ -119,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "9ee5825f_e04a56a5",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T19:25:45Z",
+      "side": 1,
+      "message": "Right, the returned pointer from NewIndirect() is unowned. I couldn\u0027t remember off the top of my head.\n\nYes, we should delete it. At the very least, leaving it there is using up memory.",
+      "parentUuid": "7417a4f0_0a1f0978",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ab5dead_425e160b",
         "filename": "core/fpdfapi/page/cpdf_pageobject.h",
         "patchSetId": 11
