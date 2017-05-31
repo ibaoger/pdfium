@@ -137,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "bcd0c9dd_19519234",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-31T19:50:28Z",
+      "side": 1,
+      "message": "I changed it to add the stream as the contents before returning.",
+      "parentUuid": "9ee5825f_e04a56a5",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ab5dead_425e160b",
         "filename": "core/fpdfapi/page/cpdf_pageobject.h",
         "patchSetId": 11
