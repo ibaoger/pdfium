@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3a2b7fe_b74f434b",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T20:18:26Z",
+      "side": 1,
+      "message": "This value is bAD in GetEraName(), so we\u0027d be setting this to true during BC and false during AD ....",
+      "revId": "4b73880b2258608c91a067c1664cbcfb9ba3a060",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51f1d53c_e3f50d46",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T20:18:26Z",
+      "side": 1,
+      "message": "Previously this would only allow seconds to follow minutes but it\u0027s possible to pass the timezone.",
+      "revId": "4b73880b2258608c91a067c1664cbcfb9ba3a060",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
