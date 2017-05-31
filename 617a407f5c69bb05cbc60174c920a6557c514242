@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b12914aa_f5911c5e",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:19:03Z",
+      "side": 1,
+      "message": "Most places that dereference |m_pDocument| do not check to see if it\u0027s a nullptr or not. Why do we do it here? It feels like we should either do it everywhere, or nowhere. Note the pointer is const and always points to the same document for its lifetime.",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf92f0b_294089be",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:19:03Z",
+      "side": 1,
+      "message": "empty()",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "748286d6_4a73161e",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:19:03Z",
+      "side": 1,
+      "message": "If we return here, or due to the next if statement, and |pStream| does not get added to some structure, does it leak?",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ab5dead_425e160b",
+        "filename": "core/fpdfapi/page/cpdf_pageobject.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:19:03Z",
+      "side": 1,
+      "message": "nit: add a blank line to separate methods from member variables. Like line 61 above.",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
