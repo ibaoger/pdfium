@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be6a21c4_e0cc65a2",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T23:26:53Z",
+      "side": 1,
+      "message": "How about:\n\nauto* ctx \u003d reinterpret_cast\u003cCCodec_JpegModule::Context*\u003e(cinfo-\u003eclient_data);\nlongjmp(ctx-\u003efoo, ....);",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa831e1_2ceaa89d",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T23:26:53Z",
+      "side": 1,
+      "message": "Rename |p| to |ctx| ?",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb19376_e2c9e056",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T23:26:53Z",
+      "side": 1,
+      "message": "Are we leaking |p| ? (Existing condition)",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
