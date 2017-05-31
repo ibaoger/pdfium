@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "abc41232_a75bd507",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-31T18:36:43Z",
+      "side": 1,
+      "message": "I removed it.",
+      "parentUuid": "b12914aa_f5911c5e",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbf92f0b_294089be",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 11
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "3db77e23_c3a30fcd",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-31T18:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf92f0b_294089be",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "748286d6_4a73161e",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 11
@@ -53,6 +95,24 @@
       "writtenOn": "2017-05-31T18:19:03Z",
       "side": 1,
       "message": "If we return here, or due to the next if statement, and |pStream| does not get added to some structure, does it leak?",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7417a4f0_0a1f0978",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-31T18:36:43Z",
+      "side": 1,
+      "message": "No. The pointer that is returned is owned by the document.\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_indirect_object_holder.h?type\u003dcs\u0026l\u003d34\nShould I clean it up anyway?\n\npDoc-\u003eDeleteIndirectObject(pStream-\u003eGetObjNum());",
+      "parentUuid": "748286d6_4a73161e",
       "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
