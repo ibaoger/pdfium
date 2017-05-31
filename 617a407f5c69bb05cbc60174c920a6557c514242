@@ -173,6 +173,24 @@
     },
     {
       "key": {
+        "uuid": "ebb09308_e5d0a208",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-05-31T21:35:57Z",
+      "side": 1,
+      "message": "Yes, if the contents were a direct object instead of a reference or if the reference pointed to something we were not expecting. Perhaps the PDF from pdfium issue 165? The old contents would still get wiped, but at least the new contents would be there like it would have before this change.",
+      "parentUuid": "1f124123_41fc4200",
+      "revId": "617a407f5c69bb05cbc60174c920a6557c514242",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ab5dead_425e160b",
         "filename": "core/fpdfapi/page/cpdf_pageobject.h",
         "patchSetId": 11
