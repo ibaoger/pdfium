@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e55fb0b_a41c7e08",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-31T23:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be6a21c4_e0cc65a2",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daa831e1_2ceaa89d",
         "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "320d35a8_7b11f5b6",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-31T23:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daa831e1_2ceaa89d",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfb19376_e2c9e056",
         "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2017-05-31T23:26:53Z",
       "side": 1,
       "message": "Are we leaking |p| ? (Existing condition)",
+      "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "128dd562_bca7d79d",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-05-31T23:39:05Z",
+      "side": 1,
+      "message": "Indeed we are.  And without correct and consistent use of volatile to keep |p| out of a register, we may end up freeing random stuff following the second return.  I\u0027m leaving it for now.",
+      "parentUuid": "cfb19376_e2c9e056",
       "revId": "f5f9f6cabaa3c5c0df7f954d81fdc579fbb627e2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
