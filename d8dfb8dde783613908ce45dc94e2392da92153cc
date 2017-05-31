@@ -582,6 +582,48 @@
     },
     {
       "key": {
+        "uuid": "a4de1afd_713a24b2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ff9e39_41c03401",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b6367c9_45699554",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done, but it looks like a mess. Do you have any suggestions on how to make this look better? Should I make a function for casting between CPDF_Annot::Subtype and int? Or can we make Subtype be an enum instead of enum class?",
+      "parentUuid": "9620d256_2a607ddd",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4cb5ffb_f6d3c655",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -702,6 +744,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06221da9_2e6026a2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Going with GetAttachmentPoints.",
+      "parentUuid": "1f9fbcc9_dcdba990",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -860,6 +920,24 @@
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86c7e2df_51b99cad",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "26db7270_ca9caf1f",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

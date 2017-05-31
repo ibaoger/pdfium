@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "058748b8_c7a0047f",
+        "filename": "core/fpdfdoc/cpvt_generateap.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done, thanks for catching!",
+      "parentUuid": "47574269_7ea569b6",
+      "revId": "36c6a9ee3c14a12815d84e4826043d6197958ca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03659dfd_670cf8b0",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "36c6a9ee3c14a12815d84e4826043d6197958ca1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a1d174a_097af5f2",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03659dfd_670cf8b0",
+      "revId": "36c6a9ee3c14a12815d84e4826043d6197958ca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

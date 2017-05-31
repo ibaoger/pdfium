@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a7824c17_13ab497b",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa9efa24_70b89f16",
+      "range": {
+        "startLine": 32,
+        "startChar": 18,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50feaeff_0277c133",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 11
@@ -36,6 +60,24 @@
       "writtenOn": "2017-05-31T18:58:51Z",
       "side": 1,
       "message": "Is this essentially CPDF_Annot::StringToAnnotSubtype() ? Can we use that somehow instead of making a copy?",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67bb901c_e08ca565",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Yes! Now that we have assertions to make sure CPDF_Annot::Subtype and FPDF_ANNOT_ values are equal, I can reuse CPDF_Annot::StringToAnnotSubtype.",
+      "parentUuid": "50feaeff_0277c133",
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7dcef9a9_685d1262",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d524e7e3_13dcac20",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea265364_5b00a18f",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 11
@@ -70,6 +130,24 @@
       "writtenOn": "2017-05-31T18:58:51Z",
       "side": 1,
       "message": "Do we already have color conversion code elsewhere that we can reuse?",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76f19ca9_e34045e5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Good point! I found that cpwl_color already has color conversion code, but they would return a CPWL_Color and we then need to then read out of it. Is it still worth it to use it? Should I make a more generic function?",
+      "parentUuid": "ea265364_5b00a18f",
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "99a1d4dd_3a492e5f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "We assume the same values in cpvt_generateap, but the default colors are individually specified for each annotation when calling GetColorStringWithDefault. They might make a mess if we define them as constants. Do you think it\u0027s worth it?",
+      "parentUuid": "e0ad61b2_8f2e73ba",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28f3c072_2e2b65ff",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 11
@@ -107,6 +203,24 @@
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b6b4b6_aadcabc7",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "That doesn\u0027t work because A is an int. Any other way to make this look better?",
+      "parentUuid": "28f3c072_2e2b65ff",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "2fa4a295_abefc516",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9eebe685_679a0d5f",
+      "range": {
+        "startLine": 198,
+        "startChar": 21,
+        "endLine": 198,
+        "endChar": 28
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1110819_9475abdf",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 11
@@ -147,6 +285,24 @@
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f3d3323_4fde0144",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1110819_9475abdf",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -173,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "99da4fe1_e084e94c",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2af76b7_29fa7a63",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d14de6c_8c82182a",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 11
@@ -187,6 +367,24 @@
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a378b077_443f3e06",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d14de6c_8c82182a",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -213,6 +411,30 @@
     },
     {
       "key": {
+        "uuid": "99c5056f_7764a479",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef5d4ff7_9730b5d9",
+      "range": {
+        "startLine": 312,
+        "startChar": 9,
+        "endLine": 312,
+        "endChar": 21
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a03e784d_469ac079",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 11
@@ -230,6 +452,24 @@
     },
     {
       "key": {
+        "uuid": "48cc5034_abdd72ac",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a03e784d_469ac079",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af84aad6_cfb37a61",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 11
@@ -244,6 +484,24 @@
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e4f2406_f5fc134f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af84aad6_cfb37a61",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -270,6 +528,30 @@
     },
     {
       "key": {
+        "uuid": "7fb27612_adafa1d3",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2c7c8b_47ba8d4d",
+      "range": {
+        "startLine": 126,
+        "startChar": 10,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ef23365_2c5a2d3b",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 11
@@ -293,6 +575,30 @@
     },
     {
       "key": {
+        "uuid": "67ae8e03_3540df22",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ef23365_2c5a2d3b",
+      "range": {
+        "startLine": 129,
+        "startChar": 37,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56901cab_2c14fe46",
         "filename": "public/fpdfview.h",
         "patchSetId": 11
@@ -304,6 +610,24 @@
       "writtenOn": "2017-05-31T18:58:51Z",
       "side": 1,
       "message": "It\u0027s not obvious what this is. \"Subtype\" is not basic like a bool or DWORD. This should be moved elsewhere, or have a comment to explain what it is.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e3a904_08d0e437",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Sorry I missed that. I\u0027m not sure where it should go; I moved it down and changed its name to FPDF_ANNOTATION_SUBTYPE. Is this more clear?",
+      "parentUuid": "56901cab_2c14fe46",
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -327,6 +651,24 @@
     },
     {
       "key": {
+        "uuid": "9be3f300_00e1a46e",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "319438f8_744ea40d",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66538f90_c67d45c3",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 11
@@ -344,6 +686,24 @@
     },
     {
       "key": {
+        "uuid": "560648cd_6371055c",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66538f90_c67d45c3",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a69921e4_277818d0",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 11
@@ -358,6 +718,24 @@
       "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d443352d_092d7eea",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-05-31T21:09:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a69921e4_277818d0",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
