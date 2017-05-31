@@ -1,0 +1,363 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa9efa24_70b89f16",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "How about we validate all the input params first before doing any more work? Since this is a public API, we may need to defend against users passing in a nullptr for |annot|.",
+      "range": {
+        "startLine": 32,
+        "startChar": 18,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50feaeff_0277c133",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Is this essentially CPDF_Annot::StringToAnnotSubtype() ? Can we use that somehow instead of making a copy?",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d524e7e3_13dcac20",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "CFX_ByteString key \u003d (type \u003d\u003d InteriorColor) ? \"IC\" : \"C\";",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea265364_5b00a18f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Do we already have color conversion code elsewhere that we can reuse?",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0ad61b2_8f2e73ba",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Do we assum the same values elsewhere? It might be good to have constants for these.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28f3c072_2e2b65ff",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "If we have to write 2 lines, maybe do: *A *\u003d 255.f on the second line?",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eebe685_679a0d5f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Have you looked at how other APIs deal with a nullptr buffer? One common use case with APIs like this is to do the following:\n\n// We don\u0027t know the length, let\u0027s ask.\nunsigned long length \u003d FPDFAnnotation_GetText(annot, nullptr, 0, type); \nif (!length)\n  return;\n\n// Allocate memory and fill the buffer.\nchar* buffer \u003d new char[length];\nunsigned long actual_length \u003d FPDFAnnotation_GetText(annot, buffer, length, type); \nif (length !\u003d actual_length) {\n  // fail\n  return;\n}\n...",
+      "range": {
+        "startLine": 198,
+        "startChar": 21,
+        "endLine": 198,
+        "endChar": 28
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1110819_9475abdf",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "One per line.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2af76b7_29fa7a63",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "use size_t or unsigned long.",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d14de6c_8c82182a",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Smart pointer or vector.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5d4ff7_9730b5d9",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Can we cast directly to a CPDF_Dictionary* ? If all the FPDF_ANNOTATIONs are handed out by us, they should be what we think they are.",
+      "range": {
+        "startLine": 312,
+        "startChar": 9,
+        "endLine": 312,
+        "endChar": 21
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03e784d_469ac079",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "I think these need to be FPDFANNOT_COLOR and such. Otherwise you are adding \"Color\" and \"Author\" to the global namespace.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af84aad6_cfb37a61",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Can we remove the default argument? I\u0027d prefer APIs where callers explicitly state what they want. Ditto with GetText() below.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2c7c8b_47ba8d4d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "This type should match the |buflen| type, like in all the other APIs that deal with buffer lengths.",
+      "range": {
+        "startLine": 126,
+        "startChar": 10,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef23365_2c5a2d3b",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "buflen",
+      "range": {
+        "startLine": 129,
+        "startChar": 37,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56901cab_2c14fe46",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "It\u0027s not obvious what this is. \"Subtype\" is not basic like a bool or DWORD. This should be moved elsewhere, or have a comment to explain what it is.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "319438f8_744ea40d",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "style nit: One declaration per line please.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66538f90_c67d45c3",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Declare variables closer to where they are used.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a69921e4_277818d0",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-05-31T18:58:51Z",
+      "side": 1,
+      "message": "Merge this with line 247. Use std::unique_ptrs, or maybe a std::vector since |buffer| may need resizing.",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
