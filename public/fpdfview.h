@@ -22,6 +22,7 @@
 
 // PDF types
 typedef void* FPDF_ACTION;
+typedef void* FPDF_ANNOTATION;
 typedef void* FPDF_BITMAP;
 typedef void* FPDF_BOOKMARK;
 typedef void* FPDF_CLIPPATH;
@@ -47,6 +48,7 @@ typedef void* FPDF_WIDGET;
 // Basic data types
 typedef int FPDF_BOOL;
 typedef int FPDF_ERROR;
+typedef int FPDF_SUBTYPE;
 typedef unsigned long FPDF_DWORD;
 typedef float FS_FLOAT;
 

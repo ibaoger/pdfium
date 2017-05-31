@@ -69,6 +69,10 @@ class CPVT_GenerateAP {
   static CFX_ByteString GetFontSetString(IPVT_FontMap* pFontMap,
                                          int32_t nFontIndex,
                                          float fFontSize);
+  static CFX_ByteString GetColorStringWithDefault(
+      CPDF_Array* pColor,
+      const CPVT_Color& crDefaultColor,
+      PaintOperation nOperation);
 };
 
 #endif  // CORE_FPDFDOC_CPVT_GENERATEAP_H_
