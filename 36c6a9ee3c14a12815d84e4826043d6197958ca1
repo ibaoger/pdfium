@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47574269_7ea569b6",
+        "filename": "core/fpdfdoc/cpvt_generateap.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Is this still needed or can it be moved back inside the file?",
+      "revId": "36c6a9ee3c14a12815d84e4826043d6197958ca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03659dfd_670cf8b0",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "std::vector buf(author_size) then use buf.data() in the GetText call. No need to delete in that case",
+      "revId": "36c6a9ee3c14a12815d84e4826043d6197958ca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

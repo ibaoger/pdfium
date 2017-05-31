@@ -1,0 +1,611 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d063b6b_b3c9de81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Can you change this to something like:\n1. Added API for extracting annotation properties:\n  * prop 1\n  * prop 2",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b7a5f9c_0e20a76b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Can you file a bug in https://crbug.com/pdfium to track this work and then put the bug number here?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4b83ea5_450ecbaa",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "FPDF_ANNOT_SUBTYPE to make ti explicit this relates to annotations?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df90d23e_7a973ada",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: in parameters first, then out parameters, so FPDFANNOT_COLORTYPE should come before the RGBA params.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c358f68f_fed5a100",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "if (!pAnnotDict || !R || !G || !B || !A) ?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0d32355_77941708",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "CPDF_Array* pColor \u003d pAnntoDict-\u003eGetArrayFor(type \u003d\u003d InteriorColor ? \"IC\" : \"C\")",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2945d68d_5fe53ba6",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Should probably set some value for RGB here, 0, 0, 0?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e188ff_4547e4a6",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "What about moving the *A assignment to before the if() and then making the if (!pColor) move the else stuff up and then return once done handling the default case?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "452fe216_b124570e",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "ditto move param up",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3a5476_379af62d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Passing in a null buffer should be allowed, we return the length of the string in that case.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a905bb88_04fe91cf",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Not sure if this would be better with a ternary or not, see which looks better?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d8f2b9d_906b6aa9",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "if (buffer \u0026\u0026 ...",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460d3f58_5948c2c4",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "I don\u0027t think you need the +1 here. We don\u0027t usually count the \\0",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d321df3a_82f08863",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6556cb_c83a97b4",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Don\u0027t need to store author_len, just do the FPDFAnnotation_getText call directly in the EXPECT.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf554e77_5f232b28",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Should be able to just put the string directly into the EXPECT statement, don\u0027t need the variable",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a6334e7_3cbb397e",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a072b52_f2b17763",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Lets just make this:\n\nEXPECT_EQ(0, FPDFAnnotation_GetText(annot, nullptr, 0))\n\nThen we don\u0027t need the buffer",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cee1924_c0168da2",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "What does this mean? The numbers below aren\u0027t what\u0027s in the file, or the numbers when we display will be different?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6955b79f_ebe42d49",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "I\u0027d drop the 0 if unknown, as they\u0027ll see that\u0027s a FPDF_ANNOT_* value.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2efe539b_4c82fb1d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: remove prefix/postfix _\u0027s. The leading _ is reserved by the compile and we\u0027ve been trying to remove them from pdfium.\n\nDo we use typedef\u0027d enums anywhere else, or is the rest of the API always #defines?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d7e3407_2c9d813f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "These should probably be prefixed by FPDFANNOT_COLORTYPE_",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 15
+      },
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bc7ff7a_95be40fb",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "How about something like:\n\nThe QuadPoints provide the coordinates in the page where the annotation is attached?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03628bd_d48a3488",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "We should make sure this is encoded in  a format that matches other APIs which I think is UTF16-LE?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b305194_4ed2b452",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "ditto comments from above",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f9af5eb_70cb1d02",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: remove default value, we\u0027ve been trying to remove these through the code base as we\u0027ve found they often hide dead code and make things harder to understand.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbf6dc51_1d2baf26",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "FPDF_ANNOT_SUBTYPE   (or ANNOTATION to match name above?)",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bedd553_f62cabac",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Should we name the text file .annot.txt or something so we don\u0027t conflict if the user also ran -txt at some point?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9998bd_8b2366f1",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Move these down to their usage.",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b596050_c320a52b",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: 1 per line",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddde3f89_eb69dbae",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "If subtype is only used here, let\u0027s just move the call into the fprintf",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47f3f832_27eb2085",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Think it would be worth it to add a AnnotationSubTypeToString call in here and translate the numbers to make reading the txt file easier?",
+      "range": {
+        "startLine": 231,
+        "startChar": 25,
+        "endLine": 231,
+        "endChar": 28
+      },
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b75580_bf707da4",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "What about changing this to:\n\nunsigned long len \u003d FPDFAnnotation_GetText(annot, nullptr, 0);\nstd::vector contents(len);\nFPDFAnnotation_GetText(annot, contents.data(), len);\n\n(Similar for Author below, just contents.clear(); contents.resize(len); or whatever the right methods are)",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b2c450_f583a0f3",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "What happens if we call GetQuadPoints on another type? Does it fail? Or, succeed but with default values?",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e319d8_b6fd09e0",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "nit: annotation",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

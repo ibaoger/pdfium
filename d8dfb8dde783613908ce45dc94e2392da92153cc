@@ -540,6 +540,48 @@
     },
     {
       "key": {
+        "uuid": "c1ff9e39_41c03401",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "I think so, we use Annot in a bunch of other places? Seems consistent?",
+      "parentUuid": "c548426f_ecba12ee",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9620d256_2a607ddd",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Right, but you probably want to make the define values match the internal enum values and then add static_assert calls to make sure they match. See fpdfsdk/fpdf_dataavail.cpp for the checks we did for CPDF_DataAvail::* and PDF_* flags in public.",
+      "parentUuid": "32cd4fdd_452a53cc",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4cb5ffb_f6d3c655",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -639,6 +681,24 @@
       "side": 1,
       "message": "Would something like \"GetTextPoints\" work?",
       "parentUuid": "8e39dead_98962750",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9fbcc9_dcdba990",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Hm, not sure if TextPoint works either. GetAttachmentPoint? GetPageCoord maybe? Something that tells me this is the point where the annotation is attached to the page as opposed to the size of the annotation itself",
+      "parentUuid": "e3a5e99a_f7cf6d81",
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -779,6 +839,24 @@
       "side": 1,
       "message": "There\u0027s already a flag called FPDF_ANNOT and used in many places. Any alternative suggestion?",
       "parentUuid": "fc3a9ff2_3287715f",
+      "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26db7270_ca9caf1f",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-05-31T15:16:22Z",
+      "side": 1,
+      "message": "Doh...hm....leave it as is then. Then FPDF_ANNOT flag is badly named and should be something like FPDF_RENDER_ANNOT but it\u0027s too late to change it.",
+      "parentUuid": "2c1441b2_fc7c314f",
       "revId": "d8dfb8dde783613908ce45dc94e2392da92153cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
