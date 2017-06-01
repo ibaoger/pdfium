@@ -45,6 +45,30 @@
       "revId": "018e49544a442d0bd300786f4147c06e6ee32c61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7023520_76b09f49",
+        "filename": "fxjs/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T23:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d4d6a1_8d1e6044",
+      "range": {
+        "startLine": 30,
+        "startChar": 22,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "018e49544a442d0bd300786f4147c06e6ee32c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
