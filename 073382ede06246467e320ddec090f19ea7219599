@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc9f5404_df81f9f1",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:42:36Z",
+      "side": 1,
+      "message": "This shouldn\u0027t need to get reset over tests, we create it because we need to call the flate decompression code when getting the locale. Seems like it\u0027s cheaper to just create it the once?",
+      "parentUuid": "0cd6fa54_f3e72d86",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "073382ede06246467e320ddec090f19ea7219599",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb26eeb3_fb75f430",
         "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-01T19:35:35Z",
       "side": 1,
       "message": "Ok, so these only last the duration of the call, make them local to fmt()",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 43
+      },
+      "revId": "073382ede06246467e320ddec090f19ea7219599",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9363eb3f_81222227",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:42:36Z",
+      "side": 1,
+      "message": "The fmt() call just constructs them. I use the returned CFGAS_FormatString in the tests, so these have to live longer then the fmt() call.",
+      "parentUuid": "eb26eeb3_fb75f430",
       "range": {
         "startLine": 38,
         "startChar": 1,
