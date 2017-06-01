@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "2cbd68ab_23693e86",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:48:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6de5bb96_fac9ceec",
+      "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e5398ae_d58e17ff",
         "filename": "fpdfsdk/pdfwindow/PWL_EditCtrl.cpp",
         "patchSetId": 1
@@ -37,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "767f397a_c207d2dd",
+        "filename": "fpdfsdk/pdfwindow/PWL_EditCtrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:48:35Z",
+      "side": 1,
+      "message": "That\u0027s how we usually write it in Chromium style?",
+      "parentUuid": "9e5398ae_d58e17ff",
+      "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78c2d914_6e97d240",
         "filename": "fpdfsdk/pdfwindow/PWL_ListBox.cpp",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2017-06-01T19:07:25Z",
       "side": 1,
       "message": "else if ?",
+      "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "254c1e48_aef455ad",
+        "filename": "fpdfsdk/pdfwindow/PWL_ListBox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:48:35Z",
+      "side": 1,
+      "message": "I combined this entire section.",
+      "parentUuid": "78c2d914_6e97d240",
       "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
