@@ -46,6 +46,30 @@
       "revId": "9da9720e2420e61f08dcfc664a7b2ad141868131",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9543bf28_ddfee946",
+        "filename": "BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:21:41Z",
+      "side": 1,
+      "message": "I don\u0027t think so, it has to do with the overall size of the structure, too.  A chromium codesearch for wd4324 shows it off in a lot of places.",
+      "parentUuid": "be4a92fe_61bb2345",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 4
+      },
+      "revId": "9da9720e2420e61f08dcfc664a7b2ad141868131",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
