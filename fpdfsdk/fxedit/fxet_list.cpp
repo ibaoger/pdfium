@@ -16,7 +16,7 @@
 #include "third_party/base/stl_util.h"
 
 CFX_ListItem::CFX_ListItem()
-    : m_pEdit(new CFX_Edit),
+    : m_pEdit(pdfium::MakeUnique<CFX_Edit>()),
       m_bSelected(false),
       m_rcListItem(0.0f, 0.0f, 0.0f, 0.0f) {
   m_pEdit->SetAlignmentV(1, true);
@@ -385,28 +385,19 @@ void CFX_ListCtrl::SetCaret(int32_t nItemIndex) {
 }
 
 void CFX_ListCtrl::InvalidateItem(int32_t nItemIndex) {
-  if (m_pNotify) {
-    if (nItemIndex == -1) {
-      if (!m_bNotifyFlag) {
-        m_bNotifyFlag = true;
-        CFX_FloatRect rcRefresh = GetPlateRect();
-        m_pNotify->IOnInvalidateRect(&rcRefresh);
-        m_bNotifyFlag = false;
-      }
-    } else {
-      if (!m_bNotifyFlag) {
-        m_bNotifyFlag = true;
-        CFX_FloatRect rcRefresh = GetItemRect(nItemIndex);
-        rcRefresh.left -= 1.0f;
-        rcRefresh.right += 1.0f;
-        rcRefresh.bottom -= 1.0f;
-        rcRefresh.top += 1.0f;
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
 
-        m_pNotify->IOnInvalidateRect(&rcRefresh);
-        m_bNotifyFlag = false;
-      }
-    }
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+  CFX_FloatRect rcRefresh;
+  if (nItemIndex == -1) {
+    rcRefresh = GetPlateRect();
+  } else {
+    rcRefresh = GetItemRect(nItemIndex);
+    rcRefresh.Inflate(1.0f, 1.0f);
   }
+  m_pNotify->OnInvalidateRect(&rcRefresh);
 }
 
 void CFX_ListCtrl::SelectItems() {
@@ -456,18 +447,17 @@ void CFX_ListCtrl::ScrollToListItem(int32_t nItemIndex) {
 }
 
 void CFX_ListCtrl::SetScrollInfo() {
-  if (m_pNotify) {
-    CFX_FloatRect rcPlate = GetPlateRect();
-    CFX_FloatRect rcContent = GetContentRectInternal();
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
 
-    if (!m_bNotifyFlag) {
-      m_bNotifyFlag = true;
-      m_pNotify->IOnSetScrollInfoY(rcPlate.bottom, rcPlate.top,
-                                   rcContent.bottom, rcContent.top,
-                                   GetFirstHeight(), rcPlate.Height());
-      m_bNotifyFlag = false;
-    }
-  }
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+
+  CFX_FloatRect rcPlate = GetPlateRect();
+  CFX_FloatRect rcContent = GetContentRectInternal();
+  m_pNotify->OnSetScrollInfoY(rcPlate.bottom, rcPlate.top, rcContent.bottom,
+                              rcContent.top, GetFirstHeight(),
+                              rcPlate.Height());
 }
 
 void CFX_ListCtrl::SetScrollPos(const CFX_PointF& point) {
@@ -475,31 +465,30 @@ void CFX_ListCtrl::SetScrollPos(const CFX_PointF& point) {
 }
 
 void CFX_ListCtrl::SetScrollPosY(float fy) {
-  if (!IsFloatEqual(m_ptScrollPos.y, fy)) {
-    CFX_FloatRect rcPlate = GetPlateRect();
-    CFX_FloatRect rcContent = GetContentRectInternal();
+  if (IsFloatEqual(m_ptScrollPos.y, fy))
+    return;
 
-    if (rcPlate.Height() > rcContent.Height()) {
-      fy = rcPlate.top;
-    } else {
-      if (IsFloatSmaller(fy - rcPlate.Height(), rcContent.bottom)) {
-        fy = rcContent.bottom + rcPlate.Height();
-      } else if (IsFloatBigger(fy, rcContent.top)) {
-        fy = rcContent.top;
-      }
-    }
-
-    m_ptScrollPos.y = fy;
-    InvalidateItem(-1);
-
-    if (m_pNotify) {
-      if (!m_bNotifyFlag) {
-        m_bNotifyFlag = true;
-        m_pNotify->IOnSetScrollPosY(fy);
-        m_bNotifyFlag = false;
-      }
+  CFX_FloatRect rcPlate = GetPlateRect();
+  CFX_FloatRect rcContent = GetContentRectInternal();
+  if (rcPlate.Height() > rcContent.Height()) {
+    fy = rcPlate.top;
+  } else {
+    if (IsFloatSmaller(fy - rcPlate.Height(), rcContent.bottom)) {
+      fy = rcContent.bottom + rcPlate.Height();
+    } else if (IsFloatBigger(fy, rcContent.top)) {
+      fy = rcContent.top;
     }
   }
+
+  m_ptScrollPos.y = fy;
+  InvalidateItem(-1);
+
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
+
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+  m_pNotify->OnSetScrollPosY(fy);
 }
 
 CFX_FloatRect CFX_ListCtrl::GetContentRectInternal() const {

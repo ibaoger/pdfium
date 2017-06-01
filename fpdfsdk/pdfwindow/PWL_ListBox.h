@@ -26,19 +26,19 @@ class CPWL_List_Notify {
   explicit CPWL_List_Notify(CPWL_ListBox* pList);
   ~CPWL_List_Notify();
 
-  void IOnSetScrollInfoY(float fPlateMin,
-                         float fPlateMax,
-                         float fContentMin,
-                         float fContentMax,
-                         float fSmallStep,
-                         float fBigStep);
-  void IOnSetScrollPosY(float fy);
-  void IOnInvalidateRect(CFX_FloatRect* pRect);
+  void OnSetScrollInfoY(float fPlateMin,
+                        float fPlateMax,
+                        float fContentMin,
+                        float fContentMax,
+                        float fSmallStep,
+                        float fBigStep);
+  void OnSetScrollPosY(float fy);
+  void OnInvalidateRect(CFX_FloatRect* pRect);
 
-  void IOnSetCaret(bool bVisible,
-                   const CFX_PointF& ptHead,
-                   const CFX_PointF& ptFoot,
-                   const CPVT_WordPlace& place);
+  void OnSetCaret(bool bVisible,
+                  const CFX_PointF& ptHead,
+                  const CFX_PointF& ptFoot,
+                  const CPVT_WordPlace& place);
 
  private:
   CFX_UnownedPtr<CPWL_ListBox> m_pList;

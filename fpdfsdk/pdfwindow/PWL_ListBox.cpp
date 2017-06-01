@@ -22,14 +22,13 @@ CPWL_List_Notify::CPWL_List_Notify(CPWL_ListBox* pList) : m_pList(pList) {
 
 CPWL_List_Notify::~CPWL_List_Notify() {}
 
-void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
-                                         float fPlateMax,
-                                         float fContentMin,
-                                         float fContentMax,
-                                         float fSmallStep,
-                                         float fBigStep) {
+void CPWL_List_Notify::OnSetScrollInfoY(float fPlateMin,
+                                        float fPlateMax,
+                                        float fContentMin,
+                                        float fContentMax,
+                                        float fSmallStep,
+                                        float fBigStep) {
   PWL_SCROLL_INFO Info;
-
   Info.fPlateWidth = fPlateMax - fPlateMin;
   Info.fContentMin = fContentMin;
   Info.fContentMax = fContentMax;
@@ -39,33 +38,35 @@ void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
   m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLINFO, SBT_VSCROLL,
                     reinterpret_cast<intptr_t>(&Info));
 
-  if (CPWL_ScrollBar* pScroll = m_pList->GetVScrollBar()) {
-    if (IsFloatBigger(Info.fPlateWidth, Info.fContentMax - Info.fContentMin) ||
-        IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
-      if (pScroll->IsVisible()) {
-        pScroll->SetVisible(false);
-        m_pList->RePosChildWnd();
-      }
-    } else {
-      if (!pScroll->IsVisible()) {
-        pScroll->SetVisible(true);
-        m_pList->RePosChildWnd();
-      }
+  CPWL_ScrollBar* pScroll = m_pList->GetVScrollBar();
+  if (!pScroll)
+    return;
+
+  if (IsFloatBigger(Info.fPlateWidth, Info.fContentMax - Info.fContentMin) ||
+      IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
+    if (pScroll->IsVisible()) {
+      pScroll->SetVisible(false);
+      m_pList->RePosChildWnd();
+    }
+  } else {
+    if (!pScroll->IsVisible()) {
+      pScroll->SetVisible(true);
+      m_pList->RePosChildWnd();
     }
   }
 }
 
-void CPWL_List_Notify::IOnSetScrollPosY(float fy) {
+void CPWL_List_Notify::OnSetScrollPosY(float fy) {
   m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLPOS, SBT_VSCROLL,
                     reinterpret_cast<intptr_t>(&fy));
 }
 
-void CPWL_List_Notify::IOnInvalidateRect(CFX_FloatRect* pRect) {
+void CPWL_List_Notify::OnInvalidateRect(CFX_FloatRect* pRect) {
   m_pList->InvalidateRect(pRect);
 }
 
 CPWL_ListBox::CPWL_ListBox()
-    : m_pList(new CFX_ListCtrl),
+    : m_pList(pdfium::MakeUnique<CFX_ListCtrl>()),
       m_bMouseDown(false),
       m_bHoverSel(false),
       m_pFillerNotify(nullptr) {}

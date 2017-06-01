@@ -1142,12 +1142,13 @@ void CFX_Edit::RearrangePart(const CPVT_WordRange& range) {
 }
 
 void CFX_Edit::SetContentChanged() {
-  if (m_pNotify) {
-    CFX_FloatRect rcContent = m_pVT->GetContentRect();
-    if (rcContent.Width() != m_rcOldContent.Width() ||
-        rcContent.Height() != m_rcOldContent.Height()) {
-      m_rcOldContent = rcContent;
-    }
+  if (!m_pNotify)
+    return;
+
+  CFX_FloatRect rcContent = m_pVT->GetContentRect();
+  if (rcContent.Width() != m_rcOldContent.Width() ||
+      rcContent.Height() != m_rcOldContent.Height()) {
+    m_rcOldContent = rcContent;
   }
 }
 
@@ -1226,18 +1227,16 @@ CFX_FloatRect CFX_Edit::VTToEdit(const CFX_FloatRect& rect) const {
 }
 
 void CFX_Edit::SetScrollInfo() {
-  if (m_pNotify) {
-    CFX_FloatRect rcPlate = m_pVT->GetPlateRect();
-    CFX_FloatRect rcContent = m_pVT->GetContentRect();
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
 
-    if (!m_bNotifyFlag) {
-      CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
-      m_bNotifyFlag = true;
-      m_pNotify->IOnSetScrollInfoY(rcPlate.bottom, rcPlate.top,
-                                   rcContent.bottom, rcContent.top,
-                                   rcPlate.Height() / 3, rcPlate.Height());
-    }
-  }
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+  CFX_FloatRect rcPlate = m_pVT->GetPlateRect();
+  CFX_FloatRect rcContent = m_pVT->GetContentRect();
+  m_pNotify->OnSetScrollInfoY(rcPlate.bottom, rcPlate.top, rcContent.bottom,
+                              rcContent.top, rcPlate.Height() / 3,
+                              rcPlate.Height());
 }
 
 void CFX_Edit::SetScrollPosX(float fx) {
@@ -1256,20 +1255,21 @@ void CFX_Edit::SetScrollPosY(float fy) {
   if (!m_bEnableScroll)
     return;
 
-  if (m_pVT->IsValid()) {
-    if (!IsFloatEqual(m_ptScrollPos.y, fy)) {
-      m_ptScrollPos.y = fy;
-      Refresh();
+  if (!m_pVT->IsValid())
+    return;
 
-      if (m_pNotify) {
-        if (!m_bNotifyFlag) {
-          CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
-          m_bNotifyFlag = true;
-          m_pNotify->IOnSetScrollPosY(fy);
-        }
-      }
-    }
-  }
+  if (IsFloatEqual(m_ptScrollPos.y, fy))
+    return;
+
+  m_ptScrollPos.y = fy;
+  Refresh();
+
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
+
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+  m_pNotify->OnSetScrollPosY(fy);
 }
 
 void CFX_Edit::SetScrollPos(const CFX_PointF& point) {
@@ -1364,26 +1364,26 @@ void CFX_Edit::ScrollToCaret() {
 }
 
 void CFX_Edit::Refresh() {
-  if (m_bEnableRefresh && m_pVT->IsValid()) {
-    m_Refresh.BeginRefresh();
-    RefreshPushLineRects(GetVisibleWordRange());
+  if (!m_bEnableRefresh || !m_pVT->IsValid())
+    return;
 
-    m_Refresh.NoAnalyse();
-    m_ptRefreshScrollPos = m_ptScrollPos;
+  m_Refresh.BeginRefresh();
+  RefreshPushLineRects(GetVisibleWordRange());
 
-    if (m_pNotify) {
-      if (!m_bNotifyFlag) {
-        CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
-        m_bNotifyFlag = true;
-        if (const CFX_Edit_RectArray* pRects = m_Refresh.GetRefreshRects()) {
-          for (int32_t i = 0, sz = pRects->GetSize(); i < sz; i++)
-            m_pNotify->IOnInvalidateRect(pRects->GetAt(i));
-        }
-      }
+  m_Refresh.NoAnalyse();
+  m_ptRefreshScrollPos = m_ptScrollPos;
+
+  if (m_pNotify && !m_bNotifyFlag) {
+    CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+    m_bNotifyFlag = true;
+    const CFX_Edit_RectArray* pRects = m_Refresh.GetRefreshRects();
+    if (pRects) {
+      for (int32_t i = 0, sz = pRects->GetSize(); i < sz; i++)
+        m_pNotify->OnInvalidateRect(pRects->GetAt(i));
     }
-
-    m_Refresh.EndRefresh();
   }
+
+  m_Refresh.EndRefresh();
 }
 
 void CFX_Edit::RefreshPushLineRects(const CPVT_WordRange& wr) {
@@ -1445,7 +1445,7 @@ void CFX_Edit::RefreshWordRange(const CPVT_WordRange& wr) {
           CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
           m_bNotifyFlag = true;
           CFX_FloatRect rcRefresh = VTToEdit(rcWord);
-          m_pNotify->IOnInvalidateRect(&rcRefresh);
+          m_pNotify->OnInvalidateRect(&rcRefresh);
         }
       }
     } else {
@@ -1459,7 +1459,7 @@ void CFX_Edit::RefreshWordRange(const CPVT_WordRange& wr) {
           CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
           m_bNotifyFlag = true;
           CFX_FloatRect rcRefresh = VTToEdit(rcLine);
-          m_pNotify->IOnInvalidateRect(&rcRefresh);
+          m_pNotify->OnInvalidateRect(&rcRefresh);
         }
       }
 
@@ -1474,33 +1474,32 @@ void CFX_Edit::SetCaret(const CPVT_WordPlace& place) {
 }
 
 void CFX_Edit::SetCaretInfo() {
-  if (m_pNotify) {
-    if (!m_bNotifyFlag) {
-      CPDF_VariableText::Iterator* pIterator = m_pVT->GetIterator();
-      pIterator->SetAt(m_wpCaret);
+  if (!m_pNotify || m_bNotifyFlag)
+    return;
 
-      CFX_PointF ptHead;
-      CFX_PointF ptFoot;
-      CPVT_Word word;
-      CPVT_Line line;
-      if (pIterator->GetWord(word)) {
-        ptHead.x = word.ptWord.x + word.fWidth;
-        ptHead.y = word.ptWord.y + word.fAscent;
-        ptFoot.x = word.ptWord.x + word.fWidth;
-        ptFoot.y = word.ptWord.y + word.fDescent;
-      } else if (pIterator->GetLine(line)) {
-        ptHead.x = line.ptLine.x;
-        ptHead.y = line.ptLine.y + line.fLineAscent;
-        ptFoot.x = line.ptLine.x;
-        ptFoot.y = line.ptLine.y + line.fLineDescent;
-      }
+  CPDF_VariableText::Iterator* pIterator = m_pVT->GetIterator();
+  pIterator->SetAt(m_wpCaret);
 
-      CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
-      m_bNotifyFlag = true;
-      m_pNotify->IOnSetCaret(m_SelState.IsEmpty(), VTToEdit(ptHead),
-                             VTToEdit(ptFoot), m_wpCaret);
-    }
+  CFX_PointF ptHead;
+  CFX_PointF ptFoot;
+  CPVT_Word word;
+  CPVT_Line line;
+  if (pIterator->GetWord(word)) {
+    ptHead.x = word.ptWord.x + word.fWidth;
+    ptHead.y = word.ptWord.y + word.fAscent;
+    ptFoot.x = ptHead.x;
+    ptFoot.y = word.ptWord.y + word.fDescent;
+  } else if (pIterator->GetLine(line)) {
+    ptHead.x = line.ptLine.x;
+    ptHead.y = line.ptLine.y + line.fLineAscent;
+    ptFoot.x = ptHead.x;
+    ptFoot.y = line.ptLine.y + line.fLineDescent;
   }
+
+  CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
+  m_bNotifyFlag = true;
+  m_pNotify->OnSetCaret(m_SelState.IsEmpty(), VTToEdit(ptHead),
+                        VTToEdit(ptFoot), m_wpCaret);
 }
 
 void CFX_Edit::OnMouseDown(const CFX_PointF& point, bool bShift, bool bCtrl) {
