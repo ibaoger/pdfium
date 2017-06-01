@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03ccd1b4_d725fb8f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T14:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17176371_ee4b14d0",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "58c2d6ae15b7e10b8ee9220c1edf1edf3f09f33d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cce01448_51a7fb45",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "58c2d6ae15b7e10b8ee9220c1edf1edf3f09f33d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e665603d_26608c4b",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T14:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cce01448_51a7fb45",
+      "range": {
+        "startLine": 93,
+        "startChar": 30,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "58c2d6ae15b7e10b8ee9220c1edf1edf3f09f33d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
