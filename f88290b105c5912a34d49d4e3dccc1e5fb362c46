@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1496301249 -0700\nnonce APbwY4oWJgCAHqotl+99vpHhq4ORimYvt5R7e/pNMgEfk9m18ciHGYHmkPonStZxrWTM2/Cbjx+M\n\n0000000000000000000000000000000000000000 f88290b105c5912a34d49d4e3dccc1e5fb362c46 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZL77BAAoJEKs2LWFaZv17RrcIAM3u79mQLT3LHJm3xLST0DXT\nrkOZOAF51bx5LMF5HUMKp410cFU2WK6MWTZc9KcwVaH6MPGg/QIQbCwrbWOT+N3J\nZYvdNGOzY0aUcsHUuz5y3/sAns7uWB4sG1F5x480+DvvEinBeUvi4GlyAzvswAMn\nmE44NPmZaWuayfBAIK3H6dzZy2l1IUan8LzQCSBvMLsSxJYaxdsNRg4uBoFjC+y0\nC2A7U6CtCUIYP7HSNjrs3UKjfAJjIa4L+NAqUvBEd4d1XdtsQIMWHx15OplkA7JD\nqNT/YN3AlKH4wY7Miruk99gMr6FRVZ4upCyxUvX1pTYqnJzH4HVgR3dYd325JoY\u003d\n\u003dwC6e\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "407e1422_fd3ac9df",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T18:49:32Z",
+      "side": 1,
+      "message": "nit:  for all of these here that return bools, I\u0027d prefer\nreturn pPageView \u0026\u0026 pPageView-\u003eOnFoo(bar);",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 17
+      },
+      "revId": "f88290b105c5912a34d49d4e3dccc1e5fb362c46",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a687b862_b2bb59e5",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T18:49:32Z",
+      "side": 1,
+      "message": "nit: over()ized, also prefer \n  aaType \u003d\u003d FPDFPAGE_AACTION_OPEN",
+      "range": {
+        "startLine": 728,
+        "startChar": 35,
+        "endLine": 728,
+        "endChar": 68
+      },
+      "revId": "f88290b105c5912a34d49d4e3dccc1e5fb362c46",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
