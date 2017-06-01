@@ -1986,7 +1986,6 @@ bool CFGAS_FormatString::ParseDateTime(const CFX_WideString& wsSrcDateTime,
                                        FX_DATETIMETYPE eDateTimeType,
                                        CFX_DateTime* dtValue) {
   dtValue->Reset();
-
   if (wsSrcDateTime.IsEmpty() || wsPattern.IsEmpty())
     return false;
 
@@ -2594,7 +2593,8 @@ bool CFGAS_FormatString::FormatDateTime(const CFX_WideString& wsSrcDateTime,
   if (wsSrcDateTime.IsEmpty() || wsPattern.IsEmpty())
     return false;
 
-  CFX_WideString wsDatePattern, wsTimePattern;
+  CFX_WideString wsDatePattern;
+  CFX_WideString wsTimePattern;
   IFX_Locale* pLocale = nullptr;
   FX_DATETIMETYPE eCategory =
       GetDateTimeFormat(wsPattern, pLocale, wsDatePattern, wsTimePattern);
