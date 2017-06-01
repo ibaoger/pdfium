@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f081857_48e4dafe",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:33:21Z",
+      "side": 1,
+      "message": "if (!annot)\n  return false;",
+      "revId": "857c4f1b67bbe19531751fe3d35aeb0037cb9559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afac6615_13833d67",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:33:21Z",
+      "side": 1,
+      "message": "nit: return subtype \u003d\u003d FPDF_ANNOT_LINK || subtype \u003d\u003d FPDF_ANNOT_HIGHLIGHT ||\n      subtype \u003d\u003d FPDF_ANNOT_UNDERLINE || subtype \u003d\u003d FPDF_ANNOT_SQUIGGLY ||\n      subtype \u003d\u003d FPDF_ANNOT_STRIKEOUT;",
+      "revId": "857c4f1b67bbe19531751fe3d35aeb0037cb9559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4d77b5_718cac88",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:33:21Z",
+      "side": 1,
+      "message": "if (!annot || !quadPoints ...",
+      "revId": "857c4f1b67bbe19531751fe3d35aeb0037cb9559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
