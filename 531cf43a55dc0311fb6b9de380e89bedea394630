@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb1a5ee7_db0e54e3",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T13:53:26Z",
+      "side": 1,
+      "message": "Apparently year 0 isn\u0027t a thing. The calendar goes 1BC to 1AD.",
+      "revId": "531cf43a55dc0311fb6b9de380e89bedea394630",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eacfb354_66b0c8f8",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T13:53:26Z",
+      "side": 1,
+      "message": "The CXFA_TimeZoneProvider code does the tzset calls internally but I need to force the environment to UTC before so we get a consistent timezone. The TimeZoneProvider call is wrapped inside a global flag so it only gets called once, so there would be a race condition if we tried to use that code.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "531cf43a55dc0311fb6b9de380e89bedea394630",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
