@@ -4,20 +4,15 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
+#include "fpdfsdk/pdfwindow/PWL_Wnd.h"
+
 #include <map>
 #include <vector>
 
 #include "fpdfsdk/pdfwindow/PWL_ScrollBar.h"
 #include "fpdfsdk/pdfwindow/PWL_Utils.h"
-#include "fpdfsdk/pdfwindow/PWL_Wnd.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
-
-static std::map<int32_t, CPWL_Timer*>& GetPWLTimeMap() {
-  // Leak the object at shutdown.
-  static auto* timeMap = new std::map<int32_t, CPWL_Timer*>;
-  return *timeMap;
-}
 
 PWL_CREATEPARAM::PWL_CREATEPARAM()
     : rcRectWnd(0, 0, 0, 0),
@@ -42,63 +37,6 @@ PWL_CREATEPARAM::PWL_CREATEPARAM()
       mtChild(1, 0, 0, 1, 0, 0) {}
 
 PWL_CREATEPARAM::PWL_CREATEPARAM(const PWL_CREATEPARAM& other) = default;
-
-CPWL_Timer::CPWL_Timer(CPWL_TimerHandler* pAttached,
-                       CFX_SystemHandler* pSystemHandler)
-    : m_nTimerID(0), m_pAttached(pAttached), m_pSystemHandler(pSystemHandler) {
-  ASSERT(m_pAttached);
-  ASSERT(m_pSystemHandler);
-}
-
-CPWL_Timer::~CPWL_Timer() {
-  KillPWLTimer();
-}
-
-int32_t CPWL_Timer::SetPWLTimer(int32_t nElapse) {
-  if (m_nTimerID != 0)
-    KillPWLTimer();
-  m_nTimerID = m_pSystemHandler->SetTimer(nElapse, TimerProc);
-
-  GetPWLTimeMap()[m_nTimerID] = this;
-  return m_nTimerID;
-}
-
-void CPWL_Timer::KillPWLTimer() {
-  if (m_nTimerID == 0)
-    return;
-
-  m_pSystemHandler->KillTimer(m_nTimerID);
-  GetPWLTimeMap().erase(m_nTimerID);
-  m_nTimerID = 0;
-}
-
-void CPWL_Timer::TimerProc(int32_t idEvent) {
-  auto it = GetPWLTimeMap().find(idEvent);
-  if (it == GetPWLTimeMap().end())
-    return;
-
-  CPWL_Timer* pTimer = it->second;
-  if (pTimer->m_pAttached)
-    pTimer->m_pAttached->TimerProc();
-}
-
-CPWL_TimerHandler::CPWL_TimerHandler() {}
-
-CPWL_TimerHandler::~CPWL_TimerHandler() {}
-
-void CPWL_TimerHandler::BeginTimer(int32_t nElapse) {
-  if (!m_pTimer)
-    m_pTimer = pdfium::MakeUnique<CPWL_Timer>(this, GetSystemHandler());
-
-  m_pTimer->SetPWLTimer(nElapse);
-}
-
-void CPWL_TimerHandler::EndTimer() {
-  if (m_pTimer)
-    m_pTimer->KillPWLTimer();
-}
-
-void CPWL_TimerHandler::TimerProc() {}
 
 class CPWL_MsgControl {
   friend class CPWL_Wnd;
