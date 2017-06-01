@@ -185,7 +185,7 @@ CPWL_ComboBox::CPWL_ComboBox()
       m_pButton(nullptr),
       m_pList(nullptr),
       m_bPopup(false),
-      m_nPopupWhere(0),
+      m_bBottom(true),
       m_nSelectItem(-1),
       m_pFillerNotify(nullptr) {}
 
@@ -346,49 +346,44 @@ void CPWL_ComboBox::RePosChildWnd() {
     float fOldWindowHeight = m_rcOldWindow.Height();
     float fOldClientHeight = fOldWindowHeight - GetBorderWidth() * 2;
 
-    switch (m_nPopupWhere) {
-      case 0:
-        rcButton.left = rcButton.right - PWL_COMBOBOX_BUTTON_WIDTH;
+    if (m_bBottom) {
+      rcButton.left = rcButton.right - PWL_COMBOBOX_BUTTON_WIDTH;
 
-        if (rcButton.left < rclient.left)
-          rcButton.left = rclient.left;
+      if (rcButton.left < rclient.left)
+        rcButton.left = rclient.left;
 
-        rcButton.bottom = rcButton.top - fOldClientHeight;
+      rcButton.bottom = rcButton.top - fOldClientHeight;
 
-        rcEdit.right = rcButton.left - 1.0f;
+      rcEdit.right = rcButton.left - 1.0f;
 
-        if (rcEdit.left < rclient.left)
-          rcEdit.left = rclient.left;
+      if (rcEdit.left < rclient.left)
+        rcEdit.left = rclient.left;
 
-        if (rcEdit.right < rcEdit.left)
-          rcEdit.right = rcEdit.left;
+      if (rcEdit.right < rcEdit.left)
+        rcEdit.right = rcEdit.left;
 
-        rcEdit.bottom = rcEdit.top - fOldClientHeight;
+      rcEdit.bottom = rcEdit.top - fOldClientHeight;
 
-        rcList.top -= fOldWindowHeight;
+      rcList.top -= fOldWindowHeight;
+    } else {
+      rcButton.left = rcButton.right - PWL_COMBOBOX_BUTTON_WIDTH;
 
-        break;
-      case 1:
-        rcButton.left = rcButton.right - PWL_COMBOBOX_BUTTON_WIDTH;
+      if (rcButton.left < rclient.left)
+        rcButton.left = rclient.left;
 
-        if (rcButton.left < rclient.left)
-          rcButton.left = rclient.left;
+      rcButton.top = rcButton.bottom + fOldClientHeight;
 
-        rcButton.top = rcButton.bottom + fOldClientHeight;
+      rcEdit.right = rcButton.left - 1.0f;
 
-        rcEdit.right = rcButton.left - 1.0f;
+      if (rcEdit.left < rclient.left)
+        rcEdit.left = rclient.left;
 
-        if (rcEdit.left < rclient.left)
-          rcEdit.left = rclient.left;
+      if (rcEdit.right < rcEdit.left)
+        rcEdit.right = rcEdit.left;
 
-        if (rcEdit.right < rcEdit.left)
-          rcEdit.right = rcEdit.left;
+      rcEdit.top = rcEdit.bottom + fOldClientHeight;
 
-        rcEdit.top = rcEdit.bottom + fOldClientHeight;
-
-        rcList.bottom += fOldWindowHeight;
-
-        break;
+      rcList.bottom += fOldWindowHeight;
     }
 
     if (m_pButton)
@@ -456,32 +451,28 @@ void CPWL_ComboBox::SetPopup(bool bPopup) {
       if (bExit)
         return;
 #endif  // PDF_ENABLE_XFA
-      int32_t nWhere = 0;
-      float fPopupRet = 0.0f;
       float fPopupMin = 0.0f;
-      if (m_pList->GetCount() > 3)
+      if (m_pList->GetCount() > 3) {
         fPopupMin =
             m_pList->GetFirstHeight() * 3 + m_pList->GetBorderWidth() * 2;
+      }
       float fPopupMax = fListHeight + m_pList->GetBorderWidth() * 2;
+      bool bBottom;
+      float fPopupRet;
       m_pFillerNotify->QueryWherePopup(GetAttachedData(), fPopupMin, fPopupMax,
-                                       nWhere, fPopupRet);
+                                       &bBottom, &fPopupRet);
 
       if (IsFloatBigger(fPopupRet, 0.0f)) {
         m_bPopup = bPopup;
 
         CFX_FloatRect rcWindow = CPWL_Wnd::GetWindowRect();
         m_rcOldWindow = rcWindow;
-        switch (nWhere) {
-          default:
-          case 0:
-            rcWindow.bottom -= fPopupRet;
-            break;
-          case 1:
-            rcWindow.top += fPopupRet;
-            break;
-        }
+        if (bBottom)
+          rcWindow.bottom -= fPopupRet;
+        else
+          rcWindow.top += fPopupRet;
 
-        m_nPopupWhere = nWhere;
+        m_bBottom = bBottom;
         Move(rcWindow, true, true);
 #ifdef PDF_ENABLE_XFA
         bExit = false;
