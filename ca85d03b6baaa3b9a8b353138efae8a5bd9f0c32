@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bb9d0c79_1b1554ac",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef4ca5f_8edbd8bc",
+      "range": {
+        "startLine": 346,
+        "startChar": 11,
+        "endLine": 346,
+        "endChar": 31
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc5e2475_6eb89f89",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52f5974a_f07044c2",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc5e2475_6eb89f89",
+      "range": {
+        "startLine": 969,
+        "startChar": 5,
+        "endLine": 971,
+        "endChar": 25
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "264bbf0d_8a9325dd",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c27d2905_0edf6326",
+      "range": {
+        "startLine": 1388,
+        "startChar": 2,
+        "endLine": 1389,
+        "endChar": 14
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d95708e9_fd867446",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "753fcc16_605a3d8f",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d95708e9_fd867446",
+      "range": {
+        "startLine": 1491,
+        "startChar": 1,
+        "endLine": 1491,
+        "endChar": 18
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db341443_86820f16",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2017-06-01T19:06:12Z",
       "side": 1,
       "message": "nit: I would be happier if this were \u0026pLocale",
+      "range": {
+        "startLine": 2000,
+        "startChar": 35,
+        "endLine": 2000,
+        "endChar": 43
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6652f46a_7ad698ba",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2000,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Getting there, followup.",
+      "parentUuid": "db341443_86820f16",
       "range": {
         "startLine": 2000,
         "startChar": 35,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "3336a767_ee3f4176",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57836522_81061f3f",
+      "range": {
+        "startLine": 2232,
+        "startChar": 51,
+        "endLine": 2232,
+        "endChar": 66
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1049cc4a_b95ddbdb",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2017-06-01T19:06:12Z",
       "side": 1,
       "message": "I don\u0027t think this is right.  Now we always increment cc, not just +/-",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 9
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcf415b8_c05d9540",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Doh, good catch.",
+      "parentUuid": "1049cc4a_b95ddbdb",
       "range": {
         "startLine": 212,
         "startChar": 3,
@@ -183,6 +351,30 @@
       "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2e5ed8_7ab52857",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "379ed7b2_9d97b0ef",
+      "range": {
+        "startLine": 246,
+        "startChar": 5,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
