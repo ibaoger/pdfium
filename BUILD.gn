@@ -87,6 +87,7 @@ config("pdfium_core_config") {
     cflags += [
       "/wd4267",
       "/wd4577",
+      "/wd4324",
     ]
   }
 }
