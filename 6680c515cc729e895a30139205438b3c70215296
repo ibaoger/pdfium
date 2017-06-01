@@ -22,6 +22,30 @@
       "revId": "6680c515cc729e895a30139205438b3c70215296",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0bc2e27_abc70568",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T19:28:43Z",
+      "side": 1,
+      "message": "Can\u0027t, each TEST_F below has a bunch of tests in it, each of those tests specifies the locale for the test to be run in, a lot are \u0027en\u0027 but then there are a few like \u0027de_CH\u0027 or \u0027fr_CA\u0027 scattered around and we have to force the fmt to be recreated in the correct locale.",
+      "parentUuid": "c9ab29ae_13dd677d",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "6680c515cc729e895a30139205438b3c70215296",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
