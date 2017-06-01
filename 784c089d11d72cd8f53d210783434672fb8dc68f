@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb6fff4e_e2fb5f05",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:59:23Z",
+      "side": 1,
+      "message": "nit: I like to refer to functions as Foo(), so it\u0027s more obvious to readers that Foo is a function and not the name of a class.",
+      "range": {
+        "startLine": 143,
+        "startChar": 41,
+        "endLine": 143,
+        "endChar": 66
+      },
+      "revId": "784c089d11d72cd8f53d210783434672fb8dc68f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b28b09de_ae79e513",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:59:23Z",
+      "side": 1,
+      "message": "This is getting a bit long. How about:\n\nCFX_ByteString key \u003d type \u003d\u003d FPDFANNOT_TEXTTYPE_Author ? \"T\" : \"Contents\";\nCFX_ByteString contents \u003d pAnnotDict-\u003eGetUnicodeTextFor(key).UTF16LE_Encode();",
+      "revId": "784c089d11d72cd8f53d210783434672fb8dc68f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8680db92_11aed1b3",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:59:23Z",
+      "side": 1,
+      "message": "The comments here should be attached to the function below, not the enum defintion.",
+      "revId": "784c089d11d72cd8f53d210783434672fb8dc68f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88d0300_debb536e",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T20:59:23Z",
+      "side": 1,
+      "message": "Should this be NOTREACHED() ?",
+      "revId": "784c089d11d72cd8f53d210783434672fb8dc68f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
