@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "383b4842_0c9b7667",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T18:52:38Z",
+      "side": 1,
+      "message": "Many of them do not fit on one line, so I left them all like this for consistency. Feel free to change them all in one go if you\u0027d like to.",
+      "parentUuid": "407e1422_fd3ac9df",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 17
+      },
+      "revId": "f88290b105c5912a34d49d4e3dccc1e5fb362c46",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a687b862_b2bb59e5",
         "filename": "fpdfsdk/fpdfformfill.cpp",
         "patchSetId": 1
@@ -46,6 +70,30 @@
       "revId": "f88290b105c5912a34d49d4e3dccc1e5fb362c46",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe2acc6_87e6a864",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-01T18:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a687b862_b2bb59e5",
+      "range": {
+        "startLine": 728,
+        "startChar": 35,
+        "endLine": 728,
+        "endChar": 68
+      },
+      "revId": "f88290b105c5912a34d49d4e3dccc1e5fb362c46",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
