@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9ab29ae_13dd677d",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:10:01Z",
+      "side": 1,
+      "message": "maybe if (!mgr_) { around these and loose the comment.  Also, why not do this in SetUp() and never worry about it.",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "6680c515cc729e895a30139205438b3c70215296",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
