@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7ee7bd1_191f8ce8",
+        "filename": "BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T18:38:04Z",
+      "side": 1,
+      "message": "See https://build.chromium.org/p/tryserver.client.pdfium/builders/win_no_v8/builds/5186/steps/compile%20with%20ninja/logs/stdio",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 4
+      },
+      "revId": "9da9720e2420e61f08dcfc664a7b2ad141868131",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
