@@ -70,18 +70,18 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   float GetFontSize() const override;
   void SetCursor() override;
 
-  void IOnSetScrollInfoY(float fPlateMin,
-                         float fPlateMax,
-                         float fContentMin,
-                         float fContentMax,
-                         float fSmallStep,
-                         float fBigStep);
-  void IOnSetScrollPosY(float fy);
-  void IOnSetCaret(bool bVisible,
-                   const CFX_PointF& ptHead,
-                   const CFX_PointF& ptFoot,
-                   const CPVT_WordPlace& place);
-  void IOnInvalidateRect(CFX_FloatRect* pRect);
+  void OnSetScrollInfoY(float fPlateMin,
+                        float fPlateMax,
+                        float fContentMin,
+                        float fContentMax,
+                        float fSmallStep,
+                        float fBigStep);
+  void OnSetScrollPosY(float fy);
+  void OnSetCaret(bool bVisible,
+                  const CFX_PointF& ptHead,
+                  const CFX_PointF& ptFoot,
+                  const CPVT_WordPlace& place);
+  void OnInvalidateRect(CFX_FloatRect* pRect);
 
  protected:
   void CopyText();
@@ -91,7 +91,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void InsertWord(uint16_t word, int32_t nCharset);
   void InsertReturn();
 
-  bool IsWndHorV();
+  bool IsWndHorizontal() const;
 
   void Delete();
   void Backspace();

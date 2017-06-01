@@ -18,7 +18,7 @@
 #include "public/fpdf_fwlevent.h"
 
 CPWL_EditCtrl::CPWL_EditCtrl()
-    : m_pEdit(new CFX_Edit),
+    : m_pEdit(pdfium::MakeUnique<CFX_Edit>()),
       m_pEditCaret(nullptr),
       m_bMouseDown(false),
       m_nCharSet(FX_CHARSET_Default) {}
@@ -37,20 +37,18 @@ void CPWL_EditCtrl::OnCreated() {
   m_pEdit->Initialize();
 }
 
-bool CPWL_EditCtrl::IsWndHorV() {
+bool CPWL_EditCtrl::IsWndHorizontal() const {
   CFX_Matrix mt = GetWindowMatrix();
   return mt.Transform(CFX_PointF(1, 1)).y == mt.Transform(CFX_PointF(0, 1)).y;
 }
 
 void CPWL_EditCtrl::SetCursor() {
-  if (IsValid()) {
-    if (CFX_SystemHandler* pSH = GetSystemHandler()) {
-      if (IsWndHorV())
-        pSH->SetCursor(FXCT_VBEAM);
-      else
-        pSH->SetCursor(FXCT_HBEAM);
-    }
-  }
+  if (!IsValid())
+    return;
+
+  CFX_SystemHandler* pSH = GetSystemHandler();
+  if (pSH)
+    pSH->SetCursor(IsWndHorizontal() ? FXCT_VBEAM : FXCT_HBEAM);
 }
 
 void CPWL_EditCtrl::RePosChildWnd() {
@@ -134,10 +132,7 @@ bool CPWL_EditCtrl::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
 
   bool bRet = CPWL_Wnd::OnKeyDown(nChar, nFlag);
 
-  // FILTER
   switch (nChar) {
-    default:
-      return false;
     case FWL_VKEY_Delete:
     case FWL_VKEY_Up:
     case FWL_VKEY_Down:
@@ -157,48 +152,49 @@ bool CPWL_EditCtrl::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
     case 'a':
     case 'z':
       break;
+    default:
+      return false;
   }
 
   if (nChar == FWL_VKEY_Delete && m_pEdit->IsSelected())
     nChar = FWL_VKEY_Unknown;
 
+  bool bShift = IsSHIFTpressed(nFlag);
   switch (nChar) {
     case FWL_VKEY_Delete:
       Delete();
       return true;
     case FWL_VKEY_Insert:
-      if (IsSHIFTpressed(nFlag))
+      if (bShift)
         PasteText();
       return true;
     case FWL_VKEY_Up:
-      m_pEdit->OnVK_UP(IsSHIFTpressed(nFlag), false);
+      m_pEdit->OnVK_UP(bShift, false);
       return true;
     case FWL_VKEY_Down:
-      m_pEdit->OnVK_DOWN(IsSHIFTpressed(nFlag), false);
+      m_pEdit->OnVK_DOWN(bShift, false);
       return true;
     case FWL_VKEY_Left:
-      m_pEdit->OnVK_LEFT(IsSHIFTpressed(nFlag), false);
+      m_pEdit->OnVK_LEFT(bShift, false);
       return true;
     case FWL_VKEY_Right:
-      m_pEdit->OnVK_RIGHT(IsSHIFTpressed(nFlag), false);
+      m_pEdit->OnVK_RIGHT(bShift, false);
       return true;
     case FWL_VKEY_Home:
-      m_pEdit->OnVK_HOME(IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag));
+      m_pEdit->OnVK_HOME(bShift, IsCTRLpressed(nFlag));
       return true;
     case FWL_VKEY_End:
-      m_pEdit->OnVK_END(IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag));
+      m_pEdit->OnVK_END(bShift, IsCTRLpressed(nFlag));
       return true;
     case FWL_VKEY_Unknown:
-      if (!IsSHIFTpressed(nFlag))
-        Clear();
-      else
+      if (bShift)
         CutText();
+      else
+        Clear();
       return true;
     default:
-      break;
+      return bRet;
   }
-
-  return bRet;
 }
 
 bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
@@ -207,7 +203,6 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
 
   CPWL_Wnd::OnChar(nChar, nFlag);
 
-  // FILTER
   switch (nChar) {
     case 0x0A:
     case 0x1B:
@@ -293,7 +288,7 @@ bool CPWL_EditCtrl::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnLButtonUp(point, nFlag);
 
   if (m_bMouseDown) {
-    // can receive keybord message
+    // can receive keyboard message
     if (ClientHitTest(point) && !IsFocused())
       SetFocus();
 
@@ -320,23 +315,25 @@ void CPWL_EditCtrl::SetEditCaret(bool bVisible) {
     GetCaretInfo(&ptHead, &ptFoot);
 
   CPVT_WordPlace wpTemp = m_pEdit->GetCaretWordPlace();
-  IOnSetCaret(bVisible, ptHead, ptFoot, wpTemp);
+  OnSetCaret(bVisible, ptHead, ptFoot, wpTemp);
 }
 
 void CPWL_EditCtrl::GetCaretInfo(CFX_PointF* ptHead, CFX_PointF* ptFoot) const {
   CFX_Edit_Iterator* pIterator = m_pEdit->GetIterator();
   pIterator->SetAt(m_pEdit->GetCaret());
   CPVT_Word word;
-  CPVT_Line line;
   if (pIterator->GetWord(word)) {
     ptHead->x = word.ptWord.x + word.fWidth;
     ptHead->y = word.ptWord.y + word.fAscent;
-    ptFoot->x = word.ptWord.x + word.fWidth;
+    ptFoot->x = ptHead->x;
     ptFoot->y = word.ptWord.y + word.fDescent;
-  } else if (pIterator->GetLine(line)) {
+    return;
+  }
+  CPVT_Line line;
+  if (pIterator->GetLine(line)) {
     ptHead->x = line.ptLine.x;
     ptHead->y = line.ptLine.y + line.fLineAscent;
-    ptFoot->x = line.ptLine.x;
+    ptFoot->x = ptHead->x;
     ptFoot->y = line.ptLine.y + line.fLineDescent;
   }
 }
@@ -427,14 +424,13 @@ void CPWL_EditCtrl::Undo() {
     m_pEdit->Undo();
 }
 
-void CPWL_EditCtrl::IOnSetScrollInfoY(float fPlateMin,
-                                      float fPlateMax,
-                                      float fContentMin,
-                                      float fContentMax,
-                                      float fSmallStep,
-                                      float fBigStep) {
+void CPWL_EditCtrl::OnSetScrollInfoY(float fPlateMin,
+                                     float fPlateMax,
+                                     float fContentMin,
+                                     float fContentMax,
+                                     float fSmallStep,
+                                     float fBigStep) {
   PWL_SCROLL_INFO Info;
-
   Info.fPlateWidth = fPlateMax - fPlateMin;
   Info.fContentMin = fContentMin;
   Info.fContentMax = fContentMax;
@@ -451,14 +447,14 @@ void CPWL_EditCtrl::IOnSetScrollInfoY(float fPlateMin,
   }
 }
 
-void CPWL_EditCtrl::IOnSetScrollPosY(float fy) {
+void CPWL_EditCtrl::OnSetScrollPosY(float fy) {
   OnNotify(this, PNM_SETSCROLLPOS, SBT_VSCROLL, (intptr_t)&fy);
 }
 
-void CPWL_EditCtrl::IOnSetCaret(bool bVisible,
-                                const CFX_PointF& ptHead,
-                                const CFX_PointF& ptFoot,
-                                const CPVT_WordPlace& place) {
+void CPWL_EditCtrl::OnSetCaret(bool bVisible,
+                               const CFX_PointF& ptHead,
+                               const CFX_PointF& ptFoot,
+                               const CPVT_WordPlace& place) {
   PWL_CARET_INFO cInfo;
   cInfo.bVisible = bVisible;
   cInfo.ptHead = ptHead;
@@ -467,7 +463,7 @@ void CPWL_EditCtrl::IOnSetCaret(bool bVisible,
   OnNotify(this, PNM_SETCARETINFO, (intptr_t)&cInfo, (intptr_t) nullptr);
 }
 
-void CPWL_EditCtrl::IOnInvalidateRect(CFX_FloatRect* pRect) {
+void CPWL_EditCtrl::OnInvalidateRect(CFX_FloatRect* pRect) {
   InvalidateRect(pRect);
 }
 
