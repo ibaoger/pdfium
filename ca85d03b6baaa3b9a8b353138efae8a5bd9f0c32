@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ef4ca5f_8edbd8bc",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit: maybe combine with || as in line 350",
+      "range": {
+        "startLine": 346,
+        "startChar": 11,
+        "endLine": 346,
+        "endChar": 31
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc5e2475_6eb89f89",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit:\n\nbool ILeapYear \u003d ((wYear % 4 \u003d\u003d 0 \u0026\u0026 wYear % 100 !\u003d 0) || wYear % 400 \u003d\u003d 0);",
+      "range": {
+        "startLine": 969,
+        "startChar": 5,
+        "endLine": 971,
+        "endChar": 25
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c27d2905_0edf6326",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit: can these move to 1403?",
+      "range": {
+        "startLine": 1388,
+        "startChar": 2,
+        "endLine": 1389,
+        "endChar": 14
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d95708e9_fd867446",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit: maybe put a continue in the if-branch, and lose the else, putting the return false into the body.",
+      "range": {
+        "startLine": 1491,
+        "startChar": 1,
+        "endLine": 1491,
+        "endChar": 18
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db341443_86820f16",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2000,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit: I would be happier if this were \u0026pLocale",
+      "range": {
+        "startLine": 2000,
+        "startChar": 35,
+        "endLine": 2000,
+        "endChar": 43
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57836522_81061f3f",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "nit: would be happier with \u0026bTrimeTailZeros",
+      "range": {
+        "startLine": 2232,
+        "startChar": 51,
+        "endLine": 2232,
+        "endChar": 66
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1049cc4a_b95ddbdb",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "I don\u0027t think this is right.  Now we always increment cc, not just +/-",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 9
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379ed7b2_9d97b0ef",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:06:12Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 246,
+        "startChar": 5,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "ca85d03b6baaa3b9a8b353138efae8a5bd9f0c32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
