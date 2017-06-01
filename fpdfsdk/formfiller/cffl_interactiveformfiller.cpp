@@ -528,8 +528,8 @@ void CFFL_InteractiveFormFiller::UnRegisterFormFiller(CPDFSDK_Annot* pAnnot) {
 void CFFL_InteractiveFormFiller::QueryWherePopup(void* pPrivateData,
                                                  float fPopupMin,
                                                  float fPopupMax,
-                                                 int32_t& nRet,
-                                                 float& fPopupRet) {
+                                                 bool* bBottom,
+                                                 float* fPopupRet) {
   CFFL_PrivateData* pData = (CFFL_PrivateData*)pPrivateData;
 
   CFX_FloatRect rcPageView(0, 0, 0, 0);
@@ -563,8 +563,6 @@ void CFFL_InteractiveFormFiller::QueryWherePopup(void* pPrivateData,
       break;
   }
 
-  float fFactHeight = 0;
-  bool bBottom = true;
   float fMaxListBoxHeight = 0;
   if (fPopupMax > FFL_MAXLISTBOXHEIGHT) {
     if (fPopupMin > FFL_MAXLISTBOXHEIGHT) {
@@ -577,25 +575,24 @@ void CFFL_InteractiveFormFiller::QueryWherePopup(void* pPrivateData,
   }
 
   if (fBottom > fMaxListBoxHeight) {
-    fFactHeight = fMaxListBoxHeight;
-    bBottom = true;
-  } else {
-    if (fTop > fMaxListBoxHeight) {
-      fFactHeight = fMaxListBoxHeight;
-      bBottom = false;
-    } else {
-      if (fTop > fBottom) {
-        fFactHeight = fTop;
-        bBottom = false;
-      } else {
-        fFactHeight = fBottom;
-        bBottom = true;
-      }
-    }
+    *fPopupRet = fMaxListBoxHeight;
+    *bBottom = true;
+    return;
   }
 
-  nRet = bBottom ? 0 : 1;
-  fPopupRet = fFactHeight;
+  if (fTop > fMaxListBoxHeight) {
+    *fPopupRet = fMaxListBoxHeight;
+    *bBottom = false;
+    return;
+  }
+
+  if (fTop > fBottom) {
+    *fPopupRet = fTop;
+    *bBottom = false;
+  } else {
+    *fPopupRet = fBottom;
+    *bBottom = true;
+  }
 }
 
 void CFFL_InteractiveFormFiller::OnKeyStrokeCommit(
