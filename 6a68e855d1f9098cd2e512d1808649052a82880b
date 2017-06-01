@@ -737,6 +737,24 @@
     },
     {
       "key": {
+        "uuid": "b6c564d1_8e4a89cf",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "Na, if we\u0027ve got other examples like this then it\u0027s fine (I like the enum better, just wasn\u0027t sure if we did it anywhere else)",
+      "parentUuid": "4dc3eaf4_d5817938",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d7e3407_2c9d813f",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -819,6 +837,24 @@
     },
     {
       "key": {
+        "uuid": "17503a46_d9225ad0",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "What you have now seems good to me.",
+      "parentUuid": "794873b8_51cb542f",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e03628bd_d48a3488",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -848,6 +884,24 @@
       "side": 1,
       "message": "I tried UTF16-LE before, but then the generated .txt file would only have the first character of the text. I\u0027m guessing it\u0027s because of the terminating character. What\u0027s the proper way to deal with this?",
       "parentUuid": "e03628bd_d48a3488",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1719071b_f4cd4406",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "Heh, yea that\u0027s the annoying part. Since most of our text is ascii, the UTF16 is going to be 2 bytes where the second byte is always \\0. So, in pdfium_test take a look at the WriteText method. You\u0027ll need to output the same way where you dump a bom at the top and then use fwrite to write the contents.",
+      "parentUuid": "4c3a3f8f_0524002a",
       "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -1146,6 +1200,30 @@
     },
     {
       "key": {
+        "uuid": "9380e91a_fc009510",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "My original thinking was just to make a sort method in this file that does the conversion to a string, similar to ExampleUnsupportedHandler",
+      "parentUuid": "93f85900_e2e4e5c4",
+      "range": {
+        "startLine": 231,
+        "startChar": 25,
+        "endLine": 231,
+        "endChar": 28
+      },
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85b75580_bf707da4",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 6
@@ -1210,6 +1288,24 @@
       "side": 1,
       "message": "It would fail since there wouldn\u0027t be a dictionary entry for it. I thought I should only run acceptable annotations here, so that people who run --annot don\u0027t get confused when they get a \"Failed to retrieve quadpoints\" message. Let me know if you think the classification should happen within GetQuadPoints instead.",
       "parentUuid": "92b2c450_f583a0f3",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72d41178_a0a860dd",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "I think, if there are no quad points, returning false makes sense, maybe we should add an extra API method which is FPDFAnnot_HasQuadPoints(annot); which will return true for the types above? Then, we can extend it later if we find other annotations that have quadpoints? Then this would just be if (FPDFAnnot_HasQuadPoints(annot)) { ... }",
+      "parentUuid": "732f6d75_83719f2e",
       "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

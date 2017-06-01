@@ -190,6 +190,24 @@
     },
     {
       "key": {
+        "uuid": "d20d9908_9beaca5a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-01T14:48:51Z",
+      "side": 1,
+      "message": "We need to refactor our color types a bit at some point in the future. There are at least two CPVT_Color and CPWL_Color which are, of course, slightly different. There maybe others ....",
+      "parentUuid": "849d9127_bc6d57d8",
+      "revId": "2f3fb4ef882b2930a1b6357730e6b95a1307d03b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0ad61b2_8f2e73ba",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 11
