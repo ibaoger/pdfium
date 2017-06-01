@@ -10,6 +10,25 @@
 #include "fpdfsdk/fsdk_define.h"
 #include "third_party/base/ptr_util.h"
 
+// These checks are here because core/ and public/ cannot depend on each other.
+static_assert(CFX_GraphStateData::LineJoin::LineJoinMiter ==
+                  FPDF_LINEJOIN_MITER,
+              "CFX_GraphStateData::LineJoin::LineJoinMiter value mismatch");
+static_assert(CFX_GraphStateData::LineJoin::LineJoinRound ==
+                  FPDF_LINEJOIN_ROUND,
+              "CFX_GraphStateData::LineJoin::LineJoinRound value mismatch");
+static_assert(CFX_GraphStateData::LineJoin::LineJoinBevel ==
+                  FPDF_LINEJOIN_BEVEL,
+              "CFX_GraphStateData::LineJoin::LineJoinBevel value mismatch");
+
+static_assert(CFX_GraphStateData::LineCap::LineCapButt == FPDF_LINECAP_BUTT,
+              "CFX_GraphStateData::LineCap::LineCapButt value mismatch");
+static_assert(CFX_GraphStateData::LineCap::LineCapRound == FPDF_LINECAP_ROUND,
+              "CFX_GraphStateData::LineCap::LineCapRound value mismatch");
+static_assert(CFX_GraphStateData::LineCap::LineCapSquare ==
+                  FPDF_LINECAP_PROJECTING_SQUARE,
+              "CFX_GraphStateData::LineCap::LineCapSquare value mismatch");
+
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y) {
   auto pPathObj = pdfium::MakeUnique<CPDF_PathObject>();
   pPathObj->m_Path.AppendPoint(CFX_PointF(x, y), FXPT_TYPE::MoveTo, false);
