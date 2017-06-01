@@ -126,6 +126,33 @@ class CCodec_ProgressiveDecoder : public CCodec_BmpModule::Delegate,
     std::vector<uint8_t> m_pWeightTables;
   };
 
+  // CCodec_PngModule::Delegate
+  bool PngReadHeader(int width,
+                     int height,
+                     int bpc,
+                     int pass,
+                     int* color_type,
+                     double* gamma) override;
+  bool PngAskScanlineBuf(int line, uint8_t*& src_buf) override;
+  void PngFillScanlineBufCompleted(int pass, int line) override;
+
+  // CCodec_GifModule::Delegate
+  void GifRecordCurrentPosition(uint32_t& cur_pos) override;
+  bool GifInputRecordPositionBuf(uint32_t rcd_pos,
+                                 const FX_RECT& img_rc,
+                                 int32_t pal_num,
+                                 void* pal_ptr,
+                                 int32_t delay_time,
+                                 bool user_input,
+                                 int32_t trans_index,
+                                 int32_t disposal_method,
+                                 bool interlace) override;
+  void GifReadScanline(int32_t row_num, uint8_t* row_buf) override;
+
+  // CCodec_BmpModule::Delegate
+  bool BmpInputImagePositionBuf(uint32_t rcd_pos) override;
+  void BmpReadScanline(int32_t row_num, uint8_t* row_buf) override;
+
   CFX_RetainPtr<IFX_SeekableReadStream> m_pFile;
   CFX_UnownedPtr<CCodec_ModuleMgr> m_pCodecMgr;
 
@@ -170,33 +197,6 @@ class CCodec_ProgressiveDecoder : public CCodec_BmpModule::Delegate,
   FX_RECT m_GifFrameRect;
   bool m_BmpIsTopBottom;
   FXCODEC_STATUS m_status;
-
-  // CCodec_PngModule::Delegate
-  bool PngReadHeader(int width,
-                     int height,
-                     int bpc,
-                     int pass,
-                     int* color_type,
-                     double* gamma) override;
-  bool PngAskScanlineBuf(int line, uint8_t*& src_buf) override;
-  void PngFillScanlineBufCompleted(int pass, int line) override;
-
-  // CCodec_GifModule::Delegate
-  void GifRecordCurrentPosition(uint32_t& cur_pos) override;
-  bool GifInputRecordPositionBuf(uint32_t rcd_pos,
-                                 const FX_RECT& img_rc,
-                                 int32_t pal_num,
-                                 void* pal_ptr,
-                                 int32_t delay_time,
-                                 bool user_input,
-                                 int32_t trans_index,
-                                 int32_t disposal_method,
-                                 bool interlace) override;
-  void GifReadScanline(int32_t row_num, uint8_t* row_buf) override;
-
-  // CCodec_BmpModule::Delegate
-  bool BmpInputImagePositionBuf(uint32_t rcd_pos) override;
-  void BmpReadScanline(int32_t row_num, uint8_t* row_buf) override;
 
  protected:
   bool BmpReadMoreData(CCodec_BmpModule* pBmpModule,
