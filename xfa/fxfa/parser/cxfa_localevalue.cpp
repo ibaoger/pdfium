@@ -207,12 +207,9 @@ double CXFA_LocaleValue::GetDoubleNum() const {
 
     if (cc >= len)
       return 0;
-    if (str[0] == '+') {
-      cc++;
-    } else if (str[0] == '-') {
+    if (str[0] == '-')
       bNegative = true;
-      cc++;
-    }
+    cc++;
 
     int32_t nIntegralLen = 0;
     while (cc < len) {
@@ -244,12 +241,9 @@ double CXFA_LocaleValue::GetDoubleNum() const {
     if (cc < len && (str[cc] == 'E' || str[cc] == 'e')) {
       cc++;
       if (cc < len) {
-        if (str[cc] == '+') {
-          cc++;
-        } else if (str[cc] == '-') {
+        if (str[cc] == '-')
           bExpSign = true;
-          cc++;
-        }
+        cc++;
       }
       while (cc < len) {
         if (str[cc] == '.' || !FXSYS_isDecimalDigit(str[cc]))
