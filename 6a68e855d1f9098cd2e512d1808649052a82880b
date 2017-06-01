@@ -755,6 +755,24 @@
     },
     {
       "key": {
+        "uuid": "dcb6be92_19a1df91",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T19:26:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6c564d1_8e4a89cf",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d7e3407_2c9d813f",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -855,6 +873,24 @@
     },
     {
       "key": {
+        "uuid": "02ad2479_a447b8b3",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T19:26:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "17503a46_d9225ad0",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e03628bd_d48a3488",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -905,6 +941,24 @@
       "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1702ef_bedba3d2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T19:26:35Z",
+      "side": 1,
+      "message": "Fixed as per offline discussion.",
+      "parentUuid": "1719071b_f4cd4406",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -1224,6 +1278,30 @@
     },
     {
       "key": {
+        "uuid": "64b01b3b_a179b5a4",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T19:26:35Z",
+      "side": 1,
+      "message": "I added a AnnotSubtypeToString in pdfium_test, is this what you were suggesting?",
+      "parentUuid": "9380e91a_fc009510",
+      "range": {
+        "startLine": 231,
+        "startChar": 25,
+        "endLine": 231,
+        "endChar": 28
+      },
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85b75580_bf707da4",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 6
@@ -1309,6 +1387,24 @@
       "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba2d330_41009106",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-01T19:26:35Z",
+      "side": 1,
+      "message": "Done. I named it to be HasAttachmentPoints to be consistent with GetAttachmentPoints.",
+      "parentUuid": "72d41178_a0a860dd",
+      "revId": "6a68e855d1f9098cd2e512d1808649052a82880b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
