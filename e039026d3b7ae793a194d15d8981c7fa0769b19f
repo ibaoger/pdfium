@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb8eb1e_3a6c3509",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:55:15Z",
+      "side": 1,
+      "message": "nit: I didn\u0027t notice how silly this was, too\n\nif (tmp \u003d\u003d 2 \u0026\u0026 tempD \u003e (iLeapYear ? 29 : 28))",
+      "range": {
+        "startLine": 969,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 21
+      },
+      "revId": "e039026d3b7ae793a194d15d8981c7fa0769b19f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
