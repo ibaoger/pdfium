@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "211ee954_6575be96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72ab04b_a73162d7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "4e0009de444afc9bde123d1a627c581badf8f912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f3cf98e_3c97d849",
         "filename": "core/fxcodec/codec/ccodec_gifmodule.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-01T19:09:29Z",
       "side": 1,
       "message": "Can this be protected?",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "4e0009de444afc9bde123d1a627c581badf8f912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5fa5255_0357458b",
+        "filename": "core/fxcodec/codec/ccodec_gifmodule.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-01T19:12:28Z",
+      "side": 1,
+      "message": "Don\u0027t think so.  It\u0027s going to get invoked from unique_ptr\u003cContext\u003e, not unique_ptr\u003cCGifContext\u003e",
+      "parentUuid": "2f3cf98e_3c97d849",
       "range": {
         "startLine": 21,
         "startChar": 3,
