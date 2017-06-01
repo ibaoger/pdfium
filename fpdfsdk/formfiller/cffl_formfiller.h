@@ -19,7 +19,7 @@ class CPDFSDK_FormFillEnvironment;
 class CPDFSDK_PageView;
 class CPDFSDK_Widget;
 
-class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
+class CFFL_FormFiller : public IPWL_Provider, public IPWL_TimerHandler {
  public:
   CFFL_FormFiller(CPDFSDK_FormFillEnvironment* pFormFillEnv,
                   CPDFSDK_Annot* pAnnot);
@@ -77,7 +77,7 @@ class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
   void SetFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag);
   void KillFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag);
 
-  // CPWL_TimerHandler
+  // IPWL_TimerHandler
   void TimerProc() override;
   CFX_SystemHandler* GetSystemHandler() const override;
 
