@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "7cd05d6f_6d7a9a9d",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-02T23:43:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99cd0638_85c75a6a",
+      "range": {
+        "startLine": 5,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 0
+      },
+      "revId": "244ca80de1e533755bebf19fcf850369ac1c2cbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6768478_962831e8",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2017-06-02T23:34:26Z",
       "side": 1,
       "message": "follow-up: does anyone really know why we have three similarly-name  filler classes?",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "244ca80de1e533755bebf19fcf850369ac1c2cbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e05ae8e_127d292d",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-02T23:43:39Z",
+      "side": 1,
+      "message": "3? There\u0027s CFFL_FormFiller and CFFL_InteractiveFormFiller. What am I missing?\n\nOn a cursory look, CFFL_InteractiveFormFiller seems to own multiple CFFL_FormFillers. One per annot.",
+      "parentUuid": "e6768478_962831e8",
       "range": {
         "startLine": 44,
         "startChar": 3,
