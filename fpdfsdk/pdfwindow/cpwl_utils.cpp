@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/PWL_Utils.h"
+#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 
 #include <algorithm>
 #include <memory>
@@ -14,8 +14,8 @@
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
-#include "fpdfsdk/pdfwindow/PWL_Icon.h"
-#include "fpdfsdk/pdfwindow/PWL_Wnd.h"
+#include "fpdfsdk/pdfwindow/cpwl_icon.h"
+#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 CFX_FloatRect CPWL_Utils::OffsetRect(const CFX_FloatRect& rect,
                                      float x,
