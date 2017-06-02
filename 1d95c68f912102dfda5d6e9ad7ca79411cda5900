@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e278d541_8a9c993f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-02T17:35:25Z",
+      "side": 0,
+      "message": "we can\u0027t be too sure, now can we?  sheesh :(.",
+      "range": {
+        "startLine": 1782,
+        "startChar": 4,
+        "endLine": 1784,
+        "endChar": 0
+      },
+      "revId": "1d95c68f912102dfda5d6e9ad7ca79411cda5900",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f6faa0_1fcf828a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-02T17:35:25Z",
+      "side": 0,
+      "message": "facepalm again",
+      "range": {
+        "startLine": 1856,
+        "startChar": 1,
+        "endLine": 1856,
+        "endChar": 2
+      },
+      "revId": "1d95c68f912102dfda5d6e9ad7ca79411cda5900",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

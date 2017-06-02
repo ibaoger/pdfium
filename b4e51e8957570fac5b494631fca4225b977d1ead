@@ -1,4 +1,51 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1496394049 -0700\nnonce APbwY4oIySibpBGkhmk3K46SG+GKUTwYosIwSBP1uS1nQpC5/1CPlnAgdR83XDHk91yleId7JJan\n\n0000000000000000000000000000000000000000 b4e51e8957570fac5b494631fca4225b977d1ead refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZMSlBAAoJEKs2LWFaZv175FQH/1B6ynu1cFhkOeinZcLJsWYK\nLMGa/NRgBKQNTmhRKVM8XQTke/PTWnHZV1eyFnLGhzskV4lszvtcz1rFa/1383Mp\nbEMmC5qxNTiPR2oBnHgMcL9YZKY0nstiOiJPP0fDZMynWOdqkrDNV1xWEL+Xz+cK\ny1ExshJrGtJ+tDB67FRQwsXbugIu2WRunPQ3qYEhHkNLyNs0cUYpTUREP1ygcr+V\nEclorSiZYZKbNO1h3FMPtPhaTZdaOl8fyhhOnJnQE6K1jegbzwQwioCj2s6e5y6w\nh2FgwEZ+BunYhe1lh4J5H2JmXN9sWTuZhACNWzK6Q1hYKpxQlgpWd2InVmdDyDU\u003d\n\u003dMduj\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "e47d08e9_afae3c06",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-02T17:35:25Z",
+      "side": 1,
+      "message": "nit:  I\u0027d copy the byte here and avoid the memcpy later.",
+      "range": {
+        "startLine": 1828,
+        "startChar": 2,
+        "endLine": 1828,
+        "endChar": 3
+      },
+      "revId": "b4e51e8957570fac5b494631fca4225b977d1ead",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd0fc836_63577805",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-02T17:35:25Z",
+      "side": 1,
+      "message": "nit: 4 is really kSubSecondLenth +1 should that change ...",
+      "range": {
+        "startLine": 1830,
+        "startChar": 16,
+        "endLine": 1830,
+        "endChar": 17
+      },
+      "revId": "b4e51e8957570fac5b494631fca4225b977d1ead",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
