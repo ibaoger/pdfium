@@ -1414,7 +1414,7 @@ bool CFGAS_FormatString::ParseNum(const CFX_WideString& wsSrcNum,
       (dwFormatStyle & FX_NUMSTYLE_DotVorv)) {
     bReverseParse = true;
   }
-  bReverseParse = false;
+
   int ccf = dot_index_f - 1;
   int cc = dot_index - 1;
   while (ccf >= 0 && cc >= 0) {

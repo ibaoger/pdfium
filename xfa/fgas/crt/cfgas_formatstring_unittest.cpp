@@ -385,7 +385,8 @@ TEST_F(CFGAS_FormatStringTest, TextFormat) {
   } tests[] = {
       {L"en", L"K1S5K2", L"A9A 9A9", L"K1S 5K2"},
       {L"en", L"6135551212", L"'+1 ('999') '999-9999", L"+1 (613) 555-1212"},
-      {L"en", L"6135551212", L"999.999.9999", L"613.555.1212"}};
+      {L"en", L"6135551212", L"999.999.9999", L"613.555.1212"},
+      {L"en", L"6135551212", L"999\u0023999\u002A9999", L"613#555*1212"}};
 
   for (size_t i = 0; i < FX_ArraySize(tests); ++i) {
     CFX_WideString result;
@@ -431,8 +432,8 @@ TEST_F(CFGAS_FormatStringTest, ZeroParse) {
     const wchar_t* input;
     const wchar_t* pattern;
   } tests[] = {
-      {L"en", L"", L"zero{}"}, {L"en", L"9", L"zero{9}"},
-  };
+    {L"en", L"", L"zero{}"},
+    {L"en", L"9", L"zero{9}", {L"en", L"a", L"zero{'a'}"}};
 
   for (size_t i = 0; i < FX_ArraySize(tests); ++i) {
     EXPECT_TRUE(
