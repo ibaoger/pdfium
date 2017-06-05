@@ -105,6 +105,24 @@
       "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb71f27_65a6c266",
+        "filename": "fpdfsdk/pdfwindow/PWL_ListBox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-05T14:29:25Z",
+      "side": 1,
+      "message": "Question about the conversion.\n\nPreviously:\nif FloatBigger \u0026\u0026 IsVisible then set false, if !FloatBigger \u0026\u0026 !Visible then set true.\n\nNow:\nif FloatSmaller \u0026\u0026 Visible set true if !FloatSmaller \u0026\u0026 !IsVisible set false. \n\nIsn\u0027t that incorrect as compared to before? Don\u0027t we need if FloatSmaller \u0026\u0026 !Visible set true and if !FloatSmaller \u0026\u0026 Visible set false?",
+      "parentUuid": "254c1e48_aef455ad",
+      "revId": "dde7e528419ac5135777cd92b669f112b4f7a760",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
