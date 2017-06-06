@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d947e493_0ac8a5dc",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T23:36:11Z",
+      "side": 1,
+      "message": "% 1440 ?",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef91a5d8_0eece4ad",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T23:36:11Z",
+      "side": 1,
+      "message": "(For later) I\u0027m wonder if |hour| can end up being over 24 in this case, or over 12 in the else case, or possible negative, even.",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb3e07c4_6bb90860",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T23:36:11Z",
+      "side": 1,
+      "message": "Maybe I\u0027m missing something here... Is this a generic get the number of days in a month function, or something else? Because August/October/December all have 31 days.",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bff7a53_e58ede56",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T23:36:11Z",
+      "side": 1,
+      "message": "You can probably consolidate the if and else clauses.",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
