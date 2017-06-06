@@ -144,32 +144,14 @@ bool CFDE_RenderDevice::DrawString(CFDE_Brush* pBrush,
   FXTEXT_CHARPOS* pCurCP = nullptr;
   int32_t iCurCount = 0;
 
-#if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-  uint32_t dwFontStyle = pFont->GetFontStyles();
-  CFX_Font FxFont;
-  auto SubstFxFont = pdfium::MakeUnique<CFX_SubstFont>();
-  SubstFxFont->m_Weight = dwFontStyle & FX_FONTSTYLE_Bold ? 700 : 400;
-  SubstFxFont->m_ItalicAngle = dwFontStyle & FX_FONTSTYLE_Italic ? -12 : 0;
-  SubstFxFont->m_WeightCJK = SubstFxFont->m_Weight;
-  SubstFxFont->m_bItalicCJK = !!(dwFontStyle & FX_FONTSTYLE_Italic);
-  FxFont.SetSubstFont(std::move(SubstFxFont));
-#endif  // _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-
   for (int32_t i = 0; i < iCount; ++i) {
     pSTFont = pFont->GetSubstFont((int32_t)pCP->m_GlyphIndex);
     pCP->m_GlyphIndex &= 0x00FFFFFF;
     pCP->m_bFontStyle = false;
     if (pCurFont != pSTFont) {
       if (pCurFont) {
-        pFxFont = pCurFont->GetDevFont();
-#if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-        FxFont.SetFace(pFxFont->GetFace());
-        m_pDevice->DrawNormalText(iCurCount, pCurCP, &FxFont, -fFontSize,
-                                  pMatrix, argb, FXTEXT_CLEARTYPE);
-#else
-        m_pDevice->DrawNormalText(iCurCount, pCurCP, pFxFont, -fFontSize,
-                                  pMatrix, argb, FXTEXT_CLEARTYPE);
-#endif  // _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
+        m_pDevice->DrawNormalText(iCurCount, pCurCP, pCurFont->GetDevFont(),
+                                  -fFontSize, pMatrix, argb, FXTEXT_CLEARTYPE);
       }
       pCurFont = pSTFont;
       pCurCP = pCP;
@@ -180,24 +162,10 @@ bool CFDE_RenderDevice::DrawString(CFDE_Brush* pBrush,
     pCP++;
   }
   if (pCurFont && iCurCount) {
-    pFxFont = pCurFont->GetDevFont();
-#if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-    FxFont.SetFace(pFxFont->GetFace());
-    bool bRet =
-        m_pDevice->DrawNormalText(iCurCount, pCurCP, &FxFont, -fFontSize,
-                                  pMatrix, argb, FXTEXT_CLEARTYPE);
-    FxFont.SetFace(nullptr);
-    return bRet;
-#else
-    return m_pDevice->DrawNormalText(iCurCount, pCurCP, pFxFont, -fFontSize,
-                                     pMatrix, argb, FXTEXT_CLEARTYPE);
-#endif  // _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
+    return m_pDevice->DrawNormalText(iCurCount, pCurCP, pCurFont->GetDevFont(),
+                                     -fFontSize, pMatrix, argb,
+                                     FXTEXT_CLEARTYPE);
   }
-
-#if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-  FxFont.SetFace(nullptr);
-#endif  // _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
-
   return true;
 }
 
