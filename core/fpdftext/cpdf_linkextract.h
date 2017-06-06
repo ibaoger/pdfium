@@ -28,7 +28,7 @@ class CPDF_LinkExtract {
 
  protected:
   void ParseLink();
-  bool CheckWebLink(CFX_WideString& str);
+  bool CheckWebLink(CFX_WideString& str, int32_t& nStart, int32_t& nCount);
   bool CheckMailLink(CFX_WideString& str);
 
  private:
