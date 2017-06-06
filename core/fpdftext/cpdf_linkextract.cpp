@@ -121,9 +121,17 @@ void CPDF_LinkExtract::ParseLink() {
         }
         // Check for potential web URLs and email addresses.
         // Ftp address, file system links, data, blob etc. are not checked.
-        if (nCount > 5 &&
-            (CheckWebLink(strBeCheck) || CheckMailLink(strBeCheck))) {
-          m_LinkArray.push_back({start, nCount, strBeCheck});
+        if (nCount > 5) {
+          int32_t nStartOffset;
+          int32_t nCountOverload;
+          bool isWebLink =
+              CheckWebLink(strBeCheck, nStartOffset, nCountOverload);
+          if (isWebLink) {
+            m_LinkArray.push_back(
+                {start + nStartOffset, nCountOverload, strBeCheck});
+          } else if (CheckMailLink(strBeCheck)) {
+            m_LinkArray.push_back({start, nCount, strBeCheck});
+          }
         }
       }
       start = ++pos;
@@ -136,7 +144,9 @@ void CPDF_LinkExtract::ParseLink() {
   }
 }
 
-bool CPDF_LinkExtract::CheckWebLink(CFX_WideString& strBeCheck) {
+bool CPDF_LinkExtract::CheckWebLink(CFX_WideString& strBeCheck,
+                                    int32_t& nStart,
+                                    int32_t& nCount) {
   static const wchar_t kHttpScheme[] = L"http";
   static const FX_STRSIZE kHttpSchemeLen = FXSYS_len(kHttpScheme);
   static const wchar_t kWWWAddrStart[] = L"www.";
@@ -156,7 +166,9 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString& strBeCheck) {
       if (str[off] == L':' && str[off + 1] == L'/' && str[off + 2] == L'/') {
         FX_STRSIZE end = FindWebLinkEnding(str, off + 3);
         if (end > off + 3) {  // Non-empty host name.
-          strBeCheck = strBeCheck.Mid(start, end - start + 1);
+          nStart = start;
+          nCount = end - start + 1;
+          strBeCheck = strBeCheck.Mid(nStart, nCount);
           return true;
         }
       }
@@ -168,7 +180,9 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString& strBeCheck) {
   if (start != -1 && len > start + kWWWAddrStartLen) {
     FX_STRSIZE end = FindWebLinkEnding(str, start);
     if (end > start + kWWWAddrStartLen) {
-      strBeCheck = L"http://" + strBeCheck.Mid(start, end - start + 1);
+      nStart = start;
+      nCount = end - start + 1;
+      strBeCheck = L"http://" + strBeCheck.Mid(nStart, nCount);
       return true;
     }
   }
