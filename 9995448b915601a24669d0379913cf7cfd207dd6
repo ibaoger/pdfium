@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98360ff0_3d2412e4",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:51:46Z",
+      "side": 0,
+      "message": "Never used.",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cd61dbe_5a371c40",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:51:46Z",
+      "side": 0,
+      "message": "This .... doesn\u0027t make any sense .....",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e06c007_5f9abe89",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:51:46Z",
+      "side": 0,
+      "message": "This is impossible since cc \u003d dot_index -1 and we only decrement it.",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e4b0d2_515413fe",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:51:46Z",
+      "side": 0,
+      "message": "This and the one below are just wrong. If we ++ we move in the wrong direction. We actually need to subtract 2 to cover the CR (or DB below)",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
