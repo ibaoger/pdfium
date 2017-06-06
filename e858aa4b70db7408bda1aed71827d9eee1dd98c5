@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fc93023_175bd3b0",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T18:37:25Z",
+      "side": 1,
+      "message": "This if is probably not needed. And if we remove then we return instead of adding an empty stream when there are no page objects.",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9039a228_73c07528",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T18:37:25Z",
+      "side": 1,
+      "message": "Can pContent be a stream or does the spec say it has to be an indirect reference? In that case, it seems that we would be deleting it when we enter this if statement.",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "628aa8f4_bd1c5dfc",
+        "filename": "core/fpdfapi/page/cpdf_imageobject.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T18:37:25Z",
+      "side": 1,
+      "message": "I think we should only call this method on fpdfsdk, otherwise we are saying this method can never be used on an initial PDF loading, and it gets tricky and hard to track down. Let\u0027s set the dirtiness only high on the caller hierarchy to avoid this problem.",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08b0393e_cabd5796",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T18:37:25Z",
+      "side": 1,
+      "message": "We should have a const char[] for this, ditto the one below.",
+      "range": {
+        "startLine": 411,
+        "startChar": 39,
+        "endLine": 411,
+        "endChar": 71
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
