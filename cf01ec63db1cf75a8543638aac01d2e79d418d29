@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "d7e2a8b6_a2c58784",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T19:30:33Z",
+      "side": 1,
+      "message": "Checked the api for Prepend but missed Insert. Done.",
+      "parentUuid": "c802ffb6_4bf08024",
+      "range": {
+        "startLine": 1437,
+        "startChar": 8,
+        "endLine": 1437,
+        "endChar": 38
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2cdc3e7_8aaa1653",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -674,6 +698,30 @@
       "side": 1,
       "message": "In that case, maybe it would be preferable this method assumes wsPattern is nonempty and have the callers do that check.",
       "parentUuid": "ce894705_7df3111a",
+      "range": {
+        "startLine": 2664,
+        "startChar": 25,
+        "endLine": 2664,
+        "endChar": 35
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bc475e0_6ea55f65",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2664,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T19:30:33Z",
+      "side": 1,
+      "message": "Well, the pattern of \"zero{}\" is non-empty, but it will output a result of an empty string.",
+      "parentUuid": "984036c5_1c2d68c6",
       "range": {
         "startLine": 2664,
         "startChar": 25,
