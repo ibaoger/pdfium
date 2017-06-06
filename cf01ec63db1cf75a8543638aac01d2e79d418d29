@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "2475b86e_84494af6",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb410703_5767a7ee",
+      "range": {
+        "startLine": 110,
+        "startChar": 38,
+        "endLine": 110,
+        "endChar": 39
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a542dad_09ac4fa9",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "My preference is this way as it\u0027s clear you\u0027re dealing with the out param.",
+      "parentUuid": "b7e9439d_7fcf68c8",
+      "range": {
+        "startLine": 110,
+        "startChar": 18,
+        "endLine": 110,
+        "endChar": 27
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "efb4e058_129fc5c0",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff45e78_15947bc7",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efb4e058_129fc5c0",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 27
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fa324295_0aa92080",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d33103bb_2b27cc80",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 12
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7c45ce2_4ad40938",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5a74c567_6ad5c2a4",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e7c45ce2_4ad40938",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 420,
+        "endChar": 12
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80d44462_4d9faf99",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-06T17:25:53Z",
       "side": 1,
       "message": "Can you just return the vector?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 4
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9357f193_ddbc377a",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Probably, followup.",
+      "parentUuid": "80d44462_4d9faf99",
       "range": {
         "startLine": 1080,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c97e751c_da001068",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "This is prepending, not appending which I don\u0027t believe exists as a method.",
+      "parentUuid": "5780bc2b_590640fb",
+      "range": {
+        "startLine": 1437,
+        "startChar": 8,
+        "endLine": 1437,
+        "endChar": 38
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2cdc3e7_8aaa1653",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -183,6 +351,30 @@
       "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7f20a3_dac19a23",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2cdc3e7_8aaa1653",
+      "range": {
+        "startLine": 1862,
+        "startChar": 4,
+        "endLine": 1862,
+        "endChar": 31
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "1927fe08_2ac02ec4",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1cb24a0_2925efe6",
+      "range": {
+        "startLine": 2280,
+        "startChar": 10,
+        "endLine": 2280,
+        "endChar": 42
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e4ccd40_4c8a3018",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "1b613ccf_f0360bcf",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2594,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e4ccd40_4c8a3018",
+      "range": {
+        "startLine": 2594,
+        "startChar": 17,
+        "endLine": 2594,
+        "endChar": 26
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db163f60_800366c5",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -243,6 +483,30 @@
       "writtenOn": "2017-06-06T17:25:53Z",
       "side": 1,
       "message": "This can probably return the CFX_WideString, and we could check for emptiness of the return value.",
+      "range": {
+        "startLine": 2607,
+        "startChar": 25,
+        "endLine": 2607,
+        "endChar": 39
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dac9021_2df824d3",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2607,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Followup",
+      "parentUuid": "db163f60_800366c5",
       "range": {
         "startLine": 2607,
         "startChar": 25,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "ce894705_7df3111a",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2664,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "That won\u0027t work here because you can have a format pattern of zero{} which I think would output blank.",
+      "parentUuid": "018f2a1e_8ce55909",
+      "range": {
+        "startLine": 2664,
+        "startChar": 25,
+        "endLine": 2664,
+        "endChar": 35
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac54caf4_b8d8be57",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "343b2283_46460c5d",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2686,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Won\u0027t work as null can output blank.",
+      "parentUuid": "ac54caf4_b8d8be57",
+      "range": {
+        "startLine": 2686,
+        "startChar": 25,
+        "endLine": 2686,
+        "endChar": 35
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f242905b_1e8ebf59",
         "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2017-06-06T17:25:53Z",
       "side": 1,
       "message": "Hm why do we have this commented?",
+      "range": {
+        "startLine": 461,
+        "startChar": 25,
+        "endLine": 461,
+        "endChar": 45
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a02b7a_a633ee77",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:34:15Z",
+      "side": 1,
+      "message": "Zero doesn\u0027t currently accept an input string but I don\u0027t think that\u0027s correct. I believe this will be needed to fix the commented tests.",
+      "parentUuid": "f242905b_1e8ebf59",
       "range": {
         "startLine": 461,
         "startChar": 25,
