@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "90e40795_74cb4e13",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T22:19:13Z",
+      "side": 1,
+      "message": "This is hard to parse. Add some quotes?",
+      "range": {
+        "startLine": 1404,
+        "startChar": 28,
+        "endLine": 1404,
+        "endChar": 37
+      },
+      "revId": "39907093ba3fa245117c2c52aa3e74312df0fac5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2e7b406_5d5df751",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T22:19:13Z",
+      "side": 1,
+      "message": "|dot_index_f|",
+      "range": {
+        "startLine": 1412,
+        "startChar": 18,
+        "endLine": 1412,
+        "endChar": 29
+      },
+      "revId": "39907093ba3fa245117c2c52aa3e74312df0fac5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb9a218_b372a25e",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-06T22:19:13Z",
+      "side": 1,
+      "message": "Can you remind me where the format strings are defined? XFA spec?",
+      "range": {
+        "startLine": 82,
+        "startChar": 29,
+        "endLine": 82,
+        "endChar": 32
+      },
+      "revId": "39907093ba3fa245117c2c52aa3e74312df0fac5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "138fd83a_4d7ad95f",
         "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
         "patchSetId": 1
