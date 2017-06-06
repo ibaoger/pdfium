@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "eb859d1a_e9de8977",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T19:36:33Z",
+      "side": 1,
+      "message": "Oh ok, let\u0027s leave it like this for now then.",
+      "parentUuid": "52f2ab4e_dd18bf21",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9039a228_73c07528",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
         "patchSetId": 14
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "18d626a4_3410d6d7",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T19:36:33Z",
+      "side": 1,
+      "message": "Ah yes, thanks! This is fine then.",
+      "parentUuid": "ddc2a072_95233a33",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "628aa8f4_bd1c5dfc",
         "filename": "core/fpdfapi/page/cpdf_imageobject.cpp",
         "patchSetId": 14
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "That was how I originally had it coded before PS9.",
       "parentUuid": "628aa8f4_bd1c5dfc",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "e858aa4b70db7408bda1aed71827d9eee1dd98c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cec5018_b0b152ef",
+        "filename": "core/fpdfapi/page/cpdf_imageobject.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T19:36:33Z",
+      "side": 1,
+      "message": "Oh I see. I\u0027ll discuss with Dan.",
+      "parentUuid": "f71f9c44_fffd5baa",
       "range": {
         "startLine": 28,
         "startChar": 2,
