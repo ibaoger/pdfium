@@ -67,6 +67,24 @@
       "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd542f16_a3e1248b",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T21:44:52Z",
+      "side": 0,
+      "message": "Not sure I follow, strf has \u0027CR\u0027 but str has \u0027 \u0027. ccf is already -\u003d 2 in line 1545.",
+      "parentUuid": "14e4b0d2_515413fe",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
