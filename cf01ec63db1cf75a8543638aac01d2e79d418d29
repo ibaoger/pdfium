@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7e9439d_7fcf68c8",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "I think I\u0027d rather have a local\nint\u0026 iPat \u003d *iPattern;\n\nAnd then we still have nice method declarations without the ugliness introduced by starring all over.",
+      "range": {
+        "startLine": 110,
+        "startChar": 18,
+        "endLine": 110,
+        "endChar": 27
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb410703_5767a7ee",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "nit {}",
+      "range": {
+        "startLine": 110,
+        "startChar": 38,
+        "endLine": 110,
+        "endChar": 39
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efb4e058_129fc5c0",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto local",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 27
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33103bb_2b27cc80",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 12
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7c45ce2_4ad40938",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 420,
+        "endChar": 12
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80d44462_4d9faf99",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "Can you just return the vector?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 4
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5780bc2b_590640fb",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "Is there some AppendChar method we can use instead?",
+      "range": {
+        "startLine": 1437,
+        "startChar": 8,
+        "endLine": 1437,
+        "endChar": 38
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2cdc3e7_8aaa1653",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1862,
+        "startChar": 4,
+        "endLine": 1862,
+        "endChar": 31
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1cb24a0_2925efe6",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2280,
+        "startChar": 10,
+        "endLine": 2280,
+        "endChar": 42
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e4ccd40_4c8a3018",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2594,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto local",
+      "range": {
+        "startLine": 2594,
+        "startChar": 17,
+        "endLine": 2594,
+        "endChar": 26
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db163f60_800366c5",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2607,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "This can probably return the CFX_WideString, and we could check for emptiness of the return value.",
+      "range": {
+        "startLine": 2607,
+        "startChar": 25,
+        "endLine": 2607,
+        "endChar": 39
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "018f2a1e_8ce55909",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2664,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2664,
+        "startChar": 25,
+        "endLine": 2664,
+        "endChar": 35
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac54caf4_b8d8be57",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2686,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "3tto",
+      "range": {
+        "startLine": 2686,
+        "startChar": 25,
+        "endLine": 2686,
+        "endChar": 35
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f242905b_1e8ebf59",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T17:25:53Z",
+      "side": 1,
+      "message": "Hm why do we have this commented?",
+      "range": {
+        "startLine": 461,
+        "startChar": 25,
+        "endLine": 461,
+        "endChar": 45
+      },
+      "revId": "cf01ec63db1cf75a8543638aac01d2e79d418d29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
