@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "fcb7a174_d56fefe1",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:37:00Z",
+      "side": 1,
+      "message": "No, it\u0027s redundant, I wrote probably before I read the whole code chunk. This chunk is removed in a followup as I\u0027m going through the code test coverage.",
+      "parentUuid": "c2ad58df_9062fc5c",
+      "range": {
+        "startLine": 1056,
+        "startChar": 8,
+        "endLine": 1056,
+        "endChar": 19
+      },
+      "revId": "c3becc1d508bfcd517b4269bb35740682e3b4661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d9a2b8c_379219de",
         "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "And not supported means not supported by us? If that is the case, why not just leave the tests commented, as we have done for stuff that does not currently work (like this test)?",
       "parentUuid": "82b7a9f7_bfe43fc5",
+      "range": {
+        "startLine": 237,
+        "startChar": 5,
+        "endLine": 240,
+        "endChar": 50
+      },
+      "revId": "c3becc1d508bfcd517b4269bb35740682e3b4661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163a1366_97f816b7",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T17:37:00Z",
+      "side": 1,
+      "message": "Because writting all the tests for the not supported stuff is ugly and a pain. It\u0027s all wide characters so the test ends up being L\"\\uff33\\uff33\\uff33\" and various combinations. Having the marker tells us it\u0027s missing without a pile of stuff we may never support.\n\nFor the commented tests, they\u0027re broken and I believe should be fixed.",
+      "parentUuid": "c82ebeb5_2517d155",
       "range": {
         "startLine": 237,
         "startChar": 5,
