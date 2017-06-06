@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1ff3db54_cc87a734",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T19:00:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fcb7a174_d56fefe1",
+      "range": {
+        "startLine": 1056,
+        "startChar": 8,
+        "endLine": 1056,
+        "endChar": 19
+      },
+      "revId": "c3becc1d508bfcd517b4269bb35740682e3b4661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d9a2b8c_379219de",
         "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
         "patchSetId": 1
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Because writting all the tests for the not supported stuff is ugly and a pain. It\u0027s all wide characters so the test ends up being L\"\\uff33\\uff33\\uff33\" and various combinations. Having the marker tells us it\u0027s missing without a pile of stuff we may never support.\n\nFor the commented tests, they\u0027re broken and I believe should be fixed.",
       "parentUuid": "c82ebeb5_2517d155",
+      "range": {
+        "startLine": 237,
+        "startChar": 5,
+        "endLine": 240,
+        "endChar": 50
+      },
+      "revId": "c3becc1d508bfcd517b4269bb35740682e3b4661",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f59c4564_e9b91a04",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T19:00:31Z",
+      "side": 1,
+      "message": "Well, I thought the removed lines 96 - 112 already had some of that. I guess you changed your mind or gave up? And while \\u encoding may look ugly, let\u0027s not forget many languages use these characters, so the ugliness is not enough excuse not to write tests using them. In this particular case, I don\u0027t mind not having them since they would be commented anyways.",
+      "parentUuid": "163a1366_97f816b7",
       "range": {
         "startLine": 237,
         "startChar": 5,
