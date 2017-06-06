@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecfc8bf6_d289535e",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:21:57Z",
+      "side": 1,
+      "message": "nit: local not needed, just call CheckWebLink in the if()",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "678bef9e_3d111824",
+        "filename": "core/fpdftext/cpdf_linkextract.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:21:57Z",
+      "side": 1,
+      "message": "We avoid reference output parameters (makes the calling code more confusing to tell when things are modified), these should be pointers.",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a002713_a986e6e5",
+        "filename": "core/fpdftext/cpdf_linkextract_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-06T20:21:57Z",
+      "side": 1,
+      "message": "Was one of these tests added to cover the bug being fixed? Hard to tell from the diff.",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
