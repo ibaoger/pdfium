@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b8bf074_796edd60",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T16:56:22Z",
+      "side": 1,
+      "message": "Do we plan to add tests for a locale different from L\"en\"? For now, let\u0027s just use it as a const wchar_t* outside of this struct. Ditto in the other tests",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 268,
+        "endChar": 22
+      },
+      "revId": "a3b2a6cb795c81e779a8288a2071daef69723fd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4052718_2413a2e2",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-06T16:56:22Z",
+      "side": 1,
+      "message": "Wrong word order, or something",
+      "range": {
+        "startLine": 373,
+        "startChar": 31,
+        "endLine": 373,
+        "endChar": 47
+      },
+      "revId": "a3b2a6cb795c81e779a8288a2071daef69723fd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
