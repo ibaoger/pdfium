@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2855865d_928f8261",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T15:06:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d947e493_0ac8a5dc",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef91a5d8_0eece4ad",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-06T23:36:11Z",
       "side": 1,
       "message": "(For later) I\u0027m wonder if |hour| can end up being over 24 in this case, or over 12 in the else case, or possible negative, even.",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "700ceb77_62ca92fb",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T15:06:19Z",
+      "side": 1,
+      "message": "Probably, I haven\u0027t tested the failure cases at this point, just working on getting tests for the actual parsing.",
+      "parentUuid": "ef91a5d8_0eece4ad",
       "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "73f63b20_4f520039",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T15:06:19Z",
+      "side": 1,
+      "message": "It was broken, added a test and fixed.",
+      "parentUuid": "eb3e07c4_6bb90860",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6bff7a53_e58ede56",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2017-06-06T23:36:11Z",
       "side": 1,
       "message": "You can probably consolidate the if and else clauses.",
+      "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640df524_ea6795a1",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T15:06:19Z",
+      "side": 1,
+      "message": "Not sure what you mean? The ParseLocale methods are the opposite in the if then then else.",
+      "parentUuid": "6bff7a53_e58ede56",
       "revId": "7dee685df0309401ad37c30c49a56d8523d1f8bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
