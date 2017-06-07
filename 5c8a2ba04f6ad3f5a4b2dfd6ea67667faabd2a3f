@@ -17,6 +17,92 @@
       "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3342bcc8_84b2de34",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T18:58:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "a876ec81_94ab1508",
+      "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "064ace84_dca569e7",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T18:58:37Z",
+      "side": 1,
+      "message": "To be clearer: |month| is 1-based. e.g. 1 means January.",
+      "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "776f994f_48d22910",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T18:58:37Z",
+      "side": 1,
+      "message": "It\u0027s shorter if you check for 4/6/9/11 and returning 30.",
+      "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ca2f59_fcad94cc",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T18:58:37Z",
+      "side": 1,
+      "message": "Oh, this needs to be const and not g_ for global.",
+      "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "426b9daa_11bf0535",
+        "filename": "xfa/fgas/crt/cfgas_formatstring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T18:58:37Z",
+      "side": 1,
+      "message": "Additional test cases of interest:\n\nLeap day in 2000.\nNo leap day in 2100.\n19990229 or 19990230, or other invalid dates. If it makes sense to test those.",
+      "revId": "5c8a2ba04f6ad3f5a4b2dfd6ea67667faabd2a3f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
