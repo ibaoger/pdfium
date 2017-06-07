@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57ebf9ba_9d8ec464",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T21:36:45Z",
+      "side": 1,
+      "message": "Can this be ostringstream to be more specific?",
+      "range": {
+        "startLine": 478,
+        "startChar": 7,
+        "endLine": 478,
+        "endChar": 19
+      },
+      "revId": "4721260a7018d067eb160929bbbe47abb677f428",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0cb4212_fc86b098",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T21:36:45Z",
+      "side": 1,
+      "message": "Does this work correctly if tellp() returns -1?",
+      "range": {
+        "startLine": 489,
+        "startChar": 46,
+        "endLine": 489,
+        "endChar": 51
+      },
+      "revId": "4721260a7018d067eb160929bbbe47abb677f428",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
