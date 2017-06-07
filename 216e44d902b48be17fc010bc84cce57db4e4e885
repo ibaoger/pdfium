@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30710b6b_643632a6",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-07T23:47:34Z",
+      "side": 0,
+      "message": "At this point, are we sure that pStr[iStart] represents a char from \u00270\u0027 to \u00279\u0027?",
+      "range": {
+        "startLine": 79,
+        "startChar": 35,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "216e44d902b48be17fc010bc84cce57db4e4e885",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
