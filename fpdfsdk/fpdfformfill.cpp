@@ -376,6 +376,28 @@ DLLEXPORT FPDF_BOOL STDCALL FORM_OnChar(FPDF_FORMHANDLE hHandle,
   return pPageView->OnChar(nChar, modifier);
 }
 
+DLLEXPORT FPDF_BYTESTRING STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
+                                                       FPDF_PAGE page) {
+  CPDFSDK_PageView* pPageView = FormHandleToPageView(hHandle, page);
+  if (!pPageView)
+    return nullptr;
+
+  CFX_WideString wide_str_form_text = pPageView->GetSelectedText();
+  int form_text_size = wide_str_form_text.GetLength();
+  const wchar_t* selected_form_text = wide_str_form_text.c_str();
+
+  // TODO (drgage):
+  // Come back to this, need to either use unique_ptr or come up with
+  // different way to avoid memory leak!
+  char* new_selected_text = new char[form_text_size + 1];
+  wcstombs(new_selected_text, selected_form_text, form_text_size + 1);
+
+  if (!new_selected_text || !strcmp(new_selected_text, ""))
+    return nullptr;
+
+  return new_selected_text;
+}
+
 DLLEXPORT FPDF_BOOL STDCALL FORM_ForceToKillFocus(FPDF_FORMHANDLE hHandle) {
   CPDFSDK_FormFillEnvironment* pFormFillEnv =
       HandleToCPDFSDKEnvironment(hHandle);

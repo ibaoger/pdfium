@@ -67,6 +67,7 @@ class CPDFSDK_PageView final : public CPDF_Page::View {
   bool OnRButtonUp(const CFX_PointF& point, uint32_t nFlag);
 #endif  // PDF_ENABLE_XFA
   bool OnChar(int nChar, uint32_t nFlag);
+  CFX_WideString GetSelectedText();
   bool OnKeyDown(int nKeyCode, int nFlag);
   bool OnKeyUp(int nKeyCode, int nFlag);
 

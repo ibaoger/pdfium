@@ -253,6 +253,11 @@ bool CPDFSDK_XFAWidgetHandler::OnChar(CPDFSDK_Annot* pAnnot,
                                 GetFWLFlags(nFlags));
 }
 
+CFX_WideString CPDFSDK_XFAWidgetHandler::GetSelectedText(
+    CPDFSDK_Annot* pAnnot) {
+  return CFX_WideString();
+}
+
 bool CPDFSDK_XFAWidgetHandler::OnKeyDown(CPDFSDK_Annot* pAnnot,
                                          int nKeyCode,
                                          int nFlag) {

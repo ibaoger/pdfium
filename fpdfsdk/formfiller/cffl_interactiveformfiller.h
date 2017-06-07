@@ -75,6 +75,7 @@ class CFFL_InteractiveFormFiller : public IPWL_Filler_Notify {
 
   bool OnKeyDown(CPDFSDK_Annot* pAnnot, uint32_t nKeyCode, uint32_t nFlags);
   bool OnChar(CPDFSDK_Annot* pAnnot, uint32_t nChar, uint32_t nFlags);
+  CFX_WideString GetSelectedText(CPDFSDK_Annot* pAnnot);
 
   bool OnSetFocus(CPDFSDK_Annot::ObservedPtr* pAnnot, uint32_t nFlag);
   bool OnKillFocus(CPDFSDK_Annot::ObservedPtr* pAnnot, uint32_t nFlag);

@@ -26,6 +26,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   ~CPWL_EditCtrl() override;
 
   CFX_WideString GetText() const;
+  CFX_WideString GetSelText() const;
   void SetSel(int32_t nStartChar, int32_t nEndChar);
   void GetSel(int32_t& nStartChar, int32_t& nEndChar) const;
   void Clear();
@@ -49,6 +50,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void OnCreated() override;
   bool OnKeyDown(uint16_t nChar, uint32_t nFlag) override;
   bool OnChar(uint16_t nChar, uint32_t nFlag) override;
+  CFX_WideString GetSelectedText() override;
   bool OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) override;
   bool OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) override;
   bool OnMouseMove(const CFX_PointF& point, uint32_t nFlag) override;

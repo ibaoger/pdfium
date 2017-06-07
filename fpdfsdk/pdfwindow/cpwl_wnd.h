@@ -212,6 +212,7 @@ class CPWL_Wnd : public CPWL_TimerHandler {
 
   virtual bool OnKeyDown(uint16_t nChar, uint32_t nFlag);
   virtual bool OnChar(uint16_t nChar, uint32_t nFlag);
+  virtual CFX_WideString GetSelectedText();
   virtual bool OnLButtonDblClk(const CFX_PointF& point, uint32_t nFlag);
   virtual bool OnLButtonDown(const CFX_PointF& point, uint32_t nFlag);
   virtual bool OnLButtonUp(const CFX_PointF& point, uint32_t nFlag);

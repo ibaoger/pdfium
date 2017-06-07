@@ -88,6 +88,7 @@ class IPDFSDK_AnnotHandler {
   virtual bool OnChar(CPDFSDK_Annot* pAnnot,
                       uint32_t nChar,
                       uint32_t nFlags) = 0;
+  virtual CFX_WideString GetSelectedText(CPDFSDK_Annot* pAnnot) = 0;
   virtual bool OnKeyDown(CPDFSDK_Annot* pAnnot, int nKeyCode, int nFlag) = 0;
   virtual bool OnKeyUp(CPDFSDK_Annot* pAnnot, int nKeyCode, int nFlag) = 0;
   virtual bool OnSetFocus(CPDFSDK_Annot::ObservedPtr* pAnnot,
