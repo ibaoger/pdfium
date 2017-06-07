@@ -391,10 +391,10 @@ void ResolveZone(FX_TIMEZONE tzDiff,
                  (tzLocale.tzHour < 0 ? -tzLocale.tzMinute : tzLocale.tzMinute);
   iMinuteDiff -= tzDiff.tzHour * 60 +
                  (tzDiff.tzHour < 0 ? -tzDiff.tzMinute : tzDiff.tzMinute);
-  while (iMinuteDiff > 1440)
-    iMinuteDiff -= 1440;
   while (iMinuteDiff < 0)
     iMinuteDiff += 1440;
+
+  iMinuteDiff %= 1440;
 
   *wHour = iMinuteDiff / 60;
   *wMinute = iMinuteDiff % 60;
@@ -604,11 +604,15 @@ int32_t GetNumTrailingLimit(const CFX_WideString& wsFormat,
   return iTreading;
 }
 
+// January == 1.
 uint16_t GetSolarMonthDays(uint16_t year, uint16_t month) {
-  if (month % 2)
-    return 31;
   if (month == 2)
     return FX_IsLeapYear(year) ? 29 : 28;
+
+  if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
+      month == 10 || month == 12) {
+    return 31;
+  }
   return 30;
 }
 
