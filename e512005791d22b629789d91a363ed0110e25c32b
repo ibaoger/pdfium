@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c0300b70_1cb96db4",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-07T14:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecfc8bf6_d289535e",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "678bef9e_3d111824",
         "filename": "core/fpdftext/cpdf_linkextract.h",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6f4786c3_d707e7a8",
+        "filename": "core/fpdftext/cpdf_linkextract.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-07T14:15:46Z",
+      "side": 1,
+      "message": "Done. Also changed CheckMailLink to conform.",
+      "parentUuid": "678bef9e_3d111824",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a002713_a986e6e5",
         "filename": "core/fpdftext/cpdf_linkextract_unittest.cpp",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "e512005791d22b629789d91a363ed0110e25c32b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f4807f_986c5b7e",
+        "filename": "core/fpdftext/cpdf_linkextract_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-07T14:15:46Z",
+      "side": 1,
+      "message": "One covered a similar case, but I now added a test for the bug being addressed.",
+      "parentUuid": "8a002713_a986e6e5",
+      "revId": "e512005791d22b629789d91a363ed0110e25c32b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
