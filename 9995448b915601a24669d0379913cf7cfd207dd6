@@ -85,6 +85,24 @@
       "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86711960_1e58d4ca",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T00:50:06Z",
+      "side": 0,
+      "message": "That\u0027s ccf, this is cc. ccf is the index of the format, cc is the index into the string. The CR, has to have two blank spaces if it isn\u0027t there, one for each letter. So, this has to be 2 blanks or something is wrong.",
+      "parentUuid": "cd542f16_a3e1248b",
+      "revId": "9995448b915601a24669d0379913cf7cfd207dd6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
