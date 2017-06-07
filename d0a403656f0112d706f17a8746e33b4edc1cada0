@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e484264_bcfcceef",
+        "filename": "core/fpdftext/cpdf_linkextract_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T14:40:13Z",
+      "side": 1,
+      "message": "Don\u0027t we want the url_extracted in this case to be http://www.abc.com without the )0 tagged on the end? We should be able to see that the string starts with a ( and and ends with a ) and trim them both, yea?",
+      "revId": "d0a403656f0112d706f17a8746e33b4edc1cada0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
