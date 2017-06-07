@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3decded2_d0da9ff0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T19:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f469721a_fa58b18a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c624fc6a_5885a446",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "2a3a6ecc_f900ef4b",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T19:49:01Z",
+      "side": 1,
+      "message": "I reserved 4 since we don\u0027t have symbols more then 4 chars long at the moment.",
+      "parentUuid": "c624fc6a_5885a446",
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7dae45b_534be44c",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-06-07T19:05:56Z",
       "side": 1,
       "message": "Can\u0027t we just use g_FXLocaleTimeZoneData[i] here?",
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d21a78d_97c05de6",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-07T19:49:01Z",
+      "side": 1,
+      "message": "Had to make it an \u0026 instead of *, but yes.",
+      "parentUuid": "c7dae45b_534be44c",
       "revId": "dede128d7156acd531f34a021a43ec35083adc32",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
