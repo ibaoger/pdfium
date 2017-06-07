@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a7da5ba_6baaa2f3",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d8710d9_102c7f7a",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd14e54_c100f626",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ee10f65_27f4b39c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd14e54_c100f626",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6672bc63_120d5b3a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2002ccf_9087313a",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9472c141_303c168e",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13044885_6e97c4e1",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9472c141_303c168e",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "deaa83d0_457f2d54",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d95d884_201df408",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9653193_fd6fe712",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2017-06-07T13:48:42Z",
       "side": 1,
       "message": "Why the early return? Would it be possible for hte annot to have a rect of 0,0,0,0? Or is that an error?",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ec6013_b80940ba",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "GetRectFor actually returns an empty rect when there is no \"Rect\" value, so I think it should fail since no rect has been specified. I don\u0027t think it\u0027s possible for an annot to have an empty rect, unless a user specifically changes that.",
+      "parentUuid": "c9653193_fd6fe712",
       "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "3def01a6_3094bf43",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cfb47e9_529aaeaa",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7c04f6a_9b409d02",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 2
@@ -135,6 +261,24 @@
       "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "559cbae8_d5985852",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7c04f6a_9b409d02",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "137caa52_48158cdd",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cde71877_a2a89138",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "880498e6_35ad1ddd",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 2
@@ -169,6 +331,24 @@
       "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "567e7ee3_3d07761d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-07T14:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "880498e6_35ad1ddd",
+      "revId": "90e580e15ba409cd1bdc6813529174b8ace77fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
