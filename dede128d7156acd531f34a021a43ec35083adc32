@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f469721a_fa58b18a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T19:05:56Z",
+      "side": 1,
+      "message": "comparisons?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c624fc6a_5885a446",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T19:05:56Z",
+      "side": 1,
+      "message": "Should we call symbol.Reserve() to make this more efficient? Ditto in several similar blocks below.",
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7dae45b_534be44c",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-07T19:05:56Z",
+      "side": 1,
+      "message": "Can\u0027t we just use g_FXLocaleTimeZoneData[i] here?",
+      "revId": "dede128d7156acd531f34a021a43ec35083adc32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
