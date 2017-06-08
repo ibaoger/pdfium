@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ba026395_55bfa3db",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-08T20:16:39Z",
+      "side": 1,
+      "message": "Good catch, we have to break here. Added a unit test with an example that fails if we don\u0027t.",
+      "parentUuid": "8500db2a_16def68b",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3fc73d7_7b16cb6a",
         "filename": "core/fpdftext/cpdf_linkextract.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c520dcd6_391a29f3",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-08T20:16:39Z",
+      "side": 1,
+      "message": "off is local and I\u0027ve changed its subsequent usages to use the new value.",
+      "parentUuid": "a3fc73d7_7b16cb6a",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ab61b38a_660ec119",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-08T20:16:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d427cb88_055e0d42",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd8d68f_27771438",
         "filename": "core/fpdftext/cpdf_linkextract.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3ea122_ae2f0d29",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-08T20:16:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd8d68f_27771438",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
