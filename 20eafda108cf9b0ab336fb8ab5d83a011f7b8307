@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9e91add3_f7cd659b",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-08T22:19:42Z",
+      "side": 1,
+      "message": "- It\u0027s not safe to assume PDFs start out well-formed. There\u0027s lots of malformed PDFs out there either due to bugs in PDF generators, or because malicious PDFs.\n- I didn\u0027t look earlier, but it looks like SetNewFor() will overwrite the existing object, if any. I\u0027m really just trying to think of why Henrique\u0027s CL failed.",
+      "parentUuid": "9fae7249_01a568d4",
+      "revId": "20eafda108cf9b0ab336fb8ab5d83a011f7b8307",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06960451_4ea6375f",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 5
