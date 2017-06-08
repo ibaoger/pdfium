@@ -19,8 +19,9 @@ namespace {
 // The purpose of this function is to separate url from the surrounding context
 // characters, we do not intend to fully validate the url.
 // |str| contains lower case characters only.
-FX_STRSIZE FindWebLinkEnding(const CFX_WideString& str, FX_STRSIZE start) {
-  FX_STRSIZE end = str.GetLength() - 1;
+FX_STRSIZE FindWebLinkEnding(const CFX_WideString& str,
+                             FX_STRSIZE start,
+                             FX_STRSIZE end) {
   if (str.Find(L'/', start) != -1) {
     // When there is a path and query after '/', most ASCII chars are allowed.
     // We don't sanitize in this case.
@@ -55,6 +56,38 @@ FX_STRSIZE FindWebLinkEnding(const CFX_WideString& str, FX_STRSIZE start) {
         (str[end] >= L'a' && str[end] <= L'z') || str[end] == L'.')
       break;
     end--;
+  }
+  return end;
+}
+
+void TrimBackwardsToChar(const CFX_WideString& str,
+                         char charToFind,
+                         FX_STRSIZE start,
+                         FX_STRSIZE* end) {
+  for (int pos = *end; pos >= start; pos--) {
+    if (str[pos] == charToFind) {
+      *end = pos - 1;
+    }
+  }
+}
+
+FX_STRSIZE TrimExternalBracketsFromWebLink(const CFX_WideString& str,
+                                           FX_STRSIZE start,
+                                           FX_STRSIZE end) {
+  for (int pos = 0; pos < start; pos++) {
+    if (str[pos] == '(') {
+      TrimBackwardsToChar(str, ')', start, &end);
+    } else if (str[pos] == '[') {
+      TrimBackwardsToChar(str, ']', start, &end);
+    } else if (str[pos] == '{') {
+      TrimBackwardsToChar(str, '}', start, &end);
+    } else if (str[pos] == '<') {
+      TrimBackwardsToChar(str, '>', start, &end);
+    } else if (str[pos] == '"') {
+      TrimBackwardsToChar(str, '"', start, &end);
+    } else if (str[pos] == '\'') {
+      TrimBackwardsToChar(str, '\'', start, &end);
+    }
   }
   return end;
 }
@@ -162,8 +195,11 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString* strBeCheck,
       if (str[off] == L's')                   // "https" scheme is accepted.
         off++;
       if (str[off] == L':' && str[off + 1] == L'/' && str[off + 2] == L'/') {
-        FX_STRSIZE end = FindWebLinkEnding(str, off + 3);
-        if (end > off + 3) {  // Non-empty host name.
+        off += 3;
+        FX_STRSIZE end = str.GetLength() - 1;
+        end = TrimExternalBracketsFromWebLink(str, start, end);
+        end = FindWebLinkEnding(str, off, end);
+        if (end > off) {  // Non-empty host name.
           *nStart = start;
           *nCount = end - start + 1;
           *strBeCheck = strBeCheck->Mid(*nStart, *nCount);
@@ -176,7 +212,9 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString* strBeCheck,
   // When there is no scheme, try to find url starting with "www.".
   start = str.Find(kWWWAddrStart);
   if (start != -1 && len > start + kWWWAddrStartLen) {
-    FX_STRSIZE end = FindWebLinkEnding(str, start);
+    FX_STRSIZE end = str.GetLength() - 1;
+    end = TrimExternalBracketsFromWebLink(str, start, end);
+    end = FindWebLinkEnding(str, start, end);
     if (end > start + kWWWAddrStartLen) {
       *nStart = start;
       *nCount = end - start + 1;
