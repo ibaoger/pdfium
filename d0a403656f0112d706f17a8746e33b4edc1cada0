@@ -16,6 +16,24 @@
       "revId": "d0a403656f0112d706f17a8746e33b4edc1cada0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc036426_c50fb064",
+        "filename": "core/fpdftext/cpdf_linkextract_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-08T15:59:27Z",
+      "side": 1,
+      "message": "Removed this test case. I\u0027ll address this in a subsequent CL and put this test case with the expected result there.",
+      "parentUuid": "4e484264_bcfcceef",
+      "revId": "d0a403656f0112d706f17a8746e33b4edc1cada0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
