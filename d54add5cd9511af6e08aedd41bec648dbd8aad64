@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c83e625_098ba625",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "Count probably not necessary in the name",
+      "range": {
+        "startLine": 201,
+        "startChar": 12,
+        "endLine": 201,
+        "endChar": 17
+      },
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83adee85_0e82c957",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "What happens to dates BC? Wouldn\u0027t the year be negative in that case?",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 21
+      },
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2500dc7_eb728ed2",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "This is doing more work than before since before all we wanted was to increment cc, we did not care about val.",
+      "range": {
+        "startLine": 272,
+        "startChar": 6,
+        "endLine": 272,
+        "endChar": 24
+      },
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d374a2b4_9485a1b4",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "Why this change? Only uint8_t was needed before.",
+      "range": {
+        "startLine": 327,
+        "startChar": 18,
+        "endLine": 328,
+        "endChar": 34
+      },
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4952f3_3d3f1cd3",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "return Has30? 30: 31;",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 520,
+        "endChar": 12
+      },
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09ad28ce_8be6fd85",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-08T20:31:49Z",
+      "side": 1,
+      "message": "You can probably just return the value from ExtractCountDigits, and either reserve a special value like -1 for failure, or add an out param boolean for that.",
+      "revId": "d54add5cd9511af6e08aedd41bec648dbd8aad64",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
