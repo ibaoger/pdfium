@@ -9,6 +9,7 @@
 #include <limits.h>
 
 #include <algorithm>
+#include <sstream>
 #include <utility>
 #include <vector>
 
@@ -512,20 +513,21 @@ CFX_ByteString PDF_EncodeText(const CFX_WideString& str) {
 }
 
 CFX_ByteString PDF_EncodeString(const CFX_ByteString& src, bool bHex) {
-  CFX_ByteTextBuf result;
+  std::ostringstream result;
   int srclen = src.GetLength();
   if (bHex) {
-    result.AppendChar('<');
+    result << '<';
     for (int i = 0; i < srclen; i++) {
       char buf[2];
       FXSYS_IntToTwoHexChars(src[i], buf);
-      result.AppendChar(buf[0]);
-      result.AppendChar(buf[1]);
+      result << buf[0];
+      result << buf[1];
     }
-    result.AppendChar('>');
-    return result.MakeString();
+    result << '>';
+    return CFX_ByteString(result.str().c_str(),
+                          static_cast<int>(result.tellp()));
   }
-  result.AppendChar('(');
+  result << '(';
   for (int i = 0; i < srclen; i++) {
     uint8_t ch = src[i];
     if (ch == 0x0a) {
@@ -537,11 +539,11 @@ CFX_ByteString PDF_EncodeString(const CFX_ByteString& src, bool bHex) {
       continue;
     }
     if (ch == ')' || ch == '\\' || ch == '(')
-      result.AppendChar('\\');
-    result.AppendChar(ch);
+      result << '\\';
+    result << static_cast<char>(ch);
   }
-  result.AppendChar(')');
-  return result.MakeString();
+  result << ')';
+  return CFX_ByteString(result.str().c_str(), static_cast<int>(result.tellp()));
 }
 
 bool FlateEncode(const uint8_t* src_buf,
