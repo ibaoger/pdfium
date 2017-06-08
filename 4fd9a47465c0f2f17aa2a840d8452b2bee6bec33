@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17980ad2_ce408f97",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-08T22:25:39Z",
+      "side": 1,
+      "message": "I noticed this is char* whereas many of the APIs in public/fpdf_doc.h that handle string buffers use void*. Can we change this to be consistent with fpdf_doc.h?",
+      "range": {
+        "startLine": 145,
+        "startChar": 50,
+        "endLine": 145,
+        "endChar": 54
+      },
+      "revId": "4fd9a47465c0f2f17aa2a840d8452b2bee6bec33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
