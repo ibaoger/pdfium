@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29275503_812aa597",
+        "filename": "fpdfsdk/cpdfsdk_baannothandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move up to ~40 so not in the middle of the On* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07f3508c_fd3044ad",
+        "filename": "fpdfsdk/cpdfsdk_pageview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "move up to ~62 so not in the middle of the On* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c56db5_48dc6821",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move to ~40 so not in the middle of the on* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90448aa0_b42a3664",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move to ~35 so not in the middle of the On* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6d59e7f_52f07901",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "nit:\nif (!IsValid())\n  return CFX_WideString();",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "986e19de_d402449c",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s on single line bodies.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d036ff08_4f90745a",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move to ~83 so not in the middle of the On* methods?",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15e50b32_23e9b8af",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "The usual way we\u0027d do this in the API is to accept a buffer and length as an out parameter and return the length copied. Then the caller owns the memory and we don\u0027t have to worry about freeing it.\n\nIf you take a look a FPDFAnnot_GetText in fpdfannot.cpp you can see an example of this. The other little trick is that if the buffer is nullptr or the length passed in is less then the length of the string we don\u0027t modify the buffer and just return the length. This lets callers call twice, once to get the buffer length and one to get the content with an appropriate sized buffer.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee82c08_9ce40583",
+        "filename": "fpdfsdk/ipdfsdk_annothandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move up to around 38 so not in the middle of the On* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "263ee62c_4370ea99",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Move down to around 66 so not in the middle of the On* methods.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "350b0e39_9cda0668",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "Can you move this down to around line 235 so it isn\u0027t in the middle of the On* methods?",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d74567cb_bf2b81fe",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T13:38:14Z",
+      "side": 1,
+      "message": "What format is the text in? The other APIs return UTF16-LE I believe, which is what this should also return to be consistent.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
