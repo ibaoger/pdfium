@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8500db2a_16def68b",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T18:22:01Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s\n\nCan we break at this point? Is there any reason to continue?",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3fc73d7_7b16cb6a",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T18:22:01Z",
+      "side": 1,
+      "message": "The previous code didn\u0027t change off in this case, do we want to increment here?",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d427cb88_055e0d42",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T18:22:01Z",
+      "side": 1,
+      "message": "FX_STRSIZE end \u003d TrimExteranlBracketsFromWebLink(str, start, str.GetLength() - 1)",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bd8d68f_27771438",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T18:22:01Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "03d2f92117a5c2f01252a175a40aae14b4d8d320",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
