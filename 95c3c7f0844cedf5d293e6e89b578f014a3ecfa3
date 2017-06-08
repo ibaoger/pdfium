@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "319af529_994cc22e",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-08T19:36:26Z",
+      "side": 1,
+      "message": "Can the ostringstream be const?",
+      "revId": "95c3c7f0844cedf5d293e6e89b578f014a3ecfa3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
