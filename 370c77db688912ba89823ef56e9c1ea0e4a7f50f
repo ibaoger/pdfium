@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b852421b_a6685a1d",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-09T21:34:51Z",
+      "side": 1,
+      "message": "Why not uint32_t to be consistent with |currentChar| and |nextChar| ?",
+      "range": {
+        "startLine": 261,
+        "startChar": 9,
+        "endLine": 261,
+        "endChar": 15
+      },
+      "revId": "370c77db688912ba89823ef56e9c1ea0e4a7f50f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13037e88_0cf06fe9",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-09T21:34:51Z",
+      "side": 1,
+      "message": "Can we make this, which is used in multiple places, a constant with a meaningful name? Same for 0xFF in LoadSimpleFont().",
+      "range": {
+        "startLine": 316,
+        "startChar": 39,
+        "endLine": 316,
+        "endChar": 47
+      },
+      "revId": "370c77db688912ba89823ef56e9c1ea0e4a7f50f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
