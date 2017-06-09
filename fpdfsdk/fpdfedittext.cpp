@@ -246,21 +246,23 @@ void* LoadSimpleFont(CPDF_Document* pDoc,
   fontDict->SetNewFor<CPDF_Name>("BaseFont", name);
 
   uint32_t glyphIndex;
-  int currentChar = FXFT_Get_First_Char(pFont->GetFace(), &glyphIndex);
-  fontDict->SetNewFor<CPDF_Number>("FirstChar", currentChar);
+  uint32_t currentChar = FXFT_Get_First_Char(pFont->GetFace(), &glyphIndex);
+  if (currentChar > 0xff || glyphIndex == 0)
+    return nullptr;
+  fontDict->SetNewFor<CPDF_Number>("FirstChar", static_cast<int>(currentChar));
   CPDF_Array* widthsArray = pDoc->NewIndirect<CPDF_Array>();
   while (true) {
     widthsArray->AddNew<CPDF_Number>(pFont->GetGlyphWidth(glyphIndex));
-    int nextChar =
+    uint32_t nextChar =
         FXFT_Get_Next_Char(pFont->GetFace(), currentChar, &glyphIndex);
     // Simple fonts have 1-byte charcodes only.
     if (nextChar > 0xff || glyphIndex == 0)
       break;
-    for (int i = currentChar + 1; i < nextChar; i++)
+    for (size_t i = currentChar + 1; i < nextChar; i++)
       widthsArray->AddNew<CPDF_Number>(0);
     currentChar = nextChar;
   }
-  fontDict->SetNewFor<CPDF_Number>("LastChar", currentChar);
+  fontDict->SetNewFor<CPDF_Number>("LastChar", static_cast<int>(currentChar));
   fontDict->SetNewFor<CPDF_Reference>("Widths", pDoc, widthsArray->GetObjNum());
   CPDF_Dictionary* fontDesc =
       LoadFontDesc(pDoc, name, pFont.get(), data, size, font_type);
@@ -309,9 +311,9 @@ void* LoadCompositeFont(CPDF_Document* pDoc,
                                       fontDesc->GetObjNum());
 
   uint32_t glyphIndex;
-  int currentChar = FXFT_Get_First_Char(pFont->GetFace(), &glyphIndex);
+  uint32_t currentChar = FXFT_Get_First_Char(pFont->GetFace(), &glyphIndex);
   // If it doesn't have a single char, just fail
-  if (glyphIndex == 0)
+  if (glyphIndex == 0 || currentChar > 0x10FFFF)
     return nullptr;
 
   std::map<uint32_t, uint32_t> to_unicode;
