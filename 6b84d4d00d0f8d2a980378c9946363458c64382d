@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "466065a4_7b59b956",
+        "filename": "fpdfsdk/cpdfsdk_baannothandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29275503_812aa597",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f3508c_fd3044ad",
         "filename": "fpdfsdk/cpdfsdk_pageview.h",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1995bb_38d82994",
+        "filename": "fpdfsdk/cpdfsdk_pageview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07f3508c_fd3044ad",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a861dee3_909377ed",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c56db5_48dc6821",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90448aa0_b42a3664",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.h",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e696ee78_7daf0013",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90448aa0_b42a3664",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6d59e7f_52f07901",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2017-06-08T13:38:14Z",
       "side": 1,
       "message": "nit:\nif (!IsValid())\n  return CFX_WideString();",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14bbd5e4_4c7d140f",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Hi Dan, do you mean that I should replace the \"if (IsValid())\" with what you\u0027ve written, and just have the other stuff (i.e. creating the CPDFSDK_PageView*, etc.) after?",
+      "parentUuid": "f6d59e7f_52f07901",
       "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e0a3a99a_a63d284b",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "986e19de_d402449c",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d036ff08_4f90745a",
         "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.h",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a75724e9_ee56e49a",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d036ff08_4f90745a",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "d8271ae4_b7450d49",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15e50b32_23e9b8af",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ee82c08_9ce40583",
         "filename": "fpdfsdk/ipdfsdk_annothandler.h",
         "patchSetId": 1
@@ -152,6 +296,24 @@
       "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed550686_fdcdbcb7",
+        "filename": "fpdfsdk/ipdfsdk_annothandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ee82c08_9ce40583",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "14965fd9_50720c33",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263ee62c_4370ea99",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "350b0e39_9cda0668",
         "filename": "fpdfsdk/pdfwindow/cpwl_wnd.h",
         "patchSetId": 1
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "b8c4f094_469da129",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "350b0e39_9cda0668",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d74567cb_bf2b81fe",
         "filename": "public/fpdf_formfill.h",
         "patchSetId": 1
@@ -200,6 +398,24 @@
       "writtenOn": "2017-06-08T13:38:14Z",
       "side": 1,
       "message": "What format is the text in? The other APIs return UTF16-LE I believe, which is what this should also return to be consistent.",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7879612b_85fc9c64",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-09T01:47:44Z",
+      "side": 1,
+      "message": "I changed this function to return the length of the selected text string instead of the string itself.",
+      "parentUuid": "d74567cb_bf2b81fe",
       "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
