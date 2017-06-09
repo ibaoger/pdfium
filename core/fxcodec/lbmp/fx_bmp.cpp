@@ -389,7 +389,12 @@ int32_t bmp_decode_rgb(bmp_decompress_struct_p bmp_ptr) {
       case 24:
       case 32:
         memcpy(bmp_ptr->out_row_buffer, des_buf, bmp_ptr->src_row_bytes);
+        row_buf += bmp_ptr->src_row_bytes;
         break;
+    }
+    for (uint8_t* buf = bmp_ptr->out_row_buffer; buf < row_buf; ++buf) {
+      if (*buf >= bmp_ptr->pal_num)
+        return 2;
     }
     row_buf = bmp_ptr->out_row_buffer;
     bmp_ptr->bmp_get_row_fn(bmp_ptr,
