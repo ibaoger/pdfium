@@ -362,6 +362,16 @@ bool CPDFSDK_PageView::OnChar(int nChar, uint32_t nFlag) {
   return false;
 }
 
+CFX_WideString CPDFSDK_PageView::GetSelectedText() {
+  if (CPDFSDK_Annot* pAnnot = GetFocusAnnot()) {
+    CPDFSDK_AnnotHandlerMgr* pAnnotHandlerMgr =
+        m_pFormFillEnv->GetAnnotHandlerMgr();
+    return pAnnotHandlerMgr->Annot_GetSelectedText(pAnnot);
+  }
+
+  return CFX_WideString();
+}
+
 bool CPDFSDK_PageView::OnKeyDown(int nKeyCode, int nFlag) {
   if (CPDFSDK_Annot* pAnnot = GetFocusAnnot()) {
     CPDFSDK_AnnotHandlerMgr* pAnnotHandlerMgr =
