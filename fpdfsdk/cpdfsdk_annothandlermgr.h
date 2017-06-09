@@ -86,6 +86,7 @@ class CPDFSDK_AnnotHandlerMgr {
                          uint32_t nFlags,
                          const CFX_PointF& point);
   bool Annot_OnChar(CPDFSDK_Annot* pAnnot, uint32_t nChar, uint32_t nFlags);
+  CFX_WideString Annot_GetSelectedText(CPDFSDK_Annot* pAnnot);
   bool Annot_OnKeyDown(CPDFSDK_Annot* pAnnot, int nKeyCode, int nFlag);
   bool Annot_OnKeyUp(CPDFSDK_Annot* pAnnot, int nKeyCode, int nFlag);
 

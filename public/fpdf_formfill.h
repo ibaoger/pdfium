@@ -1355,6 +1355,26 @@ DLLEXPORT FPDF_BOOL STDCALL FORM_OnChar(FPDF_FORMHANDLE hHandle,
                                         int modifier);
 
 /**
+ * Function: FORM_GetSelectedText
+ *          You can call this member function to obtain selected text within
+ *          a form field text field.
+ * Parameters:
+ *          hHandle     -   Handle to the form fill module. Returned by
+ *FPDFDOC_InitFormFillEnvironment.
+ *          page        -   Handle to the page. Returned by FPDF_LoadPage
+ *function.
+ *          buffer      -   Buffer for holding the selected text, encoded
+ *in UTF16-LE.
+ *          buflen      -   Length of buffer.
+ * Return Value:
+ *          Length of selected text in form text field.
+ **/
+DLLEXPORT unsigned long STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
+                                                     FPDF_PAGE page,
+                                                     void* buffer,
+                                                     unsigned long buflen);
+
+/**
  * Function: FORM_ForceToKillFocus.
  *          You can call this member function to force to kill the focus of the
  *form field which got focus.

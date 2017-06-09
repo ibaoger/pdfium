@@ -371,6 +371,15 @@ bool CFFL_InteractiveFormFiller::OnChar(CPDFSDK_Annot* pAnnot,
   return false;
 }
 
+CFX_WideString CFFL_InteractiveFormFiller::GetSelectedText(
+    CPDFSDK_Annot* pAnnot) {
+  ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
+  if (CFFL_FormFiller* pFormFiller = GetFormFiller(pAnnot, false))
+    return pFormFiller->GetSelectedText(pAnnot);
+
+  return CFX_WideString();
+}
+
 bool CFFL_InteractiveFormFiller::OnSetFocus(CPDFSDK_Annot::ObservedPtr* pAnnot,
                                             uint32_t nFlag) {
   if (!(*pAnnot))
