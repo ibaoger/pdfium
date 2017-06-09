@@ -60,7 +60,7 @@ typedef enum FPDFANNOT_TEXTTYPE {
 // by AP generation - see the list of calls to CPVT_GenerateAP::Generate*AP() in
 // CPDF_Annot::GenerateAPIfNeeded().
 //
-//   subtype   - the subtype to be checked.
+//   subtype   - the subtype to be che
 //
 // Returns true if this subtype supported, false otherwise.
 DLLEXPORT FPDF_BOOL STDCALL
