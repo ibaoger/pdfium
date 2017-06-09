@@ -156,6 +156,10 @@ bool CPDFSDK_BAAnnotHandler::OnChar(CPDFSDK_Annot* pAnnot,
   return false;
 }
 
+CFX_WideString CPDFSDK_BAAnnotHandler::GetSelectedText(CPDFSDK_Annot* pAnnot) {
+  return CFX_WideString();
+}
+
 bool CPDFSDK_BAAnnotHandler::OnKeyDown(CPDFSDK_Annot* pAnnot,
                                        int nKeyCode,
                                        int nFlag) {

@@ -273,6 +273,10 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
   return true;
 }
 
+CFX_WideString CPWL_EditCtrl::GetSelectedText() {
+  return GetSelText();
+}
+
 bool CPWL_EditCtrl::OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnLButtonDown(point, nFlag);
 
@@ -354,6 +358,10 @@ void CPWL_EditCtrl::SetCaret(bool bVisible,
 
 CFX_WideString CPWL_EditCtrl::GetText() const {
   return m_pEdit->GetText();
+}
+
+CFX_WideString CPWL_EditCtrl::GetSelText() const {
+  return m_pEdit->GetSelText();
 }
 
 void CPWL_EditCtrl::SetSel(int32_t nStartChar, int32_t nEndChar) {

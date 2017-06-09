@@ -203,6 +203,13 @@ bool CPDFSDK_WidgetHandler::OnChar(CPDFSDK_Annot* pAnnot,
   return false;
 }
 
+CFX_WideString CPDFSDK_WidgetHandler::GetSelectedText(CPDFSDK_Annot* pAnnot) {
+  if (!pAnnot->IsSignatureWidget() && m_pFormFiller)
+    return m_pFormFiller->GetSelectedText(pAnnot);
+
+  return CFX_WideString();
+}
+
 bool CPDFSDK_WidgetHandler::OnKeyDown(CPDFSDK_Annot* pAnnot,
                                       int nKeyCode,
                                       int nFlag) {
