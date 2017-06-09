@@ -6,6 +6,8 @@
 
 #include "public/fpdf_annot.h"
 
+#include <iostream>
+
 #include <utility>
 
 #include "core/fpdfapi/page/cpdf_page.h"
@@ -201,9 +203,11 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetColor(FPDF_ANNOTATION annot,
                                                unsigned int* G,
                                                unsigned int* B,
                                                unsigned int* A) {
+  std::cout << "HENRIQUE FPDFAnnot_GetColor " << type << std::endl;
   CPDF_Dictionary* pAnnotDict = CPDFDictionaryFromFPDFAnnotation(annot);
   if (!pAnnotDict || !R || !G || !B || !A)
     return false;
+  std::cout << "HENRIQUE FPDFAnnot_GetColor 2" << std::endl;
 
   CPDF_Array* pColor = pAnnotDict->GetArrayFor(
       type == FPDFANNOT_COLORTYPE_InteriorColor ? "IC" : "C");
@@ -214,10 +218,14 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetColor(FPDF_ANNOTATION annot,
     // used to generate AP. See calls to GetColorStringWithDefault() in
     // CPVT_GenerateAP::Generate*AP().
     if (pAnnotDict->GetStringFor("Subtype") == "Highlight") {
+      std::cout << "HENRIQUE pAnnotDict->GetStringFor(Subtype) == Highlight"
+                << std::endl;
       *R = 255;
       *G = 255;
       *B = 0;
     } else {
+      std::cout << "HENRIQUE pAnnotDict->GetStringFor(Subtype) != Highlight"
+                << std::endl;
       *R = 0;
       *G = 0;
       *B = 0;
@@ -227,21 +235,42 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetColor(FPDF_ANNOTATION annot,
   CPVT_Color color = CPVT_Color::ParseColor(*pColor);
   switch (color.nColorType) {
     case CPVT_Color::kRGB:
+      std::cout << "HENRIQUE color.nColorType CPVT_Color::kRGB" << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor1 " << color.fColor1
+                << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor2 " << color.fColor2
+                << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor3 " << color.fColor3
+                << std::endl;
       *R = color.fColor1 * 255.f;
       *G = color.fColor2 * 255.f;
       *B = color.fColor3 * 255.f;
       break;
     case CPVT_Color::kGray:
+      std::cout << "HENRIQUE color.nColorType CPVT_Color::kGray" << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor1 " << color.fColor1
+                << std::endl;
       *R = 255.f * color.fColor1;
       *G = 255.f * color.fColor1;
       *B = 255.f * color.fColor1;
       break;
     case CPVT_Color::kCMYK:
+      std::cout << "HENRIQUE color.nColorType CPVT_Color::kCMYK" << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor1 " << color.fColor1
+                << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor2 " << color.fColor2
+                << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor3 " << color.fColor3
+                << std::endl;
+      std::cout << "HENRIQUE color.nColorType fColor4 " << color.fColor4
+                << std::endl;
       *R = 255.f * (1 - color.fColor1) * (1 - color.fColor4);
       *G = 255.f * (1 - color.fColor2) * (1 - color.fColor4);
       *B = 255.f * (1 - color.fColor3) * (1 - color.fColor4);
       break;
     case CPVT_Color::kTransparent:
+      std::cout << "HENRIQUE color.nColorType CPVT_Color::kTransparent"
+                << std::endl;
       *R = 0;
       *G = 0;
       *B = 0;
