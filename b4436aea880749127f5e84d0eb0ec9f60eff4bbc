@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f65bb64b_f6ee5dde",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-10T00:26:34Z",
+      "side": 1,
+      "message": "BTW, isn\u0027t this assignment pointless to start with?",
+      "revId": "b4436aea880749127f5e84d0eb0ec9f60eff4bbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "750eed15_d3581500",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-10T00:26:34Z",
+      "side": 1,
+      "message": "You can fir the for-statement on one line:\n\nfor (size_t i \u003d 0; i \u003c *first_byte_ptr; ++i) {\n  if (first_buf[i] ...)\n  ...\n}\n\nBecause we have the byte count here. Whereas the line 395 block only has an end pointer.\n\nMaybe also think about writing a validate() function since we are doing basically the same thing in several places.",
+      "revId": "b4436aea880749127f5e84d0eb0ec9f60eff4bbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
