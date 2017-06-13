@@ -268,10 +268,10 @@ void CPDF_PageContentGenerator::ProcessGraphics(CFX_ByteTextBuf* buf,
   GraphicsData graphD;
   graphD.fillAlpha = pPageObj->m_GeneralState.GetFillAlpha();
   graphD.strokeAlpha = pPageObj->m_GeneralState.GetStrokeAlpha();
-  int blend_type = pPageObj->m_GeneralState.GetBlendType();
+  graphD.blendType = pPageObj->m_GeneralState.GetBlendType();
   if (graphD.fillAlpha == 1.0f && graphD.strokeAlpha == 1.0f &&
-      (blend_type == FXDIB_BLEND_UNSUPPORTED ||
-       blend_type == FXDIB_BLEND_NORMAL)) {
+      (graphD.blendType == FXDIB_BLEND_UNSUPPORTED ||
+       graphD.blendType == FXDIB_BLEND_NORMAL)) {
     return;
   }
 
@@ -287,8 +287,8 @@ void CPDF_PageContentGenerator::ProcessGraphics(CFX_ByteTextBuf* buf,
     if (graphD.strokeAlpha != 1.0f)
       gsDict->SetNewFor<CPDF_Number>("CA", graphD.strokeAlpha);
 
-    if (blend_type != FXDIB_BLEND_UNSUPPORTED &&
-        blend_type != FXDIB_BLEND_NORMAL) {
+    if (graphD.blendType != FXDIB_BLEND_UNSUPPORTED &&
+        graphD.blendType != FXDIB_BLEND_NORMAL) {
       gsDict->SetNewFor<CPDF_Name>("BM",
                                    pPageObj->m_GeneralState.GetBlendMode());
     }
