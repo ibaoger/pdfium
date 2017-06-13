@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "4b617e5b_24a4693c",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T16:13:33Z",
+      "side": 1,
+      "message": "Yea, sorry for being terse. We usually early exit if possible, as it drops the extra indenting and makes code a bit easier to read.",
+      "parentUuid": "14bbd5e4_4c7d140f",
+      "revId": "6b84d4d00d0f8d2a980378c9946363458c64382d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "986e19de_d402449c",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
