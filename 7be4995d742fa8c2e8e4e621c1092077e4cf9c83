@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1496995494 -0700\nnonce AH5c86C3fz3zhTuvegUADengiI2ueZUUngu0LpjQJoyWZczcoUtF/UalF6qViswmgrF2kUriqdCy\n\n0000000000000000000000000000000000000000 7be4995d742fa8c2e8e4e621c1092077e4cf9c83 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZOlamAAoJEKs2LWFaZv17IRcIAIjy5vctuzzoypcsoAVGtkN8\nZTGMSHOB2ri7J7d/JuXVz+yeqNT6DBMpErpUph3F+fHmMZS/UfOHk500EtBK9J63\nEh6jIxV7CS5vPH7nfCAq9/F11XBTX6g365boE0I5b6gSOptqyK6tTCI5BWYMSwst\nVN/405bJDgKvNx+d+e3A/bK0EDEC5pZjrBYc9QT0g4wt5z6JrjpZGe4jV1vIkKCS\nYft/uGAmcq5ICCDudDBitG/2VJwGkIZVYFs0x/K8GgnLJsl2PZYQ65DqhL+gPxma\n3gfsY5j7j6M2LmmhLu8arnJvhNDUwvOt4lx701ZL3dOyoKH46jaGSS/CwgYoSJY\u003d\n\u003dXD6Z\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6498ee5_c21c9250",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T16:06:39Z",
+      "side": 1,
+      "message": "Do we do this anywhere else? If not, probably better to keep these initialized in the constructor.",
+      "revId": "7be4995d742fa8c2e8e4e621c1092077e4cf9c83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
