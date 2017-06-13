@@ -224,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "11372058_20154b67",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T17:33:53Z",
+      "side": 1,
+      "message": "We looked into this with some sample PDF forms and one that I made with Acrobat. It looks like text fields and drop downs have selectable text. Drop downs can have a \"let user add their own entry\" option in which case the field becomes editable. List boxes also contain text items, but they cannot be copied or edited by the user.",
+      "parentUuid": "93b93f0e_10ef0642",
+      "range": {
+        "startLine": 207,
+        "startChar": 15,
+        "endLine": 207,
+        "endChar": 32
+      },
+      "revId": "a89aefbd38466e4754421595f9e19cf3f913305c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33d7461c_b0f7bb99",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
         "patchSetId": 2
