@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebdef556_feb9b674",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T16:47:02Z",
+      "side": 1,
+      "message": "style: Validate",
+      "range": {
+        "startLine": 339,
+        "startChar": 5,
+        "endLine": 339,
+        "endChar": 6
+      },
+      "revId": "0c61a31cf27c5d2f500b77ced061e15cc2ef0ec9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
