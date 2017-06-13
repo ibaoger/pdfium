@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c362a2e_b8a3e752",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T18:12:11Z",
+      "side": 1,
+      "message": "I can\u0027t remember what the spec says exactly. If we have an empty stream, can we just omit it altogether?",
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef275a5e_b0b1cda9",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T18:12:11Z",
+      "side": 1,
+      "message": "Can we do this consistently with line 160 and line 134?",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 11
+      },
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729c3651_5cd99808",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T18:12:11Z",
+      "side": 1,
+      "message": "Do we want to check the page width/height with both the original + new PDFs?",
+      "range": {
+        "startLine": 150,
+        "startChar": 42,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efc2536_abf14ec8",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T18:12:11Z",
+      "side": 1,
+      "message": "Does EXPECT_EQ() not understand how to print out std::string mismatches?",
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
