@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "597b2f12_77fb49db",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-06-13T19:27:55Z",
+      "side": 1,
+      "message": "FWIW, I tried modifying the PDF from the bug and tested in Stable. With the 0 length objects removed it still rendered with blank pages in Print Preview, probably because of the missing references. Had to also remove the references to those objects to get it to work.",
+      "parentUuid": "a4b52515_d9ed9808",
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef275a5e_b0b1cda9",
         "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
         "patchSetId": 1
