@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c58ffb6_645cfb8b",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-13T16:18:38Z",
+      "side": 1,
+      "message": "I don\u0027t like any of those two. Renamed.",
+      "parentUuid": "b6593611_3f9ff65b",
+      "revId": "1dac38485737d5c05c5028f01e380dc2d5201319",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dae9d78_3219c44e",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-13T16:03:14Z",
       "side": 1,
       "message": "You can move the definition of colour out before the if() and then this line out after the if() and you don\u0027t need to duplicate it, yea?\n\n(same with the validate check)",
+      "revId": "1dac38485737d5c05c5028f01e380dc2d5201319",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a85fa114_e09b055a",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-13T16:18:38Z",
+      "side": 1,
+      "message": "It\u0027s not the same |color|.",
+      "parentUuid": "2dae9d78_3219c44e",
       "revId": "1dac38485737d5c05c5028f01e380dc2d5201319",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
