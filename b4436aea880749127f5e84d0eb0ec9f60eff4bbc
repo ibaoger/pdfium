@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f8298e1_b45b5b11",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-13T15:50:24Z",
+      "side": 1,
+      "message": "No because it\u0027s inside the while loop. I\u0027ve moved these assignments to a more reasonable place.",
+      "parentUuid": "f65bb64b_f6ee5dde",
+      "revId": "b4436aea880749127f5e84d0eb0ec9f60eff4bbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "750eed15_d3581500",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "b4436aea880749127f5e84d0eb0ec9f60eff4bbc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37bab037_c7b18aaf",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-13T15:50:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "750eed15_d3581500",
+      "revId": "b4436aea880749127f5e84d0eb0ec9f60eff4bbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
