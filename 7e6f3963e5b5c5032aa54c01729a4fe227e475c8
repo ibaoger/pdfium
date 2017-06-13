@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b81ffab_39e95794",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T13:58:56Z",
+      "side": 0,
+      "message": "We should now unless the string is malformed.",
+      "parentUuid": "b340d18b_4d349220",
+      "range": {
+        "startLine": 245,
+        "startChar": 24,
+        "endLine": 245,
+        "endChar": 39
+      },
+      "revId": "7e6f3963e5b5c5032aa54c01729a4fe227e475c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20be3b8a_df8baf03",
         "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-08T20:31:49Z",
       "side": 0,
       "message": "ditto.",
+      "range": {
+        "startLine": 258,
+        "startChar": 24,
+        "endLine": 258,
+        "endChar": 40
+      },
+      "revId": "7e6f3963e5b5c5032aa54c01729a4fe227e475c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3c072ac_c897e3e4",
+        "filename": "xfa/fgas/crt/cfgas_formatstring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T13:58:56Z",
+      "side": 0,
+      "message": "ditto",
+      "parentUuid": "20be3b8a_df8baf03",
       "range": {
         "startLine": 258,
         "startChar": 24,
