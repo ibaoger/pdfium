@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a4b52515_d9ed9808",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T19:21:33Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s safe as we don\u0027t know where the stream is referenced from. Having the empty stream seems safer then having an object reference that points at nothing.",
+      "parentUuid": "1c362a2e_b8a3e752",
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef275a5e_b0b1cda9",
         "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d963ec3_71b4b682",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T19:21:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef275a5e_b0b1cda9",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 11
+      },
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "0021f64f_4e7c1628",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T19:21:33Z",
+      "side": 1,
+      "message": "I checked the bitmap bounds, I think as long as they\u0027re the same we should be good.",
+      "parentUuid": "729c3651_5cd99808",
+      "range": {
+        "startLine": 150,
+        "startChar": 42,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5efc2536_abf14ec8",
         "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2017-06-13T18:12:11Z",
       "side": 1,
       "message": "Does EXPECT_EQ() not understand how to print out std::string mismatches?",
+      "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08e8dedb_3a309dad",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-13T19:21:33Z",
+      "side": 1,
+      "message": "Done, just me thinking it didn\u0027t work without trying.",
+      "parentUuid": "5efc2536_abf14ec8",
       "revId": "a72add9946192aa5408f05d39f19a8c2485d90bc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
