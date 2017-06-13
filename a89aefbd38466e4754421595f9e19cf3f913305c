@@ -248,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "7089590d_ee3dc1bc",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-13T17:37:25Z",
+      "side": 1,
+      "message": "And we may want to just keep this as is for consistency with the rest of the file. Let the code in CFFL_InteractiveFormFiller and below handle |pAnnot| appropriately.",
+      "parentUuid": "11372058_20154b67",
+      "range": {
+        "startLine": 207,
+        "startChar": 15,
+        "endLine": 207,
+        "endChar": 32
+      },
+      "revId": "a89aefbd38466e4754421595f9e19cf3f913305c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33d7461c_b0f7bb99",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
         "patchSetId": 2
