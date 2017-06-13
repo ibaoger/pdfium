@@ -1,11 +1,11 @@
 // Copyright 2016 PDFium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
-#include "public/fpdf_ppo.h"
+#include <string>
 
 #include "core/fxcrt/fx_basic.h"
 #include "public/fpdf_edit.h"
+#include "public/fpdf_ppo.h"
 #include "public/fpdfview.h"
 #include "testing/embedder_test.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -139,4 +139,30 @@ TEST_F(FPDFPPOEmbeddertest, BUG_664284) {
   FPDF_CloseDocument(output_doc);
 
   UnloadPage(page);
+}
+
+TEST_F(FPDFPPOEmbeddertest, ImportWithZeroLengthStream) {
+  EXPECT_TRUE(OpenDocument("zero_length_stream.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  EXPECT_NE(nullptr, page);
+
+  FPDF_BITMAP bitmap = RenderPage(page);
+  std::string digest = HashBitmap(bitmap, 200, 200);
+  FPDFBitmap_Destroy(bitmap);
+  FPDF_ClosePage(page);
+
+  FPDF_DOCUMENT new_doc = FPDF_CreateNewDocument();
+  EXPECT_TRUE(new_doc);
+  EXPECT_TRUE(FPDF_ImportPages(new_doc, document(), "1", 0));
+
+  EXPECT_EQ(1, FPDF_GetPageCount(new_doc));
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_NE(nullptr, new_page);
+  FPDF_BITMAP new_bitmap = RenderPage(new_page);
+  std::string new_digest = HashBitmap(new_bitmap, 200, 200);
+  FPDFBitmap_Destroy(new_bitmap);
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+
+  EXPECT_STREQ(digest.c_str(), new_digest.c_str());
 }
