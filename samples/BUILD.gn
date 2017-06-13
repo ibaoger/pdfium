@@ -73,6 +73,38 @@ executable("pdfium_test") {
   configs += [ ":pdfium_samples_config" ]
 }
 
+if (pdf_experimental_api) {
+  executable("pdfium_exp_test") {
+    testonly = true
+    sources = [
+      "exp/pdfium_test.cc",
+      "image_diff_png.cc",
+      "image_diff_png.h",
+    ]
+    deps = [
+      "../:pdfium",
+      "../:test_support",
+      "//build/config/sanitizers:deps",
+      "//build/win:default_exe_manifest",
+    ]
+    if (!pdf_enable_xfa) {
+      deps += [ "../third_party:fx_lpng" ]
+    }
+    if (pdf_enable_v8) {
+      deps += [ "//v8:v8_libplatform" ]
+      include_dirs = [
+        "//v8",
+        "//v8/include",
+      ]
+      configs += [ "//v8:external_startup_data" ]
+    }
+    if (pdf_use_skia || pdf_use_skia_paths) {
+      deps += [ "//skia" ]
+    }
+    configs += [ ":pdfium_samples_config" ]
+  }
+}
+
 executable("pdfium_diff") {
   testonly = true
   sources = [
