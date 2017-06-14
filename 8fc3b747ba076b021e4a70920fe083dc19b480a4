@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "729f9937_6de2490c",
+        "filename": "core/fxcrt/xml/cfx_saxreaderhandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:00:03Z",
+      "side": 1,
+      "message": "Can we just use m_SAXContext.m_TextBuf in the 3 lines below instead of creating the temporary? (and below)",
+      "revId": "8fc3b747ba076b021e4a70920fe083dc19b480a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
