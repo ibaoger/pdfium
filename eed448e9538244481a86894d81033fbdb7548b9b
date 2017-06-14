@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47122d71_2e6f2ba3",
+        "filename": "core/fxcodec/codec/ccodec_bmpmodule.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-14T22:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c666ed36_fed3f932",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "290057d1_168472ef",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5de7e28d_a2f8ae27",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-14T22:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "290057d1_168472ef",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "81c3c260_0bf32c57",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-14T22:21:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c4bbd05_bd63305b",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52da32d6_86df5552",
         "filename": "core/fxcodec/lbmp/fx_bmp.h",
         "patchSetId": 6
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "0772065c_5657dda5",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-14T22:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52da32d6_86df5552",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06a70287_8f39fa5b",
         "filename": "core/fxcodec/lbmp/fx_bmp.h",
         "patchSetId": 6
@@ -84,6 +156,24 @@
       "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c66061_b2b7e0fc",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-14T22:21:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06a70287_8f39fa5b",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
