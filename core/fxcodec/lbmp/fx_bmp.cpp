@@ -335,19 +335,10 @@ int32_t bmp_decode_image(bmp_decompress_struct_p bmp_ptr) {
   bmp_error(bmp_ptr, "Any Uncontrol Error");
   return 0;
 }
-
-bool validateColorIndex(uint8_t val, bmp_decompress_struct_p bmp_ptr) {
-  if (val >= bmp_ptr->pal_num) {
-    bmp_error(bmp_ptr, "A color index exceeds range determined by pal_num");
-    return false;
-  }
-  return true;
-}
-
 int32_t bmp_decode_rgb(bmp_decompress_struct_p bmp_ptr) {
+  uint8_t* row_buf = bmp_ptr->out_row_buffer;
   uint8_t* des_buf = nullptr;
   while (bmp_ptr->row_num < bmp_ptr->height) {
-    uint8_t* row_buf = bmp_ptr->out_row_buffer;
     if (!bmp_read_data(bmp_ptr, &des_buf, bmp_ptr->src_row_bytes))
       return 2;
 
@@ -398,13 +389,9 @@ int32_t bmp_decode_rgb(bmp_decompress_struct_p bmp_ptr) {
       case 24:
       case 32:
         memcpy(bmp_ptr->out_row_buffer, des_buf, bmp_ptr->src_row_bytes);
-        row_buf += bmp_ptr->src_row_bytes;
         break;
     }
-    for (uint8_t* buf = bmp_ptr->out_row_buffer; buf < row_buf; ++buf) {
-      if (!validateColorIndex(*buf, bmp_ptr))
-        return 0;
-    }
+    row_buf = bmp_ptr->out_row_buffer;
     bmp_ptr->bmp_get_row_fn(bmp_ptr,
                             bmp_ptr->imgTB_flag
                                 ? bmp_ptr->row_num++
@@ -492,12 +479,8 @@ int32_t bmp_decode_rle8(bmp_decompress_struct_p bmp_ptr) {
               bmp_ptr->skip_size = skip_size_org;
               return 2;
             }
-            uint8_t* first_buf = bmp_ptr->out_row_buffer + bmp_ptr->col_num;
-            memcpy(first_buf, second_byte_ptr, *first_byte_ptr);
-            for (size_t i = 0; i < *first_byte_ptr; ++i) {
-              if (!validateColorIndex(first_buf[i], bmp_ptr))
-                return 0;
-            }
+            memcpy(bmp_ptr->out_row_buffer + bmp_ptr->col_num, second_byte_ptr,
+                   *first_byte_ptr);
             bmp_ptr->col_num += (int32_t)(*first_byte_ptr);
           }
         }
@@ -512,12 +495,8 @@ int32_t bmp_decode_rle8(bmp_decompress_struct_p bmp_ptr) {
           bmp_ptr->skip_size = skip_size_org;
           return 2;
         }
-        uint8_t* first_buf = bmp_ptr->out_row_buffer + bmp_ptr->col_num;
-        memset(first_buf, *second_byte_ptr, *first_byte_ptr);
-        for (size_t i = 0; i < *first_byte_ptr; ++i) {
-          if (!validateColorIndex(first_buf[i], bmp_ptr))
-            return 0;
-        }
+        memset(bmp_ptr->out_row_buffer + bmp_ptr->col_num, *second_byte_ptr,
+               *first_byte_ptr);
         bmp_ptr->col_num += (int32_t)(*first_byte_ptr);
       }
     }
@@ -611,12 +590,13 @@ int32_t bmp_decode_rle4(bmp_decompress_struct_p bmp_ptr) {
               return 2;
             }
             for (uint8_t i = 0; i < *first_byte_ptr; i++) {
-              uint8_t color = (i & 0x01) ? (*second_byte_ptr++ & 0x0F)
-                                         : (*second_byte_ptr & 0xF0) >> 4;
-              if (!validateColorIndex(color, bmp_ptr))
-                return 0;
-
-              *(bmp_ptr->out_row_buffer + bmp_ptr->col_num++) = color;
+              if (i & 0x01) {
+                *(bmp_ptr->out_row_buffer + bmp_ptr->col_num++) =
+                    (*second_byte_ptr++ & 0x0F);
+              } else {
+                *(bmp_ptr->out_row_buffer + bmp_ptr->col_num++) =
+                    ((*second_byte_ptr & 0xF0) >> 4);
+              }
             }
           }
         }
@@ -643,9 +623,6 @@ int32_t bmp_decode_rle4(bmp_decompress_struct_p bmp_ptr) {
           uint8_t second_byte = *second_byte_ptr;
           second_byte =
               i & 0x01 ? (second_byte & 0x0F) : (second_byte & 0xF0) >> 4;
-          if (!validateColorIndex(second_byte, bmp_ptr))
-            return 0;
-
           *(bmp_ptr->out_row_buffer + bmp_ptr->col_num++) = second_byte;
         }
       }

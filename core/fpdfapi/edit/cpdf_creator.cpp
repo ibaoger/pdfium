@@ -171,20 +171,12 @@ bool CPDF_Creator::WriteStream(const CPDF_Object* pStream,
     encoder.GetDict()->SetNewFor<CPDF_Number>(
         "Length", static_cast<int>(encryptor.GetSize()));
   }
-
   if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-      !m_Archive->WriteString("stream\r\n")) {
+      !m_Archive->WriteString("stream\r\n") ||
+      !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
+      !m_Archive->WriteString("\r\nendstream")) {
     return false;
   }
-
-  // Allow for empty streams.
-  if (encryptor.GetSize() > 0 &&
-      !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize())) {
-    return false;
-  }
-
-  if (!m_Archive->WriteString("\r\nendstream"))
-    return false;
 
   return true;
 }

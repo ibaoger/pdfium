@@ -156,6 +156,7 @@ int CheckPDFiumCApi() {
     CHK(FORM_OnChar);
     CHK(FORM_ForceToKillFocus);
     CHK(FPDFPage_HasFormFieldAtPoint);
+    CHK(FPDPage_HasFormFieldAtPoint);  // DEPRECATED. Remove in the future.
     CHK(FPDFPage_FormFieldZOrderAtPoint);
     CHK(FPDF_SetFormFieldHighlightColor);
     CHK(FPDF_SetFormFieldHighlightAlpha);
