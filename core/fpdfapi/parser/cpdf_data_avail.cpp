@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_data_avail.h"
 
 #include <algorithm>
+#include <iostream>
 #include <memory>
 #include <utility>
 
@@ -1324,6 +1325,7 @@ bool CPDF_DataAvail::LoadPages(DownloadHints* pHints) {
 
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedData(
     DownloadHints* pHints) {
+  // std::cerr << "HENRIQUE CheckLinearizedData" << std::endl;
   if (m_bLinearedDataOK)
     return DataAvailable;
   ASSERT(m_pLinearized);
@@ -1343,6 +1345,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedData(
       return DataNotAvailable;
     }
 
+    std::cout << "HENRIQUE CheckLinearizedData will load xrefs" << std::endl;
     CPDF_Parser::Error eRet =
         m_pDocument->GetParser()->LoadLinearizedMainXRefTable();
     m_bMainXRefLoadTried = true;
@@ -1428,6 +1431,8 @@ bool CPDF_DataAvail::HaveResourceAncestor(CPDF_Dictionary* pDict) {
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
     uint32_t dwPage,
     DownloadHints* pHints) {
+  // std::cerr << "HENRIQUE IsPageAvail " << dwPage << std::endl;
+
   if (!m_pDocument)
     return DataError;
 
@@ -1615,6 +1620,7 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
 
 CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
     DownloadHints* pHints) {
+  std::cerr << "HENRIQUE IsFormAvail " << std::endl;
   if (!m_pDocument)
     return FormAvailable;
   if (m_pLinearized) {

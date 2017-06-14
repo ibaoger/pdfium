@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_parser.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 #include <vector>
 
@@ -116,6 +117,9 @@ void CPDF_Parser::ShrinkObjectMap(uint32_t objnum) {
   auto it = m_ObjectInfo.lower_bound(objnum);
   while (it != m_ObjectInfo.end()) {
     auto saved_it = it++;
+    if (objnum == 109959) {
+      std::cerr << "HENRIQUE ShrinkObjectMap " << objnum << std::endl;
+    }
     m_ObjectInfo.erase(saved_it);
   }
 
@@ -304,6 +308,7 @@ bool CPDF_Parser::LoadAllCrossRefV4(FX_FILESIZE xrefpos) {
   if (!LoadCrossRefV4(xrefpos, 0, true))
     return false;
 
+  std::cerr << "HENRIQUE LoadTrailerV4 A" << std::endl;
   m_pTrailer = LoadTrailerV4();
   if (!m_pTrailer)
     return false;
@@ -343,6 +348,7 @@ bool CPDF_Parser::LoadAllCrossRefV4(FX_FILESIZE xrefpos) {
     // SLOW ...
     XRefStreamList.insert(XRefStreamList.begin(),
                           pDict->GetIntegerFor("XRefStm"));
+    std::cerr << "HENRIQUE m_Trailer.push_back beta" << std::endl;
     m_Trailers.push_back(std::move(pDict));
   }
 
@@ -357,10 +363,32 @@ bool CPDF_Parser::LoadAllCrossRefV4(FX_FILESIZE xrefpos) {
 
 bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
                                               uint32_t dwObjCount) {
+  std::cerr << "HENRIQUE LoadLinearizedAllCrossRefV4 " << dwObjCount
+            << std::endl;
   if (!LoadLinearizedCrossRefV4(xrefpos, dwObjCount))
     return false;
 
+  if (m_pTrailer) {
+    std::cerr << "HENRIQUE LoadTrailerV4 BeforeB Info="
+              << m_pTrailer->GetObjectFor("Info") << std::endl;
+    std::cerr << "HENRIQUE LoadTrailerV4 BeforeB Size="
+              << m_pTrailer->GetObjectFor("Size") << std::endl;
+  } else {
+    std::cerr << "HENRIQUE LoadTrailerV4 BeforeB NULL" << std::endl;
+  }
+  if (m_pTrailer) {
+    std::cerr << "HENRIQUE m_Trailer.push_back delta" << std::endl;
+    m_Trailers.push_back(std::move(m_pTrailer));
+  }
   m_pTrailer = LoadTrailerV4();
+  if (m_pTrailer) {
+    std::cerr << "HENRIQUE LoadTrailerV4 AfterB Info="
+              << m_pTrailer->GetObjectFor("Info") << std::endl;
+    std::cerr << "HENRIQUE LoadTrailerV4 AfterB Size="
+              << m_pTrailer->GetObjectFor("Size") << std::endl;
+  } else {
+    std::cerr << "HENRIQUE LoadTrailerV4 AfterB NULL" << std::endl;
+  }
   if (!m_pTrailer)
     return false;
 
@@ -397,6 +425,7 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
     // SLOW ...
     XRefStreamList.insert(XRefStreamList.begin(),
                           pDict->GetIntegerFor("XRefStm"));
+    std::cerr << "HENRIQUE m_Trailer.push_back gamma" << std::endl;
     m_Trailers.push_back(std::move(pDict));
   }
 
@@ -404,11 +433,13 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
     if (!LoadCrossRefV4(CrossRefList[i], XRefStreamList[i], false))
       return false;
   }
+
   return true;
 }
 
 bool CPDF_Parser::LoadLinearizedCrossRefV4(FX_FILESIZE pos,
                                            uint32_t dwObjCount) {
+  std::cerr << "HENRIQUE LoadLinearizedCrossRefV4 " << dwObjCount << std::endl;
   FX_FILESIZE dwStartPos = pos - m_pSyntax->m_HeaderOffset;
 
   m_pSyntax->SetPos(dwStartPos);
@@ -438,6 +469,10 @@ bool CPDF_Parser::LoadLinearizedCrossRefV4(FX_FILESIZE pos,
       uint32_t objnum = start_objnum + block * 1024 + i;
       char* pEntry = &buf[i * recordsize];
       if (pEntry[17] == 'f') {
+        if (objnum == 109959) {
+          std::cerr << "HENRIQUE LoadLinearizedCrossRefV4 1 " << objnum
+                    << std::endl;
+        }
         m_ObjectInfo[objnum].pos = 0;
         m_ObjectInfo[objnum].type = 0;
       } else {
@@ -449,6 +484,10 @@ bool CPDF_Parser::LoadLinearizedCrossRefV4(FX_FILESIZE pos,
           }
         }
 
+        if (objnum == 109959) {
+          std::cerr << "HENRIQUE LoadLinearizedCrossRefV4 2 " << objnum
+                    << std::endl;
+        }
         m_ObjectInfo[objnum].pos = offset;
         int32_t version = FXSYS_atoi(pEntry + 11);
         if (version >= 1)
@@ -459,6 +498,12 @@ bool CPDF_Parser::LoadLinearizedCrossRefV4(FX_FILESIZE pos,
           m_SortedOffset.insert(m_ObjectInfo[objnum].pos);
 
         m_ObjectInfo[objnum].type = 1;
+        if (objnum == 109959) {
+          std::cerr << "HENRIQUE LoadLinearizedCrossRefV4 2 type: "
+                    << static_cast<int>(m_ObjectInfo[objnum].type) << std::endl;
+          std::cerr << "HENRIQUE LoadLinearizedCrossRefV4 2 offset: "
+                    << m_ObjectInfo[objnum].pos << std::endl;
+        }
       }
     }
   }
@@ -469,6 +514,7 @@ bool CPDF_Parser::LoadLinearizedCrossRefV4(FX_FILESIZE pos,
 bool CPDF_Parser::LoadCrossRefV4(FX_FILESIZE pos,
                                  FX_FILESIZE streampos,
                                  bool bSkip) {
+  std::cerr << "HENRIQUE LoadCrossRefV4 " << std::endl;
   m_pSyntax->SetPos(pos);
   if (m_pSyntax->GetKeyword() != "xref")
     return false;
@@ -513,6 +559,9 @@ bool CPDF_Parser::LoadCrossRefV4(FX_FILESIZE pos,
           uint32_t objnum = start_objnum + block * 1024 + i;
           char* pEntry = &buf[i * recordsize];
           if (pEntry[17] == 'f') {
+            if (objnum == 109959) {
+              std::cerr << "HENRIQUE LoadCrossRefV4 1 " << objnum << std::endl;
+            }
             m_ObjectInfo[objnum].pos = 0;
             m_ObjectInfo[objnum].type = 0;
           } else {
@@ -524,6 +573,9 @@ bool CPDF_Parser::LoadCrossRefV4(FX_FILESIZE pos,
               }
             }
 
+            if (objnum == 109959) {
+              std::cerr << "HENRIQUE LoadCrossRefV4 2 " << objnum << std::endl;
+            }
             m_ObjectInfo[objnum].pos = offset;
             int32_t version = FXSYS_atoi(pEntry + 11);
             if (version >= 1)
@@ -563,8 +615,10 @@ bool CPDF_Parser::LoadAllCrossRefV5(FX_FILESIZE xrefpos) {
 }
 
 bool CPDF_Parser::RebuildCrossRef() {
+  std::cerr << "HENRIQUE RebuildCrossRef CLEAR " << std::endl;
   m_ObjectInfo.clear();
   m_SortedOffset.clear();
+  std::cerr << "HENRIQUE m_pTrailer reset " << std::endl;
   m_pTrailer.reset();
 
   ParserState state = ParserState::kDefault;
@@ -726,6 +780,7 @@ bool CPDF_Parser::RebuildCrossRef() {
                       CPDF_Object* pRoot = pDict->GetObjectFor("Root");
                       if (pRoot && pRoot->GetDict() &&
                           pRoot->GetDict()->GetObjectFor("Pages")) {
+                        std::cerr << "HENRIQUE LoadTrailerV4 C" << std::endl;
                         m_pTrailer = ToDictionary(pDict->Clone());
                       }
                     }
@@ -758,6 +813,9 @@ bool CPDF_Parser::RebuildCrossRef() {
                       m_bVersionUpdated = true;
                   }
                 } else {
+                  if (objnum == 109959) {
+                    std::cerr << "HENRIQUE case 3 " << objnum << std::endl;
+                  }
                   m_ObjectInfo[objnum].pos = obj_pos;
                   m_ObjectInfo[objnum].type = 1;
                   m_ObjectInfo[objnum].gennum = gennum;
@@ -796,17 +854,24 @@ bool CPDF_Parser::RebuildCrossRef() {
                           uint32_t dwObjNum =
                               pElement ? pElement->GetObjNum() : 0;
                           if (dwObjNum) {
+                            std::cerr << "HENRIQUE m_pTrailer->SetNewFor "
+                                      << key.c_str() << " " << dwObjNum
+                                      << std::endl;
                             m_pTrailer->SetNewFor<CPDF_Reference>(
                                 key, m_pDocument.Get(), dwObjNum);
                           } else {
+                            std::cerr << "HENRIQUE m_pTrailer->SetFor "
+                                      << key.c_str() << " " << std::endl;
                             m_pTrailer->SetFor(key, pElement->Clone());
                           }
                         }
                       }
                     } else {
                       if (pObj->IsStream()) {
+                        std::cerr << "HENRIQUE LoadTrailerV4 D" << std::endl;
                         m_pTrailer = ToDictionary(pTrailer->Clone());
                       } else {
+                        std::cerr << "HENRIQUE LoadTrailerV4 E" << std::endl;
                         m_pTrailer = ToDictionary(std::move(pObj));
                       }
 
@@ -948,11 +1013,13 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
 
   std::unique_ptr<CPDF_Dictionary> pNewTrailer = ToDictionary(pDict->Clone());
   if (bMainXRef) {
+    std::cerr << "HENRIQUE LoadTrailerV4 F" << std::endl;
     m_pTrailer = std::move(pNewTrailer);
     ShrinkObjectMap(size);
     for (auto& it : m_ObjectInfo)
       it.second.type = 0;
   } else {
+    std::cerr << "HENRIQUE m_Trailer.push_back alpha" << std::endl;
     m_Trailers.push_back(std::move(pNewTrailer));
   }
 
@@ -1027,6 +1094,10 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
       if (GetObjectType(startnum + j) == 255) {
         FX_FILESIZE offset =
             GetVarInt(entrystart + WidthArray[0], WidthArray[1]);
+        if (startnum + j == 109959) {
+          std::cerr << "HENRIQUE LoadCrossRefV5 1 " << (startnum + j)
+                    << std::endl;
+        }
         m_ObjectInfo[startnum + j].pos = offset;
         m_SortedOffset.insert(offset);
         continue;
@@ -1035,12 +1106,21 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
       if (GetObjectType(startnum + j))
         continue;
 
+      if (startnum + j == 109959) {
+        std::cerr << "HENRIQUE LoadCrossRefV5 2 " << (startnum + j)
+                  << std::endl;
+      }
       m_ObjectInfo[startnum + j].type = type;
       if (type == 0) {
         m_ObjectInfo[startnum + j].pos = 0;
       } else {
         FX_FILESIZE offset =
             GetVarInt(entrystart + WidthArray[0], WidthArray[1]);
+        if (startnum + j == 109959) {
+          std::cerr << "HENRIQUE LoadCrossRefV5 2 type: " << type << std::endl;
+          std::cerr << "HENRIQUE LoadCrossRefV5 2 offset: " << offset
+                    << std::endl;
+        }
         m_ObjectInfo[startnum + j].pos = offset;
         if (type == 1) {
           m_SortedOffset.insert(offset);
@@ -1084,33 +1164,67 @@ uint32_t CPDF_Parser::GetRootObjNum() {
 uint32_t CPDF_Parser::GetInfoObjNum() {
   CPDF_Reference* pRef =
       ToReference(m_pTrailer ? m_pTrailer->GetObjectFor("Info") : nullptr);
+  std::cerr << "HENRIQUE GetInfoObjNum" << std::endl;
+  std::cerr << "HENRIQUE pRef " << pRef << std::endl;
+  if (pRef) {
+    std::cerr << "HENRIQUE pRef->GetRefObjNum() " << pRef->GetRefObjNum()
+              << std::endl;
+  } else {
+    std::cerr << "HENRIQUE pRef->GetRefObjNum() zero" << std::endl;
+  }
+  for (uint32_t i = m_Trailers.size(); i-- > 0 && !pRef;) {
+    pRef = ToReference(m_Trailers[i].get()->GetObjectFor("Info"));
+  }
+  std::cerr << "HENRIQUE GetInfoObjNum_again" << std::endl;
+  std::cerr << "HENRIQUE pRef_again " << pRef << std::endl;
   return pRef ? pRef->GetRefObjNum() : 0;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
     CPDF_IndirectObjectHolder* pObjList,
     uint32_t objnum) {
+  if (objnum == 2) {
+    std::cerr << "HENRIQUE CPDF_Parser IsValidObjectNumber "
+              << IsValidObjectNumber(objnum) << std::endl;
+  }
   if (!IsValidObjectNumber(objnum))
     return nullptr;
 
+  if (objnum == 2) {
+    std::cerr << "HENRIQUE CPDF_Parser ContainsKey "
+              << pdfium::ContainsKey(m_ParsingObjNums, objnum) << std::endl;
+  }
   // Prevent circular parsing the same object.
   if (pdfium::ContainsKey(m_ParsingObjNums, objnum))
     return nullptr;
 
   pdfium::ScopedSetInsertion<uint32_t> local_insert(&m_ParsingObjNums, objnum);
+  // if (objnum == 109959) {
+  //   for (int i = 0; i <= 109959; i++) {
+  //     if (GetObjectType(i) != 0) {
+  //       std::cerr << "HENRIQUE CPDF_Parser GetObjectType(" << i << ") " <<
+  //       static_cast<int>(GetObjectType(i)) <<  std::endl; std::cerr <<
+  //       "HENRIQUE CPDF_Parser GetObjectSize(" << i << ") " <<
+  //       static_cast<int>(GetObjectSize(i)) <<  std::endl;
+  //     }
+  //   }
+  // }
   if (GetObjectType(objnum) == 1 || GetObjectType(objnum) == 255) {
     FX_FILESIZE pos = m_ObjectInfo[objnum].pos;
-    if (pos <= 0)
+    if (pos <= 0) {
       return nullptr;
+    }
     return ParseIndirectObjectAt(pObjList, pos, objnum);
   }
-  if (GetObjectType(objnum) != 2)
+  if (GetObjectType(objnum) != 2) {
     return nullptr;
+  }
 
   CFX_RetainPtr<CPDF_StreamAcc> pObjStream =
       GetObjectStream(m_ObjectInfo[objnum].pos);
-  if (!pObjStream)
+  if (!pObjStream) {
     return nullptr;
+  }
 
   auto file = pdfium::MakeRetain<CFX_MemoryStream>(
       const_cast<uint8_t*>(pObjStream->GetData()),
@@ -1129,8 +1243,11 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
   }
 
   const auto it = m_ObjCache[pObjStream].find(objnum);
-  if (it == m_ObjCache[pObjStream].end())
+  if (it == m_ObjCache[pObjStream].end()) {
+    if (objnum == 109959)
+      std::cerr << "HENRIQUE CPDF_Parser it == m_ObjCache " << std::endl;
     return nullptr;
+  }
 
   syntax.SetPos(offset + it->second);
   return syntax.GetObject(pObjList, 0, 0, true);
@@ -1474,7 +1591,23 @@ CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
   }
 
   if (bLoadV4) {
+    if (m_pTrailer) {
+      std::cerr << "HENRIQUE LoadTrailerV4 BeforeG Info="
+                << m_pTrailer->GetObjectFor("Info") << std::endl;
+      std::cerr << "HENRIQUE LoadTrailerV4 BeforeG Size="
+                << m_pTrailer->GetObjectFor("Size") << std::endl;
+    } else {
+      std::cerr << "HENRIQUE LoadTrailerV4 BeforeG NULL" << std::endl;
+    }
     m_pTrailer = LoadTrailerV4();
+    if (m_pTrailer) {
+      std::cerr << "HENRIQUE LoadTrailerV4 AfterG Info="
+                << m_pTrailer->GetObjectFor("Info") << std::endl;
+      std::cerr << "HENRIQUE LoadTrailerV4 AfterG Size="
+                << m_pTrailer->GetObjectFor("Size") << std::endl;
+    } else {
+      std::cerr << "HENRIQUE LoadTrailerV4 AfterG NULL" << std::endl;
+    }
     if (!m_pTrailer)
       return SUCCESS;
 
@@ -1543,9 +1676,11 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV5(FX_FILESIZE xrefpos) {
 }
 
 CPDF_Parser::Error CPDF_Parser::LoadLinearizedMainXRefTable() {
+  std::cerr << "HENRIQUE LoadLinearizedMainXRefTable" << std::endl;
   uint32_t dwSaveMetadataObjnum = m_pSyntax->m_MetadataObjnum;
   m_pSyntax->m_MetadataObjnum = 0;
-  m_pTrailer.reset();
+  std::cerr << "HENRIQUE m_pTrailer was reset" << std::endl;
+  // m_pTrailer.reset();
   m_pSyntax->SetPos(m_LastXRefOffset - m_pSyntax->m_HeaderOffset);
 
   uint8_t ch = 0;

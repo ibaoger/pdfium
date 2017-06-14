@@ -1011,6 +1011,7 @@ void RenderPdf(const std::string& name,
                size_t len,
                const Options& options,
                const std::string& events) {
+  fprintf(stderr, "RenderPdf %zu\n", len);
   IPDF_JSPLATFORM platform_callbacks;
   memset(&platform_callbacks, '\0', sizeof(platform_callbacks));
   platform_callbacks.version = 3;
@@ -1052,6 +1053,7 @@ void RenderPdf(const std::string& name,
       FPDFAvail_Create(&file_avail, &file_access));
 
   if (FPDFAvail_IsLinearized(pdf_avail.get()) == PDF_LINEARIZED) {
+    fprintf(stderr, "PDF IS LINEARIZED\n");
     doc.reset(FPDFAvail_GetDocument(pdf_avail.get(), nullptr));
     if (doc) {
       while (nRet == PDF_DATA_NOTAVAIL)
@@ -1061,6 +1063,7 @@ void RenderPdf(const std::string& name,
         fprintf(stderr, "Unknown error in checking if doc was available.\n");
         return;
       }
+      fprintf(stderr, "HENRIQUE TEST will call FPDFAvail_IsFormAvail\n");
       nRet = FPDFAvail_IsFormAvail(pdf_avail.get(), &hints);
       if (nRet == PDF_FORM_ERROR || nRet == PDF_FORM_NOTAVAIL) {
         fprintf(stderr,
@@ -1108,6 +1111,18 @@ void RenderPdf(const std::string& name,
 
   (void)FPDF_GetDocPermissions(doc.get());
 
+  const char* metaTags[] = {"Title",   "Author",   "Subject",      "Keywords",
+                            "Creator", "Producer", "CreationDate", "ModDate"};
+  char metaBuffer[4096];
+  for (int i = 0; i < 8; i++) {
+    const char* metaTag = metaTags[i];
+    int len = FPDF_GetMetaText(doc.get(), metaTag, metaBuffer, 4096);
+    fprintf(stderr, "FPDF_GetMetaText got %s=%ls (%d)\n", metaTag,
+            GetPlatformWString(reinterpret_cast<unsigned short*>(metaBuffer))
+                .c_str(),
+            len);
+  }
+
   std::unique_ptr<void, FPDFFormHandleDeleter> form(
       FPDFDOC_InitFormFillEnvironment(doc.get(), &form_callbacks));
   form_callbacks.form_handle = form.get();
@@ -1140,6 +1155,7 @@ void RenderPdf(const std::string& name,
   for (int i = first_page; i < last_page; ++i) {
     if (bIsLinearized) {
       nRet = PDF_DATA_NOTAVAIL;
+      // fprintf(stderr, "HENRIQUE TEST will call FPDFAvail_IsPageAvail\n");
       while (nRet == PDF_DATA_NOTAVAIL)
         nRet = FPDFAvail_IsPageAvail(pdf_avail.get(), i, &hints);
 

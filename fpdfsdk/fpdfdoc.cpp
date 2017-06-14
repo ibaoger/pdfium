@@ -6,6 +6,7 @@
 
 #include "public/fpdf_doc.h"
 
+#include <iostream>
 #include <memory>
 #include <set>
 
@@ -392,11 +393,16 @@ DLLEXPORT unsigned long STDCALL FPDF_GetMetaText(FPDF_DOCUMENT document,
   if (!tag)
     return 0;
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
-  if (!pDoc)
+  if (!pDoc) {
+    std::cerr << "HENRIQUE !pDoc" << std::endl;
     return 0;
+  }
+  pDoc->LoadInfo();
   CPDF_Dictionary* pInfo = pDoc->GetInfo();
-  if (!pInfo)
+  if (!pInfo) {
+    std::cerr << "HENRIQUE !pInfo" << std::endl;
     return 0;
+  }
   CFX_WideString text = pInfo->GetUnicodeTextFor(tag);
   return Utf16EncodeMaybeCopyAndReturnLength(text, buffer, buflen);
 }

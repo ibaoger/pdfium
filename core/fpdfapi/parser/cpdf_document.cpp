@@ -6,6 +6,7 @@
 
 #include "core/fpdfapi/parser/cpdf_document.h"
 
+#include <iostream>
 #include <memory>
 #include <set>
 #include <utility>
@@ -364,19 +365,38 @@ std::unique_ptr<CPDF_Object> CPDF_Document::ParseIndirectObject(
 }
 
 void CPDF_Document::LoadDocInternal() {
+  std::cerr << "HENRIQUE LoadDocInternal" << std::endl;
   SetLastObjNum(m_pParser->GetLastObjNum());
 
   CPDF_Object* pRootObj = GetOrParseIndirectObject(m_pParser->GetRootObjNum());
-  if (!pRootObj)
+  if (!pRootObj) {
+    std::cerr << "HENRIQUE !pRootObj" << std::endl;
     return;
+  }
 
   m_pRootDict = pRootObj->GetDict();
-  if (!m_pRootDict)
+  if (!m_pRootDict) {
+    std::cerr << "HENRIQUE !m_pRootDict" << std::endl;
     return;
+  }
 
+  LoadInfo();
+}
+
+void CPDF_Document::LoadInfo() {
+  if (m_pInfoDict) {
+    return;
+  }
+
+  std::cerr << "HENRIQUE LoadInfo" << std::endl;
   CPDF_Object* pInfoObj = GetOrParseIndirectObject(m_pParser->GetInfoObjNum());
-  if (pInfoObj)
+  if (pInfoObj) {
     m_pInfoDict = pInfoObj->GetDict();
+    std::cerr << "HENRIQUE LoadInfo set m_pInfoDict "
+              << m_pInfoDict->GetCount() << std::endl;
+  } else {
+    std::cerr << "HENRIQUE LoadInfo !pInfoObj" << std::endl;
+  }
 }
 
 void CPDF_Document::LoadDoc() {
@@ -386,6 +406,8 @@ void CPDF_Document::LoadDoc() {
 
 void CPDF_Document::LoadLinearizedDoc(
     const CPDF_LinearizedHeader* pLinearizationParams) {
+  std::cerr << "HENRIQUE LoadLinearizedDoc" << std::endl;
+
   m_bLinearized = true;
   LoadDocInternal();
   m_PageList.resize(pLinearizationParams->GetPageCount());
@@ -394,6 +416,7 @@ void CPDF_Document::LoadLinearizedDoc(
 }
 
 void CPDF_Document::LoadPages() {
+  std::cerr << "HENRIQUE LoadPages" << std::endl;
   m_PageList.resize(RetrievePageCount());
 }
 

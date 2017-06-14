@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_indirect_object_holder.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 
 #include "core/fpdfapi/parser/cpdf_object.h"
@@ -29,20 +30,42 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetIndirectObject(
 
 CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
     uint32_t objnum) {
+  if (objnum == 109959) {
+    std::cerr << "HENRIQUE GetOrParseIndirectObject " << objnum << std::endl;
+  }
+
   if (objnum == 0)
     return nullptr;
 
   CPDF_Object* pObj = GetIndirectObject(objnum);
-  if (pObj)
+  if (pObj) {
+    if (objnum == 109959) {
+      std::cerr << "HENRIQUE GetOrParseIndirectObject pObj nonnull"
+                << std::endl;
+    }
     return pObj->GetObjNum() != CPDF_Object::kInvalidObjNum ? pObj : nullptr;
+  }
 
   std::unique_ptr<CPDF_Object> pNewObj = ParseIndirectObject(objnum);
-  if (!pNewObj)
+  if (!pNewObj) {
+    if (objnum == 109959) {
+      std::cerr << "HENRIQUE GetOrParseIndirectObject !pNewObj" << std::endl;
+    }
     return nullptr;
+  } else {
+    if (objnum == 109959) {
+      std::cerr << "HENRIQUE GetOrParseIndirectObject pNewObj is "
+                << pNewObj.get() << std::endl;
+    }
+  }
 
   pNewObj->m_ObjNum = objnum;
   m_LastObjNum = std::max(m_LastObjNum, objnum);
   m_IndirectObjs[objnum] = std::move(pNewObj);
+  if (objnum == 109959) {
+    std::cerr << "HENRIQUE GetOrParseIndirectObject RETURN "
+              << m_IndirectObjs[objnum].get() << std::endl;
+  }
   return m_IndirectObjs[objnum].get();
 }
 
