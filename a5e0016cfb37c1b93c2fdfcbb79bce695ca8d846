@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31673c6b_9c4f63b9",
+        "filename": "core/fxcrt/fx_memory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T00:51:31Z",
+      "side": 1,
+      "message": "This looks a lot like FX_SafeAlloc() in the header. Can we deduplicate or did I miss something?",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ead334_47855110",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T00:51:31Z",
+      "side": 1,
+      "message": "nit: No need for blank line?",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c592703_6db39da9",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T00:51:31Z",
+      "side": 1,
+      "message": "Do we need this check? Looking at the xrefs for the Chromium copy in base/allocator/partition_allocator/partition_alloc.h, I don\u0027t see any callers doing this.",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a47dd9f1_4c6af480",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T00:51:31Z",
+      "side": 1,
+      "message": "If you switched this away from FX_Alloc(). Do we still need this as a TODO? Can it just be a note to tell future readers not to use FX_Alloc? Or is the TODO really suppose to say \"let\u0027s use FX_Alloc() in the future.\" ?",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
