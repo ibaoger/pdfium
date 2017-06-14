@@ -560,12 +560,14 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
   // New page
   std::unique_ptr<void, FPDFPageDeleter> page(
       FPDFPage_New(CreateNewDocument(), 0, 612, 792));
+  printf("aaa\n");
 
   // Create a rect with nontrivial graphics
   FPDF_PAGEOBJECT rect1 = FPDFPageObj_CreateNewRect(10, 10, 100, 100);
   FPDFPageObj_SetBlendMode(rect1, "Color");
   FPDFPage_InsertObject(page.get(), rect1);
   EXPECT_TRUE(FPDFPage_GenerateContent(page.get()));
+  printf("bbb\n");
 
   // Check that the ExtGState was created
   CPDF_Page* the_page = CPDFPageFromFPDFPage(page.get());
@@ -573,6 +575,7 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
       the_page->m_pResources->GetDictFor("ExtGState");
   ASSERT_TRUE(graphics_dict);
   EXPECT_EQ(1, static_cast<int>(graphics_dict->GetCount()));
+  printf("ccc\n");
 
   // Add a text object causing no change to the graphics dictionary
   FPDF_PAGEOBJECT text1 = FPDFPageObj_NewTextObj(document(), "Arial", 12.0f);
@@ -582,6 +585,7 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
   FPDFPage_InsertObject(page.get(), text1);
   EXPECT_TRUE(FPDFPage_GenerateContent(page.get()));
   EXPECT_EQ(1, static_cast<int>(graphics_dict->GetCount()));
+  printf("ddd\n");
 
   // Add a text object increasing the size of the graphics dictionary
   FPDF_PAGEOBJECT text2 =
@@ -591,6 +595,7 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
   EXPECT_TRUE(FPDFText_SetFillColor(text2, 0, 0, 255, 150));
   EXPECT_TRUE(FPDFPage_GenerateContent(page.get()));
   EXPECT_EQ(2, static_cast<int>(graphics_dict->GetCount()));
+  printf("eee\n");
 
   // Add a path that should reuse graphics
   FPDF_PAGEOBJECT path = FPDFPageObj_CreateNewPath(400, 100);
@@ -599,6 +604,7 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
   FPDFPage_InsertObject(page.get(), path);
   EXPECT_TRUE(FPDFPage_GenerateContent(page.get()));
   EXPECT_EQ(2, static_cast<int>(graphics_dict->GetCount()));
+  printf("fff\n");
 
   // Add a rect increasing the size of the graphics dictionary
   FPDF_PAGEOBJECT rect2 = FPDFPageObj_CreateNewRect(10, 10, 100, 100);
@@ -608,6 +614,7 @@ TEST_F(FPDFEditEmbeddertest, GraphicsData) {
   FPDFPage_InsertObject(page.get(), rect2);
   EXPECT_TRUE(FPDFPage_GenerateContent(page.get()));
   EXPECT_EQ(3, static_cast<int>(graphics_dict->GetCount()));
+  printf("ggg\n");
 }
 
 TEST_F(FPDFEditEmbeddertest, DoubleGenerating) {
