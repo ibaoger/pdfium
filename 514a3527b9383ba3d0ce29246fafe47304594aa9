@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a059be6c_0d2440b9",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T06:19:43Z",
+      "side": 1,
+      "message": "style: Either GetCPWLEdit(), or GetEditControl(). Similarly below.",
+      "range": {
+        "startLine": 53,
+        "startChar": 13,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "514a3527b9383ba3d0ce29246fafe47304594aa9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7c0f4b4_75e7969a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T06:19:43Z",
+      "side": 1,
+      "message": "style: Since this is PDFium, use m_foo instead of foo_.",
+      "revId": "514a3527b9383ba3d0ce29246fafe47304594aa9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "252dca8a_87ec3842",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T06:19:43Z",
+      "side": 1,
+      "message": "Every test case still has to do this and call UnloadPage() at the end. We can move these into CPWLEditEmbeddertest\u0027s SetUp() and TearDown() methods. Don\u0027t forget to call the parent class\u0027s methods.",
+      "revId": "514a3527b9383ba3d0ce29246fafe47304594aa9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9946a25_3ef36c79",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-14T06:19:43Z",
+      "side": 1,
+      "message": "It might be good to add a comment to explain what this actually does.",
+      "revId": "514a3527b9383ba3d0ce29246fafe47304594aa9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
