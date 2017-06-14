@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c666ed36_fed3f932",
+        "filename": "core/fxcodec/codec/ccodec_bmpmodule.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:08:56Z",
+      "side": 1,
+      "message": "static cast",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "290057d1_168472ef",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:08:56Z",
+      "side": 1,
+      "message": "casts",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4bbd05_bd63305b",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:08:56Z",
+      "side": 1,
+      "message": "std::vector this in a followup?",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52da32d6_86df5552",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:08:56Z",
+      "side": 1,
+      "message": "Move this below the public: section below.",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06a70287_8f39fa5b",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T21:08:56Z",
+      "side": 1,
+      "message": "Can we followup and convert these various *\u0027s to some kinda smart pointer?",
+      "revId": "eed448e9538244481a86894d81033fbdb7548b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
