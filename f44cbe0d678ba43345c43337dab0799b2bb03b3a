@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51cdcfd0_49deff4c",
+        "filename": "core/fpdfapi/edit/fpdf_edit_create.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T17:51:43Z",
+      "side": 1,
+      "message": "cpdf_creator.cpp didn\u0027t exist when M59 was branched. Added this check instead.",
+      "revId": "f44cbe0d678ba43345c43337dab0799b2bb03b3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2314a50e_ac73cd2c",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-14T17:51:43Z",
+      "side": 1,
+      "message": "This was renamed from CryptToBase16.",
+      "revId": "f44cbe0d678ba43345c43337dab0799b2bb03b3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
