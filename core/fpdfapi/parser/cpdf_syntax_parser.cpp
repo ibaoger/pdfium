@@ -7,7 +7,6 @@
 #include "core/fpdfapi/parser/cpdf_syntax_parser.h"
 
 #include <algorithm>
-#include <sstream>
 #include <utility>
 #include <vector>
 
@@ -205,7 +204,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
   if (!GetNextChar(ch))
     return CFX_ByteString();
 
-  std::ostringstream buf;
+  CFX_ByteTextBuf buf;
   int32_t parlevel = 0;
   ReadStatus status = ReadStatus::Normal;
   int32_t iEscCode = 0;
@@ -214,7 +213,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
       case ReadStatus::Normal:
         if (ch == ')') {
           if (parlevel == 0)
-            return CFX_ByteString(buf);
+            return buf.MakeString();
           parlevel--;
         } else if (ch == '(') {
           parlevel++;
@@ -222,7 +221,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
         if (ch == '\\')
           status = ReadStatus::Backslash;
         else
-          buf << static_cast<char>(ch);
+          buf.AppendChar(ch);
         break;
       case ReadStatus::Backslash:
         if (ch >= '0' && ch <= '7') {
@@ -232,20 +231,20 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
         }
 
         if (ch == 'n') {
-          buf << '\n';
+          buf.AppendChar('\n');
         } else if (ch == 'r') {
-          buf << '\r';
+          buf.AppendChar('\r');
         } else if (ch == 't') {
-          buf << '\t';
+          buf.AppendChar('\t');
         } else if (ch == 'b') {
-          buf << '\b';
+          buf.AppendChar('\b');
         } else if (ch == 'f') {
-          buf << '\f';
+          buf.AppendChar('\f');
         } else if (ch == '\r') {
           status = ReadStatus::CarriageReturn;
           break;
         } else if (ch != '\n') {
-          buf << static_cast<char>(ch);
+          buf.AppendChar(ch);
         }
         status = ReadStatus::Normal;
         break;
@@ -255,7 +254,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
               iEscCode * 8 + FXSYS_DecimalCharToInt(static_cast<wchar_t>(ch));
           status = ReadStatus::FinishOctal;
         } else {
-          buf << static_cast<char>(iEscCode);
+          buf.AppendChar(iEscCode);
           status = ReadStatus::Normal;
           continue;
         }
@@ -265,9 +264,9 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
         if (ch >= '0' && ch <= '7') {
           iEscCode =
               iEscCode * 8 + FXSYS_DecimalCharToInt(static_cast<wchar_t>(ch));
-          buf << static_cast<char>(iEscCode);
+          buf.AppendChar(iEscCode);
         } else {
-          buf << static_cast<char>(iEscCode);
+          buf.AppendChar(iEscCode);
           continue;
         }
         break;
@@ -283,7 +282,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadString() {
   }
 
   GetNextChar(ch);
-  return CFX_ByteString(buf);
+  return buf.MakeString();
 }
 
 CFX_ByteString CPDF_SyntaxParser::ReadHexString() {
@@ -291,7 +290,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadHexString() {
   if (!GetNextChar(ch))
     return CFX_ByteString();
 
-  std::ostringstream buf;
+  CFX_ByteTextBuf buf;
   bool bFirst = true;
   uint8_t code = 0;
   while (1) {
@@ -304,7 +303,7 @@ CFX_ByteString CPDF_SyntaxParser::ReadHexString() {
         code = val * 16;
       } else {
         code += val;
-        buf << static_cast<char>(code);
+        buf.AppendByte(code);
       }
       bFirst = !bFirst;
     }
@@ -313,9 +312,9 @@ CFX_ByteString CPDF_SyntaxParser::ReadHexString() {
       break;
   }
   if (!bFirst)
-    buf << static_cast<char>(code);
+    buf.AppendByte(code);
 
-  return CFX_ByteString(buf);
+  return buf.MakeString();
 }
 
 void CPDF_SyntaxParser::ToNextLine() {
@@ -725,11 +724,10 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
     }
     m_Pos = streamStartPos;
   }
-  // Read up to the end of the buffer. Note, we allow zero length streams as
-  // we need to pass them through when we are importing pages into a new
-  // document.
+
+  // Read up to the end of the buffer.
   len = std::min(len, m_FileLen - m_Pos - m_HeaderOffset);
-  if (len < 0)
+  if (len <= 0)
     return nullptr;
 
   std::unique_ptr<uint8_t, FxFreeDeleter> pData;
@@ -747,6 +745,7 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
       pData = dest_buf.DetachBuffer();
     }
   }
+
   auto pStream =
       pdfium::MakeUnique<CPDF_Stream>(std::move(pData), len, std::move(pDict));
   streamStartPos = m_Pos;

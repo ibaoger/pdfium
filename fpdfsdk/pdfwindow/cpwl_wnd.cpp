@@ -186,7 +186,6 @@ void CPWL_Wnd::Destroy() {
   KillFocus();
   OnDestroy();
   if (m_bCreated) {
-    m_pVScrollBar = nullptr;
     for (auto it = m_Children.rbegin(); it != m_Children.rend(); ++it) {
       if (CPWL_Wnd* pChild = *it) {
         *it = nullptr;
@@ -202,6 +201,7 @@ void CPWL_Wnd::Destroy() {
   DestroyMsgControl();
   m_sPrivateParam.Reset();
   m_Children.clear();
+  m_pVScrollBar = nullptr;
 }
 
 void CPWL_Wnd::Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh) {
