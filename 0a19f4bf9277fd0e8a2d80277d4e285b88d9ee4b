@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "553dd959_31b0e204",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-15T17:06:31Z",
+      "side": 1,
+      "message": "Yes we do. |pObserved| is observing |m_pWidget|. So if this line evals to true, then |m_pWidget| is a dangling pointer. We use |m_pWidget| below.",
+      "parentUuid": "32e73630_fdb6c8fc",
+      "revId": "0a19f4bf9277fd0e8a2d80277d4e285b88d9ee4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c09345c_d778a007",
         "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2017-06-14T13:16:00Z",
       "side": 1,
       "message": "We don\u0027t use pAnnot after this, does this matter? Shouldn\u0027t the caller be checking?",
+      "revId": "0a19f4bf9277fd0e8a2d80277d4e285b88d9ee4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12d117cb_9913ee49",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-15T17:06:31Z",
+      "side": 1,
+      "message": "Given all the places where widgets can get deleted out from under us, I don\u0027t think it hurt to be a paranoid parrot - consistently.\n\nThe caller is checking for the return value. We can improve it separately.",
+      "parentUuid": "9c09345c_d778a007",
       "revId": "0a19f4bf9277fd0e8a2d80277d4e285b88d9ee4b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
