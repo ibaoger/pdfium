@@ -52,6 +52,21 @@ CPDF_DocPageData::~CPDF_DocPageData() {
 void CPDF_DocPageData::Clear(bool bForceRelease) {
   m_bForceClear = bForceRelease;
 
+  // Clear the forms attached to the tiling patterns. These forms are
+  // PageObjectHolders. When we parsed the tiling pattern it may have an
+  // embedded shading pattern. That shading pattern will exist in this
+  // DocPageData as a pattern and be pointed to by a ShadingObject in the
+  // tiling pattern form. This causes issues when cleaning up as we expect the
+  // ShadingPattern to be alive when we cleanup the ShadingObject, which
+  // depends on the order the map is cleared.
+  for (auto& it : m_PatternMap) {
+    CPDF_Pattern* pattern = it.second->get();
+    if (!pattern || !pattern->AsTilingPattern())
+      continue;
+
+    pattern->AsTilingPattern()->ClearFormObject();
+  }
+
   for (auto& it : m_PatternMap) {
     CPDF_CountedPattern* ptData = it.second;
     if (!ptData->get())
