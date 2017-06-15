@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f4106e2_0a25221f",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-15T22:47:57Z",
+      "side": 1,
+      "message": "Unclear to me what you mean.",
+      "range": {
+        "startLine": 60,
+        "startChar": 67,
+        "endLine": 61,
+        "endChar": 45
+      },
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ef4e7ba_626ab001",
         "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
         "patchSetId": 1
@@ -30,6 +53,29 @@
       "writtenOn": "2017-06-15T21:46:41Z",
       "side": 1,
       "message": "Do we always need to do this, or only when this condition is true? -\u003e if (bForceRelease || ptData-\u003euse_count() \u003c 2)",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48a0c493_83c8320c",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-15T22:47:57Z",
+      "side": 1,
+      "message": "Could this go in the destructor of the tiling pattern?",
+      "range": {
+        "startLine": 67,
+        "startChar": 32,
+        "endLine": 67,
+        "endChar": 47
+      },
       "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
