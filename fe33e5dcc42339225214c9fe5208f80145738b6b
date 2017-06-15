@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ef4e7ba_626ab001",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-15T21:46:41Z",
+      "side": 1,
+      "message": "Can we integrate the contents of this for-loop into the for-loop right below?",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "034317b6_873a58be",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-15T21:46:41Z",
+      "side": 1,
+      "message": "Do we always need to do this, or only when this condition is true? -\u003e if (bForceRelease || ptData-\u003euse_count() \u003c 2)",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5049c675_c9210b85",
+        "filename": "core/fpdfapi/page/cpdf_tilingpattern.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-15T21:46:41Z",
+      "side": 1,
+      "message": "Group this with Load() above, and implement it in the .cpp file?",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
