@@ -6,6 +6,7 @@
 
 #include "core/fpdfapi/parser/cpdf_document.h"
 
+#include <iostream>
 #include <memory>
 #include <set>
 #include <utility>
@@ -374,6 +375,13 @@ void CPDF_Document::LoadDocInternal() {
   if (!m_pRootDict)
     return;
 
+  LoadInfo();
+}
+
+void CPDF_Document::LoadInfo() {
+  if (m_pInfoDict)
+    return;
+
   CPDF_Object* pInfoObj = GetOrParseIndirectObject(m_pParser->GetInfoObjNum());
   if (pInfoObj)
     m_pInfoDict = pInfoObj->GetDict();
@@ -386,6 +394,7 @@ void CPDF_Document::LoadDoc() {
 
 void CPDF_Document::LoadLinearizedDoc(
     const CPDF_LinearizedHeader* pLinearizationParams) {
+
   m_bLinearized = true;
   LoadDocInternal();
   m_PageList.resize(pLinearizationParams->GetPageCount());
@@ -394,6 +403,7 @@ void CPDF_Document::LoadLinearizedDoc(
 }
 
 void CPDF_Document::LoadPages() {
+  std::cerr << "HENRIQUE LoadPages" << std::endl;
   m_PageList.resize(RetrievePageCount());
 }
 

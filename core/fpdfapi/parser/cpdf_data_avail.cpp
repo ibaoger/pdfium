@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_data_avail.h"
 
 #include <algorithm>
+#include <iostream>
 #include <memory>
 #include <utility>
 
@@ -1428,6 +1429,7 @@ bool CPDF_DataAvail::HaveResourceAncestor(CPDF_Dictionary* pDict) {
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
     uint32_t dwPage,
     DownloadHints* pHints) {
+
   if (!m_pDocument)
     return DataError;
 

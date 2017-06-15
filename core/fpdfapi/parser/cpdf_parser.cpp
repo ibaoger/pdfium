@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_parser.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 #include <vector>
 
@@ -360,6 +361,9 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
   if (!LoadLinearizedCrossRefV4(xrefpos, dwObjCount))
     return false;
 
+  if (m_pTrailer)
+    m_Trailers.push_back(std::move(m_pTrailer));
+
   m_pTrailer = LoadTrailerV4();
   if (!m_pTrailer)
     return false;
@@ -404,6 +408,7 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
     if (!LoadCrossRefV4(CrossRefList[i], XRefStreamList[i], false))
       return false;
   }
+
   return true;
 }
 
@@ -1084,6 +1089,9 @@ uint32_t CPDF_Parser::GetRootObjNum() {
 uint32_t CPDF_Parser::GetInfoObjNum() {
   CPDF_Reference* pRef =
       ToReference(m_pTrailer ? m_pTrailer->GetObjectFor("Info") : nullptr);
+  for (uint32_t i = m_Trailers.size(); i-- > 0 && !pRef;) {
+    pRef = ToReference(m_Trailers[i].get()->GetObjectFor("Info"));
+  }
   return pRef ? pRef->GetRefObjNum() : 0;
 }
 
@@ -1100,17 +1108,20 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
   pdfium::ScopedSetInsertion<uint32_t> local_insert(&m_ParsingObjNums, objnum);
   if (GetObjectType(objnum) == 1 || GetObjectType(objnum) == 255) {
     FX_FILESIZE pos = m_ObjectInfo[objnum].pos;
-    if (pos <= 0)
+    if (pos <= 0) {
       return nullptr;
+    }
     return ParseIndirectObjectAt(pObjList, pos, objnum);
   }
-  if (GetObjectType(objnum) != 2)
+  if (GetObjectType(objnum) != 2) {
     return nullptr;
+  }
 
   CFX_RetainPtr<CPDF_StreamAcc> pObjStream =
       GetObjectStream(m_ObjectInfo[objnum].pos);
-  if (!pObjStream)
+  if (!pObjStream) {
     return nullptr;
+  }
 
   auto file = pdfium::MakeRetain<CFX_MemoryStream>(
       const_cast<uint8_t*>(pObjStream->GetData()),
@@ -1129,8 +1140,9 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
   }
 
   const auto it = m_ObjCache[pObjStream].find(objnum);
-  if (it == m_ObjCache[pObjStream].end())
+  if (it == m_ObjCache[pObjStream].end()) {
     return nullptr;
+  }
 
   syntax.SetPos(offset + it->second);
   return syntax.GetObject(pObjList, 0, 0, true);
@@ -1545,7 +1557,7 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV5(FX_FILESIZE xrefpos) {
 CPDF_Parser::Error CPDF_Parser::LoadLinearizedMainXRefTable() {
   uint32_t dwSaveMetadataObjnum = m_pSyntax->m_MetadataObjnum;
   m_pSyntax->m_MetadataObjnum = 0;
-  m_pTrailer.reset();
+  // m_pTrailer.reset();
   m_pSyntax->SetPos(m_LastXRefOffset - m_pSyntax->m_HeaderOffset);
 
   uint8_t ch = 0;

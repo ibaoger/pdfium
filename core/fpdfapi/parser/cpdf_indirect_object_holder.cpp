@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_indirect_object_holder.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 
 #include "core/fpdfapi/parser/cpdf_object.h"
@@ -29,6 +30,7 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetIndirectObject(
 
 CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
     uint32_t objnum) {
+
   if (objnum == 0)
     return nullptr;
 
