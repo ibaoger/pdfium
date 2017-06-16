@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b113fc37_a1006eec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T21:16:19Z",
+      "side": 1,
+      "message": "BTW, there\u0027s trailing spaces in a bunch of places here. In general, trailing spaces are not useful. Many people set up their text editors to highlight them so one would notice.",
+      "revId": "4e837438b64a93809f3f0dad4fbcbe63b246dba1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2b46df7_d92dc431",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T21:16:19Z",
+      "side": 1,
+      "message": "Can we add a bug number entry for context?\n\nBUG\u003dchromium:59266",
+      "revId": "4e837438b64a93809f3f0dad4fbcbe63b246dba1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd9715ee_0c7b0bc0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T21:16:19Z",
+      "side": 1,
+      "message": "Can we put these before the other methods? They are almost constructor / destructor like, and we put ctor/dtors at the top.",
+      "revId": "4e837438b64a93809f3f0dad4fbcbe63b246dba1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
