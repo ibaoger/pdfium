@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffe10f7b_b96402fb",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T23:37:36Z",
+      "side": 1,
+      "message": "BTW, can |m_pDecodeBuf| also become a std::vector eventually? |m_ScanlineSize| can then just be m_pDecodeBuf.size() I think.",
+      "range": {
+        "startLine": 887,
+        "startChar": 63,
+        "endLine": 887,
+        "endChar": 75
+      },
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76561e34_32009826",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T23:37:36Z",
+      "side": 1,
+      "message": "for (uint8_t byte : out_row_buffer) ?",
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a848390_fa0b6cbc",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T23:37:36Z",
+      "side": 1,
+      "message": "Would it be a lot of work to change |row_num| to size_t as well? The mismatch vs |col_num| looks a bit weird.",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
