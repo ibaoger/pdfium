@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "65d306e8_e21f5c5e",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T19:55:22Z",
+      "side": 1,
+      "message": "With wcsftime() it will crash. With FXSYS_wcsftime() it will return an empty string.\n\nThis is triggered by the \"Date with negative year\" test case. I would like it to print an error in this case. We can either do it here, or do it after FXSYS_wcfstime() returns. We might as well do it early since we know this will fail.",
+      "parentUuid": "e6677542_190e945e",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "f9d57dcd66b8e6e33c931ec87556bec59a007fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87e23ff3_4adc58e2",
         "filename": "testing/resources/javascript/util_printd.in",
         "patchSetId": 2
