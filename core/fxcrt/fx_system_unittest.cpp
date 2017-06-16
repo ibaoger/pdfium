@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 #include <limits>
-#include <string>
 
 #include "core/fxcrt/fx_system.h"
 #include "testing/fx_string_testhelpers.h"
@@ -23,7 +22,7 @@ void Check32BitBase16Itoa(int32_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_itoa(input, buf, 16);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -32,7 +31,7 @@ void Check32BitBase10Itoa(int32_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_itoa(input, buf, 10);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -41,7 +40,7 @@ void Check32BitBase2Itoa(int32_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_itoa(input, buf, 2);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -50,7 +49,7 @@ void Check64BitBase16Itoa(int64_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_i64toa(input, buf, 16);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -59,7 +58,7 @@ void Check64BitBase10Itoa(int64_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_i64toa(input, buf, 10);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -68,7 +67,7 @@ void Check64BitBase2Itoa(int64_t input, const char* expected_output) {
   char buf[kBufLen];
   buf[kBufLen - 1] = kSentinel;
   FXSYS_i64toa(input, buf, 2);
-  EXPECT_EQ(std::string(expected_output), buf);
+  EXPECT_STREQ(expected_output, buf);
   EXPECT_EQ(kSentinel, buf[kBufLen - 1]);
 }
 
@@ -78,16 +77,16 @@ TEST(fxcrt, FXSYS_itoa_InvalidRadix) {
   char buf[32];
 
   FXSYS_itoa(42, buf, 17);  // Ours stops at 16.
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_itoa(42, buf, 1);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_itoa(42, buf, 0);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_itoa(42, buf, -1);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 }
 
 TEST(fxcrt, FXSYS_itoa) {
@@ -118,16 +117,16 @@ TEST(fxcrt, FXSYS_i64toa_InvalidRadix) {
   char buf[32];
 
   FXSYS_i64toa(42, buf, 17);  // Ours stops at 16.
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_i64toa(42, buf, 1);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_i64toa(42, buf, 0);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 
   FXSYS_i64toa(42, buf, -1);
-  EXPECT_EQ(std::string(""), buf);
+  EXPECT_STREQ("", buf);
 }
 
 TEST(fxcrt, FXSYS_i64toa) {
@@ -173,7 +172,7 @@ TEST(fxcrt, FXSYS_wcsftime) {
   wchar_t buf[100] = {};
   EXPECT_EQ(19u, FXSYS_wcsftime(buf, FX_ArraySize(buf), L"%Y-%m-%dT%H:%M:%S",
                                 &good_time));
-  EXPECT_EQ(std::wstring(L"1974-08-09T11:59:59"), buf);
+  EXPECT_STREQ(L"1974-08-09T11:59:59", buf);
 
   // Ensure wcsftime handles bad years, etc. without crashing.
   struct tm bad_time = {};
