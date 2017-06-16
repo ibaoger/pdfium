@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e538e4a7_a7884bc2",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-16T23:15:48Z",
+      "side": 1,
+      "message": "All the other uses of |m_pEdit| checks if the pointer is valid. e.g. line 210 above and 224 below. Can we be consistent?",
+      "revId": "6a097c8ad6c83396b3147eab1d458f85e493d6df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
