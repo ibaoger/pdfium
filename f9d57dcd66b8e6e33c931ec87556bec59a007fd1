@@ -1,4 +1,74 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1497604063 -0700\nnonce AH5c86CsKf8CxBuPL+yskgH4MzqjE4PUPDt329mdj/ZmRWmbj9DfZTAWrT44LW75diAL5IB8Y5HT\n\n0000000000000000000000000000000000000000 f9d57dcd66b8e6e33c931ec87556bec59a007fd1 refs/for/refs/heads/master%m\u003dtest,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZQ5/fAAoJEKs2LWFaZv17mGsH/AnDLklfAb/dT6n+HGeeZHxM\nftovBEBRdX6UPo6CKAaIrnFg0iFIb6ykHAPAHRNf6nMgJV3RcMK6YoTIUCmB+YWL\n2CH0j4fgH26J3RHgFC2arX33dgzM1g+OmNhePa1tOkLapqpQpFBp9QJzN53ZaZZ8\nSgTDl05Qi9CzW1T7v7EohX0XyIHze/akBccPNTDDQnFaxvsKNI+77WKZ4IsqWUsg\n+0HS6JdKtxdlaZjZkxkP5tpeFclb2O6xP0gZhquu89EJy9cd11ZaW2MjngXwPuMG\nkredny8xVuUgg9se9hmH1ZiHBvBzvvz67G/55rkljBvft7fVWvqUTumLOTaCmrc\u003d\n\u003dETVQ\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6677542_190e945e",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T19:49:26Z",
+      "side": 1,
+      "message": "Is this because wcsftime won\u0027t work well with years \u003c 1900?",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 5
+      },
+      "revId": "f9d57dcd66b8e6e33c931ec87556bec59a007fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e23ff3_4adc58e2",
+        "filename": "testing/resources/javascript/util_printd.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T19:49:26Z",
+      "side": 1,
+      "message": "remove this word",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 17
+      },
+      "revId": "f9d57dcd66b8e6e33c931ec87556bec59a007fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "131f58b7_83f5b93a",
+        "filename": "testing/resources/javascript/util_printd.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T19:49:26Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 17
+      },
+      "revId": "f9d57dcd66b8e6e33c931ec87556bec59a007fd1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
