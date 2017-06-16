@@ -312,6 +312,22 @@ CPDF_Dictionary* CPDFDictionaryFromFPDFAnnotation(FPDF_ANNOTATION annot) {
   return static_cast<CPDF_Dictionary*>(annot);
 }
 
+FPDF_FORM FPDFFormFromCPDFForm(CPDF_Form* pForm) {
+  return static_cast<FPDF_FORM>(pForm);
+}
+
+CPDF_Form* CPDFFormFromFPDFForm(FPDF_FORM form) {
+  return static_cast<CPDF_Form*>(form);
+}
+
+FPDF_PAGEOBJECT FPDFPageObjectFromCPDFPageObject(CPDF_PageObject* pPageObj) {
+  return static_cast<FPDF_PAGEOBJECT>(pPageObj);
+}
+
+CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT pageObj) {
+  return static_cast<CPDF_PageObject*>(pageObj);
+}
+
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {
   return static_cast<CFX_DIBitmap*>(bitmap);
 }

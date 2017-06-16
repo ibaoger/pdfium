@@ -22,7 +22,9 @@
 #endif
 
 class CPDF_Annot;
+class CPDF_Form;
 class CPDF_Page;
+class CPDF_PageObject;
 class CPDF_PageRenderContext;
 class IFSDK_PAUSE_Adapter;
 
@@ -63,6 +65,11 @@ CPDF_Page* CPDFPageFromFPDFPage(FPDF_PAGE page);
 
 FPDF_ANNOTATION FPDFAnnotationFromCPDFDictionary(CPDF_Dictionary* pDict);
 CPDF_Dictionary* CPDFDictionaryFromFPDFAnnotation(FPDF_ANNOTATION annot);
+FPDF_FORM FPDFFormFromCPDFForm(CPDF_Form* pForm);
+CPDF_Form* CPDFFormFromFPDFForm(FPDF_FORM form);
+FPDF_PAGEOBJECT FPDFPageObjectFromCPDFPageObject(CPDF_PageObject* pPageObj);
+CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT pageObj);
+
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap);
 
 void FSDK_SetSandBoxPolicy(FPDF_DWORD policy, FPDF_BOOL enable);
