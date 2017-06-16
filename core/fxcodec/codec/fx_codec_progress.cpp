@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 #include "core/fxcodec/fx_codec.h"
 #include "core/fxge/dib/cfx_dibitmap.h"
@@ -878,11 +879,12 @@ bool CCodec_ProgressiveDecoder::BmpInputImagePositionBuf(uint32_t rcd_pos) {
   return BmpReadMoreData(m_pCodecMgr->GetBmpModule(), error_status);
 }
 
-void CCodec_ProgressiveDecoder::BmpReadScanline(int32_t row_num,
-                                                uint8_t* row_buf) {
+void CCodec_ProgressiveDecoder::BmpReadScanline(
+    int32_t row_num,
+    const std::vector<uint8_t>& row_buf) {
   CFX_RetainPtr<CFX_DIBitmap> pDIBitmap = m_pDeviceBitmap;
   ASSERT(pDIBitmap);
-  memcpy(m_pDecodeBuf, row_buf, m_ScanlineSize);
+  std::copy(row_buf.begin(), row_buf.begin() + m_ScanlineSize, m_pDecodeBuf);
   int src_top = m_clipBox.top;
   int src_bottom = m_clipBox.bottom;
   int des_top = m_startY;
