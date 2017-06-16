@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf78999_4569f5fb",
+        "filename": "core/fxcrt/xml/cxml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T18:34:51Z",
+      "side": 1,
+      "message": "Do you need to also include sstream?",
+      "revId": "d9316f036b832c5c7cca45f3fcf0b46a8237f951",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ec8b73f_99f954d3",
+        "filename": "core/fxcrt/xml/cxml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T18:34:51Z",
+      "side": 1,
+      "message": "nit: ch can be declared in line 148",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 11
+      },
+      "revId": "d9316f036b832c5c7cca45f3fcf0b46a8237f951",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
