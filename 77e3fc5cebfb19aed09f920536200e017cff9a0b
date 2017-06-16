@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5cacd7b_fd88f9b9",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T19:36:43Z",
+      "side": 0,
+      "message": "Why did they have these +1\u0027s?",
+      "range": {
+        "startLine": 168,
+        "startChar": 62,
+        "endLine": 168,
+        "endChar": 66
+      },
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
