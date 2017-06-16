@@ -1108,6 +1108,18 @@ void RenderPdf(const std::string& name,
 
   (void)FPDF_GetDocPermissions(doc.get());
 
+  const char* metaTags[] = {"Title",   "Author",   "Subject",      "Keywords",
+                            "Creator", "Producer", "CreationDate", "ModDate"};
+  char metaBuffer[4096];
+  for (int i = 0; i < 8; i++) {
+    const char* metaTag = metaTags[i];
+    int len = FPDF_GetMetaText(doc.get(), metaTag, metaBuffer, 4096);
+    fprintf(stderr, "FPDF_GetMetaText got %s=%ls (%d)\n", metaTag,
+            GetPlatformWString(reinterpret_cast<unsigned short*>(metaBuffer))
+                .c_str(),
+            len);
+  }
+
   std::unique_ptr<void, FPDFFormHandleDeleter> form(
       FPDFDOC_InitFormFillEnvironment(doc.get(), &form_callbacks));
   form_callbacks.form_handle = form.get();
