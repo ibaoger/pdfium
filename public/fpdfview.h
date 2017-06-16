@@ -29,6 +29,7 @@ typedef void* FPDF_CLIPPATH;
 typedef void* FPDF_DEST;
 typedef void* FPDF_DOCUMENT;
 typedef void* FPDF_FONT;
+typedef void* FPDF_FORM;
 typedef void* FPDF_LINK;
 typedef void* FPDF_PAGE;
 typedef void* FPDF_PAGELINK;

@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "public/fpdf_annot.h"
+#include "public/fpdf_edit.h"
 #include "public/fpdfview.h"
 #include "testing/embedder_test.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -279,6 +280,192 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndSaveUnderlineAnnotation) {
   EXPECT_NEAR(quadpoints.y1, new_quadpoints.y1, 0.001f);
   EXPECT_NEAR(quadpoints.x4, new_quadpoints.x4, 0.001f);
   EXPECT_NEAR(quadpoints.y4, new_quadpoints.y4, 0.001f);
+
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+}
+
+TEST_F(FPDFAnnotEmbeddertest, ModifyRectQuadpointsWithAP) {
+  // Open a file with four annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_highlight_square_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+  EXPECT_EQ(4, FPDFPage_GetAnnotCount(page));
+
+  // Retrieve the highlight annotation which has its AP stream already defined.
+  FPDF_ANNOTATION annot;
+  ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
+  EXPECT_EQ(FPDF_ANNOT_HIGHLIGHT, FPDFAnnot_GetSubtype(annot));
+  EXPECT_TRUE(FPDFAnnot_HasAPStream(annot));
+
+  // Check that color cannot be set when an AP stream is defined already.
+  EXPECT_FALSE(
+      FPDFAnnot_SetColor(annot, FPDFANNOT_COLORTYPE_Color, 51, 102, 153, 204));
+
+  // Check that when getting the attachment points, bounding box points are
+  // returned since this is a markup annotation with AP defined.
+  FS_QUADPOINTSF quadpoints;
+  ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(annot, &quadpoints));
+  EXPECT_NEAR(0.f, quadpoints.x1, 0.001f);
+  EXPECT_NEAR(16.9955f, quadpoints.y1, 0.001f);
+  EXPECT_NEAR(68.5953f, quadpoints.x4, 0.001f);
+  EXPECT_NEAR(0.f, quadpoints.y4, 0.001f);
+
+  // Check that when new attachment points define a smaller bounding box, the
+  // bounding box does not get updated.
+  quadpoints.x1 = 1.0f;
+  quadpoints.x3 = 1.0f;
+  ASSERT_TRUE(FPDFAnnot_SetAttachmentPoints(annot, quadpoints));
+  FS_QUADPOINTSF new_quadpoints;
+  ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(annot, &new_quadpoints));
+  EXPECT_NE(quadpoints.x1, new_quadpoints.x1);
+
+  // Check that the bounding box gets updated successfully when valid attachment
+  // points are set.
+  quadpoints.x1 = 0.f;
+  quadpoints.y1 = 721.792f;
+  quadpoints.x2 = 133.055f;
+  quadpoints.y2 = 721.792f;
+  quadpoints.x3 = 0.f;
+  quadpoints.x4 = 133.055f;
+  ASSERT_TRUE(FPDFAnnot_SetAttachmentPoints(annot, quadpoints));
+  ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(annot, &new_quadpoints));
+  EXPECT_EQ(quadpoints.x1, new_quadpoints.x1);
+  EXPECT_EQ(quadpoints.y1, new_quadpoints.y1);
+  EXPECT_EQ(quadpoints.x4, new_quadpoints.x4);
+  EXPECT_EQ(quadpoints.y4, new_quadpoints.y4);
+
+  // Check that when getting the annotation rectangle, rectangle points are
+  // returned, but not bounding box points.
+  FS_RECTF rect;
+  ASSERT_TRUE(FPDFAnnot_GetRect(annot, &rect));
+  EXPECT_NEAR(67.7299f, rect.left, 0.001f);
+  EXPECT_NEAR(704.296f, rect.bottom, 0.001f);
+  EXPECT_NEAR(136.325f, rect.right, 0.001f);
+  EXPECT_NEAR(721.292f, rect.top, 0.001f);
+
+  // Check that the rectangle gets updated successfully when a valid rectangle
+  // is set, and that the bounding box is not modified.
+  rect.left = 0.f;
+  rect.bottom = 0.f;
+  rect.right = 134.055f;
+  rect.top = 722.792f;
+  ASSERT_TRUE(FPDFAnnot_SetRect(annot, rect));
+  FS_RECTF new_rect;
+  ASSERT_TRUE(FPDFAnnot_GetRect(annot, &new_rect));
+  EXPECT_EQ(rect.right, new_rect.right);
+  ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(annot, &new_quadpoints));
+  EXPECT_NE(rect.right, new_quadpoints.x2);
+
+  // Retrieve the square annotation which has its AP stream already defined.
+  ASSERT_TRUE(FPDFPage_GetAnnot(page, 2, &annot));
+  EXPECT_EQ(FPDF_ANNOT_SQUARE, FPDFAnnot_GetSubtype(annot));
+  EXPECT_TRUE(FPDFAnnot_HasAPStream(annot));
+
+  // Check that the rectangle and the bounding box get updated successfully when
+  // a valid rectangle is set, since this is not a markup annotation.
+  ASSERT_TRUE(FPDFAnnot_GetRect(annot, &rect));
+  rect.right += 1.f;
+  ASSERT_TRUE(FPDFAnnot_SetRect(annot, rect));
+  ASSERT_TRUE(FPDFAnnot_GetRect(annot, &new_rect));
+  EXPECT_EQ(rect.right, new_rect.right);
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
+  // Open a file with two annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+  EXPECT_EQ(2, FPDFPage_GetAnnotCount(page));
+
+  // Retrieve the stamp annotation which has its AP stream already defined.
+  FPDF_ANNOTATION annot;
+  ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
+  EXPECT_TRUE(FPDFAnnot_HasAPStream(annot));
+
+  // Get the form object parsing the annotation's appearance stream.
+  FPDF_FORM form;
+  ASSERT_TRUE(FPDFAnnot_GetForm(annot, page, &form));
+
+  // Check that this annotation has one path object and retrieve it.
+  EXPECT_EQ(1, FPDFForm_GetPathObjectCount(form));
+  FPDF_PAGEOBJECT path;
+  EXPECT_FALSE(FPDFForm_GetPathObject(form, 1, &path));
+  EXPECT_TRUE(FPDFForm_GetPathObject(form, 0, &path));
+
+  // Modify the color of the path object.
+  EXPECT_TRUE(FPDFPath_SetStrokeColor(path, 0, 0, 0, 255));
+  EXPECT_TRUE(FPDFAnnot_SetPathObject(annot, document(), page, path));
+  FPDFAnnot_CloseForm(form);
+
+  // Create another stamp annotation and set its annotation rectangle.
+  ASSERT_TRUE(FPDFPage_CreateAnnot(page, FPDF_ANNOT_STAMP, &annot));
+  EXPECT_FALSE(FPDFAnnot_HasAPStream(annot));
+  FS_RECTF rect;
+  rect.left = 200.f;
+  rect.bottom = 400.f;
+  rect.right = 500.f;
+  rect.top = 600.f;
+  EXPECT_TRUE(FPDFAnnot_SetRect(annot, rect));
+
+  // Add a new path to the annotation.
+  FPDF_PAGEOBJECT check = FPDFPageObj_CreateNewPath(200, 500);
+  EXPECT_TRUE(FPDFPath_LineTo(check, 300, 400));
+  EXPECT_TRUE(FPDFPath_LineTo(check, 500, 600));
+  EXPECT_TRUE(FPDFPath_MoveTo(check, 350, 550));
+  EXPECT_TRUE(FPDFPath_LineTo(check, 450, 450));
+  EXPECT_TRUE(FPDFPath_SetStrokeColor(check, 0, 255, 255, 180));
+  EXPECT_TRUE(FPDFPath_SetStrokeWidth(check, 8.35f));
+  EXPECT_TRUE(FPDFPath_SetDrawMode(check, 0, 1));
+  EXPECT_TRUE(FPDFAnnot_SetPathObject(annot, document(), page, check));
+  FPDFPageObj_DestroyPath(check);
+  EXPECT_TRUE(FPDFAnnot_HasAPStream(annot));
+
+  // Check that the annotation's bounding box came from its rectangle.
+  FS_RECTF new_rect;
+  EXPECT_TRUE(FPDFAnnot_GetRect(annot, &new_rect));
+  EXPECT_EQ(rect.left, new_rect.left);
+  EXPECT_EQ(rect.bottom, new_rect.bottom);
+  EXPECT_EQ(rect.right, new_rect.right);
+  EXPECT_EQ(rect.top, new_rect.top);
+
+  // Get the form object parsing the new annotation's appearance stream, and
+  // check that the new annotation contains one path object.
+  ASSERT_TRUE(FPDFAnnot_GetForm(annot, page, &form));
+  EXPECT_EQ(1, FPDFForm_GetPathObjectCount(form));
+  FPDFAnnot_CloseForm(form);
+
+  // Save the document, closing the page and document.
+  EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+  FPDF_ClosePage(page);
+
+  // Open the saved document.
+  std::string new_file = GetString();
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  FPDF_DOCUMENT new_doc = FPDF_LoadCustomDocument(&file_access, nullptr);
+  ASSERT_TRUE(new_doc);
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_TRUE(new_page);
+
+  // Check that the saved document has a correct count of annotations and paths.
+  EXPECT_EQ(3, FPDFPage_GetAnnotCount(new_page));
+  ASSERT_TRUE(FPDFPage_GetAnnot(new_page, 2, &annot));
+  ASSERT_TRUE(FPDFAnnot_GetForm(annot, new_page, &form));
+  EXPECT_EQ(1, FPDFForm_GetPathObjectCount(form));
+  FPDFAnnot_CloseForm(form);
+
+  // Check that the new annotation's rectangle is as defined.
+  EXPECT_TRUE(FPDFAnnot_GetRect(annot, &new_rect));
+  EXPECT_EQ(rect.left, new_rect.left);
+  EXPECT_EQ(rect.bottom, new_rect.bottom);
+  EXPECT_EQ(rect.right, new_rect.right);
+  EXPECT_EQ(rect.top, new_rect.top);
 
   FPDF_ClosePage(new_page);
   FPDF_CloseDocument(new_doc);
