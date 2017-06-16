@@ -39,6 +39,29 @@
       "revId": "d9316f036b832c5c7cca45f3fcf0b46a8237f951",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6200b3c_b44736ad",
+        "filename": "core/fxcrt/xml/cxml_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-16T18:36:58Z",
+      "side": 1,
+      "message": "Is this cast really needed?",
+      "range": {
+        "startLine": 233,
+        "startChar": 17,
+        "endLine": 233,
+        "endChar": 34
+      },
+      "revId": "d9316f036b832c5c7cca45f3fcf0b46a8237f951",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
