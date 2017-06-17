@@ -2,6 +2,235 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f197c22_c6b43902",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "style: Most of the PDFium APIs list their in-parameters in an order like:\n- document object, and other document-level objects\n- page / page-level objects\n- other parameters\n\nCan the new methods in this file follow that pattern?",
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4844e9f_2036e835",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "style: We don\u0027t pass by non-const ref. Either pass by value, pass a pointer, or pass by const-ref.\n\nIn this case, since FPDF_PAGE is really a void* underneath, just pass FPDF_PAGE by value, as seen with many of the public APIs.",
+      "range": {
+        "startLine": 25,
+        "startChar": 44,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664195a0_13641115",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "Click on the text field in text_form.pdf.\n\nAll the coordinates are specific to that PDF file.",
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6b08041_f41d4c69",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "You can write \u0027A\u0027 here if that\u0027s what 65 corresponds to.",
+      "range": {
+        "startLine": 36,
+        "startChar": 39,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "217ee956_36aae013",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "It might be helpful to briefly explain what this does. It\u0027s called SelectTextKeyboard(), yet the first thing it does is move the mouse.",
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a317f03d_5da3c494",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "Is this suppose to mean a keycode that always has an arrow key keycode value?",
+      "range": {
+        "startLine": 42,
+        "startChar": 30,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f95f92_2432f0c2",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "Why do we pass doubles by const-ref, and ints by value?",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45785c0d_4faa68f9",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "This makes me feel like there should be an end_x somewhere.",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c9b3b64_837b8850",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "Is it normal for there to be no modifier on the up event?",
+      "range": {
+        "startLine": 56,
+        "startChar": 51,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "222edb07_7949df5a",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "We usually shouldn\u0027t pass objects by value.",
+      "range": {
+        "startLine": 74,
+        "startChar": 22,
+        "endLine": 74,
+        "endChar": 36
+      },
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c846298_76248a16",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T01:50:23Z",
+      "side": 1,
+      "message": "Why do we calculate |expected_result|, and then only use it for its size? Isn\u0027t |expected_length| below going to be: sizeof(unsigned short) * (num_chars + 1) ?",
+      "revId": "2601642f586776fe4955c4566de67ba373543f22",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2847ff02_30ca3f7f",
         "filename": "public/fpdf_formfill.h",
         "patchSetId": 11
