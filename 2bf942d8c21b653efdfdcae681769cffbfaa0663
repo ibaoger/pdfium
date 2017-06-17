@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4875836f_e785b1d4",
+        "filename": "testing/test_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-17T02:09:50Z",
+      "side": 0,
+      "message": "Uhhh, \"const const unsigned short*\" ?!",
+      "range": {
+        "startLine": 73,
+        "startChar": 32,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "2bf942d8c21b653efdfdcae681769cffbfaa0663",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
