@@ -57,6 +57,24 @@
       "revId": "3987573aa617f8fe193ebef4360ed6a6727d71d6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e9e39a_190a4b06",
+        "filename": "core/fpdfapi/page/cpdf_tilingpattern.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T21:18:00Z",
+      "side": 1,
+      "message": "I think the unique_ptr is ok as long as:\na) No instance of CPDF_Form gets dereferenced.\nb) No instance of CPDF_TilingPattern gets instantiated.\n\nBut it\u0027s not a big deal either way.",
+      "parentUuid": "dc712ead_9b37bea6",
+      "revId": "3987573aa617f8fe193ebef4360ed6a6727d71d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
