@@ -360,6 +360,9 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
   if (!LoadLinearizedCrossRefV4(xrefpos, dwObjCount))
     return false;
 
+  if (m_pTrailer)
+    m_Trailers.push_back(std::move(m_pTrailer));
+
   m_pTrailer = LoadTrailerV4();
   if (!m_pTrailer)
     return false;
@@ -1084,6 +1087,9 @@ uint32_t CPDF_Parser::GetRootObjNum() {
 uint32_t CPDF_Parser::GetInfoObjNum() {
   CPDF_Reference* pRef =
       ToReference(m_pTrailer ? m_pTrailer->GetObjectFor("Info") : nullptr);
+  for (uint32_t i = m_Trailers.size(); i-- > 0 && !pRef;) {
+    pRef = ToReference(m_Trailers[i].get()->GetObjectFor("Info"));
+  }
   return pRef ? pRef->GetRefObjNum() : 0;
 }
 
@@ -1545,7 +1551,7 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV5(FX_FILESIZE xrefpos) {
 CPDF_Parser::Error CPDF_Parser::LoadLinearizedMainXRefTable() {
   uint32_t dwSaveMetadataObjnum = m_pSyntax->m_MetadataObjnum;
   m_pSyntax->m_MetadataObjnum = 0;
-  m_pTrailer.reset();
+  m_Trailers.push_back(std::move(m_pTrailer));
   m_pSyntax->SetPos(m_LastXRefOffset - m_pSyntax->m_HeaderOffset);
 
   uint8_t ch = 0;
