@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5cffbcef_2f1bc58c",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75599ad3_b0a320a2",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e312556_6a30b693",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c8e50382_48d6fc0c",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e312556_6a30b693",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7d9914_e6549ad6",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-19T14:20:35Z",
       "side": 1,
       "message": "Previously these seem like they could be negative but now we only allow positive numbers, will that case decode issues?",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60998600_184e3ccb",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "Actually, they couldn\u0027t. GetWord_LSBFirst and GetDWord_LSBFirst return unsigned. The latter was uint32_t, so the assignment here could overflow. Now we avoid that overflow.",
+      "parentUuid": "be7d9914_e6549ad6",
       "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -88,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "27369472_06753da8",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "Yes I did remove the height flipping and only left the flag. But yes maybe it\u0027s safer to now just remove it altogether.",
+      "parentUuid": "5494b41f_8107b927",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e93990a2_527294a9",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "bd9b0236_7e4e5699",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e93990a2_527294a9",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85384e96_4e31737b",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -116,6 +206,24 @@
       "writtenOn": "2017-06-19T14:20:35Z",
       "side": 1,
       "message": "If width is really big positive number it can flip to negative when doing the conversion which probably isn\u0027t want we want. Is this check needed since width can never be negative?",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db26ea62_e7fb1694",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:03:40Z",
+      "side": 1,
+      "message": "It was needed before to account for the fact that width could overflow, but now it\u0027s a uint32_t it shouldn\u0027t be needed.",
+      "parentUuid": "85384e96_4e31737b",
       "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
