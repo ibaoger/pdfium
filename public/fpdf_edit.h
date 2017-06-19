@@ -283,13 +283,23 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap);
 
-// Create a new path object at an initial position.
+// Create a new path object at an initial position. If FPDFPage_InsertObject()
+// is not called later to insert this new path object into a page, then
+// FPDFPageObj_DestroyPath() must be called on this path object when it is no
+// longer needed.
 //
 //   x - initial horizontal position.
 //   y - initial vertical position.
 //
 // Returns a handle to a new path object.
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y);
+
+// Destroy a path object. Must be called to clean up new path objects if
+// FPDFPage_InsertObject() is not called on them.
+//
+//   path_object  - handle to a path object, returned by
+//                  FPDFPageObj_CreateNewPath().
+DLLEXPORT void STDCALL FPDFPageObj_DestroyPath(FPDF_PAGEOBJECT path_object);
 
 // Create a closed path consisting of a rectangle.
 //

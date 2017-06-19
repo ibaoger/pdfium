@@ -33,6 +33,10 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y) {
   return pPathObj.release();  // Caller takes ownership.
 }
 
+DLLEXPORT void STDCALL FPDFPageObj_DestroyPath(FPDF_PAGEOBJECT path_object) {
+  delete CPDFPageObjectFromFPDFPageObject(path_object);
+}
+
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
                                                             float y,
                                                             float w,
