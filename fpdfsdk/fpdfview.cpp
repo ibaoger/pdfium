@@ -312,6 +312,10 @@ CPDF_Dictionary* CPDFDictionaryFromFPDFAnnotation(FPDF_ANNOTATION annot) {
   return static_cast<CPDF_Dictionary*>(annot);
 }
 
+CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT pageObj) {
+  return static_cast<CPDF_PageObject*>(pageObj);
+}
+
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {
   return static_cast<CFX_DIBitmap*>(bitmap);
 }
