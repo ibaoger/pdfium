@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5e0e4ef5_eeeb75d5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "863e6e7f_587038e3",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "351bcdd7_41be631c",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95fc9d41_72b6b81a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351bcdd7_41be631c",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4c913bf5_91410127",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d048d2bd_902b7fd2",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45512171_59a850a5",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c93f26a9_6240fbd3",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45512171_59a850a5",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b87530d_0d7a5762",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2017-06-19T15:16:39Z",
       "side": 1,
       "message": "Why not *path \u003d *pForm-\u003eGetPageObjectList()-\u003eGetPageObjectbyIndex(index) ? You\u0027ll probably want to verify that method handles out of bounds requests gracefully.",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8360c588_0144f230",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "I coded it this way because GetPageObjectbyIndex simply gets the object at |index|; but here, the logic is that I tell the user how many *path* objects we have in the page object list, and then the user can give me an index to retrieve the path object at |index| in a list made with only path objects (and no other types of page objects).\nAs for out of bound requests, right now this function just returns false. Is there anything else that it should do? Should I make path \u003d nullptr?",
+      "parentUuid": "6b87530d_0d7a5762",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e2e4fbeb_2c620c21",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "There is no harm that can be caused, but my thinking was that it would be confusing for the user to set a color and see it not working, and also retrieve a color that\u0027s different from what they see. If we let them set it regardless, then there\u0027s no easy way to warn them this is not actually going to work, especially since we won\u0027t have an API telling the user whether AP exists or not. \nWhat do you think?",
+      "parentUuid": "13ecbb76_c51e6225",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3daa0bb_a580d0f5",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -115,6 +223,24 @@
       "writtenOn": "2017-06-19T15:16:39Z",
       "side": 1,
       "message": "Doesn\u0027t this require the AP to be set and a path to exist? What if there is no path in the annotation?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88b25e13_4ed08045",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "For FPDFPath_Set*Color to work, we do need a path to exist in AP. But:\n1. If there is no path in AP: then nothing will be drawn for the annotation anyways, so we don\u0027t need to worry about the color. \n2. If there is a path in AP but no color defined for the path: the dictionary entry will still not be used; it seems to just default to black. I specifically tested this before.\nSo, do you think this logic makes sense?",
+      "parentUuid": "e3daa0bb_a580d0f5",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "446e251a_78b7e827",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "20fd11a1_27604624",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "698f64b8_1523e9e6",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -149,6 +293,24 @@
       "writtenOn": "2017-06-19T15:16:39Z",
       "side": 1,
       "message": "These GetNumberAt values seem weird. Should they really repeat like that?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85484a39_6ed167b4",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "From my hand calculations and embedder tests, seems to be the right indices. \nBBox arrays goes (left, bottom, right, up), quad points goes (top left point, top right point, bottom left point, bottom right point).",
+      "parentUuid": "698f64b8_1523e9e6",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "9e692800_ced43fbf",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "620ef681_26f4fdd0",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c97aa096_c6738028",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 3
@@ -183,6 +363,24 @@
       "writtenOn": "2017-06-19T15:16:39Z",
       "side": 1,
       "message": "I\u0027m not sure if we want to expose this, do we want to hide the concept of AP from our users? Or do we think this is something they have to know about?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa6faee0_704dfb6c",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Oops, forgot about the assumption that the user doesn\u0027t need to know about AP. (Hasn\u0027t been proved otherwise yet.) I moved this function into fpdfannot\u0027s namespace.",
+      "parentUuid": "c97aa096_c6738028",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -206,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "b7def368_7e003401",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "True. I put it in another CL, but let\u0027s see if we still need it at all depending on if we are changing the design for adding paths.",
+      "parentUuid": "7c486e7b_ca1b29a3",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0b04f68_53d9d1cd",
         "filename": "fpdfsdk/fpdfview_c_api_test.c",
         "patchSetId": 3
@@ -217,6 +433,24 @@
       "writtenOn": "2017-06-19T15:16:39Z",
       "side": 1,
       "message": "This seems weird to me, we set the path object into the Annot but if we want to get it we have to do it from the Form?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbae5627_3fcdb821",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T17:22:02Z",
+      "side": 1,
+      "message": "Good point, it didn\u0027t come across me before.\nI think what would also work is a flow like this: FPDFAnnot_GetForm -\u003e FPDFForm_SetPathObject -\u003e FPDFAnnot_SetForm. It requires one more function in the flow, but it keeps the symmetry better.\nDo you think we should try this flow instead?",
+      "parentUuid": "e0b04f68_53d9d1cd",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
