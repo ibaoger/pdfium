@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "8026e6a3_386f333f",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T20:05:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "442880e4_c5d36e46",
+      "range": {
+        "startLine": 367,
+        "startChar": 1,
+        "endLine": 367,
+        "endChar": 31
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ca6f6a3_57cda1ac",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 8
@@ -232,6 +256,24 @@
       "side": 1,
       "message": "Isn\u0027t this clearly mentioned in Section 3.4.5?",
       "parentUuid": "b789f674_2079cb83",
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaa04b7_25a9a075",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T20:05:35Z",
+      "side": 1,
+      "message": "You\u0027re right. Done.",
+      "parentUuid": "1dd19805_2d94594e",
       "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
