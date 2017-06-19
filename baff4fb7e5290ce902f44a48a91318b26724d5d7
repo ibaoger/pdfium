@@ -287,6 +287,30 @@
       "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabe8f38_db3d5c8b",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:17:35Z",
+      "side": 1,
+      "message": "pdfium_test serves a bunch of purposes, but, mostly it let\u0027s us test things, heh. Having the ability to turn those things on/off as needed makes it easier to test other things (as seen by being able to turn this off makes the JS tests more focused on just the JS).",
+      "parentUuid": "d7aff1d7_350b76ba",
+      "range": {
+        "startLine": 1111,
+        "startChar": 2,
+        "endLine": 1117,
+        "endChar": 0
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
