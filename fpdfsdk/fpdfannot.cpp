@@ -8,6 +8,7 @@
 
 #include <utility>
 
+#include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_page.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
@@ -19,6 +20,8 @@
 #include "core/fpdfdoc/cpvt_color.h"
 #include "core/fpdfdoc/cpvt_generateap.h"
 #include "fpdfsdk/fsdk_define.h"
+
+namespace {
 
 // These checks ensure the consistency of annotation subtype values across core/
 // and public.
@@ -97,6 +100,28 @@ static_assert(static_cast<int>(CPDF_Annot::Subtype::RICHMEDIA) ==
 static_assert(static_cast<int>(CPDF_Annot::Subtype::XFAWIDGET) ==
                   FPDF_ANNOT_XFAWIDGET,
               "CPDF_Annot::XFAWIDGET value mismatch");
+
+class CFPDF_AnnotParser {
+ public:
+  CFPDF_AnnotParser(CPDF_Dictionary* pAnnotDict,
+                    CPDF_Page* pPage,
+                    CPDF_Stream* pStream)
+      : m_pAnnotDict(pAnnotDict) {
+    m_pAnnotForm = pdfium::MakeUnique<CPDF_Form>(
+        pPage->m_pDocument.Get(), pPage->m_pResources.Get(), pStream);
+    m_pAnnotForm->ParseContent(nullptr, nullptr, nullptr);
+  }
+  ~CFPDF_AnnotParser();
+
+  CPDF_Form* GetForm() { return m_pAnnotForm.get(); }
+  CPDF_Dictionary* GetAnnotDict() { return m_pAnnotDict; }
+
+ private:
+  std::unique_ptr<CPDF_Form> m_pAnnotForm;
+  CPDF_Dictionary* m_pAnnotDict;
+};
+
+}  // namespace
 
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype) {

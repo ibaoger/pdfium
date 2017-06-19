@@ -23,6 +23,7 @@
 // PDF types
 typedef void* FPDF_ACTION;
 typedef void* FPDF_ANNOTATION;
+typedef void* FPDF_ANNOTPARSER;
 typedef void* FPDF_BITMAP;
 typedef void* FPDF_BOOKMARK;
 typedef void* FPDF_CLIPPATH;
