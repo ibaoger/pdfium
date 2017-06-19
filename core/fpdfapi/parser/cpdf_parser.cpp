@@ -33,6 +33,7 @@ namespace {
 // A limit on the size of the xref table. Theoretical limits are higher, but
 // this may be large enough in practice.
 const int32_t kMaxXRefSize = 1048576;
+const int32_t kInvalidObjectNum = 0;
 
 uint32_t GetVarInt(const uint8_t* p, int32_t n) {
   uint32_t result = 0;
@@ -359,6 +360,9 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
                                               uint32_t dwObjCount) {
   if (!LoadLinearizedCrossRefV4(xrefpos, dwObjCount))
     return false;
+
+  if (m_pTrailer)
+    m_Trailers.push_back(std::move(m_pTrailer));
 
   m_pTrailer = LoadTrailerV4();
   if (!m_pTrailer)
@@ -1084,7 +1088,15 @@ uint32_t CPDF_Parser::GetRootObjNum() {
 uint32_t CPDF_Parser::GetInfoObjNum() {
   CPDF_Reference* pRef =
       ToReference(m_pTrailer ? m_pTrailer->GetObjectFor("Info") : nullptr);
-  return pRef ? pRef->GetRefObjNum() : 0;
+  if (pRef)
+    return pRef->GetRefObjNum();
+
+  for (auto it = m_Trailers.rbegin(); it != m_Trailers.rend(); ++it) {
+    pRef = ToReference(it->get()->GetObjectFor("Info"));
+    if (pRef)
+      return pRef->GetRefObjNum();
+  }
+  return kInvalidObjectNum;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
@@ -1545,7 +1557,7 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV5(FX_FILESIZE xrefpos) {
 CPDF_Parser::Error CPDF_Parser::LoadLinearizedMainXRefTable() {
   uint32_t dwSaveMetadataObjnum = m_pSyntax->m_MetadataObjnum;
   m_pSyntax->m_MetadataObjnum = 0;
-  m_pTrailer.reset();
+  m_Trailers.push_back(std::move(m_pTrailer));
   m_pSyntax->SetPos(m_LastXRefOffset - m_pSyntax->m_HeaderOffset);
 
   uint8_t ch = 0;
