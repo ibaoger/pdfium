@@ -52,11 +52,24 @@ CPDF_DocPageData::~CPDF_DocPageData() {
 void CPDF_DocPageData::Clear(bool bForceRelease) {
   m_bForceClear = bForceRelease;
 
+  // This is needed because if |bForceRelease| is true we will destroy any
+  // pattern we see regardless of the ref-count. The tiling pattern, through
+  // the Form object can point to a ShadingObject that ShadingObject can point
+  // to a ShadingPattern. The ShadingPattern is owned by the DocPageData. So,
+  // we loop through and clear any tiling patterns before we do the same for
+  // any shading patterns.
+  for (auto& it : m_PatternMap) {
+    CPDF_CountedPattern* ptData = it.second;
+    if (!ptData->get() || !ptData->get()->AsTilingPattern())
+      continue;
+    if (bForceRelease || ptData->use_count() < 2)
+      ptData->clear();
+  }
+
   for (auto& it : m_PatternMap) {
     CPDF_CountedPattern* ptData = it.second;
     if (!ptData->get())
       continue;
-
     if (bForceRelease || ptData->use_count() < 2)
       ptData->clear();
   }
@@ -65,7 +78,6 @@ void CPDF_DocPageData::Clear(bool bForceRelease) {
     CPDF_CountedFont* fontData = it.second;
     if (!fontData->get())
       continue;
-
     if (bForceRelease || fontData->use_count() < 2) {
       fontData->clear();
     }
@@ -75,7 +87,6 @@ void CPDF_DocPageData::Clear(bool bForceRelease) {
     CPDF_CountedColorSpace* csData = it.second;
     if (!csData->get())
       continue;
-
     if (bForceRelease || csData->use_count() < 2) {
       csData->get()->Release();
       csData->reset(nullptr);
