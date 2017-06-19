@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "69257b7e_42077f7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T19:23:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4d280b6_b67cb845",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d5d55f9_79098bce",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 5
@@ -59,6 +77,48 @@
     },
     {
       "key": {
+        "uuid": "ddf26b33_3dc8eced",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T19:23:39Z",
+      "side": 1,
+      "message": "It\u0027s not the font width. It\u0027s the width of the glyph according to the PDF.",
+      "parentUuid": "c51a7854_f83c3abc",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d9ea44_b883016f",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T19:23:39Z",
+      "side": 1,
+      "message": "No, I might use it in the if below, even with CID fonts. But maybe I could move the calculation to the if, so that fonts that do not need to calculate this value don\u0027t do it. This would mean that non-embedded non-cid fonts that enter the if statement would need to calculate it twice, though. It\u0027s faster for these than it is for CID.",
+      "parentUuid": "7d5d55f9_79098bce",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fdc38b5_5bf93ee3",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 5
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "95381af7_e6739f6e",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T19:23:39Z",
+      "side": 1,
+      "message": "And this is the width of the glyph according to freetype, using the font file we\u0027ll use for rendering.",
+      "parentUuid": "4fdc38b5_5bf93ee3",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "120a1036_9347083c",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 5
@@ -87,6 +165,24 @@
       "writtenOn": "2017-06-19T19:12:40Z",
       "side": 1,
       "message": "This uses the scalingFactor from the last glyph, is that right?",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8b4dcd9_76bd64af",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T19:23:39Z",
+      "side": 1,
+      "message": "No, this is still inside the loop. It multiplies by the scalingFactor since otherwise it will get lost in the assignments.",
+      "parentUuid": "120a1036_9347083c",
       "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
