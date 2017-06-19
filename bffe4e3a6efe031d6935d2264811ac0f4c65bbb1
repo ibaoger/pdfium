@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "269d1ca3_53186cc6",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T14:01:37Z",
+      "side": 1,
+      "message": "Don\u0027t think we need this hack once the height is uint, but leaving this for now.",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

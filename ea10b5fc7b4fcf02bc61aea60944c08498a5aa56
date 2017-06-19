@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5a76125_170dcc21",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T14:01:37Z",
+      "side": 1,
+      "message": "Yes, followup",
+      "parentUuid": "ffe10f7b_b96402fb",
+      "range": {
+        "startLine": 887,
+        "startChar": 63,
+        "endLine": 887,
+        "endChar": 75
+      },
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76561e34_32009826",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a4039e_bff472cf",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T14:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76561e34_32009826",
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6bad8a9_8c6a0958",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T14:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a848390_fa0b6cbc",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "ea10b5fc7b4fcf02bc61aea60944c08498a5aa56",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

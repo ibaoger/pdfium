@@ -16,6 +16,24 @@
       "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bae00b8_1dbb03aa",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T14:01:37Z",
+      "side": 0,
+      "message": "It was cleared in line 221, so resize will do that.",
+      "parentUuid": "41192f3b_1a3ab64e",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
