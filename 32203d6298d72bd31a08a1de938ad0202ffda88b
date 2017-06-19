@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "85fbad0c_cf779434",
+        "filename": "core/fxcodec/codec/ccodec_bmpmodule.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:22:20Z",
+      "side": 1,
+      "message": "This owns the m_pBmp, can we make it a unique_ptr? Or even better, just a member then we can drop the new on line 36 as it will just get created.",
+      "revId": "32203d6298d72bd31a08a1de938ad0202ffda88b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3037e067_0eeea090",
         "filename": "core/fxcodec/codec/ccodec_bmpmodule.cpp",
         "patchSetId": 4
