@@ -104,6 +104,24 @@
       "revId": "4feed6889fad8824a379dbd3b25bb181ad4059af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c689c327_7ae00054",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:25:25Z",
+      "side": 1,
+      "message": "What about adding a flag to dump meta data, and then we can add a couple tests that does things like, no metadata, one trailer with data, multiple trailers where the data is at the start or at the end.",
+      "parentUuid": "eec489cc_f0d98c31",
+      "revId": "4feed6889fad8824a379dbd3b25bb181ad4059af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

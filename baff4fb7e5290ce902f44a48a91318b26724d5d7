@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "b399a60e_4b55c881",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:25:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it\u0027s in the spec per say, but the way PDF works is to append subsequent sections to the end with new trailers. So, you should walk from the end to the front to find the most recent entry.",
+      "parentUuid": "2ca6f6a3_57cda1ac",
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e58f2f5_6b85d2cb",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 8
