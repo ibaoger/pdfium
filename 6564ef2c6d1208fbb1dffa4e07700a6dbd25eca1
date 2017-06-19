@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4d280b6_b67cb845",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:12:40Z",
+      "side": 1,
+      "message": "More words please.",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d5d55f9_79098bce",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:12:40Z",
+      "side": 1,
+      "message": "Does this also need to take the IsCIDFont into account?",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51a7854_f83c3abc",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:12:40Z",
+      "side": 1,
+      "message": "Can this be named better? fontWidth? PDFWidth makes me think it\u0027s the page width.",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fdc38b5_5bf93ee3",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:12:40Z",
+      "side": 1,
+      "message": "currentGlyphWidth?",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "120a1036_9347083c",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:12:40Z",
+      "side": 1,
+      "message": "This uses the scalingFactor from the last glyph, is that right?",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
