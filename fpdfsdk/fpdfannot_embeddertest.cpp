@@ -380,6 +380,11 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   ASSERT_TRUE(page);
   EXPECT_EQ(2, FPDFPage_GetAnnotCount(page));
 
+  // Check that the page renders correctly.
+  FPDF_BITMAP bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, "07d4168715553b4294525f840c40aa1c");
+  FPDFBitmap_Destroy(bitmap);
+
   // Retrieve the stamp annotation which has its AP stream already defined.
   FPDF_ANNOTATION annot;
   ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
@@ -399,6 +404,11 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   EXPECT_TRUE(FPDFPath_SetStrokeColor(path, 0, 0, 0, 255));
   EXPECT_TRUE(FPDFAnnot_SetPathObject(annot, document(), page, path));
   FPDFAnnot_CloseForm(form);
+
+  // Check that the page with the modified annotation renders correctly.
+  bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, "dd5ba8996af67d0e5add418195e4d61b");
+  FPDFBitmap_Destroy(bitmap);
 
   // Create another stamp annotation and set its annotation rectangle.
   ASSERT_TRUE(FPDFPage_CreateAnnot(page, FPDF_ANNOT_STAMP, &annot));
@@ -437,6 +447,11 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   EXPECT_EQ(1, FPDFForm_GetPathObjectCount(form));
   FPDFAnnot_CloseForm(form);
 
+  // Check that the page with the added annotation renders correctly.
+  bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, "c8af188ba797ed5c71c32d8aeb024a14");
+  FPDFBitmap_Destroy(bitmap);
+
   // Save the document, closing the page and document.
   EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
   FPDF_ClosePage(page);
@@ -466,6 +481,11 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   EXPECT_EQ(rect.bottom, new_rect.bottom);
   EXPECT_EQ(rect.right, new_rect.right);
   EXPECT_EQ(rect.top, new_rect.top);
+
+  // Check that the saved page renders the same as before.
+  bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, "c8af188ba797ed5c71c32d8aeb024a14");
+  FPDFBitmap_Destroy(bitmap);
 
   FPDF_ClosePage(new_page);
   FPDF_CloseDocument(new_doc);
