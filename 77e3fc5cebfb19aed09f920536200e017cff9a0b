@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69c784e2_8ce96580",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:49:28Z",
+      "side": 0,
+      "message": "Why is this not needed anymore? If the handler doesn\u0027t exist we\u0027ll now crash when we wouldn\u0027t before.",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16300baf_8e71d12f",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:49:28Z",
+      "side": 0,
+      "message": "ditto",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "641ec6e9_25a055a2",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:49:28Z",
+      "side": 0,
+      "message": "Why is this check no longer needed?",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
