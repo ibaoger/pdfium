@@ -119,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "9b1fe15f_e3bd48c1",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:27:42Z",
+      "side": 1,
+      "message": "pdfGlyphWidth?",
+      "parentUuid": "ddf26b33_3dc8eced",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fdc38b5_5bf93ee3",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 5
@@ -154,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "dc6bd43b_f7a36da0",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:27:42Z",
+      "side": 1,
+      "message": "ftGlyphWidth?",
+      "parentUuid": "95381af7_e6739f6e",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "120a1036_9347083c",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 5
@@ -183,6 +219,24 @@
       "side": 1,
       "message": "No, this is still inside the loop. It multiplies by the scalingFactor since otherwise it will get lost in the assignments.",
       "parentUuid": "120a1036_9347083c",
+      "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c959fa04_4765c900",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T19:27:42Z",
+      "side": 1,
+      "message": "Ah, for is hidden by code review",
+      "parentUuid": "c8b4dcd9_76bd64af",
       "revId": "6564ef2c6d1208fbb1dffa4e07700a6dbd25eca1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
