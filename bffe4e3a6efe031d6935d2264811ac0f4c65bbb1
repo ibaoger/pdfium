@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "75599ad3_b0a320a2",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "Can you check if src_top and src_bottom are \u003c 0 here and return?",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e312556_6a30b693",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "I don\u0027t think this will be safe anymore. Any std::vector information that was in there is no wiped out to 0 .....",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7d9914_e6549ad6",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "Previously these seem like they could be negative but now we only allow positive numbers, will that case decode issues?",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "269d1ca3_53186cc6",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 3
@@ -13,6 +64,58 @@
       "writtenOn": "2017-06-19T14:01:37Z",
       "side": 1,
       "message": "Don\u0027t think we need this hack once the height is uint, but leaving this for now.",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5494b41f_8107b927",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "I think we should remove it to be safe, if height is really big positive number it will flip negative when doing the conversion and this will trigger accidentally.",
+      "parentUuid": "269d1ca3_53186cc6",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e93990a2_527294a9",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85384e96_4e31737b",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:20:35Z",
+      "side": 1,
+      "message": "If width is really big positive number it can flip to negative when doing the conversion which probably isn\u0027t want we want. Is this check needed since width can never be negative?",
       "revId": "bffe4e3a6efe031d6935d2264811ac0f4c65bbb1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
