@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "a4ac6cb8_2df93f0d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "Ah, can you add most of this as a comment? Otherwise, we\u0027ll make the change in the future and stuff will go bad, heh.",
+      "parentUuid": "8360c588_0144f230",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13ecbb76_c51e6225",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -206,6 +224,24 @@
       "side": 1,
       "message": "There is no harm that can be caused, but my thinking was that it would be confusing for the user to set a color and see it not working, and also retrieve a color that\u0027s different from what they see. If we let them set it regardless, then there\u0027s no easy way to warn them this is not actually going to work, especially since we won\u0027t have an API telling the user whether AP exists or not. \nWhat do you think?",
       "parentUuid": "13ecbb76_c51e6225",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31a2fe3c_7f829212",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "That makes sense. You should probably add a NOTE: section in the API docs that this is the case (and for the other methods which do similar)",
+      "parentUuid": "e2e4fbeb_2c620c21",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -247,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "3df340db_5631b69d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "The annotation colour is only used for paths? There are not other bits of an annotation that are controlled by the colour?",
+      "parentUuid": "88b25e13_4ed08045",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20fd11a1_27604624",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -282,6 +336,24 @@
     },
     {
       "key": {
+        "uuid": "4da3161d_8404b5f4",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "446e251a_78b7e827",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "698f64b8_1523e9e6",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -311,6 +383,24 @@
       "side": 1,
       "message": "From my hand calculations and embedder tests, seems to be the right indices. \nBBox arrays goes (left, bottom, right, up), quad points goes (top left point, top right point, bottom left point, bottom right point).",
       "parentUuid": "698f64b8_1523e9e6",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cbd461e_799967d2",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "Can you add a comment to that effect?",
+      "parentUuid": "85484a39_6ed167b4",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -451,6 +541,24 @@
       "side": 1,
       "message": "Good point, it didn\u0027t come across me before.\nI think what would also work is a flow like this: FPDFAnnot_GetForm -\u003e FPDFForm_SetPathObject -\u003e FPDFAnnot_SetForm. It requires one more function in the flow, but it keeps the symmetry better.\nDo you think we should try this flow instead?",
       "parentUuid": "e0b04f68_53d9d1cd",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e07b181_d0b94ede",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T18:12:03Z",
+      "side": 1,
+      "message": "Yea, I think that would be more symmetrical which is good. As another point, we may want a different name for Form because we already have PDF Forms in general.  Is there something else we could call Form here instead?",
+      "parentUuid": "bbae5627_3fcdb821",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
