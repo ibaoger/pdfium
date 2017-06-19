@@ -374,6 +374,13 @@ void CPDF_Document::LoadDocInternal() {
   if (!m_pRootDict)
     return;
 
+  LoadDocumentInfo();
+}
+
+void CPDF_Document::LoadDocumentInfo() {
+  if (m_pInfoDict)
+    return;
+
   CPDF_Object* pInfoObj = GetOrParseIndirectObject(m_pParser->GetInfoObjNum());
   if (pInfoObj)
     m_pInfoDict = pInfoObj->GetDict();
