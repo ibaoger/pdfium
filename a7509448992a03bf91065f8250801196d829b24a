@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ba49deb_bc5dc243",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:44:49Z",
+      "side": 1,
+      "message": "nit: one declaration per line.",
+      "revId": "a7509448992a03bf91065f8250801196d829b24a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
