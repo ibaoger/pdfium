@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd019276_e66a6d53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "\"buffer is a nullptr\" to match \"buflen is less than\" in the next part of the sentence.",
+      "range": {
+        "startLine": 11,
+        "startChar": 41,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5636b91_8bb66ab9",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "Did we decide to not bother?",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "924e0155_e335e6fa",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "Does this need to be virtual? Who will override it?",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "608fb115_654e7664",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "This can fit (just) on the previous line.",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13920db2_20bb9569",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "How about SelectTextWith{Keyboard,Mouse} ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d820e0b_05d9f82f",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "FORM_GetSelectedText() returns unsigned long. Ditto on line 364.",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b9d068_5a62ff13",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "You should ASSERT_EQ() and stop the test on failure. If |sel_text_len| has the value of 10 billion, when you are expecting 5, the test will try to allocate a very large vector and fail less gracefully.",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8ea923d_d12eec80",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "Does it work if this is written as CheckSelection(page, CFX_WideString(L\"\")); instead?",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 30
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42b8d07_fbd1ce9b",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T23:25:34Z",
+      "side": 1,
+      "message": "Can you move this so it\u0027s after SetCursor(), rather than between two OnFoo handlers?",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
