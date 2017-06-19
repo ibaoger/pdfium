@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "863e6e7f_587038e3",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Don\u0027t need the true/false here can just return !!FPDFDoc_GetAnnotAP(...",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "351bcdd7_41be631c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "if (subtype !\u003d FPDF_ANNOT_INK \u0026\u0026 subtype !\u003d FPDF_ANNOT_STAMP)\n  return false;",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d048d2bd_902b7fd2",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Remove comment, we don\u0027t usually add these in the PDFium code.",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45512171_59a850a5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "++pathCount",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b87530d_0d7a5762",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Why not *path \u003d *pForm-\u003eGetPageObjectList()-\u003eGetPageObjectbyIndex(index) ? You\u0027ll probably want to verify that method handles out of bounds requests gracefully.",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ecbb76_c51e6225",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Should we allow the user to set the value anyway? Is there harm that can be caused?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3daa0bb_a580d0f5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Doesn\u0027t this require the AP to be set and a path to exist? What if there is no path in the annotation?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20fd11a1_27604624",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "Should we just return the value anyway?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "698f64b8_1523e9e6",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "These GetNumberAt values seem weird. Should they really repeat like that?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620ef681_26f4fdd0",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "if (FPDFAnnot_HasAttachmentPoints(annot))\n  return true;",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97aa096_c6738028",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want to expose this, do we want to hide the concept of AP from our users? Or do we think this is something they have to know about?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c486e7b_ca1b29a3",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "This seems like it could be split into it\u0027s own CL?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b04f68_53d9d1cd",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T15:16:39Z",
+      "side": 1,
+      "message": "This seems weird to me, we set the path object into the Annot but if we want to get it we have to do it from the Form?",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
