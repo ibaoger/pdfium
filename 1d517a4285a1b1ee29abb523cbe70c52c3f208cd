@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "424f31d3_7a83d461",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:53:01Z",
+      "side": 1,
+      "message": "nit: pCurrentFont",
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87600522_84ae518e",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:53:01Z",
+      "side": 1,
+      "message": "Where does this value come from? Is there a constant we can use, or a conversion helper function?",
+      "range": {
+        "startLine": 78,
+        "startChar": 56,
+        "endLine": 78,
+        "endChar": 63
+      },
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6549cd5_a13aa803",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:53:01Z",
+      "side": 1,
+      "message": "Can we set element 0 before element 1?",
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
