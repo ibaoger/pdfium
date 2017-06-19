@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa41cfa_437758b8",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "Does this mean that we cannot reload any change to the document\u0027s info dict? Or why add this check?",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 382,
+        "endChar": 11
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "698e1f92_b7d147f8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "There is already a constant for this in CPDF_Object, and your constant here does not match that value.",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba9c1585_b934f843",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "Is there a reason for not just adding a trailer to m_Trailers after loading it?",
+      "range": {
+        "startLine": 367,
+        "startChar": 1,
+        "endLine": 367,
+        "endChar": 31
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ca6f6a3_57cda1ac",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "Can you add a comment pointing out the spec section that says that trailers should be looked at from last to first?",
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e58f2f5_6b85d2cb",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1560,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "Push even if it\u0027s a null trailer?",
+      "range": {
+        "startLine": 1560,
+        "startChar": 13,
+        "endLine": 1560,
+        "endChar": 22
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c642ca8_2cdedae6",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T15:17:47Z",
+      "side": 1,
+      "message": "What is the purpose of this, since it seems unused? You could add a flag for printing out metadata if there isn\u0027t one yet.",
+      "range": {
+        "startLine": 1111,
+        "startChar": 2,
+        "endLine": 1117,
+        "endChar": 0
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
