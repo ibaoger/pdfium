@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d30a230d_79c29fe1",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:24:55Z",
+      "side": 0,
+      "message": "GetActionHander() never returns nullptr.",
+      "parentUuid": "69c784e2_8ce96580",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16300baf_8e71d12f",
         "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8056ff00_78df3673",
+        "filename": "fpdfsdk/cpdfsdk_formfillenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:24:55Z",
+      "side": 0,
+      "message": "Ditto ditto.",
+      "parentUuid": "16300baf_8e71d12f",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "641ec6e9_25a055a2",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-19T13:49:28Z",
       "side": 0,
       "message": "Why is this check no longer needed?",
+      "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71f7d4f4_1b424e18",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T20:24:55Z",
+      "side": 0,
+      "message": "CPDFSDK_FormFillEnvironment::GetInterForm() never returns a nullptr.",
+      "parentUuid": "641ec6e9_25a055a2",
       "revId": "77e3fc5cebfb19aed09f920536200e017cff9a0b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
