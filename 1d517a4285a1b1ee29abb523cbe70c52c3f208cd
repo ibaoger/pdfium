@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "90948b03_1cd1c7ff",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T21:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "424f31d3_7a83d461",
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87600522_84ae518e",
         "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2017-06-19T20:53:01Z",
       "side": 1,
       "message": "Where does this value come from? Is there a constant we can use, or a conversion helper function?",
+      "range": {
+        "startLine": 78,
+        "startChar": 56,
+        "endLine": 78,
+        "endChar": 63
+      },
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "675c1946_3a0311b2",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T21:08:11Z",
+      "side": 1,
+      "message": "We do this a lot in CPDF_TextObject to convert between glyph and text space. PDF spec Section 4.2: \"For most types of fonts, this matrix is predefined to map 1000 units of glyph space to 1 unit of text space\". And the 2000 is because I am centering it, so only want to add half of the difference. Added a comment.",
+      "parentUuid": "87600522_84ae518e",
       "range": {
         "startLine": 78,
         "startChar": 56,
@@ -56,6 +98,24 @@
       "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745a3786_3e8bb987",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-19T21:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6549cd5_a13aa803",
+      "revId": "1d517a4285a1b1ee29abb523cbe70c52c3f208cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
