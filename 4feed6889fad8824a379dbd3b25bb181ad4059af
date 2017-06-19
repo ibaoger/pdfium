@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb6ca1f4_00272e8a",
+        "filename": "core/fpdfapi/parser/cpdf_document.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:53:41Z",
+      "side": 1,
+      "message": "Can we give this a better name? LoadMetaData? LoadDocumentInfo? Something to signify what the info is?",
+      "revId": "4feed6889fad8824a379dbd3b25bb181ad4059af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "096d5378_59a8d712",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:53:41Z",
+      "side": 1,
+      "message": "for (auto it \u003d m_Trailers.rbegin() it !\u003d m_Trailers.rend(); ++it) {\n  pRef \u003d ToRef...\n\n  if (pRef)\n    return pRef-\u003eGetObjectFor(\"Info\");\n}\nreturn kInvalidObjectNum;",
+      "revId": "4feed6889fad8824a379dbd3b25bb181ad4059af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0eee88a_2126d7e6",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T13:53:41Z",
+      "side": 1,
+      "message": "Looks like debugging stuff? (Also what\u0027s probably breaking your bots)",
+      "revId": "4feed6889fad8824a379dbd3b25bb181ad4059af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
