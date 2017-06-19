@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cd8f32a_bffac6a5",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T14:22:39Z",
+      "side": 1,
+      "message": "Can we add a FPDFPageObjectOCPDFPathObject helper and use it in the places where we do the static_cast?",
+      "revId": "bc026c4218b523903169b2e09f11dfa9acf2f0c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
