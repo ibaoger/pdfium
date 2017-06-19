@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66e0ef62_2cc06721",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T17:45:09Z",
+      "side": 1,
+      "message": "Rewrote.",
+      "parentUuid": "6f4106e2_0a25221f",
+      "range": {
+        "startLine": 60,
+        "startChar": 67,
+        "endLine": 61,
+        "endChar": 45
+      },
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ef4e7ba_626ab001",
         "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-15T21:46:41Z",
       "side": 1,
       "message": "Can we integrate the contents of this for-loop into the for-loop right below?",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669066e1_eaf1e08f",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T17:45:09Z",
+      "side": 1,
+      "message": "No, because the ShadingObjets all have to get destroyed before we can destroy any of the ShadingPatterns. We don\u0027t know what order things will happen in the map clearing so this all has to be done before we touch the map.",
+      "parentUuid": "3ef4e7ba_626ab001",
       "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -82,6 +124,48 @@
     },
     {
       "key": {
+        "uuid": "bbc75d58_d61981b3",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T17:45:09Z",
+      "side": 1,
+      "message": "No, because we have to do it before any ShadingPattern is cleared. This doesn\u0027t destroy the tiling pattern, it just cleans up the form object attached.",
+      "parentUuid": "48a0c493_83c8320c",
+      "range": {
+        "startLine": 67,
+        "startChar": 32,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9863d7b2_a0ec3146",
+        "filename": "core/fpdfapi/page/cpdf_docpagedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T17:45:09Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "034317b6_873a58be",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5049c675_c9210b85",
         "filename": "core/fpdfapi/page/cpdf_tilingpattern.h",
         "patchSetId": 1
@@ -93,6 +177,24 @@
       "writtenOn": "2017-06-15T21:46:41Z",
       "side": 1,
       "message": "Group this with Load() above, and implement it in the .cpp file?",
+      "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "175fabf9_8bcf26ea",
+        "filename": "core/fpdfapi/page/cpdf_tilingpattern.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-19T17:45:09Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "5049c675_c9210b85",
       "revId": "fe33e5dcc42339225214c9fe5208f80145738b6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
