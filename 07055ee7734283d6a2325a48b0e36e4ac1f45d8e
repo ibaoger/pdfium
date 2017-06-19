@@ -195,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "46a80230_f8b44661",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T19:08:05Z",
+      "side": 1,
+      "message": "Done. I hope this wording makes sense...",
+      "parentUuid": "a4ac6cb8_2df93f0d",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13ecbb76_c51e6225",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -248,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "44f4c99e_a6b58829",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T19:08:05Z",
+      "side": 1,
+      "message": "By API docs, you mean the design doc right? (I have comments in .h already.)",
+      "parentUuid": "31a2fe3c_7f829212",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3daa0bb_a580d0f5",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -295,6 +331,24 @@
       "side": 1,
       "message": "The annotation colour is only used for paths? There are not other bits of an annotation that are controlled by the colour?",
       "parentUuid": "88b25e13_4ed08045",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa7f4e60_951f4fa9",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T19:08:05Z",
+      "side": 1,
+      "message": "From my understanding, upon rendering, we would look for all annotation\u0027s APs. If an annotation doesn\u0027t have an AP, then the annotation dictionary entries (i.e. properties) are used to generate an appropriate AP (like \"C\").\nFrom there, the AP\u0027s content stream is what solely defines the annotation\u0027s appearance, and it gets translated into path objects, which then get drawn.\nSo AFAIK yes, the \"C\" color is only used for paths, because paths solely define how an annotation looks like.\nThe purpose of this SetColor function is to set the \"C\" for annotations that don\u0027t have APs yet; then later in our AP generation logic, we would write this \"C\" into AP\u0027s content stream. That\u0027s why I didn\u0027t think it makes sense for this function to work on annotations with AP. \nLet me know if you have a different understanding.",
+      "parentUuid": "3df340db_5631b69d",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -404,6 +458,24 @@
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ae75187_d3659971",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T19:08:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cbd461e_799967d2",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -559,6 +631,24 @@
       "side": 1,
       "message": "Yea, I think that would be more symmetrical which is good. As another point, we may want a different name for Form because we already have PDF Forms in general.  Is there something else we could call Form here instead?",
       "parentUuid": "bbae5627_3fcdb821",
+      "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37544972_7d7663e5",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-19T19:08:05Z",
+      "side": 1,
+      "message": "As discussed offline, I will first make a CL that makes a class that essentially combines annotation with its form object, then come back and modify this flow.",
+      "parentUuid": "2e07b181_d0b94ede",
       "revId": "07055ee7734283d6a2325a48b0e36e4ac1f45d8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
