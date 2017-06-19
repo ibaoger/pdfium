@@ -21,7 +21,10 @@ CBmpContext::CBmpContext(BMPDecompressor* pBmp,
 }
 
 CBmpContext::~CBmpContext() {
-  bmp_destroy_decompress(&m_pBmp);
+  if (m_pBmp) {
+    delete m_pBmp;
+    m_pBmp = nullptr;
+  }
 }
 
 CCodec_BmpModule::CCodec_BmpModule() {}
@@ -30,10 +33,7 @@ CCodec_BmpModule::~CCodec_BmpModule() {}
 
 std::unique_ptr<CCodec_BmpModule::Context> CCodec_BmpModule::Start(
     Delegate* pDelegate) {
-  BMPDecompressor* pBmp = bmp_create_decompress();
-  if (!pBmp)
-    return nullptr;
-
+  BMPDecompressor* pBmp = new BMPDecompressor();
   auto p = pdfium::MakeUnique<CBmpContext>(pBmp, this, pDelegate);
   p->m_pBmp->context_ptr = p.get();
   p->m_pBmp->err_ptr = p->m_szLastError;
@@ -58,7 +58,7 @@ int32_t CCodec_BmpModule::ReadHeader(Context* pContext,
 
   *width = ctx->m_pBmp->width;
   *height = ctx->m_pBmp->height;
-  *tb_flag = ctx->m_pBmp->imgTB_flag;
+  *tb_flag = false;
   *components = ctx->m_pBmp->components;
   *pal_num = ctx->m_pBmp->pal_num;
   *pal_pp = ctx->m_pBmp->pal_ptr;
