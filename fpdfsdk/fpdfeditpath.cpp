@@ -60,6 +60,24 @@ DLLEXPORT FPDF_BOOL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
   return true;
 }
 
+DLLEXPORT FPDF_BOOL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
+                                            unsigned int* R,
+                                            unsigned int* G,
+                                            unsigned int* B,
+                                            unsigned int* A) {
+  if (!path || !R || !G || !B || !A)
+    return false;
+
+  auto* pPathObj = static_cast<CPDF_PathObject*>(path);
+  uint32_t strokeRGB = pPathObj->m_ColorState.GetStrokeRGB();
+  *R = FXSYS_GetRValue(strokeRGB);
+  *G = FXSYS_GetGValue(strokeRGB);
+  *B = FXSYS_GetBValue(strokeRGB);
+  *A = static_cast<unsigned int>(pPathObj->m_GeneralState.GetStrokeAlpha() *
+                                 255.f);
+  return true;
+}
+
 DLLEXPORT FPDF_BOOL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path, float width) {
   if (!path || width < 0.0f)
     return false;
