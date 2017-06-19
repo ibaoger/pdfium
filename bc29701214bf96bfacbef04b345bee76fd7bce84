@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2c3389d_e9b871e7",
+        "filename": "fpdfsdk/fpdf_flatten.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T19:11:56Z",
+      "side": 0,
+      "message": "The PDF 1.7 spec recommends not bothering with this field.",
+      "revId": "bc29701214bf96bfacbef04b345bee76fd7bce84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46975330_6360a612",
+        "filename": "fpdfsdk/fpdf_flatten.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T19:11:56Z",
+      "side": 0,
+      "message": "If identity, set to identity?!",
+      "revId": "bc29701214bf96bfacbef04b345bee76fd7bce84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "494a3535_5df58488",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T19:11:56Z",
+      "side": 0,
+      "message": "I think this was for deleted code?",
+      "revId": "bc29701214bf96bfacbef04b345bee76fd7bce84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
