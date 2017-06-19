@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "b0a75722_121df83e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T19:26:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18fbe2dc_7735fb80",
+      "revId": "6c59b477bd14e2bfc327ab86b5bdca576a425e00",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c36801d_4bfb0604",
         "filename": "fpdfsdk/fpdf_flatten.cpp",
         "patchSetId": 3
@@ -34,6 +52,24 @@
       "revId": "6c59b477bd14e2bfc327ab86b5bdca576a425e00",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d93f6a_fda2837c",
+        "filename": "fpdfsdk/fpdf_flatten.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-19T19:26:32Z",
+      "side": 1,
+      "message": "Done. We don\u0027t have an IsEmpty() method.",
+      "parentUuid": "3c36801d_4bfb0604",
+      "revId": "6c59b477bd14e2bfc327ab86b5bdca576a425e00",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
