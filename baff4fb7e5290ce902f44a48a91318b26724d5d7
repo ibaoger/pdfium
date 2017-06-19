@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d2d8f3e_cf0da574",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "The Info object should be unique. Can it change while this object is alive? Removed this anyway to be sure, it just avoids some processing for each field of metadata that is retrieved.",
+      "parentUuid": "baa41cfa_437758b8",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 382,
+        "endChar": 11
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "698e1f92_b7d147f8",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "27085f68_0d4b3ef8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "Returning a different constant would modify the behavior of GetInfoObjNum() that has two callers. I agree we should change to CPDF_Object::kInvalidObjNum, but it\u0027s a larger refactor which should also include GetRootObjNum().\n\nReverted to returning 0 directly like GetRootObjNum(), will send another CL with this refactor.",
+      "parentUuid": "698e1f92_b7d147f8",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba9c1585_b934f843",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2017-06-19T15:17:47Z",
       "side": 1,
       "message": "Is there a reason for not just adding a trailer to m_Trailers after loading it?",
+      "range": {
+        "startLine": 367,
+        "startChar": 1,
+        "endLine": 367,
+        "endChar": 31
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fc22cf8_9483ec10",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "The unique_ptr. Is there a way to do it with unique_ptr?",
+      "parentUuid": "ba9c1585_b934f843",
       "range": {
         "startLine": 367,
         "startChar": 1,
@@ -106,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "b789f674_2079cb83",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "Added a comment, but it\u0027s what Dan said - it\u0027s not on the spec clearly, but it\u0027s the logical way of getting the latest Info.",
+      "parentUuid": "b399a60e_4b55c881",
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e58f2f5_6b85d2cb",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 8
@@ -129,6 +219,30 @@
     },
     {
       "key": {
+        "uuid": "9e9218dd_bf48007f",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1560,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e58f2f5_6b85d2cb",
+      "range": {
+        "startLine": 1560,
+        "startChar": 13,
+        "endLine": 1560,
+        "endChar": 22
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c642ca8_2cdedae6",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 8
@@ -149,6 +263,30 @@
       "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7aff1d7_350b76ba",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-19T18:22:15Z",
+      "side": 1,
+      "message": "Isn\u0027t this binary meant to call a bunch of API methods for the sake of running them? Regardless, I\u0027ll add a parameter to print these fields as Dan suggested.",
+      "parentUuid": "0c642ca8_2cdedae6",
+      "range": {
+        "startLine": 1111,
+        "startChar": 2,
+        "endLine": 1117,
+        "endChar": 0
+      },
+      "revId": "baff4fb7e5290ce902f44a48a91318b26724d5d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
