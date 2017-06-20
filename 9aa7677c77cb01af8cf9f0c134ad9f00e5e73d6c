@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42cc080c_73ff96d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd019276_e66a6d53",
+      "range": {
+        "startLine": 11,
+        "startChar": 41,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5636b91_8bb66ab9",
         "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
         "patchSetId": 12
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-19T23:25:34Z",
       "side": 1,
       "message": "Did we decide to not bother?",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c11cfb4e_969db8b6",
+        "filename": "fpdfsdk/cpdfsdk_widgethandler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Yeah, we decided that since the other functions in this file are just checking !pAnnot-\u003eIsSignatureWidget(), that was all we would do here. I\u0027ll remove the TODO.",
+      "parentUuid": "a5636b91_8bb66ab9",
       "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "644e168b_ce5cfe22",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done - you\u0027re right, it doesn\u0027t need to be virtual. I was following the pattern of other functions like OnChar, but it\u0027s not necessary in this case.",
+      "parentUuid": "924e0155_e335e6fa",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "608fb115_654e7664",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 12
@@ -79,6 +145,24 @@
       "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728ee139_f38bf025",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "608fb115_654e7664",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "bb05786a_06e5603a",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13920db2_20bb9569",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d820e0b_05d9f82f",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 12
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "252fdf4a_7c799984",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d820e0b_05d9f82f",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0b9d068_5a62ff13",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 12
@@ -142,6 +274,24 @@
       "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b168fc4_6cd7bf5a",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done - that makes sense. When I was reading about the difference between EXPECT_EQ() and ASSERT_EQ(), it seemed like the general consensus was to use EXPECT_EQ() in most cases because it gives more information about the failure, but I see how ASSERT_EQ() is more appropriate here.",
+      "parentUuid": "e0b9d068_5a62ff13",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -168,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "1db92200_04de561b",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8ea923d_d12eec80",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 30
+      },
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42b8d07_fbd1ce9b",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 12
@@ -182,6 +356,24 @@
       "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dd5d214_3161621a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T18:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42b8d07_fbd1ce9b",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
