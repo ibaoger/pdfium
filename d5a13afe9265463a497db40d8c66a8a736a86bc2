@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e023317_363294a9",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:47:44Z",
+      "side": 0,
+      "message": "Do we use these outside of tests? If not, can we rename them to be like A85DecodeForTesting to make it clear they are only for test.",
+      "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

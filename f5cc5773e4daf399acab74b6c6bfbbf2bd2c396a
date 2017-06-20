@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09c081ed_78d97622",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:47:44Z",
+      "side": 1,
+      "message": "dest_buf[row * pitch] ?",
+      "revId": "f5cc5773e4daf399acab74b6c6bfbbf2bd2c396a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94fe55f5_796305a6",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:47:44Z",
+      "side": 1,
+      "message": "Can dest_buf turn into a std::vector in the future?",
+      "revId": "f5cc5773e4daf399acab74b6c6bfbbf2bd2c396a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f3cba1_42a27f5a",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:47:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f5cc5773e4daf399acab74b6c6bfbbf2bd2c396a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2db71ecb_687eeef8",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:47:44Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "f5cc5773e4daf399acab74b6c6bfbbf2bd2c396a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
