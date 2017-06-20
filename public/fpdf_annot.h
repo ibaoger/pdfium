@@ -97,6 +97,9 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GetAnnot(FPDF_PAGE page,
                                               int index,
                                               FPDF_ANNOTATION* annot);
 
+DLLEXPORT void STDCALL FPDFPage_CloseAnnot(FPDF_ANNOTATION annot);
+
+
 // Get the subtype of an annotation.
 //
 //   annot  - handle to an annotation.
