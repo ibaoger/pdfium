@@ -16,6 +16,24 @@
       "revId": "b28ce92f55fb04ba4906f32dd296fd0cbe4f1dfc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35a97d79_357fab2c",
+        "filename": "samples/image_diff.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-20T00:49:22Z",
+      "side": 1,
+      "message": "I don\u0027t think so, likely because of:\n\nDLLEXPORT void STDCALL\nFPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {\n  if (g_bLibraryInitialized)\n    return;\n\n  FXMEM_InitializePartitionAlloc();\n\nin fpdfsdk/fpdfview.cpp. (After all, this CL is not the first PA partition.)\n\nI think image_diff.cc was unique in needing it; it was crashing in our third_party/libpng16, which has been locally modified to call |FXMEM_DefaultAlloc|, which only now, as of this CL, requires initializing PA.",
+      "parentUuid": "23a6f63d_b507e644",
+      "revId": "b28ce92f55fb04ba4906f32dd296fd0cbe4f1dfc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
