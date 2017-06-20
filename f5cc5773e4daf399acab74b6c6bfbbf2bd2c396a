@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0955244c_d0f4145f",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-20T21:44:35Z",
+      "side": 1,
+      "message": "Woops, it\u0027s not the same.\ndest_buf[row * pitch] is equivalent to *(dest_buf + row * pitch), but here we want (*dest_buf) + row * pitch. Undid those changes.",
+      "parentUuid": "ab873050_e833137a",
+      "revId": "f5cc5773e4daf399acab74b6c6bfbbf2bd2c396a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94fe55f5_796305a6",
         "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
         "patchSetId": 2
