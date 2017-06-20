@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c8e57b54_418ca5ca",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a28c3c_b0db9f10",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da72efaa_3a53d971",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ff2b4be_8b9ed01c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da72efaa_3a53d971",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "593d566a_f231bec0",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e39aadc_0f712b76",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66ca1dce_0dc62b30",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 6
@@ -67,6 +121,24 @@
       "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4513a039_5b1f95c1",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66ca1dce_0dc62b30",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5c23d234_94390a54",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7d9f3a0_d5b997ca",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07ab3d67_0bb51876",
         "filename": "public/fpdfview.h",
         "patchSetId": 6
@@ -98,6 +188,24 @@
       "writtenOn": "2017-06-20T13:44:30Z",
       "side": 1,
       "message": "I\u0027d drop this, and instead change anywhere we return a FPDF_ANNOTATON to return this new class instead, then update the code to work through the new class.",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00626884_440a577b",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-20T14:47:07Z",
+      "side": 1,
+      "message": "Will update in another CL.",
+      "parentUuid": "07ab3d67_0bb51876",
       "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
