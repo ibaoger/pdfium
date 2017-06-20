@@ -16,6 +16,24 @@
       "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75a414da_0f2ad3b5",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-20T20:58:00Z",
+      "side": 0,
+      "message": "We do use them outside of tests, that is why I removed the comments.",
+      "parentUuid": "7e023317_363294a9",
+      "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
