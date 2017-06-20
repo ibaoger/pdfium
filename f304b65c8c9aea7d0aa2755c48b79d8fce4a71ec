@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d4acd1e_83636c6c",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:28:45Z",
+      "side": 1,
+      "message": "As a followup, could this and line 330 be replaced by your selection helper?",
+      "revId": "f304b65c8c9aea7d0aa2755c48b79d8fce4a71ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "761065c4_63ff24c8",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:28:45Z",
+      "side": 1,
+      "message": "As a followup, a CL to change SetSel to SetSelection would be awesome.",
+      "revId": "f304b65c8c9aea7d0aa2755c48b79d8fce4a71ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

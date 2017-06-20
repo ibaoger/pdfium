@@ -295,6 +295,24 @@
     },
     {
       "key": {
+        "uuid": "da730dd6_53d32200",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:28:45Z",
+      "side": 1,
+      "message": "The typical way I think about is, if this fails, is there any reason to continue. So, for example, if the document fails to load, we\u0027re probably toast and everything else will fail so we can ASSERT that (no useful information from the other checks). If we read a value out of the document and it\u0027s wrong we can EXPECT as we can continue and see if other stuff works (hopefully giving some useful context).\n\nThis one is a bit more tricky as it could go either way. But, the fact that it could cause an unrelated crash below due to large allocation pushes it to the ASSERT side. Crashing the vector creation doesn\u0027t give us any extra information from the test.",
+      "parentUuid": "8b168fc4_6cd7bf5a",
+      "revId": "9aa7677c77cb01af8cf9f0c134ad9f00e5e73d6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8ea923d_d12eec80",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 12
