@@ -1065,13 +1065,13 @@ void RenderPdf(const std::string& name,
         fprintf(stderr, "Unknown error in checking if doc was available.\n");
         return;
       }
-      nRet = FPDFAvail_IsFormAvail(pdf_avail.get(), &hints);
-      if (nRet == PDF_FORM_ERROR || nRet == PDF_FORM_NOTAVAIL) {
-        fprintf(stderr,
-                "Error %d was returned in checking if form was available.\n",
-                nRet);
-        return;
-      }
+      // nRet = FPDFAvail_IsFormAvail(pdf_avail.get(), &hints);
+      // if (nRet == PDF_FORM_ERROR || nRet == PDF_FORM_NOTAVAIL) {
+      //   fprintf(stderr,
+      //           "Error %d was returned in checking if form was available.\n",
+      //           nRet);
+      //   return;
+      // }
       bIsLinearized = true;
     }
   } else {
@@ -1113,6 +1113,17 @@ void RenderPdf(const std::string& name,
   (void)FPDF_GetDocPermissions(doc.get());
 
   if (options.show_metadata) {
+    if (FPDFAvail_IsLinearized(pdf_avail.get()) == PDF_LINEARIZED) {
+      nRet = FPDFAvail_IsMetadataAvail(pdf_avail.get(), &hints);
+      if (nRet == PDF_METADATA_ERROR || nRet == PDF_METADATA_NOTAVAIL) {
+        fprintf(
+            stderr,
+            "Error %d was returned in checking if metadata was available.\n",
+            nRet);
+        return;
+      }
+    }
+
     const char* metaTags[] = {"Title",   "Author",   "Subject",      "Keywords",
                               "Creator", "Producer", "CreationDate", "ModDate"};
     for (const char* metaTag : metaTags) {

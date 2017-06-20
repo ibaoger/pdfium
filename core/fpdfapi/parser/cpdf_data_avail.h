@@ -83,6 +83,15 @@ class CPDF_DataAvail final {
     FormNotExist = 2,      // PDF_FORM_NOTEXIST
   };
 
+  // Must match PDF_METADATA_* definitions in public/fpdf_dataavail.h, but
+  // cannot #include that header. fpdfsdk/fpdf_dataavail.cpp has static_asserts
+  // to make sure the two sets of values match.
+  enum DocMetadataStatus {
+    MetadataError = -1,        // PDF_METADATA_ERROR
+    MetadataNotAvailable = 0,  // PDF_METADATA_NOTAVAIL
+    MetadataAvailable = 1,     // PDF_METADATA_AVAIL
+  };
+
   class FileAvail {
    public:
     virtual ~FileAvail();
@@ -105,6 +114,7 @@ class CPDF_DataAvail final {
   void SetDocument(CPDF_Document* pDoc);
   DocAvailStatus IsPageAvail(uint32_t dwPage, DownloadHints* pHints);
   DocFormStatus IsFormAvail(DownloadHints* pHints);
+  DocMetadataStatus IsMetadataAvail(DownloadHints* pHints);
   DocLinearizationStatus IsLinearizedPDF();
   bool IsLinearized();
   void GetLinearizedMainXRefInfo(FX_FILESIZE* pPos, uint32_t* pSize);

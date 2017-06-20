@@ -1613,6 +1613,28 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
   return m_pDocument->GetPage(index);
 }
 
+CPDF_DataAvail::DocMetadataStatus CPDF_DataAvail::IsMetadataAvail(
+    DownloadHints* pHints) {
+  if (!m_pDocument)
+    return MetadataAvailable;
+  if (m_pLinearized) {
+    DocAvailStatus nDocStatus = CheckLinearizedData(pHints);
+    if (nDocStatus == DataError)
+      return MetadataError;
+    if (nDocStatus == DataNotAvailable)
+      return MetadataNotAvailable;
+  }
+
+  std::vector<CPDF_Object*> new_objs_array;
+  if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+    m_objs_array = new_objs_array;
+    return MetadataNotAvailable;
+  }
+
+  m_objs_array.clear();
+  return MetadataAvailable;
+}
+
 CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
     DownloadHints* pHints) {
   if (!m_pDocument)

@@ -187,6 +187,15 @@ DLLEXPORT int STDCALL FPDFAvail_IsFormAvail(FPDF_AVAIL avail,
       &hints_wrap);
 }
 
+DLLEXPORT int STDCALL FPDFAvail_IsMetadataAvail(FPDF_AVAIL avail,
+                                                FX_DOWNLOADHINTS* hints) {
+  if (!avail || !hints)
+    return PDF_METADATA_ERROR;
+  CFPDF_DownloadHintsWrap hints_wrap(hints);
+  return CFPDFDataAvailFromFPDFAvail(avail)->m_pDataAvail->IsMetadataAvail(
+      &hints_wrap);
+}
+
 DLLEXPORT int STDCALL FPDFAvail_IsLinearized(FPDF_AVAIL avail) {
   if (!avail)
     return PDF_LINEARIZATION_UNKNOWN;

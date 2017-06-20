@@ -25,6 +25,10 @@
 #define PDF_FORM_AVAIL 1
 #define PDF_FORM_NOTEXIST 2
 
+#define PDF_METADATA_ERROR -1
+#define PDF_METADATA_NOTAVAIL 0
+#define PDF_METADATA_AVAIL 1
+
 #ifdef __cplusplus
 extern "C" {
 #endif  // __cplusplus
@@ -175,6 +179,9 @@ DLLEXPORT int STDCALL FPDFAvail_IsPageAvail(FPDF_AVAIL avail,
 // |FPDFDOC_InitFormFillEnvironment| when |PDF_FORM_AVAIL| is returned.
 DLLEXPORT int STDCALL FPDFAvail_IsFormAvail(FPDF_AVAIL avail,
                                             FX_DOWNLOADHINTS* hints);
+
+DLLEXPORT int STDCALL FPDFAvail_IsMetadataAvail(FPDF_AVAIL avail,
+                                                FX_DOWNLOADHINTS* hints);
 
 // Check whether a document is a linearized PDF.
 //
