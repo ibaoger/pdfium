@@ -209,6 +209,24 @@
       "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa1009bd_35ec6909",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T15:06:14Z",
+      "side": 1,
+      "message": "I think this cl is small enough we can convert the FPDF_ANNOTATIONS to be this type instead of CPDF_Annotation, yea?",
+      "parentUuid": "00626884_440a577b",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
