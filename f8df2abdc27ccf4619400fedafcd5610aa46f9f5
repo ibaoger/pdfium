@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69936961_13d8951a",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-20T00:45:44Z",
+      "side": 1,
+      "message": "Combine the 2 if-statements.",
+      "revId": "f8df2abdc27ccf4619400fedafcd5610aa46f9f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
