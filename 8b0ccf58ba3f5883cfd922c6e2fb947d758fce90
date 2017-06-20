@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5649289_122fb113",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:51:33Z",
+      "side": 1,
+      "message": "Can you copy the comment from 257,258 below into the description so we can see how it was fixed?",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db359695_419a424f",
+        "filename": "core/fpdfdoc/cpdf_occontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:51:33Z",
+      "side": 1,
+      "message": "This isn\u0027t quite the same as before, previously we\u0027d run the if\u0027s below on 269 and 271 even if pItemDict was null. That doesn\u0027t happen now, is that on purpose?",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bef58d91_3a8efd4b",
+        "filename": "core/fpdfdoc/cpdf_occontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T20:51:33Z",
+      "side": 1,
+      "message": "The return value of this method is wacky. We return true if we early exit?",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
