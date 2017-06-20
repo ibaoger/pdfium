@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c09c943b_d4ef4427",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-20T20:52:32Z",
+      "side": 1,
+      "message": "Yeah, I was thinking about that as I was writing those helpers. As far as line 330 goes, I could add into the helper TypeTextIntoTextfield() to \"take out focus by clicking out of the textfield\" because that\u0027s not currently in there. The only other thing is that this code is also checking against bitmaps of the rendered page, which I also don\u0027t have in the helper currently.",
+      "parentUuid": "7d4acd1e_83636c6c",
+      "revId": "f304b65c8c9aea7d0aa2755c48b79d8fce4a71ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "761065c4_63ff24c8",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
         "patchSetId": 16
