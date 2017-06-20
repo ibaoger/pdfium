@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37a28c3c_b0db9f10",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "What about CPDF_AnnotContext? or something along those lines?",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da72efaa_3a53d971",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "nit: no ;",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e39aadc_0f712b76",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "nit: const",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66ca1dce_0dc62b30",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "not: const",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d9f3a0_d5b997ca",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "Can this be a CFX_UnownedPtr?",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ab3d67_0bb51876",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-20T13:44:30Z",
+      "side": 1,
+      "message": "I\u0027d drop this, and instead change anywhere we return a FPDF_ANNOTATON to return this new class instead, then update the code to work through the new class.",
+      "revId": "f5541114e2fe9e3ba69d7754d450c1828c263d38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
