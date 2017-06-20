@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ce1cf8f8_f284babc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-20T20:58:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5649289_122fb113",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db359695_419a424f",
         "filename": "core/fpdfdoc/cpdf_occontext.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "1ec97d2b_cb7bb35e",
+        "filename": "core/fpdfdoc/cpdf_occontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-20T20:58:55Z",
+      "side": 1,
+      "message": "Right, but if the item is null, we should ignore it rather than consider is a false.\n\nFrom \"OCGs\" in Table 4.49:\n\"Note: Null values or references to deleted objects are ignored.\"",
+      "parentUuid": "db359695_419a424f",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bef58d91_3a8efd4b",
         "filename": "core/fpdfdoc/cpdf_occontext.cpp",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28dfa57e_eb38524e",
+        "filename": "core/fpdfdoc/cpdf_occontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-20T20:58:55Z",
+      "side": 1,
+      "message": "Yes, what the reference says is:\n\"If this entry is not present, is an empty array, or contains references only to null or deleted objects, the membership dictionary has no effect on the visibility of any content.\"\n\nI\u0027m interpreting \"no effect on the visibility\" as \"leave it visible\".",
+      "parentUuid": "bef58d91_3a8efd4b",
+      "revId": "8b0ccf58ba3f5883cfd922c6e2fb947d758fce90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
