@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e14b10f_5df31326",
+        "filename": "core/fxcrt/fx_memory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-20T00:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31673c6b_9c4f63b9",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4ead334_47855110",
         "filename": "core/fxcrt/fx_memory.h",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ae2144_16c08f00",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-20T00:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4ead334_47855110",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6647f3a6_c0cf1edc",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-20T00:41:44Z",
+      "side": 1,
+      "message": "Unfortunately we do, at least as a stop-gap; various callers (CPDF_PageContentGeneratorTest.ProcessGraphics, pixel tests/pdfium_diff) actually are trying to free NULL. :(",
+      "parentUuid": "5c592703_6db39da9",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a47dd9f1_4c6af480",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2017-06-14T00:51:31Z",
       "side": 1,
       "message": "If you switched this away from FX_Alloc(). Do we still need this as a TODO? Can it just be a note to tell future readers not to use FX_Alloc? Or is the TODO really suppose to say \"let\u0027s use FX_Alloc() in the future.\" ?",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2b81014_918e29d0",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-20T00:41:44Z",
+      "side": 1,
+      "message": "It should be  \"let\u0027s use FX_Alloc() in the future.\". I\u0027ll change it.",
+      "parentUuid": "a47dd9f1_4c6af480",
       "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
