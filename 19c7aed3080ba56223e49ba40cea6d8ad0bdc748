@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6982af4e_26f661fc",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-21T01:07:28Z",
+      "side": 1,
+      "message": "I we are considering malformed PDFs, maybe check and make sure the N entry is a stream or dictionary?",
+      "range": {
+        "startLine": 40,
+        "startChar": 18,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "19c7aed3080ba56223e49ba40cea6d8ad0bdc748",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baacede6_18bc2c4f",
+        "filename": "testing/resources/annotation_highlight_rollover_ap.in",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-21T01:07:28Z",
+      "side": 1,
+      "message": "Can we set the correct /Size here?",
+      "revId": "19c7aed3080ba56223e49ba40cea6d8ad0bdc748",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
