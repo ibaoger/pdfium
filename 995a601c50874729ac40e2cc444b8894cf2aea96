@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "716f56be_de1adf27",
+        "filename": "core/fpdfapi/parser/fpdf_parser_decode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-21T20:44:30Z",
+      "side": 1,
+      "message": "Might as well add 7 to |check| and return check.IsValid() ?",
+      "revId": "995a601c50874729ac40e2cc444b8894cf2aea96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
