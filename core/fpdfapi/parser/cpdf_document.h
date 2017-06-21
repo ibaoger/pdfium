@@ -87,7 +87,6 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   void LoadDoc();
   void LoadLinearizedDoc(const CPDF_LinearizedHeader* pLinearizationParams);
   void LoadPages();
-  void LoadDocumentInfo();
 
   void CreateNewDoc();
   CPDF_Dictionary* CreateNewPage(int iPage);
