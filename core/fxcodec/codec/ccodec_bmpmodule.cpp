@@ -39,7 +39,7 @@ int32_t CCodec_BmpModule::ReadHeader(Context* pContext,
                                      bool* tb_flag,
                                      int32_t* components,
                                      int32_t* pal_num,
-                                     uint32_t** pal_pp,
+                                     std::vector<uint32_t>* pal_pp,
                                      CFX_DIBAttribute* pAttribute) {
   auto* ctx = static_cast<CBmpContext*>(pContext);
   if (setjmp(ctx->m_Bmp.jmpbuf))
