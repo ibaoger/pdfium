@@ -16,6 +16,24 @@
       "revId": "eeb1c8cb0914f3ad004e790f321df42b15539b82",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28dc442d_5b73943e",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-21T16:57:57Z",
+      "side": 1,
+      "message": "GetDictFor() takes care of stream too by returning the dict inside the stream. I think dict has to exist in stream to at least declare the subtype of the xobject.",
+      "parentUuid": "53f3de92_698508bf",
+      "revId": "eeb1c8cb0914f3ad004e790f321df42b15539b82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
