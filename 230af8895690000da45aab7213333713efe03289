@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5e1d3c4_fc90c540",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "What about, instead of creating a new method for FormObjects, can we pass the list into ProcessPageObjects below (and rename to ProcessObjectList or something) and then this method goes away and we just call ProcessObjectList(buf, *pForm-\u003eGetPageObjectList()) ?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96236399_1b10e52f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "Will this always be true or is it just because of the way we set things up?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1bfa028_c2c969fd",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "Does this fit above, or can we reword to like \u0027Create anontations ...\u0027 to make it fit? Single comment word lines make me sad.",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "288c9463_57fcde6d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "What happens if the path object is in multiple annotations?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce15533_2604f495",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "pObjList-\u003epush_back(pdfium::MakeUnique\u003cCPDF_PageObject\u003e(pPathObj)) ?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f59b6c38_96665e48",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "nit: instead use",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d54aa5_fcc80f49",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-21T16:21:00Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
