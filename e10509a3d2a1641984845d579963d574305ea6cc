@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92cb29a4_37a5b981",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-21T17:17:53Z",
+      "side": 1,
+      "message": "If |annot| is a nullptr, then won\u0027t this crash?",
+      "revId": "e10509a3d2a1641984845d579963d574305ea6cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685e9254_c2a4eea5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-21T17:17:53Z",
+      "side": 1,
+      "message": "Can GetAnnotDict() return a nullptr now?",
+      "range": {
+        "startLine": 350,
+        "startChar": 49,
+        "endLine": 350,
+        "endChar": 63
+      },
+      "revId": "e10509a3d2a1641984845d579963d574305ea6cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
