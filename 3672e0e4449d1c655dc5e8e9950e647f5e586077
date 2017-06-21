@@ -16,6 +16,24 @@
       "revId": "3672e0e4449d1c655dc5e8e9950e647f5e586077",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "139a223d_f35ce654",
+        "filename": "testing/resources/pixel/bug_491_invisible.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-21T19:11:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1deff39_fbb5a1ec",
+      "revId": "3672e0e4449d1c655dc5e8e9950e647f5e586077",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
