@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "334b6ec7_383b8ea7",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-21T14:40:50Z",
+      "side": 1,
+      "message": "This is really NOTREACHED because Error has a longjmp.",
+      "parentUuid": "19547eba_ff7f15fe",
+      "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15306551_eff5efaf",
         "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-20T21:19:22Z",
       "side": 1,
       "message": "Can we combine this with the line 150 block into a helper method?",
+      "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e92fb9a_3a16b7f2",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-21T14:40:50Z",
+      "side": 1,
+      "message": "Will do in next BMP cleanup",
+      "parentUuid": "15306551_eff5efaf",
       "revId": "d5a13afe9265463a497db40d8c66a8a736a86bc2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
