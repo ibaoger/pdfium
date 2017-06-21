@@ -11,6 +11,7 @@
 
 #include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fpdfapi/page/cpdf_docpagedata.h"
+#include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
 #include "core/fpdfapi/page/cpdf_page.h"
@@ -134,6 +135,18 @@ CFX_ByteString CPDF_PageContentGenerator::RealizeResource(
   return name;
 }
 
+void CPDF_PageContentGenerator::ProcessFormObjects(std::ostringstream* buf,
+                                                   CPDF_Form* pForm) {
+  for (auto& pPageObj : *pForm->GetPageObjectList()) {
+    if (CPDF_ImageObject* pImageObject = pPageObj->AsImage())
+      ProcessImage(buf, pImageObject);
+    else if (CPDF_PathObject* pPathObj = pPageObj->AsPath())
+      ProcessPath(buf, pPathObj);
+    else if (CPDF_TextObject* pTextObj = pPageObj->AsText())
+      ProcessText(buf, pTextObj);
+  }
+}
+
 bool CPDF_PageContentGenerator::ProcessPageObjects(std::ostringstream* buf) {
   bool bDirty = false;
   for (auto& pPageObj : m_pageObjects) {
@@ -193,6 +206,9 @@ void CPDF_PageContentGenerator::ProcessImage(std::ostringstream* buf,
 void CPDF_PageContentGenerator::ProcessPath(std::ostringstream* buf,
                                             CPDF_PathObject* pPathObj) {
   ProcessGraphics(buf, pPathObj);
+
+  *buf << pPathObj->m_Matrix << " cm ";
+
   auto& pPoints = pPathObj->m_Path.GetPoints();
   if (pPathObj->m_Path.IsRect()) {
     CFX_PointF diff = pPoints[2].m_Point - pPoints[0].m_Point;

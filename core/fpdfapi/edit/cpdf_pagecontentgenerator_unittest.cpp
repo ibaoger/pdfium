@@ -54,7 +54,7 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessRect) {
   CPDF_PageContentGenerator generator(pTestPage.get());
   std::ostringstream buf;
   TestProcessPath(&generator, &buf, pPathObj.get());
-  EXPECT_EQ("q 10 5 3 25 re B* Q\n", CFX_ByteString(buf));
+  EXPECT_EQ("q 1 0 0 1 0 0 cm 10 5 3 25 re B* Q\n", CFX_ByteString(buf));
 
   pPathObj = pdfium::MakeUnique<CPDF_PathObject>();
   pPathObj->m_Path.AppendPoint(CFX_PointF(0, 0), FXPT_TYPE::MoveTo, false);
@@ -67,7 +67,7 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessRect) {
   buf.str("");
 
   TestProcessPath(&generator, &buf, pPathObj.get());
-  EXPECT_EQ("q 0 0 5.2 3.78 re n Q\n", CFX_ByteString(buf));
+  EXPECT_EQ("q 1 0 0 1 0 0 cm 0 0 5.2 3.78 re n Q\n", CFX_ByteString(buf));
 }
 
 TEST_F(CPDF_PageContentGeneratorTest, ProcessPath) {
@@ -99,8 +99,8 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessPath) {
   std::ostringstream buf;
   TestProcessPath(&generator, &buf, pPathObj.get());
   EXPECT_EQ(
-      "q 3.102 4.67 m 5.45 0.29 l 4.24 3.15 4.65 2.98 3.456 0.24 c 10.6 11.15 "
-      "l 11 12.5 l 11.46 12.67 11.84 12.96 12 13.64 c h f Q\n",
+      "q 1 0 0 1 0 0 cm 3.102 4.67 m 5.45 0.29 l 4.24 3.15 4.65 2.98 3.456 0.24"
+      " c 10.6 11.15 l 11 12.5 l 11.46 12.67 11.84 12.96 12 13.64 c h f Q\n",
       CFX_ByteString(buf));
 }
 
@@ -133,10 +133,11 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessGraphics) {
   // Color RGB values used are integers divided by 255.
   EXPECT_EQ("q 0.501961 0.701961 0.34902 rg 1 0.901961 0 RG /",
             pathString.Left(48));
-  EXPECT_EQ(" gs 1 2 m 3 4 l 5 6 l h B Q\n", pathString.Right(28));
+  EXPECT_EQ(" gs 1 0 0 1 0 0 cm 1 2 m 3 4 l 5 6 l h B Q\n",
+            pathString.Right(43));
   ASSERT_TRUE(pathString.GetLength() > 76);
   CPDF_Dictionary* externalGS = TestGetResource(
-      &generator, "ExtGState", pathString.Mid(48, pathString.GetLength() - 76));
+      &generator, "ExtGState", pathString.Mid(48, pathString.GetLength() - 91));
   ASSERT_TRUE(externalGS);
   EXPECT_EQ(0.5f, externalGS->GetNumberFor("ca"));
   EXPECT_EQ(0.8f, externalGS->GetNumberFor("CA"));
@@ -148,7 +149,8 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessGraphics) {
   CFX_ByteString pathString2(buf);
   EXPECT_EQ("q 0.501961 0.701961 0.34902 rg 1 0.901961 0 RG 10.5 w /",
             pathString2.Left(55));
-  EXPECT_EQ(" gs 1 2 m 3 4 l 5 6 l h B Q\n", pathString2.Right(28));
+  EXPECT_EQ(" gs 1 0 0 1 0 0 cm 1 2 m 3 4 l 5 6 l h B Q\n",
+            pathString2.Right(43));
 
   // Compare with the previous (should use same dictionary for gs)
   EXPECT_EQ(pathString.GetLength() + 7, pathString2.GetLength());
