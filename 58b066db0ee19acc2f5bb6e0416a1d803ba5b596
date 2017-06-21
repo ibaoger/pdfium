@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47793ff1_7886e0c9",
+        "filename": "testing/SUPPRESSIONS",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-21T17:42:41Z",
+      "side": 1,
+      "message": "Can you add a comment saying these are pixel? See lines 21-23",
+      "revId": "58b066db0ee19acc2f5bb6e0416a1d803ba5b596",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
