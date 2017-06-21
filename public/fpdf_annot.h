@@ -56,9 +56,7 @@ typedef enum FPDFANNOT_TEXTTYPE {
 } FPDFANNOT_TEXTTYPE;
 
 // Check if an annotation subtype is currently supported for creating and
-// displaying. The supported subtypes must be consistent with the ones supported
-// by AP generation - see the list of calls to CPVT_GenerateAP::Generate*AP() in
-// CPDF_Annot::GenerateAPIfNeeded().
+// displaying.
 //
 //   subtype   - the subtype to be checked.
 //
@@ -68,6 +66,8 @@ FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype);
 
 // Create an annotation in |page| of the subtype |subtype|. If the specified
 // subtype is illegal or unsupported, then a new annotation will not be created.
+// Must call FPDFPage_CloseAnnot() when the annotation returned by this
+// function is no longer needed.
 //
 //   page      - handle to a page.
 //   subtype   - the subtype of the new annotation.
@@ -86,7 +86,8 @@ FPDFPage_CreateAnnot(FPDF_PAGE page,
 // Returns the number of annotations in |page|.
 DLLEXPORT int STDCALL FPDFPage_GetAnnotCount(FPDF_PAGE page);
 
-// Get annotation in |page| at |index|.
+// Get annotation in |page| at |index|. Must call FPDFPage_CloseAnnot() when the
+// annotation returned by this function is no longer needed.
 //
 //   page  - handle to a page.
 //   index - the index of the annotation.
@@ -112,7 +113,40 @@ DLLEXPORT void STDCALL FPDFPage_CloseAnnot(FPDF_ANNOTATION annot);
 DLLEXPORT FPDF_ANNOTATION_SUBTYPE STDCALL
 FPDFAnnot_GetSubtype(FPDF_ANNOTATION annot);
 
-// Set the color of an annotation.
+// Update |annot| to contain the path as defined by |path|. If |path| came from
+// this |annot| originally and was retrieved by FPDFPage_CreateAnnot() or
+// FPDFPage_GetAnnot(), then the same |path| in this |annot| will simply be
+// updated. Otherwise, if |path| was created by FPDFPath_CreateNewPath(), |path|
+// will be appended to |annot|'s current list of paths.
+//
+//   annot  - handle to an annotation.
+//   path   - handle to the path that |annot| needs to update to have.
+//
+// Return true if successful, false otherwise.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetPathObject(FPDF_ANNOTATION annot,
+                                                    FPDF_PAGEOBJECT path);
+
+// Get the number of path objects in |annot|.
+//
+//   annot  - handle to an annotation.
+//
+// Returns the number of path objects in |annot|.
+DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot);
+
+// Get the path object in |annot| at |index|.
+//
+//   annot  - handle to an annotation.
+//   index  - the index of the path object.
+//   path   - receives the path.
+//
+// Return true if successful, false otherwise.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
+                                                    int index,
+                                                    FPDF_PAGEOBJECT* path);
+
+// Set the color of an annotation. Fails when called on annotations with
+// appearance streams already defined; use instead
+// FPDFPath_Set{Stroke|Fill}Color().
 //
 //   annot    - handle to an annotation.
 //   type     - type of the color to be set.
@@ -128,7 +162,9 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetColor(FPDF_ANNOTATION annot,
                                                unsigned int A);
 
 // Get the color of an annotation. If no color is specified, default to yellow
-// for highlight annotation, black for all else.
+// for highlight annotation, black for all else. Fails when called on
+// annotations with appearance streams already defined; use instead
+// FPDFPath_Get{Stroke|Fill}Color().
 //
 //   annot    - handle to an annotation.
 //   type     - type of the color requested.
@@ -157,7 +193,9 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetColor(FPDF_ANNOTATION annot,
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_HasAttachmentPoints(FPDF_ANNOTATION annot);
 
-// Set the attachment points (i.e. quadpoints) of an annotation.
+// Set the attachment points (i.e. quadpoints) of an annotation. If the
+// annotation's appearance stream is defined and this annotation is of a type
+// with quadpoints, then update the bounding box too.
 //
 //   annot      - handle to an annotation.
 //   quadPoints - the quadpoints to be set.
@@ -166,7 +204,9 @@ FPDFAnnot_HasAttachmentPoints(FPDF_ANNOTATION annot);
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_SetAttachmentPoints(FPDF_ANNOTATION annot, FS_QUADPOINTSF quadPoints);
 
-// Get the attachment points (i.e. quadpoints) of an annotation.
+// Get the attachment points (i.e. quadpoints) of an annotation. If the
+// annotation's appearance stream is defined and this annotation is of a type
+// with quadpoints, then return the bounding box it specifies instead.
 //
 //   annot      - handle to an annotation.
 //   quadPoints - receives the attachment points.
@@ -176,7 +216,9 @@ DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_GetAttachmentPoints(FPDF_ANNOTATION annot,
                               FS_QUADPOINTSF* quadPoints);
 
-// Set the annotation rectangle defining the location of the annotation.
+// Set the annotation rectangle defining the location of the annotation. If the
+// annotation's appearance stream is defined and this annotation is of a type
+// without quadpoints, then update the bounding box too.
 //
 //   annot  - handle to an annotation.
 //   rect   - the annotation rectangle to be set.
@@ -185,7 +227,9 @@ FPDFAnnot_GetAttachmentPoints(FPDF_ANNOTATION annot,
 DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetRect(FPDF_ANNOTATION annot,
                                               FS_RECTF rect);
 
-// Get the annotation rectangle defining the location of the annotation.
+// Get the annotation rectangle defining the location of the annotation. If the
+// annotation's appearance stream is defined and this annotation is of a type
+// without quadpoints, then return the bounding box it specifies instead.
 //
 //   annot  - handle to an annotation.
 //   rect   - receives the annotation rectangle.
