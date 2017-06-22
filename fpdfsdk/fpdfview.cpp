@@ -309,6 +309,14 @@ CPDF_PathObject* CPDFPathObjectFromFPDFPageObject(FPDF_PAGEOBJECT page_object) {
   return static_cast<CPDF_PathObject*>(page_object);
 }
 
+FPDF_PAGEOBJECT FPDFPageObjectFromCPDFPageObject(CPDF_PageObject* pPageObj) {
+  return static_cast<FPDF_PAGEOBJECT>(pPageObj);
+}
+
+CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT pageObj) {
+  return static_cast<CPDF_PageObject*>(pageObj);
+}
+
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {
   return static_cast<CFX_DIBitmap*>(bitmap);
 }
