@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "534e1d4e_9ef21101",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-22T17:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ac94ca_ec471b1d",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "459157f3_65417c73",
         "filename": "samples/DEPS",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2639ff1b_7aee0bb5",
+        "filename": "samples/DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-22T17:10:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "459157f3_65417c73",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b09f46a4_b3d31bdc",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-06-22T06:16:34Z",
       "side": 1,
       "message": "ft_free() and free() since we are referring to functions and not variables.",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ed5b843_51c957d8",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-22T17:10:02Z",
+      "side": 1,
+      "message": "I\u0027ve always used \"|f|\" for all identifiers. The \"f()\" notation seems weird to me since the |f|s in question often take more than 0 arguments. And \"f()\" reads to me as an actual call, not just a reference.\n\nI couldn\u0027t find guidance in either the Chromium or Google C++ style guides, weirdly.\n\nIf you feel strongly I\u0027ll change it. :)",
+      "parentUuid": "b09f46a4_b3d31bdc",
       "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

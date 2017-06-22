@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "0e002045_7addae39",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-06-22T17:10:02Z",
+      "side": 1,
+      "message": "Right. I chose to put the check here rather than in |PartitionFree| because adding it there would add a branch for all callers of PA — but only these PDFium callers need the check. (No other PA callers are trying to free NULL, and let\u0027s keep it that way.)\n\nAlthough libc does allow freeing NULL, I\u0027d like to keep PA\u0027s stricter behavior. Freeing NULL smells like a bug to me, and I like PA\u0027s clarity.\n\nI\u0027ve added a comment about how we should ultimately try to fix the callers that rely on being able to free NULL.",
+      "parentUuid": "4bf4dc65_96a3c5a2",
+      "revId": "a5e0016cfb37c1b93c2fdfcbb79bce695ca8d846",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47dd9f1_4c6af480",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 1
