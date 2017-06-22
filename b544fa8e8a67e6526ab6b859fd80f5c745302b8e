@@ -34,6 +34,24 @@
       "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0035f79e_91e6b1e0",
+        "filename": "testing/tools/run_pixel_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-22T21:16:45Z",
+      "side": 1,
+      "message": "I looked at these failures and they are not straightforward.\n\nLine_Stroke.pdf.pdf: after removing the extra \".pdf\", the test is failing, probably due to platform font differences.\nFRC_3.5_EncryptMetadata_T.pdf: this does not seem to be meant to be pixel-tested, but manually tested instead.\nOneof.pdf: this also seems to be for manual testing.\n\nI don\u0027t think we should enable this for corpus yet or at all, since it seems in some cases the files seem to be for manual testing.",
+      "parentUuid": "b604e86e_90518169",
+      "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
