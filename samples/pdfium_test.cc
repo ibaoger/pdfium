@@ -838,6 +838,17 @@ FPDF_PAGE GetPageForIndex(FPDF_FORMFILLINFO* param,
     return iter->second;
 
   FPDF_PAGE page = FPDF_LoadPage(doc, index);
+  FPDF_PAGEOBJECT blue_path = FPDFPageObj_CreateNewPath(20, 20);
+  (FPDFPath_SetFillColor(blue_path, 0, 0, 255, 130));
+  (FPDFPath_SetDrawMode(blue_path, FPDF_FILLMODE_WINDING, 0));
+  (FPDFPath_LineTo(blue_path, 20, 63));
+  (FPDFPath_BezierTo(blue_path, 55, 55, 78, 78, 90, 90));
+  (FPDFPath_LineTo(blue_path, 133, 133));
+  (FPDFPath_LineTo(blue_path, 133, 33));
+  (FPDFPath_BezierTo(blue_path, 38, 33, 39, 36, 40, 40));
+  (FPDFPath_Close(blue_path));
+  FPDFPage_InsertObject(page, blue_path);
+
   if (!page)
     return nullptr;
 

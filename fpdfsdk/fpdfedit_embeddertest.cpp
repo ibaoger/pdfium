@@ -174,6 +174,108 @@ TEST_F(FPDFEditEmbeddertest, EmptyCreation) {
   FPDF_ClosePage(page);
 }
 
+TEST_F(FPDFEditEmbeddertest, SaveAndRender1) {
+  const char noembMD5[] = "0b3772cd6ec02aa2e3ffbe2ac5bde902";
+  {
+    EXPECT_TRUE(OpenDocument("noemb.pdf"));
+    FPDF_PAGE page = LoadPage(0);
+    ASSERT_NE(nullptr, page);
+
+    // Now add a more complex blue path.
+    FPDF_PAGEOBJECT blue_path = FPDFPageObj_CreateNewPath(20, 20);
+    EXPECT_TRUE(FPDFPath_SetFillColor(blue_path, 0, 0, 255, 130));
+    EXPECT_TRUE(FPDFPath_SetDrawMode(blue_path, FPDF_FILLMODE_WINDING, 0));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 20, 63));
+    EXPECT_TRUE(FPDFPath_BezierTo(blue_path, 55, 55, 78, 78, 90, 90));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 133, 133));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 133, 33));
+    EXPECT_TRUE(FPDFPath_BezierTo(blue_path, 38, 33, 39, 36, 40, 40));
+    EXPECT_TRUE(FPDFPath_Close(blue_path));
+    FPDFPage_InsertObject(page, blue_path);
+    FPDF_BITMAP page_bitmap = RenderPage(page);
+    CompareBitmap(page_bitmap, 200, 200, noembMD5);
+    FPDFBitmap_Destroy(page_bitmap);
+
+    // Now save the result, closing the page and document
+    EXPECT_TRUE(FPDFPage_GenerateContent(page));
+    EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+    UnloadPage(page);
+  }
+
+  // Render the saved result
+  std::string new_file = GetString();
+  FILE* fp = fopen("noemb_save.pdf", "wb");
+  ASSERT_TRUE(fp);
+  fwrite(GetString().c_str(), 1, GetString().length(), fp);
+
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  FPDF_DOCUMENT new_doc = FPDF_LoadCustomDocument(&file_access, nullptr);
+  ASSERT_NE(nullptr, new_doc);
+  EXPECT_EQ(1, FPDF_GetPageCount(new_doc));
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_NE(nullptr, new_page);
+  FPDF_BITMAP new_bitmap = RenderPage(new_page);
+  CompareBitmap(new_bitmap, 200, 200, noembMD5);
+  FPDFBitmap_Destroy(new_bitmap);
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+}
+
+TEST_F(FPDFEditEmbeddertest, SaveAndRender2) {
+  const char embMD5[] = "a58da50ca80f7d31a458462a4f486c69";
+  {
+    EXPECT_TRUE(OpenDocument("emb.pdf"));
+    FPDF_PAGE page = LoadPage(0);
+    ASSERT_NE(nullptr, page);
+
+    // Now add a more complex blue path.
+    FPDF_PAGEOBJECT blue_path = FPDFPageObj_CreateNewPath(20, 20);
+    EXPECT_TRUE(FPDFPath_SetFillColor(blue_path, 0, 0, 255, 130));
+    EXPECT_TRUE(FPDFPath_SetDrawMode(blue_path, FPDF_FILLMODE_WINDING, 0));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 20, 63));
+    EXPECT_TRUE(FPDFPath_BezierTo(blue_path, 55, 55, 78, 78, 90, 90));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 133, 133));
+    EXPECT_TRUE(FPDFPath_LineTo(blue_path, 133, 33));
+    EXPECT_TRUE(FPDFPath_BezierTo(blue_path, 38, 33, 39, 36, 40, 40));
+    EXPECT_TRUE(FPDFPath_Close(blue_path));
+    FPDFPage_InsertObject(page, blue_path);
+    FPDF_BITMAP page_bitmap = RenderPage(page);
+    CompareBitmap(page_bitmap, 612, 792, embMD5);
+    FPDFBitmap_Destroy(page_bitmap);
+
+    // Now save the result, closing the page and document
+    EXPECT_TRUE(FPDFPage_GenerateContent(page));
+    EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+    UnloadPage(page);
+  }
+
+  // Render the saved result
+  std::string new_file = GetString();
+  FILE* fp = fopen("emb_save.pdf", "wb");
+  ASSERT_TRUE(fp);
+  fwrite(GetString().c_str(), 1, GetString().length(), fp);
+
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  FPDF_DOCUMENT new_doc = FPDF_LoadCustomDocument(&file_access, nullptr);
+  ASSERT_NE(nullptr, new_doc);
+  EXPECT_EQ(1, FPDF_GetPageCount(new_doc));
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_NE(nullptr, new_page);
+  FPDF_BITMAP new_bitmap = RenderPage(new_page);
+  CompareBitmap(new_bitmap, 612, 792, embMD5);
+  FPDFBitmap_Destroy(new_bitmap);
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+}
+
 // Regression test for https://crbug.com/667012
 TEST_F(FPDFEditEmbeddertest, RasterizePDF) {
   const char kAllBlackMd5sum[] = "5708fc5c4a8bd0abde99c8e8f0390615";
