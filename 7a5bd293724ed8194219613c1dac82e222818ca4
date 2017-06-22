@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19ac94ca_ec471b1d",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T06:16:34Z",
+      "side": 1,
+      "message": "nit: Can |count| and |size| be named |num_members| and |member_size|, respectively?",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "459157f3_65417c73",
+        "filename": "samples/DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T06:16:34Z",
+      "side": 1,
+      "message": "BTW, I don\u0027t like sample programs depending on core/ - it sets a bad example. I\u0027ll likely move image_diff to testing/ later, since it\u0027s really a test support executable.",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b09f46a4_b3d31bdc",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T06:16:34Z",
+      "side": 1,
+      "message": "ft_free() and free() since we are referring to functions and not variables.",
+      "revId": "7a5bd293724ed8194219613c1dac82e222818ca4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
