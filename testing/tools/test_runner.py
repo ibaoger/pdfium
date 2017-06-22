@@ -39,6 +39,7 @@ def TestOneFileParallel(this, test_case):
 class TestRunner:
   def __init__(self, dirname):
     self.test_dir = dirname
+    self.enforce_expected_images = False
 
   # GenerateAndTest returns a tuple <success, outputfiles> where
   # success is a boolean indicating whether the tests passed comparison
@@ -62,8 +63,8 @@ class TestRunner:
     raised_exception = self.Generate(source_dir, input_filename, input_root,
                                      pdf_path)
 
-    if raised_exception != None:
-      print "FAILURE: " + input_filename + "; " + str(raised_exception)
+    if raised_exception is not None:
+      print 'FAILURE: %s; %s' % (input_filename, raised_exception)
       return False, []
 
     results = []
@@ -72,23 +73,28 @@ class TestRunner:
     else:
       raised_exception, results = self.TestPixel(input_root, pdf_path)
 
-    if raised_exception != None:
-      print "FAILURE: " + input_filename + "; " + str(raised_exception)
+    if raised_exception is not None:
+      print 'FAILURE: %s; %s' % (input_filename, raised_exception)
       return False, results
 
-    if len(actual_images):
+    if actual_images:
       if self.image_differ.HasDifferences(input_filename, source_dir,
                                           self.working_dir):
         return False, results
+    else:
+      if self.enforce_expected_images:
+        print 'FAILURE: %s; Missing expected images' % (input_filename,)
+        return False, results
+
     return True, results
 
   def Generate(self, source_dir, input_filename, input_root, pdf_path):
     original_path = os.path.join(source_dir, input_filename)
     input_path = os.path.join(source_dir, input_root + '.in')
 
-    input_event_path = os.path.join(source_dir, input_root + ".evt")
+    input_event_path = os.path.join(source_dir, input_root + '.evt')
     if os.path.exists(input_event_path):
-      output_event_path = os.path.splitext(pdf_path)[0] + ".evt"
+      output_event_path = os.path.splitext(pdf_path)[0] + '.evt'
       shutil.copyfile(input_event_path, output_event_path)
 
     if not os.path.exists(input_path):
@@ -178,7 +184,7 @@ class TestRunner:
     self.pdfium_test_path = finder.ExecutablePath('pdfium_test')
     if not os.path.exists(self.pdfium_test_path):
       print "FAILURE: Can't find test executable '%s'" % self.pdfium_test_path
-      print "Use --build-dir to specify its location."
+      print 'Use --build-dir to specify its location.'
       return 1
 
     self.working_dir = finder.WorkingDir(os.path.join('testing', self.test_dir))
@@ -193,10 +199,10 @@ class TestRunner:
     walk_from_dir = finder.TestingDir(test_dir);
 
     test_cases = []
-    input_file_re = re.compile('^[a-zA-Z0-9_.]+[.](in|pdf)$')
-    if len(args):
+    input_file_re = re.compile('^.+[.](in|pdf)$')
+    if args:
       for file_name in args:
-        file_name.replace(".pdf", ".in")
+        file_name.replace('.pdf', '.in')
         input_path = os.path.join(walk_from_dir, file_name)
         if not os.path.isfile(input_path):
           print "Can't find test file '%s'" % file_name
@@ -219,7 +225,7 @@ class TestRunner:
     # Collect Gold results if an output directory was named.
     self.gold_results = None
     if options.gold_output_dir:
-      self.gold_results = gold.GoldResults("pdfium",
+      self.gold_results = gold.GoldResults('pdfium',
                                            options.gold_output_dir,
                                            options.gold_properties,
                                            options.gold_key,
@@ -256,7 +262,7 @@ class TestRunner:
       self.surprises.sort()
       print '\n\nUnexpected Successes:'
       for surprise in self.surprises:
-        print surprise;
+        print surprise
 
     if self.failures:
       self.failures.sort()
@@ -267,3 +273,7 @@ class TestRunner:
       if not options.ignore_errors:
         return 1
     return 0
+
+  def SetEnforceExpectedImages(self, new_value):
+    """Set whether to enforce that each test case provide an expected image."""
+    self.enforce_expected_images = new_value
