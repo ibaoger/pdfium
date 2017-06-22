@@ -42,6 +42,57 @@
     },
     {
       "key": {
+        "uuid": "e45d5398_7b4aaffc",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T14:26:43Z",
+      "side": 1,
+      "message": "nit static cast",
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45c5b961_f405ba11",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T14:26:43Z",
+      "side": 1,
+      "message": "This isn\u0027t really GetHeight as it isn\u0027t returned. SetHeight?",
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fb4c174_c18c2bfe",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T14:26:43Z",
+      "side": 1,
+      "message": "Can this be 1U?",
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e40ef11_ba9b7327",
         "filename": "core/fxcodec/lbmp/fx_bmp.h",
         "patchSetId": 2
@@ -53,6 +104,30 @@
       "writtenOn": "2017-06-22T02:43:17Z",
       "side": 1,
       "message": "Can we remove \"ptr\" from the name? pal_vec maybe?",
+      "range": {
+        "startLine": 90,
+        "startChar": 24,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afeddf6b_f42bd876",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T14:26:43Z",
+      "side": 1,
+      "message": "Or just whatever pal means expanded. Don\u0027t really need to encode the type in the name.",
+      "parentUuid": "4e40ef11_ba9b7327",
       "range": {
         "startLine": 90,
         "startChar": 24,
