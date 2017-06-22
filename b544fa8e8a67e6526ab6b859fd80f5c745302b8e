@@ -16,6 +16,24 @@
       "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b604e86e_90518169",
+        "filename": "testing/tools/run_pixel_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-22T20:30:51Z",
+      "side": 1,
+      "message": "10 tests in corpus don\u0027t have expected images. Can this be intentional?\n\nFAILURE: FRC_3.5_Filter_PubSec_SubFilter_s5.pdf; Missing expected images\nFAILURE: FRC_3.5_Filter_PubSec_Sub_SubFilter_s4.pdf; Missing expected images\nFAILURE: FRC_3.5_CF_Strf_stmf_DefaultCryptFilter.pdf; Missing expected images\nFAILURE: FRC_3.5_EncryptMetadata_T.pdf; Missing expected images\nFAILURE: FRC_3.5_Encrypt_is_damage.pdf; Missing expected images\nFAILURE: outline.pdf; Missing expected images\nFAILURE: bug_651304.pdf; Missing expected images\nFAILURE: Oneof.pdf; Missing expected images\nFAILURE: MouseEvents.pdf; Missing expected images\nFAILURE: Line_Stroke.pdf.pdf; Missing expected images",
+      "parentUuid": "9e9e4247_53160b52",
+      "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
