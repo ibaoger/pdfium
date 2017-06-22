@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "039a9304_1d345f1d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T20:05:16Z",
+      "side": 1,
+      "message": "Based this logic - changed it back to 0. :)",
+      "parentUuid": "afe433e1_3352e2e7",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "228d1537_0f4cbc0a",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 14
@@ -105,6 +123,24 @@
       "revId": "70b0198437720d396afa8db73acf1367a37490aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45e62f5_f052bd77",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T20:05:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ba761e_56f69111",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
