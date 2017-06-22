@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1498086736 -0700\nnonce AH5c86Ddlz/RGWS02nyj0/EHsect/SaWTYh4KGzg3GwXF4fi8XIu2xlbAZk7Mhtb69j6ZRwVNC0R\n\n0000000000000000000000000000000000000000 efec3d46f5514180b14ba4d6d65c805c61064bdb refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZSv1QAAoJEKs2LWFaZv17vt8H/00kSc//AzMZNr1v/UkyPmQ2\neiq5oIRv05aHLsh9jlj6rFzaTgH8+sRbkXVB8wXbsVPCCrnxx8E3bFo70JhW/GIx\ncNk4CNfDHNCSp6js2GN2me7WWWv+Y/0lB/IJmVNPlqThSYyUgH4Tq3p5XCxOa5q1\n1tXuOwUa85c8Di6QuguYdUsJj1n8P/u/0lpU3KY1a6usnNhBIUkrCnkioFGKDJdq\nca5+K08l+E5+lzTq6dyPmfSxvRHuTqCIU770FWV3MYtXCFrZXlS8JJ5dwQYYBjSx\nm8LfCtexFoZHf3u+KHhjB1VqXvVir4nawaoYrlamO6J28ySMhDfhPD99gZedkRQ\u003d\n\u003d8BxO\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "f175fd93_6710741c",
+        "filename": "testing/resources/text_form.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T14:31:03Z",
+      "side": 1,
+      "message": "Can make the script add this? (or file a bug so we can add a {{num objects}} thing to the script to write this for us?",
+      "revId": "efec3d46f5514180b14ba4d6d65c805c61064bdb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
