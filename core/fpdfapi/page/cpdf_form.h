@@ -24,6 +24,9 @@ class CPDF_Form : public CPDF_PageObjectHolder {
             CPDF_Dictionary* pParentResources = nullptr);
   ~CPDF_Form() override;
 
+  // CPDF_PageObjectHolder
+  bool IsForm() const override;
+
   void ParseContent(CPDF_AllStates* pGraphicStates,
                     const CFX_Matrix* pParentMatrix,
                     CPDF_Type3Char* pType3Char,

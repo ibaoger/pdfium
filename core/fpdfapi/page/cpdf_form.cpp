@@ -32,6 +32,10 @@ CPDF_Form::CPDF_Form(CPDF_Document* pDoc,
 
 CPDF_Form::~CPDF_Form() {}
 
+bool CPDF_Form::IsForm() const {
+  return true;
+}
+
 void CPDF_Form::StartParse(CPDF_AllStates* pGraphicStates,
                            const CFX_Matrix* pParentMatrix,
                            CPDF_Type3Char* pType3Char,

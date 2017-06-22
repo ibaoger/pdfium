@@ -34,7 +34,7 @@ class CPDF_PageContentGeneratorTest : public testing::Test {
   CPDF_Dictionary* TestGetResource(CPDF_PageContentGenerator* pGen,
                                    const CFX_ByteString& type,
                                    const CFX_ByteString& name) {
-    return pGen->m_pPage->m_pResources->GetDictFor(type)->GetDictFor(name);
+    return pGen->m_pObjHolder->m_pResources->GetDictFor(type)->GetDictFor(name);
   }
 
   void TestProcessText(CPDF_PageContentGenerator* pGen,
