@@ -8,14 +8,17 @@
 
 #include <utility>
 
+#include "core/fpdfapi/edit/cpdf_pagecontentgenerator.h"
 #include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_page.h"
+#include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
+#include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "core/fpdfdoc/cpdf_annot.h"
 #include "core/fpdfdoc/cpvt_color.h"
 #include "core/fpdfdoc/cpvt_generateap.h"
@@ -117,6 +120,10 @@ class CPDF_AnnotContext {
     if (!pStream)
       return;
 
+    // Reset the annotation matrix to be the identity matrix, since the
+    // appearance stream already takes matrix into account.
+    pStream->GetDict()->SetMatrixFor("Matrix", CFX_Matrix());
+
     m_pAnnotForm = pdfium::MakeUnique<CPDF_Form>(
         m_pPage->m_pDocument.Get(), m_pPage->m_pResources.Get(), pStream);
     m_pAnnotForm->ParseContent(nullptr, nullptr, nullptr);
@@ -124,6 +131,7 @@ class CPDF_AnnotContext {
 
   CPDF_Form* GetForm() const { return m_pAnnotForm.get(); }
   CPDF_Dictionary* GetAnnotDict() const { return m_pAnnotDict.Get(); }
+  CPDF_Page* GetPage() const { return m_pPage.Get(); }
 
  private:
   std::unique_ptr<CPDF_Form> m_pAnnotForm;
@@ -139,6 +147,10 @@ CPDF_AnnotContext* CPDFAnnotContextFromFPDFAnnotation(FPDF_ANNOTATION annot) {
   return static_cast<CPDF_AnnotContext*>(annot);
 }
 
+bool HasAPStream(CPDF_Dictionary* pAnnotDict) {
+  return !!FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+}
+
 }  // namespace
 
 DLLEXPORT FPDF_BOOL STDCALL
@@ -146,8 +158,8 @@ FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype) {
   return subtype == FPDF_ANNOT_CIRCLE || subtype == FPDF_ANNOT_HIGHLIGHT ||
          subtype == FPDF_ANNOT_INK || subtype == FPDF_ANNOT_POPUP ||
          subtype == FPDF_ANNOT_SQUARE || subtype == FPDF_ANNOT_SQUIGGLY ||
-         subtype == FPDF_ANNOT_STRIKEOUT || subtype == FPDF_ANNOT_TEXT ||
-         subtype == FPDF_ANNOT_UNDERLINE;
+         subtype == FPDF_ANNOT_STAMP || subtype == FPDF_ANNOT_STRIKEOUT ||
+         subtype == FPDF_ANNOT_TEXT || subtype == FPDF_ANNOT_UNDERLINE;
 }
 
 DLLEXPORT FPDF_BOOL STDCALL
@@ -181,7 +193,7 @@ FPDFPage_CreateAnnot(FPDF_PAGE page,
 DLLEXPORT int STDCALL FPDFPage_GetAnnotCount(FPDF_PAGE page) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (!pPage || !pPage->m_pFormDict)
-    return 0;
+    return -1;
 
   CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
   return pAnnots ? pAnnots->GetCount() : 0;
@@ -219,6 +231,161 @@ FPDFAnnot_GetSubtype(FPDF_ANNOTATION annot) {
       CPDF_Annot::StringToAnnotSubtype(pAnnotDict->GetStringFor("Subtype")));
 }
 
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetPathObject(FPDF_ANNOTATION annot,
+                                                    FPDF_PAGEOBJECT path) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
+  CPDF_PageObject* pPathObj = CPDFPageObjectFromFPDFPageObject(path);
+  if (!pAnnot || !pPathObj)
+    return false;
+
+  CPDF_Dictionary* pAnnotDict = pAnnot->GetAnnotDict();
+  CPDF_Page* pPage = pAnnot->GetPage();
+  if (!pAnnotDict || !pPage)
+    return false;
+
+  // Check that the annotation type is supported by this method.
+  FPDF_ANNOTATION_SUBTYPE subtype = FPDFAnnot_GetSubtype(annot);
+  if (subtype != FPDF_ANNOT_INK && subtype != FPDF_ANNOT_STAMP)
+    return false;
+
+  // If the annotation does not have an AP stream yet, generate and set it.
+  CFX_ByteString sExtGSDictName = "GS";
+  CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(pAnnot->GetAnnotDict(),
+                                            CPDF_Annot::AppearanceMode::Normal);
+  if (!pStream) {
+    auto pExtGStateDict = CPVT_GenerateAP::GenerateExtGStateDict(
+        *pAnnotDict, sExtGSDictName, "Normal");
+    auto pResourceDict = CPVT_GenerateAP::GenerateResourceDict(
+        pPage->m_pDocument.Get(), std::move(pExtGStateDict), nullptr);
+    CFX_ByteTextBuf sStream;
+    CPVT_GenerateAP::GenerateAndSetAPDict(pPage->m_pDocument.Get(), pAnnotDict,
+                                          sStream, std::move(pResourceDict),
+                                          false);
+    pStream =
+        FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return false;
+  }
+
+  // Get the annotation's corresponding form object for parsing its AP stream.
+  if (!pAnnot->HasForm())
+    pAnnot->SetForm(pStream);
+
+  CPDF_Form* pForm = pAnnot->GetForm();
+
+  // If the path object did not come from the same annotation, then append it to
+  // this annotation's object list.
+  CPDF_PageObjectList* pObjList = pForm->GetPageObjectList();
+  auto it = std::find_if(
+      pObjList->begin(), pObjList->end(),
+      [pPathObj](const std::unique_ptr<CPDF_PageObject>& candidate) {
+        return candidate.get() == pPathObj;
+      });
+  if (it == pObjList->end()) {
+    std::unique_ptr<CPDF_PageObject> pPageObjHolder(pPathObj);
+    pObjList->push_back(std::move(pPageObjHolder));
+  }
+
+  // Generate the content stream data to be put into the annotation's AP stream.
+  CPDF_PageContentGenerator generator(pPage);
+  std::ostringstream buf;
+  generator.ProcessFormObjects(&buf, pForm);
+
+  // Retrieve the name for the graphics state dictionary within the AP stream.
+  GraphicsData graphD;
+  graphD.fillAlpha = pPathObj->m_GeneralState.GetFillAlpha();
+  graphD.strokeAlpha = pPathObj->m_GeneralState.GetStrokeAlpha();
+  graphD.blendType = pPathObj->m_GeneralState.GetBlendType();
+  if (graphD.fillAlpha != 1.0f || graphD.strokeAlpha != 1.0f ||
+      (graphD.blendType != FXDIB_BLEND_UNSUPPORTED &&
+       graphD.blendType != FXDIB_BLEND_NORMAL)) {
+    auto it = pPage->m_GraphicsMap.find(graphD);
+    // When the page content generator processed this path, a dictionary name
+    // should have been generated for the graphics state dictionary.
+    if (it == pPage->m_GraphicsMap.end())
+      return false;
+
+    sExtGSDictName = PDF_NameEncode(it->second);
+  }
+
+  // Set up the graphics state diciontary within the AP stream.
+  CPDF_Dictionary* pResourceDict = pStream->GetDict()->GetDictFor("Resources");
+  if (!pResourceDict)
+    pResourceDict = pStream->GetDict()->SetNewFor<CPDF_Dictionary>("Resources");
+
+  CPDF_Dictionary* pExtGStateDict = pResourceDict->GetDictFor("ExtGState");
+  if (!pExtGStateDict)
+    pExtGStateDict = pResourceDict->SetNewFor<CPDF_Dictionary>("ExtGState");
+
+  CPDF_Dictionary* pGS = pExtGStateDict->GetDictFor(sExtGSDictName);
+  if (!pGS)
+    pGS = pExtGStateDict->SetNewFor<CPDF_Dictionary>(sExtGSDictName);
+
+  pGS->SetNewFor<CPDF_Number>("ca", graphD.fillAlpha);
+  pGS->SetNewFor<CPDF_Number>("CA", graphD.strokeAlpha);
+  if (graphD.blendType != FXDIB_BLEND_UNSUPPORTED)
+    pGS->SetNewFor<CPDF_Name>("BM", pPathObj->m_GeneralState.GetBlendMode());
+
+  // Set the content stream data in the AP stream.
+  pStream->SetData(reinterpret_cast<const uint8_t*>(buf.str().c_str()),
+                   buf.tellp());
+  return true;
+}
+
+DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAintnnotation(annot);
+  if (!pAnnot)
+    return -1;
+
+  if (!pAnnot->HasForm()) {
+    CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(
+        pAnnot->GetAnnotDict(), CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return 0;
+
+    pAnnot->SetForm(pStream);
+  }
+
+  int pathCount = 0;
+  for (const auto& pObj : *pAnnot->GetForm()->GetPageObjectList()) {
+    if (pObj && pObj->IsPath())
+      ++pathCount;
+  }
+  return pathCount;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
+                                                    int index,
+                                                    FPDF_PAGEOBJECT* path) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
+  if (!pAnnot || index < 0 || !path)
+    return false;
+
+  if (!pAnnot->HasForm()) {
+    CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(
+        pAnnot->GetAnnotDict(), CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return false;
+
+    pAnnot->SetForm(pStream);
+  }
+
+  // Retrieve the path object located at |index| in the list of path objects.
+  // Note that the list of path objects is a sublist of the page object list,
+  // consisting of only path objects specifically.
+  int pathCount = -1;
+  for (const auto& pObj : *pAnnot->GetForm()->GetPageObjectList()) {
+    if (pObj && pObj->IsPath()) {
+      ++pathCount;
+      if (pathCount == index) {
+        *path = FPDFPageObjectFromCPDFPageObject(pObj.get());
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetColor(FPDF_ANNOTATION annot,
                                                FPDFANNOT_COLORTYPE type,
                                                unsigned int R,
@@ -228,6 +395,12 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetColor(FPDF_ANNOTATION annot,
   CPDF_Dictionary* pAnnotDict =
       CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
   if (!pAnnotDict || R > 255 || G > 255 || B > 255 || A > 255)
+    return false;
+
+  // For annotations with their apperance streams already defined, the path
+  // stream' own color definitions take priority over the annotation color
+  // definitions set by this method, hence this method will simply fail.
+  if (HasAPStream(pAnnotDict))
     return false;
 
   // Set the opacity of the annotation.
@@ -257,6 +430,12 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetColor(FPDF_ANNOTATION annot,
   CPDF_Dictionary* pAnnotDict =
       CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
   if (!pAnnotDict || !R || !G || !B || !A)
+    return false;
+
+  // For annotations with their apperance streams already defined, the path
+  // stream' own color definitions take priority over the annotation color
+  // definitions retrieved by this method, hence this method will simply fail.
+  if (HasAPStream(pAnnotDict))
     return false;
 
   CPDF_Array* pColor = pAnnotDict->GetArrayFor(
@@ -321,8 +500,10 @@ FPDFAnnot_SetAttachmentPoints(FPDF_ANNOTATION annot,
   if (!annot || !FPDFAnnot_HasAttachmentPoints(annot))
     return false;
 
+  // Update the "QuadPoints" entry in the annotation dictionary.
   CPDF_Dictionary* pAnnotDict =
       CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+
   CPDF_Array* pQuadPoints = pAnnotDict->GetArrayFor("QuadPoints");
   if (pQuadPoints)
     pQuadPoints->Clear();
@@ -337,6 +518,18 @@ FPDFAnnot_SetAttachmentPoints(FPDF_ANNOTATION annot,
   pQuadPoints->AddNew<CPDF_Number>(quadPoints.y3);
   pQuadPoints->AddNew<CPDF_Number>(quadPoints.x4);
   pQuadPoints->AddNew<CPDF_Number>(quadPoints.y4);
+
+  // If the annotation's appearance stream is defined, and the new quadpoints
+  // defines a bigger bounding box than the appearance stream currently
+  // specifies, then update the "BBox" entry in the AP dictionary too, since it
+  // comes from annotation dictionary's "QuadPoints" entry.
+  CPDF_Stream* pStream =
+      FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+  if (pStream) {
+    CFX_FloatRect newRect = CPDF_Annot::RectFromQuadPoints(pAnnotDict);
+    if (newRect.Contains(pStream->GetDict()->GetRectFor("BBox")))
+      pStream->GetDict()->SetRectFor("BBox", newRect);
+  }
   return true;
 }
 
@@ -346,20 +539,48 @@ FPDFAnnot_GetAttachmentPoints(FPDF_ANNOTATION annot,
   if (!annot || !quadPoints || !FPDFAnnot_HasAttachmentPoints(annot))
     return false;
 
-  CPDF_Array* pArray =
-      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict()->GetArrayFor(
-          "QuadPoints");
-  if (!pArray)
-    return false;
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  CPDF_Array* pArray;
 
-  quadPoints->x1 = pArray->GetNumberAt(0);
-  quadPoints->y1 = pArray->GetNumberAt(1);
-  quadPoints->x2 = pArray->GetNumberAt(2);
-  quadPoints->y2 = pArray->GetNumberAt(3);
-  quadPoints->x3 = pArray->GetNumberAt(4);
-  quadPoints->y3 = pArray->GetNumberAt(5);
-  quadPoints->x4 = pArray->GetNumberAt(6);
-  quadPoints->y4 = pArray->GetNumberAt(7);
+  // If the annotation's appearance stream is defined, then retrieve the
+  // quadpoints defined by the "BBox" entry in the AP dictionary, since its
+  // "BBox" entry comes from annotation dictionary's "QuadPoints" entry, but
+  // takes priority over "QuadPoints" when rendering. Otherwise, retrieve
+  // the "Quadpoints" entry from the annotation dictionary.
+  CPDF_Stream* pStream =
+      FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+  if (pStream) {
+    pArray = pStream->GetDict()->GetArrayFor("BBox");
+    if (!pArray)
+      return false;
+
+    // Convert the BBox array into quadpoint coordinates. BBox array follows the
+    // order of a rectangle array: (left, bottom, right, up); and quadpoints
+    // follows the following order: (top-left vertex, top-right vertex, bottom-
+    // left vertex, bottom-right vertex).
+    quadPoints->x1 = pArray->GetNumberAt(0);
+    quadPoints->y1 = pArray->GetNumberAt(3);
+    quadPoints->x2 = pArray->GetNumberAt(2);
+    quadPoints->y2 = pArray->GetNumberAt(3);
+    quadPoints->x3 = pArray->GetNumberAt(0);
+    quadPoints->y3 = pArray->GetNumberAt(1);
+    quadPoints->x4 = pArray->GetNumberAt(2);
+    quadPoints->y4 = pArray->GetNumberAt(1);
+  } else {
+    pArray = pAnnotDict->GetArrayFor("QuadPoints");
+    if (!pArray)
+      return false;
+
+    quadPoints->x1 = pArray->GetNumberAt(0);
+    quadPoints->y1 = pArray->GetNumberAt(1);
+    quadPoints->x2 = pArray->GetNumberAt(2);
+    quadPoints->y2 = pArray->GetNumberAt(3);
+    quadPoints->x3 = pArray->GetNumberAt(4);
+    quadPoints->y3 = pArray->GetNumberAt(5);
+    quadPoints->x4 = pArray->GetNumberAt(6);
+    quadPoints->y4 = pArray->GetNumberAt(7);
+  }
   return true;
 }
 
@@ -370,16 +591,24 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetRect(FPDF_ANNOTATION annot,
   if (!pAnnotDict)
     return false;
 
-  CPDF_Array* pRect = pAnnotDict->GetArrayFor("Rect");
-  if (pRect)
-    pRect->Clear();
-  else
-    pRect = pAnnotDict->SetNewFor<CPDF_Array>("Rect");
+  CFX_FloatRect newRect(rect.left, rect.bottom, rect.right, rect.top);
 
-  pRect->AddNew<CPDF_Number>(rect.left);
-  pRect->AddNew<CPDF_Number>(rect.bottom);
-  pRect->AddNew<CPDF_Number>(rect.right);
-  pRect->AddNew<CPDF_Number>(rect.top);
+  // Update the "Rect" entry in the annotation dictionary.
+  pAnnotDict->SetRectFor("Rect", newRect);
+
+  // If the annotation's appearance stream is defined, the annotation is of a
+  // type that does not have quadpoints, and the new rectangle is bigger than
+  // the current bounding box, then update the "BBox" entry in the AP
+  // dictionary too, since its "BBox" entry comes from annotation dictionary's
+  // "Rect" entry.
+  if (FPDFAnnot_HasAttachmentPoints(annot))
+    return true;
+
+  CPDF_Stream* pStream =
+      FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+  if (pStream && newRect.Contains(pStream->GetDict()->GetRectFor("BBox")))
+    pStream->GetDict()->SetRectFor("BBox", newRect);
+
   return true;
 }
 
@@ -390,7 +619,20 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetRect(FPDF_ANNOTATION annot,
   if (!rect || !pAnnotDict)
     return false;
 
-  CFX_FloatRect rt = pAnnotDict->GetRectFor("Rect");
+  // If the annotation's appearance stream is defined and the annotation is of
+  // a type that does not have quadpoints, then retrieve the rectangle defined
+  // by the "BBox" entry in the AP dictionary, since its "BBox" entry comes
+  // from annotation dictionary's "Rect" entry, but takes priority over "Rect"
+  // when rendering. Otherwise, retrieve the "Rect" entry from the annotation
+  // dictionary.
+  CFX_FloatRect rt;
+  CPDF_Stream* pStream =
+      FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+  if (pStream && !FPDFAnnot_HasAttachmentPoints(annot))
+    rt = pStream->GetDict()->GetRectFor("BBox");
+  else
+    rt = pAnnotDict->GetRectFor("Rect");
+
   if (rt.IsEmpty())
     return false;
 
