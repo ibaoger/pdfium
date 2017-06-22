@@ -1,0 +1,198 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef263ff_81c0e2aa",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "I think the default CFX_Matrix constructor is the identity matrix already.",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 47
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6b490ec_3572d534",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "Keep this in alphabetical order?",
+      "range": {
+        "startLine": 163,
+        "startChar": 44,
+        "endLine": 163,
+        "endChar": 71
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed1a1c59_60907ded",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "It\u0027s a bit weird that a getter function ends up modifying the object it\u0027s reading from.",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24508b91_2e52a55f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "Can\u0027t changes like this go into its own CL?",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47eec201_7f9c6762",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "I feel like as a developer, I may want to know what is supported when I start developing a program to use PDFium, rather than at runtime.",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4080b184_827e6824",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "Does it make sense to split SetPathObject() into UpdatePathObject() and AppendNewPathObject() ?",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1255c72_3bb86130",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "What if |path| came from another annotation?",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f5bc88d_96da4b35",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "Does it return negative values or 0 on error?",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "552ed846_dcfc067b",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "Maybe a bit late to discuss this, but why do we return FPDF_BOOL in this file for getting \"objects\" that are typedefed to void*, rather than simply returning the \"objects\". e.g. for FPDF_PAGEOBJECT, why not just return it like FPDFPageObj_CreateTextObj()?",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e9f8a75_38485969",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T14:29:46Z",
+      "side": 1,
+      "message": "How can a developer know if this failed due to the existence of an AP stream, and to call a path function instead, vs this failing for some other reason?",
+      "range": {
+        "startLine": 166,
+        "startChar": 15,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
