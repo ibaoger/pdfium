@@ -23,6 +23,7 @@
 
 class CPDF_Annot;
 class CPDF_Page;
+class CPDF_PageObject;
 class CPDF_PageRenderContext;
 class CPDF_PathObject;
 class IFSDK_PAUSE_Adapter;
@@ -62,10 +63,10 @@ FPDF_DOCUMENT FPDFDocumentFromCPDFDocument(CPDF_Document* doc);
 
 CPDF_Page* CPDFPageFromFPDFPage(FPDF_PAGE page);
 
-FPDF_ANNOTATION FPDFAnnotationFromCPDFDictionary(CPDF_Dictionary* pDict);
-CPDF_Dictionary* CPDFDictionaryFromFPDFAnnotation(FPDF_ANNOTATION annot);
-
 CPDF_PathObject* CPDFPathObjectFromFPDFPageObject(FPDF_PAGEOBJECT page_object);
+
+FPDF_PAGEOBJECT FPDFPageObjectFromCPDFPageObject(CPDF_PageObject* pPageObj);
+CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT pageObj);
 
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap);
 
