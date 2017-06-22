@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97229e86_8d790f68",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T20:12:25Z",
+      "side": 1,
+      "message": "I\u0027d drop the ; 0 ... bit in this comment, the count is 0 if there are no annotations, same with one below.",
+      "revId": "2242d2eb4a84e7ba1d450b11808e99c0c4ea31c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
