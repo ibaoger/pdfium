@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf7b299d_34452c93",
+        "filename": "testing/SUPPRESSIONS",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T20:13:28Z",
+      "side": 1,
+      "message": "Can you pull these out to their own section with a TODO to investigate? They shouldn\u0027t be suppressed so we don\u0027t want to lose track of them.",
+      "revId": "6d7a40a8e28c5018f45140d755490c89e30a3794",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
