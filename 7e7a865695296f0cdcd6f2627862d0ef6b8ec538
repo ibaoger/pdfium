@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "091f0eb4_43935111",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef263ff_81c0e2aa",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 47
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6b490ec_3572d534",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "133ff373_629066ae",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6b490ec_3572d534",
+      "range": {
+        "startLine": 163,
+        "startChar": 44,
+        "endLine": 163,
+        "endChar": 71
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed1a1c59_60907ded",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 10
@@ -59,6 +107,24 @@
       "writtenOn": "2017-06-22T14:29:46Z",
       "side": 1,
       "message": "It\u0027s a bit weird that a getter function ends up modifying the object it\u0027s reading from.",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2454ab25_7725ff52",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "Good point. Although from AnnotContext\u0027s perspective, we are setting up the form lazily, so it makes sense to only set it up here when the user requests it. Let me know if you think we should redesign this part.",
+      "parentUuid": "ed1a1c59_60907ded",
       "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "a13265c7_26c75e6f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "True.. I guess for this CL, I was more trying to \"take AP into consideration in all methods\".. If you think it\u0027s messy to have it at this point, I can definitely split this part up.",
+      "parentUuid": "24508b91_2e52a55f",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47eec201_7f9c6762",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "b14da88a_b62a9eb9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "Good point! Although I don\u0027t know what\u0027s the best way to communicate this. I added a comment for now; would it be better to inline define the function here instead?",
+      "parentUuid": "47eec201_7f9c6762",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4080b184_827e6824",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -110,6 +212,24 @@
       "writtenOn": "2017-06-22T14:29:46Z",
       "side": 1,
       "message": "Does it make sense to split SetPathObject() into UpdatePathObject() and AppendNewPathObject() ?",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b7d234_8611c69e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "I thought about it too, but I think it\u0027s simpler from the user and the code perspective to just have them in the same function, especially since we can tell whether we need to set vs. update the path ourselves.",
+      "parentUuid": "4080b184_827e6824",
       "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "ac6e5a80_76f91803",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "By this design, |path| can\u0027t come from another annotation at this point - ownership stuff gets messy, and also updating the |path| would update the other annotation too. I added a comment attempting to reflect this, let me know if it makes sense.",
+      "parentUuid": "e1255c72_3bb86130",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f5bc88d_96da4b35",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -153,6 +297,24 @@
       "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83bde3e5_960bfe35",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "Done. Good point, now I made it to return -1 for null |annot|.",
+      "parentUuid": "3f5bc88d_96da4b35",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "3e78745c_4c6e437f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "It was just a design we decided upon, not sure if Dan had any particular reasons preferring this design. Do you think directly returning the object is better? We can always explore this in a later CL if necessary.",
+      "parentUuid": "552ed846_dcfc067b",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e9f8a75_38485969",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -184,6 +364,30 @@
       "writtenOn": "2017-06-22T14:29:46Z",
       "side": 1,
       "message": "How can a developer know if this failed due to the existence of an AP stream, and to call a path function instead, vs this failing for some other reason?",
+      "range": {
+        "startLine": 166,
+        "startChar": 15,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ca2e0c_e0754b5e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T17:26:54Z",
+      "side": 1,
+      "message": "You are right that we don\u0027t have a way to communicate the failure reason with this design, but I think the reasons are straightforward enough for now: as long as the provided pointers are not empty (or for SetColor, as long as the color numbers don\u0027t go out of bound), then the only failure reason would be for AP. \nAlthough what we could do is to just expose the concept of AP to users by making the anonymous HasAPStream() an API, if it\u0027s necessary (which we didn\u0027t think so until this point). \nWhat do you think?",
+      "parentUuid": "8e9f8a75_38485969",
       "range": {
         "startLine": 166,
         "startChar": 15,
