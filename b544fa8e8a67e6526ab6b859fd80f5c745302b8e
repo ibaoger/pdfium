@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e9e4247_53160b52",
+        "filename": "testing/tools/run_pixel_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T20:10:50Z",
+      "side": 1,
+      "message": "Can we enable this for corpus tests as well?",
+      "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
