@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1498153766 -0700\nnonce AH5c86D00FB/f0sEwC2McQ1Y/SxT1jUYzdkvCj7nnZI5apCZ3PU8EQym+NXdJkWFiQlj6HSlNTDs\n\n0000000000000000000000000000000000000000 59997243405d983c8cf3844e06095f71c5e8b5b2 refs/for/refs/heads/master%m\u003dformat,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZTAMmAAoJEKs2LWFaZv17BLYH/2tzmftRNE9npxg9d3YGkMVn\n0nedJQKG83iDj3W4lAsrTtgeDWUeLbI/ODFUZX6HdA64rstEVHNu8XLEOSNs4965\n3zvMWpwYRVvHtzSwhG0kP6ms0NcfVLaRqIOGu6G5mjUTr1ebIdLOXzmJ0sWGajJk\nR9v5bCUSRBJLIsd9ixzABhkwzObs7Z+XSjSpZA4xSDLqOFInRKCafZcG+76zJFOe\n3UoUMWZUShoGxmPaPhIdDbW6O249SSSLB2A3y5AxsJE1qGIMmveXeC7T2Zt2vwog\ndlIYr8NkSdCMrOQ0XbnzsxD9aXayH8PzE1T3X0OgZ4y0GQ/ScMV7P02o0J1MVK0\u003d\n\u003dhD/L\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "24e4b088_e7b67a5b",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 2066,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:16:05Z",
+      "side": 1,
+      "message": "Can this just depend on :image_diff and then we don\u0027t need to duplicate the filenames?",
+      "revId": "59997243405d983c8cf3844e06095f71c5e8b5b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2ad47c5_59250a7b",
+        "filename": "testing/image_diff/image_diff.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:16:05Z",
+      "side": 1,
+      "message": "Most of the blank lines in here an go away, yea?",
+      "revId": "59997243405d983c8cf3844e06095f71c5e8b5b2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
