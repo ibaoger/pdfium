@@ -20,7 +20,7 @@
 #include <vector>
 
 #include "core/fxcrt/fx_memory.h"
-#include "samples/image_diff_png.h"
+#include "testing/image_diff/image_diff_png.h"
 #include "third_party/base/logging.h"
 #include "third_party/base/numerics/safe_conversions.h"
 
