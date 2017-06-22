@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "afe433e1_3352e2e7",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:37:29Z",
+      "side": 1,
+      "message": "I think 0 is fine here as well. The user should be checking page !\u003d null as soon as they get the page, so doing it here is a safety check but shouldn\u0027t effect the return. If the page is empty, then there are 0 annotations, so that is the correct answer, I think.",
+      "parentUuid": "4b1a4f68_17b11d8b",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "228d1537_0f4cbc0a",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 14
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "see above",
       "parentUuid": "228d1537_0f4cbc0a",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7ba761e_56f69111",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:37:29Z",
+      "side": 1,
+      "message": "I think for this one returning 0 is fine. The user should be checking if pAnnot is valid after getting it, so they shouldn\u0027t be doing this anyway. (And, we\u0027d probably have to change the return on line 344 to be non-zero as well)",
+      "parentUuid": "6629c47d_e4380485",
       "revId": "70b0198437720d396afa8db73acf1367a37490aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
