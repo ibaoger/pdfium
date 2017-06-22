@@ -88,6 +88,24 @@
       "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fa4dc49_ca7f5439",
+        "filename": "testing/tools/run_pixel_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-22T21:49:22Z",
+      "side": 1,
+      "message": "Done, PTAL.",
+      "parentUuid": "7e079944_2dce8dc2",
+      "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
