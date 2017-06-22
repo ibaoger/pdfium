@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4b1a4f68_17b11d8b",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T19:30:42Z",
+      "side": 1,
+      "message": "I thought returning -1 would better represent an error and doesn\u0027t hurt anyways. If we return 0 on error, then the user wouldn\u0027t know if it\u0027s actually |page| that has problems, and then this would cause further problems when getting/creating annotations with the page. Thoughts?",
+      "parentUuid": "369d5865_579cd0ff",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "228d1537_0f4cbc0a",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 14
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-22T19:21:13Z",
       "side": 1,
       "message": "ditto",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6629c47d_e4380485",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T19:30:42Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "228d1537_0f4cbc0a",
       "revId": "70b0198437720d396afa8db73acf1367a37490aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
