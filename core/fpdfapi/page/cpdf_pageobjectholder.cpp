@@ -25,6 +25,14 @@ CPDF_PageObjectHolder::CPDF_PageObjectHolder(CPDF_Document* pDoc,
 
 CPDF_PageObjectHolder::~CPDF_PageObjectHolder() {}
 
+bool CPDF_PageObjectHolder::IsPage() const {
+  return false;
+}
+
+bool CPDF_PageObjectHolder::IsForm() const {
+  return false;
+}
+
 void CPDF_PageObjectHolder::ContinueParse(IFX_Pause* pPause) {
   if (!m_pParser)
     return;
