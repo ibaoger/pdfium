@@ -52,6 +52,24 @@
       "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb69d9f_b43ef61c",
+        "filename": "testing/tools/run_pixel_tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T21:21:01Z",
+      "side": 1,
+      "message": "We probably won\u0027t ever do manual testing. We should probably disable those tests and file bugs to convert them to proper tests in the future.",
+      "parentUuid": "0035f79e_91e6b1e0",
+      "revId": "b544fa8e8a67e6526ab6b859fd80f5c745302b8e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
