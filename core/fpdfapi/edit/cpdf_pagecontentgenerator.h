@@ -15,6 +15,7 @@
 #include "core/fxcrt/fx_system.h"
 
 class CPDF_Document;
+class CPDF_Form;
 class CPDF_ImageObject;
 class CPDF_Page;
 class CPDF_PageObject;
@@ -27,6 +28,8 @@ class CPDF_PageContentGenerator {
   ~CPDF_PageContentGenerator();
 
   void GenerateContent();
+
+  void ProcessFormObjects(std::ostringstream* buf, CPDF_Form* pForm);
 
  private:
   friend class CPDF_PageContentGeneratorTest;
