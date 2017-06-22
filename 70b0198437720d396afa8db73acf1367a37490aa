@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "369d5865_579cd0ff",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:21:13Z",
+      "side": 1,
+      "message": "Why the switch to -1? I don\u0027t see it making a difference from a user perspective if this is 0 or -1, other then with -1 the user may have to do an extra check?",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "228d1537_0f4cbc0a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-22T19:21:13Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "70b0198437720d396afa8db73acf1367a37490aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
