@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "748ab0d1_8c6b1c81",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T02:43:17Z",
+      "side": 1,
+      "message": "Can |bmp_header| just be a BmpFileHeader instead of a unique_ptr?",
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "955c0932_782f8e49",
+        "filename": "core/fxcodec/lbmp/fx_bmp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T02:43:17Z",
+      "side": 1,
+      "message": "Can this be sizeof() ?",
+      "range": {
+        "startLine": 86,
+        "startChar": 61,
+        "endLine": 86,
+        "endChar": 63
+      },
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e40ef11_ba9b7327",
+        "filename": "core/fxcodec/lbmp/fx_bmp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-22T02:43:17Z",
+      "side": 1,
+      "message": "Can we remove \"ptr\" from the name? pal_vec maybe?",
+      "range": {
+        "startLine": 90,
+        "startChar": 24,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "bd59f2458d20291b0d061fbd7a9359730d04a602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
