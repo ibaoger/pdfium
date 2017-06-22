@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a5dc61d7_e93e73c3",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "I think that\u0027s a little tricky right now, because objects in CPDF_Page only gets written out when it\u0027s dirty, whereas all objects in CPDF_Form need to be written out to completely replace the annotation AP stream. There is also no existing function telling Form apart from Page. \nMaybe a good followup CL would be to add IsPage() IsForm() to CPDF_PageObjectHolder, and then make this class work for both Page and Form.\nWhat do you think?",
+      "parentUuid": "b5e1d3c4_fc90c540",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96236399_1b10e52f",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-21T16:21:00Z",
       "side": 1,
       "message": "Will this always be true or is it just because of the way we set things up?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707febbb_e2e78195",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "This is the thing I told you about that works for annotations created by Adobe and Preview. So I guess I can\u0027t be sure if this will always be true for PDFs coming from elsewhere.",
+      "parentUuid": "96236399_1b10e52f",
       "revId": "230af8895690000da45aab7213333713efe03289",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b3df224b_ecee6c1a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bfa028_c2c969fd",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288c9463_57fcde6d",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 8
@@ -64,6 +118,24 @@
       "writtenOn": "2017-06-21T16:21:00Z",
       "side": 1,
       "message": "What happens if the path object is in multiple annotations?",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7314d7c2_7a825344",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "Don\u0027t think that would ever happen. When Form is set up, a new path object is created every time there is a keyword for path, so multiple forms shouldn\u0027t share the same path object.\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/page/cpdf_streamcontentparser.cpp?type\u003dcs\u0026l\u003d1483",
+      "parentUuid": "288c9463_57fcde6d",
       "revId": "230af8895690000da45aab7213333713efe03289",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5bbaa9a0_dccd2d8f",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "This doesn\u0027t work easily, since CPDF_PageObject is an abstract class. On the other hand, doing MakeUnique\u003cCPDF_PathObject\u003e makes it incompatible to be pushed back. Anything else worth trying?",
+      "parentUuid": "9ce15533_2604f495",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f59b6c38_96665e48",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 8
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "b9a96512_5712b01f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f59b6c38_96665e48",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06d54aa5_fcc80f49",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 8
@@ -118,6 +226,24 @@
       "revId": "230af8895690000da45aab7213333713efe03289",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb5205d1_e766c8c9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-22T13:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06d54aa5_fcc80f49",
+      "revId": "230af8895690000da45aab7213333713efe03289",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
