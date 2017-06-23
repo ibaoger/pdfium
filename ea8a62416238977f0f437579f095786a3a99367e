@@ -22,6 +22,30 @@
       "revId": "ea8a62416238977f0f437579f095786a3a99367e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaef8e4c_99c5358b",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1403,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-23T15:15:18Z",
+      "side": 1,
+      "message": "It\u0027s clashing with the overload in fx_string_testhelpers.cpp. I\u0027ll look into how often that is used.",
+      "parentUuid": "9fb36cc1_91a70f69",
+      "range": {
+        "startLine": 1403,
+        "startChar": 14,
+        "endLine": 1403,
+        "endChar": 58
+      },
+      "revId": "ea8a62416238977f0f437579f095786a3a99367e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
