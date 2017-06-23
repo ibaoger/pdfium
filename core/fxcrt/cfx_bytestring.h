@@ -235,6 +235,8 @@ uint32_t FX_HashCode_GetA(const CFX_ByteStringC& str, bool bIgnoreCase);
 
 namespace std {
 
+ostream& operator<<(ostream& os, CFX_ByteString str);
+
 template <>
 struct hash<CFX_ByteString> {
   std::size_t operator()(const CFX_ByteString& str) const {

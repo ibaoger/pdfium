@@ -1400,8 +1400,7 @@ void CPDFSDK_Widget::ResetAppearance_ComboBox(const CFX_WideString* sValue) {
 
     CPWL_Color crText = GetTextPWLColor();
     sBody << "BT\n"
-          << CPWL_Utils::GetColorAppStream(crText).c_str() << sEdit.c_str()
-          << "ET\n"
+          << CPWL_Utils::GetColorAppStream(crText) << sEdit << "ET\n"
           << "Q\nEMC\n";
   }
 
