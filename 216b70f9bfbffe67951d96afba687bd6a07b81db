@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcb57647_c7035629",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-23T18:30:49Z",
+      "side": 1,
+      "message": "can this be const CFX_ByteString\u0026 str ?",
+      "range": {
+        "startLine": 238,
+        "startChar": 33,
+        "endLine": 238,
+        "endChar": 51
+      },
+      "revId": "216b70f9bfbffe67951d96afba687bd6a07b81db",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
