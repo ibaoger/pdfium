@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "30167e84_5d6d8e7d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-24T02:20:44Z",
+      "side": 1,
+      "message": "So from the developer\u0027s perspective, since FPDF_ANNOTATION is opaque, as long as there is no observable behavior difference when using it, then it\u0027s fine. A developer should be able to start with a FPDF_ANNOTATION, makes some sequence of calls and get some resulting behavior. One should be able to modify the sequence of calls to add any number of FPDFAnnot_GetPathObjectCount() calls, and get the same behavior.",
+      "parentUuid": "2454ab25_7725ff52",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24508b91_2e52a55f",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 10
@@ -166,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "6ae867c0_b24378b0",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-24T02:20:44Z",
+      "side": 1,
+      "message": "Yes, but this CL also adds new APIs at the same time. Why not fix existing APIs, and then add new APIs? ~400 lines of non-test code is not exactly trivial anymore.",
+      "parentUuid": "a13265c7_26c75e6f",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47eec201_7f9c6762",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -195,6 +231,24 @@
       "side": 1,
       "message": "Good point! Although I don\u0027t know what\u0027s the best way to communicate this. I added a comment for now; would it be better to inline define the function here instead?",
       "parentUuid": "47eec201_7f9c6762",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71529034_7029add2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-24T02:20:44Z",
+      "side": 1,
+      "message": "The comment is good enough for me. I would recommend adding a comment in the impl to remind future developers to update the user doc when changing the impl/",
+      "parentUuid": "b14da88a_b62a9eb9",
       "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -353,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "7f31ddcb_6710ef16",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-24T02:20:44Z",
+      "side": 1,
+      "message": "Once people start using these public APIs, it becomes harder to change them. I just can\u0027t remember why we did it this way.",
+      "parentUuid": "3e78745c_4c6e437f",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e9f8a75_38485969",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -388,6 +460,30 @@
       "side": 1,
       "message": "You are right that we don\u0027t have a way to communicate the failure reason with this design, but I think the reasons are straightforward enough for now: as long as the provided pointers are not empty (or for SetColor, as long as the color numbers don\u0027t go out of bound), then the only failure reason would be for AP. \nAlthough what we could do is to just expose the concept of AP to users by making the anonymous HasAPStream() an API, if it\u0027s necessary (which we didn\u0027t think so until this point). \nWhat do you think?",
       "parentUuid": "8e9f8a75_38485969",
+      "range": {
+        "startLine": 166,
+        "startChar": 15,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1918e9a7_5a82094f",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-24T02:20:44Z",
+      "side": 1,
+      "message": "Basically you are saying is, as long as the caller passed in valid parameters, this should succeed except when the AP stream is already defined. I guess that\u0027s ok then.",
+      "parentUuid": "67ca2e0c_e0754b5e",
       "range": {
         "startLine": 166,
         "startChar": 15,
