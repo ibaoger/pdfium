@@ -281,9 +281,9 @@ def _CheckPNGFormat(input_api, output_api):
   test runners. If a file ends with .png, then it must be of the form
   NAME_expected{,mac,win}.pdf.#.png"""
   expected_pattern = input_api.re.compile(
-      r'.*_expected(_(mac|win))?\.pdf\..*\.png')
+      r'.+_expected(_(win|mac|linux))?\.pdf\.\d+.png')
   results = []
-  for f in input_api.AffectedFiles():
+  for f in input_api.AffectedFiles(include_deletes=False):
     if not f.LocalPath().endswith('.png'):
       continue
     if expected_pattern.match(f.LocalPath()):
