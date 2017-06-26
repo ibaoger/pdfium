@@ -425,6 +425,24 @@
     },
     {
       "key": {
+        "uuid": "7667df41_24c17232",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T13:38:59Z",
+      "side": 1,
+      "message": "For some reason, I thought this was how our other APIs functioned as well.  We should probably be consistent and flip this to returning the value instead of bool. I think the API is new enough that that should be fine, yea?",
+      "parentUuid": "7f31ddcb_6710ef16",
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e9f8a75_38485969",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 10
@@ -484,6 +502,30 @@
       "side": 1,
       "message": "Basically you are saying is, as long as the caller passed in valid parameters, this should succeed except when the AP stream is already defined. I guess that\u0027s ok then.",
       "parentUuid": "67ca2e0c_e0754b5e",
+      "range": {
+        "startLine": 166,
+        "startChar": 15,
+        "endLine": 166,
+        "endChar": 38
+      },
+      "revId": "7e7a865695296f0cdcd6f2627862d0ef6b8ec538",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9f3d9e_ed076904",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T13:38:59Z",
+      "side": 1,
+      "message": "The thinking was, if this is an issue we can add a HasAPStream call in the future which could be checked before calling. We didn\u0027t add it yet, as we didn\u0027t know if it was needed or not.",
+      "parentUuid": "1918e9a7_5a82094f",
       "range": {
         "startLine": 166,
         "startChar": 15,
