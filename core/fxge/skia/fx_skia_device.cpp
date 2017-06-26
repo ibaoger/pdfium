@@ -154,9 +154,9 @@ void RgbByteOrderTransferBitmap(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
 
 #endif  // _SKIA_SUPPORT_PATHS_
 
-#define SHOW_SKIA_PATH 0  // set to 1 to print the path contents
+#define SHOW_SKIA_PATH 01  // set to 1 to print the path contents
 #if SHOW_SKIA_PATH
-#define SHOW_SKIA_PATH_SHORTHAND 0  // set to 1 for abbreviated path contents
+#define SHOW_SKIA_PATH_SHORTHAND 01  // set to 1 for abbreviated path contents
 #endif
 #define DRAW_SKIA_CLIP 0  // set to 1 to draw a green rectangle around the clip
 
@@ -168,14 +168,6 @@ void DebugShowSkiaPaint(const SkPaint& paint) {
     printf("stroke 0x%08x width %g\n", paint.getColor(),
            paint.getStrokeWidth());
   }
-}
-
-void DebugShowCanvasMatrix(const SkCanvas* canvas) {
-  SkMatrix matrix = canvas->getTotalMatrix();
-  SkScalar m[9];
-  matrix.get9(m);
-  printf("matrix (%g,%g,%g) (%g,%g,%g) (%g,%g,%g)\n", m[0], m[1], m[2], m[3],
-         m[4], m[5], m[6], m[7], m[8]);
 }
 #endif  // SHOW_SKIA_PATH
 
@@ -194,8 +186,13 @@ void DebugShowSkiaPath(const SkPath& path) {
 #endif  // SHOW_SKIA_PATH
 }
 
-void DebugShowCanvasClip(const SkCanvas* canvas) {
+void DebugShowCanvasClip(CFX_SkiaDeviceDriver* driver, const SkCanvas* canvas) {
 #if SHOW_SKIA_PATH
+  SkMatrix matrix = canvas->getTotalMatrix();
+  SkScalar m[9];
+  matrix.get9(m);
+  printf("matrix (%g,%g,%g) (%g,%g,%g) (%g,%g,%g)\n", m[0], m[1], m[2], m[3],
+         m[4], m[5], m[6], m[7], m[8]);
   SkRect local = canvas->getLocalClipBounds();
   SkIRect device = canvas->getDeviceClipBounds();
 
@@ -203,28 +200,32 @@ void DebugShowCanvasClip(const SkCanvas* canvas) {
          local.fBottom);
   printf("device bounds %d %d %d %d\n", device.fLeft, device.fTop,
          device.fRight, device.fBottom);
+  FX_RECT clipBox;
+  driver->GetClipBox(&clipBox);
+  printf("reported bounds %d %d %d %d\n", clipBox.left, clipBox.top,
+         clipBox.right, clipBox.bottom);
 #endif  // SHOW_SKIA_PATH
 }
 
-void DebugShowSkiaDrawPath(const SkCanvas* canvas,
+void DebugShowSkiaDrawPath(CFX_SkiaDeviceDriver* driver,
+                           const SkCanvas* canvas,
                            const SkPaint& paint,
                            const SkPath& path) {
 #if SHOW_SKIA_PATH
   DebugShowSkiaPaint(paint);
-  DebugShowCanvasMatrix(canvas);
-  DebugShowCanvasClip(canvas);
+  DebugShowCanvasClip(driver, canvas);
   DebugShowSkiaPath(path);
   printf("\n");
 #endif  // SHOW_SKIA_PATH
 }
 
-void DebugShowSkiaDrawRect(const SkCanvas* canvas,
+void DebugShowSkiaDrawRect(CFX_SkiaDeviceDriver* driver,
+                           const SkCanvas* canvas,
                            const SkPaint& paint,
                            const SkRect& rect) {
 #if SHOW_SKIA_PATH
   DebugShowSkiaPaint(paint);
-  DebugShowCanvasMatrix(canvas);
-  DebugShowCanvasClip(canvas);
+  DebugShowCanvasClip(driver, canvas);
   printf("rect %g %g %g %g\n", rect.fLeft, rect.fTop, rect.fRight,
          rect.fBottom);
 #endif  // SHOW_SKIA_PATH
@@ -753,7 +754,7 @@ class SkiaState {
 #ifdef _SKIA_SUPPORT_PATHS_
       m_pDriver->PreMultiply();
 #endif  // _SKIA_SUPPORT_PATHS_
-      DebugShowSkiaDrawPath(skCanvas, skPaint, *fillPath);
+      DebugShowSkiaDrawPath(m_pDriver.Get(), skCanvas, skPaint, *fillPath);
       skCanvas->drawPath(*fillPath, skPaint);
     }
     if (stroke_alpha) {
@@ -762,7 +763,7 @@ class SkiaState {
 #ifdef _SKIA_SUPPORT_PATHS_
       m_pDriver->PreMultiply();
 #endif  // _SKIA_SUPPORT_PATHS_
-      DebugShowSkiaDrawPath(skCanvas, skPaint, m_skPath);
+      DebugShowSkiaDrawPath(m_pDriver.Get(), skCanvas, skPaint, m_skPath);
       skCanvas->drawPath(m_skPath, skPaint);
     }
     skCanvas->restore();
@@ -852,12 +853,28 @@ class SkiaState {
     if (m_debugDisable)
       return false;
     Dump(__func__);
-    SkPath skClipPath = BuildPath(pPathData);
-    skClipPath.setFillType((fill_mode & 3) == FXFILL_ALTERNATE
-                               ? SkPath::kEvenOdd_FillType
-                               : SkPath::kWinding_FillType);
-    SkMatrix skMatrix = ToSkMatrix(*pMatrix);
-    skClipPath.transform(skMatrix);
+    SkPath skClipPath;
+    if (pPathData->GetPoints().size() == 5 ||
+        pPathData->GetPoints().size() == 4) {
+      CFX_FloatRect rectf;
+      if (pPathData->IsRect(pMatrix, &rectf)) {
+        rectf.Intersect(CFX_FloatRect(
+            0, 0, (float)m_pDriver->GetDeviceCaps(FXDC_PIXEL_WIDTH),
+            (float)m_pDriver->GetDeviceCaps(FXDC_PIXEL_HEIGHT)));
+        FX_RECT outer = rectf.GetOuterRect();
+        // note that PDF's y-axis goes up; Skia's y-axis goes down
+        skClipPath.addRect({(float)outer.left, (float)outer.bottom,
+                            (float)outer.right, (float)outer.top});
+      }
+    }
+    if (skClipPath.isEmpty()) {
+      skClipPath = BuildPath(pPathData);
+      skClipPath.setFillType((fill_mode & 3) == FXFILL_ALTERNATE
+                                 ? SkPath::kEvenOdd_FillType
+                                 : SkPath::kWinding_FillType);
+      SkMatrix skMatrix = ToSkMatrix(*pMatrix);
+      skClipPath.transform(skMatrix);
+    }
     return SetClip(skClipPath);
   }
 
@@ -933,7 +950,7 @@ class SkiaState {
       return false;
     Dump(__func__);
     int count = m_commands.count();
-    if (m_commandIndex < count - 1) {
+    if (m_commandIndex < count) {
       if (Clip::kSave == m_commands[m_commandIndex]) {
         ++m_commandIndex;
         return true;
@@ -1087,10 +1104,11 @@ class SkiaState {
     if (m_debugDisable)
       return;
     printf(
-        "\n%s\nSkia Save Count %d  Agg Save Count %d"
-        "  Cache Save Count %d\n",
+        "\n%s\nSkia Save Count %d  Agg Save Stack/Count %d/%d"
+        "  Cache Save Index/Count %d/%d\n",
         where, m_pDriver->m_pCanvas->getSaveCount(),
-        (int)m_pDriver->m_StateStack.size(), m_commandIndex);
+        (int)m_pDriver->m_StateStack.size(), AggSaveCount(m_pDriver),
+        m_commandIndex, CacheSaveCount(m_commands, m_commandIndex));
     printf("Cache:\n");
 #if SHOW_SKIA_PATH_SHORTHAND
     bool dumpedPath = false;
@@ -1133,47 +1151,60 @@ class SkiaState {
 #endif  // SHOW_SKIA_PATH
   }
 
-  void DebugCheckClip() {
 #if SHOW_SKIA_PATH
-    if (m_debugDisable)
-      return;
-    int aggSaveCount = 0;
+  static int AggSaveCount(const CFX_UnownedPtr<CFX_SkiaDeviceDriver> driver) {
     FX_RECT last;
+    int aggSaveCount = 0;
     bool foundLast = false;
-    for (int index = 0; index < (int)m_pDriver->m_StateStack.size(); ++index) {
-      if (!m_pDriver->m_StateStack[index]) {
+    for (int index = 0; index < (int)driver->m_StateStack.size(); ++index) {
+      if (!driver->m_StateStack[index]) {
         continue;
       }
-      if (m_pDriver->m_StateStack[index]->GetType() != CFX_ClipRgn::RectI) {
+      if (driver->m_StateStack[index]->GetType() != CFX_ClipRgn::RectI) {
         aggSaveCount += 1;
         foundLast = false;
         continue;
       }
-      if (!foundLast || memcmp(&last, &m_pDriver->m_StateStack[index]->GetBox(),
+      if (!foundLast || memcmp(&last, &driver->m_StateStack[index]->GetBox(),
                                sizeof(FX_RECT))) {
         aggSaveCount += 1;
         foundLast = true;
-        last = m_pDriver->m_StateStack[index]->GetBox();
+        last = driver->m_StateStack[index]->GetBox();
       }
     }
-    if (m_pDriver->m_pClipRgn) {
-      CFX_ClipRgn::ClipType clipType = m_pDriver->m_pClipRgn->GetType();
+    if (driver->m_pClipRgn) {
+      CFX_ClipRgn::ClipType clipType = driver->m_pClipRgn->GetType();
       if (clipType != CFX_ClipRgn::RectI || !foundLast ||
-          memcmp(&last, &m_pDriver->m_pClipRgn->GetBox(), sizeof(FX_RECT))) {
+          memcmp(&last, &driver->m_pClipRgn->GetBox(), sizeof(FX_RECT))) {
         aggSaveCount += 1;
       }
     }
+    return aggSaveCount;
+  }
+
+  static int CacheSaveCount(const SkTDArray<SkiaState::Clip>& commands,
+                            int commandIndex) {
     int cacheSaveCount = 0;
-    SkASSERT(m_clipIndex <= m_commands.count());
     bool newPath = false;
-    for (int index = 0; index < m_commandIndex; ++index) {
-      if (Clip::kSave == m_commands[index]) {
+    for (int index = 0; index < commandIndex; ++index) {
+      if (Clip::kSave == commands[index]) {
         newPath = true;
       } else if (newPath) {
         ++cacheSaveCount;
         newPath = false;
       }
     }
+    return cacheSaveCount;
+  }
+#endif
+
+  void DebugCheckClip() {
+#if SHOW_SKIA_PATH
+    if (m_debugDisable)
+      return;
+    int aggSaveCount = AggSaveCount(m_pDriver);
+    int cacheSaveCount = CacheSaveCount(m_commands, m_commandIndex);
+    SkASSERT(m_clipIndex <= m_commands.count());
     if (aggSaveCount != cacheSaveCount) {
       DumpClipStacks();
       SkASSERT(0);
@@ -1214,24 +1245,36 @@ class SkiaState {
   void DumpClipStacks() const {
     if (m_debugDisable)
       return;
-    printf("\ncache\n");
+    printf(
+        "\n"
+        "cache"
+        "\n");
     for (int index = 0; index < m_commandIndex; ++index) {
       DumpPrefix(index);
       switch (m_commands[index]) {
         case Clip::kSave:
-          printf("Save\n");
+          printf(
+              "Save"
+              "\n");
           break;
         case Clip::kPath:
           m_clips[index].dump();
           break;
         default:
-          printf("unknown\n");
+          printf(
+              "unknown"
+              "\n");
       }
     }
-    printf("\nagg\n");
+    printf(
+        "\n"
+        "agg"
+        "\n");
     for (int index = 0; index < (int)m_pDriver->m_StateStack.size(); ++index) {
       if (!m_pDriver->m_StateStack[index]) {
-        printf("null\n");
+        printf(
+            "null"
+            "\n");
         continue;
       }
       CFX_ClipRgn::ClipType clipType =
@@ -1288,6 +1331,8 @@ class SkiaState {
 };
 
 #if SHOW_SKIA_PATH
+// force compiler to emit operator* so SkiaState can be deferenced in gdb
+template class std::unique_ptr<SkiaState>;
 int SkiaState::m_debugInitCounter;
 #endif
 
@@ -1619,7 +1664,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
       FX_RECT rect = rectf.GetOuterRect();
       m_pClipRgn->IntersectRect(rect);
 #endif  // _SKIA_SUPPORT_PATHS_
-      DebugShowCanvasClip(m_pCanvas);
+      DebugShowCanvasClip(this, m_pCanvas);
       return true;
     }
   }
@@ -1639,7 +1684,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
                   GetDeviceCaps(FXDC_PIXEL_HEIGHT));
   SetClipMask(clipBox, skClipPath);
 #endif  // _SKIA_SUPPORT_PATHS_
-  DebugShowCanvasClip(m_pCanvas);
+  DebugShowCanvasClip(this, m_pCanvas);
   return true;
 }
 
@@ -1673,7 +1718,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
                   GetDeviceCaps(FXDC_PIXEL_HEIGHT));
   SetClipMask(clipBox, dst_path);
 #endif  // _SKIA_SUPPORT_PATHS_
-  DebugShowCanvasClip(m_pCanvas);
+  DebugShowCanvasClip(this, m_pCanvas);
   return true;
 }
 
@@ -1726,7 +1771,7 @@ bool CFX_SkiaDeviceDriver::DrawPath(
 #ifdef _SKIA_SUPPORT_PATHS_
     m_pBitmap->PreMultiply();
 #endif  // _SKIA_SUPPORT_PATHS_
-    DebugShowSkiaDrawPath(m_pCanvas, skPaint, *fillPath);
+    DebugShowSkiaDrawPath(this, m_pCanvas, skPaint, *fillPath);
     m_pCanvas->drawPath(*fillPath, skPaint);
   }
   if (pGraphState && stroke_alpha) {
@@ -1735,7 +1780,7 @@ bool CFX_SkiaDeviceDriver::DrawPath(
 #ifdef _SKIA_SUPPORT_PATHS_
     m_pBitmap->PreMultiply();
 #endif  // _SKIA_SUPPORT_PATHS_
-    DebugShowSkiaDrawPath(m_pCanvas, skPaint, skPath);
+    DebugShowSkiaDrawPath(this, m_pCanvas, skPaint, skPath);
     m_pCanvas->drawPath(skPath, skPaint);
   }
   m_pCanvas->restore();
@@ -1762,7 +1807,7 @@ bool CFX_SkiaDeviceDriver::FillRectWithBlend(const FX_RECT* pRect,
   SkRect rect =
       SkRect::MakeLTRB(pRect->left, SkTMin(pRect->top, pRect->bottom),
                        pRect->right, SkTMax(pRect->bottom, pRect->top));
-  DebugShowSkiaDrawRect(m_pCanvas, spaint, rect);
+  DebugShowSkiaDrawRect(this, m_pCanvas, spaint, rect);
   m_pCanvas->drawRect(rect, spaint);
   return true;
 }
@@ -1956,12 +2001,22 @@ uint8_t* CFX_SkiaDeviceDriver::GetBuffer() const {
 }
 
 bool CFX_SkiaDeviceDriver::GetClipBox(FX_RECT* pRect) {
+#ifdef _SKIA_SUPPORT_PATHS_
+  if (!m_pClipRgn) {
+    pRect->left = pRect->top = 0;
+    pRect->right = GetDeviceCaps(FXDC_PIXEL_WIDTH);
+    pRect->bottom = GetDeviceCaps(FXDC_PIXEL_HEIGHT);
+    return true;
+  }
+  *pRect = m_pClipRgn->GetBox();
+#else
   // TODO(caryclark) call m_canvas->getClipDeviceBounds() instead
   pRect->left = 0;
   pRect->top = 0;
   const SkImageInfo& canvasSize = m_pCanvas->imageInfo();
   pRect->right = canvasSize.width();
   pRect->bottom = canvasSize.height();
+#endif
   return true;
 }
 
