@@ -35,6 +35,24 @@
       "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae629a4a_b3b271c6",
+        "filename": "xfa/fde/css/cfde_cssexttextbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:14:55Z",
+      "side": 1,
+      "message": "It\u0027s a less complicated CFX_MemoryStream that deals with wchar_ts. Let me see if there\u0027s another class somewhere that we can reuse.",
+      "parentUuid": "320968ea_c48a76bd",
+      "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
