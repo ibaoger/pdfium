@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b24e4820_18ce528c",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T13:29:36Z",
+      "side": 1,
+      "message": "I don\u0027t think we want this in namespace std do we?",
+      "revId": "10e5af15b3477e332aed941731793fbcd8eddc65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
