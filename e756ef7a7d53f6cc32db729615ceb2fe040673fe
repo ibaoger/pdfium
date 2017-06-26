@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "807670ab_d217f808",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T15:08:40Z",
+      "side": 1,
+      "message": "Can you add a blurb on what the presubmit check does?",
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff44817_f8a416d5",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T15:08:40Z",
+      "side": 1,
+      "message": "Does r\u0027.*_expected(_(mac|win))?\\.pdf\\..*\\.png\u0027 work?",
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e476b3dd_0df38f7e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T15:08:40Z",
+      "side": 1,
+      "message": "This checks the end bit, do we also need to verify the NAME matches?",
+      "range": {
+        "startLine": 296,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 16
+      },
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
