@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d610f5c9_8da22e53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-26T15:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "807670ab_d217f808",
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ff44817_f8a416d5",
         "filename": "PRESUBMIT.py",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "800ec2cf_a6837a39",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-26T15:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ff44817_f8a416d5",
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e476b3dd_0df38f7e",
         "filename": "PRESUBMIT.py",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2017-06-26T15:08:40Z",
       "side": 1,
       "message": "This checks the end bit, do we also need to verify the NAME matches?",
+      "range": {
+        "startLine": 296,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 16
+      },
+      "revId": "e756ef7a7d53f6cc32db729615ceb2fe040673fe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0231243a_a30ad5e0",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-26T15:45:45Z",
+      "side": 1,
+      "message": "Changing a png does not necessarily mean changing the corresponding PDF/IN file, and I don\u0027t see any way within input_api to check for the existence of a file that is not among the affected files.",
+      "parentUuid": "e476b3dd_0df38f7e",
       "range": {
         "startLine": 296,
         "startChar": 4,
