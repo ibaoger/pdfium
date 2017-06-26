@@ -22,6 +22,30 @@
       "revId": "652eda59a6b5ada94ff9768d09f6168a2dec3e90",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff3c2120_f5a8762a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-26T20:09:21Z",
+      "side": 1,
+      "message": "Sorry about that, I\u0027m struggling with how git cl patch works here. Patched a branch ahead by accident. Should be back to normal now.",
+      "parentUuid": "2615ef03_30d0a87d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "652eda59a6b5ada94ff9768d09f6168a2dec3e90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
