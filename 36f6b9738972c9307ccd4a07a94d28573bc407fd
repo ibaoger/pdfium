@@ -53,6 +53,24 @@
       "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d889eba8_05e6fb4b",
+        "filename": "xfa/fde/css/cfde_cssexttextbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T22:42:51Z",
+      "side": 1,
+      "message": "I can\u0027t find anything better that does exactly what we want.",
+      "parentUuid": "ae629a4a_b3b271c6",
+      "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
