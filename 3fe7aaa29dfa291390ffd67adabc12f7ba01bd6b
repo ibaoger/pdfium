@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cb60db8_e9b4606b",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T14:56:28Z",
+      "side": 1,
+      "message": "Is empty a valid quadpoints value (and same question with Rect). If not, thoughts on returningthe QuadPointsF and using empty to denote failure?",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643d9d60_5bbe9ac5",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T14:56:28Z",
+      "side": 1,
+      "message": "ASSERT_TRUE(annot !\u003d nullptr)\n\n(or if there is an ASSERT(annot) that would also work)",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
