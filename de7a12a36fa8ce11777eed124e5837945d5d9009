@@ -16,6 +16,24 @@
       "revId": "de7a12a36fa8ce11777eed124e5837945d5d9009",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1941f5c1_669f6588",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-26T17:28:28Z",
+      "side": 1,
+      "message": "Done. Although we can\u0027t simply add path objects to Form, so I\u0027m just setting the stream and then comparing the stream. (But converting path objects to stream has been tested in the tests above, and Form and Page use the same kind of path objects.)",
+      "parentUuid": "f1746157_bf908918",
+      "revId": "de7a12a36fa8ce11777eed124e5837945d5d9009",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
