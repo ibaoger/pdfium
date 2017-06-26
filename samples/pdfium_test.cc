@@ -281,8 +281,8 @@ void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
   for (int i = 0; i < annot_count; i++) {
     // Retrieve the annotation object and its subtype.
     fprintf(fp, "Annotation #%d:\n", i + 1);
-    FPDF_ANNOTATION annot;
-    if (!FPDFPage_GetAnnot(page, i, &annot)) {
+    FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, i);
+    if (!annot) {
       fprintf(fp, "Failed to retrieve annotation!\n\n");
       continue;
     }

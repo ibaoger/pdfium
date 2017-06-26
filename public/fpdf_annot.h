@@ -71,13 +71,10 @@ FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype);
 //
 //   page      - handle to a page.
 //   subtype   - the subtype of the new annotation.
-//   annot     - receives the newly created annotation.
 //
-// Returns true if successful, false otherwise.
-DLLEXPORT FPDF_BOOL STDCALL
-FPDFPage_CreateAnnot(FPDF_PAGE page,
-                     FPDF_ANNOTATION_SUBTYPE subtype,
-                     FPDF_ANNOTATION* annot);
+// Returns a handle to the new annotation object, or NULL on failure.
+DLLEXPORT FPDF_ANNOTATION STDCALL
+FPDFPage_CreateAnnot(FPDF_PAGE page, FPDF_ANNOTATION_SUBTYPE subtype);
 
 // Get the number of annotations in |page|.
 //
@@ -90,12 +87,9 @@ DLLEXPORT int STDCALL FPDFPage_GetAnnotCount(FPDF_PAGE page);
 //
 //   page  - handle to a page.
 //   index - the index of the annotation.
-//   annot - receives the annotation.
 //
-// Returns true if successful, false otherwise.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GetAnnot(FPDF_PAGE page,
-                                              int index,
-                                              FPDF_ANNOTATION* annot);
+// Returns a handle to the annotation object, or NULL on failure.
+DLLEXPORT FPDF_ANNOTATION STDCALL FPDFPage_GetAnnot(FPDF_PAGE page, int index);
 
 // Close an annotation. Must be called when the annotation returned by
 // FPDFPage_CreateAnnot() or FPDFPage_GetAnnot() is no longer needed. This

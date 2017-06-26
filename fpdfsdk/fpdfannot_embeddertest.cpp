@@ -40,8 +40,8 @@ TEST_F(FPDFAnnotEmbeddertest, ExtractHighlightLongContent) {
   EXPECT_EQ(1, FPDFPage_GetAnnotCount(page));
 
   // Check that the annotation is of type "highlight".
-  FPDF_ANNOTATION annot;
-  ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
   EXPECT_EQ(FPDF_ANNOT_HIGHLIGHT, FPDFAnnot_GetSubtype(annot));
 
   // Check that the annotation color is yellow.
@@ -119,8 +119,8 @@ TEST_F(FPDFAnnotEmbeddertest, ExtractInkMultiple) {
   EXPECT_EQ(3, FPDFPage_GetAnnotCount(page));
 
   // Check that the third annotation is of type "ink".
-  FPDF_ANNOTATION annot;
-  ASSERT_TRUE(FPDFPage_GetAnnot(page, 2, &annot));
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 2);
+  ASSERT_TRUE(annot);
   EXPECT_EQ(FPDF_ANNOT_INK, FPDFAnnot_GetSubtype(annot));
 
   // Check that the annotation color is blue with opacity.
@@ -159,8 +159,7 @@ TEST_F(FPDFAnnotEmbeddertest, AddIllegalSubtypeAnnotation) {
   ASSERT_TRUE(page);
 
   // Add an annotation with an illegal subtype.
-  FPDF_ANNOTATION annot;
-  ASSERT_FALSE(FPDFPage_CreateAnnot(page, -1, &annot));
+  ASSERT_FALSE(FPDFPage_CreateAnnot(page, -1));
 
   UnloadPage(page);
 }
@@ -173,8 +172,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddFirstTextAnnotation) {
   EXPECT_EQ(0, FPDFPage_GetAnnotCount(page));
 
   // Add a text annotation to the page.
-  FPDF_ANNOTATION annot;
-  ASSERT_TRUE(FPDFPage_CreateAnnot(page, FPDF_ANNOT_TEXT, &annot));
+  FPDF_ANNOTATION annot = FPDFPage_CreateAnnot(page, FPDF_ANNOT_TEXT);
+  ASSERT_TRUE(annot);
 
   // Check that there is now 1 annotations on this page.
   EXPECT_EQ(1, FPDFPage_GetAnnotCount(page));
@@ -183,7 +182,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddFirstTextAnnotation) {
   EXPECT_EQ(FPDF_ANNOT_TEXT, FPDFAnnot_GetSubtype(annot));
   FPDFPage_CloseAnnot(annot);
 
-  ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
+  annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
   EXPECT_EQ(FPDF_ANNOT_TEXT, FPDFAnnot_GetSubtype(annot));
 
   // Set the color of the annotation.
@@ -256,8 +256,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndSaveUnderlineAnnotation) {
   // Check that there is a total of one annotation on its first page, and verify
   // its quadpoints.
   EXPECT_EQ(1, FPDFPage_GetAnnotCount(page));
-  FPDF_ANNOTATION annot;
-  ASSERT_TRUE(FPDFPage_GetAnnot(page, 0, &annot));
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
   FS_QUADPOINTSF quadpoints;
   ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(annot, &quadpoints));
   EXPECT_EQ(115.802643f, quadpoints.x1);
@@ -267,7 +267,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndSaveUnderlineAnnotation) {
   FPDFPage_CloseAnnot(annot);
 
   // Add an underline annotation to the page and set its quadpoints.
-  ASSERT_TRUE(FPDFPage_CreateAnnot(page, FPDF_ANNOT_UNDERLINE, &annot));
+  annot = FPDFPage_CreateAnnot(page, FPDF_ANNOT_UNDERLINE);
+  ASSERT_TRUE(annot);
   quadpoints.x1 = 140.802643f;
   quadpoints.x3 = 140.802643f;
   ASSERT_TRUE(FPDFAnnot_SetAttachmentPoints(annot, quadpoints));
@@ -294,8 +295,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndSaveUnderlineAnnotation) {
 
   // Check that the second annotation is an underline annotation and verify
   // its quadpoints.
-  FPDF_ANNOTATION new_annot;
-  ASSERT_TRUE(FPDFPage_GetAnnot(new_page, 1, &new_annot));
+  FPDF_ANNOTATION new_annot = FPDFPage_GetAnnot(new_page, 1);
+  ASSERT_TRUE(new_annot);
   EXPECT_EQ(FPDF_ANNOT_UNDERLINE, FPDFAnnot_GetSubtype(new_annot));
   FS_QUADPOINTSF new_quadpoints;
   ASSERT_TRUE(FPDFAnnot_GetAttachmentPoints(new_annot, &new_quadpoints));
