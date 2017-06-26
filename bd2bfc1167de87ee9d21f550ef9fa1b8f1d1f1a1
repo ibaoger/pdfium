@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c26cba8d_a3e0d81e",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Just pass in the type, for the same reason as FormFillerAndWindowSetup() in the other test file.",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a653d9df_5a77cee1",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Oftentimes it\u0027s clearer to write:\n\nif (!foo)\n  DoBar();\nelse\n  DoFoo();\n\nas:\n\nif (foo)\n  DoFoo();\nelse\n  DoBar();",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c08571_64b05207",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "style: need braces.",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb81b63_b47b1a1e",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Maybe mention in a comment that |item_index| is 0-based?",
+      "range": {
+        "startLine": 106,
+        "startChar": 44,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e3a4ebc_e521bf0c",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Can\u0027t the calculation just be the following? option_y \u003d y - 15 * item_index;",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7721832_37a44fe8",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Rather than just having a random value, let\u0027s make this a constant. e.g. constexpr double kChoiceHeight \u003d 15;",
+      "range": {
+        "startLine": 120,
+        "startChar": 18,
+        "endLine": 120,
+        "endChar": 20
+      },
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cfe280d_345263cc",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Since we are using ASSERT, and aborting at the first sign something going wrong, let\u0027s check |m_pAnnotEditable| immediately after assigning to it.",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3efbbe43_123741b1",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "Why don\u0027t we just pass in a CPDFSDK_Annot* instead? Whereas currently callers write:\n\nFormFillerAndWindowSetup(false);  // What does false mean?\n\nCallers can write:\n\nFormFillerAndWindowSetup(GetCPDFSDKAnnotNormal());\n\nAnd it\u0027s easier to see which annot the setup function is trying to work with. Also, a boolean would not work if there are more than 2 fields to choose from during setup.",
+      "range": {
+        "startLine": 56,
+        "startChar": 32,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f18768_9ebcae73",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-26T21:55:55Z",
+      "side": 1,
+      "message": "EXPECT_TRUE(!statement) -\u003e EXPECT_FALSE(statement)",
+      "revId": "bd2bfc1167de87ee9d21f550ef9fa1b8f1d1f1a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
