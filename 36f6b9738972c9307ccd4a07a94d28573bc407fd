@@ -17,6 +17,24 @@
       "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320968ea_c48a76bd",
+        "filename": "xfa/fde/css/cfde_cssexttextbuf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T20:13:24Z",
+      "side": 1,
+      "message": "Is this, basically, a CFX_MemoryStream now?",
+      "parentUuid": "9b590bde_b48884e4",
+      "revId": "36f6b9738972c9307ccd4a07a94d28573bc407fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
