@@ -69,6 +69,24 @@
       "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c5b5ce4_19ca741d",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-26T15:35:53Z",
+      "side": 1,
+      "message": "I believe ASSERT_NE isn\u0027t allowed with nullptr. If we\u0027re doing ASSERT_TRUE(ptr) in other places then it\u0027s fine.",
+      "parentUuid": "de01f63c_47fbe98c",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
