@@ -22,6 +22,30 @@
       "revId": "bdb330ee4d4d9d6fafc6bc84d4fa28c045eda936",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ccf666e_9f78391e",
+        "filename": "testing/tools/fixup_pdf_template.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T19:03:38Z",
+      "side": 1,
+      "message": "I haven\u0027t seen a real need for it. Maybe add it when someone actually needs it, and avoid the churn in the meanwhile?",
+      "parentUuid": "3789a601_b01a000f",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "bdb330ee4d4d9d6fafc6bc84d4fa28c045eda936",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
