@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4aa9f1e4_852aad1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:14:18Z",
+      "side": 1,
+      "message": "As a note, if you\u0027re created this as a branch off the other CL (which it looks like you did from the relation chain) then gerrit won\u0027t let you land it anyway until the other CL is landed. It will try and then fail the land with an error.",
+      "revId": "649b9ca30b619ca5478cd24e3bca4f5e1b77233b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a3cdf4d_2269154c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:14:18Z",
+      "side": 1,
+      "message": "Can this be const or is GetAnnotAP non-const?",
+      "revId": "649b9ca30b619ca5478cd24e3bca4f5e1b77233b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695be0bf_984e06ff",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:14:18Z",
+      "side": 1,
+      "message": "Add a check for !quadpoints ?",
+      "revId": "649b9ca30b619ca5478cd24e3bca4f5e1b77233b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb5f4ff8_e17d59ba",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:14:18Z",
+      "side": 1,
+      "message": "check !rect",
+      "revId": "649b9ca30b619ca5478cd24e3bca4f5e1b77233b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f407092a_4b20a126",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:14:18Z",
+      "side": 1,
+      "message": "Can we invert this? If (!pStream || FPDFAnnot_Has....)",
+      "revId": "649b9ca30b619ca5478cd24e3bca4f5e1b77233b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
