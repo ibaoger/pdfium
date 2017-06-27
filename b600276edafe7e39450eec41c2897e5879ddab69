@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a47b3ad_5a60139d",
+        "filename": "testing/SUPPRESSIONS_PIXEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T13:48:43Z",
+      "side": 1,
+      "message": "Done. We\u0027re actually in 2018 here already, but we use MTV time ;-)",
+      "parentUuid": "87ab6645_5f1216e6",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f59aff0_b45fff73",
         "filename": "testing/SUPPRESSIONS_PIXEL",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84096ee8_ea265da4",
+        "filename": "testing/SUPPRESSIONS_PIXEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T13:48:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f59aff0_b45fff73",
+      "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "ecb89869_6f66dba6",
+        "filename": "testing/tools/test_runner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T13:48:43Z",
+      "side": 1,
+      "message": "When comparing to a singleton like None, \"is\" is preferred over \"\u003d\u003d\".",
+      "parentUuid": "6d1a57d0_f51573db",
+      "range": {
+        "startLine": 66,
+        "startChar": 24,
+        "endLine": 66,
+        "endChar": 30
+      },
+      "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab579f38_94cd526c",
         "filename": "testing/tools/test_runner.py",
         "patchSetId": 4
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "fe6cf21e_7cc11041",
+        "filename": "testing/tools/test_runner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T13:48:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab579f38_94cd526c",
+      "range": {
+        "startLine": 87,
+        "startChar": 55,
+        "endLine": 87,
+        "endChar": 72
+      },
+      "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13738279_bf33d800",
         "filename": "testing/tools/test_runner.py",
         "patchSetId": 4
@@ -108,6 +198,30 @@
       "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e2d20d8_993ecbaf",
+        "filename": "testing/tools/test_runner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T13:48:43Z",
+      "side": 1,
+      "message": "I think so, being reversible feels more right to me. The calling code is not less readable as \"runner.SetEnforceExpectedImages(True)\" than \"runner.SetEnforceExpectedImages()\".",
+      "parentUuid": "13738279_bf33d800",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 46
+      },
+      "revId": "b600276edafe7e39450eec41c2897e5879ddab69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
