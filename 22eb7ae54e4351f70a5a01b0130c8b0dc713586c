@@ -16,6 +16,24 @@
       "revId": "22eb7ae54e4351f70a5a01b0130c8b0dc713586c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a03834a_cd2926d6",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:19:15Z",
+      "side": 1,
+      "message": "Here, a page would only write out dirty objects to a new stream, and then add this new stream to \"Contents\" in the page dict. \nA form, however, has to write out all its objects to a stream, because each form (i.e. each annotation AP) only has one stream. Updating any objects in the form would mean that we need to replace the entire stream.",
+      "parentUuid": "1936cfa5_5d286d57",
+      "revId": "22eb7ae54e4351f70a5a01b0130c8b0dc713586c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
