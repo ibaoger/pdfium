@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38c0ebde_5dd71c7a",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T13:36:44Z",
+      "side": 1,
+      "message": "Sure, we can have that in another CL.",
+      "parentUuid": "0ab1beab_9839b175",
+      "range": {
+        "startLine": 161,
+        "startChar": 53,
+        "endLine": 161,
+        "endChar": 67
+      },
+      "revId": "f4ac356232baf96650029f90c5813ae3090c9c30",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5420ec34_cf4b7635",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "f4ac356232baf96650029f90c5813ae3090c9c30",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfbe2b80_d532b242",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T13:36:44Z",
+      "side": 1,
+      "message": "I think it makes sense to not allow empty quadpoints and rectangles, since having empty ones would just mean that the annotation would not display. So we can go with returning quadpoints and rect.",
+      "parentUuid": "5420ec34_cf4b7635",
+      "revId": "f4ac356232baf96650029f90c5813ae3090c9c30",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
