@@ -16,6 +16,24 @@
       "revId": "10e5af15b3477e332aed941731793fbcd8eddc65",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "818817ad_c4854e4e",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T14:16:39Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "b24e4820_18ce528c",
+      "revId": "10e5af15b3477e332aed941731793fbcd8eddc65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
