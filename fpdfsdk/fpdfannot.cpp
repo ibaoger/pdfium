@@ -9,8 +9,10 @@
 #include <memory>
 #include <utility>
 
+#include "core/fpdfapi/edit/cpdf_pagecontentgenerator.h"
 #include "core/fpdfapi/page/cpdf_form.h"
 #include "core/fpdfapi/page/cpdf_page.h"
+#include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
@@ -118,6 +120,10 @@ class CPDF_AnnotContext {
     if (!pStream)
       return;
 
+    // Reset the annotation matrix to be the identity matrix, since the
+    // appearance stream already takes matrix into account.
+    pStream->GetDict()->SetMatrixFor("Matrix", CFX_Matrix());
+
     m_pAnnotForm = pdfium::MakeUnique<CPDF_Form>(
         m_pPage->m_pDocument.Get(), m_pPage->m_pResources.Get(), pStream);
     m_pAnnotForm->ParseContent(nullptr, nullptr, nullptr);
@@ -125,6 +131,7 @@ class CPDF_AnnotContext {
 
   CPDF_Form* GetForm() const { return m_pAnnotForm.get(); }
   CPDF_Dictionary* GetAnnotDict() const { return m_pAnnotDict.Get(); }
+  CPDF_Page* GetPage() const { return m_pPage.Get(); }
 
  private:
   std::unique_ptr<CPDF_Form> m_pAnnotForm;
@@ -140,11 +147,12 @@ CPDF_AnnotContext* CPDFAnnotContextFromFPDFAnnotation(FPDF_ANNOTATION annot) {
 
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype) {
+  // The supported subtypes must also be communicated in the user doc.
   return subtype == FPDF_ANNOT_CIRCLE || subtype == FPDF_ANNOT_HIGHLIGHT ||
          subtype == FPDF_ANNOT_INK || subtype == FPDF_ANNOT_POPUP ||
          subtype == FPDF_ANNOT_SQUARE || subtype == FPDF_ANNOT_SQUIGGLY ||
-         subtype == FPDF_ANNOT_STRIKEOUT || subtype == FPDF_ANNOT_TEXT ||
-         subtype == FPDF_ANNOT_UNDERLINE;
+         subtype == FPDF_ANNOT_STAMP || subtype == FPDF_ANNOT_STRIKEOUT ||
+         subtype == FPDF_ANNOT_TEXT || subtype == FPDF_ANNOT_UNDERLINE;
 }
 
 DLLEXPORT FPDF_ANNOTATION STDCALL
@@ -209,6 +217,121 @@ FPDFAnnot_GetSubtype(FPDF_ANNOTATION annot) {
 
   return static_cast<FPDF_ANNOTATION_SUBTYPE>(
       CPDF_Annot::StringToAnnotSubtype(pAnnotDict->GetStringFor("Subtype")));
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetPathObject(FPDF_ANNOTATION annot,
+                                                    FPDF_PAGEOBJECT path) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
+  CPDF_PageObject* pPathObj = CPDFPageObjectFromFPDFPageObject(path);
+  if (!pAnnot || !pPathObj)
+    return false;
+
+  CPDF_Dictionary* pAnnotDict = pAnnot->GetAnnotDict();
+  CPDF_Page* pPage = pAnnot->GetPage();
+  if (!pAnnotDict || !pPage)
+    return false;
+
+  // Check that the annotation type is supported by this method.
+  FPDF_ANNOTATION_SUBTYPE subtype = FPDFAnnot_GetSubtype(annot);
+  if (subtype != FPDF_ANNOT_INK && subtype != FPDF_ANNOT_STAMP)
+    return false;
+
+  // If the annotation does not have an AP stream yet, generate and set it.
+  CFX_ByteString sExtGSDictName = "GS";
+  CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(pAnnot->GetAnnotDict(),
+                                            CPDF_Annot::AppearanceMode::Normal);
+  if (!pStream) {
+    auto pExtGStateDict = CPVT_GenerateAP::GenerateExtGStateDict(
+        *pAnnotDict, sExtGSDictName, "Normal");
+    auto pResourceDict = CPVT_GenerateAP::GenerateResourceDict(
+        pPage->m_pDocument.Get(), std::move(pExtGStateDict), nullptr);
+    CFX_ByteTextBuf sStream;
+    CPVT_GenerateAP::GenerateAndSetAPDict(pPage->m_pDocument.Get(), pAnnotDict,
+                                          sStream, std::move(pResourceDict),
+                                          false);
+    pStream =
+        FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return false;
+  }
+
+  // Get the annotation's corresponding form object for parsing its AP stream.
+  if (!pAnnot->HasForm())
+    pAnnot->SetForm(pStream);
+
+  CPDF_Form* pForm = pAnnot->GetForm();
+
+  // If the path object did not come from the same annotation, then append it to
+  // this annotation's object list.
+  CPDF_PageObjectList* pObjList = pForm->GetPageObjectList();
+  auto it = std::find_if(
+      pObjList->begin(), pObjList->end(),
+      [pPathObj](const std::unique_ptr<CPDF_PageObject>& candidate) {
+        return candidate.get() == pPathObj;
+      });
+  if (it == pObjList->end()) {
+    std::unique_ptr<CPDF_PageObject> pPageObjHolder(pPathObj);
+    pObjList->push_back(std::move(pPageObjHolder));
+  }
+
+  // Set the content stream data in the annotation's AP stream.
+  CPDF_PageContentGenerator generator(pForm);
+  std::ostringstream buf;
+  generator.ProcessPageObjects(&buf);
+  pStream->SetData(reinterpret_cast<const uint8_t*>(buf.str().c_str()),
+                   buf.tellp());
+  return true;
+}
+
+DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
+  if (!pAnnot)
+    return 0;
+
+  if (!pAnnot->HasForm()) {
+    CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(
+        pAnnot->GetAnnotDict(), CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return 0;
+
+    pAnnot->SetForm(pStream);
+  }
+
+  int pathCount = 0;
+  for (const auto& pObj : *pAnnot->GetForm()->GetPageObjectList()) {
+    if (pObj && pObj->IsPath())
+      ++pathCount;
+  }
+  return pathCount;
+}
+
+DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
+                                                          int index) {
+  CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
+  if (!pAnnot || index < 0)
+    return nullptr;
+
+  if (!pAnnot->HasForm()) {
+    CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(
+        pAnnot->GetAnnotDict(), CPDF_Annot::AppearanceMode::Normal);
+    if (!pStream)
+      return nullptr;
+
+    pAnnot->SetForm(pStream);
+  }
+
+  // Retrieve the path object located at |index| in the list of path objects.
+  // Note that the list of path objects is a sublist of the page object list,
+  // consisting of only path objects specifically.
+  int pathCount = -1;
+  for (const auto& pObj : *pAnnot->GetForm()->GetPageObjectList()) {
+    if (pObj && pObj->IsPath()) {
+      ++pathCount;
+      if (pathCount == index)
+        return pObj.get();
+    }
+  }
+  return nullptr;
 }
 
 DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetColor(FPDF_ANNOTATION annot,

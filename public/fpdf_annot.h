@@ -55,19 +55,20 @@ typedef enum FPDFANNOT_TEXTTYPE {
   FPDFANNOT_TEXTTYPE_Author
 } FPDFANNOT_TEXTTYPE;
 
-// Check if an annotation subtype is currently supported for creating and
-// displaying. The supported subtypes must be consistent with the ones supported
-// by AP generation - see the list of calls to CPVT_GenerateAP::Generate*AP() in
-// CPDF_Annot::GenerateAPIfNeeded().
+// Check if an annotation subtype is currently supported for creation.
+// Currently supported subtypes: circle, highlight, ink, popup, square,
+// squiggly, stamp, strikeout, text, and underline.
 //
 //   subtype   - the subtype to be checked.
 //
-// Returns true if this subtype supported, false otherwise.
+// Returns true if this subtype is supported, false otherwise.
 DLLEXPORT FPDF_BOOL STDCALL
 FPDFAnnot_IsSupportedSubtype(FPDF_ANNOTATION_SUBTYPE subtype);
 
 // Create an annotation in |page| of the subtype |subtype|. If the specified
 // subtype is illegal or unsupported, then a new annotation will not be created.
+// Must call FPDFPage_CloseAnnot() when the annotation returned by this
+// function is no longer needed.
 //
 //   page      - handle to a page.
 //   subtype   - the subtype of the new annotation.
@@ -83,7 +84,8 @@ FPDFPage_CreateAnnot(FPDF_PAGE page, FPDF_ANNOTATION_SUBTYPE subtype);
 // Returns the number of annotations in |page|.
 DLLEXPORT int STDCALL FPDFPage_GetAnnotCount(FPDF_PAGE page);
 
-// Get annotation in |page| at |index|.
+// Get annotation in |page| at |index|. Must call FPDFPage_CloseAnnot() when the
+// annotation returned by this function is no longer needed.
 //
 //   page  - handle to a page.
 //   index - the index of the annotation.
@@ -105,6 +107,36 @@ DLLEXPORT void STDCALL FPDFPage_CloseAnnot(FPDF_ANNOTATION annot);
 // Returns the annotation subtype.
 DLLEXPORT FPDF_ANNOTATION_SUBTYPE STDCALL
 FPDFAnnot_GetSubtype(FPDF_ANNOTATION annot);
+
+// Update |annot| to contain the path as defined by |path|. If |path| came from
+// this |annot| originally and was retrieved by FPDFPage_CreateAnnot() or
+// FPDFPage_GetAnnot(), then the same |path| in this |annot| will simply be
+// updated. Otherwise, if |path| was created by FPDFPageObj_CreateNewPath(),
+// |path| will be appended to |annot|'s current list of paths. Note that a
+// |path| cannot belong to more than one |annot|.
+//
+//   annot  - handle to an annotation.
+//   path   - handle to the path that |annot| needs to update to have.
+//
+// Return true if successful, false otherwise.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetPathObject(FPDF_ANNOTATION annot,
+                                                    FPDF_PAGEOBJECT path);
+
+// Get the number of path objects in |annot|.
+//
+//   annot  - handle to an annotation.
+//
+// Returns the number of path objects in |annot|.
+DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot);
+
+// Get the path object in |annot| at |index|.
+//
+//   annot  - handle to an annotation.
+//   index  - the index of the path object.
+//
+// Return a handle to the path object, or NULL on failure.
+DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
+                                                          int index);
 
 // Set the color of an annotation.
 //
