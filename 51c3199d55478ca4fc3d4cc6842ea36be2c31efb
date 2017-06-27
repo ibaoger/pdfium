@@ -16,6 +16,24 @@
       "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69500beb_f92f4f1a",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T20:36:18Z",
+      "side": 1,
+      "message": "I think this one is fine, because we will need separate functions for e.g. GetTextObjectCount(), since it will have to check IsText() instead of IsPath().",
+      "parentUuid": "6a591b71_9244a2ef",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
