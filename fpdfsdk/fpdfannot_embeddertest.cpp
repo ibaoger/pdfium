@@ -306,3 +306,42 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndSaveUnderlineAnnotation) {
   FPDF_ClosePage(new_page);
   FPDF_CloseDocument(new_doc);
 }
+
+TEST_F(FPDFAnnotEmbeddertest, RemoveAnnotation) {
+  // Open a file with 3 annotations on its first page.
+  ASSERT_TRUE(OpenDocument("annotation_ink_multiple.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+  EXPECT_EQ(3, FPDFPage_GetAnnotCount(page));
+
+  // Check that nothing happens when attempting to remove an annotation with an
+  // out-of-bound index.
+  EXPECT_FALSE(FPDFPage_RemoveAnnot(page, 4));
+  EXPECT_EQ(3, FPDFPage_GetAnnotCount(page));
+
+  // Check that the second annotation gets removed successfully.
+  EXPECT_TRUE(FPDFPage_RemoveAnnot(page, 1));
+  EXPECT_EQ(2, FPDFPage_GetAnnotCount(page));
+
+  // Save the document, closing the page and document.
+  EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+  FPDF_ClosePage(page);
+
+  // Open the saved document.
+  std::string new_file = GetString();
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  FPDF_DOCUMENT new_doc = FPDF_LoadCustomDocument(&file_access, nullptr);
+  ASSERT_TRUE(new_doc);
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_TRUE(new_page);
+
+  // Check that the saved document has 2 annotations on the first page.
+  EXPECT_EQ(2, FPDFPage_GetAnnotCount(new_page));
+
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+}

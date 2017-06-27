@@ -98,6 +98,14 @@ DLLEXPORT FPDF_ANNOTATION STDCALL FPDFPage_GetAnnot(FPDF_PAGE page, int index);
 //   annot  - handle to an annotation.
 DLLEXPORT void STDCALL FPDFPage_CloseAnnot(FPDF_ANNOTATION annot);
 
+// Remove the annotation in |page| at |index|.
+//
+//   page  - handle to a page.
+//   index - the index of the annotation.
+//
+// Returns true if successful, false otherwise.
+DLLEXPORT FPDF_BOOL STDCALL FPDFPage_RemoveAnnot(FPDF_PAGE page, int index);
+
 // Get the subtype of an annotation.
 //
 //   annot  - handle to an annotation.
