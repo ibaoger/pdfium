@@ -16,6 +16,24 @@
       "revId": "ef3d42d51c9b3deb427f2959afbce98b1fa769d6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d118892_d914bdba",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T20:22:07Z",
+      "side": 1,
+      "message": "I do think {Set|Get}PathObject will be changed to {Set|Get}PageObject later, but I didn\u0027t want to rename them yet, since we haven\u0027t formally tested that they work for other page objects. I was going to rename them when I add tests for other page objects. \nI added \"experimental\" in the docs for now.",
+      "parentUuid": "08a08e09_91d08468",
+      "revId": "ef3d42d51c9b3deb427f2959afbce98b1fa769d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
