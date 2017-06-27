@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0154d69e_6978fd47",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T20:38:06Z",
+      "side": 1,
+      "message": "appearance, same copy + paste error below.",
+      "range": {
+        "startLine": 232,
+        "startChar": 32,
+        "endLine": 232,
+        "endChar": 41
+      },
+      "revId": "a938131fbad280ba95e461e4ede045a5b98f3a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38f11a55_238d2c3a",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T20:38:06Z",
+      "side": 1,
+      "message": "stream\u0027s",
+      "range": {
+        "startLine": 233,
+        "startChar": 11,
+        "endLine": 233,
+        "endChar": 12
+      },
+      "revId": "a938131fbad280ba95e461e4ede045a5b98f3a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
