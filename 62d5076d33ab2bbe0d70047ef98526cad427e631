@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8750dd7_a63e3f45",
+        "filename": "testing/SUPPRESSIONS",
+        "patchSetId": 6
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-27T20:25:51Z",
+      "side": 1,
+      "message": "drive-by: we should probably fix these filenames.  Filenames with \u0026 (etc) are bad.",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 0
+      },
+      "revId": "62d5076d33ab2bbe0d70047ef98526cad427e631",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
