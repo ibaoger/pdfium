@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88548663_9c66c8f2",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:34:14Z",
+      "side": 1,
+      "message": "Sorry for not being clear, I mean can this be bool HasAPStream(const CPDF_Dictionary* pAnnotDict) const ? Can the method itself be const?",
+      "revId": "4e7a6971f9eae0ff89a5d193399197ef4d3b646b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
