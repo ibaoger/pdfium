@@ -245,6 +245,24 @@
       "revId": "32e86aaa7f278989c471e9f66dd9a1da5ede7844",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da33c6ac_21b27bc2",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T19:40:10Z",
+      "side": 1,
+      "message": "I didn\u0027t see anyone else ask about it on the CL. Was it in person? *shrug*",
+      "parentUuid": "de968140_0a7682b9",
+      "revId": "32e86aaa7f278989c471e9f66dd9a1da5ede7844",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
