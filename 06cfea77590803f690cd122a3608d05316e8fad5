@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "12e86c7c_b9eb7b19",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75fc8e66_ff5a76e3",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "791dc9e0_c64b59ce",
         "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b07ade_552362da",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791dc9e0_c64b59ce",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +112,48 @@
     },
     {
       "key": {
+        "uuid": "9474ae05_d75f46ec",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39765d0e_3ee76dbe",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec942ba7_0bf29502",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc83d825_b679fde8",
+      "range": {
+        "startLine": 555,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 13
+      },
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7866509_0c8ec421",
         "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
         "patchSetId": 1
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "dd4ef208_4a6a6c87",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7866509_0c8ec421",
+      "range": {
+        "startLine": 562,
+        "startChar": 30,
+        "endLine": 562,
+        "endChar": 36
+      },
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b3f5826_5b43e676",
         "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
         "patchSetId": 1
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "da980305_e7ad48c2",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b3f5826_5b43e676",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1bd6f09_b669f5d8",
         "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
         "patchSetId": 1
@@ -127,6 +247,24 @@
       "writtenOn": "2017-06-27T16:24:17Z",
       "side": 1,
       "message": "Is this change needed? Are we sure there was no reason why they were just appending the js here?",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e343541_9d89ee68",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-27T18:46:27Z",
+      "side": 1,
+      "message": "My understanding of the code above, is that it is assuming that calling ToJavascript on the contain expression will just generate an identifier/function name that can be inserted. For malformed calls like \u0027()()()\u0027 or \u0027()\u0027 the expression contained will be something like the remaining or previous input, so when ToJavascript is called it will generate a string with a bunch of JS code, which gets inserted. Since there are no user defined functions, if a call is to something other then a SomMethod or BuiltIn, it is invalid, so we should just bail.\n\nThis is all rooted in the output of the lexer/scanner being bad. The code should have never gotten to this point, since the input in the fuzzer test is malformed. If function rule in the scanner/lexer was correctly implemented it using look ahead, the Call expression type could be modified to have the name stored in it, instead of inferring it, since we be matching on \u0027name\u0027(, instead of just ( and trying to figure it out post hoc.",
+      "parentUuid": "b1bd6f09_b669f5d8",
       "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
