@@ -133,6 +133,23 @@
     },
     {
       "key": {
+        "uuid": "d169bdc4_af7fff1a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:18:52Z",
+      "side": 1,
+      "message": "nit: Braces not needed.",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6fbaa46_ca0539e6",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 2
@@ -144,6 +161,23 @@
       "writtenOn": "2017-06-27T01:56:47Z",
       "side": 1,
       "message": "You can also check this right after line 43.",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb638095_1bda4a7c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:18:52Z",
+      "side": 1,
+      "message": "Can any of these methods be const?",
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
