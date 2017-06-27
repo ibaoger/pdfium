@@ -6,6 +6,8 @@
 
 #include "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.h"
 
+#include <algorithm>
+#include <iostream>
 #include <utility>
 
 #include "core/fxcrt/fx_extension.h"
@@ -25,46 +27,48 @@ const wchar_t* const gs_lpStrExpFuncName[] = {
     L"pfm_rt.var_filter",
 };
 
-struct XFA_FMBuildInFunc {
-  uint32_t m_uHash;
-  const wchar_t* m_buildinfunc;
+const wchar_t* g_BuiltInFuncs[] = {
+    L"Abs",          L"Apr",       L"At",       L"Avg",
+    L"Ceil",         L"Choose",    L"Concat",   L"Count",
+    L"Cterm",        L"Date",      L"Date2Num", L"DateFmt",
+    L"Decode",       L"Encode",    L"Eval",     L"Exists",
+    L"Floor",        L"Format",    L"FV",       L"Get",
+    L"HasValue",     L"If",        L"Ipmt",     L"IsoDate2Num",
+    L"IsoTime2Num",  L"Left",      L"Len",      L"LocalDateFmt",
+    L"LocalTimeFmt", L"Lower",     L"Ltrim",    L"Max",
+    L"Min",          L"Mod",       L"NPV",      L"Num2Date",
+    L"Num2GMTime",   L"Num2Time",  L"Oneof",    L"Parse",
+    L"Pmt",          L"Post",      L"PPmt",     L"Put",
+    L"PV",           L"Rate",      L"Ref",      L"Replace",
+    L"Right",        L"Round",     L"Rtrim",    L"Space",
+    L"Str",          L"Stuff",     L"Substr",   L"Sum",
+    L"Term",         L"Time",      L"Time2Num", L"TimeFmt",
+    L"UnitType",     L"UnitValue", L"Upper",    L"Uuid",
+    L"Within",       L"WordNum",
 };
 
-const XFA_FMBuildInFunc g_BuildInFuncs[] = {
-    {0x0001f1f5, L"At"},           {0x00020b9c, L"FV"},
-    {0x00021aef, L"If"},           {0x00023ee6, L"PV"},
-    {0x04b5c9ee, L"Encode"},       {0x08e96685, L"DateFmt"},
-    {0x09f99db6, L"Abs"},          {0x09f9e583, L"Apr"},
-    {0x09fa043e, L"Avg"},          {0x0a9782a0, L"Get"},
-    {0x0b1b09df, L"Len"},          {0x0b3543a6, L"Max"},
-    {0x0b356ca4, L"Min"},          {0x0b358b60, L"Mod"},
-    {0x0b4fded4, L"NPV"},          {0x0b846bf1, L"Pmt"},
-    {0x0b8494f9, L"Put"},          {0x0bb8df5d, L"Ref"},
-    {0x0bd37a99, L"Str"},          {0x0bd37fb5, L"Sum"},
-    {0x1048469b, L"Cterm"},        {0x11e03660, L"Exists"},
-    {0x126236e6, L"Post"},         {0x127c6661, L"PPmt"},
-    {0x193ade3e, L"Right"},        {0x1ec8ab2c, L"Rate"},
-    {0x20e476dc, L"IsoTime2Num"},  {0x23eb6816, L"TimeFmt"},
-    {0x24fb17b0, L"LocalDateFmt"}, {0x28dee6e9, L"Format"},
-    {0x2d0890b8, L"Term"},         {0x2d71b00f, L"Time"},
-    {0x2f890fb1, L"Num2Time"},     {0x3767511d, L"Ceil"},
-    {0x3ffd1941, L"LocalTimeFmt"}, {0x442f68c8, L"Round"},
-    {0x46fd1128, L"Eval"},         {0x4d629440, L"Date2Num"},
-    {0x4dcf25f8, L"Concat"},       {0x4e00255d, L"UnitValue"},
-    {0x55a5cc29, L"Lower"},        {0x5e43e04c, L"WordNum"},
-    {0x620ce6ba, L"Ipmt"},         {0x6f544d49, L"Count"},
-    {0x7e241013, L"Within"},       {0x9b9a6e2b, L"IsoDate2Num"},
-    {0xb2c941c2, L"UnitType"},     {0xb598a1f7, L"Uuid"},
-    {0xbde9abde, L"Date"},         {0xc0010b80, L"Num2Date"},
-    {0xc1f6144c, L"Upper"},        {0xc44028f7, L"Oneof"},
-    {0xc62c1b2c, L"Space"},        {0xd0ff50f9, L"HasValue"},
-    {0xd1537042, L"Floor"},        {0xd2ac9cf1, L"Time2Num"},
-    {0xd907aee5, L"Num2GMTime"},   {0xdf24f7c4, L"Decode"},
-    {0xe2664803, L"Substr"},       {0xe3e7b528, L"Stuff"},
-    {0xe6792d4e, L"Rtrim"},        {0xe8c23f5b, L"Parse"},
-    {0xea18d121, L"Choose"},       {0xebfef69c, L"Replace"},
-    {0xf5ad782b, L"Left"},         {0xf7bb2248, L"Ltrim"},
+// Pre-lower cased strings to make case insensitive matching faster
+const wchar_t* g_BuiltInFuncMatchStrs[] = {
+    L"abs",          L"apr",       L"at",       L"avg",
+    L"ceil",         L"choose",    L"concat",   L"count",
+    L"cterm",        L"date",      L"date2num", L"datefmt",
+    L"decode",       L"encode",    L"eval",     L"exists",
+    L"floor",        L"format",    L"fv",       L"get",
+    L"hasvalue",     L"if",        L"ipmt",     L"isodate2num",
+    L"isotime2num",  L"left",      L"len",      L"localdatefmt",
+    L"localtimefmt", L"lower",     L"ltrim",    L"max",
+    L"min",          L"mod",       L"npv",      L"num2date",
+    L"num2gmtime",   L"num2time",  L"oneof",    L"parse",
+    L"pmt",          L"post",      L"ppmt",     L"put",
+    L"pv",           L"rate",      L"ref",      L"replace",
+    L"right",        L"round",     L"rtrim",    L"space",
+    L"str",          L"stuff",     L"substr",   L"sum",
+    L"term",         L"time",      L"time2num", L"timefmt",
+    L"unittype",     L"unitvalue", L"upper",    L"uuid",
+    L"within",       L"wordnum",
 };
+
+const FX_STRSIZE g_BuiltInFuncsMaxLen = 12;
 
 struct XFA_FMSOMMethod {
   uint32_t m_uHash;
@@ -533,17 +537,33 @@ CXFA_FMCallExpression::CXFA_FMCallExpression(
 
 CXFA_FMCallExpression::~CXFA_FMCallExpression() {}
 
-bool CXFA_FMCallExpression::IsBuildInFunc(CFX_WideTextBuf* funcName) {
-  uint32_t uHash = FX_HashCode_GetW(funcName->AsStringC(), true);
-  const XFA_FMBuildInFunc* pEnd = g_BuildInFuncs + FX_ArraySize(g_BuildInFuncs);
-  const XFA_FMBuildInFunc* pFunc =
-      std::lower_bound(g_BuildInFuncs, pEnd, uHash,
-                       [](const XFA_FMBuildInFunc& func, uint32_t hash) {
-                         return func.m_uHash < hash;
-                       });
-  if (pFunc < pEnd && uHash == pFunc->m_uHash) {
+bool CXFA_FMCallExpression::IsBuiltInFunc(CFX_WideTextBuf* funcName) {
+  if (funcName->GetLength() > g_BuiltInFuncsMaxLen)
+    return false;
+
+  // Using case insensitive matching so converting to lowercase.
+  auto funcNameStr = funcName->AsStringC();
+  size_t funcNameLen = funcNameStr.GetLength() < 0
+                           ? 0
+                           : static_cast<size_t>(funcNameStr.GetLength());
+  auto funcNameMatchStr =
+      std::unique_ptr<wchar_t>(new wchar_t[funcNameLen + 1]);
+  for (size_t i = 0; i < funcNameLen; i++) {
+    funcNameMatchStr.get()[i] = FXSYS_tolower(funcNameStr[i]);
+  }
+  funcNameMatchStr.get()[funcNameLen] = L'\0';
+  auto cmpFunc = [](const wchar_t* iter, const wchar_t* val) -> bool {
+    return -1 == wcscmp(iter, val);
+  };
+  const wchar_t** pEnd =
+      g_BuiltInFuncMatchStrs + FX_ArraySize(g_BuiltInFuncMatchStrs);
+  const wchar_t** pMatchResult = std::lower_bound(
+      g_BuiltInFuncMatchStrs, pEnd, funcNameMatchStr.get(), cmpFunc);
+  if (pMatchResult < pEnd && !wcscmp(*pMatchResult, funcNameMatchStr.get())) {
+    size_t matchLocation =
+        static_cast<size_t>(pMatchResult - g_BuiltInFuncMatchStrs);
     funcName->Clear();
-    *funcName << pFunc->m_buildinfunc;
+    *funcName << g_BuiltInFuncs[matchLocation];
     return true;
   }
   return false;
@@ -618,7 +638,7 @@ bool CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
   } else {
     bool isEvalFunc = false;
     bool isExistsFunc = false;
-    if (IsBuildInFunc(&funcName)) {
+    if (IsBuiltInFunc(&funcName)) {
       if (funcName.AsStringC() == L"Eval") {
         isEvalFunc = true;
         javascript << L"eval.call(this, ";
@@ -633,7 +653,7 @@ bool CXFA_FMCallExpression::ToJavaScript(CFX_WideTextBuf& javascript) {
         javascript << funcName;
       }
     } else {
-      javascript << funcName;
+      return false;
     }
     javascript << L"(";
     if (isExistsFunc) {
