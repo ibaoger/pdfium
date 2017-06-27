@@ -1049,3 +1049,7 @@ int CFX_WideString::GetInteger() const {
 float CFX_WideString::GetFloat() const {
   return m_pData ? FX_wtof(m_pData->m_String, m_pData->m_nDataLength) : 0.0f;
 }
+
+std::wostream& operator<<(std::wostream& os, const CFX_WideString& str) {
+  return os.write(str.c_str(), str.GetLength());
+}

@@ -228,6 +228,8 @@ inline bool operator!=(const CFX_WideStringC& lhs, const CFX_WideString& rhs) {
 
 uint32_t FX_HashCode_GetW(const CFX_WideStringC& str, bool bIgnoreCase);
 
+std::wostream& operator<<(std::wostream& os, const CFX_WideString& str);
+
 namespace std {
 
 template <>
