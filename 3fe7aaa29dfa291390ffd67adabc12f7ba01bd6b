@@ -105,6 +105,24 @@
       "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cdbf824_8bc210d6",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T14:37:27Z",
+      "side": 1,
+      "message": "Google Test supports EXPECT_EQ(NULL, ptr) and ASSERT_EQ(NULL, ptr) but not EXPECT_NE(NULL, ptr) and ASSERT_NE(NULL, ptr)\n\nfrom https://github.com/google/googletest/blob/master/googletest/docs/FAQ.md\n\nWhich means, those tests are probably wrong ....",
+      "parentUuid": "eafd0fea_a92622fe",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
