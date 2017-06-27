@@ -16,6 +16,24 @@
       "revId": "c461ad9615a574ca15ff1853f0b324561eb16cbe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9776c4ea_c43a14d0",
+        "filename": "core/fpdfdoc/cpvt_generateap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T17:45:20Z",
+      "side": 1,
+      "message": "No, tellp() is not marked as const. I could pass a pointer instead.",
+      "parentUuid": "34c6d2c5_0fe79e98",
+      "revId": "c461ad9615a574ca15ff1853f0b324561eb16cbe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
