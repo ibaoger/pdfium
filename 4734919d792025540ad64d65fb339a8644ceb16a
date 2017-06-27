@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be7bfc4_bdc1a688",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "EXPECT_EQ(form_type, FPDFPage_HasFormFieldAtPoint(form_handle(), page, x, y));",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75ff451_80ee3907",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "This is a test function where the only caller are from other test code. So it\u0027s completely under our control, and we can just write:\n\nASSERT(form_type \u003d\u003d FPDF_FORMFIELD_COMBOBOX ||\n       form_type \u003d\u003d FPDF_FORMFIELD_TEXTFIELD);\n\nAnd once we do that, we can simplify the if / else-if portions, which have very similar statements to the above suggestion.",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a562ccdb_07e7e846",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "What if someone accidentally pass in a negative |item_index| ?",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26f3cb3c_52bd7484",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "If the caller, which is test code that a developer writes, passes in 3 for |item_index|, this would just silently return. Do we want to ASSERT() instead, and \"scream loudly\" at developers that call function with an out of bound index?",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ecf5d54_2764be36",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "If you find it tedious to write this out with all the arguments, you can rename the existing TypeTextIntoTextfield() to something like TypeTextIntoField() and implement a new TypeTextIntoTextfield() to call TypeTextIntoField(page, num_chars, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0).",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69c75847_0f740744",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "Can we write out ComboBox instead of \"CB\" ? Long test names are fine.",
+      "range": {
+        "startLine": 492,
+        "startChar": 67,
+        "endLine": 492,
+        "endChar": 69
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da4249db_f8c61ec6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "Let\u0027s also write out ComboBox here.",
+      "range": {
+        "startLine": 15,
+        "startChar": 10,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6fbaa46_ca0539e6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "You can also check this right after line 43.",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db944cf8_851e3fa2",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T01:56:47Z",
+      "side": 1,
+      "message": "Since all the tests in this file are for the combobox, we don\u0027t need CB twice in the full test name. (CPWLCBEditEmbeddertest.GetSelectedTextEmptyAndBasicNormalCB)",
+      "range": {
+        "startLine": 93,
+        "startChar": 65,
+        "endLine": 93,
+        "endChar": 67
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
