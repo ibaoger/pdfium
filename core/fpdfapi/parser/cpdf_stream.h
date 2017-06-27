@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <set>
+#include <sstream>
 
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_object.h"
@@ -40,6 +41,7 @@ class CPDF_Stream : public CPDF_Object {
 
   // Does not takes onwership of |pData|, copies into internally-owned buffer.
   void SetData(const uint8_t* pData, uint32_t size);
+  void SetData(std::ostringstream* stream);
 
   void InitStream(const uint8_t* pData,
                   uint32_t size,
