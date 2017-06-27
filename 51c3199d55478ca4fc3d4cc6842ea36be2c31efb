@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f486479_9cd880cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03cdaf4f_687dfaae",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e8c234b_baa5129a",
         "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
         "patchSetId": 20
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b54dc3ce_b217a280",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e8c234b_baa5129a",
+      "range": {
+        "startLine": 142,
+        "startChar": 39,
+        "endLine": 142,
+        "endChar": 41
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73fcd6fd_71edae1f",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 20
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "9fe88506_ff190caf",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73fcd6fd_71edae1f",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3fbd9ed_1ae46c93",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 20
@@ -76,6 +142,30 @@
       "writtenOn": "2017-06-27T20:57:02Z",
       "side": 1,
       "message": "So this basically skips FPDF_FFLDraw() ?",
+      "range": {
+        "startLine": 419,
+        "startChar": 53,
+        "endLine": 419,
+        "endChar": 60
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be50d8c4_ac80a058",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Yea, I don\u0027t think it matters here because we don\u0027t have form fill things anyways.",
+      "parentUuid": "a3fbd9ed_1ae46c93",
       "range": {
         "startLine": 419,
         "startChar": 53,
@@ -108,6 +198,30 @@
       "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b271952d_2e2c515f",
+        "filename": "fpdfsdk/fsdk_define.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34adcc71_68960063",
+      "range": {
+        "startLine": 71,
+        "startChar": 66,
+        "endLine": 71,
+        "endChar": 73
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -146,6 +260,24 @@
     },
     {
       "key": {
+        "uuid": "b40721b4_358ebb21",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "I don\u0027t have a test for this case. I tried to make one, but it will just get into segfaults and other messy situations, because each |path| is owned by an |annot|. I\u0027m not sure how to check this in our code either, unless we keep a list of all the CPDF_AnnotContext being used. I thought if a developer tries to do this, they will run into messy situations anyways so they should know.\nAny suggestions?",
+      "parentUuid": "11f7e519_64164dd7",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45898941_e29f35cb",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 20
@@ -169,6 +301,30 @@
     },
     {
       "key": {
+        "uuid": "d63650ee_70a43527",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "I wasn\u0027t, but good point about mentioning ownership. I added a comment above, and hopefully this \"have\" doesn\u0027t confuse things.",
+      "parentUuid": "45898941_e29f35cb",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 69
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "692c7088_b6383067",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 20
@@ -180,6 +336,24 @@
       "writtenOn": "2017-06-27T20:57:02Z",
       "side": 1,
       "message": "What does this return on failure?",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de54cfb0_b821210e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "It returns 0 on failure. \n(We had a similar discussion about whether to return 0 vs. -1 and whether to have a comment reflecting the value for failure for FPDFPage_GetAnnotCount() before, and the conclusion was that, if we don\u0027t have e.g. annotation stream, then technically we do have 0 path objects, and we don\u0027t need another comment reflecting this.)",
+      "parentUuid": "692c7088_b6383067",
       "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -276,6 +450,48 @@
       "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d1933c3_62624fb5",
+        "filename": "testing/embedder_test.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0c18b78_ab116f71",
+      "range": {
+        "startLine": 108,
+        "startChar": 58,
+        "endLine": 108,
+        "endChar": 65
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e28151e_aad6da34",
+        "filename": "testing/embedder_test.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-27T22:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "471b6f6d_7484a373",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
