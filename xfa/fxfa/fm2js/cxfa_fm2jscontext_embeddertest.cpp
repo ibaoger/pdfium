@@ -1429,3 +1429,15 @@ TEST_F(FM2JSContextEmbedderTest, Post) {
 TEST_F(FM2JSContextEmbedderTest, Put) {
   // TODO(dsinclair): Is this supported?
 }
+
+TEST_F(FM2JSContextEmbedderTest, InvalidFunctions) {
+  ASSERT_TRUE(OpenDocument("simple_xfa.pdf"));
+
+  const char* tests[] = {
+      "F()", "()", "()()()", "Round(2.0)()",
+  };
+
+  for (size_t i = 0; i < FX_ArraySize(tests); ++i) {
+    EXPECT_FALSE(Execute(tests[i], false));
+  }
+}

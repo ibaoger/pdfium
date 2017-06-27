@@ -32,7 +32,8 @@ class XFAJSEmbedderTest : public EmbedderTest {
   v8::Isolate* GetIsolate() const { return isolate_; }
   CXFA_Document* GetXFADocument();
 
-  bool Execute(const CFX_ByteStringC& input);
+  bool Execute(const CFX_ByteStringC& input, bool expectSuccess = true);
+
   CFXJSE_Value* GetValue() const { return value_.get(); }
 
  private:
