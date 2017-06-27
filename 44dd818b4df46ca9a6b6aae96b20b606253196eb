@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f70fba66_8ff1f903",
+        "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-27T16:10:05Z",
+      "side": 1,
+      "message": "drive-by:  I always like to first start with an empty string and show that it is handled correctly.",
+      "range": {
+        "startLine": 1264,
+        "startChar": 1,
+        "endLine": 1264,
+        "endChar": 15
+      },
+      "revId": "44dd818b4df46ca9a6b6aae96b20b606253196eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
