@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8bdefc5_0ec96b66",
+        "filename": "core/fxcrt/cfx_widestring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T21:00:02Z",
+      "side": 1,
+      "message": "Add the empty string case I added in https://pdfium-review.googlesource.com/c/7037/",
+      "range": {
+        "startLine": 1107,
+        "startChar": 15,
+        "endLine": 1107,
+        "endChar": 0
+      },
+      "revId": "19c0d192464f289d314019c13a04562cef183de4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c554f01a_d9f419ef",
+        "filename": "core/fxcrt/cfx_widestring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T21:00:02Z",
+      "side": 1,
+      "message": "Add a char that needs 2 bytes.",
+      "range": {
+        "startLine": 1122,
+        "startChar": 49,
+        "endLine": 1122,
+        "endChar": 0
+      },
+      "revId": "19c0d192464f289d314019c13a04562cef183de4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
