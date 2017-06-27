@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ab1beab_9839b175",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T02:20:32Z",
+      "side": 1,
+      "message": "Uh, for another CL - are we passing structs by value? Should we be passing const FS_QUADPOINTSF* instead?",
+      "range": {
+        "startLine": 161,
+        "startChar": 53,
+        "endLine": 161,
+        "endChar": 67
+      },
+      "revId": "f4ac356232baf96650029f90c5813ae3090c9c30",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5420ec34_cf4b7635",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T02:20:32Z",
+      "side": 1,
+      "message": "BTW, I was only thinking of the API calls that return a handle, since the handles are all void*. If you want to allow an empty FS_QUADPOINTSF or empty FS_RECTF for whatever reason, feel free to leave this alone.",
+      "revId": "f4ac356232baf96650029f90c5813ae3090c9c30",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

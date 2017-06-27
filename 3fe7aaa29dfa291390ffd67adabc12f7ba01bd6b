@@ -87,6 +87,24 @@
       "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eafd0fea_a92622fe",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T02:20:32Z",
+      "side": 1,
+      "message": "There\u0027s a whole bunch of ASSERT_NE(nullptr, ptr) calls in our code base. Though I prefer just ASSERT_TRUE(ptr).",
+      "parentUuid": "5c5b5ce4_19ca741d",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
