@@ -159,6 +159,24 @@
       "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38351594_83939c1f",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T20:42:16Z",
+      "side": 1,
+      "message": "If you read enough code, you\u0027ll see some places where one writes:\n\nEXPECT_EQ(reinterpret_cast\u003cFoo*\u003e(NULL), foo_ptr);\n\nX_X",
+      "parentUuid": "951e4ae3_34f61cfd",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
