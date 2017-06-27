@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3789a601_b01a000f",
+        "filename": "testing/tools/fixup_pdf_template.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-27T17:14:32Z",
+      "side": 1,
+      "message": "drive-by:  you might want to make this {{trailer x y}} akin to the \"object\" tag to give flexibility in defining a root.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "bdb330ee4d4d9d6fafc6bc84d4fa28c045eda936",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
