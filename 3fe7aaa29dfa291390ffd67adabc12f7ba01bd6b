@@ -123,6 +123,24 @@
       "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce89a521_ad3984b2",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-27T20:31:13Z",
+      "side": 1,
+      "message": "NULL !\u003d nullptr. Since NULL is often #defined as 0, The underlying gtest comparsion mechanism does not like comparing 0 to a pointer. Whereas it can compare nullptr to a pointer.",
+      "parentUuid": "8cdbf824_8bc210d6",
+      "revId": "3fe7aaa29dfa291390ffd67adabc12f7ba01bd6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
