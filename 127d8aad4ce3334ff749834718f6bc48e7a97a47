@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3bb9ab6e_36c582f9",
+        "filename": "core/fpdfapi/parser/cpdf_stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T20:13:28Z",
+      "side": 1,
+      "message": "Answered in previous email.",
+      "parentUuid": "38372655_aa90c384",
+      "revId": "127d8aad4ce3334ff749834718f6bc48e7a97a47",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a35cf8a_3bf6b5df",
         "filename": "core/fpdfapi/parser/cpdf_stream.h",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "127d8aad4ce3334ff749834718f6bc48e7a97a47",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b295ee_ae534ad9",
+        "filename": "core/fpdfapi/parser/cpdf_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-27T20:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a35cf8a_3bf6b5df",
+      "revId": "127d8aad4ce3334ff749834718f6bc48e7a97a47",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
