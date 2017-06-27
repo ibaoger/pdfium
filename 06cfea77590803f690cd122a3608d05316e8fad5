@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75fc8e66_ff5a76e3",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "Until we know this is needed I\u0027d skip this optimization. We\u0027ll have to keep these two arrays in sync which is a pain.",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "791dc9e0_c64b59ce",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "This lowering code can just be:\n\nCFX_WideString str \u003d funcName-\u003eMakeString()-\u003eMakeLower();",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39765d0e_3ee76dbe",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "If you make these const CFX_WideString\u0026 params you can just a.Compare(b) I believe.",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc83d825_b679fde8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "No reason to store this as a variable, just do it inline in the lower_bounds call.",
+      "range": {
+        "startLine": 555,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 13
+      },
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7866509_0c8ec421",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "Should also be doable with Compare.",
+      "range": {
+        "startLine": 562,
+        "startChar": 30,
+        "endLine": 562,
+        "endChar": 36
+      },
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b3f5826_5b43e676",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "If we just have the one array then this goes away and we just use matchResult.",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1bd6f09_b669f5d8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T16:24:17Z",
+      "side": 1,
+      "message": "Is this change needed? Are we sure there was no reason why they were just appending the js here?",
+      "revId": "06cfea77590803f690cd122a3608d05316e8fad5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
