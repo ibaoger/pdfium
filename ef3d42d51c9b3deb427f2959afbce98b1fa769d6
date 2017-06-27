@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08a08e09_91d08468",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T20:15:15Z",
+      "side": 1,
+      "message": "Do you think these are subject to change since we maybe go to FPDFAnnot_SetPageObject? And, if so, should we rename them here?\n\nOr, should we add an EXPERIMENTAL comment to the docs for each one?",
+      "revId": "ef3d42d51c9b3deb427f2959afbce98b1fa769d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
