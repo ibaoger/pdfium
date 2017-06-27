@@ -34,6 +34,24 @@
       "revId": "4e7a6971f9eae0ff89a5d193399197ef4d3b646b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e043c9d2_4d56d0dc",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-27T15:38:42Z",
+      "side": 1,
+      "message": "Ha, then let\u0027s pretend I meant to say what you did and everything is awesome, heh.",
+      "parentUuid": "edfe0053_47c933d4",
+      "revId": "4e7a6971f9eae0ff89a5d193399197ef4d3b646b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
