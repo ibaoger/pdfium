@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "113fc139_2c128095",
+        "filename": "testing/SUPPRESSIONS_PIXEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-27T16:44:52Z",
+      "side": 1,
+      "message": "The name of this file made me think this is for pixel tests, whereas it is really for the PNG diff.",
+      "revId": "0c8a132f4e5bd026c909ae6ba7f11ea2d6e0cadf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af94e3e4_bcf06d64",
+        "filename": "testing/tools/suppressor.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-27T16:44:52Z",
+      "side": 1,
+      "message": "I\u0027d rather use something like \u0027diff comparison for %s is suppressed\u0027 instead of pixel.",
+      "range": {
+        "startLine": 57,
+        "startChar": 13,
+        "endLine": 57,
+        "endChar": 35
+      },
+      "revId": "0c8a132f4e5bd026c909ae6ba7f11ea2d6e0cadf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8158c8a_859f070b",
+        "filename": "testing/tools/test_runner.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-27T16:44:52Z",
+      "side": 1,
+      "message": "Isn\u0027t this different? For instance it could be array of length 0",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 20
+      },
+      "revId": "0c8a132f4e5bd026c909ae6ba7f11ea2d6e0cadf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
