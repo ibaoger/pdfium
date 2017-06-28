@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fbb4abe9_4a944687",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "They\u0027re still all in a vector :) But yes I added the index to description.",
+      "parentUuid": "40965e4b_44ac0184",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2eb21360_24059169",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4590b51e_afa8c46b",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eb21360_24059169",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "79fdd593_6bcc7bf7",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ebd03fe_eeba978c",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 46
+      },
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12c1b831_2355b7b5",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 3
@@ -79,6 +139,30 @@
       "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25973c13_f8ac3139",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12c1b831_2355b7b5",
+      "range": {
+        "startLine": 919,
+        "startChar": 9,
+        "endLine": 919,
+        "endChar": 49
+      },
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -153,6 +237,24 @@
     },
     {
       "key": {
+        "uuid": "2bed7dc3_c9df12bb",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "int AddTrailer(trailer) -\u003e no because I don\u0027t like \u0027m_TrailerPos \u003d AddTrailer(...);\u0027\nThis method was just trying to reduce code a bit, but since it seems to be confusing I\u0027m deleting this method for now.",
+      "parentUuid": "3718e13f_09bfb2d2",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "026c2382_d9413eae",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 3
@@ -167,6 +269,24 @@
       "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9262ae99_980bf198",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T18:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "026c2382_d9413eae",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
