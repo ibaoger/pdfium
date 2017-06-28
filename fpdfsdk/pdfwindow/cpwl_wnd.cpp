@@ -7,6 +7,7 @@
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 #include <map>
+#include <sstream>
 #include <vector>
 
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
@@ -232,7 +233,7 @@ void CPWL_Wnd::InvalidateRectMove(const CFX_FloatRect& rcOld,
   InvalidateRect(&rcUnion);
 }
 
-void CPWL_Wnd::GetAppearanceStream(CFX_ByteTextBuf& sAppStream) {
+void CPWL_Wnd::GetAppearanceStream(std::ostringstream* sAppStream) {
   if (IsValid() && IsVisible()) {
     GetThisAppearanceStream(sAppStream);
     GetChildAppearanceStream(sAppStream);
@@ -240,28 +241,25 @@ void CPWL_Wnd::GetAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 }
 
 // if don't set,Get default apperance stream
-void CPWL_Wnd::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
+void CPWL_Wnd::GetThisAppearanceStream(std::ostringstream* sAppStream) {
   CFX_FloatRect rectWnd = GetWindowRect();
   if (rectWnd.IsEmpty())
     return;
 
-  CFX_ByteTextBuf sThis;
-
   if (HasFlag(PWS_BACKGROUND))
-    sThis << CPWL_Utils::GetRectFillAppStream(rectWnd, GetBackgroundColor());
+    *sAppStream << CPWL_Utils::GetRectFillAppStream(rectWnd,
+                                                    GetBackgroundColor());
 
   if (HasFlag(PWS_BORDER)) {
-    sThis << CPWL_Utils::GetBorderAppStream(
+    *sAppStream << CPWL_Utils::GetBorderAppStream(
         rectWnd, (float)GetBorderWidth(), GetBorderColor(),
         GetBorderLeftTopColor(GetBorderStyle()),
         GetBorderRightBottomColor(GetBorderStyle()), GetBorderStyle(),
         GetBorderDash());
   }
-
-  sAppStream << sThis;
 }
 
-void CPWL_Wnd::GetChildAppearanceStream(CFX_ByteTextBuf& sAppStream) {
+void CPWL_Wnd::GetChildAppearanceStream(std::ostringstream* sAppStream) {
   for (CPWL_Wnd* pChild : m_Children) {
     if (pChild)
       pChild->GetAppearanceStream(sAppStream);

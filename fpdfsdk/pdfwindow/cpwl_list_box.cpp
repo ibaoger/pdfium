@@ -6,6 +6,8 @@
 
 #include "fpdfsdk/pdfwindow/cpwl_list_box.h"
 
+#include <sstream>
+
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/fxedit/fxet_list.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
@@ -95,10 +97,10 @@ void CPWL_ListBox::OnDestroy() {
   m_pListNotify.reset();
 }
 
-void CPWL_ListBox::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
+void CPWL_ListBox::GetThisAppearanceStream(std::ostringstream* sAppStream) {
   CPWL_Wnd::GetThisAppearanceStream(sAppStream);
 
-  CFX_ByteTextBuf sListItems;
+  std::ostringstream sListItems;
 
   CFX_FloatRect rcPlate = m_pList->GetPlateRect();
   for (int32_t i = 0, sz = m_pList->GetCount(); i < sz; i++) {
@@ -110,40 +112,38 @@ void CPWL_ListBox::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
     CFX_PointF ptOffset(rcItem.left, (rcItem.top + rcItem.bottom) * 0.5f);
     if (m_pList->IsItemSelected(i)) {
       sListItems << CPWL_Utils::GetRectFillAppStream(rcItem,
-                                                     PWL_DEFAULT_SELBACKCOLOR)
-                        .AsStringC();
+                                                     PWL_DEFAULT_SELBACKCOLOR);
       CFX_ByteString sItem =
           CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
       if (sItem.GetLength() > 0) {
         sListItems << "BT\n"
                    << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELTEXTCOLOR)
-                          .AsStringC()
-                   << sItem.AsStringC() << "ET\n";
+                   << sItem << "ET\n";
       }
     } else {
       CFX_ByteString sItem =
           CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
       if (sItem.GetLength() > 0) {
         sListItems << "BT\n"
-                   << CPWL_Utils::GetColorAppStream(GetTextColor()).AsStringC()
-                   << sItem.AsStringC() << "ET\n";
+                   << CPWL_Utils::GetColorAppStream(GetTextColor()) << sItem
+                   << "ET\n";
       }
     }
   }
 
-  if (sListItems.GetLength() > 0) {
-    CFX_ByteTextBuf sClip;
-    CFX_FloatRect rcClient = GetClientRect();
+  if (sListItems.tellp() <= 0)
+    return;
 
-    sClip << "q\n";
-    sClip << rcClient.left << " " << rcClient.bottom << " "
-          << rcClient.right - rcClient.left << " "
-          << rcClient.top - rcClient.bottom << " re W n\n";
+  *sAppStream << "/Tx BMC\n";
 
-    sClip << sListItems << "Q\n";
+  CFX_FloatRect rcClient = GetClientRect();
+  *sAppStream << "q\n";
+  *sAppStream << rcClient.left << " " << rcClient.bottom << " "
+              << rcClient.right - rcClient.left << " "
+              << rcClient.top - rcClient.bottom << " re W n\n";
+  *sAppStream << sListItems.str() << "Q\n";
 
-    sAppStream << "/Tx BMC\n" << sClip << "EMC\n";
-  }
+  *sAppStream << "EMC\n";
 }
 
 void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
