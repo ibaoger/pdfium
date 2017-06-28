@@ -117,6 +117,24 @@
     },
     {
       "key": {
+        "uuid": "6e896b58_454d5245",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:39:01Z",
+      "side": 1,
+      "message": "I think having this just add the trailer to the list and letting the caller decide what that means is the most clear. Currently this does two things depending on a bool which is hard to understand when just reading the code.",
+      "parentUuid": "d41d44fa_863d403c",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "026c2382_d9413eae",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 3
