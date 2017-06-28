@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9612425_329f2da2",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T22:52:37Z",
+      "side": 1,
+      "message": "Can we destroy this after CompareBitmap(), so the destruction order is the reverse of the declaration order?",
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e3d7a13_dd814120",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T22:52:37Z",
+      "side": 1,
+      "message": "last_md5?",
+      "range": {
+        "startLine": 308,
+        "startChar": 13,
+        "endLine": 308,
+        "endChar": 20
+      },
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f049ac_81f71444",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T22:52:37Z",
+      "side": 1,
+      "message": "Maybe split part of TestSaved() out into OpenSavedDoc(), and replace part of this with new_doc \u003d OpenSavedDoc() ? Not sure how often we would use OpenSavedDoc() on its own though.",
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
