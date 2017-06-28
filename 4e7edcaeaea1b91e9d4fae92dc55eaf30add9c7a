@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "12b7395e_8f915043",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:11:23Z",
+      "side": 1,
+      "message": "not done?",
+      "parentUuid": "a86334f1_bebf8a37",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f6f0cb1_2ee65461",
         "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "We can, but on the second pass I\u0027ll change the arguments passed to CPWL_Wnd::GetAppearanceStream et al to ostringstream and these changes would be required then (since we\u0027d be converting appStream to ostringstream).\n\nOn the third pass, we can do the trivial cleanup of removing the intermediate streams.",
       "parentUuid": "5f6f0cb1_2ee65461",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f617abf3_b6b204a5",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:11:23Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be easier to just change the caller and remove the intermediary in one step? Saves us from adding the .str().c_str() calls.",
+      "parentUuid": "2d9cc3fb_76e9aa20",
       "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
