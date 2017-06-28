@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "56cfa2b7_19e8b61d",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-28T21:56:20Z",
+      "side": 1,
+      "message": "nit: local not needed, many other places througout.",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 22
+      },
+      "revId": "1ef4353f0dbbbb8c6b0fe1fb6ec3c10cff1d51f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66c9bf22_bdcfa82a",
         "filename": "xfa/fwl/cfwl_widgetmgr.cpp",
         "patchSetId": 1
