@@ -803,6 +803,7 @@ static_library("fxcrt") {
     "core/fxcrt/cfx_observable.h",
     "core/fxcrt/cfx_retain_ptr.h",
     "core/fxcrt/cfx_shared_copy_on_write.h",
+    "core/fxcrt/cfx_string_c_template.cpp",
     "core/fxcrt/cfx_string_c_template.h",
     "core/fxcrt/cfx_string_data_template.h",
     "core/fxcrt/cfx_string_pool_template.h",

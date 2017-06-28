@@ -191,4 +191,10 @@ extern template class CFX_StringCTemplate<wchar_t>;
 using CFX_ByteStringC = CFX_StringCTemplate<char>;
 using CFX_WideStringC = CFX_StringCTemplate<wchar_t>;
 
+std::ostream& operator<<(std::ostream& os, const CFX_ByteStringC& str);
+
+std::wostream& operator<<(std::wostream& os, const CFX_WideStringC& str);
+
+std::ostream& operator<<(std::ostream& os, const CFX_WideStringC& str);
+
 #endif  // CORE_FXCRT_CFX_STRING_C_TEMPLATE_H_

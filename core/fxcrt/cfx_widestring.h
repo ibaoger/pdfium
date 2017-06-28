@@ -16,6 +16,8 @@
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
 
+using CFX_WideStringC = CFX_StringCTemplate<wchar_t>;
+
 class CFX_ByteString;
 
 // A mutable string with shared buffers using copy-on-write semantics that
