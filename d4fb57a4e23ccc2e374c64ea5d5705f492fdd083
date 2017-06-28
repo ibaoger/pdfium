@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b445a87_1eec5db0",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T22:38:19Z",
+      "side": 1,
+      "message": "We end up doing push_back() + modifying |m_TrailerPos| 6 times here. Can we make a method to do these two steps, so it\u0027s harder to forget to update |m_TrailerPos| ?",
+      "revId": "d4fb57a4e23ccc2e374c64ea5d5705f492fdd083",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
