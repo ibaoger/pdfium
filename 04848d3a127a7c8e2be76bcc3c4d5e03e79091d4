@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa04c7e6_4f45ef0a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T20:46:30Z",
+      "side": 1,
+      "message": "Done. This will take some time to get used to. Fixed all other lines affected.",
+      "parentUuid": "06c890eb_f13294b9",
+      "revId": "04848d3a127a7c8e2be76bcc3c4d5e03e79091d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a51e4e5_fe50f7e7",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a7f57bd4_c3445e8c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T20:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a51e4e5_fe50f7e7",
+      "revId": "04848d3a127a7c8e2be76bcc3c4d5e03e79091d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e501142e_c6527e5b",
         "filename": "fpdfsdk/pdfwindow/cpwl_list_box.cpp",
         "patchSetId": 4
@@ -50,6 +86,24 @@
       "revId": "04848d3a127a7c8e2be76bcc3c4d5e03e79091d4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4662d4e8_498a2b5f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T20:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e501142e_c6527e5b",
+      "revId": "04848d3a127a7c8e2be76bcc3c4d5e03e79091d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
