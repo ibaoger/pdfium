@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a79844a_d851b992",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-28T18:44:47Z",
+      "side": 1,
+      "message": "drive-by:  does this ever point to anyting but m_Trailers.back() ?",
+      "range": {
+        "startLine": 171,
+        "startChar": 9,
+        "endLine": 171,
+        "endChar": 22
+      },
+      "revId": "9bc86f5a47fa19331a9553c6813dbae728384093",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
