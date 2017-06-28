@@ -7,6 +7,7 @@
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 #include <map>
+#include <sstream>
 #include <vector>
 
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
@@ -245,7 +246,7 @@ void CPWL_Wnd::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
   if (rectWnd.IsEmpty())
     return;
 
-  CFX_ByteTextBuf sThis;
+  std::ostringstream sThis;
 
   if (HasFlag(PWS_BACKGROUND))
     sThis << CPWL_Utils::GetRectFillAppStream(rectWnd, GetBackgroundColor());
@@ -258,7 +259,7 @@ void CPWL_Wnd::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
         GetBorderDash());
   }
 
-  sAppStream << sThis;
+  sAppStream << sThis.str().c_str();
 }
 
 void CPWL_Wnd::GetChildAppearanceStream(CFX_ByteTextBuf& sAppStream) {

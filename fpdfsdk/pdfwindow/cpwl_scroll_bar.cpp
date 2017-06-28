@@ -6,6 +6,8 @@
 
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
 
+#include <sstream>
+
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/pdfwindow/cpwl_utils.h"
@@ -128,7 +130,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
   if (!IsVisible())
     return;
 
-  CFX_ByteTextBuf sButton;
+  std::ostringstream sButton;
 
   CFX_FloatRect rectWnd = GetWindowRect();
 
@@ -157,7 +159,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
             sButton << pt3.x << " " << pt3.y << " l\n";
             sButton << pt1.x << " " << pt1.y << " l f\n";
 
-            sAppStream << sButton;
+            sAppStream << sButton.str().c_str();
           }
         } break;
         case PSBT_MAX: {
@@ -175,7 +177,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
             sButton << pt3.x << " " << pt3.y << " l\n";
             sButton << pt1.x << " " << pt1.y << " l f\n";
 
-            sAppStream << sButton;
+            sAppStream << sButton.str().c_str();
           }
         } break;
         default:
@@ -199,7 +201,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
             sButton << pt3.x << " " << pt3.y << " l\n";
             sButton << pt1.x << " " << pt1.y << " l f\n";
 
-            sAppStream << sButton;
+            sAppStream << sButton.str().c_str();
           }
         } break;
         case PSBT_MAX: {
@@ -217,7 +219,7 @@ void CPWL_SBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
             sButton << pt3.x << " " << pt3.y << " l\n";
             sButton << pt1.x << " " << pt1.y << " l f\n";
 
-            sAppStream << sButton;
+            sAppStream << sButton.str().c_str();
           }
         } break;
         default:
@@ -655,19 +657,19 @@ void CPWL_ScrollBar::RePosChildWnd() {
 void CPWL_ScrollBar::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
   CFX_FloatRect rectWnd = GetWindowRect();
 
-  if (IsVisible() && !rectWnd.IsEmpty()) {
-    CFX_ByteTextBuf sButton;
+  if (!IsVisible() || rectWnd.IsEmpty())
+    return;
 
-    sButton << "q\n";
-    sButton << "0 w\n"
-            << CPWL_Utils::GetColorAppStream(GetBackgroundColor(), true)
-                   .AsStringC();
-    sButton << rectWnd.left << " " << rectWnd.bottom << " "
-            << rectWnd.right - rectWnd.left << " "
-            << rectWnd.top - rectWnd.bottom << " re b Q\n";
+  std::ostringstream sButton;
 
-    sAppStream << sButton;
-  }
+  sButton << "q\n";
+  sButton << "0 w\n"
+          << CPWL_Utils::GetColorAppStream(GetBackgroundColor(), true);
+  sButton << rectWnd.left << " " << rectWnd.bottom << " "
+          << rectWnd.right - rectWnd.left << " " << rectWnd.top - rectWnd.bottom
+          << " re b Q\n";
+
+  sAppStream << sButton.str().c_str();
 }
 
 void CPWL_ScrollBar::DrawThisAppearance(CFX_RenderDevice* pDevice,
