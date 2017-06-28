@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "cad900fe_bf29dc9e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T21:49:21Z",
+      "side": 1,
+      "message": "Done. That was much simpler than I thought it would be, there are no external callers for these GetXAppearanceStream methods. Good tip.",
+      "parentUuid": "447f7c3d_935e20d3",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe00b4c5_bbf11e49",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
         "patchSetId": 3
