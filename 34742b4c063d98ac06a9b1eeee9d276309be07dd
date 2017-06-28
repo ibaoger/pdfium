@@ -36,6 +36,52 @@
     },
     {
       "key": {
+        "uuid": "1ebd03fe_eeba978c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T15:06:17Z",
+      "side": 1,
+      "message": "if (!GetTrailer())?",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 46
+      },
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12c1b831_2355b7b5",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T15:06:17Z",
+      "side": 1,
+      "message": "GetTrailer()?",
+      "range": {
+        "startLine": 919,
+        "startChar": 9,
+        "endLine": 919,
+        "endChar": 49
+      },
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2883b5f9_b648ef85",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 3
@@ -47,6 +93,24 @@
       "writtenOn": "2017-06-28T13:36:18Z",
       "side": 1,
       "message": "What about making this return the size_t value and then instead of taking a bool we just assign to m_TrailerPos where needed? I think it would be a bit clearer?",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41d44fa_863d403c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T15:06:17Z",
+      "side": 1,
+      "message": "Not sure if it would be more or less clear. Another option is having AddMainTrailer() and AddSecondaryTrailer().",
+      "parentUuid": "2883b5f9_b648ef85",
       "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
