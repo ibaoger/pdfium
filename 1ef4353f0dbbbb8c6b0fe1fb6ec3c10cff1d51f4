@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66c9bf22_bdcfa82a",
+        "filename": "xfa/fwl/cfwl_widgetmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-28T20:30:13Z",
+      "side": 1,
+      "message": "Changed this to what I guessed because the previous operations were doing nothing.",
+      "revId": "1ef4353f0dbbbb8c6b0fe1fb6ec3c10cff1d51f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
