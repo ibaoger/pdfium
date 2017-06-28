@@ -1308,3 +1308,52 @@ TEST(fxcrt, OStreamByteStringOverload) {
   stream << str1 << str2;
   EXPECT_EQ("abcdef", stream.str());
 }
+
+TEST(fxcrt, OStreamByteStringCOverload) {
+  std::ostringstream stream;
+
+  // Basic case, empty string
+  CFX_ByteStringC str;
+  stream << str;
+  EXPECT_EQ("", stream.str());
+
+  // Basic case, non-empty string
+  str = "def";
+  stream.str("");
+  stream << "abc" << str << "ghi";
+  EXPECT_EQ("abcdefghi", stream.str());
+
+  // Changing the CFX_ByteStringC does not change the stream it was written to.
+  str = "123";
+  EXPECT_EQ("abcdefghi", stream.str());
+
+  // Writing it again to the stream will use the latest value.
+  stream.str("");
+  stream << "abc" << str << "ghi";
+  EXPECT_EQ("abc123ghi", stream.str());
+
+  char stringWithNulls[]{'x', 'y', '\0', 'z'};
+
+  // Writing a CFX_ByteStringC with nulls and no specified length treats it as
+  // a C-style null-terminated string.
+  str = CFX_ByteStringC(stringWithNulls);
+  EXPECT_EQ(2, str.GetLength());
+  stream.str("");
+  stream << str;
+  EXPECT_EQ(2u, stream.tellp());
+
+  // Writing a CFX_ByteStringC with nulls but specifying its length treats it as
+  // a C++-style string.
+  str = CFX_ByteStringC(stringWithNulls, 4);
+  EXPECT_EQ(4, str.GetLength());
+  stream.str("");
+  stream << str;
+  EXPECT_EQ(4u, stream.tellp());
+
+  // << operators can be chained.
+  CFX_ByteStringC str1("abc");
+  CFX_ByteStringC str2("def");
+  stream.str("");
+  stream << str1 << str2;
+  EXPECT_EQ("abcdef", stream.str());
+}
