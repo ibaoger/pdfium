@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b69e45c3_3fd60df6",
+        "filename": "core/fpdfapi/page/cpdf_contentparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:17:05Z",
+      "side": 1,
+      "message": "nit: const method?",
+      "revId": "2f47fd33acbecd62267b386dcae6730f5fb100c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1487a14c_acc81c20",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:17:05Z",
+      "side": 1,
+      "message": "nit: make method const",
+      "revId": "2f47fd33acbecd62267b386dcae6730f5fb100c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
