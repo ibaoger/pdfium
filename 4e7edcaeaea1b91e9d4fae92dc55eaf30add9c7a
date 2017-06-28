@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ee4c09_53b8167e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "if (!IsVisible() || !m_bFlash)\n  return;",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f6f0cb1_2ee65461",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Can\u0027t we just append into sAppStream and skip the intermediary stream?",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe00b4c5_bbf11e49",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "if (!IsVisible() || rectWnd.IsEmpty())\n  return;",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d7b5f8_3042ec76",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eeda696_0de21473",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1542014d_6af59f70",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "636be3f6_2f2a9aeb",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "if (sListItems.tellp() \u003c\u003d 0)\n  return;",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a023a9_1fdc2ef0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Remove and append into sAppStream?",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c02c98_5f0ca0b6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c86523_bcf9a2ba",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Invert and return",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a72f414b_b7d8eabf",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Remove?",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d3851a6_32fa2ba6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "nit: remove {}s",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545ee18f_680a330c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Move down to first usage on line 539?",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1753265_7fb860b0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "if (sTemp.Tellp() \u003c\u003d 0)\n  return CFX_ByteString();",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d17b3bb_cc574ff3",
+        "filename": "fpdfsdk/pdfwindow/cpwl_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "if (rcBBox.IsEmpty())\n  return CFX_ByteString()",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "178336f3_c2bca073",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T15:53:53Z",
+      "side": 1,
+      "message": "Remove?",
+      "revId": "4e7edcaeaea1b91e9d4fae92dc55eaf30add9c7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
