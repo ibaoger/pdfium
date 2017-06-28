@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d099f5_c84a8435",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-28T19:21:14Z",
+      "side": 1,
+      "message": "This causes a needless alloc/copy/free, since ByteStrings own their storage (but ByteStringC\u0027s are just snippets of other\u0027s buffers).",
+      "range": {
+        "startLine": 882,
+        "startChar": 8,
+        "endLine": 882,
+        "endChar": 27
+      },
+      "revId": "af54c0f09550e4b4576e8dcb741c43eadd40aee9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
