@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e3f9a6ce_f93946b8",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be7bfc4_bdc1a688",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e75ff451_80ee3907",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce4ac1f7_d9887a4a",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e75ff451_80ee3907",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f42909c8_860365d2",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a562ccdb_07e7e846",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26f3cb3c_52bd7484",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "e99829b9_0cac46a7",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f3cb3c_52bd7484",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ecf5d54_2764be36",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2017-06-27T01:56:47Z",
       "side": 1,
       "message": "If you find it tedious to write this out with all the arguments, you can rename the existing TypeTextIntoTextfield() to something like TypeTextIntoField() and implement a new TypeTextIntoTextfield() to call TypeTextIntoField(page, num_chars, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0).",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2305e15_29b6600b",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "I don\u0027t really mind writing out all of the arguments, but I could add the wrapper function if you think it would make it less distracting or have better style.",
+      "parentUuid": "0ecf5d54_2764be36",
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -110,6 +200,30 @@
     },
     {
       "key": {
+        "uuid": "13b0be63_ecc2492e",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69c75847_0f740744",
+      "range": {
+        "startLine": 492,
+        "startChar": 67,
+        "endLine": 492,
+        "endChar": 69
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da4249db_f8c61ec6",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 2
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "b13381eb_97322610",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da4249db_f8c61ec6",
+      "range": {
+        "startLine": 15,
+        "startChar": 10,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d169bdc4_af7fff1a",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 2
@@ -147,6 +285,24 @@
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5debca69_fdc91d5a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d169bdc4_af7fff1a",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "efdce761_8a57dbfd",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6fbaa46_ca0539e6",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb638095_1bda4a7c",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 2
@@ -181,6 +355,24 @@
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e38e2b_e695236f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb638095_1bda4a7c",
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -204,6 +396,30 @@
       "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44de8877_21adef44",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-06-28T03:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db944cf8_851e3fa2",
+      "range": {
+        "startLine": 93,
+        "startChar": 65,
+        "endLine": 93,
+        "endChar": 67
+      },
+      "revId": "4734919d792025540ad64d65fb339a8644ceb16a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
