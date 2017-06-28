@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd1b7ce8_2f0582c1",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T21:56:13Z",
+      "side": 1,
+      "message": "Let\u0027s check the arguments to a function and verify they meet expectations, before using them.",
+      "revId": "8eb5a1b38f90aab1c67dffdb7bc8961d7c660f49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "454bed2b_ee971d13",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T21:56:13Z",
+      "side": 1,
+      "message": "If this fails, then the caller gets notified that an ASSERT failed on line 108. The caller knows either |item_index| is less than 0, or it\u0027s greater than 2. If instead this ASSERT() gets split in to two separate ASSERT() calls, then only one of the two simpler ASSERTs will fail, and the caller knows exactly which of the two checks failed because they would occur on different lines.\n\nWhereas with:\n\nif (item_index \u003c 0 || item_index \u003e\u003d 3)\n  return false;\n\nvs\n\nif (item_index \u003c 0)\n  return false;\nif (item_index \u003e\u003d 3)\n  return false;\n\nIt makes no difference to the caller, since they just get return false either way. So might as while combine the two checks into one if-statement.",
+      "revId": "8eb5a1b38f90aab1c67dffdb7bc8961d7c660f49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a1c263c_ed0491dd",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-28T21:56:13Z",
+      "side": 1,
+      "message": "And if we keep apply the \"check as early as possible\" logic, we can also check this right after line 38.",
+      "revId": "8eb5a1b38f90aab1c67dffdb7bc8961d7c660f49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
