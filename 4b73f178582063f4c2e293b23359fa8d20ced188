@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "55317ed2_2c7ff898",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-28T20:26:02Z",
+      "side": 1,
+      "message": "Done. Good point, thanks for catching! I\u0027m now checking the annotation\u0027s rectangles.",
+      "parentUuid": "d3f53baa_d0c3543c",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64075901_56e1526b",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7a1936b6_25439f07",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-28T20:26:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64075901_56e1526b",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e977660_c6eddc3c",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe9d67b5_23857111",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-28T20:26:02Z",
+      "side": 1,
+      "message": "Done. Why did we have them...",
+      "parentUuid": "3e977660_c6eddc3c",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
