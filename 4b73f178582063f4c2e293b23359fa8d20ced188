@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3f53baa_d0c3543c",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:44:28Z",
+      "side": 1,
+      "message": "This doesn\u0027t tell us the second annotation was removed, just that one of the annotations is removed. Is there a piece of information we could check against the remaining two annotations to verify they are 1 and 3?",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64075901_56e1526b",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:44:28Z",
+      "side": 1,
+      "message": "Ditto, can we verity the annotations are the original 1st and 3rd?",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e977660_c6eddc3c",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-28T19:44:28Z",
+      "side": 1,
+      "message": "Unless we do it on other docs, can drop the false otherwise as it\u0027s implied.",
+      "revId": "4b73f178582063f4c2e293b23359fa8d20ced188",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
