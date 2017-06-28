@@ -11,7 +11,9 @@
 #include <type_traits>
 #include <vector>
 
+#include "core/fxcrt/cfx_bytestring.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
+#include "core/fxcrt/cfx_widestring.h"
 #include "core/fxcrt/fx_system.h"
 #include "third_party/base/stl_util.h"
 
@@ -190,5 +192,20 @@ extern template class CFX_StringCTemplate<wchar_t>;
 
 using CFX_ByteStringC = CFX_StringCTemplate<char>;
 using CFX_WideStringC = CFX_StringCTemplate<wchar_t>;
+
+std::ostream& operator<<(std::ostream& os, const CFX_ByteStringC& str) {
+  os << CFX_ByteString(str.c_str(), str.GetLength());
+  return os;
+}
+
+std::wostream& operator<<(std::wostream& os, const CFX_WideStringC& str) {
+  os << CFX_WideString(str.c_str(), str.GetLength());
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const CFX_WideStringC& str) {
+  os << CFX_WideString(str.c_str(), str.GetLength());
+  return os;
+}
 
 #endif  // CORE_FXCRT_CFX_STRING_C_TEMPLATE_H_
