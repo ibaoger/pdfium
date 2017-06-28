@@ -16,6 +16,8 @@
 #include "core/fxcrt/fx_memory.h"
 #include "core/fxcrt/fx_system.h"
 
+using CFX_WideStringC = CFX_StringCTemplate<wchar_t>;
+
 class CFX_ByteString;
 
 // A mutable string with shared buffers using copy-on-write semantics that
@@ -231,6 +233,10 @@ uint32_t FX_HashCode_GetW(const CFX_WideStringC& str, bool bIgnoreCase);
 std::wostream& operator<<(std::wostream& os, const CFX_WideString& str);
 
 std::ostream& operator<<(std::ostream& os, const CFX_WideString& str);
+
+std::wostream& operator<<(std::wostream& os, const CFX_WideStringC& str);
+
+std::ostream& operator<<(std::ostream& os, const CFX_WideStringC& str);
 
 namespace std {
 
