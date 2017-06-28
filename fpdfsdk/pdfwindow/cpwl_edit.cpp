@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <sstream>
 #include <vector>
 
 #include "core/fpdfapi/font/cpdf_font.h"
@@ -188,11 +189,11 @@ void CPWL_Edit::SetParamByFlag() {
   }
 }
 
-void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
+void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* sAppStream) {
   CPWL_Wnd::GetThisAppearanceStream(sAppStream);
 
   CFX_FloatRect rcClient = GetClientRect();
-  CFX_ByteTextBuf sLine;
+  std::ostringstream sLine;
 
   int32_t nCharArray = m_pEdit->GetCharArray();
 
@@ -202,7 +203,6 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
         sLine << "q\n"
               << GetBorderWidth() << " w\n"
               << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
-                     .AsStringC()
               << " 2 J 0 j\n";
 
         for (int32_t i = 1; i < nCharArray; i++) {
@@ -221,7 +221,6 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
         sLine << "q\n"
               << GetBorderWidth() << " w\n"
               << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
-                     .AsStringC()
               << " 2 J 0 j\n"
               << "[" << GetBorderDash().nDash << " " << GetBorderDash().nGap
               << "] " << GetBorderDash().nPhase << " d\n";
@@ -243,9 +242,9 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
     }
   }
 
-  sAppStream << sLine;
+  *sAppStream << sLine.str().c_str();
 
-  CFX_ByteTextBuf sText;
+  std::ostringstream sText;
   CFX_PointF ptOffset;
   CPVT_WordRange wrWhole = m_pEdit->GetWholeWordRange();
   CPVT_WordRange wrSelect = GetSelectWordRange();
@@ -260,8 +259,8 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
       CPWL_Utils::GetEditSelAppStream(m_pEdit.get(), ptOffset, &wrTemp);
 
   if (sEditSel.GetLength() > 0)
-    sText << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELBACKCOLOR).AsStringC()
-          << sEditSel.AsStringC();
+    sText << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELBACKCOLOR)
+          << sEditSel;
 
   wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelBefore);
   CFX_ByteString sEditBefore = CPWL_Utils::GetEditAppStream(
@@ -270,8 +269,8 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 
   if (sEditBefore.GetLength() > 0)
     sText << "BT\n"
-          << CPWL_Utils::GetColorAppStream(GetTextColor()).AsStringC()
-          << sEditBefore.AsStringC() << "ET\n";
+          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditBefore
+          << "ET\n";
 
   wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelect);
   CFX_ByteString sEditMid = CPWL_Utils::GetEditAppStream(
@@ -281,8 +280,7 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
   if (sEditMid.GetLength() > 0)
     sText << "BT\n"
           << CPWL_Utils::GetColorAppStream(CPWL_Color(COLORTYPE_GRAY, 1))
-                 .AsStringC()
-          << sEditMid.AsStringC() << "ET\n";
+          << sEditMid << "ET\n";
 
   wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelAfter);
   CFX_ByteString sEditAfter = CPWL_Utils::GetEditAppStream(
@@ -291,21 +289,21 @@ void CPWL_Edit::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
 
   if (sEditAfter.GetLength() > 0)
     sText << "BT\n"
-          << CPWL_Utils::GetColorAppStream(GetTextColor()).AsStringC()
-          << sEditAfter.AsStringC() << "ET\n";
+          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditAfter
+          << "ET\n";
 
-  if (sText.GetLength() > 0) {
+  if (sText.tellp() > 0) {
     CFX_FloatRect rect = GetClientRect();
-    sAppStream << "q\n/Tx BMC\n";
+    *sAppStream << "q\n/Tx BMC\n";
 
     if (!HasFlag(PES_TEXTOVERFLOW))
-      sAppStream << rect.left << " " << rect.bottom << " "
-                 << rect.right - rect.left << " " << rect.top - rect.bottom
-                 << " re W n\n";
+      *sAppStream << rect.left << " " << rect.bottom << " "
+                  << rect.right - rect.left << " " << rect.top - rect.bottom
+                  << " re W n\n";
 
-    sAppStream << sText;
+    *sAppStream << sText.str().c_str();
 
-    sAppStream << "EMC\nQ\n";
+    *sAppStream << "EMC\nQ\n";
   }
 }
 
@@ -314,7 +312,6 @@ void CPWL_Edit::DrawThisAppearance(CFX_RenderDevice* pDevice,
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
 
   CFX_FloatRect rcClient = GetClientRect();
-  CFX_ByteTextBuf sLine;
 
   int32_t nCharArray = m_pEdit->GetCharArray();
   FX_SAFE_INT32 nCharArraySafe = nCharArray;
@@ -487,14 +484,13 @@ CPVT_WordRange CPWL_Edit::GetSelectWordRange() const {
 
 CFX_ByteString CPWL_Edit::GetTextAppearanceStream(
     const CFX_PointF& ptOffset) const {
-  CFX_ByteTextBuf sRet;
+  std::ostringstream sRet;
   CFX_ByteString sEdit = CPWL_Utils::GetEditAppStream(m_pEdit.get(), ptOffset);
   if (sEdit.GetLength() > 0) {
     sRet << "BT\n"
-         << CPWL_Utils::GetColorAppStream(GetTextColor()).AsStringC()
-         << sEdit.AsStringC() << "ET\n";
+         << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEdit << "ET\n";
   }
-  return sRet.MakeString();
+  return CFX_ByteString(sRet);
 }
 
 CFX_ByteString CPWL_Edit::GetCaretAppearanceStream(
