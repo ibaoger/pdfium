@@ -7,6 +7,7 @@
 #include "fpdfsdk/pdfwindow/cpwl_combo_box.h"
 
 #include <algorithm>
+#include <sstream>
 
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
@@ -102,7 +103,7 @@ void CPWL_CBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
   CFX_FloatRect rectWnd = CPWL_Wnd::GetWindowRect();
 
   if (IsVisible() && !rectWnd.IsEmpty()) {
-    CFX_ByteTextBuf sButton;
+    std::ostringstream sButton;
 
     CFX_PointF ptCenter = GetCenterPoint();
 
@@ -123,7 +124,7 @@ void CPWL_CBButton::GetThisAppearanceStream(CFX_ByteTextBuf& sAppStream) {
       sButton << pt3.x << " " << pt3.y << " l\n";
       sButton << pt1.x << " " << pt1.y << " l f\n";
 
-      sAppStream << "q\n" << sButton << "Q\n";
+      sAppStream << "q\n" << sButton.str().c_str() << "Q\n";
     }
   }
 }

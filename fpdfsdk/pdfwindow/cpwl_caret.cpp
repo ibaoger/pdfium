@@ -6,6 +6,8 @@
 
 #include "fpdfsdk/pdfwindow/cpwl_caret.h"
 
+#include <sstream>
+
 #include "core/fxge/cfx_graphstatedata.h"
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
@@ -61,7 +63,7 @@ void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
 void CPWL_Caret::GetCaretApp(CFX_ByteTextBuf& sAppStream,
                              const CFX_PointF& ptOffset) {
   if (IsVisible() && m_bFlash) {
-    CFX_ByteTextBuf sCaret;
+    std::ostringstream sCaret;
 
     CFX_FloatRect rcRect = GetCaretRect();
     CFX_FloatRect rcClip = GetClipRect();
@@ -79,7 +81,7 @@ void CPWL_Caret::GetCaretApp(CFX_ByteTextBuf& sAppStream,
     sCaret << rcRect.left + m_fWidth / 2 << " " << rcRect.bottom << " m\n";
     sCaret << rcRect.left + m_fWidth / 2 << " " << rcRect.top << " l S\nQ\n";
 
-    sAppStream << sCaret;
+    sAppStream << sCaret.str().c_str();
   }
 }
 
