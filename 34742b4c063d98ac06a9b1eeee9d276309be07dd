@@ -135,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "3718e13f_09bfb2d2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-06-28T17:48:19Z",
+      "side": 1,
+      "message": "Well, I interpret this as a refactor with no intention or possibility of changing any behavior. We will have to accept improvements over this come with functional changes and should probably be done in subsequent CLs.",
+      "parentUuid": "6e896b58_454d5245",
+      "revId": "34742b4c063d98ac06a9b1eeee9d276309be07dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "026c2382_d9413eae",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 3
