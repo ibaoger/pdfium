@@ -144,6 +144,11 @@ class CFX_Font {
   uint8_t* GetFontData() const { return m_pFontData; }
   uint32_t GetSize() const { return m_dwSize; }
   void AdjustMMParams(int glyph_index, int width, int weight) const;
+  long GetMMWidthParam(FXFT_MM_Var pMasters,
+                       int glyph_index,
+                       int width,
+                       long weight) const;
+  long GetMMWeightParam(FXFT_MM_Var pMasters, int weight) const;
 
   static const size_t kAngleSkewArraySize = 30;
   static const char s_AngleSkew[kAngleSkewArraySize];
