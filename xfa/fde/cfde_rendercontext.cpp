@@ -40,8 +40,7 @@ void CFDE_RenderContext::DoRender() {
   if (!m_pRenderDevice || !m_pIterator)
     return;
 
-  CFX_Matrix rm;
-  rm.SetReverse(m_Transform);
+  CFX_Matrix rm = m_Transform.GetInverse();
   CFX_RectF rtDocClip = m_pRenderDevice->GetClipRect();
   if (rtDocClip.IsEmpty()) {
     rtDocClip.left = rtDocClip.top = 0;

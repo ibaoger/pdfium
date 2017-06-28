@@ -1031,8 +1031,7 @@ DLLEXPORT void STDCALL FPDF_DeviceToPage(FPDF_PAGE page,
 #else   // PDF_ENABLE_XFA
   CFX_Matrix page2device =
       pPage->GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
-  CFX_Matrix device2page;
-  device2page.SetReverse(page2device);
+  CFX_Matrix device2page = page2device.GetInverse();
 
   CFX_PointF pos = device2page.Transform(
       CFX_PointF(static_cast<float>(device_x), static_cast<float>(device_y)));

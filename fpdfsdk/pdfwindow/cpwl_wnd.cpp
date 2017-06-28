@@ -767,7 +767,7 @@ CFX_PointF CPWL_Wnd::ParentToChild(const CFX_PointF& point) const {
   if (mt.IsIdentity())
     return point;
 
-  mt.SetReverse(mt);
+  mt = mt.GetInverse();
   return mt.Transform(point);
 }
 
@@ -776,7 +776,7 @@ CFX_FloatRect CPWL_Wnd::ParentToChild(const CFX_FloatRect& rect) const {
   if (mt.IsIdentity())
     return rect;
 
-  mt.SetReverse(mt);
+  mt = mt.GetInverse();
   CFX_FloatRect rc = rect;
   mt.TransformRect(rc);
   return rc;

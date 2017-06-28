@@ -14,8 +14,7 @@ CXFA_RenderContext::CXFA_RenderContext(CXFA_FFPageView* pPageView,
                                        const CFX_RectF& clipRect,
                                        const CFX_Matrix& matrix)
     : m_pWidget(nullptr), m_matrix(matrix), m_rtClipRect(clipRect) {
-  CFX_Matrix mtRes;
-  mtRes.SetReverse(matrix);
+  CFX_Matrix mtRes = matrix.GetInverse();
   mtRes.TransformRect(m_rtClipRect);
 
   m_pWidgetIterator = pPageView->CreateWidgetIterator(

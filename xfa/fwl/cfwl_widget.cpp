@@ -197,8 +197,7 @@ CFX_PointF CFWL_Widget::TransformTo(CFWL_Widget* pWidget,
   if (!parent)
     return ret;
 
-  CFX_Matrix m;
-  m.SetReverse(pWidget->GetMatrix());
+  CFX_Matrix m = pWidget->GetMatrix().GetInverse();
   return m.Transform(ret) - pWidget->GetWidgetRect().TopLeft();
 }
 

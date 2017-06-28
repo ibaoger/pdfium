@@ -143,9 +143,8 @@ void CPDFXFA_Page::DeviceToPage(int start_x,
   if (!m_pPDFPage && !m_pXFAPageView)
     return;
 
-  CFX_Matrix device2page;
-  device2page.SetReverse(
-      GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate));
+  CFX_Matrix device2page =
+      GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate).GetInverse();
 
   CFX_PointF pos = device2page.Transform(
       CFX_PointF(static_cast<float>(device_x), static_cast<float>(device_y)));

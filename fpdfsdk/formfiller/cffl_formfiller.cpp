@@ -459,8 +459,7 @@ CFX_FloatRect CFFL_FormFiller::GetFocusBox(CPDFSDK_PageView* pPageView) {
 }
 
 CFX_FloatRect CFFL_FormFiller::FFLtoPWL(const CFX_FloatRect& rect) {
-  CFX_Matrix mt;
-  mt.SetReverse(GetCurMatrix());
+  CFX_Matrix mt = GetCurMatrix().GetInverse();
 
   CFX_FloatRect temp = rect;
   mt.TransformRect(temp);
@@ -478,8 +477,7 @@ CFX_FloatRect CFFL_FormFiller::PWLtoFFL(const CFX_FloatRect& rect) {
 }
 
 CFX_PointF CFFL_FormFiller::FFLtoPWL(const CFX_PointF& point) {
-  CFX_Matrix mt;
-  mt.SetReverse(GetCurMatrix());
+  CFX_Matrix mt = GetCurMatrix().GetInverse();
   return mt.Transform(point);
 }
 

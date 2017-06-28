@@ -69,8 +69,7 @@ void CPDF_PageContentGenerator::GenerateContent() {
   // Set the default graphic state values
   buf << "q\n";
   if (!m_pObjHolder->GetLastCTM().IsIdentity()) {
-    CFX_Matrix reverse;
-    reverse.SetReverse(m_pObjHolder->GetLastCTM());
+    CFX_Matrix reverse = m_pObjHolder->GetLastCTM().GetInverse();
     buf << reverse << " cm\n";
   }
   ProcessDefaultGraphics(&buf);

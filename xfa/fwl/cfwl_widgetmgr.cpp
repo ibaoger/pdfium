@@ -266,11 +266,7 @@ CFWL_Widget* CFWL_WidgetMgr::GetWidgetAtPoint(CFWL_Widget* parent,
   CFWL_Widget* child = GetLastChildWidget(parent);
   while (child) {
     if ((child->GetStates() & FWL_WGTSTATE_Invisible) == 0) {
-      CFX_Matrix m;
-      m.SetIdentity();
-
-      CFX_Matrix matrixOnParent;
-      m.SetReverse(matrixOnParent);
+      CFX_Matrix m = parent->GetMatrix().GetInverse();
       pos = m.Transform(point);
 
       CFX_RectF bounds = child->GetWidgetRect();

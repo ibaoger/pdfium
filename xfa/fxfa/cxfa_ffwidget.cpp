@@ -348,8 +348,7 @@ CFX_PointF CXFA_FFWidget::Rotate2Normal(const CFX_PointF& point) {
   if (mt.IsIdentity())
     return point;
 
-  CFX_Matrix mtReverse;
-  mtReverse.SetReverse(mt);
+  CFX_Matrix mtReverse = mt.GetInverse();
   return mtReverse.Transform(point);
 }
 
