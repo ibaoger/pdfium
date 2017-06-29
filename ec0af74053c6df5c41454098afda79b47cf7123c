@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65b5c8e8_aa2278b0",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 3644,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T21:14:10Z",
+      "side": 1,
+      "message": "ditto non-const ref \u003d no fun",
+      "range": {
+        "startLine": 3644,
+        "startChar": 4,
+        "endLine": 3644,
+        "endChar": 9
+      },
+      "revId": "ec0af74053c6df5c41454098afda79b47cf7123c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
