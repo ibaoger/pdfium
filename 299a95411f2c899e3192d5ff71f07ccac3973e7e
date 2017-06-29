@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7006c577_28d0e9de",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T22:14:28Z",
+      "side": 1,
+      "message": "If you check this first, then you can potentially return early without calling FPDFDOC_GetAnnotAP().",
+      "range": {
+        "startLine": 242,
+        "startChar": 18,
+        "endLine": 242,
+        "endChar": 36
+      },
+      "revId": "299a95411f2c899e3192d5ff71f07ccac3973e7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da4f1e7_3a35df99",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T22:14:28Z",
+      "side": 1,
+      "message": "Can you just add a note to say if this check succeeds, then we assume the path object came from FPDFPageObj_CreateNewPath(), and that if developers incorrectly passed in a path from another annotation, bad things will happen. Just a FYI note, no need for a TODO.",
+      "revId": "299a95411f2c899e3192d5ff71f07ccac3973e7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

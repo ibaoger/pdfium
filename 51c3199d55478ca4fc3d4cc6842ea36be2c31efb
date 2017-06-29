@@ -314,6 +314,24 @@
     },
     {
       "key": {
+        "uuid": "00112ef3_a9088784",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T22:14:28Z",
+      "side": 1,
+      "message": "It will have to be a global list, since objects returned by FPDFPageObj_CreateNewPath() aren\u0027t bound to any document/page/form/annot/etc.\n\nI don\u0027t think it changes the structure of the API, so we can always do it later, if we find out developers have trouble using the API properly and ends up causing crashes. With the check, those crashes would turn into API call failures.",
+      "parentUuid": "2619a544_65767c0b",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45898941_e29f35cb",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 20
