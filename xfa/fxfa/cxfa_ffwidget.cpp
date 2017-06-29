@@ -660,7 +660,6 @@ bool CXFA_ImageRenderer::StartDIBSource() {
     m_Status = 2;
     m_pTransformer = pdfium::MakeUnique<CFX_ImageTransformer>(
         pDib, &m_ImageMatrix, m_Flags, &clip_box);
-    m_pTransformer->Start();
     return true;
   }
   if (m_ImageMatrix.a < 0) {
