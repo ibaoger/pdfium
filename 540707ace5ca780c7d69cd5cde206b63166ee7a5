@@ -46,6 +46,29 @@
       "revId": "540707ace5ca780c7d69cd5cde206b63166ee7a5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a05f1c_f7787fff",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T19:01:15Z",
+      "side": 1,
+      "message": "Drive-by: This would introduce a static initializer, and probably upset some bot ...",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 52
+      },
+      "revId": "540707ace5ca780c7d69cd5cde206b63166ee7a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
