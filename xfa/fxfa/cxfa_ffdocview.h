@@ -111,7 +111,7 @@ class CXFA_FFDocView {
   void RunBindItems();
   bool InitCalculate(CXFA_Node* pNode);
   void InitLayout(CXFA_Node* pNode);
-  void RunCalculateRecursive(int32_t& iIndex);
+  size_t RunCalculateRecursive(size_t index);
   void ShowNullTestMsg();
   bool ResetSingleWidgetAccData(CXFA_WidgetAcc* pWidgetAcc);
   CXFA_Node* GetRootSubform();
