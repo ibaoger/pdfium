@@ -23,17 +23,15 @@ class CFX_ImageStretcher;
 
 class CFX_ImageRenderer {
  public:
-  CFX_ImageRenderer();
+  CFX_ImageRenderer(const CFX_RetainPtr<CFX_DIBitmap>& pDevice,
+                    const CFX_ClipRgn* pClipRgn,
+                    const CFX_RetainPtr<CFX_DIBSource>& pSource,
+                    int bitmap_alpha,
+                    uint32_t mask_color,
+                    const CFX_Matrix* pMatrix,
+                    uint32_t dib_flags,
+                    bool bRgbByteOrder);
   ~CFX_ImageRenderer();
-
-  bool Start(const CFX_RetainPtr<CFX_DIBitmap>& pDevice,
-             const CFX_ClipRgn* pClipRgn,
-             const CFX_RetainPtr<CFX_DIBSource>& pSource,
-             int bitmap_alpha,
-             uint32_t mask_color,
-             const CFX_Matrix* pMatrix,
-             uint32_t dib_flags,
-             bool bRgbByteOrder);
 
   bool Continue(IFX_Pause* pPause);
 
@@ -48,7 +46,6 @@ class CFX_ImageRenderer {
   CFX_BitmapComposer m_Composer;
   int m_Status;
   FX_RECT m_ClipBox;
-  uint32_t m_Flags;
   int m_AlphaFlag;
   bool m_bRgbByteOrder;
   int m_BlendType;
