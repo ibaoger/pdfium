@@ -296,6 +296,24 @@
     },
     {
       "key": {
+        "uuid": "2619a544_65767c0b",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T16:03:34Z",
+      "side": 1,
+      "message": "So you are saying we can add the newly created path objects to a list, and then when we call FPDFAnnot_AppendPathObject() or FPDFPage_InsertObject() on an object, we remove the object from the list.\nQuestion: Who could actually own the list? Since FPDFPageObj_CreateNewPath() is a public API. \nAlso, is it worth doing these to prevent developers from doing this?\nEither way, if you think it\u0027s worth it, maybe we can explore this in a later CL?",
+      "parentUuid": "1a61a46d_3346af24",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45898941_e29f35cb",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 20
@@ -355,6 +373,30 @@
       "side": 1,
       "message": "So I\u0027m still thinking about having the UpdatePathObject() and AppendNewPathObject() split. Especially now that passing |path| sometimes transfers ownership, and sometimes does not. If this was a C++11 API, we would have:\n\nUpdatePathObject(..., PageObject* path);\nAppendNewPathObject(..., std::unique_ptr\u003cPageObject\u003e path);\n\nwhich shows the ownership semantics.",
       "parentUuid": "d63650ee_70a43527",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 69
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10b565aa_cd096002",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T16:03:34Z",
+      "side": 1,
+      "message": "I split it up to Update and Append, let\u0027s see how this will look.",
+      "parentUuid": "17b6e1c5_d8da8fc4",
       "range": {
         "startLine": 120,
         "startChar": 62,
