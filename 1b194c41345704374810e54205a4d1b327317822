@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa53009_a6ee2467",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:52:13Z",
+      "side": 1,
+      "message": "Might as well copy + paste and try -1 too.",
+      "revId": "1b194c41345704374810e54205a4d1b327317822",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ebf68b_9541cdb1",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:52:13Z",
+      "side": 1,
+      "message": "Can you test FPDFPage_GetAnnot(page, 2), and make sure it fails, just to further illustrate removal does not leave a hole.",
+      "revId": "1b194c41345704374810e54205a4d1b327317822",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
