@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56d1d77b_0bcb6bd9",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T18:37:56Z",
+      "side": 1,
+      "message": "Maybe define this outside (can it be in the namespace?) so this doesn\u0027t look so indented?",
+      "range": {
+        "startLine": 3688,
+        "startChar": 38,
+        "endLine": 3688,
+        "endChar": 41
+      },
+      "revId": "c7d800f26acec511c19e7b9617c6f9f75643fd90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
