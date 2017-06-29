@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb6d0040_a6a4996c",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:19:06Z",
+      "side": 1,
+      "message": "Should we also check pPathObj-\u003eIsPath() here?",
+      "revId": "b7dcea4e00249063c1c2c3417427b1d754e8c46e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e51c92b9_9b91dda8",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:19:06Z",
+      "side": 1,
+      "message": "Since this is rather long, and we have to use it again below, how about:\n\n  const CPDF_PageObjectList* pObjList \u003d pAnnot-\u003eGetForm()-\u003eGetPageObjectList();\n  if (static_cast\u003csize_t\u003e(index) \u003e\u003d pObjList-\u003esize())\n    return nullptr;\n    \n  ...\n  for (const auto\u0026 pObj : *pObjList)",
+      "revId": "b7dcea4e00249063c1c2c3417427b1d754e8c46e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

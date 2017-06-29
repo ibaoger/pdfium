@@ -278,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "1a61a46d_3346af24",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:19:06Z",
+      "side": 1,
+      "message": "FPDFPageObj_CreateNewPath() can keep a \"unbound\" list of all the path objects it hands out, with objects remaining on that list as long as they don\u0027t belong to an annot. Then FPDFAnnot_SetPathObject() can figure out if the path object came from the unbound list, the given annot, or somewhere else.",
+      "parentUuid": "b40721b4_358ebb21",
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45898941_e29f35cb",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 20
@@ -313,6 +331,30 @@
       "side": 1,
       "message": "I wasn\u0027t, but good point about mentioning ownership. I added a comment above, and hopefully this \"have\" doesn\u0027t confuse things.",
       "parentUuid": "45898941_e29f35cb",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 69
+      },
+      "revId": "51c3199d55478ca4fc3d4cc6842ea36be2c31efb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17b6e1c5_d8da8fc4",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T00:19:06Z",
+      "side": 1,
+      "message": "So I\u0027m still thinking about having the UpdatePathObject() and AppendNewPathObject() split. Especially now that passing |path| sometimes transfers ownership, and sometimes does not. If this was a C++11 API, we would have:\n\nUpdatePathObject(..., PageObject* path);\nAppendNewPathObject(..., std::unique_ptr\u003cPageObject\u003e path);\n\nwhich shows the ownership semantics.",
+      "parentUuid": "d63650ee_70a43527",
       "range": {
         "startLine": 120,
         "startChar": 62,
