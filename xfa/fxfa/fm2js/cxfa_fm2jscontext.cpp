@@ -9,6 +9,7 @@
 #include <time.h>
 
 #include <algorithm>
+#include <iostream>
 
 #include "core/fxcrt/cfx_decimal.h"
 #include "core/fxcrt/fx_extension.h"
@@ -3681,21 +3682,22 @@ void CXFA_FM2JSContext::EncodeXML(const CFX_ByteStringC& szXMLString,
 bool CXFA_FM2JSContext::HTMLSTR2Code(const CFX_WideStringC& pData,
                                      uint32_t& iCode) {
   uint32_t uHash = FX_HashCode_GetW(pData, false);
-  int32_t iStart = 0;
-  int32_t iEnd = FX_ArraySize(reservesForDecode) - 1;
-  do {
-    int32_t iMid = (iStart + iEnd) / 2;
-    XFA_FMHtmlHashedReserveCode htmlhashedreservecode = reservesForDecode[iMid];
-    if (uHash == htmlhashedreservecode.m_uHash) {
-      iCode = htmlhashedreservecode.m_uCode;
-      return true;
-    }
-
-    if (uHash < htmlhashedreservecode.m_uHash)
-      iEnd = iMid - 1;
-    else
-      iStart = iMid + 1;
-  } while (iStart <= iEnd);
+  const XFA_FMHtmlHashedReserveCode* result =
+      reinterpret_cast<XFA_FMHtmlHashedReserveCode*>(std::bsearch(
+          &uHash, reservesForDecode, FX_ArraySize(reservesForDecode),
+          sizeof(*reservesForDecode), [](const void* a, const void* b) -> int {
+            const XFA_FMHtmlHashedReserveCode* lhs =
+                reinterpret_cast<const XFA_FMHtmlHashedReserveCode*>(a);
+            const XFA_FMHtmlHashedReserveCode* rhs =
+                reinterpret_cast<const XFA_FMHtmlHashedReserveCode*>(b);
+            return lhs->m_uHash > rhs->m_uHash
+                       ? -1
+                       : lhs->m_uHash < rhs->m_uHash ? 1 : 0;
+          }));
+  if (result != nullptr) {
+    iCode = result->m_uCode;
+    return true;
+  }
   return false;
 }
 
