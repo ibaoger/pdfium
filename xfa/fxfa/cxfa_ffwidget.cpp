@@ -184,7 +184,7 @@ bool CXFA_FFWidget::GetCaptionText(CFX_WideString& wsCap) {
   return true;
 }
 
-bool CXFA_FFWidget::IsFocused() {
+bool CXFA_FFWidget::IsFocused() const {
   return !!(m_dwStatus & XFA_WidgetStatus_Focused);
 }
 

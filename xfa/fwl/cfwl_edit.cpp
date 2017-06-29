@@ -1140,11 +1140,8 @@ bool CFWL_Edit::ValidateNumberChar(wchar_t cNum) {
     return true;
 
   CFX_WideString wsText = m_EdtEngine.GetText(0, -1);
-  if (wsText.IsEmpty()) {
-    if (cNum == L'0')
-      return false;
-    return true;
-  }
+  if (wsText.IsEmpty())
+    return cNum != L'0';
 
   int32_t caretPos = m_EdtEngine.GetCaretPos();
   if (CountSelRanges() == 0) {
@@ -1155,14 +1152,10 @@ bool CFWL_Edit::ValidateNumberChar(wchar_t cNum) {
     CFX_WideString l = wsText.Mid(0, caretPos);
     CFX_WideString r = wsText.Mid(caretPos, nLen - caretPos);
     CFX_WideString wsNew = l + cNum + r;
-    if (wsNew.GetInteger() <= m_iMax)
-      return true;
-    return false;
+    return wsNew.GetInteger() <= m_iMax;
   }
 
-  if (wsText.GetInteger() <= m_iMax)
-    return true;
-  return false;
+  return wsText.GetInteger() <= m_iMax;
 }
 
 void CFWL_Edit::InitCaret() {
