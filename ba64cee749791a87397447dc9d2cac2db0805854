@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9e93344_96baa898",
+        "filename": "core/fxge/dib/cfx_imagerenderer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T20:43:16Z",
+      "side": 1,
+      "message": "If you find it helpful, I think a bunch of these members can now be marked as const.",
+      "revId": "ba64cee749791a87397447dc9d2cac2db0805854",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
