@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63be33e0_278e79c8",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T15:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9612425_329f2da2",
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e3d7a13_dd814120",
         "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90cc0a12_4f4c0016",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T15:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e3d7a13_dd814120",
+      "range": {
+        "startLine": 308,
+        "startChar": 13,
+        "endLine": 308,
+        "endChar": 20
+      },
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +113,24 @@
       "side": 1,
       "message": "https://pdfium-review.googlesource.com/c/7039/ would benefit from OpenSavedDoc().",
       "parentUuid": "32f049ac_81f71444",
+      "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37a582b2_9cce8d75",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T15:02:21Z",
+      "side": 1,
+      "message": "Yes I thought about this, I think we will need to make TestSaver a public ::testing::Test as well though, so that we can ASSERT and EXPECT in an OpenSavedDoc that can be used in all TestSavers. The other thing I don\u0027t like is that it would need to return both the page and the document, but I guess std::pair. I\u0027ll give it a try in a followup.",
+      "parentUuid": "29c36ccd_6a132774",
       "revId": "b3f0118277259c751999ef85ea2e2b314546795a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
