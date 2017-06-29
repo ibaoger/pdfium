@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "842e0014_6c7da5b8",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: can move inside block at 1148?",
+      "range": {
+        "startLine": 1146,
+        "startChar": 2,
+        "endLine": 1146,
+        "endChar": 47
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16e11638_0c82b6d2",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: maybe just assign back to wsText.  Then the return at 1155 will be the same as 1158",
+      "range": {
+        "startLine": 1154,
+        "startChar": 2,
+        "endLine": 1154,
+        "endChar": 40
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af1ec122_eca7b7dd",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: const method?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf5f0c0f_3d3ff060",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: const method?",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b135bee_28a999bc",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: maybe move to header to allow help  compiler inline it?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 1
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0aed92_6ff3dc77",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T22:39:30Z",
+      "side": 1,
+      "message": "nit: kinda strange that we test range 1..12 then retest for 0.",
+      "range": {
+        "startLine": 494,
+        "startChar": 11,
+        "endLine": 494,
+        "endChar": 22
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
