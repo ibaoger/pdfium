@@ -11,16 +11,16 @@
 #include "public/cpp/fpdf_deleters.h"
 #include "public/fpdf_formfill.h"
 #include "public/fpdf_fwlevent.h"
-#include "testing/embedder_test.h"
 #include "testing/embedder_test_mock_delegate.h"
 #include "testing/embedder_test_timer_handling_delegate.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
+#include "testing/savertest.h"
 
 using testing::_;
 using testing::Return;
 
-class FPDFFormFillEmbeddertest : public EmbedderTest, public TestSaver {
+class FPDFFormFillEmbeddertest : public SaverTest {
  protected:
   void TypeTextIntoTextfield(FPDF_PAGE page, int num_chars) {
     // Click on the textfield in text_form.pdf.
