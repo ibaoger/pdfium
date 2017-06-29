@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97994f6_ad554b74",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:22:57Z",
+      "side": 1,
+      "message": "If you can add a comment to reference the PDF spec that defines these, that would be helpful.",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4da0bf7_22cf12af",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:22:57Z",
+      "side": 1,
+      "message": "Can we add something to the names to help distingush these flag values from the type names above?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7aed77e_6e68021d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:22:57Z",
+      "side": 1,
+      "message": "Can developers pass in FPDF_ANNOT_HIDDEN | FPDF_ANNOT_PRINT?",
+      "range": {
+        "startLine": 252,
+        "startChar": 5,
+        "endLine": 252,
+        "endChar": 9
+      },
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6cc66dc_3c7f6f8d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:22:57Z",
+      "side": 1,
+      "message": "Alternatively, this can be FPDF_BOOL FPDFAnnot_GetFlag(FPDF_ANNOTATION annot, FPDF_ANNOTATION_FLAG flag, FPDF_BOOL* value);\n\nThen there\u0027s no need to introduce FPDFANNOT_FLAGVALUE.",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d13b73_bd8374cc",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:22:57Z",
+      "side": 1,
+      "message": "Why not just combine SetFlag() and UnsetFlag() into one function that takes an extra FPDF_BOOL?",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
