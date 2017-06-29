@@ -3702,21 +3702,15 @@ bool CXFA_FM2JSContext::HTMLSTR2Code(const CFX_WideStringC& pData,
 // static
 bool CXFA_FM2JSContext::HTMLCode2STR(uint32_t iCode,
                                      CFX_WideString& wsHTMLReserve) {
-  int32_t iStart = 0;
-  int32_t iEnd = FX_ArraySize(reservesForEncode) - 1;
-  do {
-    int32_t iMid = (iStart + iEnd) / 2;
-    XFA_FMHtmlReserveCode htmlreservecode = reservesForEncode[iMid];
-    if (iCode == htmlreservecode.m_uCode) {
-      wsHTMLReserve = htmlreservecode.m_htmlReserve;
-      return true;
-    }
-
-    if (iCode < htmlreservecode.m_uCode)
-      iEnd = iMid - 1;
-    else
-      iStart = iMid + 1;
-  } while (iStart <= iEnd);
+  const XFA_FMHtmlReserveCode* result = std::lower_bound(
+      std::begin(reservesForEncode), std::end(reservesForEncode), iCode,
+      [](const XFA_FMHtmlReserveCode iter, const uint32_t& val) {
+        return iter.m_uCode < val;
+      });
+  if (result != std::end(reservesForEncode) && result->m_uCode == iCode) {
+    wsHTMLReserve = result->m_htmlReserve;
+    return true;
+  }
   return false;
 }
 
