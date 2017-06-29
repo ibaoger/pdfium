@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5db4ce2f_a5f7a7d6",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T18:13:20Z",
+      "side": 1,
+      "message": "Also known as 0",
+      "range": {
+        "startLine": 542,
+        "startChar": 24,
+        "endLine": 542,
+        "endChar": 28
+      },
+      "revId": "6c56a2b902154357675165b22ef8f30fb6f3b789",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a507b4_0f7cef10",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T18:13:20Z",
+      "side": 1,
+      "message": "unneeded variable, just return the value in line 554, otherwise return 0",
+      "range": {
+        "startLine": 542,
+        "startChar": 11,
+        "endLine": 542,
+        "endChar": 21
+      },
+      "revId": "6c56a2b902154357675165b22ef8f30fb6f3b789",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
