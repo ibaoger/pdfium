@@ -522,3 +522,47 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
 
   return len;
 }
+
+DLLEXPORT FPDFANNOT_FLAGVALUE STDCALL
+FPDFAnnot_GetFlag(FPDF_ANNOTATION annot, FPDF_ANNOTATION_FLAG flag) {
+  if (!annot)
+    return FPDFANNOT_FLAGVALUE_Error;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return FPDFANNOT_FLAGVALUE_Error;
+
+  return pAnnotDict->GetIntegerFor("F") & flag ? FPDFANNOT_FLAGVALUE_Set
+                                               : FPDFANNOT_FLAGVALUE_Unset;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetFlag(FPDF_ANNOTATION annot,
+                                              FPDF_ANNOTATION_FLAG flag) {
+  FPDFANNOT_FLAGVALUE current = FPDFAnnot_GetFlag(annot, flag);
+  if (current == FPDFANNOT_FLAGVALUE_Error)
+    return false;
+  if (current == FPDFANNOT_FLAGVALUE_Set)
+    return true;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  uint32_t flags = pAnnotDict->GetIntegerFor("F");
+  pAnnotDict->SetNewFor<CPDF_Number>("F", static_cast<int>(flags | flag));
+  return true;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_UnsetFlag(FPDF_ANNOTATION annot,
+                                                FPDF_ANNOTATION_FLAG flag) {
+  FPDFANNOT_FLAGVALUE current = FPDFAnnot_GetFlag(annot, flag);
+  if (current == FPDFANNOT_FLAGVALUE_Error)
+    return false;
+  if (current == FPDFANNOT_FLAGVALUE_Unset)
+    return true;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  uint32_t flags = pAnnotDict->GetIntegerFor("F");
+  pAnnotDict->SetNewFor<CPDF_Number>("F", static_cast<int>(flags & ~flag));
+  return true;
+}

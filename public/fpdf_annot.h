@@ -45,6 +45,16 @@ extern "C" {
 #define FPDF_ANNOT_RICHMEDIA 26
 #define FPDF_ANNOT_XFAWIDGET 27
 
+#define FPDF_ANNOT_INVISIBLE 0x0001
+#define FPDF_ANNOT_HIDDEN 0x0002
+#define FPDF_ANNOT_PRINT 0x0004
+#define FPDF_ANNOT_NOZOOM 0x0008
+#define FPDF_ANNOT_NOROTATE 0x0010
+#define FPDF_ANNOT_NOVIEW 0x0020
+#define FPDF_ANNOT_READONLY 0x0040
+#define FPDF_ANNOT_LOCKED 0x0080
+#define FPDF_ANNOT_TOGGLENOVIEW 0x0100
+
 typedef enum FPDFANNOT_COLORTYPE {
   FPDFANNOT_COLORTYPE_Color = 0,
   FPDFANNOT_COLORTYPE_InteriorColor
@@ -54,6 +64,12 @@ typedef enum FPDFANNOT_TEXTTYPE {
   FPDFANNOT_TEXTTYPE_Contents = 0,
   FPDFANNOT_TEXTTYPE_Author
 } FPDFANNOT_TEXTTYPE;
+
+typedef enum FPDFANNOT_FLAGVALUE {
+  FPDFANNOT_FLAGVALUE_Error = -1,
+  FPDFANNOT_FLAGVALUE_Unset = 0,
+  FPDFANNOT_FLAGVALUE_Set = 1
+} FPDFANNOT_FLAGVALUE;
 
 // Check if an annotation subtype is currently supported for creating and
 // displaying. The supported subtypes must be consistent with the ones supported
@@ -221,6 +237,34 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
                                                   FPDFANNOT_TEXTTYPE type,
                                                   void* buffer,
                                                   unsigned long buflen);
+
+// Get the |flag| bit in |annot|'s flags.
+//
+//   annot  - handle to an annotation.
+//   flag   - the flag requested.
+//
+// Returns FPDFANNOT_FLAGVALUE_Set if the flag is set, FPDFANNOT_FLAGVALUE_Unset
+// if it is unset, or FPDFANNOT_FLAGVALUE_Error on error.
+DLLEXPORT FPDFANNOT_FLAGVALUE STDCALL
+FPDFAnnot_GetFlag(FPDF_ANNOTATION annot, FPDF_ANNOTATION_FLAG flag);
+
+// Set the |flag| bit in |annot|'s flags.
+//
+//   annot  - handle to an annotation.
+//   flag   - the flag to be set.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetFlag(FPDF_ANNOTATION annot,
+                                              FPDF_ANNOTATION_FLAG flag);
+
+// Unset the |flag| bit in |annot|'s flags.
+//
+//   annot  - handle to an annotation.
+//   flag   - the flag to be unset.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_UnsetFlag(FPDF_ANNOTATION annot,
+                                                FPDF_ANNOTATION_FLAG flag);
 
 #ifdef __cplusplus
 }  // extern "C"

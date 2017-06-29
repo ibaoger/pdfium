@@ -392,3 +392,48 @@ TEST_F(FPDFAnnotEmbeddertest, ModifyRectQuadpointsWithAP) {
   FPDFPage_CloseAnnot(annot);
   UnloadPage(page);
 }
+
+TEST_F(FPDFAnnotEmbeddertest, ModifyAnnotationFlags) {
+  // Open a file with an annotation and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_highlight_rollover_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+
+  // Check that the page renders correctly.
+  FPDF_BITMAP bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "dc98f06da047bd8aabfa99562d2cbd1e");
+  FPDFBitmap_Destroy(bitmap);
+
+  // Retrieve the annotation.
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
+
+  // Check that the original flag values are as expected.
+  EXPECT_EQ(FPDFANNOT_FLAGVALUE_Unset,
+            FPDFAnnot_GetFlag(annot, FPDF_ANNOT_HIDDEN));
+  EXPECT_EQ(FPDFANNOT_FLAGVALUE_Set,
+            FPDFAnnot_GetFlag(annot, FPDF_ANNOT_PRINT));
+
+  // Set the HIDDEN flag.
+  EXPECT_TRUE(FPDFAnnot_SetFlag(annot, FPDF_ANNOT_HIDDEN));
+  EXPECT_EQ(FPDFANNOT_FLAGVALUE_Set,
+            FPDFAnnot_GetFlag(annot, FPDF_ANNOT_HIDDEN));
+
+  // Check that the page renders correctly without rendering the annotation.
+  bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "1940568c9ba33bac5d0b1ee9558c76b3");
+  FPDFBitmap_Destroy(bitmap);
+
+  // Unset the HIDDEN flag.
+  EXPECT_TRUE(FPDFAnnot_UnsetFlag(annot, FPDF_ANNOT_HIDDEN));
+  EXPECT_EQ(FPDFANNOT_FLAGVALUE_Unset,
+            FPDFAnnot_GetFlag(annot, FPDF_ANNOT_HIDDEN));
+
+  // Check that the page renders correctly as before.
+  bitmap = RenderPageWithFlags(page, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "dc98f06da047bd8aabfa99562d2cbd1e");
+  FPDFBitmap_Destroy(bitmap);
+
+  FPDFPage_CloseAnnot(annot);
+  UnloadPage(page);
+}
