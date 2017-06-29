@@ -9,6 +9,7 @@
 #include <time.h>
 
 #include <algorithm>
+#include <map>
 
 #include "core/fxcrt/cfx_decimal.h"
 #include "core/fxcrt/fx_extension.h"
@@ -29,11 +30,6 @@
 namespace {
 
 const double kFinancialPrecision = 0.00000001;
-
-struct XFA_FMHtmlReserveCode {
-  uint32_t m_uCode;
-  const wchar_t* m_htmlReserve;
-};
 
 struct XFA_FMHtmlHashedReserveCode {
   uint32_t m_uHash;
@@ -169,7 +165,7 @@ const XFA_FMHtmlHashedReserveCode reservesForDecode[] = {
     {0xfd01885e, /*L"igrave",*/ 236},   {0xff3281da, /*L"egrave",*/ 232},
 };
 
-const XFA_FMHtmlReserveCode reservesForEncode[] = {
+std::map<uint32_t, const wchar_t*> reservesForEncode = {
     {34, L"quot"},     {38, L"amp"},      {39, L"apos"},
     {60, L"lt"},       {62, L"gt"},       {160, L"nbsp"},
     {161, L"iexcl"},   {162, L"cent"},    {163, L"pund"},
@@ -3702,21 +3698,11 @@ bool CXFA_FM2JSContext::HTMLSTR2Code(const CFX_WideStringC& pData,
 // static
 bool CXFA_FM2JSContext::HTMLCode2STR(uint32_t iCode,
                                      CFX_WideString& wsHTMLReserve) {
-  int32_t iStart = 0;
-  int32_t iEnd = FX_ArraySize(reservesForEncode) - 1;
-  do {
-    int32_t iMid = (iStart + iEnd) / 2;
-    XFA_FMHtmlReserveCode htmlreservecode = reservesForEncode[iMid];
-    if (iCode == htmlreservecode.m_uCode) {
-      wsHTMLReserve = htmlreservecode.m_htmlReserve;
-      return true;
-    }
-
-    if (iCode < htmlreservecode.m_uCode)
-      iEnd = iMid - 1;
-    else
-      iStart = iMid + 1;
-  } while (iStart <= iEnd);
+  auto result = reservesForEncode.find(iCode);
+  if (result != reservesForEncode.end()) {
+    wsHTMLReserve = result->second;
+    return true;
+  }
   return false;
 }
 
