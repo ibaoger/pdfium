@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06326f1e_31f17d72",
+        "filename": "fpdfsdk/pdfwindow/cpwl_caret.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "nit: in params before out params, so this should be:\n  const CFX_PointF\u0026 ptOffset, std::ostringstream* psAppStream",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88327a96_1ca95af8",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "Could combine these two if you want:\n  \u003c\u003c \"q\\n0 g\\n\"\n\nUp to you.",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be4800c_2de10448",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "Is the .c_str() needed here (or the .str())?  Not sure what you can \u003c\u003c into a stringstream.",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d6b84d_3c8a0be7",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "Combine with above?",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22b41095_b23a6f18",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "nit: remove blank line",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f87d853a_4ed5306e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "combine?",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9970a58_cd1f36d1",
+        "filename": "fpdfsdk/pdfwindow/cpwl_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-06-29T00:49:44Z",
+      "side": 1,
+      "message": "combine?",
+      "revId": "16fae30c459d4ac61121e11e97381344cf530431",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
