@@ -16,6 +16,24 @@
       "revId": "0c2990631e4d6baf8a9c02372eaa67e01a0941b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9129b23e_580f98b5",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-06-29T20:49:58Z",
+      "side": 1,
+      "message": "This is not equivalent if mt is singular. In this case, in the original code we were doing mt.Transform(point). In your code snippet, you would not transform the point.",
+      "parentUuid": "32e7cf12_ecd1c9ac",
+      "revId": "0c2990631e4d6baf8a9c02372eaa67e01a0941b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
