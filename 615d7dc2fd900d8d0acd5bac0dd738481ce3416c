@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e36749fc_884186c4",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:04:53Z",
+      "side": 1,
+      "message": "look for",
+      "range": {
+        "startLine": 243,
+        "startChar": 25,
+        "endLine": 243,
+        "endChar": 35
+      },
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a63308c5_af584d3b",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:04:53Z",
+      "side": 1,
+      "message": "What happens if |key| is already in the annot\u0027s dictionary?",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04658cdf_6c3abfc9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:04:53Z",
+      "side": 1,
+      "message": "And of the key does not exist?",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f77c778_d590dd6a",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T23:04:53Z",
+      "side": 1,
+      "message": "FYI: So an empty FPDF_WIDESTRING is actually NUL-terminated, and 2 bytes because it\u0027s wide. Thus there is actually a distinction between failing, which returns 0, and an empty string.",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
