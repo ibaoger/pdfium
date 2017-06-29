@@ -50,11 +50,6 @@ typedef enum FPDFANNOT_COLORTYPE {
   FPDFANNOT_COLORTYPE_InteriorColor
 } FPDFANNOT_COLORTYPE;
 
-typedef enum FPDFANNOT_TEXTTYPE {
-  FPDFANNOT_TEXTTYPE_Contents = 0,
-  FPDFANNOT_TEXTTYPE_Author
-} FPDFANNOT_TEXTTYPE;
-
 // Check if an annotation subtype is currently supported for creation.
 // Currently supported subtypes: circle, highlight, ink, popup, square,
 // squiggly, stamp, strikeout, text, and underline.
@@ -242,30 +237,41 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetRect(FPDF_ANNOTATION annot,
 // Returns a rectangle object, or an empty rectangle on failure.
 DLLEXPORT FS_RECTF STDCALL FPDFAnnot_GetRect(FPDF_ANNOTATION annot);
 
-// Set the contents of an annotation.
+// Check if |annot|'s dictionary has |key| as a key.
 //
 //   annot  - handle to an annotation.
-//   type   - type of the text to be set.
-//   text   - the text to be set.
+//   key    - the key to be checked.
 //
-// Returns true if successful, false otherwise.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetText(FPDF_ANNOTATION annot,
-                                              FPDFANNOT_TEXTTYPE type,
-                                              FPDF_WIDESTRING text);
+// Returns true if |key| exists.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_HasKey(FPDF_ANNOTATION annot,
+                                             FPDF_WIDESTRING key);
 
-// Get the contents of an annotation. |buffer| is only modified if |buflen|
-// is longer than the length of contents.
+// Set the string value corresponding to |key| in |annot|'s dictionary.
 //
 //   annot  - handle to an annotation.
-//   type   - type of the text requested.
-//   buffer - buffer for holding the contents string, encoded in UTF16-LE.
+//   key    - the key to the dictionary entry to be set, encoded in UTF16-LE.
+//   value  - the string value to be set, encoded in UTF16-LE.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetStringValue(FPDF_ANNOTATION annot,
+                                                     FPDF_WIDESTRING key,
+                                                     FPDF_WIDESTRING value);
+
+// Get the string value corresponding to |key| in |annot|'s dictionary. |buffer|
+// is only modified if |buflen| is longer than the length of contents. Note that
+// for dictionary entries with non-string values, their string values are empty
+// strings.
+//
+//   annot  - handle to an annotation.
+//   key    - the key to the requested dictionary entry.
+//   buffer - buffer for holding the value string, encoded in UTF16-LE.
 //   buflen - length of the buffer.
 //
-// Returns the length of the contents.
-DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
-                                                  FPDFANNOT_TEXTTYPE type,
-                                                  void* buffer,
-                                                  unsigned long buflen);
+// Returns the length of the string value.
+DLLEXPORT unsigned long STDCALL FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
+                                                         FPDF_WIDESTRING key,
+                                                         void* buffer,
+                                                         unsigned long buflen);
 
 #ifdef __cplusplus
 }  // extern "C"
