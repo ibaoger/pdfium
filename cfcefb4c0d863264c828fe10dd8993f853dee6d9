@@ -46,6 +46,30 @@
       "revId": "cfcefb4c0d863264c828fe10dd8993f853dee6d9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3b31b5f_50824aa5",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3683,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T19:06:42Z",
+      "side": 1,
+      "message": "The real savings is not having to bloat the binary with these L\"\" string literals.  The problem though is that without these, you can\u0027t check for collisions so all sorts of random strings will alias to these (FX has consistently done this much to my discontent).\n\nI\u0027d vote for putting the strings in place, losing the hashes, and std::lower_bound() over them with wstrcmp",
+      "parentUuid": "e8824592_c7db0011",
+      "range": {
+        "startLine": 3683,
+        "startChar": 2,
+        "endLine": 3683,
+        "endChar": 50
+      },
+      "revId": "cfcefb4c0d863264c828fe10dd8993f853dee6d9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
