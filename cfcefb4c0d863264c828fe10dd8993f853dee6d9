@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffa2d8f_df76343c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3683,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-06-29T17:57:48Z",
+      "side": 1,
+      "message": "Left in using the hash value, since the table is relatively large, so I suspect the cost of calculating the hash value will be less then running wstrcmp a bunch.",
+      "range": {
+        "startLine": 3683,
+        "startChar": 2,
+        "endLine": 3683,
+        "endChar": 50
+      },
+      "revId": "cfcefb4c0d863264c828fe10dd8993f853dee6d9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
