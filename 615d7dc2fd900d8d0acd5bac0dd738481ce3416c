@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5ca9905_13d86e4e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T23:41:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36749fc_884186c4",
+      "range": {
+        "startLine": 243,
+        "startChar": 25,
+        "endLine": 243,
+        "endChar": 35
+      },
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63308c5_af584d3b",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-06-29T23:04:53Z",
       "side": 1,
       "message": "What happens if |key| is already in the annot\u0027s dictionary?",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6439ddc4_a0e739b9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T23:41:57Z",
+      "side": 1,
+      "message": "It would overwrite it. I thought this is implied as the typical dictionary behavior, but I added a comment now.",
+      "parentUuid": "a63308c5_af584d3b",
       "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "23005d90_b9ebdd60",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T23:41:57Z",
+      "side": 1,
+      "message": "It would return an empty string. Again thought this was implied, but added a comment now.",
+      "parentUuid": "04658cdf_6c3abfc9",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f77c778_d590dd6a",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -73,6 +133,24 @@
       "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c705ea_2ae70489",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-29T23:41:57Z",
+      "side": 1,
+      "message": "Yea I did realize that, I now added a comment to specifically reflect this.",
+      "parentUuid": "1f77c778_d590dd6a",
+      "revId": "615d7dc2fd900d8d0acd5bac0dd738481ce3416c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
