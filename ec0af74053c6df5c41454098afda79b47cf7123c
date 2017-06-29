@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e3aef86_b9329c70",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T21:20:15Z",
+      "side": 1,
+      "message": "ah, needs to be case-sensitive sort ...",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "ec0af74053c6df5c41454098afda79b47cf7123c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b5c8e8_aa2278b0",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 6
