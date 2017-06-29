@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "514c7344_285b1b3b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T19:55:39Z",
+      "side": 1,
+      "message": "I don\u0027t think this optimization is worth it, given that it makes adding a new method prone to error if it is longer and we forget to update the constant.  Let\u0027s just remove the constant.",
+      "range": {
+        "startLine": 542,
+        "startChar": 2,
+        "endLine": 543,
+        "endChar": 13
+      },
+      "revId": "e9389d769409dcb0c490d2652dd3ab45938b22a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9ad007a_f2e1d659",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-06-29T19:55:39Z",
+      "side": 1,
+      "message": "nit: the |-\u003e bool| can be omitted when the compiler can deduce the return type.",
+      "range": {
+        "startLine": 547,
+        "startChar": 64,
+        "endLine": 547,
+        "endChar": 72
+      },
+      "revId": "e9389d769409dcb0c490d2652dd3ab45938b22a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
