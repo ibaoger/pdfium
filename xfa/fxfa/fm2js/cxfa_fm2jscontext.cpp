@@ -3702,21 +3702,24 @@ bool CXFA_FM2JSContext::HTMLSTR2Code(const CFX_WideStringC& pData,
 // static
 bool CXFA_FM2JSContext::HTMLCode2STR(uint32_t iCode,
                                      CFX_WideString& wsHTMLReserve) {
-  int32_t iStart = 0;
-  int32_t iEnd = FX_ArraySize(reservesForEncode) - 1;
-  do {
-    int32_t iMid = (iStart + iEnd) / 2;
-    XFA_FMHtmlReserveCode htmlreservecode = reservesForEncode[iMid];
-    if (iCode == htmlreservecode.m_uCode) {
-      wsHTMLReserve = htmlreservecode.m_htmlReserve;
-      return true;
-    }
-
-    if (iCode < htmlreservecode.m_uCode)
-      iEnd = iMid - 1;
-    else
-      iStart = iMid + 1;
-  } while (iStart <= iEnd);
+  XFA_FMHtmlHashedReserveCode key;
+  key.m_uCode = iCode;
+  const XFA_FMHtmlReserveCode* result =
+      reinterpret_cast<XFA_FMHtmlReserveCode*>(std::bsearch(
+          &key, reservesForEncode, FX_ArraySize(reservesForEncode),
+          sizeof(*reservesForEncode), [](const void* a, const void* b) -> int {
+            const XFA_FMHtmlReserveCode* lhs =
+                reinterpret_cast<const XFA_FMHtmlReserveCode*>(a);
+            const XFA_FMHtmlReserveCode* rhs =
+                reinterpret_cast<const XFA_FMHtmlReserveCode*>(b);
+            return lhs->m_uCode < rhs->m_uCode
+                       ? -1
+                       : lhs->m_uCode > rhs->m_uCode ? 1 : 0;
+          }));
+  if (result != nullptr) {
+    wsHTMLReserve = result->m_htmlReserve;
+    return true;
+  }
   return false;
 }
 
