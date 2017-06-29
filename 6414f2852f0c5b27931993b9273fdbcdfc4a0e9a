@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22d8935a_173b7cec",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-29T01:26:13Z",
+      "side": 1,
+      "message": "Oh, now the comment is drifting too far away from the actual mouse click code.",
+      "revId": "6414f2852f0c5b27931993b9273fdbcdfc4a0e9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
