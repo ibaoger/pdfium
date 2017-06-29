@@ -48,8 +48,9 @@ int CheckPDFiumCApi() {
     CHK(FPDFAnnot_GetAttachmentPoints);
     CHK(FPDFAnnot_SetRect);
     CHK(FPDFAnnot_GetRect);
-    CHK(FPDFAnnot_SetText);
-    CHK(FPDFAnnot_GetText);
+    CHK(FPDFAnnot_HasKey);
+    CHK(FPDFAnnot_SetStringValue);
+    CHK(FPDFAnnot_GetStringValue);
 
     // fpdf_dataavail.h
     CHK(FPDFAvail_Create);

@@ -140,6 +140,11 @@ bool HasAPStream(const CPDF_Dictionary* pAnnotDict) {
   return !!FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
 }
 
+CFX_ByteString CFXByteStringFromFPDFWideString(FPDF_WIDESTRING text) {
+  return CFX_WideString::FromUTF16LE(text, CFX_WideString::WStringLength(text))
+      .UTF8Encode();
+}
+
 }  // namespace
 
 DLLEXPORT FPDF_BOOL STDCALL
@@ -484,9 +489,8 @@ DLLEXPORT FS_RECTF STDCALL FPDFAnnot_GetRect(FPDF_ANNOTATION annot) {
   return rect;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetText(FPDF_ANNOTATION annot,
-                                              FPDFANNOT_TEXTTYPE type,
-                                              FPDF_WIDESTRING text) {
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_HasKey(FPDF_ANNOTATION annot,
+                                             FPDF_WIDESTRING key) {
   if (!annot)
     return false;
 
@@ -495,17 +499,30 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetText(FPDF_ANNOTATION annot,
   if (!pAnnotDict)
     return false;
 
-  CFX_ByteString key = type == FPDFANNOT_TEXTTYPE_Author ? "T" : "Contents";
-  FX_STRSIZE len = CFX_WideString::WStringLength(text);
-  CFX_WideString encodedText = CFX_WideString::FromUTF16LE(text, len);
-  pAnnotDict->SetNewFor<CPDF_String>(key, encodedText.UTF8Encode(), false);
+  return pAnnotDict->KeyExist(CFXByteStringFromFPDFWideString(key));
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetStringValue(FPDF_ANNOTATION annot,
+                                                     FPDF_WIDESTRING key,
+                                                     FPDF_WIDESTRING value) {
+  if (!annot)
+    return false;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return false;
+
+  pAnnotDict->SetNewFor<CPDF_String>(CFXByteStringFromFPDFWideString(key),
+                                     CFXByteStringFromFPDFWideString(value),
+                                     false);
   return true;
 }
 
-DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
-                                                  FPDFANNOT_TEXTTYPE type,
-                                                  void* buffer,
-                                                  unsigned long buflen) {
+DLLEXPORT unsigned long STDCALL FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
+                                                         FPDF_WIDESTRING key,
+                                                         void* buffer,
+                                                         unsigned long buflen) {
   if (!annot)
     return 0;
 
@@ -514,9 +531,11 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
   if (!pAnnotDict)
     return 0;
 
-  CFX_ByteString key = type == FPDFANNOT_TEXTTYPE_Author ? "T" : "Contents";
-  CFX_ByteString contents = pAnnotDict->GetUnicodeTextFor(key).UTF16LE_Encode();
+  CFX_ByteString contents =
+      pAnnotDict->GetUnicodeTextFor(CFXByteStringFromFPDFWideString(key))
+          .UTF16LE_Encode();
   unsigned long len = contents.GetLength();
+
   if (buffer && buflen >= len)
     memcpy(buffer, contents.c_str(), len);
 
