@@ -34,6 +34,24 @@
       "revId": "299a95411f2c899e3192d5ff71f07ccac3973e7e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0fea181_ca88a008",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T17:43:10Z",
+      "side": 0,
+      "message": "I\u0027ll just take that as a yes. Usually if a non-experimental API has been made available, one tries to not change it, as to not break code that relies on the API.",
+      "parentUuid": "fb13d60c_18f44989",
+      "revId": "299a95411f2c899e3192d5ff71f07ccac3973e7e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
