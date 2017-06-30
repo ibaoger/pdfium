@@ -14,6 +14,7 @@
 #include "core/fxcrt/cfx_observable.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_basic.h"
+#include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/cpdfsdk_widget.h"
 #include "fpdfsdk/pdfwindow/cpwl_color.h"
 #include "fpdfsdk/pdfwindow/cpwl_timer.h"
@@ -329,9 +330,15 @@ class CPWL_Wnd : public CPWL_TimerHandler {
   bool IsWndCaptureKeyboard(const CPWL_Wnd* pWnd) const;
   const CPWL_Wnd* GetRootWnd() const;
 
-  bool IsCTRLpressed(uint32_t nFlag) const;
-  bool IsSHIFTpressed(uint32_t nFlag) const;
-  bool IsALTpressed(uint32_t nFlag) const;
+  static bool IsCTRLpressed(uint32_t nFlag) {
+    return CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
+  }
+  static bool IsSHIFTpressed(uint32_t nFlag) {
+    return CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
+  }
+  static bool IsALTpressed(uint32_t nFlag) {
+    return CPDFSDK_FormFillEnvironment::IsALTKeyDown(nFlag);
+  }
 
  private:
   CFX_PointF ParentToChild(const CFX_PointF& point) const;
