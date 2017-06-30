@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29fad62f_6ff6c922",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T21:10:24Z",
+      "side": 1,
+      "message": "Can we test this?",
+      "range": {
+        "startLine": 258,
+        "startChar": 3,
+        "endLine": 258,
+        "endChar": 14
+      },
+      "revId": "17527e0a149c6db1681fd4f2b20a40ab74b43b16",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
