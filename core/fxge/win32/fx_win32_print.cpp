@@ -492,3 +492,123 @@ bool CPSPrinterDriver::DrawDeviceText(int nChars,
   return m_PSRenderer.DrawText(nChars, pCharPos, pFont, pObject2Device,
                                font_size, color);
 }
+
+explicit CTextOnlyPrinterDriver::CTextOnlyPrinterDriver(HDC hDC) : m_hDC(hDC) {
+  m_HorzSize = ::GetDeviceCaps(m_hDC, HORZSIZE);
+  m_VertSize = ::GetDeviceCaps(m_hDC, VERTSIZE);
+  m_Width = ::GetDeviceCaps(m_hDC, HORZRES);
+  m_Height = ::GetDeviceCaps(m_hDC, VERTRES);
+  m_nBitsPerPixel = ::GetDeviceCaps(m_hDC, BITSPIXEL);
+  m_OriginY = 0.0f;
+  m_OriginX = 0.0f;
+}
+
+CTextOnlyPrinterDriver::~CTextOnlyPrinterDriver() {
+  EndRendering();
+}
+
+int CTextOnlyPrinterDriver::GetDeviceCaps(int caps_id) const {
+  switch (caps_id) {
+    case FXDC_DEVICE_CLASS:
+      return FXDC_PRINTER;
+    case FXDC_PIXEL_WIDTH:
+      return m_Width;
+    case FXDC_PIXEL_HEIGHT:
+      return m_Height;
+    case FXDC_BITS_PIXEL:
+      return m_nBitsPerPixel;
+    case FXDC_RENDER_CAPS:
+      return FXRC_BIT_MASK;
+    case FXDC_HORZ_SIZE:
+      return m_HorzSize;
+    case FXDC_VERT_SIZE:
+      return m_VertSize;
+  }
+  return 0;
+}
+
+bool CTextOnlyPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
+                                              const CFX_Matrix* pObjectToDevice,
+                                              int fill_mode) {
+  // Adjust the clip box to match since the text only driver doesn't care
+  // about page size and the DC is based off of the screen.
+  m_Width =
+      pPathData->GetBoundingBox().left + pPathData->GetBoundingBox().right;
+  m_Height =
+      pPathData->GetBoundingBox().top + pPathData->GetBoundingBox().bottom;
+  return true;
+}
+
+bool CTextOnlyPrinterDriver::GetClipBox(FX_RECT* pRect) {
+  pRect->left = 0;
+  pRect->right = m_Width;
+  pRect->top = 0;
+  pRect->bottom = m_Height;
+  return true;
+}
+
+bool CTextOnlyPrinterDriver::DrawDeviceText(int nChars,
+                                            const FXTEXT_CHARPOS* pCharPos,
+                                            CFX_Font* pFont,
+                                            const CFX_Matrix* pObject2Device,
+                                            float font_size,
+                                            uint32_t color) {
+  if (!g_pdfium_print_text_only)
+    return false;
+  if (nChars < 1 || !pFont || !pFont->IsEmbedded() || !pFont->IsTTFont())
+    return false;
+
+  // Scale factor used to minimize the kerning problems caused by rounding
+  // errors below. Value chosen based on the title of https://crbug.com/18383
+  const double kScaleFactor = 10;
+
+  // TODO (rbpotter): Determine if the spacing information should be used
+  // somehow.
+  CFX_WideString wsText;
+  std::vector<INT> spacing(nChars);
+  float fPreviousOriginX = m_OriginX;
+  int totalLength = nChars;
+
+  // Detect new lines and add a space. Was likely removed by SkPDF if this is
+  // just text, and spaces seem to be ignored by label printers that use this
+  // driver.
+  if (FXSYS_round(m_OriginY) != FXSYS_round(pObject2Device->f * kScaleFactor)) {
+    wsText += 32;
+    totalLength++;
+  }
+  m_OriginY = pObject2Device->f * kScaleFactor;
+
+  // Text
+  for (int i = 0; i < nChars; ++i) {
+    // Only works with PDFs from Skia's PDF generator. Cannot handle arbitrary
+    // values from PDFs.
+    const FXTEXT_CHARPOS& charpos = pCharPos[i];
+    ASSERT(charpos.m_AdjustMatrix[0] == 0);
+    ASSERT(charpos.m_AdjustMatrix[1] == 0);
+    ASSERT(charpos.m_AdjustMatrix[2] == 0);
+    ASSERT(charpos.m_AdjustMatrix[3] == 0);
+    ASSERT(charpos.m_Origin.y == 0);
+
+    // Round the spacing to the nearest integer, but keep track of the rounding
+    // error for calculating the next spacing value.
+    float fOriginX = charpos.m_Origin.x * kScaleFactor;
+    float fPixelSpacing = fOriginX - fPreviousOriginX;
+    spacing[i] = FXSYS_round(fPixelSpacing);
+    fPreviousOriginX = fOriginX - (fPixelSpacing - spacing[i]);
+    wsText += charpos.m_Unicode;
+  }
+  m_OriginX = fPreviousOriginX;
+
+  size_t len = totalLength;
+  size_t sent_len = 0;
+  while (len > 0) {
+    char buffer[1026];
+    size_t send_len = std::min(len, static_cast<size_t>(1024));
+    *(reinterpret_cast<uint16_t*>(buffer)) = send_len;
+    memcpy(buffer + 2, wsText.UTF8Encode().c_str(), send_len);
+    ::GdiComment(m_hDC, send_len + 2, reinterpret_cast<const BYTE*>(buffer));
+    sent_len += send_len;
+    len -= send_len;
+  }
+  return true;
+}

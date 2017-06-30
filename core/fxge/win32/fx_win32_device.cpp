@@ -691,6 +691,8 @@ bool CFX_Win32FontInfo::GetFontCharset(void* hFont, int* charset) {
 
 int g_pdfium_print_postscript_level = 0;
 
+bool g_pdfium_print_text_only = false;
+
 std::unique_ptr<IFX_SystemFontInfo> IFX_SystemFontInfo::CreateDefault(
     const char** pUnused) {
   if (IsGDIEnabled())
@@ -1370,10 +1372,14 @@ IFX_RenderDeviceDriver* CFX_WindowsRenderDevice::CreateDriver(HDC hDC) {
   int device_type = ::GetDeviceCaps(hDC, TECHNOLOGY);
   int obj_type = ::GetObjectType(hDC);
   bool use_printer = device_type == DT_RASPRINTER ||
-                     device_type == DT_PLOTTER || obj_type == OBJ_ENHMETADC;
+                     device_type == DT_PLOTTER ||
+                     device_type == DT_CHARSTREAM || obj_type == OBJ_ENHMETADC;
 
   if (!use_printer)
     return new CGdiDisplayDriver(hDC);
+
+  if (g_pdfium_print_text_only)
+    return new CTextOnlyPrinterDriver(hDC);
 
   if (g_pdfium_print_postscript_level == 2 ||
       g_pdfium_print_postscript_level == 3) {

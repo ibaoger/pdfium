@@ -37,7 +37,7 @@ void CPDF_CharPosList::Load(const std::vector<uint32_t>& charCodes,
     FXTEXT_CHARPOS& charpos = m_pCharPos[m_nChars++];
     if (pCIDFont)
       charpos.m_bFontStyle = true;
-
+    charpos.m_Unicode = pFont->UnicodeFromCharCode(CharCode)[0];
     charpos.m_GlyphIndex = pFont->GlyphFromCharCode(CharCode, &bVert);
     uint32_t GlyphID = charpos.m_GlyphIndex;
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_

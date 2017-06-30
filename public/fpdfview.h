@@ -242,6 +242,15 @@ FPDF_SetTypefaceAccessibleFunc(PDFiumEnsureTypefaceCharactersAccessible func);
 DLLEXPORT void STDCALL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi);
 #endif  // PDFIUM_PRINT_TEXT_WITH_GDI
 
+// Function: FPDF_SetPrintTextOnly
+//          Set whether to print raw text only when printing on Windows.
+//          Experimental API.
+// Parameters:
+//          text_only -   Set to true to enable printing text only.
+// Return value:
+//          None.
+DLLEXPORT void STDCALL FPDF_SetPrintTextOnly(FPDF_BOOL text_only);
+
 // Function: FPDF_SetPrintPostscriptLevel
 //          Set postscript printing level when printing on Windows.
 //          Experimental API.
