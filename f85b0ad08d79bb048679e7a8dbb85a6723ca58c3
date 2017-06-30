@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "5ce7ee89_a61ee26c",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-30T19:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4da0bf7_22cf12af",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bc8df88_ec9a5fc2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-30T19:32:12Z",
+      "side": 1,
+      "message": "Done. Let me know if this is the right format.",
+      "parentUuid": "f97994f6_ad554b74",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7aed77e_6e68021d",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-06-29T23:22:57Z",
       "side": 1,
       "message": "Can developers pass in FPDF_ANNOT_HIDDEN | FPDF_ANNOT_PRINT?",
+      "range": {
+        "startLine": 252,
+        "startChar": 5,
+        "endLine": 252,
+        "endChar": 9
+      },
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e50c0a9_0c47cf51",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-30T19:32:12Z",
+      "side": 1,
+      "message": "I made it possible to have more than one flag and updated the doc, let me know if the logic makes sense.",
+      "parentUuid": "b7aed77e_6e68021d",
       "range": {
         "startLine": 252,
         "startChar": 5,
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "3552e489_b1fe9f43",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-30T19:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6cc66dc_3c7f6f8d",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d13b73_bd8374cc",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 2
@@ -96,6 +180,24 @@
       "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8598c0bc_09e193aa",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-06-30T19:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d13b73_bd8374cc",
+      "revId": "f85b0ad08d79bb048679e7a8dbb85a6723ca58c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
