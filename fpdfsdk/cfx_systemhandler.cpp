@@ -134,13 +134,13 @@ void CFX_SystemHandler::KillTimer(int32_t nID) {
 }
 
 bool CFX_SystemHandler::IsSHIFTKeyDown(uint32_t nFlag) const {
-  return !!m_pFormFillEnv->IsSHIFTKeyDown(nFlag);
+  return CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
 }
 
 bool CFX_SystemHandler::IsCTRLKeyDown(uint32_t nFlag) const {
-  return !!m_pFormFillEnv->IsCTRLKeyDown(nFlag);
+  return CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
 }
 
 bool CFX_SystemHandler::IsALTKeyDown(uint32_t nFlag) const {
-  return !!m_pFormFillEnv->IsALTKeyDown(nFlag);
+  return CPDFSDK_FormFillEnvironment::IsALTKeyDown(nFlag);
 }
