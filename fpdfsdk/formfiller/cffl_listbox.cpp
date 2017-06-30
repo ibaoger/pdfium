@@ -190,16 +190,9 @@ CPWL_Wnd* CFFL_ListBox::ResetPDFWindow(CPDFSDK_PageView* pPageView,
 
   DestroyPDFWindow(pPageView);
 
-  CPWL_Wnd* pRet = nullptr;
-
-  if (bRestoreValue) {
+  if (bRestoreValue)
     RestoreState(pPageView);
-    pRet = GetPDFWindow(pPageView, false);
-  } else {
-    pRet = GetPDFWindow(pPageView, true);
-  }
-
+  GetPDFWindow(pPageView, !bRestoreValue);
   m_pWidget->UpdateField();
-
-  return pRet;
+  return GetPDFWindow(pPageView, false);
 }
