@@ -578,3 +578,58 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   FPDF_ClosePage(new_page);
   FPDF_CloseDocument(new_doc);
 }
+
+TEST_F(FPDFAnnotEmbeddertest, ModifyAnnotationFlags) {
+  // Open a file with an annotation and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_highlight_rollover_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+
+  // Check that the page renders correctly.
+  FPDF_BITMAP bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "dc98f06da047bd8aabfa99562d2cbd1e");
+  FPDFBitmap_Destroy(bitmap);
+
+  // Retrieve the annotation.
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
+
+  // Check that the original flag values are as expected.
+  int value;
+  EXPECT_TRUE(FPDFAnnot_GetFlags(annot, FPDF_ANNOT_FLAG_HIDDEN, &value));
+  EXPECT_FALSE(value);
+  EXPECT_TRUE(FPDFAnnot_GetFlags(annot, FPDF_ANNOT_FLAG_PRINT, &value));
+  EXPECT_TRUE(value);
+  EXPECT_TRUE(FPDFAnnot_GetFlags(
+      annot, FPDF_ANNOT_FLAG_HIDDEN | FPDF_ANNOT_FLAG_PRINT, &value));
+  EXPECT_FALSE(value);
+
+  // Set the HIDDEN flag.
+  EXPECT_TRUE(FPDFAnnot_ModifyFlags(
+      annot, FPDF_ANNOT_FLAG_HIDDEN | FPDF_ANNOT_FLAG_PRINT, 1));
+  EXPECT_TRUE(FPDFAnnot_GetFlags(annot, FPDF_ANNOT_FLAG_HIDDEN, &value));
+  EXPECT_TRUE(value);
+  EXPECT_TRUE(FPDFAnnot_GetFlags(annot, FPDF_ANNOT_FLAG_PRINT, &value));
+  EXPECT_TRUE(value);
+  EXPECT_TRUE(FPDFAnnot_GetFlags(
+      annot, FPDF_ANNOT_FLAG_HIDDEN | FPDF_ANNOT_FLAG_PRINT, &value));
+  EXPECT_TRUE(value);
+
+  // Check that the page renders correctly without rendering the annotation.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "1940568c9ba33bac5d0b1ee9558c76b3");
+  FPDFBitmap_Destroy(bitmap);
+
+  // Unset the HIDDEN flag.
+  EXPECT_TRUE(FPDFAnnot_ModifyFlags(annot, FPDF_ANNOT_FLAG_HIDDEN, 0));
+  EXPECT_TRUE(FPDFAnnot_GetFlags(annot, FPDF_ANNOT_FLAG_HIDDEN, &value));
+  EXPECT_FALSE(value);
+
+  // Check that the page renders correctly as before.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 612, 792, "dc98f06da047bd8aabfa99562d2cbd1e");
+  FPDFBitmap_Destroy(bitmap);
+
+  FPDFPage_CloseAnnot(annot);
+  UnloadPage(page);
+}
