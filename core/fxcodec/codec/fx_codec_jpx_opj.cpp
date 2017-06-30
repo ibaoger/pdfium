@@ -769,7 +769,7 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
     color_sycc_to_rgb(image);
   }
   if (image->icc_profile_buf) {
-    FX_Free(image->icc_profile_buf);
+    free(image->icc_profile_buf);
     image->icc_profile_buf = nullptr;
     image->icc_profile_len = 0;
   }
