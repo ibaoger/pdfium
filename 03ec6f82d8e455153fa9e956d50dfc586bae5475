@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc2323fd_b205b218",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Done, with early returns.",
+      "parentUuid": "842e0014_6c7da5b8",
+      "range": {
+        "startLine": 1146,
+        "startChar": 2,
+        "endLine": 1146,
+        "endChar": 47
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e11638_0c82b6d2",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739c7d21_52d72f9c",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16e11638_0c82b6d2",
+      "range": {
+        "startLine": 1154,
+        "startChar": 2,
+        "endLine": 1154,
+        "endChar": 40
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "de069c92_93923589",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af1ec122_eca7b7dd",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf5f0c0f_3d3ff060",
         "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e269c17_8a852046",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5f0c0f_3d3ff060",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "566ebb10_b6485fda",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b135bee_28a999bc",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 1
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d0aed92_6ff3dc77",
         "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-06-29T22:39:30Z",
       "side": 1,
       "message": "nit: kinda strange that we test range 1..12 then retest for 0.",
+      "range": {
+        "startLine": 494,
+        "startChar": 11,
+        "endLine": 494,
+        "endChar": 22
+      },
+      "revId": "03ec6f82d8e455153fa9e956d50dfc586bae5475",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dae783c_d7408c47",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-06-30T04:34:31Z",
+      "side": 1,
+      "message": "Well, at this point, we only know it\u0027s out of range, so there\u0027s still another check here for 0. Presumably 0 has some special meaning?",
+      "parentUuid": "2d0aed92_6ff3dc77",
       "range": {
         "startLine": 494,
         "startChar": 11,
