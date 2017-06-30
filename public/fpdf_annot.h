@@ -116,48 +116,48 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_RemoveAnnot(FPDF_PAGE page, int index);
 DLLEXPORT FPDF_ANNOTATION_SUBTYPE STDCALL
 FPDFAnnot_GetSubtype(FPDF_ANNOTATION annot);
 
-// Experimental API.
-// Update |path| in |annot|. |path| must be in |annot| already and must have
-// been retrieved by FPDFAnnot_GetPathObject(). Only ink and stamp annotations
-// are supported currently.
+// Update |obj| in |annot|. |obj| must be in |annot| already and must have
+// been retrieved by FPDFAnnot_GetObject(). Currently, only ink and stamp
+// annotations are supported by this API. Also note that only path, image, and
+// text objects have APIs for modification; see FPDFPath_*(), FPDFText_*(), and
+// FPDFImageObj_*().
 //
 //   annot  - handle to an annotation.
-//   path   - handle to the path that |annot| needs to update.
+//   obj    - handle to the object that |annot| needs to update.
 //
 // Return true if successful.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_UpdatePathObject(FPDF_ANNOTATION annot,
-                                                       FPDF_PAGEOBJECT path);
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_UpdateObject(FPDF_ANNOTATION annot,
+                                                   FPDF_PAGEOBJECT obj);
 
-// Experimental API.
-// Add |path| to |annot|. |path| must have been created by
-// FPDFPageObj_CreateNewPath(), and will be owned by |annot|. Note that a |path|
-// cannot belong to more than one |annot|. Only ink and stamp annotations
-// are supported currently.
+// Add |obj| to |annot|. |obj| must have been created by
+// FPDFPageObj_CreateNew{Path|Rect}() or FPDFPageObj_New{Text|Image}Obj(), and
+// will be owned by |annot|. Note that an |obj| cannot belong to more than one
+// |annot|. Currently, only ink and stamp annotations are supported by this API.
+// Also note that only path, image, and text objects have APIs for creation.
 //
 //   annot  - handle to an annotation.
-//   path   - handle to the path that is to be added to |annot|.
+//   obj    - handle to the object that is to be added to |annot|.
 //
 // Return true if successful.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_AppendPathObject(FPDF_ANNOTATION annot,
-                                                       FPDF_PAGEOBJECT path);
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_AppendObject(FPDF_ANNOTATION annot,
+                                                   FPDF_PAGEOBJECT obj);
 
-// Experimental API.
-// Get the number of path objects in |annot|.
+// Get the total number of objects in |annot|, including path objects, text
+// objects, external objects, image objects, and shading objects.
 //
 //   annot  - handle to an annotation.
 //
-// Returns the number of path objects in |annot|.
-DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot);
+// Returns the number of objects in |annot|.
+DLLEXPORT int STDCALL FPDFAnnot_GetObjectCount(FPDF_ANNOTATION annot);
 
-// Experimental API.
-// Get the path object in |annot| at |index|.
+// Get the object in |annot| at |index|.
 //
 //   annot  - handle to an annotation.
-//   index  - the index of the path object.
+//   index  - the index of the object.
 //
-// Return a handle to the path object, or NULL on failure.
-DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
-                                                          int index);
+// Return a handle to the object, or NULL on failure.
+DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetObject(FPDF_ANNOTATION annot,
+                                                      int index);
 
 // Set the color of an annotation. Fails when called on annotations with
 // appearance streams already defined; instead use
