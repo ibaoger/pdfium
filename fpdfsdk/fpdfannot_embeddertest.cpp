@@ -494,15 +494,16 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   ASSERT_TRUE(annot);
 
   // Check that this annotation has one path object and retrieve it.
-  EXPECT_EQ(1, FPDFAnnot_GetPathObjectCount(annot));
-  FPDF_PAGEOBJECT path = FPDFAnnot_GetPathObject(annot, 1);
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
+  FPDF_PAGEOBJECT path = FPDFAnnot_GetObject(annot, 1);
   EXPECT_FALSE(path);
-  path = FPDFAnnot_GetPathObject(annot, 0);
+  path = FPDFAnnot_GetObject(annot, 0);
+  EXPECT_EQ(FPDF_PAGEOBJ_PATH, FPDFPageObj_GetType(path));
   EXPECT_TRUE(path);
 
   // Modify the color of the path object.
   EXPECT_TRUE(FPDFPath_SetStrokeColor(path, 0, 0, 0, 255));
-  EXPECT_TRUE(FPDFAnnot_UpdatePathObject(annot, path));
+  EXPECT_TRUE(FPDFAnnot_UpdateObject(annot, path));
   FPDFPage_CloseAnnot(annot);
 
   // Check that the page with the modified annotation renders correctly.
@@ -529,8 +530,8 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   EXPECT_TRUE(FPDFPath_SetStrokeColor(check, 0, 255, 255, 180));
   EXPECT_TRUE(FPDFPath_SetStrokeWidth(check, 8.35f));
   EXPECT_TRUE(FPDFPath_SetDrawMode(check, 0, 1));
-  EXPECT_TRUE(FPDFAnnot_AppendPathObject(annot, check));
-  EXPECT_EQ(1, FPDFAnnot_GetPathObjectCount(annot));
+  EXPECT_TRUE(FPDFAnnot_AppendObject(annot, check));
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
 
   // Check that the annotation's bounding box came from its rectangle.
   FS_RECTF new_rect = FPDFAnnot_GetRect(annot);
@@ -556,11 +557,11 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
   ASSERT_TRUE(new_page);
 
-  // Check that the saved document has a correct count of annotations and paths.
+  // Check that the document has a correct count of annotations and objects.
   EXPECT_EQ(3, FPDFPage_GetAnnotCount(new_page));
   annot = FPDFPage_GetAnnot(new_page, 2);
   ASSERT_TRUE(annot);
-  EXPECT_EQ(1, FPDFAnnot_GetPathObjectCount(annot));
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
 
   // Check that the new annotation's rectangle is as defined.
   new_rect = FPDFAnnot_GetRect(annot);
@@ -577,4 +578,178 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   FPDFPage_CloseAnnot(annot);
   FPDF_ClosePage(new_page);
   FPDF_CloseDocument(new_doc);
+}
+
+TEST_F(FPDFAnnotEmbeddertest, AddAndModifyImage) {
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
+  const char md5[] = "c35408717759562d1f8bf33d317483d2";
+  const char md5_2[] = "cf3cea74bd46497520ff6c4d1ea228c8";
+  const char md5_3[] = "ee5372b31fede117fc83b9384598aa25";
+#elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+  const char md5[] = "bdf96279ab82d9f484874db3f0c03429";
+  const char md5_2[] = "5f2b32b7aa93bc1e62a7a7971f54bdd7";
+  const char md5_3[] = "272661f3e5c9516aac4b5beb3ae1b36a";
+#else
+  const char md5[] = "07d4168715553b4294525f840c40aa1c";
+  const char md5_2[] = "9685b2a0cf11ee730125f88ab10ff1d0";
+  const char md5_3[] = "0763407baf3656b8061bbbe698e9fd89";
+#endif
+
+  // Open a file with two annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+  EXPECT_EQ(2, FPDFPage_GetAnnotCount(page));
+
+  // Check that the page renders correctly.
+  FPDF_BITMAP bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Create a stamp annotation and set its annotation rectangle.
+  FPDF_ANNOTATION annot = FPDFPage_CreateAnnot(page, FPDF_ANNOT_STAMP);
+  ASSERT_TRUE(annot);
+  FS_RECTF rect;
+  rect.left = 200.f;
+  rect.bottom = 600.f;
+  rect.right = 400.f;
+  rect.top = 800.f;
+  EXPECT_TRUE(FPDFAnnot_SetRect(annot, &rect));
+
+  // Add a solid-color translucent image object to the new annotation.
+  constexpr int kBitmapSize = 200;
+  FPDF_BITMAP image_bitmap = FPDFBitmap_Create(kBitmapSize, kBitmapSize, 1);
+  FPDFBitmap_FillRect(image_bitmap, 0, 0, kBitmapSize, kBitmapSize, 0xeeeecccc);
+  EXPECT_EQ(kBitmapSize, FPDFBitmap_GetWidth(image_bitmap));
+  EXPECT_EQ(kBitmapSize, FPDFBitmap_GetHeight(image_bitmap));
+  FPDF_PAGEOBJECT image_object = FPDFPageObj_NewImageObj(document());
+  ASSERT_TRUE(FPDFImageObj_SetBitmap(&page, 0, image_object, image_bitmap));
+  ASSERT_TRUE(FPDFImageObj_SetMatrix(image_object, kBitmapSize, 0, 0,
+                                     kBitmapSize, 0, 0));
+  FPDFPageObj_Transform(image_object, 1, 0, 0, 1, 200, 600);
+  EXPECT_TRUE(FPDFAnnot_AppendObject(annot, image_object));
+  FPDFPage_CloseAnnot(annot);
+
+  // Check that the page renders correctly with the new image object.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_2);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Retrieve the newly added stamp annotation and its text object.
+  annot = FPDFPage_GetAnnot(page, 2);
+  ASSERT_TRUE(annot);
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
+  image_object = FPDFAnnot_GetObject(annot, 0);
+  EXPECT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(image_object));
+
+  // Modify the image object in the new annotation.
+  FPDFBitmap_FillRect(image_bitmap, 0, 0, kBitmapSize, kBitmapSize, 0xff000000);
+  ASSERT_TRUE(FPDFImageObj_SetBitmap(&page, 0, image_object, image_bitmap));
+  EXPECT_TRUE(FPDFAnnot_UpdateObject(annot, image_object));
+  FPDFPage_CloseAnnot(annot);
+
+  EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+  FPDF_ClosePage(page);
+
+  // Open the saved document.
+  std::string new_file = GetString();
+  FPDF_FILEACCESS file_access;
+  memset(&file_access, 0, sizeof(file_access));
+  file_access.m_FileLen = new_file.size();
+  file_access.m_GetBlock = GetBlockFromString;
+  file_access.m_Param = &new_file;
+  FPDF_DOCUMENT new_doc = FPDF_LoadCustomDocument(&file_access, nullptr);
+  ASSERT_TRUE(new_doc);
+  FPDF_PAGE new_page = FPDF_LoadPage(new_doc, 0);
+  ASSERT_TRUE(new_page);
+
+  // Check that the page renders correctly with the modified image object.
+  bitmap = RenderPageWithFlags(new_page, nullptr, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_3);
+  FPDFBitmap_Destroy(bitmap);
+
+  FPDFBitmap_Destroy(image_bitmap);
+  FPDF_ClosePage(new_page);
+  FPDF_CloseDocument(new_doc);
+}
+
+TEST_F(FPDFAnnotEmbeddertest, AddAndModifyText) {
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
+  const char md5[] = "c35408717759562d1f8bf33d317483d2";
+  const char md5_2[] = "cf3cea74bd46497520ff6c4d1ea228c8";
+  const char md5_3[] = "ee5372b31fede117fc83b9384598aa25";
+#elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+  const char md5[] = "bdf96279ab82d9f484874db3f0c03429";
+  const char md5_2[] = "5f2b32b7aa93bc1e62a7a7971f54bdd7";
+  const char md5_3[] = "272661f3e5c9516aac4b5beb3ae1b36a";
+#else
+  const char md5[] = "07d4168715553b4294525f840c40aa1c";
+  const char md5_2[] = "40a4c5e0561b062882b47253be3393ef";
+  const char md5_3[] = "f8ce0682add01f6d273890ac64d90fa6";
+#endif
+
+  // Open a file with two annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+  EXPECT_EQ(2, FPDFPage_GetAnnotCount(page));
+
+  // Check that the page renders correctly.
+  FPDF_BITMAP bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Create a stamp annotation and set its annotation rectangle.
+  FPDF_ANNOTATION annot = FPDFPage_CreateAnnot(page, FPDF_ANNOT_STAMP);
+  ASSERT_TRUE(annot);
+  FS_RECTF rect;
+  rect.left = 200.f;
+  rect.bottom = 550.f;
+  rect.right = 450.f;
+  rect.top = 650.f;
+  EXPECT_TRUE(FPDFAnnot_SetRect(annot, &rect));
+
+  // Add a translucent text object to the new annotation.
+  FPDF_PAGEOBJECT text_object =
+      FPDFPageObj_NewTextObj(document(), "Arial", 12.0f);
+  EXPECT_TRUE(text_object);
+  std::unique_ptr<unsigned short, pdfium::FreeDeleter> text =
+      GetFPDFWideString(L"I'm a translucent text laying on other text.");
+  EXPECT_TRUE(FPDFText_SetText(text_object, text.get()));
+  EXPECT_TRUE(FPDFText_SetFillColor(text_object, 0, 0, 255, 150));
+  FPDFPageObj_Transform(text_object, 1, 0, 0, 1, 200, 600);
+  EXPECT_TRUE(FPDFAnnot_AppendObject(annot, text_object));
+  FPDFPage_CloseAnnot(annot);
+
+  // Check that the page renders correctly with the new text.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_2);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Retrieve the newly added stamp annotation and its text object.
+  annot = FPDFPage_GetAnnot(page, 2);
+  ASSERT_TRUE(annot);
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
+  text_object = FPDFAnnot_GetObject(annot, 0);
+  EXPECT_EQ(FPDF_PAGEOBJ_TEXT, FPDFPageObj_GetType(text_object));
+
+  // Modify the text in the new annotation.
+  std::unique_ptr<unsigned short, pdfium::FreeDeleter> new_text =
+      GetFPDFWideString(L"New text!");
+  EXPECT_TRUE(FPDFText_SetText(text_object, new_text.get()));
+  EXPECT_TRUE(FPDFAnnot_UpdateObject(annot, text_object));
+  FPDFPage_CloseAnnot(annot);
+
+  // Check that the page renders correctly with the modified text object.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_3);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Remove the new annotation, and check that the page renders as before.
+  EXPECT_TRUE(FPDFPage_RemoveAnnot(page, 2));
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5);
+  FPDFBitmap_Destroy(bitmap);
+
+  UnloadPage(page);
 }
