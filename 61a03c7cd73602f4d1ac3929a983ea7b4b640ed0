@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed58a810_a855602c",
+        "filename": "core/fxge/win32/fx_win32_print.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-01T00:42:28Z",
+      "side": 1,
+      "message": "Seems like this could be useful in terms of tracking originX in the event that PDFium\nremoved spaces from the original text and instead just had 2 text objects some distance\napart. However, I haven\u0027t yet found an example where this occurs so will remove all\nthe spacing below before landing if no such example is found.",
+      "range": {
+        "startLine": 553,
+        "startChar": 32,
+        "endLine": 553,
+        "endChar": 35
+      },
+      "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
