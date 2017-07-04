@@ -159,6 +159,16 @@ DLLEXPORT int STDCALL FPDFAnnot_GetPathObjectCount(FPDF_ANNOTATION annot);
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetPathObject(FPDF_ANNOTATION annot,
                                                           int index);
 
+// Experimental API.
+// Remove the object in |annot| at |index|.
+//
+//   annot  - handle to an annotation.
+//   index  - the index of the object to be removed.
+//
+// Return true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_RemoveObject(FPDF_ANNOTATION annot,
+                                                   int index);
+
 // Set the color of an annotation. Fails when called on annotations with
 // appearance streams already defined; instead use
 // FPDFPath_Set{Stroke|Fill}Color().
