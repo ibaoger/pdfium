@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a908f248_9cd0aebc",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:34:34Z",
+      "side": 1,
+      "message": "1 \u003c\u003c 0\n1 \u003c\u003c 1\n1 \u003c\u003c 2\n1 \u003c\u003c 3\netc",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4783db21_dde8063b",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:34:34Z",
+      "side": 1,
+      "message": "Instead of an out, why not return int and use 0 for the false case?",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d03257f_85116e52",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:34:34Z",
+      "side": 1,
+      "message": "Instead of a set_flags, why not add a FPDF_ANNOT_FLAG_NONE 0 and then they can just pass that to unset?",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f638a797_e1077bf2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:34:34Z",
+      "side": 1,
+      "message": "I think it would be clearer if this was just an int instead of FPDF_ANNOTATION_FLAG since they can be |\u0027d together. (Similar to FPDF_RenderPage)",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
