@@ -46,6 +46,7 @@ int CheckPDFiumCApi() {
     CHK(FPDFAnnot_AppendPathObject);
     CHK(FPDFAnnot_GetPathObjectCount);
     CHK(FPDFAnnot_GetPathObject);
+    CHK(FPDFAnnot_RemoveObject);
     CHK(FPDFAnnot_SetColor);
     CHK(FPDFAnnot_GetColor);
     CHK(FPDFAnnot_HasAttachmentPoints);
