@@ -45,6 +45,17 @@ extern "C" {
 #define FPDF_ANNOT_RICHMEDIA 26
 #define FPDF_ANNOT_XFAWIDGET 27
 
+// Refer to PDF Reference (6th edition) table 8.16 for all annotation flags.
+#define FPDF_ANNOT_FLAG_INVISIBLE (1 << 0)
+#define FPDF_ANNOT_FLAG_HIDDEN (1 << 1)
+#define FPDF_ANNOT_FLAG_PRINT (1 << 2)
+#define FPDF_ANNOT_FLAG_NOZOOM (1 << 3)
+#define FPDF_ANNOT_FLAG_NOROTATE (1 << 4)
+#define FPDF_ANNOT_FLAG_NOVIEW (1 << 5)
+#define FPDF_ANNOT_FLAG_READONLY (1 << 6)
+#define FPDF_ANNOT_FLAG_LOCKED (1 << 7)
+#define FPDF_ANNOT_FLAG_TOGGLENOVIEW (1 << 8)
+
 typedef enum FPDFANNOT_COLORTYPE {
   FPDFANNOT_COLORTYPE_Color = 0,
   FPDFANNOT_COLORTYPE_InteriorColor
@@ -274,6 +285,28 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
                                                   FPDFANNOT_TEXTTYPE type,
                                                   void* buffer,
                                                   unsigned long buflen);
+
+// Experimental API.
+// Get the annotation flags of |annot|.
+//
+//   annot    - handle to an annotation.
+//   flags    - buffer for holding the annotation flags.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetFlags(FPDF_ANNOTATION annot,
+                                               int* flags);
+
+// Experimental API.
+// Modify the |flags| bits in |annot|'s flags.
+//
+//   annot      - handle to an annotation.
+//   flags      - the flags to be modified.
+//   set_flags  - true if flags are to be set, false if flags are to be unset.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_ModifyFlags(FPDF_ANNOTATION annot,
+                                                  int flags,
+                                                  FPDF_BOOL set_flags);
 
 #ifdef __cplusplus
 }  // extern "C"
