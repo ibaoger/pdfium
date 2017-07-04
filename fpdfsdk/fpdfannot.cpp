@@ -705,3 +705,31 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetText(FPDF_ANNOTATION annot,
 
   return len;
 }
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetFlags(FPDF_ANNOTATION annot,
+                                               FPDF_ANNOTATION_FLAG* flags) {
+  if (!annot)
+    return false;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return false;
+
+  *flags = pAnnotDict->GetIntegerFor("F");
+  return true;
+}
+
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_ModifyFlags(FPDF_ANNOTATION annot,
+                                                  FPDF_ANNOTATION_FLAG flags,
+                                                  FPDF_BOOL set_flags) {
+  FPDF_ANNOTATION_FLAG current;
+  if (!FPDFAnnot_GetFlags(annot, &current))
+    return false;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  pAnnotDict->SetNewFor<CPDF_Number>(
+      "F", static_cast<int>(set_flags ? current | flags : current & ~flags));
+  return true;
+}

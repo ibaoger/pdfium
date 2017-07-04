@@ -10,6 +10,8 @@
 #ifndef PUBLIC_FPDFVIEW_H_
 #define PUBLIC_FPDFVIEW_H_
 
+#include <stdint.h>
+
 #if defined(_WIN32) && !defined(__WINDOWS__)
 #include <windows.h>
 #endif
@@ -125,6 +127,9 @@ typedef const FS_RECTF* FS_LPCRECTF;
 
 // Annotation subtype.
 typedef int FPDF_ANNOTATION_SUBTYPE;
+
+// Annotation flag.
+typedef uint32_t FPDF_ANNOTATION_FLAG;
 
 #if defined(_WIN32) && defined(FPDFSDK_EXPORTS)
 // On Windows system, functions are exported in a DLL
