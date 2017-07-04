@@ -22,6 +22,30 @@
       "revId": "17527e0a149c6db1681fd4f2b20a40ab74b43b16",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecbd6ff3_972651b7",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T14:51:29Z",
+      "side": 1,
+      "message": "This is already tested in the embedder test, see \"// Update the date entry for the annotation\", which overwrites the existing date entry.",
+      "parentUuid": "29fad62f_6ff6c922",
+      "range": {
+        "startLine": 258,
+        "startChar": 3,
+        "endLine": 258,
+        "endChar": 14
+      },
+      "revId": "17527e0a149c6db1681fd4f2b20a40ab74b43b16",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
