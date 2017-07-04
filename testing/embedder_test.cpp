@@ -106,7 +106,6 @@ void EmbedderTest::TearDown() {
 
   FPDFAvail_Destroy(avail_);
   FPDF_DestroyLibrary();
-
   delete loader_;
 }
 
@@ -115,7 +114,7 @@ bool EmbedderTest::CreateEmptyDocument() {
   if (!document_)
     return false;
 
-  SetupFormFillEnvironment();
+  form_handle_ = SetupFormFillEnvironment(document_);
   return true;
 }
 
@@ -178,9 +177,7 @@ bool EmbedderTest::OpenDocument(const std::string& filename,
       return false;
     }
   }
-
-  SetupFormFillEnvironment();
-
+  form_handle_ = SetupFormFillEnvironment(document_);
 #ifdef PDF_ENABLE_XFA
   int docType = DOCTYPE_PDF;
   if (FPDF_HasXFAField(document_, &docType)) {
@@ -188,14 +185,13 @@ bool EmbedderTest::OpenDocument(const std::string& filename,
       (void)FPDF_LoadXFA(document_);
   }
 #endif  // PDF_ENABLE_XFA
-
   (void)FPDF_GetDocPermissions(document_);
   return true;
 }
 
-void EmbedderTest::SetupFormFillEnvironment() {
+FPDF_FORMHANDLE EmbedderTest::SetupFormFillEnvironment(FPDF_DOCUMENT doc) {
   IPDF_JSPLATFORM* platform = static_cast<IPDF_JSPLATFORM*>(this);
-  memset(platform, 0, sizeof(IPDF_JSPLATFORM));
+  memset(platform, '\0', sizeof(IPDF_JSPLATFORM));
   platform->version = 2;
   platform->app_alert = AlertTrampoline;
   platform->m_isolate = external_isolate_;
@@ -211,13 +207,15 @@ void EmbedderTest::SetupFormFillEnvironment() {
   formfillinfo->FFI_KillTimer = KillTimerTrampoline;
   formfillinfo->FFI_GetPage = GetPageTrampoline;
   formfillinfo->m_pJsPlatform = platform;
-
-  form_handle_ = FPDFDOC_InitFormFillEnvironment(document_, formfillinfo);
-  FPDF_SetFormFieldHighlightColor(form_handle_, 0, 0xFFE4DD);
-  FPDF_SetFormFieldHighlightAlpha(form_handle_, 100);
+  FPDF_FORMHANDLE form_handle =
+      FPDFDOC_InitFormFillEnvironment(doc, formfillinfo);
+  FPDF_SetFormFieldHighlightColor(form_handle, 0, 0xFFE4DD);
+  FPDF_SetFormFieldHighlightAlpha(form_handle, 100);
+  return form_handle;
 }
 
 void EmbedderTest::DoOpenActions() {
+  ASSERT(form_handle_);
   FORM_DoDocumentJSAction(form_handle_);
   FORM_DoDocumentOpenAction(form_handle_);
 }
@@ -230,22 +228,22 @@ int EmbedderTest::GetFirstPageNum() {
 
 int EmbedderTest::GetPageCount() {
   int page_count = FPDF_GetPageCount(document_);
-  for (int i = 0; i < page_count; ++i) {
+  for (int i = 0; i < page_count; ++i)
     (void)FPDFAvail_IsPageAvail(avail_, i, &hints_);
-  }
   return page_count;
 }
 
 FPDF_PAGE EmbedderTest::LoadPage(int page_number) {
+  ASSERT(form_handle_);
   // First check whether it is loaded already.
   auto it = page_map_.find(page_number);
   if (it != page_map_.end())
     return it->second;
 
   FPDF_PAGE page = FPDF_LoadPage(document_, page_number);
-  if (!page) {
+  if (!page)
     return nullptr;
-  }
+
   FORM_OnAfterLoadPage(page, form_handle_);
   FORM_DoPageAAction(page, form_handle_, FPDFPAGE_AACTION_OPEN);
   // Cache the page.
@@ -273,6 +271,7 @@ FPDF_BITMAP EmbedderTest::RenderPageWithFlags(FPDF_PAGE page,
 }
 
 void EmbedderTest::UnloadPage(FPDF_PAGE page) {
+  ASSERT(form_handle_);
   FORM_DoPageAAction(page, form_handle_, FPDFPAGE_AACTION_CLOSE);
   FORM_OnBeforeClosePage(page, form_handle_);
   FPDF_ClosePage(page);

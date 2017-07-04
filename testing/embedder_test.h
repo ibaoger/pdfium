@@ -112,7 +112,7 @@ class EmbedderTest : public ::testing::Test,
   virtual void UnloadPage(FPDF_PAGE page);
 
  protected:
-  void SetupFormFillEnvironment();
+  FPDF_FORMHANDLE SetupFormFillEnvironment(FPDF_DOCUMENT doc);
 
   // Return the hash of |bitmap|.
   static std::string HashBitmap(FPDF_BITMAP bitmap,
