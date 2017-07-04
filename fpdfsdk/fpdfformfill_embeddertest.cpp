@@ -11,16 +11,16 @@
 #include "public/cpp/fpdf_deleters.h"
 #include "public/fpdf_formfill.h"
 #include "public/fpdf_fwlevent.h"
-#include "testing/embedder_test.h"
 #include "testing/embedder_test_mock_delegate.h"
 #include "testing/embedder_test_timer_handling_delegate.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
+#include "testing/savertest.h"
 
 using testing::_;
 using testing::Return;
 
-class FPDFFormFillEmbeddertest : public EmbedderTest, public TestSaver {
+class FPDFFormFillEmbeddertest : public SaverTest {
  protected:
   void TypeTextIntoTextfield(FPDF_PAGE page,
                              int num_chars,
@@ -366,26 +366,11 @@ TEST_F(FPDFFormFillEmbeddertest, FormText) {
 
     EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
 
-    // Close everything
+    // Close page
     UnloadPage(page);
-    FPDFDOC_ExitFormFillEnvironment(form_handle_);
-    FPDF_CloseDocument(document_);
   }
   // Check saved document
-  std::string new_file = GetString();
-  FPDF_FILEACCESS file_access;
-  memset(&file_access, 0, sizeof(file_access));
-  file_access.m_FileLen = new_file.size();
-  file_access.m_GetBlock = GetBlockFromString;
-  file_access.m_Param = &new_file;
-  document_ = FPDF_LoadCustomDocument(&file_access, nullptr);
-  SetupFormFillEnvironment();
-  EXPECT_EQ(1, FPDF_GetPageCount(document_));
-  std::unique_ptr<void, FPDFPageDeleter> new_page(FPDF_LoadPage(document_, 0));
-  ASSERT_TRUE(new_page.get());
-  std::unique_ptr<void, FPDFBitmapDeleter> new_bitmap(
-      RenderPage(new_page.get()));
-  CompareBitmap(new_bitmap.get(), 300, 300, md5_3);
+  TestAndCloseSaved(300, 300, md5_3);
 }
 
 TEST_F(FPDFFormFillEmbeddertest, GetSelectedTextEmptyAndBasicKeyboard) {

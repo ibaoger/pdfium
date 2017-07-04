@@ -42,6 +42,37 @@ FPDF_BOOL Is_Data_Avail(FX_FILEAVAIL* pThis, size_t offset, size_t size) {
 
 void Add_Segment(FX_DOWNLOADHINTS* pThis, size_t offset, size_t size) {}
 
+struct EmbedderTestPlatform : public IPDF_JSPLATFORM {
+  EmbedderTest::Delegate* delegate_;
+};
+
+int AlertTrampoline(IPDF_JSPLATFORM* platform,
+                    FPDF_WIDESTRING message,
+                    FPDF_WIDESTRING title,
+                    int type,
+                    int icon) {
+  EmbedderTestPlatform* testPlatform =
+      static_cast<EmbedderTestPlatform*>(platform);
+  return testPlatform->delegate_->Alert(message, title, type, icon);
+}
+
+int SetTimerTrampoline(FPDF_FORMFILLINFO* info, int msecs, TimerCallback fn) {
+  EmbedderTestFFI* test = static_cast<EmbedderTestFFI*>(info);
+  return test->delegate_->SetTimer(msecs, fn);
+}
+
+void KillTimerTrampoline(FPDF_FORMFILLINFO* info, int id) {
+  EmbedderTestFFI* test = static_cast<EmbedderTestFFI*>(info);
+  return test->delegate_->KillTimer(id);
+}
+
+FPDF_PAGE GetPageTrampoline(FPDF_FORMFILLINFO* info,
+                            FPDF_DOCUMENT document,
+                            int page_index) {
+  return static_cast<EmbedderTestFFI*>(info)->delegate_->GetPage(info, document,
+                                                                 page_index);
+}
+
 }  // namespace
 
 EmbedderTest::EmbedderTest()
@@ -106,7 +137,6 @@ void EmbedderTest::TearDown() {
 
   FPDFAvail_Destroy(avail_);
   FPDF_DestroyLibrary();
-
   delete loader_;
 }
 
@@ -115,7 +145,7 @@ bool EmbedderTest::CreateEmptyDocument() {
   if (!document_)
     return false;
 
-  SetupFormFillEnvironment();
+  SetupFormFillEnvironment(document_, true);
   return true;
 }
 
@@ -178,9 +208,7 @@ bool EmbedderTest::OpenDocument(const std::string& filename,
       return false;
     }
   }
-
-  SetupFormFillEnvironment();
-
+  SetupFormFillEnvironment(document_, true);
 #ifdef PDF_ENABLE_XFA
   int docType = DOCTYPE_PDF;
   if (FPDF_HasXFAField(document_, &docType)) {
@@ -188,20 +216,20 @@ bool EmbedderTest::OpenDocument(const std::string& filename,
       (void)FPDF_LoadXFA(document_);
   }
 #endif  // PDF_ENABLE_XFA
-
   (void)FPDF_GetDocPermissions(document_);
   return true;
 }
 
-void EmbedderTest::SetupFormFillEnvironment() {
-  IPDF_JSPLATFORM* platform = static_cast<IPDF_JSPLATFORM*>(this);
-  memset(platform, 0, sizeof(IPDF_JSPLATFORM));
+FPDF_FORMHANDLE EmbedderTest::SetupFormFillEnvironment(FPDF_DOCUMENT doc,
+                                                       bool set_members) {
+  EmbedderTestPlatform* platform = new EmbedderTestPlatform();
+  memset(platform, '\0', sizeof(EmbedderTestPlatform));
   platform->version = 2;
   platform->app_alert = AlertTrampoline;
   platform->m_isolate = external_isolate_;
+  platform->delegate_ = delegate_;
 
-  FPDF_FORMFILLINFO* formfillinfo = static_cast<FPDF_FORMFILLINFO*>(this);
-  memset(formfillinfo, 0, sizeof(FPDF_FORMFILLINFO));
+  EmbedderTestFFI* formfillinfo = new EmbedderTestFFI();
 #ifdef PDF_ENABLE_XFA
   formfillinfo->version = 2;
 #else   // PDF_ENABLE_XFA
@@ -211,13 +239,20 @@ void EmbedderTest::SetupFormFillEnvironment() {
   formfillinfo->FFI_KillTimer = KillTimerTrampoline;
   formfillinfo->FFI_GetPage = GetPageTrampoline;
   formfillinfo->m_pJsPlatform = platform;
-
-  form_handle_ = FPDFDOC_InitFormFillEnvironment(document_, formfillinfo);
-  FPDF_SetFormFieldHighlightColor(form_handle_, 0, 0xFFE4DD);
-  FPDF_SetFormFieldHighlightAlpha(form_handle_, 100);
+  formfillinfo->delegate_ = delegate_;
+  FPDF_FORMHANDLE form_handle =
+      FPDFDOC_InitFormFillEnvironment(doc, formfillinfo);
+  FPDF_SetFormFieldHighlightColor(form_handle, 0, 0xFFE4DD);
+  FPDF_SetFormFieldHighlightAlpha(form_handle, 100);
+  if (set_members) {
+    form_fill_info_ = formfillinfo;
+    form_handle_ = form_handle;
+  }
+  return form_handle;
 }
 
 void EmbedderTest::DoOpenActions() {
+  ASSERT(form_handle_);
   FORM_DoDocumentJSAction(form_handle_);
   FORM_DoDocumentOpenAction(form_handle_);
 }
@@ -230,27 +265,27 @@ int EmbedderTest::GetFirstPageNum() {
 
 int EmbedderTest::GetPageCount() {
   int page_count = FPDF_GetPageCount(document_);
-  for (int i = 0; i < page_count; ++i) {
+  for (int i = 0; i < page_count; ++i)
     (void)FPDFAvail_IsPageAvail(avail_, i, &hints_);
-  }
   return page_count;
 }
 
 FPDF_PAGE EmbedderTest::LoadPage(int page_number) {
+  ASSERT(form_handle_);
   // First check whether it is loaded already.
-  auto it = page_map_.find(page_number);
-  if (it != page_map_.end())
+  auto it = form_fill_info_->page_map_.find(page_number);
+  if (it != form_fill_info_->page_map_.end())
     return it->second;
 
   FPDF_PAGE page = FPDF_LoadPage(document_, page_number);
-  if (!page) {
+  if (!page)
     return nullptr;
-  }
+
   FORM_OnAfterLoadPage(page, form_handle_);
   FORM_DoPageAAction(page, form_handle_, FPDFPAGE_AACTION_OPEN);
   // Cache the page.
-  page_map_[page_number] = page;
-  page_reverse_map_[page] = page_number;
+  form_fill_info_->page_map_[page_number] = page;
+  form_fill_info_->page_reverse_map_[page] = page_number;
   return page;
 }
 
@@ -273,22 +308,23 @@ FPDF_BITMAP EmbedderTest::RenderPageWithFlags(FPDF_PAGE page,
 }
 
 void EmbedderTest::UnloadPage(FPDF_PAGE page) {
+  ASSERT(form_handle_);
   FORM_DoPageAAction(page, form_handle_, FPDFPAGE_AACTION_CLOSE);
   FORM_OnBeforeClosePage(page, form_handle_);
   FPDF_ClosePage(page);
 
-  auto it = page_reverse_map_.find(page);
-  if (it == page_reverse_map_.end())
+  auto it = form_fill_info_->page_reverse_map_.find(page);
+  if (it == form_fill_info_->page_reverse_map_.end())
     return;
 
-  page_map_.erase(it->second);
-  page_reverse_map_.erase(it);
+  form_fill_info_->page_map_.erase(it->second);
+  form_fill_info_->page_reverse_map_.erase(it);
 }
 
 FPDF_PAGE EmbedderTest::Delegate::GetPage(FPDF_FORMFILLINFO* info,
                                           FPDF_DOCUMENT document,
                                           int page_index) {
-  EmbedderTest* test = static_cast<EmbedderTest*>(info);
+  EmbedderTestFFI* test = static_cast<EmbedderTestFFI*>(info);
   auto it = test->page_map_.find(page_index);
   return it != test->page_map_.end() ? it->second : nullptr;
 }
@@ -298,38 +334,6 @@ void EmbedderTest::UnsupportedHandlerTrampoline(UNSUPPORT_INFO* info,
                                                 int type) {
   EmbedderTest* test = static_cast<EmbedderTest*>(info);
   test->delegate_->UnsupportedHandler(type);
-}
-
-// static
-int EmbedderTest::AlertTrampoline(IPDF_JSPLATFORM* platform,
-                                  FPDF_WIDESTRING message,
-                                  FPDF_WIDESTRING title,
-                                  int type,
-                                  int icon) {
-  EmbedderTest* test = static_cast<EmbedderTest*>(platform);
-  return test->delegate_->Alert(message, title, type, icon);
-}
-
-// static
-int EmbedderTest::SetTimerTrampoline(FPDF_FORMFILLINFO* info,
-                                     int msecs,
-                                     TimerCallback fn) {
-  EmbedderTest* test = static_cast<EmbedderTest*>(info);
-  return test->delegate_->SetTimer(msecs, fn);
-}
-
-// static
-void EmbedderTest::KillTimerTrampoline(FPDF_FORMFILLINFO* info, int id) {
-  EmbedderTest* test = static_cast<EmbedderTest*>(info);
-  return test->delegate_->KillTimer(id);
-}
-
-// static
-FPDF_PAGE EmbedderTest::GetPageTrampoline(FPDF_FORMFILLINFO* info,
-                                          FPDF_DOCUMENT document,
-                                          int page_index) {
-  return static_cast<EmbedderTest*>(info)->delegate_->GetPage(info, document,
-                                                              page_index);
 }
 
 std::string EmbedderTest::HashBitmap(FPDF_BITMAP bitmap,

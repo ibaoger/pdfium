@@ -21,13 +21,11 @@
 #endif  // PDF_ENABLE_v8
 
 class TestLoader;
+struct EmbedderTestFFI;
 
 // This class is used to load a PDF document, and then run programatic
 // API tests against it.
-class EmbedderTest : public ::testing::Test,
-                     public UNSUPPORT_INFO,
-                     public IPDF_JSPLATFORM,
-                     public FPDF_FORMFILLINFO {
+class EmbedderTest : public ::testing::Test, public UNSUPPORT_INFO {
  public:
   class Delegate {
    public:
@@ -112,7 +110,7 @@ class EmbedderTest : public ::testing::Test,
   virtual void UnloadPage(FPDF_PAGE page);
 
  protected:
-  void SetupFormFillEnvironment();
+  FPDF_FORMHANDLE SetupFormFillEnvironment(FPDF_DOCUMENT doc, bool set_members);
 
   // Return the hash of |bitmap|.
   static std::string HashBitmap(FPDF_BITMAP bitmap,
@@ -129,6 +127,7 @@ class EmbedderTest : public ::testing::Test,
   std::unique_ptr<Delegate> default_delegate_;
   FPDF_DOCUMENT document_;
   FPDF_FORMHANDLE form_handle_;
+  EmbedderTestFFI* form_fill_info_;
   FPDF_AVAIL avail_;
   FX_DOWNLOADHINTS hints_;
   FPDF_FILEACCESS file_access_;
@@ -140,23 +139,15 @@ class EmbedderTest : public ::testing::Test,
   TestLoader* loader_;
   size_t file_length_;
   std::unique_ptr<char, pdfium::FreeDeleter> file_contents_;
-  std::map<int, FPDF_PAGE> page_map_;
-  std::map<FPDF_PAGE, int> page_reverse_map_;
 
  private:
   static void UnsupportedHandlerTrampoline(UNSUPPORT_INFO*, int type);
-  static int AlertTrampoline(IPDF_JSPLATFORM* plaform,
-                             FPDF_WIDESTRING message,
-                             FPDF_WIDESTRING title,
-                             int type,
-                             int icon);
-  static int SetTimerTrampoline(FPDF_FORMFILLINFO* info,
-                                int msecs,
-                                TimerCallback fn);
-  static void KillTimerTrampoline(FPDF_FORMFILLINFO* info, int id);
-  static FPDF_PAGE GetPageTrampoline(FPDF_FORMFILLINFO* info,
-                                     FPDF_DOCUMENT document,
-                                     int page_index);
+};
+
+struct EmbedderTestFFI : public FPDF_FORMFILLINFO {
+  EmbedderTest::Delegate* delegate_;
+  std::map<int, FPDF_PAGE> page_map_;
+  std::map<FPDF_PAGE, int> page_reverse_map_;
 };
 
 #endif  // TESTING_EMBEDDER_TEST_H_

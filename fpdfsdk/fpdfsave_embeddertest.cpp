@@ -10,12 +10,12 @@
 #include "public/fpdf_edit.h"
 #include "public/fpdf_ppo.h"
 #include "public/fpdfview.h"
-#include "testing/embedder_test.h"
 #include "testing/gmock/include/gmock/gmock-matchers.h"
 #include "testing/gtest/include/gtest/gtest.h"
+#include "testing/savertest.h"
 #include "testing/test_support.h"
 
-class FPDFSaveEmbedderTest : public EmbedderTest, public TestSaver {};
+class FPDFSaveEmbedderTest : public SaverTest {};
 
 TEST_F(FPDFSaveEmbedderTest, SaveSimpleDoc) {
   EXPECT_TRUE(OpenDocument("hello_world.pdf"));
