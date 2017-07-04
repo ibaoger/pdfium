@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1fb04799_a694ea89",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:35:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d82ef1_3814b75c",
+      "revId": "3c48ecea6e51dd64991095ad6198877857bc4283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae80e261_296b7609",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-04T20:30:29Z",
       "side": 1,
       "message": "Is the plan to expose getter/setters for each of the other value types?",
+      "revId": "3c48ecea6e51dd64991095ad6198877857bc4283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eed18a1_b8ebd585",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:35:58Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a need for now, since most of the common dictionary entries already have getters.",
+      "parentUuid": "ae80e261_296b7609",
       "revId": "3c48ecea6e51dd64991095ad6198877857bc4283",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
