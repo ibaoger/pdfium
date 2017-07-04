@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51caa049_24c19d42",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a908f248_9cd0aebc",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4783db21_dde8063b",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-04T20:34:34Z",
       "side": 1,
       "message": "Instead of an out, why not return int and use 0 for the false case?",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70c683c1_68ccd0fb",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:49:19Z",
+      "side": 1,
+      "message": "If we just return int, then we can\u0027t tell whether the flags are all 0 or whether it failed, and we need to know that, right?",
+      "parentUuid": "4783db21_dde8063b",
       "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dbd06a32_7d5e3697",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:49:19Z",
+      "side": 1,
+      "message": "Do you mean getting rid of set_flags, and have the user pass in either flags to be set, or NONE to unset flags? If so, then wouldn\u0027t we not have a way to unset some of the flags (but not all)?",
+      "parentUuid": "6d03257f_85116e52",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f638a797_e1077bf2",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 5
@@ -67,6 +121,24 @@
       "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5715e7f_58e14e26",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-04T21:49:19Z",
+      "side": 1,
+      "message": "I changed both of them to take in int.",
+      "parentUuid": "f638a797_e1077bf2",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
