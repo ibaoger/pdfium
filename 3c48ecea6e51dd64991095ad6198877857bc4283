@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d82ef1_3814b75c",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:30:29Z",
+      "side": 1,
+      "message": "Can we add a FPDF_OBJECT_UNKNOWN 0 and use that constant instead of just returning 0?",
+      "revId": "3c48ecea6e51dd64991095ad6198877857bc4283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae80e261_296b7609",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-04T20:30:29Z",
+      "side": 1,
+      "message": "Is the plan to expose getter/setters for each of the other value types?",
+      "revId": "3c48ecea6e51dd64991095ad6198877857bc4283",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
