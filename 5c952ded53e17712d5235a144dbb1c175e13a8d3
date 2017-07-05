@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "bc008f61_1a82acd9",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:13:44Z",
+      "side": 1,
+      "message": "Well, the failure cases just mean either they called it with an invalid annotation or there are no flags, yea? So, I think it\u0027s redundant.",
+      "parentUuid": "70c683c1_68ccd0fb",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d03257f_85116e52",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 5
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Do you mean getting rid of set_flags, and have the user pass in either flags to be set, or NONE to unset flags? If so, then wouldn\u0027t we not have a way to unset some of the flags (but not all)?",
       "parentUuid": "6d03257f_85116e52",
+      "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af23c0b_6e2f5815",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:13:44Z",
+      "side": 1,
+      "message": "The user can always set the flags they want again, so something like:\n\nint flags \u003d FPDFAnnot_GetFlags(annot);\nflags \u0026\u003d ~FPDF_ANNOT_FLAG_LOCKED\nFPDFAnnot_SetFlags(annot, flags);",
+      "parentUuid": "dbd06a32_7d5e3697",
       "revId": "5c952ded53e17712d5235a144dbb1c175e13a8d3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
