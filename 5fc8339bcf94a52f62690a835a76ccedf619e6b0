@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7cd85d38_421c04b5",
+        "filename": "core/fpdfapi/parser/cpdf_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T20:23:22Z",
+      "side": 1,
+      "message": "I see, the dict initialization outside would be exactly equivalent to what happens in SetData. Done. That\u0027s way better, thanks.",
+      "parentUuid": "1c09071e_bab4b87a",
+      "revId": "5fc8339bcf94a52f62690a835a76ccedf619e6b0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47082da_3f5e55d3",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 5
