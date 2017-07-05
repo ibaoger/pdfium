@@ -98,25 +98,25 @@ const char ToUnicodeEnd[] =
     "end\n"
     "end\n";
 
-void AddCharcode(CFX_ByteTextBuf* pBuffer, uint32_t number) {
+void AddCharcode(std::ostringstream& pBuffer, uint32_t number) {
   ASSERT(number <= 0xFFFF);
-  *pBuffer << "<";
+  pBuffer << "<";
   char ans[4];
   FXSYS_IntToFourHexChars(number, ans);
   for (size_t i = 0; i < 4; ++i)
-    pBuffer->AppendChar(ans[i]);
-  *pBuffer << ">";
+    pBuffer << ans[i];
+  pBuffer << ">";
 }
 
 // PDF spec 1.7 Section 5.9.2: "Unicode character sequences as expressed in
 // UTF-16BE encoding." See https://en.wikipedia.org/wiki/UTF-16#Description
-void AddUnicode(CFX_ByteTextBuf* pBuffer, uint32_t unicode) {
+void AddUnicode(std::ostringstream& pBuffer, uint32_t unicode) {
   char ans[8];
-  *pBuffer << "<";
+  pBuffer << "<";
   size_t numChars = FXSYS_ToUTF16BE(unicode, ans);
   for (size_t i = 0; i < numChars; ++i)
-    pBuffer->AppendChar(ans[i]);
-  *pBuffer << ">";
+    pBuffer << ans[i];
+  pBuffer << ">";
 }
 
 // Loads the charcode to unicode mapping into a stream
@@ -184,14 +184,14 @@ CPDF_Stream* LoadUnicode(CPDF_Document* pDoc,
     }
     map_range[std::make_pair(firstCharcode, curCharcode)] = firstUnicode;
   }
-  CFX_ByteTextBuf buffer;
+  std::ostringstream buffer;
   buffer << ToUnicodeStart;
   // Add maps to buffer
   buffer << static_cast<uint32_t>(char_to_uni.size()) << " beginbfchar\n";
   for (const auto& iter : char_to_uni) {
-    AddCharcode(&buffer, iter.first);
+    AddCharcode(buffer, iter.first);
     buffer << " ";
-    AddUnicode(&buffer, iter.second);
+    AddUnicode(buffer, iter.second);
     buffer << "\n";
   }
   buffer << "endbfchar\n"
@@ -199,14 +199,14 @@ CPDF_Stream* LoadUnicode(CPDF_Document* pDoc,
          << " beginbfrange\n";
   for (const auto& iter : map_range_vector) {
     const std::pair<uint32_t, uint32_t>& charcodeRange = iter.first;
-    AddCharcode(&buffer, charcodeRange.first);
+    AddCharcode(buffer, charcodeRange.first);
     buffer << " ";
-    AddCharcode(&buffer, charcodeRange.second);
+    AddCharcode(buffer, charcodeRange.second);
     buffer << " [";
     const std::vector<uint32_t>& unicodes = iter.second;
     for (size_t i = 0; i < unicodes.size(); ++i) {
       uint32_t uni = unicodes[i];
-      AddUnicode(&buffer, uni);
+      AddUnicode(buffer, uni);
       if (i != unicodes.size() - 1)
         buffer << " ";
     }
@@ -214,20 +214,23 @@ CPDF_Stream* LoadUnicode(CPDF_Document* pDoc,
   }
   for (const auto& iter : map_range) {
     const std::pair<uint32_t, uint32_t>& charcodeRange = iter.first;
-    AddCharcode(&buffer, charcodeRange.first);
+    AddCharcode(buffer, charcodeRange.first);
     buffer << " ";
-    AddCharcode(&buffer, charcodeRange.second);
+    AddCharcode(buffer, charcodeRange.second);
     buffer << " ";
-    AddUnicode(&buffer, iter.second);
+    AddUnicode(buffer, iter.second);
     buffer << "\n";
   }
   buffer << "endbfrange\n";
   buffer << ToUnicodeEnd;
   // TODO(npm): Encrypt / Compress?
-  uint32_t bufferSize = buffer.GetSize();
+  uint32_t bufferSize = buffer.tellp();
   auto pDict = pdfium::MakeUnique<CPDF_Dictionary>();
   pDict->SetNewFor<CPDF_Number>("Length", static_cast<int>(bufferSize));
-  return pDoc->NewIndirect<CPDF_Stream>(buffer.DetachBuffer(), bufferSize,
+  auto pNewBuffer =
+      std::unique_ptr<uint8_t, FxFreeDeleter>(FX_Alloc(uint8_t, bufferSize));
+  buffer.str().copy(reinterpret_cast<char*>(pNewBuffer.get()), bufferSize);
+  return pDoc->NewIndirect<CPDF_Stream>(std::move(pNewBuffer), bufferSize,
                                         std::move(pDict));
 }
 
