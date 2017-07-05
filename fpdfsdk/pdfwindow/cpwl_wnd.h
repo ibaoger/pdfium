@@ -216,10 +216,7 @@ class CPWL_Wnd : public CPWL_TimerHandler {
   virtual bool OnMouseWheel(short zDelta,
                             const CFX_PointF& point,
                             uint32_t nFlag);
-  virtual void OnNotify(CPWL_Wnd* pWnd,
-                        uint32_t msg,
-                        intptr_t wParam = 0,
-                        intptr_t lParam = 0);
+  virtual void OnNotify(CPWL_Wnd* pWnd, uint32_t msg, intptr_t lParam);
   virtual void SetFocus();
   virtual void KillFocus();
   virtual void SetCursor();

@@ -131,10 +131,7 @@ class CPWL_ScrollBar : public CPWL_Wnd {
                           CFX_Matrix* pUser2Device) override;
   bool OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) override;
   bool OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) override;
-  void OnNotify(CPWL_Wnd* pWnd,
-                uint32_t msg,
-                intptr_t wParam = 0,
-                intptr_t lParam = 0) override;
+  void OnNotify(CPWL_Wnd* pWnd, uint32_t msg, intptr_t lParam) override;
   void CreateChildWnd(const PWL_CREATEPARAM& cp) override;
   void TimerProc() override;
 

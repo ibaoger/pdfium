@@ -66,42 +66,25 @@ void CPWL_EditCtrl::RePosChildWnd() {
 
 void CPWL_EditCtrl::OnNotify(CPWL_Wnd* pWnd,
                              uint32_t msg,
-                             intptr_t wParam,
                              intptr_t lParam) {
-  CPWL_Wnd::OnNotify(pWnd, msg, wParam, lParam);
-
   switch (msg) {
     case PNM_SETSCROLLINFO:
-      switch (wParam) {
-        case SBT_VSCROLL:
-          if (CPWL_Wnd* pChild = GetVScrollBar()) {
-            pChild->OnNotify(pWnd, PNM_SETSCROLLINFO, wParam, lParam);
-          }
-          break;
-      }
+      if (CPWL_Wnd* pChild = GetVScrollBar())
+        pChild->OnNotify(pWnd, PNM_SETSCROLLINFO, lParam);
       break;
     case PNM_SETSCROLLPOS:
-      switch (wParam) {
-        case SBT_VSCROLL:
-          if (CPWL_Wnd* pChild = GetVScrollBar()) {
-            pChild->OnNotify(pWnd, PNM_SETSCROLLPOS, wParam, lParam);
-          }
-          break;
-      }
+      if (CPWL_Wnd* pChild = GetVScrollBar())
+        pChild->OnNotify(pWnd, PNM_SETSCROLLPOS, lParam);
       break;
-    case PNM_SCROLLWINDOW: {
-      float fPos = *(float*)lParam;
-      switch (wParam) {
-        case SBT_VSCROLL:
-          m_pEdit->SetScrollPos(CFX_PointF(m_pEdit->GetScrollPos().x, fPos));
-          break;
-      }
-    } break;
-    case PNM_SETCARETINFO: {
-      if (PWL_CARET_INFO* pCaretInfo = (PWL_CARET_INFO*)wParam) {
+    case PNM_SCROLLWINDOW:
+      m_pEdit->SetScrollPos(CFX_PointF(m_pEdit->GetScrollPos().x,
+                                       *reinterpret_cast<float*>(lParam)));
+      break;
+    case PNM_SETCARETINFO:
+      if (PWL_CARET_INFO* pCaretInfo =
+              reinterpret_cast<PWL_CARET_INFO*>(lParam))
         SetCaret(pCaretInfo->bVisible, pCaretInfo->ptHead, pCaretInfo->ptFoot);
-      }
-    } break;
+      break;
   }
 }
 
@@ -448,7 +431,7 @@ void CPWL_EditCtrl::IOnSetScrollInfoY(float fPlateMin,
   Info.fSmallStep = fSmallStep;
   Info.fBigStep = fBigStep;
 
-  OnNotify(this, PNM_SETSCROLLINFO, SBT_VSCROLL, (intptr_t)&Info);
+  OnNotify(this, PNM_SETSCROLLINFO, (intptr_t)&Info);
 
   if (IsFloatBigger(Info.fPlateWidth, Info.fContentMax - Info.fContentMin) ||
       IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
@@ -459,7 +442,7 @@ void CPWL_EditCtrl::IOnSetScrollInfoY(float fPlateMin,
 }
 
 void CPWL_EditCtrl::IOnSetScrollPosY(float fy) {
-  OnNotify(this, PNM_SETSCROLLPOS, SBT_VSCROLL, (intptr_t)&fy);
+  OnNotify(this, PNM_SETSCROLLPOS, (intptr_t)&fy);
 }
 
 void CPWL_EditCtrl::IOnSetCaret(bool bVisible,
@@ -471,7 +454,7 @@ void CPWL_EditCtrl::IOnSetCaret(bool bVisible,
   cInfo.ptHead = ptHead;
   cInfo.ptFoot = ptFoot;
 
-  OnNotify(this, PNM_SETCARETINFO, (intptr_t)&cInfo, (intptr_t) nullptr);
+  OnNotify(this, PNM_SETCARETINFO, (intptr_t)&cInfo);
 }
 
 void CPWL_EditCtrl::IOnInvalidateRect(CFX_FloatRect* pRect) {

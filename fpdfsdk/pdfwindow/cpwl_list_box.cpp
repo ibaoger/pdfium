@@ -38,7 +38,7 @@ void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
   Info.fSmallStep = fSmallStep;
   Info.fBigStep = fBigStep;
 
-  m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLINFO, SBT_VSCROLL,
+  m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLINFO,
                     reinterpret_cast<intptr_t>(&Info));
 
   if (CPWL_ScrollBar* pScroll = m_pList->GetVScrollBar()) {
@@ -58,7 +58,7 @@ void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
 }
 
 void CPWL_List_Notify::IOnSetScrollPosY(float fy) {
-  m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLPOS, SBT_VSCROLL,
+  m_pList->OnNotify(m_pList.Get(), PNM_SETSCROLLPOS,
                     reinterpret_cast<intptr_t>(&fy));
 }
 
@@ -290,38 +290,18 @@ bool CPWL_ListBox::OnMouseMove(const CFX_PointF& point, uint32_t nFlag) {
 
 void CPWL_ListBox::OnNotify(CPWL_Wnd* pWnd,
                             uint32_t msg,
-                            intptr_t wParam,
                             intptr_t lParam) {
-  CPWL_Wnd::OnNotify(pWnd, msg, wParam, lParam);
-
-  float fPos;
-
   switch (msg) {
     case PNM_SETSCROLLINFO:
-      switch (wParam) {
-        case SBT_VSCROLL:
-          if (CPWL_Wnd* pChild = GetVScrollBar()) {
-            pChild->OnNotify(pWnd, PNM_SETSCROLLINFO, wParam, lParam);
-          }
-          break;
-      }
+      if (CPWL_Wnd* pChild = GetVScrollBar())
+        pChild->OnNotify(pWnd, PNM_SETSCROLLINFO, lParam);
       break;
     case PNM_SETSCROLLPOS:
-      switch (wParam) {
-        case SBT_VSCROLL:
-          if (CPWL_Wnd* pChild = GetVScrollBar()) {
-            pChild->OnNotify(pWnd, PNM_SETSCROLLPOS, wParam, lParam);
-          }
-          break;
-      }
+      if (CPWL_Wnd* pChild = GetVScrollBar())
+        pChild->OnNotify(pWnd, PNM_SETSCROLLPOS, lParam);
       break;
     case PNM_SCROLLWINDOW:
-      fPos = *(float*)lParam;
-      switch (wParam) {
-        case SBT_VSCROLL:
-          m_pList->SetScrollPos(CFX_PointF(0, fPos));
-          break;
-      }
+      m_pList->SetScrollPos(CFX_PointF(0, *reinterpret_cast<float*>(lParam)));
       break;
   }
 }

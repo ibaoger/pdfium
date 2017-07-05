@@ -33,7 +33,7 @@ bool CPWL_CBListBox::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
   if (!ClientHitTest(point))
     return true;
   if (CPWL_Wnd* pParent = GetParentWindow())
-    pParent->OnNotify(this, PNM_LBUTTONUP, 0, PWL_MAKEDWORD(point.x, point.y));
+    pParent->OnNotify(this, PNM_LBUTTONUP, PWL_MAKEDWORD(point.x, point.y));
 
   bool bExit = false;
   OnNotifySelChanged(false, bExit, nFlag);
@@ -166,8 +166,7 @@ bool CPWL_CBButton::OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) {
   SetCapture();
 
   if (CPWL_Wnd* pParent = GetParentWindow()) {
-    pParent->OnNotify(this, PNM_LBUTTONDOWN, 0,
-                      PWL_MAKEDWORD(point.x, point.y));
+    pParent->OnNotify(this, PNM_LBUTTONDOWN, PWL_MAKEDWORD(point.x, point.y));
   }
 
   return true;
@@ -550,7 +549,6 @@ bool CPWL_ComboBox::OnChar(uint16_t nChar, uint32_t nFlag) {
 
 void CPWL_ComboBox::OnNotify(CPWL_Wnd* pWnd,
                              uint32_t msg,
-                             intptr_t wParam,
                              intptr_t lParam) {
   switch (msg) {
     case PNM_LBUTTONDOWN:
@@ -571,8 +569,6 @@ void CPWL_ComboBox::OnNotify(CPWL_Wnd* pWnd,
       }
       break;
   }
-
-  CPWL_Wnd::OnNotify(pWnd, msg, wParam, lParam);
 }
 
 bool CPWL_ComboBox::IsPopup() const {

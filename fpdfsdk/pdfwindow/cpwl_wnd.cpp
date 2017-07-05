@@ -424,7 +424,6 @@ void CPWL_Wnd::RemoveChild(CPWL_Wnd* pWnd) {
 
 void CPWL_Wnd::OnNotify(CPWL_Wnd* pWnd,
                         uint32_t msg,
-                        intptr_t wParam,
                         intptr_t lParam) {}
 
 bool CPWL_Wnd::IsValid() const {

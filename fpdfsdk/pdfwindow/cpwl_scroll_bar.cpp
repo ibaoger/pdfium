@@ -517,7 +517,7 @@ bool CPWL_SBButton::OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnLButtonDown(point, nFlag);
 
   if (CPWL_Wnd* pParent = GetParentWindow())
-    pParent->OnNotify(this, PNM_LBUTTONDOWN, 0, (intptr_t)&point);
+    pParent->OnNotify(this, PNM_LBUTTONDOWN, (intptr_t)&point);
 
   m_bMouseDown = true;
   SetCapture();
@@ -529,7 +529,7 @@ bool CPWL_SBButton::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnLButtonUp(point, nFlag);
 
   if (CPWL_Wnd* pParent = GetParentWindow())
-    pParent->OnNotify(this, PNM_LBUTTONUP, 0, (intptr_t)&point);
+    pParent->OnNotify(this, PNM_LBUTTONUP, (intptr_t)&point);
 
   m_bMouseDown = false;
   ReleaseCapture();
@@ -541,7 +541,7 @@ bool CPWL_SBButton::OnMouseMove(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnMouseMove(point, nFlag);
 
   if (CPWL_Wnd* pParent = GetParentWindow()) {
-    pParent->OnNotify(this, PNM_MOUSEMOVE, 0, (intptr_t)&point);
+    pParent->OnNotify(this, PNM_MOUSEMOVE, (intptr_t)&point);
   }
 
   return true;
@@ -752,63 +752,54 @@ bool CPWL_ScrollBar::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
 
 void CPWL_ScrollBar::OnNotify(CPWL_Wnd* pWnd,
                               uint32_t msg,
-                              intptr_t wParam,
                               intptr_t lParam) {
-  CPWL_Wnd::OnNotify(pWnd, msg, wParam, lParam);
-
   switch (msg) {
-    case PNM_LBUTTONDOWN:
-      if (pWnd == m_pMinButton) {
-        OnMinButtonLBDown(*(CFX_PointF*)lParam);
-      }
+    case PNM_LBUTTONDOWN: {
+      CFX_PointF& point = *reinterpret_cast<CFX_PointF*>(lParam);
+      if (pWnd == m_pMinButton)
+        OnMinButtonLBDown(point);
+      else if (pWnd == m_pMaxButton)
+        OnMaxButtonLBDown(point);
+      else if (pWnd == m_pPosButton)
+        OnPosButtonLBDown(point);
 
-      if (pWnd == m_pMaxButton) {
-        OnMaxButtonLBDown(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
-        OnPosButtonLBDown(*(CFX_PointF*)lParam);
-      }
       break;
-    case PNM_LBUTTONUP:
-      if (pWnd == m_pMinButton) {
-        OnMinButtonLBUp(*(CFX_PointF*)lParam);
-      }
+    }
+    case PNM_LBUTTONUP: {
+      CFX_PointF& point = *reinterpret_cast<CFX_PointF*>(lParam);
+      if (pWnd == m_pMinButton)
+        OnMinButtonLBUp(point);
+      else if (pWnd == m_pMaxButton)
+        OnMaxButtonLBUp(point);
+      else if (pWnd == m_pPosButton)
+        OnPosButtonLBUp(point);
 
-      if (pWnd == m_pMaxButton) {
-        OnMaxButtonLBUp(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
-        OnPosButtonLBUp(*(CFX_PointF*)lParam);
-      }
       break;
-    case PNM_MOUSEMOVE:
-      if (pWnd == m_pMinButton) {
-        OnMinButtonMouseMove(*(CFX_PointF*)lParam);
-      }
+    }
+    case PNM_MOUSEMOVE: {
+      CFX_PointF& point = *reinterpret_cast<CFX_PointF*>(lParam);
+      if (pWnd == m_pMinButton)
+        OnMinButtonMouseMove(point);
+      else if (pWnd == m_pMaxButton)
+        OnMaxButtonMouseMove(point);
+      else if (pWnd == m_pPosButton)
+        OnPosButtonMouseMove(point);
 
-      if (pWnd == m_pMaxButton) {
-        OnMaxButtonMouseMove(*(CFX_PointF*)lParam);
-      }
-
-      if (pWnd == m_pPosButton) {
-        OnPosButtonMouseMove(*(CFX_PointF*)lParam);
-      }
       break;
+    }
     case PNM_SETSCROLLINFO: {
       PWL_SCROLL_INFO* pInfo = reinterpret_cast<PWL_SCROLL_INFO*>(lParam);
       if (pInfo && *pInfo != m_OriginInfo) {
         m_OriginInfo = *pInfo;
-        float fMax =
-            pInfo->fContentMax - pInfo->fContentMin - pInfo->fPlateWidth;
-        fMax = fMax > 0.0f ? fMax : 0.0f;
+        float fMax = std::max(
+            0.0f, pInfo->fContentMax - pInfo->fContentMin - pInfo->fPlateWidth);
         SetScrollRange(0, fMax, pInfo->fPlateWidth);
         SetScrollStep(pInfo->fBigStep, pInfo->fSmallStep);
       }
-    } break;
+      break;
+    }
     case PNM_SETSCROLLPOS: {
-      float fPos = *(float*)lParam;
+      float fPos = *reinterpret_cast<float*>(lParam);
       switch (m_sbType) {
         case SBT_HSCROLL:
           fPos = fPos - m_OriginInfo.fContentMin;
@@ -818,7 +809,8 @@ void CPWL_ScrollBar::OnNotify(CPWL_Wnd* pWnd,
           break;
       }
       SetScrollPos(fPos);
-    } break;
+      break;
+    }
   }
 }
 
@@ -1062,8 +1054,7 @@ void CPWL_ScrollBar::NotifyScrollWindow() {
         fPos = m_OriginInfo.fContentMax - m_sData.fScrollPos;
         break;
     }
-    pParent->OnNotify(this, PNM_SCROLLWINDOW, (intptr_t)m_sbType,
-                      (intptr_t)&fPos);
+    pParent->OnNotify(this, PNM_SCROLLWINDOW, (intptr_t)&fPos);
   }
 }
 
