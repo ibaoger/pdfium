@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "886af03c_4680d15d",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T16:34:30Z",
+      "side": 1,
+      "message": "Why is this different with and without skia paths?",
+      "revId": "0721805ada518f78f9aea1e5221de1fd792b8f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
