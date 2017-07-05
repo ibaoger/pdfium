@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "efea91e2_9d6c08ab",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T18:18:29Z",
+      "side": 1,
+      "message": "I think this is pretty clear it\u0027s the background colour.",
+      "parentUuid": "9536b107_313f1005",
+      "range": {
+        "startLine": 310,
+        "startChar": 25,
+        "endLine": 311,
+        "endChar": 69
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb292894_159b9c12",
         "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-05T17:37:06Z",
       "side": 1,
       "message": "Almost identical to PSBT_MAX case",
+      "range": {
+        "startLine": 193,
+        "startChar": 13,
+        "endLine": 193,
+        "endChar": 21
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20e88cc3_6bab98af",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T18:18:29Z",
+      "side": 1,
+      "message": "followup. This is also almost identical to the top chunk, this whole method should be re-done.",
+      "parentUuid": "cb292894_159b9c12",
       "range": {
         "startLine": 193,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "930e901a_2457899b",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T18:18:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "58d46477_d1618b46",
+      "range": {
+        "startLine": 252,
+        "startChar": 13,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0e5f887_aaede6a6",
         "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-05T17:37:06Z",
       "side": 1,
       "message": "nit: std::max",
+      "range": {
+        "startLine": 880,
+        "startChar": 8,
+        "endLine": 880,
+        "endChar": 40
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68d8be3a_e4b0483a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T18:18:29Z",
+      "side": 1,
+      "message": "I think this is a bit clearer that if the width is less then min width adjust right.",
+      "parentUuid": "e0e5f887_aaede6a6",
       "range": {
         "startLine": 880,
         "startChar": 8,
