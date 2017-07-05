@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c82673d_75639ee1",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T21:17:27Z",
+      "side": 1,
+      "message": "enum PWL_SCROLLBAR_TYPE { SBT_HSCROLL, SBT_VSCROLL };",
+      "parentUuid": "cc1c1e25_0cccb337",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 10
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f65dcd68_f32f48ba",
         "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "35a16dc8_aaf9ca49",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T21:17:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f65dcd68_f32f48ba",
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66a1ef55_09a68d6e",
         "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-07-05T21:00:15Z",
       "side": 1,
       "message": "ditto with PSBT_MIN, PSBT_MAX, and PSBT_POS",
+      "range": {
+        "startLine": 254,
+        "startChar": 6,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d4a102c_dcd24a67",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T21:17:27Z",
+      "side": 1,
+      "message": "enum PWL_SBBUTTON_TYPE { PSBT_MIN, PSBT_MAX, PSBT_POS };",
+      "parentUuid": "66a1ef55_09a68d6e",
       "range": {
         "startLine": 254,
         "startChar": 6,
@@ -85,6 +151,30 @@
       "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4139cbba_b212b3e0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T21:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c66056a5_870a4061",
+      "range": {
+        "startLine": 304,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 15
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
