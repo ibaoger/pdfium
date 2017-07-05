@@ -22,6 +22,30 @@
       "revId": "3b9beff1d7be55b04b26092e7d46f2406aee1ce6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77a2e831_c2173b04",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:27:50Z",
+      "side": 1,
+      "message": "This method will be removed.",
+      "parentUuid": "a82f9515_d53ac7c1",
+      "range": {
+        "startLine": 425,
+        "startChar": 15,
+        "endLine": 425,
+        "endChar": 23
+      },
+      "revId": "3b9beff1d7be55b04b26092e7d46f2406aee1ce6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
