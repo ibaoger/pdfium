@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c09071e_bab4b87a",
+        "filename": "core/fpdfapi/parser/cpdf_stream.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T20:08:52Z",
+      "side": 1,
+      "message": "In which case, move this to calling SetData?",
+      "revId": "5fc8339bcf94a52f62690a835a76ccedf619e6b0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e47082da_3f5e55d3",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 5
