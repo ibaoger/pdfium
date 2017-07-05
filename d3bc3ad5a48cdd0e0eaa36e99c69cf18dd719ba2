@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f116189a_979cde02",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T17:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d7d0f7_6b96250a",
+      "revId": "d3bc3ad5a48cdd0e0eaa36e99c69cf18dd719ba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11fa6227_d3c6e8ca",
         "filename": "core/fxge/ge/cfx_font.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "d3bc3ad5a48cdd0e0eaa36e99c69cf18dd719ba2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a4ec929_62acc2b4",
+        "filename": "core/fxge/ge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T17:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11fa6227_d3c6e8ca",
+      "revId": "d3bc3ad5a48cdd0e0eaa36e99c69cf18dd719ba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
