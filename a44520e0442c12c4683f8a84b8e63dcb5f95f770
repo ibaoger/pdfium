@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9536b107_313f1005",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T17:37:06Z",
+      "side": 1,
+      "message": "Even though it\u0027s only used once, it might be clearer to have this as a constant in the namespace or #define?",
+      "range": {
+        "startLine": 310,
+        "startChar": 25,
+        "endLine": 311,
+        "endChar": 69
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb292894_159b9c12",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T17:37:06Z",
+      "side": 1,
+      "message": "Almost identical to PSBT_MAX case",
+      "range": {
+        "startLine": 193,
+        "startChar": 13,
+        "endLine": 193,
+        "endChar": 21
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d46477_d1618b46",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T17:37:06Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 252,
+        "startChar": 13,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0e5f887_aaede6a6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T17:37:06Z",
+      "side": 1,
+      "message": "nit: std::max",
+      "range": {
+        "startLine": 880,
+        "startChar": 8,
+        "endLine": 880,
+        "endChar": 40
+      },
+      "revId": "a44520e0442c12c4683f8a84b8e63dcb5f95f770",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
