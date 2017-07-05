@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ef32b79_fff8d29c",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:27:20Z",
+      "side": 1,
+      "message": "Make this a * instead of \u0026.",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ad73e7_60c963b0",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:27:20Z",
+      "side": 1,
+      "message": "ditto. References should be const, non-const references should be pointers.",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22c32cc3_0bcf6364",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:27:20Z",
+      "side": 1,
+      "message": "std::vector\u003cuint8_t\u003e pNewBuffer(bufferSize);\nbuffer.str().copy(pNewBuffer.data(), bufferSize);\n\n? Gets rid of the FX_Alloc and the FxFreeDeleter stuff.",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
