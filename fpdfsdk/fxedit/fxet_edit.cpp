@@ -30,6 +30,7 @@
 #include "fpdfsdk/fxedit/fx_edit.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
+#include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 
@@ -1233,9 +1234,14 @@ void CFX_Edit::SetScrollInfo() {
     if (!m_bNotifyFlag) {
       CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
       m_bNotifyFlag = true;
-      m_pNotify->IOnSetScrollInfoY(rcPlate.bottom, rcPlate.top,
-                                   rcContent.bottom, rcContent.top,
-                                   rcPlate.Height() / 3, rcPlate.Height());
+
+      PWL_SCROLL_INFO Info;
+      Info.fPlateWidth = rcPlate.top - rcPlate.bottom;
+      Info.fContentMin = rcContent.bottom;
+      Info.fContentMax = rcContent.top;
+      Info.fSmallStep = rcPlate.Height() / 3;
+      Info.fBigStep = rcPlate.Height();
+      m_pNotify->SetScrollInfo(Info);
     }
   }
 }
@@ -1265,7 +1271,7 @@ void CFX_Edit::SetScrollPosY(float fy) {
         if (!m_bNotifyFlag) {
           CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
           m_bNotifyFlag = true;
-          m_pNotify->IOnSetScrollPosY(fy);
+          m_pNotify->SetScrollPosition(fy);
         }
       }
     }
@@ -1377,7 +1383,7 @@ void CFX_Edit::Refresh() {
         m_bNotifyFlag = true;
         if (const CFX_Edit_RectArray* pRects = m_Refresh.GetRefreshRects()) {
           for (int32_t i = 0, sz = pRects->GetSize(); i < sz; i++)
-            m_pNotify->IOnInvalidateRect(pRects->GetAt(i));
+            m_pNotify->InvalidateRect(pRects->GetAt(i));
         }
       }
     }
@@ -1445,7 +1451,7 @@ void CFX_Edit::RefreshWordRange(const CPVT_WordRange& wr) {
           CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
           m_bNotifyFlag = true;
           CFX_FloatRect rcRefresh = VTToEdit(rcWord);
-          m_pNotify->IOnInvalidateRect(&rcRefresh);
+          m_pNotify->InvalidateRect(&rcRefresh);
         }
       }
     } else {
@@ -1459,7 +1465,7 @@ void CFX_Edit::RefreshWordRange(const CPVT_WordRange& wr) {
           CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
           m_bNotifyFlag = true;
           CFX_FloatRect rcRefresh = VTToEdit(rcLine);
-          m_pNotify->IOnInvalidateRect(&rcRefresh);
+          m_pNotify->InvalidateRect(&rcRefresh);
         }
       }
 
@@ -1497,8 +1503,8 @@ void CFX_Edit::SetCaretInfo() {
 
       CFX_AutoRestorer<bool> restorer(&m_bNotifyFlag);
       m_bNotifyFlag = true;
-      m_pNotify->IOnSetCaret(m_SelState.IsEmpty(), VTToEdit(ptHead),
-                             VTToEdit(ptFoot), m_wpCaret);
+      m_pNotify->SetCaret(m_SelState.IsEmpty(), VTToEdit(ptHead),
+                          VTToEdit(ptFoot));
     }
   }
 }
