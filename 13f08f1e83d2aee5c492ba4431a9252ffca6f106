@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "00f4768a_c27606d6",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T15:38:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef32b79_fff8d29c",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ad73e7_60c963b0",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "89f19330_70ed74a0",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T15:38:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ad73e7_60c963b0",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22c32cc3_0bcf6364",
         "filename": "fpdfsdk/fpdfedittext.cpp",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3899a845_43b3984a",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T15:38:13Z",
+      "side": 1,
+      "message": "The CPDF_Stream constructor has this signature:\n\n  CPDF_Stream(std::unique_ptr\u003cuint8_t, FxFreeDeleter\u003e pData,\n              uint32_t size,\n              std::unique_ptr\u003cCPDF_Dictionary\u003e pDict);",
+      "parentUuid": "22c32cc3_0bcf6364",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
