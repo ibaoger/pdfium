@@ -48,11 +48,12 @@ bool CFFL_RadioButton::OnChar(CPDFSDK_Annot* pAnnot,
       CPDFSDK_PageView* pPageView = pAnnot->GetPageView();
       ASSERT(pPageView);
 
-      bool bReset = false;
-      bool bExit = false;
+      bool bReset;
+      bool bExit;
       CPDFSDK_Annot::ObservedPtr pObserved(m_pWidget.Get());
-      m_pFormFillEnv->GetInteractiveFormFiller()->OnButtonUp(
-          &pObserved, pPageView, bReset, bExit, nFlags);
+      std::tie(bReset, bExit) =
+          m_pFormFillEnv->GetInteractiveFormFiller()->OnButtonUp(
+              &pObserved, pPageView, nFlags);
       if (!pObserved || bReset || bExit)
         return true;
 

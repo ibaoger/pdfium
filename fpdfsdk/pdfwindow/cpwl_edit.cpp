@@ -586,8 +586,6 @@ bool CPWL_Edit::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
 
   if (nChar == FWL_VKEY_Delete) {
     if (m_pFillerNotify) {
-      bool bRC = true;
-      bool bExit = false;
       CFX_WideString strChange;
       CFX_WideString strChangeEx;
 
@@ -597,12 +595,13 @@ bool CPWL_Edit::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
 
       if (nSelStart == nSelEnd)
         nSelEnd = nSelStart + 1;
-      m_pFillerNotify->OnBeforeKeyStroke(GetAttachedData(), strChange,
-                                         strChangeEx, nSelStart, nSelEnd, true,
-                                         bRC, bExit, nFlag);
-      if (!bRC)
-        return false;
-      if (bExit)
+
+      bool bRC;
+      bool bExit;
+      std::tie(bRC, bExit) = m_pFillerNotify->OnBeforeKeyStroke(
+          GetAttachedData(), strChange, strChangeEx, nSelStart, nSelEnd, true,
+          false, nFlag);
+      if (!bRC || bExit)
         return false;
     }
   }
@@ -677,9 +676,9 @@ bool CPWL_Edit::OnChar(uint16_t nChar, uint32_t nFlag) {
       }
 
       CFX_WideString strChangeEx;
-      m_pFillerNotify->OnBeforeKeyStroke(GetAttachedData(), swChange,
-                                         strChangeEx, nSelStart, nSelEnd, true,
-                                         bRC, bExit, nFlag);
+      std::tie(bRC, bExit) = m_pFillerNotify->OnBeforeKeyStroke(
+          GetAttachedData(), swChange, strChangeEx, nSelStart, nSelEnd, true,
+          false, nFlag);
     }
   }
 

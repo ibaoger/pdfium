@@ -8,6 +8,7 @@
 #define FPDFSDK_PDFWINDOW_CPWL_COMBO_BOX_H_
 
 #include <memory>
+#include <utility>
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
@@ -22,8 +23,8 @@ class CPWL_CBListBox : public CPWL_ListBox {
   // CPWL_ListBox
   bool OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) override;
 
-  bool OnKeyDownWithExit(uint16_t nChar, bool& bExit, uint32_t nFlag);
-  bool OnCharWithExit(uint16_t nChar, bool& bExit, uint32_t nFlag);
+  std::pair<bool, bool> OnKeyDownWithExit(uint16_t nChar, uint32_t nFlag);
+  void OnCharWithExit(uint16_t nChar, uint32_t nFlag);
 };
 
 #define PWL_COMBOBOX_BUTTON_WIDTH 13

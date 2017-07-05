@@ -223,10 +223,7 @@ bool CPWL_ListBox::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
     case FWL_VKEY_Delete:
       break;
   }
-
-  bool bExit = false;
-  OnNotifySelChanged(true, bExit, nFlag);
-
+  OnNotifySelectionChanged(true, false, nFlag);
   return true;
 }
 
@@ -236,9 +233,7 @@ bool CPWL_ListBox::OnChar(uint16_t nChar, uint32_t nFlag) {
   if (!m_pList->OnChar(nChar, IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag)))
     return false;
 
-  bool bExit = false;
-  OnNotifySelChanged(true, bExit, nFlag);
-
+  OnNotifySelectionChanged(true, false, nFlag);
   return true;
 }
 
@@ -263,10 +258,7 @@ bool CPWL_ListBox::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
     ReleaseCapture();
     m_bMouseDown = false;
   }
-
-  bool bExit = false;
-  OnNotifySelChanged(false, bExit, nFlag);
-
+  OnNotifySelectionChanged(false, false, nFlag);
   return true;
 }
 
@@ -309,20 +301,23 @@ void CPWL_ListBox::RePosChildWnd() {
   m_pList->SetPlateRect(GetListRect());
 }
 
-void CPWL_ListBox::OnNotifySelChanged(bool bKeyDown,
-                                      bool& bExit,
-                                      uint32_t nFlag) {
+bool CPWL_ListBox::OnNotifySelectionChanged(bool bKeyDown,
+                                            bool bExit,
+                                            uint32_t nFlag) {
   if (!m_pFillerNotify)
-    return;
+    return bExit;
 
-  bool bRC = true;
   CFX_WideString swChange = GetText();
   CFX_WideString strChangeEx;
   int nSelStart = 0;
   int nSelEnd = swChange.GetLength();
-  m_pFillerNotify->OnBeforeKeyStroke(GetAttachedData(), swChange, strChangeEx,
-                                     nSelStart, nSelEnd, bKeyDown, bRC, bExit,
-                                     nFlag);
+
+  bool bRC;
+  bool ret;
+  std::tie(bRC, ret) = m_pFillerNotify->OnBeforeKeyStroke(
+      GetAttachedData(), swChange, strChangeEx, nSelStart, nSelEnd, bKeyDown,
+      bExit, nFlag);
+  return ret;
 }
 
 CFX_FloatRect CPWL_ListBox::GetFocusRect() const {
@@ -425,7 +420,6 @@ bool CPWL_ListBox::OnMouseWheel(short zDelta,
   else
     m_pList->OnVK_UP(IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag));
 
-  bool bExit = false;
-  OnNotifySelChanged(false, bExit, nFlag);
+  OnNotifySelectionChanged(false, false, nFlag);
   return true;
 }

@@ -40,15 +40,11 @@ bool CPWL_CBListBox::OnLButtonUp(const CFX_PointF& point, uint32_t nFlag) {
   if (CPWL_Wnd* pParent = GetParentWindow())
     pParent->NotifyLButtonUp(this, point);
 
-  bool bExit = false;
-  OnNotifySelChanged(false, bExit, nFlag);
-
-  return !bExit;
+  return !OnNotifySelectionChanged(false, false, nFlag);
 }
 
-bool CPWL_CBListBox::OnKeyDownWithExit(uint16_t nChar,
-                                       bool& bExit,
-                                       uint32_t nFlag) {
+std::pair<bool, bool> CPWL_CBListBox::OnKeyDownWithExit(uint16_t nChar,
+                                                        uint32_t nFlag) {
   switch (nChar) {
     case FWL_VKEY_Up:
     case FWL_VKEY_Down:
@@ -58,7 +54,7 @@ bool CPWL_CBListBox::OnKeyDownWithExit(uint16_t nChar,
     case FWL_VKEY_Right:
       break;
     default:
-      return false;
+      return {false, false};
   }
 
   switch (nChar) {
@@ -83,23 +79,16 @@ bool CPWL_CBListBox::OnKeyDownWithExit(uint16_t nChar,
     case FWL_VKEY_Delete:
       break;
   }
-
-  OnNotifySelChanged(true, bExit, nFlag);
-
-  return true;
+  return {true, OnNotifySelectionChanged(true, false, nFlag)};
 }
 
-bool CPWL_CBListBox::OnCharWithExit(uint16_t nChar,
-                                    bool& bExit,
-                                    uint32_t nFlag) {
+void CPWL_CBListBox::OnCharWithExit(uint16_t nChar, uint32_t nFlag) {
   if (!m_pList->OnChar(nChar, IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag)))
-    return false;
+    return;
   if (CPWL_ComboBox* pComboBox = (CPWL_ComboBox*)GetParentWindow())
     pComboBox->SetSelectText();
 
-  OnNotifySelChanged(true, bExit, nFlag);
-
-  return true;
+  OnNotifySelectionChanged(true, false, nFlag);
 }
 
 void CPWL_CBButton::GetThisAppearanceStream(std::ostringstream* psAppStream) {
@@ -427,9 +416,7 @@ void CPWL_ComboBox::SetPopup(bool bPopup) {
     return;
 
 #ifdef PDF_ENABLE_XFA
-  bool bExit = false;
-  m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), bExit, 0);
-  if (bExit)
+  if (m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), 0))
     return;
 #endif  // PDF_ENABLE_XFA
 
@@ -474,19 +461,18 @@ bool CPWL_ComboBox::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
   switch (nChar) {
     case FWL_VKEY_Up:
       if (m_pList->GetCurSel() > 0) {
-        bool bExit = false;
 #ifdef PDF_ENABLE_XFA
         if (m_pFillerNotify) {
-          m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), bExit, nFlag);
-          if (bExit)
+          if (m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), nFlag))
             return false;
-          bExit = false;
-          m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), bExit, nFlag);
-          if (bExit)
+          if (m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), nFlag))
             return false;
         }
 #endif  // PDF_ENABLE_XFA
-        if (m_pList->OnKeyDownWithExit(nChar, bExit, nFlag)) {
+        bool bExit;
+        bool ret;
+        std::tie(ret, bExit) = m_pList->OnKeyDownWithExit(nChar, nFlag);
+        if (ret) {
           if (bExit)
             return false;
           SetSelectText();
@@ -495,19 +481,18 @@ bool CPWL_ComboBox::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
       return true;
     case FWL_VKEY_Down:
       if (m_pList->GetCurSel() < m_pList->GetCount() - 1) {
-        bool bExit = false;
 #ifdef PDF_ENABLE_XFA
         if (m_pFillerNotify) {
-          m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), bExit, nFlag);
-          if (bExit)
+          if (m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), nFlag))
             return false;
-          bExit = false;
-          m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), bExit, nFlag);
-          if (bExit)
+          if (m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), nFlag))
             return false;
         }
 #endif  // PDF_ENABLE_XFA
-        if (m_pList->OnKeyDownWithExit(nChar, bExit, nFlag)) {
+        bool bExit;
+        bool ret;
+        std::tie(ret, bExit) = m_pList->OnKeyDownWithExit(nChar, nFlag);
+        if (ret) {
           if (bExit)
             return false;
           SetSelectText();
@@ -533,19 +518,17 @@ bool CPWL_ComboBox::OnChar(uint16_t nChar, uint32_t nFlag) {
   if (HasFlag(PCBS_ALLOWCUSTOMTEXT))
     return m_pEdit->OnChar(nChar, nFlag);
 
-  bool bExit = false;
 #ifdef PDF_ENABLE_XFA
   if (m_pFillerNotify) {
-    m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), bExit, nFlag);
-    if (bExit)
+    if (m_pFillerNotify->OnPopupPreOpen(GetAttachedData(), nFlag))
       return false;
 
-    m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), bExit, nFlag);
-    if (bExit)
+    if (m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), nFlag))
       return false;
   }
 #endif  // PDF_ENABLE_XFA
-  return m_pList->OnCharWithExit(nChar, bExit, nFlag) ? bExit : false;
+  m_pList->OnCharWithExit(nChar, nFlag);
+  return false;
 }
 
 void CPWL_ComboBox::NotifyLButtonDown(CPWL_Wnd* child, const CFX_PointF& pos) {
