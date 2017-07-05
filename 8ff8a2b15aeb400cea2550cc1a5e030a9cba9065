@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9e08e6c_152a01c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:25:00Z",
+      "side": 1,
+      "message": "Who were the two deleters? The UnownedPtr should not be doing any cleanup itself, which is why I\u0027m guessing we have the SkSafeUnref. Is there a second unref that\u0027s happening?",
+      "revId": "8ff8a2b15aeb400cea2550cc1a5e030a9cba9065",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
