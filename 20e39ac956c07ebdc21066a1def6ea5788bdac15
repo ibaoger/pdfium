@@ -22,6 +22,30 @@
       "revId": "20e39ac956c07ebdc21066a1def6ea5788bdac15",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b9c239c_3c1e3e23",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T18:14:01Z",
+      "side": 1,
+      "message": "Unfortunately we can\u0027t reuse the internal buffer in an ostringstream since it\u0027s implementation-dependent.",
+      "parentUuid": "9d79ad39_ac23e88f",
+      "range": {
+        "startLine": 230,
+        "startChar": 3,
+        "endLine": 232,
+        "endChar": 75
+      },
+      "revId": "20e39ac956c07ebdc21066a1def6ea5788bdac15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

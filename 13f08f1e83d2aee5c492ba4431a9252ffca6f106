@@ -122,6 +122,24 @@
       "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e7b87ba_297b3bfa",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T18:14:01Z",
+      "side": 1,
+      "message": "I created a constructor that takes the buffer to copy, so the cast is still outside. On the other hand, the API makes more sense that way, there is a version that takes ownership of the buffer and another one that copies it.",
+      "parentUuid": "7cafe80c_98a4d141",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
