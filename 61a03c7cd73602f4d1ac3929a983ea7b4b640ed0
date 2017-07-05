@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "8214b7ad_8e931870",
+        "filename": "core/fpdfapi/render/cpdf_charposlist.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-05T23:05:45Z",
+      "side": 1,
+      "message": "UnicodeFromCharCode() can return an empty string, in which case the operator[] call goes out of bounds.",
+      "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b985a4_8125db86",
+        "filename": "core/fxge/win32/fx_win32_print.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-05T23:05:45Z",
+      "side": 1,
+      "message": "Can we use the initializer list?",
+      "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed58a810_a855602c",
         "filename": "core/fxge/win32/fx_win32_print.cpp",
         "patchSetId": 2
@@ -19,6 +53,46 @@
         "endLine": 553,
         "endChar": 35
       },
+      "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5732c013_5cb0efde",
+        "filename": "core/fxge/win32/fx_win32_print.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-05T23:05:45Z",
+      "side": 1,
+      "message": "Is 32 really: L\" \" ?",
+      "range": {
+        "startLine": 564,
+        "startChar": 14,
+        "endLine": 564,
+        "endChar": 16
+      },
+      "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e979a5c_4aa1b116",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-05T23:05:45Z",
+      "side": 1,
+      "message": "Maybe we want something like FPDF_SetPrintMode(), which takes an int that is essentially an enum, so it can represent text-only mode, PS modes, and whatever else we come up with in the future. Then use that on the Chromium side, and drop uses of FPDF_SetPrintPostscriptLevel(). Finally delete FPDF_SetPrintPostscriptLevel() altogether.\n\nAs is, there is the question of if FPDF_SetPrintTextOnly() and FPDF_SetPrintPostscriptLevel() get called, who \"wins\" ?",
       "revId": "61a03c7cd73602f4d1ac3929a983ea7b4b640ed0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
