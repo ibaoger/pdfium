@@ -22,6 +22,30 @@
       "revId": "d0cb171853bba4475de03fbde0595206b46eba11",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05d65445_8e48c10c",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:45:26Z",
+      "side": 1,
+      "message": "they\u0027re needed to suppress a warning about very large integers losing precision when cast to floats.",
+      "parentUuid": "043672b2_7b89af97",
+      "range": {
+        "startLine": 866,
+        "startChar": 28,
+        "endLine": 866,
+        "endChar": 34
+      },
+      "revId": "d0cb171853bba4475de03fbde0595206b46eba11",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
