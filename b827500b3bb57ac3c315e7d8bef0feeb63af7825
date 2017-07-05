@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07f7828d_9a562bc1",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T18:19:38Z",
+      "side": 1,
+      "message": "nit: move to after next line:\nbool useMultipleMasters \u003d pSubstFont \u0026\u0026 pSubstFont-\u003em_SubstFlags \u0026 FXFONT_SUBST_MM;",
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ef4ee4_3eebd2da",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T18:19:38Z",
+      "side": 1,
+      "message": "nit: unneeded variable",
+      "range": {
+        "startLine": 1460,
+        "startChar": 7,
+        "endLine": 1460,
+        "endChar": 17
+      },
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0ca92ce_756a36b4",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T18:19:38Z",
+      "side": 1,
+      "message": "Is this intentional or were you thinking of axes[0].fStyleValue?",
+      "range": {
+        "startLine": 1483,
+        "startChar": 57,
+        "endLine": 1483,
+        "endChar": 77
+      },
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
