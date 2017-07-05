@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ee5b9f8_595b1f7d",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T20:07:33Z",
+      "side": 1,
+      "message": "Can this overflow?",
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbf6fe84_2e9611ca",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T20:07:33Z",
+      "side": 1,
+      "message": "Should this be based on m_SrcFormat? Or, where does 32 come from?",
+      "range": {
+        "startLine": 1068,
+        "startChar": 61,
+        "endLine": 1068,
+        "endChar": 63
+      },
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a298db2_b5ace84b",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T20:07:33Z",
+      "side": 1,
+      "message": "What happens if pitch * height overflows?",
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
