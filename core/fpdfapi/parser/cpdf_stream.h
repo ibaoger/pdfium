@@ -24,6 +24,11 @@ class CPDF_Stream : public CPDF_Object {
               uint32_t size,
               std::unique_ptr<CPDF_Dictionary> pDict);
 
+  // Copies |pData|.
+  CPDF_Stream(const uint8_t* pData,
+              uint32_t size,
+              std::unique_ptr<CPDF_Dictionary> pDict);
+
   ~CPDF_Stream() override;
 
   // CPDF_Object:

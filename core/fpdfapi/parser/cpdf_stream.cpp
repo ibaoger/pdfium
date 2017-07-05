@@ -6,6 +6,7 @@
 
 #include "core/fpdfapi/parser/cpdf_stream.h"
 
+#include <cstring>
 #include <utility>
 
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
@@ -22,6 +23,14 @@ CPDF_Stream::CPDF_Stream(std::unique_ptr<uint8_t, FxFreeDeleter> pData,
                          uint32_t size,
                          std::unique_ptr<CPDF_Dictionary> pDict)
     : m_dwSize(size), m_pDict(std::move(pDict)), m_pDataBuf(std::move(pData)) {}
+
+CPDF_Stream::CPDF_Stream(const uint8_t* pData,
+                         uint32_t size,
+                         std::unique_ptr<CPDF_Dictionary> pDict)
+    : m_dwSize(size), m_pDict(std::move(pDict)) {
+  m_pDataBuf = std::unique_ptr<uint8_t, FxFreeDeleter>(FX_Alloc(uint8_t, size));
+  std::memcpy(m_pDataBuf.get(), pData, size);
+}
 
 CPDF_Stream::~CPDF_Stream() {
   m_ObjNum = kInvalidObjNum;
