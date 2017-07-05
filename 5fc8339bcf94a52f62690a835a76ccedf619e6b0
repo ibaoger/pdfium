@@ -70,6 +70,30 @@
       "revId": "5fc8339bcf94a52f62690a835a76ccedf619e6b0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c68a9f4_463e115c",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-05T20:00:41Z",
+      "side": 1,
+      "message": "It\u0027s not exactly the same, SetData does some other things to m_pDict.",
+      "parentUuid": "0a71e342_daf5555b",
+      "range": {
+        "startLine": 231,
+        "startChar": 6,
+        "endLine": 231,
+        "endChar": 72
+      },
+      "revId": "5fc8339bcf94a52f62690a835a76ccedf619e6b0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
