@@ -22,6 +22,30 @@
       "revId": "ef6a7efc5c61afecea708bda7fc7c05cfa98ca90",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d44f98f7_2bffd124",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T18:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f88bdf19_7187da54",
+      "range": {
+        "startLine": 61,
+        "startChar": 29,
+        "endLine": 61,
+        "endChar": 31
+      },
+      "revId": "ef6a7efc5c61afecea708bda7fc7c05cfa98ca90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
