@@ -24,6 +24,7 @@
 #include "core/fxge/dib/cfx_bitmapcomposer.h"
 #include "core/fxge/dib/cfx_imagerenderer.h"
 #include "core/fxge/dib/cfx_imagestretcher.h"
+#include "core/fxge/fx_font.h"
 #include "core/fxge/skia/fx_skia_device.h"
 #include "third_party/base/logging.h"
 #include "third_party/base/ptr_util.h"
@@ -38,6 +39,8 @@
 #include "third_party/skia/include/effects/SkDashPathEffect.h"
 #include "third_party/skia/include/effects/SkGradientShader.h"
 #include "third_party/skia/include/pathops/SkPathOps.h"
+#include "third_party/skia/include/ports/SkFontMgr.h"
+#include "third_party/skia/include/ports/SkFontMgr_empty.h"
 
 #ifdef _SKIA_SUPPORT_PATHS_
 #include "core/fxge/ge/cfx_cliprgn.h"
@@ -779,6 +782,11 @@ class SkiaState {
     if (m_debugDisable)
       return false;
     Dump(__func__);
+    const CFX_SubstFont* pSubstFont = pFont->GetSubstFont();
+    if (pSubstFont && pSubstFont->m_SubstFlags & FXFONT_SUBST_MM) {
+      Flush();
+      return false;
+    }
     int drawIndex = SkTMin(m_drawIndex, m_commands.count());
     if (Accumulator::kPath == m_type || drawIndex != m_commandIndex ||
         (Accumulator::kText == m_type &&
@@ -1425,6 +1433,10 @@ bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
                          color)) {
     return true;
   }
+  bool useMultipleMasters = false;
+  const CFX_SubstFont* pSubstFont = pFont->GetSubstFont();
+  if (pSubstFont && pSubstFont->m_SubstFlags & FXFONT_SUBST_MM)
+    useMultipleMasters = true;
   sk_sp<SkTypeface> typeface(SkSafeRef(pFont->GetDeviceCache()));
   SkPaint paint;
   paint.setAntiAlias(true);
@@ -1445,6 +1457,7 @@ bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
   positions.setCount(nChars);
   SkTDArray<uint16_t> glyphs;
   glyphs.setCount(nChars);
+  bool oneAtATime = useMultipleMasters;
   for (int index = 0; index < nChars; ++index) {
     const FXTEXT_CHARPOS& cp = pCharPos[index];
     positions[index] = {cp.m_Origin.x * flip, cp.m_Origin.y * vFlip};
@@ -1453,7 +1466,37 @@ bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
 #ifdef _SKIA_SUPPORT_PATHS_
   m_pBitmap->PreMultiply();
 #endif  // _SKIA_SUPPORT_PATHS_
-  m_pCanvas->drawPosText(glyphs.begin(), nChars * 2, positions.begin(), paint);
+  if (oneAtATime) {
+    for (int index = 0; index < nChars; ++index) {
+      const FXTEXT_CHARPOS& cp = pCharPos[index];
+      if (useMultipleMasters) {
+        FXFT_MM_Var pMasters = nullptr;
+        FXFT_Get_MM_Var(pFont->GetFace(), &pMasters);
+        if (pMasters) {
+          SkFontArguments::Axis axes[2];
+          axes[0].fTag = 'wght';
+          axes[0].fStyleValue =
+              pFont->GetMMWeightParam(pMasters, pSubstFont->m_Weight);
+          axes[1].fTag = 'wdth';
+          axes[1].fStyleValue =
+              pFont->GetMMWidthParam(pMasters, cp.m_GlyphIndex,
+                                     cp.m_FontCharWidth, pSubstFont->m_Weight);
+          SkFontArguments fontArguments;
+          fontArguments.setAxes(axes, 2);
+          sk_sp<SkFontMgr> customMgr(SkFontMgr_New_Custom_Empty());
+          typeface = sk_sp<SkTypeface>(customMgr->createFromStream(
+              new SkMemoryStream(pFont->GetFontData(), pFont->GetSize()),
+              fontArguments));
+          paint.setTypeface(typeface);
+        }
+      }
+      m_pCanvas->drawText(&glyphs[index], 1, positions[index].fX,
+                          positions[index].fY, paint);
+    }
+  } else {
+    m_pCanvas->drawPosText(glyphs.begin(), nChars * 2, positions.begin(),
+                           paint);
+  }
   m_pCanvas->restore();
 
   return true;

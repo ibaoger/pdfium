@@ -525,6 +525,41 @@ void CFX_Font::ClearFaceCache() {
   CFX_GEModule::Get()->GetFontCache()->ReleaseCachedFace(this);
 }
 
+long CFX_Font::GetMMWeightParam(FXFT_MM_Var pMasters, int weight) const {
+  return weight ? weight
+                : FXFT_Get_MM_Axis_Def(FXFT_Get_MM_Axis(pMasters, 0)) / 65536;
+}
+
+long CFX_Font::GetMMWidthParam(FXFT_MM_Var pMasters,
+                               int glyph_index,
+                               int dest_width,
+                               long weight) const {
+  if (dest_width == 0)
+    return FXFT_Get_MM_Axis_Def(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
+  int min_param = FXFT_Get_MM_Axis_Min(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
+  int max_param = FXFT_Get_MM_Axis_Max(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
+  long coords[2];
+  coords[0] = weight;
+  coords[1] = min_param;
+  FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
+  FXFT_Load_Glyph(m_Face, glyph_index,
+                  FXFT_LOAD_NO_SCALE | FXFT_LOAD_IGNORE_GLOBAL_ADVANCE_WIDTH);
+  int min_width = FXFT_Get_Glyph_HoriAdvance(m_Face) * 1000 /
+                  FXFT_Get_Face_UnitsPerEM(m_Face);
+  coords[1] = max_param;
+  FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
+  FXFT_Load_Glyph(m_Face, glyph_index,
+                  FXFT_LOAD_NO_SCALE | FXFT_LOAD_IGNORE_GLOBAL_ADVANCE_WIDTH);
+  int max_width = FXFT_Get_Glyph_HoriAdvance(m_Face) * 1000 /
+                  FXFT_Get_Face_UnitsPerEM(m_Face);
+  if (max_width == min_width) {
+    FXFT_Free(m_Face, pMasters);
+    return max_param;
+  }
+  return min_param + (max_param - min_param) * (dest_width - min_width) /
+                         (max_width - min_width);
+}
+
 void CFX_Font::AdjustMMParams(int glyph_index,
                               int dest_width,
                               int weight) const {
@@ -534,37 +569,9 @@ void CFX_Font::AdjustMMParams(int glyph_index,
     return;
 
   long coords[2];
-  if (weight == 0)
-    coords[0] = FXFT_Get_MM_Axis_Def(FXFT_Get_MM_Axis(pMasters, 0)) / 65536;
-  else
-    coords[0] = weight;
+  coords[0] = GetMMWeightParam(pMasters, weight);
+  coords[1] = GetMMWidthParam(pMasters, glyph_index, dest_width, coords[0]);
 
-  if (dest_width == 0) {
-    coords[1] = FXFT_Get_MM_Axis_Def(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
-  } else {
-    int min_param = FXFT_Get_MM_Axis_Min(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
-    int max_param = FXFT_Get_MM_Axis_Max(FXFT_Get_MM_Axis(pMasters, 1)) / 65536;
-    coords[1] = min_param;
-    FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
-    FXFT_Load_Glyph(m_Face, glyph_index,
-                    FXFT_LOAD_NO_SCALE | FXFT_LOAD_IGNORE_GLOBAL_ADVANCE_WIDTH);
-    int min_width = FXFT_Get_Glyph_HoriAdvance(m_Face) * 1000 /
-                    FXFT_Get_Face_UnitsPerEM(m_Face);
-    coords[1] = max_param;
-    FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
-    FXFT_Load_Glyph(m_Face, glyph_index,
-                    FXFT_LOAD_NO_SCALE | FXFT_LOAD_IGNORE_GLOBAL_ADVANCE_WIDTH);
-    int max_width = FXFT_Get_Glyph_HoriAdvance(m_Face) * 1000 /
-                    FXFT_Get_Face_UnitsPerEM(m_Face);
-    if (max_width == min_width) {
-      FXFT_Free(m_Face, pMasters);
-      return;
-    }
-    int param = min_param +
-                (max_param - min_param) * (dest_width - min_width) /
-                    (max_width - min_width);
-    coords[1] = param;
-  }
   FXFT_Free(m_Face, pMasters);
   FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
 }
