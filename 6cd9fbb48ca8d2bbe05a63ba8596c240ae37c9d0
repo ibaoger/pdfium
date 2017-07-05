@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02498d77_3dcdb891",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T19:04:24Z",
+      "side": 1,
+      "message": "Will do as followup, I also want to rename to OnNotifySelectionChanged() so I\u0027ll do it at the same time.",
+      "parentUuid": "3a0fa059_a2d32991",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "6cd9fbb48ca8d2bbe05a63ba8596c240ae37c9d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce69725d_c2a5a3ec",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-05T18:57:32Z",
       "side": 1,
       "message": "nit: are these really OnLButtonUp() for consistency with above?",
+      "range": {
+        "startLine": 64,
+        "startChar": 7,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "6cd9fbb48ca8d2bbe05a63ba8596c240ae37c9d0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28365200_6276fd79",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T19:04:24Z",
+      "side": 1,
+      "message": "No, because these are getting notified that the child was clicked, not that this class was clicked.",
+      "parentUuid": "ce69725d_c2a5a3ec",
       "range": {
         "startLine": 64,
         "startChar": 7,
