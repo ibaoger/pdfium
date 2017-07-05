@@ -104,6 +104,24 @@
       "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cafe80c_98a4d141",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T15:46:25Z",
+      "side": 1,
+      "message": "Can we add a constructor which takes the (const std::ostringstream\u0026 data, std::unique_ptr\u003cCPDF_Dictionary\u003e pDict) ?",
+      "parentUuid": "3899a845_43b3984a",
+      "revId": "13f08f1e83d2aee5c492ba4431a9252ffca6f106",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
