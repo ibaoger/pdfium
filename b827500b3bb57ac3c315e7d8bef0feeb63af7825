@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1e47c4c8_83b4e68c",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:26:48Z",
+      "side": 1,
+      "message": "will do when I merge",
+      "parentUuid": "07f7828d_9a562bc1",
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5ef4ee4_3eebd2da",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "61cfe47f_6def9466",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:26:48Z",
+      "side": 1,
+      "message": "will be required when all CLs are merged",
+      "parentUuid": "e5ef4ee4_3eebd2da",
+      "range": {
+        "startLine": 1460,
+        "startChar": 7,
+        "endLine": 1460,
+        "endChar": 17
+      },
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0ca92ce_756a36b4",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-07-05T18:19:38Z",
       "side": 1,
       "message": "Is this intentional or were you thinking of axes[0].fStyleValue?",
+      "range": {
+        "startLine": 1483,
+        "startChar": 57,
+        "endLine": 1483,
+        "endChar": 77
+      },
+      "revId": "b827500b3bb57ac3c315e7d8bef0feeb63af7825",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ebc4993_2a74feb5",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:26:48Z",
+      "side": 1,
+      "message": "It\u0027s intentional; it preserves the original logic",
+      "parentUuid": "f0ca92ce_756a36b4",
       "range": {
         "startLine": 1483,
         "startChar": 57,
