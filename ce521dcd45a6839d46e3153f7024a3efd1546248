@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e7a945f2_ac68dca1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:22:16Z",
+      "side": 1,
+      "message": "The 2x3 is the 2x2 in glyph adjust plus the 1x2 describing the glyph position",
+      "parentUuid": "ddea0f03_df10c7e9",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "ce521dcd45a6839d46e3153f7024a3efd1546248",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2fe48c5_e4239141",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "f494f6c8_5b07cf5a",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:22:16Z",
+      "side": 1,
+      "message": "A by-product of splitting the larger CL into smaller ones. Once the CLs are all merged, this variable is required. This attempts to lessen my merge pain.",
+      "parentUuid": "d2fe48c5_e4239141",
+      "revId": "ce521dcd45a6839d46e3153f7024a3efd1546248",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "896c7f6b_062de2ea",
         "filename": "core/fxge/skia/fx_skia_device.cpp",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2017-07-05T18:00:28Z",
       "side": 1,
       "message": "nit: not {}s in single-line if",
+      "range": {
+        "startLine": 844,
+        "startChar": 16,
+        "endLine": 844,
+        "endChar": 17
+      },
+      "revId": "ce521dcd45a6839d46e3153f7024a3efd1546248",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a265d89_cfac19a4",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T18:22:16Z",
+      "side": 1,
+      "message": "Another attempt to lessen merge pain -- once merged, there is a multi-line else.",
+      "parentUuid": "896c7f6b_062de2ea",
       "range": {
         "startLine": 844,
         "startChar": 16,
