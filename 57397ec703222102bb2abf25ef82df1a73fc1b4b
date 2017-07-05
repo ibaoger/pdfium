@@ -22,6 +22,30 @@
       "revId": "57397ec703222102bb2abf25ef82df1a73fc1b4b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0758f0da_9d0aa0d1",
+        "filename": "fpdfsdk/fxedit/fxet_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-05T20:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1727d2b6_319d57e4",
+      "range": {
+        "startLine": 1230,
+        "startChar": 6,
+        "endLine": 1230,
+        "endChar": 15
+      },
+      "revId": "57397ec703222102bb2abf25ef82df1a73fc1b4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
