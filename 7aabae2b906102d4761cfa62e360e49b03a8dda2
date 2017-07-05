@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc1c1e25_0cccb337",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T21:00:15Z",
+      "side": 1,
+      "message": "Are we guaranteed the only options are SBT_HSCROLL and SBT_VSCROLL or should this be an else if?",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 10
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f65dcd68_f32f48ba",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T21:00:15Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66a1ef55_09a68d6e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T21:00:15Z",
+      "side": 1,
+      "message": "ditto with PSBT_MIN, PSBT_MAX, and PSBT_POS",
+      "range": {
+        "startLine": 254,
+        "startChar": 6,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c66056a5_870a4061",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T21:00:15Z",
+      "side": 1,
+      "message": "nit: const",
+      "range": {
+        "startLine": 304,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 15
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
