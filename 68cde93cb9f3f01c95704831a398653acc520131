@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75953969_a32068ec",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T17:17:43Z",
+      "side": 1,
+      "message": "Can this method be removed and replaced with SetCaret?",
+      "range": {
+        "startLine": 436,
+        "startChar": 20,
+        "endLine": 436,
+        "endChar": 31
+      },
+      "revId": "68cde93cb9f3f01c95704831a398653acc520131",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
