@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e47082da_3f5e55d3",
+        "filename": "fpdfsdk/fpdfedittext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-05T19:01:37Z",
+      "side": 1,
+      "message": "SetData? And no need for the new constructor.",
+      "range": {
+        "startLine": 231,
+        "startChar": 6,
+        "endLine": 231,
+        "endChar": 72
+      },
+      "revId": "5fc8339bcf94a52f62690a835a76ccedf619e6b0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
