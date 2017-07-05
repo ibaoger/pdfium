@@ -16,6 +16,24 @@
       "revId": "0721805ada518f78f9aea1e5221de1fd792b8f27",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aea10d1_c6b509a0",
+        "filename": "core/fxge/skia/fx_skia_device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 6215
+      },
+      "writtenOn": "2017-07-05T17:30:26Z",
+      "side": 1,
+      "message": "Today, skiapaths maintains two separate clipstacks; one for skia and one pdfium\u0027s implementation. I\u0027d like for the !skipapaths implementation to only require a single clipstack, and be able to return the current clip bounds from that.\n\nAlso, the pdfium implementation returns a way oversized box, since it only supports clipping through bitmap masks. Since Skia clips geometrically, it can get away with a tight clip bounds. The current callers of GetClipBox erroneously depend on the oversized box, so fixing this requires upstream work as well.",
+      "parentUuid": "886af03c_4680d15d",
+      "revId": "0721805ada518f78f9aea1e5221de1fd792b8f27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
