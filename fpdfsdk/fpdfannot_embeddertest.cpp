@@ -470,15 +470,18 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
   const char md5[] = "c35408717759562d1f8bf33d317483d2";
   const char md5_2[] = "cf3cea74bd46497520ff6c4d1ea228c8";
-  const char md5_3[] = "ee5372b31fede117fc83b9384598aa25";
+  const char md5_3[] = "e8994452fc4385337bae5522354e10ff";
+  const char md5_4[] = "ee5372b31fede117fc83b9384598aa25";
 #elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
   const char md5[] = "bdf96279ab82d9f484874db3f0c03429";
   const char md5_2[] = "5f2b32b7aa93bc1e62a7a7971f54bdd7";
-  const char md5_3[] = "272661f3e5c9516aac4b5beb3ae1b36a";
+  const char md5_3[] = "8cc3e18254d8481fc653f22c3c72987a";
+  const char md5_4[] = "272661f3e5c9516aac4b5beb3ae1b36a";
 #else
   const char md5[] = "07d4168715553b4294525f840c40aa1c";
   const char md5_2[] = "dd5ba8996af67d0e5add418195e4d61b";
-  const char md5_3[] = "c60c2cc2c4e7b13be90bd77cc4502f97";
+  const char md5_3[] = "939302c935021eba80fbd376b3c14b44";
+  const char md5_4[] = "c60c2cc2c4e7b13be90bd77cc4502f97";
 #endif
 
   // Open a file with two annotations and load its first page.
@@ -507,9 +510,32 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   // Modify the color of the path object.
   EXPECT_TRUE(FPDFPath_SetStrokeColor(path, 0, 0, 0, 255));
   EXPECT_TRUE(FPDFAnnot_UpdateObject(annot, path));
-  FPDFPage_CloseAnnot(annot);
 
   // Check that the page with the modified annotation renders correctly.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_2);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Add a second path object to the same annotation.
+  FPDF_PAGEOBJECT dot = FPDFPageObj_CreateNewPath(7, 84);
+  EXPECT_TRUE(FPDFPath_BezierTo(dot, 9, 86, 10, 87, 11, 88));
+  EXPECT_TRUE(FPDFPath_SetStrokeColor(dot, 255, 0, 0, 100));
+  EXPECT_TRUE(FPDFPath_SetStrokeWidth(dot, 14));
+  EXPECT_TRUE(FPDFPath_SetDrawMode(dot, 0, 1));
+  EXPECT_TRUE(FPDFAnnot_AppendObject(annot, dot));
+  EXPECT_EQ(2, FPDFAnnot_GetObjectCount(annot));
+
+  // Check that the page with an annotation with two paths renders correctly.
+  bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
+  CompareBitmap(bitmap, 595, 842, md5_3);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Delete the newly added path object.
+  EXPECT_TRUE(FPDFAnnot_RemoveObject(annot, 1));
+  EXPECT_EQ(1, FPDFAnnot_GetObjectCount(annot));
+  FPDFPage_CloseAnnot(annot);
+
+  // Check that the page renders the same as before.
   bitmap = RenderPageWithFlags(page, form_handle_, FPDF_ANNOT);
   CompareBitmap(bitmap, 595, 842, md5_2);
   FPDFBitmap_Destroy(bitmap);
@@ -549,7 +575,7 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   FPDF_ClosePage(page);
 
   // Open the saved document.
-  TestSaved(595, 842, md5_3);
+  TestSaved(595, 842, md5_4);
 
   // Check that the document has a correct count of annotations and objects.
   EXPECT_EQ(3, FPDFPage_GetAnnotCount(m_SavedPage));
