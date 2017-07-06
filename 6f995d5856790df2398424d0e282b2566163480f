@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d41bd52_abead36a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-06T18:26:28Z",
+      "side": 1,
+      "message": "for all of these, what do the return values mean?",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 6
+      },
+      "revId": "6f995d5856790df2398424d0e282b2566163480f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
