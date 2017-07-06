@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfdf0e36_5fac79a0",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T15:36:30Z",
+      "side": 0,
+      "message": "This is technically different because this didn\u0027t depend on the bReset value. I think it\u0027s more correct this way as every other caller checks both.",
+      "revId": "4e0364327e778228e8b555b505491c8880c1e15d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
