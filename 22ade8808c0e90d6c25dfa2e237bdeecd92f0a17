@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cc22220_fcf856b5",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:16:16Z",
+      "side": 1,
+      "message": "I don\u0027t think this can ever eval to true with the existing callers.",
+      "revId": "22ade8808c0e90d6c25dfa2e237bdeecd92f0a17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024baebb_8104d259",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:16:16Z",
+      "side": 1,
+      "message": "We should centralize this check. Otherwise, if the list of supported type changes, we\u0027ll have to apply the same update to multiple places.",
+      "revId": "22ade8808c0e90d6c25dfa2e237bdeecd92f0a17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2522b53e_2b16467b",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:16:16Z",
+      "side": 1,
+      "message": "Maybe better naming would make these more meaningful? e.g. this can be md5_two_paths.",
+      "range": {
+        "startLine": 473,
+        "startChar": 13,
+        "endLine": 473,
+        "endChar": 18
+      },
+      "revId": "22ade8808c0e90d6c25dfa2e237bdeecd92f0a17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
