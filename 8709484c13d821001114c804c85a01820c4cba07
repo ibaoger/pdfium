@@ -181,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "c5409a56_a05bc812",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T21:37:43Z",
+      "side": 1,
+      "message": "It\u0027s different here because it\u0027s if | else if | else and the else is short. I think that early return is useful when it is if | else with long if and else. Of course, just my opinion.",
+      "parentUuid": "05e08b06_5555c192",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3d91ca6_316202ca",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
