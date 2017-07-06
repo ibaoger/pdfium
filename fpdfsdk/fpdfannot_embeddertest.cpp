@@ -476,9 +476,9 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   const char md5_2[] = "5f2b32b7aa93bc1e62a7a7971f54bdd7";
   const char md5_3[] = "272661f3e5c9516aac4b5beb3ae1b36a";
 #else
-  const char md5[] = "07d4168715553b4294525f840c40aa1c";
-  const char md5_2[] = "dd5ba8996af67d0e5add418195e4d61b";
-  const char md5_3[] = "c60c2cc2c4e7b13be90bd77cc4502f97";
+  const char md5[] = "02e1c6adff8fee4aeabd91c2c2e4be43";
+  const char md5_2[] = "87a78cbacd8509b961a67be56b5665a2";
+  const char md5_3[] = "c95de7a9a1f61faca03d953961a319b9";
 #endif
 
   // Open a file with two annotations and load its first page.

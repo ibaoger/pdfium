@@ -118,7 +118,7 @@ TEST_F(FPDFParserDecodeEmbeddertest, Bug_455199) {
 #elif _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
   const char kExpectedMd5sum[] = "5db84ceda153acc4420c2062b182191b";
 #else
-  const char kExpectedMd5sum[] = "f24438fe53948941200fd43da37908bc";
+  const char kExpectedMd5sum[] = "f7e129d97c58e91adeace32a4327b925";
 #endif
   CompareBitmap(bitmap, 200, 200, kExpectedMd5sum);
   FPDFBitmap_Destroy(bitmap);
