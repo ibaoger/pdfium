@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a2016a6_64c4aa15",
+        "filename": "core/fxge/cfx_renderdevice.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T02:06:44Z",
+      "side": 1,
+      "message": "Do we need to initialize this in the ctor?",
+      "revId": "e4c55e10c40058dd32d97dde5c3a743e795b9eed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b845876d_c6f80bfe",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T02:06:44Z",
+      "side": 1,
+      "message": "ASSERT()",
+      "revId": "e4c55e10c40058dd32d97dde5c3a743e795b9eed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26493064_870db4db",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T02:06:44Z",
+      "side": 1,
+      "message": "Can we add some #defines, like FPDF_PAGEOBJ_* in public/fpdf_edit.h? Then we can refer to those #defines and the code would be more readable.",
+      "revId": "e4c55e10c40058dd32d97dde5c3a743e795b9eed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8b09fd8_8c790314",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T02:06:44Z",
+      "side": 1,
+      "message": "Still a typo - unsuccessful. Speling is hard.",
+      "revId": "e4c55e10c40058dd32d97dde5c3a743e795b9eed",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
