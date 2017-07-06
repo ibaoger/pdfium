@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7bf45da7_e742c6a5",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T13:05:05Z",
+      "side": 1,
+      "message": "In this case, enum class wouldn\u0027t guarantee anything either. It would with a switch, but not an if/else.",
+      "parentUuid": "8ce5c510_8fdc5342",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 10
+      },
+      "revId": "7aabae2b906102d4761cfa62e360e49b03a8dda2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f65dcd68_f32f48ba",
         "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
         "patchSetId": 2
