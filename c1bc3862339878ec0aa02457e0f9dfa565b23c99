@@ -16,6 +16,24 @@
       "revId": "c1bc3862339878ec0aa02457e0f9dfa565b23c99",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "960f7441_e30b5cca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T21:06:20Z",
+      "side": 1,
+      "message": "I\u0027ve updated the description. Not sure what you mean by safe?",
+      "parentUuid": "4deb63a7_83db1ca6",
+      "revId": "c1bc3862339878ec0aa02457e0f9dfa565b23c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
