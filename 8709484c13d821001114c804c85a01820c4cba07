@@ -59,6 +59,52 @@
     },
     {
       "key": {
+        "uuid": "33f92b6a_d59acd60",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-06T19:57:38Z",
+      "side": 1,
+      "message": "eHighlightingMode",
+      "range": {
+        "startLine": 71,
+        "startChar": 37,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a793ce7_5032dca2",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-06T19:57:38Z",
+      "side": 1,
+      "message": "You can chain else ifs instead of early returns. If they are mutually exclusive, that read better.",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8aba3c98_968505d6",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 1
