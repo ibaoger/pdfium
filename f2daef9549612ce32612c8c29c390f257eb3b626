@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "46efc713_7ecc0194",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T17:36:11Z",
+      "side": 1,
+      "message": "nit: if (!IsDataChanged) early return",
+      "revId": "f2daef9549612ce32612c8c29c390f257eb3b626",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a5b390b_babb65ad",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -13,6 +30,30 @@
       "writtenOn": "2017-07-06T17:12:57Z",
       "side": 1,
       "message": "How about saving this to a local var, checking pObserved, then checking the local var?",
+      "range": {
+        "startLine": 492,
+        "startChar": 8,
+        "endLine": 492,
+        "endChar": 69
+      },
+      "revId": "f2daef9549612ce32612c8c29c390f257eb3b626",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad68e5c5_ccc81254",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T17:36:11Z",
+      "side": 1,
+      "message": "Agreed, this avoids having both lines 493-494 and 498-499",
+      "parentUuid": "5a5b390b_babb65ad",
       "range": {
         "startLine": 492,
         "startChar": 8,
