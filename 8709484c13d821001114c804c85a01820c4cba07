@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6be455cb_c474c65a",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-06T19:44:22Z",
+      "side": 1,
+      "message": "nit: no blank line here?",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb87c405_538b3342",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-06T19:44:22Z",
+      "side": 1,
+      "message": "nit: no blank line here?",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2132b108_79968b30",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-06T19:44:22Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 69,
+        "startChar": 28,
+        "endLine": 69,
+        "endChar": 45
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aba3c98_968505d6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-06T19:44:22Z",
+      "side": 1,
+      "message": "IWYU for FX_COLORREF",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
