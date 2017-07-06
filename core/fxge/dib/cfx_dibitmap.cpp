@@ -39,22 +39,14 @@ bool CFX_DIBitmap::Create(int width,
   m_bpp = static_cast<uint8_t>(format);
   m_AlphaFlag = static_cast<uint8_t>(format >> 8);
   m_Width = m_Height = m_Pitch = 0;
-  if (width <= 0 || height <= 0 || pitch < 0)
-    return false;
 
-  if ((INT_MAX - 31) / width < (format & 0xff))
-    return false;
-
-  if (!pitch)
-    pitch = (width * (format & 0xff) + 31) / 32 * 4;
-
-  if ((1 << 30) / pitch < height)
+  if (!CFX_DIBitmap::CalculatePitch(height, width, format, &pitch))
     return false;
 
   if (pBuffer) {
     m_pBuffer.Reset(pBuffer);
   } else {
-    int size = pitch * height + 4;
+    int size = CFX_DIBitmap::NeededSize(pitch, height);
     int oomlimit = MAX_OOM_LIMIT;
     if (oomlimit >= 0 && size >= oomlimit) {
       m_pBuffer =
@@ -814,6 +806,28 @@ bool CFX_DIBitmap::ConvertColorScale(uint32_t forecolor, uint32_t backcolor) {
   else
     ConvertRGBColorScale(forecolor, backcolor);
   return true;
+}
+
+bool CFX_DIBitmap::CalculatePitch(int height,
+                                  int width,
+                                  FXDIB_Format format,
+                                  int* pitch) {
+  if (width <= 0 || height <= 0 || *pitch < 0)
+    return false;
+
+  if ((INT_MAX - 31) / width < (format & 0xFF))
+    return false;
+
+  if (!*pitch)
+    *pitch = (width * (format & 0xff) + 31) / 32 * 4;
+
+  if ((1 << 30) / *pitch < height)
+    return false;
+  return true;
+}
+
+int CFX_DIBitmap::NeededSize(int pitch, int height) {
+  return pitch * height + 4;
 }
 
 bool CFX_DIBitmap::CompositeBitmap(
