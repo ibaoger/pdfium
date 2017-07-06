@@ -22,6 +22,30 @@
       "revId": "6f995d5856790df2398424d0e282b2566163480f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ec53e4_1eab9126",
+        "filename": "fpdfsdk/pdfwindow/cpwl_list_box.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:28:35Z",
+      "side": 1,
+      "message": "What do you mean? They don\u0027t mean success/failure if that\u0027s the question. In some cases they mean bExit (whatever that means) and in some cases they mean (bRC or bExit) was true,  whatever that means ....\n\nThe code should be refactored again in the future to try to understand what it\u0027s doing, but this is the first step in getting rid of the in/out makes them a lot more understandable. (i.e. It\u0027s now obvious that the starting points are always the same ...)",
+      "parentUuid": "3d41bd52_abead36a",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 6
+      },
+      "revId": "6f995d5856790df2398424d0e282b2566163480f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
