@@ -10,6 +10,17 @@
 #include "core/fpdfdoc/cpdf_formcontrol.h"
 
 struct CPWL_Color {
+  explicit CPWL_Color(FX_COLORREF ref) : nColorType(COLORTYPE_RGB) {
+    int r;
+    int g;
+    int b;
+    int a;
+    std::tie(a, r, g, b) = ArgbDecode(ArgbEncode(255, ref));
+    fColor1 = r / 255.0f;
+    fColor2 = g / 255.0f;
+    fColor3 = b / 255.0f;
+    fColor4 = 0;
+  }
   CPWL_Color(int32_t type = COLORTYPE_TRANSPARENT,
              float color1 = 0.0f,
              float color2 = 0.0f,
