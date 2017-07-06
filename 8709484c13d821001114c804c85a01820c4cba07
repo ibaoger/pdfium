@@ -105,6 +105,30 @@
     },
     {
       "key": {
+        "uuid": "f2c1f611_528cc603",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T21:06:02Z",
+      "side": 1,
+      "message": "We typically early return if possible.",
+      "parentUuid": "4a793ce7_5032dca2",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33cf01b6_69192e9f",
         "filename": "fpdfsdk/formfiller/cffl_button.cpp",
         "patchSetId": 1
@@ -133,6 +157,24 @@
       "writtenOn": "2017-07-06T20:49:26Z",
       "side": 1,
       "message": "The returns in lines 85 and 96 don\u0027t really gain much. The original way is clearer",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05e08b06_5555c192",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T21:06:02Z",
+      "side": 1,
+      "message": "Why, we\u0027ve been converting code to early return in all other parts of the code base, why is this different?",
+      "parentUuid": "24456c46_2c995b8a",
       "revId": "8709484c13d821001114c804c85a01820c4cba07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -208,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "b6afdb6c_ed249ecd",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T21:06:02Z",
+      "side": 1,
+      "message": "Probably, but I think the idea is to make ti clear that 0 isn\u0027t doing anything and that it\u0027s supost to not do anything instead of just being missed.",
+      "parentUuid": "bdbc5971_aa676f8e",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ed2b253_632351be",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -219,6 +285,24 @@
       "writtenOn": "2017-07-06T20:49:26Z",
       "side": 1,
       "message": "Can pObserved be null if the On... methods return true? Would be nice to remove some of the 6 occurrences of if(!pObserved) return false; in this method.",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d19c67a0_695e95bc",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T21:06:02Z",
+      "side": 1,
+      "message": "I have no idea, so I\u0027m being safe.",
+      "parentUuid": "8ed2b253_632351be",
       "revId": "8709484c13d821001114c804c85a01820c4cba07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
