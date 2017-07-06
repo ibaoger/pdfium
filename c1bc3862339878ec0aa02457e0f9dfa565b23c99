@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4deb63a7_83db1ca6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:43:41Z",
+      "side": 1,
+      "message": "Where does this range come from? What do we do if we get an invalid unicode value? I\u0027m not sure writting 0 is safe, is it?",
+      "revId": "c1bc3862339878ec0aa02457e0f9dfa565b23c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
