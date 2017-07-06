@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "69610790_6177aad1",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-06T15:51:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8ee5b9f8_595b1f7d",
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7df712a7_935bbf47",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-06T15:51:28Z",
+      "side": 1,
+      "message": "This calculation comes from cfx_dibitmap.cpp originally. My understanding is that the m_SrcFormat \u0026 0xFF is determining the number of bits per pixel. The + 31)/32 is aligning the pitch on 32-bit boundaries, but converting the units from bits to 32-bits. And the * 4 then converts the units to bytes (uint8_t).",
+      "parentUuid": "fbf6fe84_2e9611ca",
+      "range": {
+        "startLine": 1068,
+        "startChar": 61,
+        "endLine": 1068,
+        "endChar": 63
+      },
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a298db2_b5ace84b",
         "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
         "patchSetId": 2
@@ -56,6 +98,24 @@
       "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75a908bf_4cbd1169",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-06T15:51:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a298db2_b5ace84b",
+      "revId": "61ff84cb2de7b97c63a50b8543a13bc2c4f3524b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
