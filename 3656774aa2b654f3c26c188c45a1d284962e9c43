@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "627b855c_de7aa0cd",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:01:08Z",
+      "side": 1,
+      "message": "pdfium::CollectionSize()",
+      "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aee34850_54b9988d",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:01:08Z",
+      "side": 1,
+      "message": "Previously, there was a way to get the number of path objects in |annot|. Now there\u0027s no way to do that.",
+      "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "388f54dd_0e86b54a",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-06T23:01:08Z",
+      "side": 1,
+      "message": "There also doesn\u0027t appear to be a way tell what type the returned object is.",
+      "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
