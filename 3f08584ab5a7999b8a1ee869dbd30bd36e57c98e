@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1275a47_22ed12fb",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:48:23Z",
+      "side": 1,
+      "message": "This seems to be happening twice a few times, would it be better to leave this check out of here and just make it a requirement? (Or, pass in the pStream instead of pAnnot?)",
+      "revId": "3f08584ab5a7999b8a1ee869dbd30bd36e57c98e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
