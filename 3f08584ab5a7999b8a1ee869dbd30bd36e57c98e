@@ -16,6 +16,24 @@
       "revId": "3f08584ab5a7999b8a1ee869dbd30bd36e57c98e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fea5bad_f9ec636d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-06T19:48:01Z",
+      "side": 1,
+      "message": "I debated about this too. Checking twice happens twice in this code. I thought it\u0027s easier to pass in pAnnot instead of pStream + pForm; but if we just pass in pAnnot, then we have to call GetAnnotAP to get the stream and hence can\u0027t skip this check.\nI changed it to take in pStream + pForm now, let me know if this looks better.",
+      "parentUuid": "d1275a47_22ed12fb",
+      "revId": "3f08584ab5a7999b8a1ee869dbd30bd36e57c98e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
