@@ -34,6 +34,24 @@
       "revId": "4e0364327e778228e8b555b505491c8880c1e15d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ad7e3f2_678d543b",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T17:53:14Z",
+      "side": 0,
+      "message": "I think we\u0027d want to figure out why it was difference instead of reverting as I\u0027m guessing this is currently a bug.",
+      "parentUuid": "d72982c3_06e10f04",
+      "revId": "4e0364327e778228e8b555b505491c8880c1e15d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
