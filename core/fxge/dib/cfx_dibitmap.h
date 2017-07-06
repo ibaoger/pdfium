@@ -96,6 +96,11 @@ class CFX_DIBitmap : public CFX_DIBSource {
 
   bool ConvertColorScale(uint32_t forecolor, uint32_t backcolor);
 
+  static bool CalculatePitch(int height,
+                             int width,
+                             FXDIB_Format format,
+                             int* pitch);
+
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
   void PreMultiply();
 #endif

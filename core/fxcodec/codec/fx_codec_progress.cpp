@@ -1015,16 +1015,19 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
         m_status = FXCODEC_STATUS_ERR_MEMORY;
         return false;
       }
+
       m_pBmpContext = pBmpModule->Start(this);
       if (!m_pBmpContext) {
         m_status = FXCODEC_STATUS_ERR_MEMORY;
         return false;
       }
+
       bool bResult = m_pFile->ReadBlock(m_pSrcBuf, 0, size);
       if (!bResult) {
         m_status = FXCODEC_STATUS_ERR_READ;
         return false;
       }
+
       m_offSet += size;
       pBmpModule->Input(m_pBmpContext.get(), m_pSrcBuf, size);
       std::vector<uint32_t> palette;
@@ -1041,22 +1044,54 @@ bool CCodec_ProgressiveDecoder::DetectImageType(FXCODEC_IMAGE_TYPE imageType,
             m_pBmpContext.get(), &m_SrcWidth, &m_SrcHeight, &m_BmpIsTopBottom,
             &m_SrcComponents, &m_SrcPaletteNumber, &palette, pAttribute);
       }
-      if (readResult == 1) {
-        m_SrcBPC = 8;
-        m_clipBox = FX_RECT(0, 0, m_SrcWidth, m_SrcHeight);
-        FX_Free(m_pSrcPalette);
-        if (m_SrcPaletteNumber) {
-          m_pSrcPalette = FX_Alloc(FX_ARGB, m_SrcPaletteNumber);
-          memcpy(m_pSrcPalette, palette.data(),
-                 m_SrcPaletteNumber * sizeof(uint32_t));
-        } else {
-          m_pSrcPalette = nullptr;
-        }
-        return true;
+
+      if (readResult != 1) {
+        m_pBmpContext.reset();
+        m_status = FXCODEC_STATUS_ERR_FORMAT;
+        return false;
       }
-      m_pBmpContext.reset();
-      m_status = FXCODEC_STATUS_ERR_FORMAT;
-      return false;
+
+      switch (m_SrcComponents) {
+        case 1:
+          m_SrcFormat = FXCodec_8bppRgb;
+          break;
+        case 3:
+          m_SrcFormat = FXCodec_Rgb;
+          break;
+        case 4:
+          m_SrcFormat = FXCodec_Rgb32;
+          break;
+      }
+
+      int pitch = 0;
+      if (!CFX_DIBitmap::CalculatePitch(m_SrcWidth, m_SrcHeight,
+                                        static_cast<FXDIB_Format>(m_SrcFormat),
+                                        &pitch)) {
+        m_pBmpContext.reset();
+        m_status = FXCODEC_STATUS_ERR_FORMAT;
+        return false;
+      }
+      uint32_t neededData = static_cast<uint32_t>(
+          pitch * m_SrcHeight > 0 ? pitch * m_SrcHeight : 0);
+      uint32_t availableData = m_SrcSize > m_offSet ? m_SrcSize - m_offSet : 0;
+
+      if (neededData > availableData) {
+        m_pBmpContext.reset();
+        m_status = FXCODEC_STATUS_ERR_FORMAT;
+        return false;
+      }
+
+      m_SrcBPC = 8;
+      m_clipBox = FX_RECT(0, 0, m_SrcWidth, m_SrcHeight);
+      FX_Free(m_pSrcPalette);
+      if (m_SrcPaletteNumber) {
+        m_pSrcPalette = FX_Alloc(FX_ARGB, m_SrcPaletteNumber);
+        memcpy(m_pSrcPalette, palette.data(),
+               m_SrcPaletteNumber * sizeof(uint32_t));
+      } else {
+        m_pSrcPalette = nullptr;
+      }
+      return true;
     }
     case FXCODEC_IMAGE_JPG: {
       CCodec_JpegModule* pJpegModule = m_pCodecMgr->GetJpegModule();
@@ -1964,17 +1999,6 @@ FXCODEC_STATUS CCodec_ProgressiveDecoder::StartDecode(
         m_pFile = nullptr;
         m_status = FXCODEC_STATUS_ERR_MEMORY;
         return m_status;
-      }
-      switch (m_SrcComponents) {
-        case 1:
-          m_SrcFormat = FXCodec_8bppRgb;
-          break;
-        case 3:
-          m_SrcFormat = FXCodec_Rgb;
-          break;
-        case 4:
-          m_SrcFormat = FXCodec_Rgb32;
-          break;
       }
       GetTransMethod(m_pDeviceBitmap->GetFormat(), m_SrcFormat);
       m_ScanlineSize = (m_SrcWidth * m_SrcComponents + 3) / 4 * 4;
