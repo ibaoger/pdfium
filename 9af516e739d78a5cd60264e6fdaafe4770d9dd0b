@@ -22,6 +22,30 @@
       "revId": "9af516e739d78a5cd60264e6fdaafe4770d9dd0b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c64bc73_29bd9e50",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:09:55Z",
+      "side": 1,
+      "message": "Nope, called from CPWL_ComboBox::OnChar.",
+      "parentUuid": "167ad654_d669907e",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "9af516e739d78a5cd60264e6fdaafe4770d9dd0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
