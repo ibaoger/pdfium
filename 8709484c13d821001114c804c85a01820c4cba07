@@ -105,6 +105,126 @@
     },
     {
       "key": {
+        "uuid": "33cf01b6_69192e9f",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "nit: unneeded spaces",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24456c46_2c995b8a",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "The returns in lines 85 and 96 don\u0027t really gain much. The original way is clearer",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3d91ca6_316202ca",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "Is this method called in any place other than the destructor?",
+      "range": {
+        "startLine": 38,
+        "startChar": 22,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd0c1174_13630fd3",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "unique_ptrs?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdbc5971_aa676f8e",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "unneeded case 0.",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed2b253_632351be",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "Can pObserved be null if the On... methods return true? Would be nice to remove some of the 6 occurrences of if(!pObserved) return false; in this method.",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8aba3c98_968505d6",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 1
@@ -122,6 +242,23 @@
         "endLine": 13,
         "endChar": 33
       },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692caaa7_55837704",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-06T20:49:26Z",
+      "side": 1,
+      "message": "Why not just use FXARGB_R and similar?",
       "revId": "8709484c13d821001114c804c85a01820c4cba07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
