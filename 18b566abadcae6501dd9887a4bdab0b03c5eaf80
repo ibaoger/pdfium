@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ffa0c4c_52df3eeb",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:54:52Z",
+      "side": 1,
+      "message": "Can this be a size_t or uint32_t or something other then int?",
+      "revId": "18b566abadcae6501dd9887a4bdab0b03c5eaf80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfa17e3f_3de77614",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:54:52Z",
+      "side": 1,
+      "message": "These don\u0027t exactly cast the same (due to the Cmyk entry). Should we just store a second FXDIB_Format value in the switch above and then add a bug to unify these two enums?",
+      "revId": "18b566abadcae6501dd9887a4bdab0b03c5eaf80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2f235f5_c8178e51",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-06T18:54:52Z",
+      "side": 1,
+      "message": "Overflow?",
+      "revId": "18b566abadcae6501dd9887a4bdab0b03c5eaf80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
