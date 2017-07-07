@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1d0acb90_29390064",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T21:42:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34fb152c_fdad6cd2",
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78ee2b13_cbae0fef",
         "filename": "core/fxge/cfx_windowsrenderdevice.h",
         "patchSetId": 8
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "b40983f3_ca395df1",
+        "filename": "core/fxge/cfx_windowsrenderdevice.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T21:42:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78ee2b13_cbae0fef",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81463fb4_bf3e7aaf",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 8
@@ -56,6 +98,24 @@
       "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7ede6f_8ff3a4ba",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T21:42:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81463fb4_bf3e7aaf",
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -79,6 +139,30 @@
       "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ba9a9f1_ed938e1a",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T21:42:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e1c65a6_b50aded3",
+      "range": {
+        "startLine": 253,
+        "startChar": 46,
+        "endLine": 253,
+        "endChar": 51
+      },
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
