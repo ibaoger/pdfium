@@ -26,6 +26,29 @@
     },
     {
       "key": {
+        "uuid": "625c09c8_afd2e7fa",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-07T17:21:26Z",
+      "side": 1,
+      "message": "maybe make this check in the callers to keep the name of the method from leaking into here?",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 451,
+        "endChar": 3
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa277a36_70fba3ff",
         "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
         "patchSetId": 2
@@ -65,6 +88,29 @@
         "startChar": 20,
         "endLine": 453,
         "endChar": 21
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9413a8_5df65eb2",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-07T17:21:26Z",
+      "side": 1,
+      "message": "having made the change suggested at 442-451, maybe change bAbsPage to iFirstPageNum, pass as 0/1 and\npValue-\u003eSetInteger(iFirstPageNum + iPage)",
+      "range": {
+        "startLine": 471,
+        "startChar": 21,
+        "endLine": 471,
+        "endChar": 49
       },
       "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
