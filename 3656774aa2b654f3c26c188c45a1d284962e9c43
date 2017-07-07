@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "812cff9d_5d7e15e2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T14:56:14Z",
+      "side": 1,
+      "message": "See below.",
+      "parentUuid": "aee34850_54b9988d",
+      "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "388f54dd_0e86b54a",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 6
@@ -47,6 +65,24 @@
       "writtenOn": "2017-07-06T23:01:08Z",
       "side": 1,
       "message": "There also doesn\u0027t appear to be a way tell what type the returned object is.",
+      "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebb750f1_670c4d9e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T14:56:14Z",
+      "side": 1,
+      "message": "There is a FPDFPageObj_GetType(); I used it in the embedder test. \nThe reasoning is that user can call GetObject() and then GetType() before modifying the object. If they really need to get the number of path objects (which we don\u0027t imagine to be a big use case), they can iterate through the objects themselves and count the types.",
+      "parentUuid": "388f54dd_0e86b54a",
       "revId": "3656774aa2b654f3c26c188c45a1d284962e9c43",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
