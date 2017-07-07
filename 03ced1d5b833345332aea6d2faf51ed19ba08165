@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "a0ba69fe_77355088",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-07T20:49:31Z",
+      "side": 1,
+      "message": "Let\u0027s leave:\n\nconst CFX_ByteString keys[] \u003d {\"UF\", \"F\", \"DOS\", \"Mac\", \"Unix\"};\n\nas it was, then do:\n\nsize_t end \u003d pDict-\u003eGetStringFor(\"FS\") \u003d\u003d \"URL\" ? 2 : FX_ArraySize(keys);\nfor (size_t i \u003d 0; i \u003c end; ++i) {\n  const CFX_ByteString\u0026 key \u003d keys[i];\n  ...\n}\n\nAlso, can |keys| be constexpr?",
+      "parentUuid": "30161631_e7ad768e",
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "deb16012_533747ee",
         "filename": "core/fpdfdoc/cpdf_filespec.h",
         "patchSetId": 2
