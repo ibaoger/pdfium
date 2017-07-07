@@ -37,6 +37,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef ENABLE_CALLGRIND
+#include <valgrind/callgrind.h>
+#endif  // ENABLE_CALLGRIND
+
 #ifdef PDF_ENABLE_V8
 #include "v8/include/libplatform/libplatform.h"
 #include "v8/include/v8.h"
@@ -1281,6 +1285,11 @@ int main(int argc, const char* argv[]) {
     if (!file_contents)
       continue;
     fprintf(stderr, "Rendering PDF file %s.\n", filename.c_str());
+
+#ifdef ENABLE_CALLGRIND
+    CALLGRIND_START_INSTRUMENTATION;
+#endif  // ENABLE_CALLGRIND
+
     std::string events;
     if (options.send_events) {
       std::string event_filename = filename;
@@ -1301,6 +1310,10 @@ int main(int argc, const char* argv[]) {
       }
     }
     RenderPdf(filename, file_contents.get(), file_length, options, events);
+
+#ifdef ENABLE_CALLGRIND
+    CALLGRIND_STOP_INSTRUMENTATION;
+#endif  // ENABLE_CALLGRIND
   }
 
   FPDF_DestroyLibrary();
