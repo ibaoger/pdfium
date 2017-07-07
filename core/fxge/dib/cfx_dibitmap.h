@@ -24,8 +24,7 @@ class CFX_DIBitmap : public CFX_DIBSource {
   bool Create(int width,
               int height,
               FXDIB_Format format,
-              uint8_t* pBuffer = nullptr,
-              int pitch = 0);
+              uint8_t* pBuffer = nullptr);
 
   bool Copy(const CFX_RetainPtr<CFX_DIBSource>& pSrc);
 
@@ -95,6 +94,12 @@ class CFX_DIBitmap : public CFX_DIBSource {
                      int alpha_flag);
 
   bool ConvertColorScale(uint32_t forecolor, uint32_t backcolor);
+
+  static bool CalculatePitchAndSize(int height,
+                                    int width,
+                                    FXDIB_Format format,
+                                    uint32_t* pitch,
+                                    uint32_t* size);
 
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
   void PreMultiply();
