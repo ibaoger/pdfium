@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c3e56cd_688b0548",
+        "filename": "core/fxge/win32/DEPS",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-07T15:08:47Z",
+      "side": 1,
+      "message": "Shouldn\u0027t do this. Add different constants and use static_asserts for equality, example:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/fpdfsdk/fpdfeditpath.cpp?type\u003dcs\u0026q\u003dstatic_assert+file:%5Esrc/third_party/pdfium/+package:%5Echromium$\u0026l\u003d13",
+      "revId": "ed14acca3c288653bd532b33f031c4da54a8f0a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67421b17_2a9d4f32",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-07T15:08:47Z",
+      "side": 1,
+      "message": "nit: space",
+      "revId": "ed14acca3c288653bd532b33f031c4da54a8f0a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
