@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34fb152c_fdad6cd2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-07T19:42:25Z",
+      "side": 1,
+      "message": "Can you mention Windows here, since it\u0027s Windows-only? Drop Pdfium since this is a PDFium CL and that\u0027s implied.",
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ee2b13_cbae0fef",
+        "filename": "core/fxge/cfx_windowsrenderdevice.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-07T19:42:25Z",
+      "side": 1,
+      "message": "Our enum naming scheme is horribly inconsistent. Can we use \"kEnumName\" since that\u0027s the preferred Google C++ style, and within the last year or so, Chromium has agreed to do that too.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81463fb4_bf3e7aaf",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-07T19:42:25Z",
+      "side": 1,
+      "message": "Do we need MIN and MAX? They aren\u0027t used anywhere.",
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e1c65a6_b50aded3",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-07T19:42:25Z",
+      "side": 1,
+      "message": "Can we use \"output\" consistently in the comments?",
+      "range": {
+        "startLine": 253,
+        "startChar": 46,
+        "endLine": 253,
+        "endChar": 51
+      },
+      "revId": "612e771b377a635af93d3aadee24cc71b66093ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
