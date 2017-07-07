@@ -9,6 +9,10 @@ import re
 import subprocess
 import sys
 
+
+CALLGRIND_PROFILER = 'CALLGRIND_PROFILER'
+
+
 class PerformanceRun(object):
   def __init__(self, options, pdf_path):
     self.options = options
@@ -23,18 +27,27 @@ class PerformanceRun(object):
       return 1
 
   def Run(self):
-    cmd_to_run = ['valgrind', '--tool=callgrind', '--instr-atstart=no',
+    if self.options.profiler == CALLGRIND_PROFILER:
+      time = self._RunCallgrind()
+    else:
+      print 'profiler=%s not supported, aborting' % self.options.profiler
+
+    if time is None:
+      return 1
+
+    print time
+    return 0
+
+  def _RunCallgrind(self):
+    instrument_at_start = ('yes' if self.options.measure_full else 'no')
+    cmd_to_run = ['valgrind', '--tool=callgrind',
+                  '--instr-atstart=%s' % instrument_at_start,
                   '--callgrind-out-file=/dev/null',
                   self.pdfium_test_path, '--send-events', self.pdf_path]
     output = subprocess.check_output(cmd_to_run, stderr=subprocess.STDOUT)
-    ir_count = self._ExtractIrCount(output)
-    if ir_count is None:
-      return 1
+    return self._CallgrindExtractIrCount(output)
 
-    print ir_count
-    return 0
-
-  def _ExtractIrCount(self, output):
+  def _CallgrindExtractIrCount(self, output):
     # Match the line with the instruction count, eg.
     # '==98765== Collected : 12345'
     matcher = re.compile('\\bCollected\\b.*\\b(\\d+)')
@@ -50,6 +63,12 @@ def main():
   parser = optparse.OptionParser()
   parser.add_option('--build-dir', default=os.path.join('out', 'Debug'),
                     help='relative path from the base source directory')
+  parser.add_option('--profiler', default=CALLGRIND_PROFILER,
+                    help='what profiler to use. Supports only callgrind for '
+                         'now.')
+  parser.add_option('--measure-full', default=False,
+                    help='whether to measure the whole test harness or '
+                         'just the interesting section')
   options, pdf_path = parser.parse_args()
 
   if len(pdf_path) != 1:
@@ -58,6 +77,7 @@ def main():
 
   run = PerformanceRun(options, pdf_path[0])
   return run.Run()
+
 
 if __name__ == '__main__':
   sys.exit(main())
