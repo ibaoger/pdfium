@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "178354a1_3405e5c7",
+        "filename": "core/fxge/dib/cfx_dibitmap.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-07T17:42:27Z",
+      "side": 1,
+      "message": "I thought we could lose this conditional",
+      "range": {
+        "startLine": 826,
+        "startChar": 1,
+        "endLine": 826,
+        "endChar": 14
+      },
+      "revId": "b38d9765cdd28a3a7ee8b6793b3634eb3d6cb004",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6092e567_c2c236e4",
+        "filename": "core/fxge/dib/cfx_dibitmap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-07T17:42:27Z",
+      "side": 1,
+      "message": "did we just remove this in the .cpp ??",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "b38d9765cdd28a3a7ee8b6793b3634eb3d6cb004",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
