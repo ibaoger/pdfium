@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d8d4f48_0126414e",
+        "filename": "core/fxge/win32/DEPS",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T18:26:55Z",
+      "side": 1,
+      "message": "Done, thanks for the example.",
+      "parentUuid": "1c3e56cd_688b0548",
+      "revId": "ed14acca3c288653bd532b33f031c4da54a8f0a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67421b17_2a9d4f32",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "ed14acca3c288653bd532b33f031c4da54a8f0a6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ceb500b_6062801a",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-07-07T18:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67421b17_2a9d4f32",
+      "revId": "ed14acca3c288653bd532b33f031c4da54a8f0a6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
