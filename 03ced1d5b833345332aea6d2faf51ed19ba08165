@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c20ef636_f5f1f8fc",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "730967cf_324edeeb",
+      "range": {
+        "startLine": 54,
+        "startChar": 63,
+        "endLine": 54,
+        "endChar": 65
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1257225d_c7655b5e",
         "filename": "core/fpdfdoc/cpdf_filespec.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4b017428_c79bb8cc",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1257225d_c7655b5e",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 12
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5b265ea_f685b3d4",
         "filename": "core/fpdfdoc/cpdf_filespec.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-07-06T23:30:56Z",
       "side": 1,
       "message": "Didn\u0027t we just call this on the previous line?",
+      "range": {
+        "startLine": 135,
+        "startChar": 13,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "214cfca0_abe5f75c",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Added a variable.",
+      "parentUuid": "b5b265ea_f685b3d4",
       "range": {
         "startLine": 135,
         "startChar": 13,
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "30161631_e7ad768e",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Basically if FS is URL, then only UF and F entries are valid; if not, then all five possible entries are valid. If we want to put it outside of the loop - does this look better?",
+      "parentUuid": "1097a755_6e8ff1cf",
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "deb16012_533747ee",
         "filename": "core/fpdfdoc/cpdf_filespec.h",
         "patchSetId": 2
@@ -99,6 +189,24 @@
       "writtenOn": "2017-07-06T23:30:56Z",
       "side": 1,
       "message": "This was fine where it was before - keep static methods together.",
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1805731_8b77e284",
+        "filename": "core/fpdfdoc/cpdf_filespec.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Ah right.",
+      "parentUuid": "deb16012_533747ee",
       "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -119,6 +227,24 @@
       "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45bc43f_dee65cc5",
+        "filename": "core/fpdfdoc/cpdf_filespec_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc8c6e2e_6f5932f7",
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -168,6 +294,54 @@
     },
     {
       "key": {
+        "uuid": "2408ebcb_592b98ec",
+        "filename": "core/fpdfdoc/cpdf_filespec_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e6b3bc_b3f6cb0f",
+      "range": {
+        "startLine": 201,
+        "startChar": 24,
+        "endLine": 201,
+        "endChar": 25
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c94190e_dfe2117f",
+        "filename": "core/fpdfdoc/cpdf_filespec_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b252b5a3_b582dc91",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 12
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c5c586c_8830b1e7",
         "filename": "core/fpdfdoc/cpdf_filespec_unittest.cpp",
         "patchSetId": 2
@@ -179,6 +353,30 @@
       "writtenOn": "2017-07-06T23:30:56Z",
       "side": 1,
       "message": "sizeof(stream[i]) ?",
+      "range": {
+        "startLine": 207,
+        "startChar": 68,
+        "endLine": 207,
+        "endChar": 69
+      },
+      "revId": "03ced1d5b833345332aea6d2faf51ed19ba08165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeda9556_c437b46c",
+        "filename": "core/fpdfdoc/cpdf_filespec_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-07T00:56:12Z",
+      "side": 1,
+      "message": "sizeof would give the pointer size; using strlen now.",
+      "parentUuid": "4c5c586c_8830b1e7",
       "range": {
         "startLine": 207,
         "startChar": 68,
