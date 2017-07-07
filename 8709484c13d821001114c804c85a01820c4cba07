@@ -292,6 +292,30 @@
     },
     {
       "key": {
+        "uuid": "443baac2_3dc3fcaa",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-07T13:26:02Z",
+      "side": 1,
+      "message": "I prefer to include the case 0 too for clarity.",
+      "parentUuid": "b6afdb6c_ed249ecd",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ed2b253_632351be",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
