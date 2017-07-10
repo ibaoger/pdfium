@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "971fb04d_c0a10fd8",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-10T15:17:37Z",
+      "side": 1,
+      "message": "Nit: initialize parameters here, as with nColorType.",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "e746c2d79d937f5bfb6e8b64a94b9c7141205af3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e720bbf4_4de3231f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-10T15:17:37Z",
+      "side": 1,
+      "message": "Does this need to be divided by 255.0f?",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "e746c2d79d937f5bfb6e8b64a94b9c7141205af3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
