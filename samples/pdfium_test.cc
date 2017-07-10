@@ -37,6 +37,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef ENABLE_CALLGRIND
+#include <valgrind/callgrind.h>
+#endif  // ENABLE_CALLGRIND
+
 #ifdef PDF_ENABLE_V8
 #include "v8/include/libplatform/libplatform.h"
 #include "v8/include/v8.h"
@@ -76,6 +80,7 @@ struct Options {
       : show_config(false),
         show_metadata(false),
         send_events(false),
+        callgrind_delimiters(false),
         pages(false),
         md5(false),
         output_format(OUTPUT_NONE) {}
@@ -83,6 +88,7 @@ struct Options {
   bool show_config;
   bool show_metadata;
   bool send_events;
+  bool callgrind_delimiters;
   bool pages;
   bool md5;
   OutputFormat output_format;
@@ -624,6 +630,8 @@ bool ParseCommandLine(const std::vector<std::string>& args,
       options->show_metadata = true;
     } else if (cur_arg == "--send-events") {
       options->send_events = true;
+    } else if (cur_arg == "--callgrind-delim") {
+      options->callgrind_delimiters = true;
     } else if (cur_arg == "--ppm") {
       if (options->output_format != OUTPUT_NONE) {
         fprintf(stderr, "Duplicate or conflicting --ppm argument\n");
@@ -1201,8 +1209,10 @@ static void ShowConfig() {
 static const char kUsageString[] =
     "Usage: pdfium_test [OPTION] [FILE]...\n"
     "  --show-config     - print build options and exit\n"
+    "  --show-metadata   - print the file metadata\n"
     "  --show-structure  - print the structure elements from the document\n"
     "  --send-events     - send input described by .evt file\n"
+    "  --callgrind-delim - delimit interesting section when using callgrind\n"
     "  --bin-dir=<path>  - override path to v8 external data\n"
     "  --font-dir=<path> - override path to external fonts\n"
     "  --scale=<number>  - scale output size by number (e.g. 0.5)\n"
@@ -1281,6 +1291,12 @@ int main(int argc, const char* argv[]) {
     if (!file_contents)
       continue;
     fprintf(stderr, "Rendering PDF file %s.\n", filename.c_str());
+
+#ifdef ENABLE_CALLGRIND
+    if (options.callgrind_delimiters)
+      CALLGRIND_START_INSTRUMENTATION;
+#endif  // ENABLE_CALLGRIND
+
     std::string events;
     if (options.send_events) {
       std::string event_filename = filename;
@@ -1301,6 +1317,11 @@ int main(int argc, const char* argv[]) {
       }
     }
     RenderPdf(filename, file_contents.get(), file_length, options, events);
+
+#ifdef ENABLE_CALLGRIND
+    if (options.callgrind_delimiters)
+      CALLGRIND_STOP_INSTRUMENTATION;
+#endif  // ENABLE_CALLGRIND
   }
 
   FPDF_DestroyLibrary();
