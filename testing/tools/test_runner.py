@@ -144,6 +144,22 @@ class TestRunner:
     else:
       if not success:
         self.failures.append(input_path)
+        input_re = re.compile(r'Rendered \d+ pages')
+        cmd = [self.pdfium_test_path, '--send-events', '--png', input_path]
+        from subprocess import Popen, PIPE
+        p = Popen(cmd, stderr=PIPE)
+        res = p.stderr.read()
+        pag = int(input_re.search(res).group()[9:-6])
+        pag_idx = 0
+        input_name = input_path[:-4]
+        expected_suffix = '_expected'
+        os_n = common.os_name()
+        if os_n != 'linux':
+          expected_suffix += os_n
+        while pag_idx < pag:
+          cmd = ['mv', input_name+'.pdf.'+str(pag_idx)+'.png', input_name+expected_suffix+'.pdf.'+str(pag_idx)+'.png']
+          subprocess.check_output(cmd)
+          pag_idx = pag_idx + 1
 
 
   def Run(self):
