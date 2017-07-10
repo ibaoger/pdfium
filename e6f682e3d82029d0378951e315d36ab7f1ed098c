@@ -185,6 +185,30 @@
       "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db39562f_70c62714",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-10T18:41:36Z",
+      "side": 1,
+      "message": "Answer: yes, as it turns out, they re-defined the inch in 1950-something to be 2.54000000000000000000000000000000000000000000000000000000 cm exactly :).",
+      "parentUuid": "b68b1a80_372f6d26",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 44
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
