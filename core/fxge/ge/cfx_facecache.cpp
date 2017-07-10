@@ -90,7 +90,9 @@ CFX_FaceCache::CFX_FaceCache(FXFT_Face face)
 
 CFX_FaceCache::~CFX_FaceCache() {
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
-  SkSafeUnref(m_pTypeface.Get());
+  // Drop the UnownedPtr first because there is the possibility that the
+  // UnRef will delete the object which will cause a Probe error.
+  SkSafeUnref(m_pTypeface.Release());
 #endif
 }
 
