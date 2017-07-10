@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "17ba3b4d_927a7610",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6be455cb_c474c65a",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb87c405_538b3342",
         "filename": "fpdfsdk/formfiller/cffl_button.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8709484c13d821001114c804c85a01820c4cba07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1b9b0ac_7f28b127",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb87c405_538b3342",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "df6aa60a_7a930068",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2132b108_79968b30",
+      "range": {
+        "startLine": 69,
+        "startChar": 28,
+        "endLine": 69,
+        "endChar": 45
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33f92b6a_d59acd60",
         "filename": "fpdfsdk/formfiller/cffl_button.cpp",
         "patchSetId": 1
@@ -70,6 +130,30 @@
       "writtenOn": "2017-07-06T19:57:38Z",
       "side": 1,
       "message": "eHighlightingMode",
+      "range": {
+        "startLine": 71,
+        "startChar": 37,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a941bf1_3b6ccd4f",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Inlined below.",
+      "parentUuid": "33f92b6a_d59acd60",
       "range": {
         "startLine": 71,
         "startChar": 37,
@@ -146,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "c75af1a9_ca1f87cd",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33cf01b6_69192e9f",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24456c46_2c995b8a",
         "filename": "fpdfsdk/formfiller/cffl_button.cpp",
         "patchSetId": 1
@@ -199,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "d05bc7b2_c9af3789",
+        "filename": "fpdfsdk/formfiller/cffl_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5409a56_a05bc812",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d91ca6_316202ca",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -222,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "a9a15bdc_2d5939ef",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "e3d91ca6_316202ca",
+      "range": {
+        "startLine": 38,
+        "startChar": 22,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd0c1174_13630fd3",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -233,6 +377,30 @@
       "writtenOn": "2017-07-06T20:49:26Z",
       "side": 1,
       "message": "unique_ptrs?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e194038_ee61d522",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Needs to be untangled at some point. In theory, the window should clean up the private data and pWnd should be a unique_ptr.",
+      "parentUuid": "dd0c1174_13630fd3",
       "range": {
         "startLine": 44,
         "startChar": 4,
@@ -316,6 +484,30 @@
     },
     {
       "key": {
+        "uuid": "eca21b80_bc5db93e",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "443baac2_3dc3fcaa",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ed2b253_632351be",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -374,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "16fdb439_d44692d4",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba3c98_968505d6",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "692caaa7_55837704",
         "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
         "patchSetId": 1
@@ -388,6 +604,24 @@
       "revId": "8709484c13d821001114c804c85a01820c4cba07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29294ac5_ef33dec2",
+        "filename": "fpdfsdk/pdfwindow/cpwl_color.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "692caaa7_55837704",
+      "revId": "8709484c13d821001114c804c85a01820c4cba07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
