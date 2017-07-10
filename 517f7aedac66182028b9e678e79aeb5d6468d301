@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbd2f953_2cfdbdd7",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:27:25Z",
+      "side": 1,
+      "message": "This only returns true, can we make it void?",
+      "revId": "517f7aedac66182028b9e678e79aeb5d6468d301",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee3e3a9_6fafa59e",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-10T13:27:25Z",
+      "side": 1,
+      "message": "extraction, update and removal.",
+      "revId": "517f7aedac66182028b9e678e79aeb5d6468d301",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
