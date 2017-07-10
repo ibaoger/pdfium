@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a075f2f2_70432a6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-10T19:03:09Z",
+      "side": 1,
+      "message": "nit: to core/fxge.",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "922b74cc7786f648e4e68595235530523667d3e6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57c77b99_b13e47a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-10T19:03:09Z",
+      "side": 1,
+      "message": "nit: Move",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "922b74cc7786f648e4e68595235530523667d3e6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01870648_f2fa805c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-10T19:03:09Z",
+      "side": 1,
+      "message": "nit: redundant given CL above title.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "922b74cc7786f648e4e68595235530523667d3e6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
