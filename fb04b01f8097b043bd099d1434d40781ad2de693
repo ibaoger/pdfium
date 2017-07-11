@@ -16,6 +16,24 @@
       "revId": "fb04b01f8097b043bd099d1434d40781ad2de693",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5bc2fb3_b057e21f",
+        "filename": "core/fxge/cfx_renderdevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-11T17:48:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a05b8ec_fab6840b",
+      "revId": "fb04b01f8097b043bd099d1434d40781ad2de693",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
