@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5139201f_7b4949e5",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:54:53Z",
+      "side": 1,
+      "message": "If this is all new we don\u0027t need the Foxit copyright.",
+      "revId": "14ff15afa748e0b007b396cff47f01f7aa68f6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b13cf01_2af88009",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:54:53Z",
+      "side": 1,
+      "message": "return CPDF_NameTree(pDoc, \"EmbeddedFiles\").GetCount() ?",
+      "revId": "14ff15afa748e0b007b396cff47f01f7aa68f6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3d55e14_01e139cd",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:54:53Z",
+      "side": 1,
+      "message": "Can you file a bug to change GetFileName() of FileSpec to return a CFX_WideString instead of taking an out param? (Or, feel free to put up a cl to change it)",
+      "revId": "14ff15afa748e0b007b396cff47f01f7aa68f6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3766d574_a0a272e0",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:54:53Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "14ff15afa748e0b007b396cff47f01f7aa68f6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda100c2_bdccb012",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:54:53Z",
+      "side": 1,
+      "message": "nit: On error |buffer| is unmodified and the returned length is 0.",
+      "revId": "14ff15afa748e0b007b396cff47f01f7aa68f6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
