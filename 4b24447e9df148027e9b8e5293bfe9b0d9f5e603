@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c51ba52_de7566c5",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-11T18:50:28Z",
+      "side": 1,
+      "message": "Should this and the other bits be behind the ifdef flag for ENABLE_CALLGRIND?",
+      "revId": "4b24447e9df148027e9b8e5293bfe9b0d9f5e603",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
