@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7f3780ee_c573253d",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-12T21:11:27Z",
+      "side": 1,
+      "message": "Ok, how about \"my %d dogs have .99999 brains\"",
+      "parentUuid": "ea07a83e_f9c7683e",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 44
+      },
+      "revId": "6e8431ead5e8e8a6aaeb6e71c176e53c06d822c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fac5c3eb_374dd894",
         "filename": "fpdfsdk/javascript/util.cpp",
         "patchSetId": 3
