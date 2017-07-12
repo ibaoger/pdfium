@@ -82,15 +82,18 @@ int ParseDataType(std::wstring* sFormat) {
     if (bPercent) {
       if (c == L'c' || c == L'C' || c == L'd' || c == L'i' || c == L'o' ||
           c == L'u' || c == L'x' || c == L'X') {
+        fprintf(stderr, "INT\n");
         return UTIL_INT;
       }
       if (c == L'e' || c == L'E' || c == L'f' || c == L'g' || c == L'G') {
+        fprintf(stderr, "DOUBLE\n");
         return UTIL_DOUBLE;
       }
       if (c == L's' || c == L'S') {
         // Map s to S since we always deal internally
         // with wchar_t strings.
         (*sFormat)[i] = L'S';
+        fprintf(stderr, "STRING\n");
         return UTIL_STRING;
       }
       if (c == L'.' || c == L'+' || c == L'-' || c == L'#' || c == L' ' ||
@@ -117,7 +120,7 @@ bool util::printf(CJS_Runtime* pRuntime,
   const size_t iSize = params.size();
   if (iSize < 1)
     return false;
-
+  fprintf(stderr, "iSize %zu\n", iSize);
   std::wstring c_ConvChar(params[0].ToCFXWideString(pRuntime).c_str());
   std::vector<std::wstring> c_strConvers;
   int iOffset = 0;
@@ -134,10 +137,12 @@ bool util::printf(CJS_Runtime* pRuntime,
     iOffset = iOffend;
   }
 
+  fprintf(stderr, "PRINTF %zu\n", c_strConvers.size());
   std::wstring c_strResult;
   std::wstring c_strFormat;
   for (size_t iIndex = 0; iIndex < c_strConvers.size(); ++iIndex) {
     c_strFormat = c_strConvers[iIndex];
+    fprintf(stderr, "fmt: %ls\n", c_strFormat.c_str());
     if (iIndex == 0) {
       c_strResult = c_strFormat;
       continue;
@@ -162,6 +167,7 @@ bool util::printf(CJS_Runtime* pRuntime,
                           params[iIndex].ToCFXWideString(pRuntime).c_str());
         break;
       default:
+        fprintf(stderr, "Seg: %ls\n", c_strFormat.c_str());
         strSegment.Format(L"%S", c_strFormat.c_str());
         break;
     }
