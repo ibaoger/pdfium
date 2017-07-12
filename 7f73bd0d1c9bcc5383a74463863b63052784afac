@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da6f0df_969b02c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-12T22:40:47Z",
+      "side": 1,
+      "message": "s/some// - Surely you would fix all the calls in the test, or else it wouldn\u0027t compile. :-P",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "551771c5_4073a4f6",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-12T22:40:47Z",
+      "side": 1,
+      "message": "Maybe return early if |pFile| is not a nullptr?",
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb17f0a6_b9b41d23",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-12T22:40:47Z",
+      "side": 1,
+      "message": "constexpr char* const?",
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
