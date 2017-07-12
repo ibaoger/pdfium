@@ -73,7 +73,6 @@ CFX_WideString CPDF_Action::GetFilePath() const {
   }
 
   CPDF_Object* pFile = m_pDict->GetDirectObjectFor("F");
-  CFX_WideString path;
   if (!pFile) {
     if (type == "Launch") {
       CPDF_Dictionary* pWinDict = m_pDict->GetDictFor("Win");
@@ -82,12 +81,10 @@ CFX_WideString CPDF_Action::GetFilePath() const {
             pWinDict->GetStringFor("F").AsStringC());
       }
     }
-    return path;
+    return CFX_WideString();
   }
 
-  CPDF_FileSpec filespec(pFile);
-  filespec.GetFileName(&path);
-  return path;
+  return CPDF_FileSpec(pFile).GetFileName();
 }
 
 CFX_ByteString CPDF_Action::GetURI(CPDF_Document* pDoc) const {
