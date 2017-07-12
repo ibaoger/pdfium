@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec622587_8e86084c",
+        "filename": "core/fxcodec/codec/fx_codec_icc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-12T14:50:29Z",
+      "side": 1,
+      "message": "Move the CLcmsCmm methods out from the middle of the CCodec_IccModule methods",
+      "revId": "431d0ccef44dfa4c5149707c0ee2fd58a8fecf6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6f7cee4_49810668",
+        "filename": "core/fxcodec/codec/fx_codec_icc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-12T14:50:29Z",
+      "side": 1,
+      "message": "Move the constructor and destructor up above methods",
+      "revId": "431d0ccef44dfa4c5149707c0ee2fd58a8fecf6c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
