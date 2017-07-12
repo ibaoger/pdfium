@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3398f3e_fc266842",
+        "filename": "core/fxge/cfx_renderdevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-12T16:15:02Z",
+      "side": 1,
+      "message": "NormalizeRgbSrc would early exit if CalcAlpha was zero, that doesn\u0027t happen now?",
+      "revId": "03bd2a86bd428f353d7cabfbae8d44f6da25f916",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
