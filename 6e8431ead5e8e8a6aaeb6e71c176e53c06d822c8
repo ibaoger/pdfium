@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fac5c3eb_374dd894",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-12T20:57:39Z",
+      "side": 1,
+      "message": "I might just count digits and bail if there are more that 2, eg 100.",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 20
+      },
+      "revId": "6e8431ead5e8e8a6aaeb6e71c176e53c06d822c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
