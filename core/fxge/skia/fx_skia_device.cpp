@@ -809,6 +809,10 @@ class SkiaState {
       m_positions[index + count] = {cp.m_Origin.x * flip,
                                     cp.m_Origin.y * vFlip};
       m_glyphs[index + count] = static_cast<uint16_t>(cp.m_GlyphIndex);
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
+      if (cp.m_ExtGID)
+        m_glyphs[index + count] = static_cast<uint16_t>(cp.m_ExtGID);
+#endif
     }
     SkPoint delta;
     if (MatrixOffset(pMatrix, &delta)) {
@@ -1491,6 +1495,10 @@ bool CFX_SkiaDeviceDriver::DrawDeviceText(int nChars,
     const FXTEXT_CHARPOS& cp = pCharPos[index];
     positions[index] = {cp.m_Origin.x * flip, cp.m_Origin.y * vFlip};
     glyphs[index] = static_cast<uint16_t>(cp.m_GlyphIndex);
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
+    if (cp.m_ExtGID)
+      glyphs[index] = static_cast<uint16_t>(cp.m_ExtGID);
+#endif
   }
 #if SHOW_TEXT_GLYPHS
   SkTDArray<SkUnichar> text;
