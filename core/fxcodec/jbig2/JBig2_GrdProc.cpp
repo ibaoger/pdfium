@@ -41,10 +41,11 @@ bool CJBig2_GRDProc::UseTemplate23Opt3() const {
   return (GBAT[0] == 2) && (GBAT[1] == -1);
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith(CJBig2_ArithDecoder* pArithDecoder,
-                                           JBig2ArithCtx* gbContext) {
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith(
+    CJBig2_ArithDecoder* pArithDecoder,
+    JBig2ArithCtx* gbContext) {
   if (GBW == 0 || GBH == 0)
-    return new CJBig2_Image(GBW, GBH);
+    return pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
 
   if (GBTEMPLATE == 0) {
     if (UseTemplate0Opt3())
@@ -64,7 +65,8 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith(CJBig2_ArithDecoder* pArithDecoder,
     return decode_Arith_Template3_unopt(pArithDecoder, gbContext);
   }
 }
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template0_opt3(
+
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template0_opt3(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   auto GBREG = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
@@ -159,10 +161,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template0_opt3(
     }
     pLine += nStride;
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template0_unopt(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template0_unopt(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   int LTP = 0;
@@ -210,10 +212,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template0_unopt(
       }
     }
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template1_opt3(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template1_opt3(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   auto GBREG = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
@@ -307,10 +309,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template1_opt3(
     }
     pLine += nStride;
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template1_unopt(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template1_unopt(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   int LTP = 0;
@@ -356,10 +358,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template1_unopt(
       }
     }
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template2_opt3(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template2_opt3(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   auto GBREG = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
@@ -453,10 +455,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template2_opt3(
     }
     pLine += nStride;
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template2_unopt(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template2_unopt(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   int LTP = 0;
@@ -500,10 +502,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template2_unopt(
       }
     }
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template3_opt3(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template3_opt3(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   auto GBREG = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
@@ -585,10 +587,10 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template3_opt3(
     }
     pLine += nStride;
   }
-  return GBREG.release();
+  return GBREG;
 }
 
-CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template3_unopt(
+std::unique_ptr<CJBig2_Image> CJBig2_GRDProc::decode_Arith_Template3_unopt(
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext) {
   int LTP = 0;
@@ -628,11 +630,11 @@ CJBig2_Image* CJBig2_GRDProc::decode_Arith_Template3_unopt(
       }
     }
   }
-  return GBREG.release();
+  return GBREG;
 }
 
 FXCODEC_STATUS CJBig2_GRDProc::Start_decode_Arith(
-    CJBig2_Image** pImage,
+    std::unique_ptr<CJBig2_Image>* pImage,
     CJBig2_ArithDecoder* pArithDecoder,
     JBig2ArithCtx* gbContext,
     IFX_Pause* pPause) {
@@ -642,16 +644,15 @@ FXCODEC_STATUS CJBig2_GRDProc::Start_decode_Arith(
   }
   m_ProssiveStatus = FXCODEC_STATUS_DECODE_READY;
   if (!*pImage)
-    *pImage = new CJBig2_Image(GBW, GBH);
+    *pImage = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
   if (!(*pImage)->m_pData) {
-    delete *pImage;
     *pImage = nullptr;
     m_ProssiveStatus = FXCODEC_STATUS_ERROR;
     return FXCODEC_STATUS_ERROR;
   }
   m_DecodeType = 1;
-  m_pImage = pImage;
-  (*m_pImage)->fill(0);
+  m_pImage = pImage->get();
+  m_pImage->fill(0);
   m_gbContext = gbContext;
   m_LTP = 0;
   m_pLine = nullptr;
@@ -663,42 +664,41 @@ FXCODEC_STATUS CJBig2_GRDProc::decode_Arith(
     IFX_Pause* pPause,
     CJBig2_ArithDecoder* pArithDecoder) {
   int iline = m_loopIndex;
-  CJBig2_Image* pImage = *m_pImage;
   if (GBTEMPLATE == 0) {
     if (UseTemplate0Opt3()) {
-      m_ProssiveStatus = decode_Arith_Template0_opt3(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template0_opt3(m_pImage, pArithDecoder,
                                                      m_gbContext, pPause);
     } else {
-      m_ProssiveStatus = decode_Arith_Template0_unopt(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template0_unopt(m_pImage, pArithDecoder,
                                                       m_gbContext, pPause);
     }
   } else if (GBTEMPLATE == 1) {
     if (UseTemplate1Opt3()) {
-      m_ProssiveStatus = decode_Arith_Template1_opt3(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template1_opt3(m_pImage, pArithDecoder,
                                                      m_gbContext, pPause);
     } else {
-      m_ProssiveStatus = decode_Arith_Template1_unopt(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template1_unopt(m_pImage, pArithDecoder,
                                                       m_gbContext, pPause);
     }
   } else if (GBTEMPLATE == 2) {
     if (UseTemplate23Opt3()) {
-      m_ProssiveStatus = decode_Arith_Template2_opt3(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template2_opt3(m_pImage, pArithDecoder,
                                                      m_gbContext, pPause);
     } else {
-      m_ProssiveStatus = decode_Arith_Template2_unopt(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template2_unopt(m_pImage, pArithDecoder,
                                                       m_gbContext, pPause);
     }
   } else {
     if (UseTemplate23Opt3()) {
-      m_ProssiveStatus = decode_Arith_Template3_opt3(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template3_opt3(m_pImage, pArithDecoder,
                                                      m_gbContext, pPause);
     } else {
-      m_ProssiveStatus = decode_Arith_Template3_unopt(pImage, pArithDecoder,
+      m_ProssiveStatus = decode_Arith_Template3_unopt(m_pImage, pArithDecoder,
                                                       m_gbContext, pPause);
     }
   }
   m_ReplaceRect.left = 0;
-  m_ReplaceRect.right = pImage->width();
+  m_ReplaceRect.right = m_pImage->width();
   m_ReplaceRect.top = iline;
   m_ReplaceRect.bottom = m_loopIndex;
   if (m_ProssiveStatus == FXCODEC_STATUS_DECODE_FINISH)
@@ -707,23 +707,22 @@ FXCODEC_STATUS CJBig2_GRDProc::decode_Arith(
   return m_ProssiveStatus;
 }
 
-FXCODEC_STATUS CJBig2_GRDProc::Start_decode_MMR(CJBig2_Image** pImage,
-                                                CJBig2_BitStream* pStream) {
+FXCODEC_STATUS CJBig2_GRDProc::Start_decode_MMR(
+    std::unique_ptr<CJBig2_Image>* pImage,
+    CJBig2_BitStream* pStream) {
   int bitpos, i;
-  *pImage = new CJBig2_Image(GBW, GBH);
+  *pImage = pdfium::MakeUnique<CJBig2_Image>(GBW, GBH);
   if (!(*pImage)->m_pData) {
-    delete (*pImage);
-    (*pImage) = nullptr;
+    *pImage = nullptr;
     m_ProssiveStatus = FXCODEC_STATUS_ERROR;
     return m_ProssiveStatus;
   }
-  bitpos = (int)pStream->getBitPos();
+  bitpos = static_cast<int>(pStream->getBitPos());
   FaxG4Decode(pStream->getBuf(), pStream->getLength(), &bitpos,
               (*pImage)->m_pData, GBW, GBH, (*pImage)->stride());
   pStream->setBitPos(bitpos);
-  for (i = 0; (uint32_t)i < (*pImage)->stride() * GBH; i++) {
+  for (i = 0; (uint32_t)i < (*pImage)->stride() * GBH; ++i)
     (*pImage)->m_pData[i] = ~(*pImage)->m_pData[i];
-  }
   m_ProssiveStatus = FXCODEC_STATUS_DECODE_FINISH;
   return m_ProssiveStatus;
 }
