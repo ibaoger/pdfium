@@ -45,7 +45,7 @@ class PerformanceRun(object):
   def _RunCallgrind(self):
     # Whether to turn instrument the whole run or to use the callgrind macro
     # delimiters in pdfium_test.
-    instrument_at_start = ('no' if self.options.interesting_section else 'yes')
+    instrument_at_start = ('yes' if self.options.measure_full else 'no')
     output_path = self.options.output_path or '/dev/null'
 
     valgrind_cmd = (['valgrind', '--tool=callgrind',
@@ -71,7 +71,7 @@ class PerformanceRun(object):
 
   def _BuildTestHarnessCommand(self):
     cmd = [self.pdfium_test_path, '--send-events']
-    if self.options.interesting_section:
+    if not self.options.measure_full:
       cmd.append('--callgrind-delim')
     cmd.append(self.pdf_path)
     return cmd
@@ -93,11 +93,9 @@ def main():
   parser.add_option('--profiler', default=CALLGRIND_PROFILER,
                     help='what profiler to use. Supports callgrind and '
                          'perfstat for now.')
-  parser.add_option('--interesting-section', action='store_true',
-                    help='whether to measure just the interesting section or '
-                         'the whole test harness. Limiting to only the '
-                         'interesting section does not work on Release since '
-                         'the delimiters are optimized out')
+  parser.add_option('--measure-full', action='store_true',
+                    help='whether to measure the whole test harness or '
+                         'just the interesting section')
   parser.add_option('--output-path',
                     help='where to write the profile data output file')
   options, pdf_path = parser.parse_args()
