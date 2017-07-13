@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "a00614b1_5dbbe6cf",
+        "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-13T18:25:27Z",
+      "side": 1,
+      "message": "I\u0027m guessing it\u0027s a bug.",
+      "parentUuid": "1aec4510_c5ee7325",
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f252d277_b4c3c121",
         "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
         "patchSetId": 1
