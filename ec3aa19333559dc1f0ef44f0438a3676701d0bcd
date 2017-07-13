@@ -140,6 +140,30 @@
       "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b32931d_f994ea0d",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T17:28:22Z",
+      "side": 1,
+      "message": "core/fpdfdoc/cpdf_defaultappearance.h:enum class BorderStyle { SOLID, DASH, BEVELED, INSET, UNDERLINE };",
+      "parentUuid": "c0bc8d0f_90fd6da0",
+      "range": {
+        "startLine": 46,
+        "startChar": 25,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
