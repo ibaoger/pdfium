@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "75027bba_8035c66d",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T20:58:37Z",
+      "side": 1,
+      "message": "We like to be different?",
+      "parentUuid": "39272575_83b9453b",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc28c9f6_ec8406d8",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -148,6 +172,24 @@
       "side": 1,
       "message": "Not sure if I got what you mean, are you saying this function should return CFX_ByteString directly instead of taking in CFX_ByteString*? But we have the CPDF_Object to return too? Unless you meant directly returning CFX_ByteString, but take in a pointer to CPDF_Object?",
       "parentUuid": "fc28c9f6_ec8406d8",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ede6f109_4a26d412",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T20:58:37Z",
+      "side": 1,
+      "message": "Oh, I didn\u0027t understand what this was doing, so, in this case I\u0027d almost like to see:\n\nCFX_ByteString csName;\nCFX_Object* obj;\nstd::tie(obj, csName) \u003d nameTree.LookupValueAndName(index);\nreturn obj;",
+      "parentUuid": "4a79c261_d8d60f83",
       "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -189,6 +231,24 @@
     },
     {
       "key": {
+        "uuid": "08550d11_4bac3c00",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T20:58:37Z",
+      "side": 1,
+      "message": "For 1, won\u0027t we be fine since you can do the same IsHex check you\u0027re doing here?\n\nIt would be nice to be consistent on how these APIs work, either going with general methods that take a String or individual methods ....",
+      "parentUuid": "a9cb54cb_c3a4330d",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ad23d45_ac058fb2",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -224,6 +284,24 @@
     },
     {
       "key": {
+        "uuid": "a3c3e0e9_ff098f68",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T20:58:37Z",
+      "side": 1,
+      "message": "Just pass data.get() into DecodeInlineStream?",
+      "parentUuid": "2a3a2e6b_8d62a3ae",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5320131e_0fd3b0cf",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -253,6 +331,24 @@
       "side": 1,
       "message": "That\u0027s a good suggestion, but I think the len returned by DecodeInlineStream() might differ (e.g. be smaller if truncated) from the len returned by GetRawSize(), so we need to call the big function anyways?",
       "parentUuid": "5320131e_0fd3b0cf",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f19eaf9_01216922",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T20:58:37Z",
+      "side": 1,
+      "message": "Ah, didn\u0027t realize len was an in-out parameter.",
+      "parentUuid": "1421515f_697c38fb",
       "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
