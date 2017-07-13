@@ -23,6 +23,7 @@
 #include "core/fxge/cfx_graphstatedata.h"
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
+#include "fpdfsdk/cpdfsdk_appstream.h"
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/cpdfsdk_interform.h"
 #include "fpdfsdk/cpdfsdk_pageview.h"
@@ -31,7 +32,6 @@
 #include "fpdfsdk/fsdk_define.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 
 #ifdef PDF_ENABLE_XFA
 #include "fpdfsdk/fpdfxfa/cpdfxfa_context.h"
@@ -995,11 +995,10 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
   font_map.SetAPType("N");
 
   CFX_ByteString csAP =
-      CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground) +
-      CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                     crLeftTop, crRightBottom, nBorderStyle,
-                                     dsBorder) +
-      CPWL_Utils::GetPushButtonAppStream(
+      CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground) +
+      CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder, crLeftTop,
+                                   crRightBottom, nBorderStyle, dsBorder) +
+      CPDFSDK_AppStream::GetPushButton(
           iconFit.GetFittingBounds() ? rcWindow : rcClient, &font_map,
           pNormalIcon, iconFit, csNormalCaption, crText, fFontSize, nLayout);
 
@@ -1016,11 +1015,11 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
 
     font_map.SetAPType("R");
 
-    csAP = CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground) +
-           CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                          crLeftTop, crRightBottom,
-                                          nBorderStyle, dsBorder) +
-           CPWL_Utils::GetPushButtonAppStream(
+    csAP = CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground) +
+           CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder,
+                                        crLeftTop, crRightBottom, nBorderStyle,
+                                        dsBorder) +
+           CPDFSDK_AppStream::GetPushButton(
                iconFit.GetFittingBounds() ? rcWindow : rcClient, &font_map,
                pRolloverIcon, iconFit, csRolloverCaption, crText, fFontSize,
                nLayout);
@@ -1052,11 +1051,11 @@ void CPDFSDK_Widget::ResetAppearance_PushButton() {
 
     font_map.SetAPType("D");
 
-    csAP = CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
-           CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                          crLeftTop, crRightBottom,
-                                          nBorderStyle, dsBorder) +
-           CPWL_Utils::GetPushButtonAppStream(
+    csAP = CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground - 0.25f) +
+           CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder,
+                                        crLeftTop, crRightBottom, nBorderStyle,
+                                        dsBorder) +
+           CPDFSDK_AppStream::GetPushButton(
                iconFit.GetFittingBounds() ? rcWindow : rcClient, &font_map,
                pDownIcon, iconFit, csDownCaption, crText, fFontSize, nLayout);
 
@@ -1147,10 +1146,9 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
   }
 
   CFX_ByteString csAP_N_ON =
-      CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground) +
-      CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                     crLeftTop, crRightBottom, nBorderStyle,
-                                     dsBorder);
+      CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground) +
+      CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder, crLeftTop,
+                                   crRightBottom, nBorderStyle, dsBorder);
 
   CFX_ByteString csAP_N_OFF = csAP_N_ON;
 
@@ -1171,15 +1169,14 @@ void CPDFSDK_Widget::ResetAppearance_CheckBox() {
   }
 
   CFX_ByteString csAP_D_ON =
-      CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
-      CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                     crLeftTop, crRightBottom, nBorderStyle,
-                                     dsBorder);
+      CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground - 0.25f) +
+      CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder, crLeftTop,
+                                   crRightBottom, nBorderStyle, dsBorder);
 
   CFX_ByteString csAP_D_OFF = csAP_D_ON;
 
-  csAP_N_ON += CPWL_Utils::GetCheckBoxAppStream(rcClient, nStyle, crText);
-  csAP_D_ON += CPWL_Utils::GetCheckBoxAppStream(rcClient, nStyle, crText);
+  csAP_N_ON += CPDFSDK_AppStream::GetCheckBox(rcClient, nStyle, crText);
+  csAP_D_ON += CPDFSDK_AppStream::GetCheckBox(rcClient, nStyle, crText);
 
   WriteAppearance("N", GetRotatedRect(), GetMatrix(), csAP_N_ON,
                   pControl->GetCheckedAPState());
@@ -1288,15 +1285,15 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
       crRightBottom = CPWL_Color(COLORTYPE_GRAY, 0.75f);
     }
 
-    csAP_N_ON = CPWL_Utils::GetCircleFillAppStream(rcCenter, crBackground) +
-                CPWL_Utils::GetCircleBorderAppStream(
+    csAP_N_ON = CPDFSDK_AppStream::GetCircleFill(rcCenter, crBackground) +
+                CPDFSDK_AppStream::GetCircleBorder(
                     rcCenter, fBorderWidth, crBorder, crLeftTop, crRightBottom,
                     nBorderStyle, dsBorder);
   } else {
-    csAP_N_ON = CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground) +
-                CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                               crLeftTop, crRightBottom,
-                                               nBorderStyle, dsBorder);
+    csAP_N_ON = CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground) +
+                CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder,
+                                             crLeftTop, crRightBottom,
+                                             nBorderStyle, dsBorder);
   }
 
   CFX_ByteString csAP_N_OFF = csAP_N_ON;
@@ -1330,22 +1327,21 @@ void CPDFSDK_Widget::ResetAppearance_RadioButton() {
       crRightBottom = CPWL_Color(COLORTYPE_GRAY, 1);
     }
 
-    csAP_D_ON = CPWL_Utils::GetCircleFillAppStream(rcCenter, crBK) +
-                CPWL_Utils::GetCircleBorderAppStream(
+    csAP_D_ON = CPDFSDK_AppStream::GetCircleFill(rcCenter, crBK) +
+                CPDFSDK_AppStream::GetCircleBorder(
                     rcCenter, fBorderWidth, crBorder, crLeftTop, crRightBottom,
                     nBorderStyle, dsBorder);
   } else {
-    csAP_D_ON =
-        CPWL_Utils::GetRectFillAppStream(rcWindow, crBackground - 0.25f) +
-        CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                       crLeftTop, crRightBottom, nBorderStyle,
-                                       dsBorder);
+    csAP_D_ON = CPDFSDK_AppStream::GetRectFill(rcWindow, crBackground - 0.25f) +
+                CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder,
+                                             crLeftTop, crRightBottom,
+                                             nBorderStyle, dsBorder);
   }
 
   CFX_ByteString csAP_D_OFF = csAP_D_ON;
 
-  csAP_N_ON += CPWL_Utils::GetRadioButtonAppStream(rcClient, nStyle, crText);
-  csAP_D_ON += CPWL_Utils::GetRadioButtonAppStream(rcClient, nStyle, crText);
+  csAP_N_ON += CPDFSDK_AppStream::GetRadioButton(rcClient, nStyle, crText);
+  csAP_D_ON += CPDFSDK_AppStream::GetRadioButton(rcClient, nStyle, crText);
 
   WriteAppearance("N", GetRotatedRect(), GetMatrix(), csAP_N_ON,
                   pControl->GetCheckedAPState());
@@ -1403,8 +1399,7 @@ void CPDFSDK_Widget::ResetAppearance_ComboBox(const CFX_WideString* sValue) {
 
   CFX_FloatRect rcContent = pEdit->GetContentRect();
 
-  CFX_ByteString sEdit =
-      CPWL_Utils::GetEditAppStream(pEdit.get(), CFX_PointF());
+  CFX_ByteString sEdit = CPDFSDK_AppStream::GetEdit(pEdit.get(), CFX_PointF());
   if (sEdit.GetLength() > 0) {
     sBody << "/Tx BMC\n"
           << "q\n";
@@ -1416,11 +1411,11 @@ void CPDFSDK_Widget::ResetAppearance_ComboBox(const CFX_WideString* sValue) {
 
     CPWL_Color crText = GetTextPWLColor();
     sBody << "BT\n"
-          << CPWL_Utils::GetColorAppStream(crText) << sEdit << "ET\n"
+          << CPDFSDK_AppStream::GetColor(crText) << sEdit << "ET\n"
           << "Q\nEMC\n";
   }
 
-  sBody << CPWL_Utils::GetDropButtonAppStream(rcButton);
+  sBody << CPDFSDK_AppStream::GetDropButton(rcButton);
 
   CFX_ByteString sAP =
       GetBackgroundAppStream() + GetBorderAppStream() + CFX_ByteString(sBody);
@@ -1473,7 +1468,7 @@ void CPDFSDK_Widget::ResetAppearance_ListBox() {
       CFX_FloatRect rcItem =
           CFX_FloatRect(rcClient.left, fy - fItemHeight, rcClient.right, fy);
       sList << "q\n"
-            << CPWL_Utils::GetColorAppStream(
+            << CPDFSDK_AppStream::GetColor(
                    CPWL_Color(COLORTYPE_RGB, 0, 51.0f / 255.0f,
                               113.0f / 255.0f),
                    true)
@@ -1482,15 +1477,14 @@ void CPDFSDK_Widget::ResetAppearance_ListBox() {
             << "Q\n";
 
       sList << "BT\n"
-            << CPWL_Utils::GetColorAppStream(CPWL_Color(COLORTYPE_GRAY, 1),
-                                             true)
-            << CPWL_Utils::GetEditAppStream(pEdit.get(), CFX_PointF(0.0f, fy))
+            << CPDFSDK_AppStream::GetColor(CPWL_Color(COLORTYPE_GRAY, 1), true)
+            << CPDFSDK_AppStream::GetEdit(pEdit.get(), CFX_PointF(0.0f, fy))
             << "ET\n";
     } else {
       CPWL_Color crText = GetTextPWLColor();
       sList << "BT\n"
-            << CPWL_Utils::GetColorAppStream(crText, true)
-            << CPWL_Utils::GetEditAppStream(pEdit.get(), CFX_PointF(0.0f, fy))
+            << CPDFSDK_AppStream::GetColor(crText, true)
+            << CPDFSDK_AppStream::GetEdit(pEdit.get(), CFX_PointF(0.0f, fy))
             << "ET\n";
     }
 
@@ -1579,7 +1573,7 @@ void CPDFSDK_Widget::ResetAppearance_TextField(const CFX_WideString* sValue) {
   pEdit->SetText(sValue ? *sValue : pField->GetValue());
 
   CFX_FloatRect rcContent = pEdit->GetContentRect();
-  CFX_ByteString sEdit = CPWL_Utils::GetEditAppStream(
+  CFX_ByteString sEdit = CPDFSDK_AppStream::GetEdit(
       pEdit.get(), CFX_PointF(), nullptr, !bCharArray, subWord);
 
   if (sEdit.GetLength() > 0) {
@@ -1592,7 +1586,7 @@ void CPDFSDK_Widget::ResetAppearance_TextField(const CFX_WideString* sValue) {
     }
     CPWL_Color crText = GetTextPWLColor();
     sBody << "BT\n"
-          << CPWL_Utils::GetColorAppStream(crText) << sEdit << "ET\n"
+          << CPDFSDK_AppStream::GetColor(crText) << sEdit << "ET\n"
           << "Q\nEMC\n";
   }
 
@@ -1600,11 +1594,11 @@ void CPDFSDK_Widget::ResetAppearance_TextField(const CFX_WideString* sValue) {
     switch (GetBorderStyle()) {
       case BorderStyle::SOLID: {
         CFX_ByteString sColor =
-            CPWL_Utils::GetColorAppStream(GetBorderPWLColor(), false);
+            CPDFSDK_AppStream::GetColor(GetBorderPWLColor(), false);
         if (sColor.GetLength() > 0) {
           sLines << "q\n"
                  << GetBorderWidth() << " w\n"
-                 << CPWL_Utils::GetColorAppStream(GetBorderPWLColor(), false)
+                 << CPDFSDK_AppStream::GetColor(GetBorderPWLColor(), false)
                  << " 2 J 0 j\n";
 
           for (int32_t i = 1; i < nMaxLen; ++i) {
@@ -1622,13 +1616,13 @@ void CPDFSDK_Widget::ResetAppearance_TextField(const CFX_WideString* sValue) {
       }
       case BorderStyle::DASH: {
         CFX_ByteString sColor =
-            CPWL_Utils::GetColorAppStream(GetBorderPWLColor(), false);
+            CPDFSDK_AppStream::GetColor(GetBorderPWLColor(), false);
         if (sColor.GetLength() > 0) {
           CPWL_Dash dsBorder = CPWL_Dash(3, 3, 0);
 
           sLines << "q\n"
                  << GetBorderWidth() << " w\n"
-                 << CPWL_Utils::GetColorAppStream(GetBorderPWLColor(), false)
+                 << CPDFSDK_AppStream::GetColor(GetBorderPWLColor(), false)
                  << "[" << dsBorder.nDash << " " << dsBorder.nGap << "] "
                  << dsBorder.nPhase << " d\n";
 
@@ -1699,7 +1693,7 @@ CFX_FloatRect CPDFSDK_Widget::GetRotatedRect() const {
 CFX_ByteString CPDFSDK_Widget::GetBackgroundAppStream() const {
   CPWL_Color crBackground = GetFillPWLColor();
   if (crBackground.nColorType != COLORTYPE_TRANSPARENT)
-    return CPWL_Utils::GetRectFillAppStream(GetRotatedRect(), crBackground);
+    return CPDFSDK_AppStream::GetRectFill(GetRotatedRect(), crBackground);
 
   return "";
 }
@@ -1732,9 +1726,9 @@ CFX_ByteString CPDFSDK_Widget::GetBorderAppStream() const {
       break;
   }
 
-  return CPWL_Utils::GetBorderAppStream(rcWindow, fBorderWidth, crBorder,
-                                        crLeftTop, crRightBottom, nBorderStyle,
-                                        dsBorder);
+  return CPDFSDK_AppStream::GetBorder(rcWindow, fBorderWidth, crBorder,
+                                      crLeftTop, crRightBottom, nBorderStyle,
+                                      dsBorder);
 }
 
 CFX_Matrix CPDFSDK_Widget::GetMatrix() const {

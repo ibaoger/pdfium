@@ -10,9 +10,9 @@
 #include <sstream>
 #include <vector>
 
+#include "fpdfsdk/cpdfsdk_appstream.h"
 #include "fpdfsdk/pdfwindow/cpwl_draw_helpers.h"
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 
@@ -259,11 +259,11 @@ void CPWL_Wnd::GetThisAppearanceStream(std::ostringstream* psAppStream) {
     return;
 
   if (HasFlag(PWS_BACKGROUND))
-    *psAppStream << CPWL_Utils::GetRectFillAppStream(rectWnd,
-                                                     GetBackgroundColor());
+    *psAppStream << CPDFSDK_AppStream::GetRectFill(rectWnd,
+                                                   GetBackgroundColor());
 
   if (HasFlag(PWS_BORDER)) {
-    *psAppStream << CPWL_Utils::GetBorderAppStream(
+    *psAppStream << CPDFSDK_AppStream::GetBorder(
         rectWnd, (float)GetBorderWidth(), GetBorderColor(),
         GetBorderLeftTopColor(GetBorderStyle()),
         GetBorderRightBottomColor(GetBorderStyle()), GetBorderStyle(),

@@ -8,13 +8,13 @@
 
 #include <sstream>
 
+#include "fpdfsdk/cpdfsdk_appstream.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/fxedit/fxet_list.h"
 #include "fpdfsdk/pdfwindow/cpwl_draw_helpers.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 #include "public/fpdf_fwlevent.h"
 #include "third_party/base/ptr_util.h"
@@ -108,22 +108,22 @@ void CPWL_ListBox::GetThisAppearanceStream(std::ostringstream* psAppStream) {
 
     CFX_PointF ptOffset(rcItem.left, (rcItem.top + rcItem.bottom) * 0.5f);
     if (m_pList->IsItemSelected(i)) {
-      sListItems << CPWL_Utils::GetRectFillAppStream(rcItem,
-                                                     PWL_DEFAULT_SELBACKCOLOR);
+      sListItems << CPDFSDK_AppStream::GetRectFill(rcItem,
+                                                   PWL_DEFAULT_SELBACKCOLOR);
       CFX_ByteString sItem =
-          CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
+          CPDFSDK_AppStream::GetEdit(m_pList->GetItemEdit(i), ptOffset);
       if (sItem.GetLength() > 0) {
         sListItems << "BT\n"
-                   << CPWL_Utils::GetColorAppStream(
+                   << CPDFSDK_AppStream::GetColor(
                           CPWL_Color(COLORTYPE_RGB, 1, 1, 1))
                    << sItem << "ET\n";
       }
     } else {
       CFX_ByteString sItem =
-          CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
+          CPDFSDK_AppStream::GetEdit(m_pList->GetItemEdit(i), ptOffset);
       if (sItem.GetLength() > 0) {
         sListItems << "BT\n"
-                   << CPWL_Utils::GetColorAppStream(GetTextColor()) << sItem
+                   << CPDFSDK_AppStream::GetColor(GetTextColor()) << sItem
                    << "ET\n";
       }
     }

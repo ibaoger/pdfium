@@ -11,7 +11,6 @@
 
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 CPWL_Image::CPWL_Image() : m_pPDFStream(nullptr) {}

@@ -12,8 +12,8 @@
 
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
+#include "fpdfsdk/cpdfsdk_appstream.h"
 #include "fpdfsdk/pdfwindow/cpwl_draw_helpers.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 namespace {
@@ -486,7 +486,7 @@ void CPWL_ScrollBar::GetThisAppearanceStream(std::ostringstream* psAppStream) {
 
   *psAppStream << "q\n"
                << "0 w\n"
-               << CPWL_Utils::GetColorAppStream(GetBackgroundColor(), true)
+               << CPDFSDK_AppStream::GetColor(GetBackgroundColor(), true)
                << rectWnd.left << " " << rectWnd.bottom << " "
                << rectWnd.right - rectWnd.left << " "
                << rectWnd.top - rectWnd.bottom << " re b Q\n";

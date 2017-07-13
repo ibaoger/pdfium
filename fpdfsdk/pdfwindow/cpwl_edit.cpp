@@ -20,12 +20,12 @@
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/fx_font.h"
+#include "fpdfsdk/cpdfsdk_appstream.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/pdfwindow/cpwl_caret.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
 #include "fpdfsdk/pdfwindow/cpwl_font_map.h"
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 #include "public/fpdf_fwlevent.h"
 #include "third_party/base/stl_util.h"
@@ -216,7 +216,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
       case BorderStyle::SOLID: {
         *psAppStream << "q\n"
                      << GetBorderWidth() << " w\n"
-                     << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
+                     << CPDFSDK_AppStream::GetColor(GetBorderColor(), false)
                      << " 2 J 0 j\n";
 
         for (int32_t i = 1; i < nCharArray; i++) {
@@ -236,7 +236,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
       case BorderStyle::DASH: {
         *psAppStream << "q\n"
                      << GetBorderWidth() << " w\n"
-                     << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
+                     << CPDFSDK_AppStream::GetColor(GetBorderColor(), false)
                      << " 2 J 0 j\n"
                      << "[" << GetBorderDash().nDash << " "
                      << GetBorderDash().nGap << "] " << GetBorderDash().nPhase
@@ -273,40 +273,39 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
   CPVT_WordRange wrTemp =
       GetSelectWordRange().GetOverlappingWordRange(wrVisible);
   CFX_ByteString sEditSel =
-      CPWL_Utils::GetEditSelAppStream(m_pEdit.get(), ptOffset, &wrTemp);
+      CPDFSDK_AppStream::GetEditSel(m_pEdit.get(), ptOffset, &wrTemp);
 
   if (sEditSel.GetLength() > 0)
-    sText << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELBACKCOLOR)
-          << sEditSel;
+    sText << CPDFSDK_AppStream::GetColor(PWL_DEFAULT_SELBACKCOLOR) << sEditSel;
 
   wrTemp = wrVisible.GetOverlappingWordRange(wrSelBefore);
-  CFX_ByteString sEditBefore = CPWL_Utils::GetEditAppStream(
+  CFX_ByteString sEditBefore = CPDFSDK_AppStream::GetEdit(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
 
   if (sEditBefore.GetLength() > 0)
     sText << "BT\n"
-          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditBefore
+          << CPDFSDK_AppStream::GetColor(GetTextColor()) << sEditBefore
           << "ET\n";
 
   wrTemp = wrVisible.GetOverlappingWordRange(wrSelect);
-  CFX_ByteString sEditMid = CPWL_Utils::GetEditAppStream(
+  CFX_ByteString sEditMid = CPDFSDK_AppStream::GetEdit(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
 
   if (sEditMid.GetLength() > 0)
     sText << "BT\n"
-          << CPWL_Utils::GetColorAppStream(CPWL_Color(COLORTYPE_GRAY, 1))
+          << CPDFSDK_AppStream::GetColor(CPWL_Color(COLORTYPE_GRAY, 1))
           << sEditMid << "ET\n";
 
   wrTemp = wrVisible.GetOverlappingWordRange(wrSelAfter);
-  CFX_ByteString sEditAfter = CPWL_Utils::GetEditAppStream(
+  CFX_ByteString sEditAfter = CPDFSDK_AppStream::GetEdit(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
 
   if (sEditAfter.GetLength() > 0)
     sText << "BT\n"
-          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditAfter
+          << CPDFSDK_AppStream::GetColor(GetTextColor()) << sEditAfter
           << "ET\n";
 
   if (sText.tellp() > 0) {
@@ -485,7 +484,7 @@ void CPWL_Edit::SetCharSpace(float fCharSpace) {
 CFX_ByteString CPWL_Edit::GetSelectAppearanceStream(
     const CFX_PointF& ptOffset) const {
   CPVT_WordRange wr = GetSelectWordRange();
-  return CPWL_Utils::GetEditSelAppStream(m_pEdit.get(), ptOffset, &wr);
+  return CPDFSDK_AppStream::GetEditSel(m_pEdit.get(), ptOffset, &wr);
 }
 
 CPVT_WordRange CPWL_Edit::GetSelectWordRange() const {
@@ -507,10 +506,10 @@ CPVT_WordRange CPWL_Edit::GetSelectWordRange() const {
 CFX_ByteString CPWL_Edit::GetTextAppearanceStream(
     const CFX_PointF& ptOffset) const {
   std::ostringstream sRet;
-  CFX_ByteString sEdit = CPWL_Utils::GetEditAppStream(m_pEdit.get(), ptOffset);
+  CFX_ByteString sEdit = CPDFSDK_AppStream::GetEdit(m_pEdit.get(), ptOffset);
   if (sEdit.GetLength() > 0) {
     sRet << "BT\n"
-         << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEdit << "ET\n";
+         << CPDFSDK_AppStream::GetColor(GetTextColor()) << sEdit << "ET\n";
   }
   return CFX_ByteString(sRet);
 }
