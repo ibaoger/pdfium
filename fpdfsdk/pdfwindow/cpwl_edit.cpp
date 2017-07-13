@@ -271,7 +271,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
   CPVT_WordRange wrSelBefore(wrWhole.BeginPos, wrSelect.BeginPos);
   CPVT_WordRange wrSelAfter(wrSelect.EndPos, wrWhole.EndPos);
   CPVT_WordRange wrTemp =
-      CPWL_Utils::OverlapWordRange(GetSelectWordRange(), wrVisible);
+      GetSelectWordRange().GetOverlappingWordRange(wrVisible);
   CFX_ByteString sEditSel =
       CPWL_Utils::GetEditSelAppStream(m_pEdit.get(), ptOffset, &wrTemp);
 
@@ -279,7 +279,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
     sText << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELBACKCOLOR)
           << sEditSel;
 
-  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelBefore);
+  wrTemp = wrVisible.GetOverlappingWordRange(wrSelBefore);
   CFX_ByteString sEditBefore = CPWL_Utils::GetEditAppStream(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
@@ -289,7 +289,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
           << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditBefore
           << "ET\n";
 
-  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelect);
+  wrTemp = wrVisible.GetOverlappingWordRange(wrSelect);
   CFX_ByteString sEditMid = CPWL_Utils::GetEditAppStream(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
@@ -299,7 +299,7 @@ void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
           << CPWL_Utils::GetColorAppStream(CPWL_Color(COLORTYPE_GRAY, 1))
           << sEditMid << "ET\n";
 
-  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelAfter);
+  wrTemp = wrVisible.GetOverlappingWordRange(wrSelAfter);
   CFX_ByteString sEditAfter = CPWL_Utils::GetEditAppStream(
       m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
       m_pEdit->GetPasswordChar());
