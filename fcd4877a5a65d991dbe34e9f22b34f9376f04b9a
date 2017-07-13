@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b202490_a840be5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T18:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ac45e6_14045fba",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aec4510_c5ee7325",
         "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
         "patchSetId": 1
@@ -107,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "3084e3a5_e70d7842",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T18:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e08863c7_599a258a",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d2c257e_e52ee673",
         "filename": "core/fpdfapi/render/cpdf_renderoptions.h",
         "patchSetId": 1
@@ -118,6 +166,30 @@
       "writtenOn": "2017-07-13T15:36:56Z",
       "side": 1,
       "message": "Now alpha will be 2 instead of 3. Can we make sure these are made up by ourselves and not provided externally or defined in the spec? Or just set kAlpha \u003d 3",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 40
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "374cf594_fdfe78e1",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T18:53:51Z",
+      "side": 1,
+      "message": "We always set colour mode based on these flags so this is fine.",
+      "parentUuid": "4d2c257e_e52ee673",
       "range": {
         "startLine": 35,
         "startChar": 34,
