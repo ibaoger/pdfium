@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d7d3456_09bacad7",
+        "filename": "core/fpdfdoc/cpvt_wordrange.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T16:51:12Z",
+      "side": 1,
+      "message": "nit: Is this really \"Intersect()\" ??? Call it as such?",
+      "range": {
+        "startLine": 45,
+        "startChar": 17,
+        "endLine": 45,
+        "endChar": 40
+      },
+      "revId": "1f077e3d0ad94248ad1f334081519681e0ccc778",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13d34e4d_fc2ceb85",
+        "filename": "core/fpdfdoc/cpvt_wordrange.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T16:51:12Z",
+      "side": 1,
+      "message": "nit: maybe call wr2 |that|?",
+      "range": {
+        "startLine": 45,
+        "startChar": 63,
+        "endLine": 45,
+        "endChar": 66
+      },
+      "revId": "1f077e3d0ad94248ad1f334081519681e0ccc778",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
