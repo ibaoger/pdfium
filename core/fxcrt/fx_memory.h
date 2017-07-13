@@ -13,7 +13,9 @@
 extern "C" {
 #endif
 
-// For external C libraries to malloc through PDFium. These may return nullptr.
+// For external C libraries to malloc through PDFium. These return nullptr if
+// the size to be allocated does not fit size_t. They crash if the size fits but
+// the allocation fails.
 void* FXMEM_DefaultAlloc(size_t byte_size, int flags);
 void* FXMEM_DefaultCalloc(size_t num_elems, size_t byte_size);
 void* FXMEM_DefaultRealloc(void* pointer, size_t new_size, int flags);
@@ -40,9 +42,9 @@ NEVER_INLINE void FX_OutOfMemoryTerminate();
 inline void* FX_SafeAlloc(size_t num_members, size_t member_size) {
   FX_SAFE_SIZE_T total = member_size;
   total *= num_members;
-  if (!total.IsValid()) {
+  if (!total.IsValid())
     return nullptr;
-  }
+
   void* result = pdfium::base::PartitionAllocGeneric(
       gGeneralPartitionAllocator.root(), total.ValueOrDie(),
       "GeneralPartition");
@@ -53,9 +55,9 @@ inline void* FX_SafeAlloc(size_t num_members, size_t member_size) {
 inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
   FX_SAFE_SIZE_T size = num_members;
   size *= member_size;
-  if (!size.IsValid()) {
+  if (!size.IsValid())
     return nullptr;
-  }
+
   return pdfium::base::PartitionReallocGeneric(
       gGeneralPartitionAllocator.root(), ptr, size.ValueOrDie(),
       "GeneralPartition");
@@ -63,17 +65,17 @@ inline void* FX_SafeRealloc(void* ptr, size_t num_members, size_t member_size) {
 
 inline void* FX_AllocOrDie(size_t num_members, size_t member_size) {
   // TODO(tsepez): See if we can avoid the implicit memset(0).
-  if (void* result = FX_SafeAlloc(num_members, member_size)) {
+  if (void* result = FX_SafeAlloc(num_members, member_size))
     return result;
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
 
 inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
-  if (w < std::numeric_limits<size_t>::max() / h) {
+  if (w < std::numeric_limits<size_t>::max() / h)
     return FX_AllocOrDie(w * h, member_size);
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
@@ -81,9 +83,9 @@ inline void* FX_AllocOrDie2D(size_t w, size_t h, size_t member_size) {
 inline void* FX_ReallocOrDie(void* ptr,
                              size_t num_members,
                              size_t member_size) {
-  if (void* result = FX_SafeRealloc(ptr, num_members, member_size)) {
+  if (void* result = FX_SafeRealloc(ptr, num_members, member_size))
     return result;
-  }
+
   FX_OutOfMemoryTerminate();  // Never returns.
   return nullptr;             // Suppress compiler warning.
 }
@@ -111,9 +113,8 @@ inline void FX_Free(void* ptr) {
   //
   // So this check is hiding (what I consider to be) bugs, and we should try to
   // fix them. https://bugs.chromium.org/p/pdfium/issues/detail?id=690
-  if (ptr) {
+  if (ptr)
     pdfium::base::PartitionFree(ptr);
-  }
 }
 
 // The FX_ArraySize(arr) macro returns the # of elements in an array arr.
