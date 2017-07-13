@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aec4510_c5ee7325",
+        "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T15:19:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure why this one is flipped, compared to the other callers.",
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
