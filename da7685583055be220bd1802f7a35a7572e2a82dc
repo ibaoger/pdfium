@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c89489e1_08cd559f",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T16:28:01Z",
+      "side": 1,
+      "message": "I think we should pick one or the other, since the combination is the worst of both worlds -- you still have to check the result, but may crash.\n\nEither just use valueOrDie() without checking and crash on overflow, or call the parttionAlloc-equivalent \"try\" method.\n\nI\u0027d vote for the latter.  Or Add a set of parallel methods that always crash if that\u0027s what we want.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "da7685583055be220bd1802f7a35a7572e2a82dc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
