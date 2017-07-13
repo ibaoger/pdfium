@@ -22,6 +22,30 @@
       "revId": "d927b77f057a440df79fc6576d32a1c5e0dd4307",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0e95f43_d0031c56",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T17:02:30Z",
+      "side": 1,
+      "message": "Followup? Will check all the other usages at that point to see what\u0027s happening.",
+      "parentUuid": "3f2f9753_59cc5fec",
+      "range": {
+        "startLine": 930,
+        "startChar": 3,
+        "endLine": 930,
+        "endChar": 21
+      },
+      "revId": "d927b77f057a440df79fc6576d32a1c5e0dd4307",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
