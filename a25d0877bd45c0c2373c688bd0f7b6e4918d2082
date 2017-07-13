@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4faf43ff_90f46434",
+        "filename": "BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T17:54:09Z",
+      "side": 1,
+      "message": "followup:  You\u0027re next???",
+      "range": {
+        "startLine": 1879,
+        "startChar": 4,
+        "endLine": 1886,
+        "endChar": 37
+      },
+      "revId": "a25d0877bd45c0c2373c688bd0f7b6e4918d2082",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
