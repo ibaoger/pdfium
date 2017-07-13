@@ -22,6 +22,30 @@
       "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e421158d_50a176be",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T17:12:14Z",
+      "side": 1,
+      "message": "I like the idea of moving them to CFX_RenderDevice. I\u0027ll give that a whirl and see how it goes.",
+      "parentUuid": "4c5cfe11_00d817f5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
