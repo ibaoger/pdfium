@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "e08863c7_599a258a",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-13T18:35:04Z",
+      "side": 1,
+      "message": "return ArgbEncode(a, gray, gray, gray);",
+      "parentUuid": "f252d277_b4c3c121",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d2c257e_e52ee673",
         "filename": "core/fpdfapi/render/cpdf_renderoptions.h",
         "patchSetId": 1
