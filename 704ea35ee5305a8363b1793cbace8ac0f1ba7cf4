@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9595e563_1109a065",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T00:29:46Z",
+      "side": 1,
+      "message": "Maybe .reset() so it\u0027s more obvious that |m_Image| is a smart pointer?",
+      "revId": "704ea35ee5305a8363b1793cbace8ac0f1ba7cf4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa44f74_85d839b3",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T00:29:46Z",
+      "side": 1,
+      "message": "Can the pointer be const?",
+      "revId": "704ea35ee5305a8363b1793cbace8ac0f1ba7cf4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bce58d85_994aeff2",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T00:29:46Z",
+      "side": 1,
+      "message": "How about using a local unique_ptr, and only transfering ownership to |pImage| on success?",
+      "revId": "704ea35ee5305a8363b1793cbace8ac0f1ba7cf4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5b927ad_a7359259",
+        "filename": "core/fxcodec/jbig2/JBig2_TrdProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T00:29:46Z",
+      "side": 1,
+      "message": "No need for else here or 2 lines above?",
+      "revId": "704ea35ee5305a8363b1793cbace8ac0f1ba7cf4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320f67cd_dc7f76d4",
+        "filename": "core/fxcodec/jbig2/JBig2_TrdProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T00:29:46Z",
+      "side": 1,
+      "message": "unique_ptr in the next CL?",
+      "revId": "704ea35ee5305a8363b1793cbace8ac0f1ba7cf4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
