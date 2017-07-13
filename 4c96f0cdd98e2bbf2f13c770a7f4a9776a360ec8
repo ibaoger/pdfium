@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21915cd7_60560b2f",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "Nit: static before constructors.",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5311f3b9_f77ab78e",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "nit: Put statics before constructors.",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22f0978e_5a47de6f",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "Drop the PDF_ prefix as this will need to be called as CPDF_StreamParser::DecodeInlineStream anyway.",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc28c9f6_ec8406d8",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "followup, convert LookupValueAndName and have it return the CFX_ByteString?",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d9d0e2f_b952d791",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "What about combining this with the above and just having the key passed in instead of the DATETYPE above? Similar to what we ended up with for annotations?",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad23d45_ac058fb2",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cuint8_t, FX_FreeDeleter\u003e data(pFileStream-\u003eGetRawData()) ?",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5320131e_0fd3b0cf",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:41:07Z",
+      "side": 1,
+      "message": "Should we get len first here and then do a quick:\nif (!buffer || buflen \u003c len)\n  return len;\n\nso we can avoid the below work? (and move this up above the GetRawData call)",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
