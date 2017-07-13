@@ -11,8 +11,8 @@
 #include "fpdfsdk/formfiller/cba_fontmap.h"
 #include "fpdfsdk/formfiller/cffl_formfiller.h"
 #include "fpdfsdk/formfiller/cffl_interactiveformfiller.h"
+#include "fpdfsdk/formfiller/cpwl_list_box.h"
 #include "fpdfsdk/fsdk_common.h"
-#include "fpdfsdk/pdfwindow/cpwl_list_box.h"
 #include "third_party/base/ptr_util.h"
 
 #define FFL_DEFAULTLISTBOXFONTSIZE 12.0f

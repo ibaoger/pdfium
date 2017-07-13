@@ -27,10 +27,10 @@
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/cfx_systemhandler.h"
+#include "fpdfsdk/formfiller/cpwl_edit.h"
+#include "fpdfsdk/formfiller/cpwl_edit_ctrl.h"
+#include "fpdfsdk/formfiller/cpwl_scroll_bar.h"
 #include "fpdfsdk/fxedit/fx_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
-#include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 

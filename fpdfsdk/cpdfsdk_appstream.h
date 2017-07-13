@@ -8,7 +8,7 @@
 #define FPDFSDK_CPDFSDK_APPSTREAM_H_
 
 #include "core/fpdfdoc/cpvt_wordrange.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/formfiller/cpwl_wnd.h"
 
 class CFX_Edit;
 struct CPWL_Color;

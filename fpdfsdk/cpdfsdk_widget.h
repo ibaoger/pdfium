@@ -16,8 +16,8 @@
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxcrt/fx_string.h"
 #include "fpdfsdk/cpdfsdk_baannot.h"
+#include "fpdfsdk/formfiller/cpwl_color.h"
 #include "fpdfsdk/pdfsdk_fieldaction.h"
-#include "fpdfsdk/pdfwindow/cpwl_color.h"
 
 class CFX_RenderDevice;
 class CPDF_Annot;

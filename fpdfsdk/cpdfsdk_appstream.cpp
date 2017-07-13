@@ -11,8 +11,8 @@
 #include <sstream>
 
 #include "core/fpdfdoc/cpvt_word.h"
+#include "fpdfsdk/formfiller/cpwl_icon.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_icon.h"
 
 CFX_ByteString CPDFSDK_AppStream::GetAP_Check(const CFX_FloatRect& crBBox) {
   const float fWidth = crBBox.right - crBBox.left;

@@ -13,8 +13,8 @@
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "fpdfsdk/cpdfsdk_annot.h"
+#include "fpdfsdk/formfiller/cpwl_edit.h"
 #include "fpdfsdk/fsdk_define.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit.h"
 
 class CFFL_FormFiller;
 class CPDFSDK_FormFillEnvironment;
