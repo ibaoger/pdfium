@@ -46,6 +46,29 @@
       "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4ecd53a_20bb73c0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T17:13:30Z",
+      "side": 1,
+      "message": "Pity that CPWL defines its own color.  I guess that\u0027s what keeps it from being a CFX_RD method.  I can\u0027t imagine what\u0027s so special about this kind of color that CPWL needs it apart from some CFX notion of color.  Ah Layering.",
+      "range": {
+        "startLine": 43,
+        "startChar": 25,
+        "endLine": 43,
+        "endChar": 49
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
