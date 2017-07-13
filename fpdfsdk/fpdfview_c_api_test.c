@@ -65,6 +65,9 @@ int CheckPDFiumCApi() {
     // fpdf_attachment.h
     CHK(FPDFDoc_GetAttachmentCount);
     CHK(FPDFDoc_GetAttachmentName);
+    CHK(FPDFDoc_GetAttachmentDate);
+    CHK(FPDFDoc_GetAttachmentCheckSum);
+    CHK(FPDFDoc_GetAttachmentFile);
 
     // fpdf_dataavail.h
     CHK(FPDFAvail_Create);
