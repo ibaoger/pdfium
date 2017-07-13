@@ -22,6 +22,30 @@
       "revId": "d7522048b9343cc3c06944fc523079910c949ee0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7cf2dad_5e771609",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T18:28:10Z",
+      "side": 0,
+      "message": "We never set RENDER_COLOR_TWOCOLOR that I can see so I removed it.",
+      "parentUuid": "b40d958b_06de56c9",
+      "range": {
+        "startLine": 39,
+        "startChar": 45,
+        "endLine": 39,
+        "endChar": 0
+      },
+      "revId": "d7522048b9343cc3c06944fc523079910c949ee0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
