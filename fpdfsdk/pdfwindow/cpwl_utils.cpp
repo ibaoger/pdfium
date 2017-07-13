@@ -612,17 +612,11 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
 
     float fHalfWidth = fWidth / 2.0f;
 
-    CFX_FloatRect rect_by_2 = rect;
-    CFX_FloatRect rect_by_75 = rect;
-    if (!rect.IsEmpty()) {
-      float div = fWidth / 2.0f;
-      rect_by_2.Deflate(div, div);
-      rect_by_2.Normalize();
+    float div = fWidth / 2.0f;
+    CFX_FloatRect rect_by_2 = rect.GetDeflated(div, div);
 
-      div = fHalfWidth * 0.75f;
-      rect_by_75.Deflate(div, div);
-      rect_by_75.Normalize();
-    }
+    div = fHalfWidth * 0.75f;
+    CFX_FloatRect rect_by_75 = rect.GetDeflated(div, div);
 
     switch (nStyle) {
       default:
