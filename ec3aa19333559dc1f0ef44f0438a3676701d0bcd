@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c5cfe11_00d817f5",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T17:08:49Z",
+      "side": 1,
+      "message": "Style guide says that classes with only static members should be namespaces.  Maybe just namespace pdfium { }.\n\nAlternatively, these all smell like methods of CFX_RenderDevice since they all take it as a first argument.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
