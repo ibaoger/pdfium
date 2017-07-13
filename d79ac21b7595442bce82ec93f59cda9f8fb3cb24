@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb14da75_fc3f98bb",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_unittest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:59:15Z",
+      "side": 1,
+      "message": "We don\u0027t need to initialize these then?",
+      "revId": "d79ac21b7595442bce82ec93f59cda9f8fb3cb24",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dabf476_bf699a78",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:59:15Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "d79ac21b7595442bce82ec93f59cda9f8fb3cb24",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e6c801_cf114a6c",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:59:15Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "d79ac21b7595442bce82ec93f59cda9f8fb3cb24",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
