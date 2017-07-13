@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0d3cf25e_2937e6b9",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T21:03:49Z",
+      "side": 1,
+      "message": "I\u0027d set this to just be:\nfprintf(fp, \"Flags set: %s\\n\", AnnotFlagToString(flags).c_str());\n\nand change AnnotFlagsToString above",
+      "parentUuid": "c09dff3a_4afeb44c",
+      "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd93511f_a4bae41e",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Is this enough? Should we align all of them? Seems like they are all just not aligned because some of the flags are too long.",
       "parentUuid": "bd93511f_a4bae41e",
+      "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "239adc59_4834a23a",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T21:03:49Z",
+      "side": 1,
+      "message": "I\u0027d say do the image and md5, so bmp, emf, ps2, ps3, txt, png, ppm, annot, skp and md5 should line up since they\u0027re basically the same length. Leave the ones that take params as they are.",
+      "parentUuid": "2856d52b_5984c856",
       "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
