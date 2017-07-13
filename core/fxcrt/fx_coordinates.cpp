@@ -160,12 +160,14 @@ FX_RECT CFX_FloatRect::GetClosestRect() const {
 CFX_FloatRect CFX_FloatRect::GetCenterSquare() const {
   float fWidth = right - left;
   float fHeight = top - bottom;
-  float fHalfWidth = (fWidth > fHeight) ? fHeight / 2 : fWidth / 2;
 
   float fCenterX = (left + right) / 2.0f;
   float fCenterY = (top + bottom) / 2.0f;
-  return CFX_FloatRect(fCenterX - fHalfWidth, fCenterY - fHalfWidth,
-                       fCenterX + fHalfWidth, fCenterY + fHalfWidth);
+
+  float fRadius = (fWidth > fHeight) ? fHeight / 2 : fWidth / 2;
+
+  return CFX_FloatRect(fCenterX - fRadius, fCenterY - fRadius,
+                       fCenterX + fRadius, fCenterY + fRadius);
 }
 
 bool CFX_FloatRect::Contains(const CFX_PointF& point) const {
