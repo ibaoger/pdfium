@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "90ac45e6_14045fba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T15:36:56Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1aec4510_c5ee7325",
         "filename": "core/fpdfapi/render/cpdf_imagerenderer.cpp",
         "patchSetId": 1
@@ -13,6 +36,52 @@
       "writtenOn": "2017-07-13T15:19:16Z",
       "side": 1,
       "message": "I\u0027m not sure why this one is flipped, compared to the other callers.",
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f252d277_b4c3c121",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T15:36:56Z",
+      "side": 1,
+      "message": "r \u003d gray;",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d2c257e_e52ee673",
+        "filename": "core/fpdfapi/render/cpdf_renderoptions.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T15:36:56Z",
+      "side": 1,
+      "message": "Now alpha will be 2 instead of 3. Can we make sure these are made up by ourselves and not provided externally or defined in the spec? Or just set kAlpha \u003d 3",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 40
+      },
       "revId": "fcd4877a5a65d991dbe34e9f22b34f9376f04b9a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
