@@ -22,6 +22,30 @@
       "revId": "66038154a3ea7365256f910143dbd2b6f1e51272",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9334e626_ab681b6a",
+        "filename": "core/fxcrt/fx_coordinates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T17:34:35Z",
+      "side": 1,
+      "message": "It\u0027s a circular square. Done.",
+      "parentUuid": "1f171b8e_b2d3ca9a",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 16
+      },
+      "revId": "66038154a3ea7365256f910143dbd2b6f1e51272",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
