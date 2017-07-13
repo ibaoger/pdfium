@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "991a8086_9b3d67e0",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21915cd7_60560b2f",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5311f3b9_f77ab78e",
         "filename": "core/fpdfapi/page/cpdf_streamparser.h",
         "patchSetId": 1
@@ -59,6 +77,48 @@
     },
     {
       "key": {
+        "uuid": "a94b6315_00873c50",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22f0978e_5a47de6f",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39272575_83b9453b",
+        "filename": "core/fpdfapi/page/cpdf_streamparser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "Done. Uh, how come I\u0027ve only seen static before constructors in our code base...",
+      "parentUuid": "5311f3b9_f77ab78e",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc28c9f6_ec8406d8",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2017-07-13T19:41:07Z",
       "side": 1,
       "message": "followup, convert LookupValueAndName and have it return the CFX_ByteString?",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a79c261_d8d60f83",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "Not sure if I got what you mean, are you saying this function should return CFX_ByteString directly instead of taking in CFX_ByteString*? But we have the CPDF_Object to return too? Unless you meant directly returning CFX_ByteString, but take in a pointer to CPDF_Object?",
+      "parentUuid": "fc28c9f6_ec8406d8",
       "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "a9cb54cb_c3a4330d",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "I split them up for two reasons:\n1. These two functions treat the strings differently. Usually if we have a hex string value, we are supposed to decode it; i.e. if CreationDate or ModDate came in a hex string, then after decoding, we don\u0027t want to encode it again before passing back. However, checksum is just a 128 bit string, and if we return the decoded version, then it\u0027s going to be a non-sense string; so we have to encode it back to the original checksum hex string so it\u0027s usable. Hence GetAttachmentDate always get the unicode text, whereas in GetAttachmentCheckSum, we need to encode the stored string if it was hex. \n2. Unlike the annotation dictionary, in the filespec params dictionary, there\u0027re only a couple of defined dictionary entries, so these two should already cover everything without needing a custom key. (Unless someone says they want to add entries into the dictionary...?)\nWhat do you think?",
+      "parentUuid": "0d9d0e2f_b952d791",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ad23d45_ac058fb2",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "2a3a2e6b_8d62a3ae",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "I don\u0027t think that works with DecodeInlineStream().",
+      "parentUuid": "8ad23d45_ac058fb2",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5320131e_0fd3b0cf",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -121,6 +235,24 @@
       "writtenOn": "2017-07-13T19:41:07Z",
       "side": 1,
       "message": "Should we get len first here and then do a quick:\nif (!buffer || buflen \u003c len)\n  return len;\n\nso we can avoid the below work? (and move this up above the GetRawData call)",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1421515f_697c38fb",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:37:06Z",
+      "side": 1,
+      "message": "That\u0027s a good suggestion, but I think the len returned by DecodeInlineStream() might differ (e.g. be smaller if truncated) from the len returned by GetRawSize(), so we need to call the big function anyways?",
+      "parentUuid": "5320131e_0fd3b0cf",
       "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
