@@ -117,6 +117,30 @@
       "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e351474a_210ca190",
+        "filename": "core/fxcodec/jbig2/JBig2_HtrdProc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T23:38:24Z",
+      "side": 1,
+      "message": "NM, if this is pointing to memory owned by some other class and shared, then the pointer is appropriate.",
+      "parentUuid": "87b4135b_36009b84",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
