@@ -69,6 +69,30 @@
       "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a9821bf_8c02f3a7",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T17:15:41Z",
+      "side": 1,
+      "message": "I want to cleanup the colour stuffs. I\u0027m thinking of moving CPWL_Color to core/fxge/cfx_color (and remaning the CFX_Color in XFA to CXFA_Color as it\u0027s more then just colour).\n\nThat would fix the layering issue here. I\u0027m also interested in trying to remove a bunch of FX_ARGB, FX_COLORREF and FX_CMYK things and converting them to CFX_Color, although I\u0027m not sure if that would cause performance issues or not.",
+      "parentUuid": "d4ecd53a_20bb73c0",
+      "range": {
+        "startLine": 43,
+        "startChar": 25,
+        "endLine": 43,
+        "endChar": 49
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
