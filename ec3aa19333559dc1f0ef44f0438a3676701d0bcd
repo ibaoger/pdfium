@@ -164,6 +164,30 @@
       "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33964575_9ab38f64",
+        "filename": "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T18:08:29Z",
+      "side": 1,
+      "message": "I can\u0027t remember layering between core/fpdfdoc and core/fxge, if there was any rule or if it was intertwined.",
+      "parentUuid": "0b32931d_f994ea0d",
+      "range": {
+        "startLine": 46,
+        "startChar": 25,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "ec3aa19333559dc1f0ef44f0438a3676701d0bcd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
