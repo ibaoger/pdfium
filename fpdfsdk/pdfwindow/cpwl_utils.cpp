@@ -218,18 +218,6 @@ CFX_ByteString CPWL_Utils::GetAP_HalfCircle(const CFX_FloatRect& crBBox,
   return CFX_ByteString(csAP);
 }
 
-CFX_FloatRect CPWL_Utils::ScaleRect(const CFX_FloatRect& rcRect, float fScale) {
-  float fHalfWidth = (rcRect.right - rcRect.left) / 2.0f;
-  float fHalfHeight = (rcRect.top - rcRect.bottom) / 2.0f;
-
-  CFX_PointF ptCenter = CFX_PointF((rcRect.left + rcRect.right) / 2,
-                                   (rcRect.top + rcRect.bottom) / 2);
-
-  return CFX_FloatRect(
-      ptCenter.x - fHalfWidth * fScale, ptCenter.y - fHalfHeight * fScale,
-      ptCenter.x + fHalfWidth * fScale, ptCenter.y + fHalfHeight * fScale);
-}
-
 CFX_ByteString CPWL_Utils::GetRectFillAppStream(const CFX_FloatRect& rect,
                                                 const CPWL_Color& color) {
   std::ostringstream sAppStream;
@@ -779,20 +767,23 @@ CFX_ByteString CPWL_Utils::GetCheckBoxAppStream(const CFX_FloatRect& rcBBox,
                                                 int32_t nStyle,
                                                 const CPWL_Color& crText) {
   CFX_FloatRect rcCenter = rcBBox.GetCenterSquare();
+  if (nStyle != PCS_CHECK && nStyle != PCS_CROSS)
+    rcCenter.Scale(2.0f / 3.0f);
+
   switch (nStyle) {
     default:
     case PCS_CHECK:
       return GetAppStream_Check(rcCenter, crText);
     case PCS_CIRCLE:
-      return GetAppStream_Circle(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Circle(rcCenter, crText);
     case PCS_CROSS:
       return GetAppStream_Cross(rcCenter, crText);
     case PCS_DIAMOND:
-      return GetAppStream_Diamond(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Diamond(rcCenter, crText);
     case PCS_SQUARE:
-      return GetAppStream_Square(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Square(rcCenter, crText);
     case PCS_STAR:
-      return GetAppStream_Star(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Star(rcCenter, crText);
   }
 }
 
@@ -800,20 +791,25 @@ CFX_ByteString CPWL_Utils::GetRadioButtonAppStream(const CFX_FloatRect& rcBBox,
                                                    int32_t nStyle,
                                                    const CPWL_Color& crText) {
   CFX_FloatRect rcCenter = rcBBox.GetCenterSquare();
+  if (nStyle == PCS_DIAMOND || nStyle == PCS_SQUARE || nStyle == PCS_STAR)
+    rcCenter.Scale(2.0f / 3.0f);
+  else if (nStyle == PCS_CIRCLE)
+    rcCenter.Scale(1.0f / 2.0f);
+
   switch (nStyle) {
     default:
     case PCS_CHECK:
       return GetAppStream_Check(rcCenter, crText);
     case PCS_CIRCLE:
-      return GetAppStream_Circle(ScaleRect(rcCenter, 1.0f / 2.0f), crText);
+      return GetAppStream_Circle(rcCenter, crText);
     case PCS_CROSS:
       return GetAppStream_Cross(rcCenter, crText);
     case PCS_DIAMOND:
-      return GetAppStream_Diamond(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Diamond(rcCenter, crText);
     case PCS_SQUARE:
-      return GetAppStream_Square(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Square(rcCenter, crText);
     case PCS_STAR:
-      return GetAppStream_Star(ScaleRect(rcCenter, 2.0f / 3.0f), crText);
+      return GetAppStream_Star(rcCenter, crText);
   }
 }
 
