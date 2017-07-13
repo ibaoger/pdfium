@@ -196,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "f57a6a6f_8d66a41d",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T21:44:44Z",
+      "side": 1,
+      "message": "By almost, do you mean yes? :) I can open a bug and do this as a followup.",
+      "parentUuid": "ede6f109_4a26d412",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d9d0e2f_b952d791",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -249,6 +267,24 @@
     },
     {
       "key": {
+        "uuid": "8217db5e_8c079197",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T21:44:44Z",
+      "side": 1,
+      "message": "For 1, the point is that for GetAttachmentDate(), regardless of whether the string is hex or not, we should always do GetUnicodeText - if it\u0027s hex, it\u0027s already decoded, so we just return it; if it\u0027s not hex, we also just return it. Whereas for checksum, if it\u0027s hex, then we need to encode it first before returning; if it\u0027s not hex, then we just return it. That\u0027s how they treat strings differently.  \nI thought it\u0027s simpler this way, but if we want to follow the annotation API pattern, we can still combine them by making a special case for checksum. Or, we can keep them separate, but have GetAttachmentDate() take in arbitrary strings. \nWhat do you think?",
+      "parentUuid": "08550d11_4bac3c00",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ad23d45_ac058fb2",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -296,6 +332,24 @@
       "side": 1,
       "message": "Just pass data.get() into DecodeInlineStream?",
       "parentUuid": "2a3a2e6b_8d62a3ae",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5029b0e0_ad6d7d59",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T21:44:44Z",
+      "side": 1,
+      "message": "Like \u0026data.get() right? Doesn\u0027t work because can\u0027t take address of unique ptr.",
+      "parentUuid": "a3c3e0e9_ff098f68",
       "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
