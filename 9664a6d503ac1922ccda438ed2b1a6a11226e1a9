@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37d5ba0c_40ccba0d",
+        "filename": "fpdfsdk/cpdfsdk_appstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T17:15:54Z",
+      "side": 1,
+      "message": "nit: again style guide and namespace.  As you like.",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "9664a6d503ac1922ccda438ed2b1a6a11226e1a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
