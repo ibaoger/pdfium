@@ -18,13 +18,6 @@
 #include "fpdfsdk/pdfwindow/cpwl_icon.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
-CFX_FloatRect CPWL_Utils::OffsetRect(const CFX_FloatRect& rect,
-                                     float x,
-                                     float y) {
-  return CFX_FloatRect(rect.left + x, rect.bottom + y, rect.right + x,
-                       rect.top + y);
-}
-
 CPVT_WordRange CPWL_Utils::OverlapWordRange(const CPVT_WordRange& wr1,
                                             const CPVT_WordRange& wr2) {
   if (wr2.EndPos < wr1.BeginPos || wr2.BeginPos > wr1.EndPos ||
@@ -236,28 +229,6 @@ CFX_ByteString CPWL_Utils::GetAP_HalfCircle(const CFX_FloatRect& crBBox,
   return CFX_ByteString(csAP);
 }
 
-CFX_FloatRect CPWL_Utils::InflateRect(const CFX_FloatRect& rcRect,
-                                      float fSize) {
-  if (rcRect.IsEmpty())
-    return rcRect;
-
-  CFX_FloatRect rcNew(rcRect.left - fSize, rcRect.bottom - fSize,
-                      rcRect.right + fSize, rcRect.top + fSize);
-  rcNew.Normalize();
-  return rcNew;
-}
-
-CFX_FloatRect CPWL_Utils::DeflateRect(const CFX_FloatRect& rcRect,
-                                      float fSize) {
-  if (rcRect.IsEmpty())
-    return rcRect;
-
-  CFX_FloatRect rcNew(rcRect.left + fSize, rcRect.bottom + fSize,
-                      rcRect.right - fSize, rcRect.top - fSize);
-  rcNew.Normalize();
-  return rcNew;
-}
-
 CFX_FloatRect CPWL_Utils::ScaleRect(const CFX_FloatRect& rcRect, float fScale) {
   float fHalfWidth = (rcRect.right - rcRect.left) / 2.0f;
   float fHalfHeight = (rcRect.top - rcRect.bottom) / 2.0f;
@@ -291,19 +262,6 @@ CFX_ByteString CPWL_Utils::GetCircleFillAppStream(const CFX_FloatRect& rect,
   if (sColor.GetLength() > 0)
     sAppStream << "q\n" << sColor << CPWL_Utils::GetAP_Circle(rect) << "f\nQ\n";
   return CFX_ByteString(sAppStream);
-}
-
-CFX_FloatRect CPWL_Utils::GetCenterSquare(const CFX_FloatRect& rect) {
-  float fWidth = rect.right - rect.left;
-  float fHeight = rect.top - rect.bottom;
-
-  float fCenterX = (rect.left + rect.right) / 2.0f;
-  float fCenterY = (rect.top + rect.bottom) / 2.0f;
-
-  float fRadius = (fWidth > fHeight) ? fHeight / 2 : fWidth / 2;
-
-  return CFX_FloatRect(fCenterX - fRadius, fCenterY - fRadius,
-                       fCenterX + fRadius, fCenterY + fRadius);
 }
 
 CFX_ByteString CPWL_Utils::GetEditAppStream(CFX_Edit* pEdit,
@@ -675,6 +633,20 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
   if (fWidth > 0.0f) {
     sAppStream << "q\n";
 
+    float fHalfWidth = fWidth / 2.0f;
+
+    CFX_FloatRect rect_by_2 = rect;
+    CFX_FloatRect rect_by_75 = rect;
+    if (!rect.IsEmpty()) {
+      float div = fWidth / 2.0f;
+      rect_by_2.Deflate(div, div);
+      rect_by_2.Normalize();
+
+      div = fHalfWidth * 0.75f;
+      rect_by_75.Deflate(div, div);
+      rect_by_75.Normalize();
+    }
+
     switch (nStyle) {
       default:
       case BorderStyle::SOLID:
@@ -683,9 +655,7 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
         if (sColor.GetLength() > 0) {
           sAppStream << "q\n"
                      << fWidth << " w\n"
-                     << sColor
-                     << CPWL_Utils::GetAP_Circle(
-                            CPWL_Utils::DeflateRect(rect, fWidth / 2.0f))
+                     << sColor << CPWL_Utils::GetAP_Circle(rect_by_2)
                      << " S\nQ\n";
         }
       } break;
@@ -696,15 +666,11 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
                      << fWidth << " w\n"
                      << "[" << dash.nDash << " " << dash.nGap << "] "
                      << dash.nPhase << " d\n"
-                     << sColor
-                     << CPWL_Utils::GetAP_Circle(
-                            CPWL_Utils::DeflateRect(rect, fWidth / 2.0f))
+                     << sColor << CPWL_Utils::GetAP_Circle(rect_by_2)
                      << " S\nQ\n";
         }
       } break;
       case BorderStyle::BEVELED: {
-        float fHalfWidth = fWidth / 2.0f;
-
         sColor = CPWL_Utils::GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           sAppStream << "q\n"
@@ -717,9 +683,7 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
           sAppStream << "q\n"
                      << fHalfWidth << " w\n"
                      << sColor
-                     << CPWL_Utils::GetAP_HalfCircle(
-                            CPWL_Utils::DeflateRect(rect, fHalfWidth * 0.75f),
-                            FX_PI / 4.0f)
+                     << CPWL_Utils::GetAP_HalfCircle(rect_by_75, FX_PI / 4.0f)
                      << " S\nQ\n";
         }
 
@@ -728,15 +692,12 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
           sAppStream << "q\n"
                      << fHalfWidth << " w\n"
                      << sColor
-                     << CPWL_Utils::GetAP_HalfCircle(
-                            CPWL_Utils::DeflateRect(rect, fHalfWidth * 0.75f),
-                            FX_PI * 5 / 4.0f)
+                     << CPWL_Utils::GetAP_HalfCircle(rect_by_75,
+                                                     FX_PI * 5 / 4.0f)
                      << " S\nQ\n";
         }
       } break;
       case BorderStyle::INSET: {
-        float fHalfWidth = fWidth / 2.0f;
-
         sColor = CPWL_Utils::GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           sAppStream << "q\n"
@@ -749,9 +710,7 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
           sAppStream << "q\n"
                      << fHalfWidth << " w\n"
                      << sColor
-                     << CPWL_Utils::GetAP_HalfCircle(
-                            CPWL_Utils::DeflateRect(rect, fHalfWidth * 0.75f),
-                            FX_PI / 4.0f)
+                     << CPWL_Utils::GetAP_HalfCircle(rect_by_75, FX_PI / 4.0f)
                      << " S\nQ\n";
         }
 
@@ -760,9 +719,8 @@ CFX_ByteString CPWL_Utils::GetCircleBorderAppStream(
           sAppStream << "q\n"
                      << fHalfWidth << " w\n"
                      << sColor
-                     << CPWL_Utils::GetAP_HalfCircle(
-                            CPWL_Utils::DeflateRect(rect, fHalfWidth * 0.75f),
-                            FX_PI * 5 / 4.0f)
+                     << CPWL_Utils::GetAP_HalfCircle(rect_by_75,
+                                                     FX_PI * 5 / 4.0f)
                      << " S\nQ\n";
         }
       } break;
@@ -831,7 +789,7 @@ CFX_ByteString CPWL_Utils::GetAppStream_Star(const CFX_FloatRect& rcBBox,
 CFX_ByteString CPWL_Utils::GetCheckBoxAppStream(const CFX_FloatRect& rcBBox,
                                                 int32_t nStyle,
                                                 const CPWL_Color& crText) {
-  CFX_FloatRect rcCenter = GetCenterSquare(rcBBox);
+  CFX_FloatRect rcCenter = rcBBox.GetCenterSquare();
   switch (nStyle) {
     default:
     case PCS_CHECK:
@@ -852,7 +810,7 @@ CFX_ByteString CPWL_Utils::GetCheckBoxAppStream(const CFX_FloatRect& rcBBox,
 CFX_ByteString CPWL_Utils::GetRadioButtonAppStream(const CFX_FloatRect& rcBBox,
                                                    int32_t nStyle,
                                                    const CPWL_Color& crText) {
-  CFX_FloatRect rcCenter = GetCenterSquare(rcBBox);
+  CFX_FloatRect rcCenter = rcBBox.GetCenterSquare();
   switch (nStyle) {
     default:
     case PCS_CHECK:

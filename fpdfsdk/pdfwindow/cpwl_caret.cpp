@@ -66,8 +66,8 @@ void CPWL_Caret::GetCaretApp(const CFX_PointF& ptOffset,
   CFX_FloatRect rcRect = GetCaretRect();
   CFX_FloatRect rcClip = GetClipRect();
 
-  rcRect = CPWL_Utils::OffsetRect(rcRect, ptOffset.x, ptOffset.y);
-  rcClip = CPWL_Utils::OffsetRect(rcClip, ptOffset.x, ptOffset.y);
+  rcRect.Translate(ptOffset.x, ptOffset.y);
+  rcClip.Translate(ptOffset.x, ptOffset.y);
 
   *psAppStream << "q\n";
   if (!rcClip.IsEmpty()) {
@@ -135,7 +135,11 @@ void CPWL_Caret::SetCaret(bool bVisible,
 
 void CPWL_Caret::InvalidateRect(CFX_FloatRect* pRect) {
   if (pRect) {
-    CFX_FloatRect rcRefresh = CPWL_Utils::InflateRect(*pRect, 0.5f);
+    CFX_FloatRect rcRefresh = *pRect;
+    if (!rcRefresh.IsEmpty()) {
+      rcRefresh.Inflate(0.5f, 0.5f);
+      rcRefresh.Normalize();
+    }
     rcRefresh.top += 1;
     rcRefresh.bottom -= 1;
     CPWL_Wnd::InvalidateRect(&rcRefresh);
