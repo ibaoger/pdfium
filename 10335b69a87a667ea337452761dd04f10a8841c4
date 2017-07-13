@@ -16,6 +16,24 @@
       "revId": "10335b69a87a667ea337452761dd04f10a8841c4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4298c82c_31b1076e",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T19:42:35Z",
+      "side": 1,
+      "message": "It will do exactly the same with that password. I think we currently expect the user to check permissions (our methods don\u0027t, other than for parsing).",
+      "parentUuid": "624706c2_78b85655",
+      "revId": "10335b69a87a667ea337452761dd04f10a8841c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
