@@ -22,6 +22,30 @@
       "revId": "da7685583055be220bd1802f7a35a7572e2a82dc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e422f2ff_8bbd868d",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5540
+      },
+      "writtenOn": "2017-07-13T18:11:32Z",
+      "side": 1,
+      "message": "Also, PA\u0027s maximum allocation size is 2**31, regardless of how wide size_t is.",
+      "parentUuid": "c89489e1_08cd559f",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "da7685583055be220bd1802f7a35a7572e2a82dc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
