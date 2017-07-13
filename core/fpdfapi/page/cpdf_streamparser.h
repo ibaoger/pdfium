@@ -27,6 +27,15 @@ class CPDF_StreamParser {
                     const CFX_WeakPtr<CFX_ByteStringPool>& pPool);
   ~CPDF_StreamParser();
 
+  static uint32_t PDF_DecodeInlineStream(const uint8_t* src_buf,
+                                         uint32_t limit,
+                                         int width,
+                                         int height,
+                                         const CFX_ByteString& decoder,
+                                         CPDF_Dictionary* pParam,
+                                         uint8_t** dest_buf,
+                                         uint32_t* dest_size);
+
   SyntaxType ParseNextElement();
   CFX_ByteStringC GetWord() const {
     return CFX_ByteStringC(m_WordBuffer, m_WordSize);
