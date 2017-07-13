@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fxgraphics/cfx_color.h"
+#include "xfa/fxgraphics/cxfa_color.h"
 
 CFX_Color::CFX_Color() : m_type(FX_COLOR_None) {}
 

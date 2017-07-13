@@ -11,8 +11,8 @@
 #include "xfa/fwl/cfwl_widget.h"
 #include "xfa/fxfa/app/cxfa_fwltheme.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
-#include "xfa/fxgraphics/cfx_color.h"
 #include "xfa/fxgraphics/cfx_path.h"
+#include "xfa/fxgraphics/cxfa_color.h"
 
 CFWL_EditTP::CFWL_EditTP() {}
 

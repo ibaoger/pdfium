@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef XFA_FXGRAPHICS_CFX_COLOR_H_
-#define XFA_FXGRAPHICS_CFX_COLOR_H_
+#ifndef XFA_FXGRAPHICS_CXFA_COLOR_H_
+#define XFA_FXGRAPHICS_CXFA_COLOR_H_
 
 #include "core/fxge/fx_dib.h"
 #include "xfa/fxgraphics/cfx_graphics.h"
@@ -40,4 +40,4 @@ class CFX_Color {
   };
 };
 
-#endif  // XFA_FXGRAPHICS_CFX_COLOR_H_
+#endif  // XFA_FXGRAPHICS_CXFA_COLOR_H_

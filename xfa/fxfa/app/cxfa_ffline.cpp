@@ -6,9 +6,9 @@
 
 #include "xfa/fxfa/app/cxfa_ffline.h"
 
-#include "xfa/fxgraphics/cfx_color.h"
 #include "xfa/fxgraphics/cfx_graphics.h"
 #include "xfa/fxgraphics/cfx_path.h"
+#include "xfa/fxgraphics/cxfa_color.h"
 
 CXFA_FFLine::CXFA_FFLine(CXFA_WidgetAcc* pDataAcc) : CXFA_FFDraw(pDataAcc) {}
 
