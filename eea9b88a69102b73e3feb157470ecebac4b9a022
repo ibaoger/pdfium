@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24b4fa1d_2ee138d9",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "Does this work on Windows/Mac?",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f24406b_b34c339c",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "Not enough to check existence, it must be executable",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc28024f_1bdf5fe7",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "nit: r\u0027",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e6fa811_7cb4cd10",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "Unnecessary? Can\u0027t you just search on the whole output? Or if you split by line, it could be match instead of search.",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c829b5ec_132a810b",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "More interesting would be to be able to pass on a whole folder instead of just a single file.",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ddafbd8_f4327554",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "Nit: upper cases at the beginning of a message",
+      "range": {
+        "startLine": 93,
+        "startChar": 28,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e93606e_1c3d03bc",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "nit: Which",
+      "range": {
+        "startLine": 95,
+        "startChar": 28,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2783a77_6e6cdb24",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-07-13T20:07:16Z",
+      "side": 1,
+      "message": "Rather than repeat interesting section, describe what that means (it\u0027s not clear).",
+      "range": {
+        "startLine": 98,
+        "startChar": 47,
+        "endLine": 98,
+        "endChar": 75
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
