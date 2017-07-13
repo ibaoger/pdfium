@@ -29,9 +29,9 @@ class CFX_FaceCache {
                                          int dest_width,
                                          int anti_alias,
                                          int& text_flags);
-  const CFX_PathData* LoadGlyphPath(const CFX_Font* pFont,
-                                    uint32_t glyph_index,
-                                    int dest_width);
+  const CXFA_PathData* LoadGlyphPath(const CFX_Font* pFont,
+                                     uint32_t glyph_index,
+                                     int dest_width);
 
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
   CFX_TypeFace* GetDeviceCache(const CFX_Font* pFont);
@@ -62,7 +62,7 @@ class CFX_FaceCache {
 
   FXFT_Face const m_Face;
   std::map<CFX_ByteString, std::unique_ptr<CFX_SizeGlyphCache>> m_SizeMap;
-  std::map<uint32_t, std::unique_ptr<CFX_PathData>> m_PathMap;
+  std::map<uint32_t, std::unique_ptr<CXFA_PathData>> m_PathMap;
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
   sk_sp<SkTypeface> m_pTypeface;
 #endif

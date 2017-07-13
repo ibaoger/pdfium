@@ -22,7 +22,7 @@ CBC_TwoDimWriter::~CBC_TwoDimWriter() {}
 void CBC_TwoDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
                                           const CFX_Matrix* matrix) {
   CFX_GraphStateData stateData;
-  CFX_PathData path;
+  CXFA_PathData path;
   path.AppendRect(0, 0, (float)m_Width, (float)m_Height);
   device->DrawPath(&path, matrix, &stateData, m_backgroundColor,
                    m_backgroundColor, FXFILL_ALTERNATE);
@@ -42,7 +42,7 @@ void CBC_TwoDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
   }
   for (int32_t x = 0; x < m_output->GetWidth(); x++) {
     for (int32_t y = 0; y < m_output->GetHeight(); y++) {
-      CFX_PathData rect;
+      CXFA_PathData rect;
       rect.AppendRect((float)leftPos + x, (float)topPos + y,
                       (float)(leftPos + x + 1), (float)(topPos + y + 1));
       if (m_output->Get(x, y)) {

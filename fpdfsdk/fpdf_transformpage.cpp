@@ -235,7 +235,7 @@ DLLEXPORT void STDCALL FPDF_DestroyClipPath(FPDF_CLIPPATH clipPath) {
 }
 
 void OutputPath(std::ostringstream& buf, CPDF_Path path) {
-  const CFX_PathData* pPathData = path.GetObject();
+  const CXFA_PathData* pPathData = path.GetObject();
   if (!pPathData)
     return;
 

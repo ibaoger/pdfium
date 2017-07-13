@@ -1060,7 +1060,7 @@ class renderer_scanline_aa_offset {
 
 }  // namespace agg
 
-void CAgg_PathData::BuildPath(const CFX_PathData* pPathData,
+void CAgg_PathData::BuildPath(const CXFA_PathData* pPathData,
                               const CFX_Matrix* pObject2Device) {
   const std::vector<FX_PATHPOINT>& pPoints = pPathData->GetPoints();
   for (size_t i = 0; i < pPoints.size(); i++) {
@@ -1217,7 +1217,7 @@ void CFX_AggDeviceDriver::SetClipMask(agg::rasterizer_scanline_aa& rasterizer) {
   m_pClipRgn->IntersectMaskF(path_rect.left, path_rect.top, pThisLayer);
 }
 
-bool CFX_AggDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
+bool CFX_AggDeviceDriver::SetClip_PathFill(const CXFA_PathData* pPathData,
                                            const CFX_Matrix* pObject2Device,
                                            int fill_mode) {
   m_FillFlags = fill_mode;
@@ -1253,7 +1253,7 @@ bool CFX_AggDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 }
 
 bool CFX_AggDeviceDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   if (!m_pClipRgn) {
@@ -1294,7 +1294,7 @@ bool CFX_AggDeviceDriver::RenderRasterizer(
   return true;
 }
 
-bool CFX_AggDeviceDriver::DrawPath(const CFX_PathData* pPathData,
+bool CFX_AggDeviceDriver::DrawPath(const CXFA_PathData* pPathData,
                                    const CFX_Matrix* pObject2Device,
                                    const CFX_GraphStateData* pGraphState,
                                    uint32_t fill_color,

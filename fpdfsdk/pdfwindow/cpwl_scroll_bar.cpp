@@ -228,7 +228,7 @@ void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
 
     if (rectWnd.right - rectWnd.left > kTriangleHalfLength * 2 &&
         rectWnd.top - rectWnd.bottom > kTriangleHalfLength) {
-      CFX_PathData path;
+      CXFA_PathData path;
       path.AppendPoint(pt1, FXPT_TYPE::MoveTo, false);
       path.AppendPoint(pt2, FXPT_TYPE::LineTo, false);
       path.AppendPoint(pt3, FXPT_TYPE::LineTo, false);

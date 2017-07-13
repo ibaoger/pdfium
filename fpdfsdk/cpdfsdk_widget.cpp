@@ -812,7 +812,7 @@ void CPDFSDK_Widget::DrawAppearance(CFX_RenderDevice* pDevice,
        nFieldType == FIELDTYPE_RADIOBUTTON) &&
       mode == CPDF_Annot::Normal &&
       !IsWidgetAppearanceValid(CPDF_Annot::Normal)) {
-    CFX_PathData pathData;
+    CXFA_PathData pathData;
 
     CFX_FloatRect rcAnnot = GetRect();
 

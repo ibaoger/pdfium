@@ -279,9 +279,9 @@ static void DebugValidate(const CFX_RetainPtr<CFX_DIBitmap>& bitmap,
 }
 #endif  // _SKIA_SUPPORT_
 
-SkPath BuildPath(const CFX_PathData* pPathData) {
+SkPath BuildPath(const CXFA_PathData* pPathData) {
   SkPath skPath;
-  const CFX_PathData* pFPath = pPathData;
+  const CXFA_PathData* pFPath = pPathData;
   const std::vector<FX_PATHPOINT>& pPoints = pFPath->GetPoints();
   for (size_t i = 0; i < pPoints.size(); i++) {
     CFX_PointF point = pPoints[i].m_Point;
@@ -701,7 +701,7 @@ class SkiaState {
   {
   }
 
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pMatrix,
                 const CFX_GraphStateData* pDrawState,
                 uint32_t fill_color,
@@ -946,7 +946,7 @@ class SkiaState {
 
   bool IsEmpty() { return !m_commands.count(); }
 
-  bool SetClipFill(const CFX_PathData* pPathData,
+  bool SetClipFill(const CXFA_PathData* pPathData,
                    const CFX_Matrix* pMatrix,
                    int fill_mode) {
     if (m_debugDisable)
@@ -1006,7 +1006,7 @@ class SkiaState {
     return true;
   }
 
-  bool SetClipStroke(const CFX_PathData* pPathData,
+  bool SetClipStroke(const CXFA_PathData* pPathData,
                      const CFX_Matrix* pMatrix,
                      const CFX_GraphStateData* pGraphState) {
     if (m_debugDisable)
@@ -1795,7 +1795,7 @@ void CFX_SkiaDeviceDriver::SetClipMask(const FX_RECT& clipBox,
 #endif  // _SKIA_SUPPORT_PATHS_
 
 bool CFX_SkiaDeviceDriver::SetClip_PathFill(
-    const CFX_PathData* pPathData,     // path info
+    const CXFA_PathData* pPathData,    // path info
     const CFX_Matrix* pObject2Device,  // flips object's y-axis
     int fill_mode                      // fill mode, WINDING or ALTERNATE
     ) {
@@ -1854,7 +1854,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathFill(
 }
 
 bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,         // path info
+    const CXFA_PathData* pPathData,        // path info
     const CFX_Matrix* pObject2Device,      // optional transformation
     const CFX_GraphStateData* pGraphState  // graphic state, for pen attributes
     ) {
@@ -1888,7 +1888,7 @@ bool CFX_SkiaDeviceDriver::SetClip_PathStroke(
 }
 
 bool CFX_SkiaDeviceDriver::DrawPath(
-    const CFX_PathData* pPathData,          // path info
+    const CXFA_PathData* pPathData,         // path info
     const CFX_Matrix* pObject2Device,       // optional transformation
     const CFX_GraphStateData* pGraphState,  // graphic state, for pen attributes
     uint32_t fill_color,                    // fill color

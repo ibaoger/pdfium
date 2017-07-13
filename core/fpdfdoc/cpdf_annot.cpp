@@ -496,7 +496,7 @@ void CPDF_Annot::DrawBorder(CFX_RenderDevice* pDevice,
     }
   }
   CFX_FloatRect rect = GetRect();
-  CFX_PathData path;
+  CXFA_PathData path;
   width /= 2;
   path.AppendRect(rect.left + width, rect.bottom + width, rect.right - width,
                   rect.top - width);

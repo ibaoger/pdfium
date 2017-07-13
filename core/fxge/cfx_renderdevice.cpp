@@ -445,7 +445,7 @@ bool CFX_RenderDevice::CreateCompatibleBitmap(
 #endif
 }
 
-bool CFX_RenderDevice::SetClip_PathFill(const CFX_PathData* pPathData,
+bool CFX_RenderDevice::SetClip_PathFill(const CXFA_PathData* pPathData,
                                         const CFX_Matrix* pObject2Device,
                                         int fill_mode) {
   if (!m_pDeviceDriver->SetClip_PathFill(pPathData, pObject2Device,
@@ -457,7 +457,7 @@ bool CFX_RenderDevice::SetClip_PathFill(const CFX_PathData* pPathData,
 }
 
 bool CFX_RenderDevice::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   if (!m_pDeviceDriver->SetClip_PathStroke(pPathData, pObject2Device,
@@ -469,7 +469,7 @@ bool CFX_RenderDevice::SetClip_PathStroke(
 }
 
 bool CFX_RenderDevice::SetClip_Rect(const FX_RECT& rect) {
-  CFX_PathData path;
+  CXFA_PathData path;
   path.AppendRect(rect.left, rect.bottom, rect.right, rect.top);
   if (!SetClip_PathFill(&path, nullptr, FXFILL_WINDING))
     return false;
@@ -487,7 +487,7 @@ void CFX_RenderDevice::UpdateClipBox() {
   m_ClipBox.bottom = m_Height;
 }
 
-bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
+bool CFX_RenderDevice::DrawPathWithBlend(const CXFA_PathData* pPathData,
                                          const CFX_Matrix* pObject2Device,
                                          const CFX_GraphStateData* pGraphState,
                                          uint32_t fill_color,
@@ -555,7 +555,7 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
   }
   if ((fill_mode & 3) && stroke_alpha == 0 && !(fill_mode & FX_FILL_STROKE) &&
       !(fill_mode & FX_FILL_TEXT_MODE)) {
-    CFX_PathData newPath;
+    CXFA_PathData newPath;
     bool bThin = false;
     bool setIdentity = false;
     if (pPathData->GetZeroAreaPath(pObject2Device,
@@ -596,7 +596,7 @@ bool CFX_RenderDevice::DrawPathWithBlend(const CFX_PathData* pPathData,
 }
 
 // This can be removed once PDFium entirely relies on Skia
-bool CFX_RenderDevice::DrawFillStrokePath(const CFX_PathData* pPathData,
+bool CFX_RenderDevice::DrawFillStrokePath(const CXFA_PathData* pPathData,
                                           const CFX_Matrix* pObject2Device,
                                           const CFX_GraphStateData* pGraphState,
                                           uint32_t fill_color,
@@ -693,7 +693,7 @@ bool CFX_RenderDevice::DrawCosmeticLine(float x1,
     return true;
   }
   CFX_GraphStateData graph_state;
-  CFX_PathData path;
+  CXFA_PathData path;
   path.AppendPoint(CFX_PointF(x1, y1), FXPT_TYPE::MoveTo, false);
   path.AppendPoint(CFX_PointF(x2, y2), FXPT_TYPE::LineTo, false);
   return m_pDeviceDriver->DrawPath(&path, nullptr, &graph_state, 0, color,
@@ -1077,7 +1077,7 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
                                     const CFX_GraphStateData* pGraphState,
                                     uint32_t fill_color,
                                     FX_ARGB stroke_color,
-                                    CFX_PathData* pClippingPath,
+                                    CXFA_PathData* pClippingPath,
                                     int nFlag) {
   for (int iChar = 0; iChar < nChars; ++iChar) {
     const FXTEXT_CHARPOS& charpos = pCharPos[iChar];
@@ -1089,14 +1089,14 @@ bool CFX_RenderDevice::DrawTextPath(int nChars,
     }
     matrix.Concat(CFX_Matrix(font_size, 0, 0, font_size, charpos.m_Origin.x,
                              charpos.m_Origin.y));
-    const CFX_PathData* pPath =
+    const CXFA_PathData* pPath =
         pFont->LoadGlyphPath(charpos.m_GlyphIndex, charpos.m_FontCharWidth);
     if (!pPath)
       continue;
 
     matrix.Concat(*pText2User);
 
-    CFX_PathData TransformedPath(*pPath);
+    CXFA_PathData TransformedPath(*pPath);
     TransformedPath.Transform(&matrix);
     if (fill_color || stroke_color) {
       int fill_mode = nFlag;

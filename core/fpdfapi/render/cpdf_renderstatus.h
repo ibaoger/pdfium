@@ -16,7 +16,7 @@
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxge/cfx_renderdevice.h"
 
-class CFX_PathData;
+class CXFA_PathData;
 class CPDF_Color;
 class CPDF_Dictionary;
 class CPDF_Font;
@@ -124,7 +124,7 @@ class CPDF_RenderStatus {
                         const CFX_Matrix* pObj2Device);
   bool ProcessText(CPDF_TextObject* textobj,
                    const CFX_Matrix* pObj2Device,
-                   CFX_PathData* pClippingPath);
+                   CXFA_PathData* pClippingPath);
   void DrawTextPathWithPattern(const CPDF_TextObject* textobj,
                                const CFX_Matrix* pObj2Device,
                                CPDF_Font* pFont,

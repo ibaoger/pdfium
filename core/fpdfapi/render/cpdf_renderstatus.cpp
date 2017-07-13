@@ -721,7 +721,7 @@ struct Coon_Color {
 struct CPDF_PatchDrawer {
   Coon_Color patch_colors[4];
   int max_delta;
-  CFX_PathData path;
+  CXFA_PathData path;
   CFX_RenderDevice* pDevice;
   int fill_mode;
   int alpha;
@@ -1400,12 +1400,12 @@ void CPDF_RenderStatus::ProcessClipPath(CPDF_ClipPath ClipPath,
   m_pDevice->RestoreState(true);
   int nClipPath = ClipPath.GetPathCount();
   for (int i = 0; i < nClipPath; ++i) {
-    const CFX_PathData* pPathData = ClipPath.GetPath(i).GetObject();
+    const CXFA_PathData* pPathData = ClipPath.GetPath(i).GetObject();
     if (!pPathData)
       continue;
 
     if (pPathData->GetPoints().empty()) {
-      CFX_PathData EmptyPath;
+      CXFA_PathData EmptyPath;
       EmptyPath.AppendRect(-1, -1, 0, 0);
       int fill_mode = FXFILL_WINDING;
       m_pDevice->SetClip_PathFill(&EmptyPath, nullptr, fill_mode);
@@ -1423,12 +1423,12 @@ void CPDF_RenderStatus::ProcessClipPath(CPDF_ClipPath ClipPath,
     return;
   }
 
-  std::unique_ptr<CFX_PathData> pTextClippingPath;
+  std::unique_ptr<CXFA_PathData> pTextClippingPath;
   for (int i = 0; i < textcount; ++i) {
     CPDF_TextObject* pText = ClipPath.GetText(i);
     if (pText) {
       if (!pTextClippingPath)
-        pTextClippingPath = pdfium::MakeUnique<CFX_PathData>();
+        pTextClippingPath = pdfium::MakeUnique<CXFA_PathData>();
       ProcessText(pText, pObj2Device, pTextClippingPath.get());
       continue;
     }
@@ -1712,7 +1712,7 @@ void CPDF_RenderStatus::DebugVerifyDeviceIsPreMultiplied() const {
 
 bool CPDF_RenderStatus::ProcessText(CPDF_TextObject* textobj,
                                     const CFX_Matrix* pObj2Device,
-                                    CFX_PathData* pClippingPath) {
+                                    CXFA_PathData* pClippingPath) {
   if (textobj->m_CharCodes.empty())
     return true;
 
@@ -2022,7 +2022,7 @@ void CPDF_RenderStatus::DrawTextPathWithPattern(const CPDF_TextObject* textobj,
     auto* font = charpos.m_FallbackFontPosition == -1
                      ? pFont->GetFont()
                      : pFont->GetFontFallback(charpos.m_FallbackFontPosition);
-    const CFX_PathData* pPath =
+    const CXFA_PathData* pPath =
         font->LoadGlyphPath(charpos.m_GlyphIndex, charpos.m_FontCharWidth);
     if (!pPath)
       continue;

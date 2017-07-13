@@ -119,14 +119,14 @@ class CFX_RenderDevice {
                               int width,
                               int height) const;
   const FX_RECT& GetClipBox() const { return m_ClipBox; }
-  bool SetClip_PathFill(const CFX_PathData* pPathData,
+  bool SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode);
   bool SetClip_Rect(const FX_RECT& pRect);
-  bool SetClip_PathStroke(const CFX_PathData* pPathData,
+  bool SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState);
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
@@ -135,7 +135,7 @@ class CFX_RenderDevice {
     return DrawPathWithBlend(pPathData, pObject2Device, pGraphState, fill_color,
                              stroke_color, fill_mode, FXDIB_BLEND_NORMAL);
   }
-  bool DrawPathWithBlend(const CFX_PathData* pPathData,
+  bool DrawPathWithBlend(const CXFA_PathData* pPathData,
                          const CFX_Matrix* pObject2Device,
                          const CFX_GraphStateData* pGraphState,
                          uint32_t fill_color,
@@ -224,7 +224,7 @@ class CFX_RenderDevice {
                     const CFX_GraphStateData* pGraphState,
                     uint32_t fill_color,
                     uint32_t stroke_color,
-                    CFX_PathData* pClippingPath,
+                    CXFA_PathData* pClippingPath,
                     int nFlag);
 
 #ifdef _SKIA_SUPPORT_
@@ -243,7 +243,7 @@ class CFX_RenderDevice {
  private:
   void InitDeviceInfo();
   void UpdateClipBox();
-  bool DrawFillStrokePath(const CFX_PathData* pPathData,
+  bool DrawFillStrokePath(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState,
                           uint32_t fill_color,

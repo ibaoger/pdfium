@@ -223,9 +223,9 @@ std::unique_ptr<CFX_GlyphBitmap> CFX_FaceCache::RenderGlyph(
   return pGlyphBitmap;
 }
 
-const CFX_PathData* CFX_FaceCache::LoadGlyphPath(const CFX_Font* pFont,
-                                                 uint32_t glyph_index,
-                                                 int dest_width) {
+const CXFA_PathData* CFX_FaceCache::LoadGlyphPath(const CFX_Font* pFont,
+                                                  uint32_t glyph_index,
+                                                  int dest_width) {
   if (!m_Face || glyph_index == kInvalidGlyphIndex || dest_width < 0)
     return nullptr;
 
@@ -247,8 +247,8 @@ const CFX_PathData* CFX_FaceCache::LoadGlyphPath(const CFX_Font* pFont,
   if (it != m_PathMap.end())
     return it->second.get();
 
-  CFX_PathData* pGlyphPath = pFont->LoadGlyphPathImpl(glyph_index, dest_width);
-  m_PathMap[key] = std::unique_ptr<CFX_PathData>(pGlyphPath);
+  CXFA_PathData* pGlyphPath = pFont->LoadGlyphPathImpl(glyph_index, dest_width);
+  m_PathMap[key] = std::unique_ptr<CXFA_PathData>(pGlyphPath);
   return pGlyphPath;
 }
 

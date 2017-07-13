@@ -724,7 +724,7 @@ void CFX_Edit::DrawEdit(CFX_RenderDevice* pDevice,
             rc.Intersect(rcClip);
             pSystemHandler->OutputSelectedRect(pFFLData, rc);
           } else {
-            CFX_PathData pathSelBK;
+            CXFA_PathData pathSelBK;
             pathSelBK.AppendRect(
                 word.ptWord.x, line.ptLine.y + line.fLineDescent,
                 word.ptWord.x + word.fWidth, line.ptLine.y + line.fLineAscent);

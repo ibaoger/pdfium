@@ -21,7 +21,7 @@ class CFX_FaceCache;
 class CFX_Font;
 class CFX_FontCache;
 class CFX_Matrix;
-class CFX_PathData;
+class CXFA_PathData;
 class CPSFont;
 class FXTEXT_CHARPOS;
 
@@ -39,14 +39,14 @@ class CFX_PSRenderer {
   void EndRendering();
   void SaveState();
   void RestoreState(bool bKeepSaved);
-  void SetClip_PathFill(const CFX_PathData* pPathData,
+  void SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode);
-  void SetClip_PathStroke(const CFX_PathData* pPathData,
+  void SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState);
   FX_RECT GetClipBox() { return m_ClipBox; }
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
@@ -75,7 +75,7 @@ class CFX_PSRenderer {
                 uint32_t color);
 
  private:
-  void OutputPath(const CFX_PathData* pPathData,
+  void OutputPath(const CXFA_PathData* pPathData,
                   const CFX_Matrix* pObject2Device);
   void SetGraphState(const CFX_GraphStateData* pGraphState);
   void SetColor(uint32_t color);

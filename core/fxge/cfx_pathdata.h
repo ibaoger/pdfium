@@ -29,11 +29,11 @@ class FX_PATHPOINT {
   bool m_CloseFigure;
 };
 
-class CFX_PathData {
+class CXFA_PathData {
  public:
-  CFX_PathData();
-  CFX_PathData(const CFX_PathData& src);
-  ~CFX_PathData();
+  CXFA_PathData();
+  CXFA_PathData(const CXFA_PathData& src);
+  ~CXFA_PathData();
 
   void Clear();
 
@@ -53,12 +53,12 @@ class CFX_PathData {
   bool IsRect() const;
   bool GetZeroAreaPath(const CFX_Matrix* pMatrix,
                        bool bAdjust,
-                       CFX_PathData* NewPath,
+                       CXFA_PathData* NewPath,
                        bool* bThin,
                        bool* setIdentity) const;
   bool IsRect(const CFX_Matrix* pMatrix, CFX_FloatRect* rect) const;
 
-  void Append(const CFX_PathData* pSrc, const CFX_Matrix* pMatrix);
+  void Append(const CXFA_PathData* pSrc, const CFX_Matrix* pMatrix);
   void AppendRect(float left, float bottom, float right, float top);
   void AppendPoint(const CFX_PointF& pos, FXPT_TYPE type, bool closeFigure);
   void ClosePath();

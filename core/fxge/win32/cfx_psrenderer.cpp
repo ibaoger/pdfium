@@ -163,7 +163,7 @@ void CFX_PSRenderer::RestoreState(bool bKeepSaved) {
     m_ClipBoxStack.pop_back();
 }
 
-void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
+void CFX_PSRenderer::OutputPath(const CXFA_PathData* pPathData,
                                 const CFX_Matrix* pObject2Device) {
   CFX_ByteTextBuf buf;
   size_t size = pPathData->GetPoints().size();
@@ -206,7 +206,7 @@ void CFX_PSRenderer::OutputPath(const CFX_PathData* pPathData,
   m_pStream->WriteBlock(buf.GetBuffer(), buf.GetSize());
 }
 
-void CFX_PSRenderer::SetClip_PathFill(const CFX_PathData* pPathData,
+void CFX_PSRenderer::SetClip_PathFill(const CXFA_PathData* pPathData,
                                       const CFX_Matrix* pObject2Device,
                                       int fill_mode) {
   StartRendering();
@@ -226,7 +226,7 @@ void CFX_PSRenderer::SetClip_PathFill(const CFX_PathData* pPathData,
   m_pStream->WriteString(" n\n");
 }
 
-void CFX_PSRenderer::SetClip_PathStroke(const CFX_PathData* pPathData,
+void CFX_PSRenderer::SetClip_PathStroke(const CXFA_PathData* pPathData,
                                         const CFX_Matrix* pObject2Device,
                                         const CFX_GraphStateData* pGraphState) {
   StartRendering();
@@ -251,7 +251,7 @@ void CFX_PSRenderer::SetClip_PathStroke(const CFX_PathData* pPathData,
   m_pStream->WriteString("\n");
 }
 
-bool CFX_PSRenderer::DrawPath(const CFX_PathData* pPathData,
+bool CFX_PSRenderer::DrawPath(const CXFA_PathData* pPathData,
                               const CFX_Matrix* pObject2Device,
                               const CFX_GraphStateData* pGraphState,
                               uint32_t fill_color,
@@ -597,12 +597,12 @@ void CFX_PSRenderer::FindPSFontGlyph(CFX_FaceCache* pFaceCache,
                    charpos.m_AdjustMatrix[2], charpos.m_AdjustMatrix[3], 0, 0);
   }
   matrix.Concat(CFX_Matrix(1.0f, 0, 0, 1.0f, 0, 0));
-  const CFX_PathData* pPathData = pFaceCache->LoadGlyphPath(
+  const CXFA_PathData* pPathData = pFaceCache->LoadGlyphPath(
       pFont, charpos.m_GlyphIndex, charpos.m_FontCharWidth);
   if (!pPathData)
     return;
 
-  CFX_PathData TransformedPath(*pPathData);
+  CXFA_PathData TransformedPath(*pPathData);
   if (charpos.m_bGlyphAdjust)
     TransformedPath.Transform(&matrix);
 

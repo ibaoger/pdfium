@@ -348,7 +348,7 @@ CPSPrinterDriver::CPSPrinterDriver(HDC hDC, int pslevel, bool bCmykOutput)
       RGNDATA* pData = reinterpret_cast<RGNDATA*>(FX_Alloc(uint8_t, ret));
       ret = ::GetRegionData(hRgn, ret, pData);
       if (ret) {
-        CFX_PathData path;
+        CXFA_PathData path;
         for (uint32_t i = 0; i < pData->rdh.nCount; i++) {
           RECT* pRect =
               reinterpret_cast<RECT*>(pData->Buffer + pData->rdh.nRgnSize * i);
@@ -405,7 +405,7 @@ void CPSPrinterDriver::RestoreState(bool bKeepSaved) {
   m_PSRenderer.RestoreState(bKeepSaved);
 }
 
-bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
+bool CPSPrinterDriver::SetClip_PathFill(const CXFA_PathData* pPathData,
                                         const CFX_Matrix* pObject2Device,
                                         int fill_mode) {
   m_PSRenderer.SetClip_PathFill(pPathData, pObject2Device, fill_mode);
@@ -413,14 +413,14 @@ bool CPSPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 }
 
 bool CPSPrinterDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   m_PSRenderer.SetClip_PathStroke(pPathData, pObject2Device, pGraphState);
   return true;
 }
 
-bool CPSPrinterDriver::DrawPath(const CFX_PathData* pPathData,
+bool CPSPrinterDriver::DrawPath(const CXFA_PathData* pPathData,
                                 const CFX_Matrix* pObject2Device,
                                 const CFX_GraphStateData* pGraphState,
                                 FX_ARGB fill_color,
@@ -528,20 +528,20 @@ int CTextOnlyPrinterDriver::GetDeviceCaps(int caps_id) const {
   return 0;
 }
 
-bool CTextOnlyPrinterDriver::SetClip_PathFill(const CFX_PathData* pPathData,
+bool CTextOnlyPrinterDriver::SetClip_PathFill(const CXFA_PathData* pPathData,
                                               const CFX_Matrix* pObject2Device,
                                               int fill_mode) {
   return true;
 }
 
 bool CTextOnlyPrinterDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   return false;
 }
 
-bool CTextOnlyPrinterDriver::DrawPath(const CFX_PathData* pPathData,
+bool CTextOnlyPrinterDriver::DrawPath(const CXFA_PathData* pPathData,
                                       const CFX_Matrix* pObject2Device,
                                       const CFX_GraphStateData* pGraphState,
                                       uint32_t fill_color,

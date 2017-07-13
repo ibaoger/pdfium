@@ -340,7 +340,7 @@ void CPWL_Edit::DrawThisAppearance(CFX_RenderDevice* pDevice,
         CFX_GraphStateData gsd;
         gsd.m_LineWidth = (float)GetBorderWidth();
 
-        CFX_PathData path;
+        CXFA_PathData path;
 
         for (int32_t i = 0; i < nCharArray - 1; i++) {
           path.AppendPoint(
@@ -371,7 +371,7 @@ void CPWL_Edit::DrawThisAppearance(CFX_RenderDevice* pDevice,
         gsd.m_DashArray[1] = (float)GetBorderDash().nGap;
         gsd.m_DashPhase = (float)GetBorderDash().nPhase;
 
-        CFX_PathData path;
+        CXFA_PathData path;
         for (int32_t i = 0; i < nCharArray - 1; i++) {
           path.AppendPoint(
               CFX_PointF(

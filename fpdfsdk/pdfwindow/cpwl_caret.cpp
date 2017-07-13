@@ -35,7 +35,7 @@ void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
 
   CFX_FloatRect rcRect = GetCaretRect();
   CFX_FloatRect rcClip = GetClipRect();
-  CFX_PathData path;
+  CXFA_PathData path;
 
   float fCaretX = rcRect.left + m_fWidth * 0.5f;
   float fCaretTop = rcRect.top;

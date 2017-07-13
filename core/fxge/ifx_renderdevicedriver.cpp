@@ -23,7 +23,7 @@ bool IFX_RenderDeviceDriver::StartRendering() {
 void IFX_RenderDeviceDriver::EndRendering() {}
 
 bool IFX_RenderDeviceDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pObject2Device,
     const CFX_GraphStateData* pGraphState) {
   return false;

@@ -266,7 +266,7 @@ bool CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
     return false;
 
   CFX_GraphStateData stateData;
-  CFX_PathData path;
+  CXFA_PathData path;
   path.AppendRect(0, 0, static_cast<float>(m_Width),
                   static_cast<float>(m_Height));
   device->DrawPath(&path, matrix, &stateData, m_backgroundColor,
@@ -347,7 +347,7 @@ void CBC_OneDimWriter::RenderVerticalBars(int32_t outputX,
                                           int32_t height) {
   for (int i = 0; i < width; ++i) {
     float x = outputX + i;
-    CFX_PathData rect;
+    CXFA_PathData rect;
     rect.AppendRect(x, 0.0f, x + 1, static_cast<float>(height));
     m_output.push_back(rect);
   }

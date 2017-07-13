@@ -166,7 +166,7 @@ HBRUSH CreateBrush(uint32_t argb) {
 }
 
 void SetPathToDC(HDC hDC,
-                 const CFX_PathData* pPathData,
+                 const CXFA_PathData* pPathData,
                  const CFX_Matrix* pMatrix) {
   BeginPath(hDC);
 
@@ -973,7 +973,7 @@ void CGdiDeviceDriver::DrawLine(float x1, float y1, float x2, float y2) {
   LineTo(m_hDC, FXSYS_round(x2), FXSYS_round(y2));
 }
 
-bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
+bool CGdiDeviceDriver::DrawPath(const CXFA_PathData* pPathData,
                                 const CFX_Matrix* pMatrix,
                                 const CFX_GraphStateData* pGraphState,
                                 uint32_t fill_color,
@@ -1100,7 +1100,7 @@ bool CGdiDeviceDriver::FillRectWithBlend(const FX_RECT* pRect,
   return true;
 }
 
-bool CGdiDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
+bool CGdiDeviceDriver::SetClip_PathFill(const CXFA_PathData* pPathData,
                                         const CFX_Matrix* pMatrix,
                                         int fill_mode) {
   if (pPathData->GetPoints().size() == 5) {
@@ -1118,7 +1118,7 @@ bool CGdiDeviceDriver::SetClip_PathFill(const CFX_PathData* pPathData,
 }
 
 bool CGdiDeviceDriver::SetClip_PathStroke(
-    const CFX_PathData* pPathData,
+    const CXFA_PathData* pPathData,
     const CFX_Matrix* pMatrix,
     const CFX_GraphStateData* pGraphState) {
   HPEN hPen = CreatePen(pGraphState, pMatrix, 0xff000000);

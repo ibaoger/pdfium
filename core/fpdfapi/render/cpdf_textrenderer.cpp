@@ -34,7 +34,7 @@ bool CPDF_TextRenderer::DrawTextPath(CFX_RenderDevice* pDevice,
                                      const CFX_GraphStateData* pGraphState,
                                      FX_ARGB fill_argb,
                                      FX_ARGB stroke_argb,
-                                     CFX_PathData* pClippingPath,
+                                     CXFA_PathData* pClippingPath,
                                      int nFlag) {
   CPDF_CharPosList CharPosList;
   CharPosList.Load(charCodes, charPos, pFont, font_size);

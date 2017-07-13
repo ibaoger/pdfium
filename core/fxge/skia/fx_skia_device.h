@@ -43,20 +43,20 @@ class CFX_SkiaDeviceDriver : public IFX_RenderDeviceDriver {
 
   /** Set clipping path using filled region */
   bool SetClip_PathFill(
-      const CFX_PathData* pPathData,     // path info
+      const CXFA_PathData* pPathData,    // path info
       const CFX_Matrix* pObject2Device,  // optional transformation
       int fill_mode) override;           // fill mode, WINDING or ALTERNATE
 
   /** Set clipping path using stroked region */
   bool SetClip_PathStroke(
-      const CFX_PathData* pPathData,     // path info
+      const CXFA_PathData* pPathData,    // path info
       const CFX_Matrix* pObject2Device,  // optional transformation
       const CFX_GraphStateData*
           pGraphState)  // graphic state, for pen attributes
       override;
 
   /** Draw a path */
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,

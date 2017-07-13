@@ -18,13 +18,13 @@
 class CFX_ClipRgn;
 class CFX_GraphStateData;
 class CFX_Matrix;
-class CFX_PathData;
+class CXFA_PathData;
 
 class CAgg_PathData {
  public:
   CAgg_PathData() {}
   ~CAgg_PathData() {}
-  void BuildPath(const CFX_PathData* pPathData,
+  void BuildPath(const CXFA_PathData* pPathData,
                  const CFX_Matrix* pObject2Device);
 
   agg::path_storage m_PathData;
@@ -45,13 +45,13 @@ class CFX_AggDeviceDriver : public IFX_RenderDeviceDriver {
   int GetDeviceCaps(int caps_id) const override;
   void SaveState() override;
   void RestoreState(bool bKeepSaved) override;
-  bool SetClip_PathFill(const CFX_PathData* pPathData,
+  bool SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode) override;
-  bool SetClip_PathStroke(const CFX_PathData* pPathData,
+  bool SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,

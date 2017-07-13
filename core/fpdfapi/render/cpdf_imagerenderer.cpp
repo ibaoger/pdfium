@@ -467,7 +467,7 @@ bool CPDF_ImageRenderer::StartDIBSource() {
 
 bool CPDF_ImageRenderer::StartBitmapAlpha() {
   if (m_pDIBSource->IsOpaqueImage()) {
-    CFX_PathData path;
+    CXFA_PathData path;
     path.AppendRect(0, 0, 1, 1);
     path.Transform(&m_ImageMatrix);
     uint32_t fill_color =

@@ -29,7 +29,7 @@
 namespace {
 
 struct OUTLINE_PARAMS {
-  CFX_PathData* m_pPath;
+  CXFA_PathData* m_pPath;
   int m_CurX;
   int m_CurY;
   float m_CoordUnit;
@@ -568,8 +568,8 @@ void CFX_Font::AdjustMMParams(int glyph_index,
   FXFT_Set_MM_Design_Coordinates(m_Face, 2, coords);
 }
 
-CFX_PathData* CFX_Font::LoadGlyphPathImpl(uint32_t glyph_index,
-                                          int dest_width) const {
+CXFA_PathData* CFX_Font::LoadGlyphPathImpl(uint32_t glyph_index,
+                                           int dest_width) const {
   if (!m_Face)
     return nullptr;
   FXFT_Set_Pixel_Sizes(m_Face, 0, 64);
@@ -620,7 +620,7 @@ CFX_PathData* CFX_Font::LoadGlyphPathImpl(uint32_t glyph_index,
   funcs.delta = 0;
 
   OUTLINE_PARAMS params;
-  auto pPath = pdfium::MakeUnique<CFX_PathData>();
+  auto pPath = pdfium::MakeUnique<CXFA_PathData>();
   params.m_pPath = pPath.get();
   params.m_CurX = params.m_CurY = 0;
   params.m_CoordUnit = 64 * 64.0;
@@ -645,8 +645,8 @@ const CFX_GlyphBitmap* CFX_Font::LoadGlyphBitmap(uint32_t glyph_index,
                                          dest_width, anti_alias, text_flags);
 }
 
-const CFX_PathData* CFX_Font::LoadGlyphPath(uint32_t glyph_index,
-                                            int dest_width) const {
+const CXFA_PathData* CFX_Font::LoadGlyphPath(uint32_t glyph_index,
+                                             int dest_width) const {
   return GetFaceCache()->LoadGlyphPath(this, glyph_index, dest_width);
 }
 

@@ -35,15 +35,15 @@ class CPDF_Path {
   void Transform(const CFX_Matrix* pMatrix);
 
   void Append(const CPDF_Path& other, const CFX_Matrix* pMatrix);
-  void Append(const CFX_PathData* pData, const CFX_Matrix* pMatrix);
+  void Append(const CXFA_PathData* pData, const CFX_Matrix* pMatrix);
   void AppendRect(float left, float bottom, float right, float top);
   void AppendPoint(const CFX_PointF& point, FXPT_TYPE type, bool close);
 
   // TODO(tsepez): Remove when all access thru this class.
-  const CFX_PathData* GetObject() const { return m_Ref.GetObject(); }
+  const CXFA_PathData* GetObject() const { return m_Ref.GetObject(); }
 
  private:
-  CFX_SharedCopyOnWrite<CFX_PathData> m_Ref;
+  CFX_SharedCopyOnWrite<CXFA_PathData> m_Ref;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_PATH_H_

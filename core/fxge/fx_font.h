@@ -23,7 +23,7 @@ typedef void* FXFT_Library;
 
 class CFX_FaceCache;
 class CFX_GlyphBitmap;
-class CFX_PathData;
+class CXFA_PathData;
 class CFX_SizeGlyphCache;
 
 #if defined _SKIA_SUPPORT_ || defined _SKIA_SUPPORT_PATHS_
@@ -115,7 +115,8 @@ class CFX_Font {
                                          int dest_width,
                                          int anti_alias,
                                          int& text_flags) const;
-  const CFX_PathData* LoadGlyphPath(uint32_t glyph_index, int dest_width) const;
+  const CXFA_PathData* LoadGlyphPath(uint32_t glyph_index,
+                                     int dest_width) const;
 
 #if defined _SKIA_SUPPORT_ || defined _SKIA_SUPPORT_PATHS_
   CFX_TypeFace* GetDeviceCache() const;
@@ -160,7 +161,7 @@ class CFX_Font {
 
  private:
   friend class CFX_FaceCache;
-  CFX_PathData* LoadGlyphPathImpl(uint32_t glyph_index, int dest_width) const;
+  CXFA_PathData* LoadGlyphPathImpl(uint32_t glyph_index, int dest_width) const;
   CFX_FaceCache* GetFaceCache() const;
   void ReleasePlatformResource();
   void DeleteFace();

@@ -53,7 +53,7 @@ class CGdiplusExt {
                      const FX_RECT* pClipRect,
                      int flags);
   bool DrawPath(HDC hDC,
-                const CFX_PathData* pPathData,
+                const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_argb,
@@ -134,13 +134,13 @@ class CGdiDeviceDriver : public IFX_RenderDeviceDriver {
   int GetDeviceCaps(int caps_id) const override;
   void SaveState() override;
   void RestoreState(bool bKeepSaved) override;
-  bool SetClip_PathFill(const CFX_PathData* pPathData,
+  bool SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode) override;
-  bool SetClip_PathStroke(const CFX_PathData* pPathData,
+  bool SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
@@ -280,13 +280,13 @@ class CPSPrinterDriver : public IFX_RenderDeviceDriver {
   void EndRendering() override;
   void SaveState() override;
   void RestoreState(bool bKeepSaved) override;
-  bool SetClip_PathFill(const CFX_PathData* pPathData,
+  bool SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode) override;
-  bool SetClip_PathStroke(const CFX_PathData* pPathData,
+  bool SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,
@@ -343,13 +343,13 @@ class CTextOnlyPrinterDriver : public IFX_RenderDeviceDriver {
   int GetDeviceCaps(int caps_id) const override;
   void SaveState() override{};
   void RestoreState(bool bKeepSaved) override{};
-  bool SetClip_PathFill(const CFX_PathData* pPathData,
+  bool SetClip_PathFill(const CXFA_PathData* pPathData,
                         const CFX_Matrix* pObject2Device,
                         int fill_mode) override;
-  bool SetClip_PathStroke(const CFX_PathData* pPathData,
+  bool SetClip_PathStroke(const CXFA_PathData* pPathData,
                           const CFX_Matrix* pObject2Device,
                           const CFX_GraphStateData* pGraphState) override;
-  bool DrawPath(const CFX_PathData* pPathData,
+  bool DrawPath(const CXFA_PathData* pPathData,
                 const CFX_Matrix* pObject2Device,
                 const CFX_GraphStateData* pGraphState,
                 uint32_t fill_color,

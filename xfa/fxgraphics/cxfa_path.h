@@ -4,19 +4,19 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef XFA_FXGRAPHICS_CFX_PATH_H_
-#define XFA_FXGRAPHICS_CFX_PATH_H_
+#ifndef XFA_FXGRAPHICS_CXFA_PATH_H_
+#define XFA_FXGRAPHICS_CXFA_PATH_H_
 
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/cfx_pathdata.h"
-#include "xfa/fxgraphics/cfx_graphics.h"
+#include "xfa/fxgraphics/cxfa_graphics.h"
 
-class CFX_Path final {
+class CXFA_Path final {
  public:
-  CFX_Path();
-  ~CFX_Path();
+  CXFA_Path();
+  ~CXFA_Path();
 
-  const CFX_PathData* GetPathData() const { return &data_; }
+  const CXFA_PathData* GetPathData() const { return &data_; }
 
   void Clear();
   bool IsEmpty() const { return data_.GetPoints().empty(); }
@@ -41,7 +41,7 @@ class CFX_Path final {
               float startAngle,
               float sweepAngle);
 
-  void AddSubpath(CFX_Path* path);
+  void AddSubpath(CXFA_Path* path);
 
  private:
   void ArcToInternal(const CFX_PointF& pos,
@@ -49,7 +49,7 @@ class CFX_Path final {
                      float start_angle,
                      float sweep_angle);
 
-  CFX_PathData data_;
+  CXFA_PathData data_;
 };
 
-#endif  // XFA_FXGRAPHICS_CFX_PATH_H_
+#endif  // XFA_FXGRAPHICS_CXFA_PATH_H_

@@ -74,7 +74,7 @@ void CFFL_InteractiveFormFiller::OnDraw(CPDFSDK_PageView* pPageView,
     if (rcFocus.IsEmpty())
       return;
 
-    CFX_PathData path;
+    CXFA_PathData path;
     path.AppendPoint(CFX_PointF(rcFocus.left, rcFocus.top), FXPT_TYPE::MoveTo,
                      false);
     path.AppendPoint(CFX_PointF(rcFocus.left, rcFocus.bottom),

@@ -46,7 +46,7 @@ class CFDE_Path {
                         std::vector<CFX_PointF>* tangents,
                         bool bClosed,
                         float fTension) const;
-  CFX_PathData m_Path;
+  CXFA_PathData m_Path;
 };
 
 #endif  // XFA_FDE_CFDE_PATH_H_

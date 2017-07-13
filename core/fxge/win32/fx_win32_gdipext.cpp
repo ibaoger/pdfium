@@ -1102,7 +1102,7 @@ static bool IsSmallTriangle(PointF* points,
   return false;
 }
 bool CGdiplusExt::DrawPath(HDC hDC,
-                           const CFX_PathData* pPathData,
+                           const CXFA_PathData* pPathData,
                            const CFX_Matrix* pObject2Device,
                            const CFX_GraphStateData* pGraphState,
                            uint32_t fill_argb,
