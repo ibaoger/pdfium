@@ -16,6 +16,24 @@
       "revId": "17453d03c3bdd18a893ae86058a6184939aee026",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae97972a_273f0b48",
+        "filename": "core/fxcrt/fx_memory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T18:18:46Z",
+      "side": 0,
+      "message": "We all do, but sucking up the to style guide is more important.  I\u0027m less concerned nowadays given clang-format so that \"goto fail\" type errors aren\u0027t hidden by indentation.",
+      "parentUuid": "91bd9e6d_00f24465",
+      "revId": "17453d03c3bdd18a893ae86058a6184939aee026",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
