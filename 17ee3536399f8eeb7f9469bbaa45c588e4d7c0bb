@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f44019d8_f52dd71d",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T14:38:41Z",
+      "side": 1,
+      "message": "I don\u0027t think we need one, because csFileName will just be empty; and when an empty string is passed into DecodeFileName(), it just returns an empty string. I added a line in the unit test to test this case.",
+      "parentUuid": "89f45c88_4dd14324",
+      "revId": "17ee3536399f8eeb7f9469bbaa45c588e4d7c0bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cba77c03_55a63414",
         "filename": "core/fpdfdoc/cpdf_filespec.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-13T14:32:28Z",
       "side": 1,
       "message": "else return CFX_WideString()?",
+      "revId": "17ee3536399f8eeb7f9469bbaa45c588e4d7c0bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2858215e_aae99d3b",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T14:38:41Z",
+      "side": 1,
+      "message": "See above. This case is already tested in the unit test.",
+      "parentUuid": "cba77c03_55a63414",
       "revId": "17ee3536399f8eeb7f9469bbaa45c588e4d7c0bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

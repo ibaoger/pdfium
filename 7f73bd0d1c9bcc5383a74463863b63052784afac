@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "940f7d23_ec17a1dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T14:38:41Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "1da6f0df_969b02c0",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "551771c5_4073a4f6",
         "filename": "core/fpdfdoc/cpdf_action.cpp",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "c84e78c3_f13538a3",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T14:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551771c5_4073a4f6",
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb17f0a6_b9b41d23",
         "filename": "core/fpdfdoc/cpdf_filespec.cpp",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2017-07-12T22:40:47Z",
       "side": 1,
       "message": "constexpr char* const?",
+      "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eec45811_6479a35c",
+        "filename": "core/fpdfdoc/cpdf_filespec.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T14:38:41Z",
+      "side": 1,
+      "message": "Nope, that doesn\u0027t work on string literals.",
+      "parentUuid": "bb17f0a6_b9b41d23",
       "revId": "7f73bd0d1c9bcc5383a74463863b63052784afac",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
