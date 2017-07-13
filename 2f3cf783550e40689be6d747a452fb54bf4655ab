@@ -1,0 +1,351 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "146cdc20_6ca9865e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533bac6d_35903000",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Add a blank line separator above?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5446be9_9da95081",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Is there an advantage to doing it this way versus \"%s ...\" % var ?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2941e2b5_48b6bf09",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "No need for len(). Ditto on line 152.",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb9fd9aa_c07a9b23",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "If the dir is /path/to/foo, and /path/to does not exist, then I believe os.mkdir() fails. So what you want is os.makedirs().",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a942824e_4c4cec7f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Do we want to do these checks before making any directories?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3545ea34_b33cef85",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "BTW, for gn to work, the current working directory has to be in a PDFium checkout. So if this script is being invoked from outside, this will fail unless the script does a os.chdir().",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c140f4_def3bd6c",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Why not just always call: output \u003d subprocess.check_output(args, env\u003denv) ? Ditto with line 107 below.",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b59ede1_d94b4615",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Why do we have to run this via bash?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e0bed8c_9b2a0c1b",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 178,
+        "startChar": 40,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e36da0c_a72609f2",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "You can also use \\d if you prefer.",
+      "range": {
+        "startLine": 195,
+        "startChar": 44,
+        "endLine": 195,
+        "endChar": 49
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0a1d84_b9bf08da",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "If code execution loops through this many times, consider doing re.compile() first, outside of the loop.",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a75bf25e_49e4fad2",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Many parts of this function look strangely familiar.",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b6455be_edcb25db",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Given PDFium isn\u0027t that big, a smaller value will suffice.",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11e0d78_9a208272",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "(binary, use_test_runner) \u003d test_spec ?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "820363e8_9385d505",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "writing?",
+      "range": {
+        "startLine": 311,
+        "startChar": 67,
+        "endLine": 311,
+        "endChar": 74
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db56af28_86220bd2",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Does this say: 0 \u003d\u003d self.call(...) \u003d\u003d 0 ?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa22ffce_9092b7be",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "Maybe generate this programatically?",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "948f0de3_1686a94e",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-13T23:24:10Z",
+      "side": 1,
+      "message": "not needed",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
