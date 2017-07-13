@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "624706c2_78b85655",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T19:31:18Z",
+      "side": 1,
+      "message": "Let\u0027s add a test for opening with password \"1234\", then edit and see what happens.",
+      "revId": "10335b69a87a667ea337452761dd04f10a8841c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
