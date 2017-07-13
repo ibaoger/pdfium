@@ -69,6 +69,30 @@
       "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f920f81f_f5dbbaf0",
+        "filename": "core/fxcodec/jbig2/JBig2_HtrdProc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T22:32:53Z",
+      "side": 1,
+      "message": "sorry, I mean:\n\n  std::vector\u003cstd::unique_ptr\u003cCJBig2_Image\u003e\u003e HPATS;",
+      "parentUuid": "4b1e22d9_72fde45a",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
