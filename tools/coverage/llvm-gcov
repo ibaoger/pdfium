@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Copyright 2017 The PDFium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+set -e
+
+# LLVM_COV_BIN needs to be set by caller and should the path to
+# llvm-cov with a version of 3.5 or greater
+
+exec ${LLVM_COV_BIN} gcov $*
