@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c09dff3a_4afeb44c",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:52:36Z",
+      "side": 1,
+      "message": "Is this what you meant?",
+      "parentUuid": "124b9fb4_c6214f85",
+      "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd93511f_a4bae41e",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-13T19:44:45Z",
       "side": 1,
       "message": "nit: Fix alignment of other -\u0027s",
+      "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2856d52b_5984c856",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-13T20:52:36Z",
+      "side": 1,
+      "message": "Is this enough? Should we align all of them? Seems like they are all just not aligned because some of the flags are too long.",
+      "parentUuid": "bd93511f_a4bae41e",
       "revId": "281fdb035383df482bb4173241a46cc4faaebd1d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
