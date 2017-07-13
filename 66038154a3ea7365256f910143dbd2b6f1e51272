@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f171b8e_b2d3ca9a",
+        "filename": "core/fxcrt/fx_coordinates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T17:01:41Z",
+      "side": 1,
+      "message": "nit: Squares don\u0027t have a radius :).  Maybe |fHalfSideLength| ?\n\nAlso move to before blank line at 163?",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 16
+      },
+      "revId": "66038154a3ea7365256f910143dbd2b6f1e51272",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
