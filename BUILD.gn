@@ -1100,6 +1100,8 @@ static_library("pdfwindow") {
     "fpdfsdk/pdfwindow/cpwl_color.h",
     "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
     "fpdfsdk/pdfwindow/cpwl_combo_box.h",
+    "fpdfsdk/pdfwindow/cpwl_draw_helpers.cpp",
+    "fpdfsdk/pdfwindow/cpwl_draw_helpers.h",
     "fpdfsdk/pdfwindow/cpwl_edit.cpp",
     "fpdfsdk/pdfwindow/cpwl_edit.h",
     "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
