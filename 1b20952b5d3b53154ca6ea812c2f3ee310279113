@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11429ca1_46774c22",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T21:49:01Z",
+      "side": 1,
+      "message": "nit: () not needed",
+      "range": {
+        "startLine": 1011,
+        "startChar": 17,
+        "endLine": 1011,
+        "endChar": 39
+      },
+      "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5cf97b1_30d38f2f",
+        "filename": "core/fxcodec/jbig2/JBig2_HtrdProc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-13T21:49:01Z",
+      "side": 1,
+      "message": "can we avoid an indirection here and just put the vector inline here? The vector itself is small and manages the block of external memory we would stick here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "1b20952b5d3b53154ca6ea812c2f3ee310279113",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
