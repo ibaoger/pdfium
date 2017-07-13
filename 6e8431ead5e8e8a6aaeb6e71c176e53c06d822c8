@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "bb5ab4ad_b7051b5e",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T13:59:07Z",
+      "side": 1,
+      "message": "Yup, that will break. I\u0027m not sure how common this case would be, so is this breakage better then the current behaviour?",
+      "parentUuid": "7f3780ee_c573253d",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 44
+      },
+      "revId": "6e8431ead5e8e8a6aaeb6e71c176e53c06d822c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fac5c3eb_374dd894",
         "filename": "fpdfsdk/javascript/util.cpp",
         "patchSetId": 3
@@ -117,6 +141,30 @@
       "revId": "6e8431ead5e8e8a6aaeb6e71c176e53c06d822c8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d9ac914_015f49dc",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-13T13:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d27a180f_27bf8d23",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 20
+      },
+      "revId": "6e8431ead5e8e8a6aaeb6e71c176e53c06d822c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
