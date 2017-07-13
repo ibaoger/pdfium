@@ -1094,12 +1094,12 @@ static_library("fxedit") {
 
 static_library("pdfwindow") {
   sources = [
+    "core/fxge/cfx_color.cpp",
+    "core/fxge/cfx_color.h",
     "fpdfsdk/pdfwindow/cpwl_button.cpp",
     "fpdfsdk/pdfwindow/cpwl_button.h",
     "fpdfsdk/pdfwindow/cpwl_caret.cpp",
     "fpdfsdk/pdfwindow/cpwl_caret.h",
-    "fpdfsdk/pdfwindow/cpwl_color.cpp",
-    "fpdfsdk/pdfwindow/cpwl_color.h",
     "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
     "fpdfsdk/pdfwindow/cpwl_combo_box.h",
     "fpdfsdk/pdfwindow/cpwl_edit.cpp",
