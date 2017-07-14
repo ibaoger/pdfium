@@ -68,6 +68,22 @@ extern "C" {
 #define FPDF_OBJECT_NULLOBJ 8
 #define FPDF_OBJECT_REFERENCE 9
 
+// Refer to PDF Reference version 1.7 table 8.70 for field flags common to all
+// interactive form field types.
+#define FPDF_FORMFLAG_NONE 0x00
+#define FPDF_FORMFLAG_READONLY 0x01
+#define FPDF_FORMFLAG_REQUIRED 0x02
+#define FPDF_FORMFLAG_NOEXPORT 0x04
+
+// Refer to PDF Reference version 1.7 table 8.77 for field flags specific to
+// interactive form text fields.
+#define FPDF_FORMFLAG_MULTILINE 0x1000
+
+// Refer to PDF Reference version 1.7 table 8.79 for field flags specific to
+// interactive form choice fields.
+#define FPDF_FORMFLAG_COMBO 0x20000
+#define FPDF_FORMFLAG_EDIT 0x40000
+
 typedef enum FPDFANNOT_COLORTYPE {
   FPDFANNOT_COLORTYPE_Color = 0,
   FPDFANNOT_COLORTYPE_InteriorColor
@@ -378,6 +394,15 @@ DLLEXPORT int STDCALL FPDFAnnot_GetFlags(FPDF_ANNOTATION annot);
 // Returns true if successful.
 DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetFlags(FPDF_ANNOTATION annot,
                                                int flags);
+
+// Experimental API.
+// Get the annotation flags of |annot|, which is an interactive form
+// annotation.
+//
+//   annot    - handle to an interactive form annotation.
+//
+// Returns the annotation flags specific to interactive forms.
+DLLEXPORT int STDCALL FPDFAnnot_GetInteractiveFormFlags(FPDF_ANNOTATION annot);
 
 #ifdef __cplusplus
 }  // extern "C"
