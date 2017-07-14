@@ -1378,6 +1378,27 @@ DLLEXPORT unsigned long STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
                                                      unsigned long buflen);
 
 /**
+ * Function: FORM_GetAnnot
+ *          You can call this function to retrieve an annotation at a given
+ *          point on a page. Must call FPDFPage_CloseAnnot() when the annotation
+ *          returned is no longer needed.
+ * Parameters:
+ *          hHandle     -   Handle to the form fill module. Returned by
+ *                          FPDFDOC_InitFormFillEnvironment.
+ *          page        -   Handle to the page. Returned by FPDF_LoadPage
+ *                          function.
+ *          page_x      -   X position in PDF "user space".
+ *          page_y      -   Y position in PDF "user space".
+ * Return Value:
+ *          The annotation at the provided coordinates on the page. If there is
+ *          no annotation at the provided coordinates, return nullptr.
+ **/
+DLLEXPORT FPDF_ANNOTATION STDCALL FORM_GetAnnot(FPDF_FORMHANDLE hHandle,
+                                                FPDF_PAGE page,
+                                                double page_x,
+                                                double page_y);
+
+/**
  * Function: FORM_ForceToKillFocus.
  *          You can call this member function to force to kill the focus of the
  *form field which got focus.

@@ -9,6 +9,7 @@
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 #include "public/cpp/fpdf_deleters.h"
+#include "public/fpdf_annot.h"
 #include "public/fpdf_formfill.h"
 #include "public/fpdf_fwlevent.h"
 #include "testing/embedder_test.h"
@@ -643,6 +644,88 @@ TEST_F(FPDFFormFillEmbeddertest,
   // Test selecting last character in backwards direction.
   SelectTextWithMouse(page, 178.0, 174.0, 63.0);
   CheckSelection(page, CFX_WideString(L"J"));
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, GetAnnotNull) {
+  // Open file with form text fields.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Attempt to get an annotation where no annotation exists on page.
+  FPDF_ANNOTATION annot = FORM_GetAnnot(form_handle(), page, 0, 0);
+  EXPECT_FALSE(annot);
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, GetInteractiveFormAnnotFlagsTextField) {
+  // Open file with form text fields.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Retrieve user-editable text field annotation.
+  FPDF_ANNOTATION annot = FORM_GetAnnot(form_handle(), page, 105, 118);
+  ASSERT_TRUE(annot);
+
+  // Check that interactive form annotation flag values are as expected.
+  int flags = FPDFAnnot_GetInteractiveFormFlags(page, annot);
+  EXPECT_FALSE(flags & FPDF_FORMFLAG_READONLY);
+  FPDFPage_CloseAnnot(annot);
+
+  // Retrieve read-only text field annotation.
+  annot = FORM_GetAnnot(form_handle(), page, 105, 202);
+  ASSERT_TRUE(annot);
+
+  // Check that interactive form annotation flag values are as expected.
+  flags = FPDFAnnot_GetInteractiveFormFlags(page, annot);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_READONLY);
+  FPDFPage_CloseAnnot(annot);
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, GetInteractiveFormAnnotFlagsComboBox) {
+  // Open file with form comboboxes.
+  EXPECT_TRUE(OpenDocument("combobox_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Retrieve user-editable combobox annotation.
+  FPDF_ANNOTATION annot = FORM_GetAnnot(form_handle(), page, 102, 63);
+  ASSERT_TRUE(annot);
+
+  // Check that interactive form annotation flag values are as expected.
+  int flags = FPDFAnnot_GetInteractiveFormFlags(page, annot);
+  EXPECT_FALSE(flags & FPDF_FORMFLAG_READONLY);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_CHOICE_COMBO);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_CHOICE_EDIT);
+  FPDFPage_CloseAnnot(annot);
+
+  // Retrieve regular combobox annotation.
+  annot = FORM_GetAnnot(form_handle(), page, 102, 113);
+  ASSERT_TRUE(annot);
+
+  // Check that interactive form annotation flag values are as expected.
+  flags = FPDFAnnot_GetInteractiveFormFlags(page, annot);
+  EXPECT_FALSE(flags & FPDF_FORMFLAG_READONLY);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_CHOICE_COMBO);
+  EXPECT_FALSE(flags & FPDF_FORMFLAG_CHOICE_EDIT);
+  FPDFPage_CloseAnnot(annot);
+
+  // Retrieve read-only combobox annotation.
+  annot = FORM_GetAnnot(form_handle(), page, 102, 213);
+  ASSERT_TRUE(annot);
+
+  // Check that interactive form annotation flag values are as expected.
+  flags = FPDFAnnot_GetInteractiveFormFlags(page, annot);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_READONLY);
+  EXPECT_TRUE(flags & FPDF_FORMFLAG_CHOICE_COMBO);
+  EXPECT_FALSE(flags & FPDF_FORMFLAG_CHOICE_EDIT);
+  FPDFPage_CloseAnnot(annot);
 
   UnloadPage(page);
 }

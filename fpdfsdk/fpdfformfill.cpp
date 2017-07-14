@@ -22,6 +22,7 @@
 #include "fpdfsdk/cpdfsdk_pageview.h"
 #include "fpdfsdk/fsdk_actionhandler.h"
 #include "fpdfsdk/fsdk_define.h"
+#include "public/fpdf_annot.h"
 #include "public/fpdfview.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
@@ -383,6 +384,27 @@ DLLEXPORT unsigned long STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
     memcpy(buffer, encoded_form_text.c_str(), form_text_len);
 
   return form_text_len;
+}
+
+DLLEXPORT FPDF_ANNOTATION STDCALL FORM_GetAnnot(FPDF_FORMHANDLE hHandle,
+                                                FPDF_PAGE page,
+                                                double page_x,
+                                                double page_y) {
+  if (!(hHandle && page))
+    return nullptr;
+
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!pPage)
+    return nullptr;
+
+  CPDF_InterForm interform(pPage->m_pDocument.Get());
+  int annot_index = -1;
+  CPDF_FormControl* pFormCtrl = interform.GetControlAtPoint(
+      pPage, CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)),
+      &annot_index);
+  if (!pFormCtrl)
+    return nullptr;
+  return annot_index != -1 ? FPDFPage_GetAnnot(page, annot_index) : nullptr;
 }
 
 DLLEXPORT FPDF_BOOL STDCALL FORM_ForceToKillFocus(FPDF_FORMHANDLE hHandle) {
