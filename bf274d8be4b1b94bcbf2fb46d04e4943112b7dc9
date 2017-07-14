@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca384ede_b6dc0653",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T04:54:54Z",
+      "side": 1,
+      "message": "BTW, the return value here, and for FPDFAnnot_GetFlags() both technically need to be unsigned, since the PDF spec says both the F and Ff entries should be interpreted as 32-bit unsigned values. Though in practice, the highest bit position used is 27, so an int is ok and we probably don\u0027t have to change it.",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14f7638_c0340581",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T04:54:54Z",
+      "side": 1,
+      "message": "It turns out, unlike \"F\", \"Ff\" is inheritable. So if a field dictionary does not have a \"Ff\" entry, one must look to its ancestors, if any, for the entry.\n\nThat\u0027s implemented in CPDF_FormField::GetFieldFlags(), so you\u0027ll have to find the CPDF_FormField that\u0027s associated with the annotation. Maybe CPDF_InterForm::GetFieldByDict() can help with that.",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca738cad_47925f01",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T04:54:54Z",
+      "side": 1,
+      "message": "If you use (1 \u003c\u003c 1) like FPDF_ANNOT_FLAG_HIDDEN, then its more obvious which bit position this corresponds to.",
+      "range": {
+        "startLine": 74,
+        "startChar": 31,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a60a19a_ea6b1471",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T04:54:54Z",
+      "side": 1,
+      "message": "How about FPDF_FORMFLAG_TEXT_MULTILINE and FPDF_FORMFLAG_CHOICE_COMBO, so it\u0027s obvious what field type these flags are for?",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea9faf7c_b9bbe3f4",
+        "filename": "testing/resources/text_form.in",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T04:54:54Z",
+      "side": 1,
+      "message": "Did you make this overlap with the other edit field on purpose?",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
