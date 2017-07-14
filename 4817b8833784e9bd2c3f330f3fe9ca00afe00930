@@ -1,0 +1,383 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc60cb74_552694c0",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Document what the arguments are.",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb5c8791_56bcd418",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "\"if not self.coverage_tests\" is enough",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07cc086f_e85a470a",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Why checkout and not check?",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 14
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4958ae81_f99c73db",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Use self.dry_run instead of passing it around.",
+      "range": {
+        "startLine": 84,
+        "startChar": 34,
+        "endLine": 84,
+        "endChar": 47
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40cc46d_479a9d8d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Summary should be 1 line.",
+      "range": {
+        "startLine": 86,
+        "startChar": 22,
+        "endLine": 86,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28fab79c_afebc201",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Summary should be 1 line.",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 102,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a8fa88e_4334e009",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "args[\u0027tests\u0027]",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 25
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "051f9d7d_b47a52ec",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Consider:\nreturn {k:v for k,v in coverage_tests if k in args[\u0027tests\u0027]}",
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b11a3f0d_a0528c52",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Consider\nreturn {k:v for k,v in coverage_tests if k not in slow_tests}",
+      "range": {
+        "startLine": 158,
+        "startChar": 40,
+        "endLine": 158,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36296cc_a86a86bd",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Use tuples:\n\n[...]\n  parsed_version \u003d (int(matcher.group(1)), int(matcher.group(2)))\n\nif parsed_version \u003e llvm_cov_version:\n  llvm_cov_version \u003d parsed_version\n\nYou could also use namedtuple with [\u0027major\u0027, \u0027minor\u0027].",
+      "range": {
+        "startLine": 206,
+        "startChar": 57,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "504425c8_9974db3b",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Break line before this.",
+      "range": {
+        "startLine": 215,
+        "startChar": 66,
+        "endLine": 215,
+        "endChar": 69
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dd0e941_aacc84cc",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "as a single",
+      "range": {
+        "startLine": 231,
+        "startChar": 16,
+        "endLine": 231,
+        "endChar": 25
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dff8c4e_e7790e7c",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 238,
+        "startChar": 17,
+        "endLine": 238,
+        "endChar": 26
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c493a9e3_9679c891",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Document the return value, which is pretty complex.",
+      "range": {
+        "startLine": 356,
+        "startChar": 74,
+        "endLine": 356,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3227e672_fffbca71",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Move the self.call to a line of its own, it does too much to be inlined.",
+      "range": {
+        "startLine": 357,
+        "startChar": 16,
+        "endLine": 357,
+        "endChar": 26
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68d1c8b1_00c66a4f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Suggestion: one option per line, except for options with parameters.",
+      "range": {
+        "startLine": 364,
+        "startChar": 55,
+        "endLine": 364,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095476e3_9b21e6a7",
+        "filename": "tools/coverage/llvm-gcov",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T17:42:23Z",
+      "side": 1,
+      "message": "Please describe what this does and when it is called.",
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
