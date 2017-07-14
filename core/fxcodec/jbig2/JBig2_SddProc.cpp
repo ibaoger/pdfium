@@ -354,7 +354,7 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
             SBSYMCODES[I].codelen = nTmp;
             SBSYMCODES[I].code = I;
           }
-          pDecoder->SBSYMCODES = SBSYMCODES.data();
+          pDecoder->SBSYMCODES = std::move(SBSYMCODES);
           SBSYMS.resize(SBNUMSYMS);
           std::copy(SDINSYMS, SDINSYMS + SDNUMINSYMS, SBSYMS.begin());
           for (size_t i = 0; i < NSYMSDECODED; ++i)
