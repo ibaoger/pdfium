@@ -46,6 +46,30 @@
       "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bc80ca3_5b918d1f",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:18:29Z",
+      "side": 1,
+      "message": "(after marking it private, that is).",
+      "parentUuid": "e583a676_49284d81",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
