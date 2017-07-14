@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d5332ac_e725db76",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-14T19:14:52Z",
+      "side": 1,
+      "message": "Okay, I can change it if that would be the better design choice (being more aligned with the PDF spec). Let me know what you think.",
+      "parentUuid": "ca384ede_b6dc0653",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d14f7638_c0340581",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a856820_0f69becf",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-14T19:14:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d14f7638_c0340581",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6f4a35c2_9c438d82",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-14T19:14:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca738cad_47925f01",
+      "range": {
+        "startLine": 74,
+        "startChar": 31,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a60a19a_ea6b1471",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "4099511e_b56a5374",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-14T19:14:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a60a19a_ea6b1471",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea9faf7c_b9bbe3f4",
         "filename": "testing/resources/text_form.in",
         "patchSetId": 3
@@ -87,6 +165,24 @@
       "writtenOn": "2017-07-14T04:54:54Z",
       "side": 1,
       "message": "Did you make this overlap with the other edit field on purpose?",
+      "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad2c38e3_d4832054",
+        "filename": "testing/resources/text_form.in",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-14T19:14:52Z",
+      "side": 1,
+      "message": "No, I\u0027ll change that.",
+      "parentUuid": "ea9faf7c_b9bbe3f4",
       "revId": "bf274d8be4b1b94bcbf2fb46d04e4943112b7dc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
