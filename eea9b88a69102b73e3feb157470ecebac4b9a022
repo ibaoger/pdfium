@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0cdc185_c7b00b1f",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Perf stat does not, we might be able to make callgrind work on Mac.",
+      "parentUuid": "24b4fa1d_2ee138d9",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f24406b_b34c339c",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 15
@@ -33,6 +51,24 @@
       "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c19c8ce_e3c5d160",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f24406b_b34c339c",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "87d8192b_1d35e6de",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc28024f_1bdf5fe7",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e6fa811_7cb4cd10",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 15
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "ed54fe03_3e50a546",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done. Searching the whole output works, thanks.",
+      "parentUuid": "2e6fa811_7cb4cd10",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c829b5ec_132a810b",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 15
@@ -90,6 +168,24 @@
       "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed251699_2463359a",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "This is just a piece of a bigger tool, so I want to keep it focused in a single task. The compare script will take directories and files.",
+      "parentUuid": "c829b5ec_132a810b",
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "61de8782_45cc4f9a",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Isn\u0027t lower case the usual for args explanations in help messages? the -h explanation automatically added by argparse uses lower case, for example, so I\u0027d have to add my custom one to be consistent.",
+      "parentUuid": "4ddafbd8_f4327554",
+      "range": {
+        "startLine": 93,
+        "startChar": 28,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e93606e_1c3d03bc",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 15
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "410ca650_149a1299",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e93606e_1c3d03bc",
+      "range": {
+        "startLine": 95,
+        "startChar": 28,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2783a77_6e6cdb24",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 15
@@ -159,6 +303,30 @@
       "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44dbb1fe_8bad8af3",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2783a77_6e6cdb24",
+      "range": {
+        "startLine": 98,
+        "startChar": 47,
+        "endLine": 98,
+        "endChar": 75
+      },
+      "revId": "eea9b88a69102b73e3feb157470ecebac4b9a022",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

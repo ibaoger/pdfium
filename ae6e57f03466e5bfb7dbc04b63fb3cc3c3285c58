@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c646d1bd_66b2b7d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d8ae58ef_da0ad657",
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94ea22dd_693c8e93",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe51c086_c776953e",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "I just wrote it wrong, good catch. Done.",
+      "parentUuid": "94ea22dd_693c8e93",
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd25001d_4564c609",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T15:29:39Z",
+      "side": 1,
+      "message": "Removed this part as per another comment.",
+      "parentUuid": "01d5e863_867f02df",
+      "range": {
+        "startLine": 104,
+        "startChar": 30,
+        "endLine": 104,
+        "endChar": 41
+      },
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
