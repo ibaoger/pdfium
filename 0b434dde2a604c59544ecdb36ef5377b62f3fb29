@@ -70,6 +70,30 @@
       "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "503a5d69_c59a187c",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T18:25:05Z",
+      "side": 1,
+      "message": "Thanks. Done.",
+      "parentUuid": "4bc80ca3_5b918d1f",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
