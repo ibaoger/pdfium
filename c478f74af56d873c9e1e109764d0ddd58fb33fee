@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0226828c_72737e54",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T18:14:56Z",
+      "side": 1,
+      "message": "It could be an error message, with an error return code.",
+      "parentUuid": "8a485c23_78aa6090",
+      "revId": "c478f74af56d873c9e1e109764d0ddd58fb33fee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305f0cda_08ff88e7",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 19
@@ -39,6 +57,30 @@
       "revId": "c478f74af56d873c9e1e109764d0ddd58fb33fee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27482418_2d0b6c8f",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T18:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305f0cda_08ff88e7",
+      "range": {
+        "startLine": 79,
+        "startChar": 47,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "c478f74af56d873c9e1e109764d0ddd58fb33fee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
