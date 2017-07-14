@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2aa52429_b161f12b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "146cdc20_6ca9865e",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "533bac6d_35903000",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa73e6e_4c0e3c5f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533bac6d_35903000",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "df7c642a_59eb17b9",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "In my usages probably not, since I am not passing tuples in. Given the style guide prefers % over format I will change it.",
+      "parentUuid": "e5446be9_9da95081",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2941e2b5_48b6bf09",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -73,6 +133,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e04905d_5aa7904f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2941e2b5_48b6bf09",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "92cbb2d9_b0187350",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb9fd9aa_c07a9b23",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a942824e_4c4cec7f",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -107,6 +203,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33ed86d7_b0faf19d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a942824e_4c4cec7f",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "d7be5bfd_c9f7a449",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3545ea34_b33cef85",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c140f4_def3bd6c",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -144,6 +276,24 @@
     },
     {
       "key": {
+        "uuid": "cd44bdb8_60340c95",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60c140f4_def3bd6c",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b59ede1_d94b4615",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -158,6 +308,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c607f06_782c0437",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "This is a bash builtin not a program, so [ \u0027compgen\u0027, \u0027-abck\u0027, \u0027llvm-cov\u0027] or something similar doesn\u0027t work.\n\nIf you have a better way of determining all of the callable binaries that match a pattern I would love to change this, since it feels like a hack to me. The only thing I could think of was walking all the directories listed in PATH and finding all the matches, which would be more verbose then this.",
+      "parentUuid": "4b59ede1_d94b4615",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -181,6 +349,30 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb2c6f74_aaff7318",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e0bed8c_9b2a0c1b",
+      "range": {
+        "startLine": 178,
+        "startChar": 40,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -224,6 +416,48 @@
     },
     {
       "key": {
+        "uuid": "d9c835a9_fc466848",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da0a1d84_b9bf08da",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7484ca64_f1d975bd",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e36da0c_a72609f2",
+      "range": {
+        "startLine": 195,
+        "startChar": 44,
+        "endLine": 195,
+        "endChar": 49
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a75bf25e_49e4fad2",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -238,6 +472,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be644450_6cf5e2dd",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Refactored",
+      "parentUuid": "a75bf25e_49e4fad2",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -258,6 +510,24 @@
     },
     {
       "key": {
+        "uuid": "70e27ecd_652b8036",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b6455be_edcb25db",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f11e0d78_9a208272",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -272,6 +542,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b750f31_175c74ad",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f11e0d78_9a208272",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -298,6 +586,30 @@
     },
     {
       "key": {
+        "uuid": "6b65abd3_5288708d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820363e8_9385d505",
+      "range": {
+        "startLine": 311,
+        "startChar": 67,
+        "endLine": 311,
+        "endChar": 74
+      },
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db56af28_86220bd2",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -312,6 +624,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0558c7e5_fafa9de7",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Yup... I was reversing the conditionals and forgot to remove the old one",
+      "parentUuid": "db56af28_86220bd2",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -332,6 +662,24 @@
     },
     {
       "key": {
+        "uuid": "44a7ae8d_7e5f34b2",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa22ffce_9092b7be",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "948f0de3_1686a94e",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -346,6 +694,24 @@
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640997c1_faa83535",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-14T17:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948f0de3_1686a94e",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
