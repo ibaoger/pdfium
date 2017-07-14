@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a426f53e_96980db7",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T21:19:33Z",
+      "side": 1,
+      "message": "Only one of these should be specified.",
+      "range": {
+        "startLine": 452,
+        "startChar": 10,
+        "endLine": 452,
+        "endChar": 32
+      },
+      "revId": "cea1e1880d22cfc462cc8247f684eb60b6285b82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f788da_b383c293",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T21:19:33Z",
+      "side": 1,
+      "message": "Do we know if that bug happens only on ints?",
+      "range": {
+        "startLine": 506,
+        "startChar": 6,
+        "endLine": 506,
+        "endChar": 24
+      },
+      "revId": "cea1e1880d22cfc462cc8247f684eb60b6285b82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

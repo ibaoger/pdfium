@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8d95863_3d4b096a",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-14T21:19:33Z",
+      "side": 1,
+      "message": "Well-understood by printf, right? And not correct according to specs?",
+      "range": {
+        "startLine": 450,
+        "startChar": 44,
+        "endLine": 450,
+        "endChar": 59
+      },
+      "revId": "afd3c54f356b7e18f61c494eef3087777b9d1e90",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
