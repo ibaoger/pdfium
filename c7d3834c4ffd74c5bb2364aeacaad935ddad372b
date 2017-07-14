@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68bf3593_6060f903",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "This is copy+pasted from elsewhere, right? Should be consolidate all the copies?",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4634485_0d4eba6d",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "It\u0027s probably possible for the caller to behave badly and pass in type\u003d5, or something.",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79231619_d9558b92",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "Maybe save the pParamsDict-\u003eGetObjectFor(key)-\u003eAsString() return value, and use it in PDF_EncodeString() ?",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "995cb2e2_3d10f710",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "Probably should ASSERT_EQ(). If the returned value is smaller, the std::string constructed below is going to have a bad time.",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1a2a50b_667a783c",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "EXPECT_STREQ(\"test\", buf.data()) ? (Cast buf.data()) if needed)",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be2dea5b_309f1091",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "Why not do a checksum on the received data?",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37798312_b6a9401c",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T01:34:29Z",
+      "side": 1,
+      "message": "I haven\u0027t read the spec. Is the checksum an arbitrary string, or should it be in one of a given set of formats?",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
