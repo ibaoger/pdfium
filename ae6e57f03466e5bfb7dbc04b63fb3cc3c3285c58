@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8ae58ef_da0ad657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T00:08:39Z",
+      "side": 1,
+      "message": "Maybe write a small snippet to explain what it does?",
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ea22dd_693c8e93",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T00:08:39Z",
+      "side": 1,
+      "message": "Is this out of date?",
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01d5e863_867f02df",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-14T00:08:39Z",
+      "side": 1,
+      "message": "splitlines() ?",
+      "range": {
+        "startLine": 104,
+        "startChar": 30,
+        "endLine": 104,
+        "endChar": 41
+      },
+      "revId": "ae6e57f03466e5bfb7dbc04b63fb3cc3c3285c58",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
