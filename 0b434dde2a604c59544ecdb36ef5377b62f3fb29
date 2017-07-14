@@ -22,6 +22,30 @@
       "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e583a676_49284d81",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:17:18Z",
+      "side": 1,
+      "message": "friend class CJS_Util_ParseDataType_Test",
+      "parentUuid": "635ed3fc_f5f2b241",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "0b434dde2a604c59544ecdb36ef5377b62f3fb29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
