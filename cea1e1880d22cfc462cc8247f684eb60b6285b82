@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35cd9c47_e8f01826",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T21:57:03Z",
+      "side": 1,
+      "message": "Actually, printf allows several:\n\nhttp://en.cppreference.com/w/cpp/io/c/fprintf\n  (optional) one or more flags that modify the behavior of the conversion:",
+      "parentUuid": "a426f53e_96980db7",
+      "range": {
+        "startLine": 452,
+        "startChar": 10,
+        "endLine": 452,
+        "endChar": 32
+      },
+      "revId": "cea1e1880d22cfc462cc8247f684eb60b6285b82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4f788da_b383c293",
         "filename": "fpdfsdk/javascript/util.cpp",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-14T21:19:33Z",
       "side": 1,
       "message": "Do we know if that bug happens only on ints?",
+      "range": {
+        "startLine": 506,
+        "startChar": 6,
+        "endLine": 506,
+        "endChar": 24
+      },
+      "revId": "cea1e1880d22cfc462cc8247f684eb60b6285b82",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31f0f422_6fb2874b",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T21:57:03Z",
+      "side": 1,
+      "message": "We believe this to be the case, see old line 120 which only kicks in for INTS.",
+      "parentUuid": "b4f788da_b383c293",
       "range": {
         "startLine": 506,
         "startChar": 6,
