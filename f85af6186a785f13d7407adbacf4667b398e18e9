@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e845b1ab_9516eaf1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:36:12Z",
+      "side": 1,
+      "message": "CL description now out of date.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "f85af6186a785f13d7407adbacf4667b398e18e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23a075a_735b7832",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:36:12Z",
+      "side": 1,
+      "message": "can we just pass rectWnd to this call (arg is const ref)? then move rcDraw decl to 250?",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 33
+      },
+      "revId": "f85af6186a785f13d7407adbacf4667b398e18e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b0b87b2_c39caa95",
+        "filename": "fpdfsdk/pdfwindow/cpwl_scroll_bar.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:36:12Z",
+      "side": 1,
+      "message": "for (FX_COLORREF ref : refs) {\n   pDevice-\u003eDrawStrokeLine(pUser2Device, ptTop, ptBottom, ref, 1.0f);\n...",
+      "range": {
+        "startLine": 321,
+        "startChar": 9,
+        "endLine": 321,
+        "endChar": 63
+      },
+      "revId": "f85af6186a785f13d7407adbacf4667b398e18e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25493973_1a639be8",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-14T16:36:12Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 308,
+        "startChar": 47,
+        "endLine": 308,
+        "endChar": 70
+      },
+      "revId": "f85af6186a785f13d7407adbacf4667b398e18e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
