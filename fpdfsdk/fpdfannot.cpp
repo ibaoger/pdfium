@@ -797,3 +797,15 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetFlags(FPDF_ANNOTATION annot,
   pAnnotDict->SetNewFor<CPDF_Number>("F", flags);
   return true;
 }
+
+DLLEXPORT int STDCALL FPDFAnnot_GetInteractiveFormFlags(FPDF_ANNOTATION annot) {
+  if (!annot)
+    return FPDF_FORMFLAG_NONE;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return FPDF_FORMFLAG_NONE;
+
+  return pAnnotDict->GetIntegerFor("Ff");
+}
