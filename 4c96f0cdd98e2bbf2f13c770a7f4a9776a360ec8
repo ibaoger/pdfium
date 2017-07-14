@@ -374,6 +374,24 @@
     },
     {
       "key": {
+        "uuid": "5d16f8f2_cc80a22c",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to work either, can\u0027t take address of .data().",
+      "parentUuid": "ed86ea2e_eeb18a82",
+      "revId": "4c96f0cdd98e2bbf2f13c770a7f4a9776a360ec8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5320131e_0fd3b0cf",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1

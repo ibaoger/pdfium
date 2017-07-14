@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3e68faeb_153d5d20",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "This is only used by fpdf_doc; where should this go? fsdk_define.h?",
+      "parentUuid": "68bf3593_6060f903",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4634485_0d4eba6d",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-14T01:34:29Z",
       "side": 1,
       "message": "It\u0027s probably possible for the caller to behave badly and pass in type\u003d5, or something.",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "700757e2_c0ad551e",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "Is there a more elegant way to check this?",
+      "parentUuid": "e4634485_0d4eba6d",
       "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "256dad89_2cde2c36",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79231619_d9558b92",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "995cb2e2_3d10f710",
         "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "db79a8cb_8adc0018",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995cb2e2_3d10f710",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1a2a50b_667a783c",
         "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2017-07-14T01:34:29Z",
       "side": 1,
       "message": "EXPECT_STREQ(\"test\", buf.data()) ? (Cast buf.data()) if needed)",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22a6d9b7_c52121a3",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "I used std::string because buf.data() isn\u0027t null-terminated in this case, so we can\u0027t just do STREQ. Unless we manually add a null character; but I think this way is simpler.",
+      "parentUuid": "b1a2a50b_667a783c",
       "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "f9f48bc3_a21ec455",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be2dea5b_309f1091",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37798312_b6a9401c",
         "filename": "public/fpdf_attachment.h",
         "patchSetId": 2
@@ -115,6 +223,24 @@
       "writtenOn": "2017-07-14T01:34:29Z",
       "side": 1,
       "message": "I haven\u0027t read the spec. Is the checksum an arbitrary string, or should it be in one of a given set of formats?",
+      "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1865f1c6_56de0c7f",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-14T15:42:28Z",
+      "side": 1,
+      "message": "The spec doesn\u0027t actually specify the format of the checksum. It was just that all the ones I saw were hex strings, and I noticed that returning the decoded hex string would not make sense.",
+      "parentUuid": "37798312_b6a9401c",
       "revId": "c7d3834c4ffd74c5bb2364aeacaad935ddad372b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
