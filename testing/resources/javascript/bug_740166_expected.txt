@@ -1,0 +1,4 @@
+Alert: Value = 1
+Alert: Value = 0000000001
+Alert: Value = %0.100x
+Alert: Value = %0.1000x
