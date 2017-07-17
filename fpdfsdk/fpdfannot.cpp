@@ -170,10 +170,6 @@ bool HasAPStream(const CPDF_Dictionary* pAnnotDict) {
   return !!FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
 }
 
-CFX_ByteString CFXByteStringFromFPDFWideString(FPDF_WIDESTRING text) {
-  return CFX_WideString::FromUTF16LE(text, CFX_WideString::WStringLength(text))
-      .UTF8Encode();
-}
 void UpdateContentStream(CPDF_Form* pForm, CPDF_Stream* pStream) {
   ASSERT(pForm);
   ASSERT(pStream);
