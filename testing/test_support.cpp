@@ -8,6 +8,8 @@
 #include <string.h>
 
 #include "core/fdrm/crypto/fx_crypt.h"
+#include "core/fxcrt/cfx_bytestring.h"
+#include "core/fxcrt/cfx_widestring.h"
 #include "core/fxcrt/fx_memory.h"
 #include "testing/utils/path_service.h"
 
@@ -101,6 +103,19 @@ std::unique_ptr<char, pdfium::FreeDeleter> GetFileContents(const char* filename,
   }
   *retlen = bytes_read;
   return buffer;
+}
+
+std::string GetPlatformString(FPDF_WIDESTRING wstr) {
+  if (!wstr)
+    return nullptr;
+
+  size_t characters = 0;
+  while (wstr[characters])
+    ++characters;
+
+  return std::string(CFX_WideString::FromUTF16LE(wstr, characters * 2 + 2)
+                         .UTF8Encode()
+                         .c_str());
 }
 
 std::wstring GetPlatformWString(FPDF_WIDESTRING wstr) {
