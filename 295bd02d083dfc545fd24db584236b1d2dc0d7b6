@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94f9e919_70a4a1de",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-17T13:53:13Z",
+      "side": 1,
+      "message": "Lets move this to the fpdf_annot header file and rename to FPDFAnnot_GetAnnotAtPoint(). Do you know if this is the attachment point or the annotation rect?",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9d261e5_887837bd",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-17T13:53:13Z",
+      "side": 1,
+      "message": "You can drop this one and just add a !hHandle in the check on 397. The *From* methods just do a cast, so casting nullptr would be fine.",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f151bfd_c3be9bfb",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-17T13:53:13Z",
+      "side": 1,
+      "message": "if (!pFormCtrl || annot_index \u003d\u003d -1)\n\njust FPDFPage_GetAnnot below",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
