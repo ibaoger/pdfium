@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cce37255_e4aee821",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-17T14:34:24Z",
+      "side": 1,
+      "message": "We should make it clear in fpdf_annot that this only works for annotations with form control. Maybe rename to FPDFAnnot_GetFormAnnotAtPoint()?\nCPDF_InterForm::GetControlAtPoint() checks if the annotation rectangle contains the specified point; we should make this clear in the user doc, right now it seems a bit ambiguous.",
+      "parentUuid": "94f9e919_70a4a1de",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9d261e5_887837bd",
         "filename": "fpdfsdk/fpdfformfill.cpp",
         "patchSetId": 1
