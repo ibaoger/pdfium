@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b202fcc_2596a411",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T18:51:13Z",
+      "side": 1,
+      "message": "Done - we talked about this and since there is not an internal representation for these flags, the static_asserts are not needed.",
+      "parentUuid": "5288f58a_d2b8591f",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b3302a_51d57f8c",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-17T14:41:05Z",
       "side": 1,
       "message": "Does this still make sense if we just call it FPDFAnnot_GetFormFlags? Does Interactive have a special meaning in PDF?",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7938fa24_34122b84",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T18:51:13Z",
+      "side": 1,
+      "message": "The reason I have \"Interactive\" in there is because in the PDF spec forms are referred to as interactive forms, or AcroForms (see section 8.6, page 671).\n\nIf you think this qualifier is unnecessary though, I can remove it.",
+      "parentUuid": "33b3302a_51d57f8c",
       "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f3108ade_66d2f55d",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T18:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5219722_14950078",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c947cba_4fc953d4",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a5f7646_7903ac73",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T18:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c947cba_4fc953d4",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
