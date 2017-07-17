@@ -9,6 +9,7 @@
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 #include "public/cpp/fpdf_deleters.h"
+#include "public/fpdf_annot.h"
 #include "public/fpdf_formfill.h"
 #include "public/fpdf_fwlevent.h"
 #include "testing/embedder_test.h"
