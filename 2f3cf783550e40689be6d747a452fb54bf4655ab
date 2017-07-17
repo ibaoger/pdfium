@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "36fde7d9_609b5173",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-17T19:22:42Z",
+      "side": 1,
+      "message": "Nope. :-P",
+      "parentUuid": "1fa73e6e_4c0e3c5f",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5446be9_9da95081",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -323,6 +341,24 @@
       "side": 1,
       "message": "This is a bash builtin not a program, so [ \u0027compgen\u0027, \u0027-abck\u0027, \u0027llvm-cov\u0027] or something similar doesn\u0027t work.\n\nIf you have a better way of determining all of the callable binaries that match a pattern I would love to change this, since it feels like a hack to me. The only thing I could think of was walking all the directories listed in PATH and finding all the matches, which would be more verbose then this.",
       "parentUuid": "4b59ede1_d94b4615",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d8e6d92_6832fa2d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-17T19:22:42Z",
+      "side": 1,
+      "message": "Just want to double check what you are trying to do here exactly.\n\nSo I have 3 channels of Google Chrome installed locally. When I run \"compgen -abck google-chrome\" I get back:\n\ngoogle-chrome-unstable\ngoogle-chrome-beta\ngoogle-chrome\ngoogle-chrome-stable\n\nIs the goal to find all the binaries in the $PATH that starts with llvm-cov? Or did you just want to find all the binaries named llvm-cov?",
+      "parentUuid": "7c607f06_782c0437",
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
