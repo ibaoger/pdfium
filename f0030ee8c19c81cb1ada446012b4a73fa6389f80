@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d348e7f7_39d185b4",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-17T19:49:03Z",
+      "side": 1,
+      "message": "nit: style is \n\n// TODO(author): Add an expects for the return being nullptr here.\n// See https://bugs.chromium.org/p/pdfium/issues/detail?id\u003d814\n\nEven if you don\u0027t expect to ever do the TODO.",
+      "range": {
+        "startLine": 237,
+        "startChar": 10,
+        "endLine": 237,
+        "endChar": 20
+      },
+      "revId": "f0030ee8c19c81cb1ada446012b4a73fa6389f80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
