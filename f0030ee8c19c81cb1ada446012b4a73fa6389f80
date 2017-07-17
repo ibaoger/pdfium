@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a9e4aa3_9be30c71",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-17T19:53:04Z",
+      "side": 1,
+      "message": "some reason we can\u0027t just do EXPECT_EQ(nullptr, lexer-\u003eNextToken());",
+      "range": {
+        "startLine": 225,
+        "startChar": 23,
+        "endLine": 225,
+        "endChar": 72
+      },
+      "revId": "f0030ee8c19c81cb1ada446012b4a73fa6389f80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d348e7f7_39d185b4",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
         "patchSetId": 3
