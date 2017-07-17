@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46d9ceaa_5f65712d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc60cb74_552694c0",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb5c8791_56bcd418",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d46bc94_72fcdfe4",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb5c8791_56bcd418",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "6a0bd921_12e2a5a5",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07cc086f_e85a470a",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 14
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d6bb8c_ac48b1b4",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Some calls to this method do not mutate the system, but instead are used to gather information, which determines what commands will be run. In dry_run mode we still want these commands to run, so that the trace will show all the mutating commands that would have run. Otherwise we get a uninformative trace that says we would do nothing.",
+      "parentUuid": "4958ae81_f99c73db",
+      "range": {
+        "startLine": 84,
+        "startChar": 34,
+        "endLine": 84,
+        "endChar": 47
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e40cc46d_479a9d8d",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -114,6 +210,30 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "459c0dc8_2cebe4cc",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e40cc46d_479a9d8d",
+      "range": {
+        "startLine": 86,
+        "startChar": 22,
+        "endLine": 86,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f726031d_584d8df5",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28fab79c_afebc201",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 102,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a8fa88e_4334e009",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e955a9fa_9562da02",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a8fa88e_4334e009",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 25
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "051f9d7d_b47a52ec",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -177,6 +345,24 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11035e55_5a0d5cda",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "051f9d7d_b47a52ec",
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "53347dc5_2b42f9c8",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b11a3f0d_a0528c52",
+      "range": {
+        "startLine": 158,
+        "startChar": 40,
+        "endLine": 158,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e36296cc_a86a86bd",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -223,6 +433,30 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b2d0d8a_0646ed10",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36296cc_a86a86bd",
+      "range": {
+        "startLine": 206,
+        "startChar": 57,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "bb88af5b_a94e9a63",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "504425c8_9974db3b",
+      "range": {
+        "startLine": 215,
+        "startChar": 66,
+        "endLine": 215,
+        "endChar": 69
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dd0e941_aacc84cc",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -269,6 +527,30 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e90e7d2c_5cfe671f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dd0e941_aacc84cc",
+      "range": {
+        "startLine": 231,
+        "startChar": 16,
+        "endLine": 231,
+        "endChar": 25
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "ed39080c_0f477f95",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8dff8c4e_e7790e7c",
+      "range": {
+        "startLine": 238,
+        "startChar": 17,
+        "endLine": 238,
+        "endChar": 26
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c493a9e3_9679c891",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -315,6 +621,30 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3216d95_a5628601",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "I think the way I had this formatted made it unclear what it was doing. I have rewritten it so it is clearer that the return value is just if the call command succeeded or not.",
+      "parentUuid": "c493a9e3_9679c891",
+      "range": {
+        "startLine": 356,
+        "startChar": 74,
+        "endLine": 356,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "66869ff9_342c4896",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3227e672_fffbca71",
+      "range": {
+        "startLine": 357,
+        "startChar": 16,
+        "endLine": 357,
+        "endChar": 26
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68d1c8b1_00c66a4f",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 6
@@ -364,6 +718,30 @@
     },
     {
       "key": {
+        "uuid": "89ed1a60_f369457a",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68d1c8b1_00c66a4f",
+      "range": {
+        "startLine": 364,
+        "startChar": 55,
+        "endLine": 364,
+        "endChar": 0
+      },
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "095476e3_9b21e6a7",
         "filename": "tools/coverage/llvm-gcov",
         "patchSetId": 6
@@ -378,6 +756,24 @@
       "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a3c726_4c16c743",
+        "filename": "tools/coverage/llvm-gcov",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "095476e3_9b21e6a7",
+      "revId": "4817b8833784e9bd2c3f330f3fe9ca00afe00930",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
