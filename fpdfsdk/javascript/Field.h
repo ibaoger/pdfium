@@ -11,9 +11,9 @@
 #include <vector>
 
 #include "core/fxcrt/cfx_observable.h"
-#include "core/fxge/cfx_color.h"
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/javascript/JS_Define.h"
+#include "fpdfsdk/pdfwindow/cpwl_wnd.h"  // For CFX_Color.
 
 class CPDFSDK_Widget;
 class Document;
