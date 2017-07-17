@@ -16,6 +16,29 @@
       "revId": "4ee55dbaf0164a7db8cee9ad664ad432868a3363",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b583417_df23cb3f",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T16:57:23Z",
+      "side": 1,
+      "message": "Why do we only return -1 if there is a %?",
+      "range": {
+        "startLine": 501,
+        "startChar": 20,
+        "endLine": 501,
+        "endChar": 0
+      },
+      "revId": "4ee55dbaf0164a7db8cee9ad664ad432868a3363",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
