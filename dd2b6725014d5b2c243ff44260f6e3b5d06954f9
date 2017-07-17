@@ -16,6 +16,24 @@
       "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "801aee3c_9e7116bd",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T20:39:34Z",
+      "side": 0,
+      "message": "The error was: \"fatal error: \u0027public/fpdf_doc.h\u0027 file not found\".\n\nI thought that removing this would not be a problem, because fpdf_annot.h is also in the public folder, so it would be able to find \"fpdf_doc.h\". Also, on line 11 above, \"fpdfview.h\" is also in the public folder but doesn\u0027t have \"public/\" preceding it in the #include.",
+      "parentUuid": "ff39924d_cf080da0",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

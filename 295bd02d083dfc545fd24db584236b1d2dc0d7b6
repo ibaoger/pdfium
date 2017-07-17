@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e67c69aa_1947bbc0",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T20:39:34Z",
+      "side": 1,
+      "message": "Done. \n\nDan, as Jane mentioned, this refers to a point contained within the annotation rectangle. I have updated the user doc comment to reflect this.",
+      "parentUuid": "cce37255_e4aee821",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d261e5_887837bd",
         "filename": "fpdfsdk/fpdfformfill.cpp",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "8408403f_6f6c3c96",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T20:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d261e5_887837bd",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f151bfd_c3be9bfb",
         "filename": "fpdfsdk/fpdfformfill.cpp",
         "patchSetId": 1
@@ -68,6 +104,24 @@
       "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9841affc_f9262492",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-17T20:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f151bfd_c3be9bfb",
+      "revId": "295bd02d083dfc545fd24db584236b1d2dc0d7b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
