@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf93b9a2_65894b06",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T19:49:02Z",
+      "side": 1,
+      "message": "Fix the indent",
+      "range": {
+        "startLine": 174,
+        "startChar": 73,
+        "endLine": 174,
+        "endChar": 0
+      },
+      "revId": "eef990a283741919715a0c5d1876d719751a36d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210bb644_33527df8",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T19:49:02Z",
+      "side": 1,
+      "message": "lint should complain about this because the parentheses are unnecessary",
+      "range": {
+        "startLine": 177,
+        "startChar": 10,
+        "endLine": 177,
+        "endChar": 67
+      },
+      "revId": "eef990a283741919715a0c5d1876d719751a36d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

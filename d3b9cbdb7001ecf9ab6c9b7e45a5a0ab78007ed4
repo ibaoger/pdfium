@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15c68e90_fdd6e36d",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T19:49:02Z",
+      "side": 1,
+      "message": "What if args[\u0027slow\u0027] is true? Is returning None ok? Better document the return value, or explicitly return None.",
+      "range": {
+        "startLine": 156,
+        "startChar": 79,
+        "endLine": 156,
+        "endChar": 0
+      },
+      "revId": "d3b9cbdb7001ecf9ab6c9b7e45a5a0ab78007ed4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56bc67ea_6840d88c",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T19:49:02Z",
+      "side": 1,
+      "message": "parsed_versions \u003d {}\n\n[for binary in potential_binaries: ...]\n\n  for line in version_output:\n    matcher \u003d re.match(version_regex, line)\n    if matcher:\n      parsed_versions[parsed_version] \u003d binary\n\nif not parsed_versions:\n  return None\n\nreturn parsed_versions[max(parsed_versions)]",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "d3b9cbdb7001ecf9ab6c9b7e45a5a0ab78007ed4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec3d2394_2594faf6",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-17T19:49:02Z",
+      "side": 1,
+      "message": "associated",
+      "range": {
+        "startLine": 231,
+        "startChar": 19,
+        "endLine": 231,
+        "endChar": 28
+      },
+      "revId": "d3b9cbdb7001ecf9ab6c9b7e45a5a0ab78007ed4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
