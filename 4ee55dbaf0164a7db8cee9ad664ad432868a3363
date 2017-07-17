@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2d295e2_15dc09eb",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-17T15:09:32Z",
+      "side": 1,
+      "message": "Instead of using an advance flag, can we just continue where we set advance to false?",
+      "revId": "4ee55dbaf0164a7db8cee9ad664ad432868a3363",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
