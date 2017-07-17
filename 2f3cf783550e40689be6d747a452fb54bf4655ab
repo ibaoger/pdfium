@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "9f1fa1e9_a369476f",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T19:36:06Z",
+      "side": 1,
+      "message": "Done... I hope",
+      "parentUuid": "36fde7d9_609b5173",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5446be9_9da95081",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 4
@@ -359,6 +377,24 @@
       "side": 1,
       "message": "Just want to double check what you are trying to do here exactly.\n\nSo I have 3 channels of Google Chrome installed locally. When I run \"compgen -abck google-chrome\" I get back:\n\ngoogle-chrome-unstable\ngoogle-chrome-beta\ngoogle-chrome\ngoogle-chrome-stable\n\nIs the goal to find all the binaries in the $PATH that starts with llvm-cov? Or did you just want to find all the binaries named llvm-cov?",
       "parentUuid": "7c607f06_782c0437",
+      "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f477ec5_4993fad6",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T19:36:06Z",
+      "side": 1,
+      "message": "We want everything beginning with llvm-cov. This is because Ubuntu (and possibly other environments) installs them with their version names appended, i.e. llvm-cov-3.9, and then symlinks the \u0027default\u0027 to llvm-cov. For at least my system, the default is llvm-3.4, which is not usable by this script.\n\nThere is a similar issue with lcov, since the default 1.10, sends arguments that llvm-cov doesn\u0027t like, so we need to make sure we have a newer version.",
+      "parentUuid": "1d8e6d92_6832fa2d",
       "revId": "2f3cf783550e40689be6d747a452fb54bf4655ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
