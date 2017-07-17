@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23bfc482_485e248c",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-17T17:27:58Z",
+      "side": 1,
+      "message": "What are your thoughts on adding an FPDF_ATTACHMENT typedef and having a FPDFDoc_GetAttachment() and then these methods become FPDFAttachmen_HasKey(), FPDFAttachment_GetName(), etc?",
+      "revId": "85f1c9f6e14edbd54465dbf976288b03d4de3311",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
