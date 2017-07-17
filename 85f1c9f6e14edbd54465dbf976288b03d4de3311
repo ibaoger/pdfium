@@ -16,6 +16,24 @@
       "revId": "85f1c9f6e14edbd54465dbf976288b03d4de3311",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f415542_2e9e93df",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-17T18:42:56Z",
+      "side": 1,
+      "message": "Done. Yea, I considered this in the previous CL but somehow missed it when it makes more sense to do this now... FPDFDoc_GetAttachmentCount() basically just replaces the previous anonymous GetEmbeddedFileObject(),and it\u0027s consistent with annot APIs now.",
+      "parentUuid": "23bfc482_485e248c",
+      "revId": "85f1c9f6e14edbd54465dbf976288b03d4de3311",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
