@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e419b41_8a895b33",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-17T17:06:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2d295e2_15dc09eb",
+      "revId": "4ee55dbaf0164a7db8cee9ad664ad432868a3363",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b583417_df23cb3f",
         "filename": "fpdfsdk/javascript/util.cpp",
         "patchSetId": 13
@@ -30,6 +48,30 @@
       "writtenOn": "2017-07-17T16:57:23Z",
       "side": 1,
       "message": "Why do we only return -1 if there is a %?",
+      "range": {
+        "startLine": 501,
+        "startChar": 20,
+        "endLine": 501,
+        "endChar": 0
+      },
+      "revId": "4ee55dbaf0164a7db8cee9ad664ad432868a3363",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fce554e4_0acecb22",
+        "filename": "fpdfsdk/javascript/util.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-17T17:06:06Z",
+      "side": 1,
+      "message": "Ah, this would imply a second format directive in the string segment which violates the \"at most one\" requirement described above.",
+      "parentUuid": "4b583417_df23cb3f",
       "range": {
         "startLine": 501,
         "startChar": 20,
