@@ -22,6 +22,30 @@
       "revId": "34737c01eda55915d2dc72846a04fe45119ba2e3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2205275a_4fb12106",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T20:37:18Z",
+      "side": 1,
+      "message": "Ack, changed to namedTuple",
+      "parentUuid": "e6e81aab_3275c94f",
+      "range": {
+        "startLine": 23,
+        "startChar": 24,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "34737c01eda55915d2dc72846a04fe45119ba2e3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
