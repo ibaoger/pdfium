@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b09ab7ce_dfdb0bcf",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T20:12:40Z",
+      "side": 1,
+      "message": "Currently the method returns a non-NULL value, it is just not really useful/valid. I am planning in a future CL to change how the errors are propagated, so this will return nullptr when an error has occurred. I will update this test then.\n\nI didn\u0027t want to add the error handling change to this CL, since it is not needed for this fix and requires touching multiple call sites.",
+      "parentUuid": "6a9e4aa3_9be30c71",
+      "range": {
+        "startLine": 225,
+        "startChar": 23,
+        "endLine": 225,
+        "endChar": 72
+      },
+      "revId": "f0030ee8c19c81cb1ada446012b4a73fa6389f80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d348e7f7_39d185b4",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "f0030ee8c19c81cb1ada446012b4a73fa6389f80",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcecdecc_2ef43373",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-17T20:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d348e7f7_39d185b4",
+      "range": {
+        "startLine": 237,
+        "startChar": 10,
+        "endLine": 237,
+        "endChar": 20
+      },
+      "revId": "f0030ee8c19c81cb1ada446012b4a73fa6389f80",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
