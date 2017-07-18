@@ -56,7 +56,7 @@ bool CFXCRT_FileAccess_Posix::Open(const CFX_ByteStringC& fileName,
   int32_t nFlags;
   int32_t nMasks;
   FXCRT_Posix_GetFileMode(dwMode, nFlags, nMasks);
-  m_nFD = open(fileName.c_str(), nFlags, nMasks);
+  m_nFD = open(fileName.unterminated_c_str(), nFlags, nMasks);  // BOGO
   return m_nFD > -1;
 }
 
