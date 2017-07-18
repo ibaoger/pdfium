@@ -142,5 +142,6 @@ int32_t CPDF_PageLabel::GetPageByLabel(const CFX_ByteStringC& bsLabel) const {
 }
 
 int32_t CPDF_PageLabel::GetPageByLabel(const CFX_WideStringC& wsLabel) const {
-  return GetPageByLabel(PDF_EncodeText(wsLabel.c_str()).AsStringC());
+  return GetPageByLabel(
+      PDF_EncodeText(wsLabel.unterminated_c_str()).AsStringC());  // BOGO
 }

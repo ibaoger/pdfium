@@ -365,7 +365,8 @@ CFX_RetainPtr<CFX_DIBitmap> CXFA_FFDoc::GetPDFNamedImage(
     return nullptr;
 
   CPDF_NameTree nametree(pXFAImages);
-  CFX_ByteString bsName = PDF_EncodeText(wsName.c_str(), wsName.GetLength());
+  CFX_ByteString bsName =
+      PDF_EncodeText(wsName.unterminated_c_str(), wsName.GetLength());
   CPDF_Object* pObject = nametree.LookupValue(bsName);
   if (!pObject) {
     for (size_t i = 0; i < nametree.GetCount(); i++) {
