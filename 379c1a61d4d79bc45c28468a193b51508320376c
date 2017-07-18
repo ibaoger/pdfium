@@ -22,6 +22,30 @@
       "revId": "379c1a61d4d79bc45c28468a193b51508320376c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919c9396_e6cf178c",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-18T20:22:29Z",
+      "side": 1,
+      "message": "Good idea, done.",
+      "parentUuid": "3879f732_2b3fc557",
+      "range": {
+        "startLine": 982,
+        "startChar": 2,
+        "endLine": 982,
+        "endChar": 15
+      },
+      "revId": "379c1a61d4d79bc45c28468a193b51508320376c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
