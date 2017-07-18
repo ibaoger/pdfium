@@ -109,6 +109,10 @@ class CFX_ByteString {
     return m_pData ? m_pData->m_String[nIndex] : 0;
   }
 
+  char GetCharAt(FX_STRSIZE nIndex) const {
+    return static_cast<char>(GetAt(nIndex));
+  }
+
   uint8_t operator[](FX_STRSIZE nIndex) const {
     return m_pData ? m_pData->m_String[nIndex] : 0;
   }
