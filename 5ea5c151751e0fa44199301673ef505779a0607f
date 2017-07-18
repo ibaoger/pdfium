@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88d09072_a521df84",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T03:13:57Z",
+      "side": 1,
+      "message": "Just write this out twice and don\u0027t bother doing calculations.\n\nconst char kChecksum[] \u003d \"72afcddedf554dda63c0c88e06f1ce18\";\nconst wchar_t kChecksumW[] \u003d L\"\u003c72AFCDDEDF554DDA63C0C88E06F1CE18\u003e\";",
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e5f20a_c892c9f3",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T03:13:57Z",
+      "side": 1,
+      "message": "pick one :-P",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3c77902_3dbefb1e",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T03:13:57Z",
+      "side": 1,
+      "message": "What is the lifetime of the handle? Can one close the document and still expect the handle to work?",
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
