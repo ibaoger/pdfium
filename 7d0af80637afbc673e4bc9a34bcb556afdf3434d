@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b17efa09_208854bb",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-18T20:34:28Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we have more descriptive names if this is becoming \"public\"?",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "7d0af80637afbc673e4bc9a34bcb556afdf3434d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
