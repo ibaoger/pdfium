@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39460fd7_44b2f9c0",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T00:50:56Z",
+      "side": 1,
+      "message": "Since the \"Ff\" entry is in the field dictionary, and table 8.70 is titled \"Field flags common to all field types\", do you think it makes more sense to call this FPDFAnnot_GetFieldFlags() or maybe FPDFAnnot_GetFormFieldFlags()?",
+      "revId": "906eaaea58839fd36bf15b504c9caf252179a307",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa26866_f2ba314e",
+        "filename": "testing/resources/text_form.pdf",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T00:50:56Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be any changed to text_form.pdf, since we decided to add a new test PDF all together.",
+      "revId": "906eaaea58839fd36bf15b504c9caf252179a307",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
