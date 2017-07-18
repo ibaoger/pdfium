@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85936569_27116d5a",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: development",
+      "range": {
+        "startLine": 138,
+        "startChar": 59,
+        "endLine": 138,
+        "endChar": 62
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d01fb8a_5a7425a7",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: 80 col.",
+      "range": {
+        "startLine": 36,
+        "startChar": 80,
+        "endLine": 36,
+        "endChar": 82
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac02c5db_ab4eeb02",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: extra blank line.",
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203be305_616119d0",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: missing .",
+      "range": {
+        "startLine": 57,
+        "startChar": 37,
+        "endLine": 57,
+        "endChar": 39
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94bc21d2_7496920b",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: stray whitespace at EOL",
+      "range": {
+        "startLine": 60,
+        "startChar": 47,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bef99815_579241b8",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "Nit: add \n\n  By default, it ...",
+      "range": {
+        "startLine": 79,
+        "startChar": 77,
+        "endLine": 79,
+        "endChar": 79
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d4653f0_dd9c23d6",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: trailing space.",
+      "range": {
+        "startLine": 92,
+        "startChar": 46,
+        "endLine": 92,
+        "endChar": 47
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbe86a5a_b1ae050a",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: replace \". Then you\" with \", you\"",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 11
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "749f57f4_3afa3f41",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: stray space.",
+      "range": {
+        "startLine": 113,
+        "startChar": 49,
+        "endLine": 113,
+        "endChar": 50
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5da4637_1bf460b9",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: remove \"currently\".",
+      "range": {
+        "startLine": 122,
+        "startChar": 61,
+        "endLine": 122,
+        "endChar": 70
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1570cb71_4ea0421d",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: change to \"At the present time, \"",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 49
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae262af6_fbc5c43b",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: must",
+      "range": {
+        "startLine": 124,
+        "startChar": 34,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57696acf_01e82f6b",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure what I\u0027d expect --dry-run to do.",
+      "range": {
+        "startLine": 128,
+        "startChar": 31,
+        "endLine": 128,
+        "endChar": 44
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd0fa7f8_c8f25f09",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "nit: blank line here for consistency with other headings?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 4
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce279e35_94166e0a",
+        "filename": "docs/code-coverage.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T16:53:41Z",
+      "side": 1,
+      "message": "not sure we want to publish this to spammers, I\u0027d just give the links.",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 141,
+        "endChar": 22
+      },
+      "revId": "d1af1a9c058203082f3fa25a40bbfcc1bbeb026b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
