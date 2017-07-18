@@ -567,7 +567,6 @@ void SetBitmapPaint(bool isAlphaMask,
 bool Upsample(const CFX_RetainPtr<CFX_DIBSource>& pSource,
               std::unique_ptr<uint8_t, FxFreeDeleter>& dst8Storage,
               std::unique_ptr<uint32_t, FxFreeDeleter>& dst32Storage,
-              SkColorTable** ctPtr,
               SkBitmap* skBitmap,
               int* widthPtr,
               int* heightPtr,
@@ -634,8 +633,7 @@ bool Upsample(const CFX_RetainPtr<CFX_DIBSource>& pSource,
   }
   SkImageInfo imageInfo =
       SkImageInfo::Make(width, height, colorType, alphaType);
-  skBitmap->installPixels(imageInfo, buffer, rowBytes, *ctPtr, nullptr,
-                          nullptr);
+  skBitmap->installPixels(imageInfo, buffer, rowBytes);
   *widthPtr = width;
   *heightPtr = height;
   return true;
@@ -1493,9 +1491,7 @@ CFX_SkiaDeviceDriver::CFX_SkiaDeviceDriver(
       pBitmap->GetWidth(), pBitmap->GetHeight(),
       pBitmap->GetBPP() == 8 ? kAlpha_8_SkColorType : kN32_SkColorType,
       kOpaque_SkAlphaType);
-  skBitmap.installPixels(imageInfo, pBitmap->GetBuffer(), pBitmap->GetPitch(),
-                         nullptr,  // FIXME(caryclark) set color table
-                         nullptr, nullptr);
+  skBitmap.installPixels(imageInfo, pBitmap->GetBuffer(), pBitmap->GetPitch());
   m_pCanvas = new SkCanvas(skBitmap);
 }
 
@@ -1757,7 +1753,7 @@ void CFX_SkiaDeviceDriver::SetClipMask(const FX_RECT& clipBox,
                         SkColorType::kAlpha_8_SkColorType, kOpaque_SkAlphaType);
   SkBitmap bitmap;
   bitmap.installPixels(imageInfo, pThisLayer->GetBuffer(),
-                       pThisLayer->GetPitch(), nullptr, nullptr, nullptr);
+                       pThisLayer->GetPitch());
   auto canvas = pdfium::MakeUnique<SkCanvas>(bitmap);
   canvas->translate(
       -path_rect.left,
@@ -2176,8 +2172,7 @@ bool CFX_SkiaDeviceDriver::GetDIBits(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
   SkImageInfo srcImageInfo = SkImageInfo::Make(
       srcWidth, srcHeight, SkColorType::kN32_SkColorType, kPremul_SkAlphaType);
   SkBitmap skSrcBitmap;
-  skSrcBitmap.installPixels(srcImageInfo, srcBuffer, srcRowBytes, nullptr,
-                            nullptr, nullptr);
+  skSrcBitmap.installPixels(srcImageInfo, srcBuffer, srcRowBytes);
   SkASSERT(pBitmap);
   uint8_t* dstBuffer = pBitmap->GetBuffer();
   SkASSERT(dstBuffer);
@@ -2187,8 +2182,7 @@ bool CFX_SkiaDeviceDriver::GetDIBits(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
   SkImageInfo dstImageInfo = SkImageInfo::Make(
       dstWidth, dstHeight, SkColorType::kN32_SkColorType, kPremul_SkAlphaType);
   SkBitmap skDstBitmap;
-  skDstBitmap.installPixels(dstImageInfo, dstBuffer, dstRowBytes, nullptr,
-                            nullptr, nullptr);
+  skDstBitmap.installPixels(dstImageInfo, dstBuffer, dstRowBytes);
   SkCanvas canvas(skDstBitmap);
   canvas.drawBitmap(skSrcBitmap, left, top, nullptr);
   return true;
@@ -2325,13 +2319,12 @@ bool CFX_SkiaDeviceDriver::StartDIBits(
 #ifdef _SKIA_SUPPORT_
   m_pCache->FlushForDraw();
   DebugValidate(m_pBitmap, m_pOriDevice);
-  SkColorTable* ct = nullptr;
   std::unique_ptr<uint8_t, FxFreeDeleter> dst8Storage;
   std::unique_ptr<uint32_t, FxFreeDeleter> dst32Storage;
   SkBitmap skBitmap;
   int width, height;
-  if (!Upsample(pSource, dst8Storage, dst32Storage, &ct, &skBitmap, &width,
-                &height, false)) {
+  if (!Upsample(pSource, dst8Storage, dst32Storage, &skBitmap, &width, &height,
+                false)) {
     return false;
   }
   m_pCanvas->save();
@@ -2359,8 +2352,6 @@ bool CFX_SkiaDeviceDriver::StartDIBits(
     m_pCanvas->drawBitmap(skBitmap, 0, 0, &paint);
   }
   m_pCanvas->restore();
-  if (ct)
-    ct->unref();
   DebugValidate(m_pBitmap, m_pOriDevice);
 #endif  // _SKIA_SUPPORT_
 
@@ -2457,18 +2448,16 @@ bool CFX_SkiaDeviceDriver::DrawBitsWithMask(
     const CFX_Matrix* pMatrix,
     int blend_type) {
   DebugValidate(m_pBitmap, m_pOriDevice);
-  SkColorTable* srcCt = nullptr;
-  SkColorTable* maskCt = nullptr;
   std::unique_ptr<uint8_t, FxFreeDeleter> src8Storage, mask8Storage;
   std::unique_ptr<uint32_t, FxFreeDeleter> src32Storage, mask32Storage;
   SkBitmap skBitmap, skMask;
   int srcWidth, srcHeight, maskWidth, maskHeight;
-  if (!Upsample(pSource, src8Storage, src32Storage, &srcCt, &skBitmap,
-                &srcWidth, &srcHeight, false)) {
+  if (!Upsample(pSource, src8Storage, src32Storage, &skBitmap, &srcWidth,
+                &srcHeight, false)) {
     return false;
   }
-  if (!Upsample(pMask, mask8Storage, mask32Storage, &maskCt, &skMask,
-                &maskWidth, &maskHeight, true)) {
+  if (!Upsample(pMask, mask8Storage, mask32Storage, &skMask, &maskWidth,
+                &maskHeight, true)) {
     return false;
   }
   m_pCanvas->save();
@@ -2489,8 +2478,6 @@ bool CFX_SkiaDeviceDriver::DrawBitsWithMask(
   SkRect r = {0, 0, SkIntToScalar(srcWidth), SkIntToScalar(srcHeight)};
   m_pCanvas->drawRect(r, paint);
   m_pCanvas->restore();
-  if (srcCt)
-    srcCt->unref();
   DebugValidate(m_pBitmap, m_pOriDevice);
   return true;
 }
