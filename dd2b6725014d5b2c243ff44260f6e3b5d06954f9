@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "99997ad9_d6a432f9",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-18T23:57:12Z",
+      "side": 1,
+      "message": "This is no longer relevant, as the name has changed to FPDFAnnot_GetFormFieldFlags().",
+      "parentUuid": "7938fa24_34122b84",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5219722_14950078",
         "filename": "fpdfsdk/fpdfannot.cpp",
         "patchSetId": 4
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "6c947cba_4fc953d4",
+      "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb9fcab6_6a8f3919",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-18T23:57:12Z",
+      "side": 1,
+      "message": "Making this inline actually causes a crash when this method is called in pdfium_engine.cc because the |interform| object owns |pFormField|. If we make this a one-liner, |interform| goes out of scope before |pFormField| is used in the return statement, causing a bad memory access.",
+      "parentUuid": "3a5f7646_7903ac73",
       "revId": "dd2b6725014d5b2c243ff44260f6e3b5d06954f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
