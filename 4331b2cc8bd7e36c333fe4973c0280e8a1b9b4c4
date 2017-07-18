@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "063faf9c_dd9a5208",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done. I added a warning here; we can still write the file out even if the file name is empty.",
+      "parentUuid": "851229b0_969b4806",
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88875fc9_c630ad14",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "0a704e40_2fdc1177",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88875fc9_c630ad14",
+      "range": {
+        "startLine": 1210,
+        "startChar": 18,
+        "endLine": 1210,
+        "endChar": 32
+      },
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02b9b2ba_2521c347",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 2
@@ -56,6 +98,24 @@
       "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48479cdc_c0eae407",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done. Added a warning - if the file is empty, then we can and should write out an empty file.",
+      "parentUuid": "02b9b2ba_2521c347",
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "d901b09b_19499ba1",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc2776e_62e63611",
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6a1b3e2_7af4e091",
         "filename": "testing/test_support.cpp",
         "patchSetId": 2
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "75119be1_f96f5c5e",
+        "filename": "testing/test_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a1b3e2_7af4e091",
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4728016_f83828f9",
         "filename": "testing/test_support.cpp",
         "patchSetId": 2
@@ -107,6 +203,24 @@
       "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43c6ef81_095675ba",
+        "filename": "testing/test_support.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T15:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4728016_f83828f9",
+      "revId": "4331b2cc8bd7e36c333fe4973c0280e8a1b9b4c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
