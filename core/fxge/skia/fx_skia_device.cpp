@@ -2416,6 +2416,10 @@ void CFX_SkiaDeviceDriver::PreMultiply(
 #endif  // _SKIA_SUPPORT_
 
 void CFX_DIBitmap::PreMultiply() {
+#if defined _SKIA_SUPPORT_PATHS_
+  if (m_bDisablePreMultiply)
+    return;
+#endif
   if (this->GetBPP() != 32)
     return;
   void* buffer = this->GetBuffer();
@@ -2442,6 +2446,8 @@ void CFX_DIBitmap::PreMultiply() {
 
 #ifdef _SKIA_SUPPORT_PATHS_
 void CFX_DIBitmap::UnPreMultiply() {
+  if (m_bDisablePreMultiply)
+    return;
   if (this->GetBPP() != 32)
     return;
   void* buffer = this->GetBuffer();

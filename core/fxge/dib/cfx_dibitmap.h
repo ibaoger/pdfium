@@ -120,6 +120,7 @@ class CFX_DIBitmap : public CFX_DIBSource {
   CFX_MaybeOwned<uint8_t, FxFreeDeleter> m_pBuffer;
 #if defined _SKIA_SUPPORT_PATHS_
   Format m_nFormat;
+  bool m_bDisablePreMultiply = true;
 #endif
 
  private:
