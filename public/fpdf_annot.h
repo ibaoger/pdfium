@@ -10,7 +10,8 @@
 // NOLINTNEXTLINE(build/include)
 #include "fpdfview.h"
 
-#include "public/fpdf_doc.h"
+#include "fpdf_doc.h"
+#include "fpdf_formfill.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -405,6 +406,25 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetFlags(FPDF_ANNOTATION annot,
 // Returns the annotation flags specific to interactive forms.
 DLLEXPORT int STDCALL FPDFAnnot_GetFormFieldFlags(FPDF_PAGE page,
                                                   FPDF_ANNOTATION annot);
+
+// Retrieves an interactive form annotation whose rectangle contains a given
+// point on a page. Must call FPDFPage_CloseAnnot() when the annotation returned
+// is no longer needed.
+//
+//
+//    hHandle     -   handle to the form fill module, returned by
+//                    FPDFDOC_InitFormFillEnvironment.
+//    page        -   handle to the page, returned by FPDF_LoadPage function.
+//    page_x      -   X position in PDF "user space".
+//    page_y      -   Y position in PDF "user space".
+//
+// Returns the interactive form annotation whose rectangle contains the given
+// coordinates on the page. If there is no such annotation, return nullptr.
+DLLEXPORT FPDF_ANNOTATION STDCALL
+FPDFAnnot_GetInteractiveFormAnnotAtPoint(FPDF_FORMHANDLE hHandle,
+                                         FPDF_PAGE page,
+                                         double page_x,
+                                         double page_y);
 
 #ifdef __cplusplus
 }  // extern "C"

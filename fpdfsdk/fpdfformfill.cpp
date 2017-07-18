@@ -22,6 +22,7 @@
 #include "fpdfsdk/cpdfsdk_pageview.h"
 #include "fpdfsdk/fsdk_actionhandler.h"
 #include "fpdfsdk/fsdk_define.h"
+#include "public/fpdf_annot.h"
 #include "public/fpdfview.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
