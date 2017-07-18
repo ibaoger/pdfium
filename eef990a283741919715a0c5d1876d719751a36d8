@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "3aa958f3_40741b36",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T02:54:36Z",
+      "side": 1,
+      "message": "Just append() here?",
+      "revId": "eef990a283741919715a0c5d1876d719751a36d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9564d531_a8bad979",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T02:54:36Z",
+      "side": 1,
+      "message": "Just if?",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 8
+      },
+      "revId": "eef990a283741919715a0c5d1876d719751a36d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf93b9a2_65894b06",
         "filename": "tools/coverage/coverage_report.py",
         "patchSetId": 8
