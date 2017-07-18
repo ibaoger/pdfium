@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00145400_9933c696",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T01:15:58Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a13f0658_a07ec611",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T01:15:58Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5854b06c_422c61f2",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T01:15:58Z",
+      "side": 1,
+      "message": "This is a C API and not a C++ API. There is no such thing as a nullptr in C. Just refer to it as NULL.",
+      "range": {
+        "startLine": 422,
+        "startChar": 67,
+        "endLine": 422,
+        "endChar": 74
+      },
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da5f3445_9f973b17",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-18T01:15:58Z",
+      "side": 1,
+      "message": "Add a check for this in fpdfsdk/fpdfview_c_api_test.c.",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
