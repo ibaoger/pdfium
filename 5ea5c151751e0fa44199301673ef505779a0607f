@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "54da5e4b_f91f064a",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T14:17:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88d09072_a521df84",
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9e5f20a_c892c9f3",
         "filename": "public/fpdf_attachment.h",
         "patchSetId": 5
@@ -59,6 +77,48 @@
     },
     {
       "key": {
+        "uuid": "667d81be_3c2fdf4f",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T14:17:51Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "a3c77902_3dbefb1e",
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "919bce30_b191a3ad",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T14:17:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9e5f20a_c892c9f3",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd6233bd_b97fbf05",
         "filename": "public/fpdf_attachment.h",
         "patchSetId": 5
@@ -70,6 +130,24 @@
       "writtenOn": "2017-07-18T03:19:31Z",
       "side": 1,
       "message": "How do we tell the difference between an error and an empty file? Do we care?",
+      "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b60e3a_544669d1",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-18T14:17:51Z",
+      "side": 1,
+      "message": "An error and an empty file would both return 0, but I don\u0027t think the difference matters here, because as long as the input |attachment| isn\u0027t null, then both cases indicate that there is no file in |attachment|.",
+      "parentUuid": "bd6233bd_b97fbf05",
       "revId": "5ea5c151751e0fa44199301673ef505779a0607f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
