@@ -24,8 +24,8 @@ CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
 
   CPDF_Array* pLimits = pNode->GetArrayFor("Limits");
   if (pLimits) {
-    CFX_ByteString csLeft = pLimits->GetStringAt(0);
-    CFX_ByteString csRight = pLimits->GetStringAt(1);
+    CFX_ByteString csLeft = pLimits->GetUnicodeTextAt(0).UTF8Encode();
+    CFX_ByteString csRight = pLimits->GetUnicodeTextAt(1).UTF8Encode();
     if (csLeft.Compare(csRight.AsStringC()) > 0) {
       CFX_ByteString csTmp = csRight;
       csRight = csLeft;
@@ -41,7 +41,7 @@ CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
   if (pNames) {
     size_t dwCount = pNames->GetCount() / 2;
     for (size_t i = 0; i < dwCount; i++) {
-      CFX_ByteString csValue = pNames->GetStringAt(i * 2);
+      CFX_ByteString csValue = pNames->GetUnicodeTextAt(i * 2).UTF8Encode();
       int32_t iCompare = csValue.Compare(csName.AsStringC());
       if (iCompare <= 0) {
         if (ppFind)
@@ -93,7 +93,7 @@ CPDF_Object* SearchNameNode(CPDF_Dictionary* pNode,
     }
     if (ppFind)
       *ppFind = pNames;
-    *csName = pNames->GetStringAt((nIndex - nCurIndex) * 2);
+    *csName = pNames->GetUnicodeTextAt((nIndex - nCurIndex) * 2).UTF8Encode();
     return pNames->GetDirectObjectAt((nIndex - nCurIndex) * 2 + 1);
   }
   CPDF_Array* pKids = pNode->GetArrayFor("Kids");
