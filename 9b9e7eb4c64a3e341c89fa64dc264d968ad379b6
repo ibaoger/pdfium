@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ab2bad3_a6b60c5a",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-18T20:31:10Z",
+      "side": 1,
+      "message": "nit: Need a comment about how no real client would ever do this, but for testing ...",
+      "range": {
+        "startLine": 981,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 9
+      },
+      "revId": "9b9e7eb4c64a3e341c89fa64dc264d968ad379b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
