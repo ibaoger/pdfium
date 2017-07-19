@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a441e06e_72a11d8f",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: this-\u003e redundant, just GetAPDict()",
+      "range": {
+        "startLine": 768,
+        "startChar": 34,
+        "endLine": 768,
+        "endChar": 40
+      },
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94e966cc_016cc914",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: OPL.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 21
+      },
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ede20bd_6914c58e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: I see no reason for a blank line here :).",
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e79166a_3ce57ab0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: OPL.",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 15
+      },
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd3dd20e_220870e1",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: move to line 465",
+      "range": {
+        "startLine": 462,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 17
+      },
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1e28bbd_4a658850",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 1,
+      "message": "nit: Blank not needed.",
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

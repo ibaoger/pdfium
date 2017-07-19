@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8045b8bd_4ce9d41e",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:00:43Z",
+      "side": 0,
+      "message": "I\u0027m trusting you dropped this into the new file without incident, not reviewed line by line.",
+      "range": {
+        "startLine": 864,
+        "startChar": 21,
+        "endLine": 864,
+        "endChar": 47
+      },
+      "revId": "18ae06d9ae493276b3ddcd37eb19de7aeba1a0e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
