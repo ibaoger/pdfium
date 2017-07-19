@@ -16,6 +16,24 @@
       "revId": "32efca0c86c2b25d24c57d95172d275356a4640d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025374da_c3a25fc1",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2017-07-19T00:41:28Z",
+      "side": 1,
+      "message": "We need it on Linux because install-sysroot.py depends on it (for gyp env variables).  mac doesn\u0027t need it so I just added a case for linux",
+      "parentUuid": "fae625cb_373fdab6",
+      "revId": "32efca0c86c2b25d24c57d95172d275356a4640d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
