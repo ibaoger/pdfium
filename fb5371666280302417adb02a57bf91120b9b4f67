@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb4a1d82_115aa52d",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-19T14:39:21Z",
+      "side": 1,
+      "message": "Sorry why would CFX_WideString make it clear that it\u0027s UTF8? I thought CFX_WideString holds wchars and can encode in both UTF8 and UTF16LE. Would CFX_ByteString not be more appropriate to hold UTF8 strings?\nAlso, I\u0027m not sure if it\u0027s a good idea to change these function signatures. These two functions are used in a bunch of places, and CFX_ByteString is often a natural choice for the input type since the stored strings are ByteString. Unless we convert them to WideString right before function call.",
+      "parentUuid": "b4a74a64_a64785ed",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc1a7f9b_de1c6077",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-19T13:59:04Z",
       "side": 1,
       "message": "Can we just make these CFX_WideStrings and skip the UTF8Encode call?",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38537450_b4fd1d9b",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-19T14:39:21Z",
+      "side": 1,
+      "message": "I guess this would depend on whether we change the input type of not? I think it makes more sense to keep it this way if the input is ByteString.",
+      "parentUuid": "fc1a7f9b_de1c6077",
       "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
