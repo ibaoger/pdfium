@@ -194,3 +194,161 @@ TEST_F(CPWLComboBoxEditEmbeddertest, GetSelectedTextFragmentsEditable) {
   GetCPWLComboBox()->SetEditSel(49, 50);
   EXPECT_STREQ(L"r", GetCPWLComboBox()->GetSelectedText().c_str());
 }
+
+TEST_F(CPWLComboBoxEditEmbeddertest, DeleteTextSelection) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSel(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetSelectedText().c_str());
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(0, 0);
+  EXPECT_TRUE(GetCPWLComboBox()->GetText().IsEmpty());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteTextSelectionMiddlePlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSel(12, 23);
+  EXPECT_STREQ(L"MNOPQRSTUVW", GetCPWLComboBox()->GetSelectedText().c_str());
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest, DeleteTextSelectionLeftPlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSel(0, 5);
+  EXPECT_STREQ(L"ABCDE", GetCPWLComboBox()->GetSelectedText().c_str());
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"GHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteTextSelectionRightPlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSel(45, 50);
+  EXPECT_STREQ(L"nopqr", GetCPWLComboBox()->GetSelectedText().c_str());
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijkl",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteTextSelectionMiddlePlus2Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSel(12, 23);
+  EXPECT_STREQ(L"MNOPQRSTUVW", GetCPWLComboBox()->GetSelectedText().c_str());
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(2, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest, DeleteEmptyTextSelection) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(0, 0);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteEmptyTextSelectionMiddlePlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  // Move caret to middle of text.
+  for (int i = 49; i >= 25; --i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnotUserEditable(),
+                                               FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWX[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteEmptyTextSelectionLeftPlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  // Move caret to beginning of text.
+  EXPECT_TRUE(GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnotUserEditable(),
+                                             FWL_VKEY_Home, 0));
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"BCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteEmptyTextSelectionRightPlus1Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopq",
+               GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       DeleteEmptyTextSelectionMiddlePlus2Before1After) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  // Move caret to middle of text.
+  for (int i = 49; i >= 25; --i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnotUserEditable(),
+                                               FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLComboBox()->ExtendSelectionAndDelete(2, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVW[\\]^_`abcdefghijklmnopqr",
+               GetCPWLComboBox()->GetText().c_str());
+}

@@ -6,6 +6,8 @@
 
 #include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
 
+#include <algorithm>
+
 #include "core/fpdfdoc/cpvt_section.h"
 #include "core/fpdfdoc/cpvt_word.h"
 #include "core/fxge/fx_font.h"
@@ -58,6 +60,24 @@ CFX_WideString CPWL_EditCtrl::GetSelectedText() {
     return m_pEdit->GetSelText();
 
   return CFX_WideString();
+}
+
+void CPWL_EditCtrl::ExtendSelectionAndDelete(int before, int after) {
+  if (m_pEdit) {
+    // If current selection exists, add number of characters before and after.
+    if (m_pEdit->IsSelected()) {
+      int32_t selection_start = -1, selection_end = -1;
+      m_pEdit->GetSel(selection_start, selection_end);
+      m_pEdit->SetSel(std::max(selection_start - before, 0),
+                      selection_end + after);
+    } else {
+      // Otherwise, set selection to number of characters before and after
+      // caret.
+      int32_t caret_index = m_pEdit->GetCaret();
+      m_pEdit->SetSel(std::max(caret_index - before, 0), caret_index + after);
+    }
+    m_pEdit->Clear();
+  }
 }
 
 void CPWL_EditCtrl::RePosChildWnd() {

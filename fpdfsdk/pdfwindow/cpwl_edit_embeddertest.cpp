@@ -123,3 +123,134 @@ TEST_F(CPWLEditEmbeddertest, GetSelectedTextFragments) {
   GetCPWLEdit()->SetSel(49, 50);
   EXPECT_STREQ(L"r", GetCPWLEdit()->GetSelectedText().c_str());
 }
+
+TEST_F(CPWLEditEmbeddertest, DeleteTextSelection) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSel(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetSelectedText().c_str());
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(0, 0);
+  EXPECT_TRUE(GetCPWLEdit()->GetText().IsEmpty());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteTextSelectionMiddlePlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSel(12, 23);
+  EXPECT_STREQ(L"MNOPQRSTUVW", GetCPWLEdit()->GetSelectedText().c_str());
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteTextSelectionLeftPlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSel(0, 5);
+  EXPECT_STREQ(L"ABCDE", GetCPWLEdit()->GetSelectedText().c_str());
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"GHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteTextSelectionRightPlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSel(45, 50);
+  EXPECT_STREQ(L"nopqr", GetCPWLEdit()->GetSelectedText().c_str());
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijkl",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteTextSelectionMiddlePlus2Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSel(12, 23);
+  EXPECT_STREQ(L"MNOPQRSTUVW", GetCPWLEdit()->GetSelectedText().c_str());
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(2, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelection) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(0, 0);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelectionMiddlePlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  // Move caret to middle of text.
+  for (int i = 49; i >= 25; --i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnot(), FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWX[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelectionLeftPlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  // Move caret to beginning of text.
+  EXPECT_TRUE(
+      GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnot(), FWL_VKEY_Home, 0));
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"BCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelectionRightPlus1Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(1, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopq",
+               GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelectionMiddlePlus2Before1After) {
+  for (int i = 0; i < 50; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  // Move caret to middle of text.
+  for (int i = 49; i >= 25; --i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnot(), FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLEdit()->ExtendSelectionAndDelete(2, 1);
+  EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVW[\\]^_`abcdefghijklmnopqr",
+               GetCPWLEdit()->GetText().c_str());
+}

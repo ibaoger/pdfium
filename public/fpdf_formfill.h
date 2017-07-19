@@ -1378,6 +1378,30 @@ DLLEXPORT unsigned long STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
                                                      unsigned long buflen);
 
 /**
+ * Function: FORM_ExtendSelectionAndDelete
+ *          You can call this function to delete the current text selection in
+ *          a form text field or form combobox text field plus the specified
+ *          number of characters before and after the selection. If the
+ *          selection is empty, this function will delete the specified number
+ *          of characters before and after the current caret position.
+ * Parameters:
+ *          hHandle     -   Handle to the form fill module. Returned by
+ *                          FPDFDOC_InitFormFillEnvironment.
+ *          page        -   Handle to the page. Returned by FPDF_LoadPage
+ *                          function.
+ *          before      -   Number of characters to delete before current text
+ *                          selection or caret. Must be >= 0.
+ *          after       -   Number of characters to delete after current text
+ *                          selection or caret. Must be >= 0.
+ * Return Value:
+ *          None.
+ **/
+DLLEXPORT void STDCALL FORM_ExtendSelectionAndDelete(FPDF_FORMHANDLE hHandle,
+                                                     FPDF_PAGE page,
+                                                     int before,
+                                                     int after);
+
+/**
  * Function: FORM_ForceToKillFocus.
  *          You can call this member function to force to kill the focus of the
  *form field which got focus.
