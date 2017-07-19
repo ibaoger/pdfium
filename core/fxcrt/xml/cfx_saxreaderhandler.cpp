@@ -75,7 +75,7 @@ void CFX_SAXReaderHandler::OnTagClose(CFX_SAXContext* pTag, uint32_t dwEndPos) {
   if (pTag->m_eNode == CFX_SAXItem::Type::Instruction)
     pTag->m_TextBuf << "?>";
   else if (pTag->m_eNode == CFX_SAXItem::Type::Tag)
-    pTag->m_TextBuf << "></" << pTag->m_bsTagName.AsStringC() << ">";
+    pTag->m_TextBuf << "></" << pTag->m_bsTagName << ">";
 
   UpdateChecksum(false);
 }
