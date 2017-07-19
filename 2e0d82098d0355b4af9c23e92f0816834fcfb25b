@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e8c596a_c5e51108",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-19T00:10:17Z",
+      "side": 1,
+      "message": "Done - No, I forgot to remove it after moving my method to fpdfannot.cpp.",
+      "parentUuid": "00145400_9933c696",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13f0658_a07ec611",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "31628653_b9eedf7f",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-19T00:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a13f0658_a07ec611",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bac134d_7e107aee",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99f06b70_be0cc147",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-19T00:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bac134d_7e107aee",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "3c2e0776_cdc716ec",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-19T00:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5854b06c_422c61f2",
+      "range": {
+        "startLine": 422,
+        "startChar": 67,
+        "endLine": 422,
+        "endChar": 74
+      },
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da5f3445_9f973b17",
         "filename": "public/fpdf_annot.h",
         "patchSetId": 3
@@ -90,6 +168,24 @@
       "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d158cd34_c0357dda",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-19T00:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da5f3445_9f973b17",
+      "revId": "2e0d82098d0355b4af9c23e92f0816834fcfb25b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
