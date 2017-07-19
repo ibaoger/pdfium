@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e298984f_2ac307a4",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3519,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T19:28:40Z",
+      "side": 1,
+      "message": "This is a fix, right? Might be worth submitting separately.",
+      "range": {
+        "startLine": 3519,
+        "startChar": 35,
+        "endLine": 3519,
+        "endChar": 0
+      },
+      "revId": "4bf164e25c18439c2059f1d615eecb7d53610bbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36782743_93e66b4b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3640,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T19:28:40Z",
+      "side": 1,
+      "message": "This does not look fine.",
+      "range": {
+        "startLine": 3640,
+        "startChar": 22,
+        "endLine": 3640,
+        "endChar": 42
+      },
+      "revId": "4bf164e25c18439c2059f1d615eecb7d53610bbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
