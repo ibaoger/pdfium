@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9acb8bed_505a22f8",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T21:05:45Z",
+      "side": 1,
+      "message": "nack, git cl format likes it this way.",
+      "parentUuid": "f8f84bc5_7aa1b6e6",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8a0909a_0ba3316f",
         "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-19T20:28:46Z",
       "side": 1,
       "message": "Don\u0027t we want to bring the default values?",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 58
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c178d67_017ad5a0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T21:05:45Z",
+      "side": 1,
+      "message": "We remove default params, I updated the callers to always pass the value.",
+      "parentUuid": "a8a0909a_0ba3316f",
       "range": {
         "startLine": 47,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4c043fe_f3a663e0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T21:05:45Z",
+      "side": 1,
+      "message": "Going to leave for now can fixup later.",
+      "parentUuid": "c7221b7d_bc0c09f3",
+      "range": {
+        "startLine": 493,
+        "startChar": 41,
+        "endLine": 493,
+        "endChar": 48
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62e5e223_5892a861",
         "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-19T20:28:46Z",
       "side": 1,
       "message": "this is easy to miss, I think it was better in the default case with the L\u0027l\u0027, commented out or not.",
+      "range": {
+        "startLine": 1356,
+        "startChar": 22,
+        "endLine": 1356,
+        "endChar": 41
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68b82eef_55176f4d",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T21:05:45Z",
+      "side": 1,
+      "message": "What\u0027s easy to miss, the default value?",
+      "parentUuid": "62e5e223_5892a861",
       "range": {
         "startLine": 1356,
         "startChar": 22,
