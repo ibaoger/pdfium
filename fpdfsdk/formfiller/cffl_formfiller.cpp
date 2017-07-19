@@ -246,6 +246,22 @@ CFX_WideString CFFL_FormFiller::GetSelectedText(CPDFSDK_Annot* pAnnot) {
   return pWnd ? pWnd->GetSelectedText() : CFX_WideString();
 }
 
+void CFFL_FormFiller::ExtendSelectionAndDelete(CPDFSDK_Annot* pAnnot,
+                                               int before,
+                                               int after) {
+  if (!IsValid())
+    return;
+
+  CPDFSDK_PageView* pPageView = GetCurPageView(true);
+  ASSERT(pPageView);
+
+  CPWL_Wnd* pWnd = GetPDFWindow(pPageView, false);
+  if (!pWnd)
+    return;
+
+  pWnd->ExtendSelectionAndDelete(before, after);
+}
+
 void CFFL_FormFiller::SetFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag) {
   CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
   UnderlyingPageType* pPage = pWidget->GetUnderlyingPage();
