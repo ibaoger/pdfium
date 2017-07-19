@@ -60,6 +60,12 @@ CFX_WideString CPWL_EditCtrl::GetSelectedText() {
   return CFX_WideString();
 }
 
+void CPWL_EditCtrl::DeleteSelectedText() {
+  if (m_pEdit) {
+    m_pEdit->Clear();
+  }
+}
+
 void CPWL_EditCtrl::RePosChildWnd() {
   m_pEdit->SetPlateRect(GetClientRect());
 }
