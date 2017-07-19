@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6f3a53f_59ff3927",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:35:52Z",
+      "side": 1,
+      "message": "I\u0027m inclined to skip this and just put in the 4 needed static_cast calls.",
+      "revId": "7ff2a14b3f43d7b37f55bcd74619d6925b6c722a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183e8269_f3a398af",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3195,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:35:52Z",
+      "side": 1,
+      "message": "These could probably also just return the CFX_WideString versions and we do the conversion back after. Makes the method signature closer match to what\u0027s actually happening.",
+      "revId": "7ff2a14b3f43d7b37f55bcd74619d6925b6c722a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90504c7d_2ea6cfbe",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:35:52Z",
+      "side": 1,
+      "message": "For the Decode and Encode methods it looks like we always have a CFX_ByteString that we call .AsStringC on, can we just change these params to be const CFX_ByteString\u0026 and drop the ToStringC calls below?\n\n(Actually for the Decoded, they appear to always really want a wide string so can we pass CFX_WideString into the Decode methods and move the CFX_WideString::FromUTF8(szHTMLString) calls out of the individual Decoded methods)",
+      "revId": "7ff2a14b3f43d7b37f55bcd74619d6925b6c722a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
