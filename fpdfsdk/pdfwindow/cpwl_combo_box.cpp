@@ -213,6 +213,11 @@ CFX_WideString CPWL_ComboBox::GetSelectedText() {
   return CFX_WideString();
 }
 
+void CPWL_ComboBox::ExtendSelectionAndDelete(int before, int after) {
+  if (m_pEdit)
+    return m_pEdit->ExtendSelectionAndDelete(before, after);
+}
+
 CFX_WideString CPWL_ComboBox::GetText() const {
   if (m_pEdit) {
     return m_pEdit->GetText();

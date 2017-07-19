@@ -34,6 +34,9 @@ class CPDFSDK_XFAWidgetHandler : public IPDFSDK_AnnotHandler {
   CFX_FloatRect GetViewBBox(CPDFSDK_PageView* pPageView,
                             CPDFSDK_Annot* pAnnot) override;
   CFX_WideString GetSelectedText(CPDFSDK_Annot* pAnnot) override;
+  void ExtendSelectionAndDelete(CPDFSDK_Annot* pAnnot,
+                                int before,
+                                int after) override;
   bool HitTest(CPDFSDK_PageView* pPageView,
                CPDFSDK_Annot* pAnnot,
                const CFX_PointF& point) override;

@@ -524,6 +524,17 @@ CFX_WideString CFFL_InteractiveFormFiller::GetSelectedText(
   return pFormFiller ? pFormFiller->GetSelectedText(pAnnot) : CFX_WideString();
 }
 
+void CFFL_InteractiveFormFiller::ExtendSelectionAndDelete(CPDFSDK_Annot* pAnnot,
+                                                          int before,
+                                                          int after) {
+  ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
+  CFFL_FormFiller* pFormFiller = GetFormFiller(pAnnot, false);
+  if (!pFormFiller)
+    return;
+
+  pFormFiller->ExtendSelectionAndDelete(pAnnot, before, after);
+}
+
 void CFFL_InteractiveFormFiller::UnRegisterFormFiller(CPDFSDK_Annot* pAnnot) {
   auto it = m_Maps.find(pAnnot);
   if (it == m_Maps.end())
