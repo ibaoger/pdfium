@@ -102,6 +102,10 @@ CFX_WideString CPDFSDK_XFAWidgetHandler::GetSelectedText(
   return CFX_WideString();
 }
 
+void CPDFSDK_XFAWidgetHandler::ExtendSelectionAndDelete(CPDFSDK_Annot* pAnnot,
+                                                        int before,
+                                                        int after) {}
+
 bool CPDFSDK_XFAWidgetHandler::HitTest(CPDFSDK_PageView* pPageView,
                                        CPDFSDK_Annot* pAnnot,
                                        const CFX_PointF& point) {

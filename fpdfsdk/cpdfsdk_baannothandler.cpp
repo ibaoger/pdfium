@@ -197,6 +197,10 @@ CFX_WideString CPDFSDK_BAAnnotHandler::GetSelectedText(CPDFSDK_Annot* pAnnot) {
   return CFX_WideString();
 }
 
+void CPDFSDK_BAAnnotHandler::ExtendSelectionAndDelete(CPDFSDK_Annot* pAnnot,
+                                                      int before,
+                                                      int after) {}
+
 bool CPDFSDK_BAAnnotHandler::HitTest(CPDFSDK_PageView* pPageView,
                                      CPDFSDK_Annot* pAnnot,
                                      const CFX_PointF& point) {
