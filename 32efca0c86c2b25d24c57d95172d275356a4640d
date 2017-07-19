@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fae625cb_373fdab6",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-19T00:32:47Z",
+      "side": 1,
+      "message": "Why do we need GYP on Linux/Mac?",
+      "revId": "32efca0c86c2b25d24c57d95172d275356a4640d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
