@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4f27c44_d3c70cc0",
+        "filename": "fpdfsdk/fpdf_progressive.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T17:03:02Z",
+      "side": 1,
+      "message": "I think you may also need a flush here to get any graphics drawn during the continue",
+      "revId": "ad5edbd644a16e63ea57588676222718435d7763",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
