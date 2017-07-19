@@ -11,7 +11,6 @@
 #include "core/fxge/cfx_graphstatedata.h"
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
-#include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "fpdfsdk/pdfwindow/cpwl_wnd.h"
 
 #define PWL_CARET_FLASHINTERVAL 500
@@ -22,10 +21,6 @@ CPWL_Caret::~CPWL_Caret() {}
 
 CFX_ByteString CPWL_Caret::GetClassName() const {
   return "CPWL_Caret";
-}
-
-void CPWL_Caret::GetThisAppearanceStream(std::ostringstream* psAppStream) {
-  GetCaretApp(CFX_PointF(), psAppStream);
 }
 
 void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
@@ -56,36 +51,6 @@ void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
   gsd.m_LineWidth = m_fWidth;
   pDevice->DrawPath(&path, pUser2Device, &gsd, 0, ArgbEncode(255, 0, 0, 0),
                     FXFILL_ALTERNATE);
-}
-
-void CPWL_Caret::GetCaretApp(const CFX_PointF& ptOffset,
-                             std::ostringstream* psAppStream) {
-  if (!IsVisible() || !m_bFlash)
-    return;
-
-  CFX_FloatRect rcRect = GetCaretRect();
-  CFX_FloatRect rcClip = GetClipRect();
-
-  rcRect.Translate(ptOffset.x, ptOffset.y);
-  rcClip.Translate(ptOffset.x, ptOffset.y);
-
-  *psAppStream << "q\n";
-  if (!rcClip.IsEmpty()) {
-    *psAppStream << rcClip.left << " " << rcClip.bottom + 2.5f << " "
-                 << rcClip.right - rcClip.left << " "
-                 << rcClip.top - rcClip.bottom - 4.5f << " re W n\n";
-  }
-  *psAppStream << m_fWidth << " w\n0 G\n"
-               << rcRect.left + m_fWidth / 2 << " " << rcRect.bottom << " m\n"
-               << rcRect.left + m_fWidth / 2 << " " << rcRect.top
-               << " l S\nQ\n";
-}
-
-CFX_ByteString CPWL_Caret::GetCaretAppearanceStream(
-    const CFX_PointF& ptOffset) {
-  std::ostringstream sCaret;
-  GetCaretApp(ptOffset, &sCaret);
-  return CFX_ByteString(sCaret);
 }
 
 void CPWL_Caret::TimerProc() {
