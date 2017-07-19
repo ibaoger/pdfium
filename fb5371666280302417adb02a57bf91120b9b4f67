@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4a74a64_a64785ed",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:59:04Z",
+      "side": 1,
+      "message": "Should this be a CFX_WideString to make it clear it\u0027s a UTF8 name?",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1a7f9b_de1c6077",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:59:04Z",
+      "side": 1,
+      "message": "Can we just make these CFX_WideStrings and skip the UTF8Encode call?",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da52e1d5_ba764775",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T13:59:04Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
