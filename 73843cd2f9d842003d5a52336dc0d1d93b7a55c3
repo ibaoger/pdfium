@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df74a191_18fc102f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-19T19:06:14Z",
+      "side": 1,
+      "message": "should this be a helper function just because this one is already way too big?",
+      "range": {
+        "startLine": 762,
+        "startChar": 1,
+        "endLine": 800,
+        "endChar": 0
+      },
+      "revId": "73843cd2f9d842003d5a52336dc0d1d93b7a55c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
