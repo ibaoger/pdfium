@@ -1322,7 +1322,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
     return nullptr;
 
   CPDF_NameTree name_tree(pDoc, "Dests");
-  return name_tree.LookupNamedDest(pDoc, name);
+  return name_tree.LookupNamedDest(pDoc, PDF_DecodeText(CFX_ByteString(name)));
 }
 
 #ifdef PDF_ENABLE_XFA
@@ -1397,7 +1397,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
     return nullptr;
 
   CPDF_Object* pDestObj = nullptr;
-  CFX_ByteString bsName;
+  CFX_WideString wsName;
   CPDF_NameTree nameTree(pDoc, "Dests");
   int count = nameTree.GetCount();
   if (index >= count) {
@@ -1413,7 +1413,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
     index -= count;
     int i = 0;
     for (const auto& it : *pDest) {
-      bsName = it.first;
+      wsName = PDF_DecodeText(it.first);
       pDestObj = it.second.get();
       if (!pDestObj)
         continue;
@@ -1422,7 +1422,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
       i++;
     }
   } else {
-    pDestObj = nameTree.LookupValueAndName(index, &bsName);
+    pDestObj = nameTree.LookupValueAndName(index, &wsName);
   }
   if (!pDestObj)
     return nullptr;
@@ -1434,7 +1434,6 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
   if (!pDestObj->IsArray())
     return nullptr;
 
-  CFX_WideString wsName = PDF_DecodeText(bsName);
   CFX_ByteString utf16Name = wsName.UTF16LE_Encode();
   int len = utf16Name.GetLength();
   if (!buffer) {
