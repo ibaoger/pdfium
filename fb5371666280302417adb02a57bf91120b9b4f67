@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8cb9328e_43378c3a",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-19T15:09:17Z",
+      "side": 1,
+      "message": "These are called internally, tracing one example, LookupValueAndName, in the cases where we use the name we always seem to convert it to a widestring except for 1. Which makes me think it should be a widestring anyway.\n\nWe should trace through the others, but I wouldn\u0027t be surprised if it was the same.",
+      "parentUuid": "fb4a1d82_115aa52d",
+      "revId": "fb5371666280302417adb02a57bf91120b9b4f67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc1a7f9b_de1c6077",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 2
