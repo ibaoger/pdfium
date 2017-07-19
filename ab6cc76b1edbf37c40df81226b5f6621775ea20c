@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8f84bc5_7aa1b6e6",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T20:28:46Z",
+      "side": 1,
+      "message": "Spread over multiple lines like ButtonStyle below.",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8a0909a_0ba3316f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T20:28:46Z",
+      "side": 1,
+      "message": "Don\u0027t we want to bring the default values?",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 58
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7221b7d_bc0c09f3",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T20:28:46Z",
+      "side": 1,
+      "message": "iSubWord?\n\nAlso no default values here?",
+      "range": {
+        "startLine": 493,
+        "startChar": 41,
+        "endLine": 493,
+        "endChar": 48
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e5e223_5892a861",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T20:28:46Z",
+      "side": 1,
+      "message": "this is easy to miss, I think it was better in the default case with the L\u0027l\u0027, commented out or not.",
+      "range": {
+        "startLine": 1356,
+        "startChar": 22,
+        "endLine": 1356,
+        "endChar": 41
+      },
+      "revId": "ab6cc76b1edbf37c40df81226b5f6621775ea20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
