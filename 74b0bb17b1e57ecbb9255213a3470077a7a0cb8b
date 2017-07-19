@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "173c1f0b_25c25272",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-19T19:06:39Z",
+      "side": 1,
+      "message": "appStream?",
+      "range": {
+        "startLine": 768,
+        "startChar": 17,
+        "endLine": 768,
+        "endChar": 27
+      },
+      "revId": "74b0bb17b1e57ecbb9255213a3470077a7a0cb8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94e966cc_016cc914",
         "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
         "patchSetId": 1
