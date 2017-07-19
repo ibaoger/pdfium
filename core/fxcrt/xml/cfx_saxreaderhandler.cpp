@@ -41,6 +41,7 @@ void CFX_SAXReaderHandler::OnTagAttribute(CFX_SAXContext* pTag,
                                           const CFX_ByteStringC& bsValue) {
   if (!pTag)
     return;
+
   pTag->m_TextBuf << " " << bsAttri << "=\"" << bsValue << "\"";
 }
 
@@ -76,7 +77,7 @@ void CFX_SAXReaderHandler::OnTagClose(CFX_SAXContext* pTag, uint32_t dwEndPos) {
   if (pTag->m_eNode == CFX_SAXItem::Type::Instruction)
     textBuf << "?>";
   else if (pTag->m_eNode == CFX_SAXItem::Type::Tag)
-    textBuf << "></" << pTag->m_bsTagName.AsStringC() << ">";
+    textBuf << "></" << pTag->m_bsTagName << ">";
 
   UpdateChecksum(false);
 }
