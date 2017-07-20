@@ -646,3 +646,100 @@ TEST_F(FPDFFormFillEmbeddertest,
 
   UnloadPage(page);
 }
+
+TEST_F(FPDFFormFillEmbeddertest, DeleteTextfieldEntireSelection) {
+  // Open file with form text field.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  TypeTextIntoTextfield(page, 12, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0);
+  SelectTextWithMouse(page, 191.0, 102.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"ABCDEFGHIJKL"));
+
+  // Test deleting current text selection. Select what remains after deletion to
+  // check that remaining text is as expected.
+  FORM_DeleteSelectedText(form_handle(), page);
+  SelectTextWithKeyboard(page, 12, FWL_VKEY_Left, 191.0, 115.5);
+  CheckSelection(page, CFX_WideString(L""));
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, DeleteTextfieldSelectionMiddle) {
+  // Open file with form text field.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Select middle section of text.
+  TypeTextIntoTextfield(page, 12, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0);
+  SelectTextWithMouse(page, 170.0, 125.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"DEFGHI"));
+
+  // Test deleting current text selection. Select what remains after deletion to
+  // check that remaining text is as expected.
+  FORM_DeleteSelectedText(form_handle(), page);
+  SelectTextWithKeyboard(page, 12, FWL_VKEY_Left, 191.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"ABCJKL"));
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, DeleteTextfieldSelectionLeft) {
+  // Open file with form text field.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Select first few characters of text.
+  TypeTextIntoTextfield(page, 12, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0);
+  SelectTextWithMouse(page, 102.0, 132.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"ABCD"));
+
+  // Test deleting current text selection. Select what remains after deletion to
+  // check that remaining text is as expected.
+  FORM_DeleteSelectedText(form_handle(), page);
+  SelectTextWithKeyboard(page, 12, FWL_VKEY_Left, 191.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"EFGHIJKL"));
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, DeleteTextfieldSelectionRight) {
+  // Open file with form text field.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Select last few characters of text.
+  TypeTextIntoTextfield(page, 12, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0);
+  SelectTextWithMouse(page, 191.0, 165.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"IJKL"));
+
+  // Test deleting current text selection. Select what remains after deletion to
+  // check that remaining text is as expected.
+  FORM_DeleteSelectedText(form_handle(), page);
+  SelectTextWithKeyboard(page, 12, FWL_VKEY_Left, 191.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"ABCDEFGH"));
+
+  UnloadPage(page);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, DeleteEmptyTextfieldSelection) {
+  // Open file with form text field.
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Do not select text.
+  TypeTextIntoTextfield(page, 12, FPDF_FORMFIELD_TEXTFIELD, 120.0, 120.0);
+  CheckSelection(page, CFX_WideString(L""));
+
+  // Test that attempt to delete empty text selection has no effect.
+  FORM_DeleteSelectedText(form_handle(), page);
+  SelectTextWithKeyboard(page, 12, FWL_VKEY_Left, 191.0, 115.5);
+  CheckSelection(page, CFX_WideString(L"ABCDEFGHIJKL"));
+
+  UnloadPage(page);
+}
