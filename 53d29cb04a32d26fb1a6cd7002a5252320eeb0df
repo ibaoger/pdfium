@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bed19768_f4abf914",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "Should this and GetSelectedText above have a TODO to complete them? (And maybe a bug set to block 62400 to implement these?)",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55984257_0f947be8",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "Could we pass false here and return early if there is no pPageView? Or could the pageview be gone but an annot still have selected text?",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbab32a4_726e7071",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "remove return.",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b131d03_405e0356",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "nit: can you do a followup to rename SetEditSel to SetEditSelection?",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310b8ec5_be8c8636",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "What happens if I SetEditSel(55, 60) and then DeleteSelectedText?\n\nOr, SetEditSel(-2, 5)",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9626e86c_d41c002e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "This strikes me as odd, does Clear() only clear the selection and not the entire Edit control? If that\u0027s the case, can you do a followup to rename it ClearSelection or something?",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9da20bc8_45d2bee2",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "nit: remove {}s",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4471f50_133e1956",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "followup: Rename SetSel to SetSelection",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9098ec95_11215eda",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "Same question about bad SetSel ranges",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d702a7fa_266a245a",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T03:10:19Z",
+      "side": 1,
+      "message": "Add this to fpdfview_c_api_test",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
