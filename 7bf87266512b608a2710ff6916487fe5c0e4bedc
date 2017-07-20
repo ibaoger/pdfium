@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4784cb4_aa775fdc",
+        "filename": "core/fxcrt/cfx_string_c_template.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-20T18:56:40Z",
+      "side": 1,
+      "message": "I don\u0027t think this one occurs in practice so we can save the branch.  The unsigned type really isn\u0027t a \"String\" in the C sense, FXSYS_len() may be wrong philosophically.",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "7bf87266512b608a2710ff6916487fe5c0e4bedc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
