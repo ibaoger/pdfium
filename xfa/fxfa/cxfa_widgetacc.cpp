@@ -629,9 +629,8 @@ int32_t CXFA_WidgetAcc::ExecuteScript(CXFA_Script script,
   }
   auto pTmpRetValue = pdfium::MakeUnique<CFXJSE_Value>(pContext->GetRuntime());
   ++m_nRecursionDepth;
-  bool bRet = pContext->RunScript((XFA_SCRIPTLANGTYPE)eScriptType,
-                                  wsExpression.AsStringC(), pTmpRetValue.get(),
-                                  m_pNode);
+  bool bRet = pContext->RunScript((XFA_SCRIPTLANGTYPE)eScriptType, wsExpression,
+                                  pTmpRetValue.get(), m_pNode);
   --m_nRecursionDepth;
   int32_t iRet = XFA_EVENTERROR_Error;
   if (bRet) {
