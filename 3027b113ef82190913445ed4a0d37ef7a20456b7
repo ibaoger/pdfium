@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5151ab98_2c9035f3",
+        "filename": "core/fxcrt/cfx_string_c_template.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T18:28:31Z",
+      "side": 1,
+      "message": "m_Length(len \u003c 0 ? FXSYS_len(ptr) : len)\n\nI believe FXSYS_len will just return 0 if ptr \u003d\u003d nullptr so this can all happen in the initializer, same below.",
+      "revId": "3027b113ef82190913445ed4a0d37ef7a20456b7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
