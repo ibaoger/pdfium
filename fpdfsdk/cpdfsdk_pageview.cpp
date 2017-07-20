@@ -175,14 +175,18 @@ CPDFSDK_Annot* CPDFSDK_PageView::AddAnnot(CXFA_FFWidget* pPDFAnnot) {
 bool CPDFSDK_PageView::DeleteAnnot(CPDFSDK_Annot* pAnnot) {
   if (!pAnnot)
     return false;
+
   CPDFXFA_Page* pPage = pAnnot->GetPDFXFAPage();
   if (!pPage || (pPage->GetContext()->GetDocType() != XFA_DocType::Static &&
                  pPage->GetContext()->GetDocType() != XFA_DocType::Dynamic)) {
     return false;
   }
-
-  if (GetFocusAnnot() == pAnnot)
-    m_pFormFillEnv->KillFocusAnnot(0);
+  if (GetFocusAnnot() == pAnnot) {
+    CPDFSDK_Annot::ObservedPtr pObserved(pAnnot);
+    m_pFormFillEnv->KillFocusAnnot(0);  // May invoke JS, invalidating pAnnot.
+    if (!pObserved)
+      return true;
+  }
   CPDFSDK_AnnotHandlerMgr* pAnnotHandler = m_pFormFillEnv->GetAnnotHandlerMgr();
   if (pAnnotHandler)
     pAnnotHandler->ReleaseAnnot(pAnnot);
