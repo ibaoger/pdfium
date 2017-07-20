@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ebf76c2a_d0f8418e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Yes, os.path.expanduser does exactly that.",
+      "parentUuid": "b25642ee_51014ca6",
+      "range": {
+        "startLine": 19,
+        "startChar": 21,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0c9cfa4_1bfca84c",
         "filename": "testing/tools/githelper.py",
         "patchSetId": 29
@@ -39,6 +63,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42e0741_efca4eda",
+        "filename": "testing/tools/githelper.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "No, we want to have the option of testing local changes.",
+      "parentUuid": "b0c9cfa4_1bfca84c",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "48e62c6b_3134361c",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4bb60dd1_dcab33ee",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f97689b_748e1fa5",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
@@ -70,6 +130,24 @@
       "writtenOn": "2017-07-20T07:12:12Z",
       "side": 1,
       "message": "Instead of freezing the measurement script and checking out branches, what do you think of:\n\n1) Creating clones of the local PDFium repo.\n2) Use the clones.\n3) Delete the clones. (Don\u0027t bother with cleanup, it\u0027s like having disposable plates)\n\nTo make a clone efficiently-ish:\n\nmkdir pdfium_clone\ncd pdfium_clone/\ngclient config --cache-dir\u003d/path/to/cache https://pdfium.googlesource.com/pdfium.git\ngclient sync --revision pdfium@$HASH\n\nWith a warmed up cache, it takes 23 seconds to do the above on my workstation inside /run/shm. (Essentially on ramdisk) The cache is 1.4 GB and so is the cloned checkout.",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d5f1d0_b18ebbf5",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "I thought of doing this, but some things become much more complex to implement. For example:\n- comparing local changes\n- using/comparing specific build flag configs\n- comparing commits that are not pushed\n- comparing specific versions of third_party libs",
+      "parentUuid": "2f97689b_748e1fa5",
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "38906536_01a3ee90",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Doesn\u0027t this use goma or not depending on your gn args?",
+      "parentUuid": "3e9f231e_973ac3a3",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f4a212e_8efae7e9",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
@@ -107,6 +203,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b1834a_0b5564dc",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "The way test_runner.py tries to fix the problem does not work here (and I don\u0027t understand why it works in test_runner). I\u0027ve done this in another way now.",
+      "parentUuid": "8f4a212e_8efae7e9",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "665cb0aa_db33a4b4",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcadc701_c1067a1f",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9342f76d_cc731909",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
@@ -141,6 +273,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a8f27d8_c960210e",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Either works, the flag is the same.",
+      "parentUuid": "9342f76d_cc731909",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -161,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "b468d6fc_9ad809bc",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Sadly no. There are third_party libraries, but I didn\u0027t think it would be worth to add them just for this.",
+      "parentUuid": "804cc037_8661eda9",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "053527b8_0667e0ec",
         "filename": "testing/tools/safetynet_conclusions.py",
         "patchSetId": 29
@@ -175,6 +343,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04962d36_6afaa4a7",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "053527b8_0667e0ec",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -195,6 +381,24 @@
     },
     {
       "key": {
+        "uuid": "ca5bde2c_78b22c3d",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "The json dict would return a mix of Nones and 0s without this. With this, it\u0027s consistent and always None.",
+      "parentUuid": "5dc14b40_a44fcbab",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7824f16a_3826505a",
         "filename": "testing/tools/safetynet_conclusions.py",
         "patchSetId": 29
@@ -209,6 +413,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e16b683_649646c0",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T19:55:45Z",
+      "side": 1,
+      "message": "On the first point, this way makes it clear how many characters are allocated for each column without the need of counting and is resilient to changes. If we change, for example, \"Time after\" to \"TimeAfter\" it would not break the alignment.\n\nOn format vs %, on this line it would be fine, but on the print below (in this same method, inside the loop) we want to add thousand comma separators, and it\u0027s much harder to do this with % - it involves manipulating the locale.",
+      "parentUuid": "7824f16a_3826505a",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
