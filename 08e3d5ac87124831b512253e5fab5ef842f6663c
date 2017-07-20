@@ -22,6 +22,30 @@
       "revId": "08e3d5ac87124831b512253e5fab5ef842f6663c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a8eef4d_e96065e0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T18:55:45Z",
+      "side": 1,
+      "message": "Will do a followup, there is a follow-on Cl which updates this a bit already.",
+      "parentUuid": "0ce1ff06_562e73d8",
+      "range": {
+        "startLine": 1730,
+        "startChar": 4,
+        "endLine": 1730,
+        "endChar": 48
+      },
+      "revId": "08e3d5ac87124831b512253e5fab5ef842f6663c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
