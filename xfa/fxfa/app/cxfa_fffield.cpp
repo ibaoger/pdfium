@@ -23,8 +23,8 @@
 #include "xfa/fxfa/cxfa_ffpageview.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
 #include "xfa/fxfa/parser/cxfa_node.h"
-#include "xfa/fxgraphics/cxfa_color.h"
-#include "xfa/fxgraphics/cxfa_path.h"
+#include "xfa/fxgraphics/cfx_color.h"
+#include "xfa/fxgraphics/cfx_path.h"
 
 namespace {
 
@@ -57,7 +57,7 @@ CFX_RectF CXFA_FFField::GetBBox(uint32_t dwStatus, bool bDrawFocus) {
   return rtBox;
 }
 
-void CXFA_FFField::RenderWidget(CXFA_Graphics* pGS,
+void CXFA_FFField::RenderWidget(CFX_Graphics* pGS,
                                 CFX_Matrix* pMatrix,
                                 uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
@@ -80,7 +80,7 @@ void CXFA_FFField::RenderWidget(CXFA_Graphics* pGS,
                                                  &mt);
 }
 
-void CXFA_FFField::DrawHighlight(CXFA_Graphics* pGS,
+void CXFA_FFField::DrawHighlight(CFX_Graphics* pGS,
                                  CFX_Matrix* pMatrix,
                                  uint32_t dwStatus,
                                  bool bEllipse) {
@@ -93,9 +93,9 @@ void CXFA_FFField::DrawHighlight(CXFA_Graphics* pGS,
   }
 
   CXFA_FFDoc* pDoc = GetDoc();
-  CXFA_Color crHighlight(pDoc->GetDocEnvironment()->GetHighlightColor(pDoc));
+  CFX_Color crHighlight(pDoc->GetDocEnvironment()->GetHighlightColor(pDoc));
   pGS->SetFillColor(&crHighlight);
-  CXFA_Path path;
+  CFX_Path path;
   if (bEllipse)
     path.AddEllipse(m_rtUI);
   else
@@ -104,18 +104,18 @@ void CXFA_FFField::DrawHighlight(CXFA_Graphics* pGS,
   pGS->FillPath(&path, FXFILL_WINDING, pMatrix);
 }
 
-void CXFA_FFField::DrawFocus(CXFA_Graphics* pGS, CFX_Matrix* pMatrix) {
+void CXFA_FFField::DrawFocus(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
   if (!(m_dwStatus & XFA_WidgetStatus_Focused))
     return;
 
-  CXFA_Color cr(0xFF000000);
+  CFX_Color cr(0xFF000000);
   pGS->SetStrokeColor(&cr);
 
   float DashPattern[2] = {1, 1};
   pGS->SetLineDash(0.0f, DashPattern, 2);
   pGS->SetLineWidth(0, false);
 
-  CXFA_Path path;
+  CFX_Path path;
   path.AddRectangle(m_rtUI.left, m_rtUI.top, m_rtUI.width, m_rtUI.height);
   pGS->StrokePath(&path, pMatrix);
 }
@@ -605,7 +605,7 @@ void CXFA_FFField::LayoutCaption() {
     m_rtCaption.height = fHeight;
 }
 
-void CXFA_FFField::RenderCaption(CXFA_Graphics* pGS, CFX_Matrix* pMatrix) {
+void CXFA_FFField::RenderCaption(CFX_Graphics* pGS, CFX_Matrix* pMatrix) {
   CXFA_TextLayout* pCapTextLayout = m_pDataAcc->GetCaptionTextLayout();
   if (!pCapTextLayout)
     return;
@@ -781,5 +781,5 @@ void CXFA_FFField::OnProcessEvent(CFWL_Event* pEvent) {
   }
 }
 
-void CXFA_FFField::OnDrawWidget(CXFA_Graphics* pGraphics,
+void CXFA_FFField::OnDrawWidget(CFX_Graphics* pGraphics,
                                 const CFX_Matrix* pMatrix) {}

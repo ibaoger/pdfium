@@ -603,9 +603,10 @@ void CPDFSDK_FormFillEnvironment::ProcJavascriptFun() {
   CPDF_DocJSActions docJS(pPDFDoc);
   int iCount = docJS.CountJSActions();
   for (int i = 0; i < iCount; i++) {
-    CFX_WideString csJSName;
+    CFX_ByteString csJSName;
     CPDF_Action jsAction = docJS.GetJSActionAndName(i, &csJSName);
-    GetActionHandler()->DoAction_JavaScript(jsAction, csJSName, this);
+    GetActionHandler()->DoAction_JavaScript(
+        jsAction, CFX_WideString::FromLocal(csJSName.AsStringC()), this);
   }
 }
 

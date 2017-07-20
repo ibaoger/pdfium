@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <bitset>
 #include <iterator>
 #include <map>
 #include <sstream>
@@ -21,12 +20,10 @@
 
 #include "public/cpp/fpdf_deleters.h"
 #include "public/fpdf_annot.h"
-#include "public/fpdf_attachment.h"
 #include "public/fpdf_dataavail.h"
 #include "public/fpdf_edit.h"
 #include "public/fpdf_ext.h"
 #include "public/fpdf_formfill.h"
-#include "public/fpdf_progressive.h"
 #include "public/fpdf_structtree.h"
 #include "public/fpdf_text.h"
 #include "public/fpdfview.h"
@@ -83,8 +80,6 @@ struct Options {
       : show_config(false),
         show_metadata(false),
         send_events(false),
-        render_oneshot(false),
-        save_attachments(false),
 #ifdef ENABLE_CALLGRIND
         callgrind_delimiters(false),
 #endif  // ENABLE_CALLGRIND
@@ -96,8 +91,6 @@ struct Options {
   bool show_config;
   bool show_metadata;
   bool send_events;
-  bool render_oneshot;
-  bool save_attachments;
 #ifdef ENABLE_CALLGRIND
   bool callgrind_delimiters;
 #endif  // ENABLE_CALLGRIND
@@ -272,44 +265,6 @@ std::string AnnotSubtypeToString(FPDF_ANNOTATION_SUBTYPE subtype) {
   return "";
 }
 
-std::string AnnotFlagsToString(int flags) {
-  std::string str = "";
-  if (flags & FPDF_ANNOT_FLAG_INVISIBLE)
-    str += "Invisible";
-  if (flags & FPDF_ANNOT_FLAG_HIDDEN)
-    str += std::string(str.empty() ? "" : ", ") + "Hidden";
-  if (flags & FPDF_ANNOT_FLAG_PRINT)
-    str += std::string(str.empty() ? "" : ", ") + "Print";
-  if (flags & FPDF_ANNOT_FLAG_NOZOOM)
-    str += std::string(str.empty() ? "" : ", ") + "NoZoom";
-  if (flags & FPDF_ANNOT_FLAG_NOROTATE)
-    str += std::string(str.empty() ? "" : ", ") + "NoRotate";
-  if (flags & FPDF_ANNOT_FLAG_NOVIEW)
-    str += std::string(str.empty() ? "" : ", ") + "NoView";
-  if (flags & FPDF_ANNOT_FLAG_READONLY)
-    str += std::string(str.empty() ? "" : ", ") + "ReadOnly";
-  if (flags & FPDF_ANNOT_FLAG_LOCKED)
-    str += std::string(str.empty() ? "" : ", ") + "Locked";
-  if (flags & FPDF_ANNOT_FLAG_TOGGLENOVIEW)
-    str += std::string(str.empty() ? "" : ", ") + "ToggleNoView";
-  return str;
-}
-
-std::string PageObjectTypeToString(int type) {
-  if (type == FPDF_PAGEOBJ_TEXT)
-    return "Text";
-  if (type == FPDF_PAGEOBJ_PATH)
-    return "Path";
-  if (type == FPDF_PAGEOBJ_IMAGE)
-    return "Image";
-  if (type == FPDF_PAGEOBJ_SHADING)
-    return "Shading";
-  if (type == FPDF_PAGEOBJ_FORM)
-    return "Form";
-  NOTREACHED();
-  return "";
-}
-
 void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
   // Open the output text file.
   char filename[256];
@@ -330,7 +285,7 @@ void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
   fprintf(fp, "Number of annotations: %d\n\n", annot_count);
 
   // Iterate through all annotations on this page.
-  for (int i = 0; i < annot_count; ++i) {
+  for (int i = 0; i < annot_count; i++) {
     // Retrieve the annotation object and its subtype.
     fprintf(fp, "Annotation #%d:\n", i + 1);
     FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, i);
@@ -340,24 +295,6 @@ void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
     }
     FPDF_ANNOTATION_SUBTYPE subtype = FPDFAnnot_GetSubtype(annot);
     fprintf(fp, "Subtype: %s\n", AnnotSubtypeToString(subtype).c_str());
-
-    // Retrieve the annotation flags.
-    fprintf(fp, "Flags set: %s\n",
-            AnnotFlagsToString(FPDFAnnot_GetFlags(annot)).c_str());
-
-    // Retrieve the annotation's object count and object types.
-    const int obj_count = FPDFAnnot_GetObjectCount(annot);
-    fprintf(fp, "Number of objects: %d\n", obj_count);
-    if (obj_count > 0) {
-      fprintf(fp, "Object types: ");
-      for (int j = 0; j < obj_count; ++j) {
-        fprintf(fp, "%s  ",
-                PageObjectTypeToString(
-                    FPDFPageObj_GetType(FPDFAnnot_GetObject(annot, j)))
-                    .c_str());
-      }
-      fprintf(fp, "\n");
-    }
 
     // Retrieve the annotation's color and interior color.
     unsigned int R;
@@ -399,19 +336,15 @@ void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
     // Retrieve the annotation's quadpoints if it is a markup annotation.
     if (FPDFAnnot_HasAttachmentPoints(annot)) {
       FS_QUADPOINTSF quadpoints = FPDFAnnot_GetAttachmentPoints(annot);
-      fprintf(fp,
-              "Quadpoints: (%.3f, %.3f), (%.3f, %.3f), (%.3f, %.3f), (%.3f, "
-              "%.3f)\n",
+      fprintf(fp, "Quadpoints: (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n",
               quadpoints.x1, quadpoints.y1, quadpoints.x2, quadpoints.y2,
               quadpoints.x3, quadpoints.y3, quadpoints.x4, quadpoints.y4);
     }
 
     // Retrieve the annotation's rectangle coordinates.
     FS_RECTF rect = FPDFAnnot_GetRect(annot);
-    fprintf(fp, "Rectangle: l - %.3f, b - %.3f, r - %.3f, t - %.3f\n\n",
-            rect.left, rect.bottom, rect.right, rect.top);
-
-    FPDFPage_CloseAnnot(annot);
+    fprintf(fp, "Rectangle: l - %f, b - %f, r - %f, t - %f\n\n", rect.left,
+            rect.bottom, rect.right, rect.top);
   }
 
   (void)fclose(fp);
@@ -702,10 +635,6 @@ bool ParseCommandLine(const std::vector<std::string>& args,
       options->show_metadata = true;
     } else if (cur_arg == "--send-events") {
       options->send_events = true;
-    } else if (cur_arg == "--render-oneshot") {
-      options->render_oneshot = true;
-    } else if (cur_arg == "--save-attachments") {
-      options->save_attachments = true;
 #ifdef ENABLE_CALLGRIND
     } else if (cur_arg == "--callgrind-delim") {
       options->callgrind_delimiters = true;
@@ -983,13 +912,6 @@ void DumpPageStructure(FPDF_PAGE page, const int page_idx) {
   printf("\n\n");
 }
 
-// Note, for a client using progressive rendering you'd want to determine if you
-// need the rendering to pause instead of always saying |true|. This is for
-// testing to force the renderer to break whenever possible.
-FPDF_BOOL NeedToPauseNow(IFSDK_PAUSE* p) {
-  return true;
-}
-
 bool RenderPage(const std::string& name,
                 FPDF_DOCUMENT doc,
                 FPDF_FORMHANDLE form,
@@ -1024,30 +946,11 @@ bool RenderPage(const std::string& name,
   if (bitmap) {
     FPDF_DWORD fill_color = alpha ? 0x00000000 : 0xFFFFFFFF;
     FPDFBitmap_FillRect(bitmap.get(), 0, 0, width, height, fill_color);
-
-    if (options.render_oneshot) {
-      // Note, client programs probably want to use this method instead of the
-      // progressive calls. The progressive calls are if you need to pause the
-      // rendering to update the UI, the PDF renderer will break when possible.
-      FPDF_RenderPageBitmap(bitmap.get(), page.get(), 0, 0, width, height, 0,
-                            FPDF_ANNOT);
-    } else {
-      IFSDK_PAUSE pause;
-      pause.version = 1;
-      pause.NeedToPauseNow = &NeedToPauseNow;
-
-      int rv = FPDF_RenderPageBitmap_Start(
-          bitmap.get(), page.get(), 0, 0, width, height, 0, FPDF_ANNOT, &pause);
-      while (rv == FPDF_RENDER_TOBECOUNTINUED)
-        rv = FPDF_RenderPage_Continue(page.get(), &pause);
-    }
+    FPDF_RenderPageBitmap(bitmap.get(), page.get(), 0, 0, width, height, 0,
+                          FPDF_ANNOT);
 
     FPDF_FFLDraw(form, bitmap.get(), page.get(), 0, 0, width, height, 0,
                  FPDF_ANNOT);
-
-    if (!options.render_oneshot)
-      FPDF_RenderPage_Close(page.get());
-
     int stride = FPDFBitmap_GetStride(bitmap.get());
     const char* buffer =
         reinterpret_cast<const char*>(FPDFBitmap_GetBuffer(bitmap.get()));
@@ -1230,58 +1133,6 @@ void RenderPdf(const std::string& name,
     }
   }
 
-  if (options.save_attachments) {
-    for (int i = 0; i < FPDFDoc_GetAttachmentCount(doc.get()); ++i) {
-      FPDF_ATTACHMENT attachment = FPDFDoc_GetAttachment(doc.get(), i);
-
-      // Retrieve the attachment file name.
-      unsigned long len = FPDFAttachment_GetName(attachment, nullptr, 0);
-      if (!len) {
-        fprintf(stderr, "Warning: Attachment #%d has an empty file name.\n",
-                i + 1);
-      }
-      std::vector<char> buf(len);
-      FPDFAttachment_GetName(attachment, buf.data(), len);
-      std::string attachment_name =
-          GetPlatformString(reinterpret_cast<unsigned short*>(buf.data()));
-
-      // Open the attachment file for writing.
-      char save_name[256];
-      int chars_formatted =
-          snprintf(save_name, sizeof(save_name), "%s.attachment.%s",
-                   name.c_str(), attachment_name.c_str());
-      if (chars_formatted < 0 ||
-          static_cast<size_t>(chars_formatted) >= sizeof(save_name)) {
-        fprintf(stderr, "Filename %s is too long\n", save_name);
-        continue;
-      }
-      FILE* fp = fopen(save_name, "wb");
-      if (!fp) {
-        fprintf(stderr, "Failed to open %s for saving attachment.\n",
-                save_name);
-        continue;
-      }
-
-      // Write the attachment file.
-      len = FPDFAttachment_GetFile(attachment, nullptr, 0);
-      if (!len) {
-        fprintf(stderr, "Warning: Attachment \"%s\" is empty.\n",
-                attachment_name.c_str());
-      }
-      buf.clear();
-      buf.resize(len);
-      FPDFAttachment_GetFile(attachment, buf.data(), len);
-      size_t written_len = fwrite(buf.data(), sizeof(char), len, fp);
-      if (written_len != len) {
-        fprintf(stderr, "Warning: Unsuccessful write to file \"%s\".\n",
-                save_name);
-      }
-      fclose(fp);
-
-      fprintf(stderr, "Saved attachment \"%s\".\n", attachment_name.c_str());
-    }
-  }
-
   std::unique_ptr<void, FPDFFormHandleDeleter> form(
       FPDFDOC_InitFormFillEnvironment(doc.get(), &form_callbacks));
   form_callbacks.form_handle = form.get();
@@ -1364,36 +1215,30 @@ static void ShowConfig() {
 
 static const char kUsageString[] =
     "Usage: pdfium_test [OPTION] [FILE]...\n"
-    "  --show-config       - print build options and exit\n"
-    "  --show-metadata     - print the file metadata\n"
-    "  --show-structure    - print the structure elements from the document\n"
-    "  --send-events       - send input described by .evt file\n"
-    "  --render-oneshot    - render image without using progressive renderer\n"
-    "  --save-attachments  - write embedded attachments "
-    "<pdf-name>.attachment.<attachment-name>\n"
+    "  --show-config     - print build options and exit\n"
+    "  --show-metadata   - print the file metadata\n"
+    "  --show-structure  - print the structure elements from the document\n"
+    "  --send-events     - send input described by .evt file\n"
 #ifdef ENABLE_CALLGRIND
-    "  --callgrind-delim   - delimit interesting section when using callgrind\n"
+    "  --callgrind-delim - delimit interesting section when using callgrind\n"
 #endif  // ENABLE_CALLGRIND
-    "  --bin-dir=<path>    - override path to v8 external data\n"
-    "  --font-dir=<path>   - override path to external fonts\n"
-    "  --scale=<number>    - scale output size by number (e.g. 0.5)\n"
+    "  --bin-dir=<path>  - override path to v8 external data\n"
+    "  --font-dir=<path> - override path to external fonts\n"
+    "  --scale=<number>  - scale output size by number (e.g. 0.5)\n"
     "  --pages=<number>(-<number>) - only render the given 0-based page(s)\n"
 #ifdef _WIN32
-    "  --bmp   - write page images <pdf-name>.<page-number>.bmp\n"
-    "  --emf   - write page meta files <pdf-name>.<page-number>.emf\n"
-    "  --ps2   - write page raw PostScript (Lvl 2) "
-    "<pdf-name>.<page-number>.ps\n"
-    "  --ps3   - write page raw PostScript (Lvl 3) "
-    "<pdf-name>.<page-number>.ps\n"
+    "  --bmp - write page images <pdf-name>.<page-number>.bmp\n"
+    "  --emf - write page meta files <pdf-name>.<page-number>.emf\n"
+    "  --ps2 - write page raw PostScript (Lvl 2) <pdf-name>.<page-number>.ps\n"
+    "  --ps3 - write page raw PostScript (Lvl 3) <pdf-name>.<page-number>.ps\n"
 #endif  // _WIN32
-    "  --txt   - write page text in UTF32-LE <pdf-name>.<page-number>.txt\n"
-    "  --png   - write page images <pdf-name>.<page-number>.png\n"
-    "  --ppm   - write page images <pdf-name>.<page-number>.ppm\n"
-    "  --annot - write annotation info <pdf-name>.<page-number>.annot.txt\n"
+    "  --txt - write page text in UTF32-LE <pdf-name>.<page-number>.txt\n"
+    "  --png - write page images <pdf-name>.<page-number>.png\n"
+    "  --ppm - write page images <pdf-name>.<page-number>.ppm\n"
 #ifdef PDF_ENABLE_SKIA
-    "  --skp   - write page images <pdf-name>.<page-number>.skp\n"
+    "  --skp - write page images <pdf-name>.<page-number>.skp\n"
 #endif
-    "  --md5   - write output image paths and their md5 hashes to stdout.\n"
+    "  --md5 - write output image paths and their md5 hashes to stdout.\n"
     "";
 
 int main(int argc, const char* argv[]) {

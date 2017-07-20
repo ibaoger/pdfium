@@ -4,14 +4,14 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "xfa/fxgraphics/cxfa_shading.h"
+#include "xfa/fxgraphics/cfx_shading.h"
 
-CXFA_Shading::CXFA_Shading(const CFX_PointF& beginPoint,
-                           const CFX_PointF& endPoint,
-                           bool isExtendedBegin,
-                           bool isExtendedEnd,
-                           const FX_ARGB beginArgb,
-                           const FX_ARGB endArgb)
+CFX_Shading::CFX_Shading(const CFX_PointF& beginPoint,
+                         const CFX_PointF& endPoint,
+                         bool isExtendedBegin,
+                         bool isExtendedEnd,
+                         const FX_ARGB beginArgb,
+                         const FX_ARGB endArgb)
     : m_type(FX_SHADING_Axial),
       m_beginPoint(beginPoint),
       m_endPoint(endPoint),
@@ -24,14 +24,14 @@ CXFA_Shading::CXFA_Shading(const CFX_PointF& beginPoint,
   InitArgbArray();
 }
 
-CXFA_Shading::CXFA_Shading(const CFX_PointF& beginPoint,
-                           const CFX_PointF& endPoint,
-                           const float beginRadius,
-                           const float endRadius,
-                           bool isExtendedBegin,
-                           bool isExtendedEnd,
-                           const FX_ARGB beginArgb,
-                           const FX_ARGB endArgb)
+CFX_Shading::CFX_Shading(const CFX_PointF& beginPoint,
+                         const CFX_PointF& endPoint,
+                         const float beginRadius,
+                         const float endRadius,
+                         bool isExtendedBegin,
+                         bool isExtendedEnd,
+                         const FX_ARGB beginArgb,
+                         const FX_ARGB endArgb)
     : m_type(FX_SHADING_Radial),
       m_beginPoint(beginPoint),
       m_endPoint(endPoint),
@@ -44,9 +44,9 @@ CXFA_Shading::CXFA_Shading(const CFX_PointF& beginPoint,
   InitArgbArray();
 }
 
-CXFA_Shading::~CXFA_Shading() {}
+CFX_Shading::~CFX_Shading() {}
 
-void CXFA_Shading::InitArgbArray() {
+void CFX_Shading::InitArgbArray() {
   int32_t a1;
   int32_t r1;
   int32_t g1;

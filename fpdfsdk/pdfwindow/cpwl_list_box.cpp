@@ -8,7 +8,6 @@
 
 #include <sstream>
 
-#include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/fxedit/fxet_list.h"
 #include "fpdfsdk/pdfwindow/cpwl_edit.h"
@@ -94,6 +93,54 @@ void CPWL_ListBox::OnDestroy() {
   m_pListNotify.reset();
 }
 
+void CPWL_ListBox::GetThisAppearanceStream(std::ostringstream* psAppStream) {
+  CPWL_Wnd::GetThisAppearanceStream(psAppStream);
+
+  std::ostringstream sListItems;
+
+  CFX_FloatRect rcPlate = m_pList->GetPlateRect();
+  for (int32_t i = 0, sz = m_pList->GetCount(); i < sz; i++) {
+    CFX_FloatRect rcItem = m_pList->GetItemRect(i);
+
+    if (rcItem.bottom > rcPlate.top || rcItem.top < rcPlate.bottom)
+      continue;
+
+    CFX_PointF ptOffset(rcItem.left, (rcItem.top + rcItem.bottom) * 0.5f);
+    if (m_pList->IsItemSelected(i)) {
+      sListItems << CPWL_Utils::GetRectFillAppStream(rcItem,
+                                                     PWL_DEFAULT_SELBACKCOLOR);
+      CFX_ByteString sItem =
+          CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
+      if (sItem.GetLength() > 0) {
+        sListItems << "BT\n"
+                   << CPWL_Utils::GetColorAppStream(
+                          CPWL_Color(COLORTYPE_RGB, 1, 1, 1))
+                   << sItem << "ET\n";
+      }
+    } else {
+      CFX_ByteString sItem =
+          CPWL_Utils::GetEditAppStream(m_pList->GetItemEdit(i), ptOffset);
+      if (sItem.GetLength() > 0) {
+        sListItems << "BT\n"
+                   << CPWL_Utils::GetColorAppStream(GetTextColor()) << sItem
+                   << "ET\n";
+      }
+    }
+  }
+
+  if (sListItems.tellp() <= 0)
+    return;
+
+  CFX_FloatRect rcClient = GetClientRect();
+  *psAppStream << "/Tx BMC\n"
+               << "q\n"
+               << rcClient.left << " " << rcClient.bottom << " "
+               << rcClient.right - rcClient.left << " "
+               << rcClient.top - rcClient.bottom << " re W n\n"
+               << sListItems.str() << "Q\n"
+               << "EMC\n";
+}
+
 void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
                                       CFX_Matrix* pUser2Device) {
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
@@ -124,8 +171,8 @@ void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
                            nullptr, pSysHandler, m_pFormFiller.Get());
         pSysHandler->OutputSelectedRect(m_pFormFiller.Get(), rcItem);
       } else {
-        pDevice->DrawFillRect(pUser2Device, rcItem,
-                              ArgbEncode(255, 0, 51, 113));
+        CPWL_Utils::DrawFillRect(pDevice, pUser2Device, rcItem,
+                                 ArgbEncode(255, 0, 51, 113));
         CFX_Edit::DrawEdit(pDevice, pUser2Device, m_pList->GetItemEdit(i),
                            ArgbEncode(255, 255, 255, 255), rcList, ptOffset,
                            nullptr, pSysHandler, m_pFormFiller.Get());
@@ -358,8 +405,13 @@ float CPWL_ListBox::GetFirstHeight() const {
 }
 
 CFX_FloatRect CPWL_ListBox::GetListRect() const {
-  float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
-  return GetWindowRect().GetDeflated(width, width);
+  CFX_FloatRect rect = GetWindowRect();
+  if (!rect.IsEmpty()) {
+    float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
+    rect.Deflate(width, width);
+    rect.Normalize();
+  }
+  return rect;
 }
 
 bool CPWL_ListBox::OnMouseWheel(short zDelta,

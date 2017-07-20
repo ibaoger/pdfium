@@ -365,12 +365,13 @@ CFX_RetainPtr<CFX_DIBitmap> CXFA_FFDoc::GetPDFNamedImage(
     return nullptr;
 
   CPDF_NameTree nametree(pXFAImages);
-  CPDF_Object* pObject = nametree.LookupValue(CFX_WideString(wsName));
+  CFX_ByteString bsName = PDF_EncodeText(wsName.c_str(), wsName.GetLength());
+  CPDF_Object* pObject = nametree.LookupValue(bsName);
   if (!pObject) {
     for (size_t i = 0; i < nametree.GetCount(); i++) {
-      CFX_WideString wsTemp;
-      CPDF_Object* pTempObject = nametree.LookupValueAndName(i, &wsTemp);
-      if (wsTemp == wsName) {
+      CFX_ByteString bsTemp;
+      CPDF_Object* pTempObject = nametree.LookupValueAndName(i, &bsTemp);
+      if (bsTemp == bsName) {
         pObject = pTempObject;
         break;
       }

@@ -103,8 +103,13 @@ void CPWL_Edit::RePosChildWnd() {
 }
 
 CFX_FloatRect CPWL_Edit::GetClientRect() const {
-  float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
-  CFX_FloatRect rcClient = GetWindowRect().GetDeflated(width, width);
+  CFX_FloatRect rcClient = GetWindowRect();
+  if (!rcClient.IsEmpty()) {
+    float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
+    rcClient.Deflate(width, width);
+    rcClient.Normalize();
+  }
+
   if (CPWL_ScrollBar* pVSB = GetVScrollBar()) {
     if (pVSB->IsVisible()) {
       rcClient.right -= PWL_SCROLLBAR_WIDTH;
@@ -196,6 +201,126 @@ void CPWL_Edit::SetParamByFlag() {
       }
       m_pEditCaret->SetClipRect(rect);
     }
+  }
+}
+
+void CPWL_Edit::GetThisAppearanceStream(std::ostringstream* psAppStream) {
+  CPWL_Wnd::GetThisAppearanceStream(psAppStream);
+
+  CFX_FloatRect rcClient = GetClientRect();
+
+  int32_t nCharArray = m_pEdit->GetCharArray();
+
+  if (nCharArray > 0) {
+    switch (GetBorderStyle()) {
+      case BorderStyle::SOLID: {
+        *psAppStream << "q\n"
+                     << GetBorderWidth() << " w\n"
+                     << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
+                     << " 2 J 0 j\n";
+
+        for (int32_t i = 1; i < nCharArray; i++) {
+          *psAppStream << rcClient.left +
+                              ((rcClient.right - rcClient.left) / nCharArray) *
+                                  i
+                       << " " << rcClient.bottom << " m\n"
+                       << rcClient.left +
+                              ((rcClient.right - rcClient.left) / nCharArray) *
+                                  i
+                       << " " << rcClient.top << " l S\n";
+        }
+
+        *psAppStream << "Q\n";
+        break;
+      }
+      case BorderStyle::DASH: {
+        *psAppStream << "q\n"
+                     << GetBorderWidth() << " w\n"
+                     << CPWL_Utils::GetColorAppStream(GetBorderColor(), false)
+                     << " 2 J 0 j\n"
+                     << "[" << GetBorderDash().nDash << " "
+                     << GetBorderDash().nGap << "] " << GetBorderDash().nPhase
+                     << " d\n";
+
+        for (int32_t i = 1; i < nCharArray; i++) {
+          *psAppStream << rcClient.left +
+                              ((rcClient.right - rcClient.left) / nCharArray) *
+                                  i
+                       << " " << rcClient.bottom << " m\n"
+                       << rcClient.left +
+                              ((rcClient.right - rcClient.left) / nCharArray) *
+                                  i
+                       << " " << rcClient.top << " l S\n";
+        }
+
+        *psAppStream << "Q\n";
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  std::ostringstream sText;
+  CFX_PointF ptOffset;
+  CPVT_WordRange wrWhole = m_pEdit->GetWholeWordRange();
+  CPVT_WordRange wrSelect = GetSelectWordRange();
+  CPVT_WordRange wrVisible =
+      HasFlag(PES_TEXTOVERFLOW) ? wrWhole : m_pEdit->GetVisibleWordRange();
+
+  CPVT_WordRange wrSelBefore(wrWhole.BeginPos, wrSelect.BeginPos);
+  CPVT_WordRange wrSelAfter(wrSelect.EndPos, wrWhole.EndPos);
+  CPVT_WordRange wrTemp =
+      CPWL_Utils::OverlapWordRange(GetSelectWordRange(), wrVisible);
+  CFX_ByteString sEditSel =
+      CPWL_Utils::GetEditSelAppStream(m_pEdit.get(), ptOffset, &wrTemp);
+
+  if (sEditSel.GetLength() > 0)
+    sText << CPWL_Utils::GetColorAppStream(PWL_DEFAULT_SELBACKCOLOR)
+          << sEditSel;
+
+  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelBefore);
+  CFX_ByteString sEditBefore = CPWL_Utils::GetEditAppStream(
+      m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
+      m_pEdit->GetPasswordChar());
+
+  if (sEditBefore.GetLength() > 0)
+    sText << "BT\n"
+          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditBefore
+          << "ET\n";
+
+  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelect);
+  CFX_ByteString sEditMid = CPWL_Utils::GetEditAppStream(
+      m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
+      m_pEdit->GetPasswordChar());
+
+  if (sEditMid.GetLength() > 0)
+    sText << "BT\n"
+          << CPWL_Utils::GetColorAppStream(CPWL_Color(COLORTYPE_GRAY, 1))
+          << sEditMid << "ET\n";
+
+  wrTemp = CPWL_Utils::OverlapWordRange(wrVisible, wrSelAfter);
+  CFX_ByteString sEditAfter = CPWL_Utils::GetEditAppStream(
+      m_pEdit.get(), ptOffset, &wrTemp, !HasFlag(PES_CHARARRAY),
+      m_pEdit->GetPasswordChar());
+
+  if (sEditAfter.GetLength() > 0)
+    sText << "BT\n"
+          << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEditAfter
+          << "ET\n";
+
+  if (sText.tellp() > 0) {
+    CFX_FloatRect rect = GetClientRect();
+    *psAppStream << "q\n/Tx BMC\n";
+
+    if (!HasFlag(PES_TEXTOVERFLOW))
+      *psAppStream << rect.left << " " << rect.bottom << " "
+                   << rect.right - rect.left << " " << rect.top - rect.bottom
+                   << " re W n\n";
+
+    *psAppStream << sText.str();
+
+    *psAppStream << "EMC\nQ\n";
   }
 }
 
@@ -377,6 +502,25 @@ CPVT_WordRange CPWL_Edit::GetSelectWordRange() const {
   }
 
   return CPVT_WordRange();
+}
+
+CFX_ByteString CPWL_Edit::GetTextAppearanceStream(
+    const CFX_PointF& ptOffset) const {
+  std::ostringstream sRet;
+  CFX_ByteString sEdit = CPWL_Utils::GetEditAppStream(m_pEdit.get(), ptOffset);
+  if (sEdit.GetLength() > 0) {
+    sRet << "BT\n"
+         << CPWL_Utils::GetColorAppStream(GetTextColor()) << sEdit << "ET\n";
+  }
+  return CFX_ByteString(sRet);
+}
+
+CFX_ByteString CPWL_Edit::GetCaretAppearanceStream(
+    const CFX_PointF& ptOffset) const {
+  if (m_pEditCaret)
+    return m_pEditCaret->GetCaretAppearanceStream(ptOffset);
+
+  return CFX_ByteString();
 }
 
 CFX_PointF CPWL_Edit::GetWordRightBottomPoint(const CPVT_WordPlace& wpWord) {

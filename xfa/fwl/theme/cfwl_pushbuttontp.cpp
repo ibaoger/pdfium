@@ -10,8 +10,8 @@
 #include "xfa/fwl/cfwl_themebackground.h"
 #include "xfa/fwl/cfwl_widget.h"
 #include "xfa/fwl/ifwl_themeprovider.h"
-#include "xfa/fxgraphics/cxfa_color.h"
-#include "xfa/fxgraphics/cxfa_path.h"
+#include "xfa/fxgraphics/cfx_color.h"
+#include "xfa/fxgraphics/cfx_path.h"
 
 #define PUSHBUTTON_SIZE_Corner 2
 
@@ -32,7 +32,7 @@ void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
       float fRight = rect.right();
       float fBottom = rect.bottom();
 
-      CXFA_Path strokePath;
+      CFX_Path strokePath;
       strokePath.MoveTo(
           CFX_PointF(rect.left + PUSHBUTTON_SIZE_Corner, rect.top));
       strokePath.LineTo(CFX_PointF(fRight - PUSHBUTTON_SIZE_Corner, rect.top));
@@ -48,10 +48,10 @@ void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
       strokePath.LineTo(
           CFX_PointF(rect.left + PUSHBUTTON_SIZE_Corner, rect.top));
 
-      CXFA_Path fillPath;
+      CFX_Path fillPath;
       fillPath.AddSubpath(&strokePath);
 
-      CXFA_Graphics* pGraphics = pParams->m_pGraphics;
+      CFX_Graphics* pGraphics = pParams->m_pGraphics;
       pGraphics->SaveGraphState();
 
       CFX_RectF rtInner(rect);
@@ -67,7 +67,7 @@ void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
                        m_pThemeData->clrEnd[iColor], &fillPath,
                        FXFILL_ALTERNATE, &pParams->m_matrix);
 
-      CXFA_Color crStroke(m_pThemeData->clrBorder[iColor]);
+      CFX_Color crStroke(m_pThemeData->clrBorder[iColor]);
       pGraphics->SetStrokeColor(&crStroke);
       pGraphics->StrokePath(&strokePath, &pParams->m_matrix);
 
@@ -75,7 +75,7 @@ void CFWL_PushButtonTP::DrawBackground(CFWL_ThemeBackground* pParams) {
       fillPath.AddRectangle(rtInner.left, rtInner.top, rtInner.width,
                             rtInner.height);
 
-      CXFA_Color crFill(m_pThemeData->clrFill[iColor]);
+      CFX_Color crFill(m_pThemeData->clrFill[iColor]);
       pGraphics->SetFillColor(&crFill);
       pGraphics->FillPath(&fillPath, FXFILL_WINDING, &pParams->m_matrix);
       if (pParams->m_dwStates & CFWL_PartState_Focused) {

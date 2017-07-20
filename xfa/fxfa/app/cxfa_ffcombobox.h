@@ -39,7 +39,7 @@ class CXFA_FFComboBox : public CXFA_FFField {
   // IFWL_WidgetDelegate
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
-  void OnDrawWidget(CXFA_Graphics* pGraphics,
+  void OnDrawWidget(CFX_Graphics* pGraphics,
                     const CFX_Matrix* pMatrix = nullptr) override;
 
   virtual void OpenDropDownList();

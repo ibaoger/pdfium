@@ -418,7 +418,7 @@ void CFWL_WidgetMgr::OnProcessMessageToForm(CFWL_Message* pMessage) {
 }
 
 void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
-                                  CXFA_Graphics* pGraphics,
+                                  CFX_Graphics* pGraphics,
                                   const CFX_Matrix* pMatrix) {
   if (!pWidget || !pGraphics)
     return;
@@ -453,7 +453,7 @@ void CFWL_WidgetMgr::OnDrawWidget(CFWL_Widget* pWidget,
 
 void CFWL_WidgetMgr::DrawChild(CFWL_Widget* parent,
                                const CFX_RectF& rtClip,
-                               CXFA_Graphics* pGraphics,
+                               CFX_Graphics* pGraphics,
                                const CFX_Matrix* pMatrix) {
   if (!parent)
     return;

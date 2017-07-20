@@ -719,6 +719,8 @@ static_library("fxcodec") {
     "core/fxcodec/jbig2/JBig2_GrdProc.h",
     "core/fxcodec/jbig2/JBig2_GrrdProc.cpp",
     "core/fxcodec/jbig2/JBig2_GrrdProc.h",
+    "core/fxcodec/jbig2/JBig2_GsidProc.cpp",
+    "core/fxcodec/jbig2/JBig2_GsidProc.h",
     "core/fxcodec/jbig2/JBig2_HtrdProc.cpp",
     "core/fxcodec/jbig2/JBig2_HtrdProc.h",
     "core/fxcodec/jbig2/JBig2_HuffmanDecoder.cpp",
@@ -932,8 +934,6 @@ static_library("fxge") {
     "core/fxge/android/fx_android_imp.cpp",
     "core/fxge/cfx_cliprgn.cpp",
     "core/fxge/cfx_cliprgn.h",
-    "core/fxge/cfx_color.cpp",
-    "core/fxge/cfx_color.h",
     "core/fxge/cfx_defaultrenderdevice.h",
     "core/fxge/cfx_facecache.cpp",
     "core/fxge/cfx_facecache.h",
@@ -1094,12 +1094,12 @@ static_library("fxedit") {
 
 static_library("pdfwindow") {
   sources = [
-    "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
-    "fpdfsdk/pdfwindow/cpwl_appstream.h",
     "fpdfsdk/pdfwindow/cpwl_button.cpp",
     "fpdfsdk/pdfwindow/cpwl_button.h",
     "fpdfsdk/pdfwindow/cpwl_caret.cpp",
     "fpdfsdk/pdfwindow/cpwl_caret.h",
+    "fpdfsdk/pdfwindow/cpwl_color.cpp",
+    "fpdfsdk/pdfwindow/cpwl_color.h",
     "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
     "fpdfsdk/pdfwindow/cpwl_combo_box.h",
     "fpdfsdk/pdfwindow/cpwl_edit.cpp",
@@ -1876,16 +1876,16 @@ if (pdf_enable_xfa) {
       "xfa/fxfa/parser/xfa_resolvenode_rs.h",
       "xfa/fxfa/parser/xfa_utils.cpp",
       "xfa/fxfa/parser/xfa_utils.h",
-      "xfa/fxgraphics/cxfa_color.cpp",
-      "xfa/fxgraphics/cxfa_color.h",
-      "xfa/fxgraphics/cxfa_graphics.cpp",
-      "xfa/fxgraphics/cxfa_graphics.h",
-      "xfa/fxgraphics/cxfa_path.cpp",
-      "xfa/fxgraphics/cxfa_path.h",
-      "xfa/fxgraphics/cxfa_pattern.cpp",
-      "xfa/fxgraphics/cxfa_pattern.h",
-      "xfa/fxgraphics/cxfa_shading.cpp",
-      "xfa/fxgraphics/cxfa_shading.h",
+      "xfa/fxgraphics/cfx_color.cpp",
+      "xfa/fxgraphics/cfx_color.h",
+      "xfa/fxgraphics/cfx_graphics.cpp",
+      "xfa/fxgraphics/cfx_graphics.h",
+      "xfa/fxgraphics/cfx_path.cpp",
+      "xfa/fxgraphics/cfx_path.h",
+      "xfa/fxgraphics/cfx_pattern.cpp",
+      "xfa/fxgraphics/cfx_pattern.h",
+      "xfa/fxgraphics/cfx_shading.cpp",
+      "xfa/fxgraphics/cfx_shading.h",
     ]
     include_dirs = [ "." ]
     deps = [
@@ -1919,7 +1919,6 @@ test("pdfium_unittests") {
     "core/fpdfdoc/cpdf_dest_unittest.cpp",
     "core/fpdfdoc/cpdf_filespec_unittest.cpp",
     "core/fpdfdoc/cpdf_formfield_unittest.cpp",
-    "core/fpdfdoc/cpdf_nametree_unittest.cpp",
     "core/fpdftext/cpdf_linkextract_unittest.cpp",
     "core/fxcodec/codec/fx_codec_a85_unittest.cpp",
     "core/fxcodec/codec/fx_codec_jpx_unittest.cpp",
@@ -1982,10 +1981,7 @@ test("pdfium_unittests") {
     deps += [ "//skia" ]
   }
   if (pdf_enable_v8) {
-    sources += [
-      "fpdfsdk/javascript/public_methods_unittest.cpp",
-      "fpdfsdk/javascript/util_unittest.cpp",
-    ]
+    sources += [ "fpdfsdk/javascript/public_methods_unittest.cpp" ]
     include_dirs += [
       "//v8",
       "//v8/include",
@@ -2084,7 +2080,6 @@ if (pdf_is_standalone) {
     ]
     configs -= [ "//build/config/compiler:chromium_code" ]
     configs += [ "//build/config/compiler:no_chromium_code" ]
-    configs += [ ":pdfium_core_config" ]
   }
 
   group("fuzzers") {

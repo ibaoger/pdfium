@@ -43,11 +43,11 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
   return pPathObj.release();  // Caller takes ownership.
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
-                                                    unsigned int R,
-                                                    unsigned int G,
-                                                    unsigned int B,
-                                                    unsigned int A) {
+DLLEXPORT FPDF_BOOL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
+                                            unsigned int R,
+                                            unsigned int G,
+                                            unsigned int B,
+                                            unsigned int A) {
   if (!path || R > 255 || G > 255 || B > 255 || A > 255)
     return false;
 
@@ -60,11 +60,11 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
-                                                    unsigned int* R,
-                                                    unsigned int* G,
-                                                    unsigned int* B,
-                                                    unsigned int* A) {
+DLLEXPORT FPDF_BOOL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
+                                            unsigned int* R,
+                                            unsigned int* G,
+                                            unsigned int* B,
+                                            unsigned int* A) {
   if (!path || !R || !G || !B || !A)
     return false;
 
@@ -78,8 +78,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path,
-                                                    float width) {
+DLLEXPORT FPDF_BOOL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path, float width) {
   if (!path || width < 0.0f)
     return false;
 
@@ -89,19 +88,19 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
-                                                  unsigned int R,
-                                                  unsigned int G,
-                                                  unsigned int B,
-                                                  unsigned int A) {
+DLLEXPORT FPDF_BOOL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
+                                          unsigned int R,
+                                          unsigned int G,
+                                          unsigned int B,
+                                          unsigned int A) {
   return FPDFPageObj_SetFillColor(path, R, G, B, A);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
-                                                  unsigned int* R,
-                                                  unsigned int* G,
-                                                  unsigned int* B,
-                                                  unsigned int* A) {
+DLLEXPORT FPDF_BOOL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
+                                          unsigned int* R,
+                                          unsigned int* G,
+                                          unsigned int* B,
+                                          unsigned int* A) {
   if (!path || !R || !G || !B || !A)
     return false;
 
@@ -115,9 +114,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
-                                            float x,
-                                            float y) {
+DLLEXPORT FPDF_BOOL FPDFPath_MoveTo(FPDF_PAGEOBJECT path, float x, float y) {
   if (!path)
     return false;
 
@@ -127,9 +124,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_LineTo(FPDF_PAGEOBJECT path,
-                                            float x,
-                                            float y) {
+DLLEXPORT FPDF_BOOL FPDFPath_LineTo(FPDF_PAGEOBJECT path, float x, float y) {
   if (!path)
     return false;
 
@@ -139,13 +134,13 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_LineTo(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
-                                              float x1,
-                                              float y1,
-                                              float x2,
-                                              float y2,
-                                              float x3,
-                                              float y3) {
+DLLEXPORT FPDF_BOOL FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
+                                      float x1,
+                                      float y1,
+                                      float x2,
+                                      float y2,
+                                      float x3,
+                                      float y3) {
   if (!path)
     return false;
 
@@ -157,7 +152,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_Close(FPDF_PAGEOBJECT path) {
+DLLEXPORT FPDF_BOOL FPDFPath_Close(FPDF_PAGEOBJECT path) {
   if (!path)
     return false;
 
@@ -170,9 +165,9 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_Close(FPDF_PAGEOBJECT path) {
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
-                                                 int fillmode,
-                                                 FPDF_BOOL stroke) {
+DLLEXPORT FPDF_BOOL FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
+                                         int fillmode,
+                                         FPDF_BOOL stroke) {
   if (!path)
     return false;
 

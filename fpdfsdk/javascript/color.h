@@ -44,27 +44,29 @@ class color : public CJS_EmbedObj {
              CFX_WideString& sError);
 
   static void ConvertPWLColorToArray(CJS_Runtime* pRuntime,
-                                     const CFX_Color& color,
+                                     const CPWL_Color& color,
                                      CJS_Array* array);
   static void ConvertArrayToPWLColor(CJS_Runtime* pRuntime,
                                      const CJS_Array& array,
-                                     CFX_Color* color);
+                                     CPWL_Color* color);
 
  private:
-  bool PropertyHelper(CJS_Runtime* pRuntime, CJS_PropValue& vp, CFX_Color* val);
+  bool PropertyHelper(CJS_Runtime* pRuntime,
+                      CJS_PropValue& vp,
+                      CPWL_Color* val);
 
-  CFX_Color m_crTransparent;
-  CFX_Color m_crBlack;
-  CFX_Color m_crWhite;
-  CFX_Color m_crRed;
-  CFX_Color m_crGreen;
-  CFX_Color m_crBlue;
-  CFX_Color m_crCyan;
-  CFX_Color m_crMagenta;
-  CFX_Color m_crYellow;
-  CFX_Color m_crDKGray;
-  CFX_Color m_crGray;
-  CFX_Color m_crLTGray;
+  CPWL_Color m_crTransparent;
+  CPWL_Color m_crBlack;
+  CPWL_Color m_crWhite;
+  CPWL_Color m_crRed;
+  CPWL_Color m_crGreen;
+  CPWL_Color m_crBlue;
+  CPWL_Color m_crCyan;
+  CPWL_Color m_crMagenta;
+  CPWL_Color m_crYellow;
+  CPWL_Color m_crDKGray;
+  CPWL_Color m_crGray;
+  CPWL_Color m_crLTGray;
 };
 
 class CJS_Color : public CJS_Object {
