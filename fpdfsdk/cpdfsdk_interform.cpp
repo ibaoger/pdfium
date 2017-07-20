@@ -28,10 +28,10 @@
 #include "fpdfsdk/formfiller/cffl_formfiller.h"
 #include "fpdfsdk/fsdk_actionhandler.h"
 #include "fpdfsdk/fsdk_define.h"
-#include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/ipdfsdk_annothandler.h"
 #include "fpdfsdk/javascript/ijs_event_context.h"
 #include "fpdfsdk/javascript/ijs_runtime.h"
+#include "fpdfsdk/pdfwindow/cpwl_edit_impl.h"
 #include "third_party/base/stl_util.h"
 
 #ifdef PDF_ENABLE_XFA
