@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "291fd659_d94f581a",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "This assumes the current working directory is the PDFium source\u0027s base dir, but there\u0027s no guarantee of that being the case. How about we assume the PDFium source\u0027s base dir is 2 levels up from safetynet_measure.py. Figure that out and then join the rest of the path to it.",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def6dbff_3d79d1ed",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "Do you want to check and see if the selected profiler exists here, or just let it attempt to run and fail?",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b25970_a1d6fd19",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "Probably don\u0027t need the parenthesis.",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14fdfe5b_7e86932c",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "Do you want to just set the default in the output-path parser.add_argument() call?",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40adb198_d714d867",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "We do this when calling from _RunPerfStat() as well. Does it matter?",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ae849a_3162a0a5",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T05:02:49Z",
+      "side": 1,
+      "message": "Mention this is only for Callgrind?",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
