@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "38fb8807_b9b269c3",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Yeah, I think that would make sense if the same methods will be used for XFA.",
+      "parentUuid": "bed19768_f4abf914",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55984257_0f947be8",
         "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdf693b6_b4a7cb43",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Done - Added TODO to look into this.",
+      "parentUuid": "55984257_0f947be8",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1ac36d08_83c1a9ea",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbab32a4_726e7071",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b131d03_405e0356",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2017-07-20T03:10:19Z",
       "side": 1,
       "message": "nit: can you do a followup to rename SetEditSel to SetEditSelection?",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95985ee1_9710abb4",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Yeah, I can do that!",
+      "parentUuid": "7b131d03_405e0356",
       "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b0dbe4fe_a7ae176c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "So if you use negative numbers or numbers that are out of range in SetEditSel(), then the selection is set to be empty, and nothing is deleted. I tested these invalid inputs for SetEditSel() in the GetSelectedText() tests above, so that\u0027s why I didn\u0027t also add similar tests here.\n\nIf you think it would be better to add them for the DeleteSelectedText() tests as well though, I can.\n\nAlso, I realize now that another case I did not check for before with GetSelectedText() is something like SetEditSel(49, 55) where the first index is valid but the second one goes off the end. I can do a follow up to add this case. The expected behavior is that the valid portion would be selected.",
+      "parentUuid": "310b8ec5_be8c8636",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9626e86c_d41c002e",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2017-07-20T03:10:19Z",
       "side": 1,
       "message": "This strikes me as odd, does Clear() only clear the selection and not the entire Edit control? If that\u0027s the case, can you do a followup to rename it ClearSelection or something?",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2d03b6d_3cbd20cb",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Yeah, it is a little weird, but Clear() only clears the selection. I\u0027ll do the follow up.",
+      "parentUuid": "9626e86c_d41c002e",
       "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -118,6 +226,24 @@
       "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3762ae0_75a67137",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9da20bc8_45d2bee2",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -169,6 +295,24 @@
       "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c48648cd_d07052f3",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T20:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d702a7fa_266a245a",
+      "revId": "53d29cb04a32d26fb1a6cd7002a5252320eeb0df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
