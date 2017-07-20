@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92835d9b_40562f5b",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "Our preference is to remove default params. They make the code harder to read at the callsites and hide unused params.",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f693474_d74676c5",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "Return bool instead of CPDF_Object as it\u0027s just pObj.Get and the caller can store if they need it.",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a74d0c2_0b10dcfc",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "This comment is confusing. I think you\u0027re saying:\n\nIf |pFind| is a nullptr we did not find a leaf array to place |pObj| into. We instead\nwill find the left most leaf array in which to place |pObj|.\n\nIs that right?",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f80ff8_164b0ea3",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "Move this up a line before the comment.",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ded71d_8123a5ad",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "Where do 2 + 2 and 2 + 3 come from?",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e2852d7_160a7c52",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T19:29:28Z",
+      "side": 1,
+      "message": "When is this needed?",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
