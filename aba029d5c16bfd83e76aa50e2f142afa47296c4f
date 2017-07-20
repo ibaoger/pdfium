@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fa9cf9e_e710347a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-20T21:33:41Z",
+      "side": 1,
+      "message": "I think this is kinda silly compared to\n\nnamespace {\nconst char kAppendRectString[] \u003d \"re\";\n...\n}",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "aba029d5c16bfd83e76aa50e2f142afa47296c4f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
