@@ -16,6 +16,24 @@
       "revId": "263e34dae058de8ea67a9ad9ac0dc4dc97ab56e0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a945a7ab_33545991",
+        "filename": "fpdfsdk/fpdfannot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-20T00:48:39Z",
+      "side": 1,
+      "message": "Done - yes, I think that would be more consistent.",
+      "parentUuid": "49dc81ca_4feac0fe",
+      "revId": "263e34dae058de8ea67a9ad9ac0dc4dc97ab56e0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
