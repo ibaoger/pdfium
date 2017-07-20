@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab79fe8_a0b4bb56",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T20:47:02Z",
+      "side": 1,
+      "message": "There is a minor difference between CLST_Rect and CFX_FloatRect which is that CLST_Rect does not assume top \u003e bottom. Could this matter?",
+      "range": {
+        "startLine": 562,
+        "startChar": 52,
+        "endLine": 562,
+        "endChar": 0
+      },
+      "revId": "8fd1d6b61834d5437c2767550a27594683c725cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
