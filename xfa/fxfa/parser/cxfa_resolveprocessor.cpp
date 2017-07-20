@@ -671,8 +671,8 @@ void CXFA_ResolveProcessor::DoPredicateFilter(int32_t iCurIndex,
   wsExpression = wsCondition.Mid(2, wsCondition.GetLength() - 3);
   for (int32_t i = iFoundCount - 1; i >= 0; i--) {
     auto pRetValue = pdfium::MakeUnique<CFXJSE_Value>(rnd.m_pSC->GetRuntime());
-    bool bRet = pContext->RunScript(eLangType, wsExpression.AsStringC(),
-                                    pRetValue.get(), rnd.m_Objects[i]);
+    bool bRet = pContext->RunScript(eLangType, wsExpression, pRetValue.get(),
+                                    rnd.m_Objects[i]);
     if (!bRet || !pRetValue->ToBoolean())
       rnd.m_Objects.erase(rnd.m_Objects.begin() + i);
   }

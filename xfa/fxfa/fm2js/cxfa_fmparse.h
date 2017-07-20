@@ -15,7 +15,7 @@
 
 class CXFA_FMParse {
  public:
-  explicit CXFA_FMParse(const CFX_WideStringC& wsFormcalc);
+  explicit CXFA_FMParse(const CFX_WideString& wsFormcalc);
   ~CXFA_FMParse();
 
   std::unique_ptr<CXFA_FMFunctionDefinition> Parse();
@@ -52,7 +52,7 @@ class CXFA_FMParse {
   std::unique_ptr<CXFA_FMSimpleExpression> ParseIndexExpression();
 
   std::unique_ptr<CXFA_FMLexer> m_lexer;
-  CXFA_FMToken* m_pToken;
+  CXFA_FMToken* m_Token;
   bool m_ParserError;
 };
 
