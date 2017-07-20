@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8863be6c_cd2cfb3b",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T21:02:28Z",
+      "side": 1,
+      "message": "It\u0027s original code and .... I have no idea. Keeping as is because it seems to be working ...",
+      "parentUuid": "754f8de1_74b10729",
+      "range": {
+        "startLine": 151,
+        "startChar": 46,
+        "endLine": 151,
+        "endChar": 70
+      },
+      "revId": "2681e6b42c125346dbc4403bc46a9c1256cac8ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "221a1481_fc96f99f",
         "filename": "fpdfsdk/fxedit/fxet_list.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-20T20:59:11Z",
       "side": 1,
       "message": "Could this be ptLeftBottom and ptRightTop instead?",
+      "range": {
+        "startLine": 156,
+        "startChar": 79,
+        "endLine": 156,
+        "endChar": 0
+      },
+      "revId": "2681e6b42c125346dbc4403bc46a9c1256cac8ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dbd18a6_c73a1d40",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T21:02:28Z",
+      "side": 1,
+      "message": "Yes, they could, but I don\u0027t know if that will break InnerToOuter. Going to leave for now and we can look at what all of these methods are doing in the future.",
+      "parentUuid": "221a1481_fc96f99f",
       "range": {
         "startLine": 156,
         "startChar": 79,
