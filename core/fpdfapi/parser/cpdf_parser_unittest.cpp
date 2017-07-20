@@ -13,6 +13,8 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/utils/path_service.h"
 
+using ObjectType = CPDF_Parser::ObjectType;
+
 // Provide a way to read test data from a buffer instead of a file.
 class CFX_TestBufferRead : public IFX_SeekableReadStream {
  public:
@@ -118,7 +120,10 @@ TEST(cpdf_parser, LoadCrossRefV4) {
 
     ASSERT_TRUE(parser.LoadCrossRefV4(0, 0, false));
     const FX_FILESIZE offsets[] = {0, 17, 81, 0, 331, 409};
-    const uint8_t types[] = {0, 1, 1, 0, 1, 1};
+    const ObjectType types[] = {
+        ObjectType::kFree,          ObjectType::kNotCompressed,
+        ObjectType::kNotCompressed, ObjectType::kFree,
+        ObjectType::kNotCompressed, ObjectType::kNotCompressed};
     for (size_t i = 0; i < FX_ArraySize(offsets); ++i) {
       EXPECT_EQ(offsets[i], parser.m_ObjectInfo[i].pos);
       EXPECT_EQ(types[i], parser.m_ObjectInfo[i].type);
@@ -144,7 +149,14 @@ TEST(cpdf_parser, LoadCrossRefV4) {
     ASSERT_TRUE(parser.LoadCrossRefV4(0, 0, false));
     const FX_FILESIZE offsets[] = {0, 0,     0,     25325, 0, 0,    0,
                                    0, 25518, 25635, 0,     0, 25777};
-    const uint8_t types[] = {0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1};
+    const ObjectType types[] = {
+        ObjectType::kFree,          ObjectType::kFree,
+        ObjectType::kFree,          ObjectType::kNotCompressed,
+        ObjectType::kFree,          ObjectType::kFree,
+        ObjectType::kFree,          ObjectType::kFree,
+        ObjectType::kNotCompressed, ObjectType::kNotCompressed,
+        ObjectType::kFree,          ObjectType::kFree,
+        ObjectType::kNotCompressed};
     for (size_t i = 0; i < FX_ArraySize(offsets); ++i) {
       EXPECT_EQ(offsets[i], parser.m_ObjectInfo[i].pos);
       EXPECT_EQ(types[i], parser.m_ObjectInfo[i].type);
@@ -170,7 +182,12 @@ TEST(cpdf_parser, LoadCrossRefV4) {
     ASSERT_TRUE(parser.LoadCrossRefV4(0, 0, false));
     const FX_FILESIZE offsets[] = {0, 0, 0,     25325, 0, 0,    0,
                                    0, 0, 25635, 0,     0, 25777};
-    const uint8_t types[] = {0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1};
+    const ObjectType types[] = {
+        ObjectType::kFree,          ObjectType::kFree, ObjectType::kFree,
+        ObjectType::kNotCompressed, ObjectType::kFree, ObjectType::kFree,
+        ObjectType::kFree,          ObjectType::kFree, ObjectType::kFree,
+        ObjectType::kNotCompressed, ObjectType::kFree, ObjectType::kFree,
+        ObjectType::kNotCompressed};
     for (size_t i = 0; i < FX_ArraySize(offsets); ++i) {
       EXPECT_EQ(offsets[i], parser.m_ObjectInfo[i].pos);
       EXPECT_EQ(types[i], parser.m_ObjectInfo[i].type);
@@ -194,7 +211,11 @@ TEST(cpdf_parser, LoadCrossRefV4) {
 
     ASSERT_TRUE(parser.LoadCrossRefV4(0, 0, false));
     const FX_FILESIZE offsets[] = {0, 23, 0, 0, 0, 45, 179};
-    const uint8_t types[] = {0, 1, 0, 0, 0, 1, 1};
+    const ObjectType types[] = {
+        ObjectType::kFree,         ObjectType::kNotCompressed,
+        ObjectType::kFree,         ObjectType::kFree,
+        ObjectType::kFree,         ObjectType::kNotCompressed,
+        ObjectType::kNotCompressed};
     for (size_t i = 0; i < FX_ArraySize(offsets); ++i) {
       EXPECT_EQ(offsets[i], parser.m_ObjectInfo[i].pos);
       EXPECT_EQ(types[i], parser.m_ObjectInfo[i].type);
