@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "61227409_872044cc",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "Isn\u0027t the restriction \"PDFium src base dir is 2 levels up from safetynet_measure.py\" more convoluted than \"run this from the PDFium src base dir\"? Not that it\u0027s ideal and I plan to fix this in the future, but it sounds worse to presume the location of safetynet_measure.py.",
+      "parentUuid": "291fd659_d94f581a",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "def6dbff_3d79d1ed",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 21
@@ -33,6 +51,24 @@
       "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b06aa8ef_4f68dc30",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "This is going to be called repeatedly and it\u0027s not a cheap check, so I\u0027d rather let it fail on this particular script.",
+      "parentUuid": "def6dbff_3d79d1ed",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0a2c630c_77d1d4b1",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b25970_a1d6fd19",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14fdfe5b_7e86932c",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 21
@@ -67,6 +121,24 @@
       "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dcec2cb_063e8232",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "I like this for two reasons:\n- Checking \"if args.output_path\" works, even though I don\u0027t for now\n- When I have a profiler that runs on Windows, it will make more sense",
+      "parentUuid": "14fdfe5b_7e86932c",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7b66af73_612ec049",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "Changed the script to warn if --interesting-section was passed without callgrind. I\u0027m divided about whether to let it break and make it clear that it does not do anything with perf stat vs silently ignore because it\u0027s not important. Opting for the former on the current version. WDYT?",
+      "parentUuid": "40adb198_d714d867",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08ae849a_3162a0a5",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 21
@@ -101,6 +191,24 @@
       "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5c3948b_ffb1204e",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T15:00:37Z",
+      "side": 1,
+      "message": "Done. Also added checks for this.",
+      "parentUuid": "08ae849a_3162a0a5",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
