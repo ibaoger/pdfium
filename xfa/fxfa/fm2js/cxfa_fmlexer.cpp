@@ -1,4 +1,4 @@
-// Copright 2014 PDFium Authors. All rights reserved.
+// Copyright 2014 PDFium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -110,17 +110,16 @@ CXFA_FMToken::CXFA_FMToken(uint32_t uLineNum)
 
 CXFA_FMToken::~CXFA_FMToken() {}
 
-CXFA_FMLexer::CXFA_FMLexer(const CFX_WideStringC& wsFormCalc)
-    : m_ptr(wsFormCalc.unterminated_c_str()),
-      m_end(m_ptr + wsFormCalc.GetLength() - 1),
-      m_uCurrentLine(1),
-      m_LexerError(false) {}
+CXFA_FMLexer::CXFA_FMLexer(const CFX_WideString& wsFormCalc)
+    : m_input(wsFormCalc), m_uCurrentLine(1), m_LexerError(false) {
+  m_ptr = m_input.c_str();
+}
 
 CXFA_FMLexer::~CXFA_FMLexer() {}
 
 CXFA_FMToken* CXFA_FMLexer::NextToken() {
   // Make sure we don't walk off the end of the string.
-  if (m_ptr > m_end) {
+  if (!*m_ptr) {
     m_pToken = pdfium::MakeUnique<CXFA_FMToken>(m_uCurrentLine);
     m_pToken->m_type = TOKeof;
   } else {
@@ -141,7 +140,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
   while (1) {
     // Make sure we don't walk off the end of the string. If we don't currently
     // have a token type then mark it EOF.
-    if (m_ptr > m_end) {
+    if (!*m_ptr) {
       if (p->m_type == TOKreserver)
         p->m_type = TOKeof;
       return p;
@@ -190,7 +189,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       }
       case '=':
         ++m_ptr;
-        if (m_ptr > m_end) {
+        if (!*m_ptr) {
           p->m_type = TOKassign;
           return p;
         }
@@ -210,7 +209,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '<':
         ++m_ptr;
-        if (m_ptr > m_end) {
+        if (!*m_ptr) {
           p->m_type = TOKlt;
           return p;
         }
@@ -233,7 +232,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '>':
         ++m_ptr;
-        if (m_ptr > m_end) {
+        if (!*m_ptr) {
           p->m_type = TOKgt;
           return p;
         }
@@ -293,7 +292,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         return p;
       case '/': {
         ++m_ptr;
-        if (m_ptr > m_end) {
+        if (!*m_ptr) {
           p->m_type = TOKdiv;
           return p;
         }
@@ -313,7 +312,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       }
       case '.':
         ++m_ptr;
-        if (m_ptr > m_end) {
+        if (!*m_ptr) {
           p->m_type = TOKdot;
           return p;
         }
@@ -377,7 +376,7 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
   const wchar_t* pStart = p;
 
   ++p;
-  if (p > m_end) {
+  if (!*p) {
     m_LexerError = true;
     return p;
   }
@@ -394,7 +393,7 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
     ++p;
     if (ch != '"') {
       // We've hit the end of the input, return the string.
-      if (p > m_end) {
+      if (!*p) {
         m_LexerError = true;
         return p;
       }
@@ -402,7 +401,7 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
       continue;
     }
     // We've hit the end of the input, return the string.
-    if (p > m_end)
+    if (!*p)
       break;
 
     if (!IsValidFormCalcCharacter(p)) {
@@ -416,7 +415,7 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
       break;
 
     ++p;
-    if (p > m_end) {
+    if (!*p) {
       m_LexerError = true;
       return p;
     }
@@ -429,7 +428,7 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
 const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
   const wchar_t* pStart = p;
   ++p;
-  while (p <= m_end && *p) {
+  while (*p) {
     if (!IsValidFormCalcCharacter(p)) {
       t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
       m_LexerError = true;
@@ -440,8 +439,6 @@ const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
       break;
     }
     ++p;
-    if (p > m_end)
-      break;
   }
   t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
   t->m_type = IsKeyword(t->m_wstring);
@@ -451,7 +448,7 @@ const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
 const wchar_t* CXFA_FMLexer::Comment(const wchar_t* p) {
   ++p;
 
-  if (p > m_end)
+  if (!*p)
     return p;
 
   unsigned ch = *p;
@@ -463,7 +460,7 @@ const wchar_t* CXFA_FMLexer::Comment(const wchar_t* p) {
       ++m_uCurrentLine;
       return p;
     }
-    if (p > m_end)
+    if (!*p)
       return p;
     ch = *p;
   }

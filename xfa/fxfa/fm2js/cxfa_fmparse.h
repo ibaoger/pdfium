@@ -15,7 +15,7 @@
 
 class CXFA_FMParse {
  public:
-  explicit CXFA_FMParse(const CFX_WideStringC& wsFormcalc);
+  explicit CXFA_FMParse(const CFX_WideString& wsFormcalc);
   ~CXFA_FMParse();
 
   std::unique_ptr<CXFA_FMFunctionDefinition> Parse();

@@ -30,7 +30,7 @@ class CXFA_ScriptContext {
   void SetEventParam(CXFA_EventParam param) { m_eventParam = param; }
   CXFA_EventParam* GetEventParam() { return &m_eventParam; }
   bool RunScript(XFA_SCRIPTLANGTYPE eScriptType,
-                 const CFX_WideStringC& wsScript,
+                 const CFX_WideString& wsScript,
                  CFXJSE_Value* pRetValue,
                  CXFA_Object* pThisObject);
 

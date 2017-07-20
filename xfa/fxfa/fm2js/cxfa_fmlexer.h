@@ -104,7 +104,7 @@ class CXFA_FMToken {
 
 class CXFA_FMLexer {
  public:
-  explicit CXFA_FMLexer(const CFX_WideStringC& wsFormcalc);
+  explicit CXFA_FMLexer(const CFX_WideString& wsFormcalc);
   ~CXFA_FMLexer();
 
   CXFA_FMToken* NextToken();
@@ -126,8 +126,8 @@ class CXFA_FMLexer {
   XFA_FM_TOKEN IsKeyword(const CFX_WideStringC& p);
   std::unique_ptr<CXFA_FMToken> Scan();
 
+  CFX_WideString m_input;
   const wchar_t* m_ptr;
-  const wchar_t* const m_end;
   uint32_t m_uCurrentLine;
   std::unique_ptr<CXFA_FMToken> m_pToken;
   bool m_LexerError;

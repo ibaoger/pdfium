@@ -18,7 +18,7 @@ const int kMaxAssignmentChainLength = 12;
 
 }  // namespace
 
-CXFA_FMParse::CXFA_FMParse(const CFX_WideStringC& wsFormcalc)
+CXFA_FMParse::CXFA_FMParse(const CFX_WideString& wsFormcalc)
     : m_pToken(nullptr), m_ParserError(false) {
   m_lexer = pdfium::MakeUnique<CXFA_FMLexer>(wsFormcalc);
 }

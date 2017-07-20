@@ -144,7 +144,7 @@ void CXFA_ScriptContext::Initialize(v8::Isolate* pIsolate) {
 }
 
 bool CXFA_ScriptContext::RunScript(XFA_SCRIPTLANGTYPE eScriptType,
-                                   const CFX_WideStringC& wsScript,
+                                   const CFX_WideString& wsScript,
                                    CFXJSE_Value* hRetValue,
                                    CXFA_Object* pThisObject) {
   CFX_ByteString btScript;
@@ -162,7 +162,7 @@ bool CXFA_ScriptContext::RunScript(XFA_SCRIPTLANGTYPE eScriptType,
     }
     btScript = FX_UTF8Encode(wsJavaScript.AsStringC());
   } else {
-    btScript = FX_UTF8Encode(wsScript);
+    btScript = FX_UTF8Encode(wsScript.AsStringC());
   }
   CFX_AutoRestorer<CXFA_Object*> nodeRestorer(&m_pThisObject);
   m_pThisObject = pThisObject;

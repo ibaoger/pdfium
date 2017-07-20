@@ -74,6 +74,6 @@ bool XFAJSEmbedderTest::ExecuteSilenceFailure(const CFX_ByteStringC& input) {
 bool XFAJSEmbedderTest::ExecuteHelper(const CFX_ByteStringC& input) {
   value_ = pdfium::MakeUnique<CFXJSE_Value>(GetIsolate());
   return script_context_->RunScript(XFA_SCRIPTLANGTYPE_Formcalc,
-                                    CFX_WideString::FromUTF8(input).AsStringC(),
+                                    CFX_WideString::FromUTF8(input),
                                     value_.get(), GetXFADocument()->GetRoot());
 }
