@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08dda851_37f4a731",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T21:08:07Z",
+      "side": 1,
+      "message": "In _my_ English E comes before B in the alphabet .....",
+      "parentUuid": "f7619aa7_8eb6ef0b",
+      "range": {
+        "startLine": 145,
+        "startChar": 30,
+        "endLine": 145,
+        "endChar": 0
+      },
+      "revId": "a3c3c1f40aa7c4df378e6d82946ad57c5a013669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9e10f9_5936047b",
         "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-20T20:44:36Z",
       "side": 1,
       "message": "Move to default.",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 0
+      },
+      "revId": "a3c3c1f40aa7c4df378e6d82946ad57c5a013669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fc07d40_7ffe3146",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T21:08:07Z",
+      "side": 1,
+      "message": "I\u0027m going to leave this as is. It shouldn\u0027t be needed and is just here to make the windows compiler happy which doesn\u0027t seem to believe the switch is fully covered. I don\u0027t want to add a default because I want the regular compile to break if the switch isn\u0027t covered.",
+      "parentUuid": "aa9e10f9_5936047b",
       "range": {
         "startLine": 149,
         "startChar": 12,
