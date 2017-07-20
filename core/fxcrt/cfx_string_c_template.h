@@ -35,14 +35,16 @@ class CFX_StringCTemplate {
 
   CFX_StringCTemplate(const CharType* ptr, FX_STRSIZE len)
       : m_Ptr(reinterpret_cast<const UnsignedType*>(ptr)),
-        m_Length(len == -1 ? FXSYS_len(ptr) : len) {}
+        m_Length(len < 0 ? FXSYS_len(ptr) : len) {}
 
   template <typename U = UnsignedType>
   CFX_StringCTemplate(
       const UnsignedType* ptr,
-      FX_STRSIZE size,
+      FX_STRSIZE len,
       typename std::enable_if<!std::is_same<U, CharType>::value>::type* = 0)
-      : m_Ptr(ptr), m_Length(size) {}
+      : m_Ptr(ptr),
+        m_Length(len < 0 ? FXSYS_len(reinterpret_cast<const CharType*>(ptr))
+                         : len) {}
 
   // Deliberately implicit to avoid calling on every string literal.
   // |ch| must be an lvalue that outlives the the CFX_StringCTemplate.
