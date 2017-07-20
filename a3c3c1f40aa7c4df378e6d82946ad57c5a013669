@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7619aa7_8eb6ef0b",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T20:44:36Z",
+      "side": 1,
+      "message": "Why does End come before Begin? Looks alpha sorted, except for this and some other pairs like kStateSave/kStateRestore.",
+      "range": {
+        "startLine": 145,
+        "startChar": 30,
+        "endLine": 145,
+        "endChar": 0
+      },
+      "revId": "a3c3c1f40aa7c4df378e6d82946ad57c5a013669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9e10f9_5936047b",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T20:44:36Z",
+      "side": 1,
+      "message": "Move to default.",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 0
+      },
+      "revId": "a3c3c1f40aa7c4df378e6d82946ad57c5a013669",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
