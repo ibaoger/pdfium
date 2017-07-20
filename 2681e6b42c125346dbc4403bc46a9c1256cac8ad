@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "754f8de1_74b10729",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T20:59:11Z",
+      "side": 1,
+      "message": "I reckon this is the original code, but why is this not inverted in relation to InnerToOuter like x is?",
+      "range": {
+        "startLine": 151,
+        "startChar": 46,
+        "endLine": 151,
+        "endChar": 70
+      },
+      "revId": "2681e6b42c125346dbc4403bc46a9c1256cac8ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "221a1481_fc96f99f",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-20T20:59:11Z",
+      "side": 1,
+      "message": "Could this be ptLeftBottom and ptRightTop instead?",
+      "range": {
+        "startLine": 156,
+        "startChar": 79,
+        "endLine": 156,
+        "endChar": 0
+      },
+      "revId": "2681e6b42c125346dbc4403bc46a9c1256cac8ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
