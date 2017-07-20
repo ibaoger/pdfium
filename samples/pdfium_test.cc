@@ -923,6 +923,8 @@ FPDF_PAGE GetPageForIndex(FPDF_FORMFILLINFO* param,
   FPDF_FORMHANDLE& form_handle = form_fill_info->form_handle;
   FORM_OnAfterLoadPage(page, form_handle);
   FORM_DoPageAAction(page, form_handle, FPDFPAGE_AACTION_OPEN);
+  if (loaded_pages[index])
+    FPDF_ClosePage(loaded_pages[index]);
   loaded_pages[index] = page;
   return page;
 }
