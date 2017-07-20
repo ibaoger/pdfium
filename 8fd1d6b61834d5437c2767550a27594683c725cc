@@ -22,6 +22,30 @@
       "revId": "8fd1d6b61834d5437c2767550a27594683c725cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf161d06_e9289e8b",
+        "filename": "fpdfsdk/fxedit/fxet_list.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-20T20:52:34Z",
+      "side": 1,
+      "message": "It could, but I think from the usage we\u0027re OK. When I originally did this I didn\u0027t flip top/bottom and there were a bunch of test failures.\n\nIf we find it isn\u0027t the case, it\u0027s better to fix the callers where needed I think instead of having this extra class.",
+      "parentUuid": "dab79fe8_a0b4bb56",
+      "range": {
+        "startLine": 562,
+        "startChar": 52,
+        "endLine": 562,
+        "endChar": 0
+      },
+      "revId": "8fd1d6b61834d5437c2767550a27594683c725cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
