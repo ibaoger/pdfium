@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b25642ee_51014ca6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Does the tilde actually get expanded properly in this example?",
+      "range": {
+        "startLine": 19,
+        "startChar": 21,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c9cfa4_1bfca84c",
+        "filename": "testing/tools/githelper.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Do we want to instead just assume the user has a clean tree to start with?",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb60dd1_dcab33ee",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "nit: no blank lines",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f97689b_748e1fa5",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Instead of freezing the measurement script and checking out branches, what do you think of:\n\n1) Creating clones of the local PDFium repo.\n2) Use the clones.\n3) Delete the clones. (Don\u0027t bother with cleanup, it\u0027s like having disposable plates)\n\nTo make a clone efficiently-ish:\n\nmkdir pdfium_clone\ncd pdfium_clone/\ngclient config --cache-dir\u003d/path/to/cache https://pdfium.googlesource.com/pdfium.git\ngclient sync --revision pdfium@$HASH\n\nWith a warmed up cache, it takes 23 seconds to do the above on my workstation inside /run/shm. (Essentially on ramdisk) The cache is 1.4 GB and so is the cloned checkout.",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e9f231e_973ac3a3",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Do we want to optionally take advantage of goma?",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f4a212e_8efae7e9",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Should this check for KeyboardInterrupt and run pool.terminate() ? See testing/tools/test_runner.py.",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcadc701_c1067a1f",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Not needed after a return.",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9342f76d_cc731909",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Is it more useful to have branches or commits?",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "804cc037_8661eda9",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Is there a built-in Python library to help with this?",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "053527b8_0667e0ec",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "How about a purple failed bike shed? (Buildbot uses purple for errors)",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dc14b40_a44fcbab",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Not seeing what this simplifies.",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7824f16a_3826505a",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-20T07:12:12Z",
+      "side": 1,
+      "message": "Since the argument to format() is constant, why not just write out: print \"  the string you want\" ?\n\nAlso, rharrison and I were talking about format() vs % operator, and we went with % operator.\n\nprint \u0027%11s %15s  %s\u0027 % (\u0027% Change\u0027, \u0027Time after\u0027, \u0027Test case\u0027)",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
