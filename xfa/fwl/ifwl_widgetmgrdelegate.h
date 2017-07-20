@@ -8,7 +8,7 @@
 #define XFA_FWL_IFWL_WIDGETMGRDELEGATE_H_
 
 class CFWL_Message;
-class CXFA_Graphics;
+class CFX_Graphics;
 class CFX_Matrix;
 class CFWL_Widget;
 
@@ -17,7 +17,7 @@ class CFWL_WidgetMgrDelegate {
   virtual void OnSetCapability(uint32_t dwCapability) = 0;
   virtual void OnProcessMessageToForm(CFWL_Message* pMessage) = 0;
   virtual void OnDrawWidget(CFWL_Widget* pWidget,
-                            CXFA_Graphics* pGraphics,
+                            CFX_Graphics* pGraphics,
                             const CFX_Matrix* pMatrix) = 0;
 };
 

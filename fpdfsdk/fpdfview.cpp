@@ -101,8 +101,11 @@ void RenderPageImpl(CPDF_PageRenderContext* pContext,
 #endif  // PDF_ENABLE_XFA
 
   // Grayscale output
-  if (flags & FPDF_GRAYSCALE)
-    pContext->m_pOptions->m_ColorMode = CPDF_RenderOptions::kGray;
+  if (flags & FPDF_GRAYSCALE) {
+    pContext->m_pOptions->m_ColorMode = RENDER_COLOR_GRAY;
+    pContext->m_pOptions->m_ForeColor = 0;
+    pContext->m_pOptions->m_BackColor = 0xffffff;
+  }
 
   const CPDF_OCContext::UsageType usage =
       (flags & FPDF_PRINTING) ? CPDF_OCContext::Print : CPDF_OCContext::View;
@@ -320,28 +323,8 @@ CPDF_PageObject* CPDFPageObjectFromFPDFPageObject(FPDF_PAGEOBJECT page_object) {
   return static_cast<CPDF_PageObject*>(page_object);
 }
 
-CPDF_Object* CPDFObjectFromFPDFAttachment(FPDF_ATTACHMENT attachment) {
-  return static_cast<CPDF_Object*>(attachment);
-}
-
-CFX_ByteString CFXByteStringFromFPDFWideString(FPDF_WIDESTRING wide_string) {
-  return CFX_WideString::FromUTF16LE(wide_string,
-                                     CFX_WideString::WStringLength(wide_string))
-      .UTF8Encode();
-}
-
 CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {
   return static_cast<CFX_DIBitmap*>(bitmap);
-}
-
-unsigned long Utf16EncodeMaybeCopyAndReturnLength(const CFX_WideString& text,
-                                                  void* buffer,
-                                                  unsigned long buflen) {
-  CFX_ByteString encodedText = text.UTF16LE_Encode();
-  unsigned long len = encodedText.GetLength();
-  if (buffer && len <= buflen)
-    memcpy(buffer, encodedText.c_str(), len);
-  return len;
 }
 
 CFX_RetainPtr<IFX_SeekableReadStream> MakeSeekableReadStream(
@@ -475,10 +458,6 @@ DLLEXPORT void STDCALL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi) {
   g_pdfium_print_text_with_gdi = !!use_gdi;
 }
 #endif  // PDFIUM_PRINT_TEXT_WITH_GDI
-
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintPostscriptLevel(int postscript_level) {
-  return postscript_level != 1 && FPDF_SetPrintMode(postscript_level);
-}
 
 DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintMode(int mode) {
   if (mode < FPDF_PRINTMODE_EMF || mode > FPDF_PRINTMODE_POSTSCRIPT3)
@@ -1322,7 +1301,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
     return nullptr;
 
   CPDF_NameTree name_tree(pDoc, "Dests");
-  return name_tree.LookupNamedDest(pDoc, PDF_DecodeText(CFX_ByteString(name)));
+  return name_tree.LookupNamedDest(pDoc, name);
 }
 
 #ifdef PDF_ENABLE_XFA
@@ -1398,7 +1377,6 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
 
   CPDF_Object* pDestObj = nullptr;
   CFX_ByteString bsName;
-  CFX_WideString wsName;
   CPDF_NameTree nameTree(pDoc, "Dests");
   int count = nameTree.GetCount();
   if (index >= count) {
@@ -1422,9 +1400,8 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
         break;
       i++;
     }
-    wsName = PDF_DecodeText(bsName);
   } else {
-    pDestObj = nameTree.LookupValueAndName(index, &wsName);
+    pDestObj = nameTree.LookupValueAndName(index, &bsName);
   }
   if (!pDestObj)
     return nullptr;
@@ -1436,6 +1413,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
   if (!pDestObj->IsArray())
     return nullptr;
 
+  CFX_WideString wsName = PDF_DecodeText(bsName);
   CFX_ByteString utf16Name = wsName.UTF16LE_Encode();
   int len = utf16Name.GetLength();
   if (!buffer) {

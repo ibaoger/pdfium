@@ -875,8 +875,8 @@ bool CJS_PublicMethods::AFNumber_Format(CJS_Runtime* pRuntime,
         CJS_Array aProp;
         vProp.GetJSValue()->ConvertToArray(pRuntime, aProp);
 
-        CFX_Color crProp;
-        CFX_Color crColor;
+        CPWL_Color crProp;
+        CPWL_Color crColor;
         color::ConvertArrayToPWLColor(pRuntime, aProp, &crProp);
         color::ConvertArrayToPWLColor(pRuntime, arColor, &crColor);
 

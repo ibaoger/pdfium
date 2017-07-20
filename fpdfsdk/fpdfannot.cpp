@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
+
 #include "public/fpdf_annot.h"
 
 #include <memory>
@@ -172,6 +174,10 @@ bool HasAPStream(const CPDF_Dictionary* pAnnotDict) {
   return !!FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
 }
 
+CFX_ByteString CFXByteStringFromFPDFWideString(FPDF_WIDESTRING text) {
+  return CFX_WideString::FromUTF16LE(text, CFX_WideString::WStringLength(text))
+      .UTF8Encode();
+}
 void UpdateContentStream(CPDF_Form* pForm, CPDF_Stream* pStream) {
   ASSERT(pForm);
   ASSERT(pStream);
@@ -386,7 +392,7 @@ DLLEXPORT int STDCALL FPDFAnnot_GetObjectCount(FPDF_ANNOTATION annot) {
 
     pAnnot->SetForm(pStream);
   }
-  return pdfium::CollectionSize<int>(*pAnnot->GetForm()->GetPageObjectList());
+  return pAnnot->GetForm()->GetPageObjectList()->size();
 }
 
 DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFAnnot_GetObject(FPDF_ANNOTATION annot,
@@ -758,9 +764,14 @@ DLLEXPORT unsigned long STDCALL FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
   if (!pAnnotDict)
     return 0;
 
-  return Utf16EncodeMaybeCopyAndReturnLength(
-      pAnnotDict->GetUnicodeTextFor(CFXByteStringFromFPDFWideString(key)),
-      buffer, buflen);
+  CFX_ByteString contents =
+      pAnnotDict->GetUnicodeTextFor(CFXByteStringFromFPDFWideString(key))
+          .UTF16LE_Encode();
+  unsigned long len = contents.GetLength();
+  if (buffer && buflen >= len)
+    memcpy(buffer, contents.c_str(), len);
+
+  return len;
 }
 
 DLLEXPORT int STDCALL FPDFAnnot_GetFlags(FPDF_ANNOTATION annot) {
@@ -803,4 +814,23 @@ DLLEXPORT int STDCALL FPDFAnnot_GetFormFieldFlags(FPDF_PAGE page,
   CPDF_InterForm interform(pPage->m_pDocument.Get());
   CPDF_FormField* pFormField = interform.GetFieldByDict(pAnnotDict);
   return pFormField ? pFormField->GetFieldFlags() : FPDF_FORMFLAG_NONE;
+}
+
+DLLEXPORT FPDF_ANNOTATION STDCALL
+FPDFAnnot_GetFormFieldAtPoint(FPDF_FORMHANDLE hHandle,
+                              FPDF_PAGE page,
+                              double page_x,
+                              double page_y) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!hHandle || !pPage)
+    return nullptr;
+
+  CPDF_InterForm interform(pPage->m_pDocument.Get());
+  int annot_index = -1;
+  CPDF_FormControl* pFormCtrl = interform.GetControlAtPoint(
+      pPage, CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)),
+      &annot_index);
+  if (!pFormCtrl || annot_index == -1)
+    return nullptr;
+  return FPDFPage_GetAnnot(page, annot_index);
 }

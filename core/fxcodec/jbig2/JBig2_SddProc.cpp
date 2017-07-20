@@ -279,6 +279,7 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
   uint32_t nTmp;
   uint32_t SBNUMSYMS;
   uint8_t SBSYMCODELEN;
+  std::vector<JBig2HuffmanCode> SBSYMCODES;
   uint32_t IDI;
   int32_t RDXI, RDYI;
   uint32_t BMSIZE;
@@ -344,15 +345,16 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
           pDecoder->SBSTRIPS = 1;
           pDecoder->SBNUMSYMS = SDNUMINSYMS + NSYMSDECODED;
           SBNUMSYMS = pDecoder->SBNUMSYMS;
-          std::vector<JBig2HuffmanCode> SBSYMCODES(SBNUMSYMS);
+          SBSYMCODES.resize(SBNUMSYMS);
           nTmp = 1;
-          while (static_cast<uint32_t>(1 << nTmp) < SBNUMSYMS)
-            ++nTmp;
-          for (I = 0; I < SBNUMSYMS; ++I) {
+          while ((uint32_t)(1 << nTmp) < SBNUMSYMS) {
+            nTmp++;
+          }
+          for (I = 0; I < SBNUMSYMS; I++) {
             SBSYMCODES[I].codelen = nTmp;
             SBSYMCODES[I].code = I;
           }
-          pDecoder->SBSYMCODES = std::move(SBSYMCODES);
+          pDecoder->SBSYMCODES = SBSYMCODES.data();
           SBSYMS.resize(SBNUMSYMS);
           std::copy(SDINSYMS, SDINSYMS + SDNUMINSYMS, SBSYMS.begin());
           for (size_t i = 0; i < NSYMSDECODED; ++i)
@@ -489,8 +491,9 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
       if (!BHC)
         continue;
 
-      for (I = HCFIRSTSYM; I < NSYMSDECODED; ++I) {
-        SDNEWSYMS[I] = BHC->subImage(nTmp, 0, SDNEWSYMWIDTHS[I], HCHEIGHT);
+      for (I = HCFIRSTSYM; I < NSYMSDECODED; I++) {
+        SDNEWSYMS[I] = pdfium::WrapUnique<CJBig2_Image>(
+            BHC->subImage(nTmp, 0, SDNEWSYMWIDTHS[I], HCHEIGHT));
         nTmp += SDNEWSYMWIDTHS[I];
       }
     }
@@ -509,7 +512,7 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
       return nullptr;
 
     if (EXRUNLENGTH != 0) {
-      for (I = EXINDEX; I < EXINDEX + EXRUNLENGTH; ++I) {
+      for (I = EXINDEX; I < EXINDEX + EXRUNLENGTH; I++) {
         if (CUREXFLAG)
           num_ex_syms++;
 
@@ -523,7 +526,7 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
     return nullptr;
 
   I = J = 0;
-  for (I = 0; I < SDNUMINSYMS + SDNUMNEWSYMS; ++I) {
+  for (I = 0; I < SDNUMINSYMS + SDNUMNEWSYMS; I++) {
     if (!EXFLAGS[I] || J >= SDNUMEXSYMS)
       continue;
     if (I < SDNUMINSYMS) {

@@ -18,8 +18,8 @@
 #include "xfa/fxfa/cxfa_ffapp.h"
 #include "xfa/fxfa/cxfa_ffpageview.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
-#include "xfa/fxgraphics/cxfa_color.h"
-#include "xfa/fxgraphics/cxfa_path.h"
+#include "xfa/fxgraphics/cfx_color.h"
+#include "xfa/fxgraphics/cfx_path.h"
 
 CXFA_FFPushButton::CXFA_FFPushButton(CXFA_WidgetAcc* pDataAcc)
     : CXFA_FFField(pDataAcc), m_pOldDelegate(nullptr) {}
@@ -28,7 +28,7 @@ CXFA_FFPushButton::~CXFA_FFPushButton() {
   CXFA_FFPushButton::UnloadWidget();
 }
 
-void CXFA_FFPushButton::RenderWidget(CXFA_Graphics* pGS,
+void CXFA_FFPushButton::RenderWidget(CFX_Graphics* pGS,
                                      CFX_Matrix* pMatrix,
                                      uint32_t dwStatus) {
   if (!IsMatchVisibleStatus(dwStatus))
@@ -166,7 +166,7 @@ void CXFA_FFPushButton::LayoutHighlightCaption() {
     m_pDownTextLayout->Layout(sz);
 }
 
-void CXFA_FFPushButton::RenderHighlightCaption(CXFA_Graphics* pGS,
+void CXFA_FFPushButton::RenderHighlightCaption(CFX_Graphics* pGS,
                                                CFX_Matrix* pMatrix) {
   CXFA_TextLayout* pCapTextLayout = m_pDataAcc->GetCaptionTextLayout();
   CXFA_Caption caption = m_pDataAcc->GetCaption();
@@ -205,7 +205,7 @@ void CXFA_FFPushButton::OnProcessEvent(CFWL_Event* pEvent) {
   CXFA_FFField::OnProcessEvent(pEvent);
 }
 
-void CXFA_FFPushButton::OnDrawWidget(CXFA_Graphics* pGraphics,
+void CXFA_FFPushButton::OnDrawWidget(CFX_Graphics* pGraphics,
                                      const CFX_Matrix* pMatrix) {
   if (m_pNormalWidget->GetStylesEx() & XFA_FWL_PSBSTYLEEXT_HiliteInverted) {
     if ((m_pNormalWidget->GetStates() & FWL_STATE_PSB_Pressed) &&
@@ -213,10 +213,10 @@ void CXFA_FFPushButton::OnDrawWidget(CXFA_Graphics* pGraphics,
       CFX_RectF rtFill(0, 0, m_pNormalWidget->GetWidgetRect().Size());
       float fLineWith = GetLineWidth();
       rtFill.Deflate(fLineWith, fLineWith);
-      CXFA_Color cr(FXARGB_MAKE(128, 128, 255, 255));
+      CFX_Color cr(FXARGB_MAKE(128, 128, 255, 255));
       pGraphics->SetFillColor(&cr);
 
-      CXFA_Path path;
+      CFX_Path path;
       path.AddRectangle(rtFill.left, rtFill.top, rtFill.width, rtFill.height);
       pGraphics->FillPath(&path, FXFILL_WINDING, (CFX_Matrix*)pMatrix);
     }
@@ -227,11 +227,11 @@ void CXFA_FFPushButton::OnDrawWidget(CXFA_Graphics* pGraphics,
     if ((m_pNormalWidget->GetStates() & FWL_STATE_PSB_Pressed) &&
         (m_pNormalWidget->GetStates() & FWL_STATE_PSB_Hovered)) {
       float fLineWidth = GetLineWidth();
-      CXFA_Color cr(FXARGB_MAKE(255, 128, 255, 255));
+      CFX_Color cr(FXARGB_MAKE(255, 128, 255, 255));
       pGraphics->SetStrokeColor(&cr);
       pGraphics->SetLineWidth(fLineWidth);
 
-      CXFA_Path path;
+      CFX_Path path;
       CFX_RectF rect = m_pNormalWidget->GetWidgetRect();
       path.AddRectangle(0, 0, rect.width, rect.height);
       pGraphics->StrokePath(&path, (CFX_Matrix*)pMatrix);

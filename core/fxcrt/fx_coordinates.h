@@ -543,34 +543,11 @@ class CFX_FloatRect {
     Deflate(rt.left, rt.bottom, rt.right, rt.top);
   }
 
-  CFX_FloatRect GetDeflated(float x, float y) const {
-    if (IsEmpty())
-      return CFX_FloatRect();
-
-    CFX_FloatRect that = *this;
-    that.Deflate(x, y);
-    that.Normalize();
-    return that;
-  }
-
   void Translate(float e, float f) {
     left += e;
     right += e;
     top += f;
     bottom += f;
-  }
-
-  void Scale(float fScale) {
-    float fHalfWidth = (right - left) / 2.0f;
-    float fHalfHeight = (top - bottom) / 2.0f;
-
-    float center_x = (left + right) / 2;
-    float center_y = (top + bottom) / 2;
-
-    left = center_x - fHalfWidth * fScale;
-    bottom = center_y - fHalfHeight * fScale;
-    right = center_x + fHalfWidth * fScale;
-    top = center_y + fHalfHeight * fScale;
   }
 
   static CFX_FloatRect GetBBox(const CFX_PointF* pPoints, int nPoints);

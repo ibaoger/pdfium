@@ -10,7 +10,6 @@
 #include <sstream>
 #include <vector>
 
-#include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
 #include "fpdfsdk/pdfwindow/cpwl_utils.h"
 #include "third_party/base/ptr_util.h"
@@ -245,6 +244,39 @@ void CPWL_Wnd::InvalidateRectMove(const CFX_FloatRect& rcOld,
   InvalidateRect(&rcUnion);
 }
 
+void CPWL_Wnd::GetAppearanceStream(std::ostringstream* psAppStream) {
+  if (IsValid() && IsVisible()) {
+    GetThisAppearanceStream(psAppStream);
+    GetChildAppearanceStream(psAppStream);
+  }
+}
+
+// if don't set,Get default apperance stream
+void CPWL_Wnd::GetThisAppearanceStream(std::ostringstream* psAppStream) {
+  CFX_FloatRect rectWnd = GetWindowRect();
+  if (rectWnd.IsEmpty())
+    return;
+
+  if (HasFlag(PWS_BACKGROUND))
+    *psAppStream << CPWL_Utils::GetRectFillAppStream(rectWnd,
+                                                     GetBackgroundColor());
+
+  if (HasFlag(PWS_BORDER)) {
+    *psAppStream << CPWL_Utils::GetBorderAppStream(
+        rectWnd, (float)GetBorderWidth(), GetBorderColor(),
+        GetBorderLeftTopColor(GetBorderStyle()),
+        GetBorderRightBottomColor(GetBorderStyle()), GetBorderStyle(),
+        GetBorderDash());
+  }
+}
+
+void CPWL_Wnd::GetChildAppearanceStream(std::ostringstream* psAppStream) {
+  for (CPWL_Wnd* pChild : m_Children) {
+    if (pChild)
+      pChild->GetAppearanceStream(psAppStream);
+  }
+}
+
 void CPWL_Wnd::DrawAppearance(CFX_RenderDevice* pDevice,
                               CFX_Matrix* pUser2Device) {
   if (IsValid() && IsVisible()) {
@@ -260,17 +292,23 @@ void CPWL_Wnd::DrawThisAppearance(CFX_RenderDevice* pDevice,
     return;
 
   if (HasFlag(PWS_BACKGROUND)) {
-    float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
-    pDevice->DrawFillRect(pUser2Device, rectWnd.GetDeflated(width, width),
-                          GetBackgroundColor(), GetTransparency());
+    CFX_FloatRect rcClient = rectWnd;
+    if (!rcClient.IsEmpty()) {
+      float width =
+          static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
+      rcClient.Deflate(width, width);
+      rcClient.Normalize();
+    }
+    CPWL_Utils::DrawFillRect(pDevice, pUser2Device, rcClient,
+                             GetBackgroundColor(), GetTransparency());
   }
 
   if (HasFlag(PWS_BORDER)) {
-    pDevice->DrawBorder(pUser2Device, rectWnd,
-                        static_cast<float>(GetBorderWidth()), GetBorderColor(),
-                        GetBorderLeftTopColor(GetBorderStyle()),
-                        GetBorderRightBottomColor(GetBorderStyle()),
-                        GetBorderStyle(), GetTransparency());
+    CPWL_Utils::DrawBorder(pDevice, pUser2Device, rectWnd,
+                           (float)GetBorderWidth(), GetBorderColor(),
+                           GetBorderLeftTopColor(GetBorderStyle()),
+                           GetBorderRightBottomColor(GetBorderStyle()),
+                           GetBorderStyle(), GetTransparency());
   }
 }
 
@@ -430,9 +468,13 @@ CFX_FloatRect CPWL_Wnd::GetWindowRect() const {
 
 CFX_FloatRect CPWL_Wnd::GetClientRect() const {
   CFX_FloatRect rcWindow = GetWindowRect();
+  CFX_FloatRect rcClient = rcWindow;
+  if (!rcClient.IsEmpty()) {
+    float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
+    rcClient.Deflate(width, width);
+    rcClient.Normalize();
+  }
 
-  float width = static_cast<float>(GetBorderWidth() + GetInnerBorderWidth());
-  CFX_FloatRect rcClient = rcWindow.GetDeflated(width, width);
   if (CPWL_ScrollBar* pVSB = GetVScrollBar())
     rcClient.right -= pVSB->GetScrollBarWidth();
 
@@ -458,15 +500,15 @@ void CPWL_Wnd::AddFlag(uint32_t dwFlags) {
   m_sPrivateParam.dwFlags |= dwFlags;
 }
 
-CFX_Color CPWL_Wnd::GetBackgroundColor() const {
+CPWL_Color CPWL_Wnd::GetBackgroundColor() const {
   return m_sPrivateParam.sBackgroundColor;
 }
 
-void CPWL_Wnd::SetBackgroundColor(const CFX_Color& color) {
+void CPWL_Wnd::SetBackgroundColor(const CPWL_Color& color) {
   m_sPrivateParam.sBackgroundColor = color;
 }
 
-CFX_Color CPWL_Wnd::GetTextColor() const {
+CPWL_Color CPWL_Wnd::GetTextColor() const {
   return m_sPrivateParam.sTextColor;
 }
 
@@ -487,8 +529,8 @@ int32_t CPWL_Wnd::GetInnerBorderWidth() const {
   return 0;
 }
 
-CFX_Color CPWL_Wnd::GetBorderColor() const {
-  return HasFlag(PWS_BORDER) ? m_sPrivateParam.sBorderColor : CFX_Color();
+CPWL_Color CPWL_Wnd::GetBorderColor() const {
+  return HasFlag(PWS_BORDER) ? m_sPrivateParam.sBorderColor : CPWL_Color();
 }
 
 const CPWL_Dash& CPWL_Wnd::GetBorderDash() const {
@@ -695,25 +737,25 @@ IPVT_FontMap* CPWL_Wnd::GetFontMap() const {
   return m_sPrivateParam.pFontMap;
 }
 
-CFX_Color CPWL_Wnd::GetBorderLeftTopColor(BorderStyle nBorderStyle) const {
+CPWL_Color CPWL_Wnd::GetBorderLeftTopColor(BorderStyle nBorderStyle) const {
   switch (nBorderStyle) {
     case BorderStyle::BEVELED:
-      return CFX_Color(COLORTYPE_GRAY, 1);
+      return CPWL_Color(COLORTYPE_GRAY, 1);
     case BorderStyle::INSET:
-      return CFX_Color(COLORTYPE_GRAY, 0.5f);
+      return CPWL_Color(COLORTYPE_GRAY, 0.5f);
     default:
-      return CFX_Color();
+      return CPWL_Color();
   }
 }
 
-CFX_Color CPWL_Wnd::GetBorderRightBottomColor(BorderStyle nBorderStyle) const {
+CPWL_Color CPWL_Wnd::GetBorderRightBottomColor(BorderStyle nBorderStyle) const {
   switch (nBorderStyle) {
     case BorderStyle::BEVELED:
       return GetBackgroundColor() / 2.0f;
     case BorderStyle::INSET:
-      return CFX_Color(COLORTYPE_GRAY, 0.75f);
+      return CPWL_Color(COLORTYPE_GRAY, 0.75f);
     default:
-      return CFX_Color();
+      return CPWL_Color();
   }
 }
 

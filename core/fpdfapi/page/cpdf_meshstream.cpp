@@ -242,22 +242,19 @@ bool CPDF_MeshStream::ReadVertex(const CFX_Matrix& pObject2Bitmap,
   return true;
 }
 
-std::vector<CPDF_MeshVertex> CPDF_MeshStream::ReadVertexRow(
-    const CFX_Matrix& pObject2Bitmap,
-    int count) {
-  std::vector<CPDF_MeshVertex> vertices;
-  for (int i = 0; i < count; ++i) {
+bool CPDF_MeshStream::ReadVertexRow(const CFX_Matrix& pObject2Bitmap,
+                                    int count,
+                                    CPDF_MeshVertex* vertex) {
+  for (int i = 0; i < count; i++) {
     if (m_BitStream.IsEOF() || !CanReadCoords())
-      return std::vector<CPDF_MeshVertex>();
+      return false;
 
-    vertices.push_back(CPDF_MeshVertex());
-    CPDF_MeshVertex& vertex = vertices.back();
-    vertex.position = pObject2Bitmap.Transform(ReadCoords());
+    vertex[i].position = pObject2Bitmap.Transform(ReadCoords());
     if (!CanReadColor())
-      return std::vector<CPDF_MeshVertex>();
+      return false;
 
-    std::tie(vertex.r, vertex.g, vertex.b) = ReadColor();
+    std::tie(vertex[i].r, vertex[i].g, vertex[i].b) = ReadColor();
     m_BitStream.ByteAlign();
   }
-  return vertices;
+  return true;
 }

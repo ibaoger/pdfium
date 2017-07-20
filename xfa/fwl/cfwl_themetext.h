@@ -18,7 +18,7 @@ class CFWL_ThemeText : public CFWL_ThemePart {
   CFX_WideString m_wsText;
   uint32_t m_dwTTOStyles;
   int32_t m_iTTOAlign;
-  CXFA_Graphics* m_pGraphics;
+  CFX_Graphics* m_pGraphics;
 };
 
 #endif  // XFA_FWL_CFWL_THEMETEXT_H_

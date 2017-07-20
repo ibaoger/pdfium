@@ -39,24 +39,24 @@ JSMethodSpec CJS_Color::MethodSpecs[] = {{"convert", convert_static},
 IMPLEMENT_JS_CLASS(CJS_Color, color)
 
 color::color(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {
-  m_crTransparent = CFX_Color(COLORTYPE_TRANSPARENT);
-  m_crBlack = CFX_Color(COLORTYPE_GRAY, 0);
-  m_crWhite = CFX_Color(COLORTYPE_GRAY, 1);
-  m_crRed = CFX_Color(COLORTYPE_RGB, 1, 0, 0);
-  m_crGreen = CFX_Color(COLORTYPE_RGB, 0, 1, 0);
-  m_crBlue = CFX_Color(COLORTYPE_RGB, 0, 0, 1);
-  m_crCyan = CFX_Color(COLORTYPE_CMYK, 1, 0, 0, 0);
-  m_crMagenta = CFX_Color(COLORTYPE_CMYK, 0, 1, 0, 0);
-  m_crYellow = CFX_Color(COLORTYPE_CMYK, 0, 0, 1, 0);
-  m_crDKGray = CFX_Color(COLORTYPE_GRAY, 0.25);
-  m_crGray = CFX_Color(COLORTYPE_GRAY, 0.5);
-  m_crLTGray = CFX_Color(COLORTYPE_GRAY, 0.75);
+  m_crTransparent = CPWL_Color(COLORTYPE_TRANSPARENT);
+  m_crBlack = CPWL_Color(COLORTYPE_GRAY, 0);
+  m_crWhite = CPWL_Color(COLORTYPE_GRAY, 1);
+  m_crRed = CPWL_Color(COLORTYPE_RGB, 1, 0, 0);
+  m_crGreen = CPWL_Color(COLORTYPE_RGB, 0, 1, 0);
+  m_crBlue = CPWL_Color(COLORTYPE_RGB, 0, 0, 1);
+  m_crCyan = CPWL_Color(COLORTYPE_CMYK, 1, 0, 0, 0);
+  m_crMagenta = CPWL_Color(COLORTYPE_CMYK, 0, 1, 0, 0);
+  m_crYellow = CPWL_Color(COLORTYPE_CMYK, 0, 0, 1, 0);
+  m_crDKGray = CPWL_Color(COLORTYPE_GRAY, 0.25);
+  m_crGray = CPWL_Color(COLORTYPE_GRAY, 0.5);
+  m_crLTGray = CPWL_Color(COLORTYPE_GRAY, 0.75);
 }
 
 color::~color() {}
 
 void color::ConvertPWLColorToArray(CJS_Runtime* pRuntime,
-                                   const CFX_Color& color,
+                                   const CPWL_Color& color,
                                    CJS_Array* array) {
   switch (color.nColorType) {
     case COLORTYPE_TRANSPARENT:
@@ -84,7 +84,7 @@ void color::ConvertPWLColorToArray(CJS_Runtime* pRuntime,
 
 void color::ConvertArrayToPWLColor(CJS_Runtime* pRuntime,
                                    const CJS_Array& array,
-                                   CFX_Color* color) {
+                                   CPWL_Color* color) {
   int nArrayLen = array.GetLength(pRuntime);
   if (nArrayLen < 1)
     return;
@@ -119,14 +119,14 @@ void color::ConvertArrayToPWLColor(CJS_Runtime* pRuntime,
   }
 
   if (sSpace == "T") {
-    *color = CFX_Color(COLORTYPE_TRANSPARENT);
+    *color = CPWL_Color(COLORTYPE_TRANSPARENT);
   } else if (sSpace == "G") {
-    *color = CFX_Color(COLORTYPE_GRAY, (float)d1);
+    *color = CPWL_Color(COLORTYPE_GRAY, (float)d1);
   } else if (sSpace == "RGB") {
-    *color = CFX_Color(COLORTYPE_RGB, (float)d1, (float)d2, (float)d3);
+    *color = CPWL_Color(COLORTYPE_RGB, (float)d1, (float)d2, (float)d3);
   } else if (sSpace == "CMYK") {
     *color =
-        CFX_Color(COLORTYPE_CMYK, (float)d1, (float)d2, (float)d3, (float)d4);
+        CPWL_Color(COLORTYPE_CMYK, (float)d1, (float)d2, (float)d3, (float)d4);
   }
 }
 
@@ -204,7 +204,7 @@ bool color::ltGray(CJS_Runtime* pRuntime,
 
 bool color::PropertyHelper(CJS_Runtime* pRuntime,
                            CJS_PropValue& vp,
-                           CFX_Color* var) {
+                           CPWL_Color* var) {
   CJS_Array array;
   if (vp.IsGetting()) {
     ConvertPWLColorToArray(pRuntime, *var, &array);
@@ -230,7 +230,7 @@ bool color::convert(CJS_Runtime* pRuntime,
   if (!params[0].ConvertToArray(pRuntime, aSource))
     return false;
 
-  CFX_Color crSource;
+  CPWL_Color crSource;
   ConvertArrayToPWLColor(pRuntime, aSource, &crSource);
 
   CFX_ByteString sDestSpace = params[1].ToCFXByteString(pRuntime);
@@ -247,7 +247,7 @@ bool color::convert(CJS_Runtime* pRuntime,
   }
 
   CJS_Array aDest;
-  CFX_Color crDest = crSource.ConvertColorType(nColorType);
+  CPWL_Color crDest = crSource.ConvertColorType(nColorType);
   ConvertPWLColorToArray(pRuntime, crDest, &aDest);
   vRet = CJS_Value(pRuntime, aDest);
 
@@ -268,8 +268,8 @@ bool color::equal(CJS_Runtime* pRuntime,
   if (!params[1].ConvertToArray(pRuntime, array2))
     return false;
 
-  CFX_Color color1;
-  CFX_Color color2;
+  CPWL_Color color1;
+  CPWL_Color color2;
   ConvertArrayToPWLColor(pRuntime, array1, &color1);
   ConvertArrayToPWLColor(pRuntime, array2, &color2);
   color1 = color1.ConvertColorType(color2.nColorType);

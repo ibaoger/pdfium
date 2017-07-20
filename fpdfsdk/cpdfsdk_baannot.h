@@ -36,8 +36,6 @@ class CPDFSDK_BAAnnot : public CPDFSDK_Annot {
   CPDF_Dictionary* GetAnnotDict() const;
   CPDF_Annot* GetPDFPopupAnnot() const;
 
-  CPDF_Dictionary* GetAPDict() const;
-
   void SetContents(const CFX_WideString& sContents);
   CFX_WideString GetContents() const;
 
@@ -89,6 +87,12 @@ class CPDFSDK_BAAnnot : public CPDFSDK_Annot {
                   const CPDF_RenderOptions* pOptions);
 
   void ClearCachedAP();
+
+  void WriteAppearance(const CFX_ByteString& sAPType,
+                       const CFX_FloatRect& rcBBox,
+                       const CFX_Matrix& matrix,
+                       const CFX_ByteString& sContents,
+                       const CFX_ByteString& sAPState = "");
 
   void SetOpenState(bool bState);
 

@@ -32,7 +32,7 @@
 #include "xfa/fwl/ifwl_themeprovider.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
-#include "xfa/fxgraphics/cxfa_path.h"
+#include "xfa/fxgraphics/cfx_path.h"
 
 namespace {
 
@@ -44,7 +44,7 @@ bool FX_EDIT_ISLATINWORD(wchar_t c) {
          c == 0x0027;
 }
 
-void AddSquigglyPath(CXFA_Path* pPathData,
+void AddSquigglyPath(CFX_Path* pPathData,
                      float fStartX,
                      float fEndX,
                      float fY,
@@ -158,7 +158,7 @@ FWL_WidgetHit CFWL_Edit::HitTest(const CFX_PointF& point) {
   return FWL_WidgetHit::Unknown;
 }
 
-void CFWL_Edit::AddSpellCheckObj(CXFA_Path& PathData,
+void CFWL_Edit::AddSpellCheckObj(CFX_Path& PathData,
                                  int32_t nStart,
                                  int32_t nCount,
                                  float fOffSetX,
@@ -184,16 +184,16 @@ void CFWL_Edit::AddSpellCheckObj(CXFA_Path& PathData,
   }
 }
 
-void CFWL_Edit::DrawSpellCheck(CXFA_Graphics* pGraphics,
+void CFWL_Edit::DrawSpellCheck(CFX_Graphics* pGraphics,
                                const CFX_Matrix* pMatrix) {
   pGraphics->SaveGraphState();
   if (pMatrix)
     pGraphics->ConcatMatrix(const_cast<CFX_Matrix*>(pMatrix));
 
-  CXFA_Color crLine(0xFFFF0000);
+  CFX_Color crLine(0xFFFF0000);
   CFWL_EventCheckWord checkWordEvent(this);
   CFX_ByteString sLatinWord;
-  CXFA_Path pathSpell;
+  CFX_Path pathSpell;
   int32_t nStart = 0;
   float fOffSetX = m_rtEngine.left - m_fScrollOffsetX;
   float fOffSetY = m_rtEngine.top - m_fScrollOffsetY + m_fVAlignOffset;
@@ -240,8 +240,7 @@ void CFWL_Edit::DrawSpellCheck(CXFA_Graphics* pGraphics,
   pGraphics->RestoreGraphState();
 }
 
-void CFWL_Edit::DrawWidget(CXFA_Graphics* pGraphics,
-                           const CFX_Matrix* pMatrix) {
+void CFWL_Edit::DrawWidget(CFX_Graphics* pGraphics, const CFX_Matrix* pMatrix) {
   if (!pGraphics)
     return;
   if (!m_pProperties->m_pThemeProvider)
@@ -473,7 +472,7 @@ void CFWL_Edit::SetScrollOffset(float fScrollOffset) {
   m_fScrollOffsetY = fScrollOffset;
 }
 
-void CFWL_Edit::DrawTextBk(CXFA_Graphics* pGraphics,
+void CFWL_Edit::DrawTextBk(CFX_Graphics* pGraphics,
                            IFWL_ThemeProvider* pTheme,
                            const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
@@ -505,7 +504,7 @@ void CFWL_Edit::DrawTextBk(CXFA_Graphics* pGraphics,
   pTheme->DrawBackground(&param);
 }
 
-void CFWL_Edit::DrawContent(CXFA_Graphics* pGraphics,
+void CFWL_Edit::DrawContent(CFX_Graphics* pGraphics,
                             IFWL_ThemeProvider* pTheme,
                             const CFX_Matrix* pMatrix) {
   CFDE_TxtEdtPage* pPage = m_EdtEngine.GetPage(0);
@@ -546,7 +545,7 @@ void CFWL_Edit::DrawContent(CXFA_Graphics* pGraphics,
                                 &rectArr);
     }
 
-    CXFA_Path path;
+    CFX_Path path;
     for (auto& rect : rectArr) {
       rect.left += fOffSetX;
       rect.top += fOffSetY;
@@ -576,7 +575,7 @@ void CFWL_Edit::DrawContent(CXFA_Graphics* pGraphics,
 
   if (m_pProperties->m_dwStyleExes & FWL_STYLEEXT_EDT_CombText) {
     pGraphics->RestoreGraphState();
-    CXFA_Path path;
+    CFX_Path path;
     int32_t iLimit = m_nLimit > 0 ? m_nLimit : 1;
     float fStep = m_rtEngine.width / iLimit;
     float fLeft = m_rtEngine.left + 1;
@@ -1236,7 +1235,7 @@ void CFWL_Edit::OnProcessEvent(CFWL_Event* pEvent) {
   }
 }
 
-void CFWL_Edit::OnDrawWidget(CXFA_Graphics* pGraphics,
+void CFWL_Edit::OnDrawWidget(CFX_Graphics* pGraphics,
                              const CFX_Matrix* pMatrix) {
   DrawWidget(pGraphics, pMatrix);
 }
