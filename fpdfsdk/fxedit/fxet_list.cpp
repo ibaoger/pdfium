@@ -29,10 +29,6 @@ void CFX_ListItem::SetFontMap(IPVT_FontMap* pFontMap) {
   m_pEdit->SetFontMap(pFontMap);
 }
 
-CFX_Edit_Iterator* CFX_ListItem::GetIterator() const {
-  return m_pEdit->GetIterator();
-}
-
 void CFX_ListItem::SetText(const CFX_WideString& text) {
   m_pEdit->SetText(text);
 }
@@ -47,7 +43,7 @@ float CFX_ListItem::GetItemHeight() const {
 
 uint16_t CFX_ListItem::GetFirstChar() const {
   CPVT_Word word;
-  CFX_Edit_Iterator* pIterator = GetIterator();
+  CFX_Edit_Iterator* pIterator = m_pEdit->GetIterator();
   pIterator->SetAt(1);
   pIterator->GetWord(word);
   return word.Word;

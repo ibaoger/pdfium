@@ -61,8 +61,6 @@ class CFX_ListItem final {
   uint16_t GetFirstChar() const;
 
  private:
-  CFX_Edit_Iterator* GetIterator() const;
-
   std::unique_ptr<CFX_Edit> m_pEdit;
   bool m_bSelected;
   CFX_FloatRect m_rcListItem;
@@ -82,7 +80,6 @@ class CFX_ListCtrl {
   void OnVK_RIGHT(bool bShift, bool bCtrl);
   void OnVK_HOME(bool bShift, bool bCtrl);
   void OnVK_END(bool bShift, bool bCtrl);
-  void OnVK(int32_t nItemIndex, bool bShift, bool bCtrl);
   bool OnChar(uint16_t nChar, bool bShift, bool bCtrl);
 
   void SetScrollPos(const CFX_PointF& point);
@@ -93,9 +90,6 @@ class CFX_ListCtrl {
   int32_t GetTopItem() const;
   void SetContentRect(const CFX_FloatRect& rect) { m_rcContent = rect; }
   CFX_FloatRect GetContentRect() const;
-  CFX_PointF GetBTPoint() const {
-    return CFX_PointF(m_rcPlate.left, m_rcPlate.top);
-  }
 
   int32_t GetItemIndex(const CFX_PointF& point) const;
   void AddString(const CFX_WideString& str);
@@ -118,10 +112,10 @@ class CFX_ListCtrl {
   float GetFirstHeight() const;
   void SetMultipleSel(bool bMultiple) { m_bMultiple = bMultiple; }
   bool IsMultipleSel() const { return m_bMultiple; }
-  bool IsValid(int32_t nItemIndex) const;
   int32_t FindNext(int32_t nIndex, wchar_t nChar) const;
   int32_t GetFirstSelected() const;
 
+ private:
   CFX_PointF InToOut(const CFX_PointF& point) const;
   CFX_PointF OutToIn(const CFX_PointF& point) const;
   CFX_FloatRect InToOut(const CFX_FloatRect& rect) const;
@@ -132,7 +126,8 @@ class CFX_ListCtrl {
   CFX_FloatRect InnerToOuter(const CFX_FloatRect& rect) const;
   CFX_FloatRect OuterToInner(const CFX_FloatRect& rect) const;
 
- private:
+  void OnVK(int32_t nItemIndex, bool bShift, bool bCtrl);
+  bool IsValid(int32_t nItemIndex) const;
   void ReArrange(int32_t nItemIndex);
   CFX_FloatRect GetItemRectInternal(int32_t nIndex) const;
   CFX_FloatRect GetContentRectInternal() const;
@@ -147,6 +142,9 @@ class CFX_ListCtrl {
   CFX_WideString GetItemText(int32_t nIndex) const;
   void SetItemSelect(int32_t nItemIndex, bool bSelected);
   int32_t GetLastSelected() const;
+  CFX_PointF GetBTPoint() const {
+    return CFX_PointF(m_rcPlate.left, m_rcPlate.top);
+  }
 
   CFX_FloatRect m_rcPlate;
   CFX_FloatRect m_rcContent;
