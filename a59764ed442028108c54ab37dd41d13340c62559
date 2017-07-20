@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ffd2a43f_9b93cdf6",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "Ah, I thought it was just for APIs.",
+      "parentUuid": "92835d9b_40562f5b",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f693474_d74676c5",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "a59764ed442028108c54ab37dd41d13340c62559",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "214b8179_03e45c57",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f693474_d74676c5",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bc4627ef_c4b19ca0",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "Yea! But |pFind| being nullptr also implies that |name| is smaller than all entries. Updated the comment.",
+      "parentUuid": "0a74d0c2_0b10dcfc",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40f80ff8_164b0ea3",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 5
@@ -67,6 +121,24 @@
       "revId": "a59764ed442028108c54ab37dd41d13340c62559",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039a784e_faaaddad",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f80ff8_164b0ea3",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7efe9f30_9fd5cb5a",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "*2 comes from the fact that pFindIndex or i is basically divided by half (since each key-value pair takes up two entries); I thought I should be consistent and return pFindIndex without *2 just like everywhere else in this code.\n+2 and +3 is just the next key-value position to insert the new pair in. \nAdded a comment to attempt to explain this...",
+      "parentUuid": "48ded71d_8123a5ad",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e2852d7_160a7c52",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 5
@@ -98,6 +188,24 @@
       "writtenOn": "2017-07-20T19:29:28Z",
       "side": 1,
       "message": "When is this needed?",
+      "revId": "a59764ed442028108c54ab37dd41d13340c62559",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4788f459_86b0f5cf",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-20T20:10:30Z",
+      "side": 1,
+      "message": "This is needed when a newly added node has a name that falls out of the existing limit of its leaf array and any arrays above it.\nE.g. If we have a tree with two leaf nodes 1.txt and 2.txt, then the limits are [1.txt, 2.txt]. Now if we add a node 3.txt, then we have to update the limits to be [1.txt, 3.txt].\nHmm, do you think we need a comment here?",
+      "parentUuid": "1e2852d7_160a7c52",
       "revId": "a59764ed442028108c54ab37dd41d13340c62559",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
