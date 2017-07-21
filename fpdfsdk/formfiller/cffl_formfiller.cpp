@@ -245,6 +245,23 @@ CFX_WideString CFFL_FormFiller::GetSelectedText(CPDFSDK_Annot* pAnnot) {
   return pWnd ? pWnd->GetSelectedText() : CFX_WideString();
 }
 
+void CFFL_FormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
+  if (!IsValid())
+    return;
+
+  // TODO(drgage): Look into if we can pass false to GetCurPageView() and return
+  // early if pPageView is null. If an annotation can still have selected text
+  // without a pageview, then we can't do this.
+  CPDFSDK_PageView* pPageView = GetCurPageView(true);
+  ASSERT(pPageView);
+
+  CPWL_Wnd* pWnd = GetPDFWindow(pPageView, false);
+  if (!pWnd)
+    return;
+
+  pWnd->DeleteSelectedText();
+}
+
 void CFFL_FormFiller::SetFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag) {
   CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
   UnderlyingPageType* pPage = pWidget->GetUnderlyingPage();
