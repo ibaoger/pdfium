@@ -14,6 +14,7 @@ import json
 import multiprocessing
 import os
 import re
+import shutil
 import subprocess
 import sys
 
@@ -44,8 +45,7 @@ class CompareRun(object):
     self._InitPaths()
 
   def _InitPaths(self):
-    self.safe_measure_script_path = os.path.join(self.args.build_dir,
-                                                 'safetynet_measure_current.py')
+    self.safe_measure_script_path = os.path.abspath('testing/tools/safetynet_measure.py')
 
     input_file_re = re.compile('^.+[.]pdf$')
     self.test_cases = []
@@ -72,7 +72,7 @@ class CompareRun(object):
     Returns:
       Exit code for the script.
     """
-    self._FreezeMeasureScript()
+    # self._FreezeMeasureScript()
 
     if self.args.branch_after:
       before, after = self._ProfileTwoOtherBranches(
@@ -93,14 +93,14 @@ class CompareRun(object):
 
     return 0
 
-  def _FreezeMeasureScript(self):
-    """Freezes a version of the measuring script.
+  # def _FreezeMeasureScript(self):
+  #   """Freezes a version of the measuring script.
 
-    This is needed to make sure we are comparing the pdfium library changes and
-    not script changes that may happen between the two branches.
-    """
-    subprocess.check_output(['cp', 'testing/tools/safetynet_measure.py',
-                             self.safe_measure_script_path])
+  #   This is needed to make sure we are comparing the pdfium library changes and
+  #   not script changes that may happen between the two branches.
+  #   """
+  #   subprocess.check_output(['cp', 'testing/tools/safetynet_measure.py',
+  #                            self.safe_measure_script_path])
 
   def _ProfileTwoOtherBranches(self, before_branch, after_branch):
     """Profiles two branches that are not the current branch.
@@ -177,14 +177,43 @@ class CompareRun(object):
     self._BuildCurrentBranch(self.after_build_dir)
     after = self._MeasureCurrentBranch('after', self.after_build_dir)
 
-    pushed = self._StashLocalChanges()
-    if not pushed and not self.args.build_dir_before:
-      PrintErr('Warning: No local changes to compare')
+    # pushed = self._StashLocalChanges()
+    # if not pushed and not self.args.build_dir_before:
+    #   PrintErr('Warning: No local changes to compare')
 
-    self._BuildCurrentBranch(self.before_build_dir)
-    before = self._MeasureCurrentBranch('before', self.before_build_dir)
+    # self._BuildCurrentBranch(self.before_build_dir)
+    # before = self._MeasureCurrentBranch('before', self.before_build_dir)
 
-    self._RestoreLocalChanges()
+    # self._RestoreLocalChanges()
+
+    cwd = os.getcwd()
+
+    before_repo_dir = os.path.join(self.args.tmp_dir, 'repo_before')
+    before_src_dir = os.path.join(before_repo_dir, 'pdfium')
+
+    shutil.rmtree(before_repo_dir, ignore_errors=True)
+    os.makedirs(before_repo_dir)
+    self.git.CloneLocal(os.getcwd(), before_src_dir)
+    os.chdir(before_repo_dir)
+    cache = '/tmp/pdfium_repo_cache'
+    subprocess.check_call(['gclient', 'config', '--cache-dir=%s' % cache, '--unmanaged',
+                           'https://pdfium.googlesource.com/pdfium.git'])
+    subprocess.check_call(['gclient', 'sync'])
+
+    before_build_dir = os.path.join(before_src_dir, self.before_build_dir)
+    os.makedirs(before_build_dir)
+    os.chdir(before_src_dir)
+
+    source_gn_args = os.path.join(cwd, self.before_build_dir, 'args.gn')
+    dest_gn_args = os.path.join(before_build_dir, 'args.gn')
+    shutil.copy(source_gn_args, dest_gn_args)
+
+    subprocess.check_call(['gn', 'gen', self.before_build_dir])
+
+    self._BuildCurrentBranch(before_build_dir)
+    before = self._MeasureCurrentBranch('before', before_build_dir)
+
+    os.chdir(cwd)
 
     return before, after
 
@@ -305,6 +334,7 @@ class CompareRun(object):
     if profile_file_path:
       command.append('--output-path=%s' % profile_file_path)
 
+    print command
     try:
       output = subprocess.check_output(command)
     except subprocess.CalledProcessError as e:
@@ -427,6 +457,8 @@ def main():
                            'to the build directory for the "before" branch, if '
                            'different from the build directory for the '
                            '"after" branch')
+  parser.add_argument('--tmp-dir', default='/tmp',
+                      help='directory in which temporary repos will be cloned.')
   parser.add_argument('--profiler', default='callgrind',
                       help='which profiler to use. Supports callgrind and '
                            'perfstat for now. Default is callgrind.')

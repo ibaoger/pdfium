@@ -45,3 +45,6 @@ class GitHelper(object):
       return True
     except subprocess.CalledProcessError:
       return False
+
+  def CloneLocal(self, source_repo, new_repo):
+    subprocess.check_call(['git', 'clone', source_repo, new_repo])
