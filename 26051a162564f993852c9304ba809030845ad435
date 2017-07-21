@@ -22,6 +22,29 @@
       "revId": "26051a162564f993852c9304ba809030845ad435",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b9d2ab_1e57fd43",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T19:10:55Z",
+      "side": 1,
+      "message": "these should be folded into the lexer\u0027s loop itself, avoid duplicate checks for isvalidchar, etc etc.",
+      "range": {
+        "startLine": 363,
+        "startChar": 14,
+        "endLine": 363,
+        "endChar": 35
+      },
+      "revId": "26051a162564f993852c9304ba809030845ad435",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
