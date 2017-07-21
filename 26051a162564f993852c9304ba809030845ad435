@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "be24cb13_c621623a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T19:25:29Z",
+      "side": 1,
+      "message": "Scan() should just handle this inside its main loop.  At which point scan goes away.",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "26051a162564f993852c9304ba809030845ad435",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39714d7c_ee4969f6",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T19:25:29Z",
+      "side": 1,
+      "message": "this is  redudant, and ideally we don\u0027t get to de-ref m_ptr until we perfomeed the bounds check on the main loop below.",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 0
+      },
+      "revId": "26051a162564f993852c9304ba809030845ad435",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4c9e556_2441a664",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 3
