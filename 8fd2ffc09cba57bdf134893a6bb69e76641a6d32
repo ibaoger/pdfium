@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43a7d187_46565fc1",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T19:16:51Z",
+      "side": 1,
+      "message": "Yeah, all this is pre-existing, but while were at it ...\n\nnit: local not needed, just use the lambda in-line.",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "8fd2ffc09cba57bdf134893a6bb69e76641a6d32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da731621_4b166320",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T19:16:51Z",
+      "side": 1,
+      "message": "would prefer result !\u003d std::end(keyWords), since this will match what\u0027us used above (or convert both to keyWords + KEYWORD_END).",
+      "range": {
+        "startLine": 106,
+        "startChar": 13,
+        "endLine": 106,
+        "endChar": 38
+      },
+      "revId": "8fd2ffc09cba57bdf134893a6bb69e76641a6d32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
