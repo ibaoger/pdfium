@@ -208,6 +208,24 @@
     },
     {
       "key": {
+        "uuid": "0d1f9963_bd7387a5",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T20:43:02Z",
+      "side": 1,
+      "message": "The 250 MB is probably the Linux sysroots that thomasanderson@ added this week, plus downloading Clang, which we\u0027ve always had to do.\n\nI should that mentioned this earlier, but personally, I\u0027m a bit hesitant to let scripts manipulate my local git repo. If we were to do it this way, I would just run it in a separate PDFium checkout anyway. Which is why I suggested separate checkouts.",
+      "parentUuid": "cbaf0894_96083bac",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e9f231e_973ac3a3",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
