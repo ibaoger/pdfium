@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7e39d4c_5161c779",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T06:05:21Z",
+      "side": 1,
+      "message": "Not needed. Don\u0027t copy+paste from bad examples. ;)",
+      "range": {
+        "startLine": 270,
+        "startChar": 17,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "57f228d7527594de55951fa05e6082ba62382c57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbd038e_9fe30505",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T06:05:21Z",
+      "side": 1,
+      "message": "Create a helper function.",
+      "revId": "57f228d7527594de55951fa05e6082ba62382c57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
