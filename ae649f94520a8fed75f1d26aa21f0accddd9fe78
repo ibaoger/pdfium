@@ -190,6 +190,24 @@
     },
     {
       "key": {
+        "uuid": "cbaf0894_96083bac",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-21T20:18:17Z",
+      "side": 1,
+      "message": "I have a version of this running on the most basic case (clean branch vs uncommitted changes). It takes around an extra 40s to run and downloads around 250MB during \"gclient sync\". That\u0027s even with the cache, without it it\u0027s 1.5GB.\n\nIt\u0027s certainly possible, but I\u0027m not sure the drawbacks are worth it. The process does feel cleaner than modifying the working branch and restoring it.\n\nProof-of-concept cl: https://pdfium-review.googlesource.com/c/8691/",
+      "parentUuid": "312e9e06_d5566e29",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e9f231e_973ac3a3",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
