@@ -3,6 +3,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c124832d_59657928",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T14:42:48Z",
+      "side": 1,
+      "message": "How about returning this as const char* too then?",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 11
+      },
+      "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9859e2d2_afa28321",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 1
@@ -31,6 +54,52 @@
       "writtenOn": "2017-07-21T08:36:44Z",
       "side": 1,
       "message": "Jane: This has been rewritten somewhat.",
+      "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f58a095d_13b1d101",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T14:42:48Z",
+      "side": 1,
+      "message": "This check will always succeed, since the return value from FPDFAttachment_GetName() is just the length of the name, not how many bytes were written into buffer. So not sure if it\u0027s useful here.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 10,
+        "endLine": 1066,
+        "endChar": 27
+      },
+      "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb45abf_1b7de124",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T14:42:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1093,
+        "startChar": 10,
+        "endLine": 1093,
+        "endChar": 27
+      },
       "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
