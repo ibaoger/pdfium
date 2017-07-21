@@ -470,7 +470,7 @@ CFXEU_Clear::~CFXEU_Clear() {}
 void CFXEU_Clear::Redo() {
   if (m_pEdit) {
     m_pEdit->SelectNone();
-    m_pEdit->SetSel(m_wrSel.BeginPos, m_wrSel.EndPos);
+    m_pEdit->SetSelection(m_wrSel.BeginPos, m_wrSel.EndPos);
     m_pEdit->Clear(false, true);
   }
 }
@@ -480,7 +480,7 @@ void CFXEU_Clear::Undo() {
     m_pEdit->SelectNone();
     m_pEdit->SetCaret(m_wrSel.BeginPos);
     m_pEdit->InsertText(m_swText, FX_CHARSET_Default, false, true);
-    m_pEdit->SetSel(m_wrSel.BeginPos, m_wrSel.EndPos);
+    m_pEdit->SetSelection(m_wrSel.BeginPos, m_wrSel.EndPos);
   }
 }
 
@@ -508,7 +508,7 @@ void CFXEU_InsertText::Redo() {
 void CFXEU_InsertText::Undo() {
   if (m_pEdit) {
     m_pEdit->SelectNone();
-    m_pEdit->SetSel(m_wpOld, m_wpNew);
+    m_pEdit->SetSelection(m_wpOld, m_wpNew);
     m_pEdit->Clear(false, true);
   }
 }
@@ -897,7 +897,7 @@ void CFX_Edit::SetTextOverflow(bool bAllowed, bool bPaint) {
     Paint();
 }
 
-void CFX_Edit::SetSel(int32_t nStartChar, int32_t nEndChar) {
+void CFX_Edit::SetSelection(int32_t nStartChar, int32_t nEndChar) {
   if (m_pVT->IsValid()) {
     if (nStartChar == 0 && nEndChar < 0) {
       SelectAll();
@@ -905,17 +905,18 @@ void CFX_Edit::SetSel(int32_t nStartChar, int32_t nEndChar) {
       SelectNone();
     } else {
       if (nStartChar < nEndChar) {
-        SetSel(m_pVT->WordIndexToWordPlace(nStartChar),
-               m_pVT->WordIndexToWordPlace(nEndChar));
+        SetSelection(m_pVT->WordIndexToWordPlace(nStartChar),
+                     m_pVT->WordIndexToWordPlace(nEndChar));
       } else {
-        SetSel(m_pVT->WordIndexToWordPlace(nEndChar),
-               m_pVT->WordIndexToWordPlace(nStartChar));
+        SetSelection(m_pVT->WordIndexToWordPlace(nEndChar),
+                     m_pVT->WordIndexToWordPlace(nStartChar));
       }
     }
   }
 }
 
-void CFX_Edit::SetSel(const CPVT_WordPlace& begin, const CPVT_WordPlace& end) {
+void CFX_Edit::SetSelection(const CPVT_WordPlace& begin,
+                            const CPVT_WordPlace& end) {
   if (!m_pVT->IsValid())
     return;
 
@@ -928,7 +929,7 @@ void CFX_Edit::SetSel(const CPVT_WordPlace& begin, const CPVT_WordPlace& end) {
   SetCaretInfo();
 }
 
-void CFX_Edit::GetSel(int32_t& nStartChar, int32_t& nEndChar) const {
+void CFX_Edit::GetSelection(int32_t& nStartChar, int32_t& nEndChar) const {
   nStartChar = -1;
   nEndChar = -1;
   if (!m_pVT->IsValid())

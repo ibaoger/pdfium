@@ -368,7 +368,7 @@ CPVT_WordRange CPWL_Edit::GetSelectWordRange() const {
     int32_t nStart = -1;
     int32_t nEnd = -1;
 
-    m_pEdit->GetSel(nStart, nEnd);
+    m_pEdit->GetSelection(nStart, nEnd);
 
     CPVT_WordPlace wpStart = m_pEdit->WordIndexToWordPlace(nStart);
     CPVT_WordPlace wpEnd = m_pEdit->WordIndexToWordPlace(nEnd);
@@ -462,7 +462,7 @@ bool CPWL_Edit::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
 
       int nSelStart = 0;
       int nSelEnd = 0;
-      GetSel(nSelStart, nSelEnd);
+      GetSelection(nSelStart, nSelEnd);
 
       if (nSelStart == nSelEnd)
         nSelEnd = nSelStart + 1;
@@ -534,7 +534,7 @@ bool CPWL_Edit::OnChar(uint16_t nChar, uint32_t nFlag) {
 
       int nSelStart = 0;
       int nSelEnd = 0;
-      GetSel(nSelStart, nSelEnd);
+      GetSelection(nSelStart, nSelEnd);
 
       switch (nChar) {
         case FWL_VKEY_Back:
