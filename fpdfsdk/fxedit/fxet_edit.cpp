@@ -884,7 +884,7 @@ bool CFX_Edit::Delete() {
   return Delete(true, true);
 }
 
-bool CFX_Edit::Clear() {
+bool CFX_Edit::ClearSelection() {
   return Clear(true, true);
 }
 
