@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "7e64880c_ea7cbe77",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-21T14:25:06Z",
+      "side": 1,
+      "message": "Sorry, I was thinking of the other script (safetynet_compare.py). This one does not need to be run from the pdf root, as long as --build-dir is passed with the path to wherever the desired build dir is.\n\nI don\u0027t think this arg should be relative to the the root because:\n- this feels unexpected to me - why would an arg be relative to a specific dir rather than the current work dir, while the others are not?\n- bash autocomplete works better with paths relative to the work dir",
+      "parentUuid": "61a6ff69_915de0eb",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "def6dbff_3d79d1ed",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 21
