@@ -154,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "73c265fa_ffd21667",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T09:03:40Z",
+      "side": 1,
+      "message": "You can remove the upstream PDFium git repo URL with a local file:///path/to/pdfium/pdfium. Then any cloned repo has all the local commit hashes in your local git repo. Does that solve the local (saved?) changes issue, and the commits not pushed issue?\n\nUsing specific GN flags is just a matter of copying $build_dir/args.gn into the clone and running gn gen.\n\nIf you want to compare specific versions of anything that\u0027s checked out via DEPS, assuming there are hashes for them, then it\u0027s just a matter of having a local commit with changes to DEPS to update the hashes. gclient sync can do the rest.",
+      "parentUuid": "14d5f1d0_b18ebbf5",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e9f231e_973ac3a3",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
@@ -183,6 +201,24 @@
       "side": 1,
       "message": "Doesn\u0027t this use goma or not depending on your gn args?",
       "parentUuid": "3e9f231e_973ac3a3",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "357bc687_72f2a00f",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T09:03:40Z",
+      "side": 1,
+      "message": "Yes, but if you know your GN configs are goma enabled, you can pass --use-goma to this script, and here it can build with a higher -j count. See tools/coverage/coverage_report.py.",
+      "parentUuid": "38906536_01a3ee90",
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -393,6 +429,24 @@
       "side": 1,
       "message": "The json dict would return a mix of Nones and 0s without this. With this, it\u0027s consistent and always None.",
       "parentUuid": "5dc14b40_a44fcbab",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ee773_ce2187dc",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T09:03:40Z",
+      "side": 1,
+      "message": "Can you mention that in the comment?",
+      "parentUuid": "ca5bde2c_78b22c3d",
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
