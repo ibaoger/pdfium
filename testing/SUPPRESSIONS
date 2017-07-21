@@ -286,9 +286,13 @@ zh_file1.pdf mac * *
 zh_function_list.pdf mac * *
 zh_shared_document.pdf mac * *
 
+#
+# JavaScript tests
+#
 bug_492.in * nov8 *
-bug_679643.in * * noxfa
 bug_679642.in * * noxfa
+bug_679643.in * * noxfa
+bug_735912.in * * noxfa
 
 #
 # TODO(hnakashima): These might never have been run. Go over them and fix.
