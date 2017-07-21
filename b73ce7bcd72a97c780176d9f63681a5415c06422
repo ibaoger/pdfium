@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "676e3a4d_88f86010",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T07:18:59Z",
+      "side": 1,
+      "message": "const char* const, or constexpr const char*",
+      "revId": "b73ce7bcd72a97c780176d9f63681a5415c06422",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b7bc50_875d9a3a",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T07:18:59Z",
+      "side": 1,
+      "message": "Probably should skip if 0. Also, returned type is unsigned long.",
+      "revId": "b73ce7bcd72a97c780176d9f63681a5415c06422",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
