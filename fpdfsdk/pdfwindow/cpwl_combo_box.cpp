@@ -227,9 +227,9 @@ void CPWL_ComboBox::GetEditSel(int32_t& nStartChar, int32_t& nEndChar) const {
     m_pEdit->GetSel(nStartChar, nEndChar);
 }
 
-void CPWL_ComboBox::Clear() {
+void CPWL_ComboBox::ClearSelection() {
   if (m_pEdit)
-    m_pEdit->Clear();
+    m_pEdit->ClearSelection();
 }
 
 void CPWL_ComboBox::CreateChildWnd(const PWL_CREATEPARAM& cp) {

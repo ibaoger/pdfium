@@ -170,7 +170,7 @@ bool CPWL_EditCtrl::OnKeyDown(uint16_t nChar, uint32_t nFlag) {
       return true;
     case FWL_VKEY_Unknown:
       if (!IsSHIFTpressed(nFlag))
-        Clear();
+        ClearSelection();
       else
         CutText();
       return true;
@@ -234,7 +234,7 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
   if (m_pEdit->IsSelected() && word == FWL_VKEY_Back)
     word = FWL_VKEY_Unknown;
 
-  Clear();
+  ClearSelection();
 
   switch (word) {
     case FWL_VKEY_Back:
@@ -343,9 +343,9 @@ void CPWL_EditCtrl::GetSel(int32_t& nStartChar, int32_t& nEndChar) const {
   m_pEdit->GetSel(nStartChar, nEndChar);
 }
 
-void CPWL_EditCtrl::Clear() {
+void CPWL_EditCtrl::ClearSelection() {
   if (!IsReadOnly())
-    m_pEdit->Clear();
+    m_pEdit->ClearSelection();
 }
 
 void CPWL_EditCtrl::SelectAll() {

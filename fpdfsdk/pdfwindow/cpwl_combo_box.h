@@ -74,7 +74,7 @@ class CPWL_ComboBox : public CPWL_Wnd {
 
   void SetEditSel(int32_t nStartChar, int32_t nEndChar);
   void GetEditSel(int32_t& nStartChar, int32_t& nEndChar) const;
-  void Clear();
+  void ClearSelection();
   void SelectAll();
   bool IsPopup() const;
 

@@ -137,7 +137,7 @@ bool CPWL_Edit::CanCut() const {
 void CPWL_Edit::CutText() {
   if (!CanCut())
     return;
-  m_pEdit->Clear();
+  m_pEdit->ClearSelection();
 }
 
 void CPWL_Edit::OnCreated() {
@@ -437,7 +437,7 @@ void CPWL_Edit::SetLimitChar(int32_t nLimitChar) {
 }
 
 void CPWL_Edit::ReplaceSel(const CFX_WideString& wsText) {
-  m_pEdit->Clear();
+  m_pEdit->ClearSelection();
   m_pEdit->InsertText(wsText, FX_CHARSET_Default);
 }
 
