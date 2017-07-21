@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f38fdcd5_e73dfb09",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d7258f5_c42c5391",
+      "range": {
+        "startLine": 23,
+        "startChar": 32,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad1199da_26dd8166",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2017-07-21T08:31:48Z",
       "side": 1,
       "message": "So a search operation can end up modifying the tree that\u0027s passed in?",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f73b0c2_2b217934",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Yea, I thought it\u0027s fine since getting here would mean that the tree was malformed to start with. If we don\u0027t modify it here, then later when we update limits, we have to do the comparison check again.",
+      "parentUuid": "ad1199da_26dd8166",
       "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "517dae1f_69789fec",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d922a5_fc21ddd7",
+      "range": {
+        "startLine": 140,
+        "startChar": 29,
+        "endLine": 140,
+        "endChar": 34
+      },
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cfdd6dd_f3d1076b",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 6
@@ -79,6 +145,24 @@
       "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dec4fe2_505963ac",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cfdd6dd_f3d1076b",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "66dff76d_edae3976",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7490573b_94c2365e",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "763662aa_31070fdc",
         "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
         "patchSetId": 6
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "74a42733_22a501f8",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763662aa_31070fdc",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4144ecde_6126d6ae",
         "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
         "patchSetId": 6
@@ -130,6 +250,24 @@
       "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01689f92_07667f47",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4144ecde_6126d6ae",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -156,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "26a91ca3_331810da",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "857b2e16_847d8c7f",
+      "range": {
+        "startLine": 81,
+        "startChar": 19,
+        "endLine": 81,
+        "endChar": 25
+      },
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73a77249_c8414b3b",
         "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
         "patchSetId": 6
@@ -170,6 +332,24 @@
       "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9420bbf6_db5ae85d",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73a77249_c8414b3b",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -190,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "f6405d96_defdd3de",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83847d92_a2b14bb3",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3e4f70_fd2ecbdb",
         "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
         "patchSetId": 6
@@ -204,6 +402,24 @@
       "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d1f2d8_e08274fc",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-21T15:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e3e4f70_fd2ecbdb",
+      "revId": "87bf4b4aa9b73086e09e39ecf3a8cd5e9aaab87a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
