@@ -70,9 +70,6 @@ TEST(CXFA_FMLexerTest, Strings) {
   EXPECT_EQ(TOKstring, token->m_type);
   EXPECT_EQ(L"\"The cat jumped over the fence.\"", token->m_wstring);
 
-  token = lexer->NextToken();
-  EXPECT_EQ(TOKeof, token->m_type);
-
   lexer = pdfium::MakeUnique<CXFA_FMLexer>(L"\"\"");
   token = lexer->NextToken();
   EXPECT_EQ(TOKstring, token->m_type);

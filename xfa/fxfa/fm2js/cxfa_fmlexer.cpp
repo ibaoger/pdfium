@@ -14,20 +14,20 @@
 
 namespace {
 
-bool IsValidFormCalcCharacter(const wchar_t* p) {
-  return *p == 0 || (*p >= 0x09 && *p <= 0x0D) ||
-         (*p >= 0x20 && *p <= 0xd7FF) || (*p >= 0xE000 && *p <= 0xFFFD);
+bool IsValidFormCalcCharacter(const wchar_t& c) {
+  return c == 0 || (c >= 0x09 && c <= 0x0D) || (c >= 0x20 && c <= 0xd7FF) ||
+         (c >= 0xE000 && c <= 0xFFFD);
 }
 
-bool IsValidIdentifierCharacter(const wchar_t* p) {
-  return u_isalnum(*p) || *p == 0x005F ||  // '_'
-         *p == 0x0024;                     // '$'
+bool IsValidIdentifierCharacter(const wchar_t& c) {
+  return u_isalnum(c) || c == 0x005F ||  // '_'
+         c == 0x0024;                    // '$'
 }
 
-bool IsValidInitialIdentifierCharacter(const wchar_t* p) {
-  return u_isalpha(*p) || *p == 0x005F ||  // '_'
-         *p == 0x0024 ||                   // '$'
-         *p == 0x0021;                     // '!'
+bool IsValidInitialIdentifierCharacter(const wchar_t& c) {
+  return u_isalpha(c) || c == 0x005F ||  // '_'
+         c == 0x0024 ||                  // '$'
+         c == 0x0021;                    // '!'
 }
 
 const XFA_FMKeyword keyWords[] = {
@@ -130,10 +130,8 @@ CXFA_FMToken* CXFA_FMLexer::NextToken() {
 }
 
 std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
-  wchar_t ch = 0;
   auto p = pdfium::MakeUnique<CXFA_FMToken>(m_uCurrentLine);
-  if (!IsValidFormCalcCharacter(m_ptr)) {
-    ch = *m_ptr;
+  if (!IsValidFormCalcCharacter(*m_ptr)) {
     m_LexerError = true;
     return p;
   }
@@ -147,13 +145,12 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       return p;
     }
 
-    ch = *m_ptr;
-    if (!IsValidFormCalcCharacter(m_ptr)) {
+    if (!IsValidFormCalcCharacter(*m_ptr)) {
       m_LexerError = true;
       return p;
     }
 
-    switch (ch) {
+    switch (*m_ptr) {
       case 0:
         p->m_type = TOKeof;
         return p;
@@ -195,16 +192,14 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           return p;
         }
 
-        if (IsValidFormCalcCharacter(m_ptr)) {
-          ch = *m_ptr;
-          if (ch == '=') {
+        if (IsValidFormCalcCharacter(*m_ptr)) {
+          if (*m_ptr == '=') {
             p->m_type = TOKeq;
             ++m_ptr;
           } else {
             p->m_type = TOKassign;
           }
         } else {
-          ch = *m_ptr;
           m_LexerError = true;
         }
         return p;
@@ -215,19 +210,17 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           return p;
         }
 
-        if (IsValidFormCalcCharacter(m_ptr)) {
-          ch = *m_ptr;
-          if (ch == '=') {
+        if (IsValidFormCalcCharacter(*m_ptr)) {
+          if (*m_ptr == '=') {
             p->m_type = TOKle;
             ++m_ptr;
-          } else if (ch == '>') {
+          } else if (*m_ptr == '>') {
             p->m_type = TOKne;
             ++m_ptr;
           } else {
             p->m_type = TOKlt;
           }
         } else {
-          ch = *m_ptr;
           m_LexerError = true;
         }
         return p;
@@ -238,16 +231,14 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           return p;
         }
 
-        if (IsValidFormCalcCharacter(m_ptr)) {
-          ch = *m_ptr;
-          if (ch == '=') {
+        if (IsValidFormCalcCharacter(*m_ptr)) {
+          if (*m_ptr == '=') {
             p->m_type = TOKge;
             ++m_ptr;
           } else {
             p->m_type = TOKgt;
           }
         } else {
-          ch = *m_ptr;
           m_LexerError = true;
         }
         return p;
@@ -298,13 +289,11 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           return p;
         }
 
-        if (!IsValidFormCalcCharacter(m_ptr)) {
-          ch = *m_ptr;
+        if (!IsValidFormCalcCharacter(*m_ptr)) {
           m_LexerError = true;
           return p;
         }
-        ch = *m_ptr;
-        if (ch != '/') {
+        if (*m_ptr != '/') {
           p->m_type = TOKdiv;
           return p;
         }
@@ -318,18 +307,17 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           return p;
         }
 
-        if (IsValidFormCalcCharacter(m_ptr)) {
-          ch = *m_ptr;
-          if (ch == '.') {
+        if (IsValidFormCalcCharacter(*m_ptr)) {
+          if (*m_ptr == '.') {
             p->m_type = TOKdotdot;
             ++m_ptr;
-          } else if (ch == '*') {
+          } else if (*m_ptr == '*') {
             p->m_type = TOKdotstar;
             ++m_ptr;
-          } else if (ch == '#') {
+          } else if (*m_ptr == '#') {
             p->m_type = TOKdotscream;
             ++m_ptr;
-          } else if (ch <= '9' && ch >= '0') {
+          } else if (*m_ptr <= '9' && *m_ptr >= '0') {
             p->m_type = TOKnumber;
             --m_ptr;
             m_ptr = Number(p.get(), m_ptr);
@@ -337,7 +325,6 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
             p->m_type = TOKdot;
           }
         } else {
-          ch = *m_ptr;
           m_LexerError = true;
         }
         return p;
@@ -348,7 +335,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         ++m_ptr;
         break;
       default: {
-        if (!IsValidInitialIdentifierCharacter(m_ptr)) {
+        if (!IsValidInitialIdentifierCharacter(*m_ptr)) {
           m_LexerError = true;
           return p;
         }
@@ -374,55 +361,29 @@ const wchar_t* CXFA_FMLexer::Number(CXFA_FMToken* t, const wchar_t* p) {
 }
 
 const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
-  const wchar_t* pStart = p;
-
+  const wchar_t* start = p;
   ++p;
-  if (p > m_end) {
-    m_LexerError = true;
-    return p;
-  }
 
-  uint16_t ch = *p;
-  while (ch) {
-    if (!IsValidFormCalcCharacter(p)) {
-      ch = *p;
-      t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
-      m_LexerError = true;
-      return p;
-    }
+  while (p <= m_end) {
+    if (!IsValidFormCalcCharacter(*p))
+      break;
 
-    ++p;
-    if (ch != '"') {
-      // We've hit the end of the input, return the string.
-      if (p > m_end) {
-        m_LexerError = true;
+    if (*p == '"') {
+      // Check for escaped "s, i.e. "". If the next legal character is not a ",
+      // then the end of the string has been reached.
+      ++p;
+      if (p > m_end || *p != '"') {
+        if (!IsValidFormCalcCharacter(*p))
+          break;
+        t->m_wstring = CFX_WideStringC(start, (p - start));
         return p;
       }
-      ch = *p;
-      continue;
     }
-    // We've hit the end of the input, return the string.
-    if (p > m_end)
-      break;
-
-    if (!IsValidFormCalcCharacter(p)) {
-      ch = *p;
-      t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
-      m_LexerError = true;
-      return p;
-    }
-    ch = *p;
-    if (ch != '"')
-      break;
-
     ++p;
-    if (p > m_end) {
-      m_LexerError = true;
-      return p;
-    }
-    ch = *p;
   }
-  t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
+
+  // Didn't find the end of the string.
+  m_LexerError = true;
   return p;
 }
 
@@ -430,13 +391,13 @@ const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
   const wchar_t* pStart = p;
   ++p;
   while (p <= m_end && *p) {
-    if (!IsValidFormCalcCharacter(p)) {
+    if (!IsValidFormCalcCharacter(*p)) {
       t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
       m_LexerError = true;
       return p;
     }
 
-    if (!IsValidIdentifierCharacter(p)) {
+    if (!IsValidIdentifierCharacter(*p)) {
       break;
     }
     ++p;
