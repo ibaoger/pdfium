@@ -172,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "312e9e06_d5566e29",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-21T15:17:29Z",
+      "side": 1,
+      "message": "Let me give this a try.",
+      "parentUuid": "73c265fa_ffd21667",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e9f231e_973ac3a3",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 29
@@ -222,6 +240,24 @@
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a421ed9_9a4592dd",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-21T15:17:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "357bc687_72f2a00f",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -447,6 +483,24 @@
       "side": 1,
       "message": "Can you mention that in the comment?",
       "parentUuid": "ca5bde2c_78b22c3d",
+      "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "524bed9c_5bf1bf8f",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 29
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-21T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "269ee773_ce2187dc",
       "revId": "ae649f94520a8fed75f1d26aa21f0accddd9fe78",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
