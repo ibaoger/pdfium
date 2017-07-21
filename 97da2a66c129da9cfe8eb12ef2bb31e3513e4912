@@ -250,6 +250,30 @@
       "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5383a17_1990b511",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-21T20:46:25Z",
+      "side": 1,
+      "message": "Not if the conditional wraps to two lines which the above does.",
+      "parentUuid": "f3c1b882_62f8e0d0",
+      "range": {
+        "startLine": 1370,
+        "startChar": 29,
+        "endLine": 1370,
+        "endChar": 0
+      },
+      "revId": "97da2a66c129da9cfe8eb12ef2bb31e3513e4912",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
