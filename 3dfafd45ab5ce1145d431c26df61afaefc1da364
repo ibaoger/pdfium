@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "61a6ff69_915de0eb",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-21T08:46:03Z",
+      "side": 1,
+      "message": "Were you planning on moving safetynet_measure.py around in the other CL? Normally scripts stay in one place and it\u0027s fairly safe to assume where the base dir is relative to that. We do it in our build files, for instance.\n\nNowhere does it say this script must run from the PDFium base dir. You may want to make it more explicit.",
+      "parentUuid": "61227409_872044cc",
+      "revId": "3dfafd45ab5ce1145d431c26df61afaefc1da364",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "def6dbff_3d79d1ed",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 21
