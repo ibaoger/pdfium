@@ -46,6 +46,30 @@
       "revId": "aba029d5c16bfd83e76aa50e2f142afa47296c4f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "497578c9_b5465e07",
+        "filename": "fpdfsdk/pdfwindow/cpwl_appstream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-21T20:43:38Z",
+      "side": 1,
+      "message": "Hmm, apparently I missed the trees while looking at the forest. I\u0027ll simplify and ping when done.",
+      "parentUuid": "8803335a_784b4ae2",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "aba029d5c16bfd83e76aa50e2f142afa47296c4f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
