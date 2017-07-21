@@ -119,12 +119,11 @@ class CXFA_FMLexer {
   void SetPos(const wchar_t* pPos) { m_ptr = pPos; }
 
  private:
-  const wchar_t* Number(CXFA_FMToken* t, const wchar_t* p);
-  const wchar_t* String(CXFA_FMToken* t, const wchar_t* p);
-  const wchar_t* Identifiers(CXFA_FMToken* t, const wchar_t* p);
-  const wchar_t* Comment(const wchar_t* p);
-  XFA_FM_TOKEN IsKeyword(const CFX_WideStringC& p);
-  std::unique_ptr<CXFA_FMToken> Scan();
+  std::unique_ptr<CXFA_FMToken> ScanForNextToken();
+  const wchar_t* AdvanceForNumber(CXFA_FMToken* t, const wchar_t* p);
+  const wchar_t* AdvanceForString(CXFA_FMToken* t, const wchar_t* p);
+  const wchar_t* AdvanceForIdentifier(CXFA_FMToken* t, const wchar_t* p);
+  const wchar_t* AdvanceForComment(const wchar_t* p);
 
   const wchar_t* m_ptr;
   const wchar_t* const m_end;

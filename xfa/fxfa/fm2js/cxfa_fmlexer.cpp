@@ -95,6 +95,20 @@ const XFA_FMKeyword keyWords[] = {
 const XFA_FM_TOKEN KEYWORD_START = TOKdo;
 const XFA_FM_TOKEN KEYWORD_END = TOKendif;
 
+XFA_FM_TOKEN TokenizeIdentifier(const CFX_WideStringC& str) {
+  uint32_t key = FX_HashCode_GetW(str, true);
+  auto cmpFunc = [](const XFA_FMKeyword& iter, const uint32_t& val) {
+    return iter.m_uHash < val;
+  };
+
+  const XFA_FMKeyword* result = std::lower_bound(
+      std::begin(keyWords) + KEYWORD_START, std::end(keyWords), key, cmpFunc);
+  if (result <= keyWords + KEYWORD_END && result->m_uHash == key) {
+    return result->m_type;
+  }
+  return TOKidentifier;
+}
+
 }  // namespace
 
 const wchar_t* XFA_FM_KeywordToString(XFA_FM_TOKEN op) {
@@ -124,12 +138,12 @@ CXFA_FMToken* CXFA_FMLexer::NextToken() {
     m_pToken = pdfium::MakeUnique<CXFA_FMToken>(m_uCurrentLine);
     m_pToken->m_type = TOKeof;
   } else {
-    m_pToken = Scan();
+    m_pToken = ScanForNextToken();
   }
   return m_pToken.get();
 }
 
-std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
+std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::ScanForNextToken() {
   auto p = pdfium::MakeUnique<CXFA_FMToken>(m_uCurrentLine);
   if (!IsValidFormCalcCharacter(*m_ptr)) {
     m_LexerError = true;
@@ -163,12 +177,12 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
         ++m_ptr;
         break;
       case ';': {
-        m_ptr = Comment(m_ptr);
+        m_ptr = AdvanceForComment(m_ptr);
         break;
       }
       case '"': {
         p->m_type = TOKstring;
-        m_ptr = String(p.get(), m_ptr);
+        m_ptr = AdvanceForString(p.get(), m_ptr);
         return p;
       }
       case '0':
@@ -182,7 +196,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
       case '8':
       case '9': {
         p->m_type = TOKnumber;
-        m_ptr = Number(p.get(), m_ptr);
+        m_ptr = AdvanceForNumber(p.get(), m_ptr);
         return p;
       }
       case '=':
@@ -297,7 +311,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           p->m_type = TOKdiv;
           return p;
         }
-        m_ptr = Comment(m_ptr);
+        m_ptr = AdvanceForComment(m_ptr);
         break;
       }
       case '.':
@@ -320,7 +334,7 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           } else if (*m_ptr <= '9' && *m_ptr >= '0') {
             p->m_type = TOKnumber;
             --m_ptr;
-            m_ptr = Number(p.get(), m_ptr);
+            m_ptr = AdvanceForNumber(p.get(), m_ptr);
           } else {
             p->m_type = TOKdot;
           }
@@ -339,15 +353,16 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::Scan() {
           m_LexerError = true;
           return p;
         }
-        m_ptr = Identifiers(p.get(), m_ptr);
+        m_ptr = AdvanceForIdentifier(p.get(), m_ptr);
         return p;
       }
     }
   }
 }
 
-const wchar_t* CXFA_FMLexer::Number(CXFA_FMToken* t, const wchar_t* p) {
-  // This will set pEnd to the character after the end of the number.
+const wchar_t* CXFA_FMLexer::AdvanceForNumber(CXFA_FMToken* t,
+                                              const wchar_t* p) {
+  // This will set pEnd to the character after the end of the AdvanceForNumber.
   wchar_t* pEnd = nullptr;
   if (p)
     wcstod(const_cast<wchar_t*>(p), &pEnd);
@@ -360,7 +375,8 @@ const wchar_t* CXFA_FMLexer::Number(CXFA_FMToken* t, const wchar_t* p) {
   return pEnd;
 }
 
-const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
+const wchar_t* CXFA_FMLexer::AdvanceForString(CXFA_FMToken* t,
+                                              const wchar_t* p) {
   const wchar_t* start = p;
   ++p;
 
@@ -387,7 +403,8 @@ const wchar_t* CXFA_FMLexer::String(CXFA_FMToken* t, const wchar_t* p) {
   return p;
 }
 
-const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
+const wchar_t* CXFA_FMLexer::AdvanceForIdentifier(CXFA_FMToken* t,
+                                                  const wchar_t* p) {
   const wchar_t* pStart = p;
   ++p;
   while (p <= m_end && *p) {
@@ -405,11 +422,11 @@ const wchar_t* CXFA_FMLexer::Identifiers(CXFA_FMToken* t, const wchar_t* p) {
       break;
   }
   t->m_wstring = CFX_WideStringC(pStart, (p - pStart));
-  t->m_type = IsKeyword(t->m_wstring);
+  t->m_type = TokenizeIdentifier(t->m_wstring);
   return p;
 }
 
-const wchar_t* CXFA_FMLexer::Comment(const wchar_t* p) {
+const wchar_t* CXFA_FMLexer::AdvanceForComment(const wchar_t* p) {
   ++p;
 
   if (p > m_end)
@@ -429,18 +446,4 @@ const wchar_t* CXFA_FMLexer::Comment(const wchar_t* p) {
     ch = *p;
   }
   return p;
-}
-
-XFA_FM_TOKEN CXFA_FMLexer::IsKeyword(const CFX_WideStringC& str) {
-  uint32_t key = FX_HashCode_GetW(str, true);
-  auto cmpFunc = [](const XFA_FMKeyword& iter, const uint32_t& val) {
-    return iter.m_uHash < val;
-  };
-
-  const XFA_FMKeyword* result = std::lower_bound(
-      std::begin(keyWords) + KEYWORD_START, std::end(keyWords), key, cmpFunc);
-  if (result <= keyWords + KEYWORD_END && result->m_uHash == key) {
-    return result->m_type;
-  }
-  return TOKidentifier;
 }
