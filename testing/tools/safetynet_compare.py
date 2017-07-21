@@ -428,8 +428,8 @@ def main():
                            'different from the build directory for the '
                            '"after" branch')
   parser.add_argument('--profiler', default='callgrind',
-                      help='which profiler to use. Supports callgrind and '
-                           'perfstat for now. Default is callgrind.')
+                      help='which profiler to use. Supports callgrind, '
+                           'perfstat and timeit. Default is callgrind.')
   parser.add_argument('--interesting-section', action='store_true',
                       help='whether to measure just the interesting section or '
                            'the whole test harness. Limiting to only the '
