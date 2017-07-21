@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f10c2d1_28a7c4e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T18:57:10Z",
+      "side": 1,
+      "message": "nit: Throughout",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dafaf97_caa6d3d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T18:57:10Z",
+      "side": 1,
+      "message": "nit: trailing whitespace",
+      "range": {
+        "startLine": 18,
+        "startChar": 66,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "973ceebd_de0e7b94",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T18:57:10Z",
+      "side": 1,
+      "message": "nit: just (wchar_t c).  Passing by value is cheap here, possibly cheaper than by const ref.   But you\u0027re right, passing a pointer here is ... wait for it ... pointless.",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca39d7c3_fe42c037",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T18:57:10Z",
+      "side": 1,
+      "message": "We don\u0027t want to mess with it now, but ...\n\nThis is generally a red flag that our state machine is missing a few states.  The code really isn\u0027t right unless we extract one character at the top of the loop, and don\u0027t advance mid-state.  At which point, using the ch local might make sense.",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 16
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ef76d3_9d9d675a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-21T18:57:10Z",
+      "side": 1,
+      "message": "This repetition is part of the aforementioned red flag.",
+      "range": {
+        "startLine": 190,
+        "startChar": 1,
+        "endLine": 194,
+        "endChar": 0
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
