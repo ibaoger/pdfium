@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "fce38f5d_c81cbb85",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f083a41_68296b31",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 37
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c61c23b_4197d858",
         "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86ddb179_abad2788",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c61c23b_4197d858",
+      "range": {
+        "startLine": 410,
+        "startChar": 16,
+        "endLine": 410,
+        "endChar": 22
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "and then just assert(len \u003d\u003d 1) here.",
       "parentUuid": "625c09c8_afd2e7fa",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 451,
+        "endChar": 3
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b23351e8_ec8fa516",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Well, there are 4 callers and now they all have to write:\n\nif (!CheckPageArguments(pArguments, bool_val))\n  return;\nPageImp(pArguments, bool_val);\n\nBut it\u0027s easier to just call\n\nPageImp(pArguments, bool_val);\n\nand let PageImp() figure out the details internally.",
+      "parentUuid": "8231ba7d_fb7dc40b",
       "range": {
         "startLine": 442,
         "startChar": 2,
@@ -139,6 +211,54 @@
       "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2b55afa_3f798867",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71083662_0f174d7f",
+      "range": {
+        "startLine": 453,
+        "startChar": 20,
+        "endLine": 453,
+        "endChar": 21
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1fd43de_db8fc028",
+        "filename": "xfa/fxfa/parser/cscript_layoutpseudomodel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa277a36_70fba3ff",
+      "range": {
+        "startLine": 453,
+        "startChar": 3,
+        "endLine": 453,
+        "endChar": 20
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +329,30 @@
       "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46eca029_070291b7",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T01:16:07Z",
+      "side": 1,
+      "message": "Thanks for looking this up. Great to know I\u0027ve been doing my inch/cm conversions precisely all along.",
+      "parentUuid": "db39562f_70c62714",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 44
+      },
+      "revId": "e6f682e3d82029d0378951e315d36ab7f1ed098c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
