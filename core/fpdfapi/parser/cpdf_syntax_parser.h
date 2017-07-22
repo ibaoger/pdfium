@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/cfx_string_pool_template.h"
 #include "core/fxcrt/cfx_weak_ptr.h"
@@ -18,6 +19,7 @@ class CPDF_CryptoHandler;
 class CPDF_Dictionary;
 class CPDF_IndirectObjectHolder;
 class CPDF_Object;
+class CPDF_Reference;
 class CPDF_Stream;
 class IFX_SeekableReadStream;
 
@@ -37,6 +39,16 @@ class CPDF_SyntaxParser {
                                          uint32_t objnum,
                                          uint32_t gennum,
                                          bool bDecrypt);
+
+  std::unique_ptr<CPDF_Object> ParseObjectBody(
+      uint32_t objnum,
+      uint32_t gennum,
+      bool bDecrypt,
+      std::vector<CPDF_Reference*>* child_references);
+
+  std::unique_ptr<CPDF_Object> ParseObject(
+      bool bDecrypt,
+      std::vector<CPDF_Reference*>* child_references);
 
   std::unique_ptr<CPDF_Object> GetObjectForStrict(
       CPDF_IndirectObjectHolder* pObjList,
