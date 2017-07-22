@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d652806e_613af5ea",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T00:35:52Z",
+      "side": 1,
+      "message": "Let\u0027s put TODO(crbug.com/62400) here because PDFium has its own bug tracker with a different set of bug numbers.",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 100,
+        "endChar": 18
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850604a9_0596fcef",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T00:35:52Z",
+      "side": 1,
+      "message": "TextField. Let\u0027s fix TypeTextIntoTextfield() too.",
+      "range": {
+        "startLine": 650,
+        "startChar": 39,
+        "endLine": 650,
+        "endChar": 48
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55551e79_0b5d35e0",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T00:35:52Z",
+      "side": 1,
+      "message": "Can you add a comment to explain what it\u0027s selecting? (Like you did below in DeleteTextfieldSelectionMiddle) It\u0027s a bit hard to visualize.",
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bf499bd_0064331c",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-22T00:35:52Z",
+      "side": 1,
+      "message": "I think you can just omit this. Same on line 737.",
+      "range": {
+        "startLine": 664,
+        "startChar": 38,
+        "endLine": 664,
+        "endChar": 41
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
