@@ -32,6 +32,38 @@ namespace {
 
 enum class ReadStatus { Normal, Backslash, Octal, FinishOctal, CarriageReturn };
 
+class SeekableReadStreamPartWrapper : public IFX_SeekableReadStream {
+ public:
+  explicit SeekableReadStreamPartWrapper(
+      const CFX_RetainPtr<IFX_SeekableReadStream>& file_read,
+      FX_FILESIZE start,
+      FX_FILESIZE end)
+      : file_read_(file_read), start_(start), end_(end) {}
+
+  bool ReadBlock(void* buffer, FX_FILESIZE offset, size_t size) override {
+    FX_SAFE_FILESIZE new_offset = offset;
+    new_offset += start_;
+    FX_SAFE_FILESIZE buffer_end = new_offset;
+    buffer_end += size;
+    if (!new_offset.IsValid() || new_offset.ValueOrDie() >= end_ ||
+        !buffer_end.IsValid() || buffer_end.ValueOrDie() > end_) {
+      return false;
+    }
+    return file_read_->ReadBlock(buffer, offset, size);
+  }
+
+  FX_FILESIZE GetSize() override {
+    FX_SAFE_FILESIZE size = end_;
+    size -= start_;
+    return size.IsValid() ? size.ValueOrDie() : 0;
+  }
+
+ private:
+  CFX_RetainPtr<IFX_SeekableReadStream> file_read_;
+  FX_FILESIZE start_;
+  FX_FILESIZE end_;
+};
+
 }  // namespace
 
 // static
@@ -371,6 +403,26 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
     uint32_t objnum,
     uint32_t gennum,
     bool bDecrypt) {
+  std::vector<CPDF_Reference*> child_references;
+  auto result = ParseObjectBody(objnum, gennum, bDecrypt, &child_references);
+  if (!result) {
+    return nullptr;
+  }
+  if (pObjList) {
+    for (auto* ref : child_references) {
+      ref->SetRef(pObjList, ref->GetRefObjNum());
+    }
+  }
+  result->m_ObjNum = objnum;
+  result->m_GenNum = gennum;
+  return result;
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::ParseObjectBody(
+    uint32_t objnum,
+    uint32_t gennum,
+    bool bDecrypt,
+    std::vector<CPDF_Reference*>* child_references) {
   CFX_AutoRestorer<int> restorer(&s_CurrentRecursionDepth);
   if (++s_CurrentRecursionDepth > kParserMaxRecursionDepth)
     return nullptr;
@@ -390,7 +442,10 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
         uint32_t refnum = FXSYS_atoui(word.c_str());
         if (refnum == CPDF_Object::kInvalidObjNum)
           return nullptr;
-        return pdfium::MakeUnique<CPDF_Reference>(pObjList, refnum);
+        auto ref = pdfium::MakeUnique<CPDF_Reference>(nullptr, refnum);
+        if (child_references)
+          child_references->push_back(ref.get());
+        return ref;
       }
     }
     m_Pos = SavedPos;
@@ -418,7 +473,7 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
   if (word == "[") {
     std::unique_ptr<CPDF_Array> pArray = pdfium::MakeUnique<CPDF_Array>();
     while (std::unique_ptr<CPDF_Object> pObj =
-               GetObject(pObjList, objnum, gennum, true)) {
+               ParseObjectBody(objnum, gennum, true, child_references)) {
       pArray->Add(std::move(pObj));
     }
     return std::move(pArray);
@@ -458,7 +513,7 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
         dwSignValuePos = m_Pos;
 
       std::unique_ptr<CPDF_Object> pObj =
-          GetObject(pObjList, objnum, gennum, true);
+          ParseObjectBody(objnum, gennum, true, child_references);
       if (!pObj)
         continue;
 
@@ -471,7 +526,8 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
     if (pDict->IsSignatureDict() && dwSignValuePos) {
       CFX_AutoRestorer<FX_FILESIZE> save_pos(&m_Pos);
       m_Pos = dwSignValuePos;
-      pDict->SetFor("Contents", GetObject(pObjList, objnum, gennum, false));
+      pDict->SetFor("Contents",
+                    ParseObjectBody(objnum, gennum, false, child_references));
     }
 
     FX_FILESIZE SavedPos = m_Pos;
@@ -486,6 +542,66 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
     m_Pos = SavedObjPos;
 
   return nullptr;
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::ParseObject(
+    bool bDecrypt,
+    std::vector<CPDF_Reference*>* child_references) {
+  return ParseObject(bDecrypt, child_references, nullptr);
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::ParseObject(
+    bool bDecrypt,
+    std::vector<CPDF_Reference*>* child_references,
+    CFX_RetainPtr<IFX_SeekableReadStream>* raw_body_data) {
+  const FX_FILESIZE SavedPos = GetPos();
+  // Parse objnum
+  bool is_number = false;
+  CFX_ByteString word = GetNextWord(&is_number);
+  if (!is_number) {
+    SetPos(SavedPos);
+    return nullptr;
+  }
+  const uint32_t objnum = FXSYS_atoui(word.c_str());
+
+  // Parse gennum
+  word = GetNextWord(&is_number);
+  if (!is_number) {
+    SetPos(SavedPos);
+    return nullptr;
+  }
+  const uint32_t gennum = FXSYS_atoui(word.c_str());
+
+  // Parse 'obj' keyword
+  if (GetKeyword() != "obj") {
+    SetPos(SavedPos);
+    return nullptr;
+  }
+
+  const FX_FILESIZE start_body_pos = GetPos();
+
+  // Parse object body
+  auto result = ParseObjectBody(objnum, gennum, bDecrypt, child_references);
+  if (!result) {
+    SetPos(SavedPos);
+    return nullptr;
+  }
+
+  const FX_FILESIZE end_body_pos = GetPos();
+
+  // Move carret to end of object tail.
+  if (GetKeyword() != "endobj") {
+    SetPos(end_body_pos);
+  }
+
+  if (raw_body_data) {
+    *raw_body_data = pdfium::MakeRetain<SeekableReadStreamPartWrapper>(
+        m_pFileAccess, start_body_pos, end_body_pos);
+  }
+
+  result->m_ObjNum = objnum;
+  result->m_GenNum = gennum;
+  return result;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectForStrict(
