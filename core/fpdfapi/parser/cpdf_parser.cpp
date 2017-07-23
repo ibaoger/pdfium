@@ -1268,74 +1268,23 @@ void CPDF_Parser::GetIndirectBinary(uint32_t objnum,
   if (GetObjectType(objnum) != ObjectType::kNotCompressed)
     return;
 
-  FX_FILESIZE pos = m_ObjectInfo[objnum].pos;
+  const FX_FILESIZE pos = m_ObjectInfo[objnum].pos;
   if (pos == 0)
     return;
 
-  FX_FILESIZE SavedPos = m_pSyntax->GetPos();
+  const FX_FILESIZE SavedPos = m_pSyntax->GetPos();
+
   m_pSyntax->SetPos(pos);
 
-  bool bIsNumber;
-  CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
+  if (!m_pSyntax->ParseObject()) {
     m_pSyntax->SetPos(SavedPos);
     return;
   }
-
-  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
-  if (parser_objnum && parser_objnum != objnum) {
-    m_pSyntax->SetPos(SavedPos);
-    return;
-  }
-
-  word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
-    m_pSyntax->SetPos(SavedPos);
-    return;
-  }
-
-  if (m_pSyntax->GetKeyword() != "obj") {
-    m_pSyntax->SetPos(SavedPos);
-    return;
-  }
-
-  auto it = m_SortedOffset.find(pos);
-  if (it == m_SortedOffset.end() || ++it == m_SortedOffset.end()) {
-    m_pSyntax->SetPos(SavedPos);
-    return;
-  }
-
-  FX_FILESIZE nextoff = *it;
-  bool bNextOffValid = false;
-  if (nextoff != pos) {
-    m_pSyntax->SetPos(nextoff);
-    word = m_pSyntax->GetNextWord(&bIsNumber);
-    if (word == "xref") {
-      bNextOffValid = true;
-    } else if (bIsNumber) {
-      word = m_pSyntax->GetNextWord(&bIsNumber);
-      if (bIsNumber && m_pSyntax->GetKeyword() == "obj") {
-        bNextOffValid = true;
-      }
-    }
-  }
-
-  if (!bNextOffValid) {
-    m_pSyntax->SetPos(pos);
-    while (1) {
-      if (m_pSyntax->GetKeyword() == "endobj")
-        break;
-
-      if (m_pSyntax->GetPos() == m_pSyntax->m_FileLen)
-        break;
-    }
-    nextoff = m_pSyntax->GetPos();
-  }
-
-  size = (uint32_t)(nextoff - pos);
+  size = (uint32_t)(m_pSyntax->GetPos() - pos);
   pBuffer = FX_Alloc(uint8_t, size);
   m_pSyntax->SetPos(pos);
   m_pSyntax->ReadBlock(pBuffer, size);
+
   m_pSyntax->SetPos(SavedPos);
 }
 
@@ -1345,48 +1294,23 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObjectAt(
     uint32_t objnum) {
   FX_FILESIZE SavedPos = m_pSyntax->GetPos();
   m_pSyntax->SetPos(pos);
-  bool bIsNumber;
-  CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
 
-  FX_FILESIZE objOffset = m_pSyntax->GetPos();
-  objOffset -= word.GetLength();
-  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
-  if (objnum && parser_objnum != objnum) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  uint32_t parser_gennum = FXSYS_atoui(word.c_str());
-  if (m_pSyntax->GetKeyword() != "obj") {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  std::unique_ptr<CPDF_Object> pObj =
-      m_pSyntax->GetObject(pObjList, objnum, parser_gennum, true);
-  m_pSyntax->GetPos();
-
-  CFX_ByteString bsWord = m_pSyntax->GetKeyword();
-  if (bsWord == "endobj")
-    m_pSyntax->GetPos();
+  std::unique_ptr<CPDF_Object> result = m_pSyntax->ParseObject();
 
   m_pSyntax->SetPos(SavedPos);
-  if (pObj) {
-    if (!objnum)
-      pObj->m_ObjNum = parser_objnum;
-    pObj->m_GenNum = parser_gennum;
+  if (!result)
+    return nullptr;
+
+  m_pSyntax->AssignObjRefs(result.get(), pObjList);
+  m_pSyntax->DecryptObject(result.get(), GetCryptoHandler().Get());
+  m_pSyntax->AssignStringPool(result.get(), m_pSyntax->m_pPool.Get());
+
+  if (objnum) {
+    // Override parsed objnum.
+    result->m_ObjNum = objnum;
   }
-  return pObj;
+
+  return result;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObjectAtByStrict(
