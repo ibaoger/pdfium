@@ -43,6 +43,8 @@ class CPDF_Stream : public CPDF_Object {
   void SetData(const uint8_t* pData, uint32_t size);
   void SetData(std::ostringstream* stream);
 
+  void ReplaceData(const uint8_t* pData, uint32_t size);
+
   void InitStream(const uint8_t* pData,
                   uint32_t size,
                   std::unique_ptr<CPDF_Dictionary> pDict);
