@@ -15,6 +15,7 @@
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
+#include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_security_handler.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
@@ -349,7 +350,8 @@ bool CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
         return false;
       }
     } else {
-      if (!m_Archive->WriteBlock(pBuffer, size))
+      if (!m_Archive->WriteBlock(pBuffer, size) ||
+          !m_Archive->WriteString("\r\n"))
         return false;
     }
     FX_Free(pBuffer);
@@ -430,6 +432,20 @@ int32_t CPDF_Creator::WriteDoc_Stage1() {
       m_dwFlags &= ~FPDFCREATE_INCREMENTAL;
 
     CPDF_Dictionary* pDict = m_pDocument->GetRoot();
+    if (pDict &&
+        (!pDict->GetObjectFor("Pages") ||
+         !pDict->GetObjectFor("Pages")->GetDirect()) &&
+        m_pDocument->GetPageCount() && m_pDocument->GetPage(0)) {
+      ASSERT(m_pDocument->GetPageCount() == 1);
+      // For non linearized documents (which will be saved), are necessary to
+      // have vaild 'Pages' field in Root dictionary.
+      // But If we load single paged !linearized! document, without Pages field,
+      // we should restore it.
+      auto ref = pdfium::MakeUnique<CPDF_Reference>(
+          m_pDocument.Get(), m_pDocument->GetPage(0)->GetObjNum());
+      pDict->SetFor("Pages", std::move(ref));
+    }
+
     m_pMetadata = pDict ? pDict->GetDirectObjectFor("Metadata") : nullptr;
     m_iStage = 10;
   }
