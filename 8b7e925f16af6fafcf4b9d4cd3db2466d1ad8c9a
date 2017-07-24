@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f39788a9_c0ab1c30",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T19:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15eefd64_3b20b792",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b1236f_2d2bfa54",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2017-07-24T18:56:28Z",
       "side": 1,
       "message": "There may be an existing function to do this already.",
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5b5b002_6f4c44d2",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T19:10:15Z",
+      "side": 1,
+      "message": "Yea, but it\u0027s only in test_support, so I thought I could leave this here for now until someone else needs this too?",
+      "parentUuid": "33b1236f_2d2bfa54",
       "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "2b053fe5_b50986bc",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T19:10:15Z",
+      "side": 1,
+      "message": "Then all things will fail since our dictionaries can only store int, no support for unsigned long. Added a check for this and a comment.",
+      "parentUuid": "c9ecc31b_ae6f51a2",
+      "range": {
+        "startLine": 220,
+        "startChar": 48,
+        "endLine": 220,
+        "endChar": 69
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3fe30403_27958e3c",
         "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
         "patchSetId": 5
@@ -79,6 +145,24 @@
       "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37485f4d_12a16e37",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T19:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fe30403_27958e3c",
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +186,30 @@
       "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01ef2bcf_ae3f03d8",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T19:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aaaf316_e722c497",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 48
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
