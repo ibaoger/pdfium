@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "2ae820b7_e2b91f09",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T19:47:45Z",
+      "side": 1,
+      "message": "So, why does your change cause this to break? We lose the Pages dictionary for linearized documents?",
+      "parentUuid": "5cae9704_9c945bb2",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af6ac49_c25b06d9",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
@@ -135,6 +153,24 @@
       "side": 1,
       "message": "It is should. This is encryption/decryption logic of PDF.",
       "parentUuid": "74394a9b_e888de8f",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18abe5ee_4355eacc",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T19:47:45Z",
+      "side": 1,
+      "message": "Right, but it\u0027s receiving the entire object at this point? And walking down the tree why not just pass in the specific stream we need instead of doing a tree walk?",
+      "parentUuid": "4337ccea_888ea045",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -205,6 +241,24 @@
       "side": 1,
       "message": "This is private method.\nFor this we have public EncryptObjectClone.",
       "parentUuid": "79193fb9_e3321387",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d796d3c_07c0ab9e",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T19:47:45Z",
+      "side": 1,
+      "message": "This should just get folded into Clone, but why does Clone need to Clone, if we just receive the data to encrypt instead of changing the object?",
+      "parentUuid": "65498b36_f4d3da1f",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
