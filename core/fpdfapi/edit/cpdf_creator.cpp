@@ -7,6 +7,7 @@
 #include "core/fpdfapi/edit/cpdf_creator.h"
 
 #include <algorithm>
+#include <utility>
 
 #include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
@@ -15,6 +16,7 @@
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
+#include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_security_handler.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
@@ -158,157 +160,36 @@ CPDF_Creator::CPDF_Creator(CPDF_Document* pDoc,
 
 CPDF_Creator::~CPDF_Creator() {}
 
-bool CPDF_Creator::WriteStream(const CPDF_Object* pStream,
-                               uint32_t objnum,
-                               CPDF_CryptoHandler* pCrypto) {
-  CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(pStream->AsStream()),
-                            pStream != m_pMetadata);
-  CPDF_Encryptor encryptor(pCrypto, objnum, encoder.GetData(),
-                           encoder.GetSize());
-  if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
-      encryptor.GetSize()) {
-    encoder.CloneDict();
-    encoder.GetDict()->SetNewFor<CPDF_Number>(
-        "Length", static_cast<int>(encryptor.GetSize()));
-  }
-
-  if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-      !m_Archive->WriteString("stream\r\n")) {
-    return false;
-  }
-
-  // Allow for empty streams.
-  if (encryptor.GetSize() > 0 &&
-      !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize())) {
-    return false;
-  }
-
-  if (!m_Archive->WriteString("\r\nendstream"))
+bool CPDF_Creator::WriteIndirectObj(const CPDF_Object* pObj, bool bEncrypt) {
+  if (!m_Archive->WriteDWord(pObj->GetObjNum()) ||
+      !m_Archive->WriteString(" 0 obj\r\n"))
     return false;
 
-  return true;
-}
-
-bool CPDF_Creator::WriteIndirectObj(uint32_t objnum, const CPDF_Object* pObj) {
-  if (!m_Archive->WriteDWord(objnum) || !m_Archive->WriteString(" 0 obj\r\n"))
-    return false;
-
-  if (pObj->IsStream()) {
-    CPDF_CryptoHandler* pHandler =
-        pObj != m_pMetadata ? m_pCryptoHandler.Get() : nullptr;
-    if (!WriteStream(pObj, objnum, pHandler))
-      return false;
-  } else if (!WriteDirectObj(objnum, pObj, true)) {
+  if (!WriteDirectObj(pObj, pObj != m_pMetadata && bEncrypt)) {
     return false;
   }
 
   return m_Archive->WriteString("\r\nendobj\r\n");
 }
 
-bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
-                                  const CPDF_Object* pObj,
-                                  bool bEncrypt) {
+bool CPDF_Creator::WriteDirectObj(const CPDF_Object* pObj, bool bEncrypt) {
+  std::unique_ptr<CPDF_Object> tmp_clone;
+  if (bEncrypt && m_pCryptoHandler && pObj != m_pEncryptDict) {
+    tmp_clone = m_pCryptoHandler->EncryptObjectClone(pObj);
+    pObj = tmp_clone.get();
+  }
+
   switch (pObj->GetType()) {
     case CPDF_Object::BOOLEAN:
     case CPDF_Object::NAME:
     case CPDF_Object::NULLOBJ:
     case CPDF_Object::NUMBER:
     case CPDF_Object::REFERENCE:
-      if (!pObj->WriteTo(m_Archive.get()))
-        return false;
-      break;
-
-    case CPDF_Object::STRING: {
-      CFX_ByteString str = pObj->GetString();
-      bool bHex = pObj->AsString()->IsHex();
-      if (!m_pCryptoHandler || !bEncrypt) {
-        if (!pObj->WriteTo(m_Archive.get()))
-          return false;
-        break;
-      }
-      CPDF_Encryptor encryptor(m_pCryptoHandler.Get(), objnum,
-                               (uint8_t*)str.c_str(), str.GetLength());
-      CFX_ByteString content = PDF_EncodeString(
-          CFX_ByteString(encryptor.GetData(), encryptor.GetSize()), bHex);
-      if (!m_Archive->WriteString(content.AsStringC()))
-        return false;
-      break;
-    }
-    case CPDF_Object::STREAM: {
-      CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(pObj->AsStream()),
-                                true);
-      CPDF_Encryptor encryptor(m_pCryptoHandler.Get(), objnum,
-                               encoder.GetData(), encoder.GetSize());
-      if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
-          encryptor.GetSize()) {
-        encoder.CloneDict();
-        encoder.GetDict()->SetNewFor<CPDF_Number>(
-            "Length", static_cast<int>(encryptor.GetSize()));
-      }
-      if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-          !m_Archive->WriteString("stream\r\n") ||
-          !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
-          !m_Archive->WriteString("\r\nendstream")) {
-        return false;
-      }
-
-      break;
-    }
-    case CPDF_Object::ARRAY: {
-      if (!m_Archive->WriteString("["))
-        return false;
-
-      const CPDF_Array* p = pObj->AsArray();
-      for (size_t i = 0; i < p->GetCount(); i++) {
-        CPDF_Object* pElement = p->GetObjectAt(i);
-        if (!pElement->IsInline()) {
-          if (!m_Archive->WriteString(" ") ||
-              !m_Archive->WriteDWord(pElement->GetObjNum()) ||
-              !m_Archive->WriteString(" 0 R")) {
-            return false;
-          }
-        } else if (!WriteDirectObj(objnum, pElement, true)) {
-          return false;
-        }
-      }
-      if (!m_Archive->WriteString("]"))
-        return false;
-      break;
-    }
+    case CPDF_Object::STRING:
+    case CPDF_Object::STREAM:
+    case CPDF_Object::ARRAY:
     case CPDF_Object::DICTIONARY: {
-      if (!m_pCryptoHandler || pObj == m_pEncryptDict) {
-        if (!pObj->WriteTo(m_Archive.get()))
-          return false;
-        break;
-      }
-
-      if (!m_Archive->WriteString("<<"))
-        return false;
-
-      const CPDF_Dictionary* p = pObj->AsDictionary();
-      bool bSignDict = p->IsSignatureDict();
-      for (const auto& it : *p) {
-        bool bSignValue = false;
-        const CFX_ByteString& key = it.first;
-        CPDF_Object* pValue = it.second.get();
-        if (!m_Archive->WriteString("/") ||
-            !m_Archive->WriteString(PDF_NameEncode(key).AsStringC())) {
-          return false;
-        }
-
-        if (bSignDict && key == "Contents")
-          bSignValue = true;
-        if (!pValue->IsInline()) {
-          if (!m_Archive->WriteString(" ") ||
-              !m_Archive->WriteDWord(pValue->GetObjNum()) ||
-              !m_Archive->WriteString(" 0 R ")) {
-            return false;
-          }
-        } else if (!WriteDirectObj(objnum, pValue, !bSignValue)) {
-          return false;
-        }
-      }
-      if (!m_Archive->WriteString(">>"))
+      if (!pObj->WriteTo(m_Archive.get()))
         return false;
       break;
     }
@@ -331,7 +212,7 @@ bool CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
       m_ObjectOffsets.erase(objnum);
       return true;
     }
-    if (!WriteIndirectObj(pObj->GetObjNum(), pObj))
+    if (!WriteIndirectObj(pObj, true))
       return false;
     if (!bExistInMap)
       m_pDocument->DeleteIndirectObject(objnum);
@@ -349,7 +230,8 @@ bool CPDF_Creator::WriteOldIndirectObject(uint32_t objnum) {
         return false;
       }
     } else {
-      if (!m_Archive->WriteBlock(pBuffer, size))
+      if (!m_Archive->WriteBlock(pBuffer, size) ||
+          !m_Archive->WriteString("\r\n"))
         return false;
     }
     FX_Free(pBuffer);
@@ -377,7 +259,7 @@ bool CPDF_Creator::WriteNewObjs() {
       continue;
 
     m_ObjectOffsets[objnum] = m_Archive->CurrentOffset();
-    if (!WriteIndirectObj(pObj->GetObjNum(), pObj))
+    if (!WriteIndirectObj(pObj, true))
       return false;
   }
   return true;
@@ -430,6 +312,20 @@ int32_t CPDF_Creator::WriteDoc_Stage1() {
       m_dwFlags &= ~FPDFCREATE_INCREMENTAL;
 
     CPDF_Dictionary* pDict = m_pDocument->GetRoot();
+    if (pDict &&
+        (!pDict->GetObjectFor("Pages") ||
+         !pDict->GetObjectFor("Pages")->GetDirect()) &&
+        m_pDocument->GetPageCount() && m_pDocument->GetPage(0)) {
+      ASSERT(m_pDocument->GetPageCount() == 1);
+      // For non linearized documents (which will be saved), are necessary to
+      // have vaild 'Pages' field in Root dictionary.
+      // But If we load single paged !linearized! document, without Pages field,
+      // we should restore it.
+      auto ref = pdfium::MakeUnique<CPDF_Reference>(
+          m_pDocument.Get(), m_pDocument->GetPage(0)->GetObjNum());
+      pDict->SetFor("Pages", std::move(ref));
+    }
+
     m_pMetadata = pDict ? pDict->GetDirectObjectFor("Metadata") : nullptr;
     m_iStage = 10;
   }
@@ -521,7 +417,9 @@ int32_t CPDF_Creator::WriteDoc_Stage2() {
     if (m_pEncryptDict && m_pEncryptDict->IsInline()) {
       m_dwLastObjNum += 1;
       FX_FILESIZE saveOffset = m_Archive->CurrentOffset();
-      if (!WriteIndirectObj(m_dwLastObjNum, m_pEncryptDict.Get()))
+      auto tmp_clone = m_pEncryptDict->Clone();
+      tmp_clone->m_ObjNum = m_dwLastObjNum;
+      if (!WriteIndirectObj(tmp_clone.get(), false /*no encryption*/))
         return -1;
 
       m_ObjectOffsets[m_dwLastObjNum] = saveOffset;

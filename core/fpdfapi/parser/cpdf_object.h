@@ -96,8 +96,10 @@ class CPDF_Object {
   friend class CPDF_Dictionary;
   friend class CPDF_IndirectObjectHolder;
   friend class CPDF_Parser;
+  friend class CPDF_SyntaxParser;
   friend class CPDF_Reference;
   friend class CPDF_Stream;
+  friend class CPDF_Creator;
 
   CPDF_Object() : m_ObjNum(0), m_GenNum(0) {}
 

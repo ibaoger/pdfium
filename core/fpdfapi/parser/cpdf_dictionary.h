@@ -60,7 +60,6 @@ class CPDF_Dictionary : public CPDF_Object {
   }
 
   bool KeyExist(const CFX_ByteString& key) const;
-  bool IsSignatureDict() const;
 
   // Set* functions invalidate iterators for the element with the key |key|.
   // Takes ownership of |pObj|, returns an unowned pointer to it.
@@ -92,7 +91,7 @@ class CPDF_Dictionary : public CPDF_Object {
                                   CPDF_IndirectObjectHolder* pHolder);
 
   // Invalidates iterators for the element with the key |key|.
-  void RemoveFor(const CFX_ByteString& key);
+  std::unique_ptr<CPDF_Object> RemoveFor(const CFX_ByteString& key);
 
   // Invalidates iterators for the element with the key |oldkey|.
   void ReplaceKey(const CFX_ByteString& oldkey, const CFX_ByteString& newkey);
