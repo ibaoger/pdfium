@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_APPSTREAM_H_
-#define FPDFSDK_PDFWINDOW_CPWL_APPSTREAM_H_
+#ifndef FPDFSDK_PWL_CPWL_APPSTREAM_H_
+#define FPDFSDK_PWL_CPWL_APPSTREAM_H_
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_string.h"
@@ -40,4 +40,4 @@ class CPWL_AppStream {
   CFX_UnownedPtr<CPDF_Dictionary> dict_;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_APPSTREAM_H_
+#endif  // FPDFSDK_PWL_CPWL_APPSTREAM_H_

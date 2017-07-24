@@ -4,12 +4,12 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_timer.h"
+#include "fpdfsdk/pwl/cpwl_timer.h"
 
 #include <map>
 
 #include "fpdfsdk/cfx_systemhandler.h"
-#include "fpdfsdk/pdfwindow/cpwl_timer_handler.h"
+#include "fpdfsdk/pwl/cpwl_timer_handler.h"
 
 namespace {
 

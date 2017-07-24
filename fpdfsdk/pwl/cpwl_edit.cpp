@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_edit.h"
+#include "fpdfsdk/pwl/cpwl_edit.h"
 
 #include <algorithm>
 #include <memory>
@@ -21,11 +21,11 @@
 #include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/fx_font.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_caret.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
-#include "fpdfsdk/pdfwindow/cpwl_font_map.h"
-#include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_caret.h"
+#include "fpdfsdk/pwl/cpwl_edit_ctrl.h"
+#include "fpdfsdk/pwl/cpwl_font_map.h"
+#include "fpdfsdk/pwl/cpwl_scroll_bar.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 #include "public/fpdf_fwlevent.h"
 #include "third_party/base/stl_util.h"
 

@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_WND_H_
-#define FPDFSDK_PDFWINDOW_CPWL_WND_H_
+#ifndef FPDFSDK_PWL_CPWL_WND_H_
+#define FPDFSDK_PWL_CPWL_WND_H_
 
 #include <memory>
 #include <vector>
@@ -17,8 +17,8 @@
 #include "core/fxge/cfx_color.h"
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/cpdfsdk_widget.h"
-#include "fpdfsdk/pdfwindow/cpwl_timer.h"
-#include "fpdfsdk/pdfwindow/cpwl_timer_handler.h"
+#include "fpdfsdk/pwl/cpwl_timer.h"
+#include "fpdfsdk/pwl/cpwl_timer_handler.h"
 
 class CPWL_Edit;
 class CPWL_MsgControl;
@@ -340,4 +340,4 @@ class CPWL_Wnd : public CPWL_TimerHandler, public CFX_Observable<CPWL_Wnd> {
   bool m_bEnabled;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_WND_H_
+#endif  // FPDFSDK_PWL_CPWL_WND_H_

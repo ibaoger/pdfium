@@ -4,17 +4,17 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_list_box.h"
+#include "fpdfsdk/pwl/cpwl_list_box.h"
 
 #include <sstream>
 
 #include "core/fxge/cfx_renderdevice.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
 #include "fpdfsdk/fxedit/fxet_list.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit_ctrl.h"
-#include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_edit.h"
+#include "fpdfsdk/pwl/cpwl_edit_ctrl.h"
+#include "fpdfsdk/pwl/cpwl_scroll_bar.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 #include "public/fpdf_fwlevent.h"
 #include "third_party/base/ptr_util.h"
 

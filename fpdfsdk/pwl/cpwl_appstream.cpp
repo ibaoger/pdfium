@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_appstream.h"
+#include "fpdfsdk/pwl/cpwl_appstream.h"
 
 #include <utility>
 
@@ -23,9 +23,9 @@
 #include "fpdfsdk/cpdfsdk_widget.h"
 #include "fpdfsdk/formfiller/cba_fontmap.h"
 #include "fpdfsdk/fxedit/fxet_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_edit.h"
-#include "fpdfsdk/pdfwindow/cpwl_icon.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_edit.h"
+#include "fpdfsdk/pwl/cpwl_icon.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 namespace {
 

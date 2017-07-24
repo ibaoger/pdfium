@@ -4,14 +4,14 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_ICON_H_
-#define FPDFSDK_PDFWINDOW_CPWL_ICON_H_
+#ifndef FPDFSDK_PWL_CPWL_ICON_H_
+#define FPDFSDK_PWL_CPWL_ICON_H_
 
 #include <utility>
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_string.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 class CPWL_Icon : public CPWL_Wnd {
  public:
@@ -41,4 +41,4 @@ class CPWL_Icon : public CPWL_Wnd {
   CFX_UnownedPtr<CPDF_IconFit> m_pIconFit;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_ICON_H_
+#endif  // FPDFSDK_PWL_CPWL_ICON_H_

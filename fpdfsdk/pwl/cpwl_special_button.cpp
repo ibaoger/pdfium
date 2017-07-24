@@ -4,9 +4,9 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_special_button.h"
-#include "fpdfsdk/pdfwindow/cpwl_button.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_special_button.h"
+#include "fpdfsdk/pwl/cpwl_button.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 CPWL_PushButton::CPWL_PushButton() {}
 

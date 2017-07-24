@@ -4,10 +4,10 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_BUTTON_H_
-#define FPDFSDK_PDFWINDOW_CPWL_BUTTON_H_
+#ifndef FPDFSDK_PWL_CPWL_BUTTON_H_
+#define FPDFSDK_PWL_CPWL_BUTTON_H_
 
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 class CPWL_Button : public CPWL_Wnd {
  public:
@@ -24,4 +24,4 @@ class CPWL_Button : public CPWL_Wnd {
   bool m_bMouseDown;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_BUTTON_H_
+#endif  // FPDFSDK_PWL_CPWL_BUTTON_H_

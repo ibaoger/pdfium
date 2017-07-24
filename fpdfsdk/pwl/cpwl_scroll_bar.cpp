@@ -4,7 +4,7 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_scroll_bar.h"
+#include "fpdfsdk/pwl/cpwl_scroll_bar.h"
 
 #include <algorithm>
 #include <sstream>
@@ -12,7 +12,7 @@
 
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_renderdevice.h"
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 namespace {
 

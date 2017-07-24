@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_FONT_MAP_H_
-#define FPDFSDK_PDFWINDOW_CPWL_FONT_MAP_H_
+#ifndef FPDFSDK_PWL_CPWL_FONT_MAP_H_
+#define FPDFSDK_PWL_CPWL_FONT_MAP_H_
 
 #include <memory>
 #include <vector>
@@ -92,4 +92,4 @@ class CPWL_FontMap : public IPVT_FontMap {
   CFX_UnownedPtr<CFX_SystemHandler> const m_pSystemHandler;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_FONT_MAP_H_
+#endif  // FPDFSDK_PWL_CPWL_FONT_MAP_H_
