@@ -22,6 +22,74 @@
       "revId": "9a789086e4e758889dde429670722ef306e22165",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe9575b_f79ac2db",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T17:40:35Z",
+      "side": 1,
+      "message": "This seems really weird that we go backwards. We should pass in the correct value of p.",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece2a372_0dc57580",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T17:40:35Z",
+      "side": 1,
+      "message": "s/cannot be/was not",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d30eec7_0f575f9d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T17:40:35Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efe1851_1ba99bd8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T17:40:35Z",
+      "side": 1,
+      "message": "In most cases, would we even get here as we\u0027re probably dealing with windows \\r\\n encoded strings. Should the \\r do a look-ahead and deal with \\n here or is it handled somewhere else?",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
