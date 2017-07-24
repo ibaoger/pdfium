@@ -43,6 +43,112 @@ enum class ButtonStyle {
   kLabelOverIcon
 };
 
+enum class Operator {
+  kAppendRect,
+  kConcatMatrix,
+  kCurveTo,
+  kEndPathNoFillOrStroke,
+  kFill,
+  kFillEvenOdd,
+  kInvokeNamedXObject,
+  kLineTo,
+  kMarkedSequenceBegin,
+  kMarkedSequenceEnd,
+  kMoveTextPosition,
+  kMoveTo,
+  kSetCharacterSpacing,
+  kSetCMYK,
+  kSetCMKYStroked,
+  kSetDash,
+  kSetGray,
+  kSetGrayStroked,
+  kSetLineCapStyle,
+  kSetLineJoinStyle,
+  kSetLineWidth,
+  kSetNonZeroWindingClip,
+  kSetRGB,
+  kSetRGBStroked,
+  kSetTextFontAndSize,
+  kSetTextScaleHorizontal,
+  kShowText,
+  kStateRestore,
+  kStateSave,
+  kStroke,
+  kTextBegin,
+  kTextEnd,
+};
+
+CFX_ByteString GetCommand(Operator op) {
+  switch (op) {
+    case Operator::kAppendRect:
+      return "re";
+    case Operator::kConcatMatrix:
+      return "cm";
+    case Operator::kCurveTo:
+      return "c";
+    case Operator::kEndPathNoFillOrStroke:
+      return "n";
+    case Operator::kFill:
+      return "f";
+    case Operator::kFillEvenOdd:
+      return "f*";
+    case Operator::kInvokeNamedXObject:
+      return "Do";
+    case Operator::kLineTo:
+      return "l";
+    case Operator::kMarkedSequenceBegin:
+      return "BMC";
+    case Operator::kMarkedSequenceEnd:
+      return "EMC";
+    case Operator::kMoveTextPosition:
+      return "Td";
+    case Operator::kMoveTo:
+      return "m";
+    case Operator::kSetCharacterSpacing:
+      return "Tc";
+    case Operator::kSetCMYK:
+      return "k";
+    case Operator::kSetCMKYStroked:
+      return "K";
+    case Operator::kSetDash:
+      return "d";
+    case Operator::kSetGray:
+      return "g";
+    case Operator::kSetGrayStroked:
+      return "G";
+    case Operator::kSetLineCapStyle:
+      return "J";
+    case Operator::kSetLineJoinStyle:
+      return "j";
+    case Operator::kSetLineWidth:
+      return "w";
+    case Operator::kSetNonZeroWindingClip:
+      return "W";
+    case Operator::kSetRGB:
+      return "rg";
+    case Operator::kSetRGBStroked:
+      return "RG";
+    case Operator::kSetTextFontAndSize:
+      return "Tf";
+    case Operator::kSetTextScaleHorizontal:
+      return "Tz";
+    case Operator::kShowText:
+      return "Tj";
+    case Operator::kStateRestore:
+      return "Q";
+    case Operator::kStateSave:
+      return "q";
+    case Operator::kStroke:
+      return "S";
+    case Operator::kTextBegin:
+      return "BT";
+    case Operator::kTextEnd:
+      return "ET";
+  }
+  NOTREACHED();
+  return "";
+}
+
 class AutoClosedCommand {
  public:
   AutoClosedCommand(std::ostringstream* stream,
@@ -62,7 +168,9 @@ class AutoClosedCommand {
 class AutoClosedQCommand : public AutoClosedCommand {
  public:
   explicit AutoClosedQCommand(std::ostringstream* stream)
-      : AutoClosedCommand(stream, "q", "Q") {}
+      : AutoClosedCommand(stream,
+                          GetCommand(Operator::kStateSave),
+                          GetCommand(Operator::kStateRestore)) {}
   ~AutoClosedQCommand() override {}
 };
 
@@ -73,17 +181,23 @@ CFX_ByteString GetColorAppStream(const CFX_Color& color,
   switch (color.nColorType) {
     case COLORTYPE_RGB:
       sColorStream << color.fColor1 << " " << color.fColor2 << " "
-                   << color.fColor3 << " " << (bFillOrStroke ? "rg" : "RG")
+                   << color.fColor3 << " "
+                   << (bFillOrStroke ? GetCommand(Operator::kSetRGB)
+                                     : GetCommand(Operator::kSetRGBStroked))
                    << "\n";
       break;
     case COLORTYPE_GRAY:
-      sColorStream << color.fColor1 << " " << (bFillOrStroke ? "g" : "G")
+      sColorStream << color.fColor1 << " "
+                   << (bFillOrStroke ? GetCommand(Operator::kSetGray)
+                                     : GetCommand(Operator::kSetGrayStroked))
                    << "\n";
       break;
     case COLORTYPE_CMYK:
       sColorStream << color.fColor1 << " " << color.fColor2 << " "
                    << color.fColor3 << " " << color.fColor4 << " "
-                   << (bFillOrStroke ? "k" : "K") << "\n";
+                   << (bFillOrStroke ? GetCommand(Operator::kSetCMYK)
+                                     : GetCommand(Operator::kSetCMKYStroked))
+                   << "\n";
       break;
   }
 
@@ -119,7 +233,8 @@ CFX_ByteString GetAP_Check(const CFX_FloatRect& crBBox) {
   }
 
   std::ostringstream csAP;
-  csAP << pts[0][0].x << " " << pts[0][0].y << " m\n";
+  csAP << pts[0][0].x << " " << pts[0][0].y << " "
+       << GetCommand(Operator::kMoveTo) << "\n";
 
   for (size_t i = 0; i < FX_ArraySize(pts); ++i) {
     size_t nNext = i < FX_ArraySize(pts) - 1 ? i + 1 : 0;
@@ -133,7 +248,7 @@ CFX_ByteString GetAP_Check(const CFX_FloatRect& crBBox) {
          << pts[i][0].y + py1 * FX_BEZIER << " "
          << pts[nNext][0].x + px2 * FX_BEZIER << " "
          << pts[nNext][0].y + py2 * FX_BEZIER << " " << pts[nNext][0].x << " "
-         << pts[nNext][0].y << " c\n";
+         << pts[nNext][0].y << " " << GetCommand(Operator::kCurveTo) << "\n";
   }
 
   return CFX_ByteString(csAP);
@@ -150,33 +265,35 @@ CFX_ByteString GetAP_Circle(const CFX_FloatRect& crBBox) {
   CFX_PointF pt3(crBBox.right, crBBox.bottom + fHeight / 2);
   CFX_PointF pt4(crBBox.left + fWidth / 2, crBBox.bottom);
 
-  csAP << pt1.x << " " << pt1.y << " m\n";
+  csAP << pt1.x << " " << pt1.y << " " << GetCommand(Operator::kMoveTo) << "\n";
 
   float px = pt2.x - pt1.x;
   float py = pt2.y - pt1.y;
 
   csAP << pt1.x << " " << pt1.y + py * FX_BEZIER << " "
        << pt2.x - px * FX_BEZIER << " " << pt2.y << " " << pt2.x << " " << pt2.y
-       << " c\n";
+       << " " << GetCommand(Operator::kCurveTo) << "\n";
 
   px = pt3.x - pt2.x;
   py = pt2.y - pt3.y;
 
   csAP << pt2.x + px * FX_BEZIER << " " << pt2.y << " " << pt3.x << " "
-       << pt3.y + py * FX_BEZIER << " " << pt3.x << " " << pt3.y << " c\n";
+       << pt3.y + py * FX_BEZIER << " " << pt3.x << " " << pt3.y << " "
+       << GetCommand(Operator::kCurveTo) << "\n";
 
   px = pt3.x - pt4.x;
   py = pt3.y - pt4.y;
 
   csAP << pt3.x << " " << pt3.y - py * FX_BEZIER << " "
        << pt4.x + px * FX_BEZIER << " " << pt4.y << " " << pt4.x << " " << pt4.y
-       << " c\n";
+       << " " << GetCommand(Operator::kCurveTo) << "\n";
 
   px = pt4.x - pt1.x;
   py = pt1.y - pt4.y;
 
   csAP << pt4.x - px * FX_BEZIER << " " << pt4.y << " " << pt1.x << " "
-       << pt1.y - py * FX_BEZIER << " " << pt1.x << " " << pt1.y << " c\n";
+       << pt1.y - py * FX_BEZIER << " " << pt1.x << " " << pt1.y << " "
+       << GetCommand(Operator::kCurveTo) << "\n";
 
   return CFX_ByteString(csAP);
 }
@@ -184,10 +301,14 @@ CFX_ByteString GetAP_Circle(const CFX_FloatRect& crBBox) {
 CFX_ByteString GetAP_Cross(const CFX_FloatRect& crBBox) {
   std::ostringstream csAP;
 
-  csAP << crBBox.left << " " << crBBox.top << " m\n";
-  csAP << crBBox.right << " " << crBBox.bottom << " l\n";
-  csAP << crBBox.left << " " << crBBox.bottom << " m\n";
-  csAP << crBBox.right << " " << crBBox.top << " l\n";
+  csAP << crBBox.left << " " << crBBox.top << " "
+       << GetCommand(Operator::kMoveTo) << "\n";
+  csAP << crBBox.right << " " << crBBox.bottom << " "
+       << GetCommand(Operator::kLineTo) << "\n";
+  csAP << crBBox.left << " " << crBBox.bottom << " "
+       << GetCommand(Operator::kMoveTo) << "\n";
+  csAP << crBBox.right << " " << crBBox.top << " "
+       << GetCommand(Operator::kLineTo) << "\n";
 
   return CFX_ByteString(csAP);
 }
@@ -203,11 +324,11 @@ CFX_ByteString GetAP_Diamond(const CFX_FloatRect& crBBox) {
   CFX_PointF pt3(crBBox.right, crBBox.bottom + fHeight / 2);
   CFX_PointF pt4(crBBox.left + fWidth / 2, crBBox.bottom);
 
-  csAP << pt1.x << " " << pt1.y << " m\n";
-  csAP << pt2.x << " " << pt2.y << " l\n";
-  csAP << pt3.x << " " << pt3.y << " l\n";
-  csAP << pt4.x << " " << pt4.y << " l\n";
-  csAP << pt1.x << " " << pt1.y << " l\n";
+  csAP << pt1.x << " " << pt1.y << " " << GetCommand(Operator::kMoveTo) << "\n";
+  csAP << pt2.x << " " << pt2.y << " " << GetCommand(Operator::kLineTo) << "\n";
+  csAP << pt3.x << " " << pt3.y << " " << GetCommand(Operator::kLineTo) << "\n";
+  csAP << pt4.x << " " << pt4.y << " " << GetCommand(Operator::kLineTo) << "\n";
+  csAP << pt1.x << " " << pt1.y << " " << GetCommand(Operator::kLineTo) << "\n";
 
   return CFX_ByteString(csAP);
 }
@@ -215,11 +336,16 @@ CFX_ByteString GetAP_Diamond(const CFX_FloatRect& crBBox) {
 CFX_ByteString GetAP_Square(const CFX_FloatRect& crBBox) {
   std::ostringstream csAP;
 
-  csAP << crBBox.left << " " << crBBox.top << " m\n";
-  csAP << crBBox.right << " " << crBBox.top << " l\n";
-  csAP << crBBox.right << " " << crBBox.bottom << " l\n";
-  csAP << crBBox.left << " " << crBBox.bottom << " l\n";
-  csAP << crBBox.left << " " << crBBox.top << " l\n";
+  csAP << crBBox.left << " " << crBBox.top << " "
+       << GetCommand(Operator::kMoveTo) << "\n";
+  csAP << crBBox.right << " " << crBBox.top << " "
+       << GetCommand(Operator::kLineTo) << "\n";
+  csAP << crBBox.right << " " << crBBox.bottom << " "
+       << GetCommand(Operator::kLineTo) << "\n";
+  csAP << crBBox.left << " " << crBBox.bottom << " "
+       << GetCommand(Operator::kLineTo) << "\n";
+  csAP << crBBox.left << " " << crBBox.top << " "
+       << GetCommand(Operator::kLineTo) << "\n";
 
   return CFX_ByteString(csAP);
 }
@@ -240,14 +366,15 @@ CFX_ByteString GetAP_Star(const CFX_FloatRect& crBBox) {
     fAngel += FX_PI * 2 / 5.0f;
   }
 
-  csAP << px[0] << " " << py[0] << " m\n";
+  csAP << px[0] << " " << py[0] << " " << GetCommand(Operator::kMoveTo) << "\n";
 
   int32_t nNext = 0;
   for (int32_t j = 0; j < 5; j++) {
     nNext += 2;
     if (nNext >= 5)
       nNext -= 5;
-    csAP << px[nNext] << " " << py[nNext] << " l\n";
+    csAP << px[nNext] << " " << py[nNext] << " "
+         << GetCommand(Operator::kLineTo) << "\n";
   }
 
   return CFX_ByteString(csAP);
@@ -268,22 +395,24 @@ CFX_ByteString GetAP_HalfCircle(const CFX_FloatRect& crBBox, float fRotate) {
 
   csAP << cos(fRotate) << " " << sin(fRotate) << " " << -sin(fRotate) << " "
        << cos(fRotate) << " " << crBBox.left + fWidth / 2 << " "
-       << crBBox.bottom + fHeight / 2 << " cm\n";
+       << crBBox.bottom + fHeight / 2 << " "
+       << GetCommand(Operator::kConcatMatrix) << "\n";
 
-  csAP << pt1.x << " " << pt1.y << " m\n";
+  csAP << pt1.x << " " << pt1.y << " " << GetCommand(Operator::kMoveTo) << "\n";
 
   px = pt2.x - pt1.x;
   py = pt2.y - pt1.y;
 
   csAP << pt1.x << " " << pt1.y + py * FX_BEZIER << " "
        << pt2.x - px * FX_BEZIER << " " << pt2.y << " " << pt2.x << " " << pt2.y
-       << " c\n";
+       << " " << GetCommand(Operator::kCurveTo) << "\n";
 
   px = pt3.x - pt2.x;
   py = pt2.y - pt3.y;
 
   csAP << pt2.x + px * FX_BEZIER << " " << pt2.y << " " << pt3.x << " "
-       << pt3.y + py * FX_BEZIER << " " << pt3.x << " " << pt3.y << " c\n";
+       << pt3.y + py * FX_BEZIER << " " << pt3.x << " " << pt3.y << " "
+       << GetCommand(Operator::kCurveTo) << "\n";
 
   return CFX_ByteString(csAP);
 }
@@ -293,7 +422,8 @@ CFX_ByteString GetAppStream_Check(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << GetColorAppStream(crText, true) << GetAP_Check(rcBBox) << "f\n";
+    sAP << GetColorAppStream(crText, true) << GetAP_Check(rcBBox)
+        << GetCommand(Operator::kFill) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -303,7 +433,8 @@ CFX_ByteString GetAppStream_Circle(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << GetColorAppStream(crText, true) << GetAP_Circle(rcBBox) << "f\n";
+    sAP << GetColorAppStream(crText, true) << GetAP_Circle(rcBBox)
+        << GetCommand(Operator::kFill) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -313,7 +444,8 @@ CFX_ByteString GetAppStream_Cross(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << GetColorAppStream(crText, false) << GetAP_Cross(rcBBox) << "S\n";
+    sAP << GetColorAppStream(crText, false) << GetAP_Cross(rcBBox)
+        << GetCommand(Operator::kStroke) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -323,8 +455,9 @@ CFX_ByteString GetAppStream_Diamond(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << "1 w\n"
-        << GetColorAppStream(crText, true) << GetAP_Diamond(rcBBox) << "f\n";
+    sAP << "1 " << GetCommand(Operator::kSetLineWidth) << "\n"
+        << GetColorAppStream(crText, true) << GetAP_Diamond(rcBBox)
+        << GetCommand(Operator::kFill) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -334,7 +467,8 @@ CFX_ByteString GetAppStream_Square(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << GetColorAppStream(crText, true) << GetAP_Square(rcBBox) << "f\n";
+    sAP << GetColorAppStream(crText, true) << GetAP_Square(rcBBox)
+        << GetCommand(Operator::kFill) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -344,7 +478,8 @@ CFX_ByteString GetAppStream_Star(const CFX_FloatRect& rcBBox,
   std::ostringstream sAP;
   {
     AutoClosedQCommand q(&sAP);
-    sAP << GetColorAppStream(crText, true) << GetAP_Star(rcBBox) << "f\n";
+    sAP << GetColorAppStream(crText, true) << GetAP_Star(rcBBox)
+        << GetCommand(Operator::kFill) << "\n";
   }
   return CFX_ByteString(sAP);
 }
@@ -355,7 +490,8 @@ CFX_ByteString GetCircleFillAppStream(const CFX_FloatRect& rect,
   CFX_ByteString sColor = GetColorAppStream(color, true);
   if (sColor.GetLength() > 0) {
     AutoClosedQCommand q(&sAppStream);
-    sAppStream << sColor << GetAP_Circle(rect) << "f\n";
+    sAppStream << sColor << GetAP_Circle(rect) << GetCommand(Operator::kFill)
+               << "\n";
   }
   return CFX_ByteString(sAppStream);
 }
@@ -385,66 +521,79 @@ CFX_ByteString GetCircleBorderAppStream(const CFX_FloatRect& rect,
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fWidth << " w\n"
-                     << sColor << GetAP_Circle(rect_by_2) << " S\n";
+          sAppStream << fWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
+                     << sColor << GetAP_Circle(rect_by_2) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
       } break;
       case BorderStyle::DASH: {
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fWidth << " w\n"
+          sAppStream << fWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
                      << "[" << dash.nDash << " " << dash.nGap << "] "
-                     << dash.nPhase << " d\n"
-                     << sColor << GetAP_Circle(rect_by_2) << " S\n";
+                     << dash.nPhase << " " << GetCommand(Operator::kSetDash)
+                     << "\n"
+                     << sColor << GetAP_Circle(rect_by_2) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
       } break;
       case BorderStyle::BEVELED: {
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
-                     << sColor << GetAP_Circle(rect) << " S\n";
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
+                     << sColor << GetAP_Circle(rect) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
 
         sColor = GetColorAppStream(crLeftTop, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
                      << sColor << GetAP_HalfCircle(rect_by_75, FX_PI / 4.0f)
-                     << " S\n";
+                     << " " << GetCommand(Operator::kStroke) << "\n";
         }
 
         sColor = GetColorAppStream(crRightBottom, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
                      << sColor << GetAP_HalfCircle(rect_by_75, FX_PI * 5 / 4.0f)
-                     << " S\n";
+                     << " " << GetCommand(Operator::kStroke) << "\n";
         }
       } break;
       case BorderStyle::INSET: {
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
-                     << sColor << GetAP_Circle(rect) << " S\n";
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
+                     << sColor << GetAP_Circle(rect) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
 
         sColor = GetColorAppStream(crLeftTop, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
                      << sColor << GetAP_HalfCircle(rect_by_75, FX_PI / 4.0f)
-                     << " S\n";
+                     << " " << GetCommand(Operator::kStroke) << "\n";
         }
 
         sColor = GetColorAppStream(crRightBottom, false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q2(&sAppStream);
-          sAppStream << fHalfWidth << " w\n"
+          sAppStream << fHalfWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n"
                      << sColor << GetAP_HalfCircle(rect_by_75, FX_PI * 5 / 4.0f)
-                     << " S\n";
+                     << " " << GetCommand(Operator::kStroke) << "\n";
         }
       } break;
     }
@@ -513,13 +662,16 @@ CFX_ByteString GetFontSetString(IPVT_FontMap* pFontMap,
     return CFX_ByteString();
 
   std::ostringstream sRet;
-  sRet << "/" << sFontAlias << " " << fFontSize << " Tf\n";
+  sRet << "/" << sFontAlias << " " << fFontSize << " "
+       << GetCommand(Operator::kSetTextFontAndSize) << "\n";
   return CFX_ByteString(sRet);
 }
 
 CFX_ByteString GetWordRenderString(const CFX_ByteString& strWords) {
-  if (strWords.GetLength() > 0)
-    return PDF_EncodeString(strWords, false) + " Tj\n";
+  if (strWords.GetLength() > 0) {
+    return PDF_EncodeString(strWords, false) + " " +
+           GetCommand(Operator::kShowText) + "\n";
+  }
   return CFX_ByteString();
 }
 
@@ -558,8 +710,8 @@ CFX_ByteString GetEditAppStream(CFX_Edit* pEdit,
         }
 
         if (ptNew.x != ptOld.x || ptNew.y != ptOld.y) {
-          sEditStream << ptNew.x - ptOld.x << " " << ptNew.y - ptOld.y
-                      << " Td\n";
+          sEditStream << ptNew.x - ptOld.x << " " << ptNew.y - ptOld.y << " "
+                      << GetCommand(Operator::kMoveTextPosition) << "\n";
 
           ptOld = ptNew;
         }
@@ -588,8 +740,8 @@ CFX_ByteString GetEditAppStream(CFX_Edit* pEdit,
             CFX_PointF(word.ptWord.x + ptOffset.x, word.ptWord.y + ptOffset.y);
 
         if (ptNew.x != ptOld.x || ptNew.y != ptOld.y) {
-          sEditStream << ptNew.x - ptOld.x << " " << ptNew.y - ptOld.y
-                      << " Td\n";
+          sEditStream << ptNew.x - ptOld.x << " " << ptNew.y - ptOld.y << " "
+                      << GetCommand(Operator::kMoveTextPosition) << "\n";
           ptOld = ptNew;
         }
 
@@ -614,12 +766,14 @@ CFX_ByteString GetEditAppStream(CFX_Edit* pEdit,
   if (sEditStream.tellp() > 0) {
     int32_t nHorzScale = pEdit->GetHorzScale();
     if (nHorzScale != 100) {
-      sAppStream << nHorzScale << " Tz\n";
+      sAppStream << nHorzScale << " "
+                 << GetCommand(Operator::kSetTextScaleHorizontal) << "\n";
     }
 
     float fCharSpace = pEdit->GetCharSpace();
     if (!IsFloatZero(fCharSpace)) {
-      sAppStream << fCharSpace << " Tc\n";
+      sAppStream << fCharSpace << " "
+                 << GetCommand(Operator::kSetCharacterSpacing) << "\n";
     }
 
     sAppStream << sEditStream.str();
@@ -662,14 +816,20 @@ CFX_ByteString GenerateIconAppStream(CPDF_IconFit& fit,
     AutoClosedQCommand q(&str);
     str << rcPlate.left << " " << rcPlate.bottom << " "
         << rcPlate.right - rcPlate.left << " " << rcPlate.top - rcPlate.bottom
-        << " re W n\n";
+        << " " << GetCommand(Operator::kAppendRect) << " "
+        << GetCommand(Operator::kSetNonZeroWindingClip) << " "
+        << GetCommand(Operator::kEndPathNoFillOrStroke) << "\n";
 
     str << fHScale << " 0 0 " << fVScale << " " << rcPlate.left + fx << " "
-        << rcPlate.bottom + fy << " cm\n";
+        << rcPlate.bottom + fy << " " << GetCommand(Operator::kConcatMatrix)
+        << "\n";
     str << mt.a << " " << mt.b << " " << mt.c << " " << mt.d << " " << mt.e
-        << " " << mt.f << " cm\n";
+        << " " << mt.f << " " << GetCommand(Operator::kConcatMatrix) << "\n";
 
-    str << "0 g 0 G 1 w /" << sAlias << " Do\n";
+    str << "0 " << GetCommand(Operator::kSetGray) << " 0 "
+        << GetCommand(Operator::kSetGrayStroked) << " 1 "
+        << GetCommand(Operator::kSetLineWidth) << " /" << sAlias << " "
+        << GetCommand(Operator::kInvokeNamedXObject) << "\n";
   }
   icon.Destroy();
 
@@ -846,7 +1006,8 @@ CFX_ByteString GetPushButtonAppStream(const CFX_FloatRect& rcBBox,
     CFX_ByteString sEdit =
         GetEditAppStream(pEdit.get(), CFX_PointF(0.0f, 0.0f), true, 0);
     if (sEdit.GetLength() > 0) {
-      AutoClosedCommand bt(&sTemp, "BT", "ET");
+      AutoClosedCommand bt(&sTemp, GetCommand(Operator::kTextBegin),
+                           GetCommand(Operator::kTextEnd));
       sTemp << GetColorAppStream(crText, true) << sEdit;
     }
   }
@@ -859,7 +1020,10 @@ CFX_ByteString GetPushButtonAppStream(const CFX_FloatRect& rcBBox,
     AutoClosedQCommand q(&sAppStream);
     sAppStream << rcBBox.left << " " << rcBBox.bottom << " "
                << rcBBox.right - rcBBox.left << " "
-               << rcBBox.top - rcBBox.bottom << " re W n\n";
+               << rcBBox.top - rcBBox.bottom << " "
+               << GetCommand(Operator::kAppendRect) << " "
+               << GetCommand(Operator::kSetNonZeroWindingClip) << " "
+               << GetCommand(Operator::kEndPathNoFillOrStroke) << "\n";
     sAppStream << sTemp.str().c_str();
   }
   return CFX_ByteString(sAppStream);
@@ -891,30 +1055,34 @@ CFX_ByteString GetBorderAppStreamInternal(const CFX_FloatRect& rect,
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
           sAppStream << fLeft << " " << fBottom << " " << fRight - fLeft << " "
-                     << fTop - fBottom << " re\n";
+                     << fTop - fBottom << " "
+                     << GetCommand(Operator::kAppendRect) << "\n";
           sAppStream << fLeft + fWidth << " " << fBottom + fWidth << " "
                      << fRight - fLeft - fWidth * 2 << " "
-                     << fTop - fBottom - fWidth * 2 << " re\n";
-          sAppStream << "f*\n";
+                     << fTop - fBottom - fWidth * 2 << " "
+                     << GetCommand(Operator::kAppendRect) << "\n";
+          sAppStream << GetCommand(Operator::kFillEvenOdd) << "\n";
         }
         break;
       case BorderStyle::DASH:
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
-          sAppStream << fWidth << " w"
+          sAppStream << fWidth << " " << GetCommand(Operator::kSetLineWidth)
                      << " [" << dash.nDash << " " << dash.nGap << "] "
-                     << dash.nPhase << " d\n";
-          sAppStream << fLeft + fWidth / 2 << " " << fBottom + fWidth / 2
-                     << " m\n";
-          sAppStream << fLeft + fWidth / 2 << " " << fTop - fWidth / 2
-                     << " l\n";
-          sAppStream << fRight - fWidth / 2 << " " << fTop - fWidth / 2
-                     << " l\n";
+                     << dash.nPhase << " " << GetCommand(Operator::kSetDash)
+                     << "\n";
+          sAppStream << fLeft + fWidth / 2 << " " << fBottom + fWidth / 2 << " "
+                     << GetCommand(Operator::kMoveTo) << "\n";
+          sAppStream << fLeft + fWidth / 2 << " " << fTop - fWidth / 2 << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
+          sAppStream << fRight - fWidth / 2 << " " << fTop - fWidth / 2 << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fRight - fWidth / 2 << " " << fBottom + fWidth / 2
-                     << " l\n";
-          sAppStream << fLeft + fWidth / 2 << " " << fBottom + fWidth / 2
-                     << " l S\n";
+                     << " " << GetCommand(Operator::kLineTo) << "\n";
+          sAppStream << fLeft + fWidth / 2 << " " << fBottom + fWidth / 2 << " "
+                     << GetCommand(Operator::kLineTo) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
         break;
       case BorderStyle::BEVELED:
@@ -922,54 +1090,66 @@ CFX_ByteString GetBorderAppStreamInternal(const CFX_FloatRect& rect,
         sColor = GetColorAppStream(crLeftTop, true);
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
-          sAppStream << fLeft + fHalfWidth << " " << fBottom + fHalfWidth
-                     << " m\n";
-          sAppStream << fLeft + fHalfWidth << " " << fTop - fHalfWidth
-                     << " l\n";
-          sAppStream << fRight - fHalfWidth << " " << fTop - fHalfWidth
-                     << " l\n";
+          sAppStream << fLeft + fHalfWidth << " " << fBottom + fHalfWidth << " "
+                     << GetCommand(Operator::kMoveTo) << "\n";
+          sAppStream << fLeft + fHalfWidth << " " << fTop - fHalfWidth << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
+          sAppStream << fRight - fHalfWidth << " " << fTop - fHalfWidth << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fRight - fHalfWidth * 2 << " " << fTop - fHalfWidth * 2
-                     << " l\n";
+                     << " " << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fLeft + fHalfWidth * 2 << " " << fTop - fHalfWidth * 2
-                     << " l\n";
+                     << " " << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fLeft + fHalfWidth * 2 << " "
-                     << fBottom + fHalfWidth * 2 << " l f\n";
+                     << fBottom + fHalfWidth * 2 << " "
+                     << GetCommand(Operator::kLineTo) << " "
+                     << GetCommand(Operator::kFill) << "\n";
         }
 
         sColor = GetColorAppStream(crRightBottom, true);
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
-          sAppStream << fRight - fHalfWidth << " " << fTop - fHalfWidth
-                     << " m\n";
+          sAppStream << fRight - fHalfWidth << " " << fTop - fHalfWidth << " "
+                     << GetCommand(Operator::kMoveTo) << "\n";
           sAppStream << fRight - fHalfWidth << " " << fBottom + fHalfWidth
-                     << " l\n";
-          sAppStream << fLeft + fHalfWidth << " " << fBottom + fHalfWidth
-                     << " l\n";
+                     << " " << GetCommand(Operator::kLineTo) << "\n";
+          sAppStream << fLeft + fHalfWidth << " " << fBottom + fHalfWidth << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fLeft + fHalfWidth * 2 << " "
-                     << fBottom + fHalfWidth * 2 << " l\n";
+                     << fBottom + fHalfWidth * 2 << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fRight - fHalfWidth * 2 << " "
-                     << fBottom + fHalfWidth * 2 << " l\n";
+                     << fBottom + fHalfWidth * 2 << " "
+                     << GetCommand(Operator::kLineTo) << "\n";
           sAppStream << fRight - fHalfWidth * 2 << " " << fTop - fHalfWidth * 2
-                     << " l f\n";
+                     << " " << GetCommand(Operator::kLineTo) << " "
+                     << GetCommand(Operator::kFill) << "\n";
         }
 
         sColor = GetColorAppStream(color, true);
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
           sAppStream << fLeft << " " << fBottom << " " << fRight - fLeft << " "
-                     << fTop - fBottom << " re\n";
+                     << fTop - fBottom << " "
+                     << GetCommand(Operator::kAppendRect) << "\n";
           sAppStream << fLeft + fHalfWidth << " " << fBottom + fHalfWidth << " "
                      << fRight - fLeft - fHalfWidth * 2 << " "
-                     << fTop - fBottom - fHalfWidth * 2 << " re f*\n";
+                     << fTop - fBottom - fHalfWidth * 2 << " "
+                     << GetCommand(Operator::kAppendRect) << " "
+                     << GetCommand(Operator::kFillEvenOdd) << "\n";
         }
         break;
       case BorderStyle::UNDERLINE:
         sColor = GetColorAppStream(color, false);
         if (sColor.GetLength() > 0) {
           sAppStream << sColor;
-          sAppStream << fWidth << " w\n";
-          sAppStream << fLeft << " " << fBottom + fWidth / 2 << " m\n";
-          sAppStream << fRight << " " << fBottom + fWidth / 2 << " l S\n";
+          sAppStream << fWidth << " " << GetCommand(Operator::kSetLineWidth)
+                     << "\n";
+          sAppStream << fLeft << " " << fBottom + fWidth / 2 << " "
+                     << GetCommand(Operator::kMoveTo) << "\n";
+          sAppStream << fRight << " " << fBottom + fWidth / 2 << " "
+                     << GetCommand(Operator::kLineTo) << " "
+                     << GetCommand(Operator::kStroke) << "\n";
         }
         break;
     }
@@ -990,7 +1170,9 @@ CFX_ByteString GetDropButtonAppStream(const CFX_FloatRect& rcBBox) {
                                     true)
                << rcBBox.left << " " << rcBBox.bottom << " "
                << rcBBox.right - rcBBox.left << " "
-               << rcBBox.top - rcBBox.bottom << " re f\n";
+               << rcBBox.top - rcBBox.bottom << " "
+               << GetCommand(Operator::kAppendRect) << " "
+               << GetCommand(Operator::kFill) << "\n";
   }
 
   {
@@ -1006,11 +1188,16 @@ CFX_ByteString GetDropButtonAppStream(const CFX_FloatRect& rcBBox) {
   if (IsFloatBigger(rcBBox.right - rcBBox.left, 6) &&
       IsFloatBigger(rcBBox.top - rcBBox.bottom, 6)) {
     AutoClosedQCommand q(&sAppStream);
-    sAppStream << " 0 g\n"
-               << ptCenter.x - 3 << " " << ptCenter.y + 1.5f << " m\n"
-               << ptCenter.x + 3 << " " << ptCenter.y + 1.5f << " l\n"
-               << ptCenter.x << " " << ptCenter.y - 1.5f << " l\n"
-               << ptCenter.x - 3 << " " << ptCenter.y + 1.5f << " l f\n";
+    sAppStream << " 0 " << GetCommand(Operator::kSetGray) << "\n"
+               << ptCenter.x - 3 << " " << ptCenter.y + 1.5f << " "
+               << GetCommand(Operator::kMoveTo) << "\n"
+               << ptCenter.x + 3 << " " << ptCenter.y + 1.5f << " "
+               << GetCommand(Operator::kLineTo) << "\n"
+               << ptCenter.x << " " << ptCenter.y - 1.5f << " "
+               << GetCommand(Operator::kLineTo) << "\n"
+               << ptCenter.x - 3 << " " << ptCenter.y + 1.5f << " "
+               << GetCommand(Operator::kLineTo) << " "
+               << GetCommand(Operator::kFill) << "\n";
   }
 
   return CFX_ByteString(sAppStream);
@@ -1023,8 +1210,9 @@ CFX_ByteString GetRectFillAppStream(const CFX_FloatRect& rect,
   if (sColor.GetLength() > 0) {
     AutoClosedQCommand q(&sAppStream);
     sAppStream << sColor << rect.left << " " << rect.bottom << " "
-               << rect.right - rect.left << " " << rect.top - rect.bottom
-               << " re f\n";
+               << rect.right - rect.left << " " << rect.top - rect.bottom << " "
+               << GetCommand(Operator::kAppendRect) << " "
+               << GetCommand(Operator::kFill) << "\n";
   }
 
   return CFX_ByteString(sAppStream);
@@ -1552,17 +1740,22 @@ void CPWL_AppStream::SetAsComboBox(const CFX_WideString* sValue) {
   CFX_ByteString sEdit = GetEditAppStream(pEdit.get(), CFX_PointF(), true, 0);
   if (sEdit.GetLength() > 0) {
     sBody << "/Tx ";
-    AutoClosedCommand bmc(&sBody, "BMC", "EMC");
+    AutoClosedCommand bmc(&sBody, GetCommand(Operator::kMarkedSequenceBegin),
+                          GetCommand(Operator::kMarkedSequenceEnd));
     AutoClosedQCommand q(&sBody);
 
     if (rcContent.Width() > rcEdit.Width() ||
         rcContent.Height() > rcEdit.Height()) {
       sBody << rcEdit.left << " " << rcEdit.bottom << " " << rcEdit.Width()
-            << " " << rcEdit.Height() << " re\nW\nn\n";
+            << " " << rcEdit.Height() << " "
+            << GetCommand(Operator::kAppendRect) << "\n"
+            << GetCommand(Operator::kSetNonZeroWindingClip) << "\n"
+            << GetCommand(Operator::kEndPathNoFillOrStroke) << "\n";
     }
 
     CFX_Color crText = widget_->GetTextPWLColor();
-    AutoClosedCommand bt(&sBody, "BT", "ET");
+    AutoClosedCommand bt(&sBody, GetCommand(Operator::kTextBegin),
+                         GetCommand(Operator::kTextEnd));
     sBody << GetColorAppStream(crText, true) << sEdit;
   }
 
@@ -1621,16 +1814,20 @@ void CPWL_AppStream::SetAsListBox() {
                                              113.0f / 255.0f),
                                    true)
               << rcItem.left << " " << rcItem.bottom << " " << rcItem.Width()
-              << " " << rcItem.Height() << " re f\n";
+              << " " << rcItem.Height() << " "
+              << GetCommand(Operator::kAppendRect) << " "
+              << GetCommand(Operator::kFill) << "\n";
       }
 
-      AutoClosedCommand bt(&sList, "BT", "ET");
+      AutoClosedCommand bt(&sList, GetCommand(Operator::kTextBegin),
+                           GetCommand(Operator::kTextEnd));
       sList << GetColorAppStream(CFX_Color(COLORTYPE_GRAY, 1), true)
             << GetEditAppStream(pEdit.get(), CFX_PointF(0.0f, fy), true, 0);
     } else {
       CFX_Color crText = widget_->GetTextPWLColor();
 
-      AutoClosedCommand bt(&sList, "BT", "ET");
+      AutoClosedCommand bt(&sList, GetCommand(Operator::kTextBegin),
+                           GetCommand(Operator::kTextEnd));
       sList << GetColorAppStream(crText, true)
             << GetEditAppStream(pEdit.get(), CFX_PointF(0.0f, fy), true, 0);
     }
@@ -1640,11 +1837,15 @@ void CPWL_AppStream::SetAsListBox() {
 
   if (sList.tellp() > 0) {
     sBody << "/Tx ";
-    AutoClosedCommand bmc(&sBody, "BMC", "EMC");
+    AutoClosedCommand bmc(&sBody, GetCommand(Operator::kMarkedSequenceBegin),
+                          GetCommand(Operator::kMarkedSequenceEnd));
     AutoClosedQCommand q(&sBody);
 
     sBody << rcClient.left << " " << rcClient.bottom << " " << rcClient.Width()
-          << " " << rcClient.Height() << " re\nW\nn\n"
+          << " " << rcClient.Height() << " "
+          << GetCommand(Operator::kAppendRect) << "\n"
+          << GetCommand(Operator::kSetNonZeroWindingClip) << "\n"
+          << GetCommand(Operator::kEndPathNoFillOrStroke) << "\n"
           << sList.str();
   }
   Write("N",
@@ -1726,17 +1927,22 @@ void CPWL_AppStream::SetAsTextField(const CFX_WideString* sValue) {
 
   if (sEdit.GetLength() > 0) {
     sBody << "/Tx ";
-    AutoClosedCommand bmc(&sBody, "BMC", "EMC");
+    AutoClosedCommand bmc(&sBody, GetCommand(Operator::kMarkedSequenceBegin),
+                          GetCommand(Operator::kMarkedSequenceEnd));
     AutoClosedQCommand q(&sBody);
 
     if (rcContent.Width() > rcClient.Width() ||
         rcContent.Height() > rcClient.Height()) {
       sBody << rcClient.left << " " << rcClient.bottom << " "
-            << rcClient.Width() << " " << rcClient.Height() << " re\nW\nn\n";
+            << rcClient.Width() << " " << rcClient.Height() << " "
+            << GetCommand(Operator::kAppendRect) << "\n"
+            << GetCommand(Operator::kSetNonZeroWindingClip) << "\n"
+            << GetCommand(Operator::kEndPathNoFillOrStroke) << "\n";
     }
     CFX_Color crText = widget_->GetTextPWLColor();
 
-    AutoClosedCommand bt(&sBody, "BT", "ET");
+    AutoClosedCommand bt(&sBody, GetCommand(Operator::kTextBegin),
+                         GetCommand(Operator::kTextEnd));
     sBody << GetColorAppStream(crText, true) << sEdit;
   }
 
@@ -1747,17 +1953,22 @@ void CPWL_AppStream::SetAsTextField(const CFX_WideString* sValue) {
             GetColorAppStream(widget_->GetBorderPWLColor(), false);
         if (sColor.GetLength() > 0) {
           AutoClosedQCommand q(&sLines);
-          sLines << widget_->GetBorderWidth() << " w\n"
+          sLines << widget_->GetBorderWidth() << " "
+                 << GetCommand(Operator::kSetLineWidth) << "\n"
                  << GetColorAppStream(widget_->GetBorderPWLColor(), false)
-                 << " 2 J 0 j\n";
+                 << " 2 " << GetCommand(Operator::kSetLineCapStyle) << " 0 "
+                 << GetCommand(Operator::kSetLineJoinStyle) << "\n";
 
           for (int32_t i = 1; i < nMaxLen; ++i) {
             sLines << rcClient.left +
                           ((rcClient.right - rcClient.left) / nMaxLen) * i
-                   << " " << rcClient.bottom << " m\n"
+                   << " " << rcClient.bottom << " "
+                   << GetCommand(Operator::kMoveTo) << "\n"
                    << rcClient.left +
                           ((rcClient.right - rcClient.left) / nMaxLen) * i
-                   << " " << rcClient.top << " l S\n";
+                   << " " << rcClient.top << " "
+                   << GetCommand(Operator::kLineTo) << " "
+                   << GetCommand(Operator::kStroke) << "\n";
           }
         }
         break;
@@ -1768,18 +1979,23 @@ void CPWL_AppStream::SetAsTextField(const CFX_WideString* sValue) {
         if (sColor.GetLength() > 0) {
           CPWL_Dash dsBorder = CPWL_Dash(3, 3, 0);
           AutoClosedQCommand q(&sLines);
-          sLines << widget_->GetBorderWidth() << " w\n"
+          sLines << widget_->GetBorderWidth() << " "
+                 << GetCommand(Operator::kSetLineWidth) << "\n"
                  << GetColorAppStream(widget_->GetBorderPWLColor(), false)
                  << "[" << dsBorder.nDash << " " << dsBorder.nGap << "] "
-                 << dsBorder.nPhase << " d\n";
+                 << dsBorder.nPhase << " " << GetCommand(Operator::kSetDash)
+                 << "\n";
 
           for (int32_t i = 1; i < nMaxLen; ++i) {
             sLines << rcClient.left +
                           ((rcClient.right - rcClient.left) / nMaxLen) * i
-                   << " " << rcClient.bottom << " m\n"
+                   << " " << rcClient.bottom << " "
+                   << GetCommand(Operator::kMoveTo) << "\n"
                    << rcClient.left +
                           ((rcClient.right - rcClient.left) / nMaxLen) * i
-                   << " " << rcClient.top << " l S\n";
+                   << " " << rcClient.top << " "
+                   << GetCommand(Operator::kLineTo) << " "
+                   << GetCommand(Operator::kStroke) << "\n";
           }
         }
         break;
