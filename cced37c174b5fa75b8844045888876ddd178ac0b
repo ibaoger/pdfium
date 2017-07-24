@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7eecc81d_2b8bddac",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-24T14:26:45Z",
+      "side": 1,
+      "message": "This looks like a functional change, is that intended? We will return p pointing at the \\r or the \\n, while before we\u0027d return it pointing at the character after /r or /n.",
+      "range": {
+        "startLine": 421,
+        "startChar": 15,
+        "endLine": 421,
+        "endChar": 0
+      },
+      "revId": "cced37c174b5fa75b8844045888876ddd178ac0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
