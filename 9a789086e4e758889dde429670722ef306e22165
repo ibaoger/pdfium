@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "ff5d7ea8_8f83d14b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T18:23:19Z",
+      "side": 1,
+      "message": "Yes, since the calling site is when a \" is found and advances the cursor. But I have reverted this change because of other review comments.",
+      "parentUuid": "484a4bad_8a976cf5",
+      "range": {
+        "startLine": 349,
+        "startChar": 31,
+        "endLine": 349,
+        "endChar": 0
+      },
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1a6fd30_5072350f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T18:23:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fe9575b_f79ac2db",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ece2a372_0dc57580",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 5
@@ -56,6 +98,24 @@
       "revId": "9a789086e4e758889dde429670722ef306e22165",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f36f8663_444dd437",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T18:23:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece2a372_0dc57580",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "c51945ea_3247da2b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T18:23:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d30eec7_0f575f9d",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5efe1851_1ba99bd8",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 5
@@ -90,6 +168,24 @@
       "revId": "9a789086e4e758889dde429670722ef306e22165",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b67d2ab9_98c4cd4e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T18:23:19Z",
+      "side": 1,
+      "message": "\u0027\\n\u0027 is handled in the top lexer loop of, so the \\r\\n case should be handled correctly.",
+      "parentUuid": "5efe1851_1ba99bd8",
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
