@@ -4,9 +4,9 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "fpdfsdk/pdfwindow/cpwl_timer_handler.h"
+#include "fpdfsdk/pwl/cpwl_timer_handler.h"
 
-#include "fpdfsdk/pdfwindow/cpwl_timer.h"
+#include "fpdfsdk/pwl/cpwl_timer.h"
 #include "third_party/base/ptr_util.h"
 
 CPWL_TimerHandler::CPWL_TimerHandler() {}

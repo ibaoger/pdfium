@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_TIMER_HANDLER_H_
-#define FPDFSDK_PDFWINDOW_CPWL_TIMER_HANDLER_H_
+#ifndef FPDFSDK_PWL_CPWL_TIMER_HANDLER_H_
+#define FPDFSDK_PWL_CPWL_TIMER_HANDLER_H_
 
 #include <memory>
 
@@ -29,4 +29,4 @@ class CPWL_TimerHandler {
   std::unique_ptr<CPWL_Timer> m_pTimer;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_TIMER_HANDLER_H_
+#endif  // FPDFSDK_PWL_CPWL_TIMER_HANDLER_H_

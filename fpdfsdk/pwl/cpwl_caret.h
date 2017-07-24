@@ -4,10 +4,10 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef FPDFSDK_PDFWINDOW_CPWL_CARET_H_
-#define FPDFSDK_PDFWINDOW_CPWL_CARET_H_
+#ifndef FPDFSDK_PWL_CPWL_CARET_H_
+#define FPDFSDK_PWL_CPWL_CARET_H_
 
-#include "fpdfsdk/pdfwindow/cpwl_wnd.h"
+#include "fpdfsdk/pwl/cpwl_wnd.h"
 
 class CPWL_Caret : public CPWL_Wnd {
  public:
@@ -38,4 +38,4 @@ class CPWL_Caret : public CPWL_Wnd {
   CFX_FloatRect m_rcInvalid;
 };
 
-#endif  // FPDFSDK_PDFWINDOW_CPWL_CARET_H_
+#endif  // FPDFSDK_PWL_CPWL_CARET_H_
