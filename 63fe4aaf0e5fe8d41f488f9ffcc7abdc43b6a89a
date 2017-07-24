@@ -100,6 +100,24 @@
       "revId": "63fe4aaf0e5fe8d41f488f9ffcc7abdc43b6a89a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88bfb6ec_044b556e",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T19:09:55Z",
+      "side": 1,
+      "message": "OTOH, it makes the callers a bit hairier and there\u0027s a lot of them. e.g.\n\nm_pList-\u003eOnMouseDown(point, IsSHIFTpressed(nFlag), IsCTRLpressed(nFlag));\n\nbecomes\n\nm_pList-\u003eOnMouseDown(point, CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag), CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag));",
+      "parentUuid": "737abea3_24d3355a",
+      "revId": "63fe4aaf0e5fe8d41f488f9ffcc7abdc43b6a89a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
