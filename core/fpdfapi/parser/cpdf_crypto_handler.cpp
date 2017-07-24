@@ -8,10 +8,30 @@
 
 #include <time.h>
 
+#include <utility>
+#include <vector>
+
 #include "core/fdrm/crypto/fx_crypt.h"
+#include "core/fpdfapi/edit/cpdf_encryptor.h"
+#include "core/fpdfapi/edit/cpdf_flateencoder.h"
+#include "core/fpdfapi/parser/cpdf_dictionary.h"
+#include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_object_walker.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
 #include "core/fpdfapi/parser/cpdf_security_handler.h"
 #include "core/fpdfapi/parser/cpdf_simple_parser.h"
+#include "core/fpdfapi/parser/cpdf_stream.h"
+#include "core/fpdfapi/parser/cpdf_string.h"
+
+namespace {
+
+constexpr char kContentsKey[] = "Contents";
+constexpr char kTypeKey[] = "Type";
+constexpr char kFTKey[] = "FT";
+constexpr char kSignTypeValue[] = "Sig";
+constexpr char kLengthKey[] = "Length";
+
+}  // namespace
 
 void CPDF_CryptoHandler::CryptBlock(bool bEncrypt,
                                     uint32_t objnum,
@@ -295,6 +315,128 @@ bool CPDF_CryptoHandler::Init(int cipher, const uint8_t* key, int keylen) {
     m_pAESContext.reset(FX_Alloc(CRYPT_aes_context, 1));
 
   return true;
+}
+
+void CPDF_CryptoHandler::DecryptObject(CPDF_Object* object) {
+  std::vector<std::pair<CPDF_Dictionary*, std::unique_ptr<CPDF_Object>>>
+      may_be_sign_dictionaries;
+
+  CPDF_Object* object_to_decrypt = object;
+  while (object_to_decrypt) {
+    CPDF_ObjectWalker walker(object_to_decrypt);
+    object_to_decrypt = nullptr;
+    while (CPDF_Object* child = walker.GetNext()) {
+      // Strings decryption.
+      if (child->IsString()) {
+        CPDF_String* str = child->AsString();
+        str->SetString(Decrypt(object->GetObjNum(), object->GetGenNum(),
+                               str->GetString()));
+      }
+      // Stream decryption.
+      if (child->IsStream() && object->GetObjNum()) {
+        CPDF_Stream* stream = object->AsStream();
+        std::vector<uint8_t> src_buf(stream->GetRawSize());
+        if (!stream->ReadRawData(0, src_buf.data(), src_buf.size())) {
+          continue;
+        }
+        CFX_BinaryBuf dest_buf;
+        dest_buf.EstimateSize(DecryptGetSize(src_buf.size()));
+
+        void* context = DecryptStart(object->GetObjNum(), object->GetGenNum());
+        DecryptStream(context, src_buf.data(), src_buf.size(), dest_buf);
+        DecryptFinish(context, dest_buf);
+        stream->ReplaceData(dest_buf.GetBuffer(), dest_buf.GetSize());
+      }
+      // Dictionary decryption.
+      if (child->IsDictionary()) {
+        CPDF_Dictionary* dict = child->GetDict();
+        if ((dict->KeyExist(kTypeKey) || dict->KeyExist(kFTKey)) &&
+            dict->KeyExist(kContentsKey)) {
+          // This dictionary may be signature dictionary.
+          // But now values of 'Type' and 'FT' keys are encrypted, and we can
+          // not check this.
+          // Temporary remove it, to prevent signature corruption. Its content
+          // will be decrypted on next interations, if necessary.
+          may_be_sign_dictionaries.push_back(
+              std::make_pair(dict, dict->RemoveFor(kContentsKey)));
+        }
+      }
+    }
+    // Signature dictionaries check.
+    while (!may_be_sign_dictionaries.empty()) {
+      auto dict_and_contents = std::move(may_be_sign_dictionaries.back());
+      may_be_sign_dictionaries.pop_back();
+      CPDF_Dictionary* dict = dict_and_contents.first;
+      CPDF_Object* contents = dict_and_contents.second.get();
+      dict->SetFor(kContentsKey, std::move(dict_and_contents.second));
+      if (dict->GetStringFor(kTypeKey) != kSignTypeValue &&
+          dict->GetStringFor(kFTKey) != kSignTypeValue) {
+        // This is not signature dictionary. Do decrypt it.
+        object_to_decrypt = contents;
+        break;
+      }
+    }
+  }
+}
+
+void CPDF_CryptoHandler::EncryptObjectImpl(uint32_t objnum,
+                                           CPDF_Object* object) {
+  std::vector<std::pair<CPDF_Dictionary*, std::unique_ptr<CPDF_Object>>>
+      sign_dictionaries;
+
+  CPDF_Object* object_to_encrypt = object;
+  CPDF_ObjectWalker walker(object_to_encrypt);
+  while (CPDF_Object* child = walker.GetNext()) {
+    // Strings encryption.
+    if (child->IsString()) {
+      CPDF_String* str = child->AsString();
+      CFX_ByteString decrypted_value = str->GetString();
+      CPDF_Encryptor encryptor(this, objnum, (uint8_t*)decrypted_value.c_str(),
+                               decrypted_value.GetLength());
+      str->SetString(CFX_ByteString(encryptor.GetData(), encryptor.GetSize()));
+    }
+    // Stream encryption.
+    if (child->IsStream()) {
+      CPDF_Stream* stream = child->AsStream();
+      CPDF_FlateEncoder encoder(stream, true);
+      CPDF_Encryptor encryptor(this, objnum, encoder.GetData(),
+                               encoder.GetSize());
+      if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor(kLengthKey)) !=
+          encryptor.GetSize()) {
+        encoder.CloneDict();
+        encoder.GetDict()->SetNewFor<CPDF_Number>(
+            kLengthKey, static_cast<int>(encryptor.GetSize()));
+      }
+      stream->InitStream(encryptor.GetData(), encryptor.GetSize(),
+                         ToDictionary(encoder.GetDict()->Clone()));
+    }
+    // Dictionary decryption.
+    if (child->IsDictionary()) {
+      CPDF_Dictionary* dict = child->GetDict();
+      if ((dict->GetStringFor(kTypeKey) == kSignTypeValue ||
+           dict->GetStringFor(kFTKey) == kSignTypeValue) &&
+          dict->KeyExist(kContentsKey)) {
+        // This is signature dictionary.
+        // We should not encrypt its contents.
+        // Temporary remove it from encryption queue.
+        sign_dictionaries.push_back(
+            std::make_pair(dict, dict->RemoveFor(kContentsKey)));
+      }
+    }
+  }
+  // Restore signature dictionaries.
+  for (auto& it : sign_dictionaries) {
+    it.first->SetFor(kContentsKey, std::move(it.second));
+  }
+}
+
+std::unique_ptr<CPDF_Object> CPDF_CryptoHandler::EncryptObjectClone(
+    const CPDF_Object* object) {
+  if (!object)
+    return nullptr;
+  std::unique_ptr<CPDF_Object> result = object->Clone();
+  EncryptObjectImpl(object->GetObjNum(), result.get());
+  return result;
 }
 
 bool CPDF_CryptoHandler::DecryptStream(void* context,

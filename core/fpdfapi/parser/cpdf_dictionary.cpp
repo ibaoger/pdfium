@@ -167,13 +167,6 @@ bool CPDF_Dictionary::KeyExist(const CFX_ByteString& key) const {
   return pdfium::ContainsKey(m_Map, key);
 }
 
-bool CPDF_Dictionary::IsSignatureDict() const {
-  CPDF_Object* pType = GetDirectObjectFor("Type");
-  if (!pType)
-    pType = GetDirectObjectFor("FT");
-  return pType && pType->GetString() == "Sig";
-}
-
 CPDF_Object* CPDF_Dictionary::SetFor(const CFX_ByteString& key,
                                      std::unique_ptr<CPDF_Object> pObj) {
   if (!pObj) {
@@ -197,8 +190,15 @@ void CPDF_Dictionary::ConvertToIndirectObjectFor(
   it->second = pdfium::MakeUnique<CPDF_Reference>(pHolder, pObj->GetObjNum());
 }
 
-void CPDF_Dictionary::RemoveFor(const CFX_ByteString& key) {
-  m_Map.erase(key);
+std::unique_ptr<CPDF_Object> CPDF_Dictionary::RemoveFor(
+    const CFX_ByteString& key) {
+  std::unique_ptr<CPDF_Object> result;
+  auto it = m_Map.find(key);
+  if (it != m_Map.end()) {
+    result = std::move(it->second);
+    m_Map.erase(it);
+  }
+  return result;
 }
 
 void CPDF_Dictionary::ReplaceKey(const CFX_ByteString& oldkey,

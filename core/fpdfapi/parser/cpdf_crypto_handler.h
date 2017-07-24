@@ -17,6 +17,7 @@
 #include "core/fxcrt/fx_system.h"
 
 class CPDF_Dictionary;
+class CPDF_Object;
 class CPDF_SecurityHandler;
 
 class CPDF_CryptoHandler : public CFX_Retainable {
@@ -26,6 +27,10 @@ class CPDF_CryptoHandler : public CFX_Retainable {
 
   bool Init(CPDF_Dictionary* pEncryptDict,
             CPDF_SecurityHandler* pSecurityHandler);
+
+  void DecryptObject(CPDF_Object* object);
+  std::unique_ptr<CPDF_Object> EncryptObjectClone(const CPDF_Object* object);
+
   uint32_t DecryptGetSize(uint32_t src_size);
   void* DecryptStart(uint32_t objnum, uint32_t gennum);
   CFX_ByteString Decrypt(uint32_t objnum,
@@ -68,6 +73,8 @@ class CPDF_CryptoHandler : public CFX_Retainable {
                    CFX_BinaryBuf& dest_buf,
                    bool bEncrypt);
   bool CryptFinish(void* context, CFX_BinaryBuf& dest_buf, bool bEncrypt);
+
+  void EncryptObjectImpl(uint32_t objnum, CPDF_Object* object);
 
   uint8_t m_EncryptKey[32];
   int m_KeyLen;
