@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e36aa7e_84f6113b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:25:53Z",
+      "side": 1,
+      "message": "Do we still want to do this and the compare on 199 if the annot was removed?",
+      "revId": "180046161b3c79f70e823fc2458a988068d794cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
