@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15eefd64_3b20b792",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T18:56:28Z",
+      "side": 1,
+      "message": "const ref",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b1236f_2d2bfa54",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T18:56:28Z",
+      "side": 1,
+      "message": "There may be an existing function to do this already.",
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9ecc31b_ae6f51a2",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T18:56:28Z",
+      "side": 1,
+      "message": "What happens if a value of |len| \u003e INT_MAX?",
+      "range": {
+        "startLine": 220,
+        "startChar": 48,
+        "endLine": 220,
+        "endChar": 69
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe30403_27958e3c",
+        "filename": "fpdfsdk/fpdfattachment_embeddertest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T18:56:28Z",
+      "side": 1,
+      "message": "Check there are 4 attachments before getting the 4th attachments?",
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aaaf316_e722c497",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T18:56:28Z",
+      "side": 1,
+      "message": "\"file data\" to be consistent with the next line. Also line 141.",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 48
+      },
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
