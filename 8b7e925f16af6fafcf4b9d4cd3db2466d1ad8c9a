@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "9f1e8a3b_dfeeae0a",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-24T19:28:18Z",
+      "side": 1,
+      "message": "OK, but how about we implement it using FXSYS_IntToTwoHexChars()? Let\u0027s not add yet another constant variable for \"0123456789ABCDEF\".\n\nAlso, there\u0027s no need for |buf| to be a std::ostringstream. It\u0027s always going to be 32 bytes long at the end, right?",
+      "parentUuid": "b5b5b002_6f4c44d2",
+      "revId": "8b7e925f16af6fafcf4b9d4cd3db2466d1ad8c9a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9ecc31b_ae6f51a2",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 5
