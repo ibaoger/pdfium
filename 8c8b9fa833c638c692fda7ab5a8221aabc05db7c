@@ -195,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "84e440cd_4292a0f3",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:25:05Z",
+      "side": 1,
+      "message": "Done. And yes, I have a test case for (nullptr, 0) - would succeed, and (nullptr, 10) - would fail.",
+      "parentUuid": "1c71d0c7_bb9d5172",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7728d211_195ddb6f",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
