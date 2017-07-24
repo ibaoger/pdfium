@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a8b7cdd_1bb2c26d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T16:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f10c2d1_28a7c4e3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dafaf97_caa6d3d2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79107117_1aac87f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T16:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dafaf97_caa6d3d2",
+      "range": {
+        "startLine": 18,
+        "startChar": 66,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "251d655a_a3105a47",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T16:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "973ceebd_de0e7b94",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca39d7c3_fe42c037",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3c7e9366_a34b9c4e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T16:42:43Z",
+      "side": 1,
+      "message": "The general flow to the Scan method, as implemented, is to look at the current cursor. Determine the token associated with that location, and consume the input, so that the cursor is left after the token. So it should be doing advance at the bottom of the loop. All of the extracted methods for advancing on a token have that post condition to my understanding.\n\nIn this case specifically, the returning TOKassign at the end of the input I think is correct, since from the lexer\u0027s perspective that is the token. It is the responsibility of the parser to see that \u0027foo \u003d\u0027 is syntactically invalid due to the being no lefthand side. \n\nI agree as written this code is hard to reason about. I think all of this code becomes significantly easier to read at the end of my refactoring/rewritting that I am working towards, https://pdfium-review.googlesource.com/c/8570. Specifically I think moving to having nullptr for errors, allows for immediate exit on error. This allows for logic to be more golden path with non-nested error checks. Additionally I am going to move to having a more OO/C++ style so the token and cursor are not being passed around so much. Either this refactoring will resolve issues like this, or make them easier to resolve.",
+      "parentUuid": "ca39d7c3_fe42c037",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 16
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71ef76d3_9d9d675a",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2533b3a_adc400af",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-24T16:42:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71ef76d3_9d9d675a",
+      "range": {
+        "startLine": 190,
+        "startChar": 1,
+        "endLine": 194,
+        "endChar": 0
+      },
+      "revId": "66ada28d4da6ac55a5c8e256c37977d4c14e18f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
