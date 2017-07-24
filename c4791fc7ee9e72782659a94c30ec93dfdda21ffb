@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f83e6caf_6da930b6",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-24T18:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d652806e_613af5ea",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 100,
+        "endChar": 18
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "850604a9_0596fcef",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ad5d917c_095adeec",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-24T18:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850604a9_0596fcef",
+      "range": {
+        "startLine": 650,
+        "startChar": 39,
+        "endLine": 650,
+        "endChar": 48
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55551e79_0b5d35e0",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7fbf4e2_91213200",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-24T18:24:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55551e79_0b5d35e0",
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +151,30 @@
       "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e963b8f8_7a666664",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-24T18:24:01Z",
+      "side": 1,
+      "message": "Done - I also removed this from the other tests in the file (lines 383, 400, 479, 505, and 527).",
+      "parentUuid": "6bf499bd_0064331c",
+      "range": {
+        "startLine": 664,
+        "startChar": 38,
+        "endLine": 664,
+        "endChar": 41
+      },
+      "revId": "c4791fc7ee9e72782659a94c30ec93dfdda21ffb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
