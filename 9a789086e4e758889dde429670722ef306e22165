@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "484a4bad_8a976cf5",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-24T17:22:21Z",
+      "side": 1,
+      "message": "Can we rely that p points at least one wchar after the start of a chunk that\u0027s ours? If not, CFX_WideStringC(start, (p - start)) below is bad.",
+      "range": {
+        "startLine": 349,
+        "startChar": 31,
+        "endLine": 349,
+        "endChar": 0
+      },
+      "revId": "9a789086e4e758889dde429670722ef306e22165",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
