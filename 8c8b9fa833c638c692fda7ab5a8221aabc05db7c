@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "1c71d0c7_bb9d5172",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T16:20:14Z",
+      "side": 1,
+      "message": "Mostly it\u0027s the mixing of || and \u0026\u0026 I was hoping to get rid of. In this case, what about moving the (!contents \u0026\u0026 len) to a separate condition.\n\n// An empty contents must have a zero length\nif (!contents \u0026\u0026 length !\u003d 0)\n  return false;\n\nOr something like that to make it clear what this handles (and do we have a test for this case?)",
+      "parentUuid": "fe2bd8fe_0d75c75a",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7728d211_195ddb6f",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
