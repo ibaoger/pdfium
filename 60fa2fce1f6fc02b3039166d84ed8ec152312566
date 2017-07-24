@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f4a734f7_1cf2db16",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 0,
+      "message": "For this, i should restore CPDF_Dictionary::IsSignatureDict method, and save identical logic in two separate places. But i try to unify it by this CL. As result i should revert Encryption logic in cpdf_crypto_handler.cpp  , etc.",
+      "parentUuid": "b4c3c4bf_042f6863",
+      "revId": "60fa2fce1f6fc02b3039166d84ed8ec152312566",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee34358b_3066d156",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12

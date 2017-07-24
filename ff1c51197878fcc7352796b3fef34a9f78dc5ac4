@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "925860b6_787dfa53",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a56c10ca_363dc914",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e217a99_ab99387a",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-24T17:55:01Z",
       "side": 1,
       "message": "Can this fix be pulled out to a separate CL with a test?",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cae9704_9c945bb2",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "No.\nIt is not reproduced with my changes beacause. Without its, it is loaded as linearized.\n\nAlso we already have test for this\n CPDFSecurityHandlerEmbeddertest.PasswordAfterGenerateSave",
+      "parentUuid": "9e217a99_ab99387a",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "4337ccea_888ea045",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "It is should. This is encryption/decryption logic of PDF.",
+      "parentUuid": "74394a9b_e888de8f",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7700842_96b41d40",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 12
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "9aed87cb_934fa210",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "This was. \nFor decrypt: \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_syntax_parser.cpp?rcl\u003d6b0158fdc229e7fc45fdb61c700b709bd82b2309\u0026l\u003d470\nFor encrypt: \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/edit/cpdf_creator.cpp?rcl\u003d6b0158fdc229e7fc45fdb61c700b709bd82b2309\u0026l\u003d289\n\nBut in this implementation we do not have additional parsing and decryption.",
+      "parentUuid": "c7700842_96b41d40",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79193fb9_e3321387",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 12
@@ -115,6 +187,24 @@
       "writtenOn": "2017-07-24T17:55:01Z",
       "side": 1,
       "message": "I\u0027m not a huge fan of this modifying the object itself, it should just return then encrypted stream and the method be const.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65498b36_f4d3da1f",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "This is private method.\nFor this we have public EncryptObjectClone.",
+      "parentUuid": "79193fb9_e3321387",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -166,6 +256,24 @@
       "writtenOn": "2017-07-24T17:55:01Z",
       "side": 1,
       "message": "Is this ever called?",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a12a70db_93aeacef",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "f229a114_b877029a",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -274,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "8c56b827_04e3d604",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "1) If we do this, we can got infinite recursion.\n2) In future i want to use it to change the CPDF_IndirectObjectHolder. (When object is loaded within cpdf_data_avail and then will be moved into cpdf_parser/cpdf_document).\n3) This is more comfort reads, and ьore understandable, what happened between with CPDF_IndirectObjectHolder and object.\n4) CPDF_IndirectObjectHolder is not related to raw syntax of pdf, it is related to document logic. In future i want to move it into cpdf_document (which it is should be).",
+      "parentUuid": "eca69575_e2d33d82",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8aa150f_8206a493",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -302,6 +428,24 @@
       "writtenOn": "2017-07-24T17:55:01Z",
       "side": 1,
       "message": "This seems to be a post-processing step to replace strings with pooled versions? Can\u0027t we just do this during parse to save the walk? This could be very expensive for large documents.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6760a251_625e449c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "We should do this only after decryption. But in much of places in CPDF_DataAvail for example we parse object without decryption, but with pool, than parse again by with decryption and with pool too, as result in pool we have two same strings, but one is encrypted. \nAlso this implementation is more understandable.",
+      "parentUuid": "fe0af796_a203f9b2",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -343,6 +487,24 @@
     },
     {
       "key": {
+        "uuid": "78c11a67_0c44ed80",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "No. It is always encrypted. but keywords of stream end \"endstream\" \"endobj\" are never encrypted",
+      "parentUuid": "e2039688_eaf9cce4",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e26c2f0e_94e0a123",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -354,6 +516,24 @@
       "writtenOn": "2017-07-24T17:55:01Z",
       "side": 1,
       "message": "Why reset m_Pos?",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8ca3f63_35850acf",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "We are checked the Length value of stream dictionary. \nAfter that we should move carret to stream start to read it. (or to search real stream end, if \"Length \" is incorrect)",
+      "parentUuid": "e26c2f0e_94e0a123",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -389,6 +569,24 @@
       "side": 1,
       "message": "Can we split the serialization change out to a new CL.",
       "parentUuid": "a1f84194_e7e7efaa",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80bf34d3_d6a17e24",
+        "filename": "fpdfsdk/fpdfsave_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T18:49:31Z",
+      "side": 1,
+      "message": "No. As i say. It is related to object parsing, which related to encryption/decryption, which related to serialization, .....",
+      "parentUuid": "befa8428_255b19b0",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
