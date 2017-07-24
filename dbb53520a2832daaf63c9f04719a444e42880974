@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62f79473_e0c27eac",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-24T18:22:58Z",
+      "side": 1,
+      "message": "It feels like this should probably return unique_ptr\u003cCXFA_FMToken\u003e.  Not sure why we never got around to doing that.  Follow-up.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 14
+      },
+      "revId": "dbb53520a2832daaf63c9f04719a444e42880974",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
