@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2dba2193_d75ced57",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c67f4354_38ee7835",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6981cbe_7964e2e9",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce8fe36b_e61061b1",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Yea, they do. Added a test case for this.",
+      "parentUuid": "b6981cbe_7964e2e9",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "612fa1a6_ca747378",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24de14d4_4fb4da46",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "064e7560_727432b1",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "9a368a8b_95da3e1c",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "064e7560_727432b1",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a23f9356_0f6f57c6",
         "filename": "fpdfsdk/fpdfattachment.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2017-07-24T15:38:59Z",
       "side": 1,
       "message": "Can we convert the (!contents \u0026\u0026 len) to just be !contents || len \u003d\u003d 0?",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe2bd8fe_0d75c75a",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Like return false if (!contents || len \u003d\u003d 0)? I thought we could allow writing with contents \u003d null and len \u003d 0, which is basically emptying the file. !contents || len \u003d\u003d 0 would mean contents can\u0027t be nullptr and len can\u0027t be 0.",
+      "parentUuid": "a23f9356_0f6f57c6",
       "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "2f02dc1e_1b7ac667",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7728d211_195ddb6f",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e75535d_c124a742",
         "filename": "public/fpdf_attachment.h",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "785bd298_d600ac36",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-24T16:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e75535d_c124a742",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
