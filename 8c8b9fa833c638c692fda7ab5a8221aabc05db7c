@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c67f4354_38ee7835",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "Can we make a new CFX_ByeString here, assigning back to bsHex is confusing.",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6981cbe_7964e2e9",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "If name is NULL, does FromUTF16LE do the right thing? (same with WStringLength) or should we check name !\u003d NULL before doing this?",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24de14d4_4fb4da46",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "nit: {}\u0027s since conditional splits 2 lines.",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "064e7560_727432b1",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "nit: s/bHex/bEncodeAsHex",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a23f9356_0f6f57c6",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "Can we convert the (!contents \u0026\u0026 len) to just be !contents || len \u003d\u003d 0?",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7728d211_195ddb6f",
+        "filename": "fpdfsdk/fpdfattachment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "This won\u0027t work on windows.  You want a CFX_DateTime then call Now() on it. you can then get the year, month, etc.",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e75535d_c124a742",
+        "filename": "public/fpdf_attachment.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:38:59Z",
+      "side": 1,
+      "message": "nit: s/will also be/will be/",
+      "revId": "8c8b9fa833c638c692fda7ab5a8221aabc05db7c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
