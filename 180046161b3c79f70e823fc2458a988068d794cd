@@ -16,6 +16,24 @@
       "revId": "180046161b3c79f70e823fc2458a988068d794cd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27c50b7_d854c711",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-24T18:15:41Z",
+      "side": 1,
+      "message": "I think so. The original pointer is just a used as a key at this point to something to clean up.",
+      "parentUuid": "4e36aa7e_84f6113b",
+      "revId": "180046161b3c79f70e823fc2458a988068d794cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
