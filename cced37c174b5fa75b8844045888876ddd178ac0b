@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "8b0a1d15_64eaa150",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:19:12Z",
+      "side": 1,
+      "message": "Should this not break if p \u003e m_end? Otherwise, aren\u0027t we going to operate on p below when it is out of bounds?",
+      "revId": "cced37c174b5fa75b8844045888876ddd178ac0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f554aaae_0a0d8c18",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:19:12Z",
+      "side": 1,
+      "message": "You\u0027re comparing a different character here, previously it was *p - 1.",
+      "revId": "cced37c174b5fa75b8844045888876ddd178ac0b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7eecc81d_2b8bddac",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
         "patchSetId": 4

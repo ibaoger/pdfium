@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c5ab79cc_f1369a31",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-24T15:19:12Z",
+      "side": 0,
+      "message": "We used to set m_wstring on error and we don\u0027t now, is that an issue?",
+      "revId": "926c65a49ca4769274022678e53144fe335c70b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1643d4c_269b4785",
         "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
         "patchSetId": 2
