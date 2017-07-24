@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "03f61fc8_adc57e5a",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T20:35:27Z",
+      "side": 1,
+      "message": "We lose pages dictionary on save linearized document as non linearized, in case when Pages object is not exists in original(linearized) document.",
+      "parentUuid": "2ae820b7_e2b91f09",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af6ac49_c25b06d9",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "Right, but it\u0027s receiving the entire object at this point? And walking down the tree why not just pass in the specific stream we need instead of doing a tree walk?",
       "parentUuid": "4337ccea_888ea045",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07349445_6d8725fc",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T20:35:27Z",
+      "side": 1,
+      "message": "What specific stream?\nWe should Decrypt all strings and streams. And for this we should walk into all objects, in any case.\nI think, that good place for this.",
+      "parentUuid": "18abe5ee_4355eacc",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -259,6 +295,24 @@
       "side": 1,
       "message": "This should just get folded into Clone, but why does Clone need to Clone, if we just receive the data to encrypt instead of changing the object?",
       "parentUuid": "65498b36_f4d3da1f",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087df9a6_dfdb0aca",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T20:35:27Z",
+      "side": 1,
+      "message": "We receive object for save. Not specific data. Some object, for wich we can just say Save, and thats all. No more additional external logic. Jusj 40 simple lines for walk, instead of 190 lines of difficult, recursive, implicit code.",
+      "parentUuid": "0d796d3c_07c0ab9e",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
