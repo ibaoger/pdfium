@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee34358b_3066d156",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 0,
+      "message": "Encryption was moved into cpdf_crypto_handler.cpp",
+      "revId": "60fa2fce1f6fc02b3039166d84ed8ec152312566",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc1cecd3_f9e14ca2",
+        "filename": "core/fpdfapi/parser/cpdf_dictionary.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 0,
+      "message": "Was moved into cpdf_crypto_handler.cpp",
+      "revId": "60fa2fce1f6fc02b3039166d84ed8ec152312566",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

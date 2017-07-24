@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7af6ac49_c25b06d9",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "By chance, the file \"encrypted.pdf\" was have identical save after resave. And it can be loaded like linearized (wich should not be, because pdfium can not save in this format).\nAnd as you see on this file (in pdfium resource folder) in simple text editor, you can see, that it have not Pages object in it root (It is have reference to it (objnum\u003d\u003d16), but this object is not exists).\nTo fix this, I have added ref for single page within Root object.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34973f94_c0262f42",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Decryption was moved from cpdf_syntax_parser.cpp",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdec9f0_8d000c74",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "encryption was moved from cpdf_creator.cpp",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "005ae100_3ecb35ac",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Sign dictionary check was moved from cpdf_dictionary.cpp",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc80a16a_33563847",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Parsing was merged into cpdf_syntax_parser",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35402bc7_5f02a3e6",
+        "filename": "core/fpdfapi/parser/cpdf_stream.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "I dont now, way filters and decode params are removed on data change.\nThis is Implicitly. But for now i have created new ReplaceData method.\nThis needs to replace encrypted data by decrypted.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "342981b9_1cc306ba",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "New splitted implementation.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9cc6d14_948111a3",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Full object parsing.\nIn plans change GetObject on this method in much of places. But not now, because it is increasing the CL size (which is not tiny now).",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe7c503_0bf6796c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Assign refs to CPDF_Document, to direct access to object from CPDF_References",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8aa150f_8206a493",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "StringPool assignment to reduce memory usage.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49b4306e_e1cb4722",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Just removed decryption logic.",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f84194_e7e7efaa",
+        "filename": "fpdfsdk/fpdfsave_embeddertest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-24T16:21:08Z",
+      "side": 1,
+      "message": "Because the serialization logic is tiny changed, the saved files size, are changed too. \n(some \"\\r\" are replaced into \"\\r\\n\")",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
