@@ -13,10 +13,12 @@ import os
 import re
 import subprocess
 import sys
+import timeit
 
 
 CALLGRIND_PROFILER = 'callgrind'
 PERFSTAT_PROFILER = 'perfstat'
+TIMEIT_PROFILER = 'timeit'
 
 PDFIUM_TEST = 'pdfium_test'
 
@@ -52,6 +54,8 @@ class PerformanceRun(object):
       time = self._RunCallgrind()
     elif self.args.profiler == PERFSTAT_PROFILER:
       time = self._RunPerfStat()
+    elif self.args.profiler == TIMEIT_PROFILER:
+      time = self._RunTimeIt()
     else:
       print 'profiler=%s not supported, aborting' % self.args.profiler
       return 1
@@ -66,7 +70,7 @@ class PerformanceRun(object):
     """Runs test harness and measures performance with callgrind.
 
     Returns:
-      int with the result of the measurement, in instructions or time.
+      int with the result of the measurement, in instructions.
     """
     # Whether to turn instrument the whole run or to use the callgrind macro
     # delimiters in pdfium_test.
@@ -87,7 +91,7 @@ class PerformanceRun(object):
     """Runs test harness and measures performance with perf stat.
 
     Returns:
-      int with the result of the measurement, in instructions or time.
+      int with the result of the measurement, in instructions.
     """
     # --no-big-num: do not add thousands separators
     # -einstructions: print only instruction count
@@ -98,6 +102,18 @@ class PerformanceRun(object):
     # Match the line with the instruction count, eg.
     # '        12345      instructions'
     return self._ExtractIrCount(r'\b(\d+)\b.*\binstructions\b', output)
+
+  def _RunTimeIt(self):
+    """Runs test harness and measures performance with timeit.
+
+    Returns:
+      int with the result of the measurement, in microseconds.
+    """
+    cmd_to_run = self._BuildTestHarnessCommand()
+    f = lambda: subprocess.check_output(cmd_to_run, stderr=subprocess.STDOUT)
+    time_seconds = timeit.timeit(f, number=10)
+
+    return int(time_seconds * 1000000)
 
   def _BuildTestHarnessCommand(self):
     """Builds command to run the test harness."""
@@ -126,8 +142,8 @@ def main():
                       help='relative path to the build directory with '
                            '%s' % PDFIUM_TEST)
   parser.add_argument('--profiler', default=CALLGRIND_PROFILER,
-                      help='which profiler to use. Supports callgrind and '
-                           'perfstat for now.')
+                      help='which profiler to use. Supports callgrind, '
+                           'perfstat and timeit')
   parser.add_argument('--interesting-section', action='store_true',
                       help='whether to measure just the interesting section or '
                            'the whole test harness. The interesting section is '
