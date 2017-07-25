@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b4388daa_38fc6917",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b4ea923_23ae982b",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf698004_9bdb9d0b",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "842a673f_2f62f657",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf698004_9bdb9d0b",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "137b24cb_378af5f3",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cfdc5fb_c8bf94fb",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c605522_74373b59",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-07-25T20:53:18Z",
       "side": 1,
       "message": "Is it ok if these don\u0027t change? What happens if csRight and csLeft are the only two items in our pNames list?",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "671922e4_62eb30bd",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "I guess technically the limits don\u0027t have to change, since the limits will only shrink but not expand. If we don\u0027t change the limits, lookups of existing entries wouldn\u0027t fail, but the limits themselves will be inaccurate. Do you think we should just remove the limit updates?\n\nNot sure what you mean by \"What happens if csRight and csLeft are the only two items in our pNames list?\"; then the limits would stay the same?",
+      "parentUuid": "9c605522_74373b59",
       "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "add61f4c_e5fd6343",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db199721_9016a9fb",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f18e1edc_3aa51786",
         "filename": "core/fpdfdoc/cpdf_nametree.cpp",
         "patchSetId": 2
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "1a7b18f7_c3f19f7f",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f18e1edc_3aa51786",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d213d2ee_8c458554",
         "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
         "patchSetId": 2
@@ -118,6 +226,24 @@
       "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ffcf09_2d1b151a",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-07-25T22:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d213d2ee_8c458554",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
