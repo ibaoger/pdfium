@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06ece5ee_4c0f6420",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-25T23:47:50Z",
+      "side": 1,
+      "message": "Can we just do Concat(*matrix) here?",
+      "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3533a38_c32ee58d",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-25T23:47:50Z",
+      "side": 1,
+      "message": "Instead of using an all black image, can we change it to say, 4 different colored squares? That way we can still do transforms and notice incorrect transformations, without using text that requires per-platform checksums, and updates every time FreeType changes.",
+      "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
