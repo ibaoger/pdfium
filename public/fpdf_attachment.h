@@ -45,6 +45,16 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
                                                         int index);
 
 // Experimental API.
+// Delete the embedded attachment at |index| in |document|.
+//
+//   document - handle to a document.
+//   index    - the index of the embedded file to be deleted.
+//
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFDoc_DeleteAttachment(FPDF_DOCUMENT document,
+                                                     int index);
+
+// Experimental API.
 // Get the name of the |attachment| file. |buffer| is only modified if |buflen|
 // is longer than the length of the file name. On errors, |buffer| is unmodified
 // and the returned length is 0.
