@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "826ed3a6_79da4273",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T12:43:08Z",
+      "side": 1,
+      "message": "Logic moved from CPDF_DataAvail::CheckCrossRef",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "062014d5_b4c1ddce",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T12:43:08Z",
+      "side": 1,
+      "message": "Logic moved from CPDF_DataAvail::CheckCrossRefItem",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d072f62_0d1cb9ce",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T12:43:08Z",
+      "side": 1,
+      "message": "Logic moved  from CPDF_DataAvail::CheckTrailer",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b61fcd_dc691884",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T12:43:08Z",
+      "side": 1,
+      "message": "Logic moved  from CPDF_DataAvail::CheckCrossRefStream",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
