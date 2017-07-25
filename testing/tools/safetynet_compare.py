@@ -14,6 +14,7 @@ import json
 import multiprocessing
 import os
 import re
+import shutil
 import subprocess
 import sys
 
@@ -44,8 +45,12 @@ class CompareRun(object):
     self._InitPaths()
 
   def _InitPaths(self):
-    self.safe_measure_script_path = os.path.join(self.args.build_dir,
-                                                 'safetynet_measure_current.py')
+    if self.args.this_repo:
+      measure_script_path = os.path.join(self.args.build_dir,
+                                         'safetynet_measure_current.py')
+    else:
+      measure_script_path = 'testing/tools/safetynet_measure.py'
+    self.safe_measure_script_path = os.path.abspath(measure_script_path)
 
     input_file_re = re.compile('^.+[.]pdf$')
     self.test_cases = []
@@ -72,17 +77,30 @@ class CompareRun(object):
     Returns:
       Exit code for the script.
     """
-    self._FreezeMeasureScript()
+    if self.args.this_repo:
+      self._FreezeMeasureScript()
 
     if self.args.branch_after:
-      before, after = self._ProfileTwoOtherBranches(
-          self.args.branch_before,
-          self.args.branch_after)
+      if self.args.this_repo:
+        before, after = self._ProfileTwoOtherBranchesThisRepo(
+            self.args.branch_before,
+            self.args.branch_after)
+      else:
+        before, after = self._ProfileTwoOtherBranches(
+            self.args.branch_before,
+            self.args.branch_after)
     elif self.args.branch_before:
-      before, after = self._ProfileCurrentAndOtherBranch(
-          self.args.branch_before)
+      if self.args.this_repo:
+        before, after = self._ProfileCurrentAndOtherBranchThisRepo(
+            self.args.branch_before)
+      else:
+        before, after = self._ProfileCurrentAndOtherBranch(
+            other_branch=self.args.branch_before)
     else:
-      before, after = self._ProfileLocalChangesAndCurrentBranch()
+      if self.args.this_repo:
+        before, after = self._ProfileLocalChangesAndCurrentBranchThisRepo()
+      else:
+        before, after = self._ProfileCurrentAndOtherBranch(other_branch=None)
 
     conclusions = self._DrawConclusions(before, after)
     conclusions_dict = conclusions.GetOutputDict()
@@ -102,7 +120,7 @@ class CompareRun(object):
     subprocess.check_output(['cp', 'testing/tools/safetynet_measure.py',
                              self.safe_measure_script_path])
 
-  def _ProfileTwoOtherBranches(self, before_branch, after_branch):
+  def _ProfileTwoOtherBranchesThisRepo(self, before_branch, after_branch):
     """Profiles two branches that are not the current branch.
 
     after_branch does not need to descend from before_branch, they will be
@@ -134,7 +152,30 @@ class CompareRun(object):
 
     return before, after
 
-  def _ProfileCurrentAndOtherBranch(self, other_branch):
+  def _ProfileTwoOtherBranches(self, before_branch, after_branch):
+    """Profiles two branches that are not the current branch.
+
+    after_branch does not need to descend from before_branch, they will be
+    measured the same way
+
+    Args:
+      before_branch: One branch to profile.
+      after_branch: Other branch to profile.
+
+    Returns:
+      A tuple (before, after), where each of before and after is a dict
+      mapping a test case name to the the profiling values for that test case
+      in the given branch.
+    """
+    after = self._ProfileSeparateRepo('after',
+                                      self.after_build_dir,
+                                      after_branch)
+    before = self._ProfileSeparateRepo('before',
+                                       self.before_build_dir,
+                                       before_branch)
+    return before, after
+
+  def _ProfileCurrentAndOtherBranchThisRepo(self, other_branch):
     """Profiles the current branch (with uncommitted changes) and another one.
 
     The current branch does not need to descend from other_branch.
@@ -164,7 +205,30 @@ class CompareRun(object):
 
     return before, after
 
-  def _ProfileLocalChangesAndCurrentBranch(self):
+  def _ProfileCurrentAndOtherBranch(self, other_branch=None):
+    """Profiles the current branch (with uncommitted changes) and another one.
+
+    The current branch does not need to descend from other_branch.
+
+    Args:
+      other_branch: Other branch to profile that is not the current.
+
+    Returns:
+      A tuple (before, after), where each of before and after is a dict
+      mapping a test case name to the the profiling values for that test case
+      in the given branch. The current branch is considered to be "after" and
+      the other branch is considered to be "before".
+    """
+    self._BuildCurrentBranch(self.after_build_dir)
+    after = self._MeasureCurrentBranch('after', self.after_build_dir)
+
+    before = self._ProfileSeparateRepo('before',
+                                       self.before_build_dir,
+                                       other_branch)
+
+    return before, after
+
+  def _ProfileLocalChangesAndCurrentBranchThisRepo(self):
     """Profiles the current branch with and without uncommitted changes.
 
     Returns:
@@ -181,12 +245,58 @@ class CompareRun(object):
     if not pushed and not self.args.build_dir_before:
       PrintErr('Warning: No local changes to compare')
 
-    self._BuildCurrentBranch(self.before_build_dir)
-    before = self._MeasureCurrentBranch('before', self.before_build_dir)
+    before_build_dir = self.before_build_dir
+
+    self._BuildCurrentBranch(before_build_dir)
+    before = self._MeasureCurrentBranch('before', before_build_dir)
 
     self._RestoreLocalChanges()
 
     return before, after
+
+  def _ProfileSeparateRepo(self, run_label, relative_build_dir, branch):
+    build_dir = self._CreateTempRepo('repo_%s' % run_label,
+                                     relative_build_dir,
+                                     branch)
+
+    self._BuildCurrentBranch(build_dir)
+    return self._MeasureCurrentBranch(run_label, build_dir)
+
+  def _CreateTempRepo(self, dir_name, relative_build_dir, branch=None):
+    cwd = os.getcwd()
+
+    repo_dir = os.path.join(self.args.tmp_dir, dir_name)
+    src_dir = os.path.join(repo_dir, 'pdfium')
+
+    shutil.rmtree(repo_dir, ignore_errors=True)
+    os.makedirs(repo_dir)
+    self.git.CloneLocal(os.getcwd(), src_dir)
+
+    if branch is not None:
+      os.chdir(src_dir)
+      self.git.Checkout(branch)
+
+    os.chdir(repo_dir)
+    cache = '/tmp/pdfium_repo_cache'
+    subprocess.check_call(['gclient', 'config', '--cache-dir=%s' % cache,
+                           '--unmanaged',
+                           'https://pdfium.googlesource.com/pdfium.git'])
+    subprocess.check_call(['gclient', 'sync'])
+
+    build_dir = os.path.join(src_dir, relative_build_dir)
+    os.makedirs(build_dir)
+    os.chdir(src_dir)
+
+    source_gn_args = os.path.join(cwd, relative_build_dir, 'args.gn')
+    dest_gn_args = os.path.join(build_dir, 'args.gn')
+    shutil.copy(source_gn_args, dest_gn_args)
+
+    subprocess.check_call(['gn', 'gen', relative_build_dir])
+
+    os.chdir(cwd)
+
+    return build_dir
+
 
   def _CheckoutBranch(self, branch):
     PrintErr("Checking out branch '%s'" % branch)
@@ -431,6 +541,15 @@ def main():
                            'to the build directory for the "before" branch, if '
                            'different from the build directory for the '
                            '"after" branch')
+  parser.add_argument('--tmp-dir', default='/tmp',
+                      help='directory in which temporary repos will be cloned.')
+  parser.add_argument('--this-repo', action='store_true',
+                      help='use the repository where the script is instead of '
+                           'checking out a temporary one. This is faster and '
+                           'does not require downloads, but although it '
+                           'restores the state of the local repo, if the '
+                           'script is killed or crashes the changes can remain '
+                           'stashed and you may be on another branch.')
   parser.add_argument('--profiler', default='callgrind',
                       help='which profiler to use. Supports callgrind and '
                            'perfstat for now. Default is callgrind.')
