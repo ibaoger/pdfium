@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "fc3eba36_9ba6664d",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T14:44:28Z",
+      "side": 1,
+      "message": "The problem is that there are moves and refactors in the same CL. Having both makes the code really hard to follow and figure out what\u0027s changed. If we can move things in one CL and then refactor in a second or more CL then we can easily see what changed.\n\n1-- We can move the check code and then hookup afterwards\n2-- This can happen after the moves are done\n3-- This seems like it could be fixed after the moves and refactors, can you file a bug about it?\n4-- We can save the test file you have and commit it as the last step of the moves/refactors\n5-- We should file a bug about the async loading and then fix it once the refactoring is done.\n\nWhen we\u0027ve mixed bug fixes with refactorings, if anything needs to be reverted we end up reverting everything which is a really big hammer. Having more granular changes makes it easier for us to just revert what\u0027s broken.",
+      "parentUuid": "84022070_358636f4",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "062014d5_b4c1ddce",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
         "patchSetId": 3
