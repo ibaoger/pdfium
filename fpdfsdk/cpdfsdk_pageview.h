@@ -62,6 +62,7 @@ class CPDFSDK_PageView final : public CPDF_Page::View {
 
   CFX_WideString GetSelectedText();
   void DeleteSelectedText();
+  void InsertText(const CFX_WideString& text);
 
   bool OnLButtonDown(const CFX_PointF& point, uint32_t nFlag);
   bool OnLButtonUp(const CFX_PointF& point, uint32_t nFlag);

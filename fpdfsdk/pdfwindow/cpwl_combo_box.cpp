@@ -189,6 +189,11 @@ void CPWL_ComboBox::DeleteSelectedText() {
     m_pEdit->DeleteSelectedText();
 }
 
+void CPWL_ComboBox::InsertText(const CFX_WideString& text) {
+  if (m_pEdit)
+    m_pEdit->InsertText(text);
+}
+
 CFX_WideString CPWL_ComboBox::GetText() const {
   if (m_pEdit) {
     return m_pEdit->GetText();

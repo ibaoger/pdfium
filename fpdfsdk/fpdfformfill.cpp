@@ -391,6 +391,19 @@ DLLEXPORT void STDCALL FORM_DeleteSelectedText(FPDF_FORMHANDLE hHandle,
   pPageView->DeleteSelectedText();
 }
 
+DLLEXPORT void STDCALL FORM_InsertText(FPDF_FORMHANDLE hHandle,
+                                       FPDF_PAGE page,
+                                       FPDF_WIDESTRING wsText) {
+  CPDFSDK_PageView* pPageView = FormHandleToPageView(hHandle, page);
+  if (!pPageView || !wsText)
+    return;
+
+  FX_STRSIZE len = CFX_WideString::WStringLength(wsText);
+  CFX_WideString wide_str_text = CFX_WideString::FromUTF16LE(wsText, len);
+
+  pPageView->InsertText(wide_str_text);
+}
+
 DLLEXPORT FPDF_BOOL STDCALL FORM_ForceToKillFocus(FPDF_FORMHANDLE hHandle) {
   CPDFSDK_FormFillEnvironment* pFormFillEnv =
       HandleToCPDFSDKEnvironment(hHandle);

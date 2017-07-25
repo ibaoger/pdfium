@@ -64,6 +64,15 @@ void CPWL_EditCtrl::DeleteSelectedText() {
     m_pEdit->ClearSelection();
 }
 
+void CPWL_EditCtrl::InsertText(const CFX_WideString& text) {
+  if (m_pEdit) {
+    if (!GetSelectedText().IsEmpty())
+      m_pEdit->ClearSelection();
+
+    m_pEdit->InsertText(text, FX_CHARSET_Default);
+  }
+}
+
 void CPWL_EditCtrl::RePosChildWnd() {
   m_pEdit->SetPlateRect(GetClientRect());
 }

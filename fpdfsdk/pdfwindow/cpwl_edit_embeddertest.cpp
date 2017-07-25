@@ -185,3 +185,95 @@ TEST_F(CPWLEditEmbeddertest, DeleteEmptyTextSelection) {
   EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
                GetCPWLEdit()->GetText().c_str());
 }
+
+TEST_F(CPWLEditEmbeddertest, InsertTextInEmptyTextField) {
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"Hello");
+}
+
+TEST_F(CPWLEditEmbeddertest, InsertTextInPopulatedTextFieldLeft) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  // Move cursor to beginning of text field.
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnot(), FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"HelloABCDEFGHIJ");
+}
+
+TEST_F(CPWLEditEmbeddertest, InsertTextInPopulatedTextFieldMiddle) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  // Move cursor to middle of text field.
+  for (int i = 0; i < 5; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnot(), FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"ABCDEHelloFGHIJ");
+}
+
+TEST_F(CPWLEditEmbeddertest, InsertTextInPopulatedTextFieldRight) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"ABCDEFGHIJHello");
+}
+
+TEST_F(CPWLEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedTextFieldWhole) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSelection(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJ", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"Hello");
+}
+
+TEST_F(CPWLEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedTextFieldLeft) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSelection(0, 5);
+  EXPECT_STREQ(L"ABCDE", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"HelloFGHIJ");
+}
+
+TEST_F(CPWLEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedTextFieldMiddle) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSelection(2, 7);
+  EXPECT_STREQ(L"CDEFG", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"ABHelloHIJ");
+}
+
+TEST_F(CPWLEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedTextFieldRight) {
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnot(), i + 'A', 0));
+  }
+
+  GetCPWLEdit()->SetSelection(5, 10);
+  EXPECT_STREQ(L"FGHIJ", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(GetCPWLEdit()->GetText().c_str(), L"ABCDEHello");
+}

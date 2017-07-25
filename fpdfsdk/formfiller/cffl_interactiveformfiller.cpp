@@ -532,6 +532,16 @@ void CFFL_InteractiveFormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
   pFormFiller->DeleteSelectedText(pAnnot);
 }
 
+void CFFL_InteractiveFormFiller::InsertText(CPDFSDK_Annot* pAnnot,
+                                            const CFX_WideString& text) {
+  ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
+  CFFL_FormFiller* pFormFiller = GetFormFiller(pAnnot, false);
+  if (!pFormFiller)
+    return;
+
+  pFormFiller->InsertText(pAnnot, text);
+}
+
 void CFFL_InteractiveFormFiller::UnRegisterFormFiller(CPDFSDK_Annot* pAnnot) {
   auto it = m_Maps.find(pAnnot);
   if (it == m_Maps.end())

@@ -1394,6 +1394,26 @@ DLLEXPORT void STDCALL FORM_DeleteSelectedText(FPDF_FORMHANDLE hHandle,
                                                FPDF_PAGE page);
 
 /**
+ * Function: FORM_InsertText
+ *          You can call this function to insert text into a form text field
+ *          or user-editable form combobox text field. If there is no selected
+ *          text, this function will append the text to be inserted after the
+ *          current caret position. Otherwise, it will clear the current text
+ *          selection and insert the new text in its place.
+ * Parameters:
+ *          hHandle     -   Handle to the form fill module. Returned by
+ *                          FPDFDOC_InitFormFillEnvironment.
+ *          page        -   Handle to the page. Returned by FPDF_LoadPage
+ *                          function.
+ *          wsText      -   The text to be inserted, in UTF-16LE format.
+ * Return Value:
+ *          None.
+ **/
+DLLEXPORT void STDCALL FORM_InsertText(FPDF_FORMHANDLE hHandle,
+                                       FPDF_PAGE page,
+                                       FPDF_WIDESTRING wsText);
+
+/**
  * Function: FORM_ForceToKillFocus.
  *          You can call this member function to force to kill the focus of the
  *form field which got focus.

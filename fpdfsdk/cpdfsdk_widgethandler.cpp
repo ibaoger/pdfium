@@ -292,6 +292,12 @@ void CPDFSDK_WidgetHandler::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
     m_pFormFiller->DeleteSelectedText(pAnnot);
 }
 
+void CPDFSDK_WidgetHandler::InsertText(CPDFSDK_Annot* pAnnot,
+                                       const CFX_WideString& text) {
+  if (!pAnnot->IsSignatureWidget() && m_pFormFiller)
+    m_pFormFiller->InsertText(pAnnot, text);
+}
+
 bool CPDFSDK_WidgetHandler::HitTest(CPDFSDK_PageView* pPageView,
                                     CPDFSDK_Annot* pAnnot,
                                     const CFX_PointF& point) {

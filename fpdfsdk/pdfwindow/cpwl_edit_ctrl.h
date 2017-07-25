@@ -62,6 +62,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void SetCursor() override;
   CFX_WideString GetSelectedText() override;
   void DeleteSelectedText() override;
+  void InsertText(const CFX_WideString& text) override;
 
   void SetCaret(bool bVisible,
                 const CFX_PointF& ptHead,
