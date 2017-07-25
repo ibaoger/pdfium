@@ -18,7 +18,7 @@ extern "C" {
 //   document - handle to a document.
 //
 // Returns the number of embedded files in |document|.
-DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
+FPDF_EXPORT int CDECL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 
 // Experimental API.
 // Get the embedded attachment at |index| in |document|. Note that the returned
@@ -28,7 +28,7 @@ DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 //   index    - the index of the requested embedded file.
 //
 // Returns the handle to the attachment object, or NULL on failure.
-DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_ATTACHMENT CDECL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
                                                         int index);
 
 // Experimental API.
@@ -41,7 +41,7 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file name.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);
@@ -53,7 +53,7 @@ FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns true if |key| exists.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
+FPDF_EXPORT FPDF_BOOL CDECL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
                                                   FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -64,7 +64,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns the type of the dictionary value.
-DLLEXPORT FPDF_OBJECT_TYPE STDCALL
+FPDF_EXPORT FPDF_OBJECT_TYPE CDECL
 FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -83,7 +83,7 @@ FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 //   buflen     - length of the buffer.
 //
 // Returns the length of the dictionary value string.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               void* buffer,
@@ -99,7 +99,7 @@ FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetFile(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);

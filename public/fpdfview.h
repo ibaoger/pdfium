@@ -142,13 +142,36 @@ typedef int FPDF_ANNOTATION_SUBTYPE;
 // Dictionary value types.
 typedef int FPDF_OBJECT_TYPE;
 
-#if defined(_WIN32) && defined(FPDFSDK_EXPORTS)
-// On Windows system, functions are exported in a DLL
-#define DLLEXPORT __declspec(dllexport)
-#define STDCALL __stdcall
+// Defines FPDF_EXPORT so that functionality implemented by the pdfium module can be
+// exported to consumers.
+
+#if defined(PDF_COMPONENT_BUILD)
+#if defined(WIN32)
+
+#if defined(FPDF_IMPLEMENTATION)
+#define FPDF_EXPORT __declspec(dllexport)
 #else
-#define DLLEXPORT
-#define STDCALL
+#define FPDF_EXPORT __declspec(dllimport)
+#endif  // defined(FPDF_IMPLEMENTATION)
+
+#else  // defined(WIN32)
+
+#if defined(FPDF_IMPLEMENTATION)
+#define FPDF_EXPORT __attribute__((visibility("default")))
+#else
+#define FPDF_EXPORT
+#endif
+
+#endif
+
+#else  // defined(PDF_COMPONENT_BUILD)
+#define FPDF_EXPORT
+#endif
+
+#if defined(WIN32) && !defined(CDECL)
+#define CDECL __cdecl
+#else
+#define CDECL
 #endif
 
 // Exported Functions
@@ -165,7 +188,7 @@ extern "C" {
 // Comments:
 //          Convenience function to call FPDF_InitLibraryWithConfig() for
 //          backwards comatibility purposes.
-DLLEXPORT void STDCALL FPDF_InitLibrary();
+FPDF_EXPORT void CDECL FPDF_InitLibrary();
 
 // Process-wide options for initializing the library.
 typedef struct FPDF_LIBRARY_CONFIG_ {
@@ -199,7 +222,7 @@ typedef struct FPDF_LIBRARY_CONFIG_ {
 // Comments:
 //          You have to call this function before you can call any PDF
 //          processing functions.
-DLLEXPORT void STDCALL FPDF_InitLibraryWithConfig(
+FPDF_EXPORT void CDECL FPDF_InitLibraryWithConfig(
     const FPDF_LIBRARY_CONFIG* config);
 
 // Function: FPDF_DestroyLibary
@@ -213,7 +236,7 @@ DLLEXPORT void STDCALL FPDF_InitLibraryWithConfig(
 //          the library.
 //          After this function is called, you should not call any PDF
 //          processing functions.
-DLLEXPORT void STDCALL FPDF_DestroyLibrary();
+FPDF_EXPORT void CDECL FPDF_DestroyLibrary();
 
 // Policy for accessing the local machine time.
 #define FPDF_POLICY_MACHINETIME_ACCESS 0
@@ -226,7 +249,7 @@ DLLEXPORT void STDCALL FPDF_DestroyLibrary();
 //          enable -   True to enable, false to disable the policy.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_SetSandBoxPolicy(FPDF_DWORD policy,
+FPDF_EXPORT void CDECL FPDF_SetSandBoxPolicy(FPDF_DWORD policy,
                                              FPDF_BOOL enable);
 
 #if defined(_WIN32)
@@ -245,7 +268,7 @@ typedef void (*PDFiumEnsureTypefaceCharactersAccessible)(const LOGFONT* font,
 //          func -   A function pointer. See description above.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL
+FPDF_EXPORT void CDECL
 FPDF_SetTypefaceAccessibleFunc(PDFiumEnsureTypefaceCharactersAccessible func);
 
 // Function: FPDF_SetPrintTextWithGDI
@@ -255,7 +278,7 @@ FPDF_SetTypefaceAccessibleFunc(PDFiumEnsureTypefaceCharactersAccessible func);
 //          use_gdi -   Set to true to enable printing text with GDI.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi);
+FPDF_EXPORT void CDECL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi);
 #endif  // PDFIUM_PRINT_TEXT_WITH_GDI
 
 // Function: FPDF_SetPrintPostscriptLevel
@@ -268,7 +291,7 @@ DLLEXPORT void STDCALL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi);
 //                            All other values are invalid.
 // Return value:
 //          True if successful, false if unsuccessful (typically invalid input).
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintPostscriptLevel(int postscript_level);
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_SetPrintPostscriptLevel(int postscript_level);
 
 // Function: FPDF_SetPrintMode
 //          Set printing mode when printing on Windows.
@@ -281,7 +304,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintPostscriptLevel(int postscript_level);
 //                 FPDF_PRINTMODE_POSTSCRIPT3 to output level 3 postscript
 // Return value:
 //          True if successful, false if unsuccessful (typically invalid input).
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintMode(int mode);
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_SetPrintMode(int mode);
 #endif  // defined(_WIN32)
 
 // Function: FPDF_LoadDocument
@@ -296,7 +319,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintMode(int mode);
 //          Loaded document can be closed by FPDF_CloseDocument().
 //          If this function fails, you can use FPDF_GetLastError() to retrieve
 //          the reason why it failed.
-DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadDocument(FPDF_STRING file_path,
+FPDF_EXPORT FPDF_DOCUMENT CDECL FPDF_LoadDocument(FPDF_STRING file_path,
                                                   FPDF_BYTESTRING password);
 
 // Function: FPDF_LoadMemDocument
@@ -317,7 +340,7 @@ DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadDocument(FPDF_STRING file_path,
 //          If PDFium is built with the XFA module, the application should call
 //          FPDF_LoadXFA() function after the PDF document loaded to support XFA
 //          fields defined in the fpdfformfill.h file.
-DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadMemDocument(const void* data_buf,
+FPDF_EXPORT FPDF_DOCUMENT CDECL FPDF_LoadMemDocument(const void* data_buf,
                                                      int size,
                                                      FPDF_BYTESTRING password);
 
@@ -444,7 +467,7 @@ typedef struct _FPDF_FILEHANDLER {
 //          If PDFium is built with the XFA module, the application should call
 //          FPDF_LoadXFA() function after the PDF document loaded to support XFA
 //          fields defined in the fpdfformfill.h file.
-DLLEXPORT FPDF_DOCUMENT STDCALL
+FPDF_EXPORT FPDF_DOCUMENT CDECL
 FPDF_LoadCustomDocument(FPDF_FILEACCESS* pFileAccess, FPDF_BYTESTRING password);
 
 // Function: FPDF_GetFileVersion
@@ -458,7 +481,7 @@ FPDF_LoadCustomDocument(FPDF_FILEACCESS* pFileAccess, FPDF_BYTESTRING password);
 // Comments:
 //          If the document was created by FPDF_CreateNewDocument,
 //          then this function will always fail.
-DLLEXPORT FPDF_BOOL STDCALL FPDF_GetFileVersion(FPDF_DOCUMENT doc,
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_GetFileVersion(FPDF_DOCUMENT doc,
                                                 int* fileVersion);
 
 #define FPDF_ERR_SUCCESS 0    // No error.
@@ -482,7 +505,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_GetFileVersion(FPDF_DOCUMENT doc,
 // Comments:
 //          If the previous SDK call succeeded, the return value of this
 //          function is not defined.
-DLLEXPORT unsigned long STDCALL FPDF_GetLastError();
+FPDF_EXPORT unsigned long CDECL FPDF_GetLastError();
 
 // Function: FPDF_GetDocPermission
 //          Get file permission flags of the document.
@@ -492,7 +515,7 @@ DLLEXPORT unsigned long STDCALL FPDF_GetLastError();
 //          A 32-bit integer indicating permission flags. Please refer to the
 //          PDF Reference for detailed descriptions. If the document is not
 //          protected, 0xffffffff will be returned.
-DLLEXPORT unsigned long STDCALL FPDF_GetDocPermissions(FPDF_DOCUMENT document);
+FPDF_EXPORT unsigned long CDECL FPDF_GetDocPermissions(FPDF_DOCUMENT document);
 
 // Function: FPDF_GetSecurityHandlerRevision
 //          Get the revision for the security handler.
@@ -502,7 +525,7 @@ DLLEXPORT unsigned long STDCALL FPDF_GetDocPermissions(FPDF_DOCUMENT document);
 //          The security handler revision number. Please refer to the PDF
 //          Reference for a detailed description. If the document is not
 //          protected, -1 will be returned.
-DLLEXPORT int STDCALL FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document);
+FPDF_EXPORT int CDECL FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document);
 
 // Function: FPDF_GetPageCount
 //          Get total number of pages in the document.
@@ -510,7 +533,7 @@ DLLEXPORT int STDCALL FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document);
 //          document    -   Handle to document. Returned by FPDF_LoadDocument.
 // Return value:
 //          Total number of pages in the document.
-DLLEXPORT int STDCALL FPDF_GetPageCount(FPDF_DOCUMENT document);
+FPDF_EXPORT int CDECL FPDF_GetPageCount(FPDF_DOCUMENT document);
 
 // Function: FPDF_LoadPage
 //          Load a page inside the document.
@@ -522,7 +545,7 @@ DLLEXPORT int STDCALL FPDF_GetPageCount(FPDF_DOCUMENT document);
 // Comments:
 //          The loaded page can be rendered to devices using FPDF_RenderPage.
 //          The loaded page can be closed using FPDF_ClosePage.
-DLLEXPORT FPDF_PAGE STDCALL FPDF_LoadPage(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_PAGE CDECL FPDF_LoadPage(FPDF_DOCUMENT document,
                                           int page_index);
 
 // Function: FPDF_GetPageWidth
@@ -532,7 +555,7 @@ DLLEXPORT FPDF_PAGE STDCALL FPDF_LoadPage(FPDF_DOCUMENT document,
 // Return value:
 //          Page width (excluding non-displayable area) measured in points.
 //          One point is 1/72 inch (around 0.3528 mm).
-DLLEXPORT double STDCALL FPDF_GetPageWidth(FPDF_PAGE page);
+FPDF_EXPORT double CDECL FPDF_GetPageWidth(FPDF_PAGE page);
 
 // Function: FPDF_GetPageHeight
 //          Get page height.
@@ -541,7 +564,7 @@ DLLEXPORT double STDCALL FPDF_GetPageWidth(FPDF_PAGE page);
 // Return value:
 //          Page height (excluding non-displayable area) measured in points.
 //          One point is 1/72 inch (around 0.3528 mm)
-DLLEXPORT double STDCALL FPDF_GetPageHeight(FPDF_PAGE page);
+FPDF_EXPORT double CDECL FPDF_GetPageHeight(FPDF_PAGE page);
 
 // Function: FPDF_GetPageSizeByIndex
 //          Get the size of the page at the given index.
@@ -554,7 +577,7 @@ DLLEXPORT double STDCALL FPDF_GetPageHeight(FPDF_PAGE page);
 //                          (in points).
 // Return value:
 //          Non-zero for success. 0 for error (document or page not found).
-DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
+FPDF_EXPORT int CDECL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
                                               int page_index,
                                               double* width,
                                               double* height);
@@ -611,7 +634,7 @@ DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
 //                          defined above.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
+FPDF_EXPORT void CDECL FPDF_RenderPage(HDC dc,
                                        FPDF_PAGE page,
                                        int start_x,
                                        int start_y,
@@ -646,7 +669,7 @@ DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
 //                          widget and popup annotations.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
+FPDF_EXPORT void CDECL FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
                                              FPDF_PAGE page,
                                              int start_x,
                                              int start_y,
@@ -671,14 +694,14 @@ DLLEXPORT void STDCALL FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
 //                          widget and popup annotations.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
+FPDF_EXPORT void CDECL FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
                                                        FPDF_PAGE page,
                                                        const FS_MATRIX* matrix,
                                                        const FS_RECTF* clipping,
                                                        int flags);
 
 #ifdef _SKIA_SUPPORT_
-DLLEXPORT FPDF_RECORDER STDCALL FPDF_RenderPageSkp(FPDF_PAGE page,
+FPDF_EXPORT FPDF_RECORDER CDECL FPDF_RenderPageSkp(FPDF_PAGE page,
                                                    int size_x,
                                                    int size_y);
 #endif
@@ -689,7 +712,7 @@ DLLEXPORT FPDF_RECORDER STDCALL FPDF_RenderPageSkp(FPDF_PAGE page,
 //          page        -   Handle to the loaded page.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_ClosePage(FPDF_PAGE page);
+FPDF_EXPORT void CDECL FPDF_ClosePage(FPDF_PAGE page);
 
 // Function: FPDF_CloseDocument
 //          Close a loaded PDF document.
@@ -697,7 +720,7 @@ DLLEXPORT void STDCALL FPDF_ClosePage(FPDF_PAGE page);
 //          document    -   Handle to the loaded document.
 // Return value:
 //          None.
-DLLEXPORT void STDCALL FPDF_CloseDocument(FPDF_DOCUMENT document);
+FPDF_EXPORT void CDECL FPDF_CloseDocument(FPDF_DOCUMENT document);
 
 // Function: FPDF_DeviceToPage
 //          Convert the screen coordinates of a point to page coordinates.
@@ -739,7 +762,7 @@ DLLEXPORT void STDCALL FPDF_CloseDocument(FPDF_DOCUMENT document);
 //          You must make sure the start_x, start_y, size_x, size_y
 //          and rotate parameters have exactly same values as you used in
 //          the FPDF_RenderPage() function call.
-DLLEXPORT void STDCALL FPDF_DeviceToPage(FPDF_PAGE page,
+FPDF_EXPORT void CDECL FPDF_DeviceToPage(FPDF_PAGE page,
                                          int start_x,
                                          int start_y,
                                          int size_x,
@@ -775,7 +798,7 @@ DLLEXPORT void STDCALL FPDF_DeviceToPage(FPDF_PAGE page,
 //          None.
 // Comments:
 //          See comments for FPDF_DeviceToPage().
-DLLEXPORT void STDCALL FPDF_PageToDevice(FPDF_PAGE page,
+FPDF_EXPORT void CDECL FPDF_PageToDevice(FPDF_PAGE page,
                                          int start_x,
                                          int start_y,
                                          int size_x,
@@ -815,7 +838,7 @@ DLLEXPORT void STDCALL FPDF_PageToDevice(FPDF_PAGE page,
 //          This function allocates enough memory for holding all pixels in the
 //          bitmap, but it doesn't initialize the buffer. Applications can use
 //          FPDFBitmap_FillRect to fill the bitmap using any color.
-DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_Create(int width,
+FPDF_EXPORT FPDF_BITMAP CDECL FPDFBitmap_Create(int width,
                                                 int height,
                                                 int alpha);
 
@@ -854,7 +877,7 @@ DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_Create(int width,
 //          If an external buffer is used, then the application should destroy
 //          the buffer by itself. FPDFBitmap_Destroy function will not destroy
 //          the buffer.
-DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_CreateEx(int width,
+FPDF_EXPORT FPDF_BITMAP CDECL FPDFBitmap_CreateEx(int width,
                                                   int height,
                                                   int format,
                                                   void* first_scan,
@@ -884,7 +907,7 @@ DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_CreateEx(int width,
 //          background will be replaced by the source color and the alpha.
 //
 //          If the alpha channel is not used, the alpha parameter is ignored.
-DLLEXPORT void STDCALL FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
+FPDF_EXPORT void CDECL FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
                                            int left,
                                            int top,
                                            int width,
@@ -906,7 +929,7 @@ DLLEXPORT void STDCALL FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
 //
 //          The data is in BGRA format. Where the A maybe unused if alpha was
 //          not specified.
-DLLEXPORT void* STDCALL FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap);
+FPDF_EXPORT void* CDECL FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap);
 
 // Function: FPDFBitmap_GetWidth
 //          Get width of a bitmap.
@@ -914,7 +937,7 @@ DLLEXPORT void* STDCALL FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap);
 //          bitmap      -   Handle to the bitmap. Returned by FPDFBitmap_Create.
 // Return value:
 //          The width of the bitmap in pixels.
-DLLEXPORT int STDCALL FPDFBitmap_GetWidth(FPDF_BITMAP bitmap);
+FPDF_EXPORT int CDECL FPDFBitmap_GetWidth(FPDF_BITMAP bitmap);
 
 // Function: FPDFBitmap_GetHeight
 //          Get height of a bitmap.
@@ -922,7 +945,7 @@ DLLEXPORT int STDCALL FPDFBitmap_GetWidth(FPDF_BITMAP bitmap);
 //          bitmap      -   Handle to the bitmap. Returned by FPDFBitmap_Create.
 // Return value:
 //          The height of the bitmap in pixels.
-DLLEXPORT int STDCALL FPDFBitmap_GetHeight(FPDF_BITMAP bitmap);
+FPDF_EXPORT int CDECL FPDFBitmap_GetHeight(FPDF_BITMAP bitmap);
 
 // Function: FPDFBitmap_GetStride
 //          Get number of bytes for each line in the bitmap buffer.
@@ -932,7 +955,7 @@ DLLEXPORT int STDCALL FPDFBitmap_GetHeight(FPDF_BITMAP bitmap);
 //          The number of bytes for each line in the bitmap buffer.
 // Comments:
 //          The stride may be more than width * number of bytes per pixel.
-DLLEXPORT int STDCALL FPDFBitmap_GetStride(FPDF_BITMAP bitmap);
+FPDF_EXPORT int CDECL FPDFBitmap_GetStride(FPDF_BITMAP bitmap);
 
 // Function: FPDFBitmap_Destroy
 //          Destroy a bitmap and release all related buffers.
@@ -943,7 +966,7 @@ DLLEXPORT int STDCALL FPDFBitmap_GetStride(FPDF_BITMAP bitmap);
 // Comments:
 //          This function will not destroy any external buffers provided when
 //          the bitmap was created.
-DLLEXPORT void STDCALL FPDFBitmap_Destroy(FPDF_BITMAP bitmap);
+FPDF_EXPORT void CDECL FPDFBitmap_Destroy(FPDF_BITMAP bitmap);
 
 // Function: FPDF_VIEWERREF_GetPrintScaling
 //          Whether the PDF document prefers to be scaled or not.
@@ -951,7 +974,7 @@ DLLEXPORT void STDCALL FPDFBitmap_Destroy(FPDF_BITMAP bitmap);
 //          document    -   Handle to the loaded document.
 // Return value:
 //          None.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL CDECL
 FPDF_VIEWERREF_GetPrintScaling(FPDF_DOCUMENT document);
 
 // Function: FPDF_VIEWERREF_GetNumCopies
@@ -960,7 +983,7 @@ FPDF_VIEWERREF_GetPrintScaling(FPDF_DOCUMENT document);
 //          document    -   Handle to the loaded document.
 // Return value:
 //          The number of copies to be printed.
-DLLEXPORT int STDCALL FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document);
+FPDF_EXPORT int CDECL FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document);
 
 // Function: FPDF_VIEWERREF_GetPrintPageRange
 //          Page numbers to initialize print dialog box when file is printed.
@@ -968,7 +991,7 @@ DLLEXPORT int STDCALL FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document);
 //          document    -   Handle to the loaded document.
 // Return value:
 //          The print page range to be used for printing.
-DLLEXPORT FPDF_PAGERANGE STDCALL
+FPDF_EXPORT FPDF_PAGERANGE CDECL
 FPDF_VIEWERREF_GetPrintPageRange(FPDF_DOCUMENT document);
 
 // Function: FPDF_VIEWERREF_GetDuplex
@@ -978,7 +1001,7 @@ FPDF_VIEWERREF_GetPrintPageRange(FPDF_DOCUMENT document);
 //          document    -   Handle to the loaded document.
 // Return value:
 //          The paper handling option to be used when printing.
-DLLEXPORT FPDF_DUPLEXTYPE STDCALL
+FPDF_EXPORT FPDF_DUPLEXTYPE CDECL
 FPDF_VIEWERREF_GetDuplex(FPDF_DOCUMENT document);
 
 // Function: FPDF_VIEWERREF_GetName
@@ -995,7 +1018,7 @@ FPDF_VIEWERREF_GetDuplex(FPDF_DOCUMENT document);
 //          as when |document| is invalid or |buffer| is NULL. If |length| is
 //          less than the returned length, or |buffer| is NULL, |buffer| will
 //          not be modified.
-DLLEXPORT unsigned long STDCALL FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long CDECL FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
                                                        FPDF_BYTESTRING key,
                                                        char* buffer,
                                                        unsigned long length);
@@ -1006,7 +1029,7 @@ DLLEXPORT unsigned long STDCALL FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
 //          document    -   Handle to a document
 // Return value:
 //          The count of named destinations.
-DLLEXPORT FPDF_DWORD STDCALL FPDF_CountNamedDests(FPDF_DOCUMENT document);
+FPDF_EXPORT FPDF_DWORD CDECL FPDF_CountNamedDests(FPDF_DOCUMENT document);
 
 // Function: FPDF_GetNamedDestByName
 //          Get a the destination handle for the given name.
@@ -1015,7 +1038,7 @@ DLLEXPORT FPDF_DWORD STDCALL FPDF_CountNamedDests(FPDF_DOCUMENT document);
 //          name        -   The name of a destination.
 // Return value:
 //          The handle to the destination.
-DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST CDECL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
                                                     FPDF_BYTESTRING name);
 
 // Function: FPDF_GetNamedDest
@@ -1039,7 +1062,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
 //
 //         If buflen is not sufficiently large, it will be set to -1 upon
 //         return.
-DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST CDECL FPDF_GetNamedDest(FPDF_DOCUMENT document,
                                               int index,
                                               void* buffer,
                                               long* buflen);
@@ -1047,17 +1070,17 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
 #ifdef PDF_ENABLE_XFA
 // Function: FPDF_BStr_Init
 //          Helper function to initialize a byte string.
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Init(FPDF_BSTR* str);
+FPDF_EXPORT FPDF_RESULT CDECL FPDF_BStr_Init(FPDF_BSTR* str);
 
 // Function: FPDF_BStr_Set
 //          Helper function to set string data.
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Set(FPDF_BSTR* str,
+FPDF_EXPORT FPDF_RESULT CDECL FPDF_BStr_Set(FPDF_BSTR* str,
                                             FPDF_LPCSTR bstr,
                                             int length);
 
 // Function: FPDF_BStr_Clear
 //          Helper function to clear a byte string.
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Clear(FPDF_BSTR* str);
+FPDF_EXPORT FPDF_RESULT CDECL FPDF_BStr_Clear(FPDF_BSTR* str);
 #endif  // PDF_ENABLE_XFA
 
 #ifdef __cplusplus
