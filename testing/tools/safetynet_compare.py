@@ -14,6 +14,7 @@ import json
 import multiprocessing
 import os
 import re
+import shutil
 import subprocess
 import sys
 
@@ -44,8 +45,12 @@ class CompareRun(object):
     self._InitPaths()
 
   def _InitPaths(self):
-    self.safe_measure_script_path = os.path.join(self.args.build_dir,
-                                                 'safetynet_measure_current.py')
+    if self.args.this_repo:
+      measure_script_path = os.path.join(self.args.build_dir,
+                                         'safetynet_measure_current.py')
+    else:
+      measure_script_path = 'testing/tools/safetynet_measure.py'
+    self.safe_measure_script_path = os.path.abspath(measure_script_path)
 
     input_file_re = re.compile('^.+[.]pdf$')
     self.test_cases = []
@@ -72,7 +77,8 @@ class CompareRun(object):
     Returns:
       Exit code for the script.
     """
-    self._FreezeMeasureScript()
+    if self.args.this_repo:
+      self._FreezeMeasureScript()
 
     if self.args.branch_after:
       before, after = self._ProfileTwoOtherBranches(
@@ -177,16 +183,54 @@ class CompareRun(object):
     self._BuildCurrentBranch(self.after_build_dir)
     after = self._MeasureCurrentBranch('after', self.after_build_dir)
 
-    pushed = self._StashLocalChanges()
-    if not pushed and not self.args.build_dir_before:
-      PrintErr('Warning: No local changes to compare')
+    if self.args.this_repo:
+      pushed = self._StashLocalChanges()
+      if not pushed and not self.args.build_dir_before:
+        PrintErr('Warning: No local changes to compare')
 
-    self._BuildCurrentBranch(self.before_build_dir)
-    before = self._MeasureCurrentBranch('before', self.before_build_dir)
+      before_build_dir = self.before_build_dir
+    else:
+      before_build_dir = self._CreateTempRepo('repo_before',
+                                            self.before_build_dir)
 
-    self._RestoreLocalChanges()
+    self._BuildCurrentBranch(before_build_dir)
+    before = self._MeasureCurrentBranch('before', before_build_dir)
+
+    if self.args.this_repo:
+      self._RestoreLocalChanges()
 
     return before, after
+
+  def _CreateTempRepo(self, dir_name, relative_build_dir):
+    cwd = os.getcwd()
+
+    repo_dir = os.path.join(self.args.tmp_dir, dir_name)
+    src_dir = os.path.join(repo_dir, 'pdfium')
+
+    shutil.rmtree(repo_dir, ignore_errors=True)
+    os.makedirs(repo_dir)
+    self.git.CloneLocal(os.getcwd(), src_dir)
+    os.chdir(repo_dir)
+    cache = '/tmp/pdfium_repo_cache'
+    subprocess.check_call(['gclient', 'config', '--cache-dir=%s' % cache,
+                           '--unmanaged',
+                           'https://pdfium.googlesource.com/pdfium.git'])
+    subprocess.check_call(['gclient', 'sync'])
+
+    build_dir = os.path.join(src_dir, relative_build_dir)
+    os.makedirs(build_dir)
+    os.chdir(src_dir)
+
+    source_gn_args = os.path.join(cwd, relative_build_dir, 'args.gn')
+    dest_gn_args = os.path.join(build_dir, 'args.gn')
+    shutil.copy(source_gn_args, dest_gn_args)
+
+    subprocess.check_call(['gn', 'gen', relative_build_dir])
+
+    os.chdir(cwd)
+
+    return build_dir
+
 
   def _CheckoutBranch(self, branch):
     PrintErr("Checking out branch '%s'" % branch)
@@ -309,6 +353,7 @@ class CompareRun(object):
     if profile_file_path:
       command.append('--output-path=%s' % profile_file_path)
 
+    print command
     try:
       output = subprocess.check_output(command)
     except subprocess.CalledProcessError as e:
@@ -431,6 +476,15 @@ def main():
                            'to the build directory for the "before" branch, if '
                            'different from the build directory for the '
                            '"after" branch')
+  parser.add_argument('--tmp-dir', default='/tmp',
+                      help='directory in which temporary repos will be cloned.')
+  parser.add_argument('--this-repo', action='store_true',
+                      help='use the repository where the script is instead of '
+                           'checking out a temporary one. This is faster and '
+                           'does not require downloads, but although it '
+                           'restores the state of the local repo, if the '
+                           'script is killed or crashes the changes can remain '
+                           'stashed and you may be on another branch.')
   parser.add_argument('--profiler', default='callgrind',
                       help='which profiler to use. Supports callgrind and '
                            'perfstat for now. Default is callgrind.')
