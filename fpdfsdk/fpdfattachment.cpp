@@ -12,7 +12,7 @@
 #include "core/fpdfdoc/cpdf_nametree.h"
 #include "fpdfsdk/fsdk_define.h"
 
-DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document) {
+FPDF_EXPORT int CDECL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
     return 0;
@@ -20,7 +20,7 @@ DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document) {
   return CPDF_NameTree(pDoc, "EmbeddedFiles").GetCount();
 }
 
-DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_ATTACHMENT CDECL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
                                                         int index) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc || index < 0)
@@ -34,7 +34,7 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
   return nameTree.LookupValueAndName(index, &csName);
 }
 
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen) {
@@ -46,7 +46,7 @@ FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
                                              buffer, buflen);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
+FPDF_EXPORT FPDF_BOOL CDECL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
                                                   FPDF_WIDESTRING key) {
   CPDF_Object* pFile = CPDFObjectFromFPDFAttachment(attachment);
   if (!pFile)
@@ -59,7 +59,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
   return pParamsDict->KeyExist(CFXByteStringFromFPDFWideString(key));
 }
 
-DLLEXPORT FPDF_OBJECT_TYPE STDCALL
+FPDF_EXPORT FPDF_OBJECT_TYPE CDECL
 FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key) {
   if (!FPDFAttachment_HasKey(attachment, key))
     return FPDF_OBJECT_UNKNOWN;
@@ -73,7 +73,7 @@ FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key) {
   return pObj->GetType();
 }
 
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               void* buffer,
@@ -101,7 +101,7 @@ FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
   return Utf16EncodeMaybeCopyAndReturnLength(value, buffer, buflen);
 }
 
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetFile(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen) {

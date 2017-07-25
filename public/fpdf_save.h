@@ -59,7 +59,7 @@ typedef struct FPDF_FILEWRITE_ {
 // Return value:
 //          TRUE for succeed, FALSE for failed.
 //
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SaveAsCopy(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_SaveAsCopy(FPDF_DOCUMENT document,
                                             FPDF_FILEWRITE* pFileWrite,
                                             FPDF_DWORD flags);
 
@@ -75,7 +75,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_SaveAsCopy(FPDF_DOCUMENT document,
 // Return value:
 //          TRUE if succeed, FALSE if failed.
 //
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SaveWithVersion(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_SaveWithVersion(FPDF_DOCUMENT document,
                                                  FPDF_FILEWRITE* pFileWrite,
                                                  FPDF_DWORD flags,
                                                  int fileVersion);
