@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "5044a9a6_e29f6766",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T15:52:39Z",
+      "side": 1,
+      "message": "*Async loading OF NON LINEARIZED PDF is disabled anywere:",
+      "parentUuid": "7872c863_c321b7c6",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "062014d5_b4c1ddce",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
         "patchSetId": 3
