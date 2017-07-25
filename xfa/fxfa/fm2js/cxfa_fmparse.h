@@ -52,8 +52,8 @@ class CXFA_FMParse {
   std::unique_ptr<CXFA_FMSimpleExpression> ParseIndexExpression();
 
   std::unique_ptr<CXFA_FMLexer> m_lexer;
-  CXFA_FMToken* m_pToken;
-  bool m_ParserError;
+  std::unique_ptr<CXFA_FMToken> m_token;
+  bool m_parser_error;
 };
 
 #endif  // XFA_FXFA_FM2JS_CXFA_FMPARSE_H_
