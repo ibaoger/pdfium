@@ -967,18 +967,21 @@ DLLEXPORT void STDCALL FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
   CFX_RetainPtr<CFX_DIBitmap> pBitmap(CFXBitmapFromFPDFBitmap(bitmap));
   pDevice->Attach(pBitmap, !!(flags & FPDF_REVERSE_BYTE_ORDER), nullptr, false);
 
-  CFX_Matrix transform_matrix = pPage->GetPageMatrix();
-  if (matrix) {
-    transform_matrix.Concat(CFX_Matrix(matrix->a, matrix->b, matrix->c,
-                                       matrix->d, matrix->e, matrix->f));
-  }
-
   CFX_FloatRect clipping_rect;
   if (clipping) {
     clipping_rect.left = clipping->left;
     clipping_rect.bottom = clipping->bottom;
     clipping_rect.right = clipping->right;
     clipping_rect.top = clipping->top;
+  }
+  FX_RECT clip_rect = clipping_rect.ToFxRect();
+
+  CFX_Matrix transform_matrix = pPage->GetDisplayMatrix(
+      clip_rect.left, clip_rect.top, clip_rect.right - clip_rect.left,
+      clip_rect.bottom - clip_rect.top, 0);
+  if (matrix) {
+    transform_matrix.Concat(CFX_Matrix(matrix->a, matrix->b, matrix->c,
+                                       matrix->d, matrix->e, matrix->f));
   }
   RenderPageImpl(pContext, pPage, transform_matrix, clipping_rect.ToFxRect(),
                  flags, true, nullptr);
