@@ -16,6 +16,7 @@
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_basic.h"
 
+class CPDF_CrossRefAvailChecker;
 class CPDF_Dictionary;
 class CPDF_HintTables;
 class CPDF_IndirectObjectHolder;
@@ -27,10 +28,7 @@ enum PDF_DATAAVAIL_STATUS {
   PDF_DATAAVAIL_FIRSTPAGE,
   PDF_DATAAVAIL_HINTTABLE,
   PDF_DATAAVAIL_END,
-  PDF_DATAAVAIL_CROSSREF,
-  PDF_DATAAVAIL_CROSSREF_ITEM,
-  PDF_DATAAVAIL_CROSSREF_STREAM,
-  PDF_DATAAVAIL_TRAILER,
+  PDF_DATAAVAIL_CROSSREFS,
   PDF_DATAAVAIL_LOADALLCROSSREF,
   PDF_DATAAVAIL_ROOT,
   PDF_DATAAVAIL_INFO,
@@ -107,7 +105,6 @@ class CPDF_DataAvail final {
   DocFormStatus IsFormAvail(DownloadHints* pHints);
   DocLinearizationStatus IsLinearizedPDF();
   bool IsLinearized();
-  void GetLinearizedMainXRefInfo(FX_FILESIZE* pPos, uint32_t* pSize);
   CFX_RetainPtr<IFX_SeekableReadStream> GetFileRead() const {
     return m_pFileRead;
   }
@@ -139,9 +136,7 @@ class CPDF_DataAvail final {
   bool CheckFirstPage(DownloadHints* pHints);
   bool CheckHintTables(DownloadHints* pHints);
   bool CheckEnd(DownloadHints* pHints);
-  bool CheckCrossRef(DownloadHints* pHints);
-  bool CheckCrossRefItem(DownloadHints* pHints);
-  bool CheckTrailer(DownloadHints* pHints);
+  bool CheckAllCrossRefs(DownloadHints* pHints);
   bool CheckRoot(DownloadHints* pHints);
   bool CheckInfo(DownloadHints* pHints);
   bool CheckPages(DownloadHints* pHints);
@@ -152,11 +147,8 @@ class CPDF_DataAvail final {
   bool CheckAcroFormSubObject(DownloadHints* pHints);
   bool CheckTrailerAppend(DownloadHints* pHints);
   bool CheckPageStatus(DownloadHints* pHints);
-  bool CheckAllCrossRefStream(DownloadHints* pHints);
 
-  int32_t CheckCrossRefStream(DownloadHints* pHints, FX_FILESIZE& xref_offset);
   bool IsLinearizedFile(uint8_t* pData, uint32_t dwLen);
-  void SetStartOffset(FX_FILESIZE dwOffset);
   bool GetNextToken(CFX_ByteString* token);
   bool GetNextChar(uint8_t& ch);
   std::unique_ptr<CPDF_Object> ParseIndirectObjectAt(
@@ -208,10 +200,9 @@ class CPDF_DataAvail final {
   CFX_UnownedPtr<CPDF_Object> m_pTrailer;
   bool m_bDocAvail;
   FX_FILESIZE m_dwHeaderOffset;
-  FX_FILESIZE m_dwLastXRefOffset;
-  FX_FILESIZE m_dwXRefOffset;
-  FX_FILESIZE m_dwTrailerOffset;
-  FX_FILESIZE m_dwCurrentOffset;
+
+  std::unique_ptr<CPDF_CrossRefAvailChecker> m_pCrossRefChecker;
+
   PDF_DATAAVAIL_STATUS m_docStatus;
   FX_FILESIZE m_dwFileLen;
   CPDF_Document* m_pDocument;
@@ -244,7 +235,6 @@ class CPDF_DataAvail final {
   bool m_bLinearizedFormParamLoad;
   std::vector<std::unique_ptr<CPDF_Object>> m_PagesArray;
   uint32_t m_dwEncryptObjNum;
-  FX_FILESIZE m_dwPrevXRefOffset;
   bool m_bTotalLoadPageTree;
   bool m_bCurPageDictLoadOK;
   PageNode m_PageNode;
