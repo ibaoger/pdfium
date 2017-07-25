@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b4ea923_23ae982b",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "We have this chunk of code at least twice, can we extract it to a helper that returns std::pair\u003cCFX_WideString, CFX_WideString\u003e ?",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf698004_9bdb9d0b",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "nit: no blank line",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cfdc5fb_c8bf94fb",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "nit: no blank line. Usually we remove the blank line between a string of if()\u0027s like this.",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c605522_74373b59",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "Is it ok if these don\u0027t change? What happens if csRight and csLeft are the only two items in our pNames list?",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db199721_9016a9fb",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "nit: no blank line",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f18e1edc_3aa51786",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "nit: add {}\u0027s due to multi-line conditional",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d213d2ee_8c458554",
+        "filename": "core/fpdfdoc/cpdf_nametree_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T20:53:18Z",
+      "side": 1,
+      "message": "Can we add a tests for deleting name 5.txt again and a test for deleting a name that doesn\u0027t exist in the tree?",
+      "revId": "fbdd6a3ef9fa5ee86c6f97d223e469cab7de3d1c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
