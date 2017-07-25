@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "7872c863_c321b7c6",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T15:44:39Z",
+      "side": 1,
+      "message": "\u003e\u003e The problem is that there are moves and refactors in the same CL.\nWe have Architecture bug, it is can not be solved without refactoring.\n\n\u003e\u003e Having both makes the code really hard to follow and figure out what\u0027s changed.\nOriginal code is realy hard and implicit. I\u0027m trying to fix this.\n\n\u003e\u003eIf we can move things in one CL and then refactor in a second or more CL then we can easily see what changed.\nWhat move, just cut and paste the original code in other file?\nIs this make sense?\n\n\u003e\u003e 1-- We can move the check code and then hookup afterwards\ncut and Paste useless code to another place?\n\u003e\u003e 2-- This can happen after the moves are done.\nThis is change of architecture of availability checks, whole related code will be changes anyway, in CL where architecture will be changed.\n\n\u003e\u003e 3-- This seems like it could be fixed after the moves and refactors,\nThe creation of separate class with updated logic is More simple and have small CL, than tring to update logic within implicit and hard original code.\n\n\u003e\u003e can you file a bug about it?\nOo. Bug?\nAsync loading is disabled anywere:\nIn chromium: \nhttps://cs.chromium.org/chromium/src/pdf/pdfium/pdfium_engine.cc?rcl\u003d126b17048408143dd4b99b50fa6fb57f1fc940e8\u0026l\u003d2706\nIn all pdfium tests: \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/testing/embedder_test.cpp?rcl\u003d54a4214c86bc790cc2a3ae454b1aa709e868fa1a\u0026l\u003d158\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/samples/pdfium_test.cc?rcl\u003d54a4214c86bc790cc2a3ae454b1aa709e868fa1a\u0026l\u003d1289\n\n\u003e\u003e4-- We can save the test file you have and commit it as the last step of the moves/refactors\nI don\u0027t want to do CL without tests, because other CL can break my changes.\n\n\u003e\u003e5-- We should file a bug about the async loading and then fix it once the refactoring is done.\nThis is just small part of fix this. Needs change architecture of whole cpdf_data_avail class, to fix this.\n\n\u003e\u003eWhen we\u0027ve mixed bug fixes with refactorings, \nWe can not fix this bug without refactoring, anyway.\n\u003e\u003e if anything needs to be reverted we end up reverting everything which is a really big hammer. \nI do not see any other way to change the architecture of big class. :( Like my other CL with DocumentLoader refactoring.\n\u003e\u003eHaving more granular changes makes it easier for us to just revert what\u0027s broken.\nI agree, but my CL is logicaly indivisible. If we remove something from it, other line will be nonsensical.",
+      "parentUuid": "fc3eba36_9ba6664d",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "062014d5_b4c1ddce",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
         "patchSetId": 3
