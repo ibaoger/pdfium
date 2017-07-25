@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "4011d7d2_1d8bc081",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T13:59:52Z",
+      "side": 1,
+      "message": "Can we extract these one by one and just call in to the Checker from the original code and then once all the checks are in the checker, we can make changes to the original code to make calling simpler.\n\nWill make it a lot easier to review if this is broken apart.",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "062014d5_b4c1ddce",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
         "patchSetId": 3
