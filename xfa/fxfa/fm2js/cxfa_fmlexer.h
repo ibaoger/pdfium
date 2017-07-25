@@ -108,7 +108,6 @@ class CXFA_FMLexer {
   ~CXFA_FMLexer();
 
   CXFA_FMToken* NextToken();
-  bool HasError() const { return m_lexer_error; }
 
   void SetCurrentLine(uint32_t line) { m_current_line = line; }
   void SetToken(std::unique_ptr<CXFA_FMToken> token) {
@@ -128,7 +127,6 @@ class CXFA_FMLexer {
   const wchar_t* const m_end;
   uint32_t m_current_line;
   std::unique_ptr<CXFA_FMToken> m_token;
-  bool m_lexer_error;
 };
 
 #endif  // XFA_FXFA_FM2JS_CXFA_FMLEXER_H_

@@ -221,35 +221,19 @@ TEST(CXFA_FMLexerTest, ValidIdentifiers) {
 
 TEST(CXFA_FMLexerTest, InvalidIdentifiers) {
   auto lexer = pdfium::MakeUnique<CXFA_FMLexer>(L"#a");
-  lexer->NextToken();
-  // TODO(rharrison): Add an expects for the return being nullptr here.
-  // See https://crbug.com/pdfium/814
-  EXPECT_TRUE(lexer->HasError());
+  EXPECT_EQ(nullptr, lexer->NextToken());
 
   lexer = pdfium::MakeUnique<CXFA_FMLexer>(L"1a");
-  lexer->NextToken();
-  // TODO(rharrison): Add an expects for the return being nullptr here.
-  // See https://crbug.com/pdfium/814
-  EXPECT_TRUE(lexer->HasError());
+  EXPECT_EQ(nullptr, lexer->NextToken());
 
   lexer = pdfium::MakeUnique<CXFA_FMLexer>(L"an@identifier");
-  lexer->NextToken();
-  EXPECT_FALSE(lexer->HasError());
-  lexer->NextToken();
-  // TODO(rharrison): Add an expects for the return being nullptr here.
-  // See https://crbug.com/pdfium/814
-  EXPECT_TRUE(lexer->HasError());
-  // TODO(rharrison): Add a test for if an another call to NextToken occurs,
-  // the error state will be retained, instead of continuing the parse.
-  // See https://crbug.com/pdfium/814
+  EXPECT_NE(nullptr, lexer->NextToken());
+  EXPECT_EQ(nullptr, lexer->NextToken());
+  EXPECT_EQ(nullptr, lexer->NextToken());
 
   lexer = pdfium::MakeUnique<CXFA_FMLexer>(L"_ident@");
-  lexer->NextToken();
-  EXPECT_FALSE(lexer->HasError());
-  lexer->NextToken();
-  // TODO(rharrison): Add an expects for the return being nullptr here.
-  // See https://crbug.com/pdfium/814
-  EXPECT_TRUE(lexer->HasError());
+  EXPECT_NE(nullptr, lexer->NextToken());
+  EXPECT_EQ(nullptr, lexer->NextToken());
 }
 
 TEST(CXFA_FMLexerTest, Whitespace) {

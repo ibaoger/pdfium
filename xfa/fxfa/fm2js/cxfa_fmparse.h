@@ -10,6 +10,7 @@
 #include <memory>
 #include <vector>
 
+#include "core/fxcrt/cfx_unowned_ptr.h"
 #include "xfa/fxfa/fm2js/cxfa_fmexpression.h"
 #include "xfa/fxfa/fm2js/cxfa_fmlexer.h"
 
@@ -52,8 +53,8 @@ class CXFA_FMParse {
   std::unique_ptr<CXFA_FMSimpleExpression> ParseIndexExpression();
 
   std::unique_ptr<CXFA_FMLexer> m_lexer;
-  CXFA_FMToken* m_pToken;
-  bool m_ParserError;
+  CFX_UnownedPtr<CXFA_FMToken> m_token;
+  bool m_parser_error;
 };
 
 #endif  // XFA_FXFA_FM2JS_CXFA_FMPARSE_H_
