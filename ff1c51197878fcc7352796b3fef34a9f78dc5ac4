@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "52d83710_a6d033a3",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "If we didn\u0027t have a Pages object, isn\u0027t the PDF corrupt? How can we render anything without Pages?",
+      "parentUuid": "03f61fc8_adc57e5a",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af6ac49_c25b06d9",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "What specific stream?\nWe should Decrypt all strings and streams. And for this we should walk into all objects, in any case.\nI think, that good place for this.",
       "parentUuid": "18abe5ee_4355eacc",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a0a9fe_4dd5d6ab",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "So, why aren\u0027t we decrypting each object as we decode it? I just don\u0027t understand why we do all the decryption as one big pass at the end where we have to walk every object, many of which may not be encrypted in order to decrypt some of them.\n\nWhy can\u0027t we do the decryption as we parse and just decrypt the data for a given object?",
+      "parentUuid": "07349445_6d8725fc",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -313,6 +349,24 @@
       "side": 1,
       "message": "We receive object for save. Not specific data. Some object, for wich we can just say Save, and thats all. No more additional external logic. Jusj 40 simple lines for walk, instead of 190 lines of difficult, recursive, implicit code.",
       "parentUuid": "0d796d3c_07c0ab9e",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "806c11a8_f067ed68",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "Right, but this also modifies the object or forces us to clone the object? Can\u0027t we modify walk to do the walking without Clone? Like, walk writes stuff out and then only calls encrypt on specific pieces of data which we immediately write out. No reason to modify the objects as we walk.",
+      "parentUuid": "087df9a6_dfdb0aca",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -508,6 +562,24 @@
     },
     {
       "key": {
+        "uuid": "d3237d71_94f35453",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "Why does it lead to infinite recursion? Having a series of post-process steps that walk over everything seems like it could lead to performance regressions.\n\nHow are we doing this now, as it doesn\u0027t seem to be doing infinite recursion?",
+      "parentUuid": "8c56b827_04e3d604",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8aa150f_8206a493",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -554,6 +626,24 @@
       "side": 1,
       "message": "We should do this only after decryption. But in much of places in CPDF_DataAvail for example we parse object without decryption, but with pool, than parse again by with decryption and with pool too, as result in pool we have two same strings, but one is encrypted. \nAlso this implementation is more understandable.",
       "parentUuid": "fe0af796_a203f9b2",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d5b241_dfc18ded",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "In which case, I think we should make the decryption code use the string pool. Then we don\u0027t have to walk over every object, we just assign to the pool as we decrypt.",
+      "parentUuid": "6760a251_625e449c",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -613,6 +703,24 @@
     },
     {
       "key": {
+        "uuid": "91f507c7_c383dee1",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "But before we only did this work if we did not have a crypto handler, now we always do it? So, si the crypto handling code doing less work to handle what this was doing?",
+      "parentUuid": "78c11a67_0c44ed80",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e26c2f0e_94e0a123",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -642,6 +750,24 @@
       "side": 1,
       "message": "We are checked the Length value of stream dictionary. \nAfter that we should move carret to stream start to read it. (or to search real stream end, if \"Length \" is incorrect)",
       "parentUuid": "e26c2f0e_94e0a123",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9f5c40_39eda459",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "Why didn\u0027t we need to do that before, did something else change that requires this behaviour now?",
+      "parentUuid": "b8ca3f63_35850acf",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

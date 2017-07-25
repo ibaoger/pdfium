@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0119c851_f3c21dc6",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "Why is this ReplaceData? The stream is no longer encrypted so don\u0027t we want to remove the Filter and DecodeParams?",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887a133b_6456890c",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "Why store these away, why not just do the decryption? If we just did the work, we don\u0027t need to change RemoveFor?",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df4f972f_cd39c769",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

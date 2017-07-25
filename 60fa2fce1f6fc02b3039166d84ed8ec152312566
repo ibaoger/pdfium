@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "067e4d18_6b906e7d",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T17:48:31Z",
+      "side": 0,
+      "message": "I\u0027m not sure I understand, why does creating a CL to combine these two methods require IsSignatureDict? that doesn\u0027t seem to be called here at all?",
+      "parentUuid": "f4a734f7_1cf2db16",
+      "revId": "60fa2fce1f6fc02b3039166d84ed8ec152312566",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee34358b_3066d156",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
