@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "900ab337_81a2a42e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T13:50:56Z",
+      "side": 1,
+      "message": "nit: Bug: pdfium:833",
+      "revId": "a3369a7d68a8038d5f356c808ecf4b386530435b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5bfad2e_55ad21b4",
+        "filename": "fpdfsdk/fpdf_progressive.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-25T13:50:56Z",
+      "side": 1,
+      "message": "Should we call Flush(true) here to cleanup the device? The typical order is to call _Start, _Continue*, _Close.",
+      "revId": "a3369a7d68a8038d5f356c808ecf4b386530435b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
