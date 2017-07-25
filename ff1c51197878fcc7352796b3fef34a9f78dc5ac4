@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "ee3ffc24_7ffd40b4",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "We do not need \"Pages\" object for render first linearized page. For this we use data from LinearizedDictionary",
+      "parentUuid": "52d83710_a6d033a3",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7af6ac49_c25b06d9",
         "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
         "patchSetId": 12
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "So, why aren\u0027t we decrypting each object as we decode it? I just don\u0027t understand why we do all the decryption as one big pass at the end where we have to walk every object, many of which may not be encrypted in order to decrypt some of them.\n\nWhy can\u0027t we do the decryption as we parse and just decrypt the data for a given object?",
       "parentUuid": "07349445_6d8725fc",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a810f268_e52518ea",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "I think, that not need to do throw everything in one heap.\n\nThe origin parser code is very implicit to read (and as result to update).\nI want to move code, non related to parsing, into seperate places.\n\nAbout perfomance:\nWe walk after parsing raw data, this is not increase complexity.\nThis just added walking on the pointers of just parsed structures.\n\nAlso in CL de(en)cription code is explicit.\nFor example, very hard to understand, what happened with Signature Dictionaries in original code. But in CL it is simple,",
+      "parentUuid": "49a0a9fe_4dd5d6ab",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -367,6 +403,24 @@
       "side": 1,
       "message": "Right, but this also modifies the object or forces us to clone the object? Can\u0027t we modify walk to do the walking without Clone? Like, walk writes stuff out and then only calls encrypt on specific pieces of data which we immediately write out. No reason to modify the objects as we walk.",
       "parentUuid": "087df9a6_dfdb0aca",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9cc6c29_1c153b96",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "\u003e Right, but this also modifies the object or forces us to clone the object?\nNot force, it is internal method.\nAlso cloned object is encryption buffer. \n\nBut separate serialization/parsing/de(en)cryption is more explicit. Why we should union serialization and encryption (parsing and encryption)?\n\nWhy we needs the couple writing data methods (one per object specified CPDF_Object::WriteTo and CPDF_Creator::WriteDirectObj)?\netc.\n\nSeparately stayed logic can be reused, tested, simple to modify (and review on updates .... )",
+      "parentUuid": "806c11a8_f067ed68",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -650,6 +704,24 @@
     },
     {
       "key": {
+        "uuid": "3ae0367a_fc49d5b0",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "What wrong with additional walking after object parse?\nIt is fast and not increase complexity.\nAnd why we should union different types of tasks (parsing / de(en)cryption / strings pooling ... )?",
+      "parentUuid": "d6d5b241_dfc18ded",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "49b4306e_e1cb4722",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -721,6 +793,24 @@
     },
     {
       "key": {
+        "uuid": "7c5a201e_a0206454",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "Crypto handling code not doing less work.\nIt is just disable additional data validation, not more. this validation is not related to encryption anyway. I have store it always enabled.",
+      "parentUuid": "91f507c7_c383dee1",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e26c2f0e_94e0a123",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 12
@@ -768,6 +858,24 @@
       "side": 1,
       "message": "Why didn\u0027t we need to do that before, did something else change that requires this behaviour now?",
       "parentUuid": "b8ca3f63_35850acf",
+      "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a07cb32f_5c5cf1ce",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "hm. I have just removed other bracket.\nI will fix this.",
+      "parentUuid": "6e9f5c40_39eda459",
       "revId": "ff1c51197878fcc7352796b3fef34a9f78dc5ac4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

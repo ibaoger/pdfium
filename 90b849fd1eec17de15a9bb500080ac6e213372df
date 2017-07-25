@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "984fcdb8_0c4347ca",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "The stream is decrypted, but not decoded (zipped stream for example).",
+      "parentUuid": "0119c851_f3c21dc6",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "887a133b_6456890c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 13
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c668c32d_4a3a704b",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "\u003e\u003e Why store these away, why not just do the decryption? \nthis dictionaryes may be already decrypted (in case when this is signature dictionary).\n\u003e\u003e If we just did the work, we don\u0027t need to change RemoveFor?\nFor this CL not. But for other ...",
+      "parentUuid": "887a133b_6456890c",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df4f972f_cd39c769",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 13
@@ -47,6 +83,24 @@
       "writtenOn": "2017-07-25T17:48:31Z",
       "side": 1,
       "message": "ditto",
+      "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9c387b_da0bd433",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T19:32:18Z",
+      "side": 1,
+      "message": "The signature dictionaries should not be encrypted.\ntemporary remove from object, to prevent its encryption.",
+      "parentUuid": "df4f972f_cd39c769",
       "revId": "90b849fd1eec17de15a9bb500080ac6e213372df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
