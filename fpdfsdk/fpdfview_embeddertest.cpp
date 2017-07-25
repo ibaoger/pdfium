@@ -5,6 +5,7 @@
 #include <limits>
 #include <string>
 
+#include "core/fxcrt/fx_system.h"
 #include "fpdfsdk/fpdfview_c_api_test.h"
 #include "public/fpdfview.h"
 #include "testing/embedder_test.h"
@@ -330,19 +331,33 @@ TEST_F(FPDFViewEmbeddertest, Hang_360) {
 }
 
 TEST_F(FPDFViewEmbeddertest, FPDF_RenderPageBitmapWithMatrix) {
-  const char kAllBlackMd5sum[] = "5708fc5c4a8bd0abde99c8e8f0390615";
-  const char kTopLeftQuarterBlackMd5sum[] = "24e4d1ec06fa0258af758cfc8b2ad50a";
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_LINUX_
+  const char kOriginalHelloWorld[] = "f7e129d97c58e91adeace32a4327b925";
+  const char kTopLeftQuarterHelloMd5sum[] = "a7e1e6a6bbf46695521253fa11ad1a29";
+  const char kTrimmedHelloMd5sum[] = "118d10224f9210efaea50565c5ac8669";
+  const char kRotatedHelloMd5sum[] = "5761df2a2a34a5a977ba1df6e9229422";
+#elif _FXM_PLATFORM_ == _FXM_PLATFORM_APPLE_
+  const char kOriginalHelloWorld[] = "b90475ca64d1348c3bf5e2b77ad9187a";
+  const char kTopLeftQuarterHelloMd5sum[] = "9e18830dc27cb8443f95ad372e397171";
+  const char kTrimmedHelloMd5sum[] = "75f0eb58f1f9727d28040bc677db2650";
+  const char kRotatedHelloMd5sum[] = "6963d0d88e1e71b9f072bab0e8bf7c8f";
+#else
+  const char kOriginalHelloWorld[] = "9a2637b73fd5265309bfddd9c69476cd";
+  const char kTopLeftQuarterHelloMd5sum[] = "a7e1e6a6bbf46695521253fa11ad1a29";
+  const char kTrimmedHelloMd5sum[] = "118d10224f9210efaea50565c5ac8669";
+  const char kRotatedHelloMd5sum[] = "adfef7384d00bcb3d7f59fa9624ff7cd";
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_LINUX_
 
-  EXPECT_TRUE(OpenDocument("black.pdf"));
+  EXPECT_TRUE(OpenDocument("hello_world.pdf"));
   FPDF_PAGE page = LoadPage(0);
   EXPECT_NE(nullptr, page);
   const int width = static_cast<int>(FPDF_GetPageWidth(page));
   const int height = static_cast<int>(FPDF_GetPageHeight(page));
-  EXPECT_EQ(612, width);
-  EXPECT_EQ(792, height);
+  EXPECT_EQ(200, width);
+  EXPECT_EQ(200, height);
 
   FPDF_BITMAP bitmap = RenderPage(page);
-  CompareBitmap(bitmap, width, height, kAllBlackMd5sum);
+  CompareBitmap(bitmap, width, height, kOriginalHelloWorld);
   FPDFBitmap_Destroy(bitmap);
 
   // Try rendering with an identity matrix. The output should be the same as
@@ -364,17 +379,39 @@ TEST_F(FPDFViewEmbeddertest, FPDF_RenderPageBitmapWithMatrix) {
   bitmap = FPDFBitmap_Create(width, height, 0);
   FPDFBitmap_FillRect(bitmap, 0, 0, width, height, 0xFFFFFFFF);
   FPDF_RenderPageBitmapWithMatrix(bitmap, page, &matrix, &rect, 0);
-  CompareBitmap(bitmap, width, height, kAllBlackMd5sum);
+  CompareBitmap(bitmap, width, height, kOriginalHelloWorld);
   FPDFBitmap_Destroy(bitmap);
 
-  // Now render again with the image scaled.
+  // Now render again with the image scaled smaller.
   matrix.a = 0.5;
   matrix.d = 0.5;
 
   bitmap = FPDFBitmap_Create(width, height, 0);
   FPDFBitmap_FillRect(bitmap, 0, 0, width, height, 0xFFFFFFFF);
   FPDF_RenderPageBitmapWithMatrix(bitmap, page, &matrix, &rect, 0);
-  CompareBitmap(bitmap, width, height, kTopLeftQuarterBlackMd5sum);
+  CompareBitmap(bitmap, width, height, kTopLeftQuarterHelloMd5sum);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Now render again with the image scaled larger horizontally (will be
+  // trimmed).
+  matrix.a = 2;
+  matrix.d = 1;
+  bitmap = FPDFBitmap_Create(width, height, 0);
+  FPDFBitmap_FillRect(bitmap, 0, 0, width, height, 0xFFFFFFFF);
+  FPDF_RenderPageBitmapWithMatrix(bitmap, page, &matrix, &rect, 0);
+  CompareBitmap(bitmap, width, height, kTrimmedHelloMd5sum);
+  FPDFBitmap_Destroy(bitmap);
+
+  // Now try a 90 degree rotation
+  matrix.a = 0;
+  matrix.b = 1;
+  matrix.c = -1;
+  matrix.d = 0;
+  matrix.e = width;
+  bitmap = FPDFBitmap_Create(width, height, 0);
+  FPDFBitmap_FillRect(bitmap, 0, 0, width, height, 0xFFFFFFFF);
+  FPDF_RenderPageBitmapWithMatrix(bitmap, page, &matrix, &rect, 0);
+  CompareBitmap(bitmap, width, height, kRotatedHelloMd5sum);
   FPDFBitmap_Destroy(bitmap);
 
   UnloadPage(page);
