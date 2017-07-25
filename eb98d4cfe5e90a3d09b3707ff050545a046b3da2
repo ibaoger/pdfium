@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "84022070_358636f4",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-25T14:25:16Z",
+      "side": 1,
+      "message": "I think this is not make sense, because:\n\nThis is not just moving. This is refactoring.\n1) Currently in original code the checking of cross refs v5 are never called. \n2) Some logic is changed. (For example all checking of crossref v4 items are moved into related method from checking header of crossrefv4) \n3) Used other mechanism to request not loaded yet data. (It this CL we request the data which want to read, instead of calculated block size in original code (which is incorrect some times))\nSee CPDF_CrossRefAvailChecker::ReadBlock\nand CPDF_CrossRefAvailChecker::ScheduleDownload\n4) Moving this logic back, is drop ability to write tests.\n5) In original code this logic is broken much time ago. (Async loading of non linearized docs).\n\nReally, i\u0027m trying to do small CL\u0027s as I can. This CL is logicaly finished. In other case the changes will be imlicit.",
+      "parentUuid": "4011d7d2_1d8bc081",
+      "revId": "eb98d4cfe5e90a3d09b3707ff050545a046b3da2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "062014d5_b4c1ddce",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_checker.cpp",
         "patchSetId": 3
