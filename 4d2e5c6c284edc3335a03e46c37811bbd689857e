@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29105461_b7d5eacc",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T19:41:54Z",
+      "side": 1,
+      "message": "nit: return nullptr;",
+      "range": {
+        "startLine": 143,
+        "startChar": 6,
+        "endLine": 143,
+        "endChar": 32
+      },
+      "revId": "4d2e5c6c284edc3335a03e46c37811bbd689857e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29adead9_07009b71",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T19:41:54Z",
+      "side": 1,
+      "message": "nit: maybe return expressions; and delete line 78?",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 12
+      },
+      "revId": "4d2e5c6c284edc3335a03e46c37811bbd689857e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
