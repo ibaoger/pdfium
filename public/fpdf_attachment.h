@@ -18,7 +18,7 @@ extern "C" {
 //   document - handle to a document.
 //
 // Returns the number of embedded files in |document|.
-DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
+FPDF_EXPORT int CDECL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 
 // Experimental API.
 // Add an embedded file with |name| in |document|. If |name| is empty, or if
@@ -30,7 +30,7 @@ DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 //   name     - name of the new attachment.
 //
 // Returns a handle to the new attachment object, or NULL on failure.
-DLLEXPORT FPDF_ATTACHMENT FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_ATTACHMENT CDECL FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
                                                 FPDF_WIDESTRING name);
 
 // Experimental API.
@@ -41,7 +41,7 @@ DLLEXPORT FPDF_ATTACHMENT FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
 //   index    - the index of the requested embedded file.
 //
 // Returns the handle to the attachment object, or NULL on failure.
-DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_ATTACHMENT CDECL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
                                                         int index);
 
 // Experimental API.
@@ -54,7 +54,7 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file name.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);
@@ -66,7 +66,7 @@ FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns true if |key| exists.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
+FPDF_EXPORT FPDF_BOOL CDECL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
                                                   FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -77,7 +77,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns the type of the dictionary value.
-DLLEXPORT FPDF_OBJECT_TYPE STDCALL
+FPDF_EXPORT FPDF_OBJECT_TYPE CDECL
 FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -90,7 +90,7 @@ FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 //   value      - the string value to be set, encoded in UTF16-LE.
 //
 // Returns true if successful.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL CDECL
 FPDFAttachment_SetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               FPDF_WIDESTRING value);
@@ -111,7 +111,7 @@ FPDFAttachment_SetStringValue(FPDF_ATTACHMENT attachment,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the dictionary value string.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               void* buffer,
@@ -128,7 +128,7 @@ FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
 //   len        - length of file data.
 //
 // Returns true if successful.
-DLLEXPORT FPDF_BOOL FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
+FPDF_EXPORT FPDF_BOOL CDECL FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
                                            FPDF_DOCUMENT document,
                                            const void* contents,
                                            const unsigned long len);
@@ -143,7 +143,7 @@ DLLEXPORT FPDF_BOOL FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long CDECL
 FPDFAttachment_GetFile(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);

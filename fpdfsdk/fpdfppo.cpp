@@ -344,7 +344,7 @@ uint32_t CPDF_PageOrganizer::GetNewObjId(ObjectNumberMap* pObjNumberMap,
   return dwNewObjNum;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
                                              FPDF_DOCUMENT src_doc,
                                              FPDF_BYTESTRING pagerange,
                                              int index) {
@@ -371,7 +371,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
   return pageOrg.PDFDocInit() && pageOrg.ExportPage(pageArray, index);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_CopyViewerPreferences(FPDF_DOCUMENT dest_doc,
+FPDF_EXPORT FPDF_BOOL CDECL FPDF_CopyViewerPreferences(FPDF_DOCUMENT dest_doc,
                                                        FPDF_DOCUMENT src_doc) {
   CPDF_Document* pDstDoc = CPDFDocumentFromFPDFDocument(dest_doc);
   if (!pDstDoc)
