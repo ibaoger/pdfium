@@ -51,6 +51,24 @@
       "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "627e2445_d4535a80",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:23:23Z",
+      "side": 1,
+      "message": "Depends.  ValueOrDie() will CHECK() even in release builds.  Here we silently do nothing in release builds, but ASSERT in debug builds.\n\nSo either we want to insist that overflow can never happen, and CHECK() always, or we want to permit overflow and do nothing always should it occur, regardless of the type of build.\n\nSo either the IsValid() or the ASSERT() should be removed, depending.  The combination of the two doesn\u0027t seem right.",
+      "parentUuid": "34d5746b_a399fb62",
+      "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
