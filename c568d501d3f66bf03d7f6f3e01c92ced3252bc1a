@@ -87,6 +87,24 @@
       "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ebe3fd3_0867fe02",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-26T19:28:39Z",
+      "side": 1,
+      "message": "What should I use in this case?",
+      "parentUuid": "a11f8c36_c6eca8e6",
+      "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
