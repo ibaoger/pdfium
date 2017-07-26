@@ -69,6 +69,24 @@
       "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a11f8c36_c6eca8e6",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-26T18:34:56Z",
+      "side": 1,
+      "message": "In this place we should not have overflow ever (in current implementation). And when someone will change this code, him should consider this.\nBut i don\u0027t want more crashes in release builds.\nI want only CHECK in debug, but not in release.",
+      "parentUuid": "627e2445_d4535a80",
+      "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
