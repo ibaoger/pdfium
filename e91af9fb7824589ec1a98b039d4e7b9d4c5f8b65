@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3f2169a_0426232e",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:42:17Z",
+      "side": 1,
+      "message": "clip_rect.Width()",
+      "range": {
+        "startLine": 980,
+        "startChar": 37,
+        "endLine": 980,
+        "endChar": 69
+      },
+      "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7b435e_8034d89e",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:42:17Z",
+      "side": 1,
+      "message": "clip_rect.Height()",
+      "range": {
+        "startLine": 981,
+        "startChar": 6,
+        "endLine": 981,
+        "endChar": 38
+      },
+      "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06ece5ee_4c0f6420",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 3
@@ -30,6 +76,24 @@
       "writtenOn": "2017-07-25T23:47:50Z",
       "side": 1,
       "message": "Instead of using an all black image, can we change it to say, 4 different colored squares? That way we can still do transforms and notice incorrect transformations, without using text that requires per-platform checksums, and updates every time FreeType changes.",
+      "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa334252_77c69b6a",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:42:17Z",
+      "side": 1,
+      "message": "Can we make the squares rectangles so it\u0027s easier to see they rotated correctly?",
+      "parentUuid": "f3533a38_c32ee58d",
       "revId": "e91af9fb7824589ec1a98b039d4e7b9d4c5f8b65",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
