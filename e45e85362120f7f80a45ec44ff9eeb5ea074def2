@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcac603d_57f0ac70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-26T22:11:30Z",
+      "side": 1,
+      "message": "Can you add a blurb to mention why you are doing the 63 -\u003e 62 coordinate changes?",
+      "revId": "e45e85362120f7f80a45ec44ff9eeb5ea074def2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
