@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c34eda3f_81ff60a3",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:33:36Z",
+      "side": 1,
+      "message": "nit: blink line before (we try to add a blank line after an if () without {}\u0027s unless the next thing is also an if())",
+      "revId": "498d2c3638d3d058d75844c0d3b688f368f82903",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
