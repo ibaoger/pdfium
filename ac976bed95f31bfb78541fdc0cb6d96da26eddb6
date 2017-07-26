@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45c4c845_079ada0b",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "nit: move this up before the constructor",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1dca74_a4bb78e9",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "size_t ?",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6af5095_3bbad2c0",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "nit: dictionary_to_check",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd976ab0_74f852cf",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "In the old implementation we\u0027d always skip the Resources check for the first item and go straight to the parent, we check Resources for the first item now, does that matter?",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d5d8a0_4be95117",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "nit: no {}s on single line body",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74010fc_6cffedeb",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "nit: s/we/We",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d4aed08_58bd7aec",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "This is different now. This would previously be the pageDict Resources or nullptr. Now, it will walk up the parent tree and find any parent resource. Is this change intended?",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb7050ac_6fa852da",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T13:37:23Z",
+      "side": 1,
+      "message": "nit: static methods should be declared at top of class (with other statics)",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
