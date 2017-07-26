@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3e64f4f_608c81fc",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-26T23:28:42Z",
+      "side": 1,
+      "message": "Just thought of something: Isn\u0027t InsertText(empty_string) effectively DeleteSelectedText() ?",
+      "revId": "e7a1c03706d53efed01ee4e941ed4fa51eb6ec27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
