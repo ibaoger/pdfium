@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34d5746b_a399fb62",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T18:13:54Z",
+      "side": 1,
+      "message": "I think we we do this we can just do ValueOrDie below and skip the IsValid checks? tsepez@ is that correct?",
+      "revId": "c568d501d3f66bf03d7f6f3e01c92ced3252bc1a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
