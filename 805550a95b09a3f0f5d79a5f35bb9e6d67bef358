@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "b2fbf9bf_8ae401bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-26T22:52:00Z",
+      "side": 1,
+      "message": "lowercase",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "805550a95b09a3f0f5d79a5f35bb9e6d67bef358",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b78428_ad2bcafa",
+        "filename": "core/fxcrt/fx_coordinates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-26T22:52:00Z",
+      "side": 1,
+      "message": "Do we have unit tests for this?",
+      "revId": "805550a95b09a3f0f5d79a5f35bb9e6d67bef358",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23c84907_4a55fb08",
         "filename": "core/fxcrt/fx_coordinates.cpp",
         "patchSetId": 2
@@ -13,6 +53,23 @@
       "writtenOn": "2017-07-26T21:21:26Z",
       "side": 1,
       "message": "Top and bottom are flipped here.",
+      "revId": "805550a95b09a3f0f5d79a5f35bb9e6d67bef358",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8257853_ca7e13fd",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-26T22:52:00Z",
+      "side": 1,
+      "message": "Are we going to convert these too? Eventually?",
       "revId": "805550a95b09a3f0f5d79a5f35bb9e6d67bef358",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
