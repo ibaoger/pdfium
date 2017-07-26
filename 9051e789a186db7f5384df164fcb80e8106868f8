@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50359f6c_881325d2",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: maybe invert and use early return.",
+      "range": {
+        "startLine": 192,
+        "startChar": 7,
+        "endLine": 192,
+        "endChar": 16
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94fbf899_783bcf0e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: same here.",
+      "range": {
+        "startLine": 213,
+        "startChar": 1,
+        "endLine": 213,
+        "endChar": 16
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd978349_1848a4ef",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: return nullptr; as we just clobbered the token.  In some sense, moving a null is not desirable if it can be avoided.\n\n(several other places).",
+      "range": {
+        "startLine": 284,
+        "startChar": 10,
+        "endLine": 284,
+        "endChar": 35
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20c5dc87_edc5aec5",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: or just m_token.reset();",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 22
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3625c45d_c7f799ff",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: I\u0027d be tempted to write this as std::unique_ptr\u003cCXFA_Token\u003e token \u003d ...\n\nbecause the type information doesn\u0027t already appear on the line (as it does in the previous line).",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 10
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987c4562_66ceeaab",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "doesn\u0027t this duplicate code at 220 that we\u0027ll hit after |break|ing.\n(several places)",
+      "range": {
+        "startLine": 164,
+        "startChar": 1,
+        "endLine": 165,
+        "endChar": 23
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0bb3d7c_70b27ffc",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: else after return not needeed.",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 10
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03936f20_c9716433",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:00:17Z",
+      "side": 1,
+      "message": "nit: or maybe just m_error since its a member of \"parser\", parser_error seems redundant ...",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
