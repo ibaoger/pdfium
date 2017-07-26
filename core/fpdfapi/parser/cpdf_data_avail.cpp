@@ -18,6 +18,7 @@
 #include "core/fpdfapi/parser/cpdf_linearized_header.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_read_validator.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/fpdf_parser_utility.h"
@@ -32,6 +33,25 @@ CPDF_DataAvail::FileAvail::~FileAvail() {}
 
 CPDF_DataAvail::DownloadHints::~DownloadHints() {}
 
+class CPDF_DataAvail::HintsAssigner final {
+ public:
+  explicit HintsAssigner(CPDF_DataAvail* owner, DownloadHints* hints)
+      : owner_(owner) {
+    if (owner_->m_pFileRead) {
+      owner_->m_pFileRead->ResetErrors();
+      owner_->m_pFileRead->SetDownloadHints(hints);
+    }
+  }
+  ~HintsAssigner() {
+    if (owner_->m_pFileRead) {
+      owner_->m_pFileRead->SetDownloadHints(nullptr);
+    }
+  }
+
+ private:
+  CPDF_DataAvail* owner_;
+};
+
 // static
 int CPDF_DataAvail::s_CurrentDataAvailRecursionDepth = 0;
 
@@ -39,7 +59,11 @@ CPDF_DataAvail::CPDF_DataAvail(
     FileAvail* pFileAvail,
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileRead,
     bool bSupportHintTable)
-    : m_pFileAvail(pFileAvail), m_pFileRead(pFileRead) {
+    : m_pFileAvail(pFileAvail),
+      m_pFileRead(
+          pFileRead
+              ? pdfium::MakeRetain<CPDF_ReadValidator>(pFileRead, m_pFileAvail)
+              : nullptr) {
   m_Pos = 0;
   m_dwFileLen = 0;
   if (m_pFileRead) {
@@ -189,6 +213,8 @@ bool CPDF_DataAvail::AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
 
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsDocAvail(
     DownloadHints* pHints) {
+  const HintsAssigner hints_assigner(this, pHints);
+
   if (!m_dwFileLen && m_pFileRead) {
     m_dwFileLen = (uint32_t)m_pFileRead->GetSize();
     if (!m_dwFileLen)
@@ -253,7 +279,7 @@ bool CPDF_DataAvail::CheckAcroForm(DownloadHints* pHints) {
 bool CPDF_DataAvail::CheckDocStatus(DownloadHints* pHints) {
   switch (m_docStatus) {
     case PDF_DATAAVAIL_HEADER:
-      return CheckHeader(pHints);
+      return CheckHeader();
     case PDF_DATAAVAIL_FIRSTPAGE:
       return CheckFirstPage(pHints);
     case PDF_DATAAVAIL_HINTTABLE:
@@ -263,7 +289,7 @@ bool CPDF_DataAvail::CheckDocStatus(DownloadHints* pHints) {
     case PDF_DATAAVAIL_CROSSREF:
       return CheckCrossRef(pHints);
     case PDF_DATAAVAIL_CROSSREF_ITEM:
-      return CheckCrossRefItem(pHints);
+      return CheckCrossRefItem();
     case PDF_DATAAVAIL_CROSSREF_STREAM:
       return CheckAllCrossRefStream(pHints);
     case PDF_DATAAVAIL_TRAILER:
@@ -933,14 +959,13 @@ bool CPDF_DataAvail::GetNextChar(uint8_t& ch) {
   return true;
 }
 
-bool CPDF_DataAvail::CheckCrossRefItem(DownloadHints* pHints) {
-  int32_t iSize = 0;
+bool CPDF_DataAvail::CheckCrossRefItem() {
   CFX_ByteString token;
   while (1) {
     if (!GetNextToken(&token)) {
-      iSize = static_cast<int32_t>(
-          m_Pos + 512 > m_dwFileLen ? m_dwFileLen - m_Pos : 512);
-      pHints->AddSegment(m_Pos, iSize);
+      if (!m_pFileRead->has_read_problems()) {
+        m_docStatus = PDF_DATAAVAIL_ERROR;
+      }
       return false;
     }
 
@@ -1574,6 +1599,10 @@ void CPDF_DataAvail::GetLinearizedMainXRefInfo(FX_FILESIZE* pPos,
     *pPos = m_dwLastXRefOffset;
   if (pSize)
     *pSize = (uint32_t)(m_dwFileLen - m_dwLastXRefOffset);
+}
+
+CFX_RetainPtr<IFX_SeekableReadStream> CPDF_DataAvail::GetFileRead() const {
+  return m_pFileRead;
 }
 
 int CPDF_DataAvail::GetPageCount() const {
