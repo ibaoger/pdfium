@@ -267,7 +267,7 @@ class CFX_FloatRect {
   void Intersect(const CFX_FloatRect& other_rect);
   void Union(const CFX_FloatRect& other_rect);
 
-  FX_RECT GetInnerRect() const;
+  CFX_FloatRect GetInnerRect() const;
   FX_RECT GetOuterRect() const;
   FX_RECT GetClosestRect() const;
   CFX_FloatRect GetCenterSquare() const;

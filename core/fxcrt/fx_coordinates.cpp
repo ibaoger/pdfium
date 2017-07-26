@@ -137,13 +137,12 @@ FX_RECT CFX_FloatRect::GetOuterRect() const {
   return rect;
 }
 
-FX_RECT CFX_FloatRect::GetInnerRect() const {
-  CFX_FloatRect rect1 = *this;
-  FX_RECT rect;
-  rect.left = static_cast<int>(ceil(rect1.left));
-  rect.bottom = static_cast<int>(floor(rect1.top));
-  rect.right = static_cast<int>(floor(rect1.right));
-  rect.top = static_cast<int>(ceil(rect1.bottom));
+CFX_FloatRect CFX_FloatRect::GetInnerRect() const {
+  CFX_FloatRect rect = *this;
+  rect.left = ceil(rect.left);
+  rect.bottom = ceil(rect.bottom);
+  rect.right = floor(rect.right);
+  rect.top = floor(rect.top);
   rect.Normalize();
   return rect;
 }
