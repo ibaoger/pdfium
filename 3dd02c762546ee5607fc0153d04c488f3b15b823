@@ -1,0 +1,446 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6feb3d4d_3521649d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "Can you add a description of what this does?",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15a58044_9fef9a6e",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "Let\u0027s drop the final.",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb894a9b_fac8c7ef",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: only need explicit if there is one parameter",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9aa6f8_a1ebac79",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "We only seem to care about m_pFileRead here so let\u0027s pass that in instead of CPDF_DataAvail?",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27a958f9_9b8a6a81",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: blank line before destructor",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69b0566b_aaa33bcb",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: no {}s",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55478d62_a5ccedde",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fca313d8_dee92ebc",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: blank line after namespace {",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3655715a_61b0bc6a",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "return offset \u003e ? offset - offset % kAlignBlockValue : 0;",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff9faf38_05ab1b34",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "return safe_result.IsValid() ? safe_result.ValueOrDie() : offset;",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d6d3c2b_490558c5",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "Let\u0027s just call this read_error_?",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "105786a4_a3d9f46c",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3664b6fc_fc70f5d3",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f559df46_79831498",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: size \u003d\u003d 0 is a bit clearer since size is a number",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d637bd0d_0f4ec6f2",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: add blank line before",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41cdb2f_a700d66e",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "If we fail here without calling AddSegment what happens? Are we going to get stuck in a download loop trying and failing to get more data? (Can we add a test for this case?)\n\nShould this return false to set the error code?",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a597700b_bcf8d015",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a057eee2_9e7908bc",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05e1a7a5_cb282d76",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20465e9e_0033ba98",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "Can we make this a CFX_UnownedPtr",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19496685_ac54873e",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "UnownedPtr",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee058fa2_cb2835db",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "Let\u0027s move these to the constuctor so we initialize everything in the same place",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e68da6_e0685884",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efcb84d6_efd4eab6",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78522066_c6c1786d",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: can we drop the inline and just let the compiler figure it out?",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8409f67f_9304c277",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T14:29:21Z",
+      "side": 1,
+      "message": "nit: CPDF_ReadValidatorTest instead of cpdf_read_validator",
+      "revId": "3dd02c762546ee5607fc0153d04c488f3b15b823",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
