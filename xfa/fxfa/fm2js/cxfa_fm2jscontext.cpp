@@ -3516,9 +3516,7 @@ void CXFA_FM2JSContext::EncodeURL(const CFX_ByteStringC& szURLString,
 // static
 void CXFA_FM2JSContext::EncodeHTML(const CFX_ByteStringC& szHTMLString,
                                    CFX_ByteTextBuf& szResultBuf) {
-  // TODO(tsepez): check usage of c_str() below.
-  CFX_ByteString str = szHTMLString.unterminated_c_str();
-  CFX_WideString wsHTMLString = CFX_WideString::FromUTF8(str.AsStringC());
+  CFX_WideString wsHTMLString = CFX_WideString::FromUTF8(szHTMLString);
   const wchar_t* strCode = L"0123456789abcdef";
   wchar_t strEncode[9];
   strEncode[0] = '&';
