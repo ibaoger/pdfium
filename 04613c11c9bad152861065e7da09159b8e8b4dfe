@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "50d9f3b3_fe06f9c3",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T17:37:50Z",
+      "side": 1,
+      "message": "When you add the new todo, instead of pointing at 62400 can you file a new bug and mark it as blocking 62400 then reference new bug number here? That way we\u0027ll make sure it\u0027s seen as we close out 62400 issues.",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28c51dc3_f1404207",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
         "patchSetId": 3
@@ -87,6 +104,23 @@
     },
     {
       "key": {
+        "uuid": "aad49119_f98a2edf",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T17:37:50Z",
+      "side": 1,
+      "message": "if (!m_pEdit)\n  return;",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a81294d8_380163e0",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 3
@@ -98,6 +132,23 @@
       "writtenOn": "2017-07-26T01:07:43Z",
       "side": 1,
       "message": "Does CPWL_EditImpl::IsSelected() answer the \"yes/no\" question, without having to actually retrieve the string?",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c497f31c_da6d690a",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T17:37:50Z",
+      "side": 1,
+      "message": "Is there any harm in doing this even if the selection is empty? Can we just always call ClearSelection and skip the check?",
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
