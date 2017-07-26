@@ -1404,26 +1404,24 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedFirstPage(
   return DataAvailable;
 }
 
-bool CPDF_DataAvail::HaveResourceAncestor(CPDF_Dictionary* pDict) {
-  CFX_AutoRestorer<int> restorer(&s_CurrentDataAvailRecursionDepth);
-  if (++s_CurrentDataAvailRecursionDepth > kMaxDataAvailRecursionDepth)
-    return false;
+// static
+CPDF_Object* CPDF_DataAvail::GetResourceObject(CPDF_Dictionary* pDict) {
+  int depth = 0;
+  CPDF_Dictionary* dictionary_for_check = pDict;
+  while (dictionary_for_check) {
+    CPDF_Object* result = dictionary_for_check->GetObjectFor("Resources");
+    if (result) {
+      return result;
+    }
+    const CPDF_Object* parent = dictionary_for_check->GetObjectFor("Parent");
+    dictionary_for_check = parent ? parent->GetDict() : nullptr;
 
-  CPDF_Object* pParent = pDict->GetObjectFor("Parent");
-  if (!pParent)
-    return false;
-
-  CPDF_Dictionary* pParentDict = pParent->GetDict();
-  if (!pParentDict)
-    return false;
-
-  CPDF_Object* pRet = pParentDict->GetObjectFor("Resources");
-  if (pRet) {
-    m_pPageResource = pRet;
-    return true;
+    if (++depth > kMaxDataAvailRecursionDepth) {
+      // we have cycle in parents hierarchy.
+      return nullptr;
+    }
   }
-
-  return HaveResourceAncestor(pParentDict);
+  return nullptr;
 }
 
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
@@ -1527,9 +1525,8 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   }
 
   if (m_pPageDict && !m_bNeedDownLoadResource) {
-    m_pPageResource = m_pPageDict->GetObjectFor("Resources");
-    m_bNeedDownLoadResource =
-        m_pPageResource || HaveResourceAncestor(m_pPageDict);
+    m_pPageResource = GetResourceObject(m_pPageDict);
+    m_bNeedDownLoadResource = !!m_pPageResource;
   }
 
   if (m_bNeedDownLoadResource) {

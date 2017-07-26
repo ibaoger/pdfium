@@ -176,7 +176,7 @@ class CPDF_DataAvail final {
 
   DocAvailStatus CheckLinearizedFirstPage(uint32_t dwPage,
                                           DownloadHints* pHints);
-  bool HaveResourceAncestor(CPDF_Dictionary* pDict);
+  static CPDF_Object* GetResourceObject(CPDF_Dictionary* pDict);
   bool CheckPage(uint32_t dwPage, DownloadHints* pHints);
   bool LoadDocPages(DownloadHints* pHints);
   bool LoadDocPage(uint32_t dwPage, DownloadHints* pHints);
