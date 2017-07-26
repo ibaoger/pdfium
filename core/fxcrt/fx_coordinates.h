@@ -194,214 +194,6 @@ using CFX_VectorF = CFX_VTemplate<float>;
 // Rectangles.
 // TODO(tsepez): Consolidate all these different rectangle classes.
 
-// LTWH rectangles (y-axis runs downwards).
-template <class BaseType>
-class CFX_RTemplate {
- public:
-  using PointType = CFX_PTemplate<BaseType>;
-  using SizeType = CFX_STemplate<BaseType>;
-  using VectorType = CFX_VTemplate<BaseType>;
-  using RectType = CFX_RTemplate<BaseType>;
-
-  CFX_RTemplate() : left(0), top(0), width(0), height(0) {}
-  CFX_RTemplate(BaseType dst_left,
-                BaseType dst_top,
-                BaseType dst_width,
-                BaseType dst_height)
-      : left(dst_left), top(dst_top), width(dst_width), height(dst_height) {}
-  CFX_RTemplate(BaseType dst_left, BaseType dst_top, const SizeType& dst_size)
-      : left(dst_left),
-        top(dst_top),
-        width(dst_size.width),
-        height(dst_size.height) {}
-  CFX_RTemplate(const PointType& p, BaseType dst_width, BaseType dst_height)
-      : left(p.x), top(p.y), width(dst_width), height(dst_height) {}
-  CFX_RTemplate(const PointType& p1, const SizeType& s2)
-      : left(p1.x), top(p1.y), width(s2.width), height(s2.height) {}
-  CFX_RTemplate(const PointType& p1, const PointType& p2)
-      : left(p1.x),
-        top(p1.y),
-        width(p2.width - p1.width),
-        height(p2.height - p1.height) {
-    Normalize();
-  }
-  CFX_RTemplate(const PointType& p, const VectorType& v)
-      : left(p.x), top(p.y), width(v.x), height(v.y) {
-    Normalize();
-  }
-
-  // NOLINTNEXTLINE(runtime/explicit)
-  CFX_RTemplate(const RectType& other)
-      : left(other.left),
-        top(other.top),
-        width(other.width),
-        height(other.height) {}
-
-  template <typename OtherType>
-  CFX_RTemplate<OtherType> As() const {
-    return CFX_RTemplate<OtherType>(
-        static_cast<OtherType>(left), static_cast<OtherType>(top),
-        static_cast<OtherType>(width), static_cast<OtherType>(height));
-  }
-
-  void Reset() {
-    left = 0;
-    top = 0;
-    width = 0;
-    height = 0;
-  }
-  RectType& operator+=(const PointType& p) {
-    left += p.x;
-    top += p.y;
-    return *this;
-  }
-  RectType& operator-=(const PointType& p) {
-    left -= p.x;
-    top -= p.y;
-    return *this;
-  }
-  BaseType right() const { return left + width; }
-  BaseType bottom() const { return top + height; }
-  void Normalize() {
-    if (width < 0) {
-      left += width;
-      width = -width;
-    }
-    if (height < 0) {
-      top += height;
-      height = -height;
-    }
-  }
-  void Offset(BaseType dx, BaseType dy) {
-    left += dx;
-    top += dy;
-  }
-  void Inflate(BaseType x, BaseType y) {
-    left -= x;
-    width += x * 2;
-    top -= y;
-    height += y * 2;
-  }
-  void Inflate(const PointType& p) { Inflate(p.x, p.y); }
-  void Inflate(BaseType off_left,
-               BaseType off_top,
-               BaseType off_right,
-               BaseType off_bottom) {
-    left -= off_left;
-    top -= off_top;
-    width += off_left + off_right;
-    height += off_top + off_bottom;
-  }
-  void Inflate(const RectType& rt) {
-    Inflate(rt.left, rt.top, rt.left + rt.width, rt.top + rt.height);
-  }
-  void Deflate(BaseType x, BaseType y) {
-    left += x;
-    width -= x * 2;
-    top += y;
-    height -= y * 2;
-  }
-  void Deflate(const PointType& p) { Deflate(p.x, p.y); }
-  void Deflate(BaseType off_left,
-               BaseType off_top,
-               BaseType off_right,
-               BaseType off_bottom) {
-    left += off_left;
-    top += off_top;
-    width -= off_left + off_right;
-    height -= off_top + off_bottom;
-  }
-  void Deflate(const RectType& rt) {
-    Deflate(rt.left, rt.top, rt.top + rt.width, rt.top + rt.height);
-  }
-  bool IsEmpty() const { return width <= 0 || height <= 0; }
-  bool IsEmpty(float fEpsilon) const {
-    return width <= fEpsilon || height <= fEpsilon;
-  }
-  void Empty() { width = height = 0; }
-  bool Contains(const PointType& p) const {
-    return p.x >= left && p.x < left + width && p.y >= top &&
-           p.y < top + height;
-  }
-  bool Contains(const RectType& rt) const {
-    return rt.left >= left && rt.right() <= right() && rt.top >= top &&
-           rt.bottom() <= bottom();
-  }
-  BaseType Width() const { return width; }
-  BaseType Height() const { return height; }
-  SizeType Size() const { return SizeType(width, height); }
-  PointType TopLeft() const { return PointType(left, top); }
-  PointType TopRight() const { return PointType(left + width, top); }
-  PointType BottomLeft() const { return PointType(left, top + height); }
-  PointType BottomRight() const {
-    return PointType(left + width, top + height);
-  }
-  PointType Center() const {
-    return PointType(left + width / 2, top + height / 2);
-  }
-  void Union(BaseType x, BaseType y) {
-    BaseType r = right();
-    BaseType b = bottom();
-
-    left = std::min(left, x);
-    top = std::min(top, y);
-    r = std::max(r, x);
-    b = std::max(b, y);
-
-    width = r - left;
-    height = b - top;
-  }
-  void Union(const PointType& p) { Union(p.x, p.y); }
-  void Union(const RectType& rt) {
-    BaseType r = right();
-    BaseType b = bottom();
-
-    left = std::min(left, rt.left);
-    top = std::min(top, rt.top);
-    r = std::max(r, rt.right());
-    b = std::max(b, rt.bottom());
-
-    width = r - left;
-    height = b - top;
-  }
-  void Intersect(const RectType& rt) {
-    BaseType r = right();
-    BaseType b = bottom();
-
-    left = std::max(left, rt.left);
-    top = std::max(top, rt.top);
-    r = std::min(r, rt.right());
-    b = std::min(b, rt.bottom());
-
-    width = r - left;
-    height = b - top;
-  }
-  bool IntersectWith(const RectType& rt) const {
-    RectType rect = rt;
-    rect.Intersect(*this);
-    return !rect.IsEmpty();
-  }
-  bool IntersectWith(const RectType& rt, float fEpsilon) const {
-    RectType rect = rt;
-    rect.Intersect(*this);
-    return !rect.IsEmpty(fEpsilon);
-  }
-  friend bool operator==(const RectType& rc1, const RectType& rc2) {
-    return rc1.left == rc2.left && rc1.top == rc2.top &&
-           rc1.width == rc2.width && rc1.height == rc2.height;
-  }
-  friend bool operator!=(const RectType& rc1, const RectType& rc2) {
-    return !(rc1 == rc2);
-  }
-
-  BaseType left;
-  BaseType top;
-  BaseType width;
-  BaseType height;
-};
-using CFX_Rect = CFX_RTemplate<int32_t>;
-using CFX_RectF = CFX_RTemplate<float>;
-
 // LTRB rectangles (y-axis runs downwards).
 struct FX_RECT {
   FX_RECT() : left(0), top(0), right(0), bottom(0) {}
@@ -576,15 +368,231 @@ class CFX_FloatRect {
                    static_cast<int32_t>(right), static_cast<int32_t>(bottom));
   }
 
-  static CFX_FloatRect FromCFXRectF(const CFX_RectF& rect) {
-    return CFX_FloatRect(rect.left, rect.top, rect.right(), rect.bottom());
-  }
-
   float left;
   float bottom;
   float right;
   float top;
 };
+
+// LTWH rectangles (y-axis runs downwards).
+template <class BaseType>
+class CFX_RTemplate {
+ public:
+  using PointType = CFX_PTemplate<BaseType>;
+  using SizeType = CFX_STemplate<BaseType>;
+  using VectorType = CFX_VTemplate<BaseType>;
+  using RectType = CFX_RTemplate<BaseType>;
+
+  CFX_RTemplate() : left(0), top(0), width(0), height(0) {}
+  CFX_RTemplate(BaseType dst_left,
+                BaseType dst_top,
+                BaseType dst_width,
+                BaseType dst_height)
+      : left(dst_left), top(dst_top), width(dst_width), height(dst_height) {}
+  CFX_RTemplate(BaseType dst_left, BaseType dst_top, const SizeType& dst_size)
+      : left(dst_left),
+        top(dst_top),
+        width(dst_size.width),
+        height(dst_size.height) {}
+  CFX_RTemplate(const PointType& p, BaseType dst_width, BaseType dst_height)
+      : left(p.x), top(p.y), width(dst_width), height(dst_height) {}
+  CFX_RTemplate(const PointType& p1, const SizeType& s2)
+      : left(p1.x), top(p1.y), width(s2.width), height(s2.height) {}
+  CFX_RTemplate(const PointType& p1, const PointType& p2)
+      : left(p1.x),
+        top(p1.y),
+        width(p2.width - p1.width),
+        height(p2.height - p1.height) {
+    Normalize();
+  }
+  CFX_RTemplate(const PointType& p, const VectorType& v)
+      : left(p.x), top(p.y), width(v.x), height(v.y) {
+    Normalize();
+  }
+
+  explicit CFX_RTemplate(const CFX_FloatRect& r)
+      : left(static_cast<BaseType>(r.left)),
+        top(static_cast<BaseType>(r.top)),
+        width(static_cast<BaseType>(r.Width())),
+        height(static_cast<BaseType>(r.Height())) {}
+
+  // NOLINTNEXTLINE(runtime/explicit)
+  CFX_RTemplate(const RectType& other)
+      : left(other.left),
+        top(other.top),
+        width(other.width),
+        height(other.height) {}
+
+  template <typename OtherType>
+  CFX_RTemplate<OtherType> As() const {
+    return CFX_RTemplate<OtherType>(
+        static_cast<OtherType>(left), static_cast<OtherType>(top),
+        static_cast<OtherType>(width), static_cast<OtherType>(height));
+  }
+
+  void Reset() {
+    left = 0;
+    top = 0;
+    width = 0;
+    height = 0;
+  }
+  RectType& operator+=(const PointType& p) {
+    left += p.x;
+    top += p.y;
+    return *this;
+  }
+  RectType& operator-=(const PointType& p) {
+    left -= p.x;
+    top -= p.y;
+    return *this;
+  }
+  BaseType right() const { return left + width; }
+  BaseType bottom() const { return top + height; }
+  void Normalize() {
+    if (width < 0) {
+      left += width;
+      width = -width;
+    }
+    if (height < 0) {
+      top += height;
+      height = -height;
+    }
+  }
+  void Offset(BaseType dx, BaseType dy) {
+    left += dx;
+    top += dy;
+  }
+  void Inflate(BaseType x, BaseType y) {
+    left -= x;
+    width += x * 2;
+    top -= y;
+    height += y * 2;
+  }
+  void Inflate(const PointType& p) { Inflate(p.x, p.y); }
+  void Inflate(BaseType off_left,
+               BaseType off_top,
+               BaseType off_right,
+               BaseType off_bottom) {
+    left -= off_left;
+    top -= off_top;
+    width += off_left + off_right;
+    height += off_top + off_bottom;
+  }
+  void Inflate(const RectType& rt) {
+    Inflate(rt.left, rt.top, rt.left + rt.width, rt.top + rt.height);
+  }
+  void Deflate(BaseType x, BaseType y) {
+    left += x;
+    width -= x * 2;
+    top += y;
+    height -= y * 2;
+  }
+  void Deflate(const PointType& p) { Deflate(p.x, p.y); }
+  void Deflate(BaseType off_left,
+               BaseType off_top,
+               BaseType off_right,
+               BaseType off_bottom) {
+    left += off_left;
+    top += off_top;
+    width -= off_left + off_right;
+    height -= off_top + off_bottom;
+  }
+  void Deflate(const RectType& rt) {
+    Deflate(rt.left, rt.top, rt.top + rt.width, rt.top + rt.height);
+  }
+  bool IsEmpty() const { return width <= 0 || height <= 0; }
+  bool IsEmpty(float fEpsilon) const {
+    return width <= fEpsilon || height <= fEpsilon;
+  }
+  void Empty() { width = height = 0; }
+  bool Contains(const PointType& p) const {
+    return p.x >= left && p.x < left + width && p.y >= top &&
+           p.y < top + height;
+  }
+  bool Contains(const RectType& rt) const {
+    return rt.left >= left && rt.right() <= right() && rt.top >= top &&
+           rt.bottom() <= bottom();
+  }
+  BaseType Width() const { return width; }
+  BaseType Height() const { return height; }
+  SizeType Size() const { return SizeType(width, height); }
+  PointType TopLeft() const { return PointType(left, top); }
+  PointType TopRight() const { return PointType(left + width, top); }
+  PointType BottomLeft() const { return PointType(left, top + height); }
+  PointType BottomRight() const {
+    return PointType(left + width, top + height);
+  }
+  PointType Center() const {
+    return PointType(left + width / 2, top + height / 2);
+  }
+  void Union(BaseType x, BaseType y) {
+    BaseType r = right();
+    BaseType b = bottom();
+
+    left = std::min(left, x);
+    top = std::min(top, y);
+    r = std::max(r, x);
+    b = std::max(b, y);
+
+    width = r - left;
+    height = b - top;
+  }
+  void Union(const PointType& p) { Union(p.x, p.y); }
+  void Union(const RectType& rt) {
+    BaseType r = right();
+    BaseType b = bottom();
+
+    left = std::min(left, rt.left);
+    top = std::min(top, rt.top);
+    r = std::max(r, rt.right());
+    b = std::max(b, rt.bottom());
+
+    width = r - left;
+    height = b - top;
+  }
+  void Intersect(const RectType& rt) {
+    BaseType r = right();
+    BaseType b = bottom();
+
+    left = std::max(left, rt.left);
+    top = std::max(top, rt.top);
+    r = std::min(r, rt.right());
+    b = std::min(b, rt.bottom());
+
+    width = r - left;
+    height = b - top;
+  }
+  bool IntersectWith(const RectType& rt) const {
+    RectType rect = rt;
+    rect.Intersect(*this);
+    return !rect.IsEmpty();
+  }
+  bool IntersectWith(const RectType& rt, float fEpsilon) const {
+    RectType rect = rt;
+    rect.Intersect(*this);
+    return !rect.IsEmpty(fEpsilon);
+  }
+  friend bool operator==(const RectType& rc1, const RectType& rc2) {
+    return rc1.left == rc2.left && rc1.top == rc2.top &&
+           rc1.width == rc2.width && rc1.height == rc2.height;
+  }
+  friend bool operator!=(const RectType& rc1, const RectType& rc2) {
+    return !(rc1 == rc2);
+  }
+
+  CFX_FloatRect ToFloatRect() const {
+    // Note, we flip top/bottom here because the CFX_FloatRect has the
+    // y-axis running in the opposite direction.
+    return CFX_FloatRect(left, top, right(), bottom());
+  }
+
+  BaseType left;
+  BaseType top;
+  BaseType width;
+  BaseType height;
+};
+using CFX_Rect = CFX_RTemplate<int32_t>;
+using CFX_RectF = CFX_RTemplate<float>;
 
 // The matrix is of the form:
 // | a  b  0 |
