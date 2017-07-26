@@ -45,6 +45,7 @@ class CPDFSDK_AnnotHandlerMgr {
 
   CFX_WideString Annot_GetSelectedText(CPDFSDK_Annot* pAnnot);
   void Annot_DeleteSelectedText(CPDFSDK_Annot* pAnnot);
+  void Annot_InsertText(CPDFSDK_Annot* pAnnot, const CFX_WideString& text);
 
   IPDFSDK_AnnotHandler* GetAnnotHandler(CPDFSDK_Annot* pAnnot) const;
   void Annot_OnDraw(CPDFSDK_PageView* pPageView,
