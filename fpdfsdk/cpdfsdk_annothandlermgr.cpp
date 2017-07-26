@@ -85,6 +85,11 @@ void CPDFSDK_AnnotHandlerMgr::Annot_DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
   GetAnnotHandler(pAnnot)->DeleteSelectedText(pAnnot);
 }
 
+void CPDFSDK_AnnotHandlerMgr::Annot_InsertText(CPDFSDK_Annot* pAnnot,
+                                               const CFX_WideString& text) {
+  GetAnnotHandler(pAnnot)->InsertText(pAnnot, text);
+}
+
 IPDFSDK_AnnotHandler* CPDFSDK_AnnotHandlerMgr::GetAnnotHandler(
     CPDFSDK_Annot* pAnnot) const {
   return GetAnnotHandler(pAnnot->GetAnnotSubtype());

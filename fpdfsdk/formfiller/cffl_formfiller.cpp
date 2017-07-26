@@ -259,6 +259,21 @@ void CFFL_FormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
   pWnd->DeleteSelectedText();
 }
 
+void CFFL_FormFiller::InsertText(CPDFSDK_Annot* pAnnot,
+                                 const CFX_WideString& text) {
+  if (!IsValid())
+    return;
+
+  CPDFSDK_PageView* pPageView = GetCurPageView(true);
+  ASSERT(pPageView);
+
+  CPWL_Wnd* pWnd = GetPDFWindow(pPageView, false);
+  if (!pWnd)
+    return;
+
+  pWnd->InsertText(text);
+}
+
 void CFFL_FormFiller::SetFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag) {
   CPDFSDK_Widget* pWidget = (CPDFSDK_Widget*)pAnnot;
   UnderlyingPageType* pPage = pWidget->GetUnderlyingPage();

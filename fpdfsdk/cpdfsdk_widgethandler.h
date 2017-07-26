@@ -40,6 +40,7 @@ class CPDFSDK_WidgetHandler : public IPDFSDK_AnnotHandler {
                             CPDFSDK_Annot* pAnnot) override;
   CFX_WideString GetSelectedText(CPDFSDK_Annot* pAnnot) override;
   void DeleteSelectedText(CPDFSDK_Annot* pAnnot) override;
+  void InsertText(CPDFSDK_Annot* pAnnot, const CFX_WideString& text) override;
   bool HitTest(CPDFSDK_PageView* pPageView,
                CPDFSDK_Annot* pAnnot,
                const CFX_PointF& point) override;
