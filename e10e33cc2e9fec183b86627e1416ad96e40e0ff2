@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7afabe2_9fede4fd",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T20:59:31Z",
+      "side": 1,
+      "message": "Added. This will truncate if RTemplate is an int32_t",
+      "revId": "e10e33cc2e9fec183b86627e1416ad96e40e0ff2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecd352b1_55181e90",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T20:59:31Z",
+      "side": 1,
+      "message": "Added.",
+      "revId": "e10e33cc2e9fec183b86627e1416ad96e40e0ff2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
