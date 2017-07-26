@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "616f384a_2b01fc47",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T12:41:53Z",
+      "side": 1,
+      "message": "Let\u0027s just use component build here. As far as I understand the comment to not use component build is to not use component build when built into Chrome. Then we don\u0027t need to add this flag as the component build flag already exists.",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6500f3a9_7c76e913",
+        "filename": "pdfium.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T12:41:53Z",
+      "side": 1,
+      "message": "If we use component_build i believe we don\u0027t need this anymore as component build does the right thing?",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4deb14_0c1dd71f",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T12:41:53Z",
+      "side": 1,
+      "message": "nit: Add comments to what the endif is closing as on line 155",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "735d56eb_b2df97d1",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T12:41:53Z",
+      "side": 1,
+      "message": "Bruce, is this how we want to do this? (I don\u0027t see base doing this, can we just remove it?)",
+      "range": {
+        "startLine": 172,
+        "startChar": 8,
+        "endLine": 172,
+        "endChar": 21
+      },
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "313d5f97_df5f216a",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-26T12:41:53Z",
+      "side": 1,
+      "message": "Can we just leave this named STDCALL, it has more meaning then CDECL",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
