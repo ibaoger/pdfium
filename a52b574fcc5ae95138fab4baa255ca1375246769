@@ -108,6 +108,29 @@
     },
     {
       "key": {
+        "uuid": "76cba4a6_37f13354",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:45:20Z",
+      "side": 1,
+      "message": "nit: 80 cols.",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e4deb14_0c1dd71f",
         "filename": "public/fpdfview.h",
         "patchSetId": 3
@@ -201,6 +224,29 @@
       "side": 1,
       "message": "And this might conflict with CDECL in base, so having its own name is helpful?",
       "parentUuid": "313d5f97_df5f216a",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1fbed81_327852cf",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-26T18:45:20Z",
+      "side": 1,
+      "message": "or FPDF_CDECL if we want to be sure to avoid colliding with some other CDECL.",
+      "range": {
+        "startLine": 191,
+        "startChar": 17,
+        "endLine": 191,
+        "endChar": 22
+      },
       "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
