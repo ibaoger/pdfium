@@ -265,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "e6482c32_9c7472f4",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-26T15:57:55Z",
+      "side": 1,
+      "message": "\u003e\u003e In the case where m_pPageDict[\"Resources\"] is nullptr won\u0027t this now walk up the ancestors looking for the \"Resources\" where before it would be nullptr?\n\nConversely if m_pPageDict[\"Resources\"] is nullptr we should walk up the ancestors looking for the \"Resources\" \n\nIn original code:\nIn this case when !m_pPageDict[\"Resources\"] we have !m_pPageResource(false),  go to search within its ancestors.\n\n m_bNeedDownLoadResource \u003d m_pPageResource/*false*/ || HaveResourceAncestor(m_pPageDict)/*Search in hierarchy*/; and apply m_pPageResource from one of ancestors\n\nif(m_pPageDict[\"Resources\"]) than use resources from m_pPageDict\n\nIn this CL:\n if first step (dictionary_for_check \u003d\u003d m_pPageDict) \n  if ( dictionary_for_check[\"Resources\"]/*pPageDict[\"Resources\"]*/) that use it. (equal m_pPageResource \u003d m_pPageDict-\u003eGetObjectFor(\"Resources\"); in original code)\nelse goto walk up the ancestors looking (dictionary_for_check \u003d dictionary_for_check-\u003eParent())\n\n\nBTW. m_pPageDict[\"Parent\"] can be null.",
+      "parentUuid": "bd3968df_e32a2278",
+      "revId": "ac976bed95f31bfb78541fdc0cb6d96da26eddb6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb7050ac_6fa852da",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
         "patchSetId": 3
