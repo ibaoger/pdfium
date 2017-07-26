@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa7af04c_b2846fe5",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Sure. Did you want me to change the other TODOs in this file so they point to the new bug too? Also, should I file the bug on PDFium or Chromium?",
+      "parentUuid": "50d9f3b3_fe06f9c3",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28c51dc3_f1404207",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4e0905b8_fa9621cf",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Done - will file a new bug once I know what Dan wants.",
+      "parentUuid": "28c51dc3_f1404207",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9655d325_a900cc03",
         "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-07-26T01:18:39Z",
       "side": 1,
       "message": "How about splitting all the changes above this into its own CL?",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa7c8c6b_d51b21c1",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Sure, I can do that.",
+      "parentUuid": "9655d325_a900cc03",
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c8761532_cf21c58f",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Done - I\u0027ll change this in cpwl_edit_embeddertest.cpp too.",
+      "parentUuid": "907dea53_bc4cefd6",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4758b394_58785fb3",
         "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2017-07-26T01:18:39Z",
       "side": 1,
       "message": "Didn\u0027t we make a method for doing this in one of the other tests?",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf9baef_49523c5c",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "That was in fpdfformfill_embeddertest.cpp. I can do a follow up with a similar method in this file and cpwl_edit_embeddertest.cpp.",
+      "parentUuid": "4758b394_58785fb3",
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "bdcc24ef_76219c58",
+        "filename": "fpdfsdk/pdfwindow/cpwl_combo_box_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Yes, that would be better. I\u0027ll change it in cpwl_edit_embeddertest.cpp too.",
+      "parentUuid": "13f59b31_2d5e3a1b",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aad49119_f98a2edf",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 3
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "95a3ad93_9946d9be",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aad49119_f98a2edf",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a81294d8_380163e0",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2017-07-26T01:07:43Z",
       "side": 1,
       "message": "Does CPWL_EditImpl::IsSelected() answer the \"yes/no\" question, without having to actually retrieve the string?",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81c75bc_143b9991",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Yes, it does - I could use this instead. Unless we remove this check as Dan suggested.",
+      "parentUuid": "a81294d8_380163e0",
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "fef4eef1_b74425c0",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "No, it won\u0027t be a problem if we always call ClearSelection(). The reason I put it this way was to avoid the extra work of attempting to clear the selection, but if you don\u0027t think it\u0027s necessary to have the check I can remove it. If we always call ClearSelection(), it doesn\u0027t seem like it would be too expensive because Clear() (called by ClearSelection()) just exits early when there is no selected text anyway.",
+      "parentUuid": "c497f31c_da6d690a",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb8171dc_03d2667c",
         "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
         "patchSetId": 3
@@ -166,6 +328,24 @@
       "writtenOn": "2017-07-26T01:07:43Z",
       "side": 1,
       "message": "Please double check this. Internally in CPWL_EditImpl, both ClearSelection() and InsertText() end up calling AddEditUndoItem(). So the overall Insert() operation ends up creating 2 items in the undo stack. The pre-existing CPWL_Edit::ReplaceSel() method does it wrong too. :\\",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb1d799_9c54f321",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "I see what you mean. Do you think I should try to address this in this CL or start a follow up to look into it?",
+      "parentUuid": "bb8171dc_03d2667c",
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -186,6 +366,24 @@
       "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9a56c4c_10e24fdc",
+        "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-26T21:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2441b305_f35b1138",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
