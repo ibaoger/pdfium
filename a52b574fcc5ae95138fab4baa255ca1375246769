@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c80d2918_bbb50363",
+        "filename": "BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-07-26T15:58:27Z",
+      "side": 1,
+      "message": "If we use component build other components like v8 and icu will be built as a component too, so we get a whole bunch of shared libraries. That can be usefull for packaging purposes but will be pretty confusing otherwise. IMHO it\u0027s better to keep this seperated for now.\n\nYou can easily test this by setting is_component_build\u003dtrue on a vanilla pdfium build.",
+      "parentUuid": "616f384a_2b01fc47",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6500f3a9_7c76e913",
         "filename": "pdfium.gni",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-26T12:41:53Z",
       "side": 1,
       "message": "If we use component_build i believe we don\u0027t need this anymore as component build does the right thing?",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da90df87_47197e23",
+        "filename": "pdfium.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-07-26T15:58:27Z",
+      "side": 1,
+      "message": "Yes, pdf_component is basically a simplified copy of the component template with different names. The original can be found here:\n\nhttps://chromium.googlesource.com/chromium/src/build/+/master/config/BUILDCONFIG.gn\n\nThe \"switch\" between source_set and static_library that pdf_source_set provides isn\u0027t covered by it though so it still is usefull.",
+      "parentUuid": "6500f3a9_7c76e913",
       "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +123,30 @@
       "writtenOn": "2017-07-26T12:41:53Z",
       "side": 1,
       "message": "Can we just leave this named STDCALL, it has more meaning then CDECL",
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d606d4f_eb7fb7b6",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-07-26T15:58:27Z",
+      "side": 1,
+      "message": "Base does it here:\n\nhttps://github.com/adobe/chromium/blob/master/base/native_library.h\n\nYes, we can remove it. Call convention is only relevant for 32 bit Windows and not setting it will simply mean that we use the default, which is __cdecl.",
+      "parentUuid": "735d56eb_b2df97d1",
+      "range": {
+        "startLine": 172,
+        "startChar": 8,
+        "endLine": 172,
+        "endChar": 21
+      },
       "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
