@@ -64,6 +64,7 @@ class CPWL_ComboBox : public CPWL_Wnd {
   void KillFocus() override;
   CFX_WideString GetSelectedText() override;
   void DeleteSelectedText() override;
+  void InsertText(const CFX_WideString& text) override;
 
   void SetFillerNotify(IPWL_Filler_Notify* pNotify);
 
