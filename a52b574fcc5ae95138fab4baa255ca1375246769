@@ -230,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "80d46191_2848b3d0",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5660
+      },
+      "writtenOn": "2017-07-26T19:54:32Z",
+      "side": 1,
+      "message": "__cdecl is the default by default, but is not necessarily the default for any particular compilation. The default calling convention can be changed. Therefore it is wise to specify it on function declarations that are exported.\n\nHowever the name should be CDECL, since that fails to abstract away what the setting is. It would be better to call it FPDF_CALLCONV or something like that. Then it can be set to __cdecl or __stdcall without causing cognitive dissonance.",
+      "parentUuid": "9d606d4f_eb7fb7b6",
+      "range": {
+        "startLine": 172,
+        "startChar": 8,
+        "endLine": 172,
+        "endChar": 21
+      },
+      "revId": "a52b574fcc5ae95138fab4baa255ca1375246769",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1fbed81_327852cf",
         "filename": "public/fpdfview.h",
         "patchSetId": 3
