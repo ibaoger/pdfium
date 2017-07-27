@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90ed2bf9_5623dca4",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T20:25:42Z",
+      "side": 1,
+      "message": "No because ripples. Some of these will be larger then the rest so I\u0027m planning on doing them one at a time.",
+      "parentUuid": "666f9d15_67bd1444",
+      "range": {
+        "startLine": 271,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 10
+      },
+      "revId": "7fb7797410b0988347280517afb96b6988b8001d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "755b167e_82bf4fb3",
         "filename": "core/fxge/win32/fx_win32_device.cpp",
         "patchSetId": 3
