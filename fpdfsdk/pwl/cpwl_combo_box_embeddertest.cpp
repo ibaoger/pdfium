@@ -259,3 +259,111 @@ TEST_F(CPWLComboBoxEditEmbeddertest, DeleteEmptyTextSelection) {
   EXPECT_STREQ(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqr",
                GetCPWLComboBox()->GetText().c_str());
 }
+
+TEST_F(CPWLComboBoxEditEmbeddertest, InsertTextInEmptyEditableComboBox) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"Hello", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextInPopulatedEditableComboBoxLeft) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  // Move cursor to beginning of user-editable combobox text field.
+  EXPECT_TRUE(GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnotUserEditable(),
+                                             FWL_VKEY_Home, 0));
+
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"HelloABCDEFGHIJ", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextInPopulatedEditableComboBoxMiddle) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  // Move cursor to middle of user-editable combobox text field.
+  for (int i = 0; i < 5; ++i) {
+    EXPECT_TRUE(GetCFFLFormFiller()->OnKeyDown(GetCPDFSDKAnnotUserEditable(),
+                                               FWL_VKEY_Left, 0));
+  }
+
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"ABCDEHelloFGHIJ", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextInPopulatedEditableComboBoxRight) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"ABCDEFGHIJHello", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedEditableComboBoxWhole) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSelection(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJ", GetCPWLComboBox()->GetSelectedText().c_str());
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"Hello", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedEditableComboBoxLeft) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSelection(0, 5);
+  EXPECT_STREQ(L"ABCDE", GetCPWLComboBox()->GetSelectedText().c_str());
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"HelloFGHIJ", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedEditableComboBoxMiddle) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSelection(2, 7);
+  EXPECT_STREQ(L"CDEFG", GetCPWLComboBox()->GetSelectedText().c_str());
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"ABHelloHIJ", GetCPWLComboBox()->GetText().c_str());
+}
+
+TEST_F(CPWLComboBoxEditEmbeddertest,
+       InsertTextAndReplaceSelectionInPopulatedEditableComboBoxRight) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnotUserEditable());
+  for (int i = 0; i < 10; ++i) {
+    EXPECT_TRUE(
+        GetCFFLFormFiller()->OnChar(GetCPDFSDKAnnotUserEditable(), i + 'A', 0));
+  }
+
+  GetCPWLComboBox()->SetEditSelection(5, 10);
+  EXPECT_STREQ(L"FGHIJ", GetCPWLComboBox()->GetSelectedText().c_str());
+  GetCPWLComboBox()->InsertText(CFX_WideString(L"Hello"));
+  EXPECT_STREQ(L"ABCDEHello", GetCPWLComboBox()->GetText().c_str());
+}
