@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "9f01428e_69077e13",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "This looks almost identical to lines 567-577. Can we combine the two into a helper method?",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a537f76_cf29f8e1",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
@@ -36,6 +53,177 @@
     },
     {
       "key": {
+        "uuid": "ecfbf7cd_5daf2ff0",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Let\u0027s ask Wei.",
+      "parentUuid": "9a537f76_cf29f8e1",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bd2ab18_781727c8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Can |start_objnum| be uint32_t? Same for |count|.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45c05bce_a65d09c2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "If you can add a comment to say \"A sample entry looks like ...\" that would be really helpful.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6edd6fc2_2d6de40e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Why don\u0027t we check for ReadBlock() failures anymore?",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18847ecc_5cb06ea9",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Why don\u0027t we make this a non-const reference? Same for |info| below.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e14457_79935df6",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Do we want to use FXSYS_atoi64() + safe_conversions.h to do this? On Windows, FX_FILESIZE is a int32_t, so if FXSYS_atoi64() returns a large number...",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a4b654_fbb5a7bb",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Can we just ASSERT(out_objects-\u003eempty()) and give the responsibility to the caller?",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd0181f4_68de4374",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "style: BTW, when the conditional is 1 line and the body is 1 line, we don\u0027t bother with braces.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9d0d16c_c3e8242e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Can we just ASSERT(start_obj_num_at_last_block) at the top of the method instead, since there\u0027s only 1 caller and it always passes in a valid pointer.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e34894d_c04f8b2c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Can we make the contract that |out_objects| and |start_obj_num_at_last_block| are only valid if this method returns true? Then we can just return false here and not worry about having to give back good data.",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e52e1d71_44109f9b",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
@@ -47,6 +235,23 @@
       "writtenOn": "2017-07-27T16:23:49Z",
       "side": 1,
       "message": "CPDF_Parser specific logic",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65175300_36f3427a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T22:23:51Z",
+      "side": 1,
+      "message": "Can we skip this, and skip checking:\n\nm_pSyntax-\u003eGetKeyword() !\u003d \"xref\"\n\nin ParseCrossRefV4(), which should never fail, with this being the only caller.",
       "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
