@@ -261,6 +261,14 @@ void CPDFSDK_PageView::DeleteSelectedText() {
   }
 }
 
+void CPDFSDK_PageView::InsertText(const CFX_WideString& text) {
+  if (CPDFSDK_Annot* pAnnot = GetFocusAnnot()) {
+    CPDFSDK_AnnotHandlerMgr* pAnnotHandlerMgr =
+        m_pFormFillEnv->GetAnnotHandlerMgr();
+    pAnnotHandlerMgr->Annot_InsertText(pAnnot, text);
+  }
+}
+
 bool CPDFSDK_PageView::OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) {
   CPDFSDK_Annot::ObservedPtr pAnnot(GetFXWidgetAtPoint(point));
   if (!pAnnot) {

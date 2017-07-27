@@ -108,6 +108,10 @@ CFX_WideString CPDFSDK_XFAWidgetHandler::GetSelectedText(
 // fields.
 void CPDFSDK_XFAWidgetHandler::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {}
 
+// TODO(crbug.com/62400): Implement so text can be inserted into XFA fields.
+void CPDFSDK_XFAWidgetHandler::InsertText(CPDFSDK_Annot* pAnnot,
+                                          const CFX_WideString& text) {}
+
 bool CPDFSDK_XFAWidgetHandler::HitTest(CPDFSDK_PageView* pPageView,
                                        CPDFSDK_Annot* pAnnot,
                                        const CFX_PointF& point) {
