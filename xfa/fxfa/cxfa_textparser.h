@@ -20,7 +20,7 @@ class CFDE_CSSComputedStyle;
 class CFDE_CSSStyleSelector;
 class CFDE_CSSStyleSheet;
 class CFX_XMLNode;
-class CXFA_CSSTagProvider;
+class CFDE_CSSTagProvider;
 class CXFA_TextParseContext;
 class CXFA_TextProvider;
 class CXFA_TextTabstopsContext;
@@ -89,7 +89,7 @@ class CXFA_TextParser {
   void InitCSSData(CXFA_TextProvider* pTextProvider);
   void ParseRichText(CFX_XMLNode* pXMLNode,
                      CFDE_CSSComputedStyle* pParentStyle);
-  std::unique_ptr<CXFA_CSSTagProvider> ParseTagInfo(CFX_XMLNode* pXMLNode);
+  std::unique_ptr<CFDE_CSSTagProvider> ParseTagInfo(CFX_XMLNode* pXMLNode);
   std::unique_ptr<CFDE_CSSStyleSheet> LoadDefaultSheetStyle();
   CFX_RetainPtr<CFDE_CSSComputedStyle> CreateStyle(
       CFDE_CSSComputedStyle* pParentStyle);

@@ -17,9 +17,9 @@
 #include "xfa/fde/css/cfde_csscomputedstyle.h"
 #include "xfa/fde/css/cfde_cssstyleselector.h"
 #include "xfa/fde/css/cfde_cssstylesheet.h"
+#include "xfa/fde/css/cfde_csstagprovider.h"
 #include "xfa/fde/css/fde_css.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
-#include "xfa/fxfa/cxfa_csstagprovider.h"
 #include "xfa/fxfa/cxfa_ffapp.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
 #include "xfa/fxfa/cxfa_fontmgr.h"
@@ -269,9 +269,9 @@ bool CXFA_TextParser::TagValidate(const CFX_WideString& wsName) const {
                             FX_HashCode_GetW(wsName.AsStringC(), true));
 }
 
-std::unique_ptr<CXFA_CSSTagProvider> CXFA_TextParser::ParseTagInfo(
+std::unique_ptr<CFDE_CSSTagProvider> CXFA_TextParser::ParseTagInfo(
     CFX_XMLNode* pXMLNode) {
-  auto tagProvider = pdfium::MakeUnique<CXFA_CSSTagProvider>();
+  auto tagProvider = pdfium::MakeUnique<CFDE_CSSTagProvider>();
 
   CFX_WideString wsName;
   if (pXMLNode->GetType() == FX_XMLNODE_Element) {

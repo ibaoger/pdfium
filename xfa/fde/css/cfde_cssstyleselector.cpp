@@ -20,8 +20,8 @@
 #include "xfa/fde/css/cfde_cssselector.h"
 #include "xfa/fde/css/cfde_cssstylesheet.h"
 #include "xfa/fde/css/cfde_csssyntaxparser.h"
+#include "xfa/fde/css/cfde_csstagprovider.h"
 #include "xfa/fde/css/cfde_cssvaluelist.h"
-#include "xfa/fxfa/cxfa_csstagprovider.h"
 
 CFDE_CSSStyleSelector::CFDE_CSSStyleSelector(CFGAS_FontMgr* pFontMgr)
     : m_pFontMgr(pFontMgr), m_fDefFontSize(12.0f) {}

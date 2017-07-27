@@ -4,17 +4,17 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef XFA_FXFA_CXFA_CSSTAGPROVIDER_H_
-#define XFA_FXFA_CXFA_CSSTAGPROVIDER_H_
+#ifndef XFA_FDE_CSS_CFDE_CSSTAGPROVIDER_H_
+#define XFA_FDE_CSS_CFDE_CSSTAGPROVIDER_H_
 
 #include <map>
 
 #include "core/fxcrt/fx_string.h"
 
-class CXFA_CSSTagProvider {
+class CFDE_CSSTagProvider {
  public:
-  CXFA_CSSTagProvider();
-  ~CXFA_CSSTagProvider();
+  CFDE_CSSTagProvider();
+  ~CFDE_CSSTagProvider();
 
   CFX_WideString GetTagName() { return m_wsTagName; }
 
@@ -36,4 +36,4 @@ class CXFA_CSSTagProvider {
   std::map<CFX_WideString, CFX_WideString> m_Attributes;
 };
 
-#endif  // XFA_FXFA_CXFA_CSSTAGPROVIDER_H_
+#endif  // XFA_FDE_CSS_CFDE_CSSTAGPROVIDER_H_
