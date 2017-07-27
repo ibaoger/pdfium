@@ -79,7 +79,7 @@ typedef struct _IFSDK_PAUSE {
 //          Rendering Status. See flags for progressive process status for the
 //          details.
 //
-DLLEXPORT int STDCALL FPDF_RenderPageBitmap_Start(FPDF_BITMAP bitmap,
+FPDF_EXPORT int FPDF_CALLCONV FPDF_RenderPageBitmap_Start(FPDF_BITMAP bitmap,
                                                   FPDF_PAGE page,
                                                   int start_x,
                                                   int start_y,
@@ -101,7 +101,7 @@ DLLEXPORT int STDCALL FPDF_RenderPageBitmap_Start(FPDF_BITMAP bitmap,
 // Return value:
 //          The rendering status. See flags for progressive process status for
 //          the details.
-DLLEXPORT int STDCALL FPDF_RenderPage_Continue(FPDF_PAGE page,
+FPDF_EXPORT int FPDF_CALLCONV FPDF_RenderPage_Continue(FPDF_PAGE page,
                                                IFSDK_PAUSE* pause);
 
 // Function: FPDF_RenderPage_Close
@@ -113,7 +113,7 @@ DLLEXPORT int STDCALL FPDF_RenderPage_Continue(FPDF_PAGE page,
 //          function.
 // Return value:
 //          NULL
-DLLEXPORT void STDCALL FPDF_RenderPage_Close(FPDF_PAGE page);
+FPDF_EXPORT void FPDF_CALLCONV FPDF_RenderPage_Close(FPDF_PAGE page);
 
 #ifdef __cplusplus
 }

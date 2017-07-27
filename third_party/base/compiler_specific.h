@@ -197,13 +197,13 @@
 #endif
 
 // Macro useful for writing cross-platform function pointers.
-#if !defined(CDECL)
+#if !defined(FPDF_CALLCONV)
 #if defined(OS_WIN)
-#define CDECL __cdecl
+#define FPDF_CALLCONV __cdecl
 #else  // defined(OS_WIN)
-#define CDECL
+#define FPDF_CALLCONV
 #endif  // defined(OS_WIN)
-#endif  // !defined(CDECL)
+#endif  // !defined(FPDF_CALLCONV)
 
 // Macro for hinting that an expression is likely to be false.
 #if !defined(UNLIKELY)

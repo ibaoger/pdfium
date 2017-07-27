@@ -23,7 +23,7 @@ extern "C" {
 //   index     - The page index to insert at.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
                                              FPDF_DOCUMENT src_doc,
                                              FPDF_BYTESTRING pagerange,
                                              int index);
@@ -34,7 +34,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
 //   src_doc  - Document to read the viewer preferences from.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDF_CopyViewerPreferences(FPDF_DOCUMENT dest_doc,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_CopyViewerPreferences(FPDF_DOCUMENT dest_doc,
                                                        FPDF_DOCUMENT src_doc);
 
 #ifdef __cplusplus

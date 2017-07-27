@@ -21,7 +21,7 @@ extern "C" {
 //          function.
 // Return value:
 //          A handle to the structure tree or NULL on error.
-DLLEXPORT FPDF_STRUCTTREE STDCALL FPDF_StructTree_GetForPage(FPDF_PAGE page);
+FPDF_EXPORT FPDF_STRUCTTREE FPDF_CALLCONV FPDF_StructTree_GetForPage(FPDF_PAGE page);
 
 // Function: FPDF_StructTree_Close
 //          Release the resource allocate by FPDF_StructTree_GetForPage.
@@ -30,7 +30,7 @@ DLLEXPORT FPDF_STRUCTTREE STDCALL FPDF_StructTree_GetForPage(FPDF_PAGE page);
 //          FPDF_StructTree_LoadPage function.
 // Return value:
 //          NULL
-DLLEXPORT void STDCALL FPDF_StructTree_Close(FPDF_STRUCTTREE struct_tree);
+FPDF_EXPORT void FPDF_CALLCONV FPDF_StructTree_Close(FPDF_STRUCTTREE struct_tree);
 
 // Function: FPDF_StructTree_CountChildren
 //          Count the number of children for the structure tree.
@@ -39,7 +39,7 @@ DLLEXPORT void STDCALL FPDF_StructTree_Close(FPDF_STRUCTTREE struct_tree);
 //          FPDF_StructTree_LoadPage function.
 // Return value:
 //          The number of children, or -1 on error.
-DLLEXPORT int STDCALL
+FPDF_EXPORT int FPDF_CALLCONV
 FPDF_StructTree_CountChildren(FPDF_STRUCTTREE struct_tree);
 
 // Function: FPDF_StructTree_GetChildAtIndex
@@ -50,7 +50,7 @@ FPDF_StructTree_CountChildren(FPDF_STRUCTTREE struct_tree);
 //          index       -   The index for the child, 0-based.
 // Return value:
 //          The child at the n-th index or NULL on error.
-DLLEXPORT FPDF_STRUCTELEMENT STDCALL
+FPDF_EXPORT FPDF_STRUCTELEMENT FPDF_CALLCONV
 FPDF_StructTree_GetChildAtIndex(FPDF_STRUCTTREE struct_tree, int index);
 
 // Function: FPDF_StructElement_GetAltText
@@ -68,7 +68,7 @@ FPDF_StructTree_GetChildAtIndex(FPDF_STRUCTTREE struct_tree, int index);
 //          encoding. The string is terminated by a UTF16 NUL character. If
 //          |buflen| is less than the required length, or |buffer| is NULL,
 //          |buffer| will not be modified.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDF_StructElement_GetAltText(FPDF_STRUCTELEMENT struct_element,
                               void* buffer,
                               unsigned long buflen);
@@ -88,7 +88,7 @@ FPDF_StructElement_GetAltText(FPDF_STRUCTELEMENT struct_element,
 //           encoding. The string is terminated by a UTF16 NUL character. If
 //           |buflen| is less than the required length, or |buffer| is NULL,
 //           |buffer| will not be modified.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDF_StructElement_GetType(FPDF_STRUCTELEMENT struct_element,
                            void* buffer,
                            unsigned long buflen);
@@ -108,7 +108,7 @@ FPDF_StructElement_GetType(FPDF_STRUCTELEMENT struct_element,
 //           encoding. The string is terminated by a UTF16 NUL character. If
 //           |buflen| is less than the required length, or |buffer| is NULL,
 //           |buffer| will not be modified.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDF_StructElement_GetTitle(FPDF_STRUCTELEMENT struct_element,
                             void* buffer,
                             unsigned long buflen);
@@ -119,7 +119,7 @@ FPDF_StructElement_GetTitle(FPDF_STRUCTELEMENT struct_element,
 //          struct_element -   Handle to the struct element.
 // Return value:
 //          The number of children, or -1 on error.
-DLLEXPORT int STDCALL
+FPDF_EXPORT int FPDF_CALLCONV
 FPDF_StructElement_CountChildren(FPDF_STRUCTELEMENT struct_element);
 
 // Function: FPDF_StructElement_GetChildAtIndex
@@ -132,7 +132,7 @@ FPDF_StructElement_CountChildren(FPDF_STRUCTELEMENT struct_element);
 // Comments:
 //          If the child exists but is not an element, then this function will
 //          return NULL. This will also return NULL for out of bounds indices.
-DLLEXPORT FPDF_STRUCTELEMENT STDCALL
+FPDF_EXPORT FPDF_STRUCTELEMENT FPDF_CALLCONV
 FPDF_StructElement_GetChildAtIndex(FPDF_STRUCTELEMENT struct_element,
                                    int index);
 

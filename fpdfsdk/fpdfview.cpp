@@ -381,11 +381,11 @@ FPDF_BOOL FSDK_IsSandBoxPolicyEnabled(FPDF_DWORD policy) {
   }
 }
 
-DLLEXPORT void STDCALL FPDF_InitLibrary() {
+FPDF_EXPORT void FPDF_CALLCONV FPDF_InitLibrary() {
   FPDF_InitLibraryWithConfig(nullptr);
 }
 
-DLLEXPORT void STDCALL
+FPDF_EXPORT void FPDF_CALLCONV
 FPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {
   if (g_bLibraryInitialized)
     return;
@@ -408,7 +408,7 @@ FPDF_InitLibraryWithConfig(const FPDF_LIBRARY_CONFIG* cfg) {
   g_bLibraryInitialized = true;
 }
 
-DLLEXPORT void STDCALL FPDF_DestroyLibrary() {
+FPDF_EXPORT void FPDF_CALLCONV FPDF_DestroyLibrary() {
   if (!g_bLibraryInitialized)
     return;
 
@@ -459,28 +459,28 @@ void ProcessParseError(CPDF_Parser::Error err) {
   SetLastError(err_code);
 }
 
-DLLEXPORT void STDCALL FPDF_SetSandBoxPolicy(FPDF_DWORD policy,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_SetSandBoxPolicy(FPDF_DWORD policy,
                                              FPDF_BOOL enable) {
   return FSDK_SetSandBoxPolicy(policy, enable);
 }
 
 #if defined(_WIN32)
 #if defined(PDFIUM_PRINT_TEXT_WITH_GDI)
-DLLEXPORT void STDCALL
+FPDF_EXPORT void FPDF_CALLCONV
 FPDF_SetTypefaceAccessibleFunc(PDFiumEnsureTypefaceCharactersAccessible func) {
   g_pdfium_typeface_accessible_func = func;
 }
 
-DLLEXPORT void STDCALL FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi) {
+FPDF_EXPORT void FPDF_CALLCONV FPDF_SetPrintTextWithGDI(FPDF_BOOL use_gdi) {
   g_pdfium_print_text_with_gdi = !!use_gdi;
 }
 #endif  // PDFIUM_PRINT_TEXT_WITH_GDI
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintPostscriptLevel(int postscript_level) {
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_SetPrintPostscriptLevel(int postscript_level) {
   return postscript_level != 1 && FPDF_SetPrintMode(postscript_level);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintMode(int mode) {
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_SetPrintMode(int mode) {
   if (mode < FPDF_PRINTMODE_EMF || mode > FPDF_PRINTMODE_POSTSCRIPT3)
     return FALSE;
   g_pdfium_print_mode = mode;
@@ -488,7 +488,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_SetPrintMode(int mode) {
 }
 #endif  // defined(_WIN32)
 
-DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadDocument(FPDF_STRING file_path,
+FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV FPDF_LoadDocument(FPDF_STRING file_path,
                                                   FPDF_BYTESTRING password) {
   // NOTE: the creation of the file needs to be by the embedder on the
   // other side of this API.
@@ -512,7 +512,7 @@ DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadDocument(FPDF_STRING file_path,
 }
 
 #ifdef PDF_ENABLE_XFA
-DLLEXPORT FPDF_BOOL STDCALL FPDF_HasXFAField(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasXFAField(FPDF_DOCUMENT document,
                                              int* docType) {
   if (!document)
     return false;
@@ -539,7 +539,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_HasXFAField(FPDF_DOCUMENT document,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_LoadXFA(FPDF_DOCUMENT document) {
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_LoadXFA(FPDF_DOCUMENT document) {
   return document && (static_cast<CPDFXFA_Context*>(document))->LoadXFADoc();
 }
 #endif  // PDF_ENABLE_XFA
@@ -571,7 +571,7 @@ class CMemFile final : public IFX_SeekableReadStream {
   const FX_FILESIZE m_size;
 };
 
-DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadMemDocument(const void* data_buf,
+FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV FPDF_LoadMemDocument(const void* data_buf,
                                                      int size,
                                                      FPDF_BYTESTRING password) {
   CFX_RetainPtr<CMemFile> pMemFile = CMemFile::Create((uint8_t*)data_buf, size);
@@ -589,7 +589,7 @@ DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_LoadMemDocument(const void* data_buf,
   return FPDFDocumentFromCPDFDocument(pDocument.release());
 }
 
-DLLEXPORT FPDF_DOCUMENT STDCALL
+FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV
 FPDF_LoadCustomDocument(FPDF_FILEACCESS* pFileAccess,
                         FPDF_BYTESTRING password) {
   auto pFile = pdfium::MakeRetain<CPDF_CustomAccess>(pFileAccess);
@@ -607,7 +607,7 @@ FPDF_LoadCustomDocument(FPDF_FILEACCESS* pFileAccess,
   return FPDFDocumentFromCPDFDocument(pDocument.release());
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDF_GetFileVersion(FPDF_DOCUMENT doc,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_GetFileVersion(FPDF_DOCUMENT doc,
                                                 int* fileVersion) {
   if (!fileVersion)
     return false;
@@ -627,7 +627,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDF_GetFileVersion(FPDF_DOCUMENT doc,
 
 // jabdelmalek: changed return type from uint32_t to build on Linux (and match
 // header).
-DLLEXPORT unsigned long STDCALL FPDF_GetDocPermissions(FPDF_DOCUMENT document) {
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetDocPermissions(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   // https://bugs.chromium.org/p/pdfium/issues/detail?id=499
   if (!pDoc) {
@@ -641,7 +641,7 @@ DLLEXPORT unsigned long STDCALL FPDF_GetDocPermissions(FPDF_DOCUMENT document) {
   return pDoc->GetUserPermissions();
 }
 
-DLLEXPORT int STDCALL FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document) {
+FPDF_EXPORT int FPDF_CALLCONV FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc || !pDoc->GetParser())
     return -1;
@@ -650,12 +650,12 @@ DLLEXPORT int STDCALL FPDF_GetSecurityHandlerRevision(FPDF_DOCUMENT document) {
   return pDict ? pDict->GetIntegerFor("R") : -1;
 }
 
-DLLEXPORT int STDCALL FPDF_GetPageCount(FPDF_DOCUMENT document) {
+FPDF_EXPORT int FPDF_CALLCONV FPDF_GetPageCount(FPDF_DOCUMENT document) {
   UnderlyingDocumentType* pDoc = UnderlyingFromFPDFDocument(document);
   return pDoc ? pDoc->GetPageCount() : 0;
 }
 
-DLLEXPORT FPDF_PAGE STDCALL FPDF_LoadPage(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_PAGE FPDF_CALLCONV FPDF_LoadPage(FPDF_DOCUMENT document,
                                           int page_index) {
   UnderlyingDocumentType* pDoc = UnderlyingFromFPDFDocument(document);
   if (!pDoc)
@@ -677,12 +677,12 @@ DLLEXPORT FPDF_PAGE STDCALL FPDF_LoadPage(FPDF_DOCUMENT document,
 #endif  // PDF_ENABLE_XFA
 }
 
-DLLEXPORT double STDCALL FPDF_GetPageWidth(FPDF_PAGE page) {
+FPDF_EXPORT double FPDF_CALLCONV FPDF_GetPageWidth(FPDF_PAGE page) {
   UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
   return pPage ? pPage->GetPageWidth() : 0.0;
 }
 
-DLLEXPORT double STDCALL FPDF_GetPageHeight(FPDF_PAGE page) {
+FPDF_EXPORT double FPDF_CALLCONV FPDF_GetPageHeight(FPDF_PAGE page) {
   UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
   return pPage ? pPage->GetPageHeight() : 0.0;
 }
@@ -816,7 +816,7 @@ void RenderBitmap(CFX_RenderDevice* device,
 
 }  // namespace
 
-DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_RenderPage(HDC dc,
                                        FPDF_PAGE page,
                                        int start_x,
                                        int start_y,
@@ -913,7 +913,7 @@ DLLEXPORT void STDCALL FPDF_RenderPage(HDC dc,
 }
 #endif  // defined(_WIN32)
 
-DLLEXPORT void STDCALL FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
                                              FPDF_PAGE page,
                                              int start_x,
                                              int start_y,
@@ -946,7 +946,7 @@ DLLEXPORT void STDCALL FPDF_RenderPageBitmap(FPDF_BITMAP bitmap,
   pPage->SetRenderContext(nullptr);
 }
 
-DLLEXPORT void STDCALL FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
                                                        FPDF_PAGE page,
                                                        const FS_MATRIX* matrix,
                                                        const FS_RECTF* clipping,
@@ -989,7 +989,7 @@ DLLEXPORT void STDCALL FPDF_RenderPageBitmapWithMatrix(FPDF_BITMAP bitmap,
 }
 
 #ifdef _SKIA_SUPPORT_
-DLLEXPORT FPDF_RECORDER STDCALL FPDF_RenderPageSkp(FPDF_PAGE page,
+FPDF_EXPORT FPDF_RECORDER FPDF_CALLCONV FPDF_RenderPageSkp(FPDF_PAGE page,
                                                    int size_x,
                                                    int size_y) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
@@ -1008,7 +1008,7 @@ DLLEXPORT FPDF_RECORDER STDCALL FPDF_RenderPageSkp(FPDF_PAGE page,
 }
 #endif
 
-DLLEXPORT void STDCALL FPDF_ClosePage(FPDF_PAGE page) {
+FPDF_EXPORT void FPDF_CALLCONV FPDF_ClosePage(FPDF_PAGE page) {
   UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
   if (!page)
     return;
@@ -1041,15 +1041,15 @@ DLLEXPORT void STDCALL FPDF_ClosePage(FPDF_PAGE page) {
 #endif  // PDF_ENABLE_XFA
 }
 
-DLLEXPORT void STDCALL FPDF_CloseDocument(FPDF_DOCUMENT document) {
+FPDF_EXPORT void FPDF_CALLCONV FPDF_CloseDocument(FPDF_DOCUMENT document) {
   delete UnderlyingFromFPDFDocument(document);
 }
 
-DLLEXPORT unsigned long STDCALL FPDF_GetLastError() {
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetLastError() {
   return GetLastError();
 }
 
-DLLEXPORT void STDCALL FPDF_DeviceToPage(FPDF_PAGE page,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_DeviceToPage(FPDF_PAGE page,
                                          int start_x,
                                          int start_y,
                                          int size_x,
@@ -1077,7 +1077,7 @@ DLLEXPORT void STDCALL FPDF_DeviceToPage(FPDF_PAGE page,
 #endif  // PDF_ENABLE_XFA
 }
 
-DLLEXPORT void STDCALL FPDF_PageToDevice(FPDF_PAGE page,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_PageToDevice(FPDF_PAGE page,
                                          int start_x,
                                          int start_y,
                                          int size_x,
@@ -1106,7 +1106,7 @@ DLLEXPORT void STDCALL FPDF_PageToDevice(FPDF_PAGE page,
 #endif  // PDF_ENABLE_XFA
 }
 
-DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_Create(int width,
+FPDF_EXPORT FPDF_BITMAP FPDF_CALLCONV FPDFBitmap_Create(int width,
                                                 int height,
                                                 int alpha) {
   auto pBitmap = pdfium::MakeRetain<CFX_DIBitmap>();
@@ -1116,7 +1116,7 @@ DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_Create(int width,
   return pBitmap.Leak();
 }
 
-DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_CreateEx(int width,
+FPDF_EXPORT FPDF_BITMAP FPDF_CALLCONV FPDFBitmap_CreateEx(int width,
                                                   int height,
                                                   int format,
                                                   void* first_scan,
@@ -1143,7 +1143,7 @@ DLLEXPORT FPDF_BITMAP STDCALL FPDFBitmap_CreateEx(int width,
   return pBitmap.Leak();
 }
 
-DLLEXPORT void STDCALL FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
+FPDF_EXPORT void FPDF_CALLCONV FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
                                            int left,
                                            int top,
                                            int width,
@@ -1161,23 +1161,23 @@ DLLEXPORT void STDCALL FPDFBitmap_FillRect(FPDF_BITMAP bitmap,
   device.FillRect(&rect, color);
 }
 
-DLLEXPORT void* STDCALL FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap) {
+FPDF_EXPORT void* FPDF_CALLCONV FPDFBitmap_GetBuffer(FPDF_BITMAP bitmap) {
   return bitmap ? CFXBitmapFromFPDFBitmap(bitmap)->GetBuffer() : nullptr;
 }
 
-DLLEXPORT int STDCALL FPDFBitmap_GetWidth(FPDF_BITMAP bitmap) {
+FPDF_EXPORT int FPDF_CALLCONV FPDFBitmap_GetWidth(FPDF_BITMAP bitmap) {
   return bitmap ? CFXBitmapFromFPDFBitmap(bitmap)->GetWidth() : 0;
 }
 
-DLLEXPORT int STDCALL FPDFBitmap_GetHeight(FPDF_BITMAP bitmap) {
+FPDF_EXPORT int FPDF_CALLCONV FPDFBitmap_GetHeight(FPDF_BITMAP bitmap) {
   return bitmap ? CFXBitmapFromFPDFBitmap(bitmap)->GetHeight() : 0;
 }
 
-DLLEXPORT int STDCALL FPDFBitmap_GetStride(FPDF_BITMAP bitmap) {
+FPDF_EXPORT int FPDF_CALLCONV FPDFBitmap_GetStride(FPDF_BITMAP bitmap) {
   return bitmap ? CFXBitmapFromFPDFBitmap(bitmap)->GetPitch() : 0;
 }
 
-DLLEXPORT void STDCALL FPDFBitmap_Destroy(FPDF_BITMAP bitmap) {
+FPDF_EXPORT void FPDF_CALLCONV FPDFBitmap_Destroy(FPDF_BITMAP bitmap) {
   CFX_RetainPtr<CFX_DIBitmap> destroyer;
   destroyer.Unleak(CFXBitmapFromFPDFBitmap(bitmap));
 }
@@ -1202,7 +1202,7 @@ void FPDF_RenderPage_Retail(CPDF_PageRenderContext* pContext,
                  flags, bNeedToRestore, pause);
 }
 
-DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
+FPDF_EXPORT int FPDF_CALLCONV FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
                                               int page_index,
                                               double* width,
                                               double* height) {
@@ -1232,7 +1232,7 @@ DLLEXPORT int STDCALL FPDF_GetPageSizeByIndex(FPDF_DOCUMENT document,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDF_VIEWERREF_GetPrintScaling(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -1241,7 +1241,7 @@ FPDF_VIEWERREF_GetPrintScaling(FPDF_DOCUMENT document) {
   return viewRef.PrintScaling();
 }
 
-DLLEXPORT int STDCALL FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document) {
+FPDF_EXPORT int FPDF_CALLCONV FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
     return 1;
@@ -1249,7 +1249,7 @@ DLLEXPORT int STDCALL FPDF_VIEWERREF_GetNumCopies(FPDF_DOCUMENT document) {
   return viewRef.NumCopies();
 }
 
-DLLEXPORT FPDF_PAGERANGE STDCALL
+FPDF_EXPORT FPDF_PAGERANGE FPDF_CALLCONV
 FPDF_VIEWERREF_GetPrintPageRange(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -1258,7 +1258,7 @@ FPDF_VIEWERREF_GetPrintPageRange(FPDF_DOCUMENT document) {
   return viewRef.PrintPageRange();
 }
 
-DLLEXPORT FPDF_DUPLEXTYPE STDCALL
+FPDF_EXPORT FPDF_DUPLEXTYPE FPDF_CALLCONV
 FPDF_VIEWERREF_GetDuplex(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -1274,7 +1274,7 @@ FPDF_VIEWERREF_GetDuplex(FPDF_DOCUMENT document) {
   return DuplexUndefined;
 }
 
-DLLEXPORT unsigned long STDCALL FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
                                                        FPDF_BYTESTRING key,
                                                        char* buffer,
                                                        unsigned long length) {
@@ -1293,7 +1293,7 @@ DLLEXPORT unsigned long STDCALL FPDF_VIEWERREF_GetName(FPDF_DOCUMENT document,
   return dwStringLen;
 }
 
-DLLEXPORT FPDF_DWORD STDCALL FPDF_CountNamedDests(FPDF_DOCUMENT document) {
+FPDF_EXPORT FPDF_DWORD FPDF_CALLCONV FPDF_CountNamedDests(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
     return 0;
@@ -1314,7 +1314,7 @@ DLLEXPORT FPDF_DWORD STDCALL FPDF_CountNamedDests(FPDF_DOCUMENT document) {
   return count.ValueOrDie();
 }
 
-DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
                                                     FPDF_BYTESTRING name) {
   if (!name || name[0] == 0)
     return nullptr;
@@ -1328,7 +1328,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDestByName(FPDF_DOCUMENT document,
 }
 
 #ifdef PDF_ENABLE_XFA
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Init(FPDF_BSTR* str) {
+FPDF_EXPORT FPDF_RESULT FPDF_CALLCONV FPDF_BStr_Init(FPDF_BSTR* str) {
   if (!str)
     return -1;
 
@@ -1336,7 +1336,7 @@ DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Init(FPDF_BSTR* str) {
   return 0;
 }
 
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Set(FPDF_BSTR* str,
+FPDF_EXPORT FPDF_RESULT FPDF_CALLCONV FPDF_BStr_Set(FPDF_BSTR* str,
                                             FPDF_LPCSTR bstr,
                                             int length) {
   if (!str)
@@ -1367,7 +1367,7 @@ DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Set(FPDF_BSTR* str,
   return 0;
 }
 
-DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Clear(FPDF_BSTR* str) {
+FPDF_EXPORT FPDF_RESULT FPDF_CALLCONV FPDF_BStr_Clear(FPDF_BSTR* str) {
   if (!str)
     return -1;
 
@@ -1380,7 +1380,7 @@ DLLEXPORT FPDF_RESULT STDCALL FPDF_BStr_Clear(FPDF_BSTR* str) {
 }
 #endif  // PDF_ENABLE_XFA
 
-DLLEXPORT FPDF_DEST STDCALL FPDF_GetNamedDest(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDF_GetNamedDest(FPDF_DOCUMENT document,
                                               int index,
                                               void* buffer,
                                               long* buflen) {

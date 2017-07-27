@@ -54,7 +54,7 @@ extern "C" {
 // Create a new PDF document.
 //
 // Returns a handle to a new document, or NULL on failure.
-DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_CreateNewDocument();
+FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV FPDF_CreateNewDocument();
 
 // Create a new PDF page.
 //
@@ -69,7 +69,7 @@ DLLEXPORT FPDF_DOCUMENT STDCALL FPDF_CreateNewDocument();
 //
 // The page should be closed with CPDF_ClosePage() when finished as
 // with any other page in the document.
-DLLEXPORT FPDF_PAGE STDCALL FPDFPage_New(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_PAGE FPDF_CALLCONV FPDFPage_New(FPDF_DOCUMENT document,
                                          int page_index,
                                          double width,
                                          double height);
@@ -78,7 +78,7 @@ DLLEXPORT FPDF_PAGE STDCALL FPDFPage_New(FPDF_DOCUMENT document,
 //
 //   document   - handle to document.
 //   page_index - the index of the page to delete.
-DLLEXPORT void STDCALL FPDFPage_Delete(FPDF_DOCUMENT document, int page_index);
+FPDF_EXPORT void FPDF_CALLCONV FPDFPage_Delete(FPDF_DOCUMENT document, int page_index);
 
 // Get the rotation of |page|.
 //
@@ -89,7 +89,7 @@ DLLEXPORT void STDCALL FPDFPage_Delete(FPDF_DOCUMENT document, int page_index);
 //   1 - Rotated 90 degrees clockwise.
 //   2 - Rotated 180 degrees clockwise.
 //   3 - Rotated 270 degrees clockwise.
-DLLEXPORT int STDCALL FPDFPage_GetRotation(FPDF_PAGE page);
+FPDF_EXPORT int FPDF_CALLCONV FPDFPage_GetRotation(FPDF_PAGE page);
 
 // Set rotation for |page|.
 //
@@ -99,14 +99,14 @@ DLLEXPORT int STDCALL FPDFPage_GetRotation(FPDF_PAGE page);
 //              1 - Rotated 90 degrees clockwise.
 //              2 - Rotated 180 degrees clockwise.
 //              3 - Rotated 270 degrees clockwise.
-DLLEXPORT void STDCALL FPDFPage_SetRotation(FPDF_PAGE page, int rotate);
+FPDF_EXPORT void FPDF_CALLCONV FPDFPage_SetRotation(FPDF_PAGE page, int rotate);
 
 // Insert |page_obj| into |page|.
 //
 //   page     - handle to a page
 //   page_obj - handle to a page object. The |page_obj| will be automatically
 //              freed.
-DLLEXPORT void STDCALL FPDFPage_InsertObject(FPDF_PAGE page,
+FPDF_EXPORT void FPDF_CALLCONV FPDFPage_InsertObject(FPDF_PAGE page,
                                              FPDF_PAGEOBJECT page_obj);
 
 // Get number of page objects inside |page|.
@@ -114,7 +114,7 @@ DLLEXPORT void STDCALL FPDFPage_InsertObject(FPDF_PAGE page,
 //   page - handle to a page.
 //
 // Returns the number of objects in |page|.
-DLLEXPORT int STDCALL FPDFPage_CountObject(FPDF_PAGE page);
+FPDF_EXPORT int FPDF_CALLCONV FPDFPage_CountObject(FPDF_PAGE page);
 
 // Get object in |page| at |index|.
 //
@@ -122,14 +122,14 @@ DLLEXPORT int STDCALL FPDFPage_CountObject(FPDF_PAGE page);
 //   index - the index of a page object.
 //
 // Returns the handle to the page object, or NULL on failed.
-DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPage_GetObject(FPDF_PAGE page, int index);
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV FPDFPage_GetObject(FPDF_PAGE page, int index);
 
 // Checks if |page| contains transparency.
 //
 //   page - handle to a page.
 //
 // Returns TRUE if |page| contains transparency.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasTransparency(FPDF_PAGE page);
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPage_HasTransparency(FPDF_PAGE page);
 
 // Generate the content of |page|.
 //
@@ -139,14 +139,14 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPage_HasTransparency(FPDF_PAGE page);
 //
 // Before you save the page to a file, or reload the page, you must call
 // |FPDFPage_GenerateContent| or any changes to |page| will be lost.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPage_GenerateContent(FPDF_PAGE page);
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPage_GenerateContent(FPDF_PAGE page);
 
 // Checks if |page_object| contains transparency.
 //
 //   page_object - handle to a page object.
 //
 // Returns TRUE if |pageObject| contains transparency.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFPageObj_HasTransparency(FPDF_PAGEOBJECT page_object);
 
 // Get type of |page_object|.
@@ -155,7 +155,7 @@ FPDFPageObj_HasTransparency(FPDF_PAGEOBJECT page_object);
 //
 // Returns one of the FPDF_PAGEOBJ_* values on success, FPDF_PAGEOBJ_UNKNOWN on
 // error.
-DLLEXPORT int STDCALL FPDFPageObj_GetType(FPDF_PAGEOBJECT page_object);
+FPDF_EXPORT int FPDF_CALLCONV FPDFPageObj_GetType(FPDF_PAGEOBJECT page_object);
 
 // Transform |page_object| by the given matrix.
 //
@@ -171,7 +171,7 @@ DLLEXPORT int STDCALL FPDFPageObj_GetType(FPDF_PAGEOBJECT page_object);
 //   |a c e|
 //   |b d f|
 // and can be used to scale, rotate, shear and translate the |page_object|.
-DLLEXPORT void STDCALL FPDFPageObj_Transform(FPDF_PAGEOBJECT page_object,
+FPDF_EXPORT void FPDF_CALLCONV FPDFPageObj_Transform(FPDF_PAGEOBJECT page_object,
                                              double a,
                                              double b,
                                              double c,
@@ -193,7 +193,7 @@ DLLEXPORT void STDCALL FPDFPageObj_Transform(FPDF_PAGEOBJECT page_object,
 //   |a c e|
 //   |b d f|
 // and can be used to scale, rotate, shear and translate the |page| annotations.
-DLLEXPORT void STDCALL FPDFPage_TransformAnnots(FPDF_PAGE page,
+FPDF_EXPORT void FPDF_CALLCONV FPDFPage_TransformAnnots(FPDF_PAGE page,
                                                 double a,
                                                 double b,
                                                 double c,
@@ -206,7 +206,7 @@ DLLEXPORT void STDCALL FPDFPage_TransformAnnots(FPDF_PAGE page,
 //   document - handle to a document.
 //
 // Returns a handle to a new image object.
-DLLEXPORT FPDF_PAGEOBJECT STDCALL
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV
 FPDFPageObj_NewImageObj(FPDF_DOCUMENT document);
 
 // Load an image from a JPEG image file and then set it into |image_object|.
@@ -223,7 +223,7 @@ FPDFPageObj_NewImageObj(FPDF_DOCUMENT document);
 // for all the loaded pages. Pass |pages| and page count (|nCount|) to this API
 // to clear the image cache. If the image is not previously shared, or NULL is a
 // valid |pages| value.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFImageObj_LoadJpegFile(FPDF_PAGE* pages,
                           int nCount,
                           FPDF_PAGEOBJECT image_object,
@@ -245,7 +245,7 @@ FPDFImageObj_LoadJpegFile(FPDF_PAGE* pages,
 // valid |pages| value. This function loads the JPEG image inline, so the image
 // content is copied to the file. This allows |fileAccess| and its associated
 // data to be deleted after this function returns.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFImageObj_LoadJpegFileInline(FPDF_PAGE* pages,
                                 int nCount,
                                 FPDF_PAGEOBJECT image_object,
@@ -267,7 +267,7 @@ FPDFImageObj_LoadJpegFileInline(FPDF_PAGE* pages,
 // and can be used to scale, rotate, shear and translate the |page| annotations.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
                                                    double a,
                                                    double b,
                                                    double c,
@@ -283,7 +283,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
 //   bitmap       - handle of the bitmap.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    int nCount,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap);
@@ -294,7 +294,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
 //   y - initial vertical position.
 //
 // Returns a handle to a new path object.
-DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y);
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV FPDFPageObj_CreateNewPath(float x, float y);
 
 // Create a closed path consisting of a rectangle.
 //
@@ -304,7 +304,7 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewPath(float x, float y);
 //   h - height of the rectangle.
 //
 // Returns a handle to the new path object.
-DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV FPDFPageObj_CreateNewRect(float x,
                                                             float y,
                                                             float w,
                                                             float h);
@@ -318,7 +318,7 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_CreateNewRect(float x,
 // top          - pointer where the top coordinate will be stored
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPageObj_GetBounds(FPDF_PAGEOBJECT page_object,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPageObj_GetBounds(FPDF_PAGEOBJECT page_object,
                                                   float* left,
                                                   float* bottom,
                                                   float* right,
@@ -332,7 +332,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPageObj_GetBounds(FPDF_PAGEOBJECT page_object,
 // Blend mode can be one of following: Color, ColorBurn, ColorDodge, Darken,
 // Difference, Exclusion, HardLight, Hue, Lighten, Luminosity, Multiply, Normal,
 // Overlay, Saturation, Screen, SoftLight
-DLLEXPORT void STDCALL FPDFPageObj_SetBlendMode(FPDF_PAGEOBJECT page_object,
+FPDF_EXPORT void FPDF_CALLCONV FPDFPageObj_SetBlendMode(FPDF_PAGEOBJECT page_object,
                                                 FPDF_BYTESTRING blend_mode);
 
 // Set the stroke RGBA of a path. Range of values: 0 - 255.
@@ -344,7 +344,7 @@ DLLEXPORT void STDCALL FPDFPageObj_SetBlendMode(FPDF_PAGEOBJECT page_object,
 // A      - the stroke alpha for the path.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
                                                     unsigned int R,
                                                     unsigned int G,
                                                     unsigned int B,
@@ -359,7 +359,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeColor(FPDF_PAGEOBJECT path,
 // A      - the stroke alpha of the path.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
                                                     unsigned int* R,
                                                     unsigned int* G,
                                                     unsigned int* B,
@@ -371,7 +371,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetStrokeColor(FPDF_PAGEOBJECT path,
 // width  - the width of the stroke.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path,
                                                     float width);
 
 // Set the line join of |page_object|.
@@ -381,7 +381,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetStrokeWidth(FPDF_PAGEOBJECT path,
 //
 // Line join can be one of following: FPDF_LINEJOIN_MITER, FPDF_LINEJOIN_ROUND,
 // FPDF_LINEJOIN_BEVEL
-DLLEXPORT void STDCALL STDCALL FPDFPath_SetLineJoin(FPDF_PAGEOBJECT page_object,
+FPDF_EXPORT void FPDF_CALLCONV FPDF_CALLCONV FPDFPath_SetLineJoin(FPDF_PAGEOBJECT page_object,
                                                     int line_join);
 
 // Set the line cap of |page_object|.
@@ -391,7 +391,7 @@ DLLEXPORT void STDCALL STDCALL FPDFPath_SetLineJoin(FPDF_PAGEOBJECT page_object,
 //
 // Line cap can be one of following: FPDF_LINECAP_BUTT, FPDF_LINECAP_ROUND,
 // FPDF_LINECAP_PROJECTING_SQUARE
-DLLEXPORT void STDCALL FPDFPath_SetLineCap(FPDF_PAGEOBJECT page_object,
+FPDF_EXPORT void FPDF_CALLCONV FPDFPath_SetLineCap(FPDF_PAGEOBJECT page_object,
                                            int line_cap);
 
 // Set the fill RGBA of a path. Range of values: 0 - 255.
@@ -403,7 +403,7 @@ DLLEXPORT void STDCALL FPDFPath_SetLineCap(FPDF_PAGEOBJECT page_object,
 // A      - the fill alpha for the path.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
                                                   unsigned int R,
                                                   unsigned int G,
                                                   unsigned int B,
@@ -418,7 +418,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetFillColor(FPDF_PAGEOBJECT path,
 // A      - the fill alpha of the path.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
                                                   unsigned int* R,
                                                   unsigned int* G,
                                                   unsigned int* B,
@@ -434,7 +434,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
 // new one.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
                                             float x,
                                             float y);
 
@@ -447,7 +447,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
 // The path's current point is changed to (x, y).
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_LineTo(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_LineTo(FPDF_PAGEOBJECT path,
                                             float x,
                                             float y);
 
@@ -462,7 +462,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_LineTo(FPDF_PAGEOBJECT path,
 // y3     - the vertical position of the ending point of the Bezier curve.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
                                               float x1,
                                               float y1,
                                               float x2,
@@ -478,7 +478,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_BezierTo(FPDF_PAGEOBJECT path,
 // subpath, thus terminating the current subpath.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_Close(FPDF_PAGEOBJECT path);
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_Close(FPDF_PAGEOBJECT path);
 
 // Set the drawing mode of a path.
 //
@@ -488,7 +488,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_Close(FPDF_PAGEOBJECT path);
 // stroke   - a boolean specifying if the path should be stroked or not.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
                                                  int fillmode,
                                                  FPDF_BOOL stroke);
 
@@ -499,7 +499,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFPath_SetDrawMode(FPDF_PAGEOBJECT path,
 // font_size  - the font size for the new text object.
 //
 // Returns a handle to a new text object, or NULL on failure
-DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_NewTextObj(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV FPDFPageObj_NewTextObj(FPDF_DOCUMENT document,
                                                          FPDF_BYTESTRING font,
                                                          float font_size);
 
@@ -509,7 +509,7 @@ DLLEXPORT FPDF_PAGEOBJECT STDCALL FPDFPageObj_NewTextObj(FPDF_DOCUMENT document,
 // text         - the UTF-16LE encoded string containing the text to be added.
 //
 // Returns TRUE on success
-DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetText(FPDF_PAGEOBJECT text_object,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFText_SetText(FPDF_PAGEOBJECT text_object,
                                              FPDF_WIDESTRING text);
 
 // Returns a font object loaded from a stream of data. The font is loaded
@@ -525,7 +525,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetText(FPDF_PAGEOBJECT text_object,
 // The loaded font can be closed using FPDF_Font_Close.
 //
 // Returns NULL on failure
-DLLEXPORT FPDF_FONT STDCALL FPDFText_LoadFont(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_FONT FPDF_CALLCONV FPDFText_LoadFont(FPDF_DOCUMENT document,
                                               const uint8_t* data,
                                               uint32_t size,
                                               int font_type,
@@ -540,7 +540,7 @@ DLLEXPORT FPDF_FONT STDCALL FPDFText_LoadFont(FPDF_DOCUMENT document,
 // A            - the fill alpha for the path.
 //
 // Returns TRUE on success.
-DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetFillColor(FPDF_PAGEOBJECT text_object,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFText_SetFillColor(FPDF_PAGEOBJECT text_object,
                                                   unsigned int R,
                                                   unsigned int G,
                                                   unsigned int B,
@@ -549,7 +549,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFText_SetFillColor(FPDF_PAGEOBJECT text_object,
 // Close a loaded PDF font.
 //
 // font   - Handle to the loaded font.
-DLLEXPORT void STDCALL FPDFFont_Close(FPDF_FONT font);
+FPDF_EXPORT void FPDF_CALLCONV FPDFFont_Close(FPDF_FONT font);
 
 // Create a new text object using a loaded font.
 //
@@ -558,7 +558,7 @@ DLLEXPORT void STDCALL FPDFFont_Close(FPDF_FONT font);
 // font_size  - the font size for the new text object.
 //
 // Returns a handle to a new text object, or NULL on failure
-DLLEXPORT FPDF_PAGEOBJECT STDCALL
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV
 FPDFPageObj_CreateTextObj(FPDF_DOCUMENT document,
                           FPDF_FONT font,
                           float font_size);

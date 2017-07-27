@@ -45,7 +45,7 @@ bool LoadJpegHelper(FPDF_PAGE* pages,
 
 }  // namespace
 
-DLLEXPORT FPDF_PAGEOBJECT STDCALL
+FPDF_EXPORT FPDF_PAGEOBJECT FPDF_CALLCONV
 FPDFPageObj_NewImageObj(FPDF_DOCUMENT document) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -56,7 +56,7 @@ FPDFPageObj_NewImageObj(FPDF_DOCUMENT document) {
   return pImageObj.release();
 }
 
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFImageObj_LoadJpegFile(FPDF_PAGE* pages,
                           int nCount,
                           FPDF_PAGEOBJECT image_object,
@@ -64,7 +64,7 @@ FPDFImageObj_LoadJpegFile(FPDF_PAGE* pages,
   return LoadJpegHelper(pages, nCount, image_object, fileAccess, false);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFImageObj_LoadJpegFileInline(FPDF_PAGE* pages,
                                 int nCount,
                                 FPDF_PAGEOBJECT image_object,
@@ -72,7 +72,7 @@ FPDFImageObj_LoadJpegFileInline(FPDF_PAGE* pages,
   return LoadJpegHelper(pages, nCount, image_object, fileAccess, true);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
                                                    double a,
                                                    double b,
                                                    double c,
@@ -91,7 +91,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetMatrix(FPDF_PAGEOBJECT image_object,
   return true;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    int nCount,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap) {
