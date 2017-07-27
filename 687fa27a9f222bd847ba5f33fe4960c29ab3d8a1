@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4849076f_b986fb22",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 1,
+      "message": "CPDF_Parser specific logic",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a537f76_cf29f8e1",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 1,
+      "message": "I want to move the CPDF_Parser::ParseAndAppendCrossRefSubsectionData and CPDF_Parser::ParseCrossRefV4 into CPDF_SyntaxParser.\nI think, its are related to syntax of PDF.\nCan i do this?\nCan i do this in this CL?",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e52e1d71_44109f9b",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 1,
+      "message": "CPDF_Parser specific logic",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

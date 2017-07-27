@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5e532fb_8557d15d",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 0,
+      "message": "moved to ParseAndAppendCrossRefSubsectionData",
+      "revId": "e9af3798cbee81bc0093d4be024ecb6c2ea19bd9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1cef12_0bd73380",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 0,
+      "message": "Also just found perfomance problem (while finaly read my cl):\nm_ObjectInfo is map, and we search in it for same objnum again and again and again.\n\nBut my CL fix this problem.",
+      "revId": "e9af3798cbee81bc0093d4be024ecb6c2ea19bd9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3d57f4f_e81044f8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 0,
+      "message": "again",
+      "revId": "e9af3798cbee81bc0093d4be024ecb6c2ea19bd9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64b0449e_44821c3c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 0,
+      "message": "again ... etc.",
+      "revId": "e9af3798cbee81bc0093d4be024ecb6c2ea19bd9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beacaeca_f6aea201",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T16:23:49Z",
+      "side": 0,
+      "message": "moved to ParseAndAppendCrossRefSubsectionData",
+      "revId": "e9af3798cbee81bc0093d4be024ecb6c2ea19bd9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
