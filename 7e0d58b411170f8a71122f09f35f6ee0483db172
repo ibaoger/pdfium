@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "632f0e5e_886690cb",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3520,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T13:56:16Z",
+      "side": 0,
+      "message": "Did we check that this was safe to do? szHTMLString is a ByteStringC which means it maybe unterminated, does FromUTF8 use the unterminated_c_str() call?",
+      "revId": "7e0d58b411170f8a71122f09f35f6ee0483db172",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
