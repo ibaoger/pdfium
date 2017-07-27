@@ -237,6 +237,40 @@
     },
     {
       "key": {
+        "uuid": "468ffdc0_f991bdcb",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "Could we change NextToken and Check to return true/false and have them return HasError() then all these become\n\nif (!NextToken())\n  return nullptr\n\nif (!Check(TOKdo))\n  return nullptr",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b06a5ff5_4e65347a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "Redundant",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "987c4562_66ceeaab",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
         "patchSetId": 3
@@ -284,6 +318,23 @@
     },
     {
       "key": {
+        "uuid": "4e0091b1_46c4ed6f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "Redundant?",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0bb3d7c_70b27ffc",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
         "patchSetId": 3
@@ -328,6 +379,125 @@
       "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0710c4c_a4a04432",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "Move up to just after 248?",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c1c72f_ce236a89",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9230f4bb_044c4d65",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b7630a5_21a63084",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "ditto: (in general, blank line after a no-brace line, unless it\u0027s a series of if()\u0027s",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab1e43ad_04251c49",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "nit: No need for else after return.",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86518aac_dcd4273e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "Redundant?",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9159008_5086ef3d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparse.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T17:52:22Z",
+      "side": 1,
+      "message": "nit: no need for else after return",
+      "revId": "9051e789a186db7f5384df164fcb80e8106868f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     },
     {
       "key": {
