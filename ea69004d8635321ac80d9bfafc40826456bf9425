@@ -22,6 +22,30 @@
       "revId": "ea69004d8635321ac80d9bfafc40826456bf9425",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e09b3fc_8abe47cb",
+        "filename": "core/fpdfapi/font/cpdf_simplefont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-07-27T20:38:45Z",
+      "side": 1,
+      "message": "I hadn\u0027t thought of that, I agree using Right for this style of call is better. \n\nI know there are existing calls to Mid in the code base that use this pattern, so I would prefer to write a follow up CL where I go through and replace all of the Mid(offset, length - offset) with Right(length - offset).",
+      "parentUuid": "18fe2b75_ef099f99",
+      "range": {
+        "startLine": 133,
+        "startChar": 34,
+        "endLine": 133,
+        "endChar": 65
+      },
+      "revId": "ea69004d8635321ac80d9bfafc40826456bf9425",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
