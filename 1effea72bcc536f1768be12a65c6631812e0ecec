@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2938d744_84859783",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmlexer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:53:17Z",
+      "side": 1,
+      "message": "Can we put this on the Token class itself?",
+      "revId": "1effea72bcc536f1768be12a65c6631812e0ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
