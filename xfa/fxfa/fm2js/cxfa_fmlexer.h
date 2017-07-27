@@ -95,6 +95,9 @@ class CXFA_FMToken {
   explicit CXFA_FMToken(uint32_t line_num);
   ~CXFA_FMToken();
 
+  // Provided for debugging
+  CFX_WideString ToString();
+
   CFX_WideStringC m_string;
   XFA_FM_TOKEN m_type;
   uint32_t m_line_num;
