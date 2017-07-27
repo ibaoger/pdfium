@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "755b167e_82bf4fb3",
+        "filename": "core/fxge/win32/fx_win32_device.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T06:59:38Z",
+      "side": 1,
+      "message": "So ya, if you are here, then it\u0027s all GDI-ish rendering code. (origin is top-left / y-axis runs downwards.) Passing values from a CFX_FloatRect feels weird.",
+      "revId": "7fb7797410b0988347280517afb96b6988b8001d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
