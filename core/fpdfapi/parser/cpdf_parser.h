@@ -143,6 +143,11 @@ class CPDF_Parser {
     kEndObj
   };
 
+  struct CrossRefObjData {
+    uint32_t obj_num = 0;
+    ObjectInfo info;
+  };
+
   CPDF_Object* ParseDirect(CPDF_Object* pObj);
   bool LoadAllCrossRefV4(FX_FILESIZE pos);
   bool LoadAllCrossRefV5(FX_FILESIZE pos);
@@ -163,6 +168,13 @@ class CPDF_Parser {
   // A simple check whether the cross reference table matches with
   // the objects.
   bool VerifyCrossRefV4();
+
+  bool ParseAndAppendCrossRefSubsectionData(
+      int start_objnum,
+      int count,
+      std::vector<CrossRefObjData>* out_objects);
+  bool ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
+                       uint32_t* start_obj_num_at_last_block);
 
   CFX_UnownedPtr<CPDF_Document> m_pDocument;
   bool m_bHasParsed;
