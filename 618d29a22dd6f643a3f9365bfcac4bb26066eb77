@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68280ecf_1a45c4e3",
+        "filename": "fpdfsdk/fpdf_dataavail.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T11:14:22Z",
+      "side": 1,
+      "message": "Please review this changes:\nthe lifetime of m_pDataAvail should be more, that m_FileAvai, because m_pDataAvail contains raw pointer to m_FileAvail. \nBTW: Detected by ASAN, because i have added CFX_UnownedPtr\u003cCPDF_DataAvail::FileAvail\u003e file_avail_ into CPDF_ReadValidator, and CPDF_DataAvail::FileAvail was not wrapped by CFX_UnownedPtr before, anywhere.",
+      "revId": "618d29a22dd6f643a3f9365bfcac4bb26066eb77",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

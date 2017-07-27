@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecf16b51_e5a75135",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-27T11:14:22Z",
+      "side": 1,
+      "message": "And this too.\nBecause the document and cpdf_avail use same reader (Validator in this case with CPDF_DataAvail::FileAvail \"CFX_UnownedPtr\" pointer.) \nWe should destroy doc first (when CPDF_DataAvail::m_FileAvail is still valid)\nBTW: Detected by ASAN.",
+      "revId": "ffea2fa4ec1d032efa4dc39fb8913e93089db315",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
