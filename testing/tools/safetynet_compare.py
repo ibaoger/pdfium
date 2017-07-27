@@ -10,6 +10,7 @@ Must be run from the pdfium source root dir.
 
 import argparse
 import functools
+import glob
 import json
 import multiprocessing
 import os
@@ -24,6 +25,11 @@ from safetynet_conclusions import ComparisonConclusions
 from safetynet_conclusions import PrintConclusionsDictHumanReadable
 from safetynet_conclusions import RATING_IMPROVEMENT
 from safetynet_conclusions import RATING_REGRESSION
+from safetynet_image import ImageComparison
+
+
+# Indicates same dir as a test file
+SAME_DIR = 'SAME_DIR'
 
 
 def PrintErr(s):
@@ -108,6 +114,13 @@ class CompareRun(object):
     self._PrintConclusions(conclusions_dict)
 
     self._CleanUp(conclusions)
+
+    if self.args.png_dir and self.args.png_dir != SAME_DIR:
+      image_comparison = ImageComparison(
+          self.after_build_dir, self.test_cases, self.args.png_dir,
+          ('before', 'after'), self.args.num_workers,
+          self.args.png_threshold)
+      image_comparison.Run()
 
     return 0
 
@@ -481,6 +494,12 @@ class CompareRun(object):
     if profile_file_path:
       command.append('--output-path=%s' % profile_file_path)
 
+    if self.args.png_dir:
+      command.append('--png')
+
+    if self.args.pages:
+      command.extend(['--pages', self.args.pages])
+
     try:
       output = subprocess.check_output(command)
     except subprocess.CalledProcessError as e:
@@ -490,12 +509,30 @@ class CompareRun(object):
       PrintErr(80 * '=')
       return None
 
+    if self.args.png_dir and self.args.png_dir != SAME_DIR:
+      self._MoveImages(test_case, run_label)
+
     # Get the time number as output, making sure it's just a number
     output = output.strip()
     if re.match('^[0-9]+$', output):
       return int(output)
 
     return None
+
+  def _MoveImages(self, test_case, run_label):
+    png_dir = os.path.join(self.args.png_dir, run_label)
+    if not os.path.exists(png_dir):
+      os.makedirs(png_dir)
+
+    test_case_dir, test_case_filename = os.path.split(test_case)
+    test_case_png_matcher = '%s.*.png' % test_case_filename
+    for output_png in glob.glob(os.path.join(test_case_dir,
+                                             test_case_png_matcher)):
+      try:
+        shutil.copy(output_png, png_dir)
+        os.remove(output_png)
+      except e:
+        print e
 
   def _GetProfileFilePath(self, run_label, test_case):
     if self.args.output_dir:
@@ -620,10 +657,23 @@ def main():
                            'the whole test harness. Limiting to only the '
                            'interesting section does not work on Release since '
                            'the delimiters are optimized out')
+  parser.add_argument('--pages',
+                      help='selects some pages to be rendered. First page is '
+                           '0. "--pages N" will render the first N pages. '
+                           '--pages A-B will render pages A to B (inclusive).')
   parser.add_argument('--num-workers', default=multiprocessing.cpu_count(),
                       type=int, help='run NUM_WORKERS jobs in parallel')
   parser.add_argument('--output-dir',
                       help='directory to write the profile data output files')
+  parser.add_argument('--png-dir', default=None,
+                      help='outputs pngs to the specified directory that can '
+                           'be compared with a static html generated. Will '
+                           'affect performance measurements. '
+                           'To output pngs beside their corresponding pdf '
+                           'file, pass "--png-dir=SAME_DIR".')
+  parser.add_argument('--png-threshold', default=0.0, type=float,
+                      help='Requires --png-dir. Threshold above which a png '
+                           'is considered to have changed.')
   parser.add_argument('--threshold-significant', default=0.02, type=float,
                       help='variations in performance above this factor are '
                            'considered significant')
@@ -660,9 +710,31 @@ def main():
       PrintErr('"%s" is not a directory' % args.output_dir)
       return 1
 
+  if args.png_dir:
+    args.png_dir = os.path.expanduser(args.png_dir)
+    if not os.path.isdir(args.png_dir) and args.png_dir != SAME_DIR:
+      PrintErr('"%s" is not a directory' % args.png_dir)
+      return 1
+
   if args.threshold_significant <= 0.0:
     PrintErr('--threshold-significant should receive a positive float')
     return 1
+
+  if args.png_threshold:
+    if not args.png_dir:
+      PrintErr('--png-threshold requires --png-dir to be specified.')
+      return 1
+
+    if args.png_threshold <= 0.0:
+      PrintErr('--png-threshold should receive a positive float')
+      return 1
+
+  # Validate args.pages
+  if args.pages:
+    if not re.match(r'^\d+(-\d+)?$', args.pages):
+      PrintErr('Supported formats for --pages are "--pages 7" and '
+               '"--pages 3-6"')
+      return 1
 
   run = CompareRun(args)
   return run.Run()
