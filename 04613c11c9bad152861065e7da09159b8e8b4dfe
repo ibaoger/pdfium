@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3a5a5781_46193d77",
+        "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T20:58:38Z",
+      "side": 1,
+      "message": "https://crbug.com/pdfium/840",
+      "parentUuid": "fa7af04c_b2846fe5",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28c51dc3_f1404207",
         "filename": "fpdfsdk/cpdfsdk_xfawidgethandler.cpp",
         "patchSetId": 3
