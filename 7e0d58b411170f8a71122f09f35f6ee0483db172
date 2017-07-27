@@ -16,6 +16,24 @@
       "revId": "7e0d58b411170f8a71122f09f35f6ee0483db172",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27318c90_63183307",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3520,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T14:30:23Z",
+      "side": 0,
+      "message": "It is hard to determine if the string received is unterminated or not, but the current code seems to assume it is null-terminated, while the new version does not.\n\nBefore, we were converting szHTMLString (a CFX_ByteStringC) to CFX_ByteString ignoring its length, then decoding from UTF8 (yes, FromUTF8 looks at GetLength). Now we are using the length that was in szHTMLString and not relying on it being null-terminated.\n\nThe scenario in which the new code is not correct is if this code relies on the string being null-terminated at some point that is not marked by its length (before or after). The caller tree is deep, but what I could find, szHTMLString does not take anything of the sort.",
+      "parentUuid": "632f0e5e_886690cb",
+      "revId": "7e0d58b411170f8a71122f09f35f6ee0483db172",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
