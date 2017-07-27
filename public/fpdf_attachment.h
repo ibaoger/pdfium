@@ -18,7 +18,7 @@ extern "C" {
 //   document - handle to a document.
 //
 // Returns the number of embedded files in |document|.
-DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
+FPDF_EXPORT int FPDF_CALLCONV FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 
 // Experimental API.
 // Add an embedded file with |name| in |document|. If |name| is empty, or if
@@ -30,8 +30,8 @@ DLLEXPORT int STDCALL FPDFDoc_GetAttachmentCount(FPDF_DOCUMENT document);
 //   name     - name of the new attachment.
 //
 // Returns a handle to the new attachment object, or NULL on failure.
-DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
-                                                        FPDF_WIDESTRING name);
+FPDF_EXPORT FPDF_ATTACHMENT FPDF_CALLCONV FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
+                                                FPDF_WIDESTRING name);
 
 // Experimental API.
 // Get the embedded attachment at |index| in |document|. Note that the returned
@@ -41,7 +41,7 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_AddAttachment(FPDF_DOCUMENT document,
 //   index    - the index of the requested embedded file.
 //
 // Returns the handle to the attachment object, or NULL on failure.
-DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_ATTACHMENT FPDF_CALLCONV FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
                                                         int index);
 
 // Experimental API.
@@ -54,7 +54,7 @@ DLLEXPORT FPDF_ATTACHMENT STDCALL FPDFDoc_GetAttachment(FPDF_DOCUMENT document,
 //   index    - the index of the embedded file to be deleted.
 //
 // Returns true if successful.
-DLLEXPORT FPDF_BOOL STDCALL FPDFDoc_DeleteAttachment(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFDoc_DeleteAttachment(FPDF_DOCUMENT document,
                                                      int index);
 
 // Experimental API.
@@ -67,7 +67,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFDoc_DeleteAttachment(FPDF_DOCUMENT document,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file name.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);
@@ -79,7 +79,7 @@ FPDFAttachment_GetName(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns true if |key| exists.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
                                                   FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -90,7 +90,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_HasKey(FPDF_ATTACHMENT attachment,
 //   key        - the key to look for.
 //
 // Returns the type of the dictionary value.
-DLLEXPORT FPDF_OBJECT_TYPE STDCALL
+FPDF_EXPORT FPDF_OBJECT_TYPE FPDF_CALLCONV
 FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 
 // Experimental API.
@@ -103,7 +103,7 @@ FPDFAttachment_GetValueType(FPDF_ATTACHMENT attachment, FPDF_WIDESTRING key);
 //   value      - the string value to be set, encoded in UTF16-LE.
 //
 // Returns true if successful.
-DLLEXPORT FPDF_BOOL STDCALL
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFAttachment_SetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               FPDF_WIDESTRING value);
@@ -124,7 +124,7 @@ FPDFAttachment_SetStringValue(FPDF_ATTACHMENT attachment,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the dictionary value string.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
                               FPDF_WIDESTRING key,
                               void* buffer,
@@ -141,10 +141,10 @@ FPDFAttachment_GetStringValue(FPDF_ATTACHMENT attachment,
 //   len        - length of file data.
 //
 // Returns true if successful.
-DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
-                                                   FPDF_DOCUMENT document,
-                                                   const void* contents,
-                                                   const unsigned long len);
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
+                                           FPDF_DOCUMENT document,
+                                           const void* contents,
+                                           const unsigned long len);
 
 // Experimental API.
 // Get the file data of |attachment|. |buffer| is only modified if |buflen| is
@@ -156,7 +156,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAttachment_SetFile(FPDF_ATTACHMENT attachment,
 //   buflen     - length of the buffer.
 //
 // Returns the length of the file.
-DLLEXPORT unsigned long STDCALL
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFAttachment_GetFile(FPDF_ATTACHMENT attachment,
                        void* buffer,
                        unsigned long buflen);

@@ -62,7 +62,7 @@ CPDF_LinkList* GetLinkList(CPDF_Page* page) {
 
 }  // namespace
 
-DLLEXPORT FPDF_BOOKMARK STDCALL
+FPDF_EXPORT FPDF_BOOKMARK FPDF_CALLCONV
 FPDFBookmark_GetFirstChild(FPDF_DOCUMENT document, FPDF_BOOKMARK pDict) {
   CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -73,7 +73,7 @@ FPDFBookmark_GetFirstChild(FPDF_DOCUMENT document, FPDF_BOOKMARK pDict) {
   return tree.GetFirstChild(bookmark).GetDict();
 }
 
-DLLEXPORT FPDF_BOOKMARK STDCALL
+FPDF_EXPORT FPDF_BOOKMARK FPDF_CALLCONV
 FPDFBookmark_GetNextSibling(FPDF_DOCUMENT document, FPDF_BOOKMARK pDict) {
   if (!pDict)
     return nullptr;
@@ -86,7 +86,7 @@ FPDFBookmark_GetNextSibling(FPDF_DOCUMENT document, FPDF_BOOKMARK pDict) {
   return tree.GetNextSibling(bookmark).GetDict();
 }
 
-DLLEXPORT unsigned long STDCALL FPDFBookmark_GetTitle(FPDF_BOOKMARK pDict,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDFBookmark_GetTitle(FPDF_BOOKMARK pDict,
                                                       void* buffer,
                                                       unsigned long buflen) {
   if (!pDict)
@@ -96,7 +96,7 @@ DLLEXPORT unsigned long STDCALL FPDFBookmark_GetTitle(FPDF_BOOKMARK pDict,
   return Utf16EncodeMaybeCopyAndReturnLength(title, buffer, buflen);
 }
 
-DLLEXPORT FPDF_BOOKMARK STDCALL FPDFBookmark_Find(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOKMARK FPDF_CALLCONV FPDFBookmark_Find(FPDF_DOCUMENT document,
                                                   FPDF_WIDESTRING title) {
   if (!title || title[0] == 0)
     return nullptr;
@@ -110,7 +110,7 @@ DLLEXPORT FPDF_BOOKMARK STDCALL FPDFBookmark_Find(FPDF_DOCUMENT document,
   return FindBookmark(tree, CPDF_Bookmark(), encodedTitle, &visited).GetDict();
 }
 
-DLLEXPORT FPDF_DEST STDCALL FPDFBookmark_GetDest(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDFBookmark_GetDest(FPDF_DOCUMENT document,
                                                  FPDF_BOOKMARK pDict) {
   if (!pDict)
     return nullptr;
@@ -129,14 +129,14 @@ DLLEXPORT FPDF_DEST STDCALL FPDFBookmark_GetDest(FPDF_DOCUMENT document,
   return action.GetDest(pDoc).GetObject();
 }
 
-DLLEXPORT FPDF_ACTION STDCALL FPDFBookmark_GetAction(FPDF_BOOKMARK pDict) {
+FPDF_EXPORT FPDF_ACTION FPDF_CALLCONV FPDFBookmark_GetAction(FPDF_BOOKMARK pDict) {
   if (!pDict)
     return nullptr;
   CPDF_Bookmark bookmark(ToDictionary(static_cast<CPDF_Object*>(pDict)));
   return bookmark.GetAction().GetDict();
 }
 
-DLLEXPORT unsigned long STDCALL FPDFAction_GetType(FPDF_ACTION pDict) {
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDFAction_GetType(FPDF_ACTION pDict) {
   if (!pDict)
     return PDFACTION_UNSUPPORTED;
 
@@ -156,7 +156,7 @@ DLLEXPORT unsigned long STDCALL FPDFAction_GetType(FPDF_ACTION pDict) {
   }
 }
 
-DLLEXPORT FPDF_DEST STDCALL FPDFAction_GetDest(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDFAction_GetDest(FPDF_DOCUMENT document,
                                                FPDF_ACTION pDict) {
   if (!pDict)
     return nullptr;
@@ -167,7 +167,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDFAction_GetDest(FPDF_DOCUMENT document,
   return action.GetDest(pDoc).GetObject();
 }
 
-DLLEXPORT unsigned long STDCALL FPDFAction_GetFilePath(FPDF_ACTION pDict,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDFAction_GetFilePath(FPDF_ACTION pDict,
                                                        void* buffer,
                                                        unsigned long buflen) {
   unsigned long type = FPDFAction_GetType(pDict);
@@ -182,7 +182,7 @@ DLLEXPORT unsigned long STDCALL FPDFAction_GetFilePath(FPDF_ACTION pDict,
   return len;
 }
 
-DLLEXPORT unsigned long STDCALL FPDFAction_GetURIPath(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDFAction_GetURIPath(FPDF_DOCUMENT document,
                                                       FPDF_ACTION pDict,
                                                       void* buffer,
                                                       unsigned long buflen) {
@@ -199,7 +199,7 @@ DLLEXPORT unsigned long STDCALL FPDFAction_GetURIPath(FPDF_DOCUMENT document,
   return len;
 }
 
-DLLEXPORT unsigned long STDCALL FPDFDest_GetPageIndex(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDFDest_GetPageIndex(FPDF_DOCUMENT document,
                                                       FPDF_DEST pDict) {
   if (!pDict)
     return 0;
@@ -210,7 +210,7 @@ DLLEXPORT unsigned long STDCALL FPDFDest_GetPageIndex(FPDF_DOCUMENT document,
   return dest.GetPageIndex(pDoc);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFDest_GetLocationInPage(FPDF_DEST pDict,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFDest_GetLocationInPage(FPDF_DEST pDict,
                                                        FPDF_BOOL* hasXVal,
                                                        FPDF_BOOL* hasYVal,
                                                        FPDF_BOOL* hasZoomVal,
@@ -235,7 +235,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFDest_GetLocationInPage(FPDF_DEST pDict,
   return true;
 }
 
-DLLEXPORT FPDF_LINK STDCALL FPDFLink_GetLinkAtPoint(FPDF_PAGE page,
+FPDF_EXPORT FPDF_LINK FPDF_CALLCONV FPDFLink_GetLinkAtPoint(FPDF_PAGE page,
                                                     double x,
                                                     double y) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
@@ -253,7 +253,7 @@ DLLEXPORT FPDF_LINK STDCALL FPDFLink_GetLinkAtPoint(FPDF_PAGE page,
       .GetDict();
 }
 
-DLLEXPORT int STDCALL FPDFLink_GetLinkZOrderAtPoint(FPDF_PAGE page,
+FPDF_EXPORT int FPDF_CALLCONV FPDFLink_GetLinkZOrderAtPoint(FPDF_PAGE page,
                                                     double x,
                                                     double y) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
@@ -271,7 +271,7 @@ DLLEXPORT int STDCALL FPDFLink_GetLinkZOrderAtPoint(FPDF_PAGE page,
   return z_order;
 }
 
-DLLEXPORT FPDF_DEST STDCALL FPDFLink_GetDest(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDFLink_GetDest(FPDF_DOCUMENT document,
                                              FPDF_LINK pDict) {
   if (!pDict)
     return nullptr;
@@ -289,7 +289,7 @@ DLLEXPORT FPDF_DEST STDCALL FPDFLink_GetDest(FPDF_DOCUMENT document,
   return action.GetDest(pDoc).GetObject();
 }
 
-DLLEXPORT FPDF_ACTION STDCALL FPDFLink_GetAction(FPDF_LINK pDict) {
+FPDF_EXPORT FPDF_ACTION FPDF_CALLCONV FPDFLink_GetAction(FPDF_LINK pDict) {
   if (!pDict)
     return nullptr;
 
@@ -297,7 +297,7 @@ DLLEXPORT FPDF_ACTION STDCALL FPDFLink_GetAction(FPDF_LINK pDict) {
   return link.GetAction().GetDict();
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFLink_Enumerate(FPDF_PAGE page,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFLink_Enumerate(FPDF_PAGE page,
                                                int* startPos,
                                                FPDF_LINK* linkAnnot) {
   if (!startPos || !linkAnnot)
@@ -322,7 +322,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFLink_Enumerate(FPDF_PAGE page,
   return false;
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFLink_GetAnnotRect(FPDF_LINK linkAnnot,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFLink_GetAnnotRect(FPDF_LINK linkAnnot,
                                                   FS_RECTF* rect) {
   if (!linkAnnot || !rect)
     return false;
@@ -336,7 +336,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFLink_GetAnnotRect(FPDF_LINK linkAnnot,
   return true;
 }
 
-DLLEXPORT int STDCALL FPDFLink_CountQuadPoints(FPDF_LINK linkAnnot) {
+FPDF_EXPORT int FPDF_CALLCONV FPDFLink_CountQuadPoints(FPDF_LINK linkAnnot) {
   if (!linkAnnot)
     return 0;
   CPDF_Dictionary* pAnnotDict =
@@ -347,7 +347,7 @@ DLLEXPORT int STDCALL FPDFLink_CountQuadPoints(FPDF_LINK linkAnnot) {
   return static_cast<int>(pArray->GetCount() / 8);
 }
 
-DLLEXPORT FPDF_BOOL STDCALL FPDFLink_GetQuadPoints(FPDF_LINK linkAnnot,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFLink_GetQuadPoints(FPDF_LINK linkAnnot,
                                                    int quadIndex,
                                                    FS_QUADPOINTSF* quadPoints) {
   if (!linkAnnot || !quadPoints)
@@ -375,7 +375,7 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFLink_GetQuadPoints(FPDF_LINK linkAnnot,
   return true;
 }
 
-DLLEXPORT unsigned long STDCALL FPDF_GetMetaText(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetMetaText(FPDF_DOCUMENT document,
                                                  FPDF_BYTESTRING tag,
                                                  void* buffer,
                                                  unsigned long buflen) {
@@ -392,7 +392,7 @@ DLLEXPORT unsigned long STDCALL FPDF_GetMetaText(FPDF_DOCUMENT document,
   return Utf16EncodeMaybeCopyAndReturnLength(text, buffer, buflen);
 }
 
-DLLEXPORT unsigned long STDCALL FPDF_GetPageLabel(FPDF_DOCUMENT document,
+FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetPageLabel(FPDF_DOCUMENT document,
                                                   int page_index,
                                                   void* buffer,
                                                   unsigned long buflen) {
