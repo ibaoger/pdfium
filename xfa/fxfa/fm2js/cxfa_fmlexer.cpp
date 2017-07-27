@@ -111,12 +111,6 @@ XFA_FM_TOKEN TokenizeIdentifier(const CFX_WideStringC& str) {
 
 }  // namespace
 
-const wchar_t* XFA_FM_KeywordToString(XFA_FM_TOKEN op) {
-  if (op < KEYWORD_START || op > KEYWORD_END)
-    return L"";
-  return keyWords[op].m_keyword;
-}
-
 CXFA_FMToken::CXFA_FMToken() : m_type(TOKreserver), m_line_num(1) {}
 
 CXFA_FMToken::CXFA_FMToken(uint32_t line_num)
