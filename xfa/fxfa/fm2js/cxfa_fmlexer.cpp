@@ -15,7 +15,7 @@
 namespace {
 
 bool IsFormCalcCharacter(wchar_t c) {
-  return c == 0 || (c >= 0x09 && c <= 0x0D) || (c >= 0x20 && c <= 0xd7FF) ||
+  return (c >= 0x09 && c <= 0x0D) || (c >= 0x20 && c <= 0xd7FF) ||
          (c >= 0xE000 && c <= 0xFFFD);
 }
 
@@ -28,6 +28,13 @@ bool IsInitialIdentifierCharacter(wchar_t c) {
   return u_isalpha(c) || c == 0x005F ||  // '_'
          c == 0x0024 ||                  // '$'
          c == 0x0021;                    // '!'
+}
+
+bool IsWhitespaceCharacter(wchar_t c) {
+  return c == 0x0009 ||  // Horizontal tab
+         c == 0x000B ||  // Vertical tab
+         c == 0x000C ||  // Form feed
+         c == 0x0020;    // Space
 }
 
 const XFA_FMKeyword keyWords[] = {
@@ -168,23 +175,21 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::NextToken() {
     }
 
     switch (*m_cursor) {
-      case 0x0A:
+      case '\n':
         ++m_current_line;
         m_token->m_line_num = m_current_line;
         ++m_cursor;
         break;
-      case 0x0D:
+      case '\r':
         ++m_cursor;
         break;
-      case ';': {
+      case ';':
         AdvanceForComment();
         break;
-      }
-      case '"': {
+      case '"':
         m_token->m_type = TOKstring;
         AdvanceForString();
         return std::move(m_token);
-      }
       case '0':
       case '1':
       case '2':
@@ -194,11 +199,10 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::NextToken() {
       case '6':
       case '7':
       case '8':
-      case '9': {
+      case '9':
         m_token->m_type = TOKnumber;
         AdvanceForNumber();
         return std::move(m_token);
-      }
       case '=':
         ++m_cursor;
         if (m_cursor > m_end) {
@@ -343,20 +347,19 @@ std::unique_ptr<CXFA_FMToken> CXFA_FMLexer::NextToken() {
           m_token->m_type = TOKdot;
         }
         return std::move(m_token);
-      case 0x09:
-      case 0x0B:
-      case 0x0C:
-      case 0x20:
         ++m_cursor;
         break;
-      default: {
+      default:
+        if (IsWhitespaceCharacter(*m_cursor)) {
+          ++m_cursor;
+          break;
+        }
         if (!IsInitialIdentifierCharacter(*m_cursor)) {
           RaiseError();
           return nullptr;
         }
         AdvanceForIdentifier();
         return std::move(m_token);
-      }
     }
   }
 
