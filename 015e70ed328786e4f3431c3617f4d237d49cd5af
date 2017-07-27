@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "983e5fe9_52010c38",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0792ebdd_37d9410e",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9656e267_077fd473",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c71201e_4e6464df",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9656e267_077fd473",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2121b271_fb3ceeb1",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3159,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a85059dd_684dad4a",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60262303_d9059697",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 7
@@ -67,6 +121,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92ef3605_4cf35b3c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3316,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done. I thought there was a reason - cleanup for reusing a buffer or something, but looks it it was just leftover from some version when we cleared an external buffer.",
+      "parentUuid": "60262303_d9059697",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f84a024e_4d33dfbd",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3392,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcd6d161_5d17b014",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09079daa_c5851c20",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 7
@@ -101,6 +191,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f53593_60c57a33",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3414,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09079daa_c5851c20",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "a2bb55e0_0474edac",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4009,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7507d0d3_7012d1bc",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b2e6a5a_620a900e",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 7
@@ -135,6 +261,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3029438e_b010e53b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4258,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Surprisingly, if we make this change the only build breakages are some lines in BC_QRCoderEncoder.cpp that compare byteString[i] to constants \u003e 127, since char is signed. GetAt() and [] are used in many, many places though, we\u0027d need to go through all and make sure that wouldn\u0027t cause other overloads to be called (like ostream \u003c\u003c).",
+      "parentUuid": "9b2e6a5a_620a900e",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "7480ccef_36889a7b",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4408,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f49bef7_16ee0652",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b63662c_60c54762",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 7
@@ -169,6 +331,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe3fbb0_07af7517",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4409,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b63662c_60c54762",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "57c79dd7_84206f95",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96fe6e77_05dd69b0",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bca6bdd_1ac2f15c",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.h",
         "patchSetId": 7
@@ -203,6 +401,24 @@
       "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d19493c_9a696647",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-07-27T15:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bca6bdd_1ac2f15c",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
