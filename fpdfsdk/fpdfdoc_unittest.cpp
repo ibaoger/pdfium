@@ -93,6 +93,7 @@ class PDFDocTest : public testing::Test {
 
 TEST_F(PDFDocTest, FindBookmark) {
   {
+    ASSERT(sizeof(void*) == 8);
     // No bookmark information.
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"");
