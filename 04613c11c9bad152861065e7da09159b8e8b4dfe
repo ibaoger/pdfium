@@ -352,6 +352,24 @@
     },
     {
       "key": {
+        "uuid": "a8052419_bd824d83",
+        "filename": "fpdfsdk/pdfwindow/cpwl_edit_ctrl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-27T18:23:47Z",
+      "side": 1,
+      "message": "Filed a bug - https://bugs.chromium.org/p/pdfium/issues/detail?id\u003d838.",
+      "parentUuid": "1bb1d799_9c54f321",
+      "revId": "04613c11c9bad152861065e7da09159b8e8b4dfe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2441b305_f35b1138",
         "filename": "fpdfsdk/pdfwindow/cpwl_wnd.cpp",
         "patchSetId": 3

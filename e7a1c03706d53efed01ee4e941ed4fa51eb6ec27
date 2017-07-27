@@ -16,6 +16,24 @@
       "revId": "e7a1c03706d53efed01ee4e941ed4fa51eb6ec27",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be286d21_7889d5e7",
+        "filename": "fpdfsdk/fpdfformfill.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-27T18:23:47Z",
+      "side": 1,
+      "message": "If there\u0027s selection, then yes. But if InsertText() is called with an empty string and there\u0027s no selection then it\u0027s not going to delete any text. Do you think I should try to do something to address this? I could call FORM_GetSelectedText() to check if there\u0027s text selection, and if so and wsText \u003d\u003d empty string, I could call FORM_DeleteSelectedText() instead.",
+      "parentUuid": "d3e64f4f_608c81fc",
+      "revId": "e7a1c03706d53efed01ee4e941ed4fa51eb6ec27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
