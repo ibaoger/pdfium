@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13d5618a_7d59a46d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T20:13:32Z",
+      "side": 1,
+      "message": "nit; can the break; be moved inside the }\u0027s (and the one below as well.",
+      "revId": "477103c41932284fc53d3db7b1ec5daf56dec933",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
