@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffa430e5_30899819",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "For CPDF_ReadValidator, it\u0027s only created if there\u0027s an IFX_SeekableReadStream. Whereas HintsAssigner is always created, and internally checks if there is a CPDF_ReadValidator. Why bother creating the HintsAssigner if there is no validator?",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "920d810a_431fbbd1",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "This read as \"If there are no problems, set the status to error.\" Is this intentional?",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16344a07_7a68b635",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "Why does HintsAssigner need to be an inner class of CPDF_DataAvail? Can it just live as a class in an anonymous namespace inside core/fpdfapi/parser/cpdf_data_avail.cpp?",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27a8f99a_f2b96ff2",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "style: Add a blank line below to separate system headers from the rest.",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff828eac_c23d3bc7",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "None of these are needed, since there\u0027s no \"std::\" in this file.",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef0b62e_20485902",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "Not needed.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b4000f_87589f46",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator_unittest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-27T04:49:05Z",
+      "side": 1,
+      "message": "Can this return a const ref?",
+      "revId": "728f244a8c28e91b9a852802a08536eab075290e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
