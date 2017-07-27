@@ -89,6 +89,9 @@ struct XFA_FMKeyword {
   const wchar_t* m_keyword;
 };
 
+// Provided to help with debugging.
+const char* XFA_FM_TokenToString(XFA_FM_TOKEN tok);
+
 const wchar_t* XFA_FM_KeywordToString(XFA_FM_TOKEN op);
 
 class CXFA_FMToken {

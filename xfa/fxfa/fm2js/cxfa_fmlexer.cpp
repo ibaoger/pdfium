@@ -95,6 +95,32 @@ const XFA_FMKeyword keyWords[] = {
 const XFA_FM_TOKEN KEYWORD_START = TOKdo;
 const XFA_FM_TOKEN KEYWORD_END = TOKendif;
 
+const char* tokenStrings[] = {
+    "TOKand",        "TOKlparen",     "TOKrparen",   "TOKmul",
+    "TOKplus",       "TOKcomma",      "TOKminus",    "TOKdot",
+    "TOKdiv",        "TOKlt",         "TOKassign",   "TOKgt",
+    "TOKlbracket",   "TOKrbracket",   "TOKor",       "TOKdotscream",
+    "TOKdotstar",    "TOKdotdot",     "TOKle",       "TOKne",
+    "TOKeq",         "TOKge",         "TOKdo",       "TOKkseq",
+    "TOKksge",       "TOKksgt",       "TOKif",       "TOKin",
+    "TOKksle",       "TOKkslt",       "TOKksne",     "TOKksor",
+    "TOKnull",       "TOKbreak",      "TOKksand",    "TOKend",
+    "TOKeof",        "TOKfor",        "TOKnan",      "TOKksnot",
+    "TOKvar",        "TOKthen",       "TOKelse",     "TOKexit",
+    "TOKdownto",     "TOKreturn",     "TOKinfinity", "TOKendwhile",
+    "TOKforeach",    "TOKendfunc",    "TOKelseif",   "TOKwhile",
+    "TOKendfor",     "TOKthrow",      "TOKstep",     "TOKupto",
+    "TOKcontinue",   "TOKfunc",       "TOKendif",    "TOKstar",
+    "TOKidentifier", "TOKunderscore", "TOKdollar",   "TOKexclamation",
+    "TOKcall",       "TOKstring",     "TOKnumber",   "TOKreserver",
+};
+
+}  // namespace
+
+const char* XFA_FM_TokenToString(XFA_FM_TOKEN tok) {
+  return tokenStrings[tok];
+}
+
 XFA_FM_TOKEN TokenizeIdentifier(const CFX_WideStringC& str) {
   uint32_t key = FX_HashCode_GetW(str, true);
 
@@ -108,8 +134,6 @@ XFA_FM_TOKEN TokenizeIdentifier(const CFX_WideStringC& str) {
   }
   return TOKidentifier;
 }
-
-}  // namespace
 
 const wchar_t* XFA_FM_KeywordToString(XFA_FM_TOKEN op) {
   if (op < KEYWORD_START || op > KEYWORD_END)
