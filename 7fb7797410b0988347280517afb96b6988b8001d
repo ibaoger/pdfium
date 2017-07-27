@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "666f9d15_67bd1444",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-27T20:19:38Z",
+      "side": 1,
+      "message": "do we want to hit these at the same time??",
+      "range": {
+        "startLine": 271,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 10
+      },
+      "revId": "7fb7797410b0988347280517afb96b6988b8001d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "755b167e_82bf4fb3",
         "filename": "core/fxge/win32/fx_win32_device.cpp",
         "patchSetId": 3
