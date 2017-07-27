@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0792ebdd_37d9410e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "CFX_WideString decoded \u003d DecodeURL(CFX_WideString::FromUTF8(ValueToUTF8String(argOne.get())) ?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9656e267_077fd473",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "SetString(FX_UTF8Encode(decoded.AsStringC()).AsStringC())",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a85059dd_684dad4a",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3159,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "as 3133",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60262303_d9059697",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3316,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "Are these clear\u0027s necessary? Won\u0027t it get cleared when it\u0027s destroyed?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcd6d161_5d17b014",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3392,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "FX_UTF8Encode(encoded.AsStringC()).AsStringC()",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09079daa_c5851c20",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3414,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7507d0d3_7012d1bc",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4009,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "Leave this as a uint8_t?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b2e6a5a_620a900e",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4258,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "At some point, would it be worthwhile changing GetAt to return a char?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f49bef7_16ee0652",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4408,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "This appears to be the only caller, can we pass in the CFX_ByteString instead of the AsStringC version?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b63662c_60c54762",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4409,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "SetString(WordUS(numberString, iIidentifier).AsStringC())",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bca6bdd_1ac2f15c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-07-27T14:16:29Z",
+      "side": 1,
+      "message": "Should this also return CFX_ByteString for consistency?",
+      "revId": "015e70ed328786e4f3431c3617f4d237d49cd5af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
