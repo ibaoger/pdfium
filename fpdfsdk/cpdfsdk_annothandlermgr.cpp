@@ -81,8 +81,10 @@ CFX_WideString CPDFSDK_AnnotHandlerMgr::Annot_GetSelectedText(
   return GetAnnotHandler(pAnnot)->GetSelectedText(pAnnot);
 }
 
-void CPDFSDK_AnnotHandlerMgr::Annot_DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
-  GetAnnotHandler(pAnnot)->DeleteSelectedText(pAnnot);
+void CPDFSDK_AnnotHandlerMgr::Annot_ReplaceSelectionAndInsertText(
+    CPDFSDK_Annot* pAnnot,
+    const CFX_WideString& text) {
+  GetAnnotHandler(pAnnot)->ReplaceSelectionAndInsertText(pAnnot, text);
 }
 
 IPDFSDK_AnnotHandler* CPDFSDK_AnnotHandlerMgr::GetAnnotHandler(

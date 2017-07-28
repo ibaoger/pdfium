@@ -523,13 +523,15 @@ CFX_WideString CFFL_InteractiveFormFiller::GetSelectedText(
   return pFormFiller ? pFormFiller->GetSelectedText(pAnnot) : CFX_WideString();
 }
 
-void CFFL_InteractiveFormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
+void CFFL_InteractiveFormFiller::ReplaceSelectionAndInsertText(
+    CPDFSDK_Annot* pAnnot,
+    const CFX_WideString& text) {
   ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
   CFFL_FormFiller* pFormFiller = GetFormFiller(pAnnot, false);
   if (!pFormFiller)
     return;
 
-  pFormFiller->DeleteSelectedText(pAnnot);
+  pFormFiller->ReplaceSelectionAndInsertText(pAnnot, text);
 }
 
 void CFFL_InteractiveFormFiller::UnRegisterFormFiller(CPDFSDK_Annot* pAnnot) {

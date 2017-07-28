@@ -383,12 +383,18 @@ DLLEXPORT unsigned long STDCALL FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
   return form_text_len;
 }
 
-DLLEXPORT void STDCALL FORM_DeleteSelectedText(FPDF_FORMHANDLE hHandle,
-                                               FPDF_PAGE page) {
+DLLEXPORT void STDCALL
+FORM_ReplaceSelectionAndInsertText(FPDF_FORMHANDLE hHandle,
+                                   FPDF_PAGE page,
+                                   FPDF_WIDESTRING wsText) {
   CPDFSDK_PageView* pPageView = FormHandleToPageView(hHandle, page);
-  if (!pPageView)
+  if (!pPageView || !wsText)
     return;
-  pPageView->DeleteSelectedText();
+
+  FX_STRSIZE len = CFX_WideString::WStringLength(wsText);
+  CFX_WideString wide_str_text = CFX_WideString::FromUTF16LE(wsText, len);
+
+  pPageView->ReplaceSelectionAndInsertText(wide_str_text);
 }
 
 DLLEXPORT FPDF_BOOL STDCALL FORM_ForceToKillFocus(FPDF_FORMHANDLE hHandle) {
