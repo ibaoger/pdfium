@@ -384,6 +384,29 @@
       "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1a4755_f21b0294",
+        "filename": "pdfium.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-28T18:38:53Z",
+      "side": 1,
+      "message": "stray space",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 2
+      },
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
