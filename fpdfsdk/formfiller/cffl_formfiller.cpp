@@ -245,7 +245,9 @@ CFX_WideString CFFL_FormFiller::GetSelectedText(CPDFSDK_Annot* pAnnot) {
   return pWnd ? pWnd->GetSelectedText() : CFX_WideString();
 }
 
-void CFFL_FormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
+void CFFL_FormFiller::ReplaceSelectionAndInsertText(
+    CPDFSDK_Annot* pAnnot,
+    const CFX_WideString& text) {
   if (!IsValid())
     return;
 
@@ -256,7 +258,7 @@ void CFFL_FormFiller::DeleteSelectedText(CPDFSDK_Annot* pAnnot) {
   if (!pWnd)
     return;
 
-  pWnd->DeleteSelectedText();
+  pWnd->ReplaceSelectionAndInsertText(text);
 }
 
 void CFFL_FormFiller::SetFocusForAnnot(CPDFSDK_Annot* pAnnot, uint32_t nFlag) {

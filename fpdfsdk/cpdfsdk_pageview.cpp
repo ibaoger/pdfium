@@ -253,11 +253,12 @@ CFX_WideString CPDFSDK_PageView::GetSelectedText() {
   return CFX_WideString();
 }
 
-void CPDFSDK_PageView::DeleteSelectedText() {
+void CPDFSDK_PageView::ReplaceSelectionAndInsertText(
+    const CFX_WideString& text) {
   if (CPDFSDK_Annot* pAnnot = GetFocusAnnot()) {
     CPDFSDK_AnnotHandlerMgr* pAnnotHandlerMgr =
         m_pFormFillEnv->GetAnnotHandlerMgr();
-    pAnnotHandlerMgr->Annot_DeleteSelectedText(pAnnot);
+    pAnnotHandlerMgr->Annot_ReplaceSelectionAndInsertText(pAnnot, text);
   }
 }
 
