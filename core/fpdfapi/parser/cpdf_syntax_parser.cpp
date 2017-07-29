@@ -19,6 +19,7 @@
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_null.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_read_validator.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
@@ -765,16 +766,24 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
 void CPDF_SyntaxParser::InitParser(
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
     uint32_t HeaderOffset) {
+  return InitParserWithValidator(
+      pdfium::MakeRetain<CPDF_ReadValidator>(pFileAccess, nullptr),
+      HeaderOffset);
+}
+
+void CPDF_SyntaxParser::InitParserWithValidator(
+    const CFX_RetainPtr<CPDF_ReadValidator>& validator,
+    uint32_t HeaderOffset) {
   FX_Free(m_pFileBuf);
 
   m_pFileBuf = FX_Alloc(uint8_t, m_BufSize);
   m_HeaderOffset = HeaderOffset;
-  m_FileLen = pFileAccess->GetSize();
+  m_FileLen = validator->GetSize();
   m_Pos = 0;
-  m_pFileAccess = pFileAccess;
+  m_pFileAccess = validator;
   m_BufOffset = 0;
-  pFileAccess->ReadBlock(m_pFileBuf, 0,
-                         std::min(m_BufSize, static_cast<uint32_t>(m_FileLen)));
+  validator->ReadBlock(m_pFileBuf, 0,
+                       std::min(m_BufSize, static_cast<uint32_t>(m_FileLen)));
 }
 
 uint32_t CPDF_SyntaxParser::GetDirectNum() {
