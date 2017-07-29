@@ -1074,13 +1074,15 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
       } else {
         FX_FILESIZE offset =
             GetVarInt(entrystart + WidthArray[0], WidthArray[1]);
-        m_ObjectInfo[startnum + j].pos = offset;
         if (type == ObjectType::kNotCompressed) {
           m_SortedOffset.insert(offset);
+          m_ObjectInfo[startnum + j].pos = offset;
         } else {
-          if (offset < 0 || !IsValidObjectNumber(offset))
+          const auto archive_obj_num = offset;
+          m_ObjectInfo[startnum + j].archive_obj_num = archive_obj_num;
+          if (archive_obj_num < 0 || !IsValidObjectNumber(archive_obj_num))
             return false;
-          m_ObjectInfo[offset].type = ObjectType::kNull;
+          m_ObjectInfo[archive_obj_num].type = ObjectType::kNull;
         }
       }
     }

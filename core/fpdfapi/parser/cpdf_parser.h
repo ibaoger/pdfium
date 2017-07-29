@@ -111,8 +111,10 @@ class CPDF_Parser {
  protected:
   struct ObjectInfo {
     ObjectInfo() : pos(0), type(ObjectType::kFree), gennum(0) {}
-
-    FX_FILESIZE pos;
+    union {
+      FX_FILESIZE pos;
+      FX_FILESIZE archive_obj_num;
+    };
     ObjectType type;
     uint16_t gennum;
   };
