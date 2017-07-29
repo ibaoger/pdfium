@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53aa593e_c2b87ade",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-29T00:18:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "028b698d_0e9ada91",
+      "revId": "30ffe23cc316e959c4c821f3aac7efa3ffdbf754",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b80b6de_23bded98",
         "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-28T22:42:00Z",
       "side": 1,
       "message": "Just call ReplaceSel() instead?",
+      "revId": "30ffe23cc316e959c4c821f3aac7efa3ffdbf754",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cabdd7e4_77157647",
+        "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 7040
+      },
+      "writtenOn": "2017-07-29T00:18:46Z",
+      "side": 1,
+      "message": "I can\u0027t just call ReplaceSel() because it\u0027s not in CPWL_EditImpl. It\u0027s in CPWL_Edit, which inherits from CPWL_EditCtrl. I can write a virtual function ReplaceSel() in CPWL_EditCtrl and call it that way if that would be better than this.",
+      "parentUuid": "4b80b6de_23bded98",
       "revId": "30ffe23cc316e959c4c821f3aac7efa3ffdbf754",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
