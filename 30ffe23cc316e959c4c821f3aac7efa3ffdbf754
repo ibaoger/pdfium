@@ -69,6 +69,24 @@
       "revId": "30ffe23cc316e959c4c821f3aac7efa3ffdbf754",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b948d0b_60af6945",
+        "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T21:13:32Z",
+      "side": 1,
+      "message": "OK, the edit control class hierarchy is a mess. Nevermind then.",
+      "parentUuid": "cabdd7e4_77157647",
+      "revId": "30ffe23cc316e959c4c821f3aac7efa3ffdbf754",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
