@@ -77,6 +77,10 @@ extern "C" {
 // TODO(palmer): it should be a |size_t|, or at least unsigned.
 typedef int FX_STRSIZE;
 
+// Constant used to indicate failure from find methods and other methods that
+// return FX_STRSIZE.
+extern const FX_STRSIZE FX_STRNPOS;
+
 // PDFium file sizes match the platform, but PDFium itself does not support
 // files larger than 2GB even if the platform does. The value must be signed
 // to support -1 error returns.

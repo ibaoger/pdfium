@@ -8,6 +8,8 @@
 
 #include <limits>
 
+const FX_STRSIZE FX_STRNPOS = -1;
+
 extern "C" int FXSYS_round(float d) {
   if (d < static_cast<float>(std::numeric_limits<int>::min()))
     return std::numeric_limits<int>::min();
