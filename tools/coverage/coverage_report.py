@@ -63,11 +63,11 @@ class CoverageExecutor(object):
       sys.exit(1)
 
     self.coverage_files = set()
-    self.source_directory = args['source_directory']
+    self.source_directory = args['source_directory'][0]
     if not os.path.isdir(self.source_directory):
       parser.error("'%s' needs to be a directory" % self.source_directory)
 
-    self.build_directory = args['build_directory']
+    self.build_directory = args['build_directory'][0]
     if not os.path.isdir(self.build_directory):
       parser.error("'%s' needs to be a directory" % self.build_directory)
 
@@ -84,10 +84,10 @@ class CoverageExecutor(object):
 
     self.use_goma = self.boolean_gn_arg('use_goma')
 
-    self.output_directory = args['output_directory']
+    self.output_directory = args['output_directory'][0]
     if not os.path.exists(self.output_directory):
       if not self.dry_run:
-        os.mkdirs(self.output_directory)
+        os.makedirs(self.output_directory)
     elif not os.path.isdir(self.output_directory):
       parser.error('%s exists, but is not a directory' % self.output_directory)
     self.coverage_totals_path = os.path.join(self.output_directory,
@@ -340,7 +340,7 @@ def main():
       '--source_directory',
       nargs=1,
       help='Location of PDFium source directory, defaults to CWD',
-      default=os.getcwd())
+      default=[os.getcwd()])
   build_default = os.path.join('out', 'Coverage')
   parser.add_argument(
       '-b',
@@ -349,7 +349,7 @@ def main():
       help=
       'Location of PDFium build directory with coverage enabled, defaults to '
       '%s under CWD' % build_default,
-      default=os.path.join(os.getcwd(), build_default))
+      default=[os.path.join(os.getcwd(), build_default)])
   output_default = 'coverage_report'
   parser.add_argument(
       '-o',
@@ -357,7 +357,7 @@ def main():
       nargs=1,
       help='Location to write out coverage report to, defaults to %s under CWD '
       % output_default,
-      default=os.path.join(os.getcwd(), output_default))
+      default=[os.path.join(os.getcwd(), output_default)])
   parser.add_argument(
       '-n',
       '--dry-run',
