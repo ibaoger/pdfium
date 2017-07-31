@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8c19077c_ca09ec3a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-31T22:16:15Z",
+      "side": 1,
+      "message": "this is first part of refactoring. I want to change all places, where pos used as obj number to use \"archive_obj_num\", and add checks to prevent using pos as archive_obj_num.\nOr i should do that in this CL?",
+      "parentUuid": "74b8fe1d_879ca879",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e53b6e86_f50ca027",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-07-31T21:49:05Z",
       "side": 1,
       "message": "When should developers use |pos| vs |archive_obj_num|?",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8448af83_7725ffcb",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-31T22:16:15Z",
+      "side": 1,
+      "message": "if type is ObjectType::kCompressed the archive_obj_num should be used.\nif type is ObjectType::kNotCompressed the pos should be used.\nIn other cases its are unused.",
+      "parentUuid": "e53b6e86_f50ca027",
       "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
