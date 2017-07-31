@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74b8fe1d_879ca879",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T21:49:05Z",
+      "side": 1,
+      "message": "The new field is only used here and nowhere else. Would it be just as helpful if the ObjectInfo struct had a comment to say |pos| should be interpreted as an object number when |type| is kCompressed?",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53b6e86_f50ca027",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T21:49:05Z",
+      "side": 1,
+      "message": "When should developers use |pos| vs |archive_obj_num|?",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
