@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09685940_ea4db36c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "Any reason for double blank spaces here?",
+      "range": {
+        "startLine": 454,
+        "startChar": 10,
+        "endLine": 454,
+        "endChar": 11
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91dd458_43966812",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "\u0027\\r\u0027 is needed, otherwise there are not 20 chars",
+      "range": {
+        "startLine": 456,
+        "startChar": 24,
+        "endLine": 456,
+        "endChar": 25
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17fe4511_8645792e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "static?",
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3296654_cde5a382",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "out_objects is used here for checking |bSkip| essentially, which is a bit obscure. Maybe either add comments or an argument, or even change func name to make this clearer?",
+      "range": {
+        "startLine": 459,
+        "startChar": 18,
+        "endLine": 459,
+        "endChar": 19
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589487c4_fc1dea0a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "This is a more stricter check than original version. In general, it should be good. For PDF files, maybe better to check whether the existing PDF viewers can tolerate some bad version numbers.",
+      "range": {
+        "startLine": 506,
+        "startChar": 31,
+        "endLine": 506,
+        "endChar": 0
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8c88a8b_e55d39b2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-07-31T20:13:46Z",
+      "side": 1,
+      "message": "Is clearing objs required? If so, there are a few other places \"return false\", should out_objects be cleared there too?",
+      "range": {
+        "startLine": 550,
+        "startChar": 12,
+        "endLine": 550,
+        "endChar": 13
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
