@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc1d5897_020e878c",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-07-31T16:09:06Z",
+      "side": 1,
+      "message": "This is not equal to \nrangstring.Mid(nStringFrom, nStringTo - nStringFrom);\nIn this case we want to get string from middle, which started from nStringFrom, and finished in \nnStringFrom.\nIt is equals to: \nrangstring.Right(rangstring.length()-nStringFrom).Left(nStringTo - nStringFrom);\n\nBut in this CL we always have right part of rangstring, not middle.\n\nAs result print preview (which use this function) is working incorrect.\nSee https://bugs.chromium.org/p/chromium/issues/detail?id\u003d750568#c4.",
+      "revId": "e7a99de4f711302d57fe22682a9a8c3cfddb458c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
