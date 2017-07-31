@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a90e5d3_fce4037a",
+        "filename": "core/fpdfapi/page/cpdf_pathobject.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T20:04:00Z",
+      "side": 1,
+      "message": "As a follow-up, it dawns on me we might want to remove this form of the ctor in favor of one that requires a filltype and a stroke argument.  I\u0027d imagine that nearly every use goes and sets these two members immediately after making one of these objects (except for where we hit the bug).",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "32c37bda2f43538c403a9323f51f9564ce056427",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
