@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14b29607_3a8cfc7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "nit: stray text",
+      "range": {
+        "startLine": 15,
+        "startChar": 22,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5c2e9fc_2134b5f4",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "nit: the start\u003d0 is provided as a default arg, maybe remove?",
+      "range": {
+        "startLine": 99,
+        "startChar": 35,
+        "endLine": 99,
+        "endChar": 39
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03882f8b_a281a686",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "nit: maybe this becomes \u003d\u003d 0, to indicate we\u0027re testing for \"at the start or not found\".",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 15
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d7bb445_ff771fbb",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "nit: Invalid when no \u0027@\u0027, or when starts with @.",
+      "range": {
+        "startLine": 238,
+        "startChar": 19,
+        "endLine": 238,
+        "endChar": 25
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34227ae8_45253888",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "nit: again,  \u003d\u003d 0",
+      "range": {
+        "startLine": 239,
+        "startChar": 5,
+        "endLine": 239,
+        "endChar": 15
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93852d3c_b9c04f95",
+        "filename": "core/fxcrt/fx_system.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-07-31T21:32:13Z",
+      "side": 1,
+      "message": "This may prevent generating \"compare with immediate\" instructions, and I have no idea whether link-time optimizations can fix these.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "c6d2f1ea7314afda04033b9dcfefb29dd416c3c7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
