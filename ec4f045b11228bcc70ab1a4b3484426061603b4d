@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "4f28d7c2_ddf84ba0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T22:37:45Z",
+      "side": 1,
+      "message": "This is a bit vague. It\u0027s like having a CL to \"fix stuff\". ;-) How about:\n\nImprove readability in CPDF_Parser::ObjectInfo.\n\nMake CPDF_Parser::ObjectInfo::pos a union, since the data is used as an\nobject number when the object is compressed.",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b8185a_d4c4383b",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T22:37:45Z",
+      "side": 1,
+      "message": "How about we rename this to entry_value, since we don\u0027t know how to interpret the value just yet. The in if and else blocks below, create local variables to better identify what the value means.",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a607669b_658ef130",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T22:37:45Z",
+      "side": 1,
+      "message": "Let\u0027s calculate this once, before the if/else blocks.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 23,
+        "endLine": 1079,
+        "endChar": 35
+      },
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74b8fe1d_879ca879",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
@@ -37,6 +94,24 @@
     },
     {
       "key": {
+        "uuid": "afbf3701_6c73f5b9",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T22:37:45Z",
+      "side": 1,
+      "message": "This is fine, but can you mention the fact that it the first part of a refactor when you first send out the CL?",
+      "parentUuid": "8c19077c_ca09ec3a",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e53b6e86_f50ca027",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 1
@@ -66,6 +141,24 @@
       "side": 1,
       "message": "if type is ObjectType::kCompressed the archive_obj_num should be used.\nif type is ObjectType::kNotCompressed the pos should be used.\nIn other cases its are unused.",
       "parentUuid": "e53b6e86_f50ca027",
+      "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09ba0d60_74713bc8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-07-31T22:37:45Z",
+      "side": 1,
+      "message": "Let\u0027s put that helpful note in the file as a comment.",
+      "parentUuid": "8448af83_7725ffcb",
       "revId": "ec4f045b11228bcc70ab1a4b3484426061603b4d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
