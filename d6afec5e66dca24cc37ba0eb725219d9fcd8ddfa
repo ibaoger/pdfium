@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "704f07b3_9a79d3fb",
+        "filename": "core/fpdfapi/parser/cfdf_document.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-01T22:46:57Z",
+      "side": 1,
+      "message": "nit: maybe return CFX_ByteString, with empty buf on meaning failure.",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "d6afec5e66dca24cc37ba0eb725219d9fcd8ddfa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b414027_e6407ae0",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-01T22:46:57Z",
+      "side": 1,
+      "message": "esp. since we don\u0027t check return value.",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 27
+      },
+      "revId": "d6afec5e66dca24cc37ba0eb725219d9fcd8ddfa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3bbd6b8_72ddf6b6",
         "filename": "fpdfsdk/cpdfsdk_interform.cpp",
         "patchSetId": 7
@@ -13,6 +59,30 @@
       "writtenOn": "2017-08-01T22:36:52Z",
       "side": 1,
       "message": "I hope there is a better way of doing this.",
+      "range": {
+        "startLine": 446,
+        "startChar": 50,
+        "endLine": 446,
+        "endChar": 0
+      },
+      "revId": "d6afec5e66dca24cc37ba0eb725219d9fcd8ddfa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58a0a951_4e2f8374",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-01T22:46:57Z",
+      "side": 1,
+      "message": "Yeah, FDFToURLEncodedData() should take a const CFX_ByteString\u0026 and either return unchanged it or make a brand-new string.",
+      "parentUuid": "d3bbd6b8_72ddf6b6",
       "range": {
         "startLine": 446,
         "startChar": 50,
