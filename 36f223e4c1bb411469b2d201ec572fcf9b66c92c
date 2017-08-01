@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ae8517f_b5cef0ae",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-01T20:17:40Z",
+      "side": 1,
+      "message": "I\u0027d like a slightly more descriptive name.  What this is actually doing is GetTerminatingNulPosition().  But I hate that name.  Maybe GetTerminatedStringLenght() [to go along with the \"unterminated_\" prefix we used in the other file].  Or maybe just GetStringLength()",
+      "range": {
+        "startLine": 82,
+        "startChar": 16,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "36f223e4c1bb411469b2d201ec572fcf9b66c92c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
