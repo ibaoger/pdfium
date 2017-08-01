@@ -976,11 +976,11 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
         (FPDF_WIDESTRING)bsSubject.GetBuffer(bsSubject.GetLength());
     FPDF_WIDESTRING pMsg = (FPDF_WIDESTRING)bsMsg.GetBuffer(bsMsg.GetLength());
     pFormFillEnv->EmailTo(pFileHandler, pTo, pSubject, pCC, pBcc, pMsg);
-    bsTo.ReleaseBuffer();
-    bsCC.ReleaseBuffer();
-    bsBcc.ReleaseBuffer();
-    bsSubject.ReleaseBuffer();
-    bsMsg.ReleaseBuffer();
+    bsTo.ReleaseBuffer(bsTo.GetBufferLength());
+    bsCC.ReleaseBuffer(bsCC.GetBufferLength());
+    bsBcc.ReleaseBuffer(bsBcc.GetBufferLength());
+    bsSubject.ReleaseBuffer(bsSubject.GetBufferLength());
+    bsMsg.ReleaseBuffer(bsMsg.GetBufferLength());
   } else {
     // HTTP or FTP
     CFX_WideString ws;
