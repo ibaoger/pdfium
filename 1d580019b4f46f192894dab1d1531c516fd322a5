@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "e547e812_eb0f6edc",
+        "filename": "core/fxcrt/cfx_char.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T20:59:05Z",
+      "side": 1,
+      "message": "I guess I\u0027ll rename charcode() to char_code() too for consistency.",
+      "parentUuid": "9910b540_530876e9",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "1d580019b4f46f192894dab1d1531c516fd322a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a221284d_8dee4127",
         "filename": "core/fxcrt/cfx_char.h",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2017-07-31T14:13:55Z",
       "side": 1,
       "message": "Can these be const?",
+      "revId": "1d580019b4f46f192894dab1d1531c516fd322a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e35197b3_7b3c4f1b",
+        "filename": "core/fxcrt/cfx_char.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T20:59:05Z",
+      "side": 1,
+      "message": "Maybe, if I can get the copy ctor to behave correctly. I would like to and will try in a follow-up.",
+      "parentUuid": "a221284d_8dee4127",
       "revId": "1d580019b4f46f192894dab1d1531c516fd322a5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
