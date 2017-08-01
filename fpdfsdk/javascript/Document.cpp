@@ -7,6 +7,7 @@
 #include "fpdfsdk/javascript/Document.h"
 
 #include <algorithm>
+#include <sstream>
 #include <utility>
 #include <vector>
 
@@ -382,15 +383,19 @@ bool Document::mailForm(CJS_Runtime* pRuntime,
       iLength > 4 ? params[4].ToCFXWideString(pRuntime) : L"";
   CFX_WideString cMsg = iLength > 5 ? params[5].ToCFXWideString(pRuntime) : L"";
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
-  CFX_ByteTextBuf textBuf;
-  if (!pInterForm->ExportFormToFDFTextBuf(textBuf))
+  CFX_ByteString sTextBuf;
+  if (!pInterForm->ExportFormToFDFTextBuf(&sTextBuf))
     return false;
+
+  FX_STRSIZE nBufSize = sTextBuf.GetLength();
+  char achMutableBuf[nBufSize];
+  memcpy(achMutableBuf, sTextBuf.c_str(), nBufSize);
 
   pRuntime->BeginBlock();
   CPDFSDK_FormFillEnvironment* pFormFillEnv = pRuntime->GetFormFillEnv();
-  pFormFillEnv->JS_docmailForm(textBuf.GetBuffer(), textBuf.GetLength(), bUI,
-                               cTo.c_str(), cSubject.c_str(), cCc.c_str(),
-                               cBcc.c_str(), cMsg.c_str());
+  pFormFillEnv->JS_docmailForm(achMutableBuf, nBufSize, bUI, cTo.c_str(),
+                               cSubject.c_str(), cCc.c_str(), cBcc.c_str(),
+                               cMsg.c_str());
   pRuntime->EndBlock();
   return true;
 }
