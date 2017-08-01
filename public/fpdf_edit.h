@@ -288,6 +288,14 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFImageObj_SetBitmap(FPDF_PAGE* pages,
                                                    FPDF_PAGEOBJECT image_object,
                                                    FPDF_BITMAP bitmap);
 
+// Get the |bitmap| of |image_object|.
+//
+//   image_object - handle to an image object.
+//
+// Returns the bitmap.
+DLLEXPORT FPDF_BITMAP STDCALL
+FPDFImageObj_GetBitmap(FPDF_PAGEOBJECT image_object);
+
 // Create a new path object at an initial position.
 //
 //   x - initial horizontal position.
