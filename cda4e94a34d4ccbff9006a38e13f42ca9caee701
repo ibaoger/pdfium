@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bdcb899_04189522",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T01:45:59Z",
+      "side": 1,
+      "message": "typo: locally",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "cda4e94a34d4ccbff9006a38e13f42ca9caee701",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9440ce6_ba5fd01c",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T01:45:59Z",
+      "side": 1,
+      "message": "This class is intended to only be used for saving/restoring the 2 booleans, right?\n\nAn alternative is to make this class private to CPDF_ReadValidator, and to just provide public CPDF_ReadValidator::Save() and CPDF_ReadValidator::Restore() methods. What do you think of this alternative?",
+      "revId": "cda4e94a34d4ccbff9006a38e13f42ca9caee701",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
