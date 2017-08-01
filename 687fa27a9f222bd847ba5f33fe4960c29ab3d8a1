@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "f32e811d_bf6ac8f4",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-08-01T18:51:42Z",
+      "side": 1,
+      "message": "Currently, CPDF_Parser is doing file structure parsing. Would your proposed changes mean for parsing crossRefTable, two parsers have to be involved?",
+      "parentUuid": "2c6cc7e3_5f0ad11f",
+      "revId": "687fa27a9f222bd847ba5f33fe4960c29ab3d8a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6bd2ab18_781727c8",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1

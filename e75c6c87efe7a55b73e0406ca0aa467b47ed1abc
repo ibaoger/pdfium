@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "78af31eb_1d77f522",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-08-01T18:51:42Z",
+      "side": 1,
+      "message": "For existing pdf viewers such as Adobe reader, if an object\u0027s version num is beyond the uint16 range, it may be also acceptable. Could you test with a pdf file to see whether your change will result in different outcome.",
+      "parentUuid": "40ebf9bb_f6b2acd2",
+      "range": {
+        "startLine": 506,
+        "startChar": 31,
+        "endLine": 506,
+        "endChar": 0
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8c88a8b_e55d39b2",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 2
