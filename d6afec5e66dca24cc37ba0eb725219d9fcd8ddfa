@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3bbd6b8_72ddf6b6",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-01T22:36:52Z",
+      "side": 1,
+      "message": "I hope there is a better way of doing this.",
+      "range": {
+        "startLine": 446,
+        "startChar": 50,
+        "endLine": 446,
+        "endChar": 0
+      },
+      "revId": "d6afec5e66dca24cc37ba0eb725219d9fcd8ddfa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29c947cf_1d27f4f4",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-01T22:36:52Z",
+      "side": 1,
+      "message": "I believe there was a leak here before when FDFToURLEncodedData changed pBuffer.",
+      "range": {
+        "startLine": 457,
+        "startChar": 21,
+        "endLine": 457,
+        "endChar": 0
+      },
+      "revId": "d6afec5e66dca24cc37ba0eb725219d9fcd8ddfa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}

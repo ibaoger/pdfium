@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d277747_c5a16b07",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-01T22:36:52Z",
+      "side": 0,
+      "message": "I believe there was a bug here before when FDFToURLEncodedData true without modifying pBuffer.",
+      "range": {
+        "startLine": 536,
+        "startChar": 18,
+        "endLine": 536,
+        "endChar": 0
+      },
+      "revId": "de7c9620c37486413e1f7db4567b4b0cea6a857f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
