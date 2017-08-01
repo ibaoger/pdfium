@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73ee4d6e_d3fd8731",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Would it be cleaner to implement sub-classes for dictionary/array/stream?",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79b33e1_9c9436c3",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "2017, unless there is a big time zone difference. ;-)",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d09c89_41c9d38a",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "non-null sub-objects in an object",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 48
+      },
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e0aa479_cd409866",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Depth first? Breadth first? Is it expected to handle circular references?",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0edcdcbe_536422a4",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Is anyone going to call these methods?",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3310ec6_5562db5f",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Is this going to get used?",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fdf4e02_3d6c145a",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Grammar",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e994adef_75eab889",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:19:49Z",
+      "side": 1,
+      "message": "Put the comments before. e.g.\n\n// Add 2 null objects into |root_array|. [ null1, null2 ]\nroot_array-\u003eAddNew\u003cCPDF_Null\u003e();\nroot_array-\u003eAddNew\u003cCPDF_Null\u003e();\n// |root_array| will contain 4 null objects after this.\n// [ null1, null2, [ null3, null4 ] ]\nroot_array-\u003eAdd(root_array-\u003eClone());",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
