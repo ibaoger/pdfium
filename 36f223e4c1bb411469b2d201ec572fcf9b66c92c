@@ -22,6 +22,30 @@
       "revId": "36f223e4c1bb411469b2d201ec572fcf9b66c92c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d707158_a2e98f87",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-01T20:22:56Z",
+      "side": 1,
+      "message": "Changed to GetStringLength",
+      "parentUuid": "8ae8517f_b5cef0ae",
+      "range": {
+        "startLine": 82,
+        "startChar": 16,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "36f223e4c1bb411469b2d201ec572fcf9b66c92c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
