@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3b1d79_bb83a0d3",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-01T19:06:46Z",
+      "side": 1,
+      "message": "super-super nit (don\u0027t hit me):  If we did the NPOS comparison first, the order here would match the comment above.",
+      "range": {
+        "startLine": 239,
+        "startChar": 6,
+        "endLine": 239,
+        "endChar": 37
+      },
+      "revId": "31ea60ab992d084bca5508831b542c22c415733b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
