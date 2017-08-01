@@ -90,10 +90,10 @@ class CPDFSDK_InterForm : public IPDF_FormNotify {
                     bool bIncludeOrExclude,
                     bool bUrlEncoded);
   bool SubmitForm(const CFX_WideString& sDestination, bool bUrlEncoded);
-  bool ExportFormToFDFTextBuf(CFX_ByteTextBuf& textBuf);
+  bool ExportFormToFDFTextBuf(std::ostringstream* pTextBuf);
   bool ExportFieldsToFDFTextBuf(const std::vector<CPDF_FormField*>& fields,
                                 bool bIncludeOrExclude,
-                                CFX_ByteTextBuf& textBuf);
+                                std::ostringstream* pTextBuf);
   CFX_WideString GetTemporaryFileName(const CFX_WideString& sFileExt);
 
   bool IsNeedHighLight(int nFieldType);
