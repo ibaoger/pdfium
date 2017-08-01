@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 #include <utility>
+#include <vector>
 
 #include "core/fpdfapi/font/cpdf_font.h"
 #include "core/fpdfapi/page/cpdf_page.h"
@@ -981,5 +982,33 @@ TEST_F(FPDFEditEmbeddertest, ExtractImageBitmap) {
   EXPECT_EQ(FPDFBitmap_BGR, FPDFBitmap_GetFormat(bitmap));
   CompareBitmap(bitmap, 496, 400, "657ccb91a78e7bb68e5c0ff86501f8ec");
   FPDFBitmap_Destroy(bitmap);
+  UnloadPage(page);
+}
+
+TEST_F(FPDFEditEmbeddertest, GetImageData) {
+  EXPECT_TRUE(OpenDocument("embedded_images.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+  ASSERT_EQ(12, FPDFPage_CountObject(page));
+
+  // Retrieve an image object.
+  FPDF_PAGEOBJECT obj = FPDFPage_GetObject(page, 8);
+  ASSERT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(obj));
+
+  // Check that the raw image data has the correct length and hash value.
+  unsigned long len = FPDFImageObj_GetImageDataRaw(obj, nullptr, 0);
+  std::vector<char> buf(len);
+  EXPECT_EQ(51168u, FPDFImageObj_GetImageDataRaw(obj, buf.data(), len));
+  EXPECT_EQ("c4f149e5cecc7443db1ebf17422f46a2",
+            GenerateMD5Base16(reinterpret_cast<uint8_t*>(buf.data()), len));
+
+  // Check that the decoded image data has the correct length and hash value.
+  len = FPDFImageObj_GetImageData(obj, nullptr, 0);
+  buf.clear();
+  buf.resize(len);
+  EXPECT_EQ(555840u, FPDFImageObj_GetImageData(obj, buf.data(), len));
+  EXPECT_EQ("9a042ef8e13e7c726bc1dfdbbf311960",
+            GenerateMD5Base16(reinterpret_cast<uint8_t*>(buf.data()), len));
+
   UnloadPage(page);
 }

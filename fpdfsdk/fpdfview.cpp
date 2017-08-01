@@ -364,6 +364,34 @@ unsigned long Utf16EncodeMaybeCopyAndReturnLength(const CFX_WideString& text,
   return len;
 }
 
+unsigned long DecodeStreamMaybeCopyAndReturnLength(const CPDF_Stream* stream,
+                                                   void* buffer,
+                                                   unsigned long buflen) {
+  ASSERT(stream);
+  uint8_t* data = stream->GetRawData();
+  uint32_t len = stream->GetRawSize();
+  CPDF_Dictionary* dict = stream->GetDict();
+  if (!dict || dict->GetStringFor("Filter").IsEmpty()) {
+    if (buffer && buflen >= len)
+      memcpy(buffer, data, len);
+
+    return len;
+  }
+
+  // Decode the stream if one or more stream filters are specified.
+  uint8_t* decodedData = nullptr;
+  uint32_t decodedLen = 0;
+  CFX_ByteString lastDecoder;
+  CPDF_Dictionary* lastParam;
+  PDF_DataDecode(data, len, dict, dict->GetIntegerFor("DL"), false,
+                 &decodedData, &decodedLen, &lastDecoder, &lastParam);
+  if (buffer && buflen >= decodedLen)
+    memcpy(buffer, decodedData, decodedLen);
+
+  FX_Free(decodedData);
+  return decodedLen;
+}
+
 CFX_RetainPtr<IFX_SeekableReadStream> MakeSeekableReadStream(
     FPDF_FILEACCESS* pFileAccess) {
   return pdfium::MakeRetain<CPDF_CustomAccess>(pFileAccess);
