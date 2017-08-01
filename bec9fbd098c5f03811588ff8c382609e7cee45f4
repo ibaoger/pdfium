@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15138100_0608a404",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:49:40Z",
+      "side": 1,
+      "message": "BTW, if there\u0027s only 1 main objective in a given CL, why bother?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "bec9fbd098c5f03811588ff8c382609e7cee45f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f045bd_a3c13531",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-01T22:49:40Z",
+      "side": 1,
+      "message": "Add a FPDFImageObj_GetBitmap() function that returns\n\nor\n\nAdd FPDFImageObj_GetBitmap() that returns",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "bec9fbd098c5f03811588ff8c382609e7cee45f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
