@@ -88,16 +88,16 @@ void CFDF_Document::ParseStream(
   }
 }
 
-bool CFDF_Document::WriteBuf(CFX_ByteTextBuf& buf) const {
+bool CFDF_Document::WriteBuf(std::ostringstream* pBuf) const {
   if (!m_pRootDict)
     return false;
 
-  buf << "%FDF-1.2\r\n";
+  *pBuf << "%FDF-1.2\r\n";
   for (const auto& pair : *this)
-    buf << pair.first << " 0 obj\r\n"
-        << pair.second.get() << "\r\nendobj\r\n\r\n";
+    *pBuf << pair.first << " 0 obj\r\n"
+          << pair.second.get() << "\r\nendobj\r\n\r\n";
 
-  buf << "trailer\r\n<</Root " << m_pRootDict->GetObjNum()
-      << " 0 R>>\r\n%%EOF\r\n";
+  *pBuf << "trailer\r\n<</Root " << m_pRootDict->GetObjNum()
+        << " 0 R>>\r\n%%EOF\r\n";
   return true;
 }
