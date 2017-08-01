@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "67f9d2d8_ab64557a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-01T19:15:11Z",
+      "side": 1,
+      "message": "This will be different - it is may be opened incorrectly (it is will be opened using crossref rebuilding).\nAgain: \nCan i save original logic? (just unconditional cast to uint16_t)\nOr i should do something else? \nWhat i should do???\n\nI think we can solve this in other CL. And for now store the original logic. Are you agree?",
+      "parentUuid": "78af31eb_1d77f522",
+      "range": {
+        "startLine": 506,
+        "startChar": 31,
+        "endLine": 506,
+        "endChar": 0
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8c88a8b_e55d39b2",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 2
