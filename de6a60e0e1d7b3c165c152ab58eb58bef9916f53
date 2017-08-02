@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "008ed61d_a79916dd",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-02T20:17:38Z",
+      "side": 1,
+      "message": "Even though it costs more with the initiaization, we want to resize(), otherwise interDigest.size() is meaningless.",
+      "range": {
+        "startLine": 288,
+        "startChar": 16,
+        "endLine": 288,
+        "endChar": 23
+      },
+      "revId": "de6a60e0e1d7b3c165c152ab58eb58bef9916f53",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
