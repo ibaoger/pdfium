@@ -297,6 +297,30 @@
     },
     {
       "key": {
+        "uuid": "c816b087_69a26783",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:27:38Z",
+      "side": 1,
+      "message": "I have added the comment. and will solve this issue in separate CL.",
+      "parentUuid": "1774c99d_fc293cc7",
+      "range": {
+        "startLine": 506,
+        "startChar": 31,
+        "endLine": 506,
+        "endChar": 0
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8c88a8b_e55d39b2",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 2
@@ -356,6 +380,30 @@
       "side": 1,
       "message": "btw, there is one more place \"return false\", you may want to use a temp variable to hold the objects before assigning to avoid clearing in multiple places. Also, if this function is just used by LoadCrossRefV4(), out_objects could be ignored when returning false.",
       "parentUuid": "f469a3fc_9b403363",
+      "range": {
+        "startLine": 550,
+        "startChar": 12,
+        "endLine": 550,
+        "endChar": 13
+      },
+      "revId": "e75c6c87efe7a55b73e0406ca0aa467b47ed1abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd139219_b5656661",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:27:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a251b644_8cc4dbeb",
       "range": {
         "startLine": 550,
         "startChar": 12,
