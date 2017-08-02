@@ -45,6 +45,54 @@
       "revId": "bec9fbd098c5f03811588ff8c382609e7cee45f4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93f576f5_417a927e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03f045bd_a3c13531",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "bec9fbd098c5f03811588ff8c382609e7cee45f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94fea40e_7373c5c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "Someone in some previous CL told me to add a 1., so I thought that\u0027s the convention even for 1 objective. :)",
+      "parentUuid": "15138100_0608a404",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "bec9fbd098c5f03811588ff8c382609e7cee45f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

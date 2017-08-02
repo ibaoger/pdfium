@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "50645b69_4dbe269c",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "Sure it can, but for testing, I\u0027m not sure how we would do that since we need an API for getting the bitmap to test this. Should I put it in another CL and submit it after this one?",
+      "parentUuid": "08f31b7b_fa04562a",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-02T01:26:25Z",
       "side": 1,
       "message": "Get a bitmap rendering of |image_object|. There\u0027s no |bitmap| variable.",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8946f27c_d483574d",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we should say rendering here, since we are not really rendering it, just getting the image stream data and put it in a bitmap.",
+      "parentUuid": "eab12b6c_a3319637",
       "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5b236318_41f98967",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "981cce48_20ddc9db",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0bd0484_05836db4",
         "filename": "testing/embedder_test.cpp",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1704896e_cdf1b626",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0bd0484_05836db4",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
