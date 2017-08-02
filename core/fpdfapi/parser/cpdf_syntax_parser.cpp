@@ -19,6 +19,7 @@
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_null.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_read_validator.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
@@ -358,6 +359,12 @@ void CPDF_SyntaxParser::ToNextWord() {
 }
 
 CFX_ByteString CPDF_SyntaxParser::GetNextWord(bool* bIsNumber) {
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  const auto result = GetNextWordImpl(bIsNumber);
+  return GetValidator()->has_read_problems() ? CFX_ByteString() : result;
+}
+
+CFX_ByteString CPDF_SyntaxParser::GetNextWordImpl(bool* bIsNumber) {
   GetNextWordInternal(bIsNumber);
   return CFX_ByteString((const char*)m_WordBuffer, m_WordSize);
 }
@@ -367,6 +374,18 @@ CFX_ByteString CPDF_SyntaxParser::GetKeyword() {
 }
 
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
+    CPDF_IndirectObjectHolder* pObjList,
+    uint32_t objnum,
+    uint32_t gennum,
+    bool bDecrypt) {
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  auto result = GetObjectImpl(pObjList, objnum, gennum, bDecrypt);
+  if (GetValidator()->has_read_problems())
+    return nullptr;
+  return result;
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectImpl(
     CPDF_IndirectObjectHolder* pObjList,
     uint32_t objnum,
     uint32_t gennum,
@@ -489,6 +508,17 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObject(
 }
 
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectForStrict(
+    CPDF_IndirectObjectHolder* pObjList,
+    uint32_t objnum,
+    uint32_t gennum) {
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  auto result = GetObjectForStrictImpl(pObjList, objnum, gennum);
+  if (GetValidator()->has_read_problems())
+    return nullptr;
+  return result;
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectForStrictImpl(
     CPDF_IndirectObjectHolder* pObjList,
     uint32_t objnum,
     uint32_t gennum) {
@@ -765,16 +795,25 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
 void CPDF_SyntaxParser::InitParser(
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
     uint32_t HeaderOffset) {
-  FX_Free(m_pFileBuf);
+  ASSERT(pFileAccess);
+  return InitParserWithValidator(
+      pdfium::MakeRetain<CPDF_ReadValidator>(pFileAccess, nullptr),
+      HeaderOffset);
+}
 
+void CPDF_SyntaxParser::InitParserWithValidator(
+    const CFX_RetainPtr<CPDF_ReadValidator>& validator,
+    uint32_t HeaderOffset) {
+  ASSERT(validator);
+  FX_Free(m_pFileBuf);
   m_pFileBuf = FX_Alloc(uint8_t, m_BufSize);
   m_HeaderOffset = HeaderOffset;
-  m_FileLen = pFileAccess->GetSize();
+  m_FileLen = validator->GetSize();
   m_Pos = 0;
-  m_pFileAccess = pFileAccess;
+  m_pFileAccess = validator;
   m_BufOffset = 0;
-  pFileAccess->ReadBlock(m_pFileBuf, 0,
-                         std::min(m_BufSize, static_cast<uint32_t>(m_FileLen)));
+  validator->ReadBlock(m_pFileBuf, 0,
+                       std::min(m_BufSize, static_cast<uint32_t>(m_FileLen)));
 }
 
 uint32_t CPDF_SyntaxParser::GetDirectNum() {
