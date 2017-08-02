@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "457a6461_baaa76bd",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37f30908_6a919ebb",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9e39c21_697d06c5",
         "filename": "samples/pdfium_test.cc",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa590ca0_3c29e24f",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9e39c21_697d06c5",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "5ffcd1e5_fa01e75e",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bdc7e4a_7624ef32",
+      "range": {
+        "startLine": 1188,
+        "startChar": 32,
+        "endLine": 1188,
+        "endChar": 33
+      },
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db62506c_4286c6a6",
         "filename": "testing/image_diff/image_diff_png.cpp",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2017-08-02T00:21:18Z",
       "side": 1,
       "message": "Don\u0027t need to handle FORMAT_BGR here?",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d2b4d0_137e11a2",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Not for now at least, I\u0027m outputting BGR bitmaps to RGB pngs.",
+      "parentUuid": "db62506c_4286c6a6",
       "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "3d20f8a7_bc2fadda",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2094ecf4_1ffc5817",
+      "range": {
+        "startLine": 251,
+        "startChar": 31,
+        "endLine": 251,
+        "endChar": 35
+      },
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b5dbb0e_d6ae7694",
         "filename": "testing/image_diff/image_diff_png.cpp",
         "patchSetId": 1
@@ -110,6 +212,24 @@
       "writtenOn": "2017-08-02T00:21:18Z",
       "side": 1,
       "message": "Is this change intentional? It doesn\u0027t match the comment.",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a2cab5a_83f3546a",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Yes, sorry I meant to add a CL comment here but forgot.\nIt actually matches the comment - row stride is row_byte_width, length of the data is input_color_components * width. In the original file where this code got ported from, it had DCHECK(input_color_components * width \u003c\u003d row_byte_width); hence here it should fail when the other way around. See https://cs.chromium.org/chromium/src/tools/imagediff/image_diff_png.cc?l\u003d577",
+      "parentUuid": "9b5dbb0e_d6ae7694",
       "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "c6ea831a_6a8a569f",
+        "filename": "testing/image_diff/image_diff_png.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Not for now, removed it.",
+      "parentUuid": "de50bd0a_f80d568e",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3082697b_bea61a0e",
         "filename": "testing/image_diff/image_diff_png.h",
         "patchSetId": 1
@@ -147,6 +285,24 @@
       "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c96d6ad_06c22f90",
+        "filename": "testing/image_diff/image_diff_png.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-02T01:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3082697b_bea61a0e",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
