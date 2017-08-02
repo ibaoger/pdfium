@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <sstream>
 
 #include "core/fxcrt/fx_system.h"
 #include "core/fxge/cfx_gemodule.h"
@@ -1294,12 +1295,12 @@ class GpStream final : public IStream {
     if (pcbRead) {
       *pcbRead = 0;
     }
-    if (m_ReadPos == m_InterStream.GetLength()) {
+    if (m_ReadPos == m_InterStream.tellp()) {
       return HRESULT_FROM_WIN32(ERROR_END_OF_MEDIA);
     }
-    bytes_left = m_InterStream.GetLength() - m_ReadPos;
+    bytes_left = m_InterStream.tellp() - m_ReadPos;
     bytes_out = std::min(pdfium::base::checked_cast<size_t>(cb), bytes_left);
-    memcpy(Output, m_InterStream.GetBuffer() + m_ReadPos, bytes_out);
+    memcpy(Output, m_InterStream.str().c_str() + m_ReadPos, bytes_out);
     m_ReadPos += (int32_t)bytes_out;
     if (pcbRead) {
       *pcbRead = (ULONG)bytes_out;
@@ -1315,7 +1316,7 @@ class GpStream final : public IStream {
       }
       return S_OK;
     }
-    m_InterStream.InsertBlock(m_InterStream.GetLength(), Input, cb);
+    m_InterStream.write(reinterpret_cast<const char*>(Input), cb);
     if (pcbWritten) {
       *pcbWritten = cb;
     }
@@ -1360,15 +1361,14 @@ class GpStream final : public IStream {
         start = m_ReadPos;
         break;
       case STREAM_SEEK_END:
-        start = m_InterStream.GetLength();
+        start = m_InterStream.tellp();
         break;
       default:
         return STG_E_INVALIDFUNCTION;
         break;
     }
     new_read_position = start + (long)liDistanceToMove.QuadPart;
-    if (new_read_position < 0 ||
-        new_read_position > m_InterStream.GetLength()) {
+    if (new_read_position < 0 || new_read_position > m_InterStream.tellp()) {
       return STG_E_SEEKERROR;
     }
     m_ReadPos = new_read_position;
@@ -1383,14 +1383,14 @@ class GpStream final : public IStream {
       return STG_E_INVALIDFUNCTION;
     }
     ZeroMemory(pStatstg, sizeof(STATSTG));
-    pStatstg->cbSize.QuadPart = m_InterStream.GetLength();
+    pStatstg->cbSize.QuadPart = m_InterStream.tellp();
     return S_OK;
   }
 
  private:
   LONG m_RefCount;
   int m_ReadPos;
-  CFX_ByteTextBuf m_InterStream;
+  std::ostringstream m_InterStream;
 };
 
 typedef struct {
