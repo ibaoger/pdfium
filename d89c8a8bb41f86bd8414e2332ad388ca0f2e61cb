@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37f30908_6a919ebb",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "You are leaking |bitmap| in a bunch of places.",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e39c21_697d06c5",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "This is NOTREACHED(), right?",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bdc7e4a_7624ef32",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "wb",
+      "range": {
+        "startLine": 1188,
+        "startChar": 32,
+        "endLine": 1188,
+        "endChar": 33
+      },
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db62506c_4286c6a6",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "Don\u0027t need to handle FORMAT_BGR here?",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2094ecf4_1ffc5817",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 251,
+        "startChar": 31,
+        "endLine": 251,
+        "endChar": 35
+      },
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5dbb0e_d6ae7694",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "Is this change intentional? It doesn\u0027t match the comment.",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de50bd0a_f80d568e",
+        "filename": "testing/image_diff/image_diff_png.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "Is this ever set to true?",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3082697b_bea61a0e",
+        "filename": "testing/image_diff/image_diff_png.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T00:21:18Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "d89c8a8bb41f86bd8414e2332ad388ca0f2e61cb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
