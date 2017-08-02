@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40892bd7_2389e0bc",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:25:10Z",
+      "side": 1,
+      "message": "This is boolean_gn_arg() in tools/coverage/coverage_report.py right? How about extracting that out in a separate CL?",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bc350d9_74b357a6",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:25:10Z",
+      "side": 1,
+      "message": "Do we check this somewhere? If someone accidentally runs it from the wrong dir, do weird things happen?",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1dead3a_ebe65d71",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:25:10Z",
+      "side": 1,
+      "message": "Why not just use tempfile.mkdtemp() and don\u0027t bother with --tmp-dir? Then there\u0027s no need to call shutil.rmtree() and os.makedirs() below either. Users can still control the tmp dir via $TMP or whatever.",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da6be8d3_14ec9710",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:25:10Z",
+      "side": 1,
+      "message": "Instead, let users pass in a --cache-dir option if desired. Then user can directly control whether to use the cache or not.",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da1ec78_ed051ec5",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:25:10Z",
+      "side": 1,
+      "message": "Combine the \u003e 0 and \u003c 0 cases?\n\nif ratio \u003e self.threshold_significant:\n  rating \u003d RATING_REGRESSION\nelif ratio \u003c self.threshold_significant_negative:\n  rating \u003d RATING_IMPROVEMENT\nelif ratio \u003d\u003d 0:\n  rating \u003d RATING_NO_CHANGE\nelse:\n  rating \u003d RATING_SMALL_CHANGE",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
