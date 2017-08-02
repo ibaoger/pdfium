@@ -347,38 +347,68 @@ TEST(fxcrt, WideStringReplace) {
 
 TEST(fxcrt, WideStringInsert) {
   CFX_WideString fred(L"FRED");
-  fred.Insert(-1, 'X');
-  EXPECT_EQ(L"XFRED", fred);
-
-  fred.Insert(0, 'S');
-  EXPECT_EQ(L"SXFRED", fred);
-
-  fred.Insert(2, 'T');
-  EXPECT_EQ(L"SXTFRED", fred);
-
-  fred.Insert(5, 'U');
-  EXPECT_EQ(L"SXTFRUED", fred);
-
-  fred.Insert(8, 'V');
-  EXPECT_EQ(L"SXTFRUEDV", fred);
-
-  fred.Insert(12, 'P');
-  EXPECT_EQ(L"SXTFRUEDVP", fred);
-
+  EXPECT_EQ(4, fred.Insert(-1, 'X'));
+  EXPECT_EQ(L"FRED", fred);
+  EXPECT_EQ(5, fred.Insert(0, 'S'));
+  EXPECT_EQ(L"SFRED", fred);
+  EXPECT_EQ(6, fred.Insert(1, 'T'));
+  EXPECT_EQ(L"STFRED", fred);
+  EXPECT_EQ(7, fred.Insert(4, 'U'));
+  EXPECT_EQ(L"STFRUED", fred);
+  EXPECT_EQ(8, fred.Insert(7, 'V'));
+  EXPECT_EQ(L"STFRUEDV", fred);
+  EXPECT_EQ(8, fred.Insert(12, 'P'));
+  EXPECT_EQ(L"STFRUEDV", fred);
   {
     CFX_WideString empty;
-    empty.Insert(-1, 'X');
+    EXPECT_EQ(0, empty.Insert(-1, 'X'));
+    EXPECT_NE(L"X", empty);
+  }
+  {
+    CFX_WideString empty;
+    EXPECT_EQ(1, empty.Insert(0, 'X'));
     EXPECT_EQ(L"X", empty);
   }
   {
     CFX_WideString empty;
-    empty.Insert(0, 'X');
-    EXPECT_EQ(L"X", empty);
+    EXPECT_EQ(0, empty.Insert(5, 'X'));
+    EXPECT_NE(L"X", empty);
+  }
+}
+
+TEST(fxcrt, WideStringBeforeAndAfter) {
+  {
+    CFX_WideString empty;
+    EXPECT_EQ(1, empty.Before('D'));
+    EXPECT_NE(L"D", empty);
+    EXPECT_EQ(2, empty.Before('E'));
+    EXPECT_NE(L"ED", empty);
+    EXPECT_EQ(3, empty.Before('R'));
+    EXPECT_NE(L"RED", empty);
+    EXPECT_EQ(4, empty.Before('F'));
+    EXPECT_NE(L"FRED", empty);
   }
   {
     CFX_WideString empty;
-    empty.Insert(5, 'X');
-    EXPECT_EQ(L"X", empty);
+    EXPECT_EQ(1, empty.After('F'));
+    EXPECT_NE(L"F", empty);
+    EXPECT_EQ(2, empty.Before('R'));
+    EXPECT_NE(L"FR", empty);
+    EXPECT_EQ(3, empty.Before('E'));
+    EXPECT_NE(L"FRE", empty);
+    EXPECT_EQ(4, empty.Before('D'));
+    EXPECT_NE(L"FRED", empty);
+  }
+  {
+    CFX_WideString empty;
+    EXPECT_EQ(1, empty.After('E'));
+    EXPECT_NE(L"E", empty);
+    EXPECT_EQ(2, empty.Before('R'));
+    EXPECT_NE(L"RE", empty);
+    EXPECT_EQ(3, empty.After('D'));
+    EXPECT_NE(L"RED", empty);
+    EXPECT_EQ(4, empty.Before('F'));
+    EXPECT_NE(L"FRED", empty);
   }
 }
 

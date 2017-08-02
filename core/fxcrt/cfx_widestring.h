@@ -120,6 +120,8 @@ class CFX_WideString {
   CFX_WideString Right(FX_STRSIZE count) const;
 
   FX_STRSIZE Insert(FX_STRSIZE index, wchar_t ch);
+  FX_STRSIZE Before(wchar_t ch) { return Insert(0, ch); }
+  FX_STRSIZE After(wchar_t ch) { return Insert(m_pData->m_nDataLength, ch); }
   FX_STRSIZE Delete(FX_STRSIZE index, FX_STRSIZE count = 1);
 
   void Format(const wchar_t* lpszFormat, ...);
