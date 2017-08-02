@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70a9f62d_591b67d0",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:52:41Z",
+      "side": 1,
+      "message": "Why not shutil.move() ?",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3e3c8ad_4e0a2dbd",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:52:41Z",
+      "side": 1,
+      "message": "Can --png-dir without a value replace passing SAME_DIR?",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16d7ea0_914b76e4",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:52:41Z",
+      "side": 1,
+      "message": "Can one pass --pages 1-2 --pages 5-7 to render pages 1,2,5,6,7?",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af4d77d9_64e59976",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T22:52:41Z",
+      "side": 1,
+      "message": "Just say: Page numbers are 0-based.",
+      "range": {
+        "startLine": 150,
+        "startChar": 63,
+        "endLine": 150,
+        "endChar": 76
+      },
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
