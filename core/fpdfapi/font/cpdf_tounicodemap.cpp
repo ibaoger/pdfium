@@ -77,15 +77,14 @@ static CFX_WideString StringDataAdd(CFX_WideString str) {
   for (int i = len - 1; i >= 0; --i) {
     wchar_t ch = str[i] + value;
     if (ch < str[i]) {
-      ret.Insert(0, 0);
+      ret.Before(0);
     } else {
-      ret.Insert(0, ch);
+      ret.Before(ch);
       value = 0;
     }
   }
-  if (value) {
-    ret.Insert(0, value);
-  }
+  if (value)
+    ret.Before(value);
   return ret;
 }
 
