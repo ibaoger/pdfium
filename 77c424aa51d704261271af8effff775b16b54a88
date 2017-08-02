@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1883204b_a12c15e2",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-02T21:09:15Z",
+      "side": 1,
+      "message": "isn\u0027t this null?",
+      "range": {
+        "startLine": 247,
+        "startChar": 3,
+        "endLine": 247,
+        "endChar": 26
+      },
+      "revId": "77c424aa51d704261271af8effff775b16b54a88",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2279a3d5_915969de",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-02T21:09:15Z",
+      "side": 1,
+      "message": "and then this blows up?",
+      "range": {
+        "startLine": 254,
+        "startChar": 22,
+        "endLine": 254,
+        "endChar": 45
+      },
+      "revId": "77c424aa51d704261271af8effff775b16b54a88",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
