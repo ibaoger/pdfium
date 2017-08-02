@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae745699_e633e781",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T12:13:02Z",
+      "side": 1,
+      "message": "In the original code the method of writing of objects depends on a much unpredictable factors:\nas:\n1) Is there an updated version of the at least one object in the document (IsVersionUpdated)\n2) The password is changed (m_bSecurityChanged)\n3) Was this object loaded earlier (bExistInMap)\n4) The Object is compressed and document have a password.\n\nWith these factors it is difficult to predict what will be the final file.\nI think to reduce volatility we need to use only one method that works in all cases mentioned.",
+      "revId": "04d25640e61822afb3201c3b8a65f0986cb9ab06",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242e8226_b45bda01",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T12:13:02Z",
+      "side": 1,
+      "message": "This test needs to be updated because\nRendered the page very slightly changed (it is not visible to the human eye).\nIt happened because the original document contains the array object:\n\n59 0 obj\n[ 0  0  527.114300  247.111600  ] \n\nAnd after deserialize and serialize it is saved as \n\n59 0 obj\n[ 0 0 527.114 247.112]\n\nAs you can see, we miss value after third decimal place, and round it up.\nThis is occurred in  CFX_ByteString::FormatFloat in CPDF_Number::GetString\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_object.h?l\u003d58\u0026ct\u003dxref_jump_to_def\n\nFor exapmple CFX_ByteString::FormatFloat(247.1116f) will be \"247.112\"",
+      "revId": "04d25640e61822afb3201c3b8a65f0986cb9ab06",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e37b13d_be0a1dc8",
+        "filename": "fpdfsdk/fpdfsave_embeddertest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T12:13:02Z",
+      "side": 1,
+      "message": "The sizes has been changed, because now we do not just copy raw data into new file. In this CL we load then serailize object anyways. And our serialization have some other decorations (spaces/new lines/etc... ) compared to original file.",
+      "revId": "04d25640e61822afb3201c3b8a65f0986cb9ab06",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3cac89b_8d98bb62",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T12:13:02Z",
+      "side": 0,
+      "message": "Is not used anymore",
+      "revId": "834ebece214f06c6e9fda803ab321e8453b3a54b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
