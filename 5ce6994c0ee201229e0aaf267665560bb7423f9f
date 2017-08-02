@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3c99d2a2_9ef02e7b",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73ee4d6e_d3fd8731",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f79b33e1_9c9436c3",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
         "patchSetId": 5
@@ -39,6 +57,30 @@
       "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ad61ab_750a9672",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f79b33e1_9c9436c3",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +124,48 @@
     },
     {
       "key": {
+        "uuid": "fa65524c_ff6cb691",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Depth first.\nI have changed comment.",
+      "parentUuid": "1e0aa479_cd409866",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f9ef65_bd58dfd9",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d09c89_41c9d38a",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 48
+      },
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edcdcbe_536422a4",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
         "patchSetId": 5
@@ -93,6 +177,24 @@
       "writtenOn": "2017-08-01T22:19:49Z",
       "side": 1,
       "message": "Is anyone going to call these methods?",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58fab991_17baa62a",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Yes. It is will be needed for restore object tree. (I want to use it, to clone objects without recursion).",
+      "parentUuid": "0edcdcbe_536422a4",
       "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "2a66ba59_94475d00",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Yes. It is will be needed for decrypt (and may be encrypt) object without recursion.\nFor this we should allows to edit current object. And implementation are created to allow this.",
+      "parentUuid": "e3310ec6_5562db5f",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fdf4e02_3d6c145a",
         "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
         "patchSetId": 5
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "8d60c129_369338de",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fdf4e02_3d6c145a",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e994adef_75eab889",
         "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
         "patchSetId": 5
@@ -147,6 +285,24 @@
       "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01a79517_d53a59dd",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-02T11:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e994adef_75eab889",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
