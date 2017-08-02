@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0bf40330_366587f0",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T21:28:47Z",
+      "side": 1,
+      "message": "Write a unit test for some internal caller of this function?",
+      "parentUuid": "50645b69_4dbe269c",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I\u0027m not sure if we should say rendering here, since we are not really rendering it, just getting the image stream data and put it in a bitmap.",
       "parentUuid": "eab12b6c_a3319637",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bf2163e_9306096f",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-02T21:28:47Z",
+      "side": 1,
+      "message": "So if you take testing/resources/pixel/bug_718762.in and convert it to bug_718762.pdf. The image inside is 5000x5000 with BPC\u003d8 and 4 components, but only takes up 734 bytes. Is this returning the 734 bytes of raw data, or a 5000x5000*4 bitmap? If it\u0027s returning the bitmap, doesn\u0027t it have to render the 734 bytes of data into a bitmap?",
+      "parentUuid": "8946f27c_d483574d",
       "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
