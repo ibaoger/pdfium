@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c5bfe24b_26674eb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T02:12:37Z",
+      "side": 1,
+      "message": "And update CL description.",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2182e183_f8df6dca",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 4
