@@ -78,46 +78,48 @@ CPDF_DataAvail::CPDF_DataAvail(
     FileAvail* pFileAvail,
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileRead,
     bool bSupportHintTable)
-    : m_pFileAvail(pFileAvail) {
-  ASSERT(pFileRead);
-  m_pFileRead = pdfium::MakeRetain<CPDF_ReadValidator>(pFileRead, m_pFileAvail);
-  m_Pos = 0;
-  m_dwFileLen = m_pFileRead->GetSize();
-  m_dwCurrentOffset = 0;
-  m_dwXRefOffset = 0;
-  m_dwTrailerOffset = 0;
-  m_bufferOffset = 0;
-  m_bufferSize = 0;
-  m_PagesObjNum = 0;
-  m_dwCurrentXRefSteam = 0;
-  m_dwAcroFormObjNum = 0;
-  m_dwInfoObjNum = 0;
-  m_pDocument = 0;
-  m_dwEncryptObjNum = 0;
-  m_dwPrevXRefOffset = 0;
-  m_dwLastXRefOffset = 0;
-  m_bDocAvail = false;
-  m_bMainXRefLoadTried = false;
-  m_bDocAvail = false;
-  m_bPagesLoad = false;
-  m_bPagesTreeLoad = false;
-  m_bMainXRefLoadedOK = false;
-  m_bAnnotsLoad = false;
-  m_bHaveAcroForm = false;
-  m_bAcroFormLoad = false;
-  m_bPageLoadedOK = false;
-  m_bNeedDownLoadResource = false;
-  m_bLinearizedFormParamLoad = false;
-  m_pTrailer = nullptr;
-  m_pCurrentParser = nullptr;
-  m_pPageDict = nullptr;
-  m_pPageResource = nullptr;
-  m_docStatus = PDF_DATAAVAIL_HEADER;
-  m_bTotalLoadPageTree = false;
-  m_bCurPageDictLoadOK = false;
-  m_bLinearedDataOK = false;
-  m_bSupportHintTable = bSupportHintTable;
-}
+    : m_pFileAvail(pFileAvail),
+      m_pFileRead(
+          pdfium::MakeRetain<CPDF_ReadValidator>(pFileRead, m_pFileAvail)),
+      m_dwRootObjNum(0),
+      m_dwInfoObjNum(0),
+      m_pTrailer(nullptr),
+      m_bDocAvail(false),
+
+      m_dwHeaderOffset(0),
+      m_dwLastXRefOffset(0),
+      m_dwXRefOffset(0),
+      m_dwTrailerOffset(0),
+      m_dwCurrentOffset(0),
+      m_docStatus(PDF_DATAAVAIL_HEADER),
+      m_dwFileLen(m_pFileRead->GetSize()),
+      m_pDocument(nullptr),
+      m_Pos(0),
+      m_bufferOffset(0),
+      m_bufferSize(0),
+      m_PagesObjNum(0),
+      m_bLinearedDataOK(false),
+      m_bMainXRefLoadTried(false),
+      m_bMainXRefLoadedOK(false),
+      m_bPagesTreeLoad(false),
+      m_bPagesLoad(false),
+      m_pCurrentParser(nullptr),
+      m_dwCurrentXRefSteam(0),
+      m_bAnnotsLoad(false),
+      m_bHaveAcroForm(false),
+      m_dwAcroFormObjNum(0),
+      m_bAcroFormLoad(false),
+      m_pPageDict(nullptr),
+      m_pPageResource(nullptr),
+      m_bNeedDownLoadResource(false),
+      m_bPageLoadedOK(false),
+      m_bLinearizedFormParamLoad(false),
+      m_dwEncryptObjNum(0),
+      m_dwPrevXRefOffset(0),
+      m_bTotalLoadPageTree(false),
+      m_bCurPageDictLoadOK(false),
+
+      m_bSupportHintTable(bSupportHintTable) {}
 
 CPDF_DataAvail::~CPDF_DataAvail() {
   m_pHintTables.reset();
@@ -731,8 +733,7 @@ CPDF_DataAvail::DocLinearizationStatus CPDF_DataAvail::IsLinearizedPDF() {
   if (!m_pFileAvail->IsDataAvail(0, kReqSize))
     return LinearizationUnknown;
 
-  FX_FILESIZE dwSize = m_pFileRead->GetSize();
-  if (dwSize < (FX_FILESIZE)kReqSize)
+  if (m_dwFileLen < (FX_FILESIZE)kReqSize)
     return LinearizationUnknown;
 
   std::vector<uint8_t> buffer(kReqSize);
@@ -771,8 +772,7 @@ bool CPDF_DataAvail::IsLinearizedFile(uint8_t* pData, uint32_t dwLen) {
   uint32_t objnum = FXSYS_atoui(wordObjNum.c_str());
   m_pLinearized = CPDF_LinearizedHeader::CreateForObject(
       ParseIndirectObjectAt(m_syntaxParser.m_HeaderOffset + 9, objnum));
-  if (!m_pLinearized ||
-      m_pLinearized->GetFileSize() != m_pFileRead->GetSize()) {
+  if (!m_pLinearized || m_pLinearized->GetFileSize() != m_dwFileLen) {
     m_pLinearized.reset();
     return false;
   }

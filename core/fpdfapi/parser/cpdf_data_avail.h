@@ -208,7 +208,7 @@ class CPDF_DataAvail final {
   FX_FILESIZE m_dwTrailerOffset;
   FX_FILESIZE m_dwCurrentOffset;
   PDF_DATAAVAIL_STATUS m_docStatus;
-  FX_FILESIZE m_dwFileLen;
+  const FX_FILESIZE m_dwFileLen;
   CPDF_Document* m_pDocument;
   std::set<uint32_t> m_ObjectSet;
   std::vector<CPDF_Object*> m_objs_array;
