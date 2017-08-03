@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "435dd3f9_68e44a2c",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "nit: move decls to first use at 1301",
+      "range": {
+        "startLine": 1293,
+        "startChar": 4,
+        "endLine": 1293,
+        "endChar": 22
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ecc4ad4_9c0e8770",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "nit: not sure if we want to clean up the one-line {} throughout.  Do as you like.",
+      "range": {
+        "startLine": 1295,
+        "startChar": 17,
+        "endLine": 1295,
+        "endChar": 18
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c7f57d_aba71fd0",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "\u003e\u003d might be safer, given the subtraction below.",
+      "range": {
+        "startLine": 1298,
+        "startChar": 18,
+        "endLine": 1298,
+        "endChar": 20
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8afd8f22_9abe909e",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "Pre-existing, but this seems dangerous.",
+      "range": {
+        "startLine": 1304,
+        "startChar": 2,
+        "endLine": 1304,
+        "endChar": 36
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55fe3fb9_8b28ac16",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "nit: would prefer \n\n  const void* input,  (note lowercase).",
+      "range": {
+        "startLine": 1310,
+        "startChar": 34,
+        "endLine": 1310,
+        "endChar": 51
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "691523f9_eb4a52bd",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T16:46:46Z",
+      "side": 1,
+      "message": "nit: static_cast while we\u0027re at it.",
+      "range": {
+        "startLine": 1370,
+        "startChar": 32,
+        "endLine": 1370,
+        "endChar": 63
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
