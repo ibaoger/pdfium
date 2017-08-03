@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "78f2cd6c_e30c02d5",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:30:39Z",
+      "side": 1,
+      "message": "Ryan\u0027s CL wasn\u0027t submitted yet when I needed this. https://pdfium-review.googlesource.com/c/10030\n\nWill leave open until that CL is in and I can remove GetBooleanGnArg from this CL.",
+      "parentUuid": "40892bd7_2389e0bc",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bc350d9_74b357a6",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 42
@@ -33,6 +51,24 @@
       "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "111ad9fa_2f92ee3e",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:30:39Z",
+      "side": 1,
+      "message": "Made the script chdir to the src dir, so now it can be run from anywhere.",
+      "parentUuid": "2bc350d9_74b357a6",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "35cb9129_12865bbd",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:30:39Z",
+      "side": 1,
+      "message": "Done. Didn\u0027t know this library. Good tip, thanks.",
+      "parentUuid": "d1dead3a_ebe65d71",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da6be8d3_14ec9710",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 42
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "207582ad_66b0bc9c",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:30:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da6be8d3_14ec9710",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8da1ec78_ed051ec5",
         "filename": "testing/tools/safetynet_conclusions.py",
         "patchSetId": 42
@@ -84,6 +156,24 @@
       "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ada69a78_5d6fa557",
+        "filename": "testing/tools/safetynet_conclusions.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:30:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8da1ec78_ed051ec5",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
