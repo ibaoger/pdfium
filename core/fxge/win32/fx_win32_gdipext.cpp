@@ -1276,7 +1276,7 @@ class GpStream final : public IStream {
     size_t bytes_out =
         std::min(pdfium::base::checked_cast<size_t>(cb), bytes_left);
     memcpy(output, m_InterStream.str().c_str() + m_ReadPos, bytes_out);
-    m_ReadPos += (int32_t)bytes_out;
+    m_ReadPos += bytes_out;
     if (pcbRead)
       *pcbRead = (ULONG)bytes_out;
 
@@ -1324,8 +1324,8 @@ class GpStream final : public IStream {
   HRESULT STDMETHODCALLTYPE Seek(LARGE_INTEGER liDistanceToMove,
                                  DWORD dwOrigin,
                                  ULARGE_INTEGER* lpNewFilePointer) override {
-    long start = 0;
-    long new_read_position;
+    size_t start = 0;
+    size_t new_read_position;
     switch (dwOrigin) {
       case STREAM_SEEK_SET:
         start = 0;
@@ -1362,7 +1362,7 @@ class GpStream final : public IStream {
 
  private:
   LONG m_RefCount;
-  int m_ReadPos;
+  size_t m_ReadPos;
   std::ostringstream m_InterStream;
 };
 
