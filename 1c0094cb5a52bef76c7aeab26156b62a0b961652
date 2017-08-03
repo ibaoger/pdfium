@@ -450,6 +450,30 @@
     },
     {
       "key": {
+        "uuid": "3e9b1796_29fc0d96",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-03T07:14:51Z",
+      "side": 1,
+      "message": "WIN32 is set by base (probably, might be set elsewhere), _WIN32 is a system defined macro. I copied this from the base header I used as a template but it might be a better to use _WIN32 just in case. I will change it.",
+      "parentUuid": "85c1d722_da349cc9",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 17
+      },
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "105c7579_b6651471",
         "filename": "public/fpdfview.h",
         "patchSetId": 4
@@ -478,6 +502,24 @@
       "writtenOn": "2017-08-03T00:07:18Z",
       "side": 1,
       "message": "Do we need to make this change? This file is copied over from Chromium\u0027s base/compiler_specific.h. I don\u0027t think we use this particular block directly though.",
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a0d7b06_0508cc69",
+        "filename": "third_party/base/compiler_specific.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-03T07:14:51Z",
+      "side": 1,
+      "message": "This creeped in when I replaced CDECL from my previous patch with FPDF_CALLCONV. I\u0027m already defining FPFF_CALLCONV in fpdfviewh.h so there\u0027s no need to mess with this file.",
+      "parentUuid": "978d791b_128f8cca",
       "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
