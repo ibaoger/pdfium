@@ -45,6 +45,30 @@
       "revId": "34d5fa6dc1cb4beed4826d5ac5cc8cb724426291",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8dfd535_bd2e5949",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T18:29:49Z",
+      "side": 1,
+      "message": "What do we think about moving tools/coverage to testing/tools/coverage?",
+      "parentUuid": "6babfd1d_d6c35334",
+      "range": {
+        "startLine": 27,
+        "startChar": 45,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "34d5fa6dc1cb4beed4826d5ac5cc8cb724426291",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
