@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1c86566_ff72c0ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5bfe24b_26674eb6",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2182e183_f8df6dca",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6d4fb587_b8098c8b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2182e183_f8df6dca",
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "121cf9a9_15c6d3fa",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 4
@@ -56,6 +98,24 @@
       "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52688dd3_2b2e1715",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "121cf9a9_15c6d3fa",
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
