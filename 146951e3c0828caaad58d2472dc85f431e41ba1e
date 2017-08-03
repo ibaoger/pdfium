@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cb7fa05_436b390f",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435dd3f9_68e44a2c",
+      "range": {
+        "startLine": 1293,
+        "startChar": 4,
+        "endLine": 1293,
+        "endChar": 22
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ecc4ad4_9c0e8770",
         "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d35d7b_3248822a",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ecc4ad4_9c0e8770",
+      "range": {
+        "startLine": 1295,
+        "startChar": 17,
+        "endLine": 1295,
+        "endChar": 18
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e89e456a_e35911a9",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72c7f57d_aba71fd0",
+      "range": {
+        "startLine": 1298,
+        "startChar": 18,
+        "endLine": 1298,
+        "endChar": 20
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8afd8f22_9abe909e",
         "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e66e8911_5e3f3744",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "bytes_out is at most bytes_left, which is the delta between m_ReadPos and m_InterStream.tellp(). Adding it to m_ReadPos should not take it further than the size of the stream buffer.",
+      "parentUuid": "8afd8f22_9abe909e",
+      "range": {
+        "startLine": 1304,
+        "startChar": 2,
+        "endLine": 1304,
+        "endChar": 36
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "049865a8_20bd7e16",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55fe3fb9_8b28ac16",
+      "range": {
+        "startLine": 1310,
+        "startChar": 34,
+        "endLine": 1310,
+        "endChar": 51
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "691523f9_eb4a52bd",
         "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71644649_d6f463e3",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "691523f9_eb4a52bd",
+      "range": {
+        "startLine": 1370,
+        "startChar": 32,
+        "endLine": 1370,
+        "endChar": 63
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
