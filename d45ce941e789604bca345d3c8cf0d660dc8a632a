@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "13b80c68_a107154e",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:13:20Z",
+      "side": 1,
+      "message": "So I tried to write a unit test that calls ConvertBuffer() but it\u0027s taking me so long that I\u0027m not sure if it\u0027s worth it... To use ConvertBuffer() without getting a bitmap, we need to make a bitmap object that has an appropriate source stream, which needs to have the appropriate palette, bpc, components, etc. for the conversion to work.\nDo you see any other slightly easier way out of this?",
+      "parentUuid": "0bf40330_366587f0",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "So if you take testing/resources/pixel/bug_718762.in and convert it to bug_718762.pdf. The image inside is 5000x5000 with BPC\u003d8 and 4 components, but only takes up 734 bytes. Is this returning the 734 bytes of raw data, or a 5000x5000*4 bitmap? If it\u0027s returning the bitmap, doesn\u0027t it have to render the 734 bytes of data into a bitmap?",
       "parentUuid": "8946f27c_d483574d",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0832ba53_4a6c612f",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:13:20Z",
+      "side": 1,
+      "message": "Yea you are right, the encoded data takes up 734 bytes, whereas the bitmap takes up 5000x5000*4. My understanding is that the \"extra\" data simply comes from decoding. CPDF_Image::LoadDIBSource() decodes the raw data and stores the decoded data in a CFX_DIBSource; then CFX_DIBSource::Clone() converts CFX_DIBSource into a CFX_DIBitmap by scanning each row with a decoder. Is this called rendering?\nApologies for my lack of knowledge on images. :)",
+      "parentUuid": "3bf2163e_9306096f",
       "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
