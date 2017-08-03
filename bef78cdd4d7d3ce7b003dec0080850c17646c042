@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e16bf378_f8d17c01",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T19:37:48Z",
+      "side": 1,
+      "message": "Since Ryan is OOO, how about we submit the common.py change in this CL and then update his usage next week?",
+      "parentUuid": "78f2cd6c_e30c02d5",
+      "revId": "bef78cdd4d7d3ce7b003dec0080850c17646c042",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bc350d9_74b357a6",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 42
