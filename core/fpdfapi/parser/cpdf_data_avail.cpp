@@ -754,7 +754,7 @@ bool CPDF_DataAvail::IsLinearizedFile(uint8_t* pData, uint32_t dwLen) {
   auto file = pdfium::MakeRetain<CFX_MemoryStream>(
       pData, static_cast<size_t>(dwLen), false);
   int32_t offset = GetHeaderOffset(file);
-  if (offset == kInvalidHeaderOffset) {
+  if (offset == -1) {
     m_docStatus = PDF_DATAAVAIL_ERROR;
     return false;
   }

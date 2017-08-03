@@ -148,14 +148,6 @@ class CPDF_Parser {
     kEndObj
   };
 
-  struct CrossRefObjData {
-    uint32_t obj_num = 0;
-    ObjectInfo info;
-  };
-
-  Error StartParseInternal(const CFX_RetainPtr<IFX_SeekableReadStream>& pFile,
-                           CPDF_Document* pDocument,
-                           int32_t iHeaderOffset);
   CPDF_Object* ParseDirect(CPDF_Object* pObj);
   bool LoadAllCrossRefV4(FX_FILESIZE pos);
   bool LoadAllCrossRefV5(FX_FILESIZE pos);
@@ -176,16 +168,6 @@ class CPDF_Parser {
   // A simple check whether the cross reference table matches with
   // the objects.
   bool VerifyCrossRefV4();
-
-  // If out_objects is null, the parser position will be moved to end subsection
-  // without additional validation.
-  bool ParseAndAppendCrossRefSubsectionData(
-      uint32_t start_objnum,
-      uint32_t count,
-      std::vector<CrossRefObjData>* out_objects);
-  bool ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
-                       uint32_t* start_obj_num_at_last_block);
-  void MergeCrossRefObjectsData(const std::vector<CrossRefObjData>& objects);
 
   CFX_UnownedPtr<CPDF_Document> m_pDocument;
   bool m_bHasParsed;

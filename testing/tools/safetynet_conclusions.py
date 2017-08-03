@@ -98,12 +98,14 @@ class ComparisonConclusions(object):
       ratio = (float(after) / before) - 1.0
       if ratio > self.threshold_significant:
         rating = RATING_REGRESSION
+      elif ratio > 0:
+        rating = RATING_SMALL_CHANGE
       elif ratio < self.threshold_significant_negative:
         rating = RATING_IMPROVEMENT
-      elif ratio == 0:
-        rating = RATING_NO_CHANGE
-      else:
+      elif ratio < 0:
         rating = RATING_SMALL_CHANGE
+      else:
+        rating = RATING_NO_CHANGE
 
     case_result = CaseResult(case_name, before, after, ratio, rating)
 

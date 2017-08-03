@@ -3,10 +3,14 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-"""Compares the performance of two versions of the pdfium code."""
+"""Compares the performance of two versions of the pdfium code.
+
+Must be run from the pdfium source root dir.
+"""
 
 import argparse
 import functools
+import glob
 import json
 import multiprocessing
 import os
@@ -14,7 +18,6 @@ import re
 import shutil
 import subprocess
 import sys
-import tempfile
 
 from common import GetBooleanGnArg
 from githelper import GitHelper
@@ -22,6 +25,8 @@ from safetynet_conclusions import ComparisonConclusions
 from safetynet_conclusions import PrintConclusionsDictHumanReadable
 from safetynet_conclusions import RATING_IMPROVEMENT
 from safetynet_conclusions import RATING_REGRESSION
+from safetynet_image import ImageComparison
+
 
 
 def PrintErr(s):
@@ -106,6 +111,15 @@ class CompareRun(object):
     self._PrintConclusions(conclusions_dict)
 
     self._CleanUp(conclusions)
+
+    if self.args.png_dir:
+      image_comparison = ImageComparison(
+          self.after_build_dir,
+          self.args.png_dir,
+          ('before', 'after'),
+          self.args.num_workers,
+          self.args.png_threshold)
+      image_comparison.Run()
 
     return 0
 
@@ -318,9 +332,11 @@ class CompareRun(object):
     """
     cwd = os.getcwd()
 
-    repo_dir = tempfile.mkdtemp(suffix='-%s' % dir_name)
+    repo_dir = os.path.join(self.args.tmp_dir, dir_name)
     src_dir = os.path.join(repo_dir, 'pdfium')
 
+    shutil.rmtree(repo_dir, ignore_errors=True)
+    os.makedirs(repo_dir)
     self.git.CloneLocal(os.getcwd(), src_dir)
 
     if branch is not None:
@@ -328,14 +344,11 @@ class CompareRun(object):
       self.git.Checkout(branch)
 
     os.chdir(repo_dir)
+    cache = os.path.join(self.args.tmp_dir, 'pdfium_repo_cache')
     PrintErr('Syncing...')
-
-    cmd = ['gclient', 'config', '--unmanaged',
-           'https://pdfium.googlesource.com/pdfium.git']
-    if self.args.cache_dir:
-      cmd.append('--cache-dir=%s' % self.args.cache_dir)
-    subprocess.check_output(cmd)
-
+    subprocess.check_output(['gclient', 'config', '--cache-dir=%s' % cache,
+                             '--unmanaged',
+                             'https://pdfium.googlesource.com/pdfium.git'])
     subprocess.check_output(['gclient', 'sync'])
     PrintErr('Done.')
 
@@ -480,6 +493,12 @@ class CompareRun(object):
     if profile_file_path:
       command.append('--output-path=%s' % profile_file_path)
 
+    if self.args.png_dir:
+      command.append('--png')
+
+    if self.args.pages:
+      command.extend(['--pages', self.args.pages])
+
     try:
       output = subprocess.check_output(command)
     except subprocess.CalledProcessError as e:
@@ -489,12 +508,29 @@ class CompareRun(object):
       PrintErr(80 * '=')
       return None
 
+    if self.args.png_dir:
+      self._MoveImages(test_case, run_label)
+
     # Get the time number as output, making sure it's just a number
     output = output.strip()
     if re.match('^[0-9]+$', output):
       return int(output)
 
     return None
+
+  def _MoveImages(self, test_case, run_label):
+    png_dir = os.path.join(self.args.png_dir, run_label)
+    if not os.path.exists(png_dir):
+      os.makedirs(png_dir)
+
+    test_case_dir, test_case_filename = os.path.split(test_case)
+    test_case_png_matcher = '%s.*.png' % test_case_filename
+    for output_png in glob.glob(os.path.join(test_case_dir,
+                                             test_case_png_matcher)):
+      try:
+        shutil.move(output_png, png_dir)
+      except e:
+        PrintErr(e)
 
   def _GetProfileFilePath(self, run_label, test_case):
     if self.args.output_dir:
@@ -602,9 +638,9 @@ def main():
                            'to the build directory for the "before" branch, if '
                            'different from the build directory for the '
                            '"after" branch')
-  parser.add_argument('--cache-dir', default=None,
-                      help='directory with a new or preexisting cache for '
-                           'downloads. Default is to not use a cache.')
+  parser.add_argument('--tmp-dir', default='/tmp',
+                      help='directory in which temporary repos will be '
+                           'cloned. Default is /tmp')
   parser.add_argument('--this-repo', action='store_true',
                       help='use the repository where the script is instead of '
                            'checking out a temporary one. This is faster and '
@@ -620,10 +656,22 @@ def main():
                            'the whole test harness. Limiting to only the '
                            'interesting section does not work on Release since '
                            'the delimiters are optimized out')
+  parser.add_argument('--pages',
+                      help='selects some pages to be rendered. Page numbers '
+                           'are 0-based. "--pages A" will render only page A. '
+                           '"--pages A-B" will render pages A to B '
+                           '(inclusive).')
   parser.add_argument('--num-workers', default=multiprocessing.cpu_count(),
                       type=int, help='run NUM_WORKERS jobs in parallel')
   parser.add_argument('--output-dir',
                       help='directory to write the profile data output files')
+  parser.add_argument('--png-dir', default=None,
+                      help='outputs pngs to the specified directory that can '
+                           'be compared with a static html generated. Will '
+                           'affect performance measurements.')
+  parser.add_argument('--png-threshold', default=0.0, type=float,
+                      help='Requires --png-dir. Threshold above which a png '
+                           'is considered to have changed.')
   parser.add_argument('--threshold-significant', default=0.02, type=float,
                       help='variations in performance above this factor are '
                            'considered significant')
@@ -639,14 +687,6 @@ def main():
                            'case path.')
 
   args = parser.parse_args()
-
-  # Always start at the pdfium src dir, which is assumed to be two level above
-  # this script.
-  pdfium_src_dir = os.path.join(
-      os.path.dirname(__file__),
-      os.path.pardir,
-      os.path.pardir)
-  os.chdir(pdfium_src_dir)
 
   git = GitHelper()
 
@@ -668,9 +708,30 @@ def main():
       PrintErr('"%s" is not a directory' % args.output_dir)
       return 1
 
+  if args.png_dir:
+    args.png_dir = os.path.expanduser(args.png_dir)
+    if not os.path.isdir(args.png_dir):
+      PrintErr('"%s" is not a directory' % args.png_dir)
+      return 1
+
   if args.threshold_significant <= 0.0:
     PrintErr('--threshold-significant should receive a positive float')
     return 1
+
+  if args.png_threshold:
+    if not args.png_dir:
+      PrintErr('--png-threshold requires --png-dir to be specified.')
+      return 1
+
+    if args.png_threshold <= 0.0:
+      PrintErr('--png-threshold should receive a positive float')
+      return 1
+
+  if args.pages:
+    if not re.match(r'^\d+(-\d+)?$', args.pages):
+      PrintErr('Supported formats for --pages are "--pages 7" and '
+               '"--pages 3-6"')
+      return 1
 
   run = CompareRun(args)
   return run.Run()

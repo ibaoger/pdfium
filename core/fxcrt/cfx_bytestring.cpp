@@ -411,23 +411,26 @@ char* CFX_ByteString::GetBuffer(FX_STRSIZE nMinBufLength) {
   return m_pData->m_String;
 }
 
-FX_STRSIZE CFX_ByteString::Delete(FX_STRSIZE index, FX_STRSIZE count) {
+FX_STRSIZE CFX_ByteString::Delete(FX_STRSIZE nIndex, FX_STRSIZE nCount) {
   if (!m_pData)
     return 0;
 
-  FX_STRSIZE old_length = m_pData->m_nDataLength;
-  if (count <= 0 || index != pdfium::clamp(index, 0, old_length))
-    return old_length;
+  if (nIndex < 0)
+    nIndex = 0;
 
-  FX_STRSIZE removal_length = index + count;
-  if (removal_length > old_length)
-    return old_length;
-
-  ReallocBeforeWrite(old_length);
-  int chars_to_copy = old_length - removal_length + 1;
-  memmove(m_pData->m_String + index, m_pData->m_String + removal_length,
-          chars_to_copy);
-  m_pData->m_nDataLength = old_length - count;
+  FX_STRSIZE nOldLength = m_pData->m_nDataLength;
+  if (nCount > 0 && nIndex < nOldLength) {
+    FX_STRSIZE mLength = nIndex + nCount;
+    if (mLength >= nOldLength) {
+      m_pData->m_nDataLength = nIndex;
+      return m_pData->m_nDataLength;
+    }
+    ReallocBeforeWrite(nOldLength);
+    int nCharsToCopy = nOldLength - mLength + 1;
+    memmove(m_pData->m_String + nIndex, m_pData->m_String + mLength,
+            nCharsToCopy);
+    m_pData->m_nDataLength = nOldLength - nCount;
+  }
   return m_pData->m_nDataLength;
 }
 
@@ -710,6 +713,12 @@ CFX_WideString CFX_ByteString::UTF8Decode() const {
 }
 
 // static
+CFX_ByteString CFX_ByteString::FromUnicode(const wchar_t* str, FX_STRSIZE len) {
+  FX_STRSIZE str_len = len >= 0 ? len : FXSYS_wcslen(str);
+  return FromUnicode(CFX_WideString(str, str_len));
+}
+
+// static
 CFX_ByteString CFX_ByteString::FromUnicode(const CFX_WideString& str) {
   return GetByteString(0, str.AsStringC());
 }
@@ -808,6 +817,9 @@ void CFX_ByteString::TrimLeft() {
   TrimLeft("\x09\x0a\x0b\x0c\x0d\x20");
 }
 
+uint32_t CFX_ByteString::GetID(FX_STRSIZE start_pos) const {
+  return AsStringC().GetID(start_pos);
+}
 FX_STRSIZE FX_ftoa(float d, char* buf) {
   buf[0] = '0';
   buf[1] = '\0';
