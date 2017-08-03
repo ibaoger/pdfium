@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3d9ada98_684e9d6b",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "Done\nJust stay only IsFinished.",
+      "parentUuid": "1fca1e25_b8c7678d",
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fae3e27_6977046d",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
         "patchSetId": 7
@@ -50,6 +68,24 @@
       "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efea3b94_0cb77c5a",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fae3e27_6977046d",
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "28c8e607_eb0ba8c8",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "I have found bug with current_index, it is was incorrect. Test is Added.",
+      "parentUuid": "7f19242d_eed24d09",
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b33105c2_b58aff71",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
         "patchSetId": 7
@@ -81,6 +135,24 @@
       "writtenOn": "2017-08-03T01:16:46Z",
       "side": 1,
       "message": "ASSERT(current_index() \u003d\u003d 0); here too?",
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f424e39_73b25173",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "Now i have used iterator.",
+      "parentUuid": "b33105c2_b58aff71",
       "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -110,6 +182,30 @@
     },
     {
       "key": {
+        "uuid": "987f63bf_8901b097",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a6d4b3e_33f15192",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ac4e7a_543ed660",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
         "patchSetId": 7
@@ -124,6 +220,24 @@
       "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bfe219_1b78ec64",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ac4e7a_543ed660",
+      "revId": "0b08f0f14becfb013cf1f1f31474da447093a8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

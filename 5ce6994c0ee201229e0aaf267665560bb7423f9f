@@ -237,6 +237,24 @@
     },
     {
       "key": {
+        "uuid": "253866d2_fc4ce7cb",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-03T13:03:22Z",
+      "side": 1,
+      "message": "I can not upload next CL that uses this code.\nBecause:\n1) It is not finished.\n2) I can not finish it, before i upload intruments, wich will be used in new CL. (CPDF_ObjectWalker just one from its)\nAlso i can not finish it, because on any review of instruments (such CPDF_ObjectWalker), something may be changed (or declined in worst case), and i should be to do refactoring of my final code again, again and again.\n3) The https://pdfium-review.googlesource.com/c/8770 is just part of much big potential CL.\nIt is logicaly finished. And you do not like it, bacause it is too big for review.\n\nFor now, i can only show not finished sample:\nhttps://docs.google.com/document/d/1b_Cyl2N_IwoUHDVhmZuOU6zzjQrmTzTIMMmiFTFYaIM/edit?usp\u003dsharing",
+      "parentUuid": "0363bfe8_b1bad75d",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3310ec6_5562db5f",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
         "patchSetId": 5
