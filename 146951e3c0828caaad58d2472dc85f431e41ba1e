@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "6bad6970_0dce5a5c",
+        "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-03T18:57:42Z",
+      "side": 1,
+      "message": "I was thinking that tellp() on a stream bigger than 2GB might be trouble, since the size_t vars can hold this but the m_ReadPos can\u0027t.",
+      "parentUuid": "e66e8911_5e3f3744",
+      "range": {
+        "startLine": 1304,
+        "startChar": 2,
+        "endLine": 1304,
+        "endChar": 36
+      },
+      "revId": "146951e3c0828caaad58d2472dc85f431e41ba1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55fe3fb9_8b28ac16",
         "filename": "core/fxge/win32/fx_win32_gdipext.cpp",
         "patchSetId": 4
