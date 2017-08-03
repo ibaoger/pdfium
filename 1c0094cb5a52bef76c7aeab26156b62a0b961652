@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "32223c78_482815e0",
+        "filename": "BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:07:18Z",
+      "side": 1,
+      "message": "Alphabetical order please.",
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a70d8ba_bd66e233",
         "filename": "BUILD.gn",
         "patchSetId": 4
@@ -404,6 +421,63 @@
         "endLine": 52,
         "endChar": 2
       },
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85c1d722_da349cc9",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:07:18Z",
+      "side": 1,
+      "message": "What\u0027s the difference between WIN32 and _WIN32?",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 17
+      },
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "105c7579_b6651471",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:07:18Z",
+      "side": 1,
+      "message": "The comment does not match line 148.",
+      "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "978d791b_128f8cca",
+        "filename": "third_party/base/compiler_specific.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:07:18Z",
+      "side": 1,
+      "message": "Do we need to make this change? This file is copied over from Chromium\u0027s base/compiler_specific.h. I don\u0027t think we use this particular block directly though.",
       "revId": "1c0094cb5a52bef76c7aeab26156b62a0b961652",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
