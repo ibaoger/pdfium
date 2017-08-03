@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "16732020_8e0bc3a4",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T03:03:48Z",
+      "side": 1,
+      "message": "You will have to call CPDF_DIBSource::StartLoadDIBSource() or CPDF_DIBSource::Load() with the right doc + stream to coerce it into running the code path you want. See if you can or if that\u0027s too much work.",
+      "parentUuid": "74841807_d024ad18",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
