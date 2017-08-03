@@ -219,6 +219,24 @@
     },
     {
       "key": {
+        "uuid": "0363bfe8_b1bad75d",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T01:16:46Z",
+      "side": 1,
+      "message": "I didn\u0027t see it in https://pdfium-review.googlesource.com/c/8770 so I don\u0027t know what you have planned.\n\nBTW, you can use \"git branch --set-upstream-to parent_branch_name\" to chain branches, and PolyGerrit understands that and will show the relationship between branches. So you can upload the next CL that uses this code, and that can help show how these will be used.",
+      "parentUuid": "58fab991_17baa62a",
+      "revId": "5ce6994c0ee201229e0aaf267665560bb7423f9f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3310ec6_5562db5f",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
         "patchSetId": 5
