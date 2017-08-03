@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "74841807_d024ad18",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:48:43Z",
+      "side": 1,
+      "message": "Yea, I wanted to make a CPDF_DIBSource and use it, but a bunch of functions are protected; hence I made a child class to CPDF_DIBSource, but then CPDF_DIBSource\u0027s constructor is private, which doesn\u0027t allow it to work...\nIf memset stays to be 0 and *dest_scan \u003d 255, then yes, the image will be inverted. The set bits in 1bpp are black pixels. embedded_images.pdf has a 1bpp image, so running --save-images on it would be the visual way to check whether this piece of code works. Embedder test also verifies \nits bitmap of course. \nAnd yea, this code clearly doesn\u0027t have any test coverage right now.",
+      "parentUuid": "f495fc7c_4ae3a44b",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
