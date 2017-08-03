@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a14717c_c5ff47a6",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:50:10Z",
+      "side": 1,
+      "message": "Does this need to be public?",
+      "revId": "fb0359ba880baad297ecf63307f97b560037ed8f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8914b098_5c9446ab",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:50:10Z",
+      "side": 1,
+      "message": "Can we rename from Impl to Internal?",
+      "revId": "fb0359ba880baad297ecf63307f97b560037ed8f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add301df_fb5556fa",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T00:50:10Z",
+      "side": 1,
+      "message": "Is it possible to avoid having both GetNextWordImpl() and GetNextWordInternal() ?",
+      "revId": "fb0359ba880baad297ecf63307f97b560037ed8f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
