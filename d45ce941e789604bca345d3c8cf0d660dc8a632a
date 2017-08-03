@@ -163,6 +163,24 @@
     },
     {
       "key": {
+        "uuid": "2d9cacd5_eb1aa58f",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T17:54:32Z",
+      "side": 1,
+      "message": "Yea, that is what I tried to do, calling Load() with the right stream isn\u0027t what blocked me; CPDF_DIBSource\u0027s private constructor is. I had to make a child class of CPDF_DIBSource to access protected parameters function like ConvertBuffer(), but not sure how to make its constructor work. \nI\u0027m sure there\u0027s a way to do this, but considering the work needed for making this unit test, I think it\u0027s much easier to test this code with an embedder test, so we don\u0027t have to manually construct the stream data and parameters. I think it would be reasonable to just keep it in this CL and have the bitmap embedder test guarding this.",
+      "parentUuid": "16732020_8e0bc3a4",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
