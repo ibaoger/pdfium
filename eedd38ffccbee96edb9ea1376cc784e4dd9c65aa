@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d7fce735_5dbe765b",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70a9f62d_591b67d0",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3e3c8ad_4e0a2dbd",
         "filename": "testing/tools/safetynet_compare.py",
         "patchSetId": 12
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "49e97ac6_6b188a41",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:52:34Z",
+      "side": 1,
+      "message": "I think I\u0027ll just remove the SAME_DIR thing, it\u0027s not really useful.",
+      "parentUuid": "d3e3c8ad_4e0a2dbd",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e16d7ea0_914b76e4",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 12
@@ -50,6 +86,24 @@
       "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb709ea5_c7acbbc8",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:52:34Z",
+      "side": 1,
+      "message": "No, only the last pair specified is used. Do you think it would be useful to be able to specify multiple ranges?",
+      "parentUuid": "e16d7ea0_914b76e4",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -73,6 +127,30 @@
       "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "852eb3af_2d9c0fdb",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T17:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af4d77d9_64e59976",
+      "range": {
+        "startLine": 150,
+        "startChar": 63,
+        "endLine": 150,
+        "endChar": 76
+      },
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
