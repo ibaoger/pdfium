@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "6e35fa76_ad97a228",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:12:53Z",
+      "side": 1,
+      "message": "Yea, the stream is not the problem, it\u0027s setting the CFX_DIBSource object to have the right parameters for buffer converting that takes more work. One thing I tried was to make a test child class inheriting CPDF_DIBSource so we can directly access CFX_DIBSource\u0027s protected parameters, but CPDF_DIBSource\u0027s constructor is private, and I\u0027m not sure what\u0027s the best way to deal with that...\nWithout this change, when converting from 1bpp to 8bpp, all the pixels will basically be black since they will all be set to be 0 or 1. To test this, we can verify the converted bitmap if we have the GetBitmap() API; for visual results, --save-images would demonstrate it. \nIf we want to separate this part out, I feel like the easiest way would be to leave it in a followup CL. The bitmap embedder test on 1bpp images could verify that this function behaves correctly.",
+      "parentUuid": "fcdf3cb4_96b39ad7",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eab12b6c_a3319637",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -177,6 +195,24 @@
       "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53b094c1_8ed7d4bd",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T02:12:53Z",
+      "side": 1,
+      "message": "This sounds more like the right thing!",
+      "parentUuid": "3f698e4d_564da8fa",
+      "revId": "d45ce941e789604bca345d3c8cf0d660dc8a632a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
