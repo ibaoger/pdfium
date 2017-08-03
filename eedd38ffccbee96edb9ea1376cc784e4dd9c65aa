@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "d66c5f28_63837c73",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T18:51:38Z",
+      "side": 1,
+      "message": "Depends on your intended use cases. If you don\u0027t take multiple --pages, and you want the ability to specific \"1-2,5-7\", then you\u0027d have to do more parsing.",
+      "parentUuid": "eb709ea5_c7acbbc8",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af4d77d9_64e59976",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 12
