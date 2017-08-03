@@ -102,7 +102,6 @@ class CPDF_Array : public CPDF_Object {
 
   void RemoveAt(size_t index);
   void Clear();
-  void Truncate(size_t nNewSize);
   void ConvertToIndirectObjectAt(size_t index, CPDF_IndirectObjectHolder* pDoc);
 
   const_iterator begin() const { return m_Objects.begin(); }

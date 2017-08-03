@@ -151,13 +151,6 @@ void CPDF_Array::Clear() {
   m_Objects.clear();
 }
 
-void CPDF_Array::Truncate(size_t nNewSize) {
-  if (nNewSize >= m_Objects.size())
-    return;
-
-  m_Objects.resize(nNewSize);
-}
-
 void CPDF_Array::ConvertToIndirectObjectAt(size_t i,
                                            CPDF_IndirectObjectHolder* pHolder) {
   if (i >= m_Objects.size())
