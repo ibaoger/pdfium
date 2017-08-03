@@ -5,6 +5,7 @@
 
 import glob
 import os
+import re
 import subprocess
 import sys
 
@@ -96,3 +97,16 @@ class DirectoryFinder:
     if other_components:
       result = os.path.join(result, other_components)
     return result
+
+
+def GetBooleanGnArg(arg_name, build_dir, verbose=False):
+  '''Extract the value of a boolean flag in args.gn'''
+  cwd = os.getcwd()
+  os.chdir(build_dir)
+  gn_args_output = subprocess.check_output(
+      ['gn', 'args', '.', '--list=%s' % arg_name, '--short'])
+  os.chdir(cwd)
+  arg_match_output = re.search('%s = (.*)' % arg_name, gn_args_output).group(1)
+  if verbose:
+    print >> sys.stderr, "Found '%s' for value of %s" % (arg_match_output, arg)
+  return arg_match_output == 'true'
