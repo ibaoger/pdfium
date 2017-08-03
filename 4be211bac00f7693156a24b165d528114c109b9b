@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "846992ad_bc8b125b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d869d6ea_30a909d3",
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adad4c2e_1753d14f",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ae82fe91_46e3910b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Done. Chromium style it is.",
+      "parentUuid": "adad4c2e_1753d14f",
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd3470_bf3271a3",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-02T23:51:07Z",
       "side": 1,
       "message": "If PDF_DataDecode() returns false, what are you putting into the buffer?",
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d20e7a79_52c2d204",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Thank you for catching this. I followed CPDF_StreamAcc::LoadAllData() and put in the raw data if decoding failed. Changed the function\u0027s structure a bit.",
+      "parentUuid": "dbdd3470_bf3271a3",
       "revId": "4be211bac00f7693156a24b165d528114c109b9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "b0e93df3_ca5baad7",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8df5c9dd_9531cdbd",
+      "range": {
+        "startLine": 302,
+        "startChar": 29,
+        "endLine": 302,
+        "endChar": 37
+      },
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac5cb8a1_a80eac80",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "04b9d008_47a5f422",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac5cb8a1_a80eac80",
+      "range": {
+        "startLine": 317,
+        "startChar": 3,
+        "endLine": 317,
+        "endChar": 10
+      },
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf8d714_55e01b5e",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 3
@@ -113,6 +215,24 @@
       "revId": "4be211bac00f7693156a24b165d528114c109b9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ade56c97_3b7e8b8c",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-03T01:22:21Z",
+      "side": 1,
+      "message": "Sounds good! Probably will make it more clear.",
+      "parentUuid": "cdf8d714_55e01b5e",
+      "revId": "4be211bac00f7693156a24b165d528114c109b9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
