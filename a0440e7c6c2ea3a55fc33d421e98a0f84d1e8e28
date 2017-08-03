@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2182e183_f8df6dca",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T02:12:11Z",
+      "side": 1,
+      "message": "You many want to prefix the ones that aren\u0027t going to get used with dummy_. Since you are just passing them in because they are required out params.",
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121cf9a9_15c6d3fa",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-03T02:12:11Z",
+      "side": 1,
+      "message": "Can we flip the order they are declared, and also in fpdfview_c_api_test.c. So we have:\n\nFPDFImageObj_GetBitmap() - Take the raw data, run it through some filters, and then render to a bitmap.\nFPDFImageObj_GetImageDataDecoded() - Take the raw data, run it through some filters.\nFPDFImageObj_GetImageDataRaw() - Just the raw data please!",
+      "revId": "a0440e7c6c2ea3a55fc33d421e98a0f84d1e8e28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
