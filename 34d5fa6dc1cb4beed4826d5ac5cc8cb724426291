@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29d26f2a_02c6a501",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T15:48:07Z",
+      "side": 1,
+      "message": "Only change (apart from using params instead of members) is re.search instead of re.match. This make it so output from gn args that warns about an unknown flag does not break this check.",
+      "range": {
+        "startLine": 109,
+        "startChar": 79,
+        "endLine": 109,
+        "endChar": 0
+      },
+      "revId": "34d5fa6dc1cb4beed4826d5ac5cc8cb724426291",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6babfd1d_d6c35334",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-03T15:48:07Z",
+      "side": 1,
+      "message": "This is ugly but the alternatives I know of are moving coverage_report.py or adding pythonpath requirements to these scripts.",
+      "range": {
+        "startLine": 27,
+        "startChar": 45,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "34d5fa6dc1cb4beed4826d5ac5cc8cb724426291",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
