@@ -1030,3 +1030,32 @@ TEST_F(FPDFEditEmbeddertest, GetImageData) {
 
   UnloadPage(page);
 }
+
+TEST_F(FPDFEditEmbeddertest, GetImageFilters) {
+  EXPECT_TRUE(OpenDocument("embedded_images.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Verify the returned filter string for an image object with a single filter.
+  FPDF_PAGEOBJECT obj = FPDFPage_GetObject(page, 33);
+  ASSERT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(obj));
+  unsigned long len = FPDFImageObj_GetImageFilters(obj, nullptr, 0);
+  std::vector<char> buf(len);
+  EXPECT_EQ(24u, FPDFImageObj_GetImageFilters(obj, buf.data(), len));
+  EXPECT_STREQ(L"FlateDecode",
+               GetPlatformWString(reinterpret_cast<unsigned short*>(buf.data()))
+                   .c_str());
+
+  // Verify the returned filter for an image object with a list of filtes.
+  obj = FPDFPage_GetObject(page, 38);
+  ASSERT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(obj));
+  len = FPDFImageObj_GetImageFilters(obj, nullptr, 0);
+  buf.clear();
+  buf.resize(len);
+  EXPECT_EQ(50u, FPDFImageObj_GetImageFilters(obj, buf.data(), len));
+  EXPECT_STREQ(L"ASCIIHexDecode DCTDecode",
+               GetPlatformWString(reinterpret_cast<unsigned short*>(buf.data()))
+                   .c_str());
+
+  UnloadPage(page);
+}
