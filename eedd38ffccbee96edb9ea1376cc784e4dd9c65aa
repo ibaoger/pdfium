@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "8e8fe9d0_32eb2883",
+        "filename": "testing/tools/safetynet_measure.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-04T19:23:12Z",
+      "side": 1,
+      "message": "I added this just to limit how long we take comparing large and redundant pdfs and favor variety. I\u0027ve been limiting to the first 1-5 pages, so specifying multiple ranges seems unnecessary until we actually need it.",
+      "parentUuid": "d66c5f28_63837c73",
+      "revId": "eedd38ffccbee96edb9ea1376cc784e4dd9c65aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af4d77d9_64e59976",
         "filename": "testing/tools/safetynet_measure.py",
         "patchSetId": 12
