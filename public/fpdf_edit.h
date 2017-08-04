@@ -327,6 +327,20 @@ FPDFImageObj_GetImageDataRaw(FPDF_PAGEOBJECT image_object,
                              void* buffer,
                              unsigned long buflen);
 
+// Get the space-delimited list of filters (i.e. decoders) of the image in
+// |image_object|. |buffer| is only modified if |buflen| is longer than the
+// length of the space-delimited filter list string.
+//
+//   image_obejct - handle to an image object.
+//   buffer       - buffer for holding the list of filters, encoded in UTF16-LE.
+//   buflen       - length of the buffer.
+//
+// Returns the length of the filter list string.
+DLLEXPORT unsigned long STDCALL
+FPDFImageObj_GetImageFilters(FPDF_PAGEOBJECT image_object,
+                             void* buffer,
+                             unsigned long buflen);
+
 // Create a new path object at an initial position.
 //
 //   x - initial horizontal position.
