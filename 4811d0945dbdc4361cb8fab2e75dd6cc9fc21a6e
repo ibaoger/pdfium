@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47c848ff_e4120d91",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T19:39:53Z",
+      "side": 1,
+      "message": "An alternative to all this would be to stash the std::string result as a member this class, then the copy is avoided, and the result is valid as long as the encoder exists or GetResult is called again.  A comment to that effect wouldn\u0027t hurt either if we go down this path.",
+      "parentUuid": "5f787600_e5602eff",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 71
+      },
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "472f0073_20f672e1",
         "filename": "core/fxcrt/fx_basic_utf.cpp",
         "patchSetId": 3
