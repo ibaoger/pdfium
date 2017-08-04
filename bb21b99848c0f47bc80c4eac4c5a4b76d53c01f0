@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc0d07dd_57bebe78",
+        "filename": "core/fpdfapi/parser/fpdf_parser_utility.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T16:39:50Z",
+      "side": 1,
+      "message": "do we need both a std::ostream and a CFX_ByteTextBuf version until the conversion is 100% completed?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 41
+      },
+      "revId": "bb21b99848c0f47bc80c4eac4c5a4b76d53c01f0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
