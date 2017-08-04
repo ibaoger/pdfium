@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58a470a5_9f94372f",
+        "filename": "fpdfsdk/javascript/JS_Value.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T18:38:25Z",
+      "side": 0,
+      "message": "Unclear how ints can be infinite?",
+      "range": {
+        "startLine": 695,
+        "startChar": 5,
+        "endLine": 695,
+        "endChar": 12
+      },
+      "revId": "5c09f4ca825652f910d3ff406fcbf64d25f56e23",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b571e17_4000eec8",
+        "filename": "fpdfsdk/javascript/JS_Value.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T18:38:25Z",
+      "side": 0,
+      "message": "Makes no sense:  Promote nYear implicity to double, then floor() it back to int, then promote implicitly to double and assign to y.",
+      "range": {
+        "startLine": 697,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 30
+      },
+      "revId": "5c09f4ca825652f910d3ff406fcbf64d25f56e23",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
