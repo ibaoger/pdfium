@@ -66,14 +66,6 @@ double Mod(double x, double y) {
   return r;
 }
 
-int IsFinite(double v) {
-#if defined(_MSC_VER)
-  return ::_finite(v);
-#else
-  return std::fabs(v) < std::numeric_limits<double>::max();
-#endif
-}
-
 double ToInteger(double n) {
   return (n >= 0) ? floor(n) : -floor(-n);
 }
@@ -682,7 +674,7 @@ double JS_DateParse(const CFX_WideString& str) {
       v = funC->Call(context, context->Global(), argc, argv).ToLocalChecked();
       if (v->IsNumber()) {
         double date = v->ToNumber(context).ToLocalChecked()->Value();
-        if (!IsFinite(date))
+        if (!std::isfinite(date))
           return date;
         return JS_LocalTime(date);
       }
@@ -692,35 +684,35 @@ double JS_DateParse(const CFX_WideString& str) {
 }
 
 double JS_MakeDay(int nYear, int nMonth, int nDate) {
-  if (!IsFinite(nYear) || !IsFinite(nMonth) || !IsFinite(nDate))
+  if (!std::isfinite(nYear) || !std::isfinite(nMonth) || !std::isfinite(nDate))
     return GetNan();
+
   double y = ToInteger(nYear);
   double m = ToInteger(nMonth);
   double dt = ToInteger(nDate);
   double ym = y + floor((double)m / 12);
   double mn = Mod(m, 12);
-
   double t = TimeFromYearMonth((int)ym, (int)mn);
-
   if (YearFromTime(t) != ym || MonthFromTime(t) != mn || DateFromTime(t) != 1)
     return GetNan();
+
   return Day(t) + dt - 1;
 }
 
 double JS_MakeTime(int nHour, int nMin, int nSec, int nMs) {
-  if (!IsFinite(nHour) || !IsFinite(nMin) || !IsFinite(nSec) || !IsFinite(nMs))
+  if (!std::isfinite(nHour) || !std::isfinite(nMin) || !std::isfinite(nSec) ||
+      !std::isfinite(nMs)) {
     return GetNan();
-
+  }
   double h = ToInteger(nHour);
   double m = ToInteger(nMin);
   double s = ToInteger(nSec);
   double milli = ToInteger(nMs);
-
   return h * 3600000 + m * 60000 + s * 1000 + milli;
 }
 
 double JS_MakeDate(double day, double time) {
-  if (!IsFinite(day) || !IsFinite(time))
+  if (!std::isfinite(day) || !std::isfinite(time))
     return GetNan();
 
   return day * 86400000 + time;
