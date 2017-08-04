@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f787600_e5602eff",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T19:24:26Z",
+      "side": 1,
+      "message": "this adds a copy that wasn\u0027t here before, which is likely what we want if the m_Buffer isn\u0027t stable.  Worry about embedded nuls here.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 71
+      },
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "472f0073_20f672e1",
         "filename": "core/fxcrt/fx_basic_utf.cpp",
         "patchSetId": 3
