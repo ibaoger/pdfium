@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "87f07e31_28179e0e",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-04T19:43:52Z",
+      "side": 1,
+      "message": "maybe std::vector\u003cuint8_t\u003e is more appropriate here, we\u0027re not doing any actual formatting when we \"\u003c\u003c\" onto the end of the stream, and its easy to make a ByteStringC() from a vector that will persist as long as the underying class.\n\nand AppendStr() would have to change to a vector insert, but that\u0027s easy.",
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "472f0073_20f672e1",
         "filename": "core/fxcrt/fx_basic_utf.cpp",
         "patchSetId": 3
