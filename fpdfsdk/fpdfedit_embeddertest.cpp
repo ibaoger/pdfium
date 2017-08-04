@@ -1030,3 +1030,53 @@ TEST_F(FPDFEditEmbeddertest, GetImageData) {
 
   UnloadPage(page);
 }
+
+TEST_F(FPDFEditEmbeddertest, GetImageMetadata) {
+  ASSERT_TRUE(OpenDocument("embedded_images.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  ASSERT_TRUE(page);
+
+  // Check that the metadata of a null object has the default values.
+  FPDF_IMAGEOBJ_METADATA metadata =
+      FPDFImageObj_GetImageMetadata(nullptr, page);
+  EXPECT_EQ(0u, metadata.width);
+  EXPECT_EQ(0u, metadata.height);
+  EXPECT_EQ(0, metadata.horizontal_dpi);
+  EXPECT_EQ(0, metadata.vertical_dpi);
+  EXPECT_EQ(0u, metadata.bits_per_pixel);
+  EXPECT_EQ(FPDF_COLORSPACE_UNKNOWN, metadata.colorspace);
+
+  // Check that when retrieving an image object's metadata without passing in
+  // |page|, all values are correct, with the last two being default values.
+  FPDF_PAGEOBJECT obj = FPDFPage_GetObject(page, 35);
+  ASSERT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(obj));
+  metadata = FPDFImageObj_GetImageMetadata(obj, nullptr);
+  EXPECT_EQ(92u, metadata.width);
+  EXPECT_EQ(68u, metadata.height);
+  EXPECT_NEAR(96.000000, metadata.horizontal_dpi, 0.001);
+  EXPECT_NEAR(96.000000, metadata.vertical_dpi, 0.001);
+  EXPECT_EQ(0u, metadata.bits_per_pixel);
+  EXPECT_EQ(FPDF_COLORSPACE_UNKNOWN, metadata.colorspace);
+
+  // Verify the metadata of a bitmap image with indexed colorspace.
+  metadata = FPDFImageObj_GetImageMetadata(obj, page);
+  EXPECT_EQ(92u, metadata.width);
+  EXPECT_EQ(68u, metadata.height);
+  EXPECT_NEAR(96.000000, metadata.horizontal_dpi, 0.001);
+  EXPECT_NEAR(96.000000, metadata.vertical_dpi, 0.001);
+  EXPECT_EQ(1u, metadata.bits_per_pixel);
+  EXPECT_EQ(FPDF_COLORSPACE_INDEXED, metadata.colorspace);
+
+  // Verify the metadata of an image with RGB colorspace.
+  obj = FPDFPage_GetObject(page, 37);
+  ASSERT_EQ(FPDF_PAGEOBJ_IMAGE, FPDFPageObj_GetType(obj));
+  metadata = FPDFImageObj_GetImageMetadata(obj, page);
+  EXPECT_EQ(126u, metadata.width);
+  EXPECT_EQ(106u, metadata.height);
+  EXPECT_NEAR(162.173752, metadata.horizontal_dpi, 0.001);
+  EXPECT_NEAR(162.555878, metadata.vertical_dpi, 0.001);
+  EXPECT_EQ(24u, metadata.bits_per_pixel);
+  EXPECT_EQ(FPDF_COLORSPACE_DEVICERGB, metadata.colorspace);
+
+  UnloadPage(page);
+}
