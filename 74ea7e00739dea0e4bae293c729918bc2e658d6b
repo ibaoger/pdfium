@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a10b0a8c_fd1f9f62",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Any chance this can return a const CPDF_ColorSpace* for maximum constness?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d1eb871_7175c466",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Since this is a C API, there\u0027s no RVO. Return a bool and take the struct as an out param.",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9916fb24_92ca197d",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Is this defined anywhere else? Maybe we can reuse?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e95d6f9e_a5cf4dd4",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Is there no other way to get this info aside from doing an image load?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8decab_86c40f92",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Are these values from the PDF spec? If so, can you add a reference?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c23c387_faf2f9ff",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T23:51:17Z",
+      "side": 1,
+      "message": "Is there anything else we would want to have here?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
