@@ -37,6 +37,14 @@ class GitHelper(object):
     return subprocess.check_output(
         ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
 
+  def GetCurrentBranchHash(self):
+    return subprocess.check_output(
+        ['git', 'rev-parse', 'HEAD']).strip()
+
+  def IsCurrentBranchClean(self):
+    output = subprocess.check_output(['git', 'status', '--porcelain'])
+    return not output
+
   def BranchExists(self, branch_name):
     """Return whether a branch with the given name exists."""
     try:
