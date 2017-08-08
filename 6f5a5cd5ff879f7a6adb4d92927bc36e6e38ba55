@@ -16,6 +16,24 @@
       "revId": "6f5a5cd5ff879f7a6adb4d92927bc36e6e38ba55",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f14592fa_8c0fce1d",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-08T22:13:24Z",
+      "side": 1,
+      "message": "But if this returns false, it sends a hint to the caller to fetch more data. CheckCrossRefItem() will not do that.",
+      "parentUuid": "019d8620_1c4f4b58",
+      "revId": "6f5a5cd5ff879f7a6adb4d92927bc36e6e38ba55",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
