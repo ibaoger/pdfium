@@ -87,3 +87,9 @@ void CPDF_IndirectObjectHolder::DeleteIndirectObject(uint32_t objnum) {
 
   m_IndirectObjs.erase(objnum);
 }
+
+void CPDF_IndirectObjectHolder::Clear() {
+  m_LastObjNum = 0;
+  m_IndirectObjs.clear();
+  m_OrphanObjs.clear();
+}

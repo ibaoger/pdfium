@@ -384,17 +384,36 @@ void CPDF_Document::LoadDocumentInfo() {
 }
 
 void CPDF_Document::LoadDoc() {
+  Clear();
   LoadDocInternal();
   LoadPages();
 }
 
 void CPDF_Document::LoadLinearizedDoc(
     const CPDF_LinearizedHeader* pLinearizationParams) {
+  Clear();
   m_bLinearized = true;
   LoadDocInternal();
   m_PageList.resize(pLinearizationParams->GetPageCount());
   m_iFirstPageNo = pLinearizationParams->GetFirstPageNo();
   m_dwFirstPageObjNum = pLinearizationParams->GetFirstPageObjNum();
+}
+
+void CPDF_Document::Clear() {
+  CPDF_IndirectObjectHolder::Clear();
+  m_pRootDict = nullptr;
+  m_pInfoDict = nullptr;
+  m_pTreeTraversal.clear();
+  m_iNextPageToTraverse = 0;
+  m_bReachedMaxPageLevel = false;
+  m_bLinearized = false;
+  m_iFirstPageNo = 0;
+  m_dwFirstPageObjNum = 0;
+  m_pDocPage.reset();
+  m_pDocRender.reset();
+  m_pCodecContext.reset();
+  m_pLinksContext.reset();
+  m_PageList.clear();
 }
 
 void CPDF_Document::LoadPages() {

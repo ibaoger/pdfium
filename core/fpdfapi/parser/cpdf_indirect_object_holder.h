@@ -68,6 +68,8 @@ class CPDF_IndirectObjectHolder {
  protected:
   virtual std::unique_ptr<CPDF_Object> ParseIndirectObject(uint32_t objnum);
 
+  void Clear();
+
  private:
   uint32_t m_LastObjNum;
   std::map<uint32_t, std::unique_ptr<CPDF_Object>> m_IndirectObjs;
