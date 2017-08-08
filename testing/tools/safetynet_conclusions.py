@@ -271,7 +271,7 @@ def PrintConclusionsDictHumanReadable(conclusions_dict, colored, key=None):
     if colored:
       color = RATING_TO_COLOR[case_dict['rating']]
 
-    print '{0} {1:15,d}  {2}' .format(
+    print u'{0} {1:15,d}  {2}' .format(
         color.format('{:+11.4%}'.format(case_dict['ratio'])),
         case_dict['after'],
         case_name)
