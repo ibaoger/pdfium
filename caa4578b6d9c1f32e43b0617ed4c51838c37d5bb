@@ -16,6 +16,24 @@
       "revId": "caa4578b6d9c1f32e43b0617ed4c51838c37d5bb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b9e364_9e259816",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-08T20:08:50Z",
+      "side": 1,
+      "message": "Currently no, we had the same question when making FPDFAnnot_{Append|Update}Object() (because only new objects should be appended, and only existing objects should be updated), and the only way to make it happen is to have a global list to keep track of all the objects created. But we didn\u0027t think it was necessary to add back then.",
+      "parentUuid": "a52d41b2_b59273ce",
+      "revId": "caa4578b6d9c1f32e43b0617ed4c51838c37d5bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
