@@ -996,16 +996,14 @@ bool CGdiDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     if (pMatrix)
       pMatrix->TransformRect(bbox_f);
 
-    FX_RECT bbox = bbox_f.GetInnerRect();
+    CFX_FloatRect bbox = bbox_f.GetInnerRect();
     if (bbox.Width() <= 0) {
-      return DrawCosmeticLine((float)(bbox.left), (float)(bbox.top),
-                              (float)(bbox.left), (float)(bbox.bottom + 1),
+      return DrawCosmeticLine(bbox.left, bbox.bottom, bbox.left, bbox.top + 1,
                               fill_color, FXDIB_BLEND_NORMAL);
     }
     if (bbox.Height() <= 0) {
-      return DrawCosmeticLine((float)(bbox.left), (float)(bbox.top),
-                              (float)(bbox.right + 1), (float)(bbox.top),
-                              fill_color, FXDIB_BLEND_NORMAL);
+      return DrawCosmeticLine(bbox.left, bbox.bottom, bbox.right + 1,
+                              bbox.bottom, fill_color, FXDIB_BLEND_NORMAL);
     }
   }
   int fill_alpha = FXARGB_A(fill_color);
