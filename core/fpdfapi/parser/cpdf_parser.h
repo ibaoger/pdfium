@@ -153,9 +153,7 @@ class CPDF_Parser {
     ObjectInfo info;
   };
 
-  Error StartParseInternal(const CFX_RetainPtr<IFX_SeekableReadStream>& pFile,
-                           CPDF_Document* pDocument,
-                           int32_t iHeaderOffset);
+  Error StartParseInternal(CPDF_Document* pDocument);
   CPDF_Object* ParseDirect(CPDF_Object* pObj);
   bool LoadAllCrossRefV4(FX_FILESIZE pos);
   bool LoadAllCrossRefV5(FX_FILESIZE pos);
@@ -168,9 +166,7 @@ class CPDF_Parser {
   bool LoadLinearizedAllCrossRefV5(FX_FILESIZE pos);
   Error LoadLinearizedMainXRefTable();
   CFX_RetainPtr<CPDF_StreamAcc> GetObjectStream(uint32_t number);
-  bool IsLinearizedFile(
-      const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
-      uint32_t offset);
+  bool ParseLinearizedHeader();
   void SetEncryptDictionary(CPDF_Dictionary* pDict);
   void ShrinkObjectMap(uint32_t size);
   // A simple check whether the cross reference table matches with
@@ -186,6 +182,9 @@ class CPDF_Parser {
   bool ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
                        uint32_t* start_obj_num_at_last_block);
   void MergeCrossRefObjectsData(const std::vector<CrossRefObjData>& objects);
+
+  bool InitSyntaxParser(
+      const CFX_RetainPtr<IFX_SeekableReadStream>& file_access);
 
   CFX_UnownedPtr<CPDF_Document> m_pDocument;
   bool m_bHasParsed;
