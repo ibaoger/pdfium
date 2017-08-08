@@ -397,6 +397,19 @@ void CPDF_Document::LoadLinearizedDoc(
   m_dwFirstPageObjNum = pLinearizationParams->GetFirstPageObjNum();
 }
 
+void CPDF_Document::Clear() {
+  CPDF_IndirectObjectHolder::Clear();
+  m_pRootDict = nullptr;
+  m_pInfoDict = nullptr;
+  m_pTreeTraversal.clear();
+  m_iNextPageToTraverse = 0;
+  m_bReachedMaxPageLevel = false;
+  m_bLinearized = false;
+  m_iFirstPageNo = 0;
+  m_dwFirstPageObjNum = 0;
+  m_PageList.clear();
+}
+
 void CPDF_Document::LoadPages() {
   m_PageList.resize(RetrievePageCount());
 }
