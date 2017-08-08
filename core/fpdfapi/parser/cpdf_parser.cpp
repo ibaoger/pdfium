@@ -1495,7 +1495,8 @@ bool CPDF_Parser::IsLinearizedFile(
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
     uint32_t offset) {
   m_pSyntax->InitParser(pFileAccess, offset);
-  m_pSyntax->SetPos(m_pSyntax->m_HeaderOffset + 9);
+  static constexpr FX_FILESIZE kLinearizedHeaderOffset = 9;
+  m_pSyntax->SetPos(kLinearizedHeaderOffset);
 
   FX_FILESIZE SavedPos = m_pSyntax->GetPos();
   bool bIsNumber;
