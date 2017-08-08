@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a52d41b2_b59273ce",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-08T20:00:52Z",
+      "side": 1,
+      "message": "Is there a way we know internally if InsertObjects has been called or AppendObject has been called that we can add an ASSERT for?",
+      "revId": "caa4578b6d9c1f32e43b0617ed4c51838c37d5bb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
