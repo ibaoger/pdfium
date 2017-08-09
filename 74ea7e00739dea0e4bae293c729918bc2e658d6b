@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "aefb197b_f24064ae",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T18:20:13Z",
+      "side": 1,
+      "message": "OK, will do in another CL.",
+      "parentUuid": "31ef1ba8_bf24ea5c",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9916fb24_92ca197d",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 1
@@ -155,6 +179,24 @@
       "side": 1,
       "message": "Ya, but that\u0027s not PDFium.",
       "parentUuid": "debff826_93ec9204",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b143c97_1cf1cb99",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T18:20:13Z",
+      "side": 1,
+      "message": "Yea, hence I had to re-define it here.",
+      "parentUuid": "a25df2ed_b5e3f159",
       "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
