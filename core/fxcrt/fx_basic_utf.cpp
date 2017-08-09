@@ -10,8 +10,8 @@ void CFX_UTF8Decoder::Clear() {
   m_Buffer.Clear();
   m_PendingBytes = 0;
 }
-void CFX_UTF8Decoder::AppendChar(uint32_t ch) {
-  m_Buffer.AppendChar((wchar_t)ch);
+void CFX_UTF8Decoder::AppendCodePoint(uint32_t ch) {
+  m_Buffer.AppendChar(static_cast<wchar_t>(ch));
 }
 void CFX_UTF8Decoder::Input(uint8_t byte) {
   if (byte < 0x80) {
@@ -24,7 +24,7 @@ void CFX_UTF8Decoder::Input(uint8_t byte) {
     m_PendingBytes--;
     m_PendingChar |= (byte & 0x3f) << (m_PendingBytes * 6);
     if (m_PendingBytes == 0) {
-      AppendChar(m_PendingChar);
+      AppendCodePoint(m_PendingChar);
     }
   } else if (byte < 0xe0) {
     m_PendingBytes = 1;
