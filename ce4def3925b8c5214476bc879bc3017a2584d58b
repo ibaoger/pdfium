@@ -22,6 +22,30 @@
       "revId": "ce4def3925b8c5214476bc879bc3017a2584d58b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2b2bd35_21a12176",
+        "filename": "xfa/fde/cfde_renderdevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T20:31:32Z",
+      "side": 0,
+      "message": "Good question, will poke in a followup.",
+      "parentUuid": "67c00415_ca33ca84",
+      "range": {
+        "startLine": 306,
+        "startChar": 7,
+        "endLine": 306,
+        "endChar": 17
+      },
+      "revId": "ce4def3925b8c5214476bc879bc3017a2584d58b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
