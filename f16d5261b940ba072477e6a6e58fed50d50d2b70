@@ -34,6 +34,41 @@
       "revId": "f16d5261b940ba072477e6a6e58fed50d50d2b70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dad41d5d_8ff3927e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T18:05:17Z",
+      "side": 1,
+      "message": "It sounds like this should be called ::Reset() to be consistent with other classes?",
+      "parentUuid": "e0c9bbd0_df14a09c",
+      "revId": "f16d5261b940ba072477e6a6e58fed50d50d2b70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f18efc_e91b6ce8",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T18:05:17Z",
+      "side": 1,
+      "message": "This is the one that concerns me. This will reset a lot more then it did previously, do we really want to reset everything when we\u0027re rebuilding the crossref table? I don\u0027t think we want to reset the entire parser do we?",
+      "revId": "f16d5261b940ba072477e6a6e58fed50d50d2b70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
