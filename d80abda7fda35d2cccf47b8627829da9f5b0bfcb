@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e0e5ce09_0714f66d",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T14:32:23Z",
+      "side": 1,
+      "message": "What about making this:\n\t\nenum class CPDF_Parser::ParseType {\n  kStrict,\n  kLoose\n};\n\nstd::unique_ptr\u003cCPDF_Object\u003e CPDF_Parser::ParseIndirectObjectAt(\n    CPDF_IndirectObjectHolder* pObjList,\n    FX_FILESIZE pos,\n    uint32_t objnum,\n    CPDF_Parser::ParseType type,\n    FX_FILESIZE* pResultPos)",
+      "revId": "d80abda7fda35d2cccf47b8627829da9f5b0bfcb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f31877c_9557e0f4",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
@@ -31,6 +48,24 @@
       "side": 1,
       "message": "the ParseIndirectObjectAtByStrict is called only in \nhttps://codesearch.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003d78fc9aa402409f3fcd8dc1f458e67798cb3b483e\u0026l\u003d778\n\nAnd m_ObjNum/m_GenNum are never used in this case.",
       "parentUuid": "8f31877c_9557e0f4",
+      "revId": "d80abda7fda35d2cccf47b8627829da9f5b0bfcb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48222e61_5f6c0fd2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T14:32:23Z",
+      "side": 1,
+      "message": "This seems like it should be fine to do in either case as it\u0027s just setting the objects number and generation as read out of the file.",
+      "parentUuid": "221e03a2_45401513",
       "revId": "d80abda7fda35d2cccf47b8627829da9f5b0bfcb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
