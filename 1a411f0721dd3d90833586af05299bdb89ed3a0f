@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "01fbda6f_4c0b913b",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T15:28:51Z",
+      "side": 1,
+      "message": "My brain, heh. I don\u0027t know if it is a convention, just seemed like it made sense with the fpdf_edit.h file header to have FPDF_Edit? The capitol T for test makes sense as it\u0027s a new camel case word.",
+      "parentUuid": "e712c8be_9312e183",
+      "revId": "1a411f0721dd3d90833586af05299bdb89ed3a0f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "619fd284_6497f4bd",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 4
