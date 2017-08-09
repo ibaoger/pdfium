@@ -218,6 +218,14 @@ void CFX_PathData::AppendRect(float left,
       FX_PATHPOINT(CFX_PointF(left, bottom), FXPT_TYPE::LineTo, true));
 }
 
+void CFX_PathData::AppendLine(const CFX_PointF& pt1, const CFX_PointF& pt2) {
+  if (m_Points.empty() || fabs(m_Points.back().m_Point.x - pt1.x) > 0.001 ||
+      fabs(m_Points.back().m_Point.y - pt1.y) > 0.001) {
+    AppendPoint(pt1, FXPT_TYPE::MoveTo, false);
+  }
+  AppendPoint(pt2, FXPT_TYPE::LineTo, false);
+}
+
 CFX_FloatRect CFX_PathData::GetBoundingBox() const {
   if (m_Points.empty())
     return CFX_FloatRect();
