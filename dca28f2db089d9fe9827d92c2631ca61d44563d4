@@ -22,6 +22,30 @@
       "revId": "dca28f2db089d9fe9827d92c2631ca61d44563d4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53499928_dbc11438",
+        "filename": "tools/coverage/coverage_report.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-09T20:42:31Z",
+      "side": 1,
+      "message": "Yay for python imports. Turns out that moving did not fix the problem, since relative imports to a parent directory do not work from a script, only from a module.\n\nOptions, from best to worst IMO:\n1. Move coverage_report.py one dir up to testing/tools. This uses the fact that relative imports works to sibling modules and subpackages.\n2. Keep this block that adds the pdfium_src dir to path, then does an absolute import.\n3. Run this with only python -m testing.tools.coverage.coverage_report and from the pdfium_src dir. This runs the script as a module.\n4. Expect users to add pdfium_src to PYTHONPATH. This is supposed to be the correct one, but it\u0027s very impractical.",
+      "parentUuid": "631f45b3_16227a97",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "dca28f2db089d9fe9827d92c2631ca61d44563d4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
