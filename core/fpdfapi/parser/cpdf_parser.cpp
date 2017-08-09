@@ -69,7 +69,6 @@ CPDF_Parser::CPDF_Parser()
     : m_pSyntax(pdfium::MakeUnique<CPDF_SyntaxParser>()),
       m_bHasParsed(false),
       m_bXRefStream(false),
-      m_bVersionUpdated(false),
       m_FileVersion(0),
       m_pEncryptDict(nullptr),
       m_TrailerPos(CPDF_Parser::kInvalidPos),
@@ -591,8 +590,6 @@ void CPDF_Parser::MergeCrossRefObjectsData(
   for (const auto& obj : objects) {
     m_ObjectInfo[obj.obj_num] = obj.info;
     if (obj.info.type != ObjectType::kFree) {
-      if (obj.info.gennum > 0)
-        m_bVersionUpdated = true;
       if (obj.info.type == ObjectType::kNotCompressed &&
           obj.info.pos < m_pSyntax->m_FileLen) {
         m_SortedOffset.insert(obj.info.pos);
@@ -814,8 +811,6 @@ bool CPDF_Parser::RebuildCrossRef() {
                     uint32_t oldgen = GetObjectGenNum(objnum);
                     m_ObjectInfo[objnum].pos = obj_pos;
                     m_ObjectInfo[objnum].gennum = gennum;
-                    if (oldgen != gennum)
-                      m_bVersionUpdated = true;
                   }
                 } else {
                   m_ObjectInfo[objnum].pos = obj_pos;
