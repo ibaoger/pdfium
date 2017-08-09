@@ -16,6 +16,24 @@
       "revId": "f16d5261b940ba072477e6a6e58fed50d50d2b70",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0c9bbd0_df14a09c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T14:38:55Z",
+      "side": 1,
+      "message": "\u003e\u003e This resets a lot of state that was not reset in either caller. Do we know it\u0027s safe to reset everything? \n\nYes, this is all data, wich will be filed while parse. After that we can start parse again, and be sure, that all data from previous parsing will not affect on new parsing .\n\nThis will be needs to unify some code from linearized and non linearized parsing.\n\n\u003e\u003eFor both callers, we check! M_bHasParsed, so should not all these be set to default values alread\n\nFor now - yes.",
+      "parentUuid": "354e7277_7869b8e5",
+      "revId": "f16d5261b940ba072477e6a6e58fed50d50d2b70",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
