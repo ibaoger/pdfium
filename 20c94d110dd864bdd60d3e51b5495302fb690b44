@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9392e59_63bf1d02",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T21:45:01Z",
+      "side": 1,
+      "message": "Since you handle has_read_problems() below, and that block has its own ASSERT(), how about moving this down to line 206 and ASSERT() whatever makes sense at that point?",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4161cab9_bfd9735f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T21:45:01Z",
+      "side": 1,
+      "message": "nit: newline after the return.\n\nif (!m_pDocument)\n  return DataError;\n\nconst HintsAssigner hints_assigner(GetValidator().Get(), pHints);\n...",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387b5776_1af8a5ab",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T21:45:01Z",
+      "side": 1,
+      "message": "|pHints| is no longer used in this method. Does this mean the method needs a HintsAssigner now?\n\nSimilar issue in other methods. e.g. CheckPageAnnots().",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c26f595_cb301aaa",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T21:45:01Z",
+      "side": 1,
+      "message": "Can this be moved to line 1649? It\u0027s not immediately obvious what is the right scope for this object.",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
