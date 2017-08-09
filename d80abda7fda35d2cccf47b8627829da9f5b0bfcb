@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5344a4a9_54e48aef",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T15:07:55Z",
+      "side": 1,
+      "message": "Not in this CL.\nI think, we should merge CPDF_SyntaxParser::GetObject and CPDF_SyntaxParser::GetObjectForStrict before. (this is in plans).\nAnd after that change and this too,",
+      "parentUuid": "e0e5ce09_0714f66d",
+      "revId": "d80abda7fda35d2cccf47b8627829da9f5b0bfcb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f31877c_9557e0f4",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
