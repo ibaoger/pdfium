@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "523d5b9b_ba2b6a7c",
+        "filename": "core/fpdfapi/edit/cpdf_creator_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T15:02:26Z",
+      "side": 1,
+      "message": "But the class is CPDF_CreatOr\nsee \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/edit/cpdf_creator.h?rcl\u003d31d706bd8122830a15c574ba461e8f1a41427b9c\u0026l\u003d28",
+      "parentUuid": "582bdc22_86206a7a",
+      "revId": "7ec7919a2fed8578687e478bcfc0d40eb46a0f8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bcef371_c35f565f",
         "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e9d0d505_5b4bcc99",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T15:02:26Z",
+      "side": 1,
+      "message": "Plz see my comment above:\nhttps://pdfium-review.googlesource.com/c/9572#message-d7c9c33e3b113c8275d286939d269b69723ef1db",
+      "parentUuid": "8bcef371_c35f565f",
+      "revId": "7ec7919a2fed8578687e478bcfc0d40eb46a0f8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f0be4ce_d770f86a",
         "filename": "fpdfsdk/fpdfsave_embeddertest.cpp",
         "patchSetId": 8
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-09T14:09:11Z",
       "side": 1,
       "message": "Why doe these get shorter?",
+      "revId": "7ec7919a2fed8578687e478bcfc0d40eb46a0f8b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06ae1597_13909a5f",
+        "filename": "fpdfsdk/fpdfsave_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T15:02:26Z",
+      "side": 1,
+      "message": "Plz see my comment above:\nhttps://pdfium-review.googlesource.com/c/9572#message-d7c9c33e3b113c8275d286939d269b69723ef1db",
+      "parentUuid": "4f0be4ce_d770f86a",
       "revId": "7ec7919a2fed8578687e478bcfc0d40eb46a0f8b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
