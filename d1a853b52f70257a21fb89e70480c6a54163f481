@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2257ff63_dbb0282f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T22:08:25Z",
+      "side": 1,
+      "message": "BTW, before reading the CL, just reading this gave the impression that this was a buildbot change, or adding a script to a crontab. Maybe something along the lines of:\n\nAdd safetynet_job.py to help run safetynet_compare.py periodically.\n\nThis script runs safetynet_compare.py and saves the last tested revision into a checkpoint file. On subsequent runs, ...",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "d1a853b52f70257a21fb89e70480c6a54163f481",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b580fa6_92cd2df0",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T22:08:25Z",
+      "side": 1,
+      "message": "Do you want to return a special non-zero value (e.g. 2) in this case, so the caller can notice the something without having to parse the output? e.g. for a given return value, a buildbot can set the corresponding status:\n0 - green (no error, nothing interesting)\n1 - red (error!)\n2 - orange (no error, but something interesting happened)",
+      "revId": "d1a853b52f70257a21fb89e70480c6a54163f481",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
