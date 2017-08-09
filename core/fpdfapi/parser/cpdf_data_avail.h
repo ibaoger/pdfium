@@ -111,6 +111,9 @@ class CPDF_DataAvail final {
   CFX_RetainPtr<IFX_SeekableReadStream> GetFileRead() const;
   int GetPageCount() const;
   CPDF_Dictionary* GetPage(int index);
+  const CFX_RetainPtr<CPDF_ReadValidator>& GetValidator() const {
+    return m_pFileRead;
+  }
 
  protected:
   class PageNode {
@@ -128,7 +131,6 @@ class CPDF_DataAvail final {
   uint32_t GetObjectSize(uint32_t objnum, FX_FILESIZE& offset);
   bool AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
                            bool bParsePage,
-                           DownloadHints* pHints,
                            std::vector<CPDF_Object*>& ret_array);
   bool CheckDocStatus(DownloadHints* pHints);
   bool CheckHeader(DownloadHints* pHints);
