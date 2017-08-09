@@ -295,10 +295,12 @@ FPDFAnnot_SetAttachmentPoints(FPDF_ANNOTATION annot,
 // with quadpoints, then return the bounding box it specifies instead.
 //
 //   annot      - handle to an annotation.
+//   quadPoints - receives the quadpoints; must not be NULL.
 //
-// Returns a quadpoints object, or an empty set of quadpoints on failure.
-DLLEXPORT FS_QUADPOINTSF STDCALL
-FPDFAnnot_GetAttachmentPoints(FPDF_ANNOTATION annot);
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL
+FPDFAnnot_GetAttachmentPoints(FPDF_ANNOTATION annot,
+                              FS_QUADPOINTSF* quadPoints);
 
 // Experimental API.
 // Set the annotation rectangle defining the location of the annotation. If the
@@ -318,9 +320,11 @@ DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_SetRect(FPDF_ANNOTATION annot,
 // without quadpoints, then return the bounding box it specifies instead.
 //
 //   annot  - handle to an annotation.
+//   rect   - receives the rectangle; must not be NULL.
 //
-// Returns a rectangle object, or an empty rectangle on failure.
-DLLEXPORT FS_RECTF STDCALL FPDFAnnot_GetRect(FPDF_ANNOTATION annot);
+// Returns true if successful.
+DLLEXPORT FPDF_BOOL STDCALL FPDFAnnot_GetRect(FPDF_ANNOTATION annot,
+                                              FS_RECTF* rect);
 
 // Experimental API.
 // Check if |annot|'s dictionary has |key| as a key.
