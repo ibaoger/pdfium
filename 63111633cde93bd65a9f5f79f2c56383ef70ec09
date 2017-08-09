@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ca3fe71_4dedf6a1",
+        "filename": "core/fxge/cfx_pathdata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-09T21:09:12Z",
+      "side": 1,
+      "message": "can this be #ifdef XFA ???  Alternatively can AppendRect be implemented in terms of AppendLine, which would make it always used.  And then the order of these could be append, appendPoint, AppendLine, AppendRect as they get bigger as you go down the page",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 2
+      },
+      "revId": "63111633cde93bd65a9f5f79f2c56383ef70ec09",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
