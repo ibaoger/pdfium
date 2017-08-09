@@ -7,8 +7,10 @@
 #include "public/fpdf_edit.h"
 
 #include "core/fpdfapi/cpdf_modulemgr.h"
+#include "core/fpdfapi/page/cpdf_docpagedata.h"
 #include "core/fpdfapi/page/cpdf_image.h"
 #include "core/fpdfapi/page/cpdf_imageobject.h"
+#include "core/fpdfapi/page/cpdf_page.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
@@ -43,6 +45,20 @@ bool LoadJpegHelper(FPDF_PAGE* pages,
     pImgObj->GetImage()->SetJpegImage(pFile);
   pImgObj->SetDirty(true);
   return true;
+}
+
+int GetImageColorSpace(CPDF_Dictionary* pImgDict, FPDF_PAGE page) {
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!pImgDict || !pPage || !pPage->m_pDocument.Get())
+    return 0;
+
+  CPDF_ColorSpace* pCS = pPage->m_pDocument.Get()->GetPageData()->GetColorSpace(
+      pImgDict->GetDirectObjectFor("ColorSpace"),
+      pPage->m_pPageResources.Get());
+  if (!pCS)
+    return 0;
+
+  return pCS->GetFamily();
 }
 
 }  // namespace
@@ -182,6 +198,7 @@ FPDFImageObj_GetImageDataRaw(FPDF_PAGEOBJECT image_object,
   return len;
 }
 
+<<<<<<< HEAD
 DLLEXPORT int STDCALL
 FPDFImageObj_GetImageFilterCount(FPDF_PAGEOBJECT image_object) {
   CPDF_PageObject* pObj = CPDFPageObjectFromFPDFPageObject(image_object);
@@ -223,4 +240,46 @@ FPDFImageObj_GetImageFilter(FPDF_PAGEOBJECT image_object,
     wsFilters = pFilter->AsArray()->GetUnicodeTextAt(index);
 
   return Utf16EncodeMaybeCopyAndReturnLength(wsFilters, buffer, buflen);
+}
+
+DLLEXPORT FPDF_BOOL STDCALL
+FPDFImageObj_GetImageMetadata(FPDF_PAGEOBJECT image_object,
+                              FPDF_PAGE page,
+                              FPDF_IMAGEOBJ_METADATA* metadata) {
+  CPDF_PageObject* pObj = CPDFPageObjectFromFPDFPageObject(image_object);
+  if (!pObj || !pObj->IsImage() || !metadata)
+    return false;
+
+  CFX_RetainPtr<CPDF_Image> pImg = pObj->AsImage()->GetImage();
+  if (!pImg)
+    return false;
+
+  const int nPixelWidth = pImg->GetPixelWidth();
+  const int nPixelHeight = pImg->GetPixelHeight();
+
+  metadata->width = nPixelWidth;
+  metadata->height = nPixelHeight;
+
+  const float nWidth = pObj->m_Right - pObj->m_Left;
+  const float nHeight = pObj->m_Top - pObj->m_Bottom;
+  if (nWidth != 0 && nHeight != 0) {
+    metadata->horizontal_dpi = nPixelWidth / nWidth * nPointsPerInch;
+    metadata->vertical_dpi = nPixelHeight / nHeight * nPointsPerInch;
+  }
+
+  metadata->bits_per_pixel = 0;
+  metadata->colorspace = FPDF_COLORSPACE_UNKNOWN;
+
+  CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
+  if (!pPage || !pPage->m_pDocument.Get() || !pImg->GetStream())
+    return true;
+
+  auto pSource = pdfium::MakeRetain<CPDF_DIBSource>();
+  pSource->StartLoadDIBSource(pPage->m_pDocument.Get(), pImg->GetStream(),
+                              false, nullptr, pPage->m_pPageResources.Get());
+  metadata->bits_per_pixel = pSource->GetBPP();
+  if (pSource->GetColorSpace())
+    metadata->colorspace = pSource->GetColorSpace()->GetFamily();
+
+  return true;
 }
