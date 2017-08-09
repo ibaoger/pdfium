@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b922b6e9_63f052cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-09T17:59:05Z",
+      "side": 1,
+      "message": "The way we usually do that is to create a \u0027Fixed tests for shared library build\u0027 bug and then file sub-bugs that the first one is dependent on. The top level is just a tracking bug with the sub-bugs where the real work/discussion happens.  (You can also use 826 as the top level meta bug and file the sub-bugs off of there, I\u0027m fine with that)",
+      "parentUuid": "1d09b5c1_d9534c04",
+      "revId": "b34725a599bade071033680a85f41adf56628275",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "262a7336_b83b944f",
         "filename": "pdfium.gni",
         "patchSetId": 7
