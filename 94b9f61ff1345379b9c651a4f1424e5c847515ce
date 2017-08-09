@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "38763c58_b06c8478",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T14:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39229156_a616176d",
+      "revId": "94b9f61ff1345379b9c651a4f1424e5c847515ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce69ef9d_1f8eed82",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5c80fe3b_4fe6a998",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T14:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce69ef9d_1f8eed82",
+      "revId": "94b9f61ff1345379b9c651a4f1424e5c847515ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17a7c529_c4141f3e",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-09T00:10:49Z",
       "side": 1,
       "message": "How do you know it\u0027s going to be an array?",
+      "revId": "94b9f61ff1345379b9c651a4f1424e5c847515ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f3f9d6_2f6ba652",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T14:11:27Z",
+      "side": 1,
+      "message": "Because FPDFImageObj_GetImageFilterCount() already checks that - the count output will only be \u003e0 if it\u0027s either a name or an array; and if count is 0, then the check on L213 will fail.",
+      "parentUuid": "17a7c529_c4141f3e",
       "revId": "94b9f61ff1345379b9c651a4f1424e5c847515ce",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
