@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a130ce28_d30dbe37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6990
+      },
+      "writtenOn": "2017-08-09T13:55:36Z",
+      "side": 1,
+      "message": "See Comment #1 bullet point #4 on bug 826",
+      "parentUuid": "d902fb66_aa742475",
+      "revId": "b34725a599bade071033680a85f41adf56628275",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "262a7336_b83b944f",
         "filename": "pdfium.gni",
         "patchSetId": 7
