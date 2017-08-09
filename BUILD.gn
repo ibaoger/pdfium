@@ -1452,8 +1452,6 @@ if (pdf_enable_xfa) {
 
   pdf_source_set("xfa") {
     sources = [
-      "xfa/fde/cfde_path.cpp",
-      "xfa/fde/cfde_path.h",
       "xfa/fde/cfde_rendercontext.cpp",
       "xfa/fde/cfde_rendercontext.h",
       "xfa/fde/cfde_renderdevice.cpp",
