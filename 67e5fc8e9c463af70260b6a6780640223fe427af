@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7cb92b3_6d86b913",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T17:35:15Z",
+      "side": 1,
+      "message": "Check |metadata| and make sure it\u0027s not a nullptr.",
+      "revId": "67e5fc8e9c463af70260b6a6780640223fe427af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4f42758_821c84ad",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T17:35:15Z",
+      "side": 1,
+      "message": "Do we need to set it to UNKNOWN otherwise?",
+      "revId": "67e5fc8e9c463af70260b6a6780640223fe427af",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

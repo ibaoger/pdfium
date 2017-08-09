@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "31ef1ba8_bf24ea5c",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T17:35:15Z",
+      "side": 1,
+      "message": "Probably. Sorry I didn\u0027t notice earlier.",
+      "parentUuid": "a0f68fea_ccd87dfb",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9916fb24_92ca197d",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 1
@@ -119,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "a25df2ed_b5e3f159",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T17:35:15Z",
+      "side": 1,
+      "message": "Ya, but that\u0027s not PDFium.",
+      "parentUuid": "debff826_93ec9204",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e95d6f9e_a5cf4dd4",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 1
@@ -148,6 +190,24 @@
       "side": 1,
       "message": "Maybe, if we extract all the pieces in the code necessary for determining the bpp (colorspace is easier); but I\u0027m not sure how to do that without altering the logic. \nInside StartLoadDIBSource(), an image first goes through LoadColorInfo(), and m_nComponents and m_bpc might be set depending on the colorspace and the decoder. Then in CreateDecoder(), m_nComponents and m_bpc might get further updated depending on whether the image data matches the decoder, and that check requires the image data (e.g. see CPDF_DIBSource::CreateDCTDecode()). \nThere might be ways to simplify the logic (?), but I also want to make sure this API gives exactly the same result as our backend in edge cases. \nI realize that loading the image might take long depending on the image size; let me know if you see any other way to do this though.",
       "parentUuid": "e95d6f9e_a5cf4dd4",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e44e5d9_915537ae",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T17:35:15Z",
+      "side": 1,
+      "message": "I can take a look.",
+      "parentUuid": "49c79880_381f343d",
       "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
