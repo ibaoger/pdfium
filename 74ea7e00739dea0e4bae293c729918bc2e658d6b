@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "45564d3b_ed8b3f61",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a10b0a8c_fd1f9f62",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d1eb871_7175c466",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-08-08T23:51:17Z",
       "side": 1,
       "message": "Since this is a C API, there\u0027s no RVO. Return a bool and take the struct as an out param.",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f68fea_ccd87dfb",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "Done. I should change FPDFAnnot_GetRect() and FPDFAnnot_GetAttachmentPoints() too? https://cs.chromium.org/chromium/src/third_party/pdfium/public/fpdf_annot.h",
+      "parentUuid": "6d1eb871_7175c466",
       "range": {
         "startLine": 209,
         "startChar": 10,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "debff826_93ec9204",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "I only found this in printing/utils.h, which is how pdfium_engine.cc uses it.",
+      "parentUuid": "9916fb24_92ca197d",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e95d6f9e_a5cf4dd4",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2017-08-08T23:51:17Z",
       "side": 1,
       "message": "Is there no other way to get this info aside from doing an image load?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49c79880_381f343d",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "Maybe, if we extract all the pieces in the code necessary for determining the bpp (colorspace is easier); but I\u0027m not sure how to do that without altering the logic. \nInside StartLoadDIBSource(), an image first goes through LoadColorInfo(), and m_nComponents and m_bpc might be set depending on the colorspace and the decoder. Then in CreateDecoder(), m_nComponents and m_bpc might get further updated depending on whether the image data matches the decoder, and that check requires the image data (e.g. see CPDF_DIBSource::CreateDCTDecode()). \nThere might be ways to simplify the logic (?), but I also want to make sure this API gives exactly the same result as our backend in edge cases. \nI realize that loading the image might take long depending on the image size; let me know if you see any other way to do this though.",
+      "parentUuid": "e95d6f9e_a5cf4dd4",
       "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "a4fca476_8ef9ecd1",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae8decab_86c40f92",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c23c387_faf2f9ff",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 1
@@ -104,6 +200,24 @@
       "writtenOn": "2017-08-08T23:51:17Z",
       "side": 1,
       "message": "Is there anything else we would want to have here?",
+      "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91af2b75_4c727a87",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-09T16:26:57Z",
+      "side": 1,
+      "message": "For now, these seem to be sufficient and all that the cloud vision team needs. Let me know if you think anything else might be useful!",
+      "parentUuid": "5c23c387_faf2f9ff",
       "revId": "74ea7e00739dea0e4bae293c729918bc2e658d6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
