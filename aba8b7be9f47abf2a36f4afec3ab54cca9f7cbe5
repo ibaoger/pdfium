@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec44d852_bb91979a",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-09T19:31:04Z",
+      "side": 1,
+      "message": "maybe a comment here that result may be invalidated when anything is added.",
+      "range": {
+        "startLine": 137,
+        "startChar": 1,
+        "endLine": 137,
+        "endChar": 2
+      },
+      "revId": "aba8b7be9f47abf2a36f4afec3ab54cca9f7cbe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e647e138_474cb229",
+        "filename": "core/fxcrt/fx_basic_utf.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-09T19:31:04Z",
+      "side": 1,
+      "message": "this should be ByteStringC if we want to avoid a copy.",
+      "range": {
+        "startLine": 90,
+        "startChar": 9,
+        "endLine": 90,
+        "endChar": 25
+      },
+      "revId": "aba8b7be9f47abf2a36f4afec3ab54cca9f7cbe5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
