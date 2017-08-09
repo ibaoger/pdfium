@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a74cbccc_ae08b895",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T13:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5faf010_b712a98a",
+      "revId": "7a12adb01c44e5ce52d00f0d2e6cbddb32bd0186",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d14ea300_e7ca9989",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-09T03:40:45Z",
       "side": 1,
       "message": "https://pdfium-review.googlesource.com/10290 is still needed? The two CLs conflict.",
+      "revId": "7a12adb01c44e5ce52d00f0d2e6cbddb32bd0186",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42dce141_aab79e7c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-09T13:21:21Z",
+      "side": 1,
+      "message": "This line is not changed in this CL.\nThe conflict will be fixed quick and simple.",
+      "parentUuid": "d14ea300_e7ca9989",
       "revId": "7a12adb01c44e5ce52d00f0d2e6cbddb32bd0186",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
