@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1d09b5c1_d9534c04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-09T17:02:58Z",
+      "side": 1,
+      "message": "Can do, but this needs a proper discussion of the desired result. Just re-linking or exporting the missing symbols would be a bad idea, so If possible, I\u0027d like to tackle this per-test target and not as a huge \"fix tests for shared library build\" bug.",
+      "parentUuid": "a130ce28_d30dbe37",
+      "revId": "b34725a599bade071033680a85f41adf56628275",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "262a7336_b83b944f",
         "filename": "pdfium.gni",
         "patchSetId": 7
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3b2504a8_4a92ec92",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-09T17:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "655dd93a_0b9dfa99",
+      "revId": "b34725a599bade071033680a85f41adf56628275",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f766779d_f1e60bd3",
         "filename": "public/fpdfview.h",
         "patchSetId": 7
@@ -85,6 +121,24 @@
       "revId": "b34725a599bade071033680a85f41adf56628275",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24cbea5f_b14b0e22",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-09T17:02:58Z",
+      "side": 1,
+      "message": "Nah, we don\u0027t really need it. I\u0027ll remove it.",
+      "parentUuid": "f766779d_f1e60bd3",
+      "revId": "b34725a599bade071033680a85f41adf56628275",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
