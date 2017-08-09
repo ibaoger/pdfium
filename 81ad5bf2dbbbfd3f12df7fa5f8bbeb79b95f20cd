@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1502310812 -0700\nnonce AHIDc+OD06W7vx7sFklKqpr0t2smbh0XpweCJ/smEMm+7E5yuupWwb+RlMfLgao9IZHgybp/hfgG\n\n0000000000000000000000000000000000000000 81ad5bf2dbbbfd3f12df7fa5f8bbeb79b95f20cd refs/for/refs/heads/master%notify\u003dNONE,m\u003drebase_and_update_test_so_it_works\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZi3GcAAoJEKs2LWFaZv17d9MIALlaIGt8lV0k+r0YLWNpq4aq\nDNCLNaDZbOqhujHEgFJg2qINOlsXYOW9FJeC758ugftDWZm53g4ocpsasQkXenFT\nr59KQl9PuOzKQe5PD5tSgRJ7kpzl0zUeJBsUWD64j+mLI8tSJcsgmVdImqSqitTV\nC0/0gXFBYvrBSLZVF4GP7ibmuY7dVMC3drlJsVKsUpzAMlU+YIVTiksOAHQXq4Ag\nCpmMdg9hJMv303st32i97zsdIwEqn02m7cmxYgDw4x6+Nnr9Ug1fPvj70GgZtle8\nwkmP+ClVlc2lkijJn1gmgJ5QdJ912qZ0uQ+Ni+3bVYBcs27oS1bhvoXKuUWw4TA\u003d\n\u003dPyQl\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
