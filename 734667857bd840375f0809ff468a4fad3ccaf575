@@ -16,6 +16,24 @@
       "revId": "734667857bd840375f0809ff468a4fad3ccaf575",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a4f0d2_257e6837",
+        "filename": "xfa/fde/css/cfde_csspropertyholder.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-08-09T19:46:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e162e82_1e46290d",
+      "revId": "734667857bd840375f0809ff468a4fad3ccaf575",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
