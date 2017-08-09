@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5faf010_b712a98a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T03:40:45Z",
+      "side": 1,
+      "message": "Move into the anonymous namespace at the top of the file? I think we have the number 9 in multiple places in this file. They are all referring to this constant, right?",
+      "revId": "7a12adb01c44e5ce52d00f0d2e6cbddb32bd0186",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14ea300_e7ca9989",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-09T03:40:45Z",
+      "side": 1,
+      "message": "https://pdfium-review.googlesource.com/10290 is still needed? The two CLs conflict.",
+      "revId": "7a12adb01c44e5ce52d00f0d2e6cbddb32bd0186",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
