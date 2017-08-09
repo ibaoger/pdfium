@@ -4,8 +4,8 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#include "core/fxcrt/css/cfx_csspropertyholder.h"
+#include "xfa/fde/css/cfde_csspropertyholder.h"
 
-CFX_CSSPropertyHolder::CFX_CSSPropertyHolder() {}
+CFDE_CSSPropertyHolder::CFDE_CSSPropertyHolder() {}
 
-CFX_CSSPropertyHolder::~CFX_CSSPropertyHolder() {}
+CFDE_CSSPropertyHolder::~CFDE_CSSPropertyHolder() {}
