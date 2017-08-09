@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "daf62ec8_2367df8b",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-09T18:19:52Z",
+      "side": 1,
+      "message": "Made it a vector, retaining previous behavior (returns pointer to the m_Buffer internal memory).",
+      "parentUuid": "47c848ff_e4120d91",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 71
+      },
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87f07e31_28179e0e",
         "filename": "core/fxcrt/fx_basic.h",
         "patchSetId": 3
@@ -63,6 +87,24 @@
       "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2470eb41_14b8830d",
+        "filename": "core/fxcrt/fx_basic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-09T18:19:52Z",
+      "side": 1,
+      "message": "Good call, this does make more sense as a vector. Done.",
+      "parentUuid": "87f07e31_28179e0e",
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -86,6 +128,30 @@
       "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff58d895_d72b5377",
+        "filename": "core/fxcrt/fx_basic_utf.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-09T18:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "472f0073_20f672e1",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "4811d0945dbdc4361cb8fab2e75dd6cc9fc21a6e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
