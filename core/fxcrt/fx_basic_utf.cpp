@@ -10,9 +10,11 @@ void CFX_UTF8Decoder::Clear() {
   m_Buffer.Clear();
   m_PendingBytes = 0;
 }
+
 void CFX_UTF8Decoder::AppendChar(uint32_t ch) {
   m_Buffer.AppendChar((wchar_t)ch);
 }
+
 void CFX_UTF8Decoder::Input(uint8_t byte) {
   if (byte < 0x80) {
     m_PendingBytes = 0;
@@ -43,9 +45,14 @@ void CFX_UTF8Decoder::Input(uint8_t byte) {
     m_PendingChar = (byte & 0x01) << 30;
   }
 }
+
+CFX_UTF8Encoder::CFX_UTF8Encoder() {}
+
+CFX_UTF8Encoder::~CFX_UTF8Encoder() {}
+
 void CFX_UTF8Encoder::Input(wchar_t unicode) {
   if ((uint32_t)unicode < 0x80) {
-    m_Buffer.AppendChar(unicode);
+    m_Buffer << static_cast<char>(unicode);
   } else {
     if ((uint32_t)unicode >= 0x80000000) {
       return;
@@ -65,11 +72,11 @@ void CFX_UTF8Encoder::Input(wchar_t unicode) {
     static uint8_t prefix[] = {0xc0, 0xe0, 0xf0, 0xf8, 0xfc};
     int order = 1 << ((nbytes - 1) * 6);
     int code = unicode;
-    m_Buffer.AppendChar(prefix[nbytes - 2] | (code / order));
+    m_Buffer << static_cast<char>(prefix[nbytes - 2] | (code / order));
     for (int i = 0; i < nbytes - 1; i++) {
       code = code % order;
       order >>= 6;
-      m_Buffer.AppendChar(0x80 | (code / order));
+      m_Buffer << static_cast<char>(0x80 | (code / order));
     }
   }
 }

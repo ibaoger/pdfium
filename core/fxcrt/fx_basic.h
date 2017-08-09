@@ -128,14 +128,15 @@ class CFX_UTF8Decoder {
 
 class CFX_UTF8Encoder {
  public:
-  CFX_UTF8Encoder() {}
+  CFX_UTF8Encoder();
+  ~CFX_UTF8Encoder();
 
   void Input(wchar_t unicode);
   void AppendStr(const CFX_ByteStringC& str) { m_Buffer << str; }
-  CFX_ByteStringC GetResult() const { return m_Buffer.AsStringC(); }
+  CFX_ByteString GetResult() const { return CFX_ByteString(m_Buffer); }
 
  private:
-  CFX_ByteTextBuf m_Buffer;
+  std::ostringstream m_Buffer;
 };
 
 template <class DataType, int FixedSize>
