@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65f9d3b6_7bf38090",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T23:24:36Z",
+      "side": 1,
+      "message": "do we want to store m_pCanvasSet instead of the iterator itself in the class, then check it here for nullness, making the iterator local to this method?",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "3527d39c0e7c96ed219bea2eda97d2c30d91ab38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58401a3d_63fdd2a3",
+        "filename": "xfa/fde/cfde_visualsetiterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T23:24:36Z",
+      "side": 1,
+      "message": "whats the story here?  Remove it or re-instate it?",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "3527d39c0e7c96ed219bea2eda97d2c30d91ab38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
