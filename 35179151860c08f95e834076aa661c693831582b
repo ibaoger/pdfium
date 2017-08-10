@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6e81ae1_10a09411",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "This seems specific to dictionary iterator, can it go into that class?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6132b1e9_879f0be2",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "This is only needed by array iterator so can it go into that class?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9ed897c_9283dc31",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Do we need to store stream_dict_? Can we just store a bool finished_ and use that instead? Then Start() does nothing and this can set finsihed_ \u003d true and return object()-\u003eGetDict()?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "434260c3_391a3748",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Is the index ever used? Can we just remove it?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbc5cac5_27e37ca4",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Should  a Reference walk to the thing we\u0027re referencing?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77c3cac4_431fc4b2",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Do we use dict_key_ anywhere? can we just drop this and storing it in the object?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8411909a_b34d7322",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "This is more then SkipWalkIntoCurrent isn\u0027t it? If we\u0027ve walked half the children of a node and we call this we\u0027ll skip the walk into the remaining children?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b238400_3f28cf34",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Can we just create an interface here and remove these class definitions, then in the .cpp file put all the concrete iterators into the anonymous namespace?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b56cdfe_047ecc14",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "nit: SubobjectIterator",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c143375_3789ef34",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f326ba6f_06323973",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T20:04:36Z",
+      "side": 1,
+      "message": "Can we add IsNull() here so we don\u0027t get Unknown?",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
