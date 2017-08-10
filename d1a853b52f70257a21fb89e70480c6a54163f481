@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53e21cc1_1b4d3b17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-10T20:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2257ff63_dbb0282f",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "d1a853b52f70257a21fb89e70480c6a54163f481",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b580fa6_92cd2df0",
         "filename": "testing/tools/safetynet_job.py",
         "patchSetId": 8
@@ -39,6 +63,24 @@
       "revId": "d1a853b52f70257a21fb89e70480c6a54163f481",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f1f52e4_a8306b0a",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-10T20:00:40Z",
+      "side": 1,
+      "message": "Done. Left 1 for script errors, 2 and 3 represent regression and improvement respectively, with regression being higher priority.",
+      "parentUuid": "8b580fa6_92cd2df0",
+      "revId": "d1a853b52f70257a21fb89e70480c6a54163f481",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
