@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "231a9d19_a89d7104",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T12:11:49Z",
+      "side": 1,
+      "message": "I mean, that if we have pReferred, we always should have !has_read_problems()\nThe next ASSERT is identical. I have removed that.",
+      "parentUuid": "f9392e59_63bf1d02",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4161cab9_bfd9735f",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e05a41_0acbd5c5",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T12:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4161cab9_bfd9735f",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0316427c_3a0db06f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T12:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "387b5776_1af8a5ab",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c26f595_cb301aaa",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5415ea20_1e2e5cb3",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T12:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c26f595_cb301aaa",
+      "revId": "20c94d110dd864bdd60d3e51b5495302fb690b44",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
