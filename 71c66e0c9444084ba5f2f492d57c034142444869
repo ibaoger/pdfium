@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c6eee3e_3292c14d",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T17:04:46Z",
+      "side": 1,
+      "message": "nit: can we make these be 1, 2, 4, ...",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "71c66e0c9444084ba5f2f492d57c034142444869",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
