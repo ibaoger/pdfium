@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "294a3b90_85881e28",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T18:00:33Z",
+      "side": 1,
+      "message": "not used until 134, then only ref\u0027d once?  Did we drop something or just\n\nm_pTxtBreak-\u003eSetLineWidth(rect.Width());",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 28
+      },
+      "revId": "b4fa7cf7fe1d2e30626156fb1b3aad6c78a60cd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6c03a90_a4500d81",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T18:00:33Z",
+      "side": 1,
+      "message": "nit: const",
+      "range": {
+        "startLine": 97,
+        "startChar": 26,
+        "endLine": 97,
+        "endChar": 27
+      },
+      "revId": "b4fa7cf7fe1d2e30626156fb1b3aad6c78a60cd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
