@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d0a76ee_64939d1c",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-10T22:46:53Z",
+      "side": 1,
+      "message": "I would make this platform agnostic and just say \"the Freetype shared library\".",
+      "range": {
+        "startLine": 1074,
+        "startChar": 47,
+        "endLine": 1074,
+        "endChar": 63
+      },
+      "revId": "96a543fe6d0e48051372f3280507bf92ee823125",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5185a7b9_bf298fbb",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-10T22:46:53Z",
+      "side": 1,
+      "message": "FTR, added in FreeType commit c87fec0299533fee9b20505a4955c7f2f5c5bed7.",
+      "revId": "96a543fe6d0e48051372f3280507bf92ee823125",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
