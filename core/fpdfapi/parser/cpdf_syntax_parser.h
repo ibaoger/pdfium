@@ -99,12 +99,8 @@ class CPDF_SyntaxParser {
       CPDF_IndirectObjectHolder* pObjList,
       uint32_t objnum,
       uint32_t gennum,
-      bool bDecrypt);
-
-  std::unique_ptr<CPDF_Object> GetObjectForStrictInternal(
-      CPDF_IndirectObjectHolder* pObjList,
-      uint32_t objnum,
-      uint32_t gennum);
+      bool bDecrypt,
+      bool strict_parse);
 
   FX_FILESIZE m_Pos;
   uint32_t m_MetadataObjnum;
