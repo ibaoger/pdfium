@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66d69b30_c9f09069",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:53:31Z",
+      "side": 0,
+      "message": "This savedPos is different from the non-strict version. m_Pos vs m_Pos - key.GetLength()",
+      "revId": "4454ce7c74558f610962c6d41d446f50875603ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "637a9632_593a2f0f",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:53:31Z",
+      "side": 0,
+      "message": "Which means this restores differently",
+      "revId": "4454ce7c74558f610962c6d41d446f50875603ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
