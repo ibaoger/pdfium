@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed533296_0038b834",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:37:39Z",
+      "side": 1,
+      "message": "pParser \u003d m_pDocument ? m_pDocument-\u003eGetParser() : \u0026m_parser;",
+      "revId": "f86180dc9aa63d89852ff644e1ed55c51a5f4c2f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
