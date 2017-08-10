@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dad79751_ad1732c4",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T21:23:22Z",
+      "side": 0,
+      "message": "It\u0027s simple, only called once, and I think it ends up being clearer.",
+      "parentUuid": "79c795d5_7bd3b187",
+      "range": {
+        "startLine": 178,
+        "startChar": 21,
+        "endLine": 178,
+        "endChar": 0
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e21a617_c08d7a88",
         "filename": "xfa/fde/cfde_textout.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-10T21:20:35Z",
       "side": 0,
       "message": "Why inline?",
+      "range": {
+        "startLine": 323,
+        "startChar": 17,
+        "endLine": 323,
+        "endChar": 0
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92d1bafa_d56c470c",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T21:23:22Z",
+      "side": 0,
+      "message": "I think the code becomes clearer and this is the only caller.",
+      "parentUuid": "2e21a617_c08d7a88",
       "range": {
         "startLine": 323,
         "startChar": 17,
