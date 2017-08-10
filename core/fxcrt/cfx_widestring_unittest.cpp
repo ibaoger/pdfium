@@ -10,13 +10,49 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 
+TEST(fxcrt, WideStringGetAt) {
+  CFX_WideString short_string(L"a");
+  CFX_WideString longer_string(L"abc");
+  CFX_WideString embedded_nul_string(L"ab\0c", 4);
+
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, short_string.GetAt(-1)), ".*");
+  EXPECT_EQ(L'a', short_string.GetAt(0));
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, short_string.GetAt(1)), ".*");
+  EXPECT_EQ(L'c', longer_string.GetAt(2));
+  EXPECT_EQ(L'b', embedded_nul_string.GetAt(1));
+  EXPECT_EQ(L'\0', embedded_nul_string.GetAt(2));
+  EXPECT_EQ(L'c', embedded_nul_string.GetAt(3));
+}
+
 TEST(fxcrt, WideStringOperatorSubscript) {
-  // CFX_WideString includes the NUL terminator for non-empty strings.
   CFX_WideString abc(L"abc");
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, abc[-1]), ".*");
   EXPECT_EQ(L'a', abc[0]);
   EXPECT_EQ(L'b', abc[1]);
   EXPECT_EQ(L'c', abc[2]);
-  EXPECT_EQ(L'\0', abc[3]);
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, abc[4]), ".*");
+}
+
+TEST(fxcrt, WideStringSetAt) {
+  CFX_WideString abc(L"abc");
+  EXPECT_DEBUG_DEATH(
+      {
+        abc.SetAt(-1, L'd');
+        EXPECT_EQ(L"abc", abc);
+      },
+      ".*");
+  abc.SetAt(0, L'd');
+  EXPECT_EQ(L"dbc", abc);
+  abc.SetAt(1, L'e');
+  EXPECT_EQ(L"dec", abc);
+  abc.SetAt(2, L'f');
+  EXPECT_EQ(L"def", abc);
+  EXPECT_DEBUG_DEATH(
+      {
+        abc.SetAt(3, L'g');
+        EXPECT_EQ(L"def", abc);
+      },
+      ".*");
 }
 
 TEST(fxcrt, WideStringOperatorLT) {
@@ -742,13 +778,27 @@ TEST(fxcrt, WideStringCFromVector) {
   EXPECT_EQ(nullptr, cleared_string.raw_str());
 }
 
+TEST(fxcrt, WideStringCGetAt) {
+  CFX_WideStringC short_string(L"a");
+  CFX_WideStringC longer_string(L"abc");
+  CFX_WideStringC embedded_nul_string(L"ab\0c", 4);
+
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, short_string.GetAt(-1)), ".*");
+  EXPECT_EQ(L'a', short_string.GetAt(0));
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, short_string.GetAt(1)), ".*");
+  EXPECT_EQ(L'c', longer_string.GetAt(2));
+  EXPECT_EQ(L'b', embedded_nul_string.GetAt(1));
+  EXPECT_EQ(L'\0', embedded_nul_string.GetAt(2));
+  EXPECT_EQ(L'c', embedded_nul_string.GetAt(3));
+}
+
 TEST(fxcrt, WideStringCOperatorSubscript) {
-  // CFX_WideStringC includes the NUL terminator for non-empty strings.
   CFX_WideStringC abc(L"abc");
-  EXPECT_EQ(L'a', abc.CharAt(0));
-  EXPECT_EQ(L'b', abc.CharAt(1));
-  EXPECT_EQ(L'c', abc.CharAt(2));
-  EXPECT_EQ(L'\0', abc.CharAt(3));
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, abc[-1]), ".*");
+  EXPECT_EQ(L'a', abc[0]);
+  EXPECT_EQ(L'b', abc[1]);
+  EXPECT_EQ(L'c', abc[2]);
+  EXPECT_DEBUG_DEATH(EXPECT_EQ(0, abc[4]), ".*");
 }
 
 TEST(fxcrt, WideStringCOperatorLT) {

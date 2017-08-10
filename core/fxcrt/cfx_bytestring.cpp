@@ -694,14 +694,14 @@ FX_STRSIZE CFX_ByteString::Replace(const CFX_ByteStringC& pOld,
   return nCount;
 }
 
-void CFX_ByteString::SetAt(FX_STRSIZE nIndex, char ch) {
-  if (!m_pData) {
+void CFX_ByteString::SetAt(FX_STRSIZE index, char c) {
+  ASSERT(index >= 0 && index < GetLength());
+  if (IsEmpty())
     return;
-  }
-  ASSERT(nIndex >= 0);
-  ASSERT(nIndex < m_pData->m_nDataLength);
+  if (index < 0 || index >= GetLength())
+    return;
   ReallocBeforeWrite(m_pData->m_nDataLength);
-  m_pData->m_String[nIndex] = ch;
+  m_pData->m_String[index] = c;
 }
 
 CFX_WideString CFX_ByteString::UTF8Decode() const {
