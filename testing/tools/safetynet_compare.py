@@ -480,13 +480,10 @@ class CompareRun(object):
     if profile_file_path:
       command.append('--output-path=%s' % profile_file_path)
 
-    try:
-      output = subprocess.check_output(command)
-    except subprocess.CalledProcessError as e:
-      PrintErr(e)
-      PrintErr(35 * '=' + '  Output:  ' + 34 * '=')
-      PrintErr(e.output)
-      PrintErr(80 * '=')
+    p = subprocess.Popen(command, stdout=subprocess.PIPE)
+    output, _ = p.communicate()
+
+    if not output:
       return None
 
     # Get the time number as output, making sure it's just a number
