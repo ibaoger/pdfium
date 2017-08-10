@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03eb88e5_9bdc62a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T18:09:00Z",
+      "side": 1,
+      "message": "Add a comment along the lines of \"split off from ...\" and link to the reverted CL.",
+      "revId": "3fef648de00ae18d917bd2352c0bc32074321d0f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
