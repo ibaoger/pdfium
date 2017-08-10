@@ -155,7 +155,6 @@ uint32_t CPDF_DataAvail::GetObjectSize(uint32_t objnum, FX_FILESIZE& offset) {
 
 bool CPDF_DataAvail::AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
                                          bool bParsePage,
-                                         DownloadHints* pHints,
                                          std::vector<CPDF_Object*>& ret_array) {
   if (obj_array.empty())
     return true;
@@ -188,24 +187,26 @@ bool CPDF_DataAvail::AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
         break;
       }
       case CPDF_Object::REFERENCE: {
-        CPDF_Reference* pRef = pObj->AsReference();
-        uint32_t dwNum = pRef->GetRefObjNum();
+        const CPDF_ReadValidator::Session read_session(GetValidator().Get());
 
-        FX_FILESIZE offset;
-        uint32_t size = GetObjectSize(dwNum, offset);
-        if (size == 0 || offset < 0 || offset >= m_dwFileLen)
+        CPDF_Reference* pRef = pObj->AsReference();
+        const uint32_t dwNum = pRef->GetRefObjNum();
+
+        if (pdfium::ContainsKey(m_ObjectSet, dwNum))
           break;
 
-        if (!IsDataAvail(offset, size, pHints)) {
+        CPDF_Object* pReferred = m_pDocument->GetOrParseIndirectObject(dwNum);
+
+        if (GetValidator()->has_read_problems()) {
+          ASSERT(!pReferred);
           ret_array.push_back(pObj);
-          count++;
-        } else if (!pdfium::ContainsKey(m_ObjectSet, dwNum)) {
-          m_ObjectSet.insert(dwNum);
-          CPDF_Object* pReferred =
-              m_pDocument->GetOrParseIndirectObject(pRef->GetRefObjNum());
-          if (pReferred)
-            new_obj_array.push_back(pReferred);
+          ++count;
+          break;
         }
+        m_ObjectSet.insert(dwNum);
+        if (pReferred)
+          new_obj_array.push_back(pReferred);
+
         break;
       }
     }
@@ -222,7 +223,7 @@ bool CPDF_DataAvail::AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
   }
 
   obj_array = new_obj_array;
-  return AreObjectsAvailable(obj_array, false, pHints, ret_array);
+  return AreObjectsAvailable(obj_array, false, ret_array);
 }
 
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsDocAvail(
@@ -240,7 +241,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsDocAvail(
   return DataAvailable;
 }
 
-bool CPDF_DataAvail::CheckAcroFormSubObject(DownloadHints* pHints) {
+bool CPDF_DataAvail::CheckAcroFormSubObject() {
   if (m_objs_array.empty()) {
     std::vector<CPDF_Object*> obj_array(m_Acroforms.size());
     std::transform(
@@ -248,7 +249,7 @@ bool CPDF_DataAvail::CheckAcroFormSubObject(DownloadHints* pHints) {
         [](const std::unique_ptr<CPDF_Object>& pObj) { return pObj.get(); });
 
     m_ObjectSet.clear();
-    if (!AreObjectsAvailable(obj_array, false, pHints, m_objs_array))
+    if (!AreObjectsAvailable(obj_array, false, m_objs_array))
       return false;
 
     m_objs_array.clear();
@@ -256,7 +257,7 @@ bool CPDF_DataAvail::CheckAcroFormSubObject(DownloadHints* pHints) {
   }
 
   std::vector<CPDF_Object*> new_objs_array;
-  if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+  if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
     m_objs_array = new_objs_array;
     return false;
   }
@@ -1392,7 +1393,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedData(
   return m_bLinearedDataOK ? DataAvailable : DataNotAvailable;
 }
 
-bool CPDF_DataAvail::CheckPageAnnots(uint32_t dwPage, DownloadHints* pHints) {
+bool CPDF_DataAvail::CheckPageAnnots(uint32_t dwPage) {
   if (m_objs_array.empty()) {
     m_ObjectSet.clear();
 
@@ -1407,7 +1408,7 @@ bool CPDF_DataAvail::CheckPageAnnots(uint32_t dwPage, DownloadHints* pHints) {
 
     std::vector<CPDF_Object*> obj_array;
     obj_array.push_back(pAnnots);
-    if (!AreObjectsAvailable(obj_array, false, pHints, m_objs_array))
+    if (!AreObjectsAvailable(obj_array, false, m_objs_array))
       return false;
 
     m_objs_array.clear();
@@ -1415,7 +1416,7 @@ bool CPDF_DataAvail::CheckPageAnnots(uint32_t dwPage, DownloadHints* pHints) {
   }
 
   std::vector<CPDF_Object*> new_objs_array;
-  if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+  if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
     m_objs_array = new_objs_array;
     return false;
   }
@@ -1424,10 +1425,9 @@ bool CPDF_DataAvail::CheckPageAnnots(uint32_t dwPage, DownloadHints* pHints) {
 }
 
 CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedFirstPage(
-    uint32_t dwPage,
-    DownloadHints* pHints) {
+    uint32_t dwPage) {
   if (!m_bAnnotsLoad) {
-    if (!CheckPageAnnots(dwPage, pHints))
+    if (!CheckPageAnnots(dwPage))
       return DataNotAvailable;
     m_bAnnotsLoad = true;
   }
@@ -1454,9 +1454,11 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   if (pdfium::ContainsKey(m_pagesLoadState, dwPage))
     return DataAvailable;
 
+  const HintsAssigner hints_assigner(GetValidator().Get(), pHints);
+
   if (m_pLinearized) {
     if (dwPage == m_pLinearized->GetFirstPageNo()) {
-      DocAvailStatus nRet = CheckLinearizedFirstPage(dwPage, pHints);
+      DocAvailStatus nRet = CheckLinearizedFirstPage(dwPage);
       if (nRet == DataAvailable)
         m_pagesLoadState.insert(dwPage);
       return nRet;
@@ -1496,7 +1498,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   }
 
   if (m_bHaveAcroForm && !m_bAcroFormLoad) {
-    if (!CheckAcroFormSubObject(pHints))
+    if (!CheckAcroFormSubObject())
       return DataNotAvailable;
     m_bAcroFormLoad = true;
   }
@@ -1515,13 +1517,13 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
 
       std::vector<CPDF_Object*> obj_array;
       obj_array.push_back(m_pPageDict);
-      if (!AreObjectsAvailable(obj_array, true, pHints, m_objs_array))
+      if (!AreObjectsAvailable(obj_array, true, m_objs_array))
         return DataNotAvailable;
 
       m_objs_array.clear();
     } else {
       std::vector<CPDF_Object*> new_objs_array;
-      if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+      if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
         m_objs_array = new_objs_array;
         return DataNotAvailable;
       }
@@ -1531,7 +1533,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   }
 
   if (!m_bAnnotsLoad) {
-    if (!CheckPageAnnots(dwPage, pHints))
+    if (!CheckPageAnnots(dwPage))
       return DataNotAvailable;
     m_bAnnotsLoad = true;
   }
@@ -1542,7 +1544,7 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   }
 
   if (m_bNeedDownLoadResource) {
-    if (!CheckResources(pHints))
+    if (!CheckResources())
       return DataNotAvailable;
     m_bNeedDownLoadResource = false;
   }
@@ -1558,18 +1560,18 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
   return DataAvailable;
 }
 
-bool CPDF_DataAvail::CheckResources(DownloadHints* pHints) {
+bool CPDF_DataAvail::CheckResources() {
   if (m_objs_array.empty()) {
     std::vector<CPDF_Object*> obj_array;
     obj_array.push_back(m_pPageResource);
-    if (!AreObjectsAvailable(obj_array, true, pHints, m_objs_array))
+    if (!AreObjectsAvailable(obj_array, true, m_objs_array))
       return false;
 
     m_objs_array.clear();
     return true;
   }
   std::vector<CPDF_Object*> new_objs_array;
-  if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+  if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
     m_objs_array = new_objs_array;
     return false;
   }
@@ -1623,6 +1625,8 @@ CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
     DownloadHints* pHints) {
   if (!m_pDocument)
     return FormAvailable;
+
+  const HintsAssigner hints_assigner(GetValidator().Get(), pHints);
   if (m_pLinearized) {
     DocAvailStatus nDocStatus = CheckLinearizedData(pHints);
     if (nDocStatus == DataError)
@@ -1645,7 +1649,7 @@ CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
   }
 
   std::vector<CPDF_Object*> new_objs_array;
-  if (!AreObjectsAvailable(m_objs_array, false, pHints, new_objs_array)) {
+  if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
     m_objs_array = new_objs_array;
     return FormNotAvailable;
   }
@@ -1664,7 +1668,7 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
   std::vector<CPDF_Object*> obj_array;
   obj_array.push_back(pPageDict);
   std::vector<CPDF_Object*> dummy;
-  return AreObjectsAvailable(obj_array, true, nullptr, dummy);
+  return AreObjectsAvailable(obj_array, true, dummy);
 }
 
 bool CPDF_DataAvail::ValidateForm() {
@@ -1677,7 +1681,7 @@ bool CPDF_DataAvail::ValidateForm() {
   std::vector<CPDF_Object*> obj_array;
   obj_array.push_back(pAcroForm);
   std::vector<CPDF_Object*> dummy;
-  return AreObjectsAvailable(obj_array, true, nullptr, dummy);
+  return AreObjectsAvailable(obj_array, true, dummy);
 }
 
 CPDF_DataAvail::PageNode::PageNode() : m_type(PDF_PAGENODE_UNKNOWN) {}
