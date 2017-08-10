@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------------
 //
 //  Little Color Management System
-//  Copyright (c) 1998-2014 Marti Maria Saguer
+//  Copyright (c) 1998-2016 Marti Maria Saguer
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the "Software"),
@@ -30,7 +30,7 @@
 // This file implements every single tag and tag type as described in the ICC spec. Some types
 // have been deprecated, like ncl and Data. There is no implementation for those types as there
 // are no profiles holding them. The programmer can also extend this list by defining his own types
-// by using the appropiate plug-in. There are three types of plug ins regarding that. First type
+// by using the appropriate plug-in. There are three types of plug ins regarding that. First type
 // allows to define new tags using any existing type. Next plug-in type allows to define new types
 // and the third one is very specific: allows to extend the number of elements in the multiprocessing
 // elements special type.
@@ -113,7 +113,7 @@ cmsTagTypeHandler* GetHandler(cmsTagTypeSignature sig, _cmsTagTypeLinkedList* Pl
 }
 
 
-// Auxiliar to convert UTF-32 to UTF-16 in some cases
+// Auxiliary to convert UTF-32 to UTF-16 in some cases
 static
 cmsBool _cmsWriteWCharArray(cmsIOHANDLER* io, cmsUInt32Number n, const wchar_t* Array)
 {
@@ -129,7 +129,7 @@ cmsBool _cmsWriteWCharArray(cmsIOHANDLER* io, cmsUInt32Number n, const wchar_t* 
     return TRUE;
 }
 
-// Auxiliar to read an array of wchar_t
+// Auxiliary to read an array of wchar_t
 static
 cmsBool _cmsReadWCharArray(cmsIOHANDLER* io, cmsUInt32Number n, wchar_t* Array)
 {
@@ -160,7 +160,7 @@ typedef cmsBool (* PositionTableEntryFn)(struct _cms_typehandler_struct* self,
                                              cmsUInt32Number n,
                                              cmsUInt32Number SizeOfTag);
 
-// Helper function to deal with position tables as decribed in ICC spec 4.3
+// Helper function to deal with position tables as described in ICC spec 4.3
 // A table of n elements is readed, where first comes n records containing offsets and sizes and
 // then a block containing the data itself. This allows to reuse same data in more than one entry
 static
@@ -173,12 +173,6 @@ cmsBool ReadPositionTable(struct _cms_typehandler_struct* self,
 {
     cmsUInt32Number i;
     cmsUInt32Number *ElementOffsets = NULL, *ElementSizes = NULL;
-    cmsUInt32Number currentPosition;
-
-    currentPosition = io->Tell(io);
-    // Verify there is enough space left to read two cmsUInt32Number items for Count items.
-    if (((io->ReportedSize - currentPosition) / (2 * sizeof(cmsUInt32Number))) < Count)
-        return FALSE;
 
     // Let's take the offsets to each element
     ElementOffsets = (cmsUInt32Number *) _cmsCalloc(io ->ContextID, Count, sizeof(cmsUInt32Number));
@@ -957,7 +951,7 @@ cmsBool  Type_Text_Description_Write(struct _cms_typehandler_struct* self, cmsIO
     cmsMLU* mlu = (cmsMLU*) Ptr;
     char *Text = NULL;
     wchar_t *Wide = NULL;
-    cmsUInt32Number len, len_aligned, len_filler_alignment;
+    cmsUInt32Number len, len_text, len_tag_requirement, len_aligned;
     cmsBool  rc = FALSE;
     char Filler[68];
 
@@ -967,17 +961,18 @@ cmsBool  Type_Text_Description_Write(struct _cms_typehandler_struct* self, cmsIO
     // Get the len of string
     len = cmsMLUgetASCII(mlu, cmsNoLanguage, cmsNoCountry, NULL, 0);
 
-    // From ICC3.4: It has been found that textDescriptionType can contain misaligned data
-    //(see clause 4.1 for the definition of 'aligned'. Because the Unicode language
+    // Specification ICC.1:2001-04 (v2.4.0): It has been found that textDescriptionType can contain misaligned data
+    //(see clause 4.1 for the definition of “aligned”). Because the Unicode language
     // code and Unicode count immediately follow the ASCII description, their
     // alignment is not correct if the ASCII count is not a multiple of four. The
     // ScriptCode code is misaligned when the ASCII count is odd. Profile reading and
     // writing software must be written carefully in order to handle these alignment
     // problems.
-
-    // Compute an aligned size
-    len_aligned = _cmsALIGNLONG(len);
-    len_filler_alignment = len_aligned - len;
+    //
+    // The above last sentence suggest to handle alignment issues in the
+    // parser. The provided example (Table 69 on Page 60) makes this clear. 
+    // The padding only in the ASCII count is not sufficient for a aligned tag
+    // size, with the same text size in ASCII and Unicode.
 
     // Null strings
     if (len <= 0) {
@@ -998,6 +993,12 @@ cmsBool  Type_Text_Description_Write(struct _cms_typehandler_struct* self, cmsIO
         cmsMLUgetWide(mlu,  cmsNoLanguage, cmsNoCountry,  Wide, len * sizeof(wchar_t));
     }
 
+    // Tell the real text len including the null terminator and padding
+    len_text = (cmsUInt32Number) strlen(Text) + 1;
+    // Compute an total tag size requirement
+    len_tag_requirement = (8+4+len_text+4+4+2*len_text+2+1+67);
+    len_aligned = _cmsALIGNLONG(len_tag_requirement);
+
   // * cmsUInt32Number       count;          * Description length
   // * cmsInt8Number         desc[count]     * NULL terminated ascii string
   // * cmsUInt32Number       ucLangCode;     * UniCode language code
@@ -1007,26 +1008,24 @@ cmsBool  Type_Text_Description_Write(struct _cms_typehandler_struct* self, cmsIO
   // * cmsUInt8Number        scCount;        * ScriptCode count
   // * cmsInt8Number         scDesc[67];     * ScriptCode Description
 
-    if (!_cmsWriteUInt32Number(io, len_aligned)) goto Error;
-    if (!io ->Write(io, len, Text)) goto Error;
-    if (!io ->Write(io, len_filler_alignment, Filler)) goto Error;
+    if (!_cmsWriteUInt32Number(io, len_text)) goto Error;
+    if (!io ->Write(io, len_text, Text)) goto Error;
 
     if (!_cmsWriteUInt32Number(io, 0)) goto Error;  // ucLanguageCode
 
-    // This part is tricky: we need an aligned tag size, and the ScriptCode part
-    // takes 70 bytes, so we need 2 extra bytes to do the alignment
-
-    if (!_cmsWriteUInt32Number(io, len_aligned+1)) goto Error;
-
+    if (!_cmsWriteUInt32Number(io, len_text)) goto Error;
     // Note that in some compilers sizeof(cmsUInt16Number) != sizeof(wchar_t)
-    if (!_cmsWriteWCharArray(io, len, Wide)) goto Error;
-    if (!_cmsWriteUInt16Array(io, len_filler_alignment+1, (cmsUInt16Number*) Filler)) goto Error;
+    if (!_cmsWriteWCharArray(io, len_text, Wide)) goto Error;
 
     // ScriptCode Code & count (unused)
     if (!_cmsWriteUInt16Number(io, 0)) goto Error;
     if (!_cmsWriteUInt8Number(io, 0)) goto Error;
 
     if (!io ->Write(io, 67, Filler)) goto Error;
+
+    // possibly add pad at the end of tag
+    if(len_aligned - len_tag_requirement > 0)
+      if (!io ->Write(io, len_aligned - len_tag_requirement, Filler)) goto Error;
 
     rc = TRUE;
 
@@ -1118,10 +1117,7 @@ void *Type_Curve_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cm
                NewGamma = cmsBuildTabulatedToneCurve16(self ->ContextID, Count, NULL);
                if (!NewGamma) return NULL;
 
-               if (!_cmsReadUInt16Array(io, Count, NewGamma -> Table16)) {
-                 cmsFreeToneCurve(NewGamma);
-                 return NULL;
-               }
+               if (!_cmsReadUInt16Array(io, Count, NewGamma -> Table16)) return NULL;
 
                *nItems = 1;
                return NewGamma;
@@ -1478,7 +1474,7 @@ void *Type_MLU_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cmsU
             LargestPosition = EndOfThisString;
     }
 
-    // Now read the remaining of tag and fill all strings. Substract the directory
+    // Now read the remaining of tag and fill all strings. Subtract the directory
     SizeOfTag   = (LargestPosition * sizeof(wchar_t)) / sizeof(cmsUInt16Number);
     if (SizeOfTag == 0)
     {
@@ -1512,7 +1508,7 @@ cmsBool  Type_MLU_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, 
     cmsMLU* mlu =(cmsMLU*) Ptr;
     cmsUInt32Number HeaderSize;
     cmsUInt32Number  Len, Offset;
-    int i;
+    cmsUInt32Number i;
 
     if (Ptr == NULL) {
 
@@ -1698,10 +1694,7 @@ cmsBool Write8bitTables(cmsContext ContextID, cmsIOHANDLER* io, cmsUInt32Number 
                 else
                     for (j=0; j < 256; j++) {
 
-                        if (Tables != NULL)
-                            val = (cmsUInt8Number) FROM_16_TO_8(Tables->TheCurves[i]->Table16[j]);
-                        else
-                            val = (cmsUInt8Number) j;
+                        val = (cmsUInt8Number) FROM_16_TO_8(Tables->TheCurves[i]->Table16[j]);
 
                         if (!_cmsWriteUInt8Number(io, val)) return FALSE;
                     }
@@ -1761,8 +1754,8 @@ void *Type_LUT8_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cms
     if (!_cmsReadUInt8Number(io, NULL)) goto Error;
 
     // Do some checking
-    if (InputChannels == 0 || InputChannels > cmsMAXCHANNELS)  goto Error;
-    if (OutputChannels == 0 || OutputChannels > cmsMAXCHANNELS) goto Error;
+    if (InputChannels > cmsMAXCHANNELS)  goto Error;
+    if (OutputChannels > cmsMAXCHANNELS) goto Error;
 
    // Allocates an empty Pipeline
     NewLUT = cmsPipelineAlloc(self ->ContextID, InputChannels, OutputChannels);
@@ -2054,8 +2047,8 @@ void *Type_LUT16_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cm
     if (!_cmsReadUInt8Number(io, NULL)) return NULL;
 
     // Do some checking
-    if (InputChannels == 0 || InputChannels > cmsMAXCHANNELS)  goto Error;
-    if (OutputChannels == 0 || OutputChannels > cmsMAXCHANNELS) goto Error;
+    if (InputChannels > cmsMAXCHANNELS)  goto Error;
+    if (OutputChannels > cmsMAXCHANNELS) goto Error;
 
     // Allocates an empty LUT
     NewLUT = cmsPipelineAlloc(self ->ContextID, InputChannels, OutputChannels);
@@ -2359,10 +2352,7 @@ cmsStage* ReadCLUT(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cmsUI
 
         for (i=0; i < Data ->nEntries; i++) {
 
-            if (io ->Read(io, &v, sizeof(cmsUInt8Number), 1) != 1) {
-              cmsStageFree(CLUT);
-              return NULL;
-            }
+            if (io ->Read(io, &v, sizeof(cmsUInt8Number), 1) != 1) return NULL;
             Data ->Tab.T[i] = FROM_8_TO_16(v);
         }
 
@@ -2492,10 +2482,7 @@ void* Type_LUTA2B_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, c
     if (!_cmsReadUInt32Number(io, &offsetC)) return NULL;
     if (!_cmsReadUInt32Number(io, &offsetA)) return NULL;
 
-    if (inputChan == 0 || inputChan >= cmsMAXCHANNELS) return NULL;
-    if (outputChan == 0 || outputChan >= cmsMAXCHANNELS) return NULL;
-
-    // Allocates an empty LUT
+   // Allocates an empty LUT
     NewLUT = cmsPipelineAlloc(self ->ContextID, inputChan, outputChan);
     if (NewLUT == NULL) return NULL;
 
@@ -2803,9 +2790,6 @@ void* Type_LUTB2A_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, c
     if (!_cmsReadUInt8Number(io, &inputChan)) return NULL;
     if (!_cmsReadUInt8Number(io, &outputChan)) return NULL;
 
-    if (inputChan == 0 || inputChan >= cmsMAXCHANNELS) return NULL;
-    if (outputChan == 0 || outputChan >= cmsMAXCHANNELS) return NULL;
-
     // Padding
     if (!_cmsReadUInt16Number(io, NULL)) return NULL;
 
@@ -2982,7 +2966,7 @@ void *Type_ColorantTable_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER
 {
     cmsUInt32Number i, Count;
     cmsNAMEDCOLORLIST* List;
-    char Name[33];
+    char Name[34];
     cmsUInt16Number PCS[3];
 
 
@@ -2997,7 +2981,7 @@ void *Type_ColorantTable_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER
     for (i=0; i < Count; i++) {
 
         if (io ->Read(io, Name, 32, 1) != 1) goto Error;
-        Name[32] = 0;
+        Name[33] = 0;
 
         if (!_cmsReadUInt16Array(io, 3, PCS)) goto Error;
 
@@ -3076,10 +3060,10 @@ void Type_ColorantTable_Free(struct _cms_typehandler_struct* self, void* Ptr)
 //The namedColor2Type is a count value and array of structures that provide color
 //coordinates for 7-bit ASCII color names. For each named color, a PCS and optional
 //device representation of the color are given. Both representations are 16-bit values.
-//The device representation corresponds to the header's 'color space of data' field.
-//This representation should be consistent with the 'number of device components'
+//The device representation corresponds to the header’s “color space of data” field.
+//This representation should be consistent with the “number of device components”
 //field in the namedColor2Type. If this field is 0, device coordinates are not provided.
-//The PCS representation corresponds to the header's PCS field. The PCS representation
+//The PCS representation corresponds to the header’s PCS field. The PCS representation
 //is always provided. Color names are fixed-length, 32-byte fields including null
 //termination. In order to maintain maximum portability, it is strongly recommended
 //that special characters of the 7-bit ASCII set not be used.
@@ -3115,7 +3099,7 @@ void *Type_NamedColor_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* i
 
     if (nDeviceCoords > cmsMAXCHANNELS) {
         cmsSignalError(self->ContextID, cmsERROR_RANGE, "Too many device coordinates '%d'", nDeviceCoords);
-        goto Error;
+        return 0;
     }
     for (i=0; i < count; i++) {
 
@@ -3124,8 +3108,9 @@ void *Type_NamedColor_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* i
         char Root[33];
 
         memset(Colorant, 0, sizeof(Colorant));
-        if (io -> Read(io, Root, 32, 1) != 1) goto Error;
-        Root[32] = 0;
+        if (io -> Read(io, Root, 32, 1) != 1) return NULL;
+        Root[32] = 0;  // To prevent exploits
+
         if (!_cmsReadUInt16Array(io, 3, PCS)) goto Error;
         if (!_cmsReadUInt16Array(io, nDeviceCoords, Colorant)) goto Error;
 
@@ -3148,8 +3133,8 @@ static
 cmsBool Type_NamedColor_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, void* Ptr, cmsUInt32Number nItems)
 {
     cmsNAMEDCOLORLIST* NamedColorList = (cmsNAMEDCOLORLIST*) Ptr;
-    char                prefix[32];     // Prefix for each color name
-    char                suffix[32];     // Suffix for each color name
+    char                prefix[33];     // Prefix for each color name
+    char                suffix[33];     // Suffix for each color name
     int i, nColors;
 
     nColors = cmsNamedColorCount(NamedColorList);
@@ -3161,7 +3146,7 @@ cmsBool Type_NamedColor_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER
     strncpy(prefix, (const char*) NamedColorList->Prefix, 32);
     strncpy(suffix, (const char*) NamedColorList->Suffix, 32);
 
-    suffix[31] = prefix[31] = 0;
+    suffix[32] = prefix[32] = 0;
 
     if (!io ->Write(io, 32, prefix)) return FALSE;
     if (!io ->Write(io, 32, suffix)) return FALSE;
@@ -3173,6 +3158,7 @@ cmsBool Type_NamedColor_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER
        char Root[33];
 
         if (!cmsNamedColorInfo(NamedColorList, i, Root, NULL, NULL, PCS, Colorant)) return 0;
+        Root[32] = 0;
         if (!io ->Write(io, 32 , Root)) return FALSE;
         if (!_cmsWriteUInt16Array(io, 3, PCS)) return FALSE;
         if (!_cmsWriteUInt16Array(io, NamedColorList ->ColorantCount, Colorant)) return FALSE;
@@ -3623,7 +3609,7 @@ country varies for each element:
 
 
 
-// Auxiliar, read an string specified as count + string
+// Auxiliary, read an string specified as count + string
 static
 cmsBool  ReadCountAndSting(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cmsMLU* mlu, cmsUInt32Number* SizeOfTag, const char* Section)
 {
@@ -3822,7 +3808,7 @@ void Type_Screening_Free(struct _cms_typehandler_struct* self, void* Ptr)
 // ********************************************************************************
 //
 //This type represents a set of viewing condition parameters including:
-//CIE 'absolute'illuminant white point tristimulus values and CIE 'absolute'
+//CIE ’absolute’ illuminant white point tristimulus values and CIE ’absolute’
 //surround tristimulus values.
 
 static
@@ -3872,7 +3858,7 @@ cmsBool Type_ViewingConditions_Write(struct _cms_typehandler_struct* self, cmsIO
 static
 void* Type_ViewingConditions_Dup(struct _cms_typehandler_struct* self, const void *Ptr, cmsUInt32Number n)
 {
-   return _cmsDupMem(self ->ContextID, Ptr, sizeof(cmsScreening));
+   return _cmsDupMem(self->ContextID, Ptr, sizeof(cmsICCViewingConditions));
 
    cmsUNUSED_PARAMETER(n);
 }
@@ -3909,7 +3895,7 @@ void GenericMPEfree(struct _cms_typehandler_struct* self, void *Ptr)
 }
 
 // Each curve is stored in one or more curve segments, with break-points specified between curve segments.
-// The first curve segment always starts at -Infinity, and the last curve segment always ends at +Infinity. The
+// The first curve segment always starts at –Infinity, and the last curve segment always ends at +Infinity. The
 // first and last curve segments shall be specified in terms of a formula, whereas the other segments shall be
 // specified either in terms of a formula, or by a sampled curve.
 
@@ -3982,7 +3968,7 @@ cmsToneCurve* ReadSegmentedCurve(struct _cms_typehandler_struct* self, cmsIOHAND
             case cmsSigSampledCurveSeg: {
                 cmsUInt32Number Count;
 
-                if (!_cmsReadUInt32Number(io, &Count)) goto Error;
+                if (!_cmsReadUInt32Number(io, &Count)) return NULL;
 
                 Segments[i].nGridPoints = Count;
                 Segments[i].SampledPoints = (cmsFloat32Number*) _cmsCalloc(self ->ContextID, Count, sizeof(cmsFloat32Number));
@@ -4001,7 +3987,7 @@ cmsToneCurve* ReadSegmentedCurve(struct _cms_typehandler_struct* self, cmsIOHAND
                 _cmsTagSignature2String(String, (cmsTagSignature) ElementSig);
                 cmsSignalError(self->ContextID, cmsERROR_UNKNOWN_EXTENSION, "Unknown curve element type '%s' found.", String);
                 }
-                goto Error;
+                return NULL;
 
          }
      }
@@ -4015,12 +4001,7 @@ cmsToneCurve* ReadSegmentedCurve(struct _cms_typehandler_struct* self, cmsIOHAND
      return Curve;
 
 Error:
-     if (Segments) {
-         for (i=0; i < nSegments; i++) {
-             if (Segments[i].SampledPoints) _cmsFree(self ->ContextID, Segments[i].SampledPoints);
-         }
-         _cmsFree(self ->ContextID, Segments);
-     }
+     if (Segments) _cmsFree(self ->ContextID, Segments);
      return NULL;
 }
 
@@ -4190,7 +4171,7 @@ cmsBool  Type_MPEcurve_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER*
 // The matrix is organized as an array of PxQ+Q elements, where P is the number of input channels to the
 // matrix, and Q is the number of output channels. The matrix elements are each float32Numbers. The array
 // is organized as follows:
-// array = [e11, e12, ? e1P, e21, e22, ? e2P, ? eQ1, eQ2, ? eQP, e1, e2, ? eQ]
+// array = [e11, e12, …, e1P, e21, e22, …, e2P, …, eQ1, eQ2, …, eQP, e1, e2, …, eQ]
 
 static
 void *Type_MPEmatrix_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cmsUInt32Number* nItems, cmsUInt32Number SizeOfTag)
@@ -4205,13 +4186,9 @@ void *Type_MPEmatrix_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io
     if (!_cmsReadUInt16Number(io, &OutputChans)) return NULL;
 
 
-    // Input and output chans may be ANY (up to 0xffff), 
-    // but we choose to limit to 16 channels for now
-    if (InputChans >= cmsMAXCHANNELS) return NULL;
-    if (OutputChans >= cmsMAXCHANNELS) return NULL;
-
     nElems = InputChans * OutputChans;
 
+    // Input and output chans may be ANY (up to 0xffff)
     Matrix = (cmsFloat64Number*) _cmsCalloc(self ->ContextID, nElems, sizeof(cmsFloat64Number));
     if (Matrix == NULL) return NULL;
 
@@ -4226,11 +4203,7 @@ void *Type_MPEmatrix_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io
 
         cmsFloat32Number v;
 
-        if (!_cmsReadFloat32Number(io, &v)) {
-            _cmsFree(self ->ContextID, Matrix);
-            _cmsFree(self ->ContextID, Offsets);
-            return NULL;
-        }
+        if (!_cmsReadFloat32Number(io, &v)) return NULL;
         Matrix[i] = v;
     }
 
@@ -4239,11 +4212,7 @@ void *Type_MPEmatrix_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io
 
         cmsFloat32Number v;
 
-        if (!_cmsReadFloat32Number(io, &v)) {
-            _cmsFree(self ->ContextID, Matrix);
-            _cmsFree(self ->ContextID, Offsets);
-            return NULL;
-        }
+        if (!_cmsReadFloat32Number(io, &v)) return NULL;
         Offsets[i] = v;
     }
 
@@ -4315,12 +4284,8 @@ void *Type_MPEclut_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, 
 
     // Copy MAX_INPUT_DIMENSIONS at most. Expand to cmsUInt32Number
     nMaxGrids = InputChans > MAX_INPUT_DIMENSIONS ? MAX_INPUT_DIMENSIONS : InputChans;
+    for (i=0; i < nMaxGrids; i++) GridPoints[i] = (cmsUInt32Number) Dimensions8[i];
 
-    for (i = 0; i < nMaxGrids; i++) {
-        if (Dimensions8[i] == 1) goto Error; // Impossible value, 0 for no CLUT and then 2 at least
-        GridPoints[i] = (cmsUInt32Number)Dimensions8[i];
-    }
-    
     // Allocate the true CLUT
     mpe = cmsStageAllocCLutFloatGranular(self ->ContextID, GridPoints, InputChans, OutputChans, NULL);
     if (mpe == NULL) goto Error;
@@ -4347,13 +4312,13 @@ Error:
 static
 cmsBool  Type_MPEclut_Write(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, void* Ptr, cmsUInt32Number nItems)
 {
-    cmsUInt8Number Dimensions8[16];
+    cmsUInt8Number Dimensions8[16];  // 16 because the spec says 16 and not max number of channels
     cmsUInt32Number i;
     cmsStage* mpe = (cmsStage*) Ptr;
     _cmsStageCLutData* clut = (_cmsStageCLutData*) mpe ->Data;
 
-    // Check for maximum number of channels
-    if (mpe -> InputChannels > 15) return FALSE;
+    // Check for maximum number of channels supported by lcms
+    if (mpe -> InputChannels > MAX_INPUT_DIMENSIONS) return FALSE;
 
     // Only floats are supported in MPE
     if (clut ->HasFloatValues == FALSE) return FALSE;
@@ -4459,25 +4424,21 @@ void *Type_MPE_Read(struct _cms_typehandler_struct* self, cmsIOHANDLER* io, cmsU
     if (!_cmsReadUInt16Number(io, &InputChans)) return NULL;
     if (!_cmsReadUInt16Number(io, &OutputChans)) return NULL;
 
-    if (InputChans == 0 || InputChans >= cmsMAXCHANNELS) return NULL;
-    if (OutputChans == 0 || OutputChans >= cmsMAXCHANNELS) return NULL;
-
     // Allocates an empty LUT
     NewLUT = cmsPipelineAlloc(self ->ContextID, InputChans, OutputChans);
     if (NewLUT == NULL) return NULL;
 
-    if (!_cmsReadUInt32Number(io, &ElementCount)) goto Error;
-    if (!ReadPositionTable(self, io, ElementCount, BaseOffset, NewLUT, ReadMPEElem)) goto Error;
+    if (!_cmsReadUInt32Number(io, &ElementCount)) return NULL;
+
+    if (!ReadPositionTable(self, io, ElementCount, BaseOffset, NewLUT, ReadMPEElem)) {
+        if (NewLUT != NULL) cmsPipelineFree(NewLUT);
+        *nItems = 0;
+        return NULL;
+    }
 
     // Success
     *nItems = 1;
     return NewLUT;
-
-    // Error
-Error:
-    if (NewLUT != NULL) cmsPipelineFree(NewLUT);
-    *nItems = 0;
-    return NULL;
 
     cmsUNUSED_PARAMETER(SizeOfTag);
 }
@@ -4709,10 +4670,10 @@ void *Type_vcgt_Read(struct _cms_typehandler_struct* self,
             // Y = cX + f             | X < d
 
             // vcgt formula is:
-            // Y = (Max ?Min) * (X ^ Gamma) + Min
+            // Y = (Max – Min) * (X ^ Gamma) + Min
 
             // So, the translation is
-            // a = (Max ?Min) ^ ( 1 / Gamma)
+            // a = (Max – Min) ^ ( 1 / Gamma)
             // e = Min
             // b=c=d=f=0
 
@@ -5495,8 +5456,9 @@ static _cmsTagLinkedList SupportedTags[] = {
     { cmsSigScreeningTag,           { 1, 1, { cmsSigScreeningType},          NULL }, &SupportedTags[59]},
     { cmsSigVcgtTag,                { 1, 1, { cmsSigVcgtType},               NULL }, &SupportedTags[60]},
     { cmsSigMetaTag,                { 1, 1, { cmsSigDictType},               NULL }, &SupportedTags[61]},
-    { cmsSigProfileSequenceIdTag,   { 1, 1, { cmsSigProfileSequenceIdType},  NULL },  &SupportedTags[62]},
-    { cmsSigProfileDescriptionMLTag,{ 1, 1, { cmsSigMultiLocalizedUnicodeType}, NULL}, NULL}
+    { cmsSigProfileSequenceIdTag,   { 1, 1, { cmsSigProfileSequenceIdType},  NULL }, &SupportedTags[62]},
+    { cmsSigProfileDescriptionMLTag,{ 1, 1, { cmsSigMultiLocalizedUnicodeType}, NULL}, &SupportedTags[63]},
+    { cmsSigArgyllArtsTag,          { 9, 1, { cmsSigS15Fixed16ArrayType},    NULL}, NULL}
 
 
 };
@@ -5608,3 +5570,4 @@ cmsTagDescriptor* _cmsGetTagDescriptor(cmsContext ContextID, cmsTagSignature sig
 
     return NULL;
 }
+
