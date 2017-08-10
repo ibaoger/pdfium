@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d30d0350_b65ae31f",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-10T21:26:16Z",
+      "side": 0,
+      "message": "This is now left?",
+      "range": {
+        "startLine": 643,
+        "startChar": 53,
+        "endLine": 643,
+        "endChar": 0
+      },
+      "revId": "cc68c7335eb7e4b1a11a201f4fbad410f6d2d4cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
