@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b188be2_0c34765b",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "994a9ee7_564e93f3",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "3f9a89bd5ad59de2e263d3d6681d6c3c9031dd2a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fc36678_5e65d5f5",
         "filename": "xfa/fde/cfde_textout.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-10T18:06:48Z",
       "side": 1,
       "message": "nit: if you want to be compulsive about packing tightly\n\nenum class FDE_TextAlignment : uint8_t {",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "3f9a89bd5ad59de2e263d3d6681d6c3c9031dd2a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53ee287_1d1090c7",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:19:29Z",
+      "side": 1,
+      "message": "Done. Isn\u0027t the compiler smart enough to do that for me?",
+      "parentUuid": "7fc36678_5e65d5f5",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d4c74246_dc2823cc",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f75fd4_36f162e1",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "3f9a89bd5ad59de2e263d3d6681d6c3c9031dd2a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01fa25fe_708443e8",
         "filename": "xfa/fde/cfde_textout.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-08-10T18:06:48Z",
       "side": 1,
       "message": "e.g. the preceding and successor are 4-byte algined, so this takes 4 bytes.",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 27
+      },
+      "revId": "3f9a89bd5ad59de2e263d3d6681d6c3c9031dd2a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "953f799e_4d87e51c",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T18:19:29Z",
+      "side": 1,
+      "message": "Moved up with FDE_TextAlignment above.",
+      "parentUuid": "01fa25fe_708443e8",
       "range": {
         "startLine": 151,
         "startChar": 2,
