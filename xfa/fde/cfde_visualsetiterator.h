@@ -21,19 +21,16 @@ struct FDE_CANVASITEM {
 
 class CFDE_VisualSetIterator {
  public:
-  CFDE_VisualSetIterator();
+  explicit CFDE_VisualSetIterator(CFDE_TxtEdtPage* pCanvas);
   ~CFDE_VisualSetIterator();
 
-  bool AttachCanvas(CFDE_TxtEdtPage* pCanvas);
-  bool FilterObjects(uint32_t dwObjects = 0xFFFFFFFF);
-
-  void Reset();
+  // void Reset();
   FDE_TEXTEDITPIECE* GetNext(IFDE_VisualSet*& pVisualSet,
                              FDE_TEXTEDITPIECE** phCanvasObj = nullptr,
                              CFDE_TxtEdtPage** ppCanvasSet = nullptr);
 
  protected:
-  uint32_t m_dwFilter;
+  bool is_initialized_;
   std::stack<FDE_CANVASITEM> m_CanvasStack;
 };
 

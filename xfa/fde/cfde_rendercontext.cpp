@@ -11,29 +11,17 @@
 #include "xfa/fde/cfde_renderdevice.h"
 #include "xfa/fde/cfde_txtedttextset.h"
 
-CFDE_RenderContext::CFDE_RenderContext()
-    : m_pRenderDevice(nullptr), m_Transform() {
-  m_Transform.SetIdentity();
-}
+CFDE_RenderContext::CFDE_RenderContext(CFDE_RenderDevice* pRenderDevice,
+                                       CFDE_TxtEdtPage* pCanvasSet,
+                                       const CFX_Matrix& tmDoc2Device)
+    : m_pRenderDevice(pRenderDevice),
+      m_Transform(tmDoc2Device),
+      m_pIterator(pCanvasSet) {}
 
 CFDE_RenderContext::~CFDE_RenderContext() {}
 
-void CFDE_RenderContext::StartRender(CFDE_RenderDevice* pRenderDevice,
-                                     CFDE_TxtEdtPage* pCanvasSet,
-                                     const CFX_Matrix& tmDoc2Device) {
-  if (m_pRenderDevice || !pRenderDevice || !pCanvasSet)
-    return;
-
-  m_pRenderDevice = pRenderDevice;
-  m_Transform = tmDoc2Device;
-  if (!m_pIterator)
-    m_pIterator = pdfium::MakeUnique<CFDE_VisualSetIterator>();
-  if (m_pIterator->AttachCanvas(pCanvasSet))
-    m_pIterator->FilterObjects();
-}
-
-void CFDE_RenderContext::DoRender() {
-  if (!m_pRenderDevice || !m_pIterator)
+void CFDE_RenderContext::Render() {
+  if (!m_pRenderDevice)
     return;
 
   CFX_RectF rtDocClip = m_pRenderDevice->GetClipRect();
@@ -43,24 +31,19 @@ void CFDE_RenderContext::DoRender() {
     rtDocClip.height = (float)m_pRenderDevice->GetHeight();
   }
   m_Transform.GetInverse().TransformRect(rtDocClip);
+
   IFDE_VisualSet* pVisualSet;
   FDE_TEXTEDITPIECE* pPiece;
   int32_t iCount = 0;
   while (true) {
-    pPiece = m_pIterator->GetNext(pVisualSet);
+    pPiece = m_pIterator.GetNext(pVisualSet);
     if (!pPiece || !pVisualSet)
       return;
     if (!rtDocClip.IntersectWith(pVisualSet->GetRect(*pPiece)))
       continue;
 
-    switch (pVisualSet->GetType()) {
-      case FDE_VISUALOBJ_Text:
-        RenderText(static_cast<CFDE_TxtEdtTextSet*>(pVisualSet), pPiece);
-        iCount += 5;
-        break;
-      default:
-        break;
-    }
+    RenderText(static_cast<CFDE_TxtEdtTextSet*>(pVisualSet), pPiece);
+    iCount += 5;
   }
 }
 

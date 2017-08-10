@@ -17,10 +17,6 @@
 
 class FXTEXT_CHARPOS;
 
-enum FDE_VISUALOBJTYPE {
-  FDE_VISUALOBJ_Text = 0x01
-};
-
 struct FDE_TEXTEDITPIECE {
   FDE_TEXTEDITPIECE();
   FDE_TEXTEDITPIECE(const FDE_TEXTEDITPIECE& that);
@@ -40,7 +36,6 @@ inline FDE_TEXTEDITPIECE::~FDE_TEXTEDITPIECE() = default;
 class IFDE_VisualSet {
  public:
   virtual ~IFDE_VisualSet() {}
-  virtual FDE_VISUALOBJTYPE GetType() = 0;
   virtual CFX_RectF GetRect(const FDE_TEXTEDITPIECE& hVisualObj) = 0;
 };
 
