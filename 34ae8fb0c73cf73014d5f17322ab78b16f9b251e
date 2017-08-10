@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df204001_4b2895db",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8880e6_d4f7de6f",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7796638_f77cf276",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-10T18:53:31Z",
       "side": 1,
       "message": "nKeys didnt\u0027 exist in strict mode, is it used anywhere that will matter?",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7207254_98b2c62c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "Is not used.\nRemoved",
+      "parentUuid": "b7796638_f77cf276",
       "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4659905d_4c9bdc5a",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "Strict mode is used only in CPDF_Parser::RebuildCrossRef. \nAt this point we never have the m_pCryptoHandler (the CPDF_Parser::SetEncryptHandler is not called yet) as result, if we have not m_pCryptoHandler this should work like bDecrypt \u003d\u003d false. and in this case the decryption logic (include signature dictionaries), do nothing (like in original code).",
+      "parentUuid": "8d9cc216_dd50a685",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "816e35c5_5f8966ce",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "19e62868_efd4ca0f",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "816e35c5_5f8966ce",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97aa0a0a_aac9aaa0",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2017-08-10T18:53:31Z",
       "side": 1,
       "message": "This did not happen in the strict_parse mode before should it now?",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1358fea_153c2949",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "the m_pCryptoHandler is always nullptr in case CPDF_Parser::RebuildCrossRef.\nP.S. See explain comment above.",
+      "parentUuid": "97aa0a0a_aac9aaa0",
       "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e2bb23e6_b81d47a0",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "the m_pCryptoHandler is always nullptr in case CPDF_Parser::RebuildCrossRef.\nP.S. See explain comment above.",
+      "parentUuid": "a6f1aa35_218d79bf",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f92eddc_00854a4c",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1bb0341_381eb80d",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-10T19:53:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f92eddc_00854a4c",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
