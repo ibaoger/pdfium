@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09c179d0_57c3817e",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T21:05:13Z",
+      "side": 1,
+      "message": "nit: blank line.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 5
+      },
+      "revId": "e5a96a651864c9e2b6d88882eb221b27da9023fc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
