@@ -22,6 +22,30 @@
       "revId": "71c66e0c9444084ba5f2f492d57c034142444869",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b144e1cf_578d85df",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-10T17:56:20Z",
+      "side": 1,
+      "message": "I removed them in the next CL.",
+      "parentUuid": "5c6eee3e_3292c14d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "71c66e0c9444084ba5f2f492d57c034142444869",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
