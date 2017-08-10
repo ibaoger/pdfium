@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "950d454a_ab0fcbb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T20:49:38Z",
+      "side": 1,
+      "message": "nit: underlying",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "448a5991cfc3919c25903b06a4b777c0c986396b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e422766e_e6e087e4",
+        "filename": "fxbarcode/datamatrix/BC_C40Encoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-10T20:49:38Z",
+      "side": 1,
+      "message": "do we want to check that these bounds are sane, not just m_pos ?",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 46
+      },
+      "revId": "448a5991cfc3919c25903b06a4b777c0c986396b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
