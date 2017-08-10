@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------------
 //
 //  Little Color Management System
-//  Copyright (c) 1998-2012 Marti Maria Saguer
+//  Copyright (c) 1998-2016 Marti Maria Saguer
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the "Software"),
@@ -414,13 +414,13 @@ cmsStage*  CMSEXPORT cmsStageAllocMatrix(cmsContext ContextID, cmsUInt32Number R
 
     if (Offset != NULL) {
 
-        NewElem ->Offset = (cmsFloat64Number*) _cmsCalloc(ContextID, Rows, sizeof(cmsFloat64Number));
+        NewElem ->Offset = (cmsFloat64Number*) _cmsCalloc(ContextID, Cols, sizeof(cmsFloat64Number));
         if (NewElem->Offset == NULL) {
            MatrixElemTypeFree(NewMPE);
            return NULL;
         }
 
-        for (i=0; i < Rows; i++) {
+        for (i=0; i < Cols; i++) {
                 NewElem ->Offset[i] = Offset[i];
         }
 
@@ -505,7 +505,7 @@ void* CLUTElemDup(cmsStage* mpe)
                 goto Error;
         } else {
             NewElem ->Tab.T = (cmsUInt16Number*) _cmsDupMem(mpe ->ContextID, Data ->Tab.T, Data ->nEntries * sizeof (cmsUInt16Number));
-            if (NewElem ->Tab.TFloat == NULL)
+            if (NewElem ->Tab.T == NULL)
                 goto Error;
         }
     }
@@ -1125,7 +1125,23 @@ cmsStage* _cmsStageNormalizeToXyzFloat(cmsContext ContextID)
     return mpe;
 }
 
+// Clips values smaller than zero
+static
+void Clipper(const cmsFloat32Number In[], cmsFloat32Number Out[], const cmsStage *mpe)
+{
+       cmsUInt32Number i;
+       for (i = 0; i < mpe->InputChannels; i++) {
 
+              cmsFloat32Number n = In[i];
+              Out[i] = n < 0 ? 0 : n;
+       }
+}
+
+cmsStage*  _cmsStageClipNegatives(cmsContext ContextID, int nChannels)
+{
+       return _cmsStageAllocPlaceholder(ContextID, cmsSigClipNegativesElemType,
+              nChannels, nChannels, Clipper, NULL, NULL, NULL);
+}
 
 // ********************************************************************************
 // Type cmsSigXYZ2LabElemType
@@ -1255,39 +1271,21 @@ cmsStage* CMSEXPORT cmsStageDup(cmsStage* mpe)
 // ***********************************************************************************************************
 
 // This function sets up the channel count
+
 static
-cmsBool BlessLUT(cmsPipeline* lut)
+void BlessLUT(cmsPipeline* lut)
 {
     // We can set the input/ouput channels only if we have elements.
     if (lut ->Elements != NULL) {
 
-        cmsStage* prev;
-        cmsStage* next;
-        cmsStage* First;
-        cmsStage* Last;
+        cmsStage *First, *Last;
 
         First  = cmsPipelineGetPtrToFirstStage(lut);
         Last   = cmsPipelineGetPtrToLastStage(lut);
 
-        if (First == NULL || Last == NULL) return FALSE;
-
-        lut->InputChannels = First->InputChannels;
-        lut->OutputChannels = Last->OutputChannels;
-
-        // Check chain consistency
-        prev = First;
-        next = prev->Next;
-
-        while (next != NULL)
-        {
-            if (next->InputChannels != prev->OutputChannels)
-                return FALSE;
-
-            next = next->Next;
-            prev = prev->Next;
-        }
+        if (First != NULL)lut ->InputChannels = First ->InputChannels;
+        if (Last != NULL) lut ->OutputChannels = Last ->OutputChannels;
     }
-    return TRUE;    
 }
 
 
@@ -1297,7 +1295,7 @@ void _LUTeval16(register const cmsUInt16Number In[], register cmsUInt16Number Ou
 {
     cmsPipeline* lut = (cmsPipeline*) D;
     cmsStage *mpe;
-    cmsFloat32Number Storage[2][MAX_STAGE_CHANNELS] = {0.0f};
+    cmsFloat32Number Storage[2][MAX_STAGE_CHANNELS];
     int Phase = 0, NextPhase;
 
     From16ToFloat(In, &Storage[Phase][0], lut ->InputChannels);
@@ -1323,7 +1321,7 @@ void _LUTevalFloat(register const cmsFloat32Number In[], register cmsFloat32Numb
 {
     cmsPipeline* lut = (cmsPipeline*) D;
     cmsStage *mpe;
-    cmsFloat32Number Storage[2][MAX_STAGE_CHANNELS] = {0.0f};
+    cmsFloat32Number Storage[2][MAX_STAGE_CHANNELS];
     int Phase = 0, NextPhase;
 
     memmove(&Storage[Phase][0], In, lut ->InputChannels  * sizeof(cmsFloat32Number));
@@ -1349,7 +1347,6 @@ cmsPipeline* CMSEXPORT cmsPipelineAlloc(cmsContext ContextID, cmsUInt32Number In
 {
        cmsPipeline* NewLUT;
 
-       // A value of zero in channels is allowed as placeholder
        if (InputChannels >= cmsMAXCHANNELS ||
            OutputChannels >= cmsMAXCHANNELS) return NULL;
 
@@ -1367,11 +1364,7 @@ cmsPipeline* CMSEXPORT cmsPipelineAlloc(cmsContext ContextID, cmsUInt32Number In
        NewLUT ->Data        = NewLUT;
        NewLUT ->ContextID   = ContextID;
 
-       if (!BlessLUT(NewLUT))
-       {
-           _cmsFree(ContextID, NewLUT);
-           return NULL;
-       }
+       BlessLUT(NewLUT);
 
        return NewLUT;
 }
@@ -1460,7 +1453,8 @@ cmsPipeline* CMSEXPORT cmsPipelineDup(const cmsPipeline* lut)
                  First = FALSE;
              }
              else {
-                Anterior ->Next = NewMPE;
+                if (Anterior != NULL) 
+                    Anterior ->Next = NewMPE;
              }
 
             Anterior = NewMPE;
@@ -1477,12 +1471,7 @@ cmsPipeline* CMSEXPORT cmsPipelineDup(const cmsPipeline* lut)
 
     NewLUT ->SaveAs8Bits    = lut ->SaveAs8Bits;
 
-    if (!BlessLUT(NewLUT))
-    {
-        _cmsFree(lut->ContextID, NewLUT);
-        return NULL;
-    }
-
+    BlessLUT(NewLUT);
     return NewLUT;
 }
 
@@ -1510,7 +1499,7 @@ int CMSEXPORT cmsPipelineInsertStage(cmsPipeline* lut, cmsStageLoc loc, cmsStage
                 for (pt = lut ->Elements;
                      pt != NULL;
                      pt = pt -> Next) Anterior = pt;
-
+                
                 Anterior ->Next = mpe;
                 mpe ->Next = NULL;
             }
@@ -1519,7 +1508,8 @@ int CMSEXPORT cmsPipelineInsertStage(cmsPipeline* lut, cmsStageLoc loc, cmsStage
             return FALSE;
     }
 
-    return BlessLUT(lut);    
+    BlessLUT(lut);
+    return TRUE;
 }
 
 // Unlink an element and return the pointer to it
@@ -1574,7 +1564,6 @@ void CMSEXPORT cmsPipelineUnlinkStage(cmsPipeline* lut, cmsStageLoc loc, cmsStag
     else
         cmsStageFree(Unlinked);
 
-    // May fail, but we ignore it
     BlessLUT(lut);
 }
 
@@ -1601,7 +1590,8 @@ cmsBool  CMSEXPORT cmsPipelineCat(cmsPipeline* l1, const cmsPipeline* l2)
                 return FALSE;
     }
 
-    return BlessLUT(l1);    
+    BlessLUT(l1);
+    return TRUE;
 }
 
 
@@ -1818,3 +1808,5 @@ cmsBool CMSEXPORT cmsPipelineEvalReverseFloat(cmsFloat32Number Target[],
 
     return TRUE;
 }
+
+
