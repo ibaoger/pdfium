@@ -34,6 +34,24 @@
       "revId": "c488e5afb037e4ffabdaf1531d1b767bf072c3c0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a788df7c_abdd7d94",
+        "filename": "public/fpdf_text.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 6910
+      },
+      "writtenOn": "2017-08-11T15:13:54Z",
+      "side": 1,
+      "message": "Done, but dumb question: how do I upload my changes without creating a new CL?",
+      "parentUuid": "ed502679_7c52a65a",
+      "revId": "c488e5afb037e4ffabdaf1531d1b767bf072c3c0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
