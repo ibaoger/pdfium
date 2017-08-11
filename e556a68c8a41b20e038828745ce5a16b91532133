@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "4361157a_69be2d8f",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-11T17:56:20Z",
+      "side": 1,
+      "message": "Alternatively, here\u0027s another half-baked idea to ponder:  It doesn\u0027t make a lot of sense to have both of these if they both do the same thing.\n\nSo maybe keep (and prefer to use where possible) the []-operator behaviour as as ASSERT with no other checks, but rename GetAt() to SafeGetAt() and have it do both the null data ptr check, and the bounds check, and return 0 for the invalid cases.",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 40
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "317fb81a_8308027d",
         "filename": "xfa/fxfa/fm2js/cxfa_fmexpression.cpp",
         "patchSetId": 4
