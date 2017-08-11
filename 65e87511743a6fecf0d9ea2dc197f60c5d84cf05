@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9753774_7e6b9618",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-11T19:57:18Z",
+      "side": 1,
+      "message": "nit: sorry, combine 949 and 950.",
+      "range": {
+        "startLine": 949,
+        "startChar": 6,
+        "endLine": 950,
+        "endChar": 14
+      },
+      "revId": "65e87511743a6fecf0d9ea2dc197f60c5d84cf05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
