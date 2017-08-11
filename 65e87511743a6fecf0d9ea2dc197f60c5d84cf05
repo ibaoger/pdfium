@@ -93,6 +93,29 @@
       "revId": "65e87511743a6fecf0d9ea2dc197f60c5d84cf05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45d89fc_4081c53d",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-11T20:08:15Z",
+      "side": 1,
+      "message": "Lets see if I cant write this block the way I\u0027d like it:\n\nwchar_t wChar \u003d !wStrItem.IsEmpty() ? wstrItem[0] : 0;\nif (wChar \u003d\u003d 0)\n  wChar \u003d item.m_CharCode;\nif (wChar)\n  str +\u003d wChar;",
+      "range": {
+        "startLine": 956,
+        "startChar": 2,
+        "endLine": 956,
+        "endChar": 3
+      },
+      "revId": "65e87511743a6fecf0d9ea2dc197f60c5d84cf05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
