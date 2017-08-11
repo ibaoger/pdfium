@@ -22,6 +22,30 @@
       "revId": "69059c5460f3087d685ba091c2d2e5f861dba0d8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "093f2398_3f8a00dd",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-11T20:30:54Z",
+      "side": 1,
+      "message": "Ignore this, it\u0027s from an older revision. I\u0027m now capturing the stderr and printing only in case the exit status is error.",
+      "parentUuid": "72cf37f5_edf7a808",
+      "range": {
+        "startLine": 483,
+        "startChar": 57,
+        "endLine": 483,
+        "endChar": 0
+      },
+      "revId": "69059c5460f3087d685ba091c2d2e5f861dba0d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
