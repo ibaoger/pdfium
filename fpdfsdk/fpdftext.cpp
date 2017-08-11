@@ -123,6 +123,22 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFText_GetCharBox(FPDF_TEXTPAGE text_page,
   *top = charinfo.m_CharBox.top;
 }
 
+FPDF_EXPORT void FPDF_CALLCONV FPDFText_GetCharOrigin(FPDF_TEXTPAGE text_page,
+                                                      int index,
+                                                      double* x,
+                                                      double* y) {
+  if (!text_page)
+    return;
+  CPDF_TextPage* textpage = CPDFTextPageFromFPDFTextPage(text_page);
+
+  if (index < 0 || index >= textpage->CountChars())
+    return;
+  FPDF_CHAR_INFO charinfo;
+  textpage->GetCharInfo(index, &charinfo);
+  *x = charinfo.m_Origin.x;
+  *y = charinfo.m_Origin.y;
+}
+
 // select
 FPDF_EXPORT int FPDF_CALLCONV
 FPDFText_GetCharIndexAtPos(FPDF_TEXTPAGE text_page,

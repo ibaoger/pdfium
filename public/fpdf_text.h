@@ -113,6 +113,26 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFText_GetCharBox(FPDF_TEXTPAGE text_page,
                                                    double* bottom,
                                                    double* top);
 
+// Function: FPDFText_GetCharOrigin
+//          Get origin of a particular character.
+// Parameters:
+//          text_page   -   Handle to a text page information structure.
+//          Returned by FPDFText_LoadPage function.
+//          index       -   Zero-based index of the character.
+//          x           -   Pointer to a double number receiving x coordinate of
+//          the character origin.
+//          y           -   Pointer to a double number receiving y coordinate of
+//          the character origin.
+// Return Value:
+//          None.
+// Comments:
+//          All positions are measured in PDF "user space".
+//
+FPDF_EXPORT void FPDF_CALLCONV FPDFText_GetCharOrigin(FPDF_TEXTPAGE text_page,
+                                                      int index,
+                                                      double* x,
+                                                      double* y);
+
 // Function: FPDFText_GetCharIndexAtPos
 //          Get the index of a character at or nearby a certain position on the
 //          page.
