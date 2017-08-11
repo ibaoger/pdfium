@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf6442f1_cea3f6cf",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-08-11T21:06:27Z",
+      "side": 0,
+      "message": "Why are we removing this?",
+      "range": {
+        "startLine": 486,
+        "startChar": 6,
+        "endLine": 489,
+        "endChar": 24
+      },
+      "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
