@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a1726f3_6e540170",
+        "filename": "public/fpdf_text.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-11T02:26:28Z",
+      "side": 1,
+      "message": "I don\u0027t know why many existing FPDFText_* APIs don\u0027t return a FPDF_BOOL, but it feels like they should, since otherwise how does the caller know if the out params have valid values or not? Care to be the trendsetter here? I can go change the existing APIs to follow.",
+      "revId": "c488e5afb037e4ffabdaf1531d1b767bf072c3c0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
