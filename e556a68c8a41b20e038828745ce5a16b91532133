@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6bc1e08_fa7edbf8",
+        "filename": "core/fpdfapi/font/cpdf_cmapparser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "524e6c70_9bfa2c9f",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b62cd09c_b563a3c2",
         "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d35b3cd1_fdc0fecf",
+        "filename": "core/fpdfdoc/cpdf_variabletext.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b62cd09c_b563a3c2",
+      "range": {
+        "startLine": 434,
+        "startChar": 12,
+        "endLine": 434,
+        "endChar": 19
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2a33094a_ed0dc14a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15d38b5b_bbeba3fd",
+      "range": {
+        "startLine": 948,
+        "startChar": 12,
+        "endLine": 948,
+        "endChar": 17
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f9094ba_d5e6441d",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad051f6_1593eb31",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f9094ba_d5e6441d",
+      "range": {
+        "startLine": 949,
+        "startChar": 36,
+        "endLine": 949,
+        "endChar": 63
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "92e6f12f_ceb567e7",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84430f0c_2b2e8124",
+      "range": {
+        "startLine": 950,
+        "startChar": 24,
+        "endLine": 950,
+        "endChar": 0
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09e0ed98_20670bf0",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "986c1552_df306acd",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e0ed98_20670bf0",
+      "range": {
+        "startLine": 1225,
+        "startChar": 13,
+        "endLine": 1225,
+        "endChar": 19
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d3a023c8_17761c7b",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd5c6f35_3e61e056",
+      "range": {
+        "startLine": 1228,
+        "startChar": 26,
+        "endLine": 1228,
+        "endChar": 61
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4361157a_69be2d8f",
         "filename": "core/fxcrt/cfx_bytestring.h",
         "patchSetId": 4
@@ -183,6 +351,30 @@
       "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "180f10de_e6a01fd7",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:08:33Z",
+      "side": 1,
+      "message": "I agree that something needs to be done about this duplicate functionality. I have filed https://bugs.chromium.org/p/pdfium/issues/detail?id\u003d860, since I think resolving this is a bit out of scope for this CL.\n\nI am personally preferential to dropping GetAt entirely, since anywhere that is calling these methods should have access to GetLength/IsEmpty, so can do the check. Calling these methods with an invalid index is a programming error/code smell. Adding in the ASSERTS has shaken out a lot of bad call sites already.",
+      "parentUuid": "4361157a_69be2d8f",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 40
+      },
+      "revId": "e556a68c8a41b20e038828745ce5a16b91532133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
