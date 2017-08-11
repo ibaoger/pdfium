@@ -22,6 +22,30 @@
       "revId": "9cf9e6b34c01b736fc7523d8db8a64ac62cdbb85",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfd8049f_9d3fb823",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-11T19:50:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b174fc5b_86046306",
+      "range": {
+        "startLine": 948,
+        "startChar": 4,
+        "endLine": 948,
+        "endChar": 21
+      },
+      "revId": "9cf9e6b34c01b736fc7523d8db8a64ac62cdbb85",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
