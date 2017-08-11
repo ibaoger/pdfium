@@ -16,6 +16,24 @@
       "revId": "c488e5afb037e4ffabdaf1531d1b767bf072c3c0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed502679_7c52a65a",
+        "filename": "public/fpdf_text.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-11T02:37:04Z",
+      "side": 1,
+      "message": "I filed https://bugs.chromium.org/p/pdfium/issues/detail?id\u003d858 for converting the other APIs, BTW.",
+      "parentUuid": "5a1726f3_6e540170",
+      "revId": "c488e5afb037e4ffabdaf1531d1b767bf072c3c0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
