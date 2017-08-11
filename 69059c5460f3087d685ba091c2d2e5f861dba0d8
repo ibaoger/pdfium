@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72cf37f5_edf7a808",
+        "filename": "testing/tools/safetynet_compare.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-11T20:29:27Z",
+      "side": 1,
+      "message": "This change makes the stderr output of the subprocess be printed out instead of swallowed.",
+      "range": {
+        "startLine": 483,
+        "startChar": 57,
+        "endLine": 483,
+        "endChar": 0
+      },
+      "revId": "69059c5460f3087d685ba091c2d2e5f861dba0d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
