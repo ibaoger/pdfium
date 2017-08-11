@@ -3,6 +3,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import datetime
 import glob
 import os
 import re
@@ -110,3 +111,8 @@ def GetBooleanGnArg(arg_name, build_dir, verbose=False):
   if verbose:
     print >> sys.stderr, "Found '%s' for value of %s" % (arg_match_output, arg)
   return arg_match_output == 'true'
+
+
+def PrintWithTime(s):
+    print '[%s] %s' % (datetime.datetime.now().strftime("%Y%m%d %H:%M:%S"),
+                       s)
