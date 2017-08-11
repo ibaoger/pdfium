@@ -177,8 +177,7 @@ class CPDF_Parser {
       uint32_t start_objnum,
       uint32_t count,
       std::vector<CrossRefObjData>* out_objects);
-  bool ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
-                       uint32_t* start_obj_num_at_last_block);
+  bool ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects);
   void MergeCrossRefObjectsData(const std::vector<CrossRefObjData>& objects);
 
   std::unique_ptr<CPDF_Object> ParseIndirectObjectAtInternal(
@@ -204,7 +203,7 @@ class CPDF_Parser {
   std::vector<std::unique_ptr<CPDF_Dictionary>> m_Trailers;
   size_t m_TrailerPos;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
-  uint32_t m_dwXrefStartObjNum;
+  uint32_t m_linearized_first_page_cross_ref_start_obj_num;
 
   // A map of object numbers to indirect streams.
   std::map<uint32_t, CFX_RetainPtr<CPDF_StreamAcc>> m_ObjectStreamMap;

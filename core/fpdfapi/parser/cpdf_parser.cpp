@@ -74,7 +74,7 @@ CPDF_Parser::CPDF_Parser()
       m_FileVersion(0),
       m_pEncryptDict(nullptr),
       m_TrailerPos(CPDF_Parser::kInvalidPos),
-      m_dwXrefStartObjNum(0) {}
+      m_linearized_first_page_cross_ref_start_obj_num(0) {}
 
 CPDF_Parser::~CPDF_Parser() {
   ReleaseEncryptHandler();
@@ -526,8 +526,7 @@ bool CPDF_Parser::ParseAndAppendCrossRefSubsectionData(
   return true;
 }
 
-bool CPDF_Parser::ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
-                                  uint32_t* start_obj_num_at_last_block) {
+bool CPDF_Parser::ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects) {
   if (out_objects)
     out_objects->clear();
 
@@ -550,8 +549,6 @@ bool CPDF_Parser::ParseCrossRefV4(std::vector<CrossRefObjData>* out_objects,
     uint32_t start_objnum = FXSYS_atoui(word.c_str());
     if (start_objnum >= kMaxObjectNumber)
       return false;
-    if (start_obj_num_at_last_block)
-      *start_obj_num_at_last_block = start_objnum;
 
     uint32_t count = m_pSyntax->GetDirectNum();
     m_pSyntax->ToNextWord();
@@ -580,7 +577,7 @@ bool CPDF_Parser::LoadCrossRefV4(FX_FILESIZE pos,
 
   m_pSyntax->SetPos(pos);
   std::vector<CrossRefObjData> objects;
-  if (!ParseCrossRefV4(bSkip ? nullptr : &objects, &m_dwXrefStartObjNum))
+  if (!ParseCrossRefV4(bSkip ? nullptr : &objects))
     return false;
 
   MergeCrossRefObjectsData(objects);
@@ -1059,7 +1056,6 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
     if (startnum < 0)
       continue;
 
-    m_dwXrefStartObjNum = pdfium::base::checked_cast<uint32_t>(startnum);
     uint32_t count = pdfium::base::checked_cast<uint32_t>(arrIndex[i].second);
     FX_SAFE_UINT32 dwCaculatedSize = segindex;
     dwCaculatedSize += count;
@@ -1402,7 +1398,8 @@ CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
     bXRefRebuilt = true;
     m_LastXRefOffset = 0;
   }
-
+  m_linearized_first_page_cross_ref_start_obj_num =
+      m_ObjectInfo.empty() ? 0 : m_ObjectInfo.begin()->first;
   if (bLoadV4) {
     std::unique_ptr<CPDF_Dictionary> trailer = LoadTrailerV4();
     if (!trailer)
@@ -1494,7 +1491,12 @@ CPDF_Parser::Error CPDF_Parser::LoadLinearizedMainXRefTable() {
   m_ObjectStreamMap.clear();
   m_ObjCache.clear();
 
-  if (!LoadLinearizedAllCrossRefV4(m_LastXRefOffset, m_dwXrefStartObjNum) &&
+  // In linearized document, the main cross ref always should start from 0
+  // objnum.
+  // And should have count equals to first obj number of first page cross ref
+  // table.
+  if (!LoadLinearizedAllCrossRefV4(
+          m_LastXRefOffset, m_linearized_first_page_cross_ref_start_obj_num) &&
       !LoadLinearizedAllCrossRefV5(m_LastXRefOffset)) {
     m_LastXRefOffset = 0;
     m_pSyntax->m_MetadataObjnum = dwSaveMetadataObjnum;
