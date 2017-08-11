@@ -945,11 +945,14 @@ bool CPDF_TextPage::IsRightToLeft(const CPDF_TextObject* pTextObj,
     if (item.m_CharCode == static_cast<uint32_t>(-1))
       continue;
     CFX_WideString wstrItem = pFont->UnicodeFromCharCode(item.m_CharCode);
-    wchar_t wChar = wstrItem.GetAt(0);
-    if ((wstrItem.IsEmpty() || wChar == 0) && item.m_CharCode)
-      wChar = (wchar_t)item.m_CharCode;
-    if (wChar)
-      str += wChar;
+    if (!wstrItem.IsEmpty()) {
+      wchar_t wChar = 0;
+      wChar = wstrItem.GetAt(0);
+      if (wChar == 0 && item.m_CharCode)
+        wChar = (wchar_t)item.m_CharCode;
+      if (wChar)
+        str += wChar;
+    }
   }
   return CFX_BidiString(str).OverallDirection() == CFX_BidiChar::RIGHT;
 }
@@ -1222,9 +1225,11 @@ bool CPDF_TextPage::IsHyphen(wchar_t curChar) {
   if (strCurText.IsEmpty())
     strCurText = m_TextBuf.AsStringC();
   FX_STRSIZE nCount = strCurText.GetLength();
+  if (nCount < 1)
+    return false;
   int nIndex = nCount - 1;
   wchar_t wcTmp = strCurText.GetAt(nIndex);
-  while (wcTmp == 0x20 && nIndex <= nCount - 1 && nIndex >= 0)
+  while (wcTmp == 0x20 && nIndex > 0 && nIndex <= nCount - 1)
     wcTmp = strCurText.GetAt(--nIndex);
   if (0x2D == wcTmp || 0xAD == wcTmp) {
     if (--nIndex > 0) {
@@ -1353,6 +1358,8 @@ CPDF_TextPage::GenerateCharacter CPDF_TextPage::ProcessInsertObject(
   }
   CFX_WideString PrevStr =
       m_pPreTextObj->GetFont()->UnicodeFromCharCode(PrevItem.m_CharCode);
+  if (PrevStr.IsEmpty())
+    return GenerateCharacter::None;
   wchar_t preChar = PrevStr.GetAt(PrevStr.GetLength() - 1);
   CFX_Matrix matrix = pObj->GetTextMatrix();
   matrix.Concat(formMatrix);
