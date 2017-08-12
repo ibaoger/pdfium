@@ -33,6 +33,8 @@ CFX_ByteString PDF_AdobeNameFromUnicode(wchar_t unicode);
 const uint16_t* PDF_UnicodesForPredefinedCharSet(int encoding);
 const char* PDF_CharNameFromPredefinedCharSet(int encoding, uint8_t charcode);
 
+bool FX_IsLatinWord(wchar_t c);
+
 class CPDF_Object;
 
 class CPDF_FontEncoding {

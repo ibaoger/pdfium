@@ -12,6 +12,7 @@
 #include <utility>
 
 #include "core/fpdfapi/font/cpdf_font.h"
+#include "core/fpdfapi/font/cpdf_fontencoding.h"
 #include "core/fpdfapi/page/cpdf_pageobject.h"
 #include "core/fpdfapi/page/cpdf_pageobjectholder.h"
 #include "core/fpdfapi/page/cpdf_pathobject.h"
@@ -172,7 +173,7 @@ int32_t CPWL_EditImpl_Provider::GetDefaultFontIndex() {
 }
 
 bool CPWL_EditImpl_Provider::IsLatinWord(uint16_t word) {
-  return FX_EDIT_ISLATINWORD(word);
+  return FX_IsLatinWord(word);
 }
 
 CPWL_EditImpl_Refresh::CPWL_EditImpl_Refresh() {}

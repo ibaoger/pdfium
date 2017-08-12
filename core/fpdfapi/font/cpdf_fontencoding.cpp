@@ -1815,3 +1815,8 @@ wchar_t FT_UnicodeFromCharCode(int encoding, uint32_t charcode) {
   }
   return 0;
 }
+
+bool FX_IsLatinWord(wchar_t c) {
+  return c == 0x2D || (c >= 0x41 && c <= 0x5A) || (c >= 0x61 && c <= 0x7A) ||
+         (c >= 0xC0 && c <= 0x02AF);
+}

@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "core/fpdfapi/font/cpdf_font.h"
+#include "core/fpdfapi/font/cpdf_fontencoding.h"
 #include "core/fpdfdoc/cpvt_word.h"
 #include "core/fxcrt/fx_safe_types.h"
 #include "core/fxcrt/xml/cxml_content.h"
@@ -668,8 +669,7 @@ CPVT_WordRange CPWL_Edit::GetSameWordsRange(const CPVT_WordPlace& place,
 
   if (bLatin) {
     while (pIterator->NextWord()) {
-      if (!pIterator->GetWord(wordinfo) ||
-          !FX_EDIT_ISLATINWORD(wordinfo.Word)) {
+      if (!pIterator->GetWord(wordinfo) || !FX_IsLatinWord(wordinfo.Word)) {
         break;
       }
 
@@ -688,8 +688,7 @@ CPVT_WordRange CPWL_Edit::GetSameWordsRange(const CPVT_WordPlace& place,
 
   if (bLatin) {
     do {
-      if (!pIterator->GetWord(wordinfo) ||
-          !FX_EDIT_ISLATINWORD(wordinfo.Word)) {
+      if (!pIterator->GetWord(wordinfo) || !FX_IsLatinWord(wordinfo.Word)) {
         break;
       }
 

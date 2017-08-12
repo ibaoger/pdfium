@@ -15,10 +15,6 @@
 #include "core/fpdfdoc/cpvt_wordprops.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 
-#define FX_EDIT_ISLATINWORD(u)                  \
-  (u == 0x2D || (u <= 0x005A && u >= 0x0041) || \
-   (u <= 0x007A && u >= 0x0061) || (u <= 0x02AF && u >= 0x00C0))
-
 class CFFL_FormFiller;
 class CPWL_EditImpl;
 class CPWL_EditImpl_Iterator;

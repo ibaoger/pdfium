@@ -11,6 +11,7 @@
 #include <utility>
 #include <vector>
 
+#include "core/fpdfapi/font/cpdf_fontencoding.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 #include "xfa/fde/cfde_rendercontext.h"
@@ -39,9 +40,7 @@ namespace {
 const int kEditMargin = 3;
 
 bool FxEditIsLatinWord(wchar_t c) {
-  return c == 0x2D || (c <= 0x005A && c >= 0x0041) ||
-         (c <= 0x007A && c >= 0x0061) || (c <= 0x02AF && c >= 0x00C0) ||
-         c == 0x0027;
+  return c == 0x27 || FX_IsLatinWord(c);
 }
 
 void AddSquigglyPath(CXFA_Path* pPathData,
