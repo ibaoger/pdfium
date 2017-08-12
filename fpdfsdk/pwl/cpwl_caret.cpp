@@ -24,7 +24,7 @@ CFX_ByteString CPWL_Caret::GetClassName() const {
 }
 
 void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                    CFX_Matrix* pUser2Device) {
+                                    const CFX_Matrix* pUser2Device) {
   if (!IsVisible() || !m_bFlash)
     return;
 

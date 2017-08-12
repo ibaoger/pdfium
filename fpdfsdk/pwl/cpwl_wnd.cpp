@@ -245,7 +245,7 @@ void CPWL_Wnd::InvalidateRectMove(const CFX_FloatRect& rcOld,
 }
 
 void CPWL_Wnd::DrawAppearance(CFX_RenderDevice* pDevice,
-                              CFX_Matrix* pUser2Device) {
+                              const CFX_Matrix* pUser2Device) {
   if (IsValid() && IsVisible()) {
     DrawThisAppearance(pDevice, pUser2Device);
     DrawChildAppearance(pDevice, pUser2Device);
@@ -253,7 +253,7 @@ void CPWL_Wnd::DrawAppearance(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Wnd::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                  CFX_Matrix* pUser2Device) {
+                                  const CFX_Matrix* pUser2Device) {
   CFX_FloatRect rectWnd = GetWindowRect();
   if (rectWnd.IsEmpty())
     return;
@@ -274,7 +274,7 @@ void CPWL_Wnd::DrawThisAppearance(CFX_RenderDevice* pDevice,
 }
 
 void CPWL_Wnd::DrawChildAppearance(CFX_RenderDevice* pDevice,
-                                   CFX_Matrix* pUser2Device) {
+                                   const CFX_Matrix* pUser2Device) {
   for (CPWL_Wnd* pChild : m_Children) {
     if (!pChild)
       continue;
