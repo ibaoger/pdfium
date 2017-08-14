@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09e0488c_06ebd025",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-14T17:44:46Z",
+      "side": 0,
+      "message": "Yes.  Recall that these use shared buffers, so we may need to copy before the write to prevent trashing some other variable.",
+      "parentUuid": "3a0db606_186e5746",
+      "range": {
+        "startLine": 699,
+        "startChar": 2,
+        "endLine": 699,
+        "endChar": 20
+      },
+      "revId": "aeac95192c106b41c058c8372aa2ec8d0092f60b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "628f04f0_aceeed16",
         "filename": "core/fxcrt/cfx_widestring.cpp",
         "patchSetId": 1
