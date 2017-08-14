@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "27dfb7c6_9ac40571",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:07:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aecd61f2_5d13b84f",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e891005e_6c9146e2",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-14T17:49:25Z",
       "side": 1,
       "message": "Is this needed?",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e89dcc_edc6b7fa",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:07:27Z",
+      "side": 1,
+      "message": "Just check: if we have problem, that we should not have object in this case.",
+      "parentUuid": "e891005e_6c9146e2",
       "revId": "330de6df9c93bb143603391400eb22244f079123",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "330de6df9c93bb143603391400eb22244f079123",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8634f367_10abca95",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:07:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ce9c10f_4071bf44",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
