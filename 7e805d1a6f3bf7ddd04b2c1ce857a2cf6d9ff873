@@ -16,6 +16,24 @@
       "revId": "7e805d1a6f3bf7ddd04b2c1ce857a2cf6d9ff873",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a5d2cc1_764b451d",
+        "filename": "third_party/lcms2-2.6/src/cmscgats.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:16:25Z",
+      "side": 0,
+      "message": "I\u0027d guess not as we don\u0027t support wince.",
+      "parentUuid": "5722e872_88daea08",
+      "revId": "7e805d1a6f3bf7ddd04b2c1ce857a2cf6d9ff873",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
