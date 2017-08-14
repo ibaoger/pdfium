@@ -95,16 +95,14 @@ class CPDF_SyntaxParser {
            static_cast<FX_FILESIZE>(m_BufOffset + m_BufSize) <= pos;
   }
 
+  enum class ParseType { kStrict, kLoose };
+
   std::unique_ptr<CPDF_Object> GetObjectInternal(
       CPDF_IndirectObjectHolder* pObjList,
       uint32_t objnum,
       uint32_t gennum,
-      bool bDecrypt);
-
-  std::unique_ptr<CPDF_Object> GetObjectForStrictInternal(
-      CPDF_IndirectObjectHolder* pObjList,
-      uint32_t objnum,
-      uint32_t gennum);
+      bool bDecrypt,
+      ParseType parse_type);
 
   FX_FILESIZE m_Pos;
   uint32_t m_MetadataObjnum;
