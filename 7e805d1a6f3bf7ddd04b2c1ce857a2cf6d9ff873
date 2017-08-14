@@ -34,6 +34,24 @@
       "revId": "7e805d1a6f3bf7ddd04b2c1ce857a2cf6d9ff873",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b500b2_b99ca549",
+        "filename": "third_party/lcms2-2.6/src/cmscgats.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-08-14T14:25:17Z",
+      "side": 0,
+      "message": "Oh. I actually ended up adding it along with the other commented changes in 27th .patch. I suppose it doesn\u0027t do any harm to have it.",
+      "parentUuid": "1a5d2cc1_764b451d",
+      "revId": "7e805d1a6f3bf7ddd04b2c1ce857a2cf6d9ff873",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
