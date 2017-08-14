@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a289caa1_6a47291c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "Let\u0027s make these explicit instead of using a bool\n\nreturn (parse_type \u003d\u003d ParseType::kLoose || ....",
+      "revId": "228b1f599f8e3d5c13343fa69405415b7bff18d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ada9c8c_8e65b8f9",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "228b1f599f8e3d5c13343fa69405415b7bff18d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a21ade2_2ddd0457",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "228b1f599f8e3d5c13343fa69405415b7bff18d6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

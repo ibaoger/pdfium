@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "d7ba97a9_5d7bcc65",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to make the assumption that the calls always happen in that order. What happens if we refactor the code so SetEncryptHandler is called before RebuildCrossRef? This will now act differently then previously, no?",
+      "parentUuid": "4659905d_4c9bdc5a",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "816e35c5_5f8966ce",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -177,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "1e6f5e75_ce3ada61",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "What happens if cryptoHandler is set in a refactoring?",
+      "parentUuid": "c1358fea_153c2949",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6f1aa35_218d79bf",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -206,6 +242,24 @@
       "side": 1,
       "message": "the m_pCryptoHandler is always nullptr in case CPDF_Parser::RebuildCrossRef.\nP.S. See explain comment above.",
       "parentUuid": "a6f1aa35_218d79bf",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efc34a15_a3ecb887",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T16:31:54Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e2bb23e6_b81d47a0",
       "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
