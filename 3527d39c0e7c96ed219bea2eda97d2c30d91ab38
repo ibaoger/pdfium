@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "57781224_cadc8c24",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T15:30:23Z",
+      "side": 1,
+      "message": "How about we just get rid of the iterator and IFDE_VisualSet all together ....",
+      "parentUuid": "65f9d3b6_7bf38090",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "3527d39c0e7c96ed219bea2eda97d2c30d91ab38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58401a3d_63fdd2a3",
         "filename": "xfa/fde/cfde_visualsetiterator.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "3527d39c0e7c96ed219bea2eda97d2c30d91ab38",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c2b9d7_ac9523a2",
+        "filename": "xfa/fde/cfde_visualsetiterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T15:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58401a3d_63fdd2a3",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "3527d39c0e7c96ed219bea2eda97d2c30d91ab38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
