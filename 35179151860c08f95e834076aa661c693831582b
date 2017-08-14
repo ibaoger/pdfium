@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "0ef16a1b_3393d1cd",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d61dfc_37d4c164",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6132b1e9_879f0be2",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
         "patchSetId": 14
@@ -178,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "5976fb98_f8011df6",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65af29ef_470f03bd",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbc5cac5_27e37ca4",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
         "patchSetId": 14
@@ -266,6 +302,24 @@
     },
     {
       "key": {
+        "uuid": "cf6955d3_9a5b510b",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ed7096b_5c614adb",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8411909a_b34d7322",
         "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
         "patchSetId": 14
@@ -313,6 +367,24 @@
       "side": 1,
       "message": "Maybe MoveToNextSibling() as the name then? As this will move the iterator from ExcludeArr to Num1?",
       "parentUuid": "a27e7d6c_0a386cd5",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f1062b7_1d1d0363",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "No. This is not move iterator immediately, just skip on next iteration.",
+      "parentUuid": "33f96050_3b64af0b",
       "revId": "35179151860c08f95e834076aa661c693831582b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -369,6 +441,24 @@
       "revId": "35179151860c08f95e834076aa661c693831582b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa72586e_51f42e7b",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a7dc8b_d4fb08bf",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -491,6 +581,24 @@
       "revId": "35179151860c08f95e834076aa661c693831582b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9009db7_da0b6f20",
+        "filename": "core/fpdfapi/parser/cpdf_object_walker_unittest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "338f83dc_2f435792",
+      "revId": "35179151860c08f95e834076aa661c693831582b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
