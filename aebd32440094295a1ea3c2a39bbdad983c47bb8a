@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a41706ab_dbc9079e",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b03f82de_b974d814",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc0107fa_91a8a374",
         "filename": "xfa/fde/cfde_textout.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eb67ffb_b878e8bb",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc0107fa_91a8a374",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a7978067_8ca4bbd2",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b01a48ab_a6284795",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 54
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acc18024_49cb4e60",
         "filename": "xfa/fde/cfde_textout.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-08-10T21:16:40Z",
       "side": 1,
       "message": "This might look better as a class with m_HorizontalAlign and m_VerticalAlign.",
+      "range": {
+        "startLine": 25,
+        "startChar": 40,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a24b1fc_946b5326",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "Possibly, not sure. Will look into it for a followup.",
+      "parentUuid": "acc18024_49cb4e60",
       "range": {
         "startLine": 25,
         "startChar": 40,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d8786f94_493218a6",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "This is chromium style which I try to sneak into pdfium when I can in the hopes we can get rid of m_ at some point ....",
+      "parentUuid": "dfa510c9_e1fda4d5",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e0c2414_33d2a468",
         "filename": "xfa/fde/cfde_textout.h",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee2ee80e_62eb3c9b",
+        "filename": "xfa/fde/cfde_textout.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e0c2414_33d2a468",
+      "range": {
+        "startLine": 147,
+        "startChar": 16,
+        "endLine": 147,
+        "endChar": 26
+      },
+      "revId": "aebd32440094295a1ea3c2a39bbdad983c47bb8a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
