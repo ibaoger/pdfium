@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca4f17eb_d7b66344",
+        "filename": "core/fxcrt/cfx_chariter.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-14T21:12:53Z",
+      "side": 1,
+      "message": "nit: const method while we\u0027re at it.",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "4cced2c45f7038f1c461873448877c2ec822d328",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
