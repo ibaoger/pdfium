@@ -40,10 +40,6 @@ CFDE_TxtEdtEngine* CFDE_TxtEdtPage::GetEngine() const {
   return m_pEditEngine.Get();
 }
 
-FDE_VISUALOBJTYPE CFDE_TxtEdtPage::GetType() {
-  return FDE_VISUALOBJ_Text;
-}
-
 CFX_RectF CFDE_TxtEdtPage::GetRect(const FDE_TEXTEDITPIECE& hVisualObj) {
   return CFX_RectF();
 }
@@ -415,8 +411,7 @@ size_t CFDE_TxtEdtPage::GetFirstPosition() {
   return m_Pieces.empty() ? 0 : 1;
 }
 
-FDE_TEXTEDITPIECE* CFDE_TxtEdtPage::GetNext(size_t* pos,
-                                            IFDE_VisualSet*& pVisualSet) {
+FDE_TEXTEDITPIECE* CFDE_TxtEdtPage::GetNext(size_t* pos) {
   ASSERT(pos);
 
   if (!m_pTextSet) {
@@ -425,7 +420,6 @@ FDE_TEXTEDITPIECE* CFDE_TxtEdtPage::GetNext(size_t* pos,
   }
 
   size_t nPos = *pos;
-  pVisualSet = m_pTextSet.get();
   if (nPos + 1 > m_Pieces.size())
     *pos = 0;
   else

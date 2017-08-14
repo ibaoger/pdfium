@@ -9,19 +9,16 @@
 
 #include <vector>
 
-#include "xfa/fde/ifde_visualset.h"
+#include "core/fxcrt/fx_coordinates.h"
+#include "xfa/fde/cfde_txtedtpage.h"
+#include "xfa/fgas/font/cfgas_gefont.h"
 
-class CFDE_TxtEdtPage;
-
-class CFDE_TxtEdtTextSet : public IFDE_VisualSet {
+class CFDE_TxtEdtTextSet {
  public:
   explicit CFDE_TxtEdtTextSet(CFDE_TxtEdtPage* pPage);
-  ~CFDE_TxtEdtTextSet() override;
+  ~CFDE_TxtEdtTextSet();
 
-  // IFDE_VisualSet
-  FDE_VISUALOBJTYPE GetType() override;
-  CFX_RectF GetRect(const FDE_TEXTEDITPIECE& hVisualObj) override;
-
+  CFX_RectF GetRect(const FDE_TEXTEDITPIECE& hVisualObj);
   int32_t GetString(FDE_TEXTEDITPIECE* pPiece, CFX_WideString& wsText);
   CFX_RetainPtr<CFGAS_GEFont> GetFont();
   float GetFontSize();

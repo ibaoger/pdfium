@@ -7,7 +7,6 @@
 #include "xfa/fde/cfde_txtedttextset.h"
 
 #include "xfa/fde/cfde_txtedtengine.h"
-#include "xfa/fde/cfde_txtedtpage.h"
 #include "xfa/fgas/font/cfgas_gefont.h"
 #include "xfa/fgas/layout/cfx_txtbreak.h"
 
@@ -15,10 +14,6 @@ CFDE_TxtEdtTextSet::CFDE_TxtEdtTextSet(CFDE_TxtEdtPage* pPage)
     : m_pPage(pPage) {}
 
 CFDE_TxtEdtTextSet::~CFDE_TxtEdtTextSet() {}
-
-FDE_VISUALOBJTYPE CFDE_TxtEdtTextSet::GetType() {
-  return FDE_VISUALOBJ_Text;
-}
 
 CFX_RectF CFDE_TxtEdtTextSet::GetRect(const FDE_TEXTEDITPIECE& pPiece) {
   return pPiece.rtPiece;
