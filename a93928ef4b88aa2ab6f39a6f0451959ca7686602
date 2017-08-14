@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "134e69d2_a0a3e7c8",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T17:46:22Z",
+      "side": 1,
+      "message": "Is this a sentinel? I don\u0027t understand what\u0027s going on in this class.",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "a93928ef4b88aa2ab6f39a6f0451959ca7686602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f6e301_424d6f2c",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T17:46:22Z",
+      "side": 1,
+      "message": "item never changes inside this do while. Does the internal pos change?",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "a93928ef4b88aa2ab6f39a6f0451959ca7686602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

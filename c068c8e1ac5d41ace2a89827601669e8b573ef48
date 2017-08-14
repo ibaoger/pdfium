@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "915b4ed6_bc83cab5",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T17:46:22Z",
+      "side": 0,
+      "message": "I wonder what that is.",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 0
+      },
+      "revId": "c068c8e1ac5d41ace2a89827601669e8b573ef48",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5a0ddae_a074d5bb",
+        "filename": "xfa/fde/cfde_visualsetiterator.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T17:46:22Z",
+      "side": 0,
+      "message": "Is there ever more than one element in m_CanvasStack? Do we actually need a stack now?",
+      "range": {
+        "startLine": 26,
+        "startChar": 29,
+        "endLine": 26,
+        "endChar": 0
+      },
+      "revId": "c068c8e1ac5d41ace2a89827601669e8b573ef48",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
