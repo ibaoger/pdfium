@@ -28,8 +28,8 @@ bool CFX_CharIter::Next(bool bPrev) {
   return true;
 }
 
-wchar_t CFX_CharIter::GetChar() {
-  return m_wsText.GetAt(m_nIndex);
+wchar_t CFX_CharIter::GetChar() const {
+  return m_wsText[m_nIndex];
 }
 
 void CFX_CharIter::SetAt(int32_t nIndex) {
