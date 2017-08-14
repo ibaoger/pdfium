@@ -6,35 +6,32 @@
 
 #include "xfa/fde/cfde_rendercontext.h"
 
+#include <stack>
+
 #include "third_party/base/logging.h"
 #include "third_party/base/ptr_util.h"
 #include "xfa/fde/cfde_renderdevice.h"
 #include "xfa/fde/cfde_txtedttextset.h"
 
-CFDE_RenderContext::CFDE_RenderContext()
-    : m_pRenderDevice(nullptr), m_Transform() {
-  m_Transform.SetIdentity();
-}
+struct FDE_CANVASITEM {
+  CFDE_TxtEdtPage* pCanvas;
+  size_t pos;
+};
+
+CFDE_RenderContext::CFDE_RenderContext(CFDE_RenderDevice* pRenderDevice,
+                                       const CFX_Matrix& tmDoc2Device)
+    : m_pRenderDevice(pRenderDevice), m_Transform(tmDoc2Device) {}
 
 CFDE_RenderContext::~CFDE_RenderContext() {}
 
-void CFDE_RenderContext::StartRender(CFDE_RenderDevice* pRenderDevice,
-                                     CFDE_TxtEdtPage* pCanvasSet,
-                                     const CFX_Matrix& tmDoc2Device) {
-  if (m_pRenderDevice || !pRenderDevice || !pCanvasSet)
+void CFDE_RenderContext::Render(CFDE_TxtEdtPage* pCanvasSet) {
+  if (!m_pRenderDevice || !pCanvasSet || pCanvasSet->GetFirstPosition() == 0)
     return;
 
-  m_pRenderDevice = pRenderDevice;
-  m_Transform = tmDoc2Device;
-  if (!m_pIterator)
-    m_pIterator = pdfium::MakeUnique<CFDE_VisualSetIterator>();
-  if (m_pIterator->AttachCanvas(pCanvasSet))
-    m_pIterator->FilterObjects();
-}
+  auto canvas_stack = std::stack<FDE_CANVASITEM>();
 
-void CFDE_RenderContext::DoRender() {
-  if (!m_pRenderDevice || !m_pIterator)
-    return;
+  canvas_stack.push(
+      {.pCanvas = pCanvasSet, .pos = pCanvasSet->GetFirstPosition()});
 
   CFX_RectF rtDocClip = m_pRenderDevice->GetClipRect();
   if (rtDocClip.IsEmpty()) {
@@ -43,24 +40,28 @@ void CFDE_RenderContext::DoRender() {
     rtDocClip.height = (float)m_pRenderDevice->GetHeight();
   }
   m_Transform.GetInverse().TransformRect(rtDocClip);
-  IFDE_VisualSet* pVisualSet;
-  FDE_TEXTEDITPIECE* pPiece;
-  int32_t iCount = 0;
-  while (true) {
-    pPiece = m_pIterator->GetNext(pVisualSet);
-    if (!pPiece || !pVisualSet)
-      return;
-    if (!rtDocClip.IntersectWith(pVisualSet->GetRect(*pPiece)))
-      continue;
 
-    switch (pVisualSet->GetType()) {
-      case FDE_VISUALOBJ_Text:
-        RenderText(static_cast<CFDE_TxtEdtTextSet*>(pVisualSet), pPiece);
-        iCount += 5;
-        break;
-      default:
-        break;
+  while (!canvas_stack.empty()) {
+    FDE_CANVASITEM* item = &canvas_stack.top();
+    if (item->pos == 0) {
+      if (canvas_stack.size() == 1)
+        return;
+      canvas_stack.pop();
+      continue;
     }
+
+    do {
+      FDE_TEXTEDITPIECE* pObj = item->pCanvas->GetNext(&item->pos);
+      ASSERT(pObj);
+
+      CFDE_TxtEdtTextSet* pVisualSet = item->pCanvas->GetTextSet();
+      if (!pVisualSet)
+        return;
+      if (rtDocClip.IntersectWith(pVisualSet->GetRect(*pObj))) {
+        RenderText(pVisualSet, pObj);
+        break;
+      }
+    } while (item->pos != 0);
   }
 }
 
