@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ec031886_8b1b76dd",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:56:33Z",
+      "side": 1,
+      "message": "As Henrique pointed out, this is always a stack of one item.... Rewrite incoming.",
+      "revId": "a93928ef4b88aa2ab6f39a6f0451959ca7686602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "134e69d2_a0a3e7c8",
         "filename": "xfa/fde/cfde_rendercontext.cpp",
         "patchSetId": 5
@@ -25,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "b7062b14_f6e9c204",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:56:33Z",
+      "side": 1,
+      "message": "Yea, it seems like 0 is their sentinal value.",
+      "parentUuid": "134e69d2_a0a3e7c8",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "a93928ef4b88aa2ab6f39a6f0451959ca7686602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9f6e301_424d6f2c",
         "filename": "xfa/fde/cfde_rendercontext.cpp",
         "patchSetId": 5
@@ -36,6 +77,30 @@
       "writtenOn": "2017-08-14T17:46:22Z",
       "side": 1,
       "message": "item never changes inside this do while. Does the internal pos change?",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "a93928ef4b88aa2ab6f39a6f0451959ca7686602",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2e69ef_79ccb304",
+        "filename": "xfa/fde/cfde_rendercontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:56:33Z",
+      "side": 1,
+      "message": "Spooky action at a distance from GetNext on line 50.",
+      "parentUuid": "c9f6e301_424d6f2c",
       "range": {
         "startLine": 60,
         "startChar": 29,
