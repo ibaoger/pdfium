@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "01a6aab1_99c9f0fd",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-14T19:59:22Z",
+      "side": 1,
+      "message": "In this case it isn\u0027t, checked using a trivial example. Making uni_str be const fixes the issue, since then the non-const operator isn\u0027t available then.",
+      "parentUuid": "12a71d1a_658c3757",
+      "range": {
+        "startLine": 630,
+        "startChar": 6,
+        "endLine": 630,
+        "endChar": 27
+      },
+      "revId": "f17ffeb639181b020922500bc67bcbd404a5bca7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "263b47bd_a303d2ff",
         "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3d868bc6_afdaa7e9",
+        "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-14T19:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263b47bd_a303d2ff",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "f17ffeb639181b020922500bc67bcbd404a5bca7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb447df8_ec79f64f",
         "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-14T18:25:03Z",
       "side": 1,
       "message": "now apply the same subscript (read) operators to mutable_abc[] to prove that the const overload is taken without CoW.",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "f17ffeb639181b020922500bc67bcbd404a5bca7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c75441b_0604951f",
+        "filename": "core/fxcrt/cfx_bytestring_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-14T19:59:22Z",
+      "side": 1,
+      "message": "There appears to be no simple way to coerce the compiler to use the const version of [] here when the object is non-const :-/",
+      "parentUuid": "eb447df8_ec79f64f",
       "range": {
         "startLine": 29,
         "startChar": 1,
