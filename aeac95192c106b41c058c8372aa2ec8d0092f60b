@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a0db606_186e5746",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:36:28Z",
+      "side": 0,
+      "message": "Ditto, is this Realloc needed?",
+      "range": {
+        "startLine": 699,
+        "startChar": 2,
+        "endLine": 699,
+        "endChar": 20
+      },
+      "revId": "aeac95192c106b41c058c8372aa2ec8d0092f60b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "628f04f0_aceeed16",
+        "filename": "core/fxcrt/cfx_widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:36:28Z",
+      "side": 0,
+      "message": "The SetAt method would do a ReallocBeforeWrite previously which it looks like [] does not do. Do we need to do this realloc?",
+      "revId": "aeac95192c106b41c058c8372aa2ec8d0092f60b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
