@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b7b82e6b_80f94154",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T16:47:03Z",
+      "side": 1,
+      "message": "I think yes, but not sure at this moment, because between calls StartLinearizedParse and LoadLinearizedMainXRefTable we have some other work in CPDF_DataAvail. And need some other refactoring to ensure this (and to ensure that this is not broke on other changes).",
+      "parentUuid": "ee476ba1_8561562b",
+      "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79947d85_29f2098c",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-14T16:19:25Z",
       "side": 1,
       "message": "Are we sure this is how it always works in the wild? Is it possible the parser was written this way due to errors in PDFs that have to be worked around?",
+      "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39c1e0c7_da094567",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T16:47:03Z",
+      "side": 1,
+      "message": "\u003eAre we sure this is how it always works in the wild?\n\nThis is how it is works in original code. No changes in logic.\n\n\u003e Is it possible the parser was written this way due to errors in PDFs that have to be worked around?\n\nYes, it is posible. And in original code we have same problem.\nBTW: In plan, update this logic to fix this problem too (with tests of course).",
+      "parentUuid": "79947d85_29f2098c",
       "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
