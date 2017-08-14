@@ -824,7 +824,7 @@ bool CPDF_InterForm::ValidateFieldName(
       if (csSub[i] != L' ' && csSub[i] != L'.')
         break;
 
-      csSub.SetAt(i, L'\0');
+      csSub[i] = L'\0';
     }
     size_t dwCount = m_pFieldTree->m_Root.CountFields();
     for (size_t m = 0; m < dwCount; ++m) {

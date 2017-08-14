@@ -101,14 +101,16 @@ class CFX_WideString {
 
   bool operator<(const CFX_WideString& str) const;
 
-  wchar_t GetAt(FX_STRSIZE index) const {
+  CharType& operator[](const FX_STRSIZE index) {
     ASSERT(index >= 0 && index < GetLength());
+    ReallocBeforeWrite(m_pData->m_nDataLength);
     return m_pData->m_String[index];
   }
 
-  wchar_t operator[](FX_STRSIZE index) const { return GetAt(index); }
-
-  void SetAt(FX_STRSIZE index, wchar_t c);
+  const CharType& operator[](const FX_STRSIZE index) const {
+    ASSERT(index >= 0 && index < GetLength());
+    return m_pData->m_String[index];
+  }
 
   int Compare(const wchar_t* str) const;
   int Compare(const CFX_WideString& str) const;
