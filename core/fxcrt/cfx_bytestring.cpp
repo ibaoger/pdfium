@@ -694,12 +694,6 @@ FX_STRSIZE CFX_ByteString::Replace(const CFX_ByteStringC& pOld,
   return nCount;
 }
 
-void CFX_ByteString::SetAt(FX_STRSIZE index, char c) {
-  ASSERT(index >= 0 && index < GetLength());
-  ReallocBeforeWrite(m_pData->m_nDataLength);
-  m_pData->m_String[index] = c;
-}
-
 CFX_WideString CFX_ByteString::UTF8Decode() const {
   CFX_UTF8Decoder decoder;
   for (FX_STRSIZE i = 0; i < GetLength(); i++) {
@@ -721,10 +715,10 @@ int CFX_ByteString::Compare(const CFX_ByteStringC& str) const {
   int that_len = str.GetLength();
   int min_len = this_len < that_len ? this_len : that_len;
   for (int i = 0; i < min_len; i++) {
-    if ((uint8_t)m_pData->m_String[i] < str.GetAt(i)) {
+    if ((uint8_t)m_pData->m_String[i] < str[i]) {
       return -1;
     }
-    if ((uint8_t)m_pData->m_String[i] > str.GetAt(i)) {
+    if ((uint8_t)m_pData->m_String[i] > str[i]) {
       return 1;
     }
   }

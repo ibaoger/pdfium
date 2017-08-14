@@ -1578,7 +1578,7 @@ FX_DATETIMETYPE CFGAS_FormatString::GetDateTimeFormat(
         if (pStr[ccf] == 'T') {
           *wsDatePattern = wsPattern.Left(ccf);
           *wsTimePattern = wsPattern.Right(wsPattern.GetLength() - ccf);
-          wsTimePattern->SetAt(0, ' ');
+          (*wsTimePattern)[0] = ' ';
           if (!*pLocale)
             *pLocale = m_pLocaleMgr->GetDefLocale();
 
