@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aecd61f2_5d13b84f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:49:25Z",
+      "side": 1,
+      "message": "nit: remove blank line.",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e891005e_6c9146e2",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:49:25Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ce9c10f_4071bf44",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T17:49:25Z",
+      "side": 1,
+      "message": "Would a better name for this be HintsScope since it\u0027s just controlling the scope those hints are set for instead of doing any assignment itself?",
+      "revId": "330de6df9c93bb143603391400eb22244f079123",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
