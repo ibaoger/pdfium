@@ -61,10 +61,7 @@ class CPDF_Parser {
 
   void SetPassword(const char* password) { m_Password = password; }
   CFX_ByteString GetPassword() { return m_Password; }
-  CPDF_Dictionary* GetTrailer() const {
-    return m_TrailerPos == kInvalidPos ? nullptr
-                                       : m_Trailers[m_TrailerPos].get();
-  }
+  CPDF_Dictionary* GetTrailer() const;
   FX_FILESIZE GetLastXRefOffset() const { return m_LastXRefOffset; }
 
   uint32_t GetPermissions() const;
@@ -128,6 +125,8 @@ class CPDF_Parser {
 
  private:
   friend class CPDF_DataAvail;
+
+  class TrailerData;
 
   enum class ParserState {
     kDefault,
@@ -200,8 +199,7 @@ class CPDF_Parser {
   std::unique_ptr<CPDF_SecurityHandler> m_pSecurityHandler;
   CFX_ByteString m_Password;
   std::set<FX_FILESIZE> m_SortedOffset;
-  std::vector<std::unique_ptr<CPDF_Dictionary>> m_Trailers;
-  size_t m_TrailerPos;
+  std::unique_ptr<TrailerData> m_TrailerData;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
   uint32_t m_linearized_first_page_cross_ref_start_obj_num;
 
