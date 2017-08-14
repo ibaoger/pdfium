@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29ceae8b_1fac8086",
+        "filename": "docs/safetynet.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T21:51:39Z",
+      "side": 1,
+      "message": "Maybe adding a comment along the lines of + changes mean the current branch is Slower than --branch-before?",
+      "revId": "1fa7161ee25a3e622a1c92b391db3ca376b60efc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29373171_13435025",
+        "filename": "docs/safetynet.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-14T21:51:39Z",
+      "side": 1,
+      "message": "Will this build the code in out/BuildConfig{1|2} automatically or should it be built already?",
+      "revId": "1fa7161ee25a3e622a1c92b391db3ca376b60efc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
