@@ -22,6 +22,30 @@
       "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "626d616a_f2d81170",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-14T20:23:53Z",
+      "side": 0,
+      "message": "In linearized pdfs in first page cross ref table we should have only one section.\n\nAs result the minium obj num in map is start objnum.\nOther numbers are incremetaly start objnum",
+      "parentUuid": "52fed0e7_be5e71bd",
+      "range": {
+        "startLine": 554,
+        "startChar": 33,
+        "endLine": 554,
+        "endChar": 50
+      },
+      "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
