@@ -76,6 +76,14 @@ class CFDE_TTOLine {
 
 class CFDE_TextOut {
  public:
+  static bool DrawString(CFX_RenderDevice* device,
+                         FX_ARGB color,
+                         const CFX_RetainPtr<CFGAS_GEFont>& pFont,
+                         const FXTEXT_CHARPOS* pCharPos,
+                         int32_t iCount,
+                         float fFontSize,
+                         const CFX_Matrix* pMatrix);
+
   CFDE_TextOut();
   ~CFDE_TextOut();
 
@@ -134,7 +142,7 @@ class CFDE_TextOut {
   int32_t m_iCurPiece;
   int32_t m_iTotalLines;
   std::vector<FXTEXT_CHARPOS> m_CharPos;
-  std::unique_ptr<CFDE_RenderDevice> m_pRenderDevice;
+  CFX_UnownedPtr<CFX_RenderDevice> m_pRenderDevice;
 };
 
 #endif  // XFA_FDE_CFDE_TEXTOUT_H_
