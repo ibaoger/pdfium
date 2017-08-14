@@ -19,7 +19,6 @@ class CFDE_TxtEdtTextSet : public IFDE_VisualSet {
   ~CFDE_TxtEdtTextSet() override;
 
   // IFDE_VisualSet
-  FDE_VISUALOBJTYPE GetType() override;
   CFX_RectF GetRect(const FDE_TEXTEDITPIECE& hVisualObj) override;
 
   int32_t GetString(FDE_TEXTEDITPIECE* pPiece, CFX_WideString& wsText);

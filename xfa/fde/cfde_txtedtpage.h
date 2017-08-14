@@ -24,7 +24,6 @@ class CFDE_TxtEdtPage : public IFDE_VisualSet {
   ~CFDE_TxtEdtPage() override;
 
   // IFDE_VisualSet:
-  FDE_VISUALOBJTYPE GetType() override;
   CFX_RectF GetRect(const FDE_TEXTEDITPIECE& pPiece) override;
 
   CFDE_TxtEdtEngine* GetEngine() const;

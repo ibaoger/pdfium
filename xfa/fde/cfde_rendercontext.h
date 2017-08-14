@@ -20,13 +20,12 @@ class CFDE_TxtEdtTextSet;
 
 class CFDE_RenderContext {
  public:
-  CFDE_RenderContext();
+  CFDE_RenderContext(CFDE_RenderDevice* pRenderDevice,
+                     CFDE_TxtEdtPage* pCanvasSet,
+                     const CFX_Matrix& tmDoc2Device);
   ~CFDE_RenderContext();
 
-  void StartRender(CFDE_RenderDevice* pRenderDevice,
-                   CFDE_TxtEdtPage* pCanvasSet,
-                   const CFX_Matrix& tmDoc2Device);
-  void DoRender();
+  void Render();
 
  private:
   void RenderText(CFDE_TxtEdtTextSet* pTextSet, FDE_TEXTEDITPIECE* pText);
@@ -34,7 +33,7 @@ class CFDE_RenderContext {
   CFDE_RenderDevice* m_pRenderDevice;
   CFX_Matrix m_Transform;
   std::vector<FXTEXT_CHARPOS> m_CharPos;
-  std::unique_ptr<CFDE_VisualSetIterator> m_pIterator;
+  CFDE_VisualSetIterator m_pIterator;
 };
 
 #endif  // XFA_FDE_CFDE_RENDERCONTEXT_H_

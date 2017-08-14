@@ -8,12 +8,11 @@
 
 #include "xfa/fde/cfde_txtedtpage.h"
 
-CFDE_VisualSetIterator::CFDE_VisualSetIterator() : m_dwFilter(0) {}
+CFDE_VisualSetIterator::CFDE_VisualSetIterator(CFDE_TxtEdtPage* pCanvas)
+    : is_initialized_(false) {
+  if (!pCanvas)
+    return;
 
-CFDE_VisualSetIterator::~CFDE_VisualSetIterator() {}
-
-bool CFDE_VisualSetIterator::AttachCanvas(CFDE_TxtEdtPage* pCanvas) {
-  ASSERT(pCanvas);
   m_CanvasStack = std::stack<FDE_CANVASITEM>();
 
   FDE_CANVASITEM canvas;
@@ -21,36 +20,26 @@ bool CFDE_VisualSetIterator::AttachCanvas(CFDE_TxtEdtPage* pCanvas) {
   canvas.pCanvas = pCanvas;
   canvas.pos = pCanvas->GetFirstPosition();
   if (canvas.pos == 0)
-    return false;
+    return;
 
   m_CanvasStack.push(canvas);
-  return true;
+  is_initialized_ = true;
 }
 
-bool CFDE_VisualSetIterator::FilterObjects(uint32_t dwObjects) {
-  if (m_CanvasStack.empty())
-    return false;
-
-  while (m_CanvasStack.size() > 1)
-    m_CanvasStack.pop();
-
-  m_dwFilter = dwObjects;
-
-  FDE_CANVASITEM* pCanvas = &m_CanvasStack.top();
-  ASSERT(pCanvas && pCanvas->pCanvas);
-
-  pCanvas->pos = pCanvas->pCanvas->GetFirstPosition();
-  return pCanvas->pos != 0;
-}
-
-void CFDE_VisualSetIterator::Reset() {
-  FilterObjects(m_dwFilter);
-}
+CFDE_VisualSetIterator::~CFDE_VisualSetIterator() {}
 
 FDE_TEXTEDITPIECE* CFDE_VisualSetIterator::GetNext(
     IFDE_VisualSet*& pVisualSet,
     FDE_TEXTEDITPIECE** phCanvasObj,
     CFDE_TxtEdtPage** ppCanvasSet) {
+  if (!is_initialized_) {
+    if (ppCanvasSet)
+      *ppCanvasSet = nullptr;
+    if (phCanvasObj)
+      *phCanvasObj = nullptr;
+    return nullptr;
+  }
+
   while (!m_CanvasStack.empty()) {
     FDE_CANVASITEM* pCanvas = &m_CanvasStack.top();
     if (pCanvas->pos == 0) {
@@ -65,15 +54,11 @@ FDE_TEXTEDITPIECE* CFDE_VisualSetIterator::GetNext(
           pCanvas->pCanvas->GetNext(&pCanvas->pos, pVisualSet);
       ASSERT(pObj);
 
-      FDE_VISUALOBJTYPE eType = pVisualSet->GetType();
-      uint32_t dwObj = (uint32_t)eType;
-      if ((m_dwFilter & dwObj) != 0) {
-        if (ppCanvasSet)
-          *ppCanvasSet = pCanvas->pCanvas;
-        if (phCanvasObj)
-          *phCanvasObj = pCanvas->hCanvas;
-        return pObj;
-      }
+      if (ppCanvasSet)
+        *ppCanvasSet = pCanvas->pCanvas;
+      if (phCanvasObj)
+        *phCanvasObj = pCanvas->hCanvas;
+      return pObj;
     } while (pCanvas->pos != 0);
   }
   if (ppCanvasSet)

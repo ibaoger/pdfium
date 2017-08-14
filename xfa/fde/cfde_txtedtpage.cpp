@@ -40,10 +40,6 @@ CFDE_TxtEdtEngine* CFDE_TxtEdtPage::GetEngine() const {
   return m_pEditEngine.Get();
 }
 
-FDE_VISUALOBJTYPE CFDE_TxtEdtPage::GetType() {
-  return FDE_VISUALOBJ_Text;
-}
-
 CFX_RectF CFDE_TxtEdtPage::GetRect(const FDE_TEXTEDITPIECE& hVisualObj) {
   return CFX_RectF();
 }
