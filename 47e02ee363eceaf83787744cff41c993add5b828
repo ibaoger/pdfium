@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "141f3fb8_f5984fa9",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T15:48:49Z",
+      "side": 1,
+      "message": "I prefer the caller to determine that, as their script\u0027s flow will be broken if an error happens. One wouldn\u0027t expect a method call to exit the script, so making it obvious when that happens by requiring the argument helps clear this up.\n\nI originally had a simpler API without this, and callers needed to check for \"result is None\" after each call that does not expect a failure.",
+      "parentUuid": "67f94879_aa984d42",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "47e02ee363eceaf83787744cff41c993add5b828",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa570003_c9c72993",
         "filename": "testing/tools/common.py",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "04c4cb17_b77c0319",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T15:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa570003_c9c72993",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "47e02ee363eceaf83787744cff41c993add5b828",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b43151b_47e23309",
         "filename": "testing/tools/common.py",
         "patchSetId": 9
@@ -62,6 +110,24 @@
       "revId": "47e02ee363eceaf83787744cff41c993add5b828",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a34c04cf_57a77075",
+        "filename": "testing/tools/common.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T15:48:49Z",
+      "side": 1,
+      "message": "To make a single log file that gets appended to through multiple runs. The time in each print makes it possible to tell in what run each line was printed.",
+      "parentUuid": "5b43151b_47e23309",
+      "revId": "47e02ee363eceaf83787744cff41c993add5b828",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +151,30 @@
       "revId": "47e02ee363eceaf83787744cff41c993add5b828",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37fd7990_93ace23a",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-14T15:48:49Z",
+      "side": 1,
+      "message": "The original branch wouldn\u0027t be restored in line 93 upon an error.",
+      "parentUuid": "726ed0e9_257954d1",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 14
+      },
+      "revId": "47e02ee363eceaf83787744cff41c993add5b828",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
