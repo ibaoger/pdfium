@@ -34,6 +34,24 @@
       "revId": "89c7af8d2d220e59bcfb88965577485f294881da",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a417ddad_eb254378",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-15T16:08:42Z",
+      "side": 1,
+      "message": "Ah, it just looked like a duplicate f, heh. How about \u0027changed only if its rectangle changed\u0027?",
+      "parentUuid": "327ba2d5_b405e41f",
+      "revId": "89c7af8d2d220e59bcfb88965577485f294881da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
