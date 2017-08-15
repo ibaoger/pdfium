@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "151a5864_1a4051a0",
+        "filename": "docs/safetynet.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-15T18:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ceae8b_1fac8086",
+      "revId": "1fa7161ee25a3e622a1c92b391db3ca376b60efc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29373171_13435025",
         "filename": "docs/safetynet.md",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "1fa7161ee25a3e622a1c92b391db3ca376b60efc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d1ccb13_0c18fb8d",
+        "filename": "docs/safetynet.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-15T18:44:43Z",
+      "side": 1,
+      "message": "It builds the code. Added below a paragraph stating all it covers.",
+      "parentUuid": "29373171_13435025",
+      "revId": "1fa7161ee25a3e622a1c92b391db3ca376b60efc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
