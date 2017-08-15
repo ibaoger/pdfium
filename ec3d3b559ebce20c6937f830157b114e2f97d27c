@@ -16,6 +16,24 @@
       "revId": "ec3d3b559ebce20c6937f830157b114e2f97d27c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30afe338_eec489a6",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-15T21:39:29Z",
+      "side": 0,
+      "message": "This will be checked also in ParseCrossRefV4 below.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003d5f7b8f4038d16d224cb070f08112aba5331bd094\u0026l\u003d534",
+      "parentUuid": "faa05a63_15c9d47e",
+      "revId": "ec3d3b559ebce20c6937f830157b114e2f97d27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
