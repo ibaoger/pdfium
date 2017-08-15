@@ -90,7 +90,7 @@ void CXFA_FFLine::RenderWidget(CXFA_Graphics* pGS,
 
   CXFA_Color color(lineColor);
   pGS->SaveGraphState();
-  pGS->SetLineWidth(fLineWidth, true);
+  pGS->SetLineWidthActOnDash(fLineWidth);
   XFA_StrokeTypeSetLineDash(pGS, iStrokeType, iCap);
   pGS->SetStrokeColor(&color);
   pGS->SetLineCap(XFA_LineCapToFXGE(iCap));
