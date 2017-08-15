@@ -41,33 +41,27 @@ void DrawTextString(CFX_RenderDevice* pDevice,
                     const CFX_PointF& pt,
                     CPDF_Font* pFont,
                     float fFontSize,
-                    CFX_Matrix* pUser2Device,
+                    const CFX_Matrix* pUser2Device,
                     const CFX_ByteString& str,
                     FX_ARGB crTextFill,
                     int32_t nHorzScale) {
+  if (!pFont)
+    return;
+
   CFX_PointF pos = pUser2Device->Transform(pt);
-
-  if (pFont) {
-    if (nHorzScale != 100) {
-      CFX_Matrix mt(nHorzScale / 100.0f, 0, 0, 1, 0, 0);
-      mt.Concat(*pUser2Device);
-
-      CPDF_RenderOptions ro;
-      ro.m_Flags = RENDER_CLEARTYPE;
-      ro.m_ColorMode = CPDF_RenderOptions::kNormal;
-
-      CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
-                                        &mt, str, crTextFill, nullptr, &ro);
-    } else {
-      CPDF_RenderOptions ro;
-      ro.m_Flags = RENDER_CLEARTYPE;
-      ro.m_ColorMode = CPDF_RenderOptions::kNormal;
-
-      CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
-                                        pUser2Device, str, crTextFill, nullptr,
-                                        &ro);
-    }
+  CFX_Matrix mt;
+  if (nHorzScale == 100) {
+    mt = *pUser2Device;
+  } else {
+    mt = CFX_Matrix(nHorzScale / 100.0f, 0, 0, 1, 0, 0);
+    mt.Concat(*pUser2Device);
   }
+
+  CPDF_RenderOptions ro;
+  ro.m_Flags = RENDER_CLEARTYPE;
+  ro.m_ColorMode = CPDF_RenderOptions::kNormal;
+  CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
+                                    &mt, str, crTextFill, nullptr, &ro);
 }
 
 }  // namespace
@@ -456,7 +450,7 @@ void CFXEU_InsertText::Undo() {
 
 // static
 void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device,
+                             const CFX_Matrix* pUser2Device,
                              CPWL_EditImpl* pEdit,
                              FX_COLORREF crTextFill,
                              const CFX_FloatRect& rcClip,

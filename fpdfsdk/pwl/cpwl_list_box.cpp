@@ -38,18 +38,20 @@ void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
   Info.fBigStep = fBigStep;
   m_pList->SetScrollInfo(Info);
 
-  if (CPWL_ScrollBar* pScroll = m_pList->GetVScrollBar()) {
-    if (IsFloatBigger(Info.fPlateWidth, Info.fContentMax - Info.fContentMin) ||
-        IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
-      if (pScroll->IsVisible()) {
-        pScroll->SetVisible(false);
-        m_pList->RePosChildWnd();
-      }
-    } else {
-      if (!pScroll->IsVisible()) {
-        pScroll->SetVisible(true);
-        m_pList->RePosChildWnd();
-      }
+  CPWL_ScrollBar* pScroll = m_pList->GetVScrollBar();
+  if (!pScroll)
+    return;
+
+  if (IsFloatBigger(Info.fPlateWidth, Info.fContentMax - Info.fContentMin) ||
+      IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
+    if (pScroll->IsVisible()) {
+      pScroll->SetVisible(false);
+      m_pList->RePosChildWnd();
+    }
+  } else {
+    if (!pScroll->IsVisible()) {
+      pScroll->SetVisible(true);
+      m_pList->RePosChildWnd();
     }
   }
 }
@@ -94,7 +96,7 @@ void CPWL_ListBox::OnDestroy() {
 }
 
 void CPWL_ListBox::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                      CFX_Matrix* pUser2Device) {
+                                      const CFX_Matrix* pUser2Device) {
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
 
   CFX_FloatRect rcPlate = m_pList->GetPlateRect();

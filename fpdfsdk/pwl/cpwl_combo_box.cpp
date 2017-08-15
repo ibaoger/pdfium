@@ -94,7 +94,7 @@ bool CPWL_CBListBox::OnCharNotify(uint16_t nChar, uint32_t nFlag) {
 }
 
 void CPWL_CBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
-                                       CFX_Matrix* pUser2Device) {
+                                       const CFX_Matrix* pUser2Device) {
   CPWL_Wnd::DrawThisAppearance(pDevice, pUser2Device);
 
   CFX_FloatRect rectWnd = CPWL_Wnd::GetWindowRect();
