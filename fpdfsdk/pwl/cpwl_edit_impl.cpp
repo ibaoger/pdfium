@@ -41,33 +41,27 @@ void DrawTextString(CFX_RenderDevice* pDevice,
                     const CFX_PointF& pt,
                     CPDF_Font* pFont,
                     float fFontSize,
-                    CFX_Matrix* pUser2Device,
+                    const CFX_Matrix& mtUser2Device,
                     const CFX_ByteString& str,
                     FX_ARGB crTextFill,
                     int32_t nHorzScale) {
-  CFX_PointF pos = pUser2Device->Transform(pt);
+  if (!pFont)
+    return;
 
-  if (pFont) {
-    if (nHorzScale != 100) {
-      CFX_Matrix mt(nHorzScale / 100.0f, 0, 0, 1, 0, 0);
-      mt.Concat(*pUser2Device);
-
-      CPDF_RenderOptions ro;
-      ro.m_Flags = RENDER_CLEARTYPE;
-      ro.m_ColorMode = CPDF_RenderOptions::kNormal;
-
-      CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
-                                        &mt, str, crTextFill, nullptr, &ro);
-    } else {
-      CPDF_RenderOptions ro;
-      ro.m_Flags = RENDER_CLEARTYPE;
-      ro.m_ColorMode = CPDF_RenderOptions::kNormal;
-
-      CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
-                                        pUser2Device, str, crTextFill, nullptr,
-                                        &ro);
-    }
+  CFX_PointF pos = mtUser2Device.Transform(pt);
+  CFX_Matrix mt;
+  if (nHorzScale == 100) {
+    mt = mtUser2Device;
+  } else {
+    mt = CFX_Matrix(nHorzScale / 100.0f, 0, 0, 1, 0, 0);
+    mt.Concat(mtUser2Device);
   }
+
+  CPDF_RenderOptions ro;
+  ro.m_Flags = RENDER_CLEARTYPE;
+  ro.m_ColorMode = CPDF_RenderOptions::kNormal;
+  CPDF_TextRenderer::DrawTextString(pDevice, pos.x, pos.y, pFont, fFontSize,
+                                    &mt, str, crTextFill, nullptr, &ro);
 }
 
 }  // namespace
@@ -456,7 +450,7 @@ void CFXEU_InsertText::Undo() {
 
 // static
 void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
-                             CFX_Matrix* pUser2Device,
+                             const CFX_Matrix& mtUser2Device,
                              CPWL_EditImpl* pEdit,
                              FX_COLORREF crTextFill,
                              const CFX_FloatRect& rcClip,
@@ -484,7 +478,7 @@ void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
   CFX_RenderDevice::StateRestorer restorer(pDevice);
   if (!rcClip.IsEmpty()) {
     CFX_FloatRect rcTemp = rcClip;
-    pUser2Device->TransformRect(rcTemp);
+    mtUser2Device.TransformRect(rcTemp);
     pDevice->SetClip_Rect(rcTemp.ToFxRect());
   }
 
@@ -527,7 +521,7 @@ void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
                 word.ptWord.x, line.ptLine.y + line.fLineDescent,
                 word.ptWord.x + word.fWidth, line.ptLine.y + line.fLineAscent);
 
-            pDevice->DrawPath(&pathSelBK, pUser2Device, nullptr, crSelBK, 0,
+            pDevice->DrawPath(&pathSelBK, &mtUser2Device, nullptr, crSelBK, 0,
                               FXFILL_WINDING);
           }
         }
@@ -538,7 +532,7 @@ void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
             if (sTextBuf.tellp() > 0) {
               DrawTextString(
                   pDevice, CFX_PointF(ptBT.x + ptOffset.x, ptBT.y + ptOffset.y),
-                  pFontMap->GetPDFFont(nFontIndex), fFontSize, pUser2Device,
+                  pFontMap->GetPDFFont(nFontIndex), fFontSize, mtUser2Device,
                   CFX_ByteString(sTextBuf), crOldFill, nHorzScale);
 
               sTextBuf.str("");
@@ -555,7 +549,7 @@ void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
               pDevice,
               CFX_PointF(word.ptWord.x + ptOffset.x,
                          word.ptWord.y + ptOffset.y),
-              pFontMap->GetPDFFont(word.nFontIndex), fFontSize, pUser2Device,
+              pFontMap->GetPDFFont(word.nFontIndex), fFontSize, mtUser2Device,
               pEdit->GetPDFWordString(word.nFontIndex, word.Word, SubWord),
               crCurFill, nHorzScale);
         }
@@ -566,7 +560,7 @@ void CPWL_EditImpl::DrawEdit(CFX_RenderDevice* pDevice,
     if (sTextBuf.tellp() > 0) {
       DrawTextString(pDevice,
                      CFX_PointF(ptBT.x + ptOffset.x, ptBT.y + ptOffset.y),
-                     pFontMap->GetPDFFont(nFontIndex), fFontSize, pUser2Device,
+                     pFontMap->GetPDFFont(nFontIndex), fFontSize, mtUser2Device,
                      CFX_ByteString(sTextBuf), crOldFill, nHorzScale);
     }
   }
