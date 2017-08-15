@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e361d280_a84f20d3",
+        "filename": "core/fxcrt/cfx_chariter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-15T16:11:26Z",
+      "side": 1,
+      "message": "nit: one convention is to add a comment \n  // IFX_CharIter:\nto tell which base class defines the methods, even in the trivial case where there\u0027s only one such possibility.",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "28549c91b9fb7bdc637466218348b0759e251456",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf957290_9dd71e84",
+        "filename": "xfa/fde/cfde_txtedtbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-15T16:11:26Z",
+      "side": 1,
+      "message": "ditto: // IFX_CharIter: and then no blank lines until all such overrides listed.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "28549c91b9fb7bdc637466218348b0759e251456",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
