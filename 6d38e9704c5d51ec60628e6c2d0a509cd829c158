@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fe91b07_653db8fd",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-15T14:35:16Z",
+      "side": 1,
+      "message": "Moved this to a string instead of char* and length.",
+      "revId": "6d38e9704c5d51ec60628e6c2d0a509cd829c158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b0ae01b_62c5a7d3",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-15T14:35:16Z",
+      "side": 1,
+      "message": "I changed this as TYPE_Insert didn\u0027t make any sense here as we\u0027re deleting text.",
+      "revId": "6d38e9704c5d51ec60628e6c2d0a509cd829c158",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
