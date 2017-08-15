@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "62f5ba18_5671e051",
+        "filename": "core/fpdfapi/font/cpdf_fontencoding.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-15T18:56:37Z",
+      "side": 1,
+      "message": "I\u0027ll try to find a better place for this. There\u0027s some other functions like \"Is Arabic Word\" so maybe it\u0027s time for a new header file?",
+      "parentUuid": "74038ccb_2e6b6ac4",
+      "revId": "d789d54560ce7ef569f9d966cdeb90d25488a22e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bdb615e9_0451e748",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2017-08-15T15:43:39Z",
       "side": 1,
       "message": "Sigh, is this really need or just wackyness? Seems weird to have two definitions of IsLatinWord.",
+      "revId": "d789d54560ce7ef569f9d966cdeb90d25488a22e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43a01126_05f47627",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-15T18:56:37Z",
+      "side": 1,
+      "message": "Sigh indeed. I have not looked closely. I\u0027m just refactoring and noticed these two are almost the same but not quite.",
+      "parentUuid": "bdb615e9_0451e748",
       "revId": "d789d54560ce7ef569f9d966cdeb90d25488a22e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
