@@ -143,7 +143,7 @@ void CFWL_ScrollBarTP::DrawPaw(CXFA_Graphics* pGraphics,
     CXFA_Color clrLight(m_pThemeData->clrPawColorLight[eState - 1]);
     pGraphics->SetLineWidth(1);
     pGraphics->SetStrokeColor(&clrLight);
-    pGraphics->StrokePath(&path);
+    pGraphics->StrokePath(&path, nullptr);
     fX++;
 
     path.Clear();

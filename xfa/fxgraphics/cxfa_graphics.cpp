@@ -189,7 +189,7 @@ void CXFA_Graphics::SetFillColor(CXFA_Color* color) {
   }
 }
 
-void CXFA_Graphics::StrokePath(CXFA_Path* path, CFX_Matrix* matrix) {
+void CXFA_Graphics::StrokePath(CXFA_Path* path, const CFX_Matrix* matrix) {
   if (!path)
     return;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -198,7 +198,7 @@ void CXFA_Graphics::StrokePath(CXFA_Path* path, CFX_Matrix* matrix) {
 
 void CXFA_Graphics::FillPath(CXFA_Path* path,
                              FX_FillMode fillMode,
-                             CFX_Matrix* matrix) {
+                             const CFX_Matrix* matrix) {
   if (!path)
     return;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -207,7 +207,7 @@ void CXFA_Graphics::FillPath(CXFA_Path* path,
 
 void CXFA_Graphics::StretchImage(const CFX_RetainPtr<CFX_DIBSource>& source,
                                  const CFX_RectF& rect,
-                                 CFX_Matrix* matrix) {
+                                 const CFX_Matrix& matrix) {
   if (!source)
     return;
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
@@ -222,7 +222,7 @@ void CXFA_Graphics::ConcatMatrix(const CFX_Matrix* matrix) {
   }
 }
 
-CFX_Matrix* CXFA_Graphics::GetMatrix() {
+const CFX_Matrix* CXFA_Graphics::GetMatrix() const {
   if (m_type == FX_CONTEXT_Device && m_renderDevice)
     return &m_info.CTM;
   return nullptr;
@@ -279,8 +279,8 @@ void CXFA_Graphics::RenderDeviceSetLineDash(FX_DashStyle dashStyle) {
   }
 }
 
-void CXFA_Graphics::RenderDeviceStrokePath(CXFA_Path* path,
-                                           CFX_Matrix* matrix) {
+void CXFA_Graphics::RenderDeviceStrokePath(const CXFA_Path* path,
+                                           const CFX_Matrix* matrix) {
   if (!m_info.strokeColor)
     return;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
@@ -299,16 +299,16 @@ void CXFA_Graphics::RenderDeviceStrokePath(CXFA_Path* path,
   }
 }
 
-void CXFA_Graphics::RenderDeviceFillPath(CXFA_Path* path,
+void CXFA_Graphics::RenderDeviceFillPath(const CXFA_Path* path,
                                          FX_FillMode fillMode,
-                                         CFX_Matrix* matrix) {
+                                         const CFX_Matrix* matrix) {
   if (!m_info.fillColor)
     return;
   CFX_Matrix m(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
+  if (matrix)
     m.Concat(*matrix);
-  }
+
   switch (m_info.fillColor->m_type) {
     case FX_COLOR_Solid: {
       m_renderDevice->DrawPath(path->GetPathData(), &m, &m_info.graphState,
@@ -316,10 +316,10 @@ void CXFA_Graphics::RenderDeviceFillPath(CXFA_Path* path,
       return;
     }
     case FX_COLOR_Pattern:
-      FillPathWithPattern(path, fillMode, &m);
+      FillPathWithPattern(path, fillMode, m);
       return;
     case FX_COLOR_Shading:
-      FillPathWithShading(path, fillMode, &m);
+      FillPathWithShading(path, fillMode, m);
       return;
     default:
       return;
@@ -329,12 +329,11 @@ void CXFA_Graphics::RenderDeviceFillPath(CXFA_Path* path,
 void CXFA_Graphics::RenderDeviceStretchImage(
     const CFX_RetainPtr<CFX_DIBSource>& source,
     const CFX_RectF& rect,
-    CFX_Matrix* matrix) {
+    const CFX_Matrix& matrix) {
   CFX_Matrix m1(m_info.CTM.a, m_info.CTM.b, m_info.CTM.c, m_info.CTM.d,
                 m_info.CTM.e, m_info.CTM.f);
-  if (matrix) {
-    m1.Concat(*matrix);
-  }
+  m1.Concat(matrix);
+
   CFX_RetainPtr<CFX_DIBitmap> bmp1 =
       source->StretchTo(static_cast<int32_t>(rect.Width()),
                         static_cast<int32_t>(rect.Height()), 0, nullptr);
@@ -352,9 +351,9 @@ void CXFA_Graphics::RenderDeviceStretchImage(
                           FXSYS_round(r.left - left), FXSYS_round(r.top - top));
 }
 
-void CXFA_Graphics::FillPathWithPattern(CXFA_Path* path,
+void CXFA_Graphics::FillPathWithPattern(const CXFA_Path* path,
                                         FX_FillMode fillMode,
-                                        CFX_Matrix* matrix) {
+                                        const CFX_Matrix& matrix) {
   CXFA_Pattern* pattern = m_info.fillColor->m_info.pattern;
   CFX_RetainPtr<CFX_DIBitmap> bitmap = m_renderDevice->GetBitmap();
   int32_t width = bitmap->GetWidth();
@@ -370,8 +369,7 @@ void CXFA_Graphics::FillPathWithPattern(CXFA_Path* path,
   mask->Create(data.width, data.height, FXDIB_1bppMask);
   memcpy(mask->GetBuffer(), data.maskBits, mask->GetPitch() * data.height);
   CFX_FloatRect rectf = path->GetPathData()->GetBoundingBox();
-  if (matrix)
-    matrix->TransformRect(rectf);
+  matrix.TransformRect(rectf);
 
   FX_RECT rect(FXSYS_round(rectf.left), FXSYS_round(rectf.top),
                FXSYS_round(rectf.right), FXSYS_round(rectf.bottom));
@@ -385,13 +383,13 @@ void CXFA_Graphics::FillPathWithPattern(CXFA_Path* path,
     }
   }
   CFX_RenderDevice::StateRestorer restorer(m_renderDevice);
-  m_renderDevice->SetClip_PathFill(path->GetPathData(), matrix, fillMode);
-  SetDIBitsWithMatrix(bmp, &pattern->m_matrix);
+  m_renderDevice->SetClip_PathFill(path->GetPathData(), &matrix, fillMode);
+  SetDIBitsWithMatrix(bmp, pattern->m_matrix);
 }
 
-void CXFA_Graphics::FillPathWithShading(CXFA_Path* path,
+void CXFA_Graphics::FillPathWithShading(const CXFA_Path* path,
                                         FX_FillMode fillMode,
-                                        CFX_Matrix* matrix) {
+                                        const CFX_Matrix& matrix) {
   CFX_RetainPtr<CFX_DIBitmap> bitmap = m_renderDevice->GetBitmap();
   int32_t width = bitmap->GetWidth();
   int32_t height = bitmap->GetHeight();
@@ -502,20 +500,20 @@ void CXFA_Graphics::FillPathWithShading(CXFA_Path* path,
   }
   if (result) {
     CFX_RenderDevice::StateRestorer restorer(m_renderDevice);
-    m_renderDevice->SetClip_PathFill(path->GetPathData(), matrix, fillMode);
+    m_renderDevice->SetClip_PathFill(path->GetPathData(), &matrix, fillMode);
     SetDIBitsWithMatrix(bmp, matrix);
   }
 }
 
 void CXFA_Graphics::SetDIBitsWithMatrix(
     const CFX_RetainPtr<CFX_DIBSource>& source,
-    CFX_Matrix* matrix) {
-  if (matrix->IsIdentity()) {
+    const CFX_Matrix& matrix) {
+  if (matrix.IsIdentity()) {
     m_renderDevice->SetDIBits(source, 0, 0);
   } else {
     CFX_Matrix m((float)source->GetWidth(), 0, 0, (float)source->GetHeight(), 0,
                  0);
-    m.Concat(*matrix);
+    m.Concat(matrix);
     int32_t left;
     int32_t top;
     CFX_RetainPtr<CFX_DIBitmap> bmp1 = source->FlipImage(false, true);

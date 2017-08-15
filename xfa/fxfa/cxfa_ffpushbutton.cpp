@@ -218,7 +218,7 @@ void CXFA_FFPushButton::OnDrawWidget(CXFA_Graphics* pGraphics,
 
       CXFA_Path path;
       path.AddRectangle(rtFill.left, rtFill.top, rtFill.width, rtFill.height);
-      pGraphics->FillPath(&path, FXFILL_WINDING, (CFX_Matrix*)pMatrix);
+      pGraphics->FillPath(&path, FXFILL_WINDING, pMatrix);
     }
     return;
   }
