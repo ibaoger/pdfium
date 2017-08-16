@@ -17,6 +17,24 @@
       "revId": "86723fc8bce6381aae90528457025ce7fcd339e8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6092cf_e26162f6",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-16T15:53:44Z",
+      "side": 1,
+      "message": "No, just refactoring here. Looking at the impl, it\u0027s read in one place only and naturally affects drawing dashes.\n\nI don\u0027t care which way it\u0027s organized in CXFA_Graphics. Let me know what you prefer.",
+      "parentUuid": "830cb2af_69d6f364",
+      "revId": "86723fc8bce6381aae90528457025ce7fcd339e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
