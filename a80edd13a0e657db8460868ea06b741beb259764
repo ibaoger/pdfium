@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7b7d91_0c2cea5d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "Maybe do this cleanup in FM2JSContextEmbedderTest::TearDown().  That would probably require separating Get and Set of the max depth so SetUp() can stash it away for later.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 0,
+        "endLine": 1455,
+        "endChar": 56
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7efe0688_8ffb7375",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "In other places, we do this via an autorestorer, I think.\n\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/render/cpdf_renderstatus.cpp?rcl\u003deb14e04c79c575146fe96c025dbf56b7440870c7\u0026l\u003d1082 .\n\nThe statics, in some sense, should be members of the CXFA_Parser, otherwise there isn\u0027t a way to \"parameterize\" this class if we want more than one ...",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fefb9200_75c2d191",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "nit: maybe just assert this.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab140da_e7c83858",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be required?",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "049bfa70_7929ef30",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "redundant given line 91?",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d6a1c3c_3d57b6f8",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "nit: maybe just return  std::vector\u003cstd::unique_ptr\u003cCXFA_FMExpression\u003e\u003e() and let expressions clean itself up on exit (and below, etc).",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 25
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d6ee432_5be9e25f",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "can we get here without an error?",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 17
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e8859d_6b69dc02",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T16:56:18Z",
+      "side": 1,
+      "message": "which kinda re-enforces the notion that the max depth and current depth can be members of the parser.",
+      "range": {
+        "startLine": 1242,
+        "startChar": 29,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
