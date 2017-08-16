@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a48e2e12_5659bff1",
+        "filename": "xfa/fxgraphics/cxfa_color.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-16T22:28:24Z",
+      "side": 1,
+      "message": "Maybe de-unionize and use CFX_UnownedPtr\u003c\u003e ????",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "5a6e413df8521ea83175a6b3dad85bdc0bfa4753",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
