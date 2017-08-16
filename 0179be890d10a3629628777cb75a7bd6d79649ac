@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95301864_d30d0443",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T20:34:59Z",
+      "side": 1,
+      "message": "Renamed to UpdateLineCounts()",
+      "parentUuid": "c6894656_a559d351",
+      "range": {
+        "startLine": 983,
+        "startChar": 24,
+        "endLine": 983,
+        "endChar": 36
+      },
+      "revId": "0179be890d10a3629628777cb75a7bd6d79649ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9df87f8_2e09bdd5",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "0179be890d10a3629628777cb75a7bd6d79649ac",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bfbc669_218a43dd",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T20:34:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9df87f8_2e09bdd5",
+      "range": {
+        "startLine": 990,
+        "startChar": 26,
+        "endLine": 990,
+        "endChar": 0
+      },
+      "revId": "0179be890d10a3629628777cb75a7bd6d79649ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
