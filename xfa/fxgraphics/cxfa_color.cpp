@@ -6,41 +6,30 @@
 
 #include "xfa/fxgraphics/cxfa_color.h"
 
-CXFA_Color::CXFA_Color() : m_type(FX_COLOR_None) {}
+CXFA_Color::CXFA_Color() : m_type(Invalid) {}
 
-CXFA_Color::CXFA_Color(const FX_ARGB argb) {
-  Set(argb);
-}
+CXFA_Color::CXFA_Color(const CXFA_Color& that)
+    : m_type(that.m_type),
+      m_argb(that.m_argb),
+      m_pattern(that.m_pattern),
+      m_shading(that.m_shading) {}
 
-CXFA_Color::CXFA_Color(CXFA_Pattern* pattern, const FX_ARGB argb) {
-  Set(pattern, argb);
-}
+CXFA_Color::CXFA_Color(const FX_ARGB argb) : m_type(Solid), m_argb(argb) {}
 
-CXFA_Color::CXFA_Color(CXFA_Shading* shading) {
-  Set(shading);
-}
+CXFA_Color::CXFA_Color(CXFA_Pattern* pattern, const FX_ARGB argb)
+    : m_type(Pattern), m_argb(argb), m_pattern(pattern) {}
 
-CXFA_Color::~CXFA_Color() {
-  m_type = FX_COLOR_None;
-}
+CXFA_Color::CXFA_Color(CXFA_Shading* shading)
+    : m_type(Shading), m_argb(0), m_shading(shading) {}
 
-void CXFA_Color::Set(const FX_ARGB argb) {
-  m_type = FX_COLOR_Solid;
-  m_info.argb = argb;
-  m_info.pattern = nullptr;
-}
+CXFA_Color::~CXFA_Color() {}
 
-void CXFA_Color::Set(CXFA_Pattern* pattern, const FX_ARGB argb) {
-  if (!pattern)
-    return;
-  m_type = FX_COLOR_Pattern;
-  m_info.argb = argb;
-  m_info.pattern = pattern;
-}
-
-void CXFA_Color::Set(CXFA_Shading* shading) {
-  if (!shading)
-    return;
-  m_type = FX_COLOR_Shading;
-  m_shading = shading;
+CXFA_Color& CXFA_Color::operator=(const CXFA_Color& that) {
+  if (this != &that) {
+    m_type = that.m_type;
+    m_argb = that.m_argb;
+    m_pattern = that.m_pattern;
+    m_shading = that.m_shading;
+  }
+  return *this;
 }
