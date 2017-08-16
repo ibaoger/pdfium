@@ -69,6 +69,24 @@
       "revId": "2516b0c4edffe812a1d7575538d5fa2c3dedcfff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd48dae5_b2d81377",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-16T16:09:27Z",
+      "side": 1,
+      "message": "Yes, yes you do.",
+      "parentUuid": "c40e6d1b_4fdc24ab",
+      "revId": "2516b0c4edffe812a1d7575538d5fa2c3dedcfff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
