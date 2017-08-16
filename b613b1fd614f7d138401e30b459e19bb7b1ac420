@@ -17,6 +17,24 @@
       "revId": "b613b1fd614f7d138401e30b459e19bb7b1ac420",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbc00597_6b39839e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-16T16:28:56Z",
+      "side": 1,
+      "message": "How about checking both?\n\n- If the file is very large, then it has room for more than kMaxXRefSize entries. In this case, we should check kMaxXRefSize.\n\n- If the file is only 4 KB, but claims to have 4000 entries, checking the file size will tell us that\u0027s wrong. We don\u0027t strictly need this check, since ReadBlock() below will fail eventually. But checking it early is cheaper.",
+      "parentUuid": "353e3a10_619d2d40",
+      "revId": "b613b1fd614f7d138401e30b459e19bb7b1ac420",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
