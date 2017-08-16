@@ -4,6 +4,7 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/xfa_js_embedder_test.h"
+#include "xfa/fxfa/fm2js/cxfa_fmparser.h"
 
 class FM2JSContextEmbedderTest : public XFAJSEmbedderTest {};
 
