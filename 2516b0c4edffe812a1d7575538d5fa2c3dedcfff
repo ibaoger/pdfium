@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "779a1891_a622af5a",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-16T15:28:22Z",
+      "side": 1,
+      "message": "Yea, thanks for catching. Added an early return.",
+      "parentUuid": "a64ed0ce_bdff1043",
+      "revId": "2516b0c4edffe812a1d7575538d5fa2c3dedcfff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3379d56e_c19269d0",
         "filename": "fpdfsdk/fpdfeditimg.cpp",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-16T01:35:52Z",
       "side": 1,
       "message": "And similarly, will GetColorSpace() always return non-NULL?",
+      "revId": "2516b0c4edffe812a1d7575538d5fa2c3dedcfff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c40e6d1b_4fdc24ab",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-16T15:28:22Z",
+      "side": 1,
+      "message": "I already have \"if (pSource-\u003eGetColorSpace())\" guarding that?",
+      "parentUuid": "3379d56e_c19269d0",
       "revId": "2516b0c4edffe812a1d7575538d5fa2c3dedcfff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
