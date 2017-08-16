@@ -1,0 +1,86 @@
+diff --git a/third_party/lcms/src/cmsintrp.c b/third_party/lcms/src/cmsintrp.c
+index 60d6a0e49..1cd88d813 100644
+--- a/third_party/lcms/src/cmsintrp.c
++++ b/third_party/lcms/src/cmsintrp.c
+@@ -348,8 +348,8 @@ void BilinearInterpFloat(const cmsFloat32Number Input[],
+     px = fclamp(Input[0]) * p->Domain[0];
+     py = fclamp(Input[1]) * p->Domain[1];
+ 
+-    x0 = (int) _cmsQuickFloor(px); fx = px - (cmsFloat32Number) x0;
+-    y0 = (int) _cmsQuickFloor(py); fy = py - (cmsFloat32Number) y0;
++    x0 = (int) px; fx = px - (cmsFloat32Number) x0;
++    y0 = (int) py; fy = py - (cmsFloat32Number) y0;
+ 
+     X0 = p -> opta[1] * x0;
+     X1 = X0 + (Input[0] >= 1.0 ? 0 : p->opta[1]);
+@@ -464,9 +464,9 @@ void TrilinearInterpFloat(const cmsFloat32Number Input[],
+     py = fclamp(Input[1]) * p->Domain[1];
+     pz = fclamp(Input[2]) * p->Domain[2];
+ 
+-    x0 = (int) _cmsQuickFloor(px); fx = px - (cmsFloat32Number) x0;
+-    y0 = (int) _cmsQuickFloor(py); fy = py - (cmsFloat32Number) y0;
+-    z0 = (int) _cmsQuickFloor(pz); fz = pz - (cmsFloat32Number) z0;
++    x0 = (int) px; fx = px - (cmsFloat32Number) x0;
++    y0 = (int) py; fy = py - (cmsFloat32Number) y0;
++    z0 = (int) pz; fz = pz - (cmsFloat32Number) z0;
+ 
+     X0 = p -> opta[2] * x0;
+     X1 = X0 + (Input[0] >= 1.0 ? 0 : p->opta[2]);
+@@ -608,9 +608,9 @@ void TetrahedralInterpFloat(const cmsFloat32Number Input[],
+     py = fclamp(Input[1]) * p->Domain[1];
+     pz = fclamp(Input[2]) * p->Domain[2];
+ 
+-    x0 = (int) _cmsQuickFloor(px); rx = (px - (cmsFloat32Number) x0);
+-    y0 = (int) _cmsQuickFloor(py); ry = (py - (cmsFloat32Number) y0);
+-    z0 = (int) _cmsQuickFloor(pz); rz = (pz - (cmsFloat32Number) z0);
++    x0 = (int) px; rx = (px - (cmsFloat32Number) x0);
++    y0 = (int) py; ry = (py - (cmsFloat32Number) y0);
++    z0 = (int) pz; rz = (pz - (cmsFloat32Number) z0);
+ 
+ 
+     X0 = p -> opta[2] * x0;
+@@ -1024,7 +1024,7 @@ void Eval4InputsFloat(const cmsFloat32Number Input[],
+        cmsInterpParams p1;
+ 
+        pk = fclamp(Input[0]) * p->Domain[0];
+-       k0 = _cmsQuickFloor(pk);
++       k0 = (int) pk;
+        rest = pk - (cmsFloat32Number) k0;
+ 
+        K0 = p -> opta[3] * k0;
+@@ -1111,7 +1111,7 @@ void Eval5InputsFloat(const cmsFloat32Number Input[],
+        cmsInterpParams p1;
+ 
+        pk = fclamp(Input[0]) * p->Domain[0];
+-       k0 = _cmsQuickFloor(pk);
++       k0 = (int) pk;
+        rest = pk - (cmsFloat32Number) k0;
+ 
+        K0 = p -> opta[4] * k0;
+@@ -1198,7 +1198,7 @@ void Eval6InputsFloat(const cmsFloat32Number Input[],
+        cmsInterpParams p1;
+ 
+        pk = fclamp(Input[0]) * p->Domain[0];
+-       k0 = _cmsQuickFloor(pk);
++       k0 = (int) pk;
+        rest = pk - (cmsFloat32Number) k0;
+ 
+        K0 = p -> opta[5] * k0;
+@@ -1283,7 +1283,7 @@ void Eval7InputsFloat(const cmsFloat32Number Input[],
+        cmsInterpParams p1;
+ 
+        pk = fclamp(Input[0]) * p->Domain[0];
+-       k0 = _cmsQuickFloor(pk);
++       k0 = (int) pk;
+        rest = pk - (cmsFloat32Number) k0;
+ 
+        K0 = p -> opta[6] * k0;
+@@ -1368,7 +1368,7 @@ void Eval8InputsFloat(const cmsFloat32Number Input[],
+        cmsInterpParams p1;
+ 
+        pk = fclamp(Input[0]) * p->Domain[0];
+-       k0 = _cmsQuickFloor(pk);
++       k0 = (int) pk;
+        rest = pk - (cmsFloat32Number) k0;
+ 
+        K0 = p -> opta[7] * k0;
