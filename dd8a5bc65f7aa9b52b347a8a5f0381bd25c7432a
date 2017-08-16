@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3119bd_d7325f79",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T18:01:44Z",
+      "side": 1,
+      "message": "Don\u0027t need else after return.",
+      "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6545b257_80e38268",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T18:01:44Z",
+      "side": 1,
+      "message": "CFX_AutoRestorer\u003cbool\u003e lock(\u0026m_bLocked);\n\nThen you can remove the m_bLocked \u003d false calls below.",
+      "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
