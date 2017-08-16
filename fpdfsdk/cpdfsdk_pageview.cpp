@@ -37,11 +37,7 @@ CPDFSDK_PageView::CPDFSDK_PageView(CPDFSDK_FormFillEnvironment* pFormFillEnv,
       m_bOwnsPage(false),
 #endif  // PDF_ENABLE_XFA
       m_bEnterWidget(false),
-      m_bExitWidget(false),
-      m_bOnWidget(false),
-      m_bValid(false),
-      m_bLocked(false),
-      m_bBeingDestroyed(false) {
+      m_bOnWidget(false) {
   CPDFSDK_InterForm* pInterForm = pFormFillEnv->GetInterForm();
   CPDF_InterForm* pPDFInterForm = pInterForm->GetInterForm();
 #ifdef PDF_ENABLE_XFA
@@ -332,30 +328,36 @@ bool CPDFSDK_PageView::OnMouseMove(const CFX_PointF& point, int nFlag) {
   CPDFSDK_Annot::ObservedPtr pFXAnnot(GetFXAnnotAtPoint(point));
   if (pFXAnnot) {
     if (m_pCaptureWidget && m_pCaptureWidget != pFXAnnot) {
-      m_bExitWidget = true;
       m_bEnterWidget = false;
       pAnnotHandlerMgr->Annot_OnMouseExit(this, &m_pCaptureWidget, nFlag);
     }
-    m_pCaptureWidget.Reset(pFXAnnot.Get());
     m_bOnWidget = true;
+    m_pCaptureWidget.Reset(pFXAnnot.Get());
     if (!m_bEnterWidget) {
       m_bEnterWidget = true;
-      m_bExitWidget = false;
       pAnnotHandlerMgr->Annot_OnMouseEnter(this, &pFXAnnot, nFlag);
+
+      // Annot_OnMouseEnter may have invalidated pFXAnnot.
+      if (!pFXAnnot) {
+        m_bOnWidget = false;
+        m_bEnterWidget = false;
+        m_pCaptureWidget.Reset();
+        return true;
+      }
     }
     pAnnotHandlerMgr->Annot_OnMouseMove(this, &pFXAnnot, nFlag, point);
     return true;
-  }
-  if (m_bOnWidget) {
-    m_bOnWidget = false;
-    m_bExitWidget = true;
-    m_bEnterWidget = false;
-    if (m_pCaptureWidget) {
-      pAnnotHandlerMgr->Annot_OnMouseExit(this, &m_pCaptureWidget, nFlag);
-      m_pCaptureWidget.Reset();
+  } else {
+    if (m_bOnWidget) {
+      m_bOnWidget = false;
+      m_bEnterWidget = false;
+      if (m_pCaptureWidget) {
+        pAnnotHandlerMgr->Annot_OnMouseExit(this, &m_pCaptureWidget, nFlag);
+        m_pCaptureWidget.Reset();
+      }
     }
+    return false;
   }
-  return false;
 }
 
 bool CPDFSDK_PageView::OnMouseWheel(double deltaX,
@@ -399,7 +401,7 @@ void CPDFSDK_PageView::LoadFXAnnots() {
   CPDFSDK_AnnotHandlerMgr* pAnnotHandlerMgr =
       m_pFormFillEnv->GetAnnotHandlerMgr();
 
-  SetLock(true);
+  m_bLocked = true;
 
 #ifdef PDF_ENABLE_XFA
   CFX_RetainPtr<CPDFXFA_Page> protector(m_page);
@@ -410,7 +412,7 @@ void CPDFSDK_PageView::LoadFXAnnots() {
             XFA_TRAVERSEWAY_Form,
             XFA_WidgetStatus_Visible | XFA_WidgetStatus_Viewable));
     if (!pWidgetHandler) {
-      SetLock(false);
+      m_bLocked = false;
       return;
     }
 
@@ -422,7 +424,7 @@ void CPDFSDK_PageView::LoadFXAnnots() {
       pAnnotHandlerMgr->Annot_OnLoad(pAnnot);
     }
 
-    SetLock(false);
+    m_bLocked = false;
     return;
   }
 #endif  // PDF_ENABLE_XFA
@@ -446,7 +448,7 @@ void CPDFSDK_PageView::LoadFXAnnots() {
     pAnnotHandlerMgr->Annot_OnLoad(pAnnot);
   }
 
-  SetLock(false);
+  m_bLocked = false;
 }
 
 void CPDFSDK_PageView::UpdateRects(const std::vector<CFX_FloatRect>& rects) {
