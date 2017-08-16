@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7a0ab246_7b1a675b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T18:17:22Z",
+      "side": 1,
+      "message": "Even when it\u0027s two separate cases, we skip the else in this case and just use the if() to delineate the different cases.",
+      "parentUuid": "865520a0_97d36182",
+      "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6545b257_80e38268",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 2
