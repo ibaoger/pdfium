@@ -14,7 +14,35 @@
 
 namespace {
 
-const int kMaxAssignmentChainLength = 12;
+const unsigned int kMaxAssignmentChainLength = 12;
+const unsigned int kMaxParseDepth = 2000;
+
+class ParseDepthLimiter {
+ public:
+  ParseDepthLimiter() { m_parse_depth++; }
+
+  ~ParseDepthLimiter() {
+    if (m_parse_depth)
+      m_parse_depth--;
+  }
+
+  bool Check() const { return m_parse_depth <= m_max_parse_depth; }
+
+  static void Reset() { m_parse_depth = 0; }
+
+  static unsigned long SetMaxParseDepthForTest(unsigned long max_depth) {
+    unsigned long ret_val = max_depth;
+    m_max_parse_depth = max_depth;
+    return ret_val;
+  }
+
+ private:
+  static unsigned long m_parse_depth;
+  static unsigned long m_max_parse_depth;
+};
+
+unsigned long ParseDepthLimiter::m_parse_depth = 0;
+unsigned long ParseDepthLimiter::m_max_parse_depth = kMaxParseDepth;
 
 }  // namespace
 
@@ -27,6 +55,7 @@ CXFA_FMParser::CXFA_FMParser(const CFX_WideStringC& wsFormcalc)
 CXFA_FMParser::~CXFA_FMParser() {}
 
 std::unique_ptr<CXFA_FMFunctionDefinition> CXFA_FMParser::Parse() {
+  ParseDepthLimiter::Reset();
   auto expressions = ParseTopExpression();
   if (HasError())
     return nullptr;
@@ -58,6 +87,10 @@ bool CXFA_FMParser::CheckThenNext(XFA_FM_TOKEN op) {
 
 std::vector<std::unique_ptr<CXFA_FMExpression>>
 CXFA_FMParser::ParseTopExpression() {
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
+    return std::vector<std::unique_ptr<CXFA_FMExpression>>();
+
   std::unique_ptr<CXFA_FMExpression> expr;
   std::vector<std::unique_ptr<CXFA_FMExpression>> expressions;
   if (HasError())
@@ -74,7 +107,7 @@ CXFA_FMParser::ParseTopExpression() {
     if (!expr) {
       m_error = true;
       expressions.clear();
-      break;
+      return expressions;
     }
     expressions.push_back(std::move(expr));
   }
@@ -84,7 +117,8 @@ CXFA_FMParser::ParseTopExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseFunction() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   CFX_WideStringC ident;
@@ -146,7 +180,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseFunction() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   std::unique_ptr<CXFA_FMExpression> expr;
@@ -198,7 +233,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseVarExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   CFX_WideStringC ident;
@@ -254,7 +290,8 @@ CXFA_FMParser::ParseSimpleExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseExpExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -266,7 +303,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseExpExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseLogicalOrExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -300,7 +338,8 @@ CXFA_FMParser::ParseLogicalOrExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseLogicalAndExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -333,7 +372,8 @@ CXFA_FMParser::ParseLogicalAndExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseEqualityExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -377,7 +417,8 @@ CXFA_FMParser::ParseEqualityExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseRelationalExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -446,7 +487,8 @@ CXFA_FMParser::ParseRelationalExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseAddtiveExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -489,7 +531,8 @@ CXFA_FMParser::ParseAddtiveExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParseMultiplicativeExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -531,7 +574,8 @@ CXFA_FMParser::ParseMultiplicativeExpression() {
 }
 
 std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParseUnaryExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   std::unique_ptr<CXFA_FMSimpleExpression> expr;
@@ -578,7 +622,8 @@ std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParseUnaryExpression() {
 
 std::unique_ptr<CXFA_FMSimpleExpression>
 CXFA_FMParser::ParsePrimaryExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   std::unique_ptr<CXFA_FMSimpleExpression> expr;
@@ -661,6 +706,7 @@ std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParsePostExpression(
                 ParseSimpleExpression();
             if (!simple_expr)
               return nullptr;
+
             expressions.push_back(std::move(simple_expr));
             if (m_token->m_type == TOKcomma) {
               if (!NextToken())
@@ -834,7 +880,8 @@ std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParsePostExpression(
 }
 
 std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParseIndexExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -876,6 +923,10 @@ std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParseIndexExpression() {
 }
 
 std::unique_ptr<CXFA_FMSimpleExpression> CXFA_FMParser::ParseParenExpression() {
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
+    return nullptr;
+
   if (!CheckThenNext(TOKlparen))
     return nullptr;
 
@@ -951,7 +1002,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseBlockExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseIfExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -1021,7 +1073,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseIfExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseWhileExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   uint32_t line = m_token->m_line_num;
@@ -1055,7 +1108,8 @@ CXFA_FMParser::ParseSubassignmentInForExpression() {
 }
 
 std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseForExpression() {
-  if (HasError())
+  ParseDepthLimiter limiter;
+  if (HasError() || !limiter.Check())
     return nullptr;
 
   CFX_WideStringC wsVariant;
@@ -1183,4 +1237,8 @@ std::unique_ptr<CXFA_FMExpression> CXFA_FMParser::ParseDoExpression() {
 
 bool CXFA_FMParser::HasError() const {
   return m_error || m_token == nullptr;
+}
+
+unsigned long CXFA_FMParser::SetMaxParseDepthForTest(unsigned long max_depth) {
+  return ParseDepthLimiter::SetMaxParseDepthForTest(max_depth);
 }

@@ -4,6 +4,7 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/xfa_js_embedder_test.h"
+#include "xfa/fxfa/fm2js/cxfa_fmparser.h"
 
 class FM2JSContextEmbedderTest : public XFAJSEmbedderTest {};
 
@@ -1443,4 +1444,13 @@ TEST_F(FM2JSContextEmbedderTest, InvalidFunctions) {
   for (size_t i = 0; i < FX_ArraySize(tests); ++i) {
     EXPECT_FALSE(ExecuteSilenceFailure(tests[i]));
   }
+}
+
+TEST_F(FM2JSContextEmbedderTest, MaxParseDepth) {
+  unsigned long old_max_depth = CXFA_FMParser::SetMaxParseDepthForTest(5);
+  ASSERT_TRUE(OpenDocument("simple_xfa.pdf"));
+
+  EXPECT_FALSE(ExecuteSilenceFailure("foo(bar[baz(fizz[0])])"));
+
+  CXFA_FMParser::SetMaxParseDepthForTest(old_max_depth);
 }

@@ -21,6 +21,8 @@ class CXFA_FMParser {
   std::unique_ptr<CXFA_FMFunctionDefinition> Parse();
   bool HasError() const;
 
+  static unsigned long SetMaxParseDepthForTest(unsigned long max_depth);
+
  private:
   bool NextToken();
   bool CheckThenNext(XFA_FM_TOKEN op);
