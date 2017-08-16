@@ -34,7 +34,7 @@ class CFWL_WidgetMgr : public CFWL_WidgetMgrDelegate {
   void OnProcessMessageToForm(CFWL_Message* pMessage) override;
   void OnDrawWidget(CFWL_Widget* pWidget,
                     CXFA_Graphics* pGraphics,
-                    const CFX_Matrix* pMatrix) override;
+                    const CFX_Matrix& matrix) override;
 
   CFWL_Widget* GetParentWidget(CFWL_Widget* pWidget) const;
   CFWL_Widget* GetOwnerWidget(CFWL_Widget* pWidget) const;

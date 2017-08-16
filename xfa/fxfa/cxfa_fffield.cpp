@@ -68,7 +68,7 @@ void CXFA_FFField::RenderWidget(CXFA_Graphics* pGS,
 
   CXFA_FFWidget::RenderWidget(pGS, mtRotate, dwStatus);
   CXFA_Border borderUI = m_pDataAcc->GetUIBorder();
-  DrawBorder(pGS, borderUI, m_rtUI, &mtRotate);
+  DrawBorder(pGS, borderUI, m_rtUI, mtRotate);
   RenderCaption(pGS, &mtRotate);
   DrawHighlight(pGS, &mtRotate, dwStatus, false);
 
@@ -76,7 +76,7 @@ void CXFA_FFField::RenderWidget(CXFA_Graphics* pGS,
   CFX_Matrix mt(1, 0, 0, 1, rtWidget.left, rtWidget.top);
   mt.Concat(mtRotate);
   GetApp()->GetWidgetMgrDelegate()->OnDrawWidget(m_pNormalWidget.get(), pGS,
-                                                 &mt);
+                                                 mt);
 }
 
 void CXFA_FFField::DrawHighlight(CXFA_Graphics* pGS,
@@ -781,4 +781,4 @@ void CXFA_FFField::OnProcessEvent(CFWL_Event* pEvent) {
 }
 
 void CXFA_FFField::OnDrawWidget(CXFA_Graphics* pGraphics,
-                                const CFX_Matrix* pMatrix) {}
+                                const CFX_Matrix& matrix) {}
