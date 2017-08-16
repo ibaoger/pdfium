@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb83cd1a_a115e51d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext_embeddertest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "No longer need to restore, since the max depth is bound to the parser instance",
+      "parentUuid": "ba7b7d91_0c2cea5d",
+      "range": {
+        "startLine": 1455,
+        "startChar": 0,
+        "endLine": 1455,
+        "endChar": 56
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7efe0688_8ffb7375",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a80edd13a0e657db8460868ea06b741beb259764",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58cdac2f_5f2f7825",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7efe0688_8ffb7375",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c0e24f9a_e998c688",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "No longer needed.",
+      "parentUuid": "fefb9200_75c2d191",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab140da_e7c83858",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "a80edd13a0e657db8460868ea06b741beb259764",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d022ee21_d178345c",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab140da_e7c83858",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8bee5c22_1355ed88",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049bfa70_7929ef30",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d6a1c3c_3d57b6f8",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "a80edd13a0e657db8460868ea06b741beb259764",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe4bb774_c36bf40d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d6a1c3c_3d57b6f8",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 25
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "45a216e7_306dfd49",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "nope",
+      "parentUuid": "2d6ee432_5be9e25f",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 17
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9e8859d_6b69dc02",
         "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
         "patchSetId": 1
@@ -183,6 +351,30 @@
       "revId": "a80edd13a0e657db8460868ea06b741beb259764",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569cd3c1_338d72af",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-16T17:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e8859d_6b69dc02",
+      "range": {
+        "startLine": 1242,
+        "startChar": 29,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "a80edd13a0e657db8460868ea06b741beb259764",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
