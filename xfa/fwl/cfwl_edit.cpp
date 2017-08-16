@@ -434,7 +434,7 @@ bool CFWL_Edit::OnPageLoad(int32_t nPageIndex) {
   if (!pPage)
     return false;
 
-  pPage->LoadPage(nullptr);
+  pPage->LoadPage();
   return true;
 }
 
@@ -443,7 +443,7 @@ bool CFWL_Edit::OnPageUnload(int32_t nPageIndex) {
   if (!pPage)
     return false;
 
-  pPage->UnloadPage(nullptr);
+  pPage->UnloadPage();
   return true;
 }
 
@@ -596,7 +596,12 @@ void CFWL_Edit::RenderText(CFX_RenderDevice* pRenderDev,
   if (!pTextSet)
     return;
 
-  CFX_RetainPtr<CFGAS_GEFont> pFont = pTextSet->GetFont();
+  CFDE_TxtEdtEngine* engine = pPage.GetEngine();
+  ASSERT(engine);
+  const FDE_TXTEDTPARAMS* params = engine->GetEditParams();
+  ASSERT(params);
+
+  CFX_RetainPtr<CFGAS_GEFont> pFont = params->pFont;
   if (!pFont)
     return;
 
@@ -624,9 +629,8 @@ void CFWL_Edit::RenderText(CFX_RenderDevice* pRenderDev,
       char_pos.resize(iCount, FXTEXT_CHARPOS());
 
     iCount = pTextSet->GetDisplayPos(pText, char_pos.data());
-    CFDE_TextOut::DrawString(pRenderDev, pTextSet->GetFontColor(), pFont,
-                             char_pos.data(), iCount, pTextSet->GetFontSize(),
-                             &mt);
+    CFDE_TextOut::DrawString(pRenderDev, params->dwFontColor, pFont,
+                             char_pos.data(), iCount, params->fFontSize, &mt);
   }
 }
 
@@ -720,17 +724,17 @@ void CFWL_Edit::UpdateEditParams() {
 
 void CFWL_Edit::UpdateEditLayout() {
   if (m_EdtEngine.GetTextLength() <= 0)
-    m_EdtEngine.SetTextByStream(nullptr);
+    m_EdtEngine.SetText(L"");
 
   CFDE_TxtEdtPage* pPage = m_EdtEngine.GetPage(0);
   if (pPage)
-    pPage->UnloadPage(nullptr);
+    pPage->UnloadPage();
 
   m_EdtEngine.Layout();
 
   pPage = m_EdtEngine.GetPage(0);
   if (pPage)
-    pPage->LoadPage(nullptr);
+    pPage->LoadPage();
 }
 
 bool CFWL_Edit::UpdateOffset() {
