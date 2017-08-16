@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6894656_a559d351",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-16T18:39:45Z",
+      "side": 1,
+      "message": "CountParagraphLines? Then return nLineCount, and assign outside to m_nLineCount.",
+      "range": {
+        "startLine": 983,
+        "startChar": 24,
+        "endLine": 983,
+        "endChar": 36
+      },
+      "revId": "0179be890d10a3629628777cb75a7bd6d79649ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9df87f8_2e09bdd5",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-16T18:39:45Z",
+      "side": 1,
+      "message": "This version does not change the count if the paragraph changes. Are we sure this does not happen?",
+      "range": {
+        "startLine": 990,
+        "startChar": 26,
+        "endLine": 990,
+        "endChar": 0
+      },
+      "revId": "0179be890d10a3629628777cb75a7bd6d79649ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
