@@ -17,6 +17,24 @@
       "revId": "e738361d917400a2bd7aaed8ef72158db867bb6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbc074bb_bb6c4190",
+        "filename": "xfa/fwl/cfwl_widgetmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-16T14:47:30Z",
+      "side": 1,
+      "message": "I think the answer is, this shouldn\u0027t take a const\u0026 it should take a * as we\u0027re modifying the provided matrix and setting it to the identity matrix.\n\nI guess the question would be, should OnDrawWidget really be resetting the provided matrix? That seems broken, so maybe the answer is to just delete this bit and change the *pMatrixHack to CFX_Matrix() below?\n\nProbably best as a followup, heh.",
+      "parentUuid": "04b94dfd_3c139cbe",
+      "revId": "e738361d917400a2bd7aaed8ef72158db867bb6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
