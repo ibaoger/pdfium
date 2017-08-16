@@ -1,4 +1,39 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1502842965 -0700\nnonce AHIDc+M+0aeHSBdL+TAlJrtL0kbnkVXrC1+AxUBGfUbS7QxoYBuCh4qB8FuwHLoYPV6zhACAB00j\n\n0000000000000000000000000000000000000000 002c9f55a41091eb421323d5a7959120e883dce0 refs/for/refs/heads/master%wip,m\u003dInitial_upload\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZk5BVAAoJEKs2LWFaZv17MLkIANH+/3e4VcI+0KcuqvM1xWe+\nQVmMALPHW0gcEuSADwsr5I6a/R82kiN/ln3PmYEiSxGJ3dUsjoHaw5FmAxAQo8zB\ngEbgZ3v7TwRQBKGGpyg4BqKlrHrKmx/3BVcerHPYICXicuvNyfGeHSwep/FN9jU9\nbvJLb6P56DJpQdgjAQsskGGRBCX+BDWTLA6+WGaPvLwlokYKn7hVMYEE7bIZiLn4\n5sgCOiQknBffGbN7b2beug9UDpMX3CbEki77RDfRXYRvKUH7EhbtY1f2F1T+Lt15\n1ZqzagvpzojbK56kVvdW62GqIGZBY9Iz0u5vhKDpaDQ+4QHsTWO+a1UQpiM7mn8\u003d\n\u003ddd1u\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2a0de6_ed0c40ae",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-16T01:16:04Z",
+      "side": 1,
+      "message": "Safe to do because line 86 above already dereferences |pUser2Device|. Will update fpdfsdk/ to const-ref later.",
+      "revId": "002c9f55a41091eb421323d5a7959120e883dce0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2348ad8_1c1d26da",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-16T01:16:04Z",
+      "side": 1,
+      "message": "Will get to these in the next CL in the chain.",
+      "revId": "002c9f55a41091eb421323d5a7959120e883dce0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
