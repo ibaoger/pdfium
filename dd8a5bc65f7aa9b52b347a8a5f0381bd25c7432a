@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "865520a0_97d36182",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-16T18:07:53Z",
+      "side": 1,
+      "message": "None are error cases, it\u0027s really two different things that need to be done depending on the condition. I added the else so this becomes more clear.",
+      "parentUuid": "0a3119bd_d7325f79",
+      "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6545b257_80e38268",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "647c4e87_47d582d1",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-16T18:07:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6545b257_80e38268",
+      "revId": "dd8a5bc65f7aa9b52b347a8a5f0381bd25c7432a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
