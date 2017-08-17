@@ -158,7 +158,15 @@ void CXFA_Graphics::SetLineDash(FX_DashStyle dashStyle) {
     RenderDeviceSetLineDash(dashStyle);
 }
 
-void CXFA_Graphics::SetLineWidth(float lineWidth, bool isActOnDash) {
+void CXFA_Graphics::SetLineWidth(float lineWidth) {
+  SetLineWidthInternal(lineWidth, /*bActOnDash=*/false);
+}
+
+void CXFA_Graphics::SetLineWidthActOnDash(float lineWidth) {
+  SetLineWidthInternal(lineWidth, /*bActOnDash=*/true);
+}
+
+void CXFA_Graphics::SetLineWidthInternal(float lineWidth, bool isActOnDash) {
   if (m_type == FX_CONTEXT_Device && m_renderDevice) {
     m_info.graphState.m_LineWidth = lineWidth;
     m_info.isActOnDash = isActOnDash;

@@ -56,7 +56,8 @@ class CXFA_Graphics {
   void SetLineCap(CFX_GraphStateData::LineCap lineCap);
   void SetLineDash(float dashPhase, float* dashArray, int32_t dashCount);
   void SetLineDash(FX_DashStyle dashStyle);
-  void SetLineWidth(float lineWidth, bool isActOnDash = false);
+  void SetLineWidth(float lineWidth);
+  void SetLineWidthActOnDash(float lineWidth);
   void SetStrokeColor(const CXFA_Color& color);
   void SetFillColor(const CXFA_Color& color);
   void SetClipRect(const CFX_RectF& rect);
@@ -103,6 +104,8 @@ class CXFA_Graphics {
 
   void SetDIBitsWithMatrix(const CFX_RetainPtr<CFX_DIBSource>& source,
                            CFX_Matrix* matrix);
+
+  void SetLineWidthInternal(float lineWidth, bool bActOnDash);
 
   CFX_RenderDevice* const m_renderDevice;  // Not owned.
   std::vector<std::unique_ptr<TInfo>> m_infoStack;
