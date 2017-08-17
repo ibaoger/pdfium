@@ -70,6 +70,30 @@
       "revId": "e9f0f5310ba9d1cc255ac37bd136a050a48d2dc4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e5273db_15c36d44",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T16:06:45Z",
+      "side": 0,
+      "message": "Right, we should determine ahead of time what that key combo means and we just pass a WordLeft/WordRight though to here.",
+      "parentUuid": "8be2747a_e8db1dd5",
+      "range": {
+        "startLine": 270,
+        "startChar": 40,
+        "endLine": 270,
+        "endChar": 50
+      },
+      "revId": "e9f0f5310ba9d1cc255ac37bd136a050a48d2dc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
