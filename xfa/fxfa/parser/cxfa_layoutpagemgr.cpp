@@ -150,8 +150,10 @@ CXFA_Node* ResolveBreakTarget(CXFA_Node* pPageSetRoot,
     CFX_WideString wsExpr;
     FX_STRSIZE iSplitNextIndex = 0;
     if (!bTargetAllFind) {
-      iSplitNextIndex = wsTargetAll.Find(' ', iSplitIndex);
-      ASSERT(iSplitNextIndex != FX_STRNPOS);
+      bool found;
+      std::tie(found, iSplitNextIndex) = wsTargetAll.Find(' ', iSplitIndex);
+      if (!found)
+        return nullptr;
       wsExpr = wsTargetAll.Mid(iSplitIndex, iSplitNextIndex - iSplitIndex);
     } else {
       wsExpr = wsTargetAll;

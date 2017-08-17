@@ -82,8 +82,10 @@ void FX_XML_SplitQualifiedName(const CFX_ByteStringC& bsFullName,
   if (bsFullName.IsEmpty())
     return;
 
-  FX_STRSIZE iStart = bsFullName.Find(':');
-  if (iStart == FX_STRNPOS) {
+  bool found;
+  FX_STRSIZE iStart;
+  std::tie(found, iStart) = bsFullName.Find(':');
+  if (!found) {
     bsName = bsFullName;
   } else {
     bsSpace = bsFullName.Left(iStart);

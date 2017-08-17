@@ -190,8 +190,9 @@ bool GetNumericDotIndex(const CFX_WideString& wsNum,
     }
     ccf++;
   }
-  *iDotIndex = wsNum.Find('.');
-  if (*iDotIndex != FX_STRNPOS)
+  bool found;
+  std::tie(found, *iDotIndex) = wsNum.Find('.');
+  if (found)
     return true;
 
   *iDotIndex = iLenf;
@@ -249,7 +250,7 @@ bool ParseLocaleDate(const CFX_WideString& wsDate,
       *cc += iLiteralLen;
       ccf++;
       continue;
-    } else if (wsDateSymbols.Find(strf[ccf]) == FX_STRNPOS) {
+    } else if (!wsDateSymbols.Contains(strf[ccf])) {
       if (strf[ccf] != str[*cc])
         return false;
       (*cc)++;
@@ -370,7 +371,7 @@ bool ParseLocaleTime(const CFX_WideString& wsTime,
       ccf++;
       continue;
     }
-    if (wsTimeSymbols.Find(strf[ccf]) == FX_STRNPOS) {
+    if (!wsTimeSymbols.Contains(strf[ccf])) {
       if (strf[ccf] != str[*cc])
         return false;
       (*cc)++;
@@ -577,7 +578,7 @@ CFX_WideString DateFormat(const CFX_WideString& wsDatePattern,
       ccf++;
       continue;
     }
-    if (wsDateSymbols.Find(strf[ccf]) == FX_STRNPOS) {
+    if (!wsDateSymbols.Contains(strf[ccf])) {
       wsResult += strf[ccf++];
       continue;
     }
@@ -635,7 +636,7 @@ CFX_WideString TimeFormat(const CFX_WideString& wsTimePattern,
   int32_t lenf = wsTimePattern.GetLength();
   uint16_t wHour = hour;
   bool bPM = false;
-  if (wsTimePattern.Find('A') != FX_STRNPOS) {
+  if (wsTimePattern.Contains('A')) {
     if (wHour >= 12)
       bPM = true;
   }
@@ -647,7 +648,7 @@ CFX_WideString TimeFormat(const CFX_WideString& wsTimePattern,
       ccf++;
       continue;
     }
-    if (wsTimeSymbols.Find(strf[ccf]) == FX_STRNPOS) {
+    if (!wsTimeSymbols.Contains(strf[ccf])) {
       wsResult += strf[ccf++];
       continue;
     }
@@ -874,7 +875,7 @@ FX_LOCALECATEGORY CFGAS_FormatString::GetCategory(
   while (ccf < iLenf) {
     if (pStr[ccf] == '\'') {
       GetLiteralText(pStr, &ccf, iLenf);
-    } else if (!bBraceOpen && wsConstChars.Find(pStr[ccf]) == FX_STRNPOS) {
+    } else if (!bBraceOpen && !wsConstChars.Contains(pStr[ccf])) {
       CFX_WideString wsCategory(pStr[ccf]);
       ccf++;
       while (true) {
@@ -932,7 +933,7 @@ CFX_WideString CFGAS_FormatString::GetTextFormat(
       int32_t iCurChar = ccf;
       GetLiteralText(pStr, &ccf, iLenf);
       wsPurgePattern += CFX_WideStringC(pStr + iCurChar, ccf - iCurChar + 1);
-    } else if (!bBrackOpen && wsConstChars.Find(pStr[ccf]) == FX_STRNPOS) {
+    } else if (!bBrackOpen && !wsConstChars.Contains(pStr[ccf])) {
       CFX_WideString wsSearchCategory(pStr[ccf]);
       ccf++;
       while (ccf < iLenf && pStr[ccf] != '{' && pStr[ccf] != '.' &&
@@ -984,7 +985,7 @@ IFX_Locale* CFGAS_FormatString::GetNumericFormat(
       int32_t iCurChar = ccf;
       GetLiteralText(pStr, &ccf, iLenf);
       *wsPurgePattern += CFX_WideStringC(pStr + iCurChar, ccf - iCurChar + 1);
-    } else if (!bBrackOpen && wsConstChars.Find(pStr[ccf]) == FX_STRNPOS) {
+    } else if (!bBrackOpen && !wsConstChars.Contains(pStr[ccf])) {
       CFX_WideString wsCategory(pStr[ccf]);
       ccf++;
       while (ccf < iLenf && pStr[ccf] != '{' && pStr[ccf] != '.' &&
@@ -1030,8 +1031,9 @@ IFX_Locale* CFGAS_FormatString::GetNumericFormat(
           ASSERT(pLocale);
 
           wsSubCategory = pLocale->GetNumPattern(eSubCategory);
-          *iDotIndex = wsSubCategory.Find('.');
-          if (*iDotIndex != 0 && *iDotIndex != FX_STRNPOS) {
+          bool found;
+          std::tie(found, *iDotIndex) = wsSubCategory.Find('.');
+          if (found && *iDotIndex != 0) {
             *iDotIndex += wsPurgePattern->GetLength();
             bFindDot = true;
             *dwStyle |= FX_NUMSTYLE_DotVorv;
@@ -1177,9 +1179,8 @@ bool CFGAS_FormatString::ParseNum(const CFX_WideString& wsSrcNum,
   // If we're looking for a '.', 'V' or 'v' and the input string does not
   // have a dot index for one of those, then we disable parsing the decimal.
   if (!GetNumericDotIndex(wsSrcNum, wsDotSymbol, &dot_index) &&
-      (dwFormatStyle & FX_NUMSTYLE_DotVorv)) {
+      (dwFormatStyle & FX_NUMSTYLE_DotVorv))
     bReverseParse = true;
-  }
 
   // This parse is broken into two parts based on the '.' in the number
   // (or 'V' or 'v'). |dot_index_f| is the location of the dot in the format and
@@ -1570,7 +1571,7 @@ FX_DATETIMETYPE CFGAS_FormatString::GetDateTimeFormat(
       GetLiteralText(pStr, &ccf, iLenf);
       wsTempPattern += CFX_WideStringC(pStr + iCurChar, ccf - iCurChar + 1);
     } else if (!bBraceOpen && iFindCategory != 3 &&
-               wsConstChars.Find(pStr[ccf]) == FX_STRNPOS) {
+               !wsConstChars.Contains(pStr[ccf])) {
       CFX_WideString wsCategory(pStr[ccf]);
       ccf++;
       while (ccf < iLenf && pStr[ccf] != '{' && pStr[ccf] != '.' &&
@@ -1950,8 +1951,10 @@ bool CFGAS_FormatString::FormatStrNum(const CFX_WideStringC& wsInputNum,
   bool bAddNeg = false;
   const wchar_t* str = wsSrcNum.c_str();
   int len = wsSrcNum.GetLength();
-  int dot_index = wsSrcNum.Find('.');
-  if (dot_index == FX_STRNPOS)
+  bool found;
+  int dot_index;
+  std::tie(found, dot_index) = wsSrcNum.Find('.');
+  if (!found)
     dot_index = len;
 
   ccf = dot_index_f - 1;
@@ -2281,8 +2284,10 @@ bool CFGAS_FormatString::FormatDateTime(const CFX_WideString& wsSrcDateTime,
     return false;
 
   CFX_DateTime dt;
-  int32_t iT = wsSrcDateTime.Find(L"T");
-  if (iT == FX_STRNPOS) {
+  bool found;
+  int32_t iT;
+  std::tie(found, iT) = wsSrcDateTime.Find(L"T");
+  if (!found) {
     if (eCategory == FX_DATETIMETYPE_Date &&
         FX_DateFromCanonical(wsSrcDateTime, &dt)) {
       *wsOutput = FormatDateTimeInternal(dt, wsDatePattern, wsTimePattern, true,
