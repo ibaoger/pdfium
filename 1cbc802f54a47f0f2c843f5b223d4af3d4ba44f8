@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cff2ecfc_ae6247cb",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T18:19:23Z",
+      "side": 0,
+      "message": "In this case, I\u0027d be concerned we\u0027re introducing a subtle bug by leaving it.\n\nSay we create a CFWL_Edit. On that edit, before we\u0027ve done the ::Update call, we trigger the SetText() on this method. Set text will use m_wLineEnd to break things apart. So, that SetText will break on kUnicodeParagraphSeparator. We then call ::Update and then ::SetText again. The second SetText will now break on \u0027\\n\u0027 which could be a different result then the first time.\n\nThis seems like it could lead to confusion in the long run? Unifying these two values makes this issue go away.",
+      "parentUuid": "6cf61f0e_82895797",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 44
+      },
+      "revId": "1cbc802f54a47f0f2c843f5b223d4af3d4ba44f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7a20678_a0d12806",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
