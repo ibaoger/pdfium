@@ -46,6 +46,30 @@
       "revId": "1cbc802f54a47f0f2c843f5b223d4af3d4ba44f8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e50719_2b798a1d",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-17T16:09:55Z",
+      "side": 1,
+      "message": "Seems like it\u0027s what I had conjectured. Can we rename Home and End to TextStart and TextEnd respectively?",
+      "parentUuid": "b04c0214_8f01692f",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "1cbc802f54a47f0f2c843f5b223d4af3d4ba44f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
