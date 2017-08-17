@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6a8b29_d0209fad",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-17T19:31:47Z",
+      "side": 1,
+      "message": "This now runs if (pCurFont \u0026\u0026 iCurCount), but it did not run before.",
+      "range": {
+        "startLine": 114,
+        "startChar": 26,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa939d74_03eb646b",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-17T19:31:47Z",
+      "side": 1,
+      "message": "break_char_set or is_break_char_set or was_break_char_set",
+      "range": {
+        "startLine": 221,
+        "startChar": 7,
+        "endLine": 221,
+        "endChar": 21
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0883a991_f09875ad",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-17T19:31:47Z",
+      "side": 1,
+      "message": "I actually found the previous code more readable. Can you split one param per line or use local vars to name what each number means?",
+      "range": {
+        "startLine": 408,
+        "startChar": 52,
+        "endLine": 408,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
