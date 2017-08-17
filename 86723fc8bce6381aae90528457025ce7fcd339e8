@@ -35,6 +35,24 @@
       "revId": "86723fc8bce6381aae90528457025ce7fcd339e8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89991933_1fac2175",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T02:30:40Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to spilt it into the two methods. Makes it clearer what\u0027s going on, so having SetLineWidth(fThickness) and EnableActOnDash(true).",
+      "parentUuid": "3d6092cf_e26162f6",
+      "revId": "86723fc8bce6381aae90528457025ce7fcd339e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
