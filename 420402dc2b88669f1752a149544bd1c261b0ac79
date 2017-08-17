@@ -16,6 +16,24 @@
       "revId": "420402dc2b88669f1752a149544bd1c261b0ac79",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a77729ca_07b94d12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-08-17T18:40:09Z",
+      "side": 1,
+      "message": "Yes, that\u0027s my point. quickFloor is flawed.",
+      "parentUuid": "6000afcd_d99b7eae",
+      "revId": "420402dc2b88669f1752a149544bd1c261b0ac79",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
