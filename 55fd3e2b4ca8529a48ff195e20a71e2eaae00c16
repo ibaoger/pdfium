@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1502957773 -0700\nnonce AHIDc+OXkYkUl7jE9S0HKg/Fc2fiuM7J90pFCAX3pYETz0j3VGTmthIUlXXu0kUDyQx0WyHXxW34\n\n0000000000000000000000000000000000000000 55fd3e2b4ca8529a48ff195e20a71e2eaae00c16 refs/for/refs/heads/master%notify\u003dNONE,m\u003dFix_Android_again\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZlVDNAAoJEKs2LWFaZv17HFYH/j5sJgGOq/9Vd7GdBWefajoP\nIU9ncP1/MqmVMtpMjGsvXmR7qkh5EW7yK0srbFQavxwfDdg+WqSxAiQDbkqxwOJg\nJX9/61UUVu1WaXvvnCReVzuqzWBrTTO25cKEbxv6/Mmccn/iDrxEE5eeJNHCbAia\nCBVnYcsNDQnJtCZzqUxiNUvAkCIDjcR6CnfpSLT0Azcw+udQrX9utP696sXpgHAj\n4QIalTiQE4orq//asvG8Fd2CaOsMqbLhAiUi3PfmhxRobLBfZGwpOTMH5Ie/l925\nds5tDNPXvsykPSgWJPvSxN/OH86HlNOVBcuAX2VRnxNnWruKjb81Ic7ElHuCr1o\u003d\n\u003dPSxU\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
