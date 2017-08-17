@@ -809,19 +809,19 @@ bool CPDFXFA_DocEnvironment::ExportSubmitFile(FPDF_FILEHANDLER* pFileHandler,
 
 void CPDFXFA_DocEnvironment::ToXFAContentFlags(CFX_WideString csSrcContent,
                                                FPDF_DWORD& flag) {
-  if (csSrcContent.Find(L" config ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" config "))
     flag |= FXFA_CONFIG;
-  if (csSrcContent.Find(L" template ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" template "))
     flag |= FXFA_TEMPLATE;
-  if (csSrcContent.Find(L" localeSet ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" localeSet "))
     flag |= FXFA_LOCALESET;
-  if (csSrcContent.Find(L" datasets ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" datasets "))
     flag |= FXFA_DATASETS;
-  if (csSrcContent.Find(L" xmpmeta ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" xmpmeta "))
     flag |= FXFA_XMPMETA;
-  if (csSrcContent.Find(L" xfdf ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" xfdf "))
     flag |= FXFA_XFDF;
-  if (csSrcContent.Find(L" form ", 0) != FX_STRNPOS)
+  if (csSrcContent.Contains(L" form "))
     flag |= FXFA_FORM;
   if (flag == 0) {
     flag = FXFA_CONFIG | FXFA_TEMPLATE | FXFA_LOCALESET | FXFA_DATASETS |
@@ -840,11 +840,13 @@ bool CPDFXFA_DocEnvironment::MailToInfo(CFX_WideString& csURL,
   if (srcURL.Left(7).CompareNoCase(L"mailto:") != 0)
     return false;
 
-  FX_STRSIZE pos = srcURL.Find(L'?', 0);
+  bool found;
+  FX_STRSIZE pos;
+  std::tie(found, pos) = srcURL.Find(L'?');
   CFX_WideString tmp;
-  if (pos == FX_STRNPOS) {
-    pos = srcURL.Find(L'@', 0);
-    if (pos == FX_STRNPOS)
+  if (!found) {
+    std::tie(found, pos) = srcURL.Find(L'@');
+    if (!found)
       return false;
 
     tmp = srcURL.Right(csURL.GetLength() - 7);
@@ -861,9 +863,9 @@ bool CPDFXFA_DocEnvironment::MailToInfo(CFX_WideString& csURL,
   while (!srcURL.IsEmpty()) {
     srcURL.TrimLeft();
     srcURL.TrimRight();
-    pos = srcURL.Find(L'&', 0);
+    std::tie(found, pos) = srcURL.Find(L'&');
 
-    tmp = (pos == FX_STRNPOS) ? srcURL : srcURL.Left(pos);
+    tmp = (!found) ? srcURL : srcURL.Left(pos);
     tmp.TrimLeft();
     tmp.TrimRight();
     if (tmp.GetLength() >= 3 && tmp.Left(3).CompareNoCase(L"cc=") == 0) {

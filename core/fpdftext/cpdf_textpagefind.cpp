@@ -163,8 +163,9 @@ bool CPDF_TextPageFind::FindNext() {
       continue;
     }
     int endIndex;
-    nResultPos = m_strText.Find(csWord.c_str(), nStartPos);
-    if (nResultPos == FX_STRNPOS) {
+    bool found;
+    std::tie(found, nResultPos) = m_strText.Find(csWord.c_str(), nStartPos);
+    if (!found) {
       m_IsFind = false;
       return m_IsFind;
     }

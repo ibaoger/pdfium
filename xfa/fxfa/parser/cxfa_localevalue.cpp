@@ -49,10 +49,12 @@ bool ValueSplitDateTime(const CFX_WideString& wsDateTime,
   if (wsDateTime.IsEmpty())
     return false;
 
-  FX_STRSIZE nSplitIndex = wsDateTime.Find('T');
-  if (nSplitIndex == FX_STRNPOS)
-    nSplitIndex = wsDateTime.Find(' ');
-  if (nSplitIndex == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE nSplitIndex;
+  std::tie(found, nSplitIndex) = wsDateTime.Find('T');
+  if (!found)
+    std::tie(found, nSplitIndex) = wsDateTime.Find(' ');
+  if (!found)
     return false;
 
   wsDate = wsDateTime.Left(nSplitIndex);
@@ -444,7 +446,7 @@ bool CXFA_LocaleValue::ValidateCanonicalDate(const CFX_WideString& wsDate,
   if (nLen < wCountY || nLen > wCountY + wCountM + wCountD + 2)
     return false;
 
-  const bool bSymbol = wsDate.Find(0x2D) != FX_STRNPOS;
+  const bool bSymbol = wsDate.Contains(0x2D);
   uint16_t wYear = 0;
   uint16_t wMonth = 0;
   uint16_t wDay = 0;
@@ -519,7 +521,7 @@ bool CXFA_LocaleValue::ValidateCanonicalTime(const CFX_WideString& wsTime) {
   const uint16_t wCountM = 2;
   const uint16_t wCountS = 2;
   const uint16_t wCountF = 3;
-  const bool bSymbol = wsTime.Find(':') != FX_STRNPOS;
+  const bool bSymbol = wsTime.Contains(':');
   uint16_t wHour = 0;
   uint16_t wMinute = 0;
   uint16_t wSecond = 0;
@@ -558,8 +560,10 @@ bool CXFA_LocaleValue::ValidateCanonicalTime(const CFX_WideString& wsTime) {
     wSecond = pTime[nIndex] - '0' + wSecond * 10;
     nIndex++;
   }
-  FX_STRSIZE ret = wsTime.Find('.');
-  if (ret && ret != FX_STRNPOS) {
+  bool found;
+  FX_STRSIZE pos;
+  std::tie(found, pos) = wsTime.Find('.');
+  if (found && pos) {
     if (pTime[nIndex] != '.')
       return false;
     nIndex++;

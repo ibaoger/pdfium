@@ -142,8 +142,22 @@ class CFX_WideString {
   int GetInteger() const;
   float GetFloat() const;
 
-  FX_STRSIZE Find(const CFX_WideStringC& pSub, FX_STRSIZE start = 0) const;
-  FX_STRSIZE Find(wchar_t ch, FX_STRSIZE start = 0) const;
+  std::pair<bool, FX_STRSIZE> Find(const CFX_WideStringC& pSub,
+                                   FX_STRSIZE start = 0) const;
+  std::pair<bool, FX_STRSIZE> Find(wchar_t ch, FX_STRSIZE start = 0) const;
+
+  bool Contains(const CFX_WideStringC& lpszSub, FX_STRSIZE start = 0) const {
+    bool found;
+    std::tie(found, std::ignore) = Find(lpszSub, start);
+    return found;
+  }
+
+  bool Contains(char ch, FX_STRSIZE start = 0) const {
+    bool found;
+    std::tie(found, std::ignore) = Find(ch, start);
+    return found;
+  }
+
   FX_STRSIZE Replace(const CFX_WideStringC& pOld, const CFX_WideStringC& pNew);
   FX_STRSIZE Remove(wchar_t ch);
 
