@@ -96,8 +96,10 @@ CFX_ByteString CPDF_Action::GetURI(CPDF_Document* pDoc) const {
   CPDF_Dictionary* pRoot = pDoc->GetRoot();
   CPDF_Dictionary* pURI = pRoot->GetDictFor("URI");
   if (pURI) {
-    FX_STRSIZE ret = csURI.Find(":");
-    if (ret == 0 || ret == FX_STRNPOS)
+    bool found;
+    FX_STRSIZE ret;
+    std::tie(found, ret) = csURI.Find(":");
+    if (!found || ret == 0)
       csURI = pURI->GetStringFor("Base") + csURI;
   }
   return csURI;

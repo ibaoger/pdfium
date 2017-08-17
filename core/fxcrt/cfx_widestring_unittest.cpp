@@ -527,6 +527,63 @@ TEST(fxcrt, WideStringRight) {
   EXPECT_EQ(L"", empty.Right(-1));
 }
 
+TEST(fxcrt, WideStringFind) {
+  CFX_WideString null_string;
+  bool valid;
+  std::tie(valid, std::ignore) = null_string.Find(L'a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = null_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  CFX_WideString empty_string(L"");
+  std::tie(valid, std::ignore) = empty_string.Find(L'a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = empty_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  FX_STRSIZE pos;
+  CFX_WideString single_string(L"a");
+  std::tie(valid, pos) = single_string.Find(L'a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, std::ignore) = single_string.Find(L'b');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = single_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  CFX_WideString longer_string(L"abccc");
+  std::tie(valid, pos) = longer_string.Find(L'a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find(L'c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, pos) = longer_string.Find(L'c', 3);
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(3, pos);
+  std::tie(valid, std::ignore) = longer_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  std::tie(valid, pos) = longer_string.Find(L"ab");
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find(L"ccc");
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, pos) = longer_string.Find(L"cc", 3);
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(3, pos);
+  std::tie(valid, std::ignore) = longer_string.Find(L"d");
+  EXPECT_FALSE(valid);
+
+  CFX_WideString hibyte_string(
+      L"ab\xff8c"
+      L"def");
+  std::tie(valid, pos) = hibyte_string.Find(L'\xff8c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+}
+
 TEST(fxcrt, WideStringUpperLower) {
   CFX_WideString fred(L"F-Re.42D");
   fred.MakeLower();
@@ -924,27 +981,44 @@ TEST(fxcrt, WideStringCOperatorNE) {
 
 TEST(fxcrt, WideStringCFind) {
   CFX_WideStringC null_string;
-  EXPECT_EQ(FX_STRNPOS, null_string.Find(L'a'));
-  EXPECT_EQ(FX_STRNPOS, null_string.Find(0));
+  bool valid;
+  std::tie(valid, std::ignore) = null_string.Find(L'a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = null_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_WideStringC empty_string(L"");
-  EXPECT_EQ(FX_STRNPOS, empty_string.Find(L'a'));
-  EXPECT_EQ(FX_STRNPOS, empty_string.Find(0));
+  std::tie(valid, std::ignore) = empty_string.Find(L'a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = empty_string.Find(0);
+  EXPECT_FALSE(valid);
 
+  FX_STRSIZE pos;
   CFX_WideStringC single_string(L"a");
-  EXPECT_EQ(0, single_string.Find(L'a'));
-  EXPECT_EQ(FX_STRNPOS, single_string.Find(L'b'));
-  EXPECT_EQ(FX_STRNPOS, single_string.Find(0));
+  std::tie(valid, pos) = single_string.Find(L'a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, std::ignore) = single_string.Find(L'b');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = single_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_WideStringC longer_string(L"abccc");
-  EXPECT_EQ(0, longer_string.Find(L'a'));
-  EXPECT_EQ(2, longer_string.Find(L'c'));
-  EXPECT_EQ(FX_STRNPOS, longer_string.Find(0));
+  std::tie(valid, pos) = longer_string.Find(L'a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find(L'c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, std::ignore) = longer_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_WideStringC hibyte_string(
-      L"ab\xff08"
+      L"ab\xff8c"
       L"def");
-  EXPECT_EQ(2, hibyte_string.Find(L'\xff08'));
+  std::tie(valid, pos) = hibyte_string.Find(L'\xff8c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
 }
 
 TEST(fxcrt, WideStringCNullIterator) {

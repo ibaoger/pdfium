@@ -22,7 +22,7 @@ namespace {
 FX_STRSIZE FindWebLinkEnding(const CFX_WideString& str,
                              FX_STRSIZE start,
                              FX_STRSIZE end) {
-  if (str.Find(L'/', start) != FX_STRNPOS) {
+  if (str.Contains(L'/', start)) {
     // When there is a path and query after '/', most ASCII chars are allowed.
     // We don't sanitize in this case.
     return end;
@@ -33,8 +33,9 @@ FX_STRSIZE FindWebLinkEnding(const CFX_WideString& str,
   if (str[start] == L'[') {
     // IPv6 reference.
     // Find the end of the reference.
-    end = str.Find(L']', start + 1);
-    if (end != -1 && end > start + 1) {  // Has content inside brackets.
+    bool found;
+    std::tie(found, end) = str.Find(L']', start + 1);
+    if (found && end > start + 1) {  // Has content inside brackets.
       FX_STRSIZE len = str.GetLength();
       FX_STRSIZE off = end + 1;
       if (off < len && str[off] == L':') {
@@ -196,8 +197,10 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString* strBeCheck,
 
   FX_STRSIZE len = str.GetLength();
   // First, try to find the scheme.
-  FX_STRSIZE start = str.Find(kHttpScheme);
-  if (start != FX_STRNPOS) {
+  bool found;
+  FX_STRSIZE start;
+  std::tie(found, start) = str.Find(kHttpScheme);
+  if (found) {
     FX_STRSIZE off = start + kHttpSchemeLen;  // move after "http".
     if (len > off + 4) {                      // At least "://<char>" follows.
       if (str[off] == L's')                   // "https" scheme is accepted.
@@ -218,8 +221,8 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString* strBeCheck,
   }
 
   // When there is no scheme, try to find url starting with "www.".
-  start = str.Find(kWWWAddrStart);
-  if (start != FX_STRNPOS && len > start + kWWWAddrStartLen) {
+  std::tie(found, start) = str.Find(kWWWAddrStart);
+  if (found && len > start + kWWWAddrStartLen) {
     FX_STRSIZE end =
         TrimExternalBracketsFromWebLink(str, start, str.GetLength() - 1);
     end = FindWebLinkEnding(str, start, end);
@@ -234,9 +237,11 @@ bool CPDF_LinkExtract::CheckWebLink(CFX_WideString* strBeCheck,
 }
 
 bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
-  FX_STRSIZE aPos = str->Find(L'@');
+  bool found;
+  FX_STRSIZE aPos;
+  std::tie(found, aPos) = str->Find(L'@');
   // Invalid when no '@' or when starts/ends with '@'.
-  if (aPos == FX_STRNPOS || aPos == 0 || aPos == str->GetLength() - 1)
+  if (!found || aPos == 0 || aPos == str->GetLength() - 1)
     return false;
 
   // Check the local part.
@@ -262,16 +267,17 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
   }
 
   // Check the domain name part.
-  aPos = str->Find(L'@');
-  if (aPos < 1 || aPos == FX_STRNPOS)
+  std::tie(found, aPos) = str->Find(L'@');
+  if (!found || aPos == 0)
     return false;
 
   str->TrimRight(L'.');
   // At least one '.' in domain name, but not at the beginning.
   // TODO(weili): RFC5322 allows domain names to be a local name without '.'.
   // Check whether we should remove this check.
-  FX_STRSIZE ePos = str->Find(L'.', aPos + 1);
-  if (ePos == FX_STRNPOS || ePos == aPos + 1)
+  FX_STRSIZE ePos;
+  std::tie(found, ePos) = str->Find(L'.', aPos + 1);
+  if (!found || ePos == aPos + 1)
     return false;
 
   // Validate all other chars in domain name.
@@ -295,7 +301,7 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
     pPos = i;
   }
 
-  if (str->Find(L"mailto:") == FX_STRNPOS)
+  if (str->Contains(L"mailto:"))
     *str = L"mailto:" + *str;
 
   return true;

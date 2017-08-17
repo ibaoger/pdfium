@@ -226,15 +226,16 @@ void RegenerateFormFile_Changed(CXFA_Node* pNode,
 
         std::vector<CFX_WideString> wsSelTextArray;
         FX_STRSIZE iStart = 0;
-        FX_STRSIZE iEnd = wsRawValue.Find(L'\n', iStart);
-        iEnd = (iEnd == FX_STRNPOS) ? wsRawValue.GetLength() : iEnd;
-        while (iEnd != FX_STRNPOS && iEnd >= iStart) {
+        bool found;
+        FX_STRSIZE iEnd;
+        std::tie(found, iEnd) = wsRawValue.Find(L'\n', iStart);
+        iEnd = (!found) ? wsRawValue.GetLength() : iEnd;
+        while (found && iEnd >= iStart) {
           wsSelTextArray.push_back(wsRawValue.Mid(iStart, iEnd - iStart));
           iStart = iEnd + 1;
           if (iStart >= wsRawValue.GetLength())
             break;
-
-          iEnd = wsRawValue.Find(L'\n', iStart);
+          std::tie(found, iEnd) = wsRawValue.Find(L'\n', iStart);
         }
         CXFA_Node* pParentNode = pNode->GetNodeItem(XFA_NODEITEM_Parent);
         ASSERT(pParentNode);

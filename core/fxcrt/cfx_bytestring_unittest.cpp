@@ -568,6 +568,105 @@ TEST(fxcrt, ByteStringRight) {
   EXPECT_EQ("", empty.Right(-1));
 }
 
+TEST(fxcrt, ByteStringFind) {
+  CFX_ByteString null_string;
+  bool valid;
+  std::tie(valid, std::ignore) = null_string.Find('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = null_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString empty_string("");
+  std::tie(valid, std::ignore) = empty_string.Find('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = empty_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  FX_STRSIZE pos;
+  CFX_ByteString single_string("a");
+  std::tie(valid, pos) = single_string.Find('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, std::ignore) = single_string.Find('b');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = single_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString longer_string("abccc");
+  std::tie(valid, pos) = longer_string.Find('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find('c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, pos) = longer_string.Find('c', 3);
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(3, pos);
+  std::tie(valid, std::ignore) = longer_string.Find(0);
+  EXPECT_FALSE(valid);
+
+  std::tie(valid, pos) = longer_string.Find("ab");
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find("ccc");
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, pos) = longer_string.Find("cc", 3);
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(3, pos);
+  std::tie(valid, std::ignore) = longer_string.Find("d");
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString hibyte_string(
+      "ab\x8c"
+      "def");
+  std::tie(valid, pos) = hibyte_string.Find('\x8c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+}
+
+TEST(fxcrt, ByteStringReverseFind) {
+  CFX_ByteString null_string;
+  bool valid;
+  std::tie(valid, std::ignore) = null_string.ReverseFind('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = null_string.ReverseFind(0);
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString empty_string("");
+  std::tie(valid, std::ignore) = empty_string.ReverseFind('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = empty_string.ReverseFind(0);
+  EXPECT_FALSE(valid);
+
+  FX_STRSIZE pos;
+  CFX_ByteString single_string("a");
+  std::tie(valid, pos) = single_string.ReverseFind('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, std::ignore) = single_string.ReverseFind('b');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = single_string.ReverseFind(0);
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString longer_string("abccc");
+  std::tie(valid, pos) = longer_string.ReverseFind('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.ReverseFind('c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, std::ignore) = longer_string.ReverseFind(0);
+  EXPECT_FALSE(valid);
+
+  CFX_ByteString hibyte_string(
+      "ab\x8c"
+      "def");
+  std::tie(valid, pos) = hibyte_string.ReverseFind('\x8c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+}
+
 TEST(fxcrt, ByteStringUpperLower) {
   CFX_ByteString fred("F-Re.42D");
   fred.MakeLower();
@@ -882,27 +981,44 @@ TEST(fxcrt, ByteStringCGetID) {
 
 TEST(fxcrt, ByteStringCFind) {
   CFX_ByteStringC null_string;
-  EXPECT_EQ(FX_STRNPOS, null_string.Find('a'));
-  EXPECT_EQ(FX_STRNPOS, null_string.Find(0));
+  bool valid;
+  std::tie(valid, std::ignore) = null_string.Find('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = null_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_ByteStringC empty_string("");
-  EXPECT_EQ(FX_STRNPOS, empty_string.Find('a'));
-  EXPECT_EQ(FX_STRNPOS, empty_string.Find(0));
+  std::tie(valid, std::ignore) = empty_string.Find('a');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = empty_string.Find(0);
+  EXPECT_FALSE(valid);
 
+  FX_STRSIZE pos;
   CFX_ByteStringC single_string("a");
-  EXPECT_EQ(0, single_string.Find('a'));
-  EXPECT_EQ(FX_STRNPOS, single_string.Find('b'));
-  EXPECT_EQ(FX_STRNPOS, single_string.Find(0));
+  std::tie(valid, pos) = single_string.Find('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, std::ignore) = single_string.Find('b');
+  EXPECT_FALSE(valid);
+  std::tie(valid, std::ignore) = single_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_ByteStringC longer_string("abccc");
-  EXPECT_EQ(0, longer_string.Find('a'));
-  EXPECT_EQ(2, longer_string.Find('c'));
-  EXPECT_EQ(FX_STRNPOS, longer_string.Find(0));
+  std::tie(valid, pos) = longer_string.Find('a');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(0, pos);
+  std::tie(valid, pos) = longer_string.Find('c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
+  std::tie(valid, std::ignore) = longer_string.Find(0);
+  EXPECT_FALSE(valid);
 
   CFX_ByteStringC hibyte_string(
       "ab\x8c"
       "def");
-  EXPECT_EQ(2, hibyte_string.Find('\x8c'));
+  std::tie(valid, pos) = hibyte_string.Find('\x8c');
+  EXPECT_TRUE(valid);
+  EXPECT_EQ(2, pos);
 }
 
 TEST(fxcrt, ByteStringCMid) {

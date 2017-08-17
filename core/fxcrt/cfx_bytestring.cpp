@@ -564,43 +564,46 @@ CFX_ByteString CFX_ByteString::Left(FX_STRSIZE nCount) const {
   return dest;
 }
 
-FX_STRSIZE CFX_ByteString::Find(char ch, FX_STRSIZE nStart) const {
+std::pair<bool, FX_STRSIZE> CFX_ByteString::Find(char ch,
+                                                 FX_STRSIZE nStart) const {
   if (!m_pData)
-    return FX_STRNPOS;
+    return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 
   if (nStart < 0 || nStart >= m_pData->m_nDataLength)
-    return FX_STRNPOS;
+    return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 
   const char* pStr = static_cast<const char*>(
       memchr(m_pData->m_String + nStart, ch, m_pData->m_nDataLength - nStart));
-  return pStr ? pStr - m_pData->m_String : FX_STRNPOS;
+  return pStr ? std::pair<bool, FX_STRSIZE>(true, pStr - m_pData->m_String)
+              : std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 }
 
-FX_STRSIZE CFX_ByteString::ReverseFind(char ch) const {
+std::pair<bool, FX_STRSIZE> CFX_ByteString::ReverseFind(char ch) const {
   if (!m_pData)
-    return FX_STRNPOS;
+    return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 
   FX_STRSIZE nLength = m_pData->m_nDataLength;
   while (nLength--) {
     if (m_pData->m_String[nLength] == ch)
-      return nLength;
+      std::pair<bool, FX_STRSIZE>(true, nLength);
   }
-  return FX_STRNPOS;
+  return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 }
 
-FX_STRSIZE CFX_ByteString::Find(const CFX_ByteStringC& pSub,
-                                FX_STRSIZE nStart) const {
+std::pair<bool, FX_STRSIZE> CFX_ByteString::Find(const CFX_ByteStringC& pSub,
+                                                 FX_STRSIZE nStart) const {
   if (!m_pData)
-    return FX_STRNPOS;
+    return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 
   FX_STRSIZE nLength = m_pData->m_nDataLength;
   if (nStart > nLength)
-    return FX_STRNPOS;
+    return std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 
   const char* pStr =
       FX_strstr(m_pData->m_String + nStart, m_pData->m_nDataLength - nStart,
                 pSub.unterminated_c_str(), pSub.GetLength());
-  return pStr ? (int)(pStr - m_pData->m_String) : FX_STRNPOS;
+  return pStr ? std::pair<bool, FX_STRSIZE>(true, pStr - m_pData->m_String)
+              : std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
 }
 
 void CFX_ByteString::MakeLower() {

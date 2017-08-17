@@ -130,9 +130,24 @@ class CFX_ByteString {
   CFX_ByteString Left(FX_STRSIZE count) const;
   CFX_ByteString Right(FX_STRSIZE count) const;
 
-  FX_STRSIZE Find(const CFX_ByteStringC& lpszSub, FX_STRSIZE start = 0) const;
-  FX_STRSIZE Find(char ch, FX_STRSIZE start = 0) const;
-  FX_STRSIZE ReverseFind(char ch) const;
+  std::pair<bool, FX_STRSIZE> Find(const CFX_ByteStringC& lpszSub,
+                                   FX_STRSIZE start = 0) const;
+  std::pair<bool, FX_STRSIZE> Find(char ch, FX_STRSIZE start = 0) const;
+  std::pair<bool, FX_STRSIZE> ReverseFind(char ch) const;
+
+  bool Contains(const CFX_ByteStringC& lpszSub, FX_STRSIZE start = 0) const {
+    ASSERT(start >= 0 && start < GetLength());
+    bool found;
+    std::tie(found, std::ignore) = Find(lpszSub, start);
+    return found;
+  }
+
+  bool Contains(char ch, FX_STRSIZE start = 0) const {
+    ASSERT(start >= 0 && start < GetLength());
+    bool found;
+    std::tie(found, std::ignore) = Find(ch, start);
+    return found;
+  }
 
   void MakeLower();
   void MakeUpper();

@@ -121,17 +121,20 @@ bool CXFA_PDFFontMgr::PsNameMatchDRFontName(const CFX_ByteStringC& bsPsName,
   CFX_ByteString bsDRName = bsDRFontName;
   bsDRName.Remove('-');
   FX_STRSIZE iPsLen = bsPsName.GetLength();
-  FX_STRSIZE nIndex = bsDRName.Find(bsPsName);
-  if (nIndex != FX_STRNPOS && !bStrictMatch)
+  bool found;
+  FX_STRSIZE nIndex;
+  std::tie(found, nIndex) = bsDRName.Find(bsPsName);
+  if (!found && !bStrictMatch)
     return true;
 
-  if (nIndex != 0)
+  if (!found || nIndex != 0)
     return false;
 
   int32_t iDifferLength = bsDRName.GetLength() - iPsLen;
   if (iDifferLength > 1 || (bBold || bItalic)) {
-    FX_STRSIZE iBoldIndex = bsDRName.Find("Bold");
-    bool bBoldFont = iBoldIndex != FX_STRNPOS;
+    bool bBoldFont;
+    FX_STRSIZE iBoldIndex;
+    std::tie(bBoldFont, iBoldIndex) = bsDRName.Find("Bold");
     if (bBold != bBoldFont)
       return false;
 
@@ -140,11 +143,11 @@ bool CXFA_PDFFontMgr::PsNameMatchDRFontName(const CFX_ByteStringC& bsPsName,
           std::min(iDifferLength - 4, bsDRName.GetLength() - iBoldIndex - 4);
     }
     bool bItalicFont = true;
-    if (bsDRName.Find("Italic") != FX_STRNPOS) {
+    if (bsDRName.Contains("Italic")) {
       iDifferLength -= 6;
-    } else if (bsDRName.Find("It") != FX_STRNPOS) {
+    } else if (bsDRName.Contains("It")) {
       iDifferLength -= 2;
-    } else if (bsDRName.Find("Oblique") != FX_STRNPOS) {
+    } else if (bsDRName.Contains("Oblique")) {
       iDifferLength -= 7;
     } else {
       bItalicFont = false;

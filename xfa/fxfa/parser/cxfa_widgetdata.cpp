@@ -42,10 +42,12 @@ bool SplitDateTime(const CFX_WideString& wsDateTime,
   if (wsDateTime.IsEmpty())
     return false;
 
-  FX_STRSIZE nSplitIndex = wsDateTime.Find('T');
-  if (nSplitIndex == FX_STRNPOS)
-    nSplitIndex = wsDateTime.Find(' ');
-  if (nSplitIndex == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE nSplitIndex;
+  std::tie(found, nSplitIndex) = wsDateTime.Find('T');
+  if (!found)
+    std::tie(found, nSplitIndex) = wsDateTime.Find(' ');
+  if (!found)
     return false;
 
   wsDate = wsDateTime.Left(nSplitIndex);
@@ -849,15 +851,17 @@ std::vector<CFX_WideString> CXFA_WidgetData::GetSelectedItemsValue() {
     if (!wsValue.IsEmpty()) {
       FX_STRSIZE iStart = 0;
       FX_STRSIZE iLength = wsValue.GetLength();
-      FX_STRSIZE iEnd = wsValue.Find(L'\n', iStart);
-      iEnd = (iEnd == FX_STRNPOS) ? iLength : iEnd;
+      bool found;
+      FX_STRSIZE iEnd;
+      std::tie(found, iEnd) = wsValue.Find(L'\n', iStart);
+      iEnd = (!found) ? iLength : iEnd;
       while (iEnd >= iStart) {
         wsSelTextArray.push_back(wsValue.Mid(iStart, iEnd - iStart));
         iStart = iEnd + 1;
         if (iStart >= iLength)
           break;
-        iEnd = wsValue.Find(L'\n', iStart);
-        if (iEnd == FX_STRNPOS)
+        std::tie(found, iEnd) = wsValue.Find(L'\n', iStart);
+        if (!found)
           wsSelTextArray.push_back(wsValue.Mid(iStart, iLength - iStart));
       }
     }
@@ -1315,9 +1319,11 @@ bool CXFA_WidgetData::GetBarcodeAttribute_WideNarrowRatio(float* val) {
   CXFA_Node* pUIChild = GetUIChild();
   CFX_WideString wsWideNarrowRatio;
   if (pUIChild->TryCData(XFA_ATTRIBUTE_WideNarrowRatio, wsWideNarrowRatio)) {
-    FX_STRSIZE ptPos = wsWideNarrowRatio.Find(':');
+    bool found;
+    FX_STRSIZE ptPos;
+    std::tie(found, ptPos) = wsWideNarrowRatio.Find(':');
     float fRatio = 0;
-    if (ptPos != FX_STRNPOS) {
+    if (!found) {
       fRatio = (float)FXSYS_wtoi(wsWideNarrowRatio.c_str());
     } else {
       int32_t fA, fB;
@@ -1742,9 +1748,8 @@ void CXFA_WidgetData::NormalizeNumStr(const CFX_WideString& wsValue,
 
   wsOutput = wsValue;
   wsOutput.TrimLeft('0');
-  FX_STRSIZE dot_index = wsOutput.Find('.');
   int32_t iFracDigits = 0;
-  if (!wsOutput.IsEmpty() && dot_index != FX_STRNPOS &&
+  if (!wsOutput.IsEmpty() && wsOutput.Contains('.') &&
       (!GetFracDigits(iFracDigits) || iFracDigits != -1)) {
     wsOutput.TrimRight(L"0");
     wsOutput.TrimRight(L".");
@@ -1768,8 +1773,10 @@ void CXFA_WidgetData::FormatNumStr(const CFX_WideString& wsValue,
     wsSrcNum.Delete(0, 1);
   }
   int32_t len = wsSrcNum.GetLength();
-  FX_STRSIZE dot_index = wsSrcNum.Find('.');
-  if (dot_index == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE dot_index;
+  std::tie(found, dot_index) = wsSrcNum.Find('.');
+  if (!found)
     dot_index = len;
 
   int32_t cc = dot_index - 1;

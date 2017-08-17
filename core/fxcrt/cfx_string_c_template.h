@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <type_traits>
+#include <utility>
 #include <vector>
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
@@ -129,10 +130,18 @@ class CFX_StringCTemplate {
     return static_cast<CharType>(m_Ptr.Get()[index]);
   }
 
-  FX_STRSIZE Find(CharType ch) const {
+  std::pair<bool, FX_STRSIZE> Find(CharType ch) const {
     const UnsignedType* found = reinterpret_cast<const UnsignedType*>(FXSYS_chr(
         reinterpret_cast<const CharType*>(m_Ptr.Get()), ch, m_Length));
-    return found ? found - m_Ptr.Get() : FX_STRNPOS;
+
+    return found ? std::pair<bool, FX_STRSIZE>(true, found - m_Ptr.Get())
+                 : std::pair<bool, FX_STRSIZE>(false, FX_STRSIZE_MAX);
+  }
+
+  bool Contains(CharType ch) const {
+    bool found;
+    std::tie(found, std::ignore) = Find(ch);
+    return found;
   }
 
   CFX_StringCTemplate Mid(FX_STRSIZE index, FX_STRSIZE count) const {
