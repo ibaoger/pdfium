@@ -16,6 +16,24 @@
       "revId": "69c7d834b34d4c7ba4a24099ff23c6847d728fbe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58ba4660_f84076ff",
+        "filename": "xfa/fde/cfde_txtedtbuf.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T02:28:51Z",
+      "side": 1,
+      "message": "My preference is to not friend and to use ForTesting() methods. The reason being, as soon as you have a friend the compiler can\u0027t tell if a member is unused. You can see this in one of the other classes where I removed the friend and then the compiler pointed to the dwFind thing was unused.\n\nThe ForTesting would be obvious in a code review that it should only exist in test files and it also means we can\u0027t muck with the internals of the object during testing.",
+      "parentUuid": "5536b02c_fc90929b",
+      "revId": "69c7d834b34d4c7ba4a24099ff23c6847d728fbe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
