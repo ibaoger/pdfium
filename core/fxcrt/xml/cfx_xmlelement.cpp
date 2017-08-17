@@ -42,17 +42,21 @@ std::unique_ptr<CFX_XMLNode> CFX_XMLElement::Clone() {
 }
 
 CFX_WideString CFX_XMLElement::GetLocalTagName() const {
-  FX_STRSIZE iFind = GetName().Find(L':', 0);
-  if (iFind == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE pos;
+  std::tie(found, pos) = GetName().Find(L':');
+  if (!found)
     return GetName();
-  return GetName().Right(GetName().GetLength() - iFind - 1);
+  return GetName().Right(GetName().GetLength() - pos - 1);
 }
 
 CFX_WideString CFX_XMLElement::GetNamespacePrefix() const {
-  FX_STRSIZE iFind = GetName().Find(L':', 0);
-  if (iFind == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE pos;
+  std::tie(found, pos) = GetName().Find(L':');
+  if (!found)
     return CFX_WideString();
-  return GetName().Left(iFind);
+  return GetName().Left(pos);
 }
 
 CFX_WideString CFX_XMLElement::GetNamespaceURI() const {

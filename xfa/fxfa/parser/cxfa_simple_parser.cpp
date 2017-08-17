@@ -92,8 +92,10 @@ bool MatchNodeName(CFX_XMLNode* pNode,
 bool GetAttributeLocalName(const CFX_WideStringC& wsAttributeName,
                            CFX_WideString& wsLocalAttrName) {
   CFX_WideString wsAttrName(wsAttributeName);
-  FX_STRSIZE iFind = wsAttrName.Find(L':', 0);
-  if (iFind == FX_STRNPOS) {
+  bool found;
+  FX_STRSIZE iFind;
+  std::tie(found, iFind) = wsAttrName.Find(L':', 0);
+  if (!found) {
     wsLocalAttrName = wsAttrName;
     return false;
   }
@@ -133,9 +135,11 @@ bool FindAttributeWithNS(CFX_XMLElement* pElement,
 
   CFX_WideString wsAttrNS;
   for (auto it : pElement->GetAttributes()) {
-    FX_STRSIZE iFind = it.first.Find(L':', 0);
+    bool found;
+    FX_STRSIZE iFind;
+    std::tie(found, iFind) = it.first.Find(L':', 0);
     CFX_WideString wsNSPrefix;
-    if (iFind == FX_STRNPOS) {
+    if (!found) {
       if (wsLocalAttributeName != it.first)
         continue;
     } else {

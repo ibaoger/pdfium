@@ -80,7 +80,7 @@ bool ParserPageRangeString(CFX_ByteString rangstring,
   int nLength = rangstring.GetLength();
   CFX_ByteString cbCompareString("0123456789-,");
   for (int i = 0; i < nLength; ++i) {
-    if (cbCompareString.Find(rangstring[i]) == FX_STRNPOS)
+    if (!cbCompareString.Contains(rangstring[i]))
       return false;
   }
 
@@ -88,12 +88,14 @@ bool ParserPageRangeString(CFX_ByteString rangstring,
   FX_STRSIZE nStringFrom = 0;
   FX_STRSIZE nStringTo = 0;
   while (nStringTo < nLength) {
-    nStringTo = rangstring.Find(',', nStringFrom);
-    if (nStringTo == FX_STRNPOS)
+    bool found;
+    std::tie(found, nStringTo) = rangstring.Find(',', nStringFrom);
+    if (!found)
       nStringTo = nLength;
     cbMidRange = rangstring.Mid(nStringFrom, nStringTo - nStringFrom);
-    FX_STRSIZE nMid = cbMidRange.Find('-');
-    if (nMid == FX_STRNPOS) {
+    FX_STRSIZE nMid;
+    std::tie(found, nMid) = cbMidRange.Find('-');
+    if (!found) {
       long lPageNum = atol(cbMidRange.c_str());
       if (lPageNum <= 0 || lPageNum > nCount)
         return false;
