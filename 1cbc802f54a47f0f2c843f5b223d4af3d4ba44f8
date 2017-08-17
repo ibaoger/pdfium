@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05a4114a_c544068e",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T16:16:16Z",
+      "side": 0,
+      "message": "As far as I can tell, yes, it\u0027s always changed to \\n.",
+      "parentUuid": "3571ad75_c9627e3f",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 44
+      },
+      "revId": "1cbc802f54a47f0f2c843f5b223d4af3d4ba44f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7a20678_a0d12806",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-17T15:31:45Z",
       "side": 0,
       "message": "How do we know m_Params hasn\u0027t been set?",
+      "range": {
+        "startLine": 888,
+        "startChar": 49,
+        "endLine": 888,
+        "endChar": 0
+      },
+      "revId": "1cbc802f54a47f0f2c843f5b223d4af3d4ba44f8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53d8a9e_95a17d01",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-17T16:16:16Z",
+      "side": 0,
+      "message": "We don\u0027t, but even if it has, we never change wDefChar.",
+      "parentUuid": "e7a20678_a0d12806",
       "range": {
         "startLine": 888,
         "startChar": 49,
