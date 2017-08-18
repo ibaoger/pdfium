@@ -4045,16 +4045,18 @@ bool CXFA_Node::SetScriptContent(const CFX_WideString& wsContent,
           if (!wsContent.IsEmpty()) {
             FX_STRSIZE iStart = 0;
             FX_STRSIZE iLength = wsContent.GetLength();
-            FX_STRSIZE iEnd = wsContent.Find(L'\n', iStart);
-            iEnd = (iEnd == FX_STRNPOS) ? iLength : iEnd;
+            bool found;
+            FX_STRSIZE iEnd;
+            std::tie(found, iEnd) = wsContent.Find(L'\n', iStart);
+            iEnd = (!found) ? iLength : iEnd;
             while (iEnd >= iStart) {
               wsSaveTextArray.push_back(wsContent.Mid(iStart, iEnd - iStart));
               iStart = iEnd + 1;
               if (iStart >= iLength) {
                 break;
               }
-              iEnd = wsContent.Find(L'\n', iStart);
-              if (iEnd == FX_STRNPOS) {
+              std::tie(found, iEnd) = wsContent.Find(L'\n', iStart);
+              if (!found) {
                 wsSaveTextArray.push_back(
                     wsContent.Mid(iStart, iLength - iStart));
               }

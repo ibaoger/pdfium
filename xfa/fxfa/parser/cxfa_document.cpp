@@ -305,8 +305,10 @@ XFA_VERSION CXFA_Document::RecognizeXFAVersionNumber(
       wsTemplateURIPrefix) {
     return XFA_VERSION_UNKNOWN;
   }
-  FX_STRSIZE nDotPos = wsTemplateNS.Find('.', nPrefixLength);
-  if (nDotPos == FX_STRNPOS)
+  bool found;
+  FX_STRSIZE nDotPos;
+  std::tie(found, nDotPos) = wsTemplateNS.Find('.', nPrefixLength);
+  if (!found)
     return XFA_VERSION_UNKNOWN;
 
   int8_t iMajor = FXSYS_wtoi(
@@ -367,8 +369,10 @@ void CXFA_Document::DoProtoMerge() {
     CFX_WideStringC wsURI, wsID, wsSOM;
     if (pUseHrefNode->TryCData(XFA_ATTRIBUTE_Usehref, wsUseVal) &&
         !wsUseVal.IsEmpty()) {
-      FX_STRSIZE uSharpPos = wsUseVal.Find('#');
-      if (uSharpPos == FX_STRNPOS) {
+      bool found;
+      FX_STRSIZE uSharpPos;
+      std::tie(found, uSharpPos) = wsUseVal.Find('#');
+      if (!found) {
         wsURI = wsUseVal.AsStringC();
       } else {
         wsURI = CFX_WideStringC(wsUseVal.c_str(), uSharpPos);

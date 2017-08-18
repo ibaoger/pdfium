@@ -374,8 +374,10 @@ bool PatternStringType(const CFX_ByteStringC& szPattern,
     return true;
   }
   if (L"date" == wsPattern.Left(4)) {
-    FX_STRSIZE ret = wsPattern.Find(L"time");
-    patternType = ret != 0 && ret != FX_STRNPOS ? XFA_VT_DATETIME : XFA_VT_DATE;
+    bool found;
+    FX_STRSIZE pos;
+    std::tie(found, pos) = wsPattern.Find(L"time");
+    patternType = found && pos != 0 ? XFA_VT_DATETIME : XFA_VT_DATE;
     return true;
   }
   if (L"time" == wsPattern.Left(4)) {
@@ -1139,12 +1141,14 @@ void CXFA_FM2JSContext::IsoTime2Num(CFXJSE_Value* pThis,
   CXFA_Document* pDoc = pContext->GetDocument();
   CXFA_LocaleMgr* pMgr = pDoc->GetLocalMgr();
   CFX_ByteString szArgString = ValueToUTF8String(argOne.get());
-  FX_STRSIZE pos = szArgString.Find('T', 0);
-  szArgString = szArgString.Right(szArgString.GetLength() - (pos + 1));
-  if (szArgString.IsEmpty()) {
+  bool found;
+  FX_STRSIZE pos;
+  std::tie(found, pos) = szArgString.Find('T', 0);
+  if (!found || pos == szArgString.GetLength() - 1) {
     args.GetReturnValue()->SetInteger(0);
     return;
   }
+  szArgString = szArgString.Right(szArgString.GetLength() - (pos + 1));
 
   CXFA_LocaleValue timeValue(
       XFA_VT_TIME, CFX_WideString::FromUTF8(szArgString.AsStringC()), pMgr);
@@ -3077,8 +3081,14 @@ void CXFA_FM2JSContext::At(CFXJSE_Value* pThis,
   }
 
   CFX_ByteString stringOne = ValueToUTF8String(argOne.get());
-  FX_STRSIZE iPosition = stringOne.Find(stringTwo.AsStringC());
-  args.GetReturnValue()->SetInteger(iPosition + 1);
+  bool found;
+  FX_STRSIZE iPosition;
+  std::tie(found, iPosition) = stringOne.Find(stringTwo.AsStringC());
+  if (!found) {
+    args.GetReturnValue()->SetInteger(0);
+  } else {
+    args.GetReturnValue()->SetInteger(iPosition + 1);
+  }
 }
 
 // static
@@ -3689,7 +3699,13 @@ void CXFA_FM2JSContext::Format(CFXJSE_Value* pThis,
   if (!PatternStringType(szPattern.AsStringC(), patternType)) {
     switch (patternType) {
       case XFA_VT_DATETIME: {
-        FX_STRSIZE iTChar = wsPattern.Find(L'T');
+        bool found;
+        FX_STRSIZE iTChar;
+        std::tie(found, iTChar) = wsPattern.Find(L'T');
+        if (!found) {
+          args.GetReturnValue()->SetString("");
+          return;
+        }
         CFX_WideString wsDatePattern(L"date{");
         wsDatePattern += wsPattern.Left(iTChar) + L"} ";
 
@@ -3878,7 +3894,13 @@ void CXFA_FM2JSContext::Parse(CFXJSE_Value* pThis,
 
   switch (patternType) {
     case XFA_VT_DATETIME: {
-      FX_STRSIZE iTChar = wsPattern.Find(L'T');
+      bool found;
+      FX_STRSIZE iTChar;
+      std::tie(found, iTChar) = wsPattern.Find(L'T');
+      if (!found) {
+        args.GetReturnValue()->SetString("");
+        return;
+      }
       CFX_WideString wsDatePattern(L"date{" + wsPattern.Left(iTChar) + L"} ");
       CFX_WideString wsTimePattern(
           L"time{" + wsPattern.Right(wsPattern.GetLength() - (iTChar + 1)) +
