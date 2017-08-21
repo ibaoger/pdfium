@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d5f909a_8ca0d4a0",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T19:22:16Z",
+      "side": 1,
+      "message": "You pretty much have to call SetEditParams to do anything with this class. So, basically, the TextBreak will always exist. This CL just makes that clearer.",
+      "revId": "7a6d7609cf625f4c518b95a4418c785207791c99",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
