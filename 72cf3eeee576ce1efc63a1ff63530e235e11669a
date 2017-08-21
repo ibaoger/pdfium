@@ -22,6 +22,30 @@
       "revId": "72cf3eeee576ce1efc63a1ff63530e235e11669a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe08d676_742b1431",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T19:08:07Z",
+      "side": 1,
+      "message": "It isn\u0027t necessary anymore, we used to check for -2 specifically but I\u0027ve changed that to be kFull. The \u003c 0 checks all just became !\u003d kSuccess which is equivalent. So, we can drop the values completely if we desire. I just kept them for historic something or other .......",
+      "parentUuid": "ec1d4719_963ae495",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 15
+      },
+      "revId": "72cf3eeee576ce1efc63a1ff63530e235e11669a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
