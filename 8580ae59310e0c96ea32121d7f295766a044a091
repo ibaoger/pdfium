@@ -188,6 +188,30 @@
       "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf076614_a20a09ef",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:00:31Z",
+      "side": 1,
+      "message": "Formatter put it this way ....",
+      "parentUuid": "118d60b7_74c569fa",
+      "range": {
+        "startLine": 408,
+        "startChar": 52,
+        "endLine": 408,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
