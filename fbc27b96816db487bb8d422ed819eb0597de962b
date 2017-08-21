@@ -16,6 +16,24 @@
       "revId": "fbc27b96816db487bb8d422ed819eb0597de962b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b2978b_27b25d11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-21T15:18:52Z",
+      "side": 1,
+      "message": "What do you mean by \"control\"? Popups are currently hardcoded to be 200x200, so I guess no control?\n(There are obviously more problems to fix... This hard code is the reason why long texts are truncated (problem #1 of bug 750).)",
+      "parentUuid": "7569dfe5_257c252e",
+      "revId": "fbc27b96816db487bb8d422ed819eb0597de962b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
