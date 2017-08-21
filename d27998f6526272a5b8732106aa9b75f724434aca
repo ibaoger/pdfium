@@ -46,6 +46,30 @@
       "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ab15c0_8c57c2a2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T17:55:38Z",
+      "side": 0,
+      "message": "We should only have one page, but can a bad PDF provide multiple pages? If so, what happens?",
+      "parentUuid": "626d616a_f2d81170",
+      "range": {
+        "startLine": 554,
+        "startChar": 33,
+        "endLine": 554,
+        "endChar": 50
+      },
+      "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
