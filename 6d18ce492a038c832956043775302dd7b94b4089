@@ -22,6 +22,29 @@
       "revId": "6d18ce492a038c832956043775302dd7b94b4089",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3ae50ed_441fcd37",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T19:00:45Z",
+      "side": 1,
+      "message": ": uint8_t to pack against three trailing bools below ?\n\nah, its already inside a class, but no matter.  As you like.",
+      "range": {
+        "startLine": 147,
+        "startChar": 7,
+        "endLine": 147,
+        "endChar": 12
+      },
+      "revId": "6d18ce492a038c832956043775302dd7b94b4089",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
