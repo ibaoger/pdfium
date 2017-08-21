@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "11837dff_397833f4",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T17:58:04Z",
+      "side": 1,
+      "message": "If we wrapped from 472 to 501 in if (!strict_parse) that would be correct yea? I think that would be clearer instead of having to know when the encryption handler is setup.",
+      "parentUuid": "b14cf80d_5db8a7dd",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "816e35c5_5f8966ce",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
