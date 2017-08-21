@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5cfbbb0_f9aeb519",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:56:34Z",
+      "side": 1,
+      "message": "bleh, technically wrong, may need to force CoW first, maybe use SetAt() per last week\u0027s discussion.",
+      "range": {
+        "startLine": 914,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 23
+      },
+      "revId": "35093adbb964f2f0da8e41b4cb44b20747c6ea9c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
