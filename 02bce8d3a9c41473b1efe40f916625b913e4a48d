@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2fa22e5_d32aff2a",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "nit: we typically do ++foo instead of foo++.",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d2a07bd_0d6eabd2",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "Can we make this positive and flip the bodies?",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c61613a_965f29d6",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "These two lines are the same with the above (basically). If we had a CFX_ByteStringC* that we used as a temporary then the if() can just assign that string and we can move the duplicated memcpy/param.m_Name code out of the if()?\n\n(Doing this as a followup is fine)",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d87e7cd_f317cd50",
+        "filename": "core/fpdfapi/parser/fpdf_parser_utility.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "return origin.Contains(\"#\") ? PDF_NameDecode(orig.AsStringC()) : orig;",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c20b3b3f_193b3228",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "return {false, FX_STRSIZE_MAX};\n\n(and below)",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13812aa_b26fd73d",
+        "filename": "core/fxcrt/xml/cfx_xmlelement.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "return found ? GetName().Right(GetName().GetLength() - pos - 1) : GetName()",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43129802_f14b6b94",
+        "filename": "core/fxcrt/xml/cfx_xmlelement.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "return found ? GetName().Left(pos) : CFX_WideString()",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "385b64c5_d6605cc9",
+        "filename": "core/fxge/apple/fx_mac_imp.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be !Contains?",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a87c9b1b_97842ddc",
+        "filename": "core/fxge/cfx_fontmapper.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "The names of the families are the only differences in these #if/else lines. Can we followup to refactor this?",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3eddd6_217518e7",
+        "filename": "xfa/fwl/cfwl_combolist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "Let\u0027s make this clear as if (found \u0026\u0026 pos !\u003d 0)",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80359277_3445a9a3",
+        "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3091,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef92990_dcb43676",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "nit: ()\u0027s not needed",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b7d9870_4a4a2473",
+        "filename": "xfa/fxfa/parser/cxfa_localevalue.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:55:55Z",
+      "side": 1,
+      "message": "if (found \u0026\u0026 pos !\u003d 0)",
+      "revId": "02bce8d3a9c41473b1efe40f916625b913e4a48d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
