@@ -189,7 +189,7 @@ void CFDE_TxtEdtEngine::SetText(const CFX_WideString& wsText) {
     }
     m_pTxtBuf->SetText(wsTemp);
   }
-  m_pTxtBuf->Insert(nLength, L"\n", 1);
+  m_pTxtBuf->Insert(nLength, L"\n");
   RebuildParagraphs();
 }
 
@@ -679,7 +679,7 @@ void CFDE_TxtEdtEngine::Inner_Insert(int32_t nStart,
     m_ParagPtrArray.insert(m_ParagPtrArray.begin() + ++nParagIndex,
                            std::move(pParag2));
   }
-  m_pTxtBuf->Insert(nStart, lpText, nLength);
+  m_pTxtBuf->Insert(nStart, CFX_WideString(lpText, nLength));
   int32_t nTotalLineCount = 0;
   for (int32_t i = ParagPos.nParagIndex; i <= nParagIndex; i++) {
     pParag = m_ParagPtrArray[i].get();
@@ -767,7 +767,7 @@ void CFDE_TxtEdtEngine::ResetEngine() {
   RemoveAllParags();
   ClearSelection();
   m_nCaret = 0;
-  m_pTxtBuf->Clear(false);
+  m_pTxtBuf->Clear();
   m_nCaret = 0;
 }
 
