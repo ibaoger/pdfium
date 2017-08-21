@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a831e64d_a4ac06d2",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Instead of having generated_root_ and root_ we can change root_ to be a CFX_MaybeOwned. Then for this case you just pass in the unique_ptr in the other you just pass in root.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f922a74_ae301e84",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "We only seem to care if non_parsed_objects is empty. Can we switch it to a boolean instead of storing all the object numbers?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c24e190d_48772e6c",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Is this needed? Do we ever re-use a ObjectAvail? If we don\u0027t reuse, lets merge CleanMemory into the destructor.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07227aa9_9658f74b",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Can we rename this to be more descriptive? It looks like LoadRootObject? Or is there a better name?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d2e201_e6469c7b",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "nit: space after return",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf8bc4c_21d70954",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Can we move the condition to a helper so this is something like if (HasParsed(ref_obj_num)) ?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e210213_893dcae8",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "nit: blank line above",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aca85ed6_b09dd06e",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Can we just use non_parsed_objects_ instead of making a new vector here?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d252871_9a229689",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Should objects_to_check and non_parsed_objects be a stack instead of a vector? Looks like we just push and pop the top one?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "041f1ebe_5447e9c3",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "This is quite nice, the ObjectWalker works really well here.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "965c09dc_446dae73",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Lets just condense down to a single line with a comment.\n\n// Skip if this object if it\u0027s an inlined root, the parent object or explicitily excluded.\nbool skip \u003d (walker.GetParent() \u0026\u0026 obj \u003d\u003d root_) || walker.dictionary_key() \u003d\u003d \"Parent\" || (obj !\u003d root_ \u0026\u0026 ExcludeObject(obj);",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39405935_772661ea",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this comment is saying? Why do we parse other objects if we\u0027re going to skip? Shouldn\u0027t we skip first?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feb40e68_02db20de",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Let\u0027s drop this and just use the full name below.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a0107bd_4f286561",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "CFX_UnownedPtr?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d648eb3_c40650d8",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "Do we create any other kind of ObjectAvail? If not, let\u0027s just fold this into the above and only have one class. Otherwise, this should move to its own file.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f666ac8_c2dc0041",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "nit: blank after if() body.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25eacc9b_8214b540",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:09:58Z",
+      "side": 1,
+      "message": "All the namespaces should be at the top of the file.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
