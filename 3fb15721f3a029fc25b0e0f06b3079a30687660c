@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f393d744_3bceed5d",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T16:08:57Z",
+      "side": 1,
+      "message": "Not sure if the Left adds anything? This is the just length we\u0027re working with.",
+      "parentUuid": "edf4557d_e5fc6eef",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7589bf0a_3905ef63",
         "filename": "xfa/fde/cfde_txtedtbuf.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b7907ec3_078359b5",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T16:08:57Z",
+      "side": 1,
+      "message": "This is just the text pointer so I think the name lpText is fine.",
+      "parentUuid": "7589bf0a_3905ef63",
+      "range": {
+        "startLine": 128,
+        "startChar": 17,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0198263_53228afc",
         "filename": "xfa/fde/cfde_txtedtbuf.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-21T15:26:13Z",
       "side": 1,
       "message": "I prefer the local variable here too, giving a name to this expression as self-documentation.",
+      "range": {
+        "startLine": 219,
+        "startChar": 22,
+        "endLine": 219,
+        "endChar": 69
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add7a043_dc552f3f",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T16:08:57Z",
+      "side": 1,
+      "message": "We don\u0027t use the local on 207 we just return the nUsed value. I think the name of the thing is inherent in the name of the method Index2CP (CharacterPosition).",
+      "parentUuid": "c0198263_53228afc",
       "range": {
         "startLine": 219,
         "startChar": 22,
