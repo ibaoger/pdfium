@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2d1939c8_0b6bbb06",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T14:57:11Z",
+      "side": 1,
+      "message": "You\u0027re correct.",
+      "parentUuid": "9e952de9_86b8d9b8",
+      "range": {
+        "startLine": 114,
+        "startChar": 26,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa939d74_03eb646b",
         "filename": "xfa/fde/cfde_textout.cpp",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "That\u0027s going to create a lot of extra stuff for little benefit. This should have been re-written this way previously as it\u0027s nicer to initialize through the constructor then through 4 separate assignments.",
       "parentUuid": "0883a991_f09875ad",
+      "range": {
+        "startLine": 408,
+        "startChar": 52,
+        "endLine": 408,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118d60b7_74c569fa",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T14:57:11Z",
+      "side": 1,
+      "message": "Can we break one per line then, to highlight its 4 different expressions?",
+      "parentUuid": "7f9c5245_2dde8cd5",
       "range": {
         "startLine": 408,
         "startChar": 52,
