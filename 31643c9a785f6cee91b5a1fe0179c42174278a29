@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae9a7ac4_7dae3441",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-08-21T21:16:32Z",
+      "side": 1,
+      "message": "If AddImage can return nullptr, do we need to check pObj here and on line 759 also?",
+      "range": {
+        "startLine": 737,
+        "startChar": 14,
+        "endLine": 737,
+        "endChar": 22
+      },
+      "revId": "31643c9a785f6cee91b5a1fe0179c42174278a29",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
