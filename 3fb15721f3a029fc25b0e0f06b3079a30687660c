@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e439b411_576325c2",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T17:39:03Z",
+      "side": 1,
+      "message": "The previous value was nLengthTemp because they needed the unmodified length on line 166. We just get the length from the string now at the end so we didn\u0027t need the temporary variable.",
+      "parentUuid": "0b89dbd3_86cbb115",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7589bf0a_3905ef63",
         "filename": "xfa/fde/cfde_txtedtbuf.cpp",
         "patchSetId": 2
