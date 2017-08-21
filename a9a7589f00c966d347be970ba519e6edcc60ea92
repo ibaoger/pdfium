@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "58f9c51a_843fa5e5",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:26:03Z",
+      "side": 1,
+      "message": "Ooops, the last one is kAuto, not kNone.  So my bad memory from reading the header 60 seconds ago ...",
+      "parentUuid": "d27f74d3_b1d627e0",
+      "range": {
+        "startLine": 908,
+        "startChar": 1,
+        "endLine": 908,
+        "endChar": 2
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a78ef76d_e51426d2",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
