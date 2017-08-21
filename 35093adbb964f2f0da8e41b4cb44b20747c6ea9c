@@ -22,6 +22,30 @@
       "revId": "35093adbb964f2f0da8e41b4cb44b20747c6ea9c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c526015_c81697a6",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T19:02:45Z",
+      "side": 1,
+      "message": "We do this a bunch in this file, will leave for a followup. In this case, while technically wrong, in practice will be fine, this is called once, the value passed in is a new string returned from CFDE_TxtEdtBuf:::GetRange so there is no other copy we could be stomping on.",
+      "parentUuid": "c5cfbbb0_f9aeb519",
+      "range": {
+        "startLine": 914,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 23
+      },
+      "revId": "35093adbb964f2f0da8e41b4cb44b20747c6ea9c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
