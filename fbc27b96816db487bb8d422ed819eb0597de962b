@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7569dfe5_257c252e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:11:43Z",
+      "side": 1,
+      "message": "Can a popup control it\u0027s width/height? If so, what happens if the width/height is larger then our display size?",
+      "revId": "fbc27b96816db487bb8d422ed819eb0597de962b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
