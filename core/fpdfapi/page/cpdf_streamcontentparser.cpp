@@ -661,7 +661,7 @@ void CPDF_StreamContentParser::Handle_BeginImage() {
   CPDF_ImageObject* pObj = AddImage(std::move(pStream));
   // Record the bounding box of this image, so rendering code can draw it
   // properly.
-  if (pObj->GetImage()->IsMask())
+  if (pObj && pObj->GetImage()->IsMask())
     m_pObjectHolder->AddImageMaskBoundingBox(pObj->GetRect());
 }
 
