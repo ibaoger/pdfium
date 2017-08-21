@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edf4557d_e5fc6eef",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T15:26:13Z",
+      "side": 1,
+      "message": "nLengthLeft?",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7589bf0a_3905ef63",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T15:26:13Z",
+      "side": 1,
+      "message": "lpTextLeft?",
+      "range": {
+        "startLine": 128,
+        "startChar": 17,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0198263_53228afc",
+        "filename": "xfa/fde/cfde_txtedtbuf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T15:26:13Z",
+      "side": 1,
+      "message": "I prefer the local variable here too, giving a name to this expression as self-documentation.",
+      "range": {
+        "startLine": 219,
+        "startChar": 22,
+        "endLine": 219,
+        "endChar": 69
+      },
+      "revId": "3fb15721f3a029fc25b0e0f06b3079a30687660c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
