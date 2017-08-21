@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ffe23f4_090ed8d1",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:27:07Z",
+      "side": 1,
+      "message": "nit: LineEnding:: qualifier not needed inside class ?",
+      "range": {
+        "startLine": 142,
+        "startChar": 22,
+        "endLine": 142,
+        "endChar": 34
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d27f74d3_b1d627e0",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
