@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2f3e27b_ceafb57f",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:58:36Z",
+      "side": 1,
+      "message": "same here with CoW",
+      "range": {
+        "startLine": 950,
+        "startChar": 4,
+        "endLine": 950,
+        "endChar": 21
+      },
+      "revId": "6d18ce492a038c832956043775302dd7b94b4089",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
