@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d27f74d3_b1d627e0",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:25:03Z",
+      "side": 1,
+      "message": "maybe assert that it isn\u0027t kNone?",
+      "range": {
+        "startLine": 908,
+        "startChar": 1,
+        "endLine": 908,
+        "endChar": 2
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a78ef76d_e51426d2",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:25:03Z",
+      "side": 1,
+      "message": "we know what wc is going to be here because LineEnding::kCRLF !\u003d LineEnding::kCR, so just use the appropriate literal here.",
+      "range": {
+        "startLine": 915,
+        "startChar": 17,
+        "endLine": 915,
+        "endChar": 19
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f03ebfa_27f58d77",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:25:03Z",
+      "side": 1,
+      "message": "nit: early return?",
+      "range": {
+        "startLine": 940,
+        "startChar": 2,
+        "endLine": 940,
+        "endChar": 3
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f933d022_47254e9e",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:25:03Z",
+      "side": 1,
+      "message": "having removed the usage of wc at 915, we can move line 908 down here.",
+      "range": {
+        "startLine": 942,
+        "startChar": 1,
+        "endLine": 942,
+        "endChar": 2
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "926d2fc4_3da33b05",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-21T18:25:03Z",
+      "side": 1,
+      "message": "nit: m_eFirstLineEnding (or lose the hungarian \"e\" for enum entirely) but say \"Ending\". LineEnd sounds like a position to me.",
+      "range": {
+        "startLine": 215,
+        "startChar": 28,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
