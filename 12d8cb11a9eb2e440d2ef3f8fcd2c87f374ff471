@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4ac166_aa1c3e19",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T14:10:24Z",
+      "side": 1,
+      "message": "nit: No {}\u0027s on single line body.",
+      "revId": "12d8cb11a9eb2e440d2ef3f8fcd2c87f374ff471",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c874b2_cb0d5fd6",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T14:10:24Z",
+      "side": 1,
+      "message": "nit: No {}\u0027s on single line body.",
+      "revId": "12d8cb11a9eb2e440d2ef3f8fcd2c87f374ff471",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

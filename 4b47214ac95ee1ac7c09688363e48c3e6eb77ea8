@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b5350d_760a440c",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T14:10:24Z",
+      "side": 0,
+      "message": "This used to set to true and not doesn\u0027t?",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b01f4a1_ff68197b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T14:10:24Z",
+      "side": 0,
+      "message": "It used to be possible to leave here with m_bEnterWidget \u003d true, but we no longer track that case?",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23cc5284_ef0b3db2",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T14:10:24Z",
+      "side": 0,
+      "message": "What happen to this chunk?",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
