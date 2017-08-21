@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e4bb376_59c8076b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T21:43:38Z",
+      "side": 0,
+      "message": "It\u0027s set inside EnterWidget() now.",
+      "parentUuid": "33b5350d_760a440c",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b01f4a1_ff68197b",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d11e27af_8624b49b",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T21:43:38Z",
+      "side": 0,
+      "message": "!m_bOnWidget is set inside EnterWidget().",
+      "parentUuid": "6b01f4a1_ff68197b",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23cc5284_ef0b3db2",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-21T14:10:24Z",
       "side": 0,
       "message": "What happen to this chunk?",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2587a595_7f0699b2",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-21T21:43:38Z",
+      "side": 0,
+      "message": "This is now handled in the new 331-333 along with the case in the old 333-336. We were handling the case of move from widget A to widget B as a separate case, while now we bundled widget A-\u003eB and widget A-\u003enone.",
+      "parentUuid": "23cc5284_ef0b3db2",
       "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
