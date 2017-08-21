@@ -34,6 +34,24 @@
       "revId": "fbc27b96816db487bb8d422ed819eb0597de962b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8a0a33_bafcf1db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T15:20:58Z",
+      "side": 1,
+      "message": "Yea, so sounds like no control. Can you add a comment above the if() you added along the lines of:\n\n// Note, if the popup can set its own width/height we will need to make sure it isn\u0027t larger then\n// the page size.\n\nOr, something along those lines?",
+      "parentUuid": "32b2978b_27b25d11",
+      "revId": "fbc27b96816db487bb8d422ed819eb0597de962b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
