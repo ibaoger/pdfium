@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e952de9_86b8d9b8",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T13:55:14Z",
+      "side": 1,
+      "message": "It did, see old line 102. I just moved the return.",
+      "parentUuid": "1f6a8b29_d0209fad",
+      "range": {
+        "startLine": 114,
+        "startChar": 26,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa939d74_03eb646b",
         "filename": "xfa/fde/cfde_textout.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4d988257_6a68e03f",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T13:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa939d74_03eb646b",
+      "range": {
+        "startLine": 221,
+        "startChar": 7,
+        "endLine": 221,
+        "endChar": 21
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0883a991_f09875ad",
         "filename": "xfa/fde/cfde_textout.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-17T19:31:47Z",
       "side": 1,
       "message": "I actually found the previous code more readable. Can you split one param per line or use local vars to name what each number means?",
+      "range": {
+        "startLine": 408,
+        "startChar": 52,
+        "endLine": 408,
+        "endChar": 0
+      },
+      "revId": "8580ae59310e0c96ea32121d7f295766a044a091",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9c5245_2dde8cd5",
+        "filename": "xfa/fde/cfde_textout.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T13:55:14Z",
+      "side": 1,
+      "message": "That\u0027s going to create a lot of extra stuff for little benefit. This should have been re-written this way previously as it\u0027s nicer to initialize through the constructor then through 4 separate assignments.",
+      "parentUuid": "0883a991_f09875ad",
       "range": {
         "startLine": 408,
         "startChar": 52,
