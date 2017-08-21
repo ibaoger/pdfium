@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fbecfd43_d2b199bd",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Compiler says it\u0027s undeclared. enum class always needs to be fully qualified I believe.",
+      "parentUuid": "9ffe23f4_090ed8d1",
+      "range": {
+        "startLine": 142,
+        "startChar": 22,
+        "endLine": 142,
+        "endChar": 34
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d27f74d3_b1d627e0",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7861230d_7834e7b2",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "I don\u0027t think that is valid. If the code just as \\r in it we\u0027ll leave it as kAuto in ReplaceParagEnd. kAuto is valid in here as we\u0027ll just replace things with \\r below.",
+      "parentUuid": "58f9c51a_843fa5e5",
+      "range": {
+        "startLine": 908,
+        "startChar": 1,
+        "endLine": 908,
+        "endChar": 2
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a78ef76d_e51426d2",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d3e24e4_07c5f33c",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a78ef76d_e51426d2",
+      "range": {
+        "startLine": 915,
+        "startChar": 17,
+        "endLine": 915,
+        "endChar": 19
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "7857a3aa_1f665263",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f03ebfa_27f58d77",
+      "range": {
+        "startLine": 940,
+        "startChar": 2,
+        "endLine": 940,
+        "endChar": 3
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f933d022_47254e9e",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 1
@@ -138,6 +234,30 @@
       "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78566660_0dc79045",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f933d022_47254e9e",
+      "range": {
+        "startLine": 942,
+        "startChar": 1,
+        "endLine": 942,
+        "endChar": 2
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "286ffec7_22cd5f0c",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10f6369b_41266444",
+      "range": {
+        "startLine": 946,
+        "startChar": 16,
+        "endLine": 946,
+        "endChar": 20
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "926d2fc4_3da33b05",
         "filename": "xfa/fde/cfde_txtedtengine.h",
         "patchSetId": 1
@@ -184,6 +328,30 @@
       "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff5c957_7c957490",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "926d2fc4_3da33b05",
+      "range": {
+        "startLine": 215,
+        "startChar": 28,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "a9a7589f00c966d347be970ba519e6edcc60ea92",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd1bbbe6_94bd420c",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "I came to the same conclusion ....",
+      "parentUuid": "ee2750c4_58e1aec0",
+      "range": {
+        "startLine": 908,
+        "startChar": 0,
+        "endLine": 908,
+        "endChar": 49
+      },
+      "revId": "5824b186a8d20f331b1dbddfa8e7c61e6fdc87cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "256ed789_d5d3ee40",
         "filename": "xfa/fde/cfde_txtedtengine.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "5824b186a8d20f331b1dbddfa8e7c61e6fdc87cc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fe7e340_9b350b55",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-21T18:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "256ed789_d5d3ee40",
+      "range": {
+        "startLine": 945,
+        "startChar": 2,
+        "endLine": 945,
+        "endChar": 4
+      },
+      "revId": "5824b186a8d20f331b1dbddfa8e7c61e6fdc87cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
