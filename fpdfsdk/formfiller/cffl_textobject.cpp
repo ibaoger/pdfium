@@ -24,7 +24,9 @@ CFFL_TextObject::CFFL_TextObject(CPDFSDK_FormFillEnvironment* pApp,
                                  CPDFSDK_Widget* pWidget)
     : CFFL_FormFiller(pApp, pWidget) {}
 
-CFFL_TextObject::~CFFL_TextObject() {}
+CFFL_TextObject::~CFFL_TextObject() {
+  DestroyWindows();
+}
 
 CBA_FontMap* CFFL_TextObject::MaybeCreateFontMap() {
   if (!m_pFontMap) {
