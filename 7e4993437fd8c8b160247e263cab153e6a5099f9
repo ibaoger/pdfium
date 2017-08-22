@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41854525_1bd40699",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-08-22T14:29:51Z",
+      "side": 1,
+      "message": "Can we add an explanation for 2 in here as well?",
+      "revId": "7e4993437fd8c8b160247e263cab153e6a5099f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
