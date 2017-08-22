@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c0973fe_805cac89",
+        "filename": "core/fpdfdoc/cpdf_annotlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-22T00:27:13Z",
+      "side": 1,
+      "message": "Can\u0027t this be written as follows?\n\nrect.bottom \u003c popupRect.Height()",
+      "revId": "3b20ec77c760ef11dacf00a3e654d06cadf20c27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "546c3033_bc27808b",
+        "filename": "core/fpdfdoc/cpdf_annotlist.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-22T00:27:13Z",
+      "side": 1,
+      "message": "You can call pPage-\u003eGetPageWidth() once and pass the result into CreatePopupAnnot(). i.e. CreatePopupAnnot() doesn\u0027t really need access to |pPage|.",
+      "revId": "3b20ec77c760ef11dacf00a3e654d06cadf20c27",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
