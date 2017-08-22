@@ -119,7 +119,7 @@ class CFX_StringCTemplate {
   FX_STRSIZE GetLength() const { return m_Length; }
   bool IsEmpty() const { return m_Length == 0; }
 
-  const UnsignedType& operator[](const FX_STRSIZE index) const {
+  UnsignedType operator[](const FX_STRSIZE index) const {
     ASSERT(index >= 0 && index < GetLength());
     return m_Ptr.Get()[index];
   }
