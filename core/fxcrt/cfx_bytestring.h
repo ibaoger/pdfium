@@ -107,8 +107,10 @@ class CFX_ByteString {
   const CFX_ByteString& operator+=(const CFX_ByteString& str);
   const CFX_ByteString& operator+=(const CFX_ByteStringC& bstrc);
 
-  const CharType& operator[](const FX_STRSIZE index) const {
+  CharType operator[](const FX_STRSIZE index) const {
     ASSERT(index >= 0 && index < GetLength());
+    if (!m_pData)
+      return 0;
     return m_pData->m_String[index];
   }
 

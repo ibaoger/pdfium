@@ -101,8 +101,10 @@ class CFX_WideString {
 
   bool operator<(const CFX_WideString& str) const;
 
-  const CharType& operator[](const FX_STRSIZE index) const {
+  CharType operator[](const FX_STRSIZE index) const {
     ASSERT(index >= 0 && index < GetLength());
+    if (!m_pData)
+      return 0;
     return m_pData->m_String[index];
   }
 
