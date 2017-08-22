@@ -22,6 +22,30 @@
       "revId": "39fa751f84bc226c22d65c2fc5e7d3615dfe5ddb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f1a45d_e252ce88",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-22T20:42:36Z",
+      "side": 0,
+      "message": "We have to remove this since the literal 0 is scoped to the function, so doesn\u0027t exist after the call. The compiler complains about the reference due to this. And with out the reference the const doesn\u0027t do anything, so gets a different compiler error.",
+      "parentUuid": "1d8878e3_10fbd52b",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 17
+      },
+      "revId": "39fa751f84bc226c22d65c2fc5e7d3615dfe5ddb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
