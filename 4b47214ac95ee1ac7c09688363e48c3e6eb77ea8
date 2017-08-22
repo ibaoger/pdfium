@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cc4706fe_c18e6bc7",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-22T14:57:49Z",
+      "side": 0,
+      "message": "The case that would change is when moving to widget A -\u003e B directly. Now we treat this as \"exit widget A, unset m_bOnWidget, enter widget B, set m_bOnWidget\" as per new lines 331-333.",
+      "parentUuid": "3f33ea6a_8952458e",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b01f4a1_ff68197b",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 3
@@ -101,6 +119,24 @@
       "side": 0,
       "message": "Right but m_bEnterWidget isn\u0027t tracked anymore. So, this could have left with Enter\u003dtrue and we come back into this method and we don\u0027t execute the code on 340. Or, is it all depending on OnWidget now?",
       "parentUuid": "d11e27af_8624b49b",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8bcc36e_5c2f3e2d",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-22T14:57:49Z",
+      "side": 0,
+      "message": "Yes, all now depends on m_bOnWidget. Before, m_bOnWidget and m_bEnterWidget had the same meaning except for intermediary states during this method. If you assume both states are equal at the beginning of the old method, they necessarily come out equal at the end:\n- At 334, m_bEnterWidget might be set to false while m_bOnWidget is true. In that case, 340 is necessarily true and 341 switches it back to true which is \u003d\u003d to m_bOnWidget.\n- At 337, m_bOnWidget is always set to true. Then, at 340, if m_bEnterWidget is false then it\u0027s set back to true on 341.\n- The other times m_bOnWidget and m_bEnterWidget are set, they are set to the same value.\n- m_bOnWidget and m_bEnterWidget are not set anywhere else but this method and the constructor.\n\nSe what\u0027s left is making sure functionality of this method is the same with the change. The cases are:\n- Going from no widget to no widget (pFXAnnot is null, m_bOnWidget is false, m_pCaptureWidget is null)\n--- Before: 332 is false, 356 is false, just return false.\n--- After: 331 is false, 335 is false, just return false.\n\n- Going from no widget to widget B (pFXAnnot is non-null, m_bOnWidget is false, m_pCaptureWidget is null)\n--- Before: 332 is true, 333 is false, 337 sets m_bOnWidget to true, 338 sets m_pCaptureWidget to pFXAnnot. 340 is true, 342 calls Annot_OnMouseEnter, 352 calls Annot_OnMouseMove, 353 returns true.\n--- After: 331 is false, 335 is true, 336 is true, 356 sets m_bOnWidget to true, 357 sets m_pCaptureWidget to pFXAnnot. 358 calls Annot_OnMouseEnter, 346 calls Annot_OnMouseMove, 347 returns true.\n\n- Going from widget A to widget B (pFXAnnot is non-null, m_bOnWidget is true, m_pCaptureWidget is non-null but !\u003d pFXAnnot)\n--- Before: 332 is true, 333 is true, 335 calls Annot_OnMouseExit, 338 sets m_pCaptureWidget to pFXAnnot, 340 is true, 342 Annot_OnMouseEnter, 352 calls Annot_OnMouseMove, 353 returns true.\n--- After: 331 is true, 364 sets m_bOnWidget to false, 365 is true, 366 is true, 367 calls Annot_OnMouseExit, 369 sets m_pCaptureWidget to null. 335 is true, 336 is true. 356 sets m_bOnWidget to true, 357 sets m_pCaptureWidget to pFXAnnot. 358 calls Annot_OnMouseEnter, 346 calls Annot_OnMouseMove, 347 returns true.\n\n- Going from widget A to no widget (pFXAnnot is null, m_bOnWidget is true, m_pCaptureWidget is non-null)\n--- Before: 332 is false, 356 is true. 357 sets m_bOnWidget to false, 359 is true, 360 calls Annot_OnMouseExit, 361 sets m_pCaptureWidget to null, 365 returns false.\n--- After: 331 is true. 364 sets m_bOnWidget to false, 365 is true, 366 is true, 367 calls Annot_OnMouseExit, 369 sets m_pCaptureWidget to null. 335 is false. 350 returns false.\n\n- Going from widget A to widget A (pFXAnnot is non-null, m_bOnWidget is true, m_pCaptureWidget is non-null and \u003d\u003d pFXAnnot)\n--- Before: 332 is true, 333 is false, 337 and 338 have no effect, 340 is false, 352 calls Annot_OnMouseMove, 353 returns true.\n--- After: 331 is false, 335 is true, 336 is false, 346 calls Annot_OnMouseMove, 347 returns true.",
+      "parentUuid": "b14edcce_ec657762",
       "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
