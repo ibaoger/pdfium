@@ -37,6 +37,23 @@
     },
     {
       "key": {
+        "uuid": "3f33ea6a_8952458e",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-22T13:10:11Z",
+      "side": 0,
+      "message": "So, this was always set previously and now is only set if !m_bOnWidget?",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b01f4a1_ff68197b",
         "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
         "patchSetId": 3
@@ -66,6 +83,24 @@
       "side": 0,
       "message": "!m_bOnWidget is set inside EnterWidget().",
       "parentUuid": "6b01f4a1_ff68197b",
+      "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b14edcce_ec657762",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-22T13:10:11Z",
+      "side": 0,
+      "message": "Right but m_bEnterWidget isn\u0027t tracked anymore. So, this could have left with Enter\u003dtrue and we come back into this method and we don\u0027t execute the code on 340. Or, is it all depending on OnWidget now?",
+      "parentUuid": "d11e27af_8624b49b",
       "revId": "4b47214ac95ee1ac7c09688363e48c3e6eb77ea8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
