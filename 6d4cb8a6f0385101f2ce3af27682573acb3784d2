@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9d312efd_1861c103",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-22T20:19:16Z",
+      "side": 1,
+      "message": "Because if !m_pData, then GetLength() will return 0, and thus set off the ASSERT, since there is no possible value for index that satisfies both \u003e\u003d 0 and \u003c 0.",
+      "parentUuid": "53ae2ad3_f0d5280c",
+      "revId": "6d4cb8a6f0385101f2ce3af27682573acb3784d2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c40e85ab_1a4d7c29",
         "filename": "core/fxcrt/cfx_string_c_template.h",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "433598c6_7146de5a",
+        "filename": "core/fxcrt/cfx_string_c_template.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-22T20:19:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40e85ab_1a4d7c29",
+      "revId": "6d4cb8a6f0385101f2ce3af27682573acb3784d2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d67997d5_904bb7a2",
         "filename": "core/fxcrt/cfx_widestring.h",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-22T20:11:47Z",
       "side": 1,
       "message": "ditto check after ASSERT",
+      "revId": "6d4cb8a6f0385101f2ce3af27682573acb3784d2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a038f39b_59bfbd49",
+        "filename": "core/fxcrt/cfx_widestring.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-22T20:19:16Z",
+      "side": 1,
+      "message": "See other comment about this",
+      "parentUuid": "d67997d5_904bb7a2",
       "revId": "6d4cb8a6f0385101f2ce3af27682573acb3784d2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
