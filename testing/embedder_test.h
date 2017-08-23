@@ -15,6 +15,7 @@
 #include "public/fpdf_save.h"
 #include "public/fpdfview.h"
 #include "testing/gtest/include/gtest/gtest.h"
+#include "testing/network_simulator.h"
 #include "testing/test_support.h"
 
 #ifdef PDF_ENABLE_V8
@@ -116,9 +117,7 @@ class EmbedderTest : public ::testing::Test,
  protected:
   bool OpenDocumentHelper(const char* password,
                           bool must_linearize,
-                          FX_FILEAVAIL* file_avail,
-                          FX_DOWNLOADHINTS* hints,
-                          FPDF_FILEACCESS* file_access,
+                          NetworkSimulator* network_simulator,
                           FPDF_DOCUMENT* document,
                           FPDF_AVAIL* avail,
                           FPDF_FORMHANDLE* form_handle);
@@ -156,9 +155,7 @@ class EmbedderTest : public ::testing::Test,
   FPDF_DOCUMENT document_;
   FPDF_FORMHANDLE form_handle_;
   FPDF_AVAIL avail_;
-  FX_DOWNLOADHINTS hints_;
   FPDF_FILEACCESS file_access_;
-  FX_FILEAVAIL file_avail_;
 #ifdef PDF_ENABLE_V8
   v8::Platform* platform_;
 #endif  // PDF_ENABLE_V8
@@ -172,6 +169,7 @@ class EmbedderTest : public ::testing::Test,
   FPDF_PAGE m_SavedPage;
   FPDF_FORMHANDLE m_SavedForm;
   FPDF_AVAIL m_SavedAvail;
+  std::unique_ptr<NetworkSimulator> network_simulator_;
 
  private:
   static void UnsupportedHandlerTrampoline(UNSUPPORT_INFO*, int type);
