@@ -16,6 +16,24 @@
       "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad0c190_188ca465",
+        "filename": "core/fpdfapi/page/cpdf_patterncs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-23T20:43:48Z",
+      "side": 0,
+      "message": "Yea... I got rid of them (so for this case, an nullopt tuple would be returned), and all the tests passed, so I assumed they weren\u0027t useful?",
+      "parentUuid": "83a07dcb_1deab725",
+      "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
