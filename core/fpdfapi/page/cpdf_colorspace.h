@@ -8,11 +8,13 @@
 #define CORE_FPDFAPI_PAGE_CPDF_COLORSPACE_H_
 
 #include <memory>
+#include <tuple>
 
 #include "core/fpdfapi/page/cpdf_pattern.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
+#include "third_party/base/optional.h"
 
 #define PDFCS_DEVICEGRAY 1
 #define PDFCS_DEVICERGB 2
@@ -57,7 +59,8 @@ class CPDF_ColorSpace {
                                float* min,
                                float* max) const;
 
-  virtual bool GetRGB(float* pBuf, float* R, float* G, float* B) const = 0;
+  virtual pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const = 0;
 
   virtual void TranslateImageLine(uint8_t* dest_buf,
                                   const uint8_t* src_buf,

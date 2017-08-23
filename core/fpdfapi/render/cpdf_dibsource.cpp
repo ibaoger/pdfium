@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -712,14 +713,16 @@ int CPDF_DIBSource::StartLoadMask() {
     CPDF_Array* pMatte = m_pMaskStream->GetDict()->GetArrayFor("Matte");
     if (pMatte && m_pColorSpace &&
         m_pColorSpace->CountComponents() <= m_nComponents) {
-      float R, G, B;
       std::vector<float> colors(m_nComponents);
       for (uint32_t i = 0; i < m_nComponents; i++)
         colors[i] = pMatte->GetFloatAt(i);
 
-      m_pColorSpace->GetRGB(colors.data(), &R, &G, &B);
-      m_MatteColor = FXARGB_MAKE(0, FXSYS_round(R * 255), FXSYS_round(G * 255),
-                                 FXSYS_round(B * 255));
+      std::tuple<float, float, float> rgb =
+          m_pColorSpace->GetRGB(colors.data())
+              .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+      m_MatteColor = FXARGB_MAKE(0, FXSYS_round(std::get<0>(rgb) * 255),
+                                 FXSYS_round(std::get<1>(rgb) * 255),
+                                 FXSYS_round(std::get<2>(rgb) * 255));
     }
     return StartLoadMaskDIB();
   }
@@ -787,16 +790,20 @@ void CPDF_DIBSource::LoadPalette() {
     float color_values[3];
     color_values[0] = m_pCompData[0].m_DecodeMin;
     color_values[1] = color_values[2] = color_values[0];
-    float R = 0.0f, G = 0.0f, B = 0.0f;
-    m_pColorSpace->GetRGB(color_values, &R, &G, &B);
-    FX_ARGB argb0 = ArgbEncode(255, FXSYS_round(R * 255), FXSYS_round(G * 255),
-                               FXSYS_round(B * 255));
+    std::tuple<float, float, float> rgb =
+        m_pColorSpace->GetRGB(color_values)
+            .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+    FX_ARGB argb0 = ArgbEncode(255, FXSYS_round(std::get<0>(rgb) * 255),
+                               FXSYS_round(std::get<1>(rgb) * 255),
+                               FXSYS_round(std::get<2>(rgb) * 255));
     color_values[0] += m_pCompData[0].m_DecodeStep;
     color_values[1] += m_pCompData[0].m_DecodeStep;
     color_values[2] += m_pCompData[0].m_DecodeStep;
-    m_pColorSpace->GetRGB(color_values, &R, &G, &B);
-    FX_ARGB argb1 = ArgbEncode(255, FXSYS_round(R * 255), FXSYS_round(G * 255),
-                               FXSYS_round(B * 255));
+    rgb = m_pColorSpace->GetRGB(color_values)
+              .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+    FX_ARGB argb1 = ArgbEncode(255, FXSYS_round(std::get<0>(rgb) * 255),
+                               FXSYS_round(std::get<1>(rgb) * 255),
+                               FXSYS_round(std::get<2>(rgb) * 255));
     if (argb0 != 0xFF000000 || argb1 != 0xFFFFFFFF) {
       SetPaletteArgb(0, argb0);
       SetPaletteArgb(1, argb1);
@@ -817,7 +824,7 @@ void CPDF_DIBSource::LoadPalette() {
         color_value[j] = m_pCompData[j].m_DecodeMin +
                          m_pCompData[j].m_DecodeStep * encoded_component;
       }
-      float R = 0, G = 0, B = 0;
+      std::tuple<float, float, float> rgb;
       if (m_nComponents == 1 && m_Family == PDFCS_ICCBASED &&
           m_pColorSpace->CountComponents() > 1) {
         int nComponents = m_pColorSpace->CountComponents();
@@ -825,12 +832,15 @@ void CPDF_DIBSource::LoadPalette() {
         for (int k = 0; k < nComponents; k++) {
           temp_buf[k] = *color_value;
         }
-        m_pColorSpace->GetRGB(temp_buf.data(), &R, &G, &B);
+        rgb = m_pColorSpace->GetRGB(temp_buf.data())
+                  .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
       } else {
-        m_pColorSpace->GetRGB(color_value, &R, &G, &B);
+        rgb = m_pColorSpace->GetRGB(color_value)
+                  .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
       }
-      SetPaletteArgb(i, ArgbEncode(255, FXSYS_round(R * 255),
-                                   FXSYS_round(G * 255), FXSYS_round(B * 255)));
+      SetPaletteArgb(i, ArgbEncode(255, FXSYS_round(std::get<0>(rgb) * 255),
+                                   FXSYS_round(std::get<1>(rgb) * 255),
+                                   FXSYS_round(std::get<2>(rgb) * 255)));
     }
   }
 }
@@ -929,6 +939,7 @@ void CPDF_DIBSource::TranslateScanline24bpp(uint8_t* dest_scan,
 
   CFX_FixedBufGrow<float, 16> color_values1(m_nComponents);
   float* color_values = color_values1;
+  std::tuple<float, float, float> rgb;
   float R = 0.0f;
   float G = 0.0f;
   float B = 0.0f;
@@ -947,11 +958,12 @@ void CPDF_DIBSource::TranslateScanline24bpp(uint8_t* dest_scan,
         G = (1.0f - color_values[1]) * k;
         B = (1.0f - color_values[2]) * k;
       } else {
-        m_pColorSpace->GetRGB(color_values, &R, &G, &B);
+        rgb = m_pColorSpace->GetRGB(color_values)
+                  .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
       }
-      R = ClampValue(R, 1.0f);
-      G = ClampValue(G, 1.0f);
-      B = ClampValue(B, 1.0f);
+      R = ClampValue(std::get<0>(rgb), 1.0f);
+      G = ClampValue(std::get<1>(rgb), 1.0f);
+      B = ClampValue(std::get<2>(rgb), 1.0f);
       dest_scan[dest_byte_pos] = static_cast<uint8_t>(B * 255);
       dest_scan[dest_byte_pos + 1] = static_cast<uint8_t>(G * 255);
       dest_scan[dest_byte_pos + 2] = static_cast<uint8_t>(R * 255);
@@ -973,11 +985,12 @@ void CPDF_DIBSource::TranslateScanline24bpp(uint8_t* dest_scan,
         G = (1.0f - color_values[1]) * k;
         B = (1.0f - color_values[2]) * k;
       } else {
-        m_pColorSpace->GetRGB(color_values, &R, &G, &B);
+        rgb = m_pColorSpace->GetRGB(color_values)
+                  .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
       }
-      R = ClampValue(R, 1.0f);
-      G = ClampValue(G, 1.0f);
-      B = ClampValue(B, 1.0f);
+      R = ClampValue(std::get<0>(rgb), 1.0f);
+      G = ClampValue(std::get<1>(rgb), 1.0f);
+      B = ClampValue(std::get<2>(rgb), 1.0f);
       dest_scan[dest_byte_pos] = static_cast<uint8_t>(B * 255);
       dest_scan[dest_byte_pos + 1] = static_cast<uint8_t>(G * 255);
       dest_scan[dest_byte_pos + 2] = static_cast<uint8_t>(R * 255);

@@ -204,12 +204,9 @@ std::tuple<float, float, float> CPDF_MeshStream::ReadColor() {
                          (m_ColorMax[i] - m_ColorMin[i]) / m_ComponentMax;
   }
 
-  float r = 0.0;
-  float g = 0.0;
-  float b = 0.0;
   if (m_funcs.empty()) {
-    m_pCS->GetRGB(color_value, &r, &g, &b);
-    return std::tuple<float, float, float>(r, g, b);
+    return m_pCS->GetRGB(color_value)
+        .value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
   }
 
   float result[kMaxComponents];
@@ -220,8 +217,7 @@ std::tuple<float, float, float> CPDF_MeshStream::ReadColor() {
       func->Call(color_value, 1, result, &nResults);
   }
 
-  m_pCS->GetRGB(result, &r, &g, &b);
-  return std::tuple<float, float, float>(r, g, b);
+  return m_pCS->GetRGB(result).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
 }
 
 bool CPDF_MeshStream::ReadVertex(const CFX_Matrix& pObject2Bitmap,

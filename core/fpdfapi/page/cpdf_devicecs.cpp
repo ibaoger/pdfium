@@ -76,33 +76,30 @@ CPDF_DeviceCS::CPDF_DeviceCS(int family)
 
 CPDF_DeviceCS::~CPDF_DeviceCS() {}
 
-bool CPDF_DeviceCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_DeviceCS::GetRGB(
+    float* pBuf) const {
   switch (m_Family) {
     case PDFCS_DEVICEGRAY:
-      *R = NormalizeChannel(*pBuf);
-      *G = *R;
-      *B = *R;
-      return true;
+      return std::make_tuple(NormalizeChannel(*pBuf), NormalizeChannel(*pBuf),
+                             NormalizeChannel(*pBuf));
     case PDFCS_DEVICERGB:
-      *R = NormalizeChannel(pBuf[0]);
-      *G = NormalizeChannel(pBuf[1]);
-      *B = NormalizeChannel(pBuf[2]);
-      return true;
+      return std::make_tuple(NormalizeChannel(pBuf[0]),
+                             NormalizeChannel(pBuf[1]),
+                             NormalizeChannel(pBuf[2]));
     case PDFCS_DEVICECMYK:
       if (m_dwStdConversion) {
         float k = pBuf[3];
-        *R = 1.0f - std::min(1.0f, pBuf[0] + k);
-        *G = 1.0f - std::min(1.0f, pBuf[1] + k);
-        *B = 1.0f - std::min(1.0f, pBuf[2] + k);
+        return std::make_tuple(1.0f - std::min(1.0f, pBuf[0] + k),
+                               1.0f - std::min(1.0f, pBuf[1] + k),
+                               1.0f - std::min(1.0f, pBuf[2] + k));
       } else {
-        std::tie(*R, *G, *B) = AdobeCMYK_to_sRGB(
+        return AdobeCMYK_to_sRGB(
             NormalizeChannel(pBuf[0]), NormalizeChannel(pBuf[1]),
             NormalizeChannel(pBuf[2]), NormalizeChannel(pBuf[3]));
       }
-      return true;
     default:
       NOTREACHED();
-      return false;
+      return pdfium::Optional<std::tuple<float, float, float>>();
   }
 }
 

@@ -6,6 +6,8 @@
 
 #include "core/fpdfapi/page/cpdf_color.h"
 
+#include <tuple>
+
 #include "core/fpdfapi/page/cpdf_docpagedata.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
@@ -144,15 +146,14 @@ bool CPDF_Color::GetRGB(int* R, int* G, int* B) const {
   if (!m_pCS || !m_pBuffer)
     return false;
 
-  float r = 0.0f;
-  float g = 0.0f;
-  float b = 0.0f;
-  if (!m_pCS->GetRGB(m_pBuffer, &r, &g, &b))
+  pdfium::Optional<std::tuple<float, float, float>> rgb =
+      m_pCS->GetRGB(m_pBuffer);
+  if (!rgb)
     return false;
 
-  *R = static_cast<int32_t>(r * 255 + 0.5f);
-  *G = static_cast<int32_t>(g * 255 + 0.5f);
-  *B = static_cast<int32_t>(b * 255 + 0.5f);
+  *R = static_cast<int32_t>(std::get<0>(*rgb) * 255 + 0.5f);
+  *G = static_cast<int32_t>(std::get<1>(*rgb) * 255 + 0.5f);
+  *B = static_cast<int32_t>(std::get<2>(*rgb) * 255 + 0.5f);
   return true;
 }
 

@@ -75,7 +75,8 @@ class CPDF_CalGray : public CPDF_ColorSpace {
 
   // CPDF_ColorSpace:
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
   void TranslateImageLine(uint8_t* pDestBuf,
                           const uint8_t* pSrcBuf,
                           int pixels,
@@ -96,7 +97,8 @@ class CPDF_CalRGB : public CPDF_ColorSpace {
 
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
 
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
 
   void TranslateImageLine(uint8_t* pDestBuf,
                           const uint8_t* pSrcBuf,
@@ -124,7 +126,8 @@ class CPDF_LabCS : public CPDF_ColorSpace {
                        float* value,
                        float* min,
                        float* max) const override;
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
 
   void TranslateImageLine(uint8_t* pDestBuf,
                           const uint8_t* pSrcBuf,
@@ -145,7 +148,8 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
 
   // CPDF_ColorSpace:
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
   void EnableStdConversion(bool bEnabled) override;
   void TranslateImageLine(uint8_t* pDestBuf,
                           const uint8_t* pSrcBuf,
@@ -177,7 +181,8 @@ class CPDF_IndexedCS : public CPDF_ColorSpace {
 
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
 
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
 
   void EnableStdConversion(bool bEnabled) override;
 
@@ -200,7 +205,8 @@ class CPDF_SeparationCS : public CPDF_ColorSpace {
                        float* min,
                        float* max) const override;
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
   void EnableStdConversion(bool bEnabled) override;
 
   std::unique_ptr<CPDF_ColorSpace> m_pAltCS;
@@ -219,7 +225,8 @@ class CPDF_DeviceNCS : public CPDF_ColorSpace {
                        float* min,
                        float* max) const override;
   bool v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) override;
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
   void EnableStdConversion(bool bEnabled) override;
 
   std::unique_ptr<CPDF_ColorSpace> m_pAltCS;
@@ -304,25 +311,21 @@ float RGB_Conversion(float colorComponent) {
   return g_sRGBSamples2[scale / 4 - 48] / 255.0f;
 }
 
-void XYZ_to_sRGB(float X, float Y, float Z, float* R, float* G, float* B) {
+std::tuple<float, float, float> XYZ_to_sRGB(float X, float Y, float Z) {
   float R1 = 3.2410f * X - 1.5374f * Y - 0.4986f * Z;
   float G1 = -0.9692f * X + 1.8760f * Y + 0.0416f * Z;
   float B1 = 0.0556f * X - 0.2040f * Y + 1.0570f * Z;
 
-  *R = RGB_Conversion(R1);
-  *G = RGB_Conversion(G1);
-  *B = RGB_Conversion(B1);
+  return std::make_tuple(RGB_Conversion(R1), RGB_Conversion(G1),
+                         RGB_Conversion(B1));
 }
 
-void XYZ_to_sRGB_WhitePoint(float X,
-                            float Y,
-                            float Z,
-                            float Xw,
-                            float Yw,
-                            float Zw,
-                            float* R,
-                            float* G,
-                            float* B) {
+std::tuple<float, float, float> XYZ_to_sRGB_WhitePoint(float X,
+                                                       float Y,
+                                                       float Z,
+                                                       float Xw,
+                                                       float Yw,
+                                                       float Zw) {
   // The following RGB_xyz is based on
   // sRGB value {Rx,Ry}={0.64, 0.33}, {Gx,Gy}={0.30, 0.60}, {Bx,By}={0.15, 0.06}
 
@@ -340,9 +343,8 @@ void XYZ_to_sRGB_WhitePoint(float X,
   Matrix_3by3 M = RGB_xyz.Multiply(RGB_SUM_XYZ_DIAG);
   Vector_3by1 RGB = M.Inverse().TransformVector(XYZ);
 
-  *R = RGB_Conversion(RGB.a);
-  *G = RGB_Conversion(RGB.b);
-  *B = RGB_Conversion(RGB.c);
+  return std::make_tuple(RGB_Conversion(RGB.a), RGB_Conversion(RGB.b),
+                         RGB_Conversion(RGB.c));
 }
 
 }  // namespace
@@ -492,17 +494,16 @@ void CPDF_ColorSpace::TranslateImageLine(uint8_t* dest_buf,
                                          bool bTransMask) const {
   CFX_FixedBufGrow<float, 16> srcbuf(m_nComponents);
   float* src = srcbuf;
-  float R;
-  float G;
-  float B;
   const int divisor = m_Family != PDFCS_INDEXED ? 255 : 1;
   for (int i = 0; i < pixels; i++) {
     for (uint32_t j = 0; j < m_nComponents; j++)
       src[j] = static_cast<float>(*src_buf++) / divisor;
-    GetRGB(src, &R, &G, &B);
-    *dest_buf++ = static_cast<int32_t>(B * 255);
-    *dest_buf++ = static_cast<int32_t>(G * 255);
-    *dest_buf++ = static_cast<int32_t>(R * 255);
+
+    std::tuple<float, float, float> rgb =
+        GetRGB(src).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+    *dest_buf++ = static_cast<int32_t>(std::get<2>(rgb) * 255);
+    *dest_buf++ = static_cast<int32_t>(std::get<1>(rgb) * 255);
+    *dest_buf++ = static_cast<int32_t>(std::get<0>(rgb) * 255);
   }
 }
 
@@ -551,11 +552,9 @@ bool CPDF_CalGray::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_CalGray::GetRGB(float* pBuf, float* R, float* G, float* B) const {
-  *R = *pBuf;
-  *G = *pBuf;
-  *B = *pBuf;
-  return true;
+pdfium::Optional<std::tuple<float, float, float>> CPDF_CalGray::GetRGB(
+    float* pBuf) const {
+  return std::make_tuple(*pBuf, *pBuf, *pBuf);
 }
 
 void CPDF_CalGray::TranslateImageLine(uint8_t* pDestBuf,
@@ -608,7 +607,8 @@ bool CPDF_CalRGB::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_CalRGB::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_CalRGB::GetRGB(
+    float* pBuf) const {
   float A_ = pBuf[0];
   float B_ = pBuf[1];
   float C_ = pBuf[2];
@@ -630,9 +630,8 @@ bool CPDF_CalRGB::GetRGB(float* pBuf, float* R, float* G, float* B) const {
     Y = B_;
     Z = C_;
   }
-  XYZ_to_sRGB_WhitePoint(X, Y, Z, m_WhitePoint[0], m_WhitePoint[1],
-                         m_WhitePoint[2], R, G, B);
-  return true;
+  return XYZ_to_sRGB_WhitePoint(X, Y, Z, m_WhitePoint[0], m_WhitePoint[1],
+                                m_WhitePoint[2]);
 }
 
 void CPDF_CalRGB::TranslateImageLine(uint8_t* pDestBuf,
@@ -643,17 +642,15 @@ void CPDF_CalRGB::TranslateImageLine(uint8_t* pDestBuf,
                                      bool bTransMask) const {
   if (bTransMask) {
     float Cal[3];
-    float R;
-    float G;
-    float B;
     for (int i = 0; i < pixels; i++) {
       Cal[0] = static_cast<float>(pSrcBuf[2]) / 255;
       Cal[1] = static_cast<float>(pSrcBuf[1]) / 255;
       Cal[2] = static_cast<float>(pSrcBuf[0]) / 255;
-      GetRGB(Cal, &R, &G, &B);
-      pDestBuf[0] = FXSYS_round(B * 255);
-      pDestBuf[1] = FXSYS_round(G * 255);
-      pDestBuf[2] = FXSYS_round(R * 255);
+      std::tuple<float, float, float> rgb =
+          GetRGB(Cal).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+      pDestBuf[0] = FXSYS_round(std::get<2>(rgb) * 255);
+      pDestBuf[1] = FXSYS_round(std::get<1>(rgb) * 255);
+      pDestBuf[2] = FXSYS_round(std::get<0>(rgb) * 255);
       pSrcBuf += 3;
       pDestBuf += 3;
     }
@@ -703,7 +700,8 @@ bool CPDF_LabCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_LabCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_LabCS::GetRGB(
+    float* pBuf) const {
   float Lstar = pBuf[0];
   float astar = pBuf[1];
   float bstar = pBuf[2];
@@ -728,8 +726,7 @@ bool CPDF_LabCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
   else
     Z = 1.0889f * N * N * N;
 
-  XYZ_to_sRGB(X, Y, Z, R, G, B);
-  return true;
+  return XYZ_to_sRGB(X, Y, Z);
 }
 
 void CPDF_LabCS::TranslateImageLine(uint8_t* pDestBuf,
@@ -740,16 +737,14 @@ void CPDF_LabCS::TranslateImageLine(uint8_t* pDestBuf,
                                     bool bTransMask) const {
   for (int i = 0; i < pixels; i++) {
     float lab[3];
-    float R;
-    float G;
-    float B;
     lab[0] = (pSrcBuf[0] * 100 / 255.0f);
     lab[1] = (float)(pSrcBuf[1] - 128);
     lab[2] = (float)(pSrcBuf[2] - 128);
-    GetRGB(lab, &R, &G, &B);
-    pDestBuf[0] = static_cast<int32_t>(B * 255);
-    pDestBuf[1] = static_cast<int32_t>(G * 255);
-    pDestBuf[2] = static_cast<int32_t>(R * 255);
+    std::tuple<float, float, float> rgb =
+        GetRGB(lab).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+    pDestBuf[0] = static_cast<int32_t>(std::get<2>(rgb) * 255);
+    pDestBuf[1] = static_cast<int32_t>(std::get<1>(rgb) * 255);
+    pDestBuf[2] = static_cast<int32_t>(std::get<0>(rgb) * 255);
     pDestBuf += 3;
     pSrcBuf += 3;
   }
@@ -811,32 +806,24 @@ bool CPDF_ICCBasedCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_ICCBasedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_ICCBasedCS::GetRGB(
+    float* pBuf) const {
   ASSERT(m_pProfile);
-  if (IsSRGB()) {
-    *R = pBuf[0];
-    *G = pBuf[1];
-    *B = pBuf[2];
-    return true;
-  }
+  if (IsSRGB())
+    return std::make_tuple(pBuf[0], pBuf[1], pBuf[2]);
+
   if (m_pProfile->transform()) {
     float rgb[3];
     CCodec_IccModule* pIccModule = CPDF_ModuleMgr::Get()->GetIccModule();
     pIccModule->SetComponents(m_nComponents);
     pIccModule->Translate(m_pProfile->transform(), pBuf, rgb);
-    *R = rgb[0];
-    *G = rgb[1];
-    *B = rgb[2];
-    return true;
+    return std::make_tuple(rgb[0], rgb[1], rgb[2]);
   }
 
   if (m_pAlterCS)
-    return m_pAlterCS->GetRGB(pBuf, R, G, B);
+    return m_pAlterCS->GetRGB(pBuf);
 
-  *R = 0.0f;
-  *G = 0.0f;
-  *B = 0.0f;
-  return true;
+  return std::make_tuple(0.0f, 0.0f, 0.0f);
 }
 
 void CPDF_ICCBasedCS::EnableStdConversion(bool bEnabled) {
@@ -995,16 +982,16 @@ bool CPDF_IndexedCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_IndexedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_IndexedCS::GetRGB(
+    float* pBuf) const {
   int index = static_cast<int32_t>(*pBuf);
   if (index < 0 || index > m_MaxIndex)
-    return false;
+    return pdfium::Optional<std::tuple<float, float, float>>();
 
   if (m_nBaseComponents) {
     if (index == INT_MAX || (index + 1) > INT_MAX / m_nBaseComponents ||
         (index + 1) * m_nBaseComponents > (int)m_Table.GetLength()) {
-      R = G = B = 0;
-      return false;
+      return pdfium::Optional<std::tuple<float, float, float>>();
     }
   }
   CFX_FixedBufGrow<float, 16> Comps(m_nBaseComponents);
@@ -1015,7 +1002,7 @@ bool CPDF_IndexedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
         m_pCompMinMax[i * 2] +
         m_pCompMinMax[i * 2 + 1] * pTable[index * m_nBaseComponents + i] / 255;
   }
-  return m_pBaseCS->GetRGB(comps, R, G, B);
+  return m_pBaseCS->GetRGB(comps);
 }
 
 void CPDF_IndexedCS::EnableStdConversion(bool bEnabled) {
@@ -1063,37 +1050,32 @@ bool CPDF_SeparationCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return true;
 }
 
-bool CPDF_SeparationCS::GetRGB(float* pBuf,
-                               float* R,
-                               float* G,
-                               float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_SeparationCS::GetRGB(
+    float* pBuf) const {
   if (m_Type == None)
-    return false;
+    return pdfium::Optional<std::tuple<float, float, float>>();
 
   if (!m_pFunc) {
     if (!m_pAltCS)
-      return false;
+      return pdfium::Optional<std::tuple<float, float, float>>();
 
     int nComps = m_pAltCS->CountComponents();
     CFX_FixedBufGrow<float, 16> results(nComps);
     for (int i = 0; i < nComps; i++)
       results[i] = *pBuf;
-    return m_pAltCS->GetRGB(results, R, G, B);
+    return m_pAltCS->GetRGB(results);
   }
 
   CFX_FixedBufGrow<float, 16> results(m_pFunc->CountOutputs());
   int nresults = 0;
   m_pFunc->Call(pBuf, 1, results, &nresults);
   if (nresults == 0)
-    return false;
+    return pdfium::Optional<std::tuple<float, float, float>>();
 
   if (m_pAltCS)
-    return m_pAltCS->GetRGB(results, R, G, B);
+    return m_pAltCS->GetRGB(results);
 
-  R = 0;
-  G = 0;
-  B = 0;
-  return false;
+  return pdfium::Optional<std::tuple<float, float, float>>();
 }
 
 void CPDF_SeparationCS::EnableStdConversion(bool bEnabled) {
@@ -1134,17 +1116,18 @@ bool CPDF_DeviceNCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return m_pFunc->CountOutputs() >= m_pAltCS->CountComponents();
 }
 
-bool CPDF_DeviceNCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
+pdfium::Optional<std::tuple<float, float, float>> CPDF_DeviceNCS::GetRGB(
+    float* pBuf) const {
   if (!m_pFunc)
-    return false;
+    return pdfium::Optional<std::tuple<float, float, float>>();
 
   CFX_FixedBufGrow<float, 16> results(m_pFunc->CountOutputs());
   int nresults = 0;
   m_pFunc->Call(pBuf, m_nComponents, results, &nresults);
   if (nresults == 0)
-    return false;
+    return pdfium::Optional<std::tuple<float, float, float>>();
 
-  return m_pAltCS->GetRGB(results, R, G, B);
+  return m_pAltCS->GetRGB(results);
 }
 
 void CPDF_DeviceNCS::EnableStdConversion(bool bEnabled) {

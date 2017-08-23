@@ -44,15 +44,12 @@ bool CPDF_PatternCS::v_Load(CPDF_Document* pDoc, CPDF_Array* pArray) {
   return m_pBaseCS->CountComponents() <= MAX_PATTERN_COLORCOMPS;
 }
 
-bool CPDF_PatternCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
-  if (m_pBaseCS) {
-    ASSERT(m_pBaseCS->GetFamily() != PDFCS_PATTERN);
-    PatternValue* pvalue = (PatternValue*)pBuf;
-    if (m_pBaseCS->GetRGB(pvalue->m_Comps, R, G, B))
-      return true;
-  }
-  *R = 0.75f;
-  *G = 0.75f;
-  *B = 0.75f;
-  return false;
+pdfium::Optional<std::tuple<float, float, float>> CPDF_PatternCS::GetRGB(
+    float* pBuf) const {
+  if (!m_pBaseCS)
+    return pdfium::Optional<std::tuple<float, float, float>>();
+
+  ASSERT(m_pBaseCS->GetFamily() != PDFCS_PATTERN);
+  PatternValue* pvalue = (PatternValue*)pBuf;
+  return m_pBaseCS->GetRGB(pvalue->m_Comps);
 }

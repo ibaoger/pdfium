@@ -7,6 +7,8 @@
 #ifndef CORE_FPDFAPI_PAGE_CPDF_DEVICECS_H_
 #define CORE_FPDFAPI_PAGE_CPDF_DEVICECS_H_
 
+#include <tuple>
+
 #include "core/fpdfapi/page/cpdf_colorspace.h"
 
 class CPDF_DeviceCS : public CPDF_ColorSpace {
@@ -15,7 +17,8 @@ class CPDF_DeviceCS : public CPDF_ColorSpace {
   ~CPDF_DeviceCS() override;
 
   // CPDF_ColorSpace:
-  bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
+  pdfium::Optional<std::tuple<float, float, float>> GetRGB(
+      float* pBuf) const override;
   void TranslateImageLine(uint8_t* pDestBuf,
                           const uint8_t* pSrcBuf,
                           int pixels,

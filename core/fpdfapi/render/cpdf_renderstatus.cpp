@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -149,13 +150,12 @@ void DrawAxialShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
           offset += nresults;
       }
     }
-    float R = 0.0f;
-    float G = 0.0f;
-    float B = 0.0f;
-    pCS->GetRGB(pResults, &R, &G, &B);
+    std::tuple<float, float, float> rgb =
+        pCS->GetRGB(pResults).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
     rgb_array[i] =
-        FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(R * 255),
-                                 FXSYS_round(G * 255), FXSYS_round(B * 255)));
+        FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(std::get<0>(rgb) * 255),
+                                 FXSYS_round(std::get<1>(rgb) * 255),
+                                 FXSYS_round(std::get<2>(rgb) * 255)));
   }
   int pitch = pBitmap->GetPitch();
   CFX_Matrix matrix = pObject2Bitmap->GetInverse();
@@ -231,13 +231,12 @@ void DrawRadialShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
           offset += nresults;
       }
     }
-    float R = 0.0f;
-    float G = 0.0f;
-    float B = 0.0f;
-    pCS->GetRGB(pResults, &R, &G, &B);
+    std::tuple<float, float, float> rgb =
+        pCS->GetRGB(pResults).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
     rgb_array[i] =
-        FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(R * 255),
-                                 FXSYS_round(G * 255), FXSYS_round(B * 255)));
+        FXARGB_TODIB(FXARGB_MAKE(alpha, FXSYS_round(std::get<0>(rgb) * 255),
+                                 FXSYS_round(std::get<1>(rgb) * 255),
+                                 FXSYS_round(std::get<2>(rgb) * 255)));
   }
   float a = ((start_x - end_x) * (start_x - end_x)) +
             ((start_y - end_y) * (start_y - end_y)) -
@@ -360,12 +359,12 @@ void DrawFuncShading(const CFX_RetainPtr<CFX_DIBitmap>& pBitmap,
         }
       }
 
-      float R = 0.0f;
-      float G = 0.0f;
-      float B = 0.0f;
-      pCS->GetRGB(pResults, &R, &G, &B);
-      dib_buf[column] = FXARGB_TODIB(FXARGB_MAKE(
-          alpha, (int32_t)(R * 255), (int32_t)(G * 255), (int32_t)(B * 255)));
+      std::tuple<float, float, float> rgb =
+          pCS->GetRGB(pResults).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+      dib_buf[column] =
+          FXARGB_TODIB(FXARGB_MAKE(alpha, (int32_t)(std::get<0>(rgb) * 255),
+                                   (int32_t)(std::get<1>(rgb) * 255),
+                                   (int32_t)(std::get<2>(rgb) * 255)));
     }
   }
 }
@@ -2064,12 +2063,12 @@ void CPDF_RenderStatus::DrawShading(CPDF_ShadingPattern* pPattern,
       CFX_FixedBufGrow<float, 16> comps(pColorSpace->CountComponents());
       for (uint32_t i = 0; i < pColorSpace->CountComponents(); i++)
         comps[i] = pBackColor->GetNumberAt(i);
-      float R = 0.0f;
-      float G = 0.0f;
-      float B = 0.0f;
-      pColorSpace->GetRGB(comps, &R, &G, &B);
-      background = ArgbEncode(255, (int32_t)(R * 255), (int32_t)(G * 255),
-                              (int32_t)(B * 255));
+
+      std::tuple<float, float, float> rgb = pColorSpace->GetRGB(comps).value_or(
+          std::make_tuple(0.0f, 0.0f, 0.0f));
+      background = ArgbEncode(255, (int32_t)(std::get<0>(rgb) * 255),
+                              (int32_t)(std::get<1>(rgb) * 255),
+                              (int32_t)(std::get<2>(rgb) * 255));
     }
   }
   if (pDict->KeyExist("BBox")) {
@@ -2576,7 +2575,6 @@ CFX_RetainPtr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
         // Store Color Space Family to use in CPDF_RenderStatus::Initialize.
         color_space_family = pCS->GetFamily();
 
-        float R, G, B;
         uint32_t comps = 8;
         if (pCS->CountComponents() > comps) {
           comps = pCS->CountComponents();
@@ -2593,9 +2591,11 @@ CFX_RetainPtr<CFX_DIBitmap> CPDF_RenderStatus::LoadSMask(
         for (size_t i = 0; i < count; i++) {
           pFloats[i] = pBC->GetNumberAt(i);
         }
-        pCS->GetRGB(pFloats, &R, &G, &B);
-        back_color = 0xff000000 | ((int32_t)(R * 255) << 16) |
-                     ((int32_t)(G * 255) << 8) | (int32_t)(B * 255);
+        std::tuple<float, float, float> rgb =
+            pCS->GetRGB(pFloats).value_or(std::make_tuple(0.0f, 0.0f, 0.0f));
+        back_color = 0xff000000 | ((int32_t)(std::get<0>(rgb) * 255) << 16) |
+                     ((int32_t)(std::get<1>(rgb) * 255) << 8) |
+                     (int32_t)(std::get<2>(rgb) * 255);
         m_pContext->GetDocument()->GetPageData()->ReleaseColorSpace(pCSObj);
       }
     }
