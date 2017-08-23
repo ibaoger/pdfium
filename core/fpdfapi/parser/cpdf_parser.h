@@ -169,6 +169,8 @@ class CPDF_Parser {
   // the objects.
   bool VerifyCrossRefV4();
 
+  void ClearParsedObjectData();
+
   // If out_objects is null, the parser position will be moved to end subsection
   // without additional validation.
   bool ParseAndAppendCrossRefSubsectionData(
