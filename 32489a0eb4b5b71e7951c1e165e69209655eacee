@@ -34,6 +34,24 @@
       "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f6b70b4_44b8ece5",
+        "filename": "core/fpdfapi/page/cpdf_patterncs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-23T21:21:33Z",
+      "side": 0,
+      "message": "That\u0027s also assuming there is good test coverage. Probably safer to leave it alone when refactoring.",
+      "parentUuid": "9ad0c190_188ca465",
+      "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
