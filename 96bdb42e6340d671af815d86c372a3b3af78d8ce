@@ -3,6 +3,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "a6ea8e71_7a522d94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 7135
+      },
+      "writtenOn": "2017-08-23T17:34:31Z",
+      "side": 1,
+      "message": "nit: Should the commit message reference the original libpng commit? (Just a suggestion; it\u0027s already in the README, so maybe that\u0027s enough.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "96bdb42e6340d671af815d86c372a3b3af78d8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49180aff_e7b59d6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 7135
+      },
+      "writtenOn": "2017-08-23T17:34:31Z",
+      "side": 1,
+      "message": "Should this also reference crbug.com/541704? (I suppose this is to have the same version as Chromium?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "96bdb42e6340d671af815d86c372a3b3af78d8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "005f6bcf_b80be7c5",
         "filename": "third_party/libpng16/png.c",
         "patchSetId": 1
