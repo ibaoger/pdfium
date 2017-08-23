@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97769cf4_1eb9d1cf",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-23T14:09:43Z",
+      "side": 1,
+      "message": "If ScheduleDownloadWholeFile is made void this can also be void, yea?",
+      "revId": "ca308f41e06bc17e7b335b435ba5ea7b46daec04",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6edc650_b04f5cc8",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-23T14:09:43Z",
+      "side": 1,
+      "message": "nit: Remove blank line",
+      "revId": "ca308f41e06bc17e7b335b435ba5ea7b46daec04",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee8767ac_a491854e",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-23T14:09:43Z",
+      "side": 1,
+      "message": "We don\u0027t check this return, can it be void?",
+      "revId": "ca308f41e06bc17e7b335b435ba5ea7b46daec04",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
