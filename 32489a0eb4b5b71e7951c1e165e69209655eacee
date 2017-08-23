@@ -88,6 +88,24 @@
       "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6868b299_f7002c8c",
+        "filename": "core/fpdfapi/page/cpdf_patterncs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-23T23:10:45Z",
+      "side": 0,
+      "message": "Yes, it feels contradictory. There are some callers that will see the false value and ignore the values in the out params. Then there are other callers, like DrawAxialShading() and friends, that will call this, ignore the return value, and go ahead and use the out params.\n\nWhen I see test coverage go through here, it\u0027s almost (always??) for callers that check the return value. With DrawAxialShading() and the existing tests, it ends up going through the return true path instead.",
+      "parentUuid": "80203cc7_080852a5",
+      "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
