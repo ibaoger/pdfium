@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b097b185_3036bfd2",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a831e64d_a4ac06d2",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f922a74_ae301e84",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c05e709e_885ff7a2",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f922a74_ae301e84",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c24e190d_48772e6c",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-21T15:09:58Z",
       "side": 1,
       "message": "Is this needed? Do we ever re-use a ObjectAvail? If we don\u0027t reuse, lets merge CleanMemory into the destructor.",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66ff36fd_5277e5d5",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "This is just memory usage optimization.\nAt this point we have finished checking of objects tree availability, and should always return DataAvailable on next calls of CPDF_ObjectAvail::CheckAvail. And we can clean members for this case (If root and non_parsed_objects_ are empty, we always return DataAvailable ).",
+      "parentUuid": "c24e190d_48772e6c",
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "46f4a4e8_1fff3178",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07227aa9_9658f74b",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d2e201_e6469c7b",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc4ffc4_d574c1a3",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d2e201_e6469c7b",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "6a38e4a2_cc098073",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf8bc4c_21d70954",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e210213_893dcae8",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -118,6 +226,24 @@
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcc37b3_c960723c",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e210213_893dcae8",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "28242b97_56fa6783",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aca85ed6_b09dd06e",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d252871_9a229689",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -152,6 +296,24 @@
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f72ae267_36e2aeee",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d252871_9a229689",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +351,24 @@
     },
     {
       "key": {
+        "uuid": "981e8776_dac4b61f",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "965c09dc_446dae73",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39405935_772661ea",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
         "patchSetId": 1
@@ -200,6 +380,24 @@
       "writtenOn": "2017-08-21T15:09:58Z",
       "side": 1,
       "message": "I\u0027m not sure what this comment is saying? Why do we parse other objects if we\u0027re going to skip? Shouldn\u0027t we skip first?",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21143619_07bda171",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "For excluding object we may use its values. \nFor example: for exclude page object, we should check \"Type\" field in page dictionary.\n\npPageDict-\u003eGetStringFor(\"Type\") \u003d\u003d \"Page\"\n\nBut the \"Type\" field may be referenced object, which will be parsed implicit in PDF_Reference::GetDirect\nSee: https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_reference.cpp?rcl\u003d32489a0eb4b5b71e7951c1e165e69209655eacee\u0026l\u003d81\n \nBut if this referenced object is not available, pPageDict-\u003eGetStringFor(\"Type\") will return empty string, and the objects will not be skipped. \n\nFor detect this case, i check read_problems, and if we have it, just wait data, and do checking again.\n\nAlso you can see CPDF_ObjectAvailTest.ReadErrorOnExclude test for synthetic example.",
+      "parentUuid": "39405935_772661ea",
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -223,6 +421,24 @@
     },
     {
       "key": {
+        "uuid": "da6c63a8_13c3038d",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feb40e68_02db20de",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a0107bd_4f286561",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
         "patchSetId": 1
@@ -237,6 +453,24 @@
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cb06f45_edc3dd67",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0107bd_4f286561",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -257,6 +491,24 @@
     },
     {
       "key": {
+        "uuid": "be40094f_ce505b49",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d648eb3_c40650d8",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f666ac8_c2dc0041",
         "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
         "patchSetId": 1
@@ -274,6 +526,24 @@
     },
     {
       "key": {
+        "uuid": "6bce2f10_270fedf4",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f666ac8_c2dc0041",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25eacc9b_8214b540",
         "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
         "patchSetId": 1
@@ -288,6 +558,24 @@
       "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbf56715_e99bb8a0",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25eacc9b_8214b540",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
