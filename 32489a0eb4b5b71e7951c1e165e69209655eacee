@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83a07dcb_1deab725",
+        "filename": "core/fpdfapi/page/cpdf_patterncs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-23T20:26:33Z",
+      "side": 0,
+      "message": "What happened to these values?",
+      "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
