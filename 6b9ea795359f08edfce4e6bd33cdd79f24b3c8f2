@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d891c1e8_3545a22d",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-23T14:31:51Z",
+      "side": 1,
+      "message": "I\u0027d break this into 2 if()\u0027s so we don\u0027t do the end\u003d inside the conditional",
+      "revId": "6b9ea795359f08edfce4e6bd33cdd79f24b3c8f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
