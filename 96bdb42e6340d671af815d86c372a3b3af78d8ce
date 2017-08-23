@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "1c5c56ea_42cf37fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-23T20:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6ea8e71_7a522d94",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "96bdb42e6340d671af815d86c372a3b3af78d8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49180aff_e7b59d6c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2017-08-23T17:34:31Z",
       "side": 1,
       "message": "Should this also reference crbug.com/541704? (I suppose this is to have the same version as Chromium?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "96bdb42e6340d671af815d86c372a3b3af78d8ce",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21e7328_1826bd0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-23T20:54:51Z",
+      "side": 1,
+      "message": "Meh. It doesn\u0027t contribute that much directly.",
+      "parentUuid": "49180aff_e7b59d6c",
       "range": {
         "startLine": 9,
         "startChar": 0,
