@@ -186,8 +186,7 @@ CPDF_Parser::Error CPDF_Parser::StartParse(
 CPDF_Parser::Error CPDF_Parser::StartParseInternal(CPDF_Document* pDocument) {
   ASSERT(!m_bHasParsed);
   m_bHasParsed = true;
-  m_bXRefStream = false;
-  m_LastXRefOffset = 0;
+  ClearParsedObjectData();
 
   m_pSyntax->SetPos(m_pSyntax->m_FileLen - m_pSyntax->m_HeaderOffset - 9);
   m_pDocument = pDocument;
@@ -308,6 +307,20 @@ FX_FILESIZE CPDF_Parser::GetObjectOffset(uint32_t objnum) const {
     return GetObjectPositionOrZero(pos);
   }
   return 0;
+}
+
+void CPDF_Parser::ClearParsedObjectData() {
+  m_ObjectInfo.clear();
+  m_bXRefStream = false;
+  ReleaseEncryptHandler();
+  m_LastXRefOffset = 0;
+  m_Trailers.clear();
+  m_TrailerPos = CPDF_Parser::kInvalidPos;
+  m_pLinearized.reset();
+  m_dwXrefStartObjNum = 0;
+  m_ObjectStreamMap.clear();
+  m_ObjCache.clear();
+  m_ParsingObjNums.clear();
 }
 
 // Ideally, all the cross reference entries should be verified.
@@ -624,9 +637,7 @@ bool CPDF_Parser::LoadAllCrossRefV5(FX_FILESIZE xrefpos) {
 }
 
 bool CPDF_Parser::RebuildCrossRef() {
-  m_ObjectInfo.clear();
-  m_Trailers.clear();
-  m_TrailerPos = CPDF_Parser::kInvalidPos;
+  ClearParsedObjectData();
 
   ParserState state = ParserState::kDefault;
   int32_t inside_index = 0;
@@ -1356,16 +1367,17 @@ CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
     const CFX_RetainPtr<IFX_SeekableReadStream>& pFileAccess,
     CPDF_Document* pDocument) {
   ASSERT(!m_bHasParsed);
-  m_bXRefStream = false;
-  m_LastXRefOffset = 0;
+  m_bHasParsed = true;
+  ClearParsedObjectData();
 
   if (!InitSyntaxParser(pFileAccess))
     return FORMAT_ERROR;
 
-  if (!ParseLinearizedHeader())
+  if (!ParseLinearizedHeader()) {
+    m_bHasParsed = false;
     return StartParseInternal(std::move(pDocument));
+  }
 
-  m_bHasParsed = true;
   m_pDocument = pDocument;
 
   FX_FILESIZE dwFirstXRefOffset = m_pSyntax->GetPos();
