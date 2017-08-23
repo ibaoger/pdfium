@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9633f6f_6afb1b42",
+        "filename": "xfa/fde/cfde_txtedtengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-23T14:17:22Z",
+      "side": 1,
+      "message": "Should there be a TODO for making a decision about this?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 40
+      },
+      "revId": "a029dc388ac43d17da794c941b1d7004fc557be2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
