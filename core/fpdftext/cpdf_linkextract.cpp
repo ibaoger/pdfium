@@ -244,9 +244,10 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
     return false;
 
   // Check the local part.
-  int pPos = aPos.value();  // Used to track the position of '@' or '.'.
-  for (int i = aPos.value() - 1; i >= 0; i--) {
-    wchar_t ch = (*str)[i];
+  FX_STRSIZE pPos = aPos.value();  // Used to track the position of '@' or '.'.
+  for (FX_STRSIZE i = 0; i <= aPos.value() - 1; i++) {
+    FX_STRSIZE rev_i = (aPos.value() - 1) - i;
+    wchar_t ch = (*str)[rev_i];
     if (ch == L'_' || ch == L'-' || FXSYS_iswalnum(ch))
       continue;
 
@@ -257,7 +258,7 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
       }
       // End extracting for other invalid chars, '.' at the beginning, or
       // consecutive '.'.
-      int removed_len = i == pPos - 1 ? i + 2 : i + 1;
+      FX_STRSIZE removed_len = rev_i == pPos - 1 ? rev_i + 2 : rev_i + 1;
       *str = str->Right(str->GetLength() - removed_len);
       break;
     }
@@ -279,16 +280,16 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
     return false;
 
   // Validate all other chars in domain name.
-  int nLen = str->GetLength();
+  FX_STRSIZE nLen = str->GetLength();
   pPos = 0;  // Used to track the position of '.'.
-  for (int i = aPos.value() + 1; i < nLen; i++) {
+  for (FX_STRSIZE i = aPos.value() + 1; i < nLen; i++) {
     wchar_t wch = (*str)[i];
     if (wch == L'-' || FXSYS_iswalnum(wch))
       continue;
 
     if (wch != L'.' || i == pPos + 1) {
       // Domain name should end before invalid char.
-      int host_end = i == pPos + 1 ? i - 2 : i - 1;
+      FX_STRSIZE host_end = i == pPos + 1 ? i - 2 : i - 1;
       if (pPos > 0 && host_end - aPos.value() >= 3) {
         // Trim the ending invalid chars if there is at least one '.' and name.
         *str = str->Left(host_end + 1);

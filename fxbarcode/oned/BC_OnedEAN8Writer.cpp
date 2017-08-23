@@ -69,7 +69,7 @@ CFX_WideString CBC_OnedEAN8Writer::FilterContents(
     const CFX_WideStringC& contents) {
   CFX_WideString filtercontents;
   wchar_t ch;
-  for (int32_t i = 0; i < contents.GetLength(); i++) {
+  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
     ch = contents[i];
     if (ch > 175) {
       i++;
@@ -86,11 +86,12 @@ int32_t CBC_OnedEAN8Writer::CalcChecksum(const CFX_ByteString& contents) {
   int32_t odd = 0;
   int32_t even = 0;
   int32_t j = 1;
-  for (int32_t i = contents.GetLength() - 1; i >= 0; i--) {
+  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
+    FX_STRSIZE rev_i = (contents.GetLength() - 1) - 1;
     if (j % 2) {
-      odd += FXSYS_atoi(contents.Mid(i, 1).c_str());
+      odd += FXSYS_atoi(contents.Mid(rev_i, 1).c_str());
     } else {
-      even += FXSYS_atoi(contents.Mid(i, 1).c_str());
+      even += FXSYS_atoi(contents.Mid(rev_i, 1).c_str());
     }
     j++;
   }
@@ -157,10 +158,10 @@ bool CBC_OnedEAN8Writer::ShowChars(const CFX_WideStringC& contents,
 
   int32_t leftPosition = 3 * multiple;
   CFX_ByteString str = FX_UTF8Encode(contents);
-  int32_t iLength = str.GetLength();
+  FX_STRSIZE iLength = str.GetLength();
   std::vector<FXTEXT_CHARPOS> charpos(iLength);
   CFX_ByteString tempStr = str.Left(4);
-  int32_t iLen = tempStr.GetLength();
+  FX_STRSIZE iLen = tempStr.GetLength();
   int32_t strWidth = 7 * multiple * 4;
   float blank = 0.0;
 
