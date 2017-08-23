@@ -70,6 +70,30 @@
       "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4ed1d99_b62b97ab",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T12:47:00Z",
+      "side": 0,
+      "message": "cases:\n1) If we have only one section in first page cross ref - all will be ok (like in origical code). Because in linearized document all object nums not related to first page (pages in your case), should go one by one from zero to minium obj num in first page (pages in your case) minus one.\n2) If we have more than one section in first page cross ref, the result will undefined (and in original code too). Because in this case we have gap in objects numbers, and as result it is can not be linearized document, and it is will be loaded incorrectly. \n3) If in document all object nums non related to first page NOT go one by one, that this is not linearized document and LoadLinearizedAllCrossRefV4 will be loaded incorrect data. Currently it is load only first section in main cross ref table, but if we have gap the sections should be more than one.\n\nIdealy we should receive obj count in main cross ref table, by parsing this table, not from linearized header. And than check that all ok, by comparing this value with linearized header. But this is task for other CL.",
+      "parentUuid": "f9ab15c0_8c57c2a2",
+      "range": {
+        "startLine": 554,
+        "startChar": 33,
+        "endLine": 554,
+        "endChar": 50
+      },
+      "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

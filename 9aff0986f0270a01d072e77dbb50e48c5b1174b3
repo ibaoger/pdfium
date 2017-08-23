@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "69c224d5_b666ee91",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-23T12:47:00Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "11866fde_b9b890b9",
+      "range": {
+        "startLine": 1402,
+        "startChar": 32,
+        "endLine": 1402,
+        "endChar": 60
+      },
+      "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79947d85_29f2098c",
         "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
         "patchSetId": 1
