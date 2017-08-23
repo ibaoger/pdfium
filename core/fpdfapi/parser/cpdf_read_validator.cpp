@@ -84,15 +84,25 @@ FX_FILESIZE CPDF_ReadValidator::GetSize() {
 }
 
 void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, size_t size) {
-  if (!hints_ || size == 0)
-    return;
+  const FX_SAFE_UINT32 safe_size = size;
+  if (safe_size.IsValid())
+    ScheduleDataDownload(offset, safe_size.ValueOrDie());
+}
+
+bool CPDF_ReadValidator::ScheduleDataDownload(FX_FILESIZE offset,
+                                              uint32_t size) {
+  if (!hints_)
+    return false;
+
+  if (size == 0)
+    return true;
 
   const FX_FILESIZE start_segment_offset = AlignDown(offset);
   FX_SAFE_FILESIZE end_segment_offset = offset;
   end_segment_offset += size;
   if (!end_segment_offset.IsValid()) {
     NOTREACHED();
-    return;
+    return false;
   }
   end_segment_offset =
       std::min(GetSize(), AlignUp(end_segment_offset.ValueOrDie()));
@@ -101,7 +111,25 @@ void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, size_t size) {
   segment_size -= start_segment_offset;
   if (!segment_size.IsValid()) {
     NOTREACHED();
-    return;
+    return false;
   }
   hints_->AddSegment(start_segment_offset, segment_size.ValueOrDie());
+  return true;
+}
+
+bool CPDF_ReadValidator::ScheduleDownloadWholeFile() {
+  const FX_SAFE_UINT32 safe_size = GetSize();
+  return safe_size.IsValid() ? ScheduleDataDownload(0, safe_size.ValueOrDie())
+                             : false;
+}
+
+bool CPDF_ReadValidator::IsDataRangeAvailable(FX_FILESIZE offset,
+                                              uint32_t size) const {
+  return !file_avail_ || file_avail_->IsDataAvail(offset, size);
+}
+
+bool CPDF_ReadValidator::IsWholeFileAvailable() {
+  const FX_SAFE_UINT32 safe_size = GetSize();
+  return safe_size.IsValid() ? IsDataRangeAvailable(0, safe_size.ValueOrDie())
+                             : false;
 }
