@@ -23,9 +23,8 @@ CFX_BinaryBuf::CFX_BinaryBuf(FX_STRSIZE size)
 
 CFX_BinaryBuf::~CFX_BinaryBuf() {}
 
-void CFX_BinaryBuf::Delete(int start_index, int count) {
-  if (!m_pBuffer || start_index < 0 || count < 0 || count > m_DataSize ||
-      start_index > m_DataSize - count) {
+void CFX_BinaryBuf::Delete(FX_STRSIZE start_index, FX_STRSIZE count) {
+  if (!m_pBuffer || count > m_DataSize || start_index > m_DataSize - count) {
     return;
   }
   memmove(m_pBuffer.get() + start_index, m_pBuffer.get() + start_index + count,
@@ -55,7 +54,8 @@ void CFX_BinaryBuf::ExpandBuf(FX_STRSIZE add_size) {
   if (m_AllocSize >= new_size.ValueOrDie())
     return;
 
-  int alloc_step = std::max(128, m_AllocStep ? m_AllocStep : m_AllocSize / 4);
+  FX_STRSIZE alloc_step = std::max(static_cast<FX_STRSIZE>(128),
+                                   m_AllocStep ? m_AllocStep : m_AllocSize / 4);
   new_size += alloc_step - 1;  // Quantize, don't combine these lines.
   new_size /= alloc_step;
   new_size *= alloc_step;

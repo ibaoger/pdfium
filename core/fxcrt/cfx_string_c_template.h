@@ -37,14 +37,18 @@ class CFX_StringCTemplate {
 
   CFX_StringCTemplate(const CharType* ptr, FX_STRSIZE len)
       : m_Ptr(reinterpret_cast<const UnsignedType*>(ptr)),
-        m_Length(len < 0 ? FXSYS_len(ptr) : len) {}
+        m_Length(len < 0 ? FXSYS_len(ptr) : len) {
+    ASSERT(len >= 0);
+  }
 
   template <typename U = UnsignedType>
   CFX_StringCTemplate(
       const UnsignedType* ptr,
       FX_STRSIZE size,
       typename std::enable_if<!std::is_same<U, CharType>::value>::type* = 0)
-      : m_Ptr(ptr), m_Length(size) {}
+      : m_Ptr(ptr), m_Length(size) {
+    ASSERT(size >= 0);
+  }
 
   // Deliberately implicit to avoid calling on every string literal.
   // |ch| must be an lvalue that outlives the the CFX_StringCTemplate.
@@ -106,7 +110,7 @@ class CFX_StringCTemplate {
       return 0;
 
     uint32_t strid = 0;
-    FX_STRSIZE size = std::min(4, m_Length);
+    FX_STRSIZE size = std::min(static_cast<FX_STRSIZE>(4), m_Length);
     for (FX_STRSIZE i = 0; i < size; i++)
       strid = strid * 256 + m_Ptr.Get()[i];
 
@@ -119,7 +123,18 @@ class CFX_StringCTemplate {
   }
 
   FX_STRSIZE GetLength() const { return m_Length; }
+
   bool IsEmpty() const { return m_Length == 0; }
+
+  bool IsValidIndex(FX_STRSIZE index) const {
+    return index ==
+           pdfium::clamp(index, static_cast<FX_STRSIZE>(0), GetLength() - 1);
+  }
+
+  bool IsValidLength(FX_STRSIZE length) const {
+    return length ==
+           pdfium::clamp(length, static_cast<FX_STRSIZE>(0), GetLength());
+  }
 
   const UnsignedType& operator[](const FX_STRSIZE index) const {
     ASSERT(index >= 0 && index < GetLength());
@@ -127,7 +142,7 @@ class CFX_StringCTemplate {
   }
 
   const CharType CharAt(const FX_STRSIZE index) const {
-    ASSERT(index >= 0 && index < GetLength());
+    ASSERT(IsValidIndex(index));
     return static_cast<CharType>(m_Ptr.Get()[index]);
   }
 
@@ -141,33 +156,32 @@ class CFX_StringCTemplate {
 
   bool Contains(CharType ch) const { return Find(ch).has_value(); }
 
-  CFX_StringCTemplate Mid(FX_STRSIZE index, FX_STRSIZE count) const {
-    ASSERT(count >= 0);
-    if (index > m_Length)
+  CFX_StringCTemplate Mid(FX_STRSIZE first, FX_STRSIZE count) const {
+    if (!m_Ptr.Get())
       return CFX_StringCTemplate();
 
-    index = pdfium::clamp(index, 0, m_Length);
-    count = pdfium::clamp(count, 0, m_Length - index);
-    if (count == 0)
+    if (!IsValidIndex(first))
       return CFX_StringCTemplate();
 
-    return CFX_StringCTemplate(m_Ptr.Get() + index, count);
+    if (count == 0 || !IsValidLength(count))
+      return CFX_StringCTemplate();
+
+    if (!IsValidIndex(first + count - 1))
+      return CFX_StringCTemplate();
+
+    return CFX_StringCTemplate(m_Ptr.Get() + first, count);
   }
 
   CFX_StringCTemplate Left(FX_STRSIZE count) const {
-    count = pdfium::clamp(count, 0, m_Length);
-    if (count == 0)
+    if (count == 0 || !IsValidLength(count))
       return CFX_StringCTemplate();
-
-    return CFX_StringCTemplate(m_Ptr.Get(), count);
+    return Mid(0, count);
   }
 
   CFX_StringCTemplate Right(FX_STRSIZE count) const {
-    count = pdfium::clamp(count, 0, m_Length);
-    if (count == 0)
+    if (count == 0 || !IsValidLength(count))
       return CFX_StringCTemplate();
-
-    return CFX_StringCTemplate(m_Ptr.Get() + m_Length - count, count);
+    return Mid(GetLength() - count, count);
   }
 
   bool operator<(const CFX_StringCTemplate& that) const {

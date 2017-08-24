@@ -65,7 +65,7 @@ TEST(FMStringExpressionTest, Long) {
   CFX_WideTextBuf accumulator;
   std::vector<CFX_WideStringC::UnsignedType> vec(140000, L'A');
   CXFA_FMStringExpression(1, CFX_WideStringC(vec)).ToJavaScript(accumulator);
-  EXPECT_EQ(140000, accumulator.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(140000), accumulator.GetLength());
 }
 
 TEST(FMStringExpressionTest, Quoted) {
