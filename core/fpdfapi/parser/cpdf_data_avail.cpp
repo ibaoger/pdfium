@@ -1355,8 +1355,6 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsPageAvail(
       nResult = m_pHintTables->CheckPage(dwPage, pHints);
       if (nResult != DataAvailable)
         return nResult;
-      m_pagesLoadState.insert(dwPage);
-      return GetPage(dwPage) ? DataAvailable : DataError;
     }
 
     if (!m_bMainXRefLoadedOK) {
