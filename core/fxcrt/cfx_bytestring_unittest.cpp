@@ -291,7 +291,7 @@ TEST(fxcrt, ByteStringOperatorNE) {
 TEST(fxcrt, ByteStringCNull) {
   CFX_ByteStringC null_string;
   EXPECT_FALSE(null_string.raw_str());
-  EXPECT_EQ(null_string.GetLength(), 0);
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), null_string.GetLength());
   EXPECT_TRUE(null_string.IsEmpty());
 
   CFX_ByteStringC another_null_string;
@@ -299,27 +299,27 @@ TEST(fxcrt, ByteStringCNull) {
 
   CFX_ByteStringC copied_null_string(null_string);
   EXPECT_FALSE(copied_null_string.raw_str());
-  EXPECT_EQ(copied_null_string.GetLength(), 0);
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), copied_null_string.GetLength());
   EXPECT_TRUE(copied_null_string.IsEmpty());
   EXPECT_EQ(null_string, copied_null_string);
 
   CFX_ByteStringC empty_string("");  // Pointer to NUL, not NULL pointer.
   EXPECT_TRUE(empty_string.raw_str());
-  EXPECT_EQ(empty_string.GetLength(), 0);
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty_string.GetLength());
   EXPECT_TRUE(empty_string.IsEmpty());
   EXPECT_EQ(null_string, empty_string);
 
   CFX_ByteStringC assigned_null_string("initially not nullptr");
   assigned_null_string = null_string;
   EXPECT_FALSE(assigned_null_string.raw_str());
-  EXPECT_EQ(assigned_null_string.GetLength(), 0);
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), assigned_null_string.GetLength());
   EXPECT_TRUE(assigned_null_string.IsEmpty());
   EXPECT_EQ(null_string, assigned_null_string);
 
   CFX_ByteStringC assigned_nullptr_string("initially not nullptr");
   assigned_nullptr_string = nullptr;
   EXPECT_FALSE(assigned_nullptr_string.raw_str());
-  EXPECT_EQ(assigned_nullptr_string.GetLength(), 0);
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), assigned_nullptr_string.GetLength());
   EXPECT_TRUE(assigned_nullptr_string.IsEmpty());
   EXPECT_EQ(null_string, assigned_nullptr_string);
 
@@ -345,13 +345,6 @@ TEST(fxcrt, ByteStringConcat) {
   fred.Concat("DY", 2);
   EXPECT_EQ("FREDDY", fred);
   EXPECT_EQ("FRED", copy);
-
-  // Test invalid arguments.
-  copy = fred;
-  fred.Concat("freddy", -6);
-  CFX_ByteString not_aliased("xxxxxx");
-  EXPECT_EQ("FREDDY", fred);
-  EXPECT_EQ("xxxxxx", not_aliased);
 }
 
 TEST(fxcrt, ByteStringRemove) {
@@ -421,31 +414,31 @@ TEST(fxcrt, ByteStringReplace) {
 
 TEST(fxcrt, ByteStringInsert) {
   CFX_ByteString fred("FRED");
-  EXPECT_EQ(4, fred.Insert(-1, 'X'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(4), fred.Insert(-1, 'X'));
   EXPECT_EQ("FRED", fred);
-  EXPECT_EQ(5, fred.Insert(0, 'S'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(5), fred.Insert(0, 'S'));
   EXPECT_EQ("SFRED", fred);
-  EXPECT_EQ(6, fred.Insert(1, 'T'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(6), fred.Insert(1, 'T'));
   EXPECT_EQ("STFRED", fred);
-  EXPECT_EQ(7, fred.Insert(4, 'U'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(7), fred.Insert(4, 'U'));
   EXPECT_EQ("STFRUED", fred);
-  EXPECT_EQ(8, fred.Insert(7, 'V'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(8), fred.Insert(7, 'V'));
   EXPECT_EQ("STFRUEDV", fred);
-  EXPECT_EQ(8, fred.Insert(12, 'P'));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(8), fred.Insert(12, 'P'));
   EXPECT_EQ("STFRUEDV", fred);
   {
     CFX_ByteString empty;
-    EXPECT_EQ(0, empty.Insert(-1, 'X'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty.Insert(-1, 'X'));
     EXPECT_NE("X", empty);
   }
   {
     CFX_ByteString empty;
-    EXPECT_EQ(1, empty.Insert(0, 'X'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(1), empty.Insert(0, 'X'));
     EXPECT_EQ("X", empty);
   }
   {
     CFX_ByteString empty;
-    EXPECT_EQ(0, empty.Insert(5, 'X'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty.Insert(5, 'X'));
     EXPECT_NE("X", empty);
   }
 }
@@ -453,60 +446,60 @@ TEST(fxcrt, ByteStringInsert) {
 TEST(fxcrt, ByteStringInsertAtFrontAndInsertAtBack) {
   {
     CFX_ByteString empty;
-    EXPECT_EQ(1, empty.InsertAtFront('D'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(1), empty.InsertAtFront('D'));
     EXPECT_EQ("D", empty);
-    EXPECT_EQ(2, empty.InsertAtFront('E'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(2), empty.InsertAtFront('E'));
     EXPECT_EQ("ED", empty);
-    EXPECT_EQ(3, empty.InsertAtFront('R'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(3), empty.InsertAtFront('R'));
     EXPECT_EQ("RED", empty);
-    EXPECT_EQ(4, empty.InsertAtFront('F'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(4), empty.InsertAtFront('F'));
     EXPECT_EQ("FRED", empty);
   }
   {
     CFX_ByteString empty;
-    EXPECT_EQ(1, empty.InsertAtBack('F'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(1), empty.InsertAtBack('F'));
     EXPECT_EQ("F", empty);
-    EXPECT_EQ(2, empty.InsertAtBack('R'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(2), empty.InsertAtBack('R'));
     EXPECT_EQ("FR", empty);
-    EXPECT_EQ(3, empty.InsertAtBack('E'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(3), empty.InsertAtBack('E'));
     EXPECT_EQ("FRE", empty);
-    EXPECT_EQ(4, empty.InsertAtBack('D'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(4), empty.InsertAtBack('D'));
     EXPECT_EQ("FRED", empty);
   }
   {
     CFX_ByteString empty;
-    EXPECT_EQ(1, empty.InsertAtBack('E'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(1), empty.InsertAtBack('E'));
     EXPECT_EQ("E", empty);
-    EXPECT_EQ(2, empty.InsertAtFront('R'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(2), empty.InsertAtFront('R'));
     EXPECT_EQ("RE", empty);
-    EXPECT_EQ(3, empty.InsertAtBack('D'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(3), empty.InsertAtBack('D'));
     EXPECT_EQ("RED", empty);
-    EXPECT_EQ(4, empty.InsertAtFront('F'));
+    EXPECT_EQ(static_cast<FX_STRSIZE>(4), empty.InsertAtFront('F'));
     EXPECT_EQ("FRED", empty);
   }
 }
 
 TEST(fxcrt, ByteStringDelete) {
   CFX_ByteString fred("FRED");
-  EXPECT_EQ(4, fred.Delete(0, 0));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(4), fred.Delete(0, 0));
   EXPECT_EQ("FRED", fred);
-  EXPECT_EQ(2, fred.Delete(0, 2));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), fred.Delete(0, 2));
   EXPECT_EQ("ED", fred);
-  EXPECT_EQ(1, fred.Delete(1));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(1), fred.Delete(1));
   EXPECT_EQ("E", fred);
-  EXPECT_EQ(1, fred.Delete(-1));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(1), fred.Delete(-1));
   EXPECT_EQ("E", fred);
-  EXPECT_EQ(0, fred.Delete(0));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), fred.Delete(0));
   EXPECT_EQ("", fred);
-  EXPECT_EQ(0, fred.Delete(0));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), fred.Delete(0));
   EXPECT_EQ("", fred);
 
   CFX_ByteString empty;
-  EXPECT_EQ(0, empty.Delete(0));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty.Delete(0));
   EXPECT_EQ("", empty);
-  EXPECT_EQ(0, empty.Delete(-1));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty.Delete(-1));
   EXPECT_EQ("", empty);
-  EXPECT_EQ(0, empty.Delete(1));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty.Delete(1));
   EXPECT_EQ("", empty);
 }
 
@@ -524,10 +517,10 @@ TEST(fxcrt, ByteStringMid) {
   EXPECT_EQ("D", fred.Mid(3, 1));
   EXPECT_EQ("FR", fred.Mid(0, 2));
   EXPECT_EQ("FRED", fred.Mid(0, 4));
-  EXPECT_EQ("FRED", fred.Mid(0, 10));
+  EXPECT_EQ("", fred.Mid(0, 10));
 
-  EXPECT_EQ("FR", fred.Mid(-1, 2));
-  EXPECT_EQ("RED", fred.Mid(1, 4));
+  EXPECT_EQ("", fred.Mid(-1, 2));
+  EXPECT_EQ("RED", fred.Mid(1, 3));
   EXPECT_EQ("", fred.Mid(4, 1));
 
   CFX_ByteString empty;
@@ -542,7 +535,7 @@ TEST(fxcrt, ByteStringLeft) {
   EXPECT_EQ("FRE", fred.Left(3));
   EXPECT_EQ("FRED", fred.Left(4));
 
-  EXPECT_EQ("FRED", fred.Left(5));
+  EXPECT_EQ("", fred.Left(5));
   EXPECT_EQ("", fred.Left(-1));
 
   CFX_ByteString empty;
@@ -559,7 +552,7 @@ TEST(fxcrt, ByteStringRight) {
   EXPECT_EQ("RED", fred.Right(3));
   EXPECT_EQ("FRED", fred.Right(4));
 
-  EXPECT_EQ("FRED", fred.Right(5));
+  EXPECT_EQ("", fred.Right(5));
   EXPECT_EQ("", fred.Right(-1));
 
   CFX_ByteString empty;
@@ -581,32 +574,32 @@ TEST(fxcrt, ByteStringFind) {
   CFX_ByteString single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   EXPECT_FALSE(single_string.Find('b').has_value());
   EXPECT_FALSE(single_string.Find('\0').has_value());
 
   CFX_ByteString longer_string("abccc");
   result = longer_string.Find('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   result = longer_string.Find('c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
   result = longer_string.Find('c', 3);
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(3, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(3), result.value());
   EXPECT_FALSE(longer_string.Find('d').has_value());
   EXPECT_FALSE(longer_string.Find('\0').has_value());
 
   result = longer_string.Find("ab");
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   result = longer_string.Find("ccc");
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
   result = longer_string.Find("cc", 3);
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(3, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(3), result.value());
   EXPECT_FALSE(longer_string.Find("d").has_value());
 
   CFX_ByteString hibyte_string(
@@ -614,7 +607,7 @@ TEST(fxcrt, ByteStringFind) {
       "def");
   result = hibyte_string.Find('\x8c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
 }
 
 TEST(fxcrt, ByteStringReverseFind) {
@@ -630,17 +623,17 @@ TEST(fxcrt, ByteStringReverseFind) {
   CFX_ByteString single_string("a");
   result = single_string.ReverseFind('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   EXPECT_FALSE(single_string.ReverseFind('b').has_value());
   EXPECT_FALSE(single_string.ReverseFind('\0').has_value());
 
   CFX_ByteString longer_string("abccc");
   result = longer_string.ReverseFind('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   result = longer_string.ReverseFind('c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(4, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(4), result.value());
   EXPECT_FALSE(longer_string.ReverseFind('\0').has_value());
 
   CFX_ByteString hibyte_string(
@@ -648,7 +641,7 @@ TEST(fxcrt, ByteStringReverseFind) {
       "def");
   result = hibyte_string.ReverseFind('\x8c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
 }
 
 TEST(fxcrt, ByteStringUpperLower) {
@@ -869,11 +862,11 @@ TEST(fxcrt, ByteStringCNotNull) {
   CFX_ByteStringC embedded_nul_string7("abc\0def", 7);
   CFX_ByteStringC illegal_string7("abcdef", 7);
 
-  EXPECT_EQ(3, string3.GetLength());
-  EXPECT_EQ(6, string6.GetLength());
-  EXPECT_EQ(3, alternate_string3.GetLength());
-  EXPECT_EQ(7, embedded_nul_string7.GetLength());
-  EXPECT_EQ(7, illegal_string7.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(3), string3.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(6), string6.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(3), alternate_string3.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(7), embedded_nul_string7.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(7), illegal_string7.GetLength());
 
   EXPECT_NE(string3, string6);
   EXPECT_EQ(string3, alternate_string3);
@@ -920,10 +913,10 @@ TEST(fxcrt, ByteStringCFromChar) {
   CFX_ByteStringC lower_a_string_from_char(lower_a);
 
   // Pointer to nul, not nullptr ptr, hence length 1 ...
-  EXPECT_EQ(1, nul_string_from_char.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(1), nul_string_from_char.GetLength());
   EXPECT_NE(null_string, nul_string_from_char);
 
-  EXPECT_EQ(1, lower_a_string_from_char.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(1), lower_a_string_from_char.GetLength());
   EXPECT_EQ(lower_a_string, lower_a_string_from_char);
   EXPECT_NE(nul_string_from_char, lower_a_string_from_char);
 
@@ -934,18 +927,18 @@ TEST(fxcrt, ByteStringCFromChar) {
 TEST(fxcrt, ByteStringCFromVector) {
   std::vector<uint8_t> null_vec;
   CFX_ByteStringC null_string(null_vec);
-  EXPECT_EQ(0, null_string.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), null_string.GetLength());
 
   std::vector<uint8_t> lower_a_vec(10, static_cast<uint8_t>('a'));
   CFX_ByteStringC lower_a_string(lower_a_vec);
-  EXPECT_EQ(10, lower_a_string.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(10), lower_a_string.GetLength());
   EXPECT_EQ("aaaaaaaaaa", lower_a_string);
 
   std::vector<uint8_t> cleared_vec;
   cleared_vec.push_back(42);
   cleared_vec.pop_back();
   CFX_ByteStringC cleared_string(cleared_vec);
-  EXPECT_EQ(0, cleared_string.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), cleared_string.GetLength());
   EXPECT_EQ(nullptr, cleared_string.raw_str());
 }
 
@@ -976,17 +969,17 @@ TEST(fxcrt, ByteStringCFind) {
   CFX_ByteStringC single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   EXPECT_FALSE(single_string.Find('b').has_value());
   EXPECT_FALSE(single_string.Find('\0').has_value());
 
   CFX_ByteStringC longer_string("abccc");
   result = longer_string.Find('a');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(0, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), result.value());
   result = longer_string.Find('c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
   EXPECT_FALSE(longer_string.Find('d').has_value());
   EXPECT_FALSE(longer_string.Find('\0').has_value());
 
@@ -995,7 +988,7 @@ TEST(fxcrt, ByteStringCFind) {
       "def");
   result = hibyte_string.Find('\x8c');
   ASSERT_TRUE(result.has_value());
-  EXPECT_EQ(2, result.value());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), result.value());
 }
 
 TEST(fxcrt, ByteStringCMid) {
@@ -1004,31 +997,31 @@ TEST(fxcrt, ByteStringCMid) {
   EXPECT_EQ(null_string, null_string.Mid(1, 1));
 
   CFX_ByteStringC empty_string("");
-  EXPECT_EQ(empty_string, empty_string.Mid(0, 1));
-  EXPECT_EQ(empty_string, empty_string.Mid(1, 1));
+  EXPECT_EQ("", empty_string.Mid(0, 1));
+  EXPECT_EQ("", empty_string.Mid(1, 1));
 
   CFX_ByteStringC single_character("a");
-  EXPECT_EQ(empty_string, single_character.Mid(0, 0));
+  EXPECT_EQ("", single_character.Mid(0, 0));
   EXPECT_EQ(single_character, single_character.Mid(0, 1));
-  EXPECT_EQ(empty_string, single_character.Mid(1, 0));
-  EXPECT_EQ(empty_string, single_character.Mid(1, 1));
+  EXPECT_EQ("", single_character.Mid(1, 0));
+  EXPECT_EQ("", single_character.Mid(1, 1));
 
   CFX_ByteStringC longer_string("abcdef");
   EXPECT_EQ(longer_string, longer_string.Mid(0, 6));
-  EXPECT_EQ(longer_string, longer_string.Mid(0, 187));
-  EXPECT_EQ(longer_string, longer_string.Mid(-42, 6));
-  EXPECT_EQ(longer_string, longer_string.Mid(-42, 187));
+  EXPECT_EQ("", longer_string.Mid(0, 187));
+  EXPECT_EQ("", longer_string.Mid(-42, 6));
+  EXPECT_EQ("", longer_string.Mid(-42, 187));
 
   CFX_ByteStringC leading_substring("ab");
   EXPECT_EQ(leading_substring, longer_string.Mid(0, 2));
-  EXPECT_EQ(leading_substring, longer_string.Mid(-1, 2));
+  EXPECT_EQ("", longer_string.Mid(-1, 2));
 
   CFX_ByteStringC middle_substring("bcde");
   EXPECT_EQ(middle_substring, longer_string.Mid(1, 4));
 
   CFX_ByteStringC trailing_substring("ef");
   EXPECT_EQ(trailing_substring, longer_string.Mid(4, 2));
-  EXPECT_EQ(trailing_substring, longer_string.Mid(4, 3));
+  EXPECT_EQ("", longer_string.Mid(4, 3));
 }
 
 TEST(fxcrt, ByteStringCElementAccess) {
@@ -1310,9 +1303,9 @@ TEST(fxcrt, ByteStringFormatPrecision) {
 TEST(fxcrt, EmptyByteString) {
   CFX_ByteString empty_str;
   EXPECT_TRUE(empty_str.IsEmpty());
-  EXPECT_EQ(0, empty_str.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), empty_str.GetLength());
   const char* cstr = empty_str.c_str();
-  EXPECT_EQ(0, FXSYS_strlen(cstr));
+  EXPECT_EQ(static_cast<FX_STRSIZE>(0), FXSYS_strlen(cstr));
 }
 
 TEST(fxcrt, ByteStringInitializerList) {
@@ -1427,7 +1420,7 @@ TEST(fxcrt, OStreamByteStringOverload) {
   // Writing a CFX_ByteString with nulls and no specified length treats it as
   // a C-style null-terminated string.
   str = CFX_ByteString(stringWithNulls);
-  EXPECT_EQ(2, str.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(2), str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(2u, stream.tellp());
@@ -1435,7 +1428,7 @@ TEST(fxcrt, OStreamByteStringOverload) {
   // Writing a CFX_ByteString with nulls but specifying its length treats it as
   // a C++-style string.
   str = CFX_ByteString(stringWithNulls, 4);
-  EXPECT_EQ(4, str.GetLength());
+  EXPECT_EQ(static_cast<FX_STRSIZE>(4), str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(4u, stream.tellp());
@@ -1491,7 +1484,7 @@ TEST(fxcrt, OStreamByteStringCOverload) {
     std::ostringstream stream;
     char stringWithNulls[]{'x', 'y', '\0', 'z'};
     CFX_ByteStringC str(stringWithNulls);
-    EXPECT_EQ(2, str.GetLength());
+    EXPECT_EQ(static_cast<FX_STRSIZE>(2), str.GetLength());
     stream << str;
     EXPECT_EQ(2u, stream.tellp());
     str = "";
@@ -1503,7 +1496,7 @@ TEST(fxcrt, OStreamByteStringCOverload) {
     std::ostringstream stream;
     char stringWithNulls[]{'x', 'y', '\0', 'z'};
     CFX_ByteStringC str(stringWithNulls, 4);
-    EXPECT_EQ(4, str.GetLength());
+    EXPECT_EQ(static_cast<FX_STRSIZE>(4), str.GetLength());
     stream << str;
     EXPECT_EQ(4u, stream.tellp());
     str = "";
