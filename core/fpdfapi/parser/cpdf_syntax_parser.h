@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 #include "core/fxcrt/cfx_string_pool_template.h"
 #include "core/fxcrt/cfx_weak_ptr.h"
@@ -73,7 +74,7 @@ class CPDF_SyntaxParser {
   static int s_CurrentRecursionDepth;
 
   uint32_t GetDirectNum();
-  bool ReadChar(FX_FILESIZE read_pos, uint32_t read_size);
+  bool ReadBlockAt(FX_FILESIZE read_pos);
   bool GetNextChar(uint8_t& ch);
   bool GetCharAtBackward(FX_FILESIZE pos, uint8_t* ch);
   void GetNextWordInternal(bool* bIsNumber);
@@ -90,10 +91,7 @@ class CPDF_SyntaxParser {
       uint32_t objnum,
       uint32_t gennum);
 
-  inline bool CheckPosition(FX_FILESIZE pos) {
-    return m_BufOffset >= pos ||
-           static_cast<FX_FILESIZE>(m_BufOffset + m_BufSize) <= pos;
-  }
+  bool IsPositionRead(FX_FILESIZE pos) const;
 
   std::unique_ptr<CPDF_Object> GetObjectInternal(
       CPDF_IndirectObjectHolder* pObjList,
@@ -111,8 +109,7 @@ class CPDF_SyntaxParser {
   CFX_RetainPtr<CPDF_ReadValidator> m_pFileAccess;
   FX_FILESIZE m_HeaderOffset;
   FX_FILESIZE m_FileLen;
-  uint8_t* m_pFileBuf;
-  uint32_t m_BufSize;
+  std::vector<uint8_t> m_pFileBuf;
   FX_FILESIZE m_BufOffset;
   CFX_RetainPtr<CPDF_CryptoHandler> m_pCryptoHandler;
   uint8_t m_WordBuffer[257];
