@@ -1018,8 +1018,11 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
 
   CPDF_Object* pUnownedObject = pObject.get();
   if (m_pDocument) {
-    CPDF_Dictionary* pRootDict = m_pDocument->GetRoot();
+    const CPDF_Dictionary* pRootDict = m_pDocument->GetRoot();
     if (pRootDict && pRootDict->GetObjNum() == objnum)
+      return false;
+    const CPDF_Dictionary* pInfoDict = m_pDocument->GetInfo();
+    if (pInfoDict && pInfoDict->GetObjNum() == objnum)
       return false;
     if (!m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
             objnum, std::move(pObject))) {
