@@ -106,6 +106,24 @@
       "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2c70cd6_d8a29346",
+        "filename": "core/fpdfapi/page/cpdf_patterncs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6975
+      },
+      "writtenOn": "2017-08-24T14:44:22Z",
+      "side": 0,
+      "message": "Right, I see what you mean about the test. \nYea, I did notice that some callers check the status, whereas other ones just blindly use the returned RGB. I think it ultimately comes down to whether we want to return nullopt here to indicate error status, or return 0.75f values so callers that blindly use the returned RGB can use them. Either way, it won\u0027t be perfect. I chose nullopt because.. I felt it\u0027s more important to indicate error status, and default values of 0 seem to work everywhere else.",
+      "parentUuid": "6868b299_f7002c8c",
+      "revId": "32489a0eb4b5b71e7951c1e165e69209655eacee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
