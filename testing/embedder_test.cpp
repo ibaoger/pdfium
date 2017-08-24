@@ -19,6 +19,7 @@
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/test_support.h"
 #include "testing/utils/path_service.h"
+#include "third_party/base/ptr_util.h"
 
 #ifdef PDF_ENABLE_V8
 #include "v8/include/v8-platform.h"
@@ -35,12 +36,6 @@ v8::StartupData* g_v8_natives = nullptr;
 v8::StartupData* g_v8_snapshot = nullptr;
 #endif  // V8_USE_EXTERNAL_STARTUP_DATA
 #endif  // PDF_ENABLE_V8
-
-FPDF_BOOL Is_Data_Avail(FX_FILEAVAIL* pThis, size_t offset, size_t size) {
-  return true;
-}
-
-void Add_Segment(FX_DOWNLOADHINTS* pThis, size_t offset, size_t size) {}
 
 int GetBitmapBytesPerPixel(FPDF_BITMAP bitmap) {
   const int format = FPDFBitmap_GetFormat(bitmap);
@@ -69,9 +64,7 @@ EmbedderTest::EmbedderTest()
       loader_(nullptr),
       file_length_(0),
       file_contents_(nullptr) {
-  memset(&hints_, 0, sizeof(hints_));
   memset(&file_access_, 0, sizeof(file_access_));
-  memset(&file_avail_, 0, sizeof(file_avail_));
   delegate_ = default_delegate_.get();
 
 #ifdef PDF_ENABLE_V8
@@ -151,46 +144,51 @@ bool EmbedderTest::OpenDocument(const std::string& filename,
   file_access_.m_FileLen = static_cast<unsigned long>(file_length_);
   file_access_.m_GetBlock = TestLoader::GetBlock;
   file_access_.m_Param = loader_;
-  return OpenDocumentHelper(password, must_linearize, &file_avail_, &hints_,
-                            &file_access_, &document_, &avail_, &form_handle_);
+  network_simulator_ = pdfium::MakeUnique<NetworkSimulator>(&file_access_);
+  return OpenDocumentHelper(password, must_linearize, network_simulator_.get(),
+                            &document_, &avail_, &form_handle_);
 }
 
 bool EmbedderTest::OpenDocumentHelper(const char* password,
                                       bool must_linearize,
-                                      FX_FILEAVAIL* file_avail,
-                                      FX_DOWNLOADHINTS* hints,
-                                      FPDF_FILEACCESS* file_access,
+                                      NetworkSimulator* network_simulator,
                                       FPDF_DOCUMENT* document,
                                       FPDF_AVAIL* avail,
                                       FPDF_FORMHANDLE* form_handle) {
-  file_avail->version = 1;
-  file_avail->IsDataAvail = Is_Data_Avail;
-
-  hints->version = 1;
-  hints->AddSegment = Add_Segment;
-
-  *avail = FPDFAvail_Create(file_avail, file_access);
-
+  network_simulator->AddSegment(0, 1024);
+  network_simulator->Flush();
+  *avail = FPDFAvail_Create(network_simulator->GetFileAvail(),
+                            network_simulator->GetFileAccess());
   if (FPDFAvail_IsLinearized(*avail) == PDF_LINEARIZED) {
-    *document = FPDFAvail_GetDocument(*avail, password);
-    if (!*document)
-      return false;
-
     int32_t nRet = PDF_DATA_NOTAVAIL;
-    while (nRet == PDF_DATA_NOTAVAIL)
-      nRet = FPDFAvail_IsDocAvail(*avail, hints);
+    while (nRet == PDF_DATA_NOTAVAIL) {
+      network_simulator->Flush();
+      nRet =
+          FPDFAvail_IsDocAvail(*avail, network_simulator->GetDownloadHints());
+    }
     if (nRet == PDF_DATA_ERROR)
       return false;
 
-    nRet = FPDFAvail_IsFormAvail(*avail, hints);
-    if (nRet == PDF_FORM_ERROR || nRet == PDF_FORM_NOTAVAIL)
+    *document = FPDFAvail_GetDocument(*avail, password);
+    if (!*document)
+      return false;
+    nRet = PDF_DATA_NOTAVAIL;
+    while (nRet == PDF_DATA_NOTAVAIL) {
+      network_simulator->Flush();
+      nRet =
+          FPDFAvail_IsFormAvail(*avail, network_simulator->GetDownloadHints());
+    }
+    if (nRet == PDF_FORM_ERROR)
       return false;
 
     int page_count = FPDF_GetPageCount(*document);
     for (int i = 0; i < page_count; ++i) {
       nRet = PDF_DATA_NOTAVAIL;
-      while (nRet == PDF_DATA_NOTAVAIL)
-        nRet = FPDFAvail_IsPageAvail(*avail, i, hints);
+      while (nRet == PDF_DATA_NOTAVAIL) {
+        network_simulator->Flush();
+        nRet = FPDFAvail_IsPageAvail(*avail, i,
+                                     network_simulator->GetDownloadHints());
+      }
 
       if (nRet == PDF_DATA_ERROR)
         return false;
@@ -198,8 +196,9 @@ bool EmbedderTest::OpenDocumentHelper(const char* password,
   } else {
     if (must_linearize)
       return false;
-
-    *document = FPDF_LoadCustomDocument(file_access, password);
+    network_simulator->FlushWholeFile();
+    *document =
+        FPDF_LoadCustomDocument(network_simulator->GetFileAccess(), password);
     if (!*document)
       return false;
   }
@@ -248,14 +247,16 @@ void EmbedderTest::DoOpenActions() {
 
 int EmbedderTest::GetFirstPageNum() {
   int first_page = FPDFAvail_GetFirstPageNum(document_);
-  (void)FPDFAvail_IsPageAvail(avail_, first_page, &hints_);
+  (void)FPDFAvail_IsPageAvail(avail_, first_page,
+                              network_simulator_->GetDownloadHints());
   return first_page;
 }
 
 int EmbedderTest::GetPageCount() {
   int page_count = FPDF_GetPageCount(document_);
   for (int i = 0; i < page_count; ++i)
-    (void)FPDFAvail_IsPageAvail(avail_, i, &hints_);
+    (void)FPDFAvail_IsPageAvail(avail_, i,
+                                network_simulator_->GetDownloadHints());
   return page_count;
 }
 
@@ -314,17 +315,17 @@ void EmbedderTest::TestSaved(int width,
                              int height,
                              const char* md5,
                              const char* password) {
-  FPDF_FILEACCESS file_access;
-  memset(&file_access, 0, sizeof(file_access));
-  file_access.m_FileLen = m_String.size();
-  file_access.m_GetBlock = GetBlockFromString;
-  file_access.m_Param = &m_String;
-  FX_FILEAVAIL file_avail;
-  FX_DOWNLOADHINTS hints;
+  memset(&saved_file_access_, 0, sizeof(saved_file_access_));
+  saved_file_access_.m_FileLen = m_String.size();
+  saved_file_access_.m_GetBlock = GetBlockFromString;
+  saved_file_access_.m_Param = &m_String;
 
-  ASSERT_TRUE(OpenDocumentHelper(password, false, &file_avail, &hints,
-                                 &file_access, &m_SavedDocument, &m_SavedAvail,
-                                 &m_SavedForm));
+  saved_network_simulator_ =
+      pdfium::MakeUnique<NetworkSimulator>(&saved_file_access_);
+
+  ASSERT_TRUE(
+      OpenDocumentHelper(password, false, saved_network_simulator_.get(),
+                         &m_SavedDocument, &m_SavedAvail, &m_SavedForm));
   EXPECT_EQ(1, FPDF_GetPageCount(m_SavedDocument));
   m_SavedPage = FPDF_LoadPage(m_SavedDocument, 0);
   ASSERT_TRUE(m_SavedPage);
@@ -344,6 +345,11 @@ void EmbedderTest::CloseSaved() {
 void EmbedderTest::TestAndCloseSaved(int width, int height, const char* md5) {
   TestSaved(width, height, md5);
   CloseSaved();
+}
+
+void EmbedderTest::FlushWholeFile() {
+  ASSERT(network_simulator_);
+  network_simulator_->FlushWholeFile();
 }
 
 FPDF_PAGE EmbedderTest::Delegate::GetPage(FPDF_FORMFILLINFO* info,

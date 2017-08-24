@@ -16,6 +16,18 @@
 #include "testing/utils/path_service.h"
 
 namespace {
+
+class MockDownloadHints : public FX_DOWNLOADHINTS {
+ public:
+  MockDownloadHints() {
+    FX_DOWNLOADHINTS::version = 1;
+    FX_DOWNLOADHINTS::AddSegment = SAddSegment;
+  }
+  ~MockDownloadHints() {}
+  static void SAddSegment(FX_DOWNLOADHINTS* pThis, size_t offset, size_t size) {
+  }
+};
+
 class TestAsyncLoader : public FX_DOWNLOADHINTS, FX_FILEAVAIL {
  public:
   explicit TestAsyncLoader(const std::string& file_name) {
@@ -182,13 +194,15 @@ class FPDFDataAvailEmbeddertest : public EmbedderTest {};
 TEST_F(FPDFDataAvailEmbeddertest, TrailerUnterminated) {
   // Document must load without crashing but is too malformed to be available.
   EXPECT_FALSE(OpenDocument("trailer_unterminated.pdf"));
-  EXPECT_FALSE(FPDFAvail_IsDocAvail(avail_, &hints_));
+  MockDownloadHints hints;
+  EXPECT_FALSE(FPDFAvail_IsDocAvail(avail_, &hints));
 }
 
 TEST_F(FPDFDataAvailEmbeddertest, TrailerAsHexstring) {
   // Document must load without crashing but is too malformed to be available.
   EXPECT_FALSE(OpenDocument("trailer_as_hexstring.pdf"));
-  EXPECT_FALSE(FPDFAvail_IsDocAvail(avail_, &hints_));
+  MockDownloadHints hints;
+  EXPECT_FALSE(FPDFAvail_IsDocAvail(avail_, &hints));
 }
 
 TEST_F(FPDFDataAvailEmbeddertest, LoadUsingHintTables) {
