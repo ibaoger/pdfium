@@ -1,4 +1,4 @@
-// Copyright 2014 PDFium Authors. All rights reserved.
+// Copyright 2017 PDFium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -8,216 +8,229 @@
 #define XFA_FDE_CFDE_TXTEDTENGINE_H_
 
 #include <memory>
+#include <utility>
 #include <vector>
 
 #include "core/fxcrt/cfx_retain_ptr.h"
-#include "core/fxcrt/fx_coordinates.h"
+#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/ifx_chariter.h"
+#include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/fx_dib.h"
-#include "xfa/fde/cfde_txtedtbuf.h"
-#include "xfa/fde/cfde_txtedtpage.h"
-#include "xfa/fde/cfde_txtedtparag.h"
+#include "xfa/fgas/font/cfgas_gefont.h"
 #include "xfa/fgas/layout/cfx_txtbreak.h"
 
-class CFGAS_GEFont;
-class CFWL_Edit;
-class IFDE_TxtEdtDoRecord;
-class IFX_CharIter;
+struct FDE_TEXTEDITPIECE {
+  FDE_TEXTEDITPIECE();
+  FDE_TEXTEDITPIECE(const FDE_TEXTEDITPIECE& that);
+  ~FDE_TEXTEDITPIECE();
 
-#define FDE_TEXTEDITMODE_MultiLines (1L << 0)
-#define FDE_TEXTEDITMODE_AutoLineWrap (1L << 1)
-#define FDE_TEXTEDITMODE_LimitArea_Vert (1L << 3)
-#define FDE_TEXTEDITMODE_LimitArea_Horz (1L << 4)
-#define FDE_TEXTEDITMODE_Validate (1L << 8)
-#define FDE_TEXTEDITMODE_Password (1L << 9)
-
-#define FDE_TEXTEDITALIGN_Left 0
-#define FDE_TEXTEDITALIGN_Center (1L << 0)
-#define FDE_TEXTEDITALIGN_Right (1L << 1)
-#define FDE_TEXTEDITALIGN_Justified (1L << 4)
-
-#define FDE_TEXTEDITLAYOUT_CombText (1L << 4)
-#define FDE_TEXTEDITLAYOUT_LastLineHeight (1L << 8)
-
-enum class FDE_CaretMove {
-  Left,
-  Right,
-  Up,
-  Down,
-  LineStart,
-  LineEnd,
-  Home,
-  End,
+  int32_t nStart;
+  int32_t nCount;
+  int32_t nBidiLevel;
+  CFX_RectF rtPiece;
+  uint32_t dwCharStyles;
 };
 
-enum class FDE_EditResult {
-  kLocked = -5,
-  kInvalidate = -4,
-  kFull = -2,
-  kSuccess = 0,
-};
-
-struct FDE_TXTEDTPARAMS {
-  FDE_TXTEDTPARAMS();
-  ~FDE_TXTEDTPARAMS();
-
-  float fPlateWidth;
-  float fPlateHeight;
-
-  int32_t nLineCount;
-  uint32_t dwLayoutStyles;
-  uint32_t dwAlignment;
-  uint32_t dwMode;
-
-  CFX_RetainPtr<CFGAS_GEFont> pFont;
-  float fFontSize;
-  FX_ARGB dwFontColor;
-
-  float fLineSpace;
-  float fTabWidth;
-
-  CFWL_Edit* pEventSink;
-};
+inline FDE_TEXTEDITPIECE::FDE_TEXTEDITPIECE() = default;
+inline FDE_TEXTEDITPIECE::FDE_TEXTEDITPIECE(const FDE_TEXTEDITPIECE& that) =
+    default;
+inline FDE_TEXTEDITPIECE::~FDE_TEXTEDITPIECE() = default;
 
 class CFDE_TxtEdtEngine {
  public:
+  class Iterator : public IFX_CharIter {
+   public:
+    explicit Iterator(CFDE_TxtEdtEngine* engine);
+    ~Iterator() override;
+
+    bool Next(bool bPrev = false) override;
+    wchar_t GetChar() const override;
+    void SetAt(int32_t nIndex) override;
+    int32_t GetAt() const override;
+    bool IsEOF(bool bTail = true) const override;
+    std::unique_ptr<IFX_CharIter> Clone() const override;
+
+   private:
+    CFX_UnownedPtr<CFDE_TxtEdtEngine> engine_;
+    int32_t current_position_;
+  };
+
+  class Operation {
+   public:
+    virtual void Redo() const = 0;
+    virtual void Undo() const = 0;
+  };
+
+  class Delegate {
+   public:
+    virtual void NotifyTextFull() = 0;
+
+    virtual void OnCaretChanged() = 0;
+    virtual void OnTextChanged(const CFX_WideString& prevText) = 0;
+    virtual void OnSelChanged() = 0;
+    virtual bool OnValidate(const CFX_WideString& wsText) = 0;
+    virtual void SetScrollOffset(float fScrollOffset) = 0;
+  };
+
+  enum class OperationRecord {
+    kInsert,
+    kSkip,
+  };
+
   CFDE_TxtEdtEngine();
   ~CFDE_TxtEdtEngine();
 
-  void SetEditParams(const FDE_TXTEDTPARAMS& params);
-  FDE_TXTEDTPARAMS* GetEditParams() { return &m_Param; }
+  void SetDelegate(Delegate* delegate) { delegate_ = delegate; }
+  void Clear();
 
-  CFDE_TxtEdtPage* GetPage(int32_t nIndex);
+  void Insert(size_t idx,
+              const CFX_WideString& text,
+              OperationRecord add_operation = OperationRecord::kInsert);
+  CFX_WideString Delete(
+      size_t start_idx,
+      size_t length,
+      OperationRecord add_operation = OperationRecord::kInsert);
+  CFX_WideString GetText() const;
+  size_t GetLength() const;
 
-  void SetText(const CFX_WideString& wsText);
-  int32_t GetTextLength() const { return m_pTxtBuf->GetTextLength() - 1; }
-  CFX_WideString GetText(int32_t nStart, int32_t nCount) const;
-  void ClearText();
+  CFX_RectF GetContentsBoundingBox() const { return contents_bounding_box_; }
+  void SetAvailableWidth(size_t width);
 
-  CFX_RectF GetCaretRect() const { return m_rtCaret; }
-  int32_t GetCaretPos() const {
-    return IsLocked() ? 0 : m_nCaret + (m_bBefore ? 0 : 1);
+  void SetFont(CFX_RetainPtr<CFGAS_GEFont> font);
+  CFX_RetainPtr<CFGAS_GEFont> GetFont() const { return font_; }
+  void SetFontSize(float size);
+  float GetFontSize() const { return font_size_; }
+  void SetFontColor(FX_ARGB color) { font_color_ = color; }
+  FX_ARGB GetFontColor() const { return font_color_; }
+  float GetFontAscent() const {
+    return (static_cast<float>(font_->GetAscent()) * font_size_) / 1000;
   }
-  int32_t SetCaretPos(int32_t nIndex, bool bBefore);
-  int32_t MoveCaretPos(FDE_CaretMove eMoveCaret, bool bShift);
 
-  FDE_EditResult Insert(const CFX_WideString& str);
-  void Delete(bool bBackspace);
+  void SetAlignment(uint32_t alignment);
+  float GetLineSpace() const { return line_spacing_; }
+  void SetLineSpace(float space) { line_spacing_ = space; }
+  void SetAliasChar(wchar_t alias) { password_alias_ = alias; }
+  void HasCharacterLimit(bool limit);
+  void SetCharacterLimit(size_t limit);
+  void SetCombText(bool enable);
+  void SetTabWidth(float width);
+  void SetVisibleLineCount(size_t lines);
 
-  void SetLimit(int32_t nLimit) { m_nLimit = nLimit; }
-  int32_t GetLimit() const { return m_nLimit; }
-  void SetAliasChar(wchar_t wcAlias) { m_wcAliasChar = wcAlias; }
+  void EnableValidation(bool val) { validation_enabled_ = val; }
+  void EnablePasswordMode(bool val) { password_mode_ = val; }
+  void EnableMultiLine(bool val);
+  void EnableLineWrap(bool val);
+  void LimitHorizontalScroll(bool val) { limit_horizontal_area_ = val; }
+  void LimitVerticalScroll(bool val) { limit_vertical_area_ = val; }
 
-  void RemoveSelRange(int32_t nStart, int32_t nCount);
-  void AddSelRange(int32_t nStart, int32_t nCount);
-  int32_t CountSelRanges() const {
-    return pdfium::CollectionSize<int32_t>(m_SelRangePtrArr);
-  }
-  int32_t GetSelRange(int32_t nIndex, int32_t* nStart) const;
+  bool CanUndo() const;
+  bool CanRedo() const;
+  bool Redo();
+  bool Undo();
+  void ClearOperationRecords();
+
+  // TODO(dsinclair): Implement ....
+  size_t GetIndexBefore(size_t pos) { return 0; }
+  size_t GetIndexLeft(size_t pos) { return 0; }
+  size_t GetIndexRight(size_t pos) { return 0; }
+  size_t GetIndexUp(size_t pos) { return 0; }
+  size_t GetIndexDown(size_t pos) { return 0; }
+  size_t GetIndexAtStartOfLine(size_t pos) { return 0; }
+  size_t GetIndexAtEndOfLine(size_t pos) { return 0; }
+
+  void SelectAll();
+  void SetSelection(size_t start_idx, size_t end_idx);
   void ClearSelection();
-
-  bool Redo(const IFDE_TxtEdtDoRecord* pRecord);
-  bool Undo(const IFDE_TxtEdtDoRecord* pRecord);
+  bool HasSelection() const { return has_selection_; }
+  // Returns <start, end> indices of the selection.
+  std::pair<size_t, size_t> GetSelection() const {
+    return {selection_.start_idx, selection_.end_idx};
+  }
+  CFX_WideString GetSelectedText() const;
+  CFX_WideString DeleteSelectedText(
+      OperationRecord add_operation = OperationRecord::kInsert);
+  void ReplaceSelectedText(const CFX_WideString& str);
 
   void Layout();
 
-  CFDE_TxtEdtParag* GetParag(int32_t nParagIndex) const {
-    return m_ParagPtrArray[nParagIndex].get();
+  wchar_t GetChar(size_t idx) const;
+  // Non-const so we can force a Layout() if needed.
+  size_t GetWidthOfChar(size_t idx);
+  // Non-const so we can force a Layout() if needed.
+  size_t GetIndexForPoint(const CFX_PointF& point);
+  std::vector<CFX_RectF> GetCharacterRectsInRange(int32_t start_idx,
+                                                  int32_t count);
+
+  CFX_TxtBreak* GetTextBreak() { return &text_break_; }
+
+  const std::vector<FDE_TEXTEDITPIECE>& GetTextPieces() {
+    // Force a layout if needed.
+    Layout();
+    return text_piece_info_;
   }
-  CFDE_TxtEdtBuf* GetTextBuf() const { return m_pTxtBuf.get(); }
 
-  CFX_TxtBreak* GetTextBreak() { return &m_TextBreak; }
-  int32_t GetLineCount() const { return m_nLineCount; }
-  int32_t GetPageLineCount() const { return m_nPageLineCount; }
+  std::vector<FXTEXT_CHARPOS> GetDisplayPos(const FDE_TEXTEDITPIECE& info);
 
-  int32_t Line2Parag(int32_t nStartParag,
-                     int32_t nStartLineofParag,
-                     int32_t nLineIndex,
-                     int32_t& nStartLine) const;
-  wchar_t GetAliasChar() const { return m_wcAliasChar; }
-
-  bool IsSelect() const { return !m_SelRangePtrArr.empty(); }
-  void Inner_DeleteRange(int32_t nStart, int32_t nCount);
-  void Inner_Insert(int32_t nStart, const CFX_WideString& wsText);
-  const FDE_TXTEDTPARAMS* GetParams() const { return &m_Param; }
+  void SetMaxEditOperationsForTesting(size_t max);
 
  private:
-  struct FDE_TXTEDTSELRANGE {
-    int32_t nStart;
-    int32_t nCount;
-  };
+  void SetCombTextWidth();
+  void AdjustGap(size_t idx, size_t length);
+  void RebuildPieces();
+  size_t CountCharsExceedingSize(const CFX_WideString& str,
+                                 size_t num_to_check);
+  void AddOperationRecord(std::unique_ptr<Operation> op);
 
-  struct FDE_TXTEDTPARAGPOS {
-    int32_t nParagIndex;
-    int32_t nCharIndex;
-  };
-
-  enum class LineEnding : uint8_t {
-    kAuto,
-    kCRLF,
-    kCR,
-    kLF,
-  };
-
-  int32_t CountPages() const {
-    return m_nLineCount == 0 ? 0 : ((m_nLineCount - 1) / m_nPageLineCount) + 1;
+  bool IsAlignedRight() const {
+    return !!(character_alignment_ & CFX_TxtLineAlignment_Left);
   }
 
-  bool IsLocked() const { return m_bLock; }
+  bool IsAlignedCenter() const {
+    return !!(character_alignment_ & CFX_TxtLineAlignment_Center);
+  }
+  std::vector<CFX_RectF> GetCharRects(const FDE_TEXTEDITPIECE& piece);
 
-  CFX_WideString InsertIntoTextCopy(int32_t nIndex,
-                                    const wchar_t* lpText,
-                                    int32_t nLength);
+  struct Selection {
+    size_t start_idx;
+    size_t end_idx;
+  };
 
-  void DeleteRange_DoRecord(int32_t nStart, int32_t nCount, bool bSel);
-  void ResetEngine();
-  void RebuildParagraphs();
-  void RemoveAllParags() { m_ParagPtrArray.clear(); }
-  void RemoveAllPages() { m_PagePtrArray.clear(); }
-  void UpdateLineCounts();
-  void UpdatePages();
-  void UpdateTxtBreak();
-
-  bool ReplaceParagEnd(wchar_t*& lpText, int32_t& nLength, bool bPreIsCR);
-  void RecoverParagEnd(CFX_WideString& wsText) const;
-  int32_t MovePage2Char(int32_t nIndex);
-  void TextPos2ParagPos(int32_t nIndex, FDE_TXTEDTPARAGPOS& ParagPos) const;
-  int32_t MoveForward(bool& bBefore);
-  int32_t MoveBackward(bool& bBefore);
-  bool MoveUp(CFX_PointF& ptCaret);
-  bool MoveDown(CFX_PointF& ptCaret);
-  bool MoveLineStart();
-  bool MoveLineEnd();
-  bool MoveHome();
-  bool MoveEnd();
-  bool IsFitArea(CFX_WideString& wsText);
-  void UpdateCaretRect(int32_t nIndex, bool bBefore);
-  void GetCaretRect(CFX_RectF& rtCaret,
-                    int32_t nPageIndex,
-                    int32_t nCaret,
-                    bool bBefore);
-  void UpdateCaretIndex(const CFX_PointF& ptCaret);
-
-  void DeleteSelect();
-
-  std::unique_ptr<CFDE_TxtEdtBuf> m_pTxtBuf;
-  CFX_TxtBreak m_TextBreak;
-  FDE_TXTEDTPARAMS m_Param;
-  std::vector<std::unique_ptr<CFDE_TxtEdtPage>> m_PagePtrArray;
-  std::vector<std::unique_ptr<CFDE_TxtEdtParag>> m_ParagPtrArray;
-  std::vector<std::unique_ptr<FDE_TXTEDTSELRANGE>> m_SelRangePtrArr;
-  int32_t m_nPageLineCount;
-  int32_t m_nLineCount;
-  int32_t m_nAnchorPos;
-  float m_fCaretPosReserve;
-  int32_t m_nCaret;
-  int32_t m_nCaretPage;
-  CFX_RectF m_rtCaret;
-  int32_t m_nLimit;
-  wchar_t m_wcAliasChar;
-  LineEnding m_FirstLineEnding;
-  bool m_bBefore;
-  bool m_bLock;
-  bool m_bAutoLineEnd;
+  CFX_RectF contents_bounding_box_;
+  CFX_UnownedPtr<Delegate> delegate_;
+  std::vector<FDE_TEXTEDITPIECE> text_piece_info_;
+  std::vector<size_t> char_widths_;
+  CFX_TxtBreak text_break_;
+  CFX_RetainPtr<CFGAS_GEFont> font_;
+  FX_ARGB font_color_;
+  float font_size_;
+  float line_spacing_;
+  std::vector<wchar_t> content_;
+  size_t text_length_;
+  size_t gap_position_;
+  size_t gap_size_;
+  size_t available_width_;
+  size_t character_limit_;
+  size_t visible_line_count_;
+  // Ring buffer of edit operations
+  std::vector<std::unique_ptr<Operation>> operation_buffer_;
+  // Next edit operation to undo.
+  size_t next_operation_index_to_undo_;
+  // Next index to insert an edit operation into.
+  size_t next_operation_index_to_insert_;
+  size_t max_edit_operations_;
+  uint32_t character_alignment_;
+  bool has_character_limit_;
+  bool is_comb_text_;
+  bool is_dirty_;
+  bool validation_enabled_;
+  bool is_multiline_;
+  bool is_linewrap_enabled_;
+  bool limit_horizontal_area_;
+  bool limit_vertical_area_;
+  bool password_mode_;
+  wchar_t password_alias_;
+  bool has_selection_;
+  Selection selection_;
 };
 
 #endif  // XFA_FDE_CFDE_TXTEDTENGINE_H_
