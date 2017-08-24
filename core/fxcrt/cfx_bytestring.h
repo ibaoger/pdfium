@@ -84,6 +84,16 @@ class CFX_ByteString {
   }
   bool IsEmpty() const { return !GetLength(); }
 
+  bool IsValidIndex(FX_STRSIZE index) const {
+    return index ==
+           pdfium::clamp(index, static_cast<FX_STRSIZE>(0), GetLength() - 1);
+  }
+
+  bool IsValidLength(FX_STRSIZE length) const {
+    return length ==
+           pdfium::clamp(length, static_cast<FX_STRSIZE>(0), GetLength());
+  }
+
   int Compare(const CFX_ByteStringC& str) const;
   bool EqualNoCase(const CFX_ByteStringC& str) const;
 
