@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "178cb3ae_b7502812",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-25T19:31:17Z",
+      "side": 1,
+      "message": "this becomes redundant given the  index \u003c GetLength() later on.",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 26
+      },
+      "revId": "2edbee5f7731118137a22b36b1fc3d45441dc9da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
