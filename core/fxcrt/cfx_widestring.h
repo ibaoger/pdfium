@@ -81,6 +81,15 @@ class CFX_WideString {
   }
   bool IsEmpty() const { return !GetLength(); }
 
+  bool IsValidIndex(FX_STRSIZE index) const {
+    return GetLength() ? index == pdfium::clamp(index, 0, GetLength() - 1)
+                       : false;
+  }
+
+  bool IsValidLength(FX_STRSIZE length) const {
+    return length == pdfium::clamp(length, 0, GetLength());
+  }
+
   const CFX_WideString& operator=(const wchar_t* str);
   const CFX_WideString& operator=(const CFX_WideString& stringSrc);
   const CFX_WideString& operator=(const CFX_WideStringC& stringSrc);
@@ -103,7 +112,7 @@ class CFX_WideString {
   bool operator<(const CFX_WideString& str) const;
 
   CharType operator[](const FX_STRSIZE index) const {
-    ASSERT(index >= 0 && index < GetLength());
+    ASSERT(IsValidIndex(index));
     return m_pData ? m_pData->m_String[index] : 0;
   }
 

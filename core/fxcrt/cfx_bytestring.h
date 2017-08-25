@@ -84,6 +84,15 @@ class CFX_ByteString {
   }
   bool IsEmpty() const { return !GetLength(); }
 
+  bool IsValidIndex(FX_STRSIZE index) const {
+    return GetLength() ? index == pdfium::clamp(index, 0, GetLength() - 1)
+                       : false;
+  }
+
+  bool IsValidLength(FX_STRSIZE length) const {
+    return length == pdfium::clamp(length, 0, GetLength());
+  }
+
   int Compare(const CFX_ByteStringC& str) const;
   bool EqualNoCase(const CFX_ByteStringC& str) const;
 
@@ -109,7 +118,7 @@ class CFX_ByteString {
   const CFX_ByteString& operator+=(const CFX_ByteStringC& bstrc);
 
   CharType operator[](const FX_STRSIZE index) const {
-    ASSERT(index >= 0 && index < GetLength());
+    ASSERT(IsValidIndex(index));
     return m_pData ? m_pData->m_String[index] : 0;
   }
 
