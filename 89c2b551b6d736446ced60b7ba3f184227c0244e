@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "803e955f_10bd3d4b",
+        "filename": "testing/unit_test_main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "Is there a bug for this?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 63
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09b61cde_e07f3625",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "Since we are rewritting this, is there are a strong reason for having this name TxtEdtEngine instead of TextEditEngine?",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ada4602_c165385f",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "Since this is getting moved around, can we drop the type prefixes from the var names?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 4
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "992378c8_9488d26d",
+        "filename": "xfa/fde/cfde_txtedtengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "For member names, do we prefer m_foo or foo_?",
+      "range": {
+        "startLine": 198,
+        "startChar": 1,
+        "endLine": 233,
+        "endChar": 23
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db8f814d_1000a793",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "ascent",
+      "range": {
+        "startLine": 171,
+        "startChar": 13,
+        "endLine": 171,
+        "endChar": 18
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e294898_7f3434a8",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T14:50:31Z",
+      "side": 1,
+      "message": "DoubleClick?",
+      "range": {
+        "startLine": 1238,
+        "startChar": 24,
+        "endLine": 1238,
+        "endChar": 30
+      },
+      "revId": "89c2b551b6d736446ced60b7ba3f184227c0244e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
