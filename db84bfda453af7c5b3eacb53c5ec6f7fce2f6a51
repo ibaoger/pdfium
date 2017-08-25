@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b39550f4_94417774",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-25T19:09:24Z",
+      "side": 1,
+      "message": "nit: maybe GetLength() \u0026\u0026 ...",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 22
+      },
+      "revId": "db84bfda453af7c5b3eacb53c5ec6f7fce2f6a51",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8468e40_a9a21fa9",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-25T19:09:24Z",
+      "side": 1,
+      "message": "the use of clamp here is kinda weird, but ok.  This to avoid comparisons of unsigneds \u003e\u003d 0 which are always true when the type flips?",
+      "range": {
+        "startLine": 93,
+        "startChar": 20,
+        "endLine": 93,
+        "endChar": 59
+      },
+      "revId": "db84bfda453af7c5b3eacb53c5ec6f7fce2f6a51",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
