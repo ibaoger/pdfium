@@ -72,7 +72,9 @@ class CPDF_Annot {
   static CPDF_Annot::Subtype StringToAnnotSubtype(
       const CFX_ByteString& sSubtype);
   static CFX_ByteString AnnotSubtypeToString(CPDF_Annot::Subtype nSubtype);
-  static CFX_FloatRect RectFromQuadPoints(CPDF_Dictionary* pAnnotDict);
+  static CFX_FloatRect BoundingRectFromQuadPoints(CPDF_Dictionary* pAnnotDict);
+  static CFX_FloatRect RectFromQuadPoints(CPDF_Dictionary* pAnnotDict,
+                                          int nSetIndex);
 
   // The second constructor does not take ownership of the dictionary.
   CPDF_Annot(std::unique_ptr<CPDF_Dictionary> pDict, CPDF_Document* pDocument);
