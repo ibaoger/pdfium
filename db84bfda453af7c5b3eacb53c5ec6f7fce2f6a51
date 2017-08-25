@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a34ab3c6_fb295dab",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T19:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b39550f4_94417774",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 22
+      },
+      "revId": "db84bfda453af7c5b3eacb53c5ec6f7fce2f6a51",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8468e40_a9a21fa9",
         "filename": "core/fxcrt/cfx_bytestring.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "db84bfda453af7c5b3eacb53c5ec6f7fce2f6a51",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4623566_172aee26",
+        "filename": "core/fxcrt/cfx_bytestring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-25T19:27:20Z",
+      "side": 1,
+      "message": "With them isolated like this, I think the clamping isn\u0027t actually nescarry anymore, since when switching to unsigned I can just remove the \u003c 0 test.",
+      "parentUuid": "a8468e40_a9a21fa9",
+      "range": {
+        "startLine": 93,
+        "startChar": 20,
+        "endLine": 93,
+        "endChar": 59
+      },
+      "revId": "db84bfda453af7c5b3eacb53c5ec6f7fce2f6a51",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
