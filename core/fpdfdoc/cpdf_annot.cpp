@@ -6,6 +6,7 @@
 
 #include "core/fpdfdoc/cpdf_annot.h"
 
+#include <algorithm>
 #include <utility>
 
 #include "core/fpdfapi/page/cpdf_form.h"
@@ -140,7 +141,7 @@ CFX_FloatRect CPDF_Annot::RectForDrawing() const {
   bool bShouldUseQuadPointsCoords =
       m_bIsTextMarkupAnnotation && m_bHasGeneratedAP;
   if (bShouldUseQuadPointsCoords)
-    return RectFromQuadPoints(m_pAnnotDict.Get());
+    return BoundingRectFromQuadPoints(m_pAnnotDict.Get());
 
   return m_pAnnotDict->GetRectFor("Rect");
 }
@@ -215,7 +216,8 @@ CPDF_Form* CPDF_Annot::GetAPForm(const CPDF_Page* pPage, AppearanceMode mode) {
 }
 
 // Static.
-CFX_FloatRect CPDF_Annot::RectFromQuadPoints(CPDF_Dictionary* pAnnotDict) {
+CFX_FloatRect CPDF_Annot::BoundingRectFromQuadPoints(
+    CPDF_Dictionary* pAnnotDict) {
   CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
   if (!pArray)
     return CFX_FloatRect();
@@ -230,8 +232,29 @@ CFX_FloatRect CPDF_Annot::RectFromQuadPoints(CPDF_Dictionary* pAnnotDict) {
   // On the other hand, /Rect is define as 2 pairs [pair0, pair1] where:
   // pair0 = bottom_left
   // pair1 = top_right.
-  return CFX_FloatRect(pArray->GetNumberAt(4), pArray->GetNumberAt(5),
-                       pArray->GetNumberAt(2), pArray->GetNumberAt(3));
+  float left = pArray->GetNumberAt(4);
+  float bottom = pArray->GetNumberAt(5);
+  float right = pArray->GetNumberAt(2);
+  float top = pArray->GetNumberAt(3);
+  for (unsigned long i = 1; i < pArray->GetCount() / 8; i++) {
+    left = std::min(pArray->GetNumberAt(4 + i * 8), left);
+    bottom = std::min(pArray->GetNumberAt(5 + i * 8), bottom);
+    right = std::max(pArray->GetNumberAt(2 + i * 8), right);
+    top = std::max(pArray->GetNumberAt(3 + i * 8), top);
+  }
+  return CFX_FloatRect(left, bottom, right, top);
+}
+
+// Static.
+CFX_FloatRect CPDF_Annot::RectFromQuadPoints(CPDF_Dictionary* pAnnotDict,
+                                             const int nIndex) {
+  CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
+  if (!pArray)
+    return CFX_FloatRect();
+
+  return CFX_FloatRect(
+      pArray->GetNumberAt(4 + nIndex * 8), pArray->GetNumberAt(5 + nIndex * 8),
+      pArray->GetNumberAt(2 + nIndex * 8), pArray->GetNumberAt(3 + nIndex * 8));
 }
 
 // Static.

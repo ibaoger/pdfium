@@ -763,13 +763,17 @@ bool CPVT_GenerateAP::GenerateHighlightAP(CPDF_Document* pDoc,
                                           CPVT_Color(CPVT_Color::kRGB, 1, 1, 0),
                                           PaintOperation::FILL);
 
-  CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict);
-  rect.Normalize();
+  CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
+  if (pArray) {
+    for (unsigned long i = 0; i < pArray->GetCount() / 8; ++i) {
+      CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict, i);
+      rect.Normalize();
 
-  sAppStream << rect.left << " " << rect.top << " m " << rect.right << " "
-             << rect.top << " l " << rect.right << " " << rect.bottom << " l "
-             << rect.left << " " << rect.bottom << " l "
-             << "h f\n";
+      sAppStream << rect.left << " " << rect.top << " m " << rect.right << " "
+                 << rect.top << " l " << rect.right << " " << rect.bottom
+                 << " l " << rect.left << " " << rect.bottom << " l h f\n";
+    }
+  }
 
   auto pExtGStateDict =
       GenerateExtGStateDict(*pAnnotDict, sExtGSDictName, "Multiply");
@@ -868,13 +872,18 @@ bool CPVT_GenerateAP::GenerateUnderlineAP(CPDF_Document* pDoc,
                                           CPVT_Color(CPVT_Color::kRGB, 0, 0, 0),
                                           PaintOperation::STROKE);
 
-  CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict);
-  rect.Normalize();
+  CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
+  if (pArray) {
+    constexpr float fLineWidth = 1.0;
+    sAppStream << fLineWidth << " w ";
 
-  float fLineWidth = 1.0;
-  sAppStream << fLineWidth << " w " << rect.left << " "
-             << rect.bottom + fLineWidth << " m " << rect.right << " "
-             << rect.bottom + fLineWidth << " l S\n";
+    for (unsigned long i = 0; i < pArray->GetCount() / 8; ++i) {
+      CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict, i);
+      rect.Normalize();
+      sAppStream << rect.left << " " << rect.bottom + fLineWidth << " m "
+                 << rect.right << " " << rect.bottom + fLineWidth << " l S\n";
+    }
+  }
 
   auto pExtGStateDict =
       GenerateExtGStateDict(*pAnnotDict, sExtGSDictName, "Normal");
@@ -981,35 +990,37 @@ bool CPVT_GenerateAP::GenerateSquigglyAP(CPDF_Document* pDoc,
                                           CPVT_Color(CPVT_Color::kRGB, 0, 0, 0),
                                           PaintOperation::STROKE);
 
-  CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict);
-  rect.Normalize();
+  CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
+  if (pArray) {
+    constexpr float fLineWidth = 1.0;
+    constexpr float fDelta = 2.0;
+    sAppStream << fLineWidth << " w ";
 
-  float fLineWidth = 1.0;
-  sAppStream << fLineWidth << " w ";
+    for (unsigned long i = 0; i < pArray->GetCount() / 8; ++i) {
+      CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict, i);
+      rect.Normalize();
 
-  const float fDelta = 2.0;
-  const float fTop = rect.bottom + fDelta;
-  const float fBottom = rect.bottom;
+      const float fTop = rect.bottom + fDelta;
+      const float fBottom = rect.bottom;
+      sAppStream << rect.left << " " << fTop << " m ";
 
-  sAppStream << rect.left << " " << fTop << " m ";
+      float fX = rect.left + fDelta;
+      bool isUpwards = false;
+      while (fX < rect.right) {
+        sAppStream << fX << " " << (isUpwards ? fTop : fBottom) << " l ";
+        fX += fDelta;
+        isUpwards = !isUpwards;
+      }
 
-  float fX = rect.left + fDelta;
-  bool isUpwards = false;
+      float fRemainder = rect.right - (fX - fDelta);
+      if (isUpwards)
+        sAppStream << rect.right << " " << fBottom + fRemainder << " l ";
+      else
+        sAppStream << rect.right << " " << fTop - fRemainder << " l ";
 
-  while (fX < rect.right) {
-    sAppStream << fX << " " << (isUpwards ? fTop : fBottom) << " l ";
-
-    fX += fDelta;
-    isUpwards = !isUpwards;
+      sAppStream << "S\n";
+    }
   }
-
-  float fRemainder = rect.right - (fX - fDelta);
-  if (isUpwards)
-    sAppStream << rect.right << " " << fBottom + fRemainder << " l ";
-  else
-    sAppStream << rect.right << " " << fTop - fRemainder << " l ";
-
-  sAppStream << "S\n";
 
   auto pExtGStateDict =
       GenerateExtGStateDict(*pAnnotDict, sExtGSDictName, "Normal");
@@ -1030,13 +1041,18 @@ bool CPVT_GenerateAP::GenerateStrikeOutAP(CPDF_Document* pDoc,
                                           CPVT_Color(CPVT_Color::kRGB, 0, 0, 0),
                                           PaintOperation::STROKE);
 
-  CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict);
-  rect.Normalize();
+  CPDF_Array* pArray = pAnnotDict->GetArrayFor("QuadPoints");
+  if (pArray) {
+    constexpr float fLineWidth = 1.0;
+    for (unsigned long i = 0; i < pArray->GetCount() / 8; ++i) {
+      CFX_FloatRect rect = CPDF_Annot::RectFromQuadPoints(pAnnotDict, i);
+      rect.Normalize();
 
-  float fLineWidth = 1.0;
-  float fY = (rect.top + rect.bottom) / 2;
-  sAppStream << fLineWidth << " w " << rect.left << " " << fY << " m "
-             << rect.right << " " << fY << " l S\n";
+      float fY = (rect.top + rect.bottom) / 2;
+      sAppStream << fLineWidth << " w " << rect.left << " " << fY << " m "
+                 << rect.right << " " << fY << " l S\n";
+    }
+  }
 
   auto pExtGStateDict =
       GenerateExtGStateDict(*pAnnotDict, sExtGSDictName, "Normal");
@@ -1325,7 +1341,7 @@ void CPVT_GenerateAP::GenerateAndSetAPDict(
   pStreamDict->SetMatrixFor("Matrix", CFX_Matrix());
 
   CFX_FloatRect rect = bIsTextMarkupAnnotation
-                           ? CPDF_Annot::RectFromQuadPoints(pAnnotDict)
+                           ? CPDF_Annot::BoundingRectFromQuadPoints(pAnnotDict)
                            : pAnnotDict->GetRectFor("Rect");
   pStreamDict->SetRectFor("BBox", rect);
   pStreamDict->SetFor("Resources", std::move(pResourceDict));
