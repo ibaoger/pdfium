@@ -69,6 +69,30 @@
       "revId": "bae8e9be7461137e21c6e7a8bfa7b92be4ae9eee",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b798d3b_159aa966",
+        "filename": "core/fpdfapi/font/cpdf_cmapparser_unittest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-25T17:22:44Z",
+      "side": 1,
+      "message": "except that in a world where we;re toggling back and forth between signed and unsigned the cast may be a temporary bridge until later.  Step 6?\n\nWriting EXPECT_EQ(0u, ... is a really common idiom in gTests.",
+      "parentUuid": "cc063989_61f98a74",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "bae8e9be7461137e21c6e7a8bfa7b92be4ae9eee",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
