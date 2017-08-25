@@ -128,8 +128,8 @@ FX_XmlSyntaxResult CFX_XMLSyntaxParser::DoSyntaxParse() {
     return m_syntaxParserResult;
   }
 
-  int32_t iStreamLength = m_pStream->GetLength();
-  int32_t iPos;
+  FX_FILESIZE iStreamLength = m_pStream->GetLength();
+  pdfium::Optional<FX_FILESIZE> iPos;
 
   FX_XmlSyntaxResult syntaxParserResult = FX_XmlSyntaxResult::None;
   while (true) {
@@ -140,20 +140,21 @@ FX_XmlSyntaxResult CFX_XMLSyntaxParser::DoSyntaxParse() {
       }
       m_ParsedChars += m_End;
       m_iParsedBytes = m_iCurrentPos;
-      if (m_pStream->GetPosition() != m_iCurrentPos)
+      iPos = m_pStream->GetPosition();
+      if (!iPos.has_value() || iPos.value() != m_iCurrentPos)
         m_pStream->Seek(CFX_SeekableStreamProxy::Pos::Begin, m_iCurrentPos);
 
       m_iBufferChars =
           m_pStream->ReadString(m_Buffer.data(), m_iXMLPlaneSize, &m_bEOS);
       iPos = m_pStream->GetPosition();
-      if (m_iBufferChars < 1) {
+      if (!m_iBufferChars.has_value()) {
         m_iCurrentPos = iStreamLength;
         m_syntaxParserResult = FX_XmlSyntaxResult::EndOfString;
         return m_syntaxParserResult;
       }
-      m_iCurrentPos = iPos;
+      m_iCurrentPos = iPos.value();
       m_Start = 0;
-      m_End = m_iBufferChars;
+      m_End = m_iBufferChars.value();
     }
 
     while (m_Start < m_End) {

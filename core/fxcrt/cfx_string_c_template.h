@@ -37,14 +37,18 @@ class CFX_StringCTemplate {
 
   CFX_StringCTemplate(const CharType* ptr, FX_STRSIZE len)
       : m_Ptr(reinterpret_cast<const UnsignedType*>(ptr)),
-        m_Length(len < 0 ? FXSYS_len(ptr) : len) {}
+        m_Length(len < 0 ? FXSYS_len(ptr) : len) {
+    ASSERT(len >= 0);
+  }
 
   template <typename U = UnsignedType>
   CFX_StringCTemplate(
       const UnsignedType* ptr,
       FX_STRSIZE size,
       typename std::enable_if<!std::is_same<U, CharType>::value>::type* = 0)
-      : m_Ptr(ptr), m_Length(size) {}
+      : m_Ptr(ptr), m_Length(size) {
+    ASSERT(size >= 0);
+  }
 
   // Deliberately implicit to avoid calling on every string literal.
   // |ch| must be an lvalue that outlives the the CFX_StringCTemplate.
@@ -106,7 +110,7 @@ class CFX_StringCTemplate {
       return 0;
 
     uint32_t strid = 0;
-    FX_STRSIZE size = std::min(4, m_Length);
+    FX_STRSIZE size = std::min(static_cast<FX_STRSIZE>(4), m_Length);
     for (FX_STRSIZE i = 0; i < size; i++)
       strid = strid * 256 + m_Ptr.Get()[i];
 
@@ -123,12 +127,12 @@ class CFX_StringCTemplate {
   bool IsEmpty() const { return m_Length == 0; }
 
   bool IsValidIndex(FX_STRSIZE index) const {
-    return GetLength() ? index == pdfium::clamp(index, 0, GetLength() - 1)
+    return GetLength() ? index == pdfium::clamp(index, 0lu, GetLength() - 1)
                        : false;
   }
 
   bool IsValidLength(FX_STRSIZE length) const {
-    return length == pdfium::clamp(length, 0, GetLength());
+    return length == pdfium::clamp(length, 0lu, GetLength());
   }
 
   const UnsignedType& operator[](const FX_STRSIZE index) const {

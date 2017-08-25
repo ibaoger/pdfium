@@ -82,12 +82,12 @@ class CFX_WideString {
   bool IsEmpty() const { return !GetLength(); }
 
   bool IsValidIndex(FX_STRSIZE index) const {
-    return GetLength() ? index == pdfium::clamp(index, 0, GetLength() - 1)
+    return GetLength() ? index == pdfium::clamp(index, 0lu, GetLength() - 1)
                        : false;
   }
 
   bool IsValidLength(FX_STRSIZE length) const {
-    return length == pdfium::clamp(length, 0, GetLength());
+    return length == pdfium::clamp(length, 0lu, GetLength());
   }
 
   const CFX_WideString& operator=(const wchar_t* str);
