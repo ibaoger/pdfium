@@ -416,13 +416,22 @@ void WriteAnnot(FPDF_PAGE page, const char* pdf_name, int num) {
 
     // Retrieve the annotation's quadpoints if it is a markup annotation.
     if (FPDFAnnot_HasAttachmentPoints(annot)) {
-      FS_QUADPOINTSF quadpoints;
-      if (FPDFAnnot_GetAttachmentPoints(annot, &quadpoints)) {
-        fprintf(fp,
-                "Quadpoints: (%.3f, %.3f), (%.3f, %.3f), (%.3f, %.3f), (%.3f, "
-                "%.3f)\n",
-                quadpoints.x1, quadpoints.y1, quadpoints.x2, quadpoints.y2,
-                quadpoints.x3, quadpoints.y3, quadpoints.x4, quadpoints.y4);
+      unsigned long count = FPDFAnnot_GetAttachmentPointsCount(annot);
+      if (count) {
+        fprintf(fp, "Quadpoints: ");
+        for (unsigned long j = 0; j < count; ++j) {
+          FS_QUADPOINTSF quadpoints;
+          if (FPDFAnnot_GetAttachmentPoints(annot, j, &quadpoints)) {
+            fprintf(fp,
+                    "(%.3f, %.3f), (%.3f, %.3f), (%.3f, %.3f), (%.3f, %.3f); ",
+                    quadpoints.x1, quadpoints.y1, quadpoints.x2, quadpoints.y2,
+                    quadpoints.x3, quadpoints.y3, quadpoints.x4, quadpoints.y4);
+
+          } else {
+            fprintf(fp, "failed to retrieve set #%lu of quadpoints; ", j + 1);
+          }
+        }
+        fprintf(fp, "\n");
       } else {
         fprintf(fp, "Failed to retrieve quadpoints.\n");
       }
