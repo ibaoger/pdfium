@@ -97,6 +97,11 @@ CFX_FloatRect CPDFSDK_XFAWidgetHandler::GetViewBBox(CPDFSDK_PageView* pPageView,
   return rcWidget;
 }
 
+// TODO(bug 840): Implement so text can be obtained from XFA fields.
+CFX_WideString CPDFSDK_XFAWidgetHandler::GetText(CPDFSDK_Annot* pAnnot) {
+  return CFX_WideString();
+}
+
 // TODO(bug 840): Implement so selected text can be obtained from XFA
 // fields.
 CFX_WideString CPDFSDK_XFAWidgetHandler::GetSelectedText(

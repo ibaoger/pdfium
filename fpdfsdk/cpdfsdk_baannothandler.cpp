@@ -193,6 +193,10 @@ CFX_FloatRect CPDFSDK_BAAnnotHandler::GetViewBBox(CPDFSDK_PageView* pPageView,
   return pAnnot->GetRect();
 }
 
+CFX_WideString CPDFSDK_BAAnnotHandler::GetText(CPDFSDK_Annot* pAnnot) {
+  return CFX_WideString();
+}
+
 CFX_WideString CPDFSDK_BAAnnotHandler::GetSelectedText(CPDFSDK_Annot* pAnnot) {
   return CFX_WideString();
 }

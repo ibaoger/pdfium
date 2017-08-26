@@ -368,6 +368,25 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FORM_OnChar(FPDF_FORMHANDLE hHandle,
 }
 
 FPDF_EXPORT unsigned long FPDF_CALLCONV
+FORM_GetFocusedText(FPDF_FORMHANDLE hHandle,
+                    FPDF_PAGE page,
+                    void* buffer,
+                    unsigned long buflen) {
+  CPDFSDK_PageView* pPageView = FormHandleToPageView(hHandle, page);
+  if (!pPageView)
+    return 0;
+
+  CFX_WideString wide_str_form_text = pPageView->GetFocusedFormText();
+  CFX_ByteString encoded_form_text = wide_str_form_text.UTF16LE_Encode();
+  unsigned long form_text_len = encoded_form_text.GetLength();
+
+  if (buffer && buflen >= form_text_len)
+    memcpy(buffer, encoded_form_text.c_str(), form_text_len);
+
+  return form_text_len;
+}
+
+FPDF_EXPORT unsigned long FPDF_CALLCONV
 FORM_GetSelectedText(FPDF_FORMHANDLE hHandle,
                      FPDF_PAGE page,
                      void* buffer,

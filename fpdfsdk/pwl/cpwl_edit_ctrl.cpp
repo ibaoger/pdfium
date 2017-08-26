@@ -338,7 +338,7 @@ void CPWL_EditCtrl::SetCaret(bool bVisible,
   }
 }
 
-CFX_WideString CPWL_EditCtrl::GetText() const {
+CFX_WideString CPWL_EditCtrl::GetText() {
   return m_pEdit->GetText();
 }
 

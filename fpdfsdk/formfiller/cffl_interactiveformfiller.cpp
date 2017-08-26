@@ -516,6 +516,12 @@ void CFFL_InteractiveFormFiller::RemoveFormFiller(CPDFSDK_Annot* pAnnot) {
     UnRegisterFormFiller(pAnnot);
 }
 
+CFX_WideString CFFL_InteractiveFormFiller::GetText(CPDFSDK_Annot* pAnnot) {
+  ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);
+  CFFL_FormFiller* pFormFiller = GetFormFiller(pAnnot, false);
+  return pFormFiller ? pFormFiller->GetText(pAnnot) : CFX_WideString();
+}
+
 CFX_WideString CFFL_InteractiveFormFiller::GetSelectedText(
     CPDFSDK_Annot* pAnnot) {
   ASSERT(pAnnot->GetPDFAnnot()->GetSubtype() == CPDF_Annot::Subtype::WIDGET);

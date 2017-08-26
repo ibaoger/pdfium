@@ -189,11 +189,8 @@ void CPWL_ComboBox::ReplaceSelection(const CFX_WideString& text) {
     m_pEdit->ReplaceSelection(text);
 }
 
-CFX_WideString CPWL_ComboBox::GetText() const {
-  if (m_pEdit) {
-    return m_pEdit->GetText();
-  }
-  return CFX_WideString();
+CFX_WideString CPWL_ComboBox::GetText() {
+  return m_pEdit ? m_pEdit->GetText() : CFX_WideString();
 }
 
 void CPWL_ComboBox::SetText(const CFX_WideString& text) {

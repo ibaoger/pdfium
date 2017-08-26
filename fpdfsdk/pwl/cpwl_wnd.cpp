@@ -365,6 +365,10 @@ PWL_IMPLEMENT_MOUSE_METHOD(OnRButtonUp)
 PWL_IMPLEMENT_MOUSE_METHOD(OnMouseMove)
 #undef PWL_IMPLEMENT_MOUSE_METHOD
 
+CFX_WideString CPWL_Wnd::GetText() {
+  return CFX_WideString();
+}
+
 CFX_WideString CPWL_Wnd::GetSelectedText() {
   return CFX_WideString();
 }
