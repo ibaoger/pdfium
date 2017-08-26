@@ -196,8 +196,8 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
 
   // FILTER
   switch (nChar) {
-    case 0x0A:
-    case 0x1B:
+    case 0x0A:  // LF
+    case 0x1B:  // ESC
       return false;
     default:
       break;
@@ -206,8 +206,6 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
   bool bCtrl = IsCTRLpressed(nFlag);
   bool bAlt = IsALTpressed(nFlag);
   bool bShift = IsSHIFTpressed(nFlag);
-
-  uint16_t word = nChar;
 
   if (bCtrl && !bAlt) {
     switch (nChar) {
@@ -229,6 +227,9 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
         else
           Undo();
         return true;
+      case FWL_VKEY_Back:
+        Backspace();
+        return true;
       default:
         if (nChar < 32)
           return false;
@@ -238,6 +239,7 @@ bool CPWL_EditCtrl::OnChar(uint16_t nChar, uint32_t nFlag) {
   if (IsReadOnly())
     return true;
 
+  uint16_t word = nChar;
   if (m_pEdit->IsSelected() && word == FWL_VKEY_Back)
     word = FWL_VKEY_Unknown;
 
