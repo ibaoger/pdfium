@@ -404,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "782281b4_6ae6ce21",
+        "filename": "core/fpdfapi/parser/cpdf_object_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T20:41:57Z",
+      "side": 1,
+      "message": "I see, how about something like:\n\n// We need to parse the object before we can do the exclusion check.\n// This is because the exclusion check may check against a referenced\n// field of the object which we need to make sure is loaded.",
+      "parentUuid": "21143619_07bda171",
+      "revId": "632c03faafc09d22db905025fd53233bf3fffb9e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feb40e68_02db20de",
         "filename": "core/fpdfapi/parser/cpdf_object_avail.h",
         "patchSetId": 1
