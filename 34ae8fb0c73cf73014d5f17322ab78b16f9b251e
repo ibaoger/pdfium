@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "afc5e502_74e6516e",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T11:53:35Z",
+      "side": 1,
+      "message": "I think, this will be incorrect. \nWill be strange, that the decryption of loose parsed and strict parsed object are different.\n\nBy PDF Specification (http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/pdf/pdfs/PDF32000_2008.pdf page 446) section 12.7.4.5:\n\n\"The signature field lock dictionary contains field names from the signature seed value \ndictionary that cannot be changed through the user interface of a conforming reader.\"\n\nAs result we should not decrypt the signature dictionaries anyway.",
+      "parentUuid": "11837dff_397833f4",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "816e35c5_5f8966ce",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
         "patchSetId": 1
@@ -314,6 +332,24 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "e2bb23e6_b81d47a0",
+      "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba43e791_75f18d3a",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T11:53:35Z",
+      "side": 1,
+      "message": "I have added bDecrypt into ::GetObjectForStrict like in ::GetObject.\nAnd in CPDF_Parser::ParseIndirectObjectAtInternal set it to true, like in original code.",
+      "parentUuid": "efc34a15_a3ecb887",
       "revId": "34ae8fb0c73cf73014d5f17322ab78b16f9b251e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
