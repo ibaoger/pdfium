@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff4027c5_902dd267",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-28T18:47:54Z",
+      "side": 1,
+      "message": "Can we maybe name this FakeFileAccess? If I see the name NetworkSimulator, I imagine it will route packets and deal with TCP connections.",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "e19ca7da8618e22b69d26480cedc16af7d6ce6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cf303cf_56c4180d",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-28T18:47:54Z",
+      "side": 1,
+      "message": "No virtual methods -\u003e not needed?",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "e19ca7da8618e22b69d26480cedc16af7d6ce6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea4aab5a_2b5e8d71",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-28T18:47:54Z",
+      "side": 1,
+      "message": "const method?",
+      "revId": "e19ca7da8618e22b69d26480cedc16af7d6ce6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67603a46_85ee00b7",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-28T18:47:54Z",
+      "side": 1,
+      "message": "It\u0027s not obvious what this is flushing exactly. Other than it\u0027s not the flushing the whole file.",
+      "revId": "e19ca7da8618e22b69d26480cedc16af7d6ce6f2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
