@@ -527,6 +527,60 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectForStrict(
   return result;
 }
 
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetIndirectObject(
+    CPDF_IndirectObjectHolder* pObjList,
+    uint32_t objnum,
+    bool bDecrypt,
+    ParseType parse_type) {
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  auto result =
+      GetIndirectObjectInternal(pObjList, objnum, bDecrypt, parse_type);
+  if (GetValidator()->has_read_problems())
+    return nullptr;
+  return result;
+}
+
+std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetIndirectObjectInternal(
+    CPDF_IndirectObjectHolder* pObjList,
+    uint32_t objnum,
+    bool bDecrypt,
+    ParseType parse_type) {
+  const FX_FILESIZE saved_pos = GetPos();
+  bool is_number = false;
+  CFX_ByteString word = GetNextWord(&is_number);
+  if (!is_number || word.IsEmpty()) {
+    SetPos(saved_pos);
+    return nullptr;
+  }
+
+  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
+  if (objnum && parser_objnum != objnum) {
+    SetPos(saved_pos);
+    return nullptr;
+  }
+
+  word = GetNextWord(&is_number);
+  if (!is_number || word.IsEmpty()) {
+    SetPos(saved_pos);
+    return nullptr;
+  }
+
+  const uint32_t parser_gennum = FXSYS_atoui(word.c_str());
+  if (GetKeyword() != "obj") {
+    SetPos(saved_pos);
+    return nullptr;
+  }
+
+  std::unique_ptr<CPDF_Object> pObj =
+      GetObjectInternal(pObjList, objnum, parser_gennum, bDecrypt, parse_type);
+  if (pObj) {
+    if (!objnum)
+      pObj->m_ObjNum = parser_objnum;
+    pObj->m_GenNum = parser_gennum;
+  }
+  return pObj;
+}
+
 unsigned int CPDF_SyntaxParser::ReadEOLMarkers(FX_FILESIZE pos) {
   unsigned char byte1 = 0;
   unsigned char byte2 = 0;

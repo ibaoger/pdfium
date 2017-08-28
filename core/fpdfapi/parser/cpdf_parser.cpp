@@ -1012,7 +1012,7 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
   if (!pObject)
     return false;
 
-  uint32_t objnum = pObject->m_ObjNum;
+  uint32_t objnum = pObject->GetObjNum();
   if (!objnum)
     return false;
 
@@ -1267,49 +1267,16 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObjectAtInternal(
     uint32_t objnum,
     bool strict_parse,
     FX_FILESIZE* pResultPos) {
-  FX_FILESIZE SavedPos = m_pSyntax->GetPos();
+  const FX_FILESIZE saved_pos = m_pSyntax->GetPos();
   m_pSyntax->SetPos(pos);
-  bool bIsNumber;
-  CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
-  if (objnum && parser_objnum != objnum) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber) {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  uint32_t parser_gennum = FXSYS_atoui(word.c_str());
-  if (m_pSyntax->GetKeyword() != "obj") {
-    m_pSyntax->SetPos(SavedPos);
-    return nullptr;
-  }
-
-  std::unique_ptr<CPDF_Object> pObj =
-      strict_parse
-          ? m_pSyntax->GetObjectForStrict(pObjList, objnum, parser_gennum, true)
-          : m_pSyntax->GetObject(pObjList, objnum, parser_gennum, true);
-
+  auto result = m_pSyntax->GetIndirectObject(
+      pObjList, objnum, true,
+      strict_parse ? CPDF_SyntaxParser::ParseType::kStrict
+                   : CPDF_SyntaxParser::ParseType::kLoose);
   if (pResultPos)
-    *pResultPos = m_pSyntax->m_Pos;
-
-  if (pObj) {
-    if (!objnum)
-      pObj->m_ObjNum = parser_objnum;
-    pObj->m_GenNum = parser_gennum;
-  }
-
-  m_pSyntax->SetPos(SavedPos);
-  return pObj;
+    *pResultPos = m_pSyntax->GetPos();
+  m_pSyntax->SetPos(saved_pos);
+  return result;
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObjectAtByStrict(
