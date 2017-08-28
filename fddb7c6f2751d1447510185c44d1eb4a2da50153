@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26f454ef_3ae8a1b4",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T18:17:19Z",
+      "side": 1,
+      "message": "If \"!startPos.has_value()\" and \"m_strText.GetLength() \u003c\u003d 0\", m_findPreStart is not updated, while it should be unset to match previous behavior.",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 0
+      },
+      "revId": "fddb7c6f2751d1447510185c44d1eb4a2da50153",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
