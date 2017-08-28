@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a4ad7d2_020abf7e",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "\u003e\u003e What about just doing an ASSERT(m_pDocument)\n\nWhen we first came to this point, the m_pDocument is nullptr. And at this point we can not have bad calls. Only FPDFAvail_IsDocAvail is called.\n\nOn next calls we should continue return DataAvailable, if all ok. Because i think, that If a document is made available, it can not cease to be so. But if we already parse document, we should not parse it again.\n\n\u003e\u003e Do we really want to force the load here or just make the user fix their bad calls?\n\nWe should force load here to check parsing logic errors with unavailable data, and request whole document if we have read problems using DownloadHinst, which are available only in this method in current parsing state. \nFor example, if linearized parsing is failed, the document will be parsed by cross ref rebuilding (see https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d1398 ), and for this case we need whole file available. And parsing will be failed in this case. But we can check read problems and request whole file, And the parsing will be succeed on next call PDFAvail_IsDocAvail, because the whole file will be available.",
+      "parentUuid": "c0a4fb52_20f37a35",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78320326_06fe8d0c",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf5a1fb_b1e5cea0",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78320326_06fe8d0c",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5ef74a7f_1d0dcf1d",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2c7bc2_f48ec036",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "173dd63c_115a205d",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b6a9449_a05cee2e",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "173dd63c_115a205d",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bc64902c_381ba388",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c97572b9_0012af6d",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7deb87bd_43d6ae05",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2017-08-28T16:13:34Z",
       "side": 1,
       "message": "Instead of a MaybeOwned, can we make this a std::unique_ptr? We then just std::move at the end of parse?",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "870d5b0f_8c35c50f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:17:26Z",
+      "side": 1,
+      "message": "No, we need it for check pages and form availability, after return it.",
+      "parentUuid": "7deb87bd_43d6ae05",
       "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
