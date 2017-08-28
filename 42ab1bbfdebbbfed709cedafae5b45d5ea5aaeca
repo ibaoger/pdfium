@@ -142,6 +142,29 @@
     },
     {
       "key": {
+        "uuid": "084da85d_cac5f328",
+        "filename": "testing/embedder_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T20:31:38Z",
+      "side": 1,
+      "message": "Add a comment that this must outlive m_SavedAvail.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 37
+      },
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbb33c99_a1f6565f",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -457,6 +480,24 @@
     },
     {
       "key": {
+        "uuid": "47d4e164_c34eab57",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T20:31:38Z",
+      "side": 1,
+      "message": "a lower bound of 10,15 makes sense because it contains 10,13 so, isn\u0027t that exactly what you want?",
+      "parentUuid": "f8da283c_c848e4d5",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c43855b4_ac02d9a2",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -556,6 +597,24 @@
       "side": 1,
       "message": "Nobody forbids this to us.\nJust check this case to prevent problems in future.",
       "parentUuid": "3493a8e0_39ee196f",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94835735_ce3576c2",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T20:31:38Z",
+      "side": 1,
+      "message": "Let\u0027s just ASSERT(\u0026range_set !\u003d this) as I don\u0027t see why we\u0027d ever want to union with ourselves.",
+      "parentUuid": "8fcdf754_b30e1565",
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
