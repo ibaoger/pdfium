@@ -161,6 +161,29 @@
       "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29bdf778_4eebf95d",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T21:09:27Z",
+      "side": 1,
+      "message": "I guess what I\u0027m realizing is that it might be cleaner to always have a position even if readstring and company might return Optionals.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
