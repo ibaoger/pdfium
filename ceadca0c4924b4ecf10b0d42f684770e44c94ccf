@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f5dab7f_d3c58934",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T17:31:23Z",
+      "side": 1,
+      "message": "I think we want to assign this even if its value is not present to keep old behaviour.",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "ceadca0c4924b4ecf10b0d42f684770e44c94ccf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
