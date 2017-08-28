@@ -22,6 +22,30 @@
       "revId": "91f443f4f3b9682959435a5417b48975729b9338",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "577e0d99_6f84aa76",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-28T18:12:09Z",
+      "side": 1,
+      "message": "Uh, will check and have a new CL soon.",
+      "parentUuid": "6db8937f_a03a36b5",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 59
+      },
+      "revId": "91f443f4f3b9682959435a5417b48975729b9338",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
