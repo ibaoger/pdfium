@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "155c9c45_db130f48",
+        "filename": "fxbarcode/oned/BC_OnedCode128Writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T17:45:49Z",
+      "side": 1,
+      "message": "Heh, it dawns on me that this conditional is really IsValidIndex(position+1)",
+      "range": {
+        "startLine": 197,
+        "startChar": 33,
+        "endLine": 197,
+        "endChar": 68
+      },
+      "revId": "ed48c1a42b2f9a0c8cb04185c180c6424bad3b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
