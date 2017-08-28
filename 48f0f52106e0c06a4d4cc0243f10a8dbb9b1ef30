@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e283ce0_a0c11802",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T17:18:27Z",
+      "side": 1,
+      "message": "This converts every page into a Reference now which it didn\u0027t do before?",
+      "revId": "48f0f52106e0c06a4d4cc0243f10a8dbb9b1ef30",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
