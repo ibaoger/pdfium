@@ -34,6 +34,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c995ed43_0da59dee",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T17:29:43Z",
+      "side": 0,
+      "message": "I have changed this logic, now if page has been successfully parsed (include PagesDictionary), that return DataAvailable. But in case, if PagesDictionary is not parsed, continue parse without hint tables.",
+      "parentUuid": "50e30e23_44f29803",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
