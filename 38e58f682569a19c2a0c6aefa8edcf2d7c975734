@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59100aa8_f5d16edd",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T16:46:47Z",
+      "side": 1,
+      "message": "should this argument be an Optional\u003c\u003e as well?  we check for -1 later on at 103.",
+      "range": {
+        "startLine": 84,
+        "startChar": 34,
+        "endLine": 84,
+        "endChar": 46
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef6bad76_45630f68",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T16:46:47Z",
+      "side": 1,
+      "message": "nit: auto would help here.",
+      "range": {
+        "startLine": 390,
+        "startChar": 7,
+        "endLine": 390,
+        "endChar": 37
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "686f6b00_fa6fff8b",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T16:46:47Z",
+      "side": 1,
+      "message": "Does this still reverse the string? We\u0027re now going front to back in the loop instead of the other way around.\n\nThis should become a method of the string itself with unit test. Also prolly want GetBuffer() etc. to avoid reallocs.",
+      "range": {
+        "startLine": 392,
+        "startChar": 9,
+        "endLine": 392,
+        "endChar": 21
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
