@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0a4fb52_20f37a35",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "What about just doing an ASSERT(m_pDocument)? Do we really want to force the load here or just make the user fix their bad calls?",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78320326_06fe8d0c",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "I don\u0027t think try is needed in the name. Just ParseDocument would be fine.",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a2c7bc2_f48ec036",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "nit: blank line after ASSERT",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "173dd63c_115a205d",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97572b9_0012af6d",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "Let\u0027s make this return a std::pair so we don\u0027t need the out param.\n\nstd::pair\u003cCPDF_Parser::Error, std::unqiue_ptr\u003cCPDF_Document\u003e\u003e ...",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7deb87bd_43d6ae05",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:13:34Z",
+      "side": 1,
+      "message": "Instead of a MaybeOwned, can we make this a std::unique_ptr? We then just std::move at the end of parse?",
+      "revId": "19069c4eae91aae8f6b0622eb5d550ea8a70ffda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
