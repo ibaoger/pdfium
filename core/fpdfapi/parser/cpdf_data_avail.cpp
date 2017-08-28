@@ -434,7 +434,7 @@ bool CPDF_DataAvail::CheckRoot() {
 }
 
 bool CPDF_DataAvail::PreparePageItem() {
-  CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
+  const CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
   CPDF_Reference* pRef =
       ToReference(pRoot ? pRoot->GetObjectFor("Pages") : nullptr);
   if (!pRef) {
@@ -1523,7 +1523,7 @@ CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
   }
 
   if (!m_bLinearizedFormParamLoad) {
-    CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
+    const CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
     if (!pRoot)
       return FormAvailable;
 
@@ -1559,7 +1559,7 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
 }
 
 bool CPDF_DataAvail::ValidateForm() {
-  CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
+  const CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
   if (!pRoot)
     return true;
   CPDF_Object* pAcroForm = pRoot->GetObjectFor("AcroForm");
