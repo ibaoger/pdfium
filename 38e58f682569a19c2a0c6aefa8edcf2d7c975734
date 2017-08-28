@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90d25e54_da1df54e",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-28T17:27:06Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "59100aa8_f5d16edd",
+      "range": {
+        "startLine": 84,
+        "startChar": 34,
+        "endLine": 84,
+        "endChar": 46
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef6bad76_45630f68",
         "filename": "core/fpdftext/cpdf_textpagefind.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f4cb8471_0424e883",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-28T17:27:06Z",
+      "side": 1,
+      "message": "I agree, but the chromium-style checker doesn\u0027t like it, since this iterator is actually a raw pointer.",
+      "parentUuid": "ef6bad76_45630f68",
+      "range": {
+        "startLine": 390,
+        "startChar": 7,
+        "endLine": 390,
+        "endChar": 37
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "686f6b00_fa6fff8b",
         "filename": "core/fpdftext/cpdf_textpagefind.cpp",
         "patchSetId": 1
@@ -68,6 +116,53 @@
       "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35835380_ecb09164",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-28T17:27:06Z",
+      "side": 1,
+      "message": "You are correct, I actually wanted this to be InsertAtFront.\n\nI have added a TODO for myself to extract this method.",
+      "parentUuid": "686f6b00_fa6fff8b",
+      "range": {
+        "startLine": 392,
+        "startChar": 9,
+        "endLine": 392,
+        "endChar": 21
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "334ca4b6_152ee060",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-28T17:27:06Z",
+      "side": 1,
+      "message": "Looked at this again... this code isn\u0027t referenced anywhere, so just removing it.",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 1
+      },
+      "revId": "38e58f682569a19c2a0c6aefa8edcf2d7c975734",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
