@@ -1,4 +1,212 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1503946361 -0700\nnonce AHIDc+Orjz3nHvr6zPdflmNEpsLh7jeHTaxtZHENFpqwGXFE8oKPMMWVD1eA8TsFpRqXeE+sQZjy\n\n0000000000000000000000000000000000000000 21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8 refs/for/refs/heads/master%notify\u003dNONE,m\u003drebase\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZpGZ5AAoJEKs2LWFaZv17rjwH+wbkKYT9vgd9VFxVLXNUqdKL\nLsLrn8sOa4B2cURaQj/CuK6nADRECzX/eaGjhgYqjaJ7Bu+Zzpo7j36i1zgiScLX\nn5we9tlg2oNKkAhCHmNKBdRmRDwO+MjPoQ4rQsDXU4KixZ1GcQ9KLHScO23R+loX\nkSZz5UfHVZzdneZKSgb6d7XaEkbTTzIQC03TpqzVhXZ6hoL23pQg8rI1tPoOWc+K\nckIFrNwNNzAUntb2XPewpT4Ekk7ssyrXroPg4gp+tCKP7qZncupQoXuxdhYlsizo\nMPJ958goX48rz/HAb5Zw6foNlVrVW1JzaLp28KWHwY1mGD+ZVmAze5z5LvNHOu4\u003d\n\u003d8G3b\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c2a482f_d5c88596",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "this could be const method if AreObjectsAvailable was const method (which I think it could be)?",
+      "range": {
+        "startLine": 1561,
+        "startChar": 35,
+        "endLine": 1561,
+        "endChar": 37
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d04b707_287c2e60",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "this smells like a const method too.",
+      "range": {
+        "startLine": 528,
+        "startChar": 43,
+        "endLine": 528,
+        "endChar": 45
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "671cf96f_b56ab61a",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "maybe const arg?",
+      "range": {
+        "startLine": 88,
+        "startChar": 35,
+        "endLine": 88,
+        "endChar": 48
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e8044ec_cefafa90",
+        "filename": "core/fpdfdoc/cpdf_metadata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "smells like const CPDF_Document*",
+      "range": {
+        "startLine": 14,
+        "startChar": 29,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04630c89_4370421d",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 302,
+        "startChar": 29,
+        "endLine": 302,
+        "endChar": 42
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba6bc81_17bdba2b",
+        "filename": "core/fpdfdoc/cpvt_generateap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 36
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "507eb34a_12aed866",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "am I const, too?",
+      "range": {
+        "startLine": 567,
+        "startChar": 2,
+        "endLine": 567,
+        "endChar": 15
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "361b4c00_020e2985",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 1348,
+        "startChar": 2,
+        "endLine": 1348,
+        "endChar": 15
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d99cc29a_765b069e",
+        "filename": "xfa/fxfa/cxfa_ffdoc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T19:07:30Z",
+      "side": 1,
+      "message": "I think this can be const (oddly enough) in which case the const overload gets selected at 294 instead of the non const followed by assignment to const.",
+      "range": {
+        "startLine": 290,
+        "startChar": 25,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
