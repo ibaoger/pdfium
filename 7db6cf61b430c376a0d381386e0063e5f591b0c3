@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "feb45fb1_d74e5901",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eee78265_bcd875cd",
+      "range": {
+        "startLine": 115,
+        "startChar": 14,
+        "endLine": 115,
+        "endChar": 16
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a6b287b_c7830240",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-28T20:57:49Z",
       "side": 1,
       "message": "Why does the start have an offset and the end does not?",
+      "range": {
+        "startLine": 177,
+        "startChar": 41,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5484d1_bbecec30",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "I don\u0027t know. This is existing code that I\u0027ve just updated to work with the new engine.",
+      "parentUuid": "3a6b287b_c7830240",
       "range": {
         "startLine": 177,
         "startChar": 41,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f292e759_b422b1de",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9fdb030_3c1058dc",
+      "range": {
+        "startLine": 313,
+        "startChar": 16,
+        "endLine": 313,
+        "endChar": 33
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0584bc1e_2a27aed1",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2017-08-28T20:57:49Z",
       "side": 1,
       "message": "I don\u0027t get why this is just a translation rather than adding a margin. Does it look good on screen?",
+      "range": {
+        "startLine": 491,
+        "startChar": 27,
+        "endLine": 491,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d90be73d_750565cd",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Existing code, so leaving for now. We may have to adjust when we\u0027re getting XFA ready for launch.",
+      "parentUuid": "0584bc1e_2a27aed1",
       "range": {
         "startLine": 491,
         "startChar": 27,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "31281b00_ed0bc4d7",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "831ffcf2_d55adadc",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 580,
+        "endChar": 34
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446cdd69_884617ee",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "a242e2fb_661d1ea2",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Ack. This maybe what I need to fix the broken test, will come back to it when I\u0027ve working on those.",
+      "parentUuid": "446cdd69_884617ee",
+      "range": {
+        "startLine": 583,
+        "startChar": 41,
+        "endLine": 583,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adaaf607_ed6d32ab",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -151,6 +295,30 @@
       "writtenOn": "2017-08-28T20:57:49Z",
       "side": 1,
       "message": "Do you need to convert to bool here? Same below.",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 8
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6986f8f6_41a8c19e",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "The method takes a bool, so I like being explicit.",
+      "parentUuid": "adaaf607_ed6d32ab",
       "range": {
         "startLine": 588,
         "startChar": 6,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "7ec556ad_76284b67",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "No idea, existing code, heh. We should probably write some tests to see what works and what doesn\u0027t.",
+      "parentUuid": "aee86ff1_b9227b93",
+      "range": {
+        "startLine": 609,
+        "startChar": 75,
+        "endLine": 609,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "393843c7_4a07bd9f",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -206,6 +398,30 @@
       "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8c34ecc_e0ee7e03",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T21:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "393843c7_4a07bd9f",
+      "range": {
+        "startLine": 638,
+        "startChar": 4,
+        "endLine": 638,
+        "endChar": 44
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
