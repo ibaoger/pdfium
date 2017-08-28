@@ -220,33 +220,40 @@ CFX_BreakType CFX_TxtBreak::AppendChar(wchar_t wch) {
   }
 
   CFX_BreakType dwRet2 = CFX_BreakType::None;
-  switch (chartype) {
-    case FX_CHARTYPE_Tab:
-      AppendChar_Tab(pCurChar);
-      break;
-    case FX_CHARTYPE_Control:
-      dwRet2 = AppendChar_Control(pCurChar);
-      break;
-    case FX_CHARTYPE_Combination:
-      AppendChar_Combination(pCurChar);
-      break;
-    case FX_CHARTYPE_ArabicAlef:
-    case FX_CHARTYPE_ArabicSpecial:
-    case FX_CHARTYPE_ArabicDistortion:
-    case FX_CHARTYPE_ArabicNormal:
-    case FX_CHARTYPE_ArabicForm:
-    case FX_CHARTYPE_Arabic:
-      dwRet2 = AppendChar_Arabic(pCurChar);
-      break;
-    case FX_CHARTYPE_Unknown:
-    case FX_CHARTYPE_Space:
-    case FX_CHARTYPE_Numeric:
-    case FX_CHARTYPE_Normal:
-    default:
-      dwRet2 = AppendChar_Others(pCurChar);
-      break;
-  }
 
+  if (wch == m_wParagraphBreakChar) {
+    // This is handled in AppendChar_Control, but it seems like \n and \r
+    // don't get matched as control characters so we go into AppendChar_other
+    // and never detect the new paragraph ...
+    dwRet2 = AppendChar_Control(pCurChar);
+  } else {
+    switch (chartype) {
+      case FX_CHARTYPE_Tab:
+        AppendChar_Tab(pCurChar);
+        break;
+      case FX_CHARTYPE_Control:
+        dwRet2 = AppendChar_Control(pCurChar);
+        break;
+      case FX_CHARTYPE_Combination:
+        AppendChar_Combination(pCurChar);
+        break;
+      case FX_CHARTYPE_ArabicAlef:
+      case FX_CHARTYPE_ArabicSpecial:
+      case FX_CHARTYPE_ArabicDistortion:
+      case FX_CHARTYPE_ArabicNormal:
+      case FX_CHARTYPE_ArabicForm:
+      case FX_CHARTYPE_Arabic:
+        dwRet2 = AppendChar_Arabic(pCurChar);
+        break;
+      case FX_CHARTYPE_Unknown:
+      case FX_CHARTYPE_Space:
+      case FX_CHARTYPE_Numeric:
+      case FX_CHARTYPE_Normal:
+      default:
+        dwRet2 = AppendChar_Others(pCurChar);
+        break;
+    }
+  }
   return std::max(dwRet1, dwRet2);
 }
 
