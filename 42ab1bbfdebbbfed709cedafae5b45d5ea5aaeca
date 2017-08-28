@@ -1,0 +1,378 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d5c5256_0f5f9467",
+        "filename": "fpdfsdk/fpdf_dataavail_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: static methods at top of class.",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a1748f_d501bff1",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df21526f_71cd3d29",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Ditto, is this need to be saved or can we just use in this file?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b1d3bb_2ccb9618",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Do we actually need this as a member or can this just be an auto that we use below and destroy at the end of TestSaved?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbb33c99_a1f6565f",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587abe20_f8809cde",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Make this a method on RangeSet as its the only user",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b08e9e3_a1633e2d",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "return range.first \u003c\u003d range.second ? range : Range(range.second + 1, range.first + 1)\n\n(Why do these add one to the values in the else case?)",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44dcf7dd_0d09da3f",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Ditto as member of RangeSet",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1c193f8_8e41559b",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Who owns this? Can it be a CFX_UnownedPtr or a unique_ptr?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfe254a7_5fb9ac06",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d48e0ca3_caf14cc3",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba856155_4fd9cf77",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91499e85_2ec41bf6",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "From the use below, don\u0027t you want lower_bound?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43855b4_ac02d9a2",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit blank before",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be961e75_eba37fe1",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "lower_bound?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3493a8e0_39ee196f",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Is this needed? Why would we union with ourselves?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35efb5b5_833a7e74",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: no {}s",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "561628b8_c83e1afb",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "Parts of this are duplicated with fpdf_dataavail_embeddertest.cpp can we consolidate them?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12644bf8_8a171c34",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b388d8_13393b4b",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: remove blank line above",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "100c82ca_0e722082",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "nit: remove blank line above",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc053a4_8ac7ce63",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:01:55Z",
+      "side": 1,
+      "message": "CFX_UnownedPtr?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
