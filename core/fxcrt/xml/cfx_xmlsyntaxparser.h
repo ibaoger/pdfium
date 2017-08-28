@@ -15,6 +15,7 @@
 #include "core/fxcrt/cfx_seekablestreamproxy.h"
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/xml/cfx_xmlnode.h"
+#include "third_party/base/optional.h"
 
 enum class FX_XmlSyntaxResult {
   None,
@@ -108,7 +109,7 @@ class CFX_XMLSyntaxParser {
   int32_t m_iParsedBytes;
   FX_FILESIZE m_ParsedChars;
   std::vector<wchar_t> m_Buffer;
-  int32_t m_iBufferChars;
+  pdfium::Optional<FX_STRSIZE> m_iBufferChars;
   bool m_bEOS;
   FX_FILESIZE m_Start;  // Start position in m_Buffer
   FX_FILESIZE m_End;    // End position in m_Buffer

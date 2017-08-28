@@ -159,7 +159,7 @@ CFX_SeekableStreamProxy::CFX_SeekableStreamProxy(
     return;
   }
 
-  FX_FILESIZE iPosition = GetPosition();
+  FX_FILESIZE iPosition = m_iPosition.value();
   Seek(CFX_SeekableStreamProxy::Pos::Begin, 0);
 
   uint32_t bom = 0;
@@ -201,11 +201,11 @@ void CFX_SeekableStreamProxy::Seek(CFX_SeekableStreamProxy::Pos eSeek,
       m_iPosition = iOffset;
       break;
     case CFX_SeekableStreamProxy::Pos::Current:
-      m_iPosition += iOffset;
+      m_iPosition = m_iPosition.value() + iOffset;
       break;
   }
-  m_iPosition =
-      pdfium::clamp(m_iPosition, static_cast<FX_FILESIZE>(0), GetLength());
+  m_iPosition = pdfium::clamp(m_iPosition.value(), static_cast<FX_FILESIZE>(0),
+                              GetLength());
 }
 
 void CFX_SeekableStreamProxy::SetCodePage(uint16_t wCodePage) {
@@ -214,44 +214,50 @@ void CFX_SeekableStreamProxy::SetCodePage(uint16_t wCodePage) {
   m_wCodePage = wCodePage;
 }
 
-FX_STRSIZE CFX_SeekableStreamProxy::ReadData(uint8_t* pBuffer,
-                                             FX_STRSIZE iBufferSize) {
+pdfium::Optional<FX_STRSIZE> CFX_SeekableStreamProxy::ReadData(
+    uint8_t* pBuffer,
+    FX_STRSIZE iBufferSize) {
   ASSERT(pBuffer && iBufferSize > 0);
 
   if (m_IsWriteStream)
-    return -1;
+    return pdfium::Optional<FX_STRSIZE>();
 
   iBufferSize = std::min(
-      iBufferSize, static_cast<FX_STRSIZE>(m_pStream->GetSize() - m_iPosition));
+      iBufferSize,
+      static_cast<FX_STRSIZE>(m_pStream->GetSize() - m_iPosition.value()));
   if (iBufferSize <= 0)
-    return 0;
+    return pdfium::Optional<FX_STRSIZE>(0);
 
-  if (m_pStream->ReadBlock(pBuffer, m_iPosition, iBufferSize)) {
-    pdfium::base::CheckedNumeric<FX_FILESIZE> new_pos = m_iPosition;
+  if (m_pStream->ReadBlock(pBuffer, m_iPosition.value(), iBufferSize)) {
+    pdfium::base::CheckedNumeric<FX_FILESIZE> new_pos = m_iPosition.value();
     new_pos += iBufferSize;
     if (!new_pos.IsValid())
-      return 0;
+      return pdfium::Optional<FX_STRSIZE>(0);
 
-    m_iPosition = new_pos.ValueOrDie();
-    return iBufferSize;
+    m_iPosition = static_cast<FX_FILESIZE>(new_pos.ValueOrDie());
+    return pdfium::Optional<FX_STRSIZE>(iBufferSize);
   }
-  return 0;
+  return pdfium::Optional<FX_STRSIZE>(0);
 }
 
-FX_STRSIZE CFX_SeekableStreamProxy::ReadString(wchar_t* pStr,
-                                               FX_STRSIZE iMaxLength,
-                                               bool* bEOS) {
+pdfium::Optional<FX_STRSIZE> CFX_SeekableStreamProxy::ReadString(
+    wchar_t* pStr,
+    FX_STRSIZE iMaxLength,
+    bool* bEOS) {
   ASSERT(pStr);
   ASSERT(iMaxLength > 0);
 
   if (m_IsWriteStream)
-    return -1;
+    return pdfium::Optional<FX_STRSIZE>();
 
   if (m_wCodePage == FX_CODEPAGE_UTF16LE ||
       m_wCodePage == FX_CODEPAGE_UTF16BE) {
     FX_FILESIZE iBytes = iMaxLength * 2;
-    FX_STRSIZE iLen = ReadData(reinterpret_cast<uint8_t*>(pStr), iBytes);
-    iMaxLength = iLen / 2;
+    auto iLen = ReadData(reinterpret_cast<uint8_t*>(pStr), iBytes);
+    if (!iLen.has_value())
+      return pdfium::Optional<FX_STRSIZE>();
+
+    iMaxLength = iLen.value() / 2;
     if (sizeof(wchar_t) > 2 && iMaxLength > 0)
       UTF16ToWChar(pStr, iMaxLength);
 
@@ -264,46 +270,49 @@ FX_STRSIZE CFX_SeekableStreamProxy::ReadString(wchar_t* pStr,
 #endif
 
   } else {
-    FX_FILESIZE pos = GetPosition();
+    if (!m_iPosition.has_value())
+      return pdfium::Optional<FX_STRSIZE>();
+    FX_FILESIZE pos = m_iPosition.value();
     FX_STRSIZE iBytes =
         std::min(iMaxLength, static_cast<FX_STRSIZE>(GetLength() - pos));
 
     if (iBytes > 0) {
       std::vector<uint8_t> buf(iBytes);
 
-      FX_STRSIZE iLen = ReadData(buf.data(), iBytes);
-      if (m_wCodePage != FX_CODEPAGE_UTF8)
-        return -1;
+      auto iLen = ReadData(buf.data(), iBytes);
+      if (!iLen.has_value() || m_wCodePage != FX_CODEPAGE_UTF8)
+        return pdfium::Optional<FX_STRSIZE>();
 
       FX_STRSIZE iSrc = 0;
-      std::tie(iSrc, iMaxLength) = UTF8Decode(
-          reinterpret_cast<const char*>(buf.data()), iLen, pStr, iMaxLength);
-      Seek(CFX_SeekableStreamProxy::Pos::Current, iSrc - iLen);
+      std::tie(iSrc, iMaxLength) =
+          UTF8Decode(reinterpret_cast<const char*>(buf.data()), iLen.value(),
+                     pStr, iMaxLength);
+      Seek(CFX_SeekableStreamProxy::Pos::Current, iSrc - iLen.value());
     } else {
       iMaxLength = 0;
     }
   }
 
   *bEOS = IsEOF();
-  return iMaxLength;
+  return pdfium::Optional<FX_STRSIZE>(iMaxLength);
 }
 
 void CFX_SeekableStreamProxy::WriteString(const CFX_WideStringC& str) {
   if (!m_IsWriteStream || str.GetLength() == 0 ||
-      m_wCodePage != FX_CODEPAGE_UTF8) {
+      m_wCodePage != FX_CODEPAGE_UTF8 || !m_iPosition.has_value()) {
     return;
   }
-  if (!m_pStream->WriteBlock(str.unterminated_c_str(), m_iPosition,
+  if (!m_pStream->WriteBlock(str.unterminated_c_str(), m_iPosition.value(),
                              str.GetLength() * sizeof(wchar_t))) {
     return;
   }
 
-  pdfium::base::CheckedNumeric<FX_STRSIZE> new_pos = m_iPosition;
+  pdfium::base::CheckedNumeric<FX_FILESIZE> new_pos = m_iPosition.value();
   new_pos += str.GetLength() * sizeof(wchar_t);
   if (!new_pos.IsValid()) {
-    m_iPosition = std::numeric_limits<FX_STRSIZE>::max();
+    m_iPosition.reset();
     return;
   }
 
-  m_iPosition = new_pos.ValueOrDie();
+  m_iPosition = static_cast<FX_FILESIZE>(new_pos.ValueOrDie());
 }
