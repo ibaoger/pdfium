@@ -16,6 +16,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e30e23_44f29803",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T16:26:15Z",
+      "side": 0,
+      "message": "NO, in case which i have used in FPDFDataAvailEmbeddertest::LoadSecondPageIfLinearizedWithHints the pages tree will be unavailable, because the page tree is not loaded yet (m_bTotalLoadPageTree \u003d\u003d false).",
+      "parentUuid": "433fb44e_9beccf28",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
