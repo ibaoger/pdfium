@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eee78265_bcd875cd",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "size",
+      "range": {
+        "startLine": 115,
+        "startChar": 14,
+        "endLine": 115,
+        "endChar": 16
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a6b287b_c7830240",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "Why does the start have an offset and the end does not?",
+      "range": {
+        "startLine": 177,
+        "startChar": 41,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fdb030_3c1058dc",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "SetHasCharacterLimit or SetCharacterLimitEnabled. Or move this to SetCharacterLimit(), if arg \u003d\u003d true.",
+      "range": {
+        "startLine": 313,
+        "startChar": 16,
+        "endLine": 313,
+        "endChar": 33
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0584bc1e_2a27aed1",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "I don\u0027t get why this is just a translation rather than adding a margin. Does it look good on screen?",
+      "range": {
+        "startLine": 491,
+        "startChar": 27,
+        "endLine": 491,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "831ffcf2_d55adadc",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "m_EdtEngine.SetCombText(m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_CombText);\n\nor better:\n\nbool comb_text \u003d (m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_CombText);\nm_EdtEngine.SetCombText(comb_text);",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 580,
+        "endChar": 34
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446cdd69_884617ee",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "From what I understand it removes extra vertical spacing from the last line of the text. For font height 20, line spacing 3 and 2 lines, for example:\n\n(20 + 3 + 20 + 3) without FDE_TEXTEDITLAYOUT_LastLineHeight\n(20 + 3 + 20) with FDE_TEXTEDITLAYOUT_LastLineHeight",
+      "range": {
+        "startLine": 583,
+        "startChar": 41,
+        "endLine": 583,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adaaf607_ed6d32ab",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "Do you need to convert to bool here? Same below.",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 8
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aee86ff1_b9227b93",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "So this can be left AND justified? What does that mean?",
+      "range": {
+        "startLine": 609,
+        "startChar": 75,
+        "endLine": 609,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393843c7_4a07bd9f",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T20:57:49Z",
+      "side": 1,
+      "message": "Structurally, this makes more sense as:\n\n\nif (m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_MultiLine) {\n  bool vscroll \u003d ((m_pProperties-\u003em_dwStyles \u0026 FWL_WGTSTYLE_VScroll) \u003d\u003d 0 \u0026\u0026\n      (m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_AutoVScroll) \u003d\u003d 0);\n\n  m_EdtEngine.EnableMultiLine(true);\n  m_EdtEngine.EnableLineWrap(auto_hscroll \u003d\u003d 0);\n  m_EdtEngine.LimitVerticalScroll(vscroll);\n} else {\n  m_EdtEngine.EnableMultiLine(false);\n  m_EdtEngine.EnableLineWrap(false);\n  m_EdtEngine.LimitVerticalScroll(false);\n}\n\nm_EdtEngine.LimitHorizontalScroll(auto_hscroll \u003d\u003d 0);",
+      "range": {
+        "startLine": 638,
+        "startChar": 4,
+        "endLine": 638,
+        "endChar": 44
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
