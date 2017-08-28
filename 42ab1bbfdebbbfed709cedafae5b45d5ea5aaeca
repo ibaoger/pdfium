@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a78e81bd_658c9cf8",
+        "filename": "fpdfsdk/fpdf_dataavail_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d5c5256_0f5f9467",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a1748f_d501bff1",
         "filename": "testing/embedder_test.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "93f25579_a47d98b2",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a1748f_d501bff1",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df21526f_71cd3d29",
         "filename": "testing/embedder_test.cpp",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-08-28T16:01:55Z",
       "side": 1,
       "message": "Ditto, is this need to be saved or can we just use in this file?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf9728a_cba55be9",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "this should be saved, beacuse saved_file_access_ must outlive m_SavedAvail, because saved_file_access_ is used in it, else we will have crashes on reading in some cases.",
+      "parentUuid": "df21526f_71cd3d29",
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "56fe3cb0_eaa6ddbf",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "saved_file_access_ must outlive m_SavedAvail by the same reasons.",
+      "parentUuid": "11b1d3bb_2ccb9618",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbb33c99_a1f6565f",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -84,6 +156,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d36034d_0c91d7c5",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb33c99_a1f6565f",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "16d76165_0611c077",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "587abe20_f8809cde",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b08e9e3_a1633e2d",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -118,6 +226,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cd3525e_dfa1960b",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b08e9e3_a1633e2d",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "99713d41_450953f8",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44dcf7dd_0d09da3f",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1c193f8_8e41559b",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -152,6 +296,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c15e6b5_6ed7a59e",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c193f8_8e41559b",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "c7cc8856_59cc1eb2",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe254a7_5fb9ac06",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d48e0ca3_caf14cc3",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -186,6 +366,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bef1bb2_434316d2",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d48e0ca3_caf14cc3",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -206,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "da364566_fa2ef071",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba856155_4fd9cf77",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91499e85_2ec41bf6",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -217,6 +433,24 @@
       "writtenOn": "2017-08-28T16:01:55Z",
       "side": 1,
       "message": "From the use below, don\u0027t you want lower_bound?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8da283c_c848e4d5",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "The lower_bounds will not work.\n\nExample:\n[10, 15) [20,25)\n\nThe lower_bounds for [12,13) will be [20,25).\nThe lower_bounds for [10,13) will be [10,15).\n\nBut \nThe upper_bounds for [12,13) will be [20,25).\nThe upper_bounds for [10,13) will be [20,25).\nAnd we always can check (upper_bounds - 1), which always will be wanted value ( [10,15) ).",
+      "parentUuid": "91499e85_2ec41bf6",
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -240,6 +474,24 @@
     },
     {
       "key": {
+        "uuid": "2500b1ed_3ce9eace",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43855b4_ac02d9a2",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be961e75_eba37fe1",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -251,6 +503,24 @@
       "writtenOn": "2017-08-28T16:01:55Z",
       "side": 1,
       "message": "lower_bound?",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "649ceb17_e28db072",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "be961e75_eba37fe1",
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -274,6 +544,24 @@
     },
     {
       "key": {
+        "uuid": "8fcdf754_b30e1565",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Nobody forbids this to us.\nJust check this case to prevent problems in future.",
+      "parentUuid": "3493a8e0_39ee196f",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35efb5b5_833a7e74",
         "filename": "testing/network_simulator.cpp",
         "patchSetId": 2
@@ -288,6 +576,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c8dd05_4ff5389c",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35efb5b5_833a7e74",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -308,6 +614,24 @@
     },
     {
       "key": {
+        "uuid": "dc270a20_3c4d7cd5",
+        "filename": "testing/network_simulator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "561628b8_c83e1afb",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12644bf8_8a171c34",
         "filename": "testing/network_simulator.h",
         "patchSetId": 2
@@ -322,6 +646,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "963e9ee0_998620ea",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12644bf8_8a171c34",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -342,6 +684,24 @@
     },
     {
       "key": {
+        "uuid": "50235f7b_7b8518b7",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b388d8_13393b4b",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "100c82ca_0e722082",
         "filename": "testing/network_simulator.h",
         "patchSetId": 2
@@ -359,6 +719,24 @@
     },
     {
       "key": {
+        "uuid": "02698e10_36c97f16",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "100c82ca_0e722082",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fc053a4_8ac7ce63",
         "filename": "testing/network_simulator.h",
         "patchSetId": 2
@@ -373,6 +751,24 @@
       "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd672cf8_27a41988",
+        "filename": "testing/network_simulator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-28T18:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fc053a4_8ac7ce63",
+      "revId": "42ab1bbfdebbbfed709cedafae5b45d5ea5aaeca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
