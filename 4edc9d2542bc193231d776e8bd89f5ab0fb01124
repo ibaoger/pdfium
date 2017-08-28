@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f22ddab_dc795aa2",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T21:20:54Z",
+      "side": 1,
+      "message": "I don\u0027t think any of these actually get defined.",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 37
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "184d532d_09ac148f",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
         "patchSetId": 3
