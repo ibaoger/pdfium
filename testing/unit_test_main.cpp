@@ -40,6 +40,7 @@ class Environment : public testing::Environment {
     font_source_.reset();
 #endif
   }
+
   CFGAS_FontMgr* FontManager() const { return font_mgr_.get(); }
 
  private:
