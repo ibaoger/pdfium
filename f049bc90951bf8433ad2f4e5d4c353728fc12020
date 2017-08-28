@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac94aeea_44915901",
+        "filename": "testing/unit_test_main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-28T14:26:00Z",
+      "side": 1,
+      "message": "In this particular case, I think inverting the condition would be easier to read as the #ifs below would be consistent with this one.",
+      "range": {
+        "startLine": 29,
+        "startChar": 19,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "f049bc90951bf8433ad2f4e5d4c353728fc12020",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
