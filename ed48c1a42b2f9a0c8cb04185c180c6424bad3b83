@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d474a2_5bd3f7cd",
+        "filename": "fpdfsdk/fpdfview_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T14:12:08Z",
+      "side": 0,
+      "message": "I removed theses tests because the init/destroy of the library leaves everything in a very inconsistent state.",
+      "revId": "ed48c1a42b2f9a0c8cb04185c180c6424bad3b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
