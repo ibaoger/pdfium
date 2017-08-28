@@ -1,4 +1,4 @@
-// Copyright 2014 PDFium Authors. All rights reserved.
+// Copyright 2017 PDFium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -6,1229 +6,897 @@
 
 #include "xfa/fde/cfde_txtedtengine.h"
 
-#include <algorithm>
-#include <utility>
+#include <limits>
 
-#include "core/fxcrt/ifx_chariter.h"
-#include "third_party/base/ptr_util.h"
 #include "xfa/fde/cfde_textout.h"
-#include "xfa/fde/cfde_txtedtbuf.h"
-#include "xfa/fde/cfde_txtedtpage.h"
-#include "xfa/fde/cfde_txtedtparag.h"
-#include "xfa/fwl/cfwl_edit.h"
 
 namespace {
 
-const uint32_t kPageWidthMax = 0xffff;
+constexpr size_t kMaxEditOperations = 128;
+constexpr size_t kGapSize = 128;
+constexpr size_t kPageWidthMax = 0xffff;
 
-class InsertOperation : public IFDE_TxtEdtDoRecord {
+class InsertOperation : public CFDE_TxtEdtEngine::Operation {
  public:
-  InsertOperation(CFDE_TxtEdtEngine* pEngine,
-                  int32_t nCaret,
-                  const CFX_WideString& str)
-      : m_pEngine(pEngine), m_nCaret(nCaret), m_wsInsert(str) {
-    ASSERT(m_pEngine);
-  }
+  InsertOperation(CFDE_TxtEdtEngine* engine,
+                  size_t start_idx,
+                  const CFX_WideString& added_text)
+      : engine_(engine), start_idx_(start_idx), added_text_(added_text) {}
 
-  ~InsertOperation() override {}
-
-  void Undo() const override {
-    CFX_WideString prev = m_pEngine->GetText(0, -1);
-
-    if (m_pEngine->IsSelect())
-      m_pEngine->ClearSelection();
-
-    m_pEngine->Inner_DeleteRange(m_nCaret, m_wsInsert.GetLength());
-    m_pEngine->GetParams()->pEventSink->OnTextChanged(prev);
-    m_pEngine->SetCaretPos(m_nCaret, true);
-  }
+  ~InsertOperation() {}
 
   void Redo() const override {
-    CFX_WideString prev = m_pEngine->GetText(0, -1);
-    m_pEngine->Inner_Insert(m_nCaret, m_wsInsert);
-    m_pEngine->GetParams()->pEventSink->OnTextChanged(prev);
-    m_pEngine->SetCaretPos(m_nCaret, false);
+    engine_->Insert(start_idx_, added_text_,
+                    CFDE_TxtEdtEngine::OperationRecord::kSkip);
+  }
+
+  void Undo() const override {
+    engine_->Delete(start_idx_, added_text_.GetLength(),
+                    CFDE_TxtEdtEngine::OperationRecord::kSkip);
   }
 
  private:
-  CFDE_TxtEdtEngine* m_pEngine;
-  int32_t m_nCaret;
-  CFX_WideString m_wsInsert;
+  CFX_UnownedPtr<CFDE_TxtEdtEngine> engine_;
+  size_t start_idx_;
+  CFX_WideString added_text_;
 };
 
-class DeleteOperation : public IFDE_TxtEdtDoRecord {
+class DeleteOperation : public CFDE_TxtEdtEngine::Operation {
  public:
-  DeleteOperation(CFDE_TxtEdtEngine* pEngine,
-                  int32_t nIndex,
-                  int32_t nCaret,
-                  const CFX_WideString& wsRange,
-                  bool bSel)
-      : m_pEngine(pEngine),
-        m_bSel(bSel),
-        m_nIndex(nIndex),
-        m_nCaret(nCaret),
-        m_wsRange(wsRange) {
-    ASSERT(m_pEngine);
-  }
+  DeleteOperation(CFDE_TxtEdtEngine* engine,
+                  size_t start_idx,
+                  const CFX_WideString& removed_text)
+      : engine_(engine), start_idx_(start_idx), removed_text_(removed_text) {}
 
-  ~DeleteOperation() override {}
-
-  void Undo() const override {
-    CFX_WideString prev = m_pEngine->GetText(0, -1);
-    if (m_pEngine->IsSelect())
-      m_pEngine->ClearSelection();
-
-    m_pEngine->Inner_Insert(m_nIndex, m_wsRange);
-    if (m_bSel)
-      m_pEngine->AddSelRange(m_nIndex, m_wsRange.GetLength());
-
-    m_pEngine->GetParams()->pEventSink->OnTextChanged(prev);
-    m_pEngine->SetCaretPos(m_nCaret, true);
-  }
+  ~DeleteOperation() {}
 
   void Redo() const override {
-    CFX_WideString prev = m_pEngine->GetText(0, -1);
-    m_pEngine->Inner_DeleteRange(m_nIndex, m_wsRange.GetLength());
-    if (m_bSel)
-      m_pEngine->RemoveSelRange(m_nIndex, m_wsRange.GetLength());
+    engine_->Delete(start_idx_, removed_text_.GetLength(),
+                    CFDE_TxtEdtEngine::OperationRecord::kSkip);
+  }
 
-    m_pEngine->GetParams()->pEventSink->OnTextChanged(prev);
-    m_pEngine->SetCaretPos(m_nIndex, true);
+  void Undo() const override {
+    engine_->Insert(start_idx_, removed_text_,
+                    CFDE_TxtEdtEngine::OperationRecord::kSkip);
   }
 
  private:
-  CFDE_TxtEdtEngine* m_pEngine;
-  bool m_bSel;
-  int32_t m_nIndex;
-  int32_t m_nCaret;
-  CFX_WideString m_wsRange;
+  CFX_UnownedPtr<CFDE_TxtEdtEngine> engine_;
+  size_t start_idx_;
+  CFX_WideString removed_text_;
+};
+
+class ReplaceOperation : public CFDE_TxtEdtEngine::Operation {
+ public:
+  ReplaceOperation(CFDE_TxtEdtEngine* engine,
+                   size_t start_idx,
+                   const CFX_WideString& removed_text,
+                   const CFX_WideString& added_text)
+      : insert_op_(engine, start_idx, added_text),
+        delete_op_(engine, start_idx, removed_text) {}
+
+  ~ReplaceOperation() {}
+
+  void Redo() const override {
+    delete_op_.Redo();
+    insert_op_.Redo();
+  }
+
+  void Undo() const override {
+    insert_op_.Undo();
+    delete_op_.Undo();
+  }
+
+ private:
+  InsertOperation insert_op_;
+  DeleteOperation delete_op_;
 };
 
 }  // namespace
 
-FDE_TXTEDTPARAMS::FDE_TXTEDTPARAMS()
-    : fPlateWidth(0),
-      fPlateHeight(0),
-      nLineCount(0),
-      dwLayoutStyles(0),
-      dwAlignment(0),
-      dwMode(0),
-      fFontSize(10.0f),
-      dwFontColor(0xff000000),
-      fLineSpace(10.0f),
-      fTabWidth(36),
-      pEventSink(nullptr) {}
-
-FDE_TXTEDTPARAMS::~FDE_TXTEDTPARAMS() {}
-
 CFDE_TxtEdtEngine::CFDE_TxtEdtEngine()
-    : m_pTxtBuf(pdfium::MakeUnique<CFDE_TxtEdtBuf>()),
-      m_nPageLineCount(20),
-      m_nLineCount(0),
-      m_nAnchorPos(-1),
-      m_fCaretPosReserve(0.0),
-      m_nCaret(0),
-      m_nCaretPage(0),
-      m_nLimit(0),
-      m_wcAliasChar(L'*'),
-      m_FirstLineEnding(LineEnding::kAuto),
-      m_bBefore(true),
-      m_bLock(false),
-      m_bAutoLineEnd(true) {}
+    : font_color_(0xff000000),
+      font_size_(10.0f),
+      line_spacing_(10.0f),
+      text_length_(0),
+      gap_position_(0),
+      gap_size_(kGapSize),
+      available_width_(kPageWidthMax),
+      character_limit_(std::numeric_limits<size_t>::max()),
+      visible_line_count_(1),
+      next_operation_index_to_undo_(kMaxEditOperations - 1),
+      next_operation_index_to_insert_(0),
+      max_edit_operations_(kMaxEditOperations),
+      character_alignment_(CFX_TxtLineAlignment_Left),
+      has_character_limit_(false),
+      is_comb_text_(false),
+      is_dirty_(false),
+      validation_enabled_(false),
+      is_multiline_(false),
+      is_linewrap_enabled_(false),
+      limit_horizontal_area_(false),
+      limit_vertical_area_(false),
+      password_mode_(false),
+      password_alias_(L'*'),
+      has_selection_(false),
+      selection_({0, 0}) {
+  content_.resize(gap_size_);
+  operation_buffer_.resize(max_edit_operations_);
 
-CFDE_TxtEdtEngine::~CFDE_TxtEdtEngine() {
-  RemoveAllParags();
-  RemoveAllPages();
-  m_Param.pEventSink = nullptr;
+  text_break_.SetDefaultChar(0xFEFF);
+  text_break_.SetParagraphBreakChar(L'\n');
+  text_break_.SetFontSize(font_size_);
+  text_break_.SetLineBreakTolerance(2.0f);
+  text_break_.SetHorizontalScale(100);
+  text_break_.SetCharSpace(0);
+  text_break_.SetTabWidth(36);
+}
+
+CFDE_TxtEdtEngine::~CFDE_TxtEdtEngine() {}
+
+void CFDE_TxtEdtEngine::Clear() {
+  text_length_ = 0;
+  gap_position_ = 0;
+  gap_size_ = kGapSize;
+
+  content_.clear();
+  content_.resize(gap_size_);
+
   ClearSelection();
+  ClearOperationRecords();
 }
 
-void CFDE_TxtEdtEngine::SetEditParams(const FDE_TXTEDTPARAMS& params) {
-  m_Param = params;
-  m_bAutoLineEnd = true;
-  UpdateTxtBreak();
+void CFDE_TxtEdtEngine::SetMaxEditOperationsForTesting(size_t max) {
+  max_edit_operations_ = max;
+  operation_buffer_.resize(max);
+
+  ClearOperationRecords();
 }
 
-CFDE_TxtEdtPage* CFDE_TxtEdtEngine::GetPage(int32_t nIndex) {
-  if (!pdfium::IndexInBounds(m_PagePtrArray, nIndex))
-    return nullptr;
-  return m_PagePtrArray[nIndex].get();
-}
+void CFDE_TxtEdtEngine::AdjustGap(size_t idx, size_t length) {
+  size_t char_size = sizeof(CFX_WideString::CharType);
 
-void CFDE_TxtEdtEngine::SetText(const CFX_WideString& wsText) {
-  ResetEngine();
-  int32_t nLength = wsText.GetLength();
-  if (nLength > 0) {
-    CFX_WideString wsTemp;
-    wchar_t* lpBuffer = wsTemp.GetBuffer(nLength);
-    memcpy(lpBuffer, wsText.c_str(), nLength * sizeof(wchar_t));
-    ReplaceParagEnd(lpBuffer, nLength, false);
-    wsTemp.ReleaseBuffer(nLength);
-    if (m_nLimit > 0 && nLength > m_nLimit) {
-      wsTemp.Delete(m_nLimit, nLength - m_nLimit);
-      nLength = m_nLimit;
-    }
-    m_pTxtBuf->SetText(wsTemp);
-  }
-  m_pTxtBuf->Insert(nLength, L"\n");
-  RebuildParagraphs();
-}
-
-CFX_WideString CFDE_TxtEdtEngine::GetText(int32_t nStart,
-                                          int32_t nCount) const {
-  int32_t nTextBufLength = GetTextLength();
-  if (nCount == -1)
-    nCount = nTextBufLength - nStart;
-
-  CFX_WideString wsText = m_pTxtBuf->GetRange(nStart, nCount);
-  RecoverParagEnd(wsText);
-  return wsText;
-}
-
-void CFDE_TxtEdtEngine::ClearText() {
-  if (IsLocked())
-    return;
-
-  int32_t len = GetTextLength();
-  if (len == 0)
-    return;
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_Validate) {
-    // This doesn't really make sense, if the cleared text isn't valid we
-    // don't clear it? But what if you want to clear and start again? Should
-    // this validation check be removed?
-    CFX_WideString wsText = GetText(0, GetTextLength());
-    wsText.Delete(0, len);
-    if (!m_Param.pEventSink->OnValidate(wsText))
-      return;
+  // Move the gap, if necessary.
+  if (idx < gap_position_) {
+    memmove(content_.data() + idx + gap_size_, content_.data() + idx,
+            (gap_position_ - idx) * char_size);
+    gap_position_ = idx;
+  } else if (idx > gap_position_) {
+    memmove(content_.data() + gap_position_,
+            content_.data() + gap_position_ + gap_size_,
+            (idx - gap_position_) * char_size);
+    gap_position_ = idx;
   }
 
-  CFX_WideString prev = GetText(0, -1);
+  // If the gap is too small, make it bigger.
+  if (length >= gap_size_) {
+    size_t new_gap_size = length + kGapSize;
+    content_.resize(text_length_ + new_gap_size);
 
-  DeleteRange_DoRecord(0, len, false);
-  m_Param.pEventSink->OnTextChanged(prev);
-  SetCaretPos(0, true);
+    size_t end_text_start = gap_position_ + gap_size_;
+    memmove(content_.data() + gap_position_ + new_gap_size,
+            content_.data() + end_text_start,
+            (text_length_ - gap_position_) * char_size);
+
+    gap_size_ = new_gap_size;
+  }
 }
 
-int32_t CFDE_TxtEdtEngine::SetCaretPos(int32_t nIndex, bool bBefore) {
-  if (IsLocked())
+size_t CFDE_TxtEdtEngine::CountCharsExceedingSize(const CFX_WideString& text,
+                                                  size_t num_to_check) {
+  if (!limit_horizontal_area_ && !limit_vertical_area_)
     return 0;
 
-  ASSERT(nIndex >= 0 && nIndex <= GetTextLength());
-  if (!pdfium::IndexInBounds(m_PagePtrArray, m_nCaretPage))
-    return 0;
+  auto text_out = pdfium::MakeUnique<CFDE_TextOut>();
+  text_out->SetLineSpace(line_spacing_);
+  text_out->SetFont(font_);
+  text_out->SetFontSize(font_size_);
 
-  m_bBefore = bBefore;
-  m_nCaret = nIndex;
-  MovePage2Char(m_nCaret);
-  GetCaretRect(m_rtCaret, m_nCaretPage, m_nCaret, m_bBefore);
-  if (!m_bBefore) {
-    m_nCaret++;
-    m_bBefore = true;
-  }
-  m_fCaretPosReserve = m_rtCaret.left;
-  m_Param.pEventSink->OnCaretChanged();
-  m_nAnchorPos = -1;
-  return m_nCaret;
-}
+  FDE_TextStyle style;
+  style.single_line_ = !is_multiline_;
 
-int32_t CFDE_TxtEdtEngine::MoveCaretPos(FDE_CaretMove eMoveCaret, bool bShift) {
-  if (IsLocked() || !pdfium::IndexInBounds(m_PagePtrArray, m_nCaretPage))
-    return 0;
-
-  bool bSelChange = false;
-  if (IsSelect()) {
-    ClearSelection();
-    bSelChange = true;
-  }
-  if (bShift) {
-    if (m_nAnchorPos == -1)
-      m_nAnchorPos = m_nCaret;
+  CFX_RectF text_rect;
+  if (is_linewrap_enabled_) {
+    style.line_wrap_ = true;
+    text_rect.width = available_width_;
   } else {
-    m_nAnchorPos = -1;
+    text_rect.width = kPageWidthMax;
+  }
+  text_out->SetStyles(style);
+
+  size_t length = text.GetLength();
+  CFX_WideStringC temp(text.c_str(), length);
+
+  float vertical_height = line_spacing_ * visible_line_count_;
+  size_t chars_exceeding_size = 0;
+  for (size_t i = 0; i < num_to_check; i++) {
+    // This does a lot of string copying ....
+    // TODO(dsinclair): make CalcLogicSize take a WideStringC instead.
+    text_out->CalcLogicSize(CFX_WideString(temp), text_rect);
+
+    if (limit_horizontal_area_ && text_rect.width <= available_width_)
+      break;
+    if (limit_vertical_area_ && text_rect.height <= vertical_height)
+      break;
+
+    --length;
+    temp = temp.Mid(0, length);
+    ++chars_exceeding_size;
   }
 
-  switch (eMoveCaret) {
-    case FDE_CaretMove::Left: {
-      bool bBefore = true;
-      int32_t nIndex = MoveBackward(bBefore);
-      if (nIndex >= 0)
-        UpdateCaretRect(nIndex, bBefore);
-      break;
-    }
-    case FDE_CaretMove::Right: {
-      bool bBefore = true;
-      int32_t nIndex = MoveForward(bBefore);
-      if (nIndex >= 0)
-        UpdateCaretRect(nIndex, bBefore);
-      break;
-    }
-    case FDE_CaretMove::Up: {
-      CFX_PointF ptCaret;
-      if (MoveUp(ptCaret))
-        UpdateCaretIndex(ptCaret);
-      break;
-    }
-    case FDE_CaretMove::Down: {
-      CFX_PointF ptCaret;
-      if (MoveDown(ptCaret))
-        UpdateCaretIndex(ptCaret);
-      break;
-    }
-    case FDE_CaretMove::LineStart:
-      MoveLineStart();
-      break;
-    case FDE_CaretMove::LineEnd:
-      MoveLineEnd();
-      break;
-    case FDE_CaretMove::Home:
-      MoveHome();
-      break;
-    case FDE_CaretMove::End:
-      MoveEnd();
-      break;
-  }
-  if (bShift && m_nAnchorPos != -1 && (m_nAnchorPos != m_nCaret)) {
-    AddSelRange(std::min(m_nAnchorPos, m_nCaret), abs(m_nAnchorPos - m_nCaret));
-    m_Param.pEventSink->OnSelChanged();
-  }
-  if (bSelChange)
-    m_Param.pEventSink->OnSelChanged();
-
-  return m_nCaret;
+  return chars_exceeding_size;
 }
 
-FDE_EditResult CFDE_TxtEdtEngine::Insert(const CFX_WideString& str) {
-  if (IsLocked())
-    return FDE_EditResult::kLocked;
+void CFDE_TxtEdtEngine::Insert(size_t idx,
+                               const CFX_WideString& text,
+                               OperationRecord add_operation) {
+  if (idx > text_length_)
+    idx = text_length_;
 
-  int32_t nLength = str.GetLength();
-  CFX_WideString wsTemp;
-  wchar_t* lpBuffer = wsTemp.GetBuffer(nLength);
-  memcpy(lpBuffer, str.c_str(), nLength * sizeof(wchar_t));
-  ReplaceParagEnd(lpBuffer, nLength, false);
-  wsTemp.ReleaseBuffer(nLength);
+  size_t length = text.GetLength();
 
-  if (m_nLimit > 0) {
-    int32_t nTotalLength = GetTextLength();
-    for (const auto& lpSelRange : m_SelRangePtrArr)
-      nTotalLength -= lpSelRange->nCount;
-
-    int32_t nExpectLength = nTotalLength + nLength;
-    if (nTotalLength == m_nLimit)
-      return FDE_EditResult::kFull;
-
-    if (nExpectLength > m_nLimit)
-      nLength -= (nExpectLength - m_nLimit);
-  }
-  if ((m_Param.dwMode & FDE_TEXTEDITMODE_LimitArea_Vert) ||
-      (m_Param.dwMode & FDE_TEXTEDITMODE_LimitArea_Horz)) {
-    if (m_Param.dwMode & FDE_TEXTEDITMODE_Password) {
-      while (nLength > 0) {
-        CFX_WideString wsText = InsertIntoTextCopy(m_nCaret, lpBuffer, nLength);
-        int32_t nTotal = wsText.GetLength();
-        wchar_t* lpBuf = wsText.GetBuffer(nTotal);
-        for (int32_t i = 0; i < nTotal; i++) {
-          lpBuf[i] = m_wcAliasChar;
-        }
-        wsText.ReleaseBuffer(nTotal);
-        if (IsFitArea(wsText)) {
-          break;
-        }
-        nLength--;
-      }
-    } else {
-      while (nLength > 0) {
-        CFX_WideString wsText = InsertIntoTextCopy(m_nCaret, lpBuffer, nLength);
-        if (IsFitArea(wsText))
-          break;
-
-        nLength--;
-      }
-    }
-    if (nLength == 0)
-      return FDE_EditResult::kFull;
-  }
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_Validate) {
-    CFX_WideString wsText = InsertIntoTextCopy(m_nCaret, lpBuffer, nLength);
-    if (!m_Param.pEventSink->OnValidate(wsText))
-      return FDE_EditResult::kInvalidate;
-  }
-  if (IsSelect()) {
-    DeleteSelect();
-  }
-  m_Param.pEventSink->OnAddDoRecord(pdfium::MakeUnique<InsertOperation>(
-      this, m_nCaret, CFX_WideString(lpBuffer, nLength)));
-
-  CFX_WideString prev = GetText(0, -1);
-  Inner_Insert(m_nCaret, CFX_WideString(lpBuffer, nLength));
-
-  int32_t nStart = m_nCaret;
-  nStart += nLength;
-  wchar_t wChar = m_pTxtBuf->GetCharByIndex(nStart - 1);
-  bool bBefore = true;
-  if (wChar != L'\n' && wChar != L'\r') {
-    nStart--;
-    bBefore = false;
-  }
-  SetCaretPos(nStart, bBefore);
-  m_Param.pEventSink->OnTextChanged(prev);
-  return FDE_EditResult::kSuccess;
-}
-
-void CFDE_TxtEdtEngine::Delete(bool bBackspace) {
-  if (IsLocked())
-    return;
-  if (IsSelect()) {
-    DeleteSelect();
-    return;
+  // If we're going to be too big we insert what we can and notify the
+  // delegate we've filled the text after the insert is done.
+  bool exceeded_limit = false;
+  if (has_character_limit_ && text_length_ + length > character_limit_) {
+    exceeded_limit = true;
+    length = character_limit_ - text_length_;
   }
 
-  int32_t nCount = 1;
-  int32_t nStart = m_nCaret;
-  if (bBackspace) {
-    if (nStart == 0)
-      return;
+  AdjustGap(idx, length);
 
-    if (nStart > 2 && m_pTxtBuf->GetCharByIndex(nStart - 1) == L'\n' &&
-        m_pTxtBuf->GetCharByIndex(nStart - 2) == L'\r') {
-      nStart--;
-      nCount++;
-    }
-    nStart--;
-  } else {
-    if (nStart == GetTextLength())
-      return;
+  if (validation_enabled_ || limit_horizontal_area_ || limit_vertical_area_) {
+    CFX_WideString str;
+    str += CFX_WideStringC(content_.data(), gap_position_);
+    str += text;
+    str += CFX_WideStringC(content_.data() + gap_position_ + gap_size_,
+                           text_length_ - gap_position_);
 
-    if ((nStart + 1 < GetTextLength()) &&
-        (m_pTxtBuf->GetCharByIndex(nStart) == L'\r') &&
-        (m_pTxtBuf->GetCharByIndex(nStart + 1) == L'\n')) {
-      nCount++;
-    }
-  }
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_Validate) {
-    // This doesn't really make sense, if the text with the character removed
-    // isn't valid we disallow the removal? Is that even possible as the string
-    // must have been valid in order to type the character in before hand?
-    // Should this check be removed?
-    CFX_WideString wsText = GetText(0, GetTextLength());
-    wsText.Delete(nStart, nCount);
-    if (!m_Param.pEventSink->OnValidate(wsText))
-      return;
-  }
-
-  CFX_WideString wsRange = m_pTxtBuf->GetRange(nStart, nCount);
-  m_Param.pEventSink->OnAddDoRecord(pdfium::MakeUnique<DeleteOperation>(
-      this, nStart, m_nCaret, wsRange, false));
-
-  CFX_WideString prev = GetText(0, -1);
-  Inner_DeleteRange(nStart, nCount);
-  SetCaretPos(nStart + ((!bBackspace && nStart > 0) ? -1 : 0),
-              (bBackspace || nStart == 0));
-  m_Param.pEventSink->OnTextChanged(prev);
-}
-
-void CFDE_TxtEdtEngine::RemoveSelRange(int32_t nStart, int32_t nCount) {
-  int32_t nRangeCount = pdfium::CollectionSize<int32_t>(m_SelRangePtrArr);
-  for (int32_t i = 0; i < nRangeCount; i++) {
-    FDE_TXTEDTSELRANGE* lpTemp = m_SelRangePtrArr[i].get();
-    if (lpTemp->nStart == nStart && lpTemp->nCount == nCount) {
-      m_SelRangePtrArr.erase(m_SelRangePtrArr.begin() + i);
+    if (validation_enabled_ && delegate_ && !delegate_->OnValidate(str)) {
+      // TODO(dsinclair): Notify delegate of validation failure?
       return;
     }
-  }
-}
 
-void CFDE_TxtEdtEngine::AddSelRange(int32_t nStart, int32_t nCount) {
-  if (nCount == -1)
-    nCount = GetTextLength() - nStart;
+    // Check if we've limited the horizontal/vertical area, and if so determine
+    // how many of our characters would be outside the area.
+    size_t chars_exceeding = CountCharsExceedingSize(str, length);
+    if (chars_exceeding > 0) {
+      // If none of the characters will fit, notify and exit.
+      if (chars_exceeding == length) {
+        if (delegate_)
+          delegate_->NotifyTextFull();
+        return;
+      }
 
-  if (m_SelRangePtrArr.empty()) {
-    auto lpSelRange = pdfium::MakeUnique<FDE_TXTEDTSELRANGE>();
-    lpSelRange->nStart = nStart;
-    lpSelRange->nCount = nCount;
-    m_SelRangePtrArr.push_back(std::move(lpSelRange));
-    m_Param.pEventSink->OnSelChanged();
-    return;
-  }
-  auto* lpTemp = m_SelRangePtrArr.back().get();
-  if (nStart >= lpTemp->nStart + lpTemp->nCount) {
-    auto lpSelRange = pdfium::MakeUnique<FDE_TXTEDTSELRANGE>();
-    lpSelRange->nStart = nStart;
-    lpSelRange->nCount = nCount;
-    m_SelRangePtrArr.push_back(std::move(lpSelRange));
-    m_Param.pEventSink->OnSelChanged();
-    return;
-  }
-  int32_t nEnd = nStart + nCount - 1;
-  bool bBegin = false;
-  int32_t nRangeBgn = 0;
-  int32_t nRangeCnt = 0;
-  for (int32_t i = 0, nSize = pdfium::CollectionSize<int32_t>(m_SelRangePtrArr);
-       i < nSize; i++) {
-    lpTemp = m_SelRangePtrArr[i].get();
-    int32_t nTempBgn = lpTemp->nStart;
-    int32_t nTempEnd = nTempBgn + lpTemp->nCount - 1;
-    if (bBegin) {
-      if (nEnd < nTempBgn) {
-        break;
-      } else if (nStart >= nTempBgn && nStart <= nTempEnd) {
-        nRangeCnt++;
-        break;
-      }
-      nRangeCnt++;
-    } else {
-      if (nStart <= nTempEnd) {
-        nRangeBgn = i;
-        if (nEnd < nTempBgn) {
-          break;
-        }
-        nRangeCnt = 1;
-        bBegin = true;
-      }
+      // Some, but not all, chars will fit, insert them and then notify
+      // we're full.
+      exceeded_limit = true;
+      length -= chars_exceeding;
     }
   }
-  if (nRangeCnt == 0) {
-    auto lpSelRange = pdfium::MakeUnique<FDE_TXTEDTSELRANGE>();
-    lpSelRange->nStart = nStart;
-    lpSelRange->nCount = nCount;
-    m_SelRangePtrArr.insert(m_SelRangePtrArr.begin() + nRangeBgn,
-                            std::move(lpSelRange));
-  } else {
-    lpTemp = m_SelRangePtrArr[nRangeBgn].get();
-    lpTemp->nStart = nStart;
-    lpTemp->nCount = nCount;
-    nRangeCnt--;
-    nRangeBgn++;
-    m_SelRangePtrArr.erase(m_SelRangePtrArr.begin() + nRangeBgn,
-                           m_SelRangePtrArr.begin() + nRangeBgn + nRangeCnt);
+
+  if (add_operation == OperationRecord::kInsert) {
+    AddOperationRecord(
+        pdfium::MakeUnique<InsertOperation>(this, gap_position_, text));
   }
-  m_Param.pEventSink->OnSelChanged();
+
+  CFX_WideString previous_text = GetText();
+
+  // Copy the new text into the gap.
+  size_t char_size = sizeof(CFX_WideString::CharType);
+  memcpy(content_.data() + gap_position_, text.c_str(), length * char_size);
+  gap_position_ += length;
+  gap_size_ -= length;
+  text_length_ += length;
+
+  is_dirty_ = true;
+
+  // Inserting text resets the selection.
+  has_selection_ = false;
+  selection_.start_idx = 0;
+  selection_.end_idx = 0;
+
+  if (delegate_) {
+    if (exceeded_limit)
+      delegate_->NotifyTextFull();
+
+    delegate_->OnTextChanged(previous_text);
+  }
 }
 
-int32_t CFDE_TxtEdtEngine::GetSelRange(int32_t nIndex, int32_t* nStart) const {
-  if (nStart)
-    *nStart = m_SelRangePtrArr[nIndex]->nStart;
-  return m_SelRangePtrArr[nIndex]->nCount;
+void CFDE_TxtEdtEngine::AddOperationRecord(std::unique_ptr<Operation> op) {
+  size_t last_insert_position = next_operation_index_to_insert_ == 0
+                                    ? max_edit_operations_ - 1
+                                    : next_operation_index_to_insert_ - 1;
+
+  // If our undo record is not the last thing we inserted then we need to
+  // remove all the undo records between our insert position and the undo marker
+  // and make that our new insert position.
+  if (next_operation_index_to_undo_ != last_insert_position) {
+    if (next_operation_index_to_undo_ > last_insert_position) {
+      // Our Undo position is ahead of us, which means we need to clear out the
+      // head of the queue.
+      while (last_insert_position != 0) {
+        operation_buffer_[last_insert_position].reset();
+        --last_insert_position;
+      }
+      operation_buffer_[0].reset();
+
+      // Moving this will let us then clear out the end, setting the undo
+      // position to before the insert position.
+      last_insert_position = max_edit_operations_ - 1;
+    }
+
+    // Clear out the vector from undo position to our set insert position.
+    while (next_operation_index_to_undo_ != last_insert_position) {
+      operation_buffer_[last_insert_position].reset();
+      --last_insert_position;
+    }
+  }
+
+  // We're now pointing at the next thing we want to Undo, so insert at the
+  // next position in the queue.
+  ++last_insert_position;
+  if (last_insert_position == max_edit_operations_)
+    last_insert_position = 0;
+
+  operation_buffer_[last_insert_position] = std::move(op);
+  next_operation_index_to_insert_ =
+      (last_insert_position + 1) % max_edit_operations_;
+  next_operation_index_to_undo_ = last_insert_position;
 }
 
-void CFDE_TxtEdtEngine::ClearSelection() {
-  if (m_SelRangePtrArr.empty())
-    return;
-  m_SelRangePtrArr.clear();
-  if (m_Param.pEventSink)
-    m_Param.pEventSink->OnSelChanged();
+void CFDE_TxtEdtEngine::ClearOperationRecords() {
+  for (auto& record : operation_buffer_)
+    record.reset();
+
+  next_operation_index_to_undo_ = max_edit_operations_ - 1;
+  next_operation_index_to_insert_ = 0;
 }
 
-bool CFDE_TxtEdtEngine::Redo(const IFDE_TxtEdtDoRecord* pDoRecord) {
-  if (IsLocked())
+bool CFDE_TxtEdtEngine::CanUndo() const {
+  return operation_buffer_[next_operation_index_to_undo_] != nullptr &&
+         next_operation_index_to_undo_ != next_operation_index_to_insert_;
+}
+
+bool CFDE_TxtEdtEngine::CanRedo() const {
+  size_t idx = (next_operation_index_to_undo_ + 1) % max_edit_operations_;
+  return idx != next_operation_index_to_insert_ &&
+         operation_buffer_[idx] != nullptr;
+}
+
+bool CFDE_TxtEdtEngine::Redo() {
+  if (!CanRedo())
     return false;
-  pDoRecord->Redo();
+
+  next_operation_index_to_undo_ =
+      (next_operation_index_to_undo_ + 1) % max_edit_operations_;
+  operation_buffer_[next_operation_index_to_undo_]->Redo();
   return true;
 }
 
-bool CFDE_TxtEdtEngine::Undo(const IFDE_TxtEdtDoRecord* pDoRecord) {
-  if (IsLocked())
+bool CFDE_TxtEdtEngine::Undo() {
+  if (!CanUndo())
     return false;
-  pDoRecord->Undo();
+
+  operation_buffer_[next_operation_index_to_undo_]->Undo();
+  next_operation_index_to_undo_ = next_operation_index_to_undo_ == 0
+                                      ? max_edit_operations_ - 1
+                                      : next_operation_index_to_undo_ - 1;
   return true;
 }
 
 void CFDE_TxtEdtEngine::Layout() {
-  CFX_AutoRestorer<bool> lock(&m_bLock);
-  m_bLock = true;
-
-  RemoveAllPages();
-  UpdateLineCounts();
-  UpdatePages();
-
-  m_nCaret = std::min(m_nCaret, GetTextLength());
-  m_rtCaret = CFX_RectF(0, 0, 1, m_Param.fFontSize);
-}
-
-int32_t CFDE_TxtEdtEngine::Line2Parag(int32_t nStartParag,
-                                      int32_t nStartLineofParag,
-                                      int32_t nLineIndex,
-                                      int32_t& nStartLine) const {
-  int32_t nLineTotal = nStartLineofParag;
-  int32_t nCount = pdfium::CollectionSize<int32_t>(m_ParagPtrArray);
-  CFDE_TxtEdtParag* pParag = nullptr;
-  int32_t i = nStartParag;
-  for (; i < nCount; i++) {
-    pParag = m_ParagPtrArray[i].get();
-    nLineTotal += pParag->GetLineCount();
-    if (nLineTotal > nLineIndex) {
-      break;
-    }
-  }
-  nStartLine = nLineTotal - pParag->GetLineCount();
-  return i;
-}
-
-CFX_WideString CFDE_TxtEdtEngine::InsertIntoTextCopy(int32_t nIndex,
-                                                     const wchar_t* lpText,
-                                                     int32_t nLength) {
-  CFX_WideString wsText = GetText(0, GetTextLength());
-  int32_t nSelIndex = 0;
-  int32_t nSelLength = 0;
-  int32_t nSelCount = CountSelRanges();
-  while (nSelCount--) {
-    nSelLength = GetSelRange(nSelCount, &nSelIndex);
-    wsText.Delete(nSelIndex, nSelLength);
-    nIndex = nSelIndex;
-  }
-  CFX_WideString wsTemp;
-  int32_t nOldLength = wsText.GetLength();
-  const wchar_t* pOldBuffer = wsText.c_str();
-  wchar_t* lpBuffer = wsTemp.GetBuffer(nOldLength + nLength);
-  memcpy(lpBuffer, pOldBuffer, (nIndex) * sizeof(wchar_t));
-  memcpy(lpBuffer + nIndex, lpText, nLength * sizeof(wchar_t));
-  memcpy(lpBuffer + nIndex + nLength, pOldBuffer + nIndex,
-         (nOldLength - nIndex) * sizeof(wchar_t));
-  wsTemp.ReleaseBuffer(nOldLength + nLength);
-  wsText = wsTemp;
-  return wsText;
-}
-
-void CFDE_TxtEdtEngine::Inner_Insert(int32_t nStart,
-                                     const CFX_WideString& wsText) {
-  const int32_t nLength = wsText.GetLength();
-  ASSERT(nLength > 0);
-  FDE_TXTEDTPARAGPOS ParagPos;
-  TextPos2ParagPos(nStart, ParagPos);
-
-  GetPage(m_nCaretPage)->UnloadPage();
-
-  int32_t nParagCount = pdfium::CollectionSize<int32_t>(m_ParagPtrArray);
-  for (int32_t i = ParagPos.nParagIndex + 1; i < nParagCount; i++)
-    m_ParagPtrArray[i]->IncrementStartIndex(nLength);
-
-  CFDE_TxtEdtParag* pParag = m_ParagPtrArray[ParagPos.nParagIndex].get();
-  int32_t nReserveLineCount = pParag->GetLineCount();
-  int32_t nReserveCharStart = pParag->GetStartIndex();
-  int32_t nLeavePart = ParagPos.nCharIndex;
-  int32_t nCutPart = pParag->GetTextLength() - ParagPos.nCharIndex;
-  int32_t nTextStart = 0;
-  int32_t nCur = 0;
-  bool bFirst = true;
-  int32_t nParagIndex = ParagPos.nParagIndex;
-  for (const auto& wCurChar : wsText) {
-    ++nCur;
-    if (wCurChar == L'\n') {
-      if (bFirst) {
-        pParag->SetTextLength(nLeavePart + (nCur - nTextStart + 1));
-        pParag->SetLineCount(-1);
-        nReserveCharStart += pParag->GetTextLength();
-        bFirst = false;
-      } else {
-        auto pParag2 = pdfium::MakeUnique<CFDE_TxtEdtParag>(this);
-        pParag2->SetLineCount(-1);
-        pParag2->SetTextLength(nCur - nTextStart + 1);
-        pParag2->SetStartIndex(nReserveCharStart);
-        nReserveCharStart += pParag2->GetTextLength();
-        m_ParagPtrArray.insert(m_ParagPtrArray.begin() + ++nParagIndex,
-                               std::move(pParag2));
-      }
-      nTextStart = nCur + 1;
-    }
-  }
-  if (bFirst) {
-    pParag->IncrementTextLength(nLength);
-    pParag->SetLineCount(-1);
-    bFirst = false;
-  } else {
-    auto pParag2 = pdfium::MakeUnique<CFDE_TxtEdtParag>(this);
-    pParag2->SetLineCount(-1);
-    pParag2->SetTextLength(nLength - nTextStart + nCutPart);
-    pParag2->SetStartIndex(nReserveCharStart);
-    m_ParagPtrArray.insert(m_ParagPtrArray.begin() + ++nParagIndex,
-                           std::move(pParag2));
-  }
-  m_pTxtBuf->Insert(nStart, wsText);
-  int32_t nTotalLineCount = 0;
-  for (int32_t i = ParagPos.nParagIndex; i <= nParagIndex; i++) {
-    pParag = m_ParagPtrArray[i].get();
-    pParag->CalcLines();
-    nTotalLineCount += pParag->GetLineCount();
-  }
-  m_nLineCount += nTotalLineCount - nReserveLineCount;
-
-  GetPage(m_nCaretPage)->LoadPage();
-  UpdatePages();
-}
-
-void CFDE_TxtEdtEngine::Inner_DeleteRange(int32_t nStart, int32_t nCount) {
-  if (nCount == -1) {
-    nCount = m_pTxtBuf->GetTextLength() - nStart;
-  }
-  int32_t nEnd = nStart + nCount - 1;
-  ASSERT(nStart >= 0 && nEnd < m_pTxtBuf->GetTextLength());
-
-  GetPage(m_nCaretPage)->UnloadPage();
-
-  FDE_TXTEDTPARAGPOS ParagPosBgn, ParagPosEnd;
-  TextPos2ParagPos(nStart, ParagPosBgn);
-  TextPos2ParagPos(nEnd, ParagPosEnd);
-  CFDE_TxtEdtParag* pParag = m_ParagPtrArray[ParagPosEnd.nParagIndex].get();
-  bool bLastParag = false;
-  if (ParagPosEnd.nCharIndex == pParag->GetTextLength() - 1) {
-    if (ParagPosEnd.nParagIndex <
-        pdfium::CollectionSize<int32_t>(m_ParagPtrArray) - 1) {
-      ParagPosEnd.nParagIndex++;
-    } else {
-      bLastParag = true;
-    }
-  }
-  int32_t nTotalLineCount = 0;
-  int32_t nTotalCharCount = 0;
-  int32_t i = 0;
-  for (i = ParagPosBgn.nParagIndex; i <= ParagPosEnd.nParagIndex; i++) {
-    CFDE_TxtEdtParag* pTextParag = m_ParagPtrArray[i].get();
-    pTextParag->CalcLines();
-    nTotalLineCount += pTextParag->GetLineCount();
-    nTotalCharCount += pTextParag->GetTextLength();
-  }
-  m_pTxtBuf->Delete(nStart, nCount);
-  int32_t nNextParagIndex = (ParagPosBgn.nCharIndex == 0 && bLastParag)
-                                ? ParagPosBgn.nParagIndex
-                                : (ParagPosBgn.nParagIndex + 1);
-  m_ParagPtrArray.erase(m_ParagPtrArray.begin() + nNextParagIndex,
-                        m_ParagPtrArray.begin() + ParagPosEnd.nParagIndex + 1);
-
-  if (!(bLastParag && ParagPosBgn.nCharIndex == 0)) {
-    pParag = m_ParagPtrArray[ParagPosBgn.nParagIndex].get();
-    pParag->SetTextLength(nTotalCharCount - nCount);
-    pParag->CalcLines();
-    nTotalLineCount -= pParag->GetLineCount();
-  }
-  int32_t nParagCount = pdfium::CollectionSize<int32_t>(m_ParagPtrArray);
-  for (i = nNextParagIndex; i < nParagCount; i++)
-    m_ParagPtrArray[i]->DecrementStartIndex(nCount);
-
-  m_nLineCount -= nTotalLineCount;
-  UpdatePages();
-  int32_t nPageCount = CountPages();
-  if (m_nCaretPage >= nPageCount) {
-    m_nCaretPage = nPageCount - 1;
-  }
-
-  GetPage(m_nCaret)->LoadPage();
-}
-
-void CFDE_TxtEdtEngine::DeleteRange_DoRecord(int32_t nStart,
-                                             int32_t nCount,
-                                             bool bSel) {
-  ASSERT(nStart >= 0);
-  if (nCount == -1) {
-    nCount = GetTextLength() - nStart;
-  }
-  ASSERT((nStart + nCount) <= m_pTxtBuf->GetTextLength());
-
-  CFX_WideString wsRange = m_pTxtBuf->GetRange(nStart, nCount);
-  m_Param.pEventSink->OnAddDoRecord(pdfium::MakeUnique<DeleteOperation>(
-      this, nStart, m_nCaret, wsRange, bSel));
-
-  Inner_DeleteRange(nStart, nCount);
-}
-
-void CFDE_TxtEdtEngine::ResetEngine() {
-  RemoveAllPages();
-  RemoveAllParags();
-  ClearSelection();
-  m_nCaret = 0;
-  m_pTxtBuf->Clear();
-  m_nCaret = 0;
-}
-
-void CFDE_TxtEdtEngine::RebuildParagraphs() {
-  RemoveAllParags();
-  wchar_t wChar = L' ';
-  int32_t nParagStart = 0;
-  int32_t nIndex = 0;
-  auto pIter = pdfium::MakeUnique<CFDE_TxtEdtBuf::Iterator>(m_pTxtBuf.get(), 0);
-  pIter->SetAt(0);
-  do {
-    wChar = pIter->GetChar();
-    nIndex = pIter->GetAt();
-    if (wChar == L'\n') {
-      auto pParag = pdfium::MakeUnique<CFDE_TxtEdtParag>(this);
-      pParag->SetStartIndex(nParagStart);
-      pParag->SetTextLength(nIndex - nParagStart + 1);
-      pParag->SetLineCount(-1);
-      m_ParagPtrArray.push_back(std::move(pParag));
-      nParagStart = nIndex + 1;
-    }
-  } while (pIter->Next());
-}
-
-void CFDE_TxtEdtEngine::UpdateLineCounts() {
-  if (m_ParagPtrArray.empty())
+  if (!is_dirty_)
     return;
 
-  int32_t nLineCount = 0;
-  for (auto& pParag : m_ParagPtrArray) {
-    pParag->CalcLines();
-    nLineCount += pParag->GetLineCount();
-  }
-  m_nLineCount = nLineCount;
+  is_dirty_ = false;
+  RebuildPieces();
 }
 
-void CFDE_TxtEdtEngine::UpdatePages() {
-  if (m_nLineCount == 0)
+void CFDE_TxtEdtEngine::SetAvailableWidth(size_t width) {
+  if (width == available_width_)
     return;
 
-  int32_t nPageCount = (m_nLineCount - 1) / (m_nPageLineCount) + 1;
-  int32_t nSize = pdfium::CollectionSize<int32_t>(m_PagePtrArray);
-  if (nSize == nPageCount)
-    return;
+  available_width_ = width;
+  if (is_linewrap_enabled_)
+    text_break_.SetLineWidth(width);
+  if (is_comb_text_)
+    SetCombTextWidth();
 
-  if (nSize > nPageCount) {
-    m_PagePtrArray.erase(m_PagePtrArray.begin() + nPageCount,
-                         m_PagePtrArray.end());
-    return;
-  }
-  for (int32_t i = nSize; i < nPageCount; i++)
-    m_PagePtrArray.push_back(pdfium::MakeUnique<CFDE_TxtEdtPage>(this, i));
+  is_dirty_ = true;
 }
 
-void CFDE_TxtEdtEngine::UpdateTxtBreak() {
-  uint32_t dwStyle = m_TextBreak.GetLayoutStyles();
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_MultiLines)
+void CFDE_TxtEdtEngine::HasCharacterLimit(bool limit) {
+  if (has_character_limit_ == limit)
+    return;
+
+  has_character_limit_ = limit;
+  if (is_comb_text_)
+    SetCombTextWidth();
+
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetCharacterLimit(size_t limit) {
+  if (character_limit_ == limit)
+    return;
+
+  character_limit_ = limit;
+  if (is_comb_text_)
+    SetCombTextWidth();
+
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetFont(CFX_RetainPtr<CFGAS_GEFont> font) {
+  font_ = font;
+  text_break_.SetFont(font_);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetFontSize(float size) {
+  font_size_ = size;
+  text_break_.SetFontSize(font_size_);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetTabWidth(float width) {
+  text_break_.SetTabWidth(width);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetAlignment(uint32_t alignment) {
+  if (alignment == character_alignment_)
+    return;
+
+  character_alignment_ = alignment;
+  text_break_.SetAlignment(alignment);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetVisibleLineCount(size_t count) {
+  visible_line_count_ = count > 0 ? count : 1;
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::EnableMultiLine(bool val) {
+  if (is_multiline_ == val)
+    return;
+
+  is_multiline_ = true;
+
+  uint32_t dwStyle = text_break_.GetLayoutStyles();
+  if (is_multiline_)
     dwStyle &= ~FX_LAYOUTSTYLE_SingleLine;
   else
     dwStyle |= FX_LAYOUTSTYLE_SingleLine;
+  text_break_.SetLayoutStyles(dwStyle);
+  is_dirty_ = true;
+}
 
-  if (m_Param.dwLayoutStyles & FDE_TEXTEDITLAYOUT_CombText)
+void CFDE_TxtEdtEngine::EnableLineWrap(bool val) {
+  if (is_linewrap_enabled_ == val)
+    return;
+
+  is_linewrap_enabled_ = val;
+  text_break_.SetLineWidth(is_linewrap_enabled_ ? available_width_
+                                                : kPageWidthMax);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetCombText(bool enable) {
+  is_comb_text_ = enable;
+
+  uint32_t dwStyle = text_break_.GetLayoutStyles();
+  if (enable) {
     dwStyle |= FX_LAYOUTSTYLE_CombText;
-  else
-    dwStyle &= ~FX_LAYOUTSTYLE_CombText;
-
-  m_TextBreak.SetLayoutStyles(dwStyle);
-  uint32_t dwAligment = 0;
-  if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Justified)
-    dwAligment |= CFX_TxtLineAlignment_Justified;
-
-  if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Center)
-    dwAligment |= CFX_TxtLineAlignment_Center;
-  else if (m_Param.dwAlignment & FDE_TEXTEDITALIGN_Right)
-    dwAligment |= CFX_TxtLineAlignment_Right;
-
-  m_TextBreak.SetAlignment(dwAligment);
-
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_AutoLineWrap)
-    m_TextBreak.SetLineWidth(m_Param.fPlateWidth);
-  else
-    m_TextBreak.SetLineWidth(kPageWidthMax);
-
-  m_nPageLineCount = m_Param.nLineCount;
-  if (m_Param.dwLayoutStyles & FDE_TEXTEDITLAYOUT_CombText) {
-    float fCombWidth = m_Param.fPlateWidth;
-    if (m_nLimit > 0)
-      fCombWidth /= m_nLimit;
-
-    m_TextBreak.SetCombWidth(fCombWidth);
-  }
-  m_TextBreak.SetFont(m_Param.pFont);
-  m_TextBreak.SetFontSize(m_Param.fFontSize);
-  m_TextBreak.SetTabWidth(m_Param.fTabWidth);
-  m_TextBreak.SetDefaultChar(0xFEFF);
-  m_TextBreak.SetParagraphBreakChar(L'\n');
-  m_TextBreak.SetLineBreakTolerance(m_Param.fFontSize * 0.2f);
-  m_TextBreak.SetHorizontalScale(100);
-  m_TextBreak.SetCharSpace(0);
-}
-
-bool CFDE_TxtEdtEngine::ReplaceParagEnd(wchar_t*& lpText,
-                                        int32_t& nLength,
-                                        bool bPreIsCR) {
-  for (int32_t i = 0; i < nLength; i++) {
-    wchar_t wc = lpText[i];
-    switch (wc) {
-      case L'\r': {
-        lpText[i] = L'\n';
-        bPreIsCR = true;
-      } break;
-      case L'\n': {
-        if (bPreIsCR == true) {
-          int32_t nNext = i + 1;
-          if (nNext < nLength) {
-            memmove(lpText + i, lpText + nNext,
-                    (nLength - nNext) * sizeof(wchar_t));
-          }
-          i--;
-          nLength--;
-          bPreIsCR = false;
-          if (m_bAutoLineEnd) {
-            m_FirstLineEnding = LineEnding::kCRLF;
-            m_bAutoLineEnd = false;
-          }
-        } else {
-          lpText[i] = L'\n';
-          if (m_bAutoLineEnd) {
-            m_FirstLineEnding = LineEnding::kLF;
-            m_bAutoLineEnd = false;
-          }
-        }
-      } break;
-      default: {
-        if (bPreIsCR && m_bAutoLineEnd) {
-          m_FirstLineEnding = LineEnding::kCR;
-          m_bAutoLineEnd = false;
-        }
-        bPreIsCR = false;
-      } break;
-    }
-  }
-  return bPreIsCR;
-}
-
-void CFDE_TxtEdtEngine::RecoverParagEnd(CFX_WideString& wsText) const {
-  if (m_FirstLineEnding == LineEnding::kCR)
-    return;
-
-  if (m_FirstLineEnding == LineEnding::kCRLF) {
-    std::vector<int32_t> PosArr;
-    int32_t nLength = wsText.GetLength();
-    wchar_t* lpPos = const_cast<wchar_t*>(wsText.c_str());
-    for (int32_t i = 0; i < nLength; i++, lpPos++) {
-      if (*lpPos == L'\n') {
-        *lpPos = L'\r';
-        PosArr.push_back(i);
-      }
-    }
-    const wchar_t* lpSrcBuf = wsText.c_str();
-    CFX_WideString wsTemp;
-    int32_t nCount = pdfium::CollectionSize<int32_t>(PosArr);
-    wchar_t* lpDstBuf = wsTemp.GetBuffer(nLength + nCount);
-    int32_t nDstPos = 0;
-    int32_t nSrcPos = 0;
-    for (int32_t i = 0; i < nCount; i++) {
-      int32_t nPos = PosArr[i];
-      int32_t nCopyLen = nPos - nSrcPos + 1;
-      memcpy(lpDstBuf + nDstPos, lpSrcBuf + nSrcPos,
-             nCopyLen * sizeof(wchar_t));
-      nDstPos += nCopyLen;
-      nSrcPos += nCopyLen;
-      lpDstBuf[nDstPos] = L'\n';
-      nDstPos++;
-    }
-    if (nSrcPos < nLength) {
-      memcpy(lpDstBuf + nDstPos, lpSrcBuf + nSrcPos,
-             (nLength - nSrcPos) * sizeof(wchar_t));
-    }
-    wsTemp.ReleaseBuffer(nLength + nCount);
-    wsText = wsTemp;
-    return;
-  }
-
-  int32_t nLength = wsText.GetLength();
-  wchar_t* lpBuf = const_cast<wchar_t*>(wsText.c_str());
-  for (int32_t i = 0; i < nLength; i++, lpBuf++) {
-    if (*lpBuf == L'\n')
-      *lpBuf = L'\r';
-  }
-}
-
-int32_t CFDE_TxtEdtEngine::MovePage2Char(int32_t nIndex) {
-  ASSERT(nIndex >= 0);
-  ASSERT(nIndex <= m_pTxtBuf->GetTextLength());
-  if (m_nCaretPage >= 0) {
-    CFDE_TxtEdtPage* pPage = m_PagePtrArray[m_nCaretPage].get();
-    pPage->LoadPage();
-
-    int32_t nPageCharStart = pPage->GetCharStart();
-    int32_t nPageCharCount = pPage->GetCharCount();
-
-    pPage->UnloadPage();
-    if (nIndex >= nPageCharStart && nIndex < nPageCharStart + nPageCharCount)
-      return m_nCaretPage;
-  }
-
-  CFDE_TxtEdtParag* pParag = nullptr;
-  int32_t nLineCount = 0;
-  int32_t nParagCount = pdfium::CollectionSize<int32_t>(m_ParagPtrArray);
-  int32_t i = 0;
-  for (i = 0; i < nParagCount; i++) {
-    pParag = m_ParagPtrArray[i].get();
-    if (pParag->GetStartIndex() <= nIndex &&
-        nIndex < (pParag->GetStartIndex() + pParag->GetTextLength())) {
-      break;
-    }
-    nLineCount += pParag->GetLineCount();
-  }
-  pParag->LoadParag();
-  int32_t nLineStart = -1;
-  int32_t nLineCharCount = -1;
-  for (i = 0; i < pParag->GetLineCount(); i++) {
-    pParag->GetLineRange(i, nLineStart, nLineCharCount);
-    if (nLineStart <= nIndex && nIndex < (nLineStart + nLineCharCount))
-      break;
-  }
-  ASSERT(i < pParag->GetLineCount());
-  nLineCount += (i + 1);
-  m_nCaretPage = (nLineCount - 1) / m_nPageLineCount + 1 - 1;
-  pParag->UnloadParag();
-  return m_nCaretPage;
-}
-
-void CFDE_TxtEdtEngine::TextPos2ParagPos(int32_t nIndex,
-                                         FDE_TXTEDTPARAGPOS& ParagPos) const {
-  ASSERT(nIndex >= 0 && nIndex < m_pTxtBuf->GetTextLength());
-  int32_t nCount = pdfium::CollectionSize<int32_t>(m_ParagPtrArray);
-  int32_t nBgn = 0;
-  int32_t nMid = 0;
-  int32_t nEnd = nCount - 1;
-  while (nEnd > nBgn) {
-    nMid = (nBgn + nEnd) / 2;
-    CFDE_TxtEdtParag* pParag = m_ParagPtrArray[nMid].get();
-    if (nIndex < pParag->GetStartIndex())
-      nEnd = nMid - 1;
-    else if (nIndex >= (pParag->GetStartIndex() + pParag->GetTextLength()))
-      nBgn = nMid + 1;
-    else
-      break;
-  }
-  if (nBgn == nEnd)
-    nMid = nBgn;
-
-  ASSERT(nIndex >= m_ParagPtrArray[nMid]->GetStartIndex() &&
-         (nIndex < m_ParagPtrArray[nMid]->GetStartIndex() +
-                       m_ParagPtrArray[nMid]->GetTextLength()));
-  ParagPos.nParagIndex = nMid;
-  ParagPos.nCharIndex = nIndex - m_ParagPtrArray[nMid]->GetStartIndex();
-}
-
-int32_t CFDE_TxtEdtEngine::MoveForward(bool& bBefore) {
-  if (m_nCaret == m_pTxtBuf->GetTextLength() - 1)
-    return -1;
-
-  int32_t nCaret = m_nCaret;
-  if ((nCaret + 1 < m_pTxtBuf->GetTextLength()) &&
-      (m_pTxtBuf->GetCharByIndex(nCaret) == L'\r') &&
-      (m_pTxtBuf->GetCharByIndex(nCaret + 1) == L'\n')) {
-    nCaret++;
-  }
-  nCaret++;
-  bBefore = true;
-  return nCaret;
-}
-
-int32_t CFDE_TxtEdtEngine::MoveBackward(bool& bBefore) {
-  if (m_nCaret == 0)
-    return false;
-
-  int32_t nCaret = m_nCaret;
-  if (nCaret > 2 && m_pTxtBuf->GetCharByIndex(nCaret - 1) == L'\n' &&
-      m_pTxtBuf->GetCharByIndex(nCaret - 2) == L'\r') {
-    nCaret--;
-  }
-  nCaret--;
-  bBefore = true;
-  return nCaret;
-}
-
-bool CFDE_TxtEdtEngine::MoveUp(CFX_PointF& ptCaret) {
-  CFDE_TxtEdtPage* pPage = GetPage(m_nCaretPage);
-  const CFX_RectF& rtContent = pPage->GetContentsBox();
-  ptCaret.x = m_fCaretPosReserve;
-  ptCaret.y = m_rtCaret.top + m_rtCaret.height / 2 - m_Param.fLineSpace;
-  if (ptCaret.y < rtContent.top) {
-    if (m_nCaretPage == 0) {
-      return false;
-    }
-    ptCaret.y -= rtContent.top;
-    m_nCaretPage--;
-    CFDE_TxtEdtPage* pCurPage = GetPage(m_nCaretPage);
-    ptCaret.y += pCurPage->GetContentsBox().bottom();
-  }
-
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::MoveDown(CFX_PointF& ptCaret) {
-  CFDE_TxtEdtPage* pPage = GetPage(m_nCaretPage);
-  const CFX_RectF& rtContent = pPage->GetContentsBox();
-  ptCaret.x = m_fCaretPosReserve;
-  ptCaret.y = m_rtCaret.top + m_rtCaret.height / 2 + m_Param.fLineSpace;
-  if (ptCaret.y >= rtContent.bottom()) {
-    if (m_nCaretPage == CountPages() - 1) {
-      return false;
-    }
-    ptCaret.y -= rtContent.bottom();
-    m_nCaretPage++;
-    CFDE_TxtEdtPage* pCurPage = GetPage(m_nCaretPage);
-    ptCaret.y += pCurPage->GetContentsBox().top;
-  }
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::MoveLineStart() {
-  int32_t nIndex = m_bBefore ? m_nCaret : m_nCaret - 1;
-  FDE_TXTEDTPARAGPOS ParagPos;
-  TextPos2ParagPos(nIndex, ParagPos);
-  CFDE_TxtEdtParag* pParag = m_ParagPtrArray[ParagPos.nParagIndex].get();
-  pParag->LoadParag();
-  int32_t nLineCount = pParag->GetLineCount();
-  int32_t i = 0;
-  int32_t nStart = 0;
-  int32_t nCount = 0;
-  for (; i < nLineCount; i++) {
-    pParag->GetLineRange(i, nStart, nCount);
-    if (nIndex >= nStart && nIndex < nStart + nCount) {
-      break;
-    }
-  }
-  UpdateCaretRect(nStart, true);
-  pParag->UnloadParag();
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::MoveLineEnd() {
-  int32_t nIndex = m_bBefore ? m_nCaret : m_nCaret - 1;
-  FDE_TXTEDTPARAGPOS ParagPos;
-  TextPos2ParagPos(nIndex, ParagPos);
-  CFDE_TxtEdtParag* pParag = m_ParagPtrArray[ParagPos.nParagIndex].get();
-  pParag->LoadParag();
-  int32_t nLineCount = pParag->GetLineCount();
-  int32_t i = 0;
-  int32_t nStart = 0;
-  int32_t nCount = 0;
-  for (; i < nLineCount; i++) {
-    pParag->GetLineRange(i, nStart, nCount);
-    if (nIndex >= nStart && nIndex < nStart + nCount) {
-      break;
-    }
-  }
-  nIndex = nStart + nCount - 1;
-  ASSERT(nIndex <= GetTextLength());
-  wchar_t wChar = m_pTxtBuf->GetCharByIndex(nIndex);
-  bool bBefore = false;
-  if (nIndex <= GetTextLength()) {
-    if (wChar == L'\r') {
-      bBefore = true;
-    } else if (wChar == L'\n' && nIndex > nStart) {
-      bBefore = true;
-      nIndex--;
-      wChar = m_pTxtBuf->GetCharByIndex(nIndex);
-      if (wChar != L'\r') {
-        nIndex++;
-      }
-    }
-  }
-  UpdateCaretRect(nIndex, bBefore);
-  pParag->UnloadParag();
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::MoveHome() {
-  UpdateCaretRect(0, true);
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::MoveEnd() {
-  UpdateCaretRect(GetTextLength(), true);
-  return true;
-}
-
-bool CFDE_TxtEdtEngine::IsFitArea(CFX_WideString& wsText) {
-  auto pTextOut = pdfium::MakeUnique<CFDE_TextOut>();
-  pTextOut->SetLineSpace(m_Param.fLineSpace);
-  pTextOut->SetFont(m_Param.pFont);
-  pTextOut->SetFontSize(m_Param.fFontSize);
-
-  FDE_TextStyle dwStyle;
-  if (!(m_Param.dwMode & FDE_TEXTEDITMODE_MultiLines))
-    dwStyle.single_line_ = true;
-
-  CFX_RectF rcText;
-  if (m_Param.dwMode & FDE_TEXTEDITMODE_AutoLineWrap) {
-    dwStyle.line_wrap_ = true;
-    rcText.width = m_Param.fPlateWidth;
+    SetCombTextWidth();
   } else {
-    rcText.width = 65535;
+    dwStyle &= ~FX_LAYOUTSTYLE_CombText;
   }
-  pTextOut->SetStyles(dwStyle);
-  wsText += L"\n";
-  pTextOut->CalcLogicSize(wsText, rcText);
-  wsText.Delete(wsText.GetLength() - 1);
-  if ((m_Param.dwMode & FDE_TEXTEDITMODE_LimitArea_Horz) &&
-      (rcText.width > m_Param.fPlateWidth)) {
+  text_break_.SetLayoutStyles(dwStyle);
+  is_dirty_ = true;
+}
+
+void CFDE_TxtEdtEngine::SetCombTextWidth() {
+  size_t width = available_width_;
+  if (has_character_limit_)
+    width /= character_limit_;
+
+  text_break_.SetCombWidth(width);
+}
+
+void CFDE_TxtEdtEngine::SelectAll() {
+  has_selection_ = true;
+  selection_.start_idx = 0;
+  selection_.end_idx = text_length_ - 1;
+}
+
+void CFDE_TxtEdtEngine::ClearSelection() {
+  has_selection_ = false;
+  selection_.start_idx = 0;
+  selection_.end_idx = 0;
+}
+
+void CFDE_TxtEdtEngine::SetSelection(size_t start_idx, size_t end_idx) {
+  // If the points are the same, then we pretend the selection doesn't exist
+  // anymore.
+  if (start_idx == end_idx) {
+    ClearSelection();
+    return;
+  }
+
+  has_selection_ = true;
+  selection_.start_idx = start_idx;
+  selection_.end_idx = end_idx;
+}
+
+CFX_WideString CFDE_TxtEdtEngine::GetSelectedText() const {
+  if (!has_selection_)
+    return L"";
+
+  CFX_WideString text;
+  if (selection_.start_idx < gap_position_) {
+    if (selection_.end_idx < gap_position_) {
+      text += CFX_WideStringC(content_.data() + selection_.start_idx,
+                              selection_.end_idx - selection_.start_idx + 1);
+      return text;
+    }
+
+    text += CFX_WideStringC(content_.data() + selection_.start_idx,
+                            gap_position_ - selection_.start_idx);
+    text += CFX_WideStringC(
+        content_.data() + gap_position_ + gap_size_,
+        selection_.end_idx - (gap_position_ - selection_.start_idx) + 1);
+    return text;
+  }
+
+  text += CFX_WideStringC(content_.data() + gap_size_ + selection_.start_idx,
+                          selection_.end_idx - selection_.start_idx + 1);
+  return text;
+}
+
+CFX_WideString CFDE_TxtEdtEngine::DeleteSelectedText(
+    OperationRecord add_operation) {
+  return Delete(selection_.start_idx,
+                selection_.end_idx - selection_.start_idx + 1, add_operation);
+}
+
+CFX_WideString CFDE_TxtEdtEngine::Delete(size_t start_idx,
+                                         size_t length,
+                                         OperationRecord add_operation) {
+  if (start_idx >= text_length_)
+    return L"";
+  if (start_idx + length >= text_length_)
+    length = text_length_ - start_idx;
+
+  AdjustGap(start_idx + length, 0);
+
+  CFX_WideString ret;
+  ret += CFX_WideStringC(content_.data() + start_idx, length);
+
+  if (add_operation == OperationRecord::kInsert) {
+    AddOperationRecord(
+        pdfium::MakeUnique<DeleteOperation>(this, start_idx, ret));
+  }
+
+  CFX_WideString previous_text = GetText();
+
+  gap_position_ = start_idx;
+  gap_size_ += length;
+
+  text_length_ -= length;
+  has_selection_ = false;
+  selection_.start_idx = 0;
+  selection_.end_idx = 0;
+
+  if (delegate_)
+    delegate_->OnTextChanged(previous_text);
+
+  return ret;
+}
+
+void CFDE_TxtEdtEngine::ReplaceSelectedText(const CFX_WideString& rep) {
+  size_t start_idx = selection_.start_idx;
+
+  CFX_WideString txt = DeleteSelectedText(OperationRecord::kSkip);
+  Insert(gap_position_, rep, OperationRecord::kSkip);
+
+  AddOperationRecord(
+      pdfium::MakeUnique<ReplaceOperation>(this, start_idx, txt, rep));
+}
+
+CFX_WideString CFDE_TxtEdtEngine::GetText() const {
+  CFX_WideString str;
+  str += CFX_WideStringC(content_.data(), gap_position_);
+  str += CFX_WideStringC(content_.data() + gap_position_ + gap_size_,
+                         text_length_ - gap_position_);
+  return str;
+}
+
+size_t CFDE_TxtEdtEngine::GetLength() const {
+  return text_length_;
+}
+
+wchar_t CFDE_TxtEdtEngine::GetChar(size_t idx) const {
+  if (idx >= text_length_)
+    return L'\0';
+  if (password_mode_)
+    return password_alias_;
+
+  return idx < gap_position_
+             ? content_[idx]
+             : content_[gap_position_ + gap_size_ + (idx - gap_position_)];
+}
+
+size_t CFDE_TxtEdtEngine::GetWidthOfChar(size_t idx) {
+  // Recalculate the widths if necessary.
+  Layout();
+  return idx < char_widths_.size() ? char_widths_[idx] : 0;
+}
+
+size_t CFDE_TxtEdtEngine::GetIndexForPoint(const CFX_PointF& point) {
+  // Recalculate the widths if necessary.
+  Layout();
+
+  auto start_it = text_piece_info_.begin();
+  for (; start_it < text_piece_info_.end(); ++start_it) {
+    if (start_it->rtPiece.top <= point.y &&
+        point.y < start_it->rtPiece.bottom())
+      break;
+  }
+  // We didn't find the point before getting to the end of the text, return
+  // end of text.
+  if (start_it == text_piece_info_.end())
+    return text_length_;
+
+  auto end_it = start_it;
+  for (; end_it < text_piece_info_.end(); ++end_it) {
+    // We've moved past where the point should be and didn't find anything.
+    // Return the start of the current piece as the location.
+    if (end_it->rtPiece.bottom() <= point.y || point.y < end_it->rtPiece.top)
+      break;
+  }
+  // Make sure the end iterator is pointing to our text pieces.
+  if (end_it == text_piece_info_.end())
+    --end_it;
+
+  size_t start_it_idx = start_it->nStart;
+  for (; start_it <= end_it; ++start_it) {
+    if (!start_it->rtPiece.Contains(point))
+      continue;
+
+    std::vector<CFX_RectF> rects = GetCharRects(*start_it);
+    for (size_t i = 0; i < rects.size(); ++i) {
+      if (!rects[i].Contains(point))
+        continue;
+      size_t pos = start_it->nStart + i;
+      if (pos >= text_length_)
+        return text_length_;
+
+      wchar_t wch = GetChar(pos);
+      if (wch == L'\n' || wch == L'\r') {
+        if (wch == L'\n' && pos > 0 && GetChar(pos - 1) == L'\r')
+          --pos;
+        return pos;
+      }
+
+      // TODO(dsinclair): Old code had a before flag set based on bidi?
+      return pos;
+    }
+  }
+
+  if (start_it == text_piece_info_.end())
+    return start_it_idx;
+  if (start_it == end_it)
+    return start_it->nStart;
+
+  // We didn't find the point before going over all of the pieces, we want to
+  // return the start of the piece after the point.
+  return end_it->nStart;
+}
+
+std::vector<CFX_RectF> CFDE_TxtEdtEngine::GetCharRects(
+    const FDE_TEXTEDITPIECE& piece) {
+  if (piece.nCount < 1)
+    return {};
+
+  FX_TXTRUN tr;
+  tr.pEdtEngine = this;
+  tr.pIdentity = &piece;
+  tr.iLength = piece.nCount;
+  tr.pFont = font_;
+  tr.fFontSize = font_size_;
+  tr.dwStyles = text_break_.GetLayoutStyles();
+  tr.dwCharStyles = piece.dwCharStyles;
+  tr.pRect = &piece.rtPiece;
+  return text_break_.GetCharRects(&tr, false);
+}
+
+std::vector<FXTEXT_CHARPOS> CFDE_TxtEdtEngine::GetDisplayPos(
+    const FDE_TEXTEDITPIECE& piece) {
+  if (piece.nCount < 1)
+    return std::vector<FXTEXT_CHARPOS>();
+
+  FX_TXTRUN tr;
+  tr.pEdtEngine = this;
+  tr.pIdentity = &piece;
+  tr.iLength = piece.nCount;
+  tr.pFont = font_;
+  tr.fFontSize = font_size_;
+  tr.dwStyles = text_break_.GetLayoutStyles();
+  tr.dwCharStyles = piece.dwCharStyles;
+  tr.pRect = &piece.rtPiece;
+
+  std::vector<FXTEXT_CHARPOS> data(text_break_.GetDisplayPos(&tr, nullptr));
+  text_break_.GetDisplayPos(&tr, data.data());
+  return data;
+}
+
+void CFDE_TxtEdtEngine::RebuildPieces() {
+  text_break_.EndBreak(CFX_BreakType::Paragraph);
+  text_break_.ClearBreakPieces();
+
+  char_widths_.clear();
+  text_piece_info_.clear();
+
+  if (text_length_ == 0)
+    return;
+
+  bool initialized_bounding_box = false;
+  contents_bounding_box_ = CFX_RectF();
+
+  auto iter = pdfium::MakeUnique<CFDE_TxtEdtEngine::Iterator>(this);
+  while (!iter->IsEOF(true)) {
+    iter->Next(false);
+
+    CFX_BreakType break_status = text_break_.AppendChar(
+        password_mode_ ? password_alias_ : iter->GetChar());
+    if (iter->IsEOF(true) && CFX_BreakTypeNoneOrPiece(break_status))
+      break_status = text_break_.EndBreak(CFX_BreakType::Paragraph);
+
+    if (CFX_BreakTypeNoneOrPiece(break_status))
+      continue;
+
+    size_t current_piece_start = 0;
+    float current_line_start = 0;
+    int32_t piece_count = text_break_.CountBreakPieces();
+    for (int32_t i = 0; i < piece_count; ++i) {
+      const CFX_BreakPiece* piece = text_break_.GetBreakPieceUnstable(i);
+
+      FDE_TEXTEDITPIECE txtEdtPiece;
+      memset(&txtEdtPiece, 0, sizeof(FDE_TEXTEDITPIECE));
+
+      txtEdtPiece.nBidiLevel = piece->m_iBidiLevel;
+      txtEdtPiece.nCount = piece->GetLength();
+      txtEdtPiece.nStart = current_piece_start;
+      txtEdtPiece.dwCharStyles = piece->m_dwCharStyles;
+      if (FX_IsOdd(piece->m_iBidiLevel))
+        txtEdtPiece.dwCharStyles |= FX_TXTCHARSTYLE_OddBidiLevel;
+
+      txtEdtPiece.rtPiece.left = piece->m_iStartPos / 20000.0f;
+      txtEdtPiece.rtPiece.top = current_line_start;
+      txtEdtPiece.rtPiece.width = piece->m_iWidth / 20000.0f;
+      txtEdtPiece.rtPiece.height = line_spacing_;
+      text_piece_info_.push_back(txtEdtPiece);
+
+      if (initialized_bounding_box)
+        contents_bounding_box_.Union(txtEdtPiece.rtPiece);
+      else
+        contents_bounding_box_ = txtEdtPiece.rtPiece;
+
+      current_piece_start += txtEdtPiece.nCount;
+      for (int32_t k = 0; k < txtEdtPiece.nCount; ++k)
+        char_widths_.push_back(piece->GetChar(k)->m_iCharWidth);
+    }
+
+    current_line_start += line_spacing_;
+    text_break_.ClearBreakPieces();
+  }
+
+  float delta = 0.0;
+  bool bounds_smaller = contents_bounding_box_.width < available_width_;
+  if (IsAlignedRight() && bounds_smaller) {
+    delta = available_width_ - contents_bounding_box_.width;
+  } else if (IsAlignedCenter() && bounds_smaller) {
+    // TODO(dsinclair): Old code used CombText here and set the space to
+    // something unrelated to the available width .... Figure out if this is
+    // needed and what it should do.
+    // if (is_comb_text_) {
+    // } else {
+    delta = (available_width_ - contents_bounding_box_.width) / 2.0f;
+    // }
+  }
+
+  if (delta != 0.0) {
+    float offset = contents_bounding_box_.left - delta;
+    for (auto& info : text_piece_info_)
+      info.rtPiece.Offset(-offset, 0.0f);
+    contents_bounding_box_.Offset(-offset, 0.0f);
+  }
+
+  // TODO(dsinclair): Add an extra line if LastLineHeight is requested.
+  // Determine if we need to do this ....
+  // if (m_pEditEngine->GetEditParams()->dwLayoutStyles &
+  //     FDE_TEXTEDITLAYOUT_LastLineHeight) {
+  //   m_rtPageContents.height -= pParams->fLineSpace - pParams->fFontSize;
+  //   m_Pieces.back().rtPiece.height = pParams->fFontSize;
+  // }
+}
+
+std::vector<CFX_RectF> CFDE_TxtEdtEngine::GetCharacterRectsInRange(
+    int32_t start_idx,
+    int32_t count) {
+  // Make sure the current available data is fresh.
+  Layout();
+
+  auto it = text_piece_info_.begin();
+  for (; it != text_piece_info_.end(); ++it) {
+    if (it->nStart <= start_idx && start_idx < it->nStart + it->nCount)
+      break;
+  }
+  if (it == text_piece_info_.end())
+    return {};
+
+  int32_t end_idx = start_idx + count - 1;
+  std::vector<CFX_RectF> rects;
+  while (it != text_piece_info_.end()) {
+    // If we end inside the current piece, extract what we need and we're done.
+    if (it->nStart <= end_idx && end_idx < it->nStart + it->nCount) {
+      std::vector<CFX_RectF> arr = GetCharRects(*it);
+      CFX_RectF piece = arr[0];
+      piece.Union(arr[end_idx - it->nStart]);
+      rects.push_back(piece);
+      break;
+    }
+    rects.push_back(it->rtPiece);
+    ++it;
+  }
+
+  return rects;
+}
+
+CFDE_TxtEdtEngine::Iterator::Iterator(CFDE_TxtEdtEngine* engine)
+    : engine_(engine), current_position_(-1) {}
+
+CFDE_TxtEdtEngine::Iterator::~Iterator() {}
+
+bool CFDE_TxtEdtEngine::Iterator::Next(bool bPrev) {
+  if (bPrev && current_position_ == -1)
     return false;
-  }
-  if ((m_Param.dwMode & FDE_TEXTEDITMODE_LimitArea_Vert) &&
-      (rcText.height > m_Param.fLineSpace * m_Param.nLineCount)) {
+  if (!bPrev && current_position_ > -1 &&
+      static_cast<size_t>(current_position_) == engine_->GetLength())
     return false;
-  }
+
+  if (bPrev)
+    --current_position_;
+  else
+    ++current_position_;
+
   return true;
 }
 
-void CFDE_TxtEdtEngine::UpdateCaretRect(int32_t nIndex, bool bBefore) {
-  MovePage2Char(nIndex);
-  GetCaretRect(m_rtCaret, m_nCaretPage, nIndex, bBefore);
-  m_nCaret = nIndex;
-  m_bBefore = bBefore;
-  if (!m_bBefore) {
-    m_nCaret++;
-    m_bBefore = true;
-  }
-  m_fCaretPosReserve = m_rtCaret.left;
-  m_Param.pEventSink->OnCaretChanged();
+wchar_t CFDE_TxtEdtEngine::Iterator::GetChar() const {
+  return engine_->GetChar(current_position_);
 }
 
-void CFDE_TxtEdtEngine::GetCaretRect(CFX_RectF& rtCaret,
-                                     int32_t nPageIndex,
-                                     int32_t nCaret,
-                                     bool bBefore) {
-  CFDE_TxtEdtPage* pPage = m_PagePtrArray[m_nCaretPage].get();
-  pPage->LoadPage();
-
-  bool bCombText = !!(m_Param.dwLayoutStyles & FDE_TEXTEDITLAYOUT_CombText);
-  int32_t nIndexInpage = nCaret - pPage->GetCharStart();
-  if (bBefore && bCombText && nIndexInpage > 0) {
-    nIndexInpage--;
-    bBefore = false;
-  }
-  int32_t nBIDILevel = pPage->GetCharRect(nIndexInpage, rtCaret, bCombText);
-  if ((!FX_IsOdd(nBIDILevel) && !bBefore) ||
-      (FX_IsOdd(nBIDILevel) && bBefore)) {
-    rtCaret.Offset(rtCaret.width - 1.0f, 0);
-  }
-  if (rtCaret.width == 0 && rtCaret.left > 1.0f)
-    rtCaret.left -= 1.0f;
-
-  rtCaret.width = 1.0f;
-
-  GetPage(m_nCaretPage)->UnloadPage();
+void CFDE_TxtEdtEngine::Iterator::SetAt(int32_t nIndex) {
+  NOTREACHED();
 }
 
-void CFDE_TxtEdtEngine::UpdateCaretIndex(const CFX_PointF& ptCaret) {
-  CFDE_TxtEdtPage* pPage = m_PagePtrArray[m_nCaretPage].get();
-  pPage->LoadPage();
-
-  m_nCaret = pPage->GetCharIndex(ptCaret, m_bBefore);
-  GetCaretRect(m_rtCaret, m_nCaretPage, m_nCaret, m_bBefore);
-  if (!m_bBefore) {
-    m_nCaret++;
-    m_bBefore = true;
-  }
-  m_Param.pEventSink->OnCaretChanged();
-  GetPage(m_nCaretPage)->UnloadPage();
+int32_t CFDE_TxtEdtEngine::Iterator::GetAt() const {
+  return current_position_;
 }
 
-void CFDE_TxtEdtEngine::DeleteSelect() {
-  int32_t nCountRange = CountSelRanges();
-  if (nCountRange <= 0)
-    return;
+bool CFDE_TxtEdtEngine::Iterator::IsEOF(bool bTail) const {
+  return bTail ? current_position_ > -1 &&
+                     static_cast<size_t>(current_position_) ==
+                         engine_->GetLength()
+               : current_position_ == -1;
+}
 
-  CFX_WideString prev = GetText(0, -1);
-
-  int32_t nSelStart = 0;
-  while (nCountRange > 0) {
-    int32_t nSelCount = GetSelRange(--nCountRange, &nSelStart);
-    m_SelRangePtrArr.erase(m_SelRangePtrArr.begin() + nCountRange);
-    DeleteRange_DoRecord(nSelStart, nSelCount, true);
-  }
-  ClearSelection();
-  m_Param.pEventSink->OnTextChanged(prev);
-  m_Param.pEventSink->OnSelChanged();
-  SetCaretPos(nSelStart, true);
+std::unique_ptr<IFX_CharIter> CFDE_TxtEdtEngine::Iterator::Clone() const {
+  NOTREACHED();
+  return pdfium::MakeUnique<CFDE_TxtEdtEngine::Iterator>(engine_.Get());
 }
