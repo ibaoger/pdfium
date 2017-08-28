@@ -34,6 +34,24 @@
       "revId": "ed48c1a42b2f9a0c8cb04185c180c6424bad3b83",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2069923b_0fd13149",
+        "filename": "fpdfsdk/fpdfview_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T14:39:24Z",
+      "side": 0,
+      "message": "I don\u0027t know. I know the font loader code goes bad as the system font loader is removed. I don\u0027t know what else is busted so I think it\u0027s probably bad to have these in general. I\u0027ll file a bug about getting them added as embedder tests where I think they\u0027d make more sense if we can get them to work.\n\nhttps://bugs.chromium.org/p/pdfium/issues/detail?id\u003d878",
+      "parentUuid": "c00ebd5e_ee7660ab",
+      "revId": "ed48c1a42b2f9a0c8cb04185c180c6424bad3b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
