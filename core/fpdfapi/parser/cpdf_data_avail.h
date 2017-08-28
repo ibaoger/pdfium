@@ -9,10 +9,12 @@
 
 #include <memory>
 #include <set>
+#include <utility>
 #include <vector>
 
 #include "core/fpdfapi/parser/cpdf_parser.h"
 #include "core/fpdfapi/parser/cpdf_syntax_parser.h"
+#include "core/fxcrt/cfx_maybe_owned.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_basic.h"
 
@@ -112,6 +114,9 @@ class CPDF_DataAvail final {
   CPDF_Dictionary* GetPage(int index);
   CFX_RetainPtr<CPDF_ReadValidator> GetValidator() const;
 
+  std::pair<CPDF_Parser::Error, std::unique_ptr<CPDF_Document>> ParseDocument(
+      const char* password);
+
  protected:
   class PageNode {
    public:
@@ -179,6 +184,7 @@ class CPDF_DataAvail final {
   void ResetFirstCheck(uint32_t dwPage);
   bool ValidatePage(uint32_t dwPage);
   bool ValidateForm();
+  CPDF_Parser::Error ParseDocumentInternal(const char* password);
 
   FileAvail* const m_pFileAvail;
   CFX_RetainPtr<CPDF_ReadValidator> m_pFileRead;
@@ -197,7 +203,7 @@ class CPDF_DataAvail final {
   FX_FILESIZE m_dwCurrentOffset;
   PDF_DATAAVAIL_STATUS m_docStatus;
   FX_FILESIZE m_dwFileLen;
-  CPDF_Document* m_pDocument;
+  CFX_MaybeOwned<CPDF_Document> m_pDocument;
   std::set<uint32_t> m_ObjectSet;
   std::vector<CPDF_Object*> m_objs_array;
   FX_FILESIZE m_Pos;
