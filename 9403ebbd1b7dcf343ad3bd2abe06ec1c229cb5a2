@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1503728638 -0700\nnonce AHIDc+NsY4Qjgwwf3IUOx0ViKZSlKj38M9i+VNGPs01PRSklrde9oqtII3+UqStIz21sgO4TqyBu\n\n0000000000000000000000000000000000000000 9403ebbd1b7dcf343ad3bd2abe06ec1c229cb5a2 refs/for/refs/heads/master%notify\u003dNONE,m\u003dreorg_classes\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZoRP+AAoJEKs2LWFaZv17imUH/3MyClmJpjYTndWLpZLoB2tX\nGMJ6oAroZWxrtCYbPgt89WQjK5BN3NDwvUh1C6V8MFW2eQju6dhjU+2ytaB8P5o1\ns/cbI/6EfQo9uhr7Raz2hVDC5oBKG6NQDtbZx0sbrKLswees1BqehupX9eCZOsfT\nfoKk+hHVcecBEbDT5v/cQbJpEtOyJBYgONThTTq5CJY/MAIErsSLJ+UuZPpaHGCt\nF40Y2kOFAIO1SDWXO4RP4SS07mnNTMyey0slnfmZkp4aFfINZLhEg/WrXy/Tdcxu\ndhv10pOrxHaiRe7H9yGjldbNNiRmM5CfY6gyYbfdSTPECzEUctcLKIZdkK/Eko0\u003d\n\u003dniNz\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "18a613c0_2bc3d56e",
+        "filename": "fpdfsdk/fpdfformfill_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T20:37:04Z",
+      "side": 1,
+      "message": "What does this buy us?",
+      "revId": "9403ebbd1b7dcf343ad3bd2abe06ec1c229cb5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
