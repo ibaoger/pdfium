@@ -137,6 +137,30 @@
       "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51d2b7b8_4a041158",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-28T21:08:08Z",
+      "side": 1,
+      "message": "or just |From| as From::Begin is kinda a cool enum.",
+      "parentUuid": "2caa7348_a967f60d",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 16
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
