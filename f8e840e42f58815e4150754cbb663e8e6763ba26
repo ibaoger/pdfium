@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "433fb44e_9beccf28",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-28T16:17:19Z",
+      "side": 0,
+      "message": "So, the page tree is required to call GetPage? Can we add a check that the page tree is available intead of just removing this?",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
