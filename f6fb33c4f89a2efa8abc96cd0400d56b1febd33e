@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "94546fe4_f9187321",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "it\u0027s ::CharType because we want to work in the size of a CFX_WideString item. Updated the content_ declaration.",
+      "parentUuid": "86c8a82e_cdac5b1a",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f45663e2_4c53d774",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -39,6 +57,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d447f689_8b54fd50",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f45663e2_4c53d774",
+      "range": {
+        "startLine": 176,
+        "startChar": 54,
+        "endLine": 176,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "5eade6f9_b63eb78d",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31498722_11aa1a80",
+      "range": {
+        "startLine": 214,
+        "startChar": 70,
+        "endLine": 214,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0484c5d_5696a121",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -76,6 +142,30 @@
       "writtenOn": "2017-08-29T17:33:17Z",
       "side": 1,
       "message": "Can be moved to the beginning of the loop body, makes more sense there.",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 31
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1532f900_f5724db8",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "We can skip doing the work if either if() above is true.",
+      "parentUuid": "f0484c5d_5696a121",
       "range": {
         "startLine": 223,
         "startChar": 4,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "7a78d72f_41a0ed4a",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "Nack, don\u0027t thing that buys much.",
+      "parentUuid": "0078cef7_15342ebd",
+      "range": {
+        "startLine": 231,
+        "startChar": 53,
+        "endLine": 231,
+        "endChar": 57
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8747db30_786a714d",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -122,6 +236,30 @@
       "writtenOn": "2017-08-29T17:33:17Z",
       "side": 1,
       "message": "length_to_insert as to not confuse with text_length_",
+      "range": {
+        "startLine": 236,
+        "startChar": 9,
+        "endLine": 236,
+        "endChar": 15
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a44a35c_776b8082",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "8747db30_786a714d",
       "range": {
         "startLine": 236,
         "startChar": 9,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "cf346718_72a0f6f9",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "The old code worked this way where it would return a validation failure message. The cfwl_edit code would just ignore the message unless it was kFull. As far as I can tell OnValidate is just validate, it isn\u0027t necessarily handle validation failure.",
+      "parentUuid": "03a20698_7d717fed",
+      "range": {
+        "startLine": 256,
+        "startChar": 64,
+        "endLine": 256,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67cac6e6_9466b29d",
         "filename": "xfa/fde/cfde_texteditengine.h",
         "patchSetId": 12
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "2baac8fd_6d603b5a",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "Renamed to RecordOperation. I think kInsert and kSkip still make sense.",
+      "parentUuid": "67cac6e6_9466b29d",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bbc37b1_5c1a6967",
         "filename": "xfa/fde/cfde_texteditengine.h",
         "patchSetId": 12
@@ -191,6 +377,30 @@
       "writtenOn": "2017-08-29T17:33:17Z",
       "side": 1,
       "message": "We should refactor this out as a CircularBuffer\u003cT\u003e eventually.",
+      "range": {
+        "startLine": 219,
+        "startChar": 60,
+        "endLine": 219,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10e26966_1ac71154",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T18:02:58Z",
+      "side": 1,
+      "message": "If we find we have two or three of them we can extract it, until then, nice to keep in one spot.",
+      "parentUuid": "3bbc37b1_5c1a6967",
       "range": {
         "startLine": 219,
         "startChar": 60,
