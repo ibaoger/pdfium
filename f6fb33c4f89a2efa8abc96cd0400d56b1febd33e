@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "19a2dcf8_5dfa12d6",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "Let\u0027s just clear it if this is not common then. Easiest fix.",
+      "parentUuid": "201d8ba0_595b118b",
+      "range": {
+        "startLine": 30,
+        "startChar": 63,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c8a82e_cdac5b1a",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -240,6 +264,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "161db765_d299a653",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1532f900_f5724db8",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 31
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -538,6 +586,24 @@
     },
     {
       "key": {
+        "uuid": "4c44f3e0_91572a41",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "I\u0027ll try using modulo and a logical index different that\u0027s not constrained to the buffer size. Forget the TODO, I\u0027ll give it a shot after this is in and see if it\u0027s better.",
+      "parentUuid": "ed36ec5e_c6f144db",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "787c29d4_1e945e68",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -629,6 +695,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6737cdeb_9e2d271c",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "Ah right, now that I got to the end it makes sense. Thought pieces were an obsolete concept.",
+      "parentUuid": "ee817d94_c19a0bfd",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 15
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -758,6 +848,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daef61fc_3513bba4",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aac379f9_33dfd2f7",
+      "range": {
+        "startLine": 494,
+        "startChar": 24,
+        "endLine": 494,
+        "endChar": 35
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -1079,6 +1193,30 @@
     },
     {
       "key": {
+        "uuid": "bd596791_ac942d10",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "So, I\u0027d expect a callback that warns of a change to a value and carries a parameter with the same type as that value to pass the _new_ value rather than the old. The way it is, it looks like it is this common pattern of notifying a change, but it\u0027s not.\n\nI propose just changing the name since it\u0027s the simplest fix. On a framework this would be better off passing two values, prev and new.\n\nIt\u0027s just a nit, feel free to ignore.",
+      "parentUuid": "63cdc2e5_30bb11f4",
+      "range": {
+        "startLine": 69,
+        "startChar": 31,
+        "endLine": 69,
+        "endChar": 61
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67cac6e6_9466b29d",
         "filename": "xfa/fde/cfde_texteditengine.h",
         "patchSetId": 12
@@ -1114,6 +1252,30 @@
       "side": 1,
       "message": "Renamed to RecordOperation. I think kInsert and kSkip still make sense.",
       "parentUuid": "67cac6e6_9466b29d",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0047623_2a27d48c",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:10:24Z",
+      "side": 1,
+      "message": "I don\u0027t like kInsert since it looks related to the Insert method. Can we change only kInsert to kRecord or anything else then?",
+      "parentUuid": "2baac8fd_6d603b5a",
       "range": {
         "startLine": 75,
         "startChar": 30,
