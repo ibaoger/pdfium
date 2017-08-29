@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a0679ae_a98585db",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Weird things may happen in we redo an operation after something like the char limit has changed. All the validation in Insert will make it a different operation than it was before and a subsequent Undo or Redo will not restore the previous state.\n\nWe need to either:\n- Clear the operation buffer when parameters change.\n- Change Insert and Delete to ignore validation when undoing/redoing so it\u0027s predictable.\n- Write these operations in a robust way.",
+      "range": {
+        "startLine": 30,
+        "startChar": 63,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c8a82e_cdac5b1a",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -319,6 +342,236 @@
     },
     {
       "key": {
+        "uuid": "8c98b797_05f007ad",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf346718_72a0f6f9",
+      "range": {
+        "startLine": 256,
+        "startChar": 64,
+        "endLine": 256,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a3461a0_1688aef1",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "ClearSelection();",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 25
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b3d7750_18cfce85",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Add \"// TODO(hnakashima): Simplify the circular buffer.\"",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "787c29d4_1e945e68",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Something is off here as we talked offline.",
+      "range": {
+        "startLine": 323,
+        "startChar": 35,
+        "endLine": 323,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8db5e9fe_25d8aaa1",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Inline or rename DoLayout().",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 15
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51fee9f1_9f6de784",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Any reason why there are no checks for \"no change needed\" here like SetCharacterLimit and SetAvailableWidth?\n\nSame for SetTabWidth and perhaps SetFont and SetCombText.",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73264b15_87602ca4",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "std:max(count, 1)",
+      "range": {
+        "startLine": 465,
+        "startChar": 24,
+        "endLine": 465,
+        "endChar": 45
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5980cef5_4f090cbe",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "What is Comb?",
+      "range": {
+        "startLine": 494,
+        "startChar": 24,
+        "endLine": 494,
+        "endChar": 35
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "875132ea_94c0199d",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "This will break if the text is empty. Add a test case.",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52e94da7_54107cb6",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Check for has_selection_ or this deletes the first character when nothing is selected.",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57b4c216_dfbe2c4f",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "This is usually assumed to be the new text, not the previous text. How about we rename to OnTextChangedFrom()?",
+      "range": {
+        "startLine": 69,
+        "startChar": 31,
+        "endLine": 69,
+        "endChar": 61
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67cac6e6_9466b29d",
         "filename": "xfa/fde/cfde_texteditengine.h",
         "patchSetId": 12
@@ -407,6 +660,47 @@
         "endLine": 219,
         "endChar": 0
       },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8413aa6c_fcf332eb",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "10e26966_1ac71154",
+      "range": {
+        "startLine": 219,
+        "startChar": 60,
+        "endLine": 219,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5f7edad_5a7602cc",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T19:27:09Z",
+      "side": 1,
+      "message": "Add a case that I think is broken:\n  engine()-\u003eInsert(0, L\"Hello World\");\n  engine()-\u003eClearSelection();\n  engine()-\u003eDeleteSelectedText();\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetSelectedText().c_str());",
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
