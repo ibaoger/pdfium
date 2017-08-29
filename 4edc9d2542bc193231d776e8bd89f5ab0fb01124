@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d0bb7da_79e360f8",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f22ddab_dc795aa2",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 37
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "184d532d_09ac148f",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5b115fe6_ea88d39d",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "184d532d_09ac148f",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 32
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb38df83_cc92e1ff",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-28T21:03:20Z",
       "side": 1,
       "message": "do we really need to do this, or do we just restore the old value?",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 68
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fbd12f8_7e55beac",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "I think it is safe to remove iPosition, since it is just storing the initial value, which should be 0, since the only time m_iPosition is changed there is an immediate return.\n\nThus it should always be 0. m_wBOMLength will always be in the set {3, 2, 0}, so the only time iPosition would be potentially used if they are equal.",
+      "parentUuid": "fb38df83_cc92e1ff",
       "range": {
         "startLine": 186,
         "startChar": 2,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0e60f3a1_a5ec289d",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b67822a0_3340f6e0",
+      "range": {
+        "startLine": 204,
+        "startChar": 19,
+        "endLine": 204,
+        "endChar": 39
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f1bcca4_802992eb",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
         "patchSetId": 3
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "10a3a13c_9a053903",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f1bcca4_802992eb",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 313,
+        "endChar": 24
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca23a401_07544136",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ba7a3df_2b677693",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca23a401_07544136",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 11
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "a855ba51_561aa8b0",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51d2b7b8_4a041158",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 16
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29bdf778_4eebf95d",
         "filename": "core/fxcrt/cfx_seekablestreamproxy.h",
         "patchSetId": 3
@@ -207,6 +375,30 @@
       "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ebd0ea3_98e80664",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-29T20:14:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29bdf778_4eebf95d",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "4edc9d2542bc193231d776e8bd89f5ab0fb01124",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
