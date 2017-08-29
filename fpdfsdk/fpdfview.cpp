@@ -564,12 +564,12 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasXFAField(FPDF_DOCUMENT document,
   if (!document)
     return false;
 
-  CPDF_Document* pdfDoc =
+  const CPDF_Document* pDoc =
       (static_cast<CPDFXFA_Context*>(document))->GetPDFDoc();
-  if (!pdfDoc)
+  if (!pDoc)
     return false;
 
-  CPDF_Dictionary* pRoot = pdfDoc->GetRoot();
+  const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   if (!pRoot)
     return false;
 
@@ -640,7 +640,7 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_GetFileVersion(FPDF_DOCUMENT doc,
   if (!pDoc)
     return false;
 
-  CPDF_Parser* pParser = pDoc->GetParser();
+  const CPDF_Parser* pParser = pDoc->GetParser();
   if (!pParser)
     return false;
 
@@ -1349,7 +1349,7 @@ FPDF_CountNamedDests(FPDF_DOCUMENT document) {
   if (!pDoc)
     return 0;
 
-  CPDF_Dictionary* pRoot = pDoc->GetRoot();
+  const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   if (!pRoot)
     return 0;
 
@@ -1445,7 +1445,7 @@ FPDF_EXPORT FPDF_DEST FPDF_CALLCONV FPDF_GetNamedDest(FPDF_DOCUMENT document,
   if (!pDoc)
     return nullptr;
 
-  CPDF_Dictionary* pRoot = pDoc->GetRoot();
+  const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   if (!pRoot)
     return nullptr;
 
