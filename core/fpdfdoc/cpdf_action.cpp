@@ -93,7 +93,7 @@ CFX_ByteString CPDF_Action::GetURI(CPDF_Document* pDoc) const {
     return csURI;
 
   csURI = m_pDict->GetStringFor("URI");
-  CPDF_Dictionary* pRoot = pDoc->GetRoot();
+  const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   CPDF_Dictionary* pURI = pRoot->GetDictFor("URI");
   if (pURI) {
     auto result = csURI.Find(":");

@@ -12,7 +12,7 @@
 #include "core/fxcrt/xml/cxml_element.h"
 
 CPDF_Metadata::CPDF_Metadata(CPDF_Document* pDoc) {
-  CPDF_Dictionary* pRoot = pDoc->GetRoot();
+  const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   if (!pRoot)
     return;
 

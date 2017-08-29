@@ -49,8 +49,10 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   ~CPDF_Document() override;
 
   CPDF_Parser* GetParser() const { return m_pParser.get(); }
-  CPDF_Dictionary* GetRoot() const { return m_pRootDict; }
-  CPDF_Dictionary* GetInfo() const { return m_pInfoDict.Get(); }
+  const CPDF_Dictionary* GetRoot() const { return m_pRootDict; }
+  CPDF_Dictionary* GetRoot() { return m_pRootDict; }
+  const CPDF_Dictionary* GetInfo() const { return m_pInfoDict.Get(); }
+  CPDF_Dictionary* GetInfo() { return m_pInfoDict.Get(); }
 
   void DeletePage(int iPage);
   int GetPageCount() const;
