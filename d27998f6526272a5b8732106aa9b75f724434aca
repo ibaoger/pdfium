@@ -94,6 +94,30 @@
       "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b83bdfb_f6a58235",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:54:54Z",
+      "side": 0,
+      "message": "k, thanks for the explanation. I\u0027d like thestig@ to take a look as he\u0027s worked on this a lot more recently then I have.",
+      "parentUuid": "a4ed1d99_b62b97ab",
+      "range": {
+        "startLine": 554,
+        "startChar": 33,
+        "endLine": 554,
+        "endChar": 50
+      },
+      "revId": "d27998f6526272a5b8732106aa9b75f724434aca",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
