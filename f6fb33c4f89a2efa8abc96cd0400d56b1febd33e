@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "201d8ba0_595b118b",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Clearing the operation buffer is fine. I don\u0027t see this ever happening in practice. The values are setup once and not really changed I don\u0027t think.\n\nWe can\u0027t ignore validation as we can then end up with potentially invalid content which would be bad.\n\nI\u0027m not sure how you\u0027d make this robust to the length of the buffer changing? The inserts/deletes should be robust, just where things happen will, possibly, be different.",
+      "parentUuid": "5a0679ae_a98585db",
+      "range": {
+        "startLine": 30,
+        "startChar": 63,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c8a82e_cdac5b1a",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -389,6 +413,30 @@
     },
     {
       "key": {
+        "uuid": "27f51093_e8f931d9",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a3461a0_1688aef1",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 25
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b3d7750_18cfce85",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -400,6 +448,24 @@
       "writtenOn": "2017-08-29T19:27:09Z",
       "side": 1,
       "message": "Add \"// TODO(hnakashima): Simplify the circular buffer.\"",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed36ec5e_c6f144db",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "I\u0027m still not clear on how you\u0027re going to simplify it? The todo is pretty vague.",
+      "parentUuid": "6b3d7750_18cfce85",
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -429,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "24aa5b20_f456d125",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Reading over the code, this is correct. The condition of 316 tells us we\u0027re clearing the front of the buffer, so remove everything down including the 0 element. We then clear out the end of the buffer below on 331.",
+      "parentUuid": "787c29d4_1e945e68",
+      "range": {
+        "startLine": 323,
+        "startChar": 35,
+        "endLine": 323,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8db5e9fe_25d8aaa1",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -440,6 +530,30 @@
       "writtenOn": "2017-08-29T19:27:09Z",
       "side": 1,
       "message": "Inline or rename DoLayout().",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 15
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee817d94_c19a0bfd",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "It\u0027s rebuilding the text piece list, so I think RebuildPieces is the correct name.",
+      "parentUuid": "8db5e9fe_25d8aaa1",
       "range": {
         "startLine": 394,
         "startChar": 2,
@@ -469,6 +583,24 @@
     },
     {
       "key": {
+        "uuid": "7332d420_3596970a",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Because they were added before dirty flag and I forgot the check.",
+      "parentUuid": "51fee9f1_9f6de784",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73264b15_87602ca4",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -492,6 +624,30 @@
     },
     {
       "key": {
+        "uuid": "a4beb8cd_69192381",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73264b15_87602ca4",
+      "range": {
+        "startLine": 465,
+        "startChar": 24,
+        "endLine": 465,
+        "endChar": 45
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5980cef5_4f090cbe",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -503,6 +659,30 @@
       "writtenOn": "2017-08-29T19:27:09Z",
       "side": 1,
       "message": "What is Comb?",
+      "range": {
+        "startLine": 494,
+        "startChar": 24,
+        "endLine": 494,
+        "endChar": 35
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aac379f9_33dfd2f7",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "No idea, haven\u0027t figured out what it\u0027s for yet.",
+      "parentUuid": "5980cef5_4f090cbe",
       "range": {
         "startLine": 494,
         "startChar": 24,
@@ -532,6 +712,24 @@
     },
     {
       "key": {
+        "uuid": "39c1e00f_6d449947",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875132ea_94c0199d",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52e94da7_54107cb6",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -549,6 +747,24 @@
     },
     {
       "key": {
+        "uuid": "338a7a29_75860dc7",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52e94da7_54107cb6",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57b4c216_dfbe2c4f",
         "filename": "xfa/fde/cfde_texteditengine.h",
         "patchSetId": 12
@@ -560,6 +776,30 @@
       "writtenOn": "2017-08-29T19:27:09Z",
       "side": 1,
       "message": "This is usually assumed to be the new text, not the previous text. How about we rename to OnTextChangedFrom()?",
+      "range": {
+        "startLine": 69,
+        "startChar": 31,
+        "endLine": 69,
+        "endChar": 61
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63cdc2e5_30bb11f4",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T20:14:11Z",
+      "side": 1,
+      "message": "Well, the name is pretty clear it\u0027s the previous text?",
+      "parentUuid": "57b4c216_dfbe2c4f",
       "range": {
         "startLine": 69,
         "startChar": 31,
