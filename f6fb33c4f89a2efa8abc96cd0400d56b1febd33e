@@ -1121,6 +1121,30 @@
     },
     {
       "key": {
+        "uuid": "d7703e39_60a7c82a",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:13:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f3a28c9_771b665a",
+      "range": {
+        "startLine": 664,
+        "startChar": 8,
+        "endLine": 664,
+        "endChar": 43
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "405f20da_6f8c4fd3",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1306,6 +1330,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82435fbd_af3f7ce3",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T21:13:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f51fd2e8_be55d42e",
+      "range": {
+        "startLine": 860,
+        "startChar": 37,
+        "endLine": 860,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
