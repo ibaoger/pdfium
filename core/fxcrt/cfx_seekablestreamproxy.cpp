@@ -105,9 +105,6 @@ void UTF16ToWChar(void* pBuffer, FX_STRSIZE iLength) {
 void SwapByteOrder(wchar_t* pStr, FX_STRSIZE iLength) {
   ASSERT(pStr);
 
-  if (iLength < 0)
-    iLength = FXSYS_wcslen(pStr);
-
   uint16_t wch;
   if (sizeof(wchar_t) > 2) {
     while (iLength-- > 0) {
@@ -196,7 +193,9 @@ void CFX_SeekableStreamProxy::Seek(From eSeek, FX_FILESIZE iOffset) {
           new_pos.ValueOrDefault(std::numeric_limits<FX_FILESIZE>::max());
     } break;
   }
-  m_iPosition = pdfium::clamp(m_iPosition, 0l, GetLength());
+
+  m_iPosition =
+      pdfium::clamp(m_iPosition, static_cast<FX_FILESIZE>(0), GetLength());
 }
 
 void CFX_SeekableStreamProxy::SetCodePage(uint16_t wCodePage) {

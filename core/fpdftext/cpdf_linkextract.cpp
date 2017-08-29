@@ -245,24 +245,25 @@ bool CPDF_LinkExtract::CheckMailLink(CFX_WideString* str) {
 
   // Check the local part.
   FX_STRSIZE pPos = aPos.value();  // Used to track the position of '@' or '.'.
-  for (FX_STRSIZE i = aPos.value() - 1; i >= 0; i--) {
-    wchar_t ch = (*str)[i];
+  for (FX_STRSIZE i = 0; i <= aPos.value() - 1; i++) {
+    FX_STRSIZE rev_i = (aPos.value() - 1) - i;
+    wchar_t ch = (*str)[rev_i];
     if (ch == L'_' || ch == L'-' || FXSYS_iswalnum(ch))
       continue;
 
-    if (ch != L'.' || i == pPos - 1 || i == 0) {
-      if (i == aPos.value() - 1) {
+    if (ch != L'.' || rev_i == pPos - 1 || rev_i == 0) {
+      if (rev_i == aPos.value() - 1) {
         // There is '.' or invalid char before '@'.
         return false;
       }
       // End extracting for other invalid chars, '.' at the beginning, or
       // consecutive '.'.
-      FX_STRSIZE removed_len = i == pPos - 1 ? i + 2 : i + 1;
+      FX_STRSIZE removed_len = rev_i == pPos - 1 ? rev_i + 2 : rev_i + 1;
       *str = str->Right(str->GetLength() - removed_len);
       break;
     }
     // Found a valid '.'.
-    pPos = i;
+    pPos = rev_i;
   }
 
   // Check the domain name part.

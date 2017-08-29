@@ -162,6 +162,9 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE text_page,
                                                int start,
                                                int count,
                                                unsigned short* result) {
+  if (start < 0 || count < 0)
+    return 0;
+
   if (!text_page)
     return 0;
 
@@ -170,7 +173,7 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE text_page,
     return 0;
 
   CFX_WideString str = textpage->GetPageText(start, count);
-  if (str.GetLength() > count)
+  if (str.GetLength() > static_cast<FX_STRSIZE>(count))
     str = str.Left(count);
 
   CFX_ByteString cbUTF16str = str.UTF16LE_Encode();

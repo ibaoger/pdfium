@@ -84,13 +84,9 @@ class CFX_ByteString {
   }
   bool IsEmpty() const { return !GetLength(); }
 
-  bool IsValidIndex(FX_STRSIZE index) const {
-    return 0 <= index && index < GetLength();
-  }
+  bool IsValidIndex(FX_STRSIZE index) const { return index < GetLength(); }
 
-  bool IsValidLength(FX_STRSIZE length) const {
-    return 0 <= length && length <= GetLength();
-  }
+  bool IsValidLength(FX_STRSIZE length) const { return length <= GetLength(); }
 
   int Compare(const CFX_ByteStringC& str) const;
   bool EqualNoCase(const CFX_ByteStringC& str) const;

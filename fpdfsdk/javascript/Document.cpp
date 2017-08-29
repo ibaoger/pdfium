@@ -1016,13 +1016,14 @@ bool Document::documentFileName(CJS_Runtime* pRuntime,
     return false;
   }
   CFX_WideString wsFilePath = m_pFormFillEnv->JS_docGetFilePath();
-  FX_STRSIZE i = wsFilePath.GetLength() - 1;
-  for (; i >= 0; i--) {
+  FX_STRSIZE rev_i = wsFilePath.GetLength() - 1;
+  for (FX_STRSIZE i = 0; i < wsFilePath.GetLength(); i++) {
+    rev_i = (wsFilePath.GetLength() - 1) - i;
     if (wsFilePath[i] == L'\\' || wsFilePath[i] == L'/')
       break;
   }
-  if (i >= 0 && i < wsFilePath.GetLength() - 1) {
-    vp << (wsFilePath.GetBuffer(wsFilePath.GetLength()) + i + 1);
+  if (rev_i < wsFilePath.GetLength() - 1) {
+    vp << (wsFilePath.GetBuffer(wsFilePath.GetLength()) + rev_i + 1);
   } else {
     vp << L"";
   }
