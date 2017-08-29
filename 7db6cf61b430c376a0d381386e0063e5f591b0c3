@@ -2,6 +2,460 @@
   "comments": [
     {
       "key": {
+        "uuid": "c178b0dd_61dc612d",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "// Byte order mark\n\nand this is 0xFEFF by default anyway, so removing it does not change anything.",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61383168_a7ae3a20",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Can we verify these callbacks got called?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 35
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82e19c8a_d0ad378f",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Add:\n  engine()-\u003eInsert(0, L\"\");\n  EXPECT_STREQ(L\"\", engine()-\u003eGetText().c_str());\n  EXPECT_EQ(0U, engine()-\u003eGetLength());",
+      "range": {
+        "startLine": 59,
+        "startChar": 49,
+        "endLine": 59,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4453b283_9d21688a",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Also run the same with unlimited vertical scroll.",
+      "range": {
+        "startLine": 141,
+        "startChar": 12,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a87fe0_7764e4ef",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Add:\n  engine()-\u003eInsert(0, L\"Hello World\");\n  engine()-\u003eDelete(5, 1);\n  EXPECT_STREQ(L\"HelloWorld\", engine()-\u003eGetText().c_str());",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 54
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b1b3ce8_24f4f8a9",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "engine()-\u003eGetWidthOfChar(100)",
+      "range": {
+        "startLine": 201,
+        "startChar": 15,
+        "endLine": 201,
+        "endChar": 35
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6b2fa7e_055fb005",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Try it with a control character.",
+      "range": {
+        "startLine": 204,
+        "startChar": 50,
+        "endLine": 205,
+        "endChar": 50
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbc3403d_a8ccaf74",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Then:\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetSelectedText().c_str());",
+      "range": {
+        "startLine": 217,
+        "startChar": 24,
+        "endLine": 217,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cfc7e67_8c866066",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "gap",
+      "range": {
+        "startLine": 231,
+        "startChar": 22,
+        "endLine": 231,
+        "endChar": 25
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8007057_9234dac4",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Also:\n  EXPECT_STREQ(L\"\", engine()-\u003eGetSelectedText().c_str());",
+      "range": {
+        "startLine": 237,
+        "startChar": 41,
+        "endLine": 237,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09698b6_67787c6f",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Move below \"// Selection over the Gap\" comment.",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 24
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0385e477_5506feae",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "over the gap",
+      "range": {
+        "startLine": 240,
+        "startChar": 15,
+        "endLine": 240,
+        "endChar": 27
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42321237_c61fe14e",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Also:\n  EXPECT_TRUE(engine()-\u003eHasSelection());",
+      "range": {
+        "startLine": 241,
+        "startChar": 70,
+        "endLine": 241,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af65bd62_c1fdfb8e",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Also try deleting a part of the text:\n\n  engine()-\u003eInsert(0, L\"Hello World\");\n  engine()-\u003eSetSelection(5, 5);\n  EXPECT_FALSE(engine()-\u003eHasSelection());\n  EXPECT_STREQ(L\"Hellod\", engine()-\u003eGetText().c_str());",
+      "range": {
+        "startLine": 249,
+        "startChar": 49,
+        "endLine": 249,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8264976d_cff74571",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Also try replacing a part of the text:\n\n  engine()-\u003eInsert(0, L\"Hello World\");\n  engine()-\u003eSetSelection(1, 4);\n  engine()-\u003eReplaceSelectedText(L\"i,\");\n  EXPECT_FALSE(engine()-\u003eHasSelection());\n  EXPECT_STREQ(L\"Hi, World\", engine()-\u003eGetText().c_str());",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 66
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e50c325_d4d5c42a",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Add:\n  EXPECT_TRUE(engine()-\u003eCanUndo());\n  EXPECT_FALSE(engine()-\u003eCanRedo());",
+      "range": {
+        "startLine": 279,
+        "startChar": 54,
+        "endLine": 279,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc9e6054_76817573",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Add:\n  EXPECT_TRUE(engine()-\u003eCanUndo());\n  EXPECT_FALSE(engine()-\u003eCanRedo());",
+      "range": {
+        "startLine": 294,
+        "startChar": 49,
+        "endLine": 294,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b7d033_89b7afdd",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we be able to undo 3 rather than 2 operations?",
+      "range": {
+        "startLine": 308,
+        "startChar": 12,
+        "endLine": 308,
+        "endChar": 46
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77963b31_f79fcb65",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "EXPECT_STREQ(L\"First Second \", engine()-\u003eGetText().c_str());",
+      "range": {
+        "startLine": 314,
+        "startChar": 32,
+        "endLine": 314,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f41e4f_f272eaba",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Add:\n  engine()-\u003eSetMaxEditOperationsForTesting(4); // Or 3 if it\u0027s the actual max number of undoable operations.\n\n  // Go beyond the max operations limit.\n  engine()-\u003eInsert(0, L\"H\");\n  engine()-\u003eInsert(1, L\"e\");\n  engine()-\u003eInsert(2, L\"l\");\n  engine()-\u003eInsert(3, L\"l\");\n  engine()-\u003eInsert(4, L\"o\");\n  engine()-\u003eInsert(5, L\" World\");\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetText().c_str());\n\n  // Do A, undo. Do B, undo. Redo should cause B.\n  engine()-\u003eDelete(4, 3);\n  EXPECT_STREQ(L\"Hellorld\", engine()-\u003eGetText().c_str());\n  EXPECT_TRUE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetText().c_str());\n  engine()-\u003eDelete(5, 6);\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetText().c_str());\n  EXPECT_TRUE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetText().c_str());\n  EXPECT_TRUE(engine()-\u003eRedo());\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetText().c_str());\n\n  // Undo down to the limit.\n  EXPECT_TRUE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hello World\", engine()-\u003eGetText().c_str());\n  EXPECT_TRUE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetText().c_str());\n  EXPECT_TRUE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hell\", engine()-\u003eGetText().c_str());\n  EXPECT_FALSE(engine()-\u003eUndo());\n  EXPECT_STREQ(L\"Hell\", engine()-\u003eGetText().c_str());",
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eee78265_bcd875cd",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -328,6 +782,30 @@
       "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a1cbca_277edf42",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6986f8f6_41a8c19e",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 8
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -848,6 +1326,30 @@
     },
     {
       "key": {
+        "uuid": "88b94704_81bc2ebc",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6df433f2_2af94746",
+      "range": {
+        "startLine": 1221,
+        "startChar": 6,
+        "endLine": 1221,
+        "endChar": 8
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a23d9f8_c0226ca1",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -883,6 +1385,30 @@
       "side": 1,
       "message": "You\u0027re probably right? We need to add tests for this and then we can get it working. I\u0027ve tried to maintain the existing code as much as possible.",
       "parentUuid": "7a23d9f8_c0226ca1",
+      "range": {
+        "startLine": 1254,
+        "startChar": 54,
+        "endLine": 1254,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace66877_01fd5bd2",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-29T17:33:17Z",
+      "side": 1,
+      "message": "My point is, without m_nSelStart we\u0027re actually breaking it.",
+      "parentUuid": "aaf4fd67_aae64bbc",
       "range": {
         "startLine": 1254,
         "startChar": 54,
