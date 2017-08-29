@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "c281c497_3a8588c9",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "AreObjectsAvailable() modified |m_ObjectSet|.",
+      "parentUuid": "6c2a482f_d5c88596",
+      "range": {
+        "startLine": 1561,
+        "startChar": 35,
+        "endLine": 1561,
+        "endChar": 37
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d04b707_287c2e60",
         "filename": "core/fpdfapi/parser/cpdf_document.cpp",
         "patchSetId": 2
@@ -46,6 +70,30 @@
       "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "116d1c44_bb411124",
+        "filename": "core/fpdfapi/parser/cpdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d04b707_287c2e60",
+      "range": {
+        "startLine": 528,
+        "startChar": 43,
+        "endLine": 528,
+        "endChar": 45
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "82d5d6e3_b44db5b4",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "671cf96f_b56ab61a",
+      "range": {
+        "startLine": 88,
+        "startChar": 35,
+        "endLine": 88,
+        "endChar": 48
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e8044ec_cefafa90",
         "filename": "core/fpdfdoc/cpdf_metadata.cpp",
         "patchSetId": 2
@@ -92,6 +164,30 @@
       "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f07f8aff_dc30df59",
+        "filename": "core/fpdfdoc/cpdf_metadata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e8044ec_cefafa90",
+      "range": {
+        "startLine": 14,
+        "startChar": 29,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "8221ca2c_bd8d5c56",
+        "filename": "core/fpdfdoc/cpdf_nametree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04630c89_4370421d",
+      "range": {
+        "startLine": 302,
+        "startChar": 29,
+        "endLine": 302,
+        "endChar": 42
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ba6bc81_17bdba2b",
         "filename": "core/fpdfdoc/cpvt_generateap.cpp",
         "patchSetId": 2
@@ -129,6 +249,30 @@
       "writtenOn": "2017-08-28T19:07:30Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 36
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c8d19d_7f22fb4a",
+        "filename": "core/fpdfdoc/cpvt_generateap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "There\u0027s more non-const uses below.",
+      "parentUuid": "6ba6bc81_17bdba2b",
       "range": {
         "startLine": 34,
         "startChar": 22,
@@ -161,6 +305,30 @@
       "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d019b7_e5075661",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507eb34a_12aed866",
+      "range": {
+        "startLine": 567,
+        "startChar": 2,
+        "endLine": 567,
+        "endChar": 15
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -198,6 +366,30 @@
       "writtenOn": "2017-08-28T19:07:30Z",
       "side": 1,
       "message": "I think this can be const (oddly enough) in which case the const overload gets selected at 294 instead of the non const followed by assignment to const.",
+      "range": {
+        "startLine": 290,
+        "startChar": 25,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "21eea276d6dcc26fbc1fb26a53c548ac9cc0d1e8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8044fed0_06e2780f",
+        "filename": "xfa/fxfa/cxfa_ffdoc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T21:01:25Z",
+      "side": 1,
+      "message": "Nay. This class holds on to it as a non-const pointer and has a getter to give it out as non-const.",
+      "parentUuid": "d99cc29a_765b069e",
       "range": {
         "startLine": 290,
         "startChar": 25,
