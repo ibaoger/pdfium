@@ -927,6 +927,24 @@
     },
     {
       "key": {
+        "uuid": "c29aeb2e_ca82d47d",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5869bd57_2be55027",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52e94da7_54107cb6",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -985,6 +1003,30 @@
     },
     {
       "key": {
+        "uuid": "fe9b400f_60d02b13",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a5b1_f2a82437",
+      "range": {
+        "startLine": 578,
+        "startChar": 38,
+        "endLine": 578,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b4e89e9_1341fa8f",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1008,6 +1050,30 @@
     },
     {
       "key": {
+        "uuid": "a5b8ae7d_ddd08c38",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b4e89e9_1341fa8f",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 25
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61a4c483_5a20f684",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1019,6 +1085,30 @@
       "writtenOn": "2017-08-29T20:55:09Z",
       "side": 1,
       "message": "I don\u0027t get why this would need to be checked if the assumption is that the pieces are in y order.",
+      "range": {
+        "startLine": 664,
+        "startChar": 8,
+        "endLine": 664,
+        "endChar": 43
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f3a28c9_771b665a",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Keeping for now as this is what the old code did.",
+      "parentUuid": "61a4c483_5a20f684",
       "range": {
         "startLine": 664,
         "startChar": 8,
@@ -1054,6 +1144,30 @@
     },
     {
       "key": {
+        "uuid": "1acd94e9_ad03c89f",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "405f20da_6f8c4fd3",
+      "range": {
+        "startLine": 688,
+        "startChar": 8,
+        "endLine": 688,
+        "endChar": 19
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80f17e86_96d1aac7",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1074,6 +1188,30 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "591acbcf_606e85c0",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80f17e86_96d1aac7",
+      "range": {
+        "startLine": 822,
+        "startChar": 19,
+        "endLine": 822,
+        "endChar": 54
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -1100,6 +1238,30 @@
     },
     {
       "key": {
+        "uuid": "e6808919_c3063c83",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ec3d3d_9aae077b",
+      "range": {
+        "startLine": 851,
+        "startChar": 43,
+        "endLine": 851,
+        "endChar": 46
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "073b0e52_8ae293c4",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1123,6 +1285,30 @@
     },
     {
       "key": {
+        "uuid": "f51fd2e8_be55d42e",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "I thought of that originally but I think it\u0027s a bit clearer like this for the moment.",
+      "parentUuid": "073b0e52_8ae293c4",
+      "range": {
+        "startLine": 860,
+        "startChar": 37,
+        "endLine": 860,
+        "endChar": 0
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "989f0851_c35d0b97",
         "filename": "xfa/fde/cfde_texteditengine.cpp",
         "patchSetId": 12
@@ -1134,6 +1320,30 @@
       "writtenOn": "2017-08-29T20:55:09Z",
       "side": 1,
       "message": "This is always true.",
+      "range": {
+        "startLine": 918,
+        "startChar": 40,
+        "endLine": 918,
+        "endChar": 50
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f642d79_f0b26843",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Yea, will look at it as a followup, as it\u0027s related to the bBefore flag stuff.",
+      "parentUuid": "989f0851_c35d0b97",
       "range": {
         "startLine": 918,
         "startChar": 40,
@@ -1382,6 +1592,30 @@
     },
     {
       "key": {
+        "uuid": "4e5014d2_26db6e91",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f04e1d8f_1c082070",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 26
+      },
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5f7edad_5a7602cc",
         "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
         "patchSetId": 12
@@ -1396,6 +1630,24 @@
       "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f81c4e8b_512e2e2e",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T21:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f7edad_5a7602cc",
+      "revId": "f6fb33c4f89a2efa8abc96cd0400d56b1febd33e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
