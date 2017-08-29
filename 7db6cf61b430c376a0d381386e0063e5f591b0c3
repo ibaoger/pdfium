@@ -448,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "e74b220a_3d3a81e6",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "I don\u0027t know, but it\u0027s existing strange so leaving for now.",
+      "parentUuid": "a8ac2f75_e4337af6",
+      "range": {
+        "startLine": 659,
+        "startChar": 2,
+        "endLine": 659,
+        "endChar": 39
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c802d333_342a8629",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -459,6 +483,30 @@
       "writtenOn": "2017-08-28T21:56:40Z",
       "side": 1,
       "message": "Does this include line spacing?",
+      "range": {
+        "startLine": 661,
+        "startChar": 41,
+        "endLine": 661,
+        "endChar": 54
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dbf2984_44382f72",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "I\u0027d guess not?",
+      "parentUuid": "c802d333_342a8629",
       "range": {
         "startLine": 661,
         "startChar": 41,
@@ -494,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "1ef74c4a_b2166268",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "Currently, not much, I need to get the cursor code working but there are no tests which cover it yet.",
+      "parentUuid": "67e1f509_b47c5b3d",
+      "range": {
+        "startLine": 670,
+        "startChar": 53,
+        "endLine": 670,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a6cf27fc_6ea40244",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -514,6 +586,30 @@
       "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbd78489_a3397e24",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a6cf27fc_6ea40244",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 730,
+        "endChar": 63
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -540,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "e558def7_39f4d939",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "faa56ed8_c42c2518",
+      "range": {
+        "startLine": 737,
+        "startChar": 51,
+        "endLine": 738,
+        "endChar": 33
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8dedbf9_9bde5ea7",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -551,6 +671,30 @@
       "writtenOn": "2017-08-28T21:56:40Z",
       "side": 1,
       "message": "Replace with functionally identical:\n  float usable_height \u003d m_rtEngine.height - fSpaceAbove - fSpaceBelow;\n\n  if (m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_VCenter) {\n    if (usable_height \u003c contents_bounds.height \u0026\u0026\n        fSpaceAbove \u003c fSpaceBelow) {\n      return;\n    }\n    fOffsetY \u003d fSpaceAbove + (usable_height - contents_bounds.height) / 2;\n  } else if (m_pProperties-\u003em_dwStyleExes \u0026 FWL_STYLEEXT_EDT_VFar) {\n    fOffsetY \u003d fSpaceAbove + usable_height - contents_bounds.height;\n  } else {\n    fOffsetY \u003d fSpaceAbove;\n  }",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d0dbbb_744fca54",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "I\u0027m leaving off re-writing bits of this file other then what\u0027s needed for the new edit engine to keep this CL from getting out of control.",
+      "parentUuid": "e8dedbf9_9bde5ea7",
       "range": {
         "startLine": 735,
         "startChar": 0,
@@ -586,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "84374363_52073c09",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "It should now, m_cursorPosition didn\u0027t exist before, this hasn\u0027t been updated yet as there is nothing testing the caret code. It will be re-enabled when we have a way to test it.",
+      "parentUuid": "1c816041_53bda508",
+      "range": {
+        "startLine": 751,
+        "startChar": 31,
+        "endLine": 751,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5fdeb0e_a1aff756",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -597,6 +765,30 @@
       "writtenOn": "2017-08-28T21:56:40Z",
       "side": 1,
       "message": "\u003e\u003d to account for exactly 1.0f difference.",
+      "range": {
+        "startLine": 856,
+        "startChar": 53,
+        "endLine": 856,
+        "endChar": 54
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e22e33_4d7c5484",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "Existing code, so I\u0027m leaving until we know why they care about 1.0 in the first place.",
+      "parentUuid": "a5fdeb0e_a1aff756",
       "range": {
         "startLine": 856,
         "startChar": 53,
@@ -632,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "6df433f2_2af94746",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "The !!() converts from an int to a bool which is what we want. It also makes it clear we care about true/false and not the value of FWL_KEYFLAG_Shift.",
+      "parentUuid": "43ba56d7_cc3c2a12",
+      "range": {
+        "startLine": 1221,
+        "startChar": 6,
+        "endLine": 1221,
+        "endChar": 8
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a23d9f8_c0226ca1",
         "filename": "xfa/fwl/cfwl_edit.cpp",
         "patchSetId": 9
@@ -643,6 +859,30 @@
       "writtenOn": "2017-08-28T21:56:40Z",
       "side": 1,
       "message": "Does this actually work? From what I read, it will not remember where the drag started, so the selection would always be only delimited by the last movement.",
+      "range": {
+        "startLine": 1254,
+        "startChar": 54,
+        "endLine": 1254,
+        "endChar": 0
+      },
+      "revId": "7db6cf61b430c376a0d381386e0063e5f591b0c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaf4fd67_aae64bbc",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-29T01:13:49Z",
+      "side": 1,
+      "message": "You\u0027re probably right? We need to add tests for this and then we can get it working. I\u0027ve tried to maintain the existing code as much as possible.",
+      "parentUuid": "7a23d9f8_c0226ca1",
       "range": {
         "startLine": 1254,
         "startChar": 54,
