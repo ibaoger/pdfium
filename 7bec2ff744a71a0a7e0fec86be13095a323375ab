@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64041960_48f47efc",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-29T18:56:28Z",
+      "side": 0,
+      "message": "This rounds in the wrong direction, which is why the only callers has to subtract 2 to compensate.",
+      "range": {
+        "startLine": 743,
+        "startChar": 27,
+        "endLine": 743,
+        "endChar": 44
+      },
+      "revId": "7bec2ff744a71a0a7e0fec86be13095a323375ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
