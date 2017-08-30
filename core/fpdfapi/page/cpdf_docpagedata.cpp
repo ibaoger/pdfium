@@ -225,13 +225,14 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
   if (pdfium::ContainsKey(*pVisited, pCSObj))
     return nullptr;
 
+  pdfium::ScopedSetInsertion<CPDF_Object*> insertion(pVisited, pCSObj);
+
   if (pCSObj->IsName()) {
     CFX_ByteString name = pCSObj->GetString();
     CPDF_ColorSpace* pCS = CPDF_ColorSpace::ColorspaceFromName(name);
     if (!pCS && pResources) {
       CPDF_Dictionary* pList = pResources->GetDictFor("ColorSpace");
       if (pList) {
-        pdfium::ScopedSetInsertion<CPDF_Object*> insertion(pVisited, pCSObj);
         return GetColorSpaceImpl(pList->GetDirectObjectFor(name), nullptr,
                                  pVisited);
       }
@@ -258,7 +259,6 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
     if (!pDefaultCS)
       return pCS;
 
-    pdfium::ScopedSetInsertion<CPDF_Object*> insertion(pVisited, pCSObj);
     return GetColorSpaceImpl(pDefaultCS, nullptr, pVisited);
   }
 
@@ -267,7 +267,6 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
     return nullptr;
 
   if (pArray->GetCount() == 1) {
-    pdfium::ScopedSetInsertion<CPDF_Object*> insertion(pVisited, pCSObj);
     return GetColorSpaceImpl(pArray->GetDirectObjectAt(0), pResources,
                              pVisited);
   }
@@ -282,7 +281,7 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
   }
 
   std::unique_ptr<CPDF_ColorSpace> pCS =
-      CPDF_ColorSpace::Load(m_pPDFDoc.Get(), pArray);
+      CPDF_ColorSpace::Load(m_pPDFDoc.Get(), pArray, pVisited);
   if (!pCS)
     return nullptr;
 
