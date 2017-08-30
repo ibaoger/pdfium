@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea475614_4445011f",
+        "filename": "core/fpdfapi/page/cpdf_form.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-30T21:09:58Z",
+      "side": 1,
+      "message": "nit: just if (!parsedSet) {\nalso line 43",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6002e00_8556300b",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-30T21:09:58Z",
+      "side": 1,
+      "message": "I think we already have a class to do this in  third_party/base/stl_util.h called ScopedSetInsertion.",
+      "range": {
+        "startLine": 233,
+        "startChar": 6,
+        "endLine": 233,
+        "endChar": 23
+      },
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed72e0d_ef41682a",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-30T21:09:58Z",
+      "side": 1,
+      "message": "nit: stray printf",
+      "range": {
+        "startLine": 789,
+        "startChar": 2,
+        "endLine": 789,
+        "endChar": 8
+      },
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
