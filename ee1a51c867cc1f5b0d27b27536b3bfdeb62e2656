@@ -22,6 +22,30 @@
       "revId": "ee1a51c867cc1f5b0d27b27536b3bfdeb62e2656",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2d864d5_9be3ecc3",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-30T21:11:35Z",
+      "side": 1,
+      "message": "It\u0027s predeclared in the header, and it seems to build fine?",
+      "parentUuid": "097c450b_ebdf3147",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "ee1a51c867cc1f5b0d27b27536b3bfdeb62e2656",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
