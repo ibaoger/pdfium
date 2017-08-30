@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b41cad23_d0f44c79",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 0,
+      "message": "Would it make sense to retain the recursion level?",
+      "revId": "68eefa6a6f6bbab73000a29e2cac3e104be1cc81",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

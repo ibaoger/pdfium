@@ -25,6 +25,40 @@
     },
     {
       "key": {
+        "uuid": "89e96a3c_b67223ca",
+        "filename": "core/fpdfapi/page/cpdf_form.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "Just !pointer_ish_variable",
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847a0c3b_fde930b8",
+        "filename": "core/fpdfapi/page/cpdf_form.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "Would https://pdfium-review.googlesource.com/12250 help this CL make the default param go away?",
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6002e00_8556300b",
         "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
         "patchSetId": 2
@@ -48,6 +82,63 @@
     },
     {
       "key": {
+        "uuid": "7fb8e08f_d28607a1",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "Not explicit.",
+      "range": {
+        "startLine": 235,
+        "startChar": 2,
+        "endLine": 235,
+        "endChar": 10
+      },
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "219be0b8_2dc09dd6",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "You can just insert(), and check the return result to see if the insert actually happened.",
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efe94168_76a3db0f",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "Isn\u0027t this the same as m_ParsedSet-\u003eerase(m_Data)?",
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ed72e0d_ef41682a",
         "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
         "patchSetId": 2
@@ -65,6 +156,23 @@
         "endLine": 789,
         "endChar": 8
       },
+      "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0be6b106_07d95c52",
+        "filename": "core/fpdfapi/page/cpdf_streamcontentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:15:08Z",
+      "side": 1,
+      "message": "Leftover debugging data.",
       "revId": "196c893be5edae2104190fe0094d8aaad21ef008",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
