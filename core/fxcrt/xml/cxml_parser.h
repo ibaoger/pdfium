@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <memory>
 
+#include "core/fxcrt/cfx_utf8decoder.h"
 #include "core/fxcrt/fx_stream.h"
 #include "core/fxcrt/xml/cxml_databufacc.h"
 
