@@ -26,7 +26,7 @@ TEST_F(CFDE_TxtEdtBufTest, SetTextLessThenChunkSize) {
   EXPECT_EQ(2, buf_->GetTextLength());
 
   CFX_WideString res = buf_->GetText();
-  EXPECT_EQ(2, res.GetLength());
+  EXPECT_EQ(2lu, res.GetLength());
   EXPECT_EQ(L"Hi", res);
 }
 
@@ -39,7 +39,7 @@ TEST_F(CFDE_TxtEdtBufTest, InsertAppendChunk) {
   EXPECT_EQ(8, buf_->GetTextLength());
 
   CFX_WideString res = buf_->GetText();
-  EXPECT_EQ(8, res.GetLength());
+  EXPECT_EQ(8lu, res.GetLength());
   EXPECT_EQ(L"Hi World", res);
 }
 
@@ -53,7 +53,7 @@ TEST_F(CFDE_TxtEdtBufTest, InsertPrependChunk) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"World Hi", res);
-  EXPECT_EQ(8, res.GetLength());
+  EXPECT_EQ(8lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, InsertBetweenChunks) {
@@ -67,7 +67,7 @@ TEST_F(CFDE_TxtEdtBufTest, InsertBetweenChunks) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"Hello there World", res);
-  EXPECT_EQ(17, res.GetLength());
+  EXPECT_EQ(17lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, SetText) {
@@ -81,7 +81,7 @@ TEST_F(CFDE_TxtEdtBufTest, SetText) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"Hi", res);
-  EXPECT_EQ(2, res.GetLength());
+  EXPECT_EQ(2lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, DeleteMiddleText) {
@@ -92,7 +92,7 @@ TEST_F(CFDE_TxtEdtBufTest, DeleteMiddleText) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"Hello World", res);
-  EXPECT_EQ(11, res.GetLength());
+  EXPECT_EQ(11lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, DeleteEndText) {
@@ -103,7 +103,7 @@ TEST_F(CFDE_TxtEdtBufTest, DeleteEndText) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"Hello", res);
-  EXPECT_EQ(5, res.GetLength());
+  EXPECT_EQ(5lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, DeleteStartText) {
@@ -114,7 +114,7 @@ TEST_F(CFDE_TxtEdtBufTest, DeleteStartText) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"World", res);
-  EXPECT_EQ(5, res.GetLength());
+  EXPECT_EQ(5lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, DeleteAllText) {
@@ -125,7 +125,7 @@ TEST_F(CFDE_TxtEdtBufTest, DeleteAllText) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"", res);
-  EXPECT_EQ(0, res.GetLength());
+  EXPECT_EQ(0lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, Clear) {
@@ -136,7 +136,7 @@ TEST_F(CFDE_TxtEdtBufTest, Clear) {
 
   CFX_WideString res = buf_->GetText();
   EXPECT_EQ(L"", res);
-  EXPECT_EQ(0, res.GetLength());
+  EXPECT_EQ(0lu, res.GetLength());
 }
 
 TEST_F(CFDE_TxtEdtBufTest, GetCharByIndex) {
