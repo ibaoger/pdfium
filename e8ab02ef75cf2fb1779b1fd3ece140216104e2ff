@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3498588a_1bd5cf68",
+        "filename": "core/fxcrt/cfx_autorestorer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-30T19:11:34Z",
+      "side": 1,
+      "message": "we can lose this line.  this is all ours.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 80
+      },
+      "revId": "e8ab02ef75cf2fb1779b1fd3ece140216104e2ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
