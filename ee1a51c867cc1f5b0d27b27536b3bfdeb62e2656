@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "097c450b_ebdf3147",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-30T21:03:54Z",
+      "side": 1,
+      "message": "this might belong in a .h file since I think we alwasy pass these as parameters.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "ee1a51c867cc1f5b0d27b27536b3bfdeb62e2656",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
