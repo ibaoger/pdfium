@@ -90,7 +90,7 @@ int32_t CBC_OnedEAN13Writer::CalcChecksum(const CFX_ByteString& contents) {
   }
   int32_t checksum = (odd * 3 + even) % 10;
   checksum = (10 - checksum) % 10;
-  return (checksum);
+  return checksum;
 }
 
 uint8_t* CBC_OnedEAN13Writer::EncodeWithHint(const CFX_ByteString& contents,

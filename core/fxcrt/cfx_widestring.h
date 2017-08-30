@@ -81,13 +81,9 @@ class CFX_WideString {
   }
   bool IsEmpty() const { return !GetLength(); }
 
-  bool IsValidIndex(FX_STRSIZE index) const {
-    return 0 <= index && index < GetLength();
-  }
+  bool IsValidIndex(FX_STRSIZE index) const { return index < GetLength(); }
 
-  bool IsValidLength(FX_STRSIZE length) const {
-    return 0 <= length && length <= GetLength();
-  }
+  bool IsValidLength(FX_STRSIZE length) const { return length <= GetLength(); }
 
   const CFX_WideString& operator=(const wchar_t* str);
   const CFX_WideString& operator=(const CFX_WideString& stringSrc);
