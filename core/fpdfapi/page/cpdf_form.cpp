@@ -35,19 +35,25 @@ CPDF_Form::~CPDF_Form() {}
 void CPDF_Form::StartParse(CPDF_AllStates* pGraphicStates,
                            const CFX_Matrix* pParentMatrix,
                            CPDF_Type3Char* pType3Char,
-                           int level) {
+                           std::set<const uint8_t*>* parsedSet) {
   if (m_ParseState == CONTENT_PARSED || m_ParseState == CONTENT_PARSING)
     return;
 
+  if (parsedSet == nullptr) {
+    if (m_ParsedSet == nullptr)
+      m_ParsedSet = pdfium::MakeUnique<std::set<const uint8_t*>>();
+    parsedSet = m_ParsedSet.get();
+  }
+
   m_pParser = pdfium::MakeUnique<CPDF_ContentParser>();
-  m_pParser->Start(this, pGraphicStates, pParentMatrix, pType3Char, level);
+  m_pParser->Start(this, pGraphicStates, pParentMatrix, pType3Char, parsedSet);
   m_ParseState = CONTENT_PARSING;
 }
 
 void CPDF_Form::ParseContent(CPDF_AllStates* pGraphicStates,
                              const CFX_Matrix* pParentMatrix,
                              CPDF_Type3Char* pType3Char,
-                             int level) {
-  StartParse(pGraphicStates, pParentMatrix, pType3Char, level);
+                             std::set<const uint8_t*>* parsedSet) {
+  StartParse(pGraphicStates, pParentMatrix, pType3Char, parsedSet);
   ContinueParse(nullptr);
 }

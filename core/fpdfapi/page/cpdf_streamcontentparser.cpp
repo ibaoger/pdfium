@@ -40,8 +40,6 @@
 
 namespace {
 
-const int kMaxFormLevel = 30;
-
 const int kSingleCoordinatePair = 1;
 const int kTensorCoordinatePairs = 16;
 const int kCoonsCoordinatePairs = 12;
@@ -232,6 +230,29 @@ void ReplaceAbbr(CPDF_Object* pObj) {
   }
 }
 
+class ParsedSetRestorer {
+ public:
+  explicit ParsedSetRestorer(std::set<const uint8_t*>* parsed_set,
+                             const uint8_t* data)
+      : m_ParsedSet(parsed_set), m_Data(nullptr) {
+    if (parsed_set->end() == parsed_set->find(data)) {
+      parsed_set->insert(data);
+      m_Data = data;
+    }
+  }
+
+  ~ParsedSetRestorer() {
+    if (m_Data)
+      m_ParsedSet->erase(m_ParsedSet->find(m_Data));
+  }
+
+  bool AlreadyParsed() const { return m_Data == nullptr; }
+
+ private:
+  CFX_UnownedPtr<std::set<const uint8_t*>> m_ParsedSet;
+  const uint8_t* m_Data;
+};
+
 }  // namespace
 
 CPDF_StreamContentParser::CPDF_StreamContentParser(
@@ -243,13 +264,13 @@ CPDF_StreamContentParser::CPDF_StreamContentParser(
     CPDF_Dictionary* pResources,
     const CFX_FloatRect& rcBBox,
     CPDF_AllStates* pStates,
-    int level)
+    std::set<const uint8_t*>* parsedSet)
     : m_pDocument(pDocument),
       m_pPageResources(pPageResources),
       m_pParentResources(pParentResources),
       m_pResources(pResources),
       m_pObjectHolder(pObjHolder),
-      m_Level(level),
+      m_ParsedSet(parsedSet),
       m_BBox(rcBBox),
       m_ParamStartPos(0),
       m_ParamCount(0),
@@ -765,6 +786,8 @@ void CPDF_StreamContentParser::Handle_ExecuteXObject() {
 }
 
 void CPDF_StreamContentParser::AddForm(CPDF_Stream* pStream) {
+  printf("this = %p, pStream = %p\n", static_cast<void*>(this),
+         static_cast<void*>(pStream));
   auto pFormObj = pdfium::MakeUnique<CPDF_FormObject>();
   pFormObj->m_pForm = pdfium::MakeUnique<CPDF_Form>(
       m_pDocument.Get(), m_pPageResources.Get(), pStream, m_pResources.Get());
@@ -775,7 +798,7 @@ void CPDF_StreamContentParser::AddForm(CPDF_Stream* pStream) {
   status.m_GraphState = m_pCurStates->m_GraphState;
   status.m_ColorState = m_pCurStates->m_ColorState;
   status.m_TextState = m_pCurStates->m_TextState;
-  pFormObj->m_pForm->ParseContent(&status, nullptr, nullptr, m_Level + 1);
+  pFormObj->m_pForm->ParseContent(&status, nullptr, nullptr, m_ParsedSet.Get());
   if (!m_pObjectHolder->BackgroundAlphaNeeded() &&
       pFormObj->m_pForm->BackgroundAlphaNeeded()) {
     m_pObjectHolder->SetBackgroundAlphaNeeded(true);
@@ -1506,7 +1529,8 @@ void CPDF_StreamContentParser::AddPathObject(int FillType, bool bStroke) {
 uint32_t CPDF_StreamContentParser::Parse(const uint8_t* pData,
                                          uint32_t dwSize,
                                          uint32_t max_cost) {
-  if (m_Level > kMaxFormLevel)
+  ParsedSetRestorer restorer(m_ParsedSet.Get(), pData);
+  if (restorer.AlreadyParsed())
     return dwSize;
 
   uint32_t InitObjCount = m_pObjectHolder->GetPageObjectList()->size();

@@ -8,6 +8,7 @@
 #define CORE_FPDFAPI_PAGE_CPDF_CONTENTPARSER_H_
 
 #include <memory>
+#include <set>
 #include <vector>
 
 #include "core/fpdfapi/page/cpdf_pageobjectholder.h"
@@ -37,7 +38,7 @@ class CPDF_ContentParser {
              CPDF_AllStates* pGraphicStates,
              const CFX_Matrix* pParentMatrix,
              CPDF_Type3Char* pType3Char,
-             int level);
+             std::set<const uint8_t*>* parsedSet);
   void Continue(IFX_Pause* pPause);
 
  private:
@@ -59,6 +60,7 @@ class CPDF_ContentParser {
   uint32_t m_Size;
   uint32_t m_CurrentOffset;
   std::unique_ptr<CPDF_StreamContentParser> m_pParser;
+  std::unique_ptr<std::set<const uint8_t*>> m_parsedSet;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_CONTENTPARSER_H_
