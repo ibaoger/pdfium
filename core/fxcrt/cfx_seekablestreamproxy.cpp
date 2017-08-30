@@ -105,9 +105,6 @@ void UTF16ToWChar(void* pBuffer, FX_STRSIZE iLength) {
 void SwapByteOrder(wchar_t* pStr, FX_STRSIZE iLength) {
   ASSERT(pStr);
 
-  if (iLength < 0)
-    iLength = FXSYS_wcslen(pStr);
-
   uint16_t wch;
   if (sizeof(wchar_t) > 2) {
     while (iLength-- > 0) {
