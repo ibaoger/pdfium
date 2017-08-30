@@ -16,6 +16,92 @@
       "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd654797_606388ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-30T18:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39217446_f4931944",
+      "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b164b89f_08d9487a",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-30T18:06:23Z",
+      "side": 1,
+      "message": "At this point we rebuild the crossrefs, and m_pSyntxParser-\u003em_pCryptoHandler is null. \nSee:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d270\nand\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d283\nand ...\n\nit will be installed after.\nSee:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d287\nand\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d274\nand ...",
+      "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6be0cf0_475deb2b",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-30T18:06:23Z",
+      "side": 1,
+      "message": "At this point is local parsed are used, which is just initialized. And data which are parsed by it, already decrypted while stream was parsed in ::GetObjectStream.\nSee \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d1247",
+      "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a699c448_181df6fc",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-30T18:06:23Z",
+      "side": 1,
+      "message": "The trailer should be always decrypted, beacuse it is contains data for decryption.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003ded48c1a42b2f9a0c8cb04185c180c6424bad3b83\u0026l\u003d305\n\nAnyway m_pSecurityHandler is always null at this point.",
+      "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bc8d723_b73dbfbc",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-30T18:06:23Z",
+      "side": 1,
+      "message": "This is start point of parsing of document. We have not cross refs, trailer, decryption dictionaries at this moment and m_pSecurityHandler is always null at this point.",
+      "revId": "c58a05d3b7a739b67c825e020a296f7e64534fbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
