@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ecff64a_f2227cd6",
+        "filename": "core/fxcrt/cfx_bitstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-30T15:10:23Z",
+      "side": 1,
+      "message": "The Init method was dropped and switched to the constructor.",
+      "revId": "d2d15b0fa05920b12df241bed577aa94c6813db5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f5c3b2b_33b9787a",
+        "filename": "core/fxcrt/cfx_bitstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-30T15:10:23Z",
+      "side": 1,
+      "message": "I moved this to a unowned ptr.",
+      "revId": "d2d15b0fa05920b12df241bed577aa94c6813db5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
