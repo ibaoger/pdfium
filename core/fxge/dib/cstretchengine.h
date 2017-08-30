@@ -13,6 +13,7 @@
 #include "core/fxcrt/fx_coordinates.h"
 #include "core/fxge/fx_dib.h"
 
+class IFX_Pause;
 class IFX_ScanlineComposer;
 
 class CStretchEngine {

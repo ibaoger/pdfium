@@ -13,6 +13,7 @@
 #include "core/fpdfapi/render/cpdf_pagerendercache.h"
 #include "core/fpdfapi/render/cpdf_renderoptions.h"
 #include "core/fpdfapi/render/cpdf_renderstatus.h"
+#include "core/fxcrt/ifx_pause.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "third_party/base/ptr_util.h"
 

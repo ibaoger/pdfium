@@ -27,6 +27,7 @@ enum FXDIB_Channel {
 
 class CFX_ClipRgn;
 class CFX_DIBitmap;
+class IFX_Pause;
 
 class CFX_DIBSource : public CFX_Retainable {
  public:

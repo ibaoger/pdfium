@@ -22,6 +22,7 @@
 #include "core/fxcodec/jbig2/JBig2_PddProc.h"
 #include "core/fxcodec/jbig2/JBig2_SddProc.h"
 #include "core/fxcodec/jbig2/JBig2_TrdProc.h"
+#include "core/fxcrt/ifx_pause.h"
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 

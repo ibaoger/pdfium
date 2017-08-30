@@ -13,6 +13,7 @@
 #include "core/fxcodec/jbig2/JBig2_ArithDecoder.h"
 #include "core/fxcodec/jbig2/JBig2_BitStream.h"
 #include "core/fxcodec/jbig2/JBig2_Image.h"
+#include "core/fxcrt/ifx_pause.h"
 #include "third_party/base/ptr_util.h"
 
 CJBig2_GRDProc::CJBig2_GRDProc()

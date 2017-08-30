@@ -16,6 +16,7 @@
 class CPDF_ImageObject;
 class CPDF_PageRenderCache;
 class CPDF_RenderStatus;
+class IFX_Pause;
 
 class CPDF_ImageLoader {
  public:

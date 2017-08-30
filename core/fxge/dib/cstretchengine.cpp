@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <utility>
 
+#include "core/fxcrt/ifx_pause.h"
 #include "core/fxge/dib/cfx_dibitmap.h"
 #include "core/fxge/dib/cfx_dibsource.h"
 #include "core/fxge/dib/ifx_scanlinecomposer.h"

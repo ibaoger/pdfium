@@ -17,6 +17,7 @@
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fxcrt/fx_safe_types.h"
+#include "core/fxcrt/ifx_pause.h"
 #include "third_party/base/ptr_util.h"
 
 #define PARSE_STEP_LIMIT 100

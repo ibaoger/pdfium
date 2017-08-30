@@ -15,6 +15,7 @@
 #include "core/fxcodec/codec/codec_int.h"
 #include "core/fxcrt/fx_extension.h"
 #include "core/fxcrt/fx_safe_types.h"
+#include "core/fxcrt/ifx_pause.h"
 #include "third_party/base/logging.h"
 #include "third_party/base/ptr_util.h"
 

@@ -15,6 +15,7 @@
 #include "core/fxge/fx_dib.h"
 
 class CFX_DIBSource;
+class IFX_Pause;
 
 class CFX_ImageStretcher {
  public:
