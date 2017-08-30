@@ -217,6 +217,24 @@
       "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7df0979_b8692bde",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-08-30T21:08:31Z",
+      "side": 1,
+      "message": "Well, Chromium style would be \"foo_bar_\". Let\u0027s try to be consistent with the other member variables.",
+      "parentUuid": "43b25c9b_86514d45",
+      "revId": "9aff0986f0270a01d072e77dbb50e48c5b1174b3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
