@@ -281,8 +281,9 @@ CPDF_ColorSpace* CPDF_DocPageData::GetColorSpaceImpl(
     }
   }
 
+  pdfium::ScopedSetInsertion<CPDF_Object*> insertion(pVisited, pCSObj);
   std::unique_ptr<CPDF_ColorSpace> pCS =
-      CPDF_ColorSpace::Load(m_pPDFDoc.Get(), pArray);
+      CPDF_ColorSpace::Load(m_pPDFDoc.Get(), pArray, pVisited);
   if (!pCS)
     return nullptr;
 
