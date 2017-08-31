@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fc4edd7_f090fa01",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:51:34Z",
+      "side": 0,
+      "message": "This was a very wacky place for this to live .....",
+      "revId": "ce9ad1bee792856c2d9e940ecffff97145e18d32",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
