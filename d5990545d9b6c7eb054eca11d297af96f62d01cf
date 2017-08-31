@@ -68,6 +68,30 @@
       "revId": "d5990545d9b6c7eb054eca11d297af96f62d01cf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee76073d_211fe98d",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T20:55:24Z",
+      "side": 1,
+      "message": "http://en.cppreference.com/w/cpp/iterator/rbegin has a nice picture showing how c++ reverse iterators typically use this technique under the covers ...",
+      "parentUuid": "697a58fc_49e5e893",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "d5990545d9b6c7eb054eca11d297af96f62d01cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
