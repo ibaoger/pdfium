@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2282fb3f_656a2cd1",
+        "filename": "core/fxcrt/fx_ucd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T18:30:12Z",
+      "side": 1,
+      "message": "We only use these two and I can\u0027t actually find TB defined in the linked document ....\n\nThese are grabbed from the CFX_Char in it\u0027s properties, which I\u0027m guessing maps back to the ucddata text properties but I\u0027m not sure.",
+      "revId": "97ea1399da3b3a1782273c8893cfcc3b1c973905",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
