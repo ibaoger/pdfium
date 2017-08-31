@@ -34,6 +34,24 @@
       "revId": "bcd1e70175b6bbbcb9d9466c579e0538f34297c6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6744df45_59a305c9",
+        "filename": "core/fxcrt/fx_basic_gcc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:12:24Z",
+      "side": 0,
+      "message": "Add fx_system.h to this file so the header is included.",
+      "parentUuid": "adc40901_2ea293a9",
+      "revId": "bcd1e70175b6bbbcb9d9466c579e0538f34297c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
