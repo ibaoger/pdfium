@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1504162401 -0700\nnonce AJMiPPdqblybzvlalziiQBh9VRV8Sgzls6VQF8lZlo5eZTc3M28CICgQNP3lYtSBkdMsQzxBVkhX\n\n0000000000000000000000000000000000000000 42c7dc092a3c98f2bd85e50944a11869d68a71df refs/for/refs/heads/master%wip,m\u003dInitial_upload\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZp7JhAAoJEKs2LWFaZv17sPcIANcH3bpjl5hUTB8Ef/nrDqKG\nqF9BWINv4nVUPQIdd5W7l+9L1rd8aD2QjZFwvnzOtsuW71fD05pVXfxBf9jhqHaT\nUDiAKfDnOe47YibpH4D/jDV6lguYBUIWldSa5MKMTqtmFkfy7Mo/iNiDnNqzqNNB\nurHe4+g4913TkNXp4ihfkmHpdCAvTk8Tvey0ukk3VSXt5QWvGGoA0AdPGhsUs8/R\nZdTZzRHo8JFq+IRch+S/WhOQV/v0c6GKuSBsKbpX0lu1CS5WtHxWsMQoissJc5KF\nvFxNJZsnIrH42oS5Ks+VvGTM+1eF+xbRA0YucLsMpQ1E9YEUsK73hQ7glD3yrCU\u003d\n\u003dCSFP\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6f6f993_1c1138fd",
+        "filename": "core/fpdfdoc/cpdf_aaction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T14:38:21Z",
+      "side": 1,
+      "message": "What\u0027s the advantage of doing this vs \"\\nNumberOfActions\"? This seems more brittle because a new value may be inserted without updating LastDoNotUse. The empty line between DocumentPrinted and NumberofActions makes it easier to insert a new value. Also, you lose a +1 in the usage, and lastly the check makes more sense - what does adding one to a value that should not be used mean?",
+      "revId": "42c7dc092a3c98f2bd85e50944a11869d68a71df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
