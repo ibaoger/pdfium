@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cc6b1acd_fd34cc02",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "I have prohibited all callers to add objects with kInvalidObjNum.\nSee \nCPDF_IndirectObjectHolder::GetOrParseIndirectObject\nand \nCPDF_IndirectObjectHolder::AddIndirectObject\n\nIf we try to add object with kInvalidObjNum, that it is invalid object, and addition should fail.",
+      "parentUuid": "aae10c7e_264da11a",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a340f9a7_4f45b516",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-08-31T16:10:12Z",
       "side": 1,
       "message": "How does this happen?",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57b0bada_8b9038d9",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "For example see https://pdfium-review.googlesource.com/c/pdfium/+/12610/2\n\nAlso this can be happened in some other cases:\nIn decryption logic:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_dictionary.cpp?rcl\u003d980a3ea30872cef9ada360aa85e7c3573d7668b5\u0026l\u003d171\nWhile we are checking Signature Dictionary:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_syntax_parser.cpp?rcl\u003d980a3ea30872cef9ada360aa85e7c3573d7668b5\u0026l\u003d496\n\nThe \"Length\" field for stream and \"Type\" field for dictionary may be reference to same object. (this case is checked for stream, but not checked for signature dictionary)\nOr its may be reference to object, whom also contains reference to original object. (this case is not checked anywhere). And the parsing will implicitly and recursively started again in CPDF_Reference::GetDirect\n(see https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_reference.cpp?rcl\u003d980a3ea30872cef9ada360aa85e7c3573d7668b5\u0026l\u003d82)\n\n\nIn CL I have fixed this.",
+      "parentUuid": "a340f9a7_4f45b516",
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8b82f3f3_ec8dab49",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "but in original code we have search in map again and again. And this is map of all objects in the document. And it is big.\n\nNow we search just once in all cases",
+      "parentUuid": "f16e2d75_7b9f1b1b",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7de1dcd1_922d376c",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-08-31T16:10:12Z",
       "side": 1,
       "message": "ditto",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e5e2db7_cb3e40d5",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "7de1dcd1_922d376c",
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "546fd258_a61ee0de",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "Yes, see https://pdfium-review.googlesource.com/c/pdfium/+/12610/2",
+      "parentUuid": "d893282d_d363a491",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "267dde0b_162c8ede",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2017-08-31T16:10:12Z",
       "side": 1,
       "message": "Can we add some tests here for the other methods and things like Filtering invalid obj nums?",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d0803e_2e64f75b",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:27:31Z",
+      "side": 1,
+      "message": "I will soon do this.",
+      "parentUuid": "267dde0b_162c8ede",
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
