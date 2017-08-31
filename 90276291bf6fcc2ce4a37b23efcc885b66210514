@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "c103a224_614016f7",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "This change in the loop can be in a separate CL.",
+      "range": {
+        "startLine": 187,
+        "startChar": 46,
+        "endLine": 187,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7646eb2_59812c1c",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "This change in the loop can be in a separate CL.",
+      "range": {
+        "startLine": 217,
+        "startChar": 49,
+        "endLine": 217,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b172fd3_fc9b00d7",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "These casts can be in a separate CL.",
+      "range": {
+        "startLine": 437,
+        "startChar": 43,
+        "endLine": 437,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47c4c843_ffc91681",
         "filename": "core/fpdfapi/font/cpdf_cmapparser_unittest.cpp",
         "patchSetId": 12
@@ -18,6 +87,29 @@
         "startChar": 12,
         "endLine": 48,
         "endChar": 15
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5ec1e35_42c514cf",
+        "filename": "core/fpdftext/cpdf_linkextract.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "This change in the loop can be in a separate CL.",
+      "range": {
+        "startLine": 248,
+        "startChar": 54,
+        "endLine": 248,
+        "endChar": 0
       },
       "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -81,6 +173,29 @@
         "startChar": 12,
         "endLine": 294,
         "endChar": 15
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb8554c_e3e382e1",
+        "filename": "core/fxcrt/cfx_seekablestreamproxy.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "Separate CL.",
+      "range": {
+        "startLine": 232,
+        "startChar": 31,
+        "endLine": 232,
+        "endChar": 0
       },
       "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
@@ -257,6 +372,144 @@
       "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b21c5d70_b8727da1",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "I don\u0027t think this does the same thing. Since there is a break, we\u0027re now stopping at the first element from start to end rather than from end to start.",
+      "range": {
+        "startLine": 1020,
+        "startChar": 59,
+        "endLine": 1020,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e12597_c92fd29b",
+        "filename": "fpdfsdk/javascript/PublicMethods.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "This should be in a separate CL and done while FX_STRSIZE is int. Ditto for all below.",
+      "range": {
+        "startLine": 136,
+        "startChar": 32,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "257ef137_999d39be",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "Separate cl.",
+      "range": {
+        "startLine": 93,
+        "startChar": 18,
+        "endLine": 93,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70de4457_625f6787",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "I think you mean i. Also, this is just accumulating odd and even, so loop order should not matter.",
+      "range": {
+        "startLine": 90,
+        "startChar": 51,
+        "endLine": 90,
+        "endChar": 53
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e45232e_1114183e",
+        "filename": "fxbarcode/oned/BC_OnedUPCAWriter.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "Same comment as BC_OnedEAN8Writer.cpp.",
+      "range": {
+        "startLine": 74,
+        "startChar": 54,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c56c4c5_203d2a02",
+        "filename": "fxbarcode/qrcode/BC_QRCoderEncoder.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T19:35:38Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 383,
+        "startChar": 54,
+        "endLine": 383,
+        "endChar": 62
+      },
+      "revId": "90276291bf6fcc2ce4a37b23efcc885b66210514",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
