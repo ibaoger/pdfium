@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901497b0_84b17456",
+        "filename": "core/fpdfapi/parser/cfdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T12:03:15Z",
+      "side": 0,
+      "message": "At this point, we have local parser, which is never have m_CryptoHandler.",
+      "revId": "ccd5be05f61c85754daf5c8155f4932f6d35a55a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96816c3d_60f37989",
+        "filename": "core/fpdfapi/parser/cfdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T12:03:15Z",
+      "side": 0,
+      "message": "Ditto",
+      "revId": "ccd5be05f61c85754daf5c8155f4932f6d35a55a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
