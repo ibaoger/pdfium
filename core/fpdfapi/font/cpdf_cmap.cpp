@@ -184,13 +184,11 @@ const PredefinedCMap g_PredefinedCMaps[] = {
 int CheckFourByteCodeRange(uint8_t* codes,
                            FX_STRSIZE size,
                            const std::vector<CPDF_CMap::CodeRange>& ranges) {
-  int iSeg = pdfium::CollectionSize<int>(ranges) - 1;
-  while (iSeg >= 0) {
-    if (ranges[iSeg].m_CharSize < size) {
-      --iSeg;
+  for (size_t i = 0; i < ranges.size(); i++) {
+    size_t iSeg = (ranges.size() - 1) - i;
+    if (ranges[iSeg].m_CharSize < size)
       continue;
-    }
-    int iChar = 0;
+    size_t iChar = 0;
     while (iChar < size) {
       if (codes[iChar] < ranges[iSeg].m_Lower[iChar] ||
           codes[iChar] > ranges[iSeg].m_Upper[iChar]) {
@@ -202,31 +200,28 @@ int CheckFourByteCodeRange(uint8_t* codes,
       return 2;
     if (iChar)
       return (size == ranges[iSeg].m_CharSize) ? 2 : 1;
-    iSeg--;
   }
   return 0;
 }
 
-int GetFourByteCharSizeImpl(uint32_t charcode,
-                            const std::vector<CPDF_CMap::CodeRange>& ranges) {
+size_t GetFourByteCharSizeImpl(
+    uint32_t charcode,
+    const std::vector<CPDF_CMap::CodeRange>& ranges) {
   if (ranges.empty())
     return 1;
 
   uint8_t codes[4];
   codes[0] = codes[1] = 0x00;
-  codes[2] = (uint8_t)(charcode >> 8 & 0xFF);
-  codes[3] = (uint8_t)charcode;
-  FX_STRSIZE offset = 0;
-  int size = 4;
-  for (int i = 0; i < 4; ++i) {
-    int iSeg = pdfium::CollectionSize<int>(ranges) - 1;
-    while (iSeg >= 0) {
-      if (ranges[iSeg].m_CharSize < size) {
-        --iSeg;
+  codes[2] = static_cast<uint8_t>(charcode >> 8 & 0xFF);
+  codes[3] = static_cast<uint8_t>(charcode);
+  for (size_t offset = 0; offset < 4; offset++) {
+    size_t size = 4 - offset;
+    for (size_t j = 0; j < ranges.size(); j++) {
+      size_t iSeg = (ranges.size() - 1) - j;
+      if (ranges[iSeg].m_CharSize < static_cast<size_t>(size))
         continue;
-      }
-      int iChar = 0;
-      while (iChar < size) {
+      size_t iChar = 0;
+      while (iChar < static_cast<size_t>(size)) {
         if (codes[offset + iChar] < ranges[iSeg].m_Lower[iChar] ||
             codes[offset + iChar] > ranges[iSeg].m_Upper[iChar]) {
           break;
@@ -235,10 +230,7 @@ int GetFourByteCharSizeImpl(uint32_t charcode,
       }
       if (iChar == ranges[iSeg].m_CharSize)
         return size;
-      --iSeg;
     }
-    --size;
-    ++offset;
   }
   return 1;
 }

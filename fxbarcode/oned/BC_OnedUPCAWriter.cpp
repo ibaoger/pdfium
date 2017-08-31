@@ -70,7 +70,7 @@ int32_t CBC_OnedUPCAWriter::CalcChecksum(const CFX_ByteString& contents) {
   int32_t odd = 0;
   int32_t even = 0;
   FX_STRSIZE j = 1;
-  for (FX_STRSIZE i = contents.GetLength() - 1; i >= 0; i--) {
+  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
     if (j % 2) {
       odd += FXSYS_atoi(contents.Mid(i, 1).c_str());
     } else {
@@ -80,7 +80,7 @@ int32_t CBC_OnedUPCAWriter::CalcChecksum(const CFX_ByteString& contents) {
   }
   int32_t checksum = (odd * 3 + even) % 10;
   checksum = (10 - checksum) % 10;
-  return (checksum);
+  return checksum;
 }
 
 uint8_t* CBC_OnedUPCAWriter::EncodeWithHint(const CFX_ByteString& contents,
