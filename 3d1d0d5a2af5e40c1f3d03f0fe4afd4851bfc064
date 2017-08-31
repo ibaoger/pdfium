@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dac2f1c_3d0e41a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:02:08Z",
+      "side": 1,
+      "message": "Can you add a comment here on how this can happen?",
+      "revId": "3d1d0d5a2af5e40c1f3d03f0fe4afd4851bfc064",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
