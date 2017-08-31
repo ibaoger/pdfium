@@ -22,6 +22,29 @@
       "revId": "09ec0aea4fef154f39d02a935ab3fb0fd60d0afa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48067489_4b7675fd",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T21:16:37Z",
+      "side": 1,
+      "message": "Replace this with (i + 1) or i and remove j.\n\nFrom what I understand from specs, the first digit is odd, the second is even, third is odd, and so on. However if you look at the code, assuming contents has an even number of characters, it\u0027s the other way around. I don\u0027t know if this code is right.\n\nhttps://en.wikipedia.org/wiki/International_Article_Number",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 9
+      },
+      "revId": "09ec0aea4fef154f39d02a935ab3fb0fd60d0afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
