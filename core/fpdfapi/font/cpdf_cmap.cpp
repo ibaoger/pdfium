@@ -184,13 +184,11 @@ const PredefinedCMap g_PredefinedCMaps[] = {
 int CheckFourByteCodeRange(uint8_t* codes,
                            FX_STRSIZE size,
                            const std::vector<CPDF_CMap::CodeRange>& ranges) {
-  int iSeg = pdfium::CollectionSize<int>(ranges) - 1;
-  while (iSeg >= 0) {
-    if (ranges[iSeg].m_CharSize < size) {
-      --iSeg;
+  for (size_t i = 0; i < ranges.size(); i++) {
+    size_t iSeg = (ranges.size() - 1) - i;
+    if (ranges[iSeg].m_CharSize < size)
       continue;
-    }
-    int iChar = 0;
+    size_t iChar = 0;
     while (iChar < size) {
       if (codes[iChar] < ranges[iSeg].m_Lower[iChar] ||
           codes[iChar] > ranges[iSeg].m_Upper[iChar]) {
@@ -202,31 +200,28 @@ int CheckFourByteCodeRange(uint8_t* codes,
       return 2;
     if (iChar)
       return (size == ranges[iSeg].m_CharSize) ? 2 : 1;
-    iSeg--;
   }
   return 0;
 }
 
-int GetFourByteCharSizeImpl(uint32_t charcode,
-                            const std::vector<CPDF_CMap::CodeRange>& ranges) {
+size_t GetFourByteCharSizeImpl(
+    uint32_t charcode,
+    const std::vector<CPDF_CMap::CodeRange>& ranges) {
   if (ranges.empty())
     return 1;
 
   uint8_t codes[4];
   codes[0] = codes[1] = 0x00;
-  codes[2] = (uint8_t)(charcode >> 8 & 0xFF);
-  codes[3] = (uint8_t)charcode;
-  FX_STRSIZE offset = 0;
-  int size = 4;
-  for (int i = 0; i < 4; ++i) {
-    int iSeg = pdfium::CollectionSize<int>(ranges) - 1;
-    while (iSeg >= 0) {
-      if (ranges[iSeg].m_CharSize < size) {
-        --iSeg;
+  codes[2] = static_cast<uint8_t>(charcode >> 8 & 0xFF);
+  codes[3] = static_cast<uint8_t>(charcode);
+  for (size_t offset = 0; offset < 4; offset++) {
+    size_t size = 4 - offset;
+    for (size_t j = 0; j < ranges.size(); j++) {
+      size_t iSeg = (ranges.size() - 1) - j;
+      if (ranges[iSeg].m_CharSize < static_cast<size_t>(size))
         continue;
-      }
-      int iChar = 0;
-      while (iChar < size) {
+      size_t iChar = 0;
+      while (iChar < static_cast<size_t>(size)) {
         if (codes[offset + iChar] < ranges[iSeg].m_Lower[iChar] ||
             codes[offset + iChar] > ranges[iSeg].m_Upper[iChar]) {
           break;
@@ -235,10 +230,7 @@ int GetFourByteCharSizeImpl(uint32_t charcode,
       }
       if (iChar == ranges[iSeg].m_CharSize)
         return size;
-      --iSeg;
     }
-    --size;
-    ++offset;
   }
   return 1;
 }
@@ -442,46 +434,46 @@ int CPDF_CMap::CountChar(const char* pString, int size) const {
 int CPDF_CMap::AppendChar(char* str, uint32_t charcode) const {
   switch (m_CodingScheme) {
     case OneByte:
-      str[0] = (uint8_t)charcode;
+      str[0] = static_cast<char>(charcode);
       return 1;
     case TwoBytes:
-      str[0] = (uint8_t)(charcode / 256);
-      str[1] = (uint8_t)(charcode % 256);
+      str[0] = static_cast<char>(charcode / 256);
+      str[1] = static_cast<char>(charcode % 256);
       return 2;
     case MixedTwoBytes:
-      if (charcode < 0x100 && !m_MixedTwoByteLeadingBytes[(uint8_t)charcode]) {
-        str[0] = (uint8_t)charcode;
+      if (charcode < 0x100 && !m_MixedTwoByteLeadingBytes[charcode]) {
+        str[0] = static_cast<char>(charcode);
         return 1;
       }
-      str[0] = (uint8_t)(charcode >> 8);
-      str[1] = (uint8_t)charcode;
+      str[0] = static_cast<char>(charcode >> 8);
+      str[1] = static_cast<char>(charcode);
       return 2;
     case MixedFourBytes:
       if (charcode < 0x100) {
-        int iSize =
-            GetFourByteCharSizeImpl(charcode, m_MixedFourByteLeadingRanges);
+        int iSize = static_cast<int>(
+            GetFourByteCharSizeImpl(charcode, m_MixedFourByteLeadingRanges));
         if (iSize == 0)
           iSize = 1;
-        str[iSize - 1] = (uint8_t)charcode;
+        str[iSize - 1] = static_cast<char>(charcode);
         if (iSize > 1)
           memset(str, 0, iSize - 1);
         return iSize;
       }
       if (charcode < 0x10000) {
-        str[0] = (uint8_t)(charcode >> 8);
-        str[1] = (uint8_t)charcode;
+        str[0] = static_cast<char>(charcode >> 8);
+        str[1] = static_cast<char>(charcode);
         return 2;
       }
       if (charcode < 0x1000000) {
-        str[0] = (uint8_t)(charcode >> 16);
-        str[1] = (uint8_t)(charcode >> 8);
-        str[2] = (uint8_t)charcode;
+        str[0] = static_cast<char>(charcode >> 16);
+        str[1] = static_cast<char>(charcode >> 8);
+        str[2] = static_cast<char>(charcode);
         return 3;
       }
-      str[0] = (uint8_t)(charcode >> 24);
-      str[1] = (uint8_t)(charcode >> 16);
-      str[2] = (uint8_t)(charcode >> 8);
-      str[3] = (uint8_t)charcode;
+      str[0] = static_cast<char>(charcode >> 24);
+      str[1] = static_cast<char>(charcode >> 16);
+      str[2] = static_cast<char>(charcode >> 8);
+      str[3] = static_cast<char>(charcode);
       return 4;
   }
   return 0;

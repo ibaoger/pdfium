@@ -1026,6 +1026,7 @@ bool Document::documentFileName(CJS_Runtime* pRuntime,
   } else {
     vp << L"";
   }
+
   return true;
 }
 
