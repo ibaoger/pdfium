@@ -22,6 +22,30 @@
       "revId": "b30ad533abd0516bf8a467d2b500b8ec9799d672",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d977d3f8_3d4cba28",
+        "filename": "fpdfsdk/pwl/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-08-31T18:24:16Z",
+      "side": 1,
+      "message": "Done. It should look like the same as the above tests, since the insert handling Foo\\n then \\r, so \"Foo\" + \"\".\n\nI realized when looking at this, the tests should also cover what happens if the control characters occur in the middle of the string, so I have added those cases.",
+      "parentUuid": "ad75adb8_57b7f2c0",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 48
+      },
+      "revId": "b30ad533abd0516bf8a467d2b500b8ec9799d672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
