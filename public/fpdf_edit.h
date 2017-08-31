@@ -382,10 +382,11 @@ FPDFImageObj_GetImageFilterCount(FPDF_PAGEOBJECT image_object);
 // filters need to be applied in order, i.e. the first filter should be applied
 // first, then the second, etc. |buffer| is only modified if |buflen| is longer
 // than the length of the filter string.
+// |buffer| is generally ASCII, but may have other encodings like UTF-8.
 //
 //   image_object - handle to an image object.
 //   index        - the index of the filter requested.
-//   buffer       - buffer for holding filter string, encoded in UTF16-LE.
+//   buffer       - buffer for holding filter string.
 //   buflen       - length of the buffer.
 //
 // Returns the length of the filter string.
