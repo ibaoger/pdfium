@@ -1,0 +1,18 @@
+# Open the dropdown to make sure it displays correctly.
+# Mouse in, mouse out.
+mousemove,125,225
+mousemove,125,100
+# Mouse in, click in field.
+mousemove,125,225
+mousedown,left,125,225
+mouseup,left,125,225
+# Mouse out, click elsewhere.
+mousemove,125,100
+mousedown,left,125,100
+mouseup,left,125,100
+# Mouse in, focus.
+mousemove,125,225
+focus,125,225
+# Mouse out, unfocus.
+mousemove,125,100
+focus,125,100
