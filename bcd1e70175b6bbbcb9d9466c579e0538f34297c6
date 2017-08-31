@@ -16,6 +16,24 @@
       "revId": "bcd1e70175b6bbbcb9d9466c579e0538f34297c6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adc40901_2ea293a9",
+        "filename": "core/fxcrt/fx_basic_gcc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T18:52:35Z",
+      "side": 0,
+      "message": "As long as they are extern \"C\" in the header, and the header is included in this file, then all is well.  In particular, it\u0027s dangerous to do this in the .cpp file, since if it is *not* also done in the header, the callers won\u0027t agree on the calling/naming convention implemented here.",
+      "parentUuid": "a1002539_cbab61e4",
+      "revId": "bcd1e70175b6bbbcb9d9466c579e0538f34297c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
