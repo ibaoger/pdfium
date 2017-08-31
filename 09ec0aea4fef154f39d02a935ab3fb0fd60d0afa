@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c916985e_c3c4cef2",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T20:57:20Z",
+      "side": 1,
+      "message": "again, the same pattern might apply here ...",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 44
+      },
+      "revId": "09ec0aea4fef154f39d02a935ab3fb0fd60d0afa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
