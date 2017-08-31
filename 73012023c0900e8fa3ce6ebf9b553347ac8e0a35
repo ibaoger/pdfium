@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7583845_e4e939f0",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:47:10Z",
+      "side": 1,
+      "message": "No. We parse document before user request it, to detect read problems, and request additional data by DownloadHints. \nBut if it is parsed (in CPDF_DataAvail::IsDocAvail), we should store it, to return it to user when he request it, without reparsing.",
+      "parentUuid": "d5ab92d0_5a30839b",
+      "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d91d1f8d_e6f04d7c",
         "filename": "fpdfsdk/fpdf_dataavail.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1b26eb4_5cd324b7",
+        "filename": "fpdfsdk/fpdf_dataavail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:47:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91d1f8d_e6f04d7c",
+      "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
