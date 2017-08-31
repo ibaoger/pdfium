@@ -34,10 +34,23 @@ int Buffer_itoa(char* buf, int i, uint32_t flags) {
   }
   char buf1[32];
   int buf_pos = 31;
-  uint32_t u = i;
-  if ((flags & FXFORMAT_SIGNED) && i < 0) {
-    u = -i;
-  }
+
+  // Taking the absolute value of a signed int and putting it into an unsigned
+  // int with "u = i < 0 ? -i : i" works for all values but one: INT_MIN.
+  // -INT_MIN overflows since the result would be INT_MAX + 1.
+  //
+  // To avoid this, we use "u = i < 0 ? -static_cast<unsigned int>(i) : i".
+  //
+  // Casting a negative signed to an unsigned guarantees the result is "the
+  // smallest unsigned value equal to the source value modulo 2^n, where n is
+  // the number of bits used to represent the destination type".
+  // Then, the unary minus on an unsigned falls under "a result that cannot be
+  // represented by the resulting unsigned integer type is reduced modulo the
+  // number that is one greater than the largest value that can be represented
+  // by the resulting type".
+  unsigned int u =
+      (flags & FXFORMAT_SIGNED) && i < 0 ? -static_cast<unsigned int>(i) : i;
+
   int base = 10;
   const char* str = "0123456789abcdef";
   if (flags & FXFORMAT_HEX) {

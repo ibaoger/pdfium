@@ -1511,3 +1511,32 @@ TEST(fxcrt, OStreamByteStringCOverload) {
     EXPECT_EQ("abcdef", stream.str());
   }
 }
+
+TEST(fxcrt, ByteStringFormatInteger) {
+  // Base case of 0.
+  EXPECT_EQ("0", CFX_ByteString::FormatInteger(0));
+  EXPECT_EQ("0", CFX_ByteString::FormatInteger(0, FXFORMAT_SIGNED));
+  EXPECT_EQ("0", CFX_ByteString::FormatInteger(0, FXFORMAT_HEX));
+
+  // Positive ordinary number.
+  EXPECT_EQ("123456", CFX_ByteString::FormatInteger(123456));
+  EXPECT_EQ("123456", CFX_ByteString::FormatInteger(123456, FXFORMAT_SIGNED));
+  EXPECT_EQ("123456", CFX_ByteString::FormatInteger(123456, FXFORMAT_CAPITAL));
+  EXPECT_EQ("1e240", CFX_ByteString::FormatInteger(123456, FXFORMAT_HEX));
+  EXPECT_EQ("1E240", CFX_ByteString::FormatInteger(
+                         123456, FXFORMAT_HEX | FXFORMAT_CAPITAL));
+
+  // Negative ordinary number.
+  EXPECT_EQ("-123456", CFX_ByteString::FormatInteger(-123456, FXFORMAT_SIGNED));
+  EXPECT_EQ("-1e240", CFX_ByteString::FormatInteger(
+                          -123456, FXFORMAT_SIGNED | FXFORMAT_HEX));
+
+  // int limits.
+  EXPECT_EQ("2147483647", CFX_ByteString::FormatInteger(INT_MAX));
+  EXPECT_EQ("7fffffff", CFX_ByteString::FormatInteger(INT_MAX, FXFORMAT_HEX));
+
+  EXPECT_EQ("-2147483648",
+            CFX_ByteString::FormatInteger(INT_MIN, FXFORMAT_SIGNED));
+  EXPECT_EQ("-80000000", CFX_ByteString::FormatInteger(
+                             INT_MIN, FXFORMAT_SIGNED | FXFORMAT_HEX));
+}
