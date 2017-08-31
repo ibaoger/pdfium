@@ -172,11 +172,7 @@ class CFX_ByteString {
 
   uint32_t GetID() const { return AsStringC().GetID(); }
 
-#define FXFORMAT_SIGNED 1
-#define FXFORMAT_HEX 2
-#define FXFORMAT_CAPITAL 4
-
-  static CFX_ByteString FormatInteger(int i, uint32_t flags = 0);
+  static CFX_ByteString FormatInteger(int i);
   static CFX_ByteString FormatFloat(float f, int precision = 0);
 
  protected:
