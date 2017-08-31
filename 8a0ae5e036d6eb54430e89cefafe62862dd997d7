@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9898fdb2_f61063b0",
+        "filename": "core/fxcrt/cfx_retain_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T15:27:58Z",
+      "side": 1,
+      "message": "This was, ultimately, fixed another way but I think this struct makes sense here as it\u0027s only used with the RetainPtr.",
+      "revId": "8a0ae5e036d6eb54430e89cefafe62862dd997d7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
