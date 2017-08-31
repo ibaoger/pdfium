@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aae10c7e_264da11a",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "Have we checked all the callers that none allow this to be a kInvalidObjNum? Now they won\u0027t be able to get the object back out.",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a340f9a7_4f45b516",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "How does this happen?",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f16e2d75_7b9f1b1b",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "I think this was clearer the original way instead of using the auto\u0026",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7de1dcd1_922d376c",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d893282d_d363a491",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "Can this happen in practice?",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "267dde0b_162c8ede",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:10:12Z",
+      "side": 1,
+      "message": "Can we add some tests here for the other methods and things like Filtering invalid obj nums?",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
