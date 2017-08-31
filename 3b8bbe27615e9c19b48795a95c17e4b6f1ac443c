@@ -22,6 +22,30 @@
       "revId": "3b8bbe27615e9c19b48795a95c17e4b6f1ac443c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f902d291_37a57a73",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T21:48:30Z",
+      "side": 1,
+      "message": "snprintf() is preferred.",
+      "parentUuid": "82ab9294_c8d5f55c",
+      "range": {
+        "startLine": 477,
+        "startChar": 35,
+        "endLine": 477,
+        "endChar": 0
+      },
+      "revId": "3b8bbe27615e9c19b48795a95c17e4b6f1ac443c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
