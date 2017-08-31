@@ -18,7 +18,6 @@
 #include <vector>
 
 #include "core/fpdfapi/parser/cpdf_indirect_object_holder.h"
-#include "core/fxcrt/fx_basic.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace {
