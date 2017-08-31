@@ -23,12 +23,6 @@ CPDF_Array::CPDF_Array(const CFX_WeakPtr<CFX_ByteStringPool>& pPool)
     : m_pPool(pPool) {}
 
 CPDF_Array::~CPDF_Array() {
-  // Break cycles for cyclic references.
-  m_ObjNum = kInvalidObjNum;
-  for (auto& it : m_Objects) {
-    if (it && it->GetObjNum() == kInvalidObjNum)
-      it.release();
-  }
 }
 
 CPDF_Object::Type CPDF_Array::GetType() const {
@@ -165,7 +159,7 @@ void CPDF_Array::ConvertToIndirectObjectAt(size_t i,
 
 CPDF_Object* CPDF_Array::SetAt(size_t i, std::unique_ptr<CPDF_Object> pObj) {
   ASSERT(IsArray());
-  ASSERT(!pObj || pObj->IsInline());
+  CHECK(pObj && pObj->IsInline() && pObj.get() != this);
   if (i >= m_Objects.size()) {
     NOTREACHED();
     return nullptr;
@@ -178,7 +172,7 @@ CPDF_Object* CPDF_Array::SetAt(size_t i, std::unique_ptr<CPDF_Object> pObj) {
 CPDF_Object* CPDF_Array::InsertAt(size_t index,
                                   std::unique_ptr<CPDF_Object> pObj) {
   ASSERT(IsArray());
-  CHECK(!pObj || pObj->IsInline());
+  CHECK(pObj && pObj->IsInline() && pObj.get() != this);
   CPDF_Object* pRet = pObj.get();
   if (index >= m_Objects.size()) {
     // Allocate space first.
@@ -193,7 +187,7 @@ CPDF_Object* CPDF_Array::InsertAt(size_t index,
 
 CPDF_Object* CPDF_Array::Add(std::unique_ptr<CPDF_Object> pObj) {
   ASSERT(IsArray());
-  CHECK(!pObj || pObj->IsInline());
+  CHECK(pObj && pObj->IsInline() && pObj.get() != this);
   CPDF_Object* pRet = pObj.get();
   m_Objects.push_back(std::move(pObj));
   return pRet;

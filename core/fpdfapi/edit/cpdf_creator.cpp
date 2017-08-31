@@ -385,14 +385,13 @@ void CPDF_Creator::InitOldObjNumOffsets() {
 void CPDF_Creator::InitNewObjNumOffsets() {
   for (const auto& pair : *m_pDocument) {
     const uint32_t objnum = pair.first;
-    if (IsIncremental() ||
-        pair.second->GetObjNum() == CPDF_Object::kInvalidObjNum) {
+    if (IsIncremental())
       continue;
-    }
+
     if (m_pParser && m_pParser->IsValidObjectNumber(objnum) &&
-        m_pParser->GetObjectType(objnum) != CPDF_Parser::ObjectType::kFree) {
+        m_pParser->GetObjectType(objnum) != CPDF_Parser::ObjectType::kFree)
       continue;
-    }
+
     m_NewObjNumArray.insert(std::lower_bound(m_NewObjNumArray.begin(),
                                              m_NewObjNumArray.end(), objnum),
                             objnum);

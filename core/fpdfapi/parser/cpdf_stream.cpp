@@ -24,9 +24,6 @@ CPDF_Stream::CPDF_Stream(std::unique_ptr<uint8_t, FxFreeDeleter> pData,
     : m_dwSize(size), m_pDict(std::move(pDict)), m_pDataBuf(std::move(pData)) {}
 
 CPDF_Stream::~CPDF_Stream() {
-  m_ObjNum = kInvalidObjNum;
-  if (m_pDict && m_pDict->GetObjNum() == kInvalidObjNum)
-    m_pDict.release();  // lowercase release, release ownership.
 }
 
 CPDF_Object::Type CPDF_Stream::GetType() const {

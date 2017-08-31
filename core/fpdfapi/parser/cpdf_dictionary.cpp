@@ -27,13 +27,6 @@ CPDF_Dictionary::CPDF_Dictionary(const CFX_WeakPtr<CFX_ByteStringPool>& pPool)
     : m_pPool(pPool) {}
 
 CPDF_Dictionary::~CPDF_Dictionary() {
-  // Mark the object as deleted so that it will not be deleted again,
-  // and break cyclic references.
-  m_ObjNum = kInvalidObjNum;
-  for (auto& it : m_Map) {
-    if (it.second && it.second->GetObjNum() == kInvalidObjNum)
-      it.second.release();
-  }
 }
 
 CPDF_Object::Type CPDF_Dictionary::GetType() const {
@@ -180,7 +173,7 @@ CPDF_Object* CPDF_Dictionary::SetFor(const CFX_ByteString& key,
     m_Map.erase(key);
     return nullptr;
   }
-  ASSERT(pObj->IsInline());
+  CHECK(pObj->IsInline() && pObj.get() != this);
   CPDF_Object* pRet = pObj.get();
   m_Map[MaybeIntern(key)] = std::move(pObj);
   return pRet;

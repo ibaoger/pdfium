@@ -405,9 +405,7 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectInternal(
     if (bIsNumber) {
       CFX_ByteString nextword2 = GetNextWord(nullptr);
       if (nextword2 == "R") {
-        uint32_t refnum = FXSYS_atoui(word.c_str());
-        if (refnum == CPDF_Object::kInvalidObjNum)
-          return nullptr;
+        const uint32_t refnum = FXSYS_atoui(word.c_str());
         return pdfium::MakeUnique<CPDF_Reference>(pObjList, refnum);
       }
     }

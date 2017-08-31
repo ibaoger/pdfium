@@ -34,7 +34,7 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
 
   CPDF_Object* pObj = GetIndirectObject(objnum);
   if (pObj)
-    return pObj->GetObjNum() != CPDF_Object::kInvalidObjNum ? pObj : nullptr;
+    return pObj;
 
   std::unique_ptr<CPDF_Object> pNewObj = ParseIndirectObject(objnum);
   if (!pNewObj)
@@ -83,9 +83,5 @@ bool CPDF_IndirectObjectHolder::ReplaceIndirectObjectIfHigherGeneration(
 }
 
 void CPDF_IndirectObjectHolder::DeleteIndirectObject(uint32_t objnum) {
-  CPDF_Object* pObj = GetIndirectObject(objnum);
-  if (!pObj || pObj->GetObjNum() == CPDF_Object::kInvalidObjNum)
-    return;
-
   m_IndirectObjs.erase(objnum);
 }
