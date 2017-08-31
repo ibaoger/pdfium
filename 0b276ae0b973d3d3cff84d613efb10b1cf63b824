@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c3501c1_2f29fe83",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-08-31T16:07:31Z",
+      "side": 1,
+      "message": "This needs to prevent performance degradation. In case when we use LookupNextWord.\n\nExample:\n\nif (LookupNextWord(nullptr) \u003d\u003d \"trailer\") \n  trailer \u003d ParseTrailer().",
+      "revId": "0b276ae0b973d3d3cff84d613efb10b1cf63b824",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
