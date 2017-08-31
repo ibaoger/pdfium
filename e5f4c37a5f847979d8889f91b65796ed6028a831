@@ -46,6 +46,29 @@
       "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e65af95_7272f7e3",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T19:28:05Z",
+      "side": 1,
+      "message": "nit:  Seems pointless.  We\u0027re about to destroy the string anyways, and this doesn\u0027t adjust length.",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
