@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1504140305 -0700\nnonce AJMiPPdb1i9c6ycgDReUy62HGZd7Jgj7yd8C46tQNJp5kDFPmOvlpHHzDJwWf4F3jgGF89VQZLf9\n\n0000000000000000000000000000000000000000 ff014061399715237db5b3bdb6d7d9f855916eaf refs/for/refs/heads/master%wip,m\u003dInitial_upload\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZp1wRAAoJEKs2LWFaZv17FCQH/RqHFi9SY2kJIdMNFUbWtWCN\nz9kVQlXg9urxrAcPXV12csk+0gibAwVDrgPEW4wsajiJrBbqWueI8fXpKz0JA8Fh\nyLtbJ72hlFUEBvvqWoIF7dBsKuYG1O7Zose8SHmYfFPMs7h4JyrMd7+6haPnm7p+\n9G6xcBylo5BEffWxwLceiNr/XZsv+F1S5gDZQTXJApItUqKhifCZfnLuyem8IVor\nSGdr41NvviwFGJpmB9gVmZmkMqNFR/v7BgzlYHTNDN3G7G9Uo2oLRXREGsvxu4xs\nmWDtjKXFRrs6RKKGUhqJ3aJ7r/8J3CIpTdpdlDWnISmYekteAW9LhIRTKKXCFFk\u003d\n\u003dL4pX\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e400b63_e83752b2",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 6000
+      },
+      "writtenOn": "2017-08-31T17:15:03Z",
+      "side": 1,
+      "message": "Will this be simpler?\nif (!xrefpos || !m_SeenPrevPositions.insert(xrefpos).second)",
+      "range": {
+        "startLine": 953,
+        "startChar": 6,
+        "endLine": 953,
+        "endChar": 14
+      },
+      "revId": "ff014061399715237db5b3bdb6d7d9f855916eaf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
