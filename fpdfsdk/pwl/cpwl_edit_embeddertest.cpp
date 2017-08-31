@@ -255,6 +255,37 @@ TEST_F(CPWLEditEmbeddertest,
   EXPECT_STREQ(L"Hello", GetCPWLEdit()->GetText().c_str());
 }
 
+TEST_F(CPWLEditEmbeddertest, InsertTextWithCarriageFeedAndReplaceSelection) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnot());
+  TypeTextIntoTextField(10);
+
+  GetCPWLEdit()->SetSelection(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJ", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->ReplaceSelection(L"Hello\r");
+  EXPECT_STREQ(L"Hello", GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest, InsertTextWithNewlineAndReplaceSelection) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnot());
+  TypeTextIntoTextField(10);
+
+  GetCPWLEdit()->SetSelection(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJ", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->ReplaceSelection(L"Hello\n");
+  EXPECT_STREQ(L"Hello", GetCPWLEdit()->GetText().c_str());
+}
+
+TEST_F(CPWLEditEmbeddertest,
+       InsertTextWithCarriageFeedNewlineAndReplaceSelection) {
+  FormFillerAndWindowSetup(GetCPDFSDKAnnot());
+  TypeTextIntoTextField(10);
+
+  GetCPWLEdit()->SetSelection(0, -1);
+  EXPECT_STREQ(L"ABCDEFGHIJ", GetCPWLEdit()->GetSelectedText().c_str());
+  GetCPWLEdit()->ReplaceSelection(L"Hello\r\n");
+  EXPECT_STREQ(L"Hello", GetCPWLEdit()->GetText().c_str());
+}
+
 TEST_F(CPWLEditEmbeddertest,
        InsertTextAndReplaceSelectionInPopulatedTextFieldLeft) {
   FormFillerAndWindowSetup(GetCPDFSDKAnnot());
