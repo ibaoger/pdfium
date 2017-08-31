@@ -944,6 +944,12 @@ bool CPDF_DataAvail::CheckTrailer() {
   }
 
   uint32_t xrefpos = GetDirectInteger(pTrailerDict, "Prev");
+  if (xrefpos) {
+    // Prevent infinite-looping between Prev entries.
+    bool inserted = m_SeenPrevPositions.insert(xrefpos).second;
+    if (!inserted)
+      xrefpos = 0;
+  }
   if (!xrefpos) {
     m_dwPrevXRefOffset = 0;
     m_docStatus = PDF_DATAAVAIL_LOADALLCROSSREF;
