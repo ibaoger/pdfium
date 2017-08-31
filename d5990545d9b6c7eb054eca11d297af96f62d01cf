@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f26c9965_bb8d54b1",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T20:52:01Z",
+      "side": 1,
+      "message": "actually, we need the {} since the loop body isn\u0027t a single line.",
+      "range": {
+        "startLine": 1020,
+        "startChar": 20,
+        "endLine": 1020,
+        "endChar": 0
+      },
+      "revId": "d5990545d9b6c7eb054eca11d297af96f62d01cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad49722_aa68ba8c",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T20:52:01Z",
+      "side": 1,
+      "message": "nit: but we can lose the {} here.",
+      "range": {
+        "startLine": 1024,
+        "startChar": 1,
+        "endLine": 1024,
+        "endChar": 2
+      },
+      "revId": "d5990545d9b6c7eb054eca11d297af96f62d01cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "697a58fc_49e5e893",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T20:52:01Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is still correct.  The old code treats the rightmost digit as \"odd\", this treats the leftmost digit is odd.  They might not be the same given an even length string (please check my reasoning).\n\nGenerally, the pattern of \n  for (i \u003d length; i \u003e 0; --i)\nin the loop construct and the use of\n  contents.mid(i - 1, 1)\nin the body is the way to go for these kinds of backwards loops.",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "d5990545d9b6c7eb054eca11d297af96f62d01cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
