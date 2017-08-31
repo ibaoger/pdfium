@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "27f124e9_1ff7cb63",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:17:24Z",
+      "side": 1,
+      "message": "If we can\u0027t add them, why do we need the Filter as they should never be in the set?",
+      "parentUuid": "cc6b1acd_fd34cc02",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a340f9a7_4f45b516",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
         "patchSetId": 2
@@ -69,6 +87,24 @@
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "717bcae0_d067bcc0",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:17:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57b0bada_8b9038d9",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
