@@ -49,6 +49,75 @@
     },
     {
       "key": {
+        "uuid": "92a8a6b3_ef0ba21d",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T19:33:09Z",
+      "side": 1,
+      "message": "Maybe ASSERT that string length \u003c\u003d 0 count.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 16
+      },
+      "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55049ffd_2c4fc6fe",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T19:33:09Z",
+      "side": 1,
+      "message": "nit:  maybe add a comment that UFT16LE_Encode doesn\u0027t handle surrogate pairs properly, so we expect the number of items to stay the same.",
+      "range": {
+        "startLine": 173,
+        "startChar": 34,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79fbf62d_82e2b2b2",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T19:33:09Z",
+      "side": 1,
+      "message": "maybe assert cbUTF16str.GetLength() / sizeof(unsigned short) \u003c\u003d count",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 8
+      },
+      "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e65af95_7272f7e3",
         "filename": "fpdfsdk/fpdftext.cpp",
         "patchSetId": 1
