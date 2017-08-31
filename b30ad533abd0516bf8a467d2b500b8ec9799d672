@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad75adb8_57b7f2c0",
+        "filename": "fpdfsdk/pwl/cpwl_edit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T17:50:40Z",
+      "side": 1,
+      "message": "can we get a test where \\n\\r occurs (i.e. in the wrong order)? What should happen then?  Two line breaks?",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 48
+      },
+      "revId": "b30ad533abd0516bf8a467d2b500b8ec9799d672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
