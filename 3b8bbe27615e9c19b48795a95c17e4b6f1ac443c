@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "336c1662_963db2da",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-08-31T22:01:31Z",
+      "side": 1,
+      "message": "I thought there were a bunch of callers that omitted the flags, and got unsigned behaviour.  If so, we can just use %u when the flag is present",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 52
+      },
+      "revId": "3b8bbe27615e9c19b48795a95c17e4b6f1ac443c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82ab9294_c8d5f55c",
         "filename": "core/fxcrt/cfx_bytestring.cpp",
         "patchSetId": 6
