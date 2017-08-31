@@ -211,6 +211,18 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::IsDocAvail(
       return DataNotAvailable;
   }
 
+  if (!m_pDocument) {
+    const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+    auto error = ParseDocumentInternal(nullptr);
+    if (GetValidator()->has_read_problems()) {
+      ASSERT(!GetValidator()->IsWholeFileAvailable());
+      GetValidator()->ScheduleDownloadWholeFile();
+      return DataNotAvailable;
+    }
+    if (error != CPDF_Parser::SUCCESS && error != CPDF_Parser::PASSWORD_ERROR)
+      return DataError;
+  }
+
   return DataAvailable;
 }
 
@@ -1464,7 +1476,7 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
     m_syntaxParser.InitParser(
         m_pFileRead, pdfium::base::checked_cast<uint32_t>(szPageStartPos));
     m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
-        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument));
+        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument.Get()));
   }
   if (!ValidatePage(index))
     return nullptr;
@@ -1515,7 +1527,8 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
   CPDF_Dictionary* pPageDict = m_pDocument->GetPage(safePage.ValueOrDie());
   if (!pPageDict)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pPageDict);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pPageDict);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 
@@ -1526,8 +1539,49 @@ bool CPDF_DataAvail::ValidateForm() {
   CPDF_Object* pAcroForm = pRoot->GetObjectFor("AcroForm");
   if (!pAcroForm)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pAcroForm);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pAcroForm);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
+}
+
+std::pair<CPDF_Parser::Error, std::unique_ptr<CPDF_Document>>
+CPDF_DataAvail::ParseDocument(const char* password) {
+  std::pair<CPDF_Parser::Error, std::unique_ptr<CPDF_Document>> result;
+  if (!m_pDocument)
+    result.first = ParseDocumentInternal(password);
+
+  if (!m_pDocument)
+    return result;
+
+  if (m_pDocument.IsOwned()) {
+    result.second = m_pDocument.Release();
+    m_pDocument.Reset(result.second.get());
+    result.first = CPDF_Parser::SUCCESS;
+    return result;
+  }
+
+  // We already returned parsed document.
+  result.first = CPDF_Parser::HANDLER_ERROR;
+  return result;
+}
+
+CPDF_Parser::Error CPDF_DataAvail::ParseDocumentInternal(const char* password) {
+  auto parser = pdfium::MakeUnique<CPDF_Parser>();
+  parser->SetPassword(password);
+  auto document = pdfium::MakeUnique<CPDF_Document>(std::move(parser));
+
+  CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  CPDF_Parser::Error error = document->GetParser()->StartLinearizedParse(
+      GetFileRead(), document.get());
+
+  // Additional check, that all ok.
+  if (GetValidator()->has_read_problems())
+    return CPDF_Parser::HANDLER_ERROR;
+
+  if (error == CPDF_Parser::SUCCESS)
+    m_pDocument.Reset(std::move(document));
+
+  return error;
 }
 
 CPDF_DataAvail::PageNode::PageNode() : m_type(PDF_PAGENODE_UNKNOWN) {}
