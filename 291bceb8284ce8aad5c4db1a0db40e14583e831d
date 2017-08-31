@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc3a0f5c_5aecab0d",
+        "filename": "fpdfsdk/pwl/cpwl_edit_impl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1849,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T17:29:14Z",
+      "side": 1,
+      "message": "\"i + 1 \u003c sz\" conveys better it\u0027s a protection for the next statement.",
+      "range": {
+        "startLine": 1849,
+        "startChar": 14,
+        "endLine": 1849,
+        "endChar": 24
+      },
+      "revId": "291bceb8284ce8aad5c4db1a0db40e14583e831d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
