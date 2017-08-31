@@ -21,6 +21,16 @@
 #include "xfa/fgas/font/cfgas_gefont.h"
 #include "xfa/fgas/font/fgas_fontutils.h"
 
+namespace {
+
+#if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+constexpr wchar_t kFolderSeparator = L'\\';
+#else   // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+constexpr wchar_t kFolderSeparator = L'/';
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+
+}  // namespace
+
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
 namespace {
@@ -640,7 +650,7 @@ CFX_ByteString CFX_FontSourceEnum_File::GetNextFile() {
   CFX_ByteString bsName;
   bool bFolder;
   CFX_ByteString bsFolderSeparator =
-      CFX_ByteString::FromUnicode(CFX_WideString(FX_GetFolderSeparator()));
+      CFX_ByteString::FromUnicode(CFX_WideString(kFolderSeparator));
   while (true) {
     if (!FX_GetNextFile(pCurHandle, &bsName, &bFolder)) {
       FX_CloseFolder(pCurHandle);
