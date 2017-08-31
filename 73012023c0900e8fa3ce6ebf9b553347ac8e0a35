@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5ab92d0_5a30839b",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:24:32Z",
+      "side": 1,
+      "message": "Can we make m_pDocument a UnownedPtr and then do something like:\n\nstd::pair... ParseDocument(const char* password) {\n  if (m_pDocument)\n    return {CPDF_Parser::HANDLER_ERROR, nullptr}\n\n  auto parser \u003d pdfium::MakeUnique\u003cCPDF_Parser\u003e();\n  parser-\u003eSetPassword(password);\n\n  auto document \u003d pdfium::MakeUnique\u003cCPDF_Document\u003e(std::move(parser));\n\n  CPDF_ReadValidator::Session read_session(GetValidator().Get());\n  CPDF_Parser::Error error \u003d document-\u003eGetParser()-\u003eStartLinearizedParse(\n      GetFileRead(), document.get());\n  // Additional check, that all ok.\n  if (GetValidator()-\u003ehas_read_problems())\n    return {CPDF_Parser::HANDLER_ERROR, nullptr};\n\n  if (error \u003d\u003d CPDF_Parser::SUCCESS)\n    m_pDocument \u003d document.get();\n  return {error, document};\n}",
+      "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d91d1f8d_e6f04d7c",
+        "filename": "fpdfsdk/fpdf_dataavail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T16:24:32Z",
+      "side": 1,
+      "message": "CPDF_Parser::Error error;\nstd::unique_ptr\u003cCPDF_Document\u003e doc;\nstd::tie(err, doc) \u003d pDataAvail-\u003em_pDataAvail-\u003eParseDocument(password);",
+      "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
