@@ -34,7 +34,8 @@ class CPDF_AAction {
     SaveDocument,
     DocumentSaved,
     PrintDocument,
-    DocumentPrinted
+    DocumentPrinted,
+    LastDoNotUse = DocumentPrinted
   };
 
   CPDF_AAction();
