@@ -162,7 +162,7 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE text_page,
                                                int start,
                                                int count,
                                                unsigned short* result) {
-  if (!text_page)
+  if (start < 0 || count < 1 || !result || !text_page)
     return 0;
 
   CPDF_TextPage* textpage = CPDFTextPageFromFPDFTextPage(text_page);
@@ -170,9 +170,6 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE text_page,
     return 0;
 
   CFX_WideString str = textpage->GetPageText(start, count);
-  if (str.GetLength() > count)
-    str = str.Left(count);
-
   CFX_ByteString cbUTF16str = str.UTF16LE_Encode();
   memcpy(result, cbUTF16str.GetBuffer(cbUTF16str.GetLength()),
          cbUTF16str.GetLength());
