@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5f5eda6_5716edf7",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:24:04Z",
+      "side": 1,
+      "message": "Can we convert this to CPDF_SyntaxParser::ParseType so we don\u0027t have to do the check below?",
+      "revId": "54219652d75b2e92934b57cc3560f239bb1b12d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f90cb011_032cd5f5",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-08-31T19:24:04Z",
+      "side": 1,
+      "message": "Just inline this above?",
+      "revId": "54219652d75b2e92934b57cc3560f239bb1b12d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
