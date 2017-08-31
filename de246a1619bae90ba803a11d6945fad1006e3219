@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72480e97_1392d436",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-08-31T20:19:04Z",
+      "side": 1,
+      "message": "Makes sense, I\u0027ll try with ostringstream and see if performance is not affected too much.",
+      "parentUuid": "fc9a9f73_3d6427e4",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 51
+      },
+      "revId": "de246a1619bae90ba803a11d6945fad1006e3219",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc7d93f7_ba4a80db",
         "filename": "core/fxcrt/cfx_bytestring.cpp",
         "patchSetId": 2
