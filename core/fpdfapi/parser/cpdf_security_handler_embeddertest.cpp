@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include <time.h>
+
 #include <string>
 
 #include "core/fxcrt/fx_system.h"
@@ -99,4 +101,32 @@ TEST_F(CPDFSecurityHandlerEmbeddertest, OwnerPasswordVersion5) {
 TEST_F(CPDFSecurityHandlerEmbeddertest, UserPasswordVersion5) {
   ASSERT_TRUE(OpenDocument("bug_644.pdf", "b"));
   EXPECT_EQ(0xFFFFFFFC, FPDF_GetDocPermissions(document()));
+}
+
+TEST_F(CPDFSecurityHandlerEmbeddertest, LoadTest) {
+  for (int i = 0; i < 10; ++i) {
+    FPDF_DOCUMENT document = FPDF_LoadDocument("original.pdf", NULL);
+    ASSERT_TRUE(document);
+    const int page_count = FPDF_GetPageCount(document);
+    for (int page_index = 0; page_index < page_count; ++page_index) {
+      FPDF_PAGE page = FPDF_LoadPage(document, page_index);
+      FPDFBitmap_Destroy(RenderPage(page));
+      FPDF_ClosePage(page);
+    }
+    FPDF_CloseDocument(document);
+  }
+}
+
+TEST_F(CPDFSecurityHandlerEmbeddertest, LoadTestEnc) {
+  for (int i = 0; i < 10; ++i) {
+    FPDF_DOCUMENT document = FPDF_LoadDocument("encrypted.pdf", "5678");
+    ASSERT_TRUE(document);
+    const int page_count = FPDF_GetPageCount(document);
+    for (int page_index = 0; page_index < page_count; ++page_index) {
+      FPDF_PAGE page = FPDF_LoadPage(document, page_index);
+      FPDFBitmap_Destroy(RenderPage(page));
+      FPDF_ClosePage(page);
+    }
+    FPDF_CloseDocument(document);
+  }
 }
