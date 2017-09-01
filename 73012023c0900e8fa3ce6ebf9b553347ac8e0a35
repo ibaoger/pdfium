@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6fa45ea4_c48a62f5",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-01T13:46:49Z",
+      "side": 1,
+      "message": "Let compare my solution (with CFX_MayBeOwnedPtr) with this:\n\nThis is generic api call logic:\n\nDownloadHints hints;\nFPDF_AVAIL avail \u003d FPDFAvail_Create(...);\n// ...\nwhile(FPDFAvail_IsDocAvail(avail, hints) \u003d\u003d DataNotAvail) {\n// Download requested by hints data.\n}\n\ndocument \u003d FPDFAvail_GetDocument(avail);\n\nin my solution I parse the document on last call of FPDFAvail_IsDocAvail and temporary own it in \"CFX_MayBeOwnedPtr m_pDocument\".\nAnd if something wrong, i have chance to request whole file using \"hints\", and try parse again, when whole file will be available.\nAnd when all will be ok (or already ok), just unown the document on call FPDFAvail_GetDocument and return it.\n\nIn your solution i should parse document only in FPDFAvail_GetDocument to immediately return it to caller without owning,\nBut if something wrong, i have not already the \"hints\" at this point and have not chance to request additional data, which needs to parse.\nAs result i should return \"HANDLER_ERROR\". And we have got strange logic, that FPDFAvail_IsDocAvail returned DataAvail, but FPDFAvail_GetDocument returned HANDLER_ERROR. \nAnd the document will be not opened, but can be, if we load whole file.",
+      "parentUuid": "ece08045_cfcf2a99",
+      "revId": "73012023c0900e8fa3ce6ebf9b553347ac8e0a35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d91d1f8d_e6f04d7c",
         "filename": "fpdfsdk/fpdf_dataavail.cpp",
         "patchSetId": 2
