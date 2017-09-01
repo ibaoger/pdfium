@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4d77c9f0_e6e2c2a6",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-01T13:04:48Z",
+      "side": 1,
+      "message": "The object can change its owned objNum on destroy:\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_array.cpp?rcl\u003d980a3ea30872cef9ada360aa85e7c3573d7668b5\u0026l\u003d27\n\nI don\u0027t see cases yet, when it will affect on CPDF_IndirectObjectHolder, but for consistency with original code i store logic, related to kInvalidObjNum.",
+      "parentUuid": "27f124e9_1ff7cb63",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a340f9a7_4f45b516",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
         "patchSetId": 2
@@ -245,6 +263,24 @@
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e1245f1_eaf7af5c",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-01T13:04:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d0803e_2e64f75b",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
