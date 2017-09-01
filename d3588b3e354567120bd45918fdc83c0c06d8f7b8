@@ -22,6 +22,30 @@
       "revId": "d3588b3e354567120bd45918fdc83c0c06d8f7b8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d4985b_50bf5e8e",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-01T20:07:17Z",
+      "side": 1,
+      "message": "for 0 I guess ...",
+      "parentUuid": "2a3fe2c7_2b2dc69a",
+      "range": {
+        "startLine": 91,
+        "startChar": 37,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "d3588b3e354567120bd45918fdc83c0c06d8f7b8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
