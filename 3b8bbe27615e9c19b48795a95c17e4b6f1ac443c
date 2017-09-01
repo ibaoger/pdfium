@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56f5de72_2c7d4b07",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T14:35:05Z",
+      "side": 1,
+      "message": "All callers pass a signed integer to this. Unless they are doing weird things like using negative values meaning their representation in unsigned, the flag shouldn\u0027t be necessary.",
+      "parentUuid": "336c1662_963db2da",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 52
+      },
+      "revId": "3b8bbe27615e9c19b48795a95c17e4b6f1ac443c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82ab9294_c8d5f55c",
         "filename": "core/fxcrt/cfx_bytestring.cpp",
         "patchSetId": 6
