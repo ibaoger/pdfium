@@ -131,35 +131,18 @@ void CPDF_SyntaxParser::GetNextWordInternal(bool* bIsNumber) {
   }
   m_ParsedWordInfo.reset();
 
-  const FX_FILESIZE start_parse_pos = GetPos();
 
   m_WordSize = 0;
   if (bIsNumber)
     *bIsNumber = true;
 
+  const FX_FILESIZE start_parse_pos = GetPos();
+  ToNextWord();
+  const FX_FILESIZE start_word_pos = GetPos();
+
   uint8_t ch;
   if (!GetNextChar(ch))
     return;
-
-  while (1) {
-    while (PDFCharIsWhitespace(ch)) {
-      if (!GetNextChar(ch))
-        return;
-    }
-
-    if (ch != '%')
-      break;
-
-    while (1) {
-      if (!GetNextChar(ch))
-        return;
-      if (PDFCharIsLineEnding(ch))
-        break;
-    }
-  }
-
-  // We already read first char.
-  const FX_FILESIZE start_word_pos = GetPos() - 1;
 
   if (PDFCharIsDelimiter(ch)) {
     if (bIsNumber)
