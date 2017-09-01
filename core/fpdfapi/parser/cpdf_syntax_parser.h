@@ -12,6 +12,7 @@
 
 #include "core/fxcrt/cfx_string_pool_template.h"
 #include "core/fxcrt/cfx_weak_ptr.h"
+#include "third_party/base/optional.h"
 
 class CPDF_CryptoHandler;
 class CPDF_Dictionary;
@@ -57,6 +58,7 @@ class CPDF_SyntaxParser {
   bool ReadBlock(uint8_t* pBuf, uint32_t size);
   bool GetCharAt(FX_FILESIZE pos, uint8_t& ch);
   CFX_ByteString GetNextWord(bool* bIsNumber);
+  CFX_ByteString LookupNextWord(bool* bIsNumber);
 
   CFX_RetainPtr<IFX_SeekableReadStream> GetFileAccess() const;
 
@@ -115,6 +117,13 @@ class CPDF_SyntaxParser {
   CFX_RetainPtr<CPDF_CryptoHandler> m_pCryptoHandler;
   uint8_t m_WordBuffer[257];
   uint32_t m_WordSize;
+  struct ParsedWordInfo {
+    FX_FILESIZE start_parse_pos;
+    FX_FILESIZE start_word_pos;
+    FX_FILESIZE end_word_pos;
+    bool is_number;
+  };
+  pdfium::Optional<ParsedWordInfo> m_ParsedWordInfo;
   CFX_WeakPtr<CFX_ByteStringPool> m_pPool;
 };
 

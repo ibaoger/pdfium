@@ -155,3 +155,30 @@ TEST(cpdf_syntax_parser, GetInvalidReference) {
       parser.GetObject(nullptr, CPDF_Object::kInvalidObjNum, 0, false);
   EXPECT_FALSE(ref);
 }
+
+TEST(cpdf_syntax_parser, DoNotReparseJustParsedWord) {
+  CPDF_SyntaxParser parser;
+  uint8_t data[] = "    WORD ";
+  parser.InitParser(
+      pdfium::MakeRetain<CFX_MemoryStream>(data, sizeof(data), false), 0);
+  EXPECT_EQ("WORD", parser.LookupNextWord(nullptr));
+  // Trick: Just clear data to check, that word is not parsed again.
+  memset(data, 0, sizeof(data));
+  parser.SetPos(0);
+  EXPECT_EQ("WORD", parser.GetNextWord(nullptr));
+  // The Word parsing should ignore spaces.
+  parser.SetPos(3);
+  EXPECT_EQ("WORD", parser.GetNextWord(nullptr));
+}
+
+TEST(cpdf_syntax_parser, DoNotReparseJustLookupedWord) {
+  CPDF_SyntaxParser parser;
+  uint8_t data[] = "    WORD ";
+  parser.InitParser(
+      pdfium::MakeRetain<CFX_MemoryStream>(data, sizeof(data), false), 0);
+  EXPECT_EQ("WORD", parser.LookupNextWord(nullptr));
+  // Trick: Just clear data to check, that word is not parsed again.
+  memset(data, 0, sizeof(data));
+  EXPECT_EQ("WORD", parser.LookupNextWord(nullptr));
+  EXPECT_EQ("WORD", parser.GetNextWord(nullptr));
+}
