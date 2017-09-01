@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e0d9946_ddbbaeff",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T19:28:38Z",
+      "side": 1,
+      "message": "I was wrong here. If x is in [0, 9], 10 - x is in [1, 10], so this changes the checksums that give 0 as a result to giving 10.",
+      "range": {
+        "startLine": 91,
+        "startChar": 48,
+        "endLine": 91,
+        "endChar": 0
+      },
+      "revId": "7558414b8aa1d14ce02e360dd88e4f421cee8725",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
