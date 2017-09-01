@@ -870,7 +870,7 @@ bool CPDF_Parser::RebuildCrossRef() {
               m_pSyntax->SetPos(pos + i - m_pSyntax->m_HeaderOffset);
 
               std::unique_ptr<CPDF_Object> pObj =
-                  m_pSyntax->GetObjectBody(m_pDocument.Get(), 0, 0, false);
+                  m_pSyntax->GetObjectBody(m_pDocument.Get());
               if (pObj) {
                 if (pObj->IsDictionary() || pObj->AsStream()) {
                   CPDF_Stream* pStream = pObj->AsStream();
@@ -1232,7 +1232,7 @@ std::unique_ptr<CPDF_Object> CPDF_Parser::ParseIndirectObject(
     return nullptr;
 
   syntax.SetPos(offset + it->second);
-  return syntax.GetObjectBody(pObjList, 0, 0, false);
+  return syntax.GetObjectBody(pObjList);
 }
 
 CFX_RetainPtr<CPDF_StreamAcc> CPDF_Parser::GetObjectStream(uint32_t objnum) {
@@ -1295,7 +1295,7 @@ std::unique_ptr<CPDF_Dictionary> CPDF_Parser::LoadTrailerV4() {
   if (m_pSyntax->GetKeyword() != "trailer")
     return nullptr;
 
-  return ToDictionary(m_pSyntax->GetObjectBody(m_pDocument.Get(), 0, 0, false));
+  return ToDictionary(m_pSyntax->GetObjectBody(m_pDocument.Get()));
 }
 
 uint32_t CPDF_Parser::GetPermissions() const {
@@ -1316,23 +1316,23 @@ bool CPDF_Parser::ParseLinearizedHeader() {
 
   FX_FILESIZE SavedPos = m_pSyntax->GetPos();
   bool bIsNumber;
+  // Parse objnum.
   CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
   if (!bIsNumber)
     return false;
 
-  uint32_t objnum = FXSYS_atoui(word.c_str());
+  // Parse gennum.
   word = m_pSyntax->GetNextWord(&bIsNumber);
   if (!bIsNumber)
     return false;
 
-  uint32_t gennum = FXSYS_atoui(word.c_str());
   if (m_pSyntax->GetKeyword() != "obj") {
     m_pSyntax->SetPos(SavedPos);
     return false;
   }
 
-  m_pLinearized = CPDF_LinearizedHeader::CreateForObject(
-      m_pSyntax->GetObjectBody(nullptr, objnum, gennum, false));
+  m_pLinearized =
+      CPDF_LinearizedHeader::CreateForObject(m_pSyntax->GetObjectBody(nullptr));
   if (!m_pLinearized)
     return false;
 

@@ -40,16 +40,7 @@ class CPDF_SyntaxParser {
   void SetPos(FX_FILESIZE pos) { m_Pos = std::min(pos, m_FileLen); }
 
   std::unique_ptr<CPDF_Object> GetObjectBody(
-      CPDF_IndirectObjectHolder* pObjList,
-      uint32_t objnum,
-      uint32_t gennum,
-      bool bDecrypt);
-
-  std::unique_ptr<CPDF_Object> GetObjectBodyForStrict(
-      CPDF_IndirectObjectHolder* pObjList,
-      uint32_t objnum,
-      uint32_t gennum,
-      bool bDecrypt);
+      CPDF_IndirectObjectHolder* pObjList);
 
   std::unique_ptr<CPDF_Object> GetIndirectObject(
       CPDF_IndirectObjectHolder* pObjList,
@@ -95,9 +86,7 @@ class CPDF_SyntaxParser {
   CFX_ByteString ReadHexString();
   unsigned int ReadEOLMarkers(FX_FILESIZE pos);
   std::unique_ptr<CPDF_Stream> ReadStream(
-      std::unique_ptr<CPDF_Dictionary> pDict,
-      uint32_t objnum,
-      uint32_t gennum);
+      std::unique_ptr<CPDF_Dictionary> pDict);
 
   inline bool CheckPosition(FX_FILESIZE pos) {
     return m_BufOffset >= pos ||
@@ -106,9 +95,6 @@ class CPDF_SyntaxParser {
 
   std::unique_ptr<CPDF_Object> GetObjectBodyInternal(
       CPDF_IndirectObjectHolder* pObjList,
-      uint32_t objnum,
-      uint32_t gennum,
-      bool bDecrypt,
       ParseType parse_type);
 
   FX_FILESIZE m_Pos;
