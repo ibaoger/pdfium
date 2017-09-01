@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "5729eaf4_40adf0b1",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-01T16:25:01Z",
+      "side": 1,
+      "message": "nit: Maybe try FXSYS_DecimalCharToInt()",
+      "range": {
+        "startLine": 84,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 23
+      },
+      "revId": "75367e39218e375e3fa459c04a472829cc26ca71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6108cd6b_0a276afa",
         "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
         "patchSetId": 2
