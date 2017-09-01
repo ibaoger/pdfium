@@ -258,7 +258,7 @@ void CPDF_CMap::LoadPredefined(CPDF_CMapManager* pMgr,
     return;
   }
   CFX_ByteString cmapid = m_PredefinedCMap;
-  m_bVertical = cmapid.Right(1) == "V";
+  m_bVertical = cmapid.Last() == 'V';
   if (cmapid.GetLength() > 2) {
     cmapid = cmapid.Left(cmapid.GetLength() - 2);
   }
