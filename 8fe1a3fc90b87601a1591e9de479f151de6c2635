@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f76d7fb7_5b4dfd04",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T19:52:25Z",
+      "side": 1,
+      "message": "Looping on reverse fixes the direction in which parity should be counted. Since \"contents\" is not necessarily an odd-sized string (and in this code will always be 12-char string), this is fixing a bug.",
+      "range": {
+        "startLine": 83,
+        "startChar": 50,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "8fe1a3fc90b87601a1591e9de479f151de6c2635",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3819010a_55f27cf4",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T19:52:25Z",
+      "side": 1,
+      "message": "This fixes a bug introduced by my own suggestion in https://pdfium-review.googlesource.com/c/pdfium/+/12810",
+      "range": {
+        "startLine": 91,
+        "startChar": 37,
+        "endLine": 91,
+        "endChar": 42
+      },
+      "revId": "8fe1a3fc90b87601a1591e9de479f151de6c2635",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
