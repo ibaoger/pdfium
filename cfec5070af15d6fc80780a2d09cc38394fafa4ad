@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2c7d812_4a21f6a4",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-01T18:33:08Z",
+      "side": 1,
+      "message": "nit: we could use last() here too, since we already limited the possibilities at line 256, and this avoids counting",
+      "range": {
+        "startLine": 256,
+        "startChar": 17,
+        "endLine": 256,
+        "endChar": 35
+      },
+      "revId": "cfec5070af15d6fc80780a2d09cc38394fafa4ad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
