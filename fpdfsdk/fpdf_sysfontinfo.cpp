@@ -166,12 +166,12 @@ static unsigned long DefaultGetFontData(struct _FPDF_SYSFONTINFO* pThis,
 static unsigned long DefaultGetFaceName(struct _FPDF_SYSFONTINFO* pThis,
                                         void* hFont,
                                         char* buffer,
-                                        unsigned long buf_size) {
+                                        FX_STRSIZE buf_size) {
   CFX_ByteString name;
   auto* pDefault = static_cast<FPDF_SYSFONTINFO_DEFAULT*>(pThis);
   if (!pDefault->m_pFontInfo->GetFaceName(hFont, &name))
     return 0;
-  if (name.GetLength() >= (long)buf_size)
+  if (name.GetLength() >= buf_size)
     return name.GetLength() + 1;
 
   strncpy(buffer, name.c_str(),
