@@ -45,6 +45,30 @@
       "revId": "75367e39218e375e3fa459c04a472829cc26ca71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a29439a_b32c7498",
+        "filename": "fxbarcode/oned/BC_OnedEAN13Writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T16:20:23Z",
+      "side": 1,
+      "message": "Oh, worth noting that checksum is already in 0-9, so \"(10 - checksum) % 10\" is equivalent to \"10 - checksum\"",
+      "parentUuid": "6108cd6b_0a276afa",
+      "range": {
+        "startLine": 91,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 2
+      },
+      "revId": "75367e39218e375e3fa459c04a472829cc26ca71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
