@@ -119,6 +119,18 @@ bool CPDF_SyntaxParser::ReadBlock(uint8_t* pBuf, uint32_t size) {
 }
 
 void CPDF_SyntaxParser::GetNextWordInternal(bool* bIsNumber) {
+  if (m_ParsedWordInfo && m_ParsedWordInfo->start_parse_pos <= GetPos() &&
+      GetPos() <= m_ParsedWordInfo->start_word_pos) {
+    // We just already parse this word. Use it again.
+    if (bIsNumber)
+      *bIsNumber = m_ParsedWordInfo->is_number;
+    SetPos(m_ParsedWordInfo->end_word_pos);
+    return;
+  }
+  m_ParsedWordInfo.reset();
+
+  const FX_FILESIZE start_parse_pos = GetPos();
+
   m_WordSize = 0;
   if (bIsNumber)
     *bIsNumber = true;
@@ -143,6 +155,9 @@ void CPDF_SyntaxParser::GetNextWordInternal(bool* bIsNumber) {
         break;
     }
   }
+
+  // We already read first char.
+  const FX_FILESIZE start_word_pos = GetPos() - 1;
 
   if (PDFCharIsDelimiter(ch)) {
     if (bIsNumber)
@@ -179,14 +194,17 @@ void CPDF_SyntaxParser::GetNextWordInternal(bool* bIsNumber) {
       else
         m_Pos--;
     }
+    m_ParsedWordInfo = pdfium::make_optional<ParsedWordInfo>(
+        {start_parse_pos, start_word_pos, GetPos(), false});
     return;
   }
-
+  bool is_number = true;
   while (1) {
     if (m_WordSize < sizeof(m_WordBuffer) - 1)
       m_WordBuffer[m_WordSize++] = ch;
 
     if (!PDFCharIsNumeric(ch)) {
+      is_number = false;
       if (bIsNumber)
         *bIsNumber = false;
     }
@@ -199,6 +217,8 @@ void CPDF_SyntaxParser::GetNextWordInternal(bool* bIsNumber) {
       break;
     }
   }
+  m_ParsedWordInfo = pdfium::make_optional<ParsedWordInfo>(
+      {start_parse_pos, start_word_pos, GetPos(), is_number});
 }
 
 CFX_ByteString CPDF_SyntaxParser::ReadString() {
@@ -364,6 +384,11 @@ CFX_ByteString CPDF_SyntaxParser::GetNextWord(bool* bIsNumber) {
   return GetValidator()->has_read_problems()
              ? CFX_ByteString()
              : CFX_ByteString((const char*)m_WordBuffer, m_WordSize);
+}
+
+CFX_ByteString CPDF_SyntaxParser::LookupNextWord(bool* bIsNumber) {
+  const CFX_AutoRestorer<FX_FILESIZE> save_pos(&m_Pos);
+  return GetNextWord(bIsNumber);
 }
 
 CFX_ByteString CPDF_SyntaxParser::GetKeyword() {
