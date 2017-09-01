@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03df1db8_ef911560",
+        "filename": "fxbarcode/oned/BC_OnedEAN8Writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T20:25:05Z",
+      "side": 1,
+      "message": "This is not a functional change when contents has an odd number of digits, which it does in our code (always 7). For even numbers of digits, this fixes the checksum.",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 0
+      },
+      "revId": "85f6835a1c018b27cbd35d181086ef9923bf0f18",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
