@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07da104b_c37a6108",
+        "filename": "core/fpdfapi/font/cpdf_cmap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-01T14:58:38Z",
+      "side": 1,
+      "message": "Can we store this in a temp local? All the \"iSeg - 1\"s are a little distracting.",
+      "range": {
+        "startLine": 188,
+        "startChar": 15,
+        "endLine": 188,
+        "endChar": 23
+      },
+      "revId": "f7fa125e3b213d50747d4bd34d4e0236e9623e93",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
