@@ -11,6 +11,7 @@
 
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_boolean.h"
+#include "core/fpdfapi/parser/cpdf_crypto_handler.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
@@ -169,10 +170,7 @@ bool CPDF_Dictionary::KeyExist(const CFX_ByteString& key) const {
 }
 
 bool CPDF_Dictionary::IsSignatureDict() const {
-  CPDF_Object* pType = GetDirectObjectFor("Type");
-  if (!pType)
-    pType = GetDirectObjectFor("FT");
-  return pType && pType->GetString() == "Sig";
+  return CPDF_CryptoHandler::IsSignatureDictionary(this);
 }
 
 CPDF_Object* CPDF_Dictionary::SetFor(const CFX_ByteString& key,

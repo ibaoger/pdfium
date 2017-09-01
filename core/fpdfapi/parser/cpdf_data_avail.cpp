@@ -661,6 +661,7 @@ std::unique_ptr<CPDF_Object> CPDF_DataAvail::ParseIndirectObjectAt(
   m_syntaxParser.SetPos(pos);
 
   bool bIsNumber;
+  // Parse objnum.
   CFX_ByteString word = m_syntaxParser.GetNextWord(&bIsNumber);
   if (!bIsNumber)
     return nullptr;
@@ -669,18 +670,17 @@ std::unique_ptr<CPDF_Object> CPDF_DataAvail::ParseIndirectObjectAt(
   if (objnum && parser_objnum != objnum)
     return nullptr;
 
+  // Parse gennum.
   word = m_syntaxParser.GetNextWord(&bIsNumber);
   if (!bIsNumber)
     return nullptr;
 
-  uint32_t gennum = FXSYS_atoui(word.c_str());
   if (m_syntaxParser.GetKeyword() != "obj") {
     m_syntaxParser.SetPos(SavedPos);
     return nullptr;
   }
 
-  std::unique_ptr<CPDF_Object> pObj =
-      m_syntaxParser.GetObjectBody(pObjList, parser_objnum, gennum, false);
+  std::unique_ptr<CPDF_Object> pObj = m_syntaxParser.GetObjectBody(pObjList);
   m_syntaxParser.SetPos(SavedPos);
   return pObj;
 }
@@ -926,7 +926,7 @@ bool CPDF_DataAvail::CheckTrailer() {
   const CPDF_ReadValidator::Session read_session(GetValidator().Get());
   m_syntaxParser.SetPos(m_dwTrailerOffset);
   const std::unique_ptr<CPDF_Object> pTrailer =
-      m_syntaxParser.GetObjectBody(nullptr, 0, 0, false);
+      m_syntaxParser.GetObjectBody(nullptr);
   if (!pTrailer) {
     if (!GetValidator()->has_read_problems())
       m_docStatus = PDF_DATAAVAIL_ERROR;
