@@ -90,8 +90,6 @@ class CPDF_Object {
   virtual CPDF_String* AsString();
   virtual const CPDF_String* AsString() const;
 
-  virtual bool WriteTo(IFX_ArchiveStream* archive) const = 0;
-
  protected:
   friend class CPDF_Array;
   friend class CPDF_Dictionary;

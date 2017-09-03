@@ -199,22 +199,3 @@ CPDF_Object* CPDF_Array::Add(std::unique_ptr<CPDF_Object> pObj) {
   m_Objects.push_back(std::move(pObj));
   return pRet;
 }
-
-bool CPDF_Array::WriteTo(IFX_ArchiveStream* archive) const {
-  if (!archive->WriteString("["))
-    return false;
-
-  for (size_t i = 0; i < GetCount(); ++i) {
-    CPDF_Object* pElement = GetObjectAt(i);
-    if (!pElement->IsInline()) {
-      if (!archive->WriteString(" ") ||
-          !archive->WriteDWord(pElement->GetObjNum()) ||
-          !archive->WriteString(" 0 R")) {
-        return false;
-      }
-    } else if (!pElement->WriteTo(archive)) {
-      return false;
-    }
-  }
-  return archive->WriteString("]");
-}

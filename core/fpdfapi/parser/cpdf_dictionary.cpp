@@ -246,28 +246,3 @@ void CPDF_Dictionary::SetMatrixFor(const CFX_ByteString& key,
 CFX_ByteString CPDF_Dictionary::MaybeIntern(const CFX_ByteString& str) {
   return m_pPool ? m_pPool->Intern(str) : str;
 }
-
-bool CPDF_Dictionary::WriteTo(IFX_ArchiveStream* archive) const {
-  if (!archive->WriteString("<<"))
-    return false;
-
-  for (const auto& it : *this) {
-    const CFX_ByteString& key = it.first;
-    CPDF_Object* pValue = it.second.get();
-    if (!archive->WriteString("/") ||
-        !archive->WriteString(PDF_NameEncode(key).AsStringC())) {
-      return false;
-    }
-
-    if (!pValue->IsInline()) {
-      if (!archive->WriteString(" ") ||
-          !archive->WriteDWord(pValue->GetObjNum()) ||
-          !archive->WriteString(" 0 R")) {
-        return false;
-      }
-    } else if (!pValue->WriteTo(archive)) {
-      return false;
-    }
-  }
-  return archive->WriteString(">>");
-}

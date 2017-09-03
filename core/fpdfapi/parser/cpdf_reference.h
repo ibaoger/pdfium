@@ -31,7 +31,6 @@ class CPDF_Reference : public CPDF_Object {
   bool IsReference() const override;
   CPDF_Reference* AsReference() override;
   const CPDF_Reference* AsReference() const override;
-  bool WriteTo(IFX_ArchiveStream* archive) const override;
 
   CPDF_IndirectObjectHolder* GetObjList() const { return m_pObjList.Get(); }
   uint32_t GetRefObjNum() const { return m_RefObjNum; }

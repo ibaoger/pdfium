@@ -83,8 +83,3 @@ CPDF_Object* CPDF_Reference::GetDirect() const {
   return m_pObjList ? m_pObjList->GetOrParseIndirectObject(m_RefObjNum)
                     : nullptr;
 }
-
-bool CPDF_Reference::WriteTo(IFX_ArchiveStream* archive) const {
-  return archive->WriteString(" ") && archive->WriteDWord(GetRefObjNum()) &&
-         archive->WriteString(" 0 R ");
-}

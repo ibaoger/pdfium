@@ -7,14 +7,18 @@
 #include "core/fpdfapi/edit/cpdf_creator.h"
 
 #include <algorithm>
+#include <string>
 
 #include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
 #include "core/fpdfapi/parser/cpdf_array.h"
+#include "core/fpdfapi/parser/cpdf_boolean.h"
 #include "core/fpdfapi/parser/cpdf_crypto_handler.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
+#include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
+#include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_security_handler.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
@@ -135,6 +139,130 @@ int32_t OutputIndex(IFX_ArchiveStream* archive, FX_FILESIZE offset) {
   return 0;
 }
 
+// forward declaraion.
+bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive);
+
+bool WriteArrayTo(const CPDF_Array* array, IFX_ArchiveStream* archive) {
+  ASSERT(array);
+  if (!archive->WriteString("["))
+    return false;
+  for (const auto& it : *array) {
+    // TODO(art-snake): Do we needs this inlining check?
+    if (!it->IsInline()) {
+      if (!archive->WriteString(" ") || !archive->WriteDWord(it->GetObjNum()) ||
+          !archive->WriteString(" 0 R")) {
+        return false;
+      }
+    } else if (!WriteObjectBodyTo(it.get(), archive)) {
+      return false;
+    }
+  }
+  return archive->WriteString("]");
+}
+
+bool WriteDictionaryTo(const CPDF_Dictionary* dictionary,
+                       IFX_ArchiveStream* archive) {
+  ASSERT(dictionary);
+  if (!archive->WriteString("<<"))
+    return false;
+
+  for (const auto& it : *dictionary) {
+    const CFX_ByteString& key = it.first;
+    CPDF_Object* pValue = it.second.get();
+    if (!archive->WriteString("/") ||
+        !archive->WriteString(PDF_NameEncode(key).AsStringC())) {
+      return false;
+    }
+
+    // TODO(art-snake): Do we needs this inlining check?
+    if (!pValue->IsInline()) {
+      if (!archive->WriteString(" ") ||
+          !archive->WriteDWord(pValue->GetObjNum()) ||
+          !archive->WriteString(" 0 R")) {
+        return false;
+      }
+    } else if (!WriteObjectBodyTo(pValue, archive)) {
+      return false;
+    }
+  }
+  return archive->WriteString(">>");
+}
+
+bool WriteStringTo(const CPDF_String* string, IFX_ArchiveStream* archive) {
+  ASSERT(string);
+  return archive->WriteString(
+      PDF_EncodeString(string->GetString(), string->IsHex()).AsStringC());
+}
+
+bool WriteNameTo(const CPDF_Name* name, IFX_ArchiveStream* archive) {
+  ASSERT(name);
+  return archive->WriteString("/") &&
+         archive->WriteString(PDF_NameEncode(name->GetString()).AsStringC());
+}
+
+bool WriteNumberTo(const CPDF_Number* number, IFX_ArchiveStream* archive) {
+  ASSERT(number);
+  return archive->WriteString(" ") &&
+         archive->WriteString(number->GetString().AsStringC());
+}
+
+bool WriteStreamTo(const CPDF_Stream* stream, IFX_ArchiveStream* archive) {
+  ASSERT(stream);
+  if (!WriteObjectBodyTo(stream->GetDict(), archive) ||
+      !archive->WriteString("stream\r\n"))
+    return false;
+
+  auto pAcc = pdfium::MakeRetain<CPDF_StreamAcc>(stream);
+  pAcc->LoadAllData(true);
+  return archive->WriteBlock(pAcc->GetData(), pAcc->GetSize()) &&
+         archive->WriteString("\r\nendstream");
+}
+
+bool WriteNullTo(IFX_ArchiveStream* archive) {
+  return archive->WriteString(" null");
+}
+
+bool WriteBooleanTo(const CPDF_Boolean* bool_obj, IFX_ArchiveStream* archive) {
+  ASSERT(bool_obj);
+  return archive->WriteString(" ") &&
+         archive->WriteString(bool_obj->GetString().AsStringC());
+}
+
+bool WriteReferenceTo(const CPDF_Reference* ref, IFX_ArchiveStream* archive) {
+  ASSERT(ref);
+  return archive->WriteString(" ") &&
+         archive->WriteDWord(ref->GetRefObjNum()) &&
+         archive->WriteString(" 0 R ");
+}
+
+bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive) {
+  ASSERT(archive);
+  if (!obj)
+    return false;
+  switch (obj->GetType()) {
+    case CPDF_Object::BOOLEAN:
+      return WriteBooleanTo(obj->AsBoolean(), archive);
+    case CPDF_Object::NUMBER:
+      return WriteNumberTo(obj->AsNumber(), archive);
+    case CPDF_Object::STRING:
+      return WriteStringTo(obj->AsString(), archive);
+    case CPDF_Object::NAME:
+      return WriteNameTo(obj->AsName(), archive);
+    case CPDF_Object::ARRAY:
+      return WriteArrayTo(obj->AsArray(), archive);
+    case CPDF_Object::DICTIONARY:
+      return WriteDictionaryTo(obj->AsDictionary(), archive);
+    case CPDF_Object::STREAM:
+      return WriteStreamTo(obj->AsStream(), archive);
+    case CPDF_Object::NULLOBJ:
+      return WriteNullTo(archive);
+    case CPDF_Object::REFERENCE:
+      return WriteReferenceTo(obj->AsReference(), archive);
+  }
+  NOTREACHED();
+  return false;
+}
+
 }  // namespace
 
 CPDF_Creator::CPDF_Creator(CPDF_Document* pDoc,
@@ -214,7 +342,7 @@ bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
     case CPDF_Object::NULLOBJ:
     case CPDF_Object::NUMBER:
     case CPDF_Object::REFERENCE:
-      if (!pObj->WriteTo(m_Archive.get()))
+      if (!WriteObjectBodyTo(pObj, m_Archive.get()))
         return false;
       break;
 
@@ -222,7 +350,7 @@ bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
       CFX_ByteString str = pObj->GetString();
       bool bHex = pObj->AsString()->IsHex();
       if (!m_pCryptoHandler || !bEncrypt) {
-        if (!pObj->WriteTo(m_Archive.get()))
+        if (!WriteObjectBodyTo(pObj, m_Archive.get()))
           return false;
         break;
       }
@@ -277,7 +405,7 @@ bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
     }
     case CPDF_Object::DICTIONARY: {
       if (!m_pCryptoHandler || pObj == m_pEncryptDict) {
-        if (!pObj->WriteTo(m_Archive.get()))
+        if (!WriteObjectBodyTo(pObj, m_Archive.get()))
           return false;
         break;
       }
@@ -643,7 +771,7 @@ int32_t CPDF_Creator::WriteDoc_Stage4() {
             !m_Archive->WriteString(" 0 R ")) {
           return -1;
         }
-      } else if (!pValue->WriteTo(m_Archive.get())) {
+      } else if (!WriteObjectBodyTo(pValue, m_Archive.get())) {
         return -1;
       }
     }
@@ -693,7 +821,7 @@ int32_t CPDF_Creator::WriteDoc_Stage4() {
   }
   if (m_pIDArray) {
     if (!m_Archive->WriteString(("/ID")) ||
-        !m_pIDArray->WriteTo(m_Archive.get())) {
+        !WriteObjectBodyTo(m_pIDArray.get(), m_Archive.get())) {
       return -1;
     }
   }

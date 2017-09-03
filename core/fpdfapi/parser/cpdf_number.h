@@ -31,7 +31,6 @@ class CPDF_Number : public CPDF_Object {
   bool IsNumber() const override;
   CPDF_Number* AsNumber() override;
   const CPDF_Number* AsNumber() const override;
-  bool WriteTo(IFX_ArchiveStream* archive) const override;
 
   bool IsInteger() const { return m_bInteger; }
 
