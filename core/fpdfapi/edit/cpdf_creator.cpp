@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <string>
+#include <utility>
 
 #include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
@@ -17,6 +18,7 @@
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_object_walker.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_security_handler.h"
@@ -139,65 +141,15 @@ int32_t OutputIndex(IFX_ArchiveStream* archive, FX_FILESIZE offset) {
   return 0;
 }
 
-// forward declaraion.
-bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive);
-
-bool WriteArrayTo(const CPDF_Array* array, IFX_ArchiveStream* archive) {
-  ASSERT(array);
-  if (!archive->WriteString("["))
-    return false;
-  for (const auto& it : *array) {
-    // TODO(art-snake): Do we needs this inlining check?
-    if (!it->IsInline()) {
-      if (!archive->WriteString(" ") || !archive->WriteDWord(it->GetObjNum()) ||
-          !archive->WriteString(" 0 R")) {
-        return false;
-      }
-    } else if (!WriteObjectBodyTo(it.get(), archive)) {
-      return false;
-    }
-  }
-  return archive->WriteString("]");
-}
-
-bool WriteDictionaryTo(const CPDF_Dictionary* dictionary,
-                       IFX_ArchiveStream* archive) {
-  ASSERT(dictionary);
-  if (!archive->WriteString("<<"))
-    return false;
-
-  for (const auto& it : *dictionary) {
-    const CFX_ByteString& key = it.first;
-    CPDF_Object* pValue = it.second.get();
-    if (!archive->WriteString("/") ||
-        !archive->WriteString(PDF_NameEncode(key).AsStringC())) {
-      return false;
-    }
-
-    // TODO(art-snake): Do we needs this inlining check?
-    if (!pValue->IsInline()) {
-      if (!archive->WriteString(" ") ||
-          !archive->WriteDWord(pValue->GetObjNum()) ||
-          !archive->WriteString(" 0 R")) {
-        return false;
-      }
-    } else if (!WriteObjectBodyTo(pValue, archive)) {
-      return false;
-    }
-  }
-  return archive->WriteString(">>");
-}
-
 bool WriteStringTo(const CPDF_String* string, IFX_ArchiveStream* archive) {
   ASSERT(string);
   return archive->WriteString(
       PDF_EncodeString(string->GetString(), string->IsHex()).AsStringC());
 }
 
-bool WriteNameTo(const CPDF_Name* name, IFX_ArchiveStream* archive) {
-  ASSERT(name);
+bool WriteNameTo(const CFX_ByteString& name, IFX_ArchiveStream* archive) {
   return archive->WriteString("/") &&
-         archive->WriteString(PDF_NameEncode(name->GetString()).AsStringC());
+         archive->WriteString(PDF_NameEncode(name).AsStringC());
 }
 
 bool WriteNumberTo(const CPDF_Number* number, IFX_ArchiveStream* archive) {
@@ -208,8 +160,7 @@ bool WriteNumberTo(const CPDF_Number* number, IFX_ArchiveStream* archive) {
 
 bool WriteStreamTo(const CPDF_Stream* stream, IFX_ArchiveStream* archive) {
   ASSERT(stream);
-  if (!WriteObjectBodyTo(stream->GetDict(), archive) ||
-      !archive->WriteString("stream\r\n"))
+  if (!archive->WriteString("stream\r\n"))
     return false;
 
   auto pAcc = pdfium::MakeRetain<CPDF_StreamAcc>(stream);
@@ -228,14 +179,12 @@ bool WriteBooleanTo(const CPDF_Boolean* bool_obj, IFX_ArchiveStream* archive) {
          archive->WriteString(bool_obj->GetString().AsStringC());
 }
 
-bool WriteReferenceTo(const CPDF_Reference* ref, IFX_ArchiveStream* archive) {
-  ASSERT(ref);
-  return archive->WriteString(" ") &&
-         archive->WriteDWord(ref->GetRefObjNum()) &&
+bool WriteReferenceTo(uint32_t ref_objnum, IFX_ArchiveStream* archive) {
+  return archive->WriteString(" ") && archive->WriteDWord(ref_objnum) &&
          archive->WriteString(" 0 R ");
 }
 
-bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive) {
+bool WriteSimpleObject(const CPDF_Object* obj, IFX_ArchiveStream* archive) {
   ASSERT(archive);
   if (!obj)
     return false;
@@ -247,20 +196,85 @@ bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive) {
     case CPDF_Object::STRING:
       return WriteStringTo(obj->AsString(), archive);
     case CPDF_Object::NAME:
-      return WriteNameTo(obj->AsName(), archive);
-    case CPDF_Object::ARRAY:
-      return WriteArrayTo(obj->AsArray(), archive);
-    case CPDF_Object::DICTIONARY:
-      return WriteDictionaryTo(obj->AsDictionary(), archive);
-    case CPDF_Object::STREAM:
-      return WriteStreamTo(obj->AsStream(), archive);
+      return WriteNameTo(obj->GetString(), archive);
     case CPDF_Object::NULLOBJ:
       return WriteNullTo(archive);
     case CPDF_Object::REFERENCE:
-      return WriteReferenceTo(obj->AsReference(), archive);
+      return WriteReferenceTo(obj->AsReference()->GetRefObjNum(), archive);
+    case CPDF_Object::ARRAY:
+    case CPDF_Object::DICTIONARY:
+    case CPDF_Object::STREAM:
+      NOTREACHED();
+      return false;
   }
   NOTREACHED();
   return false;
+}
+
+bool WriteTailTo(
+    const std::pair<const CFX_ByteStringC, const CPDF_Stream*>& tail,
+    IFX_ArchiveStream* archive) {
+  if (!tail.first.IsEmpty() && !archive->WriteString(tail.first))
+    return false;
+
+  if (tail.second && !WriteStreamTo(tail.second, archive))
+    return false;
+  return true;
+}
+
+bool WriteObjectBodyTo(const CPDF_Object* obj, IFX_ArchiveStream* archive) {
+  ASSERT(archive);
+  if (!obj)
+    return false;
+  std::vector<std::pair<const CFX_ByteStringC, const CPDF_Stream*>> tails;
+  CPDF_ObjectWalker walker(obj);
+  while (const CPDF_Object* obj = walker.GetNext()) {
+    while (walker.GetParent() && tails.size() >= walker.current_depth()) {
+      if (!WriteTailTo(tails.back(), archive))
+        return false;
+    }
+
+    // TODO(art-snake): Do we needs this inlining check.
+    if (walker.GetParent() && !obj->IsInline()) {
+      if (!WriteReferenceTo(obj->GetObjNum(), archive))
+        return false;
+
+      walker.SkipWalkIntoCurrentObject();
+      continue;
+    }
+
+    if (walker.GetParent()->IsDictionary() &&
+        !WriteNameTo(walker.dictionary_key(), archive))
+      return false;
+
+    switch (obj->GetType()) {
+      case CPDF_Object::ARRAY:
+        if (!archive->WriteString("["))
+          return false;
+
+        tails.push_back({"]", nullptr});
+        break;
+      case CPDF_Object::DICTIONARY:
+        if (!archive->WriteString("<<"))
+          return false;
+
+        tails.push_back({">>", nullptr});
+        break;
+      case CPDF_Object::STREAM:
+        tails.push_back({nullptr, obj->AsStream()});
+
+        break;
+      default:
+        if (!WriteSimpleObject(obj, archive))
+          return false;
+    }
+  }
+
+  for (auto it = tails.rbegin(); it != tails.rend(); ++it) {
+    if (!WriteTailTo(*it, archive))
+      return false;
+  }
+  return true;
 }
 
 }  // namespace
