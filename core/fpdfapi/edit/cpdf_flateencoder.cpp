@@ -6,13 +6,20 @@
 
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
 
-#include <memory>
-
 #include "core/fpdfapi/parser/cpdf_name.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 
-CPDF_FlateEncoder::CPDF_FlateEncoder(CPDF_Stream* pStream, bool bFlateEncode)
+namespace {
+
+constexpr char kFilterKey[] = "Filter";
+constexpr char kDecodeParmsKey[] = "DecodeParms";
+constexpr char kLengthKey[] = "Length";
+
+}  // namespace
+
+CPDF_FlateEncoder::CPDF_FlateEncoder(const CPDF_Stream* pStream,
+                                     bool bFlateEncode)
     : m_dwSize(0), m_pAcc(pdfium::MakeRetain<CPDF_StreamAcc>(pStream)) {
   m_pAcc->LoadAllData(true);
 
@@ -23,14 +30,19 @@ CPDF_FlateEncoder::CPDF_FlateEncoder(CPDF_Stream* pStream, bool bFlateEncode)
 
     m_dwSize = pDestAcc->GetSize();
     m_pData = pDestAcc->DetachData();
-    m_pDict = ToDictionary(pStream->GetDict()->Clone());
-    m_pDict->RemoveFor("Filter");
+
+    m_ChangedValues.push_back(std::make_pair(kFilterKey, nullptr));
+    m_ChangedValues.push_back(std::make_pair(kDecodeParmsKey, nullptr));
+    m_ChangedValues.push_back(
+        std::make_pair(kLengthKey, pdfium::MakeUnique<CPDF_Number>(m_dwSize)));
     return;
   }
   if (bHasFilter || !bFlateEncode) {
     m_pData = const_cast<uint8_t*>(m_pAcc->GetData());
     m_dwSize = m_pAcc->GetSize();
-    m_pDict = pStream->GetDict();
+    ASSERT(m_dwSize == pStream->GetRawSize());
+    ASSERT(static_cast<int>(m_dwSize) ==
+           pStream->GetDict()->GetIntegerFor(kLengthKey));
     return;
   }
 
@@ -39,18 +51,12 @@ CPDF_FlateEncoder::CPDF_FlateEncoder(CPDF_Stream* pStream, bool bFlateEncode)
   ::FlateEncode(m_pAcc->GetData(), m_pAcc->GetSize(), &buffer, &m_dwSize);
 
   m_pData = std::unique_ptr<uint8_t, FxFreeDeleter>(buffer);
-  m_pDict = ToDictionary(pStream->GetDict()->Clone());
-  m_pDict->SetNewFor<CPDF_Number>("Length", static_cast<int>(m_dwSize));
-  m_pDict->SetNewFor<CPDF_Name>("Filter", "FlateDecode");
-  m_pDict->RemoveFor("DecodeParms");
+
+  m_ChangedValues.push_back(std::make_pair(
+      kFilterKey, pdfium::MakeUnique<CPDF_Name>(nullptr, "FlateDecode")));
+  m_ChangedValues.push_back(
+      std::make_pair(kLengthKey, pdfium::MakeUnique<CPDF_Number>(m_dwSize)));
+  m_ChangedValues.push_back(std::make_pair(kDecodeParmsKey, nullptr));
 }
 
 CPDF_FlateEncoder::~CPDF_FlateEncoder() {}
-
-void CPDF_FlateEncoder::CloneDict() {
-  if (m_pDict.IsOwned())
-    return;
-
-  m_pDict = ToDictionary(m_pDict->Clone());
-  ASSERT(m_pDict.IsOwned());
-}

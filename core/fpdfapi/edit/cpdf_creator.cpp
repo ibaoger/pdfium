@@ -7,6 +7,7 @@
 #include "core/fpdfapi/edit/cpdf_creator.h"
 
 #include <algorithm>
+#include <utility>
 
 #include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
@@ -161,21 +162,34 @@ CPDF_Creator::~CPDF_Creator() {}
 bool CPDF_Creator::WriteStream(const CPDF_Object* pStream,
                                uint32_t objnum,
                                CPDF_CryptoHandler* pCrypto) {
-  CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(pStream->AsStream()),
-                            pStream != m_pMetadata);
-  CPDF_Encryptor encryptor(pCrypto, objnum, encoder.GetData(),
-                           encoder.GetSize());
-  if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
-      encryptor.GetSize()) {
-    encoder.CloneDict();
-    encoder.GetDict()->SetNewFor<CPDF_Number>(
-        "Length", static_cast<int>(encryptor.GetSize()));
+  static constexpr char kLengthKey[] = "Length";
+  CPDF_FlateEncoder encoder(pStream->AsStream(), pStream != m_pMetadata);
+  // Temporary replace objects, related to encoding.
+  for (auto& it : encoder.changed_values()) {
+    auto original = pStream->GetDict()->RemoveFor(CFX_ByteString(it.first));
+    pStream->GetDict()->SetFor(CFX_ByteString(it.first), std::move(it.second));
+    it.second = std::move(original);
   }
 
-  if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-      !m_Archive->WriteString("stream\r\n")) {
-    return false;
+  CPDF_Encryptor encryptor(pCrypto, objnum, encoder.GetData(),
+                           encoder.GetSize());
+
+  // Temporary replace length.
+  auto original_length = pStream->GetDict()->RemoveFor(kLengthKey);
+  pStream->GetDict()->SetNewFor<CPDF_Number>(
+      kLengthKey, static_cast<int>(encryptor.GetSize()));
+
+  const bool write_result = WriteDirectObj(objnum, pStream->GetDict(), true) &&
+                            m_Archive->WriteString("stream\r\n");
+
+  // Restore original objects.
+  pStream->GetDict()->SetFor(kLengthKey, std::move(original_length));
+  for (auto& it : encoder.changed_values()) {
+    pStream->GetDict()->SetFor(CFX_ByteString(it.first), std::move(it.second));
   }
+
+  if (!write_result)
+    return false;
 
   // Allow for empty streams.
   if (encryptor.GetSize() > 0 &&
@@ -235,22 +249,38 @@ bool CPDF_Creator::WriteDirectObj(uint32_t objnum,
       break;
     }
     case CPDF_Object::STREAM: {
-      CPDF_FlateEncoder encoder(const_cast<CPDF_Stream*>(pObj->AsStream()),
-                                true);
+      static constexpr char kLengthKey[] = "Length";
+
+      CPDF_FlateEncoder encoder(pObj->AsStream(), true);
+      // Temporary replace objects, related to encoding.
+      for (auto& it : encoder.changed_values()) {
+        auto original = pObj->GetDict()->RemoveFor(CFX_ByteString(it.first));
+        pObj->GetDict()->SetFor(CFX_ByteString(it.first), std::move(it.second));
+        it.second = std::move(original);
+      }
+
       CPDF_Encryptor encryptor(m_pCryptoHandler.Get(), objnum,
                                encoder.GetData(), encoder.GetSize());
-      if (static_cast<uint32_t>(encoder.GetDict()->GetIntegerFor("Length")) !=
-          encryptor.GetSize()) {
-        encoder.CloneDict();
-        encoder.GetDict()->SetNewFor<CPDF_Number>(
-            "Length", static_cast<int>(encryptor.GetSize()));
+
+      // Temporary replace length.
+      auto original_length = pObj->GetDict()->RemoveFor(kLengthKey);
+      pObj->GetDict()->SetNewFor<CPDF_Number>(
+          kLengthKey, static_cast<int>(encryptor.GetSize()));
+
+      const bool write_result =
+          WriteDirectObj(objnum, pObj->GetDict(), true) &&
+          m_Archive->WriteString("stream\r\n") &&
+          m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) &&
+          m_Archive->WriteString("\r\nendstream");
+
+      // Restore original objects.
+      pObj->GetDict()->SetFor(kLengthKey, std::move(original_length));
+      for (auto& it : encoder.changed_values()) {
+        pObj->GetDict()->SetFor(CFX_ByteString(it.first), std::move(it.second));
       }
-      if (!WriteDirectObj(objnum, encoder.GetDict(), true) ||
-          !m_Archive->WriteString("stream\r\n") ||
-          !m_Archive->WriteBlock(encryptor.GetData(), encryptor.GetSize()) ||
-          !m_Archive->WriteString("\r\nendstream")) {
+
+      if (!write_result)
         return false;
-      }
 
       break;
     }
