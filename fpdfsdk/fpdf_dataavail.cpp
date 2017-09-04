@@ -92,7 +92,8 @@ class CFPDF_DownloadHintsWrap : public CPDF_DataAvail::DownloadHints {
  public:
   // IFX_DownloadHints
   void AddSegment(FX_FILESIZE offset, uint32_t size) override {
-    m_pDownloadHints->AddSegment(m_pDownloadHints, offset, size);
+    if (m_pDownloadHints)
+      m_pDownloadHints->AddSegment(m_pDownloadHints, offset, size);
   }
 
  private:
