@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b5189ad_aeb2116e",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-04T13:04:35Z",
+      "side": 1,
+      "message": "Can i remove this strange logic?\nWe have ASSERTs, that we can not add not inilined object into array:\nSee \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_array.cpp?rcl\u003d47a90b894ecca2d3547226169602d7f8729d564f\u0026l\u003d169",
+      "revId": "f9bed81f87086a3fb5635fde1020742350d58473",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d57e91f_df923fbd",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-04T13:04:35Z",
+      "side": 1,
+      "message": "Can i remove this strange logic?\nWe have ASSERTs, that we can not add not inilined object into dictionary:\nSee \nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_dictionary.cpp?rcl\u003d47a90b894ecca2d3547226169602d7f8729d564f\u0026l\u003d184",
+      "revId": "f9bed81f87086a3fb5635fde1020742350d58473",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
