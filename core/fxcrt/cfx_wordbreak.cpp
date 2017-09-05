@@ -2788,10 +2788,6 @@ void CFX_WordBreak::Attach(IFX_CharIter* pIter) {
   m_pCurIter.reset(pIter);
 }
 
-void CFX_WordBreak::Attach(const CFX_WideString& wsText) {
-  m_pCurIter = pdfium::MakeUnique<CFX_CharIter>(wsText);
-}
-
 bool CFX_WordBreak::Next(bool bPrev) {
   std::unique_ptr<IFX_CharIter> pIter =
       (bPrev ? m_pPreIter : m_pCurIter)->Clone();
