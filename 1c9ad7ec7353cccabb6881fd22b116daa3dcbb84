@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "143e906b_13cf91e8",
+        "filename": "core/fxcrt/fx_guid.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T16:58:06Z",
+      "side": 1,
+      "message": "nit: maybe just getBuffer(bSepatator ? 36 : 32) and lose line 28",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "1c9ad7ec7353cccabb6881fd22b116daa3dcbb84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e435aa0_b7ef8955",
+        "filename": "core/fxcrt/fx_guid.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T16:58:06Z",
+      "side": 1,
+      "message": "nit: if this moved to line 23 (and change 3\u003d\u003e4, 5\u003d\u003e6, etc), then the pBuf +\u003d 2 at line 24 goes into the |for| at line 21 like \n  for (...; ++i, pBuf +\u003d 2) {",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "1c9ad7ec7353cccabb6881fd22b116daa3dcbb84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3df0184_1ca6f539",
         "filename": "xfa/fxfa/fm2js/cxfa_fm2jscontext.cpp",
         "patchSetId": 3
