@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f06a490_0ada8455",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T21:02:39Z",
+      "side": 1,
+      "message": "nit: kModulesForDelimiters seems to be the preferred styling, but I\u0027m not picky.",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "064f6fb053291953013e64106bf51b53e7220239",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109ef188_92e64105",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T21:02:39Z",
+      "side": 1,
+      "message": "nit: move to line 26",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "064f6fb053291953013e64106bf51b53e7220239",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43aa0d25_47cf6955",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T21:02:39Z",
+      "side": 1,
+      "message": "Can we check the length of encoded to be sure we don\u0027t run off end?\nnit: this might make a nice helper function.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "064f6fb053291953013e64106bf51b53e7220239",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9359fea_0340c907",
+        "filename": "fxbarcode/oned/BC_OnedCodaBarWriter_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T21:02:39Z",
+      "side": 1,
+      "message": "nit: move to first use",
+      "range": {
+        "startLine": 105,
+        "startChar": 11,
+        "endLine": 105,
+        "endChar": 18
+      },
+      "revId": "064f6fb053291953013e64106bf51b53e7220239",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
