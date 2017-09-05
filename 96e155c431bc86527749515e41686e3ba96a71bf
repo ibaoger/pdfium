@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "ed08ec43_166aeac4",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T14:20:01Z",
+      "side": 1,
+      "message": "Why not fix destroy to remove itself from the object holder before the objNum gets changed. We make it an invariant of the object holder that you have a valid object number.",
+      "parentUuid": "4d77c9f0_e6e2c2a6",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a340f9a7_4f45b516",
         "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
         "patchSetId": 2
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "but in original code we have search in map again and again. And this is map of all objects in the document. And it is big.\n\nNow we search just once in all cases",
       "parentUuid": "f16e2d75_7b9f1b1b",
+      "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8416fdf_2cf958c3",
+        "filename": "core/fpdfapi/parser/cpdf_indirect_object_holder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T14:20:01Z",
+      "side": 1,
+      "message": "Do we have perf tests that degrade in this case? Do we know it\u0027s substantially slower?",
+      "parentUuid": "8b82f3f3_ec8dab49",
       "revId": "96e155c431bc86527749515e41686e3ba96a71bf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
