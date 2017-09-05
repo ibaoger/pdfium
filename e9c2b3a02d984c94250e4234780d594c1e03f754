@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40b99165_b52164f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T13:54:19Z",
+      "side": 1,
+      "message": "We need to update the API docs in public/ to allow the null\u0027s if we make this API change.",
+      "revId": "e9c2b3a02d984c94250e4234780d594c1e03f754",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
