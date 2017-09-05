@@ -285,8 +285,8 @@ bool CBC_OneDimWriter::RenderDeviceResult(CFX_RenderDevice* device,
 
 bool CBC_OneDimWriter::RenderResult(const CFX_WideStringC& contents,
                                     uint8_t* code,
-                                    int32_t codeLength,
-                                    bool isDevice) {
+                                    int32_t codeLength) {
+  bool isDevice = true;
   if (codeLength < 1)
     return false;
 
