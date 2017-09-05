@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2476f6b3_22b40fef",
+        "filename": "core/fxcrt/fx_rand.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-05T16:38:32Z",
+      "side": 1,
+      "message": "could we call this fx_random.h instead to match the names of the functions?",
+      "revId": "13ea3ff1e33313c7775013acaff4ec218bc632ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
