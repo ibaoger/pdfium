@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8fe9f95b_9bfa8b6d",
+        "filename": "core/fxcrt/fx_guid.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T17:58:46Z",
+      "side": 1,
+      "message": "I thought if we did a GetBuffer we had to call ReleaseBuffer? (this is going to handle adding the \\0 as well, so I think we\u0027d need a larger value then 28 has?",
+      "parentUuid": "143e906b_13cf91e8",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "1c9ad7ec7353cccabb6881fd22b116daa3dcbb84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e435aa0_b7ef8955",
         "filename": "core/fxcrt/fx_guid.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "1c9ad7ec7353cccabb6881fd22b116daa3dcbb84",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f196d07_1b5262c0",
+        "filename": "core/fxcrt/fx_guid.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T17:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e435aa0_b7ef8955",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "1c9ad7ec7353cccabb6881fd22b116daa3dcbb84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
