@@ -16,6 +16,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "756e26f7_4fe90d03",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-05T14:22:01Z",
+      "side": 1,
+      "message": "\u003e\u003e Why isnt \u0027this caught by the check on 1486?\n\nThis is case, when we have unavailable data.\n\nExample, the file size is 1000:\nwe have available {[0..100)}\n\nThe offset of the first entry in the main xref table is 900 (m_pLinearized-\u003e GetLastXRefOffset ()).\nIn CPDF_DataAvail we request data main xref table data, from m_pLinearized-\u003e GetLastXRefOffset () to end.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d47a90b894ecca2d3547226169602d7f8729d564f\u0026l\u003d1223\n\nAfter that, we have available {[0..100), [900..1000)},\n\nBut the CPDF_SyntaxParser for read char at offset \u0027900\u0027, was tried to read last 512 bytes of file [512..1000], but in this case it is unavailable.\nSee\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_syntax_parser.cpp?rcl\u003d47a90b894ecca2d3547226169602d7f8729d564f\u0026l\u003d70\n\nAs result m_pSyntax-\u003e GetNextChar return \u0027\\ 0\u0027 because we can not read unavailable data at \u0027512\u0027 offset (which was tried CPDF_SyntaxParser), and we are not at file end (which checked on 1486 line)\n\n\u003e\u003e Should we request more data to complete the parse instead of treating it as an error?\n\n We can not do this because it is internal logic of CPDF_SyntaxParser. It is imlicitly tried to read useless data.",
+      "parentUuid": "b5ff6c7b_4e67ac9c",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
