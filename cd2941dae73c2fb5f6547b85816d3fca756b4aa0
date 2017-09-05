@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "06880187_dedae086",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-05T14:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d26ca6_87d2c10a",
+      "revId": "cd2941dae73c2fb5f6547b85816d3fca756b4aa0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "953b8707_071ed709",
         "filename": "core/fpdfapi/parser/cpdf_stream.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-05T14:11:12Z",
       "side": 1,
       "message": "Can this be private?",
+      "revId": "cd2941dae73c2fb5f6547b85816d3fca756b4aa0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d18df7f2_9aa7d52a",
+        "filename": "core/fpdfapi/parser/cpdf_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-05T14:34:25Z",
+      "side": 1,
+      "message": "It is usefull, in plans use it in decryption algorithm which\nSee WIP CL https://pdfium-review.googlesource.com/c/pdfium/+/12971/2/core/fpdfapi/parser/cpdf_crypto_handler.cpp\nI want just move decrypted data into Stream, not copy.",
+      "parentUuid": "953b8707_071ed709",
       "revId": "cd2941dae73c2fb5f6547b85816d3fca756b4aa0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
