@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c08b04eb_fd68ddf9",
+        "filename": "core/fpdfapi/parser/cpdf_stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-05T14:11:12Z",
+      "side": 0,
+      "message": "This didn\u0027t set m_bMemoryBased \u003d true before and now it does?",
+      "revId": "ffb6ccf6a2699cbb2bfc925c96609fae5124f51f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
