@@ -416,3 +416,30 @@ TEST_F(CFDE_TextEditEngineTest, GetIndexForPoint) {
   EXPECT_EQ(11U, engine()->GetIndexForPoint({999999.0f, 9999999.0f}));
   EXPECT_EQ(1U, engine()->GetIndexForPoint({10.0f, 5.0f}));
 }
+
+TEST_F(CFDE_TextEditEngineTest, IndexesForWordAt) {
+  size_t start_idx;
+  size_t end_idx;
+
+  std::tie(start_idx, end_idx) = engine()->IndexesForWordAt(100);
+  EXPECT_EQ(0U, start_idx);
+  EXPECT_EQ(0U, end_idx);
+
+  engine()->Insert(0, L"Hello World");
+  std::tie(start_idx, end_idx) = engine()->IndexesForWordAt(100);
+  EXPECT_EQ(11U, start_idx);
+  EXPECT_EQ(11U, end_idx);
+
+  std::tie(start_idx, end_idx) = engine()->IndexesForWordAt(0);
+  EXPECT_EQ(0U, start_idx);
+  EXPECT_EQ(4U, end_idx);
+
+  // Select the space
+  std::tie(start_idx, end_idx) = engine()->IndexesForWordAt(5);
+  EXPECT_EQ(5U, start_idx);
+  EXPECT_EQ(5U, end_idx);
+
+  std::tie(start_idx, end_idx) = engine()->IndexesForWordAt(6);
+  EXPECT_EQ(6U, start_idx);
+  EXPECT_EQ(10U, end_idx);
+}
