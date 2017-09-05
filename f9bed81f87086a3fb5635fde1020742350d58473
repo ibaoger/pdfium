@@ -50,6 +50,24 @@
       "revId": "f9bed81f87086a3fb5635fde1020742350d58473",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e19994a5_ed8096c2",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-05T14:44:05Z",
+      "side": 1,
+      "message": "I use type to allow compiler to check, that i have not forgot any type.",
+      "parentUuid": "212e6fec_6e9233b5",
+      "revId": "f9bed81f87086a3fb5635fde1020742350d58473",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
