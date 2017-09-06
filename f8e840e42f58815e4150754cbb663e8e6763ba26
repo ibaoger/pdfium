@@ -52,6 +52,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a006bc0_92a1114c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-06T21:23:24Z",
+      "side": 1,
+      "message": "The data will be automaticaly requested on read fail.\n\nBut currently CPDF_Parser is not know about validator, and can not correctly process this case. I want to fix this bug in original logic before continue refactoring. (To upload FakeFileAcces which is end of this relation chain, And this bug was detected by it.).",
+      "parentUuid": "62e74419_94a5415e",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
