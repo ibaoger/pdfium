@@ -22,6 +22,86 @@
       "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a6126c6_0d2a9c52",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-06T15:28:00Z",
+      "side": 1,
+      "message": "BoundsForWordAt?",
+      "range": {
+        "startLine": 164,
+        "startChar": 28,
+        "endLine": 164,
+        "endChar": 44
+      },
+      "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "558128e5_410b7e5c",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-06T15:28:00Z",
+      "side": 1,
+      "message": "Add test for single word:\n  engine()-\u003eInsert(0, L\"Hello\");\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(0);\n  EXPECT_EQ(0U, start_idx);\n  EXPECT_EQ(4U, end_idx);\n  engine()-\u003eSetSelection(start_idx, end_idx);\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetSelectedText().c_str());",
+      "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a52c16_977f38db",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-06T15:28:00Z",
+      "side": 1,
+      "message": "Add tests for middle and end of word:\n\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(1);\n  EXPECT_EQ(0U, start_idx);\n  EXPECT_EQ(4U, end_idx);\n  engine()-\u003eSetSelection(start_idx, end_idx);\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetSelectedText().c_str());\n\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(4);\n  EXPECT_EQ(0U, start_idx);\n  EXPECT_EQ(4U, end_idx);\n  engine()-\u003eSetSelection(start_idx, end_idx);\n  EXPECT_STREQ(L\"Hello\", engine()-\u003eGetSelectedText().c_str());",
+      "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d8a55c_1fec7616",
+        "filename": "xfa/fde/cfde_texteditengine_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-06T15:28:00Z",
+      "side": 1,
+      "message": "Add tests for numbers, symbols, mixed, etc:\n\n  \"123 456 789\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(5);\n  EXPECT_STREQ(L\"456\", engine()-\u003eGetSelectedText().c_str());\n\n  \"123def789\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(5);\n  EXPECT_STREQ(L\"123def789\", engine()-\u003eGetSelectedText().c_str());\n\n  \"abc456ghi\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(5);\n  EXPECT_STREQ(L\"abc456ghi\", engine()-\u003eGetSelectedText().c_str());\n\n  \"hello, world\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(0);\n  EXPECT_STREQ(L\"hello\", engine()-\u003eGetSelectedText().c_str());\n\n  \"hello, world\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(5);\n  EXPECT_STREQ(L\",\", engine()-\u003eGetSelectedText().c_str());\n\n  \"np-complete\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(6);\n  EXPECT_STREQ(L\"complete\", engine()-\u003eGetSelectedText().c_str());\n\n  \"(123) 456-7890\"\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(0);\n  EXPECT_STREQ(L\"(\", engine()-\u003eGetSelectedText().c_str());\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(1);\n  EXPECT_STREQ(L\"123\", engine()-\u003eGetSelectedText().c_str());\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(7);\n  EXPECT_STREQ(L\"456\", engine()-\u003eGetSelectedText().c_str());\n  std::tie(start_idx, end_idx) \u003d engine()-\u003eIndexesForWordAt(11);\n  EXPECT_STREQ(L\"7890\", engine()-\u003eGetSelectedText().c_str());",
+      "range": {
+        "startLine": 454,
+        "startChar": 62,
+        "endLine": 454,
+        "endChar": 0
+      },
+      "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
