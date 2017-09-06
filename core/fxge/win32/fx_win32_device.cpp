@@ -614,7 +614,7 @@ void* CFX_Win32FontInfo::MapFont(int weight,
 
     const unsigned short* pName = reinterpret_cast<const unsigned short*>(
         g_VariantNames[i].m_pVariantName);
-    FX_STRSIZE len = CFX_WideString::WStringLength(pName);
+    size_t len = CFX_WideString::WStringLength(pName);
     CFX_WideString wsName = CFX_WideString::FromUTF16LE(pName, len);
     if (wsFace == wsName)
       return hFont;

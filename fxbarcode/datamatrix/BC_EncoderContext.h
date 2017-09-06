@@ -25,26 +25,26 @@ class CBC_EncoderContext {
   wchar_t getCurrent();
   void writeCodewords(const CFX_WideString& codewords);
   void writeCodeword(wchar_t codeword);
-  FX_STRSIZE getCodewordCount();
+  size_t getCodewordCount();
   void signalEncoderChange(int32_t encoding);
   void resetEncoderSignal();
   bool hasMoreCharacters();
-  FX_STRSIZE getRemainingCharacters();
+  size_t getRemainingCharacters();
   void updateSymbolInfo(int32_t& e);
   void updateSymbolInfo(int32_t len, int32_t& e);
   void resetSymbolInfo();
 
   CFX_WideString m_msg;
   CFX_WideString m_codewords;
-  FX_STRSIZE m_pos;
+  size_t m_pos;
   int32_t m_newEncoding;
   CFX_UnownedPtr<CBC_SymbolInfo> m_symbolInfo;
 
  private:
-  FX_STRSIZE getTotalMessageCharCount();
+  size_t getTotalMessageCharCount();
 
   bool m_allowRectangular;  // Force square when false.
-  FX_STRSIZE m_skipAtEnd;
+  size_t m_skipAtEnd;
 };
 
 #endif  // FXBARCODE_DATAMATRIX_BC_ENCODERCONTEXT_H_

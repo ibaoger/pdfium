@@ -133,12 +133,12 @@ class CJS_PublicMethods : public CJS_Object {
   JS_STATIC_DECLARE_GLOBAL_FUN();
 
   static int ParseStringInteger(const CFX_WideString& string,
-                                FX_STRSIZE nStart,
-                                FX_STRSIZE& nSkip,
-                                FX_STRSIZE nMaxStep);
+                                size_t nStart,
+                                size_t& nSkip,
+                                size_t nMaxStep);
   static CFX_WideString ParseStringString(const CFX_WideString& string,
-                                          FX_STRSIZE nStart,
-                                          FX_STRSIZE& nSkip);
+                                          size_t nStart,
+                                          size_t& nSkip);
   static double MakeRegularDate(const CFX_WideString& value,
                                 const CFX_WideString& format,
                                 bool* bWrongFormat);

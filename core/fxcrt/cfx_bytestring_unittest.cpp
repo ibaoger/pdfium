@@ -570,7 +570,7 @@ TEST(fxcrt, ByteStringFind) {
   EXPECT_FALSE(empty_string.Find('a').has_value());
   EXPECT_FALSE(empty_string.Find('\0').has_value());
 
-  pdfium::Optional<FX_STRSIZE> result;
+  pdfium::Optional<size_t> result;
   CFX_ByteString single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
@@ -619,7 +619,7 @@ TEST(fxcrt, ByteStringReverseFind) {
   EXPECT_FALSE(empty_string.ReverseFind('a').has_value());
   EXPECT_FALSE(empty_string.ReverseFind('\0').has_value());
 
-  pdfium::Optional<FX_STRSIZE> result;
+  pdfium::Optional<size_t> result;
   CFX_ByteString single_string("a");
   result = single_string.ReverseFind('a');
   ASSERT_TRUE(result.has_value());
@@ -931,7 +931,7 @@ TEST(fxcrt, ByteStringCFromVector) {
 
   std::vector<uint8_t> lower_a_vec(10, static_cast<uint8_t>('a'));
   CFX_ByteStringC lower_a_string(lower_a_vec);
-  EXPECT_EQ(static_cast<FX_STRSIZE>(10), lower_a_string.GetLength());
+  EXPECT_EQ(static_cast<size_t>(10), lower_a_string.GetLength());
   EXPECT_EQ("aaaaaaaaaa", lower_a_string);
 
   std::vector<uint8_t> cleared_vec;
@@ -965,7 +965,7 @@ TEST(fxcrt, ByteStringCFind) {
   EXPECT_FALSE(empty_string.Find('a').has_value());
   EXPECT_FALSE(empty_string.Find('\0').has_value());
 
-  pdfium::Optional<FX_STRSIZE> result;
+  pdfium::Optional<size_t> result;
   CFX_ByteStringC single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
