@@ -34,6 +34,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e74419_94a5415e",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T20:34:23Z",
+      "side": 1,
+      "message": "The syntax parser used to have a validator-\u003eReadBlock(m_pFileBuf, 0, std::min(m_BufSize, static_cast\u003cuint32_t\u003e(m_FileLen))); call which I\u0027m guessing can request new data? Wouldn\u0027t we be able to use that to request the blocks we need?",
+      "parentUuid": "756e26f7_4fe90d03",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
