@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43088030_242fa5ca",
+        "filename": "core/fpdfapi/parser/cpdf_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "nit: static_cast",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79c231d9_826124ef",
+        "filename": "core/fpdfapi/parser/cpdf_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f76572f6_4a9c4f5b",
+        "filename": "core/fpdfapi/parser/fpdf_parser_utility.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3b86a30_d5d7624a",
+        "filename": "core/fpdfdoc/cpdf_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "\"",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "195cc5cd_873533b8",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "static_cast",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91cd9008_6fe8f9bc",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "acText.IsEmpty()",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f45016db_1b21347b",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "acText.IsEmpty()?",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1fa2422_729cacd6",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "strCurText.IsEmpty()",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919089ee_ffca35c3",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "!m_strText.IsEmpty()",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb43250_7e53bb90",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "for (size_t i \u003d 0; i \u003c len; ++i)",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd6f4621_72ab3e05",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "Move down to 171 with first usage",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "466d21cd_8b0d2014",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "nit: 1 per line",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66cf672d_44c7d6d1",
+        "filename": "core/fpdftext/cpdf_textpagefind.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "Do we know if order1 or MatchedCount1 can be \u003c 0? Should we check before casting to size_t?",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3b25476_638caf59",
+        "filename": "core/fxcodec/codec/ccodec_pngmodule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "Can a png have a negative text length written into it?",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed37cf8_a97e7128",
+        "filename": "core/fxcodec/codec/fx_codec_jpeg.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "static cast",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e05bacfd_43b223e5",
+        "filename": "core/fxcrt/cfx_binarybuf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "if (size \u003d\u003d 0)",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d4bc5bb_9e3f6fe6",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "0u",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c57c0b_a6017a45",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "vsnprintf can return a negative value if an error was encountered.",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f69665d0_222c3420",
+        "filename": "core/fxcrt/cfx_bytestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "Temporary not needed",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc76e1f2_c0fcbb40",
+        "filename": "core/fxcrt/cfx_string_c_template.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "4u",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef0f881c_0881c311",
+        "filename": "core/fxcrt/cfx_string_data_template.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "hah....",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a30ca11_a289299f",
+        "filename": "core/fxcrt/cfx_widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "maxLen can be -1 if an error occured.",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0157cab_63105457",
+        "filename": "core/fxcrt/cfx_widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "static_cast",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81cb9d8_bbee6155",
+        "filename": "core/fxcrt/cfx_widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "static_cast",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f94a135_4a3ee65b",
+        "filename": "fpdfsdk/cpdfsdk_interform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "fdfBuffer.IsEmpty()",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16df585c_82c22b08",
+        "filename": "fxbarcode/oned/BC_OnedCode39Writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "Temporary not needed.",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89410191_cbbdec40",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T14:49:02Z",
+      "side": 1,
+      "message": "temporary not needed?",
+      "revId": "3dcbf1cf5de8a3c9b5cbc4bae520774081c6089a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
