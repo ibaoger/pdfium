@@ -48,7 +48,7 @@ class ScopedState {
 
 }  // namespace
 
-bool g_pdfium_print_text_with_gdi = false;
+g_pdfium_print_text_with_gdi = false;
 
 PDFiumEnsureTypefaceCharactersAccessible g_pdfium_typeface_accessible_func =
     nullptr;
