@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da980523_de8029c5",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-06T15:27:41Z",
+      "side": 1,
+      "message": "nit: no {}, I think?",
+      "range": {
+        "startLine": 947,
+        "startChar": 70,
+        "endLine": 949,
+        "endChar": 3
+      },
+      "revId": "20c518f5640e70639e51b81cc95361128d0ce0d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
