@@ -23,6 +23,7 @@
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/cpdf_string.h"
+#include "core/fpdfapi/parser/cpdf_suffix_tree.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "core/fpdfapi/parser/fpdf_parser_utility.h"
 #include "core/fxcrt/cfx_autorestorer.h"
@@ -588,6 +589,45 @@ unsigned int CPDF_SyntaxParser::ReadEOLMarkers(FX_FILESIZE pos) {
   return 0;
 }
 
+bool CPDF_SyntaxParser::GoToStreamEnd() {
+  const auto saved_pos = GetPos();
+
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+
+  if (!m_pEndStreamSearcher) {
+    m_pEndStreamSearcher = pdfium::MakeUnique<CPDF_SuffixTree>();
+    m_pEndStreamSearcher->SetMode(CPDF_SuffixTree::Mode::kWholeKeyword);
+
+    // End of stream should be calculated by searching the keywords "endstream"
+    // or "endobj" with eol markers if necessary.
+    m_pEndStreamSearcher->AddString("\r\n\r\nendstream", nullptr);
+    m_pEndStreamSearcher->AddString("\r\nendstream", nullptr);
+    m_pEndStreamSearcher->AddString("\n\nendstream", nullptr);
+    m_pEndStreamSearcher->AddString("\nendstream", nullptr);
+    m_pEndStreamSearcher->AddString("endstream", nullptr);
+    m_pEndStreamSearcher->AddString("\r\n\r\nendobj", nullptr);
+    m_pEndStreamSearcher->AddString("\r\nendobj", nullptr);
+    m_pEndStreamSearcher->AddString("\n\nendobj", nullptr);
+    m_pEndStreamSearcher->AddString("\nendobj", nullptr);
+    m_pEndStreamSearcher->AddString("endobj", nullptr);
+  }
+  m_pEndStreamSearcher->Restart();
+
+  uint8_t ch;
+  while (GetNextChar(ch) && !m_pEndStreamSearcher->CheckChar(ch)) {
+  }
+
+  if (GetValidator()->has_read_problems() ||
+      !m_pEndStreamSearcher->CheckEOF()) {
+    SetPos(saved_pos);
+    return false;
+  }
+
+  ASSERT(m_pEndStreamSearcher->GetResult());
+  SetPos(saved_pos + m_pEndStreamSearcher->GetResult()->start());
+  return true;
+}
+
 std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
     std::unique_ptr<CPDF_Dictionary> pDict,
     uint32_t objnum,
@@ -625,69 +665,12 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
     }
 
     if (bSearchForKeyword) {
-      // If len is not available, len needs to be calculated
-      // by searching the keywords "endstream" or "endobj".
-      m_Pos = streamStartPos;
-      FX_FILESIZE endStreamOffset = 0;
-      while (endStreamOffset >= 0) {
-        endStreamOffset = FindTag(kEndStreamStr, 0);
-
-        // Can't find "endstream".
-        if (endStreamOffset < 0)
-          break;
-
-        // Stop searching when "endstream" is found.
-        if (IsWholeWord(m_Pos - kEndStreamStr.GetLength(), m_FileLen,
-                        kEndStreamStr, true)) {
-          endStreamOffset = m_Pos - streamStartPos - kEndStreamStr.GetLength();
-          break;
-        }
-      }
-
-      m_Pos = streamStartPos;
-      FX_FILESIZE endObjOffset = 0;
-      while (endObjOffset >= 0) {
-        endObjOffset = FindTag(kEndObjStr, 0);
-
-        // Can't find "endobj".
-        if (endObjOffset < 0)
-          break;
-
-        // Stop searching when "endobj" is found.
-        if (IsWholeWord(m_Pos - kEndObjStr.GetLength(), m_FileLen, kEndObjStr,
-                        true)) {
-          endObjOffset = m_Pos - streamStartPos - kEndObjStr.GetLength();
-          break;
-        }
-      }
-
-      // Can't find "endstream" or "endobj".
-      if (endStreamOffset < 0 && endObjOffset < 0)
+      SetPos(streamStartPos);
+      if (!GoToStreamEnd())
         return nullptr;
 
-      if (endStreamOffset < 0 && endObjOffset >= 0) {
-        // Correct the position of end stream.
-        endStreamOffset = endObjOffset;
-      } else if (endStreamOffset >= 0 && endObjOffset < 0) {
-        // Correct the position of end obj.
-        endObjOffset = endStreamOffset;
-      } else if (endStreamOffset > endObjOffset) {
-        endStreamOffset = endObjOffset;
-      }
-      len = endStreamOffset;
-
-      int numMarkers = ReadEOLMarkers(streamStartPos + endStreamOffset - 2);
-      if (numMarkers == 2) {
-        len -= 2;
-      } else {
-        numMarkers = ReadEOLMarkers(streamStartPos + endStreamOffset - 1);
-        if (numMarkers == 1) {
-          len -= 1;
-        }
-      }
-      if (len < 0)
-        return nullptr;
-
+      len = GetPos() - streamStartPos;
+      ASSERT(len >= 0);
       pDict->SetNewFor<CPDF_Number>("Length", static_cast<int>(len));
     }
     m_Pos = streamStartPos;
@@ -793,36 +776,36 @@ bool CPDF_SyntaxParser::IsWholeWord(FX_FILESIZE startpos,
 
 bool CPDF_SyntaxParser::BackwardsSearchToWord(const CFX_ByteStringC& tag,
                                               FX_FILESIZE limit) {
-  int32_t taglen = tag.GetLength();
-  if (taglen == 0)
+  if (tag.IsEmpty())
     return false;
 
-  FX_FILESIZE pos = m_Pos;
-  int32_t offset = taglen - 1;
-  while (1) {
-    if (limit && pos <= m_Pos - limit)
-      return false;
+  const auto saved_pos = GetPos();
 
-    uint8_t byte;
-    if (!GetCharAtBackward(pos, &byte))
-      return false;
+  CPDF_SuffixTree suffix_tree;
+  suffix_tree.SetMode(CPDF_SuffixTree::Mode::kWholeWord);
+  suffix_tree.AddStringInBackOrder(CFX_ByteString(tag), nullptr);
 
-    if (byte == tag[offset]) {
-      offset--;
-      if (offset >= 0) {
-        pos--;
-        continue;
-      }
-      if (IsWholeWord(pos, limit, tag, false)) {
-        m_Pos = pos;
-        return true;
-      }
-    }
-    offset = byte == tag[taglen - 1] ? taglen - 2 : taglen - 1;
-    pos--;
-    if (pos < 0)
-      return false;
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+
+  if (!limit)
+    limit = m_FileLen;
+
+  auto pos = saved_pos;
+  uint8_t ch;
+  while (GetCharAtBackward(pos, &ch) && !suffix_tree.CheckChar(ch) &&
+         (saved_pos - pos) > limit) {
+    if (pos == 0)
+      break;
+    --pos;
   }
+
+  if (GetValidator()->has_read_problems() || !suffix_tree.CheckEOF()) {
+    return false;
+  }
+
+  ASSERT(suffix_tree.GetResult());
+  SetPos(saved_pos - suffix_tree.GetResult()->end());
+  return true;
 }
 
 FX_FILESIZE CPDF_SyntaxParser::FindTag(const CFX_ByteStringC& tag,
