@@ -13,7 +13,6 @@
 
 #include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_string.h"
-#include "core/fxcrt/ifx_chariter.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/fx_dib.h"
 #include "xfa/fgas/font/cfgas_gefont.h"
@@ -38,17 +37,17 @@ inline FDE_TEXTEDITPIECE::~FDE_TEXTEDITPIECE() = default;
 
 class CFDE_TextEditEngine {
  public:
-  class Iterator : public IFX_CharIter {
+  class Iterator {
    public:
     explicit Iterator(const CFDE_TextEditEngine* engine);
-    ~Iterator() override;
+    ~Iterator();
 
-    bool Next(bool bPrev = false) override;
-    wchar_t GetChar() const override;
-    void SetAt(int32_t nIndex) override;
-    int32_t GetAt() const override;
-    bool IsEOF(bool bTail = true) const override;
-    std::unique_ptr<IFX_CharIter> Clone() const override;
+    void Next(bool bPrev);
+    wchar_t GetChar() const;
+    void SetAt(int32_t nIndex);
+    int32_t GetAt() const;
+    void FindNextBreakPos(bool bPrev);
+    bool IsEOF(bool bTail) const;
 
    private:
     CFX_UnownedPtr<const CFDE_TextEditEngine> engine_;
@@ -161,7 +160,7 @@ class CFDE_TextEditEngine {
   // Non-const so we can force a Layout() if needed.
   size_t GetIndexForPoint(const CFX_PointF& point);
   // <start_idx, end_idx>
-  std::pair<size_t, size_t> BoundsForWordAt(size_t idx) const;
+  std::pair<size_t, size_t> IndexesForWordAt(size_t idx) const;
 
   // Returns <bidi level, character rect>
   std::pair<int32_t, CFX_RectF> GetCharacterInfo(int32_t start_idx);

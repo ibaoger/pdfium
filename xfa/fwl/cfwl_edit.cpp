@@ -1237,7 +1237,7 @@ void CFWL_Edit::OnButtonDoubleClick(CFWL_MessageMouse* pMsg) {
   size_t click_idx = m_EdtEngine.GetIndexForPoint(DeviceToEngine(pMsg->m_pos));
   size_t start_idx;
   size_t end_idx;
-  std::tie(start_idx, end_idx) = m_EdtEngine.BoundsForWordAt(click_idx);
+  std::tie(start_idx, end_idx) = m_EdtEngine.IndexesForWordAt(click_idx);
 
   m_EdtEngine.SetSelection(start_idx, end_idx);
   m_CursorPosition = end_idx;
