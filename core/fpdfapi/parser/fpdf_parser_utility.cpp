@@ -106,7 +106,7 @@ CFX_ByteString PDF_NameDecode(const CFX_ByteStringC& bstr) {
       *pDest++ = bstr[i];
     }
   }
-  result.ReleaseBuffer((FX_STRSIZE)(pDest - pDestStart));
+  result.ReleaseBuffer((size_t)(pDest - pDestStart));
   return result;
 }
 

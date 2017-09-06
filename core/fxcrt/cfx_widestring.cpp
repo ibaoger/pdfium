@@ -55,9 +55,9 @@ const wchar_t* FX_wcsstr(const wchar_t* haystack,
   return nullptr;
 }
 
-pdfium::Optional<FX_STRSIZE> GuessSizeForVSWPrintf(const wchar_t* pFormat,
-                                                   va_list argList) {
-  FX_STRSIZE nMaxLen = 0;
+pdfium::Optional<size_t> GuessSizeForVSWPrintf(const wchar_t* pFormat,
+                                               va_list argList) {
+  size_t nMaxLen = 0;
   for (const wchar_t* pStr = pFormat; *pStr != 0; pStr++) {
     if (*pStr != '%' || *(pStr = pStr + 1) == '%') {
       ++nMaxLen;
@@ -80,7 +80,7 @@ pdfium::Optional<FX_STRSIZE> GuessSizeForVSWPrintf(const wchar_t* pFormat,
         ++pStr;
     }
     if (nWidth < 0 || nWidth > 128 * 1024)
-      return pdfium::Optional<FX_STRSIZE>();
+      return pdfium::Optional<size_t>();
     int nPrecision = 0;
     if (*pStr == '.') {
       pStr++;
@@ -94,7 +94,7 @@ pdfium::Optional<FX_STRSIZE> GuessSizeForVSWPrintf(const wchar_t* pFormat,
       }
     }
     if (nPrecision < 0 || nPrecision > 128 * 1024)
-      return pdfium::Optional<FX_STRSIZE>();
+      return pdfium::Optional<size_t>();
     int nModifier = 0;
     if (*pStr == L'I' && *(pStr + 1) == L'6' && *(pStr + 2) == L'4') {
       pStr += 3;
@@ -243,7 +243,7 @@ pdfium::Optional<FX_STRSIZE> GuessSizeForVSWPrintf(const wchar_t* pFormat,
     nMaxLen += nItemLen;
   }
   nMaxLen += 32;  // Fudge factor.
-  return pdfium::Optional<FX_STRSIZE>(nMaxLen);
+  return pdfium::Optional<size_t>(nMaxLen);
 }
 
 #ifndef NDEBUG
@@ -292,7 +292,7 @@ CFX_WideString::CFX_WideString(CFX_WideString&& other) noexcept {
   m_pData.Swap(other.m_pData);
 }
 
-CFX_WideString::CFX_WideString(const wchar_t* pStr, FX_STRSIZE nLen) {
+CFX_WideString::CFX_WideString(const wchar_t* pStr, size_t nLen) {
   if (nLen)
     m_pData.Reset(StringData::Create(pStr, nLen));
 }
@@ -317,7 +317,7 @@ CFX_WideString::CFX_WideString(const CFX_WideStringC& str1,
   FX_SAFE_STRSIZE nSafeLen = str1.GetLength();
   nSafeLen += str2.GetLength();
 
-  FX_STRSIZE nNewLen = nSafeLen.ValueOrDie();
+  size_t nNewLen = nSafeLen.ValueOrDie();
   if (nNewLen == 0)
     return;
 
@@ -333,13 +333,13 @@ CFX_WideString::CFX_WideString(
   for (const auto& item : list)
     nSafeLen += item.GetLength();
 
-  FX_STRSIZE nNewLen = nSafeLen.ValueOrDie();
+  size_t nNewLen = nSafeLen.ValueOrDie();
   if (nNewLen == 0)
     return;
 
   m_pData.Reset(StringData::Create(nNewLen));
 
-  FX_STRSIZE nOffset = 0;
+  size_t nOffset = 0;
   for (const auto& item : list) {
     m_pData->CopyContentsAt(nOffset, item.unterminated_c_str(),
                             item.GetLength());
@@ -446,13 +446,13 @@ bool CFX_WideString::operator<(const CFX_WideString& str) const {
   return result < 0 || (result == 0 && GetLength() < str.GetLength());
 }
 
-void CFX_WideString::AssignCopy(const wchar_t* pSrcData, FX_STRSIZE nSrcLen) {
+void CFX_WideString::AssignCopy(const wchar_t* pSrcData, size_t nSrcLen) {
   AllocBeforeWrite(nSrcLen);
   m_pData->CopyContents(pSrcData, nSrcLen);
   m_pData->m_nDataLength = nSrcLen;
 }
 
-void CFX_WideString::ReallocBeforeWrite(FX_STRSIZE nNewLength) {
+void CFX_WideString::ReallocBeforeWrite(size_t nNewLength) {
   if (m_pData && m_pData->CanOperateInPlace(nNewLength))
     return;
 
@@ -463,7 +463,7 @@ void CFX_WideString::ReallocBeforeWrite(FX_STRSIZE nNewLength) {
 
   CFX_RetainPtr<StringData> pNewData(StringData::Create(nNewLength));
   if (m_pData) {
-    FX_STRSIZE nCopyLength = std::min(m_pData->m_nDataLength, nNewLength);
+    size_t nCopyLength = std::min(m_pData->m_nDataLength, nNewLength);
     pNewData->CopyContents(m_pData->m_String, nCopyLength);
     pNewData->m_nDataLength = nCopyLength;
   } else {
@@ -473,7 +473,7 @@ void CFX_WideString::ReallocBeforeWrite(FX_STRSIZE nNewLength) {
   m_pData.Swap(pNewData);
 }
 
-void CFX_WideString::AllocBeforeWrite(FX_STRSIZE nNewLength) {
+void CFX_WideString::AllocBeforeWrite(size_t nNewLength) {
   if (m_pData && m_pData->CanOperateInPlace(nNewLength))
     return;
 
@@ -485,7 +485,7 @@ void CFX_WideString::AllocBeforeWrite(FX_STRSIZE nNewLength) {
   m_pData.Reset(StringData::Create(nNewLength));
 }
 
-void CFX_WideString::ReleaseBuffer(FX_STRSIZE nNewLength) {
+void CFX_WideString::ReleaseBuffer(size_t nNewLength) {
   if (!m_pData)
     return;
 
@@ -506,11 +506,11 @@ void CFX_WideString::ReleaseBuffer(FX_STRSIZE nNewLength) {
   }
 }
 
-void CFX_WideString::Reserve(FX_STRSIZE len) {
+void CFX_WideString::Reserve(size_t len) {
   GetBuffer(len);
 }
 
-wchar_t* CFX_WideString::GetBuffer(FX_STRSIZE nMinBufLength) {
+wchar_t* CFX_WideString::GetBuffer(size_t nMinBufLength) {
   if (!m_pData) {
     if (nMinBufLength == 0)
       return nullptr;
@@ -535,28 +535,28 @@ wchar_t* CFX_WideString::GetBuffer(FX_STRSIZE nMinBufLength) {
   return m_pData->m_String;
 }
 
-FX_STRSIZE CFX_WideString::Delete(FX_STRSIZE index, FX_STRSIZE count) {
+size_t CFX_WideString::Delete(size_t index, size_t count) {
   if (!m_pData)
     return 0;
 
-  FX_STRSIZE old_length = m_pData->m_nDataLength;
+  size_t old_length = m_pData->m_nDataLength;
   if (count == 0 ||
-      index != pdfium::clamp(index, static_cast<FX_STRSIZE>(0), old_length))
+      index != pdfium::clamp(index, static_cast<size_t>(0), old_length))
     return old_length;
 
-  FX_STRSIZE removal_length = index + count;
+  size_t removal_length = index + count;
   if (removal_length > old_length)
     return old_length;
 
   ReallocBeforeWrite(old_length);
-  FX_STRSIZE chars_to_copy = old_length - removal_length + 1;
+  size_t chars_to_copy = old_length - removal_length + 1;
   wmemmove(m_pData->m_String + index, m_pData->m_String + removal_length,
            chars_to_copy);
   m_pData->m_nDataLength = old_length - count;
   return m_pData->m_nDataLength;
 }
 
-void CFX_WideString::Concat(const wchar_t* pSrcData, FX_STRSIZE nSrcLen) {
+void CFX_WideString::Concat(const wchar_t* pSrcData, size_t nSrcLen) {
   if (!pSrcData || nSrcLen == 0)
     return;
 
@@ -599,7 +599,7 @@ CFX_ByteString CFX_WideString::UTF16LE_Encode() const {
   return result;
 }
 
-CFX_WideString CFX_WideString::Mid(FX_STRSIZE first, FX_STRSIZE count) const {
+CFX_WideString CFX_WideString::Mid(size_t first, size_t count) const {
   if (!m_pData)
     return CFX_WideString();
 
@@ -620,21 +620,21 @@ CFX_WideString CFX_WideString::Mid(FX_STRSIZE first, FX_STRSIZE count) const {
   return dest;
 }
 
-CFX_WideString CFX_WideString::Left(FX_STRSIZE count) const {
+CFX_WideString CFX_WideString::Left(size_t count) const {
   if (count == 0 || !IsValidLength(count))
     return CFX_WideString();
   return Mid(0, count);
 }
 
-CFX_WideString CFX_WideString::Right(FX_STRSIZE count) const {
+CFX_WideString CFX_WideString::Right(size_t count) const {
   if (count == 0 || !IsValidLength(count))
     return CFX_WideString();
   return Mid(GetLength() - count, count);
 }
 
 void CFX_WideString::AllocCopy(CFX_WideString& dest,
-                               FX_STRSIZE nCopyLen,
-                               FX_STRSIZE nCopyIndex) const {
+                               size_t nCopyLen,
+                               size_t nCopyIndex) const {
   if (nCopyLen == 0)
     return;
 
@@ -643,7 +643,7 @@ void CFX_WideString::AllocCopy(CFX_WideString& dest,
   dest.m_pData.Swap(pNewData);
 }
 
-bool CFX_WideString::TryVSWPrintf(FX_STRSIZE size,
+bool CFX_WideString::TryVSWPrintf(size_t size,
                                   const wchar_t* pFormat,
                                   va_list argList) {
   GetBuffer(size);
@@ -677,7 +677,7 @@ void CFX_WideString::FormatV(const wchar_t* format, va_list argList) {
   while (maxLen < 32 * 1024) {
     FX_VA_COPY(argListCopy, argList);
     bool bSufficientBuffer =
-        TryVSWPrintf(static_cast<FX_STRSIZE>(maxLen), format, argListCopy);
+        TryVSWPrintf(static_cast<size_t>(maxLen), format, argListCopy);
     va_end(argListCopy);
     if (bSufficientBuffer)
       break;
@@ -692,12 +692,12 @@ void CFX_WideString::Format(const wchar_t* pFormat, ...) {
   va_end(argList);
 }
 
-FX_STRSIZE CFX_WideString::Insert(FX_STRSIZE location, wchar_t ch) {
-  const FX_STRSIZE cur_length = m_pData ? m_pData->m_nDataLength : 0;
+size_t CFX_WideString::Insert(size_t location, wchar_t ch) {
+  const size_t cur_length = m_pData ? m_pData->m_nDataLength : 0;
   if (!IsValidLength(location))
     return cur_length;
 
-  const FX_STRSIZE new_length = cur_length + 1;
+  const size_t new_length = cur_length + 1;
   ReallocBeforeWrite(new_length);
   wmemmove(m_pData->m_String + location + 1, m_pData->m_String + location,
            new_length - location);
@@ -706,35 +706,34 @@ FX_STRSIZE CFX_WideString::Insert(FX_STRSIZE location, wchar_t ch) {
   return new_length;
 }
 
-pdfium::Optional<FX_STRSIZE> CFX_WideString::Find(wchar_t ch,
-                                                  FX_STRSIZE start) const {
+pdfium::Optional<size_t> CFX_WideString::Find(wchar_t ch, size_t start) const {
   if (!m_pData)
-    return pdfium::Optional<FX_STRSIZE>();
+    return pdfium::Optional<size_t>();
 
   if (!IsValidIndex(start))
-    return pdfium::Optional<FX_STRSIZE>();
+    return pdfium::Optional<size_t>();
 
   const wchar_t* pStr =
       wmemchr(m_pData->m_String + start, ch, m_pData->m_nDataLength - start);
-  return pStr ? pdfium::Optional<FX_STRSIZE>(
-                    static_cast<FX_STRSIZE>(pStr - m_pData->m_String))
-              : pdfium::Optional<FX_STRSIZE>();
+  return pStr ? pdfium::Optional<size_t>(
+                    static_cast<size_t>(pStr - m_pData->m_String))
+              : pdfium::Optional<size_t>();
 }
 
-pdfium::Optional<FX_STRSIZE> CFX_WideString::Find(const CFX_WideStringC& subStr,
-                                                  FX_STRSIZE start) const {
+pdfium::Optional<size_t> CFX_WideString::Find(const CFX_WideStringC& subStr,
+                                              size_t start) const {
   if (!m_pData)
-    return pdfium::Optional<FX_STRSIZE>();
+    return pdfium::Optional<size_t>();
 
   if (!IsValidIndex(start))
-    return pdfium::Optional<FX_STRSIZE>();
+    return pdfium::Optional<size_t>();
 
   const wchar_t* pStr =
       FX_wcsstr(m_pData->m_String + start, m_pData->m_nDataLength - start,
                 subStr.unterminated_c_str(), subStr.GetLength());
-  return pStr ? pdfium::Optional<FX_STRSIZE>(
-                    static_cast<FX_STRSIZE>(pStr - m_pData->m_String))
-              : pdfium::Optional<FX_STRSIZE>();
+  return pStr ? pdfium::Optional<size_t>(
+                    static_cast<size_t>(pStr - m_pData->m_String))
+              : pdfium::Optional<size_t>();
 }
 
 void CFX_WideString::MakeLower() {
@@ -753,7 +752,7 @@ void CFX_WideString::MakeUpper() {
   FXSYS_wcsupr(m_pData->m_String);
 }
 
-FX_STRSIZE CFX_WideString::Remove(wchar_t chRemove) {
+size_t CFX_WideString::Remove(wchar_t chRemove) {
   if (!m_pData || m_pData->m_nDataLength < 1)
     return 0;
 
@@ -782,23 +781,23 @@ FX_STRSIZE CFX_WideString::Remove(wchar_t chRemove) {
   }
 
   *pstrDest = 0;
-  FX_STRSIZE count = static_cast<FX_STRSIZE>(pstrSource - pstrDest);
+  size_t count = static_cast<size_t>(pstrSource - pstrDest);
   m_pData->m_nDataLength -= count;
   return count;
 }
 
-FX_STRSIZE CFX_WideString::Replace(const CFX_WideStringC& pOld,
-                                   const CFX_WideStringC& pNew) {
+size_t CFX_WideString::Replace(const CFX_WideStringC& pOld,
+                               const CFX_WideStringC& pNew) {
   if (!m_pData || pOld.IsEmpty())
     return 0;
 
-  FX_STRSIZE nSourceLen = pOld.GetLength();
-  FX_STRSIZE nReplacementLen = pNew.GetLength();
-  FX_STRSIZE count = 0;
+  size_t nSourceLen = pOld.GetLength();
+  size_t nReplacementLen = pNew.GetLength();
+  size_t count = 0;
   const wchar_t* pStart = m_pData->m_String;
   wchar_t* pEnd = m_pData->m_String + m_pData->m_nDataLength;
   while (1) {
-    const wchar_t* pTarget = FX_wcsstr(pStart, (FX_STRSIZE)(pEnd - pStart),
+    const wchar_t* pTarget = FX_wcsstr(pStart, (size_t)(pEnd - pStart),
                                        pOld.unterminated_c_str(), nSourceLen);
     if (!pTarget)
       break;
@@ -809,7 +808,7 @@ FX_STRSIZE CFX_WideString::Replace(const CFX_WideStringC& pOld,
   if (count == 0)
     return 0;
 
-  FX_STRSIZE nNewLength =
+  size_t nNewLength =
       m_pData->m_nDataLength + (nReplacementLen - nSourceLen) * count;
 
   if (nNewLength == 0) {
@@ -820,8 +819,8 @@ FX_STRSIZE CFX_WideString::Replace(const CFX_WideStringC& pOld,
   CFX_RetainPtr<StringData> pNewData(StringData::Create(nNewLength));
   pStart = m_pData->m_String;
   wchar_t* pDest = pNewData->m_String;
-  for (FX_STRSIZE i = 0; i < count; i++) {
-    const wchar_t* pTarget = FX_wcsstr(pStart, (FX_STRSIZE)(pEnd - pStart),
+  for (size_t i = 0; i < count; i++) {
+    const wchar_t* pTarget = FX_wcsstr(pStart, (size_t)(pEnd - pStart),
                                        pOld.unterminated_c_str(), nSourceLen);
     wmemcpy(pDest, pStart, pTarget - pStart);
     pDest += pTarget - pStart;
@@ -851,7 +850,7 @@ CFX_WideString CFX_WideString::FromUTF8(const CFX_ByteStringC& str) {
     return CFX_WideString();
 
   CFX_UTF8Decoder decoder;
-  for (FX_STRSIZE i = 0; i < str.GetLength(); i++)
+  for (size_t i = 0; i < str.GetLength(); i++)
     decoder.Input(str[i]);
 
   return CFX_WideString(decoder.GetResult());
@@ -859,21 +858,21 @@ CFX_WideString CFX_WideString::FromUTF8(const CFX_ByteStringC& str) {
 
 // static
 CFX_WideString CFX_WideString::FromUTF16LE(const unsigned short* wstr,
-                                           FX_STRSIZE wlen) {
+                                           size_t wlen) {
   if (!wstr || wlen == 0) {
     return CFX_WideString();
   }
 
   CFX_WideString result;
   wchar_t* buf = result.GetBuffer(wlen);
-  for (FX_STRSIZE i = 0; i < wlen; i++) {
+  for (size_t i = 0; i < wlen; i++) {
     buf[i] = wstr[i];
   }
   result.ReleaseBuffer(wlen);
   return result;
 }
 
-void CFX_WideString::SetAt(FX_STRSIZE index, wchar_t c) {
+void CFX_WideString::SetAt(size_t index, wchar_t c) {
   ASSERT(IsValidIndex(index));
   ReallocBeforeWrite(m_pData->m_nDataLength);
   m_pData->m_String[index] = c;
@@ -895,10 +894,10 @@ int CFX_WideString::Compare(const CFX_WideString& str) const {
   if (!str.m_pData) {
     return 1;
   }
-  FX_STRSIZE this_len = m_pData->m_nDataLength;
-  FX_STRSIZE that_len = str.m_pData->m_nDataLength;
-  FX_STRSIZE min_len = std::min(this_len, that_len);
-  for (FX_STRSIZE i = 0; i < min_len; i++) {
+  size_t this_len = m_pData->m_nDataLength;
+  size_t that_len = str.m_pData->m_nDataLength;
+  size_t min_len = std::min(this_len, that_len);
+  for (size_t i = 0; i < min_len; i++) {
     if (m_pData->m_String[i] < str.m_pData->m_String[i]) {
       return -1;
     }
@@ -922,8 +921,8 @@ int CFX_WideString::CompareNoCase(const wchar_t* lpsz) const {
   return FXSYS_wcsicmp(m_pData->m_String, lpsz);
 }
 
-FX_STRSIZE CFX_WideString::WStringLength(const unsigned short* str) {
-  FX_STRSIZE len = 0;
+size_t CFX_WideString::WStringLength(const unsigned short* str) {
+  size_t len = 0;
   if (str)
     while (str[len])
       len++;
@@ -934,7 +933,7 @@ void CFX_WideString::TrimRight(const CFX_WideStringC& pTargets) {
   if (IsEmpty() || pTargets.IsEmpty())
     return;
 
-  FX_STRSIZE pos = GetLength();
+  size_t pos = GetLength();
   while (pos && pTargets.Contains(m_pData->m_String[pos - 1]))
     pos--;
 
@@ -958,13 +957,13 @@ void CFX_WideString::TrimLeft(const CFX_WideStringC& pTargets) {
   if (!m_pData || pTargets.IsEmpty())
     return;
 
-  FX_STRSIZE len = GetLength();
+  size_t len = GetLength();
   if (len == 0)
     return;
 
-  FX_STRSIZE pos = 0;
+  size_t pos = 0;
   while (pos < len) {
-    FX_STRSIZE i = 0;
+    size_t i = 0;
     while (i < pTargets.GetLength() &&
            pTargets.CharAt(i) != m_pData->m_String[pos]) {
       i++;
@@ -978,7 +977,7 @@ void CFX_WideString::TrimLeft(const CFX_WideStringC& pTargets) {
     return;
 
   ReallocBeforeWrite(len);
-  FX_STRSIZE nDataLength = len - pos;
+  size_t nDataLength = len - pos;
   memmove(m_pData->m_String, m_pData->m_String + pos,
           (nDataLength + 1) * sizeof(wchar_t));
   m_pData->m_nDataLength = nDataLength;

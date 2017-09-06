@@ -421,7 +421,7 @@ FPDFText_SetText(FPDF_PAGEOBJECT text_object, FPDF_WIDESTRING text) {
   if (!pTextObj)
     return false;
 
-  FX_STRSIZE len = CFX_WideString::WStringLength(text);
+  size_t len = CFX_WideString::WStringLength(text);
   CFX_WideString encodedText = CFX_WideString::FromUTF16LE(text, len);
   CFX_ByteString byteText;
   for (wchar_t wc : encodedText) {

@@ -103,7 +103,7 @@ FPDFBookmark_Find(FPDF_DOCUMENT document, FPDF_WIDESTRING title) {
   if (!pDoc)
     return nullptr;
   CPDF_BookmarkTree tree(pDoc);
-  FX_STRSIZE len = CFX_WideString::WStringLength(title);
+  size_t len = CFX_WideString::WStringLength(title);
   CFX_WideString encodedTitle = CFX_WideString::FromUTF16LE(title, len);
   std::set<CPDF_Dictionary*> visited;
   return FindBookmark(tree, CPDF_Bookmark(), encodedTitle, &visited).GetDict();

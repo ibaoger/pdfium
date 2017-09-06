@@ -49,7 +49,7 @@ CBC_OnedCode39Writer::~CBC_OnedCode39Writer() {}
 
 bool CBC_OnedCode39Writer::CheckContentValidity(
     const CFX_WideStringC& contents) {
-  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
+  for (size_t i = 0; i < contents.GetLength(); i++) {
     wchar_t ch = contents[i];
     if ((ch >= L'0' && ch <= L'9') || (ch >= L'A' && ch <= L'Z') ||
         ch == L'-' || ch == L'.' || ch == L' ' || ch == L'*' || ch == L'$' ||
@@ -64,7 +64,7 @@ bool CBC_OnedCode39Writer::CheckContentValidity(
 CFX_WideString CBC_OnedCode39Writer::FilterContents(
     const CFX_WideStringC& contents) {
   CFX_WideString filtercontents;
-  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
+  for (size_t i = 0; i < contents.GetLength(); i++) {
     wchar_t ch = contents[i];
     if (ch == L'*' && (i == 0 || i == contents.GetLength() - 1)) {
       continue;
@@ -87,7 +87,7 @@ CFX_WideString CBC_OnedCode39Writer::FilterContents(
 CFX_WideString CBC_OnedCode39Writer::RenderTextContents(
     const CFX_WideStringC& contents) {
   CFX_WideString renderContents;
-  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
+  for (size_t i = 0; i < contents.GetLength(); i++) {
     wchar_t ch = contents[i];
     if (ch == L'*' && (i == 0 || i == contents.GetLength() - 1)) {
       continue;
@@ -138,7 +138,7 @@ void CBC_OnedCode39Writer::ToIntArray(int32_t a, int8_t* toReturn) {
 }
 
 char CBC_OnedCode39Writer::CalcCheckSum(const CFX_ByteString& contents) {
-  FX_STRSIZE length = contents.GetLength();
+  size_t length = contents.GetLength();
   if (length > 80)
     return '*';
 
@@ -176,7 +176,7 @@ uint8_t* CBC_OnedCode39Writer::EncodeImpl(const CFX_ByteString& contents,
   int32_t codeWidth = (wideStrideNum * m_iWideNarrRatio + narrStrideNum) * 2 +
                       1 + m_iContentLen;
   size_t len = strlen(ALPHABET_STRING);
-  for (FX_STRSIZE j = 0; j < m_iContentLen; j++) {
+  for (size_t j = 0; j < m_iContentLen; j++) {
     for (size_t i = 0; i < len; i++) {
       if (ALPHABET_STRING[i] != encodedContents[j])
         continue;

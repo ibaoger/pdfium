@@ -404,7 +404,7 @@ FPDF_EXPORT void FPDF_CALLCONV FORM_ReplaceSelection(FPDF_FORMHANDLE hHandle,
   if (!pPageView)
     return;
 
-  FX_STRSIZE len = CFX_WideString::WStringLength(wsText);
+  size_t len = CFX_WideString::WStringLength(wsText);
   CFX_WideString wide_str_text = CFX_WideString::FromUTF16LE(wsText, len);
 
   pPageView->ReplaceSelection(wide_str_text);

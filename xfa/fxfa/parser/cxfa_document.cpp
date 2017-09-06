@@ -300,7 +300,7 @@ XFA_VERSION CXFA_Document::RecognizeXFAVersionNumber(
     const CFX_WideString& wsTemplateNS) {
   CFX_WideStringC wsTemplateURIPrefix =
       XFA_GetPacketByIndex(XFA_PACKET_Template)->pURI;
-  FX_STRSIZE nPrefixLength = wsTemplateURIPrefix.GetLength();
+  size_t nPrefixLength = wsTemplateURIPrefix.GetLength();
   if (CFX_WideStringC(wsTemplateNS.c_str(), wsTemplateNS.GetLength()) !=
       wsTemplateURIPrefix) {
     return XFA_VERSION_UNKNOWN;
@@ -374,7 +374,7 @@ void CXFA_Document::DoProtoMerge() {
         wsURI = wsUseVal.AsStringC();
       } else {
         wsURI = CFX_WideStringC(wsUseVal.c_str(), uSharpPos.value());
-        FX_STRSIZE uLen = wsUseVal.GetLength();
+        size_t uLen = wsUseVal.GetLength();
         if (uLen >= uSharpPos.value() + 5 &&
             CFX_WideStringC(wsUseVal.c_str() + uSharpPos.value(), 5) ==
                 L"#som(" &&

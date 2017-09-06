@@ -102,8 +102,7 @@ CFX_ByteStringC CPDF_SimpleParser::GetWord() {
     if (m_dwCurPos < m_dwSize) {
       m_dwCurPos++;
     }
-    return CFX_ByteStringC(pStart,
-                           (FX_STRSIZE)(m_dwCurPos - (pStart - m_pData)));
+    return CFX_ByteStringC(pStart, (size_t)(m_dwCurPos - (pStart - m_pData)));
   }
   if (dwSize == 1 && pStart[0] == '(') {
     int level = 1;
@@ -130,8 +129,7 @@ CFX_ByteStringC CPDF_SimpleParser::GetWord() {
     if (m_dwCurPos < m_dwSize) {
       m_dwCurPos++;
     }
-    return CFX_ByteStringC(pStart,
-                           (FX_STRSIZE)(m_dwCurPos - (pStart - m_pData)));
+    return CFX_ByteStringC(pStart, (size_t)(m_dwCurPos - (pStart - m_pData)));
   }
   return CFX_ByteStringC(pStart, dwSize);
 }

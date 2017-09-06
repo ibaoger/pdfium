@@ -847,8 +847,8 @@ std::vector<CFX_WideString> CXFA_WidgetData::GetSelectedItemsValue() {
   CFX_WideString wsValue = GetRawValue();
   if (GetChoiceListOpen() == XFA_ATTRIBUTEENUM_MultiSelect) {
     if (!wsValue.IsEmpty()) {
-      FX_STRSIZE iStart = 0;
-      FX_STRSIZE iLength = wsValue.GetLength();
+      size_t iStart = 0;
+      size_t iLength = wsValue.GetLength();
       auto iEnd = wsValue.Find(L'\n', iStart);
       iEnd = (!iEnd.has_value()) ? iLength : iEnd;
       while (iEnd >= iStart) {
@@ -1767,14 +1767,14 @@ void CXFA_WidgetData::FormatNumStr(const CFX_WideString& wsValue,
     bNeg = true;
     wsSrcNum.Delete(0, 1);
   }
-  FX_STRSIZE len = wsSrcNum.GetLength();
+  size_t len = wsSrcNum.GetLength();
   auto dot_index = wsSrcNum.Find('.');
   dot_index = !dot_index.has_value() ? len : dot_index;
 
   if (dot_index.value() >= 1) {
     int nPos = dot_index.value() % 3;
     wsOutput.clear();
-    for (FX_STRSIZE i = 0; i < dot_index.value(); i++) {
+    for (size_t i = 0; i < dot_index.value(); i++) {
       if (i % 3 == nPos && i != 0)
         wsOutput += wsGroupSymbol;
 

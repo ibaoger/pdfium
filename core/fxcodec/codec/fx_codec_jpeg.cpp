@@ -509,7 +509,7 @@ uint32_t CCodec_JpegModule::GetAvailInput(Context* pContext,
 #define JPEG_BLOCK_SIZE 1048576
 bool CCodec_JpegModule::JpegEncode(const CFX_RetainPtr<CFX_DIBSource>& pSource,
                                    uint8_t** dest_buf,
-                                   FX_STRSIZE* dest_size) {
+                                   size_t* dest_size) {
   struct jpeg_error_mgr jerr;
   jerr.error_exit = _error_do_nothing;
   jerr.emit_message = _error_do_nothing1;
@@ -602,7 +602,7 @@ bool CCodec_JpegModule::JpegEncode(const CFX_RetainPtr<CFX_DIBSource>& pSource,
   jpeg_finish_compress(&cinfo);
   jpeg_destroy_compress(&cinfo);
   FX_Free(line_buf);
-  *dest_size = dest_buf_length - (FX_STRSIZE)dest.free_in_buffer;
+  *dest_size = dest_buf_length - (size_t)dest.free_in_buffer;
 
   return true;
 }

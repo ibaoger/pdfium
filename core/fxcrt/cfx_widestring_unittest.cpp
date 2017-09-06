@@ -529,7 +529,7 @@ TEST(fxcrt, WideStringFind) {
   EXPECT_FALSE(empty_string.Find(L'a').has_value());
   EXPECT_FALSE(empty_string.Find(L'\0').has_value());
 
-  pdfium::Optional<FX_STRSIZE> result;
+  pdfium::Optional<size_t> result;
   CFX_WideString single_string(L"a");
   result = single_string.Find(L'a');
   ASSERT_TRUE(result.has_value());
@@ -972,7 +972,7 @@ TEST(fxcrt, WideStringCFind) {
   EXPECT_FALSE(empty_string.Find(L'a').has_value());
   EXPECT_FALSE(empty_string.Find(L'\0').has_value());
 
-  pdfium::Optional<FX_STRSIZE> result;
+  pdfium::Optional<size_t> result;
   CFX_WideStringC single_string(L"a");
   result = single_string.Find(L'a');
   ASSERT_TRUE(result.has_value());

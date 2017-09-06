@@ -14,14 +14,14 @@
 template <typename CharType>
 class CFX_StringDataTemplate {
  public:
-  static CFX_StringDataTemplate* Create(FX_STRSIZE nLen) {
+  static CFX_StringDataTemplate* Create(size_t nLen) {
     ASSERT(nLen > 0);
 
     // Calculate space needed for the fixed portion of the struct plus the
     // NUL char that is not included in |m_nAllocLength|.
     int overhead =
         offsetof(CFX_StringDataTemplate, m_String) + sizeof(CharType);
-    pdfium::base::CheckedNumeric<FX_STRSIZE> nSize = nLen;
+    pdfium::base::CheckedNumeric<size_t> nSize = nLen;
     nSize *= sizeof(CharType);
     nSize += overhead;
 
@@ -31,8 +31,8 @@ class CFX_StringDataTemplate {
     // by using this otherwise wasted space.
     nSize += 7;
     nSize &= ~7;
-    FX_STRSIZE totalSize = nSize.ValueOrDie();
-    FX_STRSIZE usableLen = (totalSize - overhead) / sizeof(CharType);
+    size_t totalSize = nSize.ValueOrDie();
+    size_t usableLen = (totalSize - overhead) / sizeof(CharType);
     ASSERT(usableLen >= nLen);
 
     void* pData = pdfium::base::PartitionAllocGeneric(
@@ -46,7 +46,7 @@ class CFX_StringDataTemplate {
     return result;
   }
 
-  static CFX_StringDataTemplate* Create(const CharType* pStr, FX_STRSIZE nLen) {
+  static CFX_StringDataTemplate* Create(const CharType* pStr, size_t nLen) {
     CFX_StringDataTemplate* result = Create(nLen);
     result->CopyContents(pStr, nLen);
     return result;
@@ -59,7 +59,7 @@ class CFX_StringDataTemplate {
                                          this);
   }
 
-  bool CanOperateInPlace(FX_STRSIZE nTotalLen) const {
+  bool CanOperateInPlace(size_t nTotalLen) const {
     return m_nRefs <= 1 && nTotalLen <= m_nAllocLength;
   }
 
@@ -69,15 +69,13 @@ class CFX_StringDataTemplate {
            (other.m_nDataLength + 1) * sizeof(CharType));
   }
 
-  void CopyContents(const CharType* pStr, FX_STRSIZE nLen) {
+  void CopyContents(const CharType* pStr, size_t nLen) {
     ASSERT(nLen >= 0 && nLen <= m_nAllocLength);
     memcpy(m_String, pStr, nLen * sizeof(CharType));
     m_String[nLen] = 0;
   }
 
-  void CopyContentsAt(FX_STRSIZE offset,
-                      const CharType* pStr,
-                      FX_STRSIZE nLen) {
+  void CopyContentsAt(size_t offset, const CharType* pStr, size_t nLen) {
     ASSERT(offset >= 0 && nLen >= 0 && offset + nLen <= m_nAllocLength);
     memcpy(m_String + offset, pStr, nLen * sizeof(CharType));
     m_String[offset + nLen] = 0;
@@ -90,19 +88,19 @@ class CFX_StringDataTemplate {
   // the address space itself is a good upper bound on it.
   intptr_t m_nRefs;
 
-  // |FX_STRSIZE| is currently typedef'd as |int|.
+  // |size_t| is currently typedef'd as |int|.
   // TODO(palmer): It should be a |size_t|, or at least unsigned.
   // These lengths are in terms of number of characters, not bytes, and do not
   // include the terminating NUL character, but the underlying buffer is sized
   // to be capable of holding it.
-  FX_STRSIZE m_nDataLength;
-  FX_STRSIZE m_nAllocLength;
+  size_t m_nDataLength;
+  size_t m_nAllocLength;
 
   // Not really 1, variable size.
   CharType m_String[1];
 
  private:
-  CFX_StringDataTemplate(FX_STRSIZE dataLen, FX_STRSIZE allocLen)
+  CFX_StringDataTemplate(size_t dataLen, size_t allocLen)
       : m_nRefs(0), m_nDataLength(dataLen), m_nAllocLength(allocLen) {
     ASSERT(dataLen >= 0);
     ASSERT(dataLen <= allocLen);

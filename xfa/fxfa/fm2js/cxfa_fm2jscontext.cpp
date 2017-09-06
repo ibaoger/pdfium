@@ -2958,7 +2958,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
     return;
   }
 
-  FX_STRSIZE u = 0;
+  size_t u = 0;
   while (IsWhitespace(pData[u]))
     ++u;
 
@@ -2973,7 +2973,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
   while (IsWhitespace(pData[u]))
     ++u;
 
-  FX_STRSIZE uLen = unitspanString.GetLength();
+  size_t uLen = unitspanString.GetLength();
   CFX_ByteString strFirstUnit;
   while (u < uLen) {
     if (pData[u] == ' ')
@@ -2989,7 +2989,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
     std::unique_ptr<CFXJSE_Value> unitValue = GetSimpleValue(pThis, args, 1);
     CFX_ByteString unitTempString = ValueToUTF8String(unitValue.get());
     const char* pChar = unitTempString.c_str();
-    FX_STRSIZE uVal = 0;
+    size_t uVal = 0;
     while (IsWhitespace(pChar[uVal]))
       ++uVal;
 
@@ -3001,7 +3001,7 @@ void CXFA_FM2JSContext::UnitValue(CFXJSE_Value* pThis,
     while (IsWhitespace(pChar[uVal]))
       ++uVal;
 
-    FX_STRSIZE uValLen = unitTempString.GetLength();
+    size_t uValLen = unitTempString.GetLength();
     while (uVal < uValLen) {
       if (pChar[uVal] == ' ')
         break;
@@ -3183,7 +3183,7 @@ void CXFA_FM2JSContext::Decode(CFXJSE_Value* pThis,
 // static
 CFX_WideString CXFA_FM2JSContext::DecodeURL(const CFX_WideString& wsURLString) {
   const wchar_t* pData = wsURLString.c_str();
-  FX_STRSIZE i = 0;
+  size_t i = 0;
   CFX_WideTextBuf wsResultBuf;
   while (i < wsURLString.GetLength()) {
     wchar_t ch = pData[i];
@@ -3221,9 +3221,9 @@ CFX_WideString CXFA_FM2JSContext::DecodeURL(const CFX_WideString& wsURLString) {
 CFX_WideString CXFA_FM2JSContext::DecodeHTML(
     const CFX_WideString& wsHTMLString) {
   wchar_t strString[9];
-  FX_STRSIZE iStrIndex = 0;
-  FX_STRSIZE iLen = wsHTMLString.GetLength();
-  FX_STRSIZE i = 0;
+  size_t iStrIndex = 0;
+  size_t iLen = wsHTMLString.GetLength();
+  size_t i = 0;
   int32_t iCode = 0;
   const wchar_t* pData = wsHTMLString.c_str();
   CFX_WideTextBuf wsResultBuf;
@@ -3823,7 +3823,7 @@ void CXFA_FM2JSContext::Lower(CFXJSE_Value* pThis,
   CFX_ByteString argString = ValueToUTF8String(argOne.get());
   CFX_WideString wsArgString = CFX_WideString::FromUTF8(argString.AsStringC());
   const wchar_t* pData = wsArgString.c_str();
-  FX_STRSIZE i = 0;
+  size_t i = 0;
   while (i < argString.GetLength()) {
     int32_t ch = pData[i];
     if ((ch >= 0x41 && ch <= 0x5A) || (ch >= 0xC0 && ch <= 0xDE))
@@ -4020,17 +4020,17 @@ void CXFA_FM2JSContext::Replace(CFXJSE_Value* pThis,
     threeString = ValueToUTF8String(argThree.get());
   }
 
-  FX_STRSIZE iFindLen = twoString.GetLength();
+  size_t iFindLen = twoString.GetLength();
   std::ostringstream resultString;
-  FX_STRSIZE iFindIndex = 0;
-  for (FX_STRSIZE u = 0; u < oneString.GetLength(); ++u) {
+  size_t iFindIndex = 0;
+  for (size_t u = 0; u < oneString.GetLength(); ++u) {
     char ch = static_cast<char>(oneString[u]);
     if (ch != static_cast<char>(twoString[iFindIndex])) {
       resultString << ch;
       continue;
     }
 
-    FX_STRSIZE iTemp = u + 1;
+    size_t iTemp = u + 1;
     ++iFindIndex;
     while (iFindIndex < iFindLen) {
       uint8_t chTemp = oneString[iTemp];
@@ -4364,7 +4364,7 @@ void CXFA_FM2JSContext::Upper(CFXJSE_Value* pThis,
   CFX_ByteString argString = ValueToUTF8String(argOne.get());
   CFX_WideString wsArgString = CFX_WideString::FromUTF8(argString.AsStringC());
   const wchar_t* pData = wsArgString.c_str();
-  FX_STRSIZE i = 0;
+  size_t i = 0;
   while (i < wsArgString.GetLength()) {
     int32_t ch = pData[i];
     if ((ch >= 0x61 && ch <= 0x7A) || (ch >= 0xE0 && ch <= 0xFE))

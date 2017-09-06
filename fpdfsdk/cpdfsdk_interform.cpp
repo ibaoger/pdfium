@@ -442,7 +442,7 @@ bool CPDFSDK_InterForm::SubmitFields(const CFX_WideString& csDestination,
                                      bool bUrlEncoded) {
   CFX_ByteString textBuf = ExportFieldsToFDFTextBuf(fields, bIncludeOrExclude);
 
-  FX_STRSIZE nBufSize = textBuf.GetLength();
+  size_t nBufSize = textBuf.GetLength();
   if (nBufSize == 0)
     return false;
 
@@ -465,8 +465,7 @@ bool CPDFSDK_InterForm::SubmitFields(const CFX_WideString& csDestination,
   return true;
 }
 
-bool CPDFSDK_InterForm::FDFToURLEncodedData(uint8_t*& pBuf,
-                                            FX_STRSIZE& nBufSize) {
+bool CPDFSDK_InterForm::FDFToURLEncodedData(uint8_t*& pBuf, size_t& nBufSize) {
   std::unique_ptr<CFDF_Document> pFDF =
       CFDF_Document::ParseMemory(pBuf, nBufSize);
   if (!pFDF)
@@ -539,7 +538,7 @@ bool CPDFSDK_InterForm::SubmitForm(const CFX_WideString& sDestination,
 
   CFX_ByteString fdfBuffer = pFDFDoc->WriteToString();
 
-  FX_STRSIZE nBufSize = fdfBuffer.GetLength();
+  size_t nBufSize = fdfBuffer.GetLength();
   if (nBufSize == 0)
     return false;
 
