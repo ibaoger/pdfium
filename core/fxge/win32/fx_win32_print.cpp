@@ -57,7 +57,7 @@ PDFiumEnsureTypefaceCharactersAccessible g_pdfium_typeface_accessible_func =
 CGdiPrinterDriver::CGdiPrinterDriver(HDC hDC)
     : CGdiDeviceDriver(hDC, FXDC_PRINTER),
       m_HorzSize(::GetDeviceCaps(m_hDC, HORZSIZE)),
-      m_VertSize(::GetDeviceCaps(m_hDC, VERTSIZE)) {}
+      m_VertSize(::GetDeviceCaps(m_hDC, VERTSIZ)) {}
 
 CGdiPrinterDriver::~CGdiPrinterDriver() {}
 
