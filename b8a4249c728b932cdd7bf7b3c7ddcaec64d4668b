@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bef6f58f_5a46ec2f",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-06T16:12:21Z",
+      "side": 1,
+      "message": "For the code to be self-documenting, especially since we have a return type that requires documentation:\n\n  size_t end_idx \u003d iter.GetAt();\n  return {start_idx, end_idx};",
+      "revId": "b8a4249c728b932cdd7bf7b3c7ddcaec64d4668b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
