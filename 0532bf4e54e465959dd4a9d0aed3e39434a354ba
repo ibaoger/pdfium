@@ -34,6 +34,24 @@
       "revId": "0532bf4e54e465959dd4a9d0aed3e39434a354ba",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a339ef_00e50cd7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-06T20:25:11Z",
+      "side": 1,
+      "message": "Does GetIndirectObject parse the header?",
+      "parentUuid": "e52ae249_7a30a34f",
+      "revId": "0532bf4e54e465959dd4a9d0aed3e39434a354ba",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
