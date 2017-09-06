@@ -28,14 +28,14 @@ class JobContext(object):
   """Context for a single run, including name and directory paths."""
 
   def __init__(self, args):
-    self.run_name = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+    self.datetime = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     self.results_dir = args.results_dir
     self.last_revision_covered_file = os.path.join(self.results_dir,
                                                    'last_revision_covered')
     self.run_output_dir = os.path.join(self.results_dir,
-                                       'profiles_%s' % self.run_name)
+                                       'profiles_%s' % self.datetime)
     self.run_output_log_file = os.path.join(self.results_dir,
-                                            '%s.log' % self.run_name)
+                                            '%s.log' % self.datetime)
 
 
 class JobRun(object):
@@ -125,6 +125,8 @@ class JobRun(object):
 
     if current == last_revision_covered:
       PrintWithTime('No changes seen, finishing job')
+      self._AddMetadataAndWriteRawJson(
+          None, last_revision_covered, current)
       return 0
 
     # Run compare
@@ -142,7 +144,12 @@ class JobRun(object):
     if json_output is None:
       return 1
 
+    # Add metadata and write the raw json output for easy analysis in the
+    # future.
     output_info = json.loads(json_output)
+    self._AddMetadataAndWriteRawJson(
+        output_info, last_revision_covered, current)
+
     PrintConclusionsDictHumanReadable(output_info,
                                       colored=(not self.args.output_to_log
                                                and not self.args.no_color),
@@ -164,6 +171,26 @@ class JobRun(object):
     self._WriteCheckpoint(current)
 
     return status
+
+  def _AddMetadataAndWriteRawJson(self, output_info, revision_before,
+                                  revision_after):
+    if output_info is None:
+      output_info = {}
+      comparison_performed = False
+    else:
+      comparison_performed = True
+
+    output_info['metadata'] = {
+        'datetime': self.context.datetime,
+        'revision_before': revision_before,
+        'revision_after': revision_after,
+        'comparison_performed': comparison_performed,
+    }
+
+    # Write the raw json output for easy analysis in the future.
+    json_output_file = os.path.join(self.context.run_output_dir, 'raw.json')
+    with open(json_output_file, 'w') as f:
+      json.dump(output_info, f)
 
   def _WriteCheckpoint(self, checkpoint):
     if not self.args.no_checkpoint:
