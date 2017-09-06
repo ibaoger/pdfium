@@ -19,6 +19,7 @@ class CPDF_IndirectObjectHolder;
 class CPDF_Object;
 class CPDF_ReadValidator;
 class CPDF_Stream;
+class CPDF_SuffixTree;
 class IFX_SeekableReadStream;
 
 class CPDF_SyntaxParser {
@@ -93,6 +94,7 @@ class CPDF_SyntaxParser {
   CFX_ByteString ReadString();
   CFX_ByteString ReadHexString();
   unsigned int ReadEOLMarkers(FX_FILESIZE pos);
+  bool GoToStreamEnd();
   std::unique_ptr<CPDF_Stream> ReadStream(
       std::unique_ptr<CPDF_Dictionary> pDict,
       uint32_t objnum,
@@ -122,6 +124,7 @@ class CPDF_SyntaxParser {
   uint8_t m_WordBuffer[257];
   uint32_t m_WordSize;
   CFX_WeakPtr<CFX_ByteStringPool> m_pPool;
+  std::unique_ptr<CPDF_SuffixTree> m_pEndStreamSearcher;
 };
 
 #endif  // CORE_FPDFAPI_PARSER_CPDF_SYNTAX_PARSER_H_
