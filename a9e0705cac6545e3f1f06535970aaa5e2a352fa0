@@ -46,6 +46,30 @@
       "revId": "a9e0705cac6545e3f1f06535970aaa5e2a352fa0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5404ae62_61389bad",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T22:05:25Z",
+      "side": 1,
+      "message": "Looks good.",
+      "parentUuid": "6bb72603_87a34b10",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "a9e0705cac6545e3f1f06535970aaa5e2a352fa0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
