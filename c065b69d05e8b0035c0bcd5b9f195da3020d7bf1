@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d9c20d6_6dae7753",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T22:05:21Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 17,
+        "startChar": 48,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3583c3fb_331eb5cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T22:05:21Z",
+      "side": 1,
+      "message": "nit: no whitespace at end of lines.",
+      "range": {
+        "startLine": 17,
+        "startChar": 68,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "694ab52b_713861ed",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T22:05:21Z",
+      "side": 1,
+      "message": "Why are you completely overriding all the output_info in this case? Wouldn\u0027t this remove the version etc?",
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf8a7d3d_91eec079",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T22:05:21Z",
+      "side": 1,
+      "message": "unneeded variable?",
+      "range": {
+        "startLine": 154,
+        "startChar": 50,
+        "endLine": 154,
+        "endChar": 62
+      },
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
