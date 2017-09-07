@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47e8705c_e53f3855",
+        "filename": "core/fpdfapi/parser/cpdf_suffix_tree_unittest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T15:10:50Z",
+      "side": 1,
+      "message": "I\u0027m confused by these tests - if we\u0027re doing a pattern matching that\u0027s O(n), why use a suffix tree? Shouldn\u0027t this be:\n\n  CPDF_SuffixTree suffixTree;\n  const std::string data(\"aaa bbbbbb cccc ddddd eeeee ffff\");\n  suffixTree.Parse(\u0026data);\n  const CFX_ByteString substring(\"dddd\");\n  CPDF_SuffixTree::Result* result \u003d suffixTree.Match(\u0026substring);\n  (EXPECTs and so on)",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "238df75bdd49136eff343e45053ad277465b6097",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
