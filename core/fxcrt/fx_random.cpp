@@ -19,7 +19,8 @@
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 #include <wincrypt.h>
 #else  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-#include <ctime>
+#include <sys/time.h>
+#include <unistd.h>
 #endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
 namespace {
@@ -35,42 +36,40 @@ struct MTContext {
   uint32_t mt[MT_N];
 };
 
+uint32_t times_called = 0;
+
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-bool GenerateCryptoRandom(uint32_t* pBuffer, int32_t iCount) {
+bool GenerateSeedFromCryptoRandom(uint32_t* pSeed) {
   HCRYPTPROV hCP = 0;
   if (!::CryptAcquireContext(&hCP, nullptr, nullptr, PROV_RSA_FULL, 0) ||
       !hCP) {
     return false;
   }
-  ::CryptGenRandom(hCP, iCount * sizeof(uint32_t),
-                   reinterpret_cast<uint8_t*>(pBuffer));
+  ::CryptGenRandom(hCP, sizeof(uint32_t), reinterpret_cast<uint8_t*>(pSeed));
   ::CryptReleaseContext(hCP, 0);
   return true;
 }
 #endif
 
-void Random_GenerateBase(uint32_t* pBuffer, int32_t iCount) {
+uint32_t GenerateSeedFromEnvironment() {
+  char c;
+  uintptr_t p = reinterpret_cast<uintptr_t>(&c);
+  uint32_t seed = ~static_cast<uint32_t>(p >> 3);
+  seed ^= ++times_called * 60000000;
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-  SYSTEMTIME st1, st2;
-  ::GetSystemTime(&st1);
-  do {
-    ::GetSystemTime(&st2);
-  } while (memcmp(&st1, &st2, sizeof(SYSTEMTIME)) == 0);
-  uint32_t dwHash1 =
-      FX_HashCode_GetA(CFX_ByteStringC((uint8_t*)&st1, sizeof(st1)), true);
-  uint32_t dwHash2 =
-      FX_HashCode_GetA(CFX_ByteStringC((uint8_t*)&st2, sizeof(st2)), true);
-  ::srand((dwHash1 << 16) | (uint32_t)dwHash2);
-#else
-  time_t tmLast = time(nullptr);
-  time_t tmCur;
-  while ((tmCur = time(nullptr)) == tmLast)
-    continue;
-
-  ::srand((tmCur << 16) | (tmLast & 0xFFFF));
-#endif
-  while (iCount-- > 0)
-    *pBuffer++ = static_cast<uint32_t>((::rand() << 16) | (::rand() & 0xFFFF));
+  SYSTEMTIME st;
+  GetSystemTime(&st);
+  seed ^= static_cast<uint32_t>(st.wSecond) * 1000000;
+  seed ^= static_cast<uint32_t>(st.wMilliseconds) * 1000;
+  seed ^= GetCurrentProcessId();
+#else   // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+  struct timeval tv;
+  gettimeofday(&tv, 0);
+  seed ^= static_cast<uint32_t>(tv.tv_sec) * 1000000;
+  seed ^= static_cast<uint32_t>(tv.tv_usec);
+  seed ^= static_cast<uint32_t>(getpid());
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+  return seed;
 }
 
 }  // namespace
@@ -88,8 +87,6 @@ void* FX_Random_MT_Start(uint32_t dwSeed) {
 }
 
 uint32_t FX_Random_MT_Generate(void* pContext) {
-  ASSERT(pContext);
-
   MTContext* pMTC = static_cast<MTContext*>(pContext);
   uint32_t v;
   static uint32_t mag[2] = {0, MT_Matrix_A};
@@ -121,18 +118,17 @@ uint32_t FX_Random_MT_Generate(void* pContext) {
 }
 
 void FX_Random_MT_Close(void* pContext) {
-  ASSERT(pContext);
   FX_Free(pContext);
 }
 
 void FX_Random_GenerateMT(uint32_t* pBuffer, int32_t iCount) {
   uint32_t dwSeed;
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
-  if (!GenerateCryptoRandom(&dwSeed, 1))
-    Random_GenerateBase(&dwSeed, 1);
-#else
-  Random_GenerateBase(&dwSeed, 1);
-#endif
+  if (!GenerateSeedFromCryptoRandom(&dwSeed))
+    dwSeed = GenerateSeedFromEnvironment();
+#else   // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
+  dwSeed = GenerateSeedFromEnvironment();
+#endif  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
   void* pContext = FX_Random_MT_Start(dwSeed);
   while (iCount-- > 0)
     *pBuffer++ = FX_Random_MT_Generate(pContext);
