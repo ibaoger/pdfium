@@ -10,6 +10,7 @@
 
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_object_writer.h"
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "core/fxcrt/fx_stream.h"
@@ -148,11 +149,5 @@ CFX_WideString CPDF_Stream::GetUnicodeText() const {
 }
 
 bool CPDF_Stream::WriteTo(IFX_ArchiveStream* archive) const {
-  if (!GetDict()->WriteTo(archive) || !archive->WriteString("stream\r\n"))
-    return false;
-
-  auto pAcc = pdfium::MakeRetain<CPDF_StreamAcc>(this);
-  pAcc->LoadAllData(true);
-  return archive->WriteBlock(pAcc->GetData(), pAcc->GetSize()) &&
-         archive->WriteString("\r\nendstream");
+  return CPDF_ObjectWriter(archive).WriteObjectBody(this);
 }

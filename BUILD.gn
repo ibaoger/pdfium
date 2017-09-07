@@ -608,6 +608,8 @@ static_library("fpdfapi") {
     "core/fpdfapi/parser/cpdf_object_avail.h",
     "core/fpdfapi/parser/cpdf_object_walker.cpp",
     "core/fpdfapi/parser/cpdf_object_walker.h",
+    "core/fpdfapi/parser/cpdf_object_writer.cpp",
+    "core/fpdfapi/parser/cpdf_object_writer.h",
     "core/fpdfapi/parser/cpdf_page_object_avail.cpp",
     "core/fpdfapi/parser/cpdf_page_object_avail.h",
     "core/fpdfapi/parser/cpdf_parser.cpp",
