@@ -88,6 +88,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18ee0c49_08d7a270",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-07T15:10:06Z",
+      "side": 1,
+      "message": "The CPDF_DataAvail request data from 900 to file end\nAfter data reseived the CPDF_Parser try to read data using CPDF_SyntaxParser from 900 to file end.\nBut the CPDF_SyntaxParser(original) read data from 512(not 900) to file end to read char at 900 offset.",
+      "parentUuid": "d51cd442_168b01ec",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
