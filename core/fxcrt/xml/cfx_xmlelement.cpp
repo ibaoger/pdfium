@@ -6,6 +6,8 @@
 
 #include "core/fxcrt/xml/cfx_xmlelement.h"
 
+#include <utility>
+
 #include "core/fxcrt/fx_extension.h"
 #include "core/fxcrt/xml/cfx_xmlchardata.h"
 #include "core/fxcrt/xml/cfx_xmltext.h"
@@ -38,7 +40,7 @@ std::unique_ptr<CFX_XMLNode> CFX_XMLElement::Clone() {
     pChild = pChild->m_pNext;
   }
   pClone->SetTextData(wsText);
-  return pClone;
+  return std::move(pClone);
 }
 
 CFX_WideString CFX_XMLElement::GetLocalTagName() const {
