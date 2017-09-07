@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1065254c_1308fc48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T21:40:53Z",
+      "side": 1,
+      "message": "Can we state the first line of the commit message as a command? Something like \"Store blabla in safetynet\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "8c58b3f773620dfecc46f5a59c3bdb650d6ccd4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60334a67_dd1ea820",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T21:40:53Z",
+      "side": 1,
+      "message": "Merge into a cohesive paragraph?",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 47
+      },
+      "revId": "8c58b3f773620dfecc46f5a59c3bdb650d6ccd4d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
