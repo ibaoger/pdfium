@@ -6,6 +6,7 @@
 
 #include "core/fxcrt/cfx_chariter.h"
 
+#include <utility>
 #include "third_party/base/ptr_util.h"
 
 CFX_CharIter::CFX_CharIter(const CFX_WideString& wsText)
@@ -49,5 +50,5 @@ bool CFX_CharIter::IsEOF(bool bTail) const {
 std::unique_ptr<IFX_CharIter> CFX_CharIter::Clone() const {
   auto pIter = pdfium::MakeUnique<CFX_CharIter>(m_wsText);
   pIter->m_nIndex = m_nIndex;
-  return pIter;
+  return std::move(pIter);
 }
