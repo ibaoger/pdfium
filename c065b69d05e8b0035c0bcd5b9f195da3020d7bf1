@@ -83,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "61215f3f_81cde0de",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-07T22:15:50Z",
+      "side": 1,
+      "message": "Ah this is when the current is equal to the last. Why even bother writing something in this case?",
+      "parentUuid": "38de3eb1_54cb4438",
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf8a7d3d_91eec079",
         "filename": "testing/tools/safetynet_job.py",
         "patchSetId": 8
