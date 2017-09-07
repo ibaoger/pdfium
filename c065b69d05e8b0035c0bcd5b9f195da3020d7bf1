@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "38de3eb1_54cb4438",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T22:07:16Z",
+      "side": 1,
+      "message": "It doesn\u0027t exist yet there, it\u0027s created on line 149 when the comparison is run.",
+      "parentUuid": "694ab52b_713861ed",
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf8a7d3d_91eec079",
         "filename": "testing/tools/safetynet_job.py",
         "patchSetId": 8
@@ -76,6 +94,30 @@
       "writtenOn": "2017-09-07T22:05:21Z",
       "side": 1,
       "message": "unneeded variable?",
+      "range": {
+        "startLine": 154,
+        "startChar": 50,
+        "endLine": 154,
+        "endChar": 62
+      },
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a3ee573_692e7556",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T22:07:16Z",
+      "side": 1,
+      "message": "I think it\u0027s already chained a lot, so it wouldn\u0027t be clearer without the var.",
+      "parentUuid": "cf8a7d3d_91eec079",
       "range": {
         "startLine": 154,
         "startChar": 50,
