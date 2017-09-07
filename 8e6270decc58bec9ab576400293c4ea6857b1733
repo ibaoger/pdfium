@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d868749_fd44a504",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-07T17:26:49Z",
+      "side": 1,
+      "message": "Just moved out the logic of keywords \"endstream\"/\"endobj\" form ::ReadStream method",
+      "revId": "8e6270decc58bec9ab576400293c4ea6857b1733",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2772a843_c832e687",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-07T17:26:49Z",
+      "side": 1,
+      "message": "In original code we read block from stream tail first, than read stream. \nFor DocumentLoader in this case we should do reconnect to skip not requested block.\nBut if we read stream data first, than do all checks, The DocumentLoader will continue loading data without recconections.",
+      "revId": "8e6270decc58bec9ab576400293c4ea6857b1733",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6138e196_162db5a7",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-07T17:26:49Z",
+      "side": 1,
+      "message": "We should not continue, if we already have read broblems.",
+      "revId": "8e6270decc58bec9ab576400293c4ea6857b1733",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
