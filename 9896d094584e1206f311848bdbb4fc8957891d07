@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2d64ea22_c99f675d",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T20:26:22Z",
+      "side": 1,
+      "message": "Are we using garbage as seed?",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 49
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "687154df_e336785f",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 6
@@ -17,6 +40,52 @@
         "startLine": 10,
         "startChar": 56,
         "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba8e970b_2816e97b",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T20:26:22Z",
+      "side": 1,
+      "message": "This isn\u0027t really waste, it\u0027s a buffer to get the results which are random numbers. Call it \"buffer\"?",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2111b0_89a67c97",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T20:26:22Z",
+      "side": 1,
+      "message": "So if we guarantee a new seed each run, this shouldn\u0027t be equal to the previous generated value. Or could it by coincidence? Do you know what the order or magnitude of the period is?",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
         "endChar": 0
       },
       "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
