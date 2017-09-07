@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "55775754_48941dd5",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-07T15:03:34Z",
+      "side": 1,
+      "message": "Should this also assert \u003e\u003d 0?, since the default underlying type for an enum class is int.",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 38
+      },
+      "revId": "24934f05f4fb176ba470a66271aaa32f44baaa91",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b233c98e_352bf363",
         "filename": "xfa/fde/cfde_wordbreak_data.cpp",
         "patchSetId": 2
@@ -18,6 +41,29 @@
         "startChar": 57,
         "endLine": 127,
         "endChar": 0
+      },
+      "revId": "24934f05f4fb176ba470a66271aaa32f44baaa91",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33409f3e_c38f1ab4",
+        "filename": "xfa/fde/cfde_wordbreak_data.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-07T15:03:34Z",
+      "side": 1,
+      "message": "nit: If you make the underlying type something like a uint8_t it may be more space efficient, plus you would get rid of needing to add a condition to the assert like I suggested before",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 28
       },
       "revId": "24934f05f4fb176ba470a66271aaa32f44baaa91",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
