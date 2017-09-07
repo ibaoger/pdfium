@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "687154df_e336785f",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T20:15:21Z",
+      "side": 1,
+      "message": "So this test will hang if it fails? Is there a way to put a timeout? Perhaps check the time in each iteration of the loop?",
+      "range": {
+        "startLine": 10,
+        "startChar": 56,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
