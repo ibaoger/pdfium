@@ -588,31 +588,29 @@ void CFDE_TextEditEngine::SelectAll() {
 
   has_selection_ = true;
   selection_.start_idx = 0;
-  selection_.end_idx = text_length_ - 1;
+  selection_.count = text_length_;
 }
 
 void CFDE_TextEditEngine::ClearSelection() {
   has_selection_ = false;
   selection_.start_idx = 0;
-  selection_.end_idx = 0;
+  selection_.count = 0;
 }
 
-void CFDE_TextEditEngine::SetSelection(size_t start_idx, size_t end_idx) {
-  // If the points are the same, then we pretend the selection doesn't exist
-  // anymore.
-  if (start_idx == end_idx) {
+void CFDE_TextEditEngine::SetSelection(size_t start_idx, size_t count) {
+  if (count == 0) {
     ClearSelection();
     return;
   }
 
   if (start_idx > text_length_)
     return;
-  if (end_idx > text_length_)
-    end_idx = text_length_ - 1;
+  if (start_idx + count > text_length_)
+    count = text_length_ - start_idx;
 
   has_selection_ = true;
   selection_.start_idx = start_idx;
-  selection_.end_idx = end_idx;
+  selection_.count = count;
 }
 
 CFX_WideString CFDE_TextEditEngine::GetSelectedText() const {
@@ -621,22 +619,27 @@ CFX_WideString CFDE_TextEditEngine::GetSelectedText() const {
 
   CFX_WideString text;
   if (selection_.start_idx < gap_position_) {
-    if (selection_.end_idx < gap_position_) {
+    // Fully on left of gap.
+    if (selection_.start_idx + selection_.count < gap_position_) {
       text += CFX_WideStringC(content_.data() + selection_.start_idx,
-                              selection_.end_idx - selection_.start_idx + 1);
+                              selection_.count);
       return text;
     }
 
+    // Pre-gap text
     text += CFX_WideStringC(content_.data() + selection_.start_idx,
                             gap_position_ - selection_.start_idx);
+
+    // Post-gap text
     text += CFX_WideStringC(
         content_.data() + gap_position_ + gap_size_,
-        selection_.end_idx - (gap_position_ - selection_.start_idx) + 1);
+        selection_.count - (gap_position_ - selection_.start_idx));
     return text;
   }
 
+  // Fully right of gap
   text += CFX_WideStringC(content_.data() + gap_size_ + selection_.start_idx,
-                          selection_.end_idx - selection_.start_idx + 1);
+                          selection_.count);
   return text;
 }
 
@@ -645,8 +648,7 @@ CFX_WideString CFDE_TextEditEngine::DeleteSelectedText(
   if (!has_selection_)
     return L"";
 
-  return Delete(selection_.start_idx,
-                selection_.end_idx - selection_.start_idx + 1, add_operation);
+  return Delete(selection_.start_idx, selection_.count, add_operation);
 }
 
 CFX_WideString CFDE_TextEditEngine::Delete(size_t start_idx,
@@ -965,6 +967,9 @@ std::vector<CFX_RectF> CFDE_TextEditEngine::GetCharacterRectsInRange(
 
 std::pair<size_t, size_t> CFDE_TextEditEngine::BoundsForWordAt(
     size_t idx) const {
+  if (idx > text_length_)
+    return {0, 0};
+
   CFDE_TextEditEngine::Iterator iter(this);
   iter.SetAt(idx);
   iter.FindNextBreakPos(true);
@@ -972,7 +977,7 @@ std::pair<size_t, size_t> CFDE_TextEditEngine::BoundsForWordAt(
 
   iter.FindNextBreakPos(false);
   size_t end_idx = iter.GetAt();
-  return {start_idx, end_idx};
+  return {start_idx, end_idx - start_idx + 1};
 }
 
 CFDE_TextEditEngine::Iterator::Iterator(const CFDE_TextEditEngine* engine)
