@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b233c98e_352bf363",
+        "filename": "xfa/fde/cfde_wordbreak_data.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T14:57:44Z",
+      "side": 1,
+      "message": "Can we have these constants inverted (~) so they list the values that don\u0027t cause a break instead of the ones that do?\n\nFor example, kALetter would be:\n\n\n  ~ (kWordBreakValueLF | kWordBreakValueALetter | kWordBreakValueNumeric |\n     kWordBreakValueExtendNumLet)\n\nThis should shorten this a lot and make it more readable.",
+      "range": {
+        "startLine": 127,
+        "startChar": 57,
+        "endLine": 127,
+        "endChar": 0
+      },
+      "revId": "24934f05f4fb176ba470a66271aaa32f44baaa91",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
