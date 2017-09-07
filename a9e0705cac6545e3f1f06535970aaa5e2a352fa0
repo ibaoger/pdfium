@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48329e37_7f680027",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T21:18:59Z",
+      "side": 1,
+      "message": "Let\u0027s not call this just \"seed\", since the method returns the actual seed and the pointer is one of its components. \"pointer_seed\"? And the others can be \"pid_seed\" and \"usec_seed\".",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "a9e0705cac6545e3f1f06535970aaa5e2a352fa0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
