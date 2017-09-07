@@ -70,6 +70,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51cd442_168b01ec",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-07T14:10:09Z",
+      "side": 1,
+      "message": "Right, but we\u0027re asking the syntax parser for the next character, so why isn\u0027t the syntax parser requesting it if it isn\u0027t available?",
+      "parentUuid": "1a006bc0_92a1114c",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
