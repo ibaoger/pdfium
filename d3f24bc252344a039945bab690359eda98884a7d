@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e246dc4_1fce0631",
+        "filename": "core/fxcrt/cfx_chariter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-07T21:59:04Z",
+      "side": 1,
+      "message": "nit: blank line after to separate system includes.",
+      "revId": "d3f24bc252344a039945bab690359eda98884a7d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f27555b_dc734d48",
+        "filename": "core/fxcrt/xml/cfx_xmlinstruction.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-07T21:59:04Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "d3f24bc252344a039945bab690359eda98884a7d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
