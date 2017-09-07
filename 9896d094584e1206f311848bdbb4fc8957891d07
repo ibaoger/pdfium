@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce079790_48568c78",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-07T20:51:27Z",
+      "side": 1,
+      "message": "No, we never actually use the value of c, just its address which will vary based on ASLR and how many frames are on the stack when this is called.",
+      "parentUuid": "2d64ea22_c99f675d",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 49
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "687154df_e336785f",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-07T20:15:21Z",
       "side": 1,
       "message": "So this test will hang if it fails? Is there a way to put a timeout? Perhaps check the time in each iteration of the loop?",
+      "range": {
+        "startLine": 10,
+        "startChar": 56,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4670d753_b0899cd1",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-07T20:51:27Z",
+      "side": 1,
+      "message": "Nah, we\u0027ll notice it taking a long time on the bots.",
+      "parentUuid": "687154df_e336785f",
       "range": {
         "startLine": 10,
         "startChar": 56,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "462636fc_018a2956",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-07T20:51:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8e970b_2816e97b",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c2111b0_89a67c97",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-09-07T20:26:22Z",
       "side": 1,
       "message": "So if we guarantee a new seed each run, this shouldn\u0027t be equal to the previous generated value. Or could it by coincidence? Do you know what the order or magnitude of the period is?",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "9896d094584e1206f311848bdbb4fc8957891d07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05373e85_b6a7c45e",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-07T20:51:27Z",
+      "side": 1,
+      "message": "Not sure.  There\u0027s no way to guarantee a new seed for each run on the current setup, which is why I\u0027m not checking it. And checks would likely be flakey.",
+      "parentUuid": "6c2111b0_89a67c97",
       "range": {
         "startLine": 13,
         "startChar": 36,
