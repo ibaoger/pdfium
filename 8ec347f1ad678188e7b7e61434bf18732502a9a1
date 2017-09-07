@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afa33d3e_5d4446eb",
+        "filename": "xfa/fwl/cfwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-07T20:54:05Z",
+      "side": 1,
+      "message": "I think you want a -1 here, but to be honest I don\u0027t think the previous code was right.\n\n  start, end \u003d edit_engine.GetSelection();\n  edit_engine.SetSelection(min(start, cursor_), max(end, cursor_))\n\nIf the cursor is being dragged between the start and the end, nothing will happen. Isn\u0027t this supposed to be:\n\n  edit_engine.SetSelection(min(start_drag_, cursor_), max(start_drag_, cursor_))",
+      "range": {
+        "startLine": 1264,
+        "startChar": 24,
+        "endLine": 1264,
+        "endChar": 41
+      },
+      "revId": "8ec347f1ad678188e7b7e61434bf18732502a9a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
