@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8bfaff3_edbaaa16",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:29:35Z",
+      "side": 1,
+      "message": "Doesn\u0027t this create an angle for manipulating the random? You just need to control one of the components to xor into whatever value you feel like.",
+      "range": {
+        "startLine": 58,
+        "startChar": 80,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c25fb88_eb5feedd",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:29:35Z",
+      "side": 1,
+      "message": "Increase to 3600, we might not notice 17 minutes, but 1 hour we would.",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
