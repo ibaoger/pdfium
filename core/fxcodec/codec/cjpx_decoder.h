@@ -28,9 +28,11 @@ class CJPX_Decoder {
  private:
   const uint8_t* m_SrcData;
   uint32_t m_SrcSize;
-  opj_image_t* image;
-  opj_codec_t* l_codec;
-  opj_stream_t* l_stream;
+  // TODO(rharrison): Convert these to unowned ptrs, if possible.
+  opj_image_t* m_Image;
+  opj_codec_t* m_Codec;
+  opj_stream_t* m_Stream;
+  opj_dparameters_t m_Parameters;
   CFX_UnownedPtr<const CPDF_ColorSpace> const m_ColorSpace;
 };
 
