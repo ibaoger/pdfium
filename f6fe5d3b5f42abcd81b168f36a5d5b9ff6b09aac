@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "22dc66a8_6024d00e",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T17:20:25Z",
+      "side": 1,
+      "message": "Well, this will be hard to perform anyway because the attacker won\u0027t know the exact time, but if they did, they could set g_nTimesCalled to (((evil_random ^ time_seed ^ pid_seed) / 604181731) mod 2^32) - 1 and be sure the next number generated is evil_random.",
+      "parentUuid": "50daa518_f6eef69f",
+      "range": {
+        "startLine": 58,
+        "startChar": 80,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c25fb88_eb5feedd",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 15
