@@ -11,6 +11,7 @@
 #include <set>
 #include <vector>
 
+#include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_parser.h"
 #include "core/fpdfapi/parser/cpdf_syntax_parser.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
@@ -51,7 +52,7 @@ enum PDF_PAGENODE_TYPE {
   PDF_PAGENODE_ARRAY,
 };
 
-class CPDF_DataAvail final {
+class CPDF_DataAvail final : public CPDF_Document::Observer {
  public:
   // Must match PDF_DATA_* definitions in public/fpdf_dataavail.h, but cannot
   // #include that header. fpdfsdk/fpdf_dataavail.cpp has static_asserts
@@ -96,7 +97,7 @@ class CPDF_DataAvail final {
   CPDF_DataAvail(FileAvail* pFileAvail,
                  const CFX_RetainPtr<IFX_SeekableReadStream>& pFileRead,
                  bool bSupportHintTable);
-  ~CPDF_DataAvail();
+  ~CPDF_DataAvail() override;
 
   bool IsDataAvail(FX_FILESIZE offset, uint32_t size, DownloadHints* pHints);
   DocAvailStatus IsDocAvail(DownloadHints* pHints);
@@ -109,6 +110,9 @@ class CPDF_DataAvail final {
   int GetPageCount() const;
   CPDF_Dictionary* GetPage(int index);
   CFX_RetainPtr<CPDF_ReadValidator> GetValidator() const;
+
+  // CPDF_Document::Observer overrides:
+  void OnDocumentDestroyed() override;
 
  protected:
   class PageNode {
@@ -194,7 +198,7 @@ class CPDF_DataAvail final {
   FX_FILESIZE m_dwCurrentOffset;
   PDF_DATAAVAIL_STATUS m_docStatus;
   FX_FILESIZE m_dwFileLen;
-  CPDF_Document* m_pDocument;
+  CFX_UnownedPtr<CPDF_Document> m_pDocument;
   std::set<uint32_t> m_ObjectSet;
   std::vector<CPDF_Object*> m_objs_array;
   FX_FILESIZE m_Pos;

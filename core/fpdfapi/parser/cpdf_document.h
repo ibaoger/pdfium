@@ -44,6 +44,14 @@ class JBig2_DocumentContext;
 
 class CPDF_Document : public CPDF_IndirectObjectHolder {
  public:
+  class Observer {
+   public:
+    virtual void OnDocumentDestroyed() = 0;
+
+   protected:
+    virtual ~Observer() = 0;
+  };
+
   explicit CPDF_Document(std::unique_ptr<CPDF_Parser> pParser);
   ~CPDF_Document() override;
 
@@ -104,6 +112,9 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
                             bool bTranslateName = false);
 #endif
 
+  void AddObserver(Observer* observer);
+  void RemoveObserver(Observer* observer);
+
  protected:
   // Retrieve page count information by getting count value from the tree nodes
   int RetrievePageCount() const;
@@ -156,6 +167,7 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
   std::unique_ptr<JBig2_DocumentContext> m_pCodecContext;
   std::unique_ptr<CPDF_LinkList> m_pLinksContext;
   std::vector<uint32_t> m_PageList;
+  std::set<Observer*> m_Observers;
 };
 
 #endif  // CORE_FPDFAPI_PARSER_CPDF_DOCUMENT_H_

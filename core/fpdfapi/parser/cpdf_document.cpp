@@ -355,6 +355,9 @@ CPDF_Document::CPDF_Document(std::unique_ptr<CPDF_Parser> pParser)
 
 CPDF_Document::~CPDF_Document() {
   CPDF_ModuleMgr::Get()->GetPageModule()->ClearStockFont(this);
+  for (auto* it : m_Observers) {
+    it->OnDocumentDestroyed();
+  }
 }
 
 std::unique_ptr<CPDF_Object> CPDF_Document::ParseIndirectObject(
@@ -950,6 +953,14 @@ CPDF_Font* CPDF_Document::AddFont(CFX_Font* pFont, int charset, bool bVert) {
   pFontDict->SetNewFor<CPDF_Reference>("FontDescriptor", this,
                                        pFontDesc->GetObjNum());
   return LoadFont(pBaseDict);
+}
+
+void CPDF_Document::AddObserver(Observer* observer) {
+  m_Observers.insert(observer);
+}
+
+void CPDF_Document::RemoveObserver(Observer* observer) {
+  m_Observers.erase(observer);
 }
 
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
