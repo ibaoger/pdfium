@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f60891c1_e438f6ba",
+        "filename": "fpdfsdk/pwl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T22:11:48Z",
+      "side": 1,
+      "message": "1 word",
+      "range": {
+        "startLine": 1,
+        "startChar": 36,
+        "endLine": 1,
+        "endChar": 46
+      },
+      "revId": "64b291de9db08a0682801c7ab7794901ab0ca7d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a169e2_a1d5775f",
+        "filename": "fpdfsdk/pwl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T22:11:48Z",
+      "side": 1,
+      "message": "hierarchy is:",
+      "range": {
+        "startLine": 4,
+        "startChar": 45,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "64b291de9db08a0682801c7ab7794901ab0ca7d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7adb67a5_9b32de34",
+        "filename": "xfa/fwl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T22:11:48Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "64b291de9db08a0682801c7ab7794901ab0ca7d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e76da1d_71d28a31",
+        "filename": "xfa/fwl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T22:11:48Z",
+      "side": 1,
+      "message": "Omit? The original TCP paper said \"the TCP\" but nowadays it just sounds weird.",
+      "range": {
+        "startLine": 27,
+        "startChar": 31,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "64b291de9db08a0682801c7ab7794901ab0ca7d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
