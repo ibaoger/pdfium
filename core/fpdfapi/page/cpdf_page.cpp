@@ -178,6 +178,37 @@ CFX_Matrix CPDF_Page::GetDisplayMatrix(int xPos,
   return matrix;
 }
 
+// This method follows the same apparent logic as GetDisplayMatrix().
+CFX_Matrix CPDF_Page::GetDisplayMatrixWithTransformation(
+    int xPos,
+    int yPos,
+    int xSize,
+    int ySize,
+    CFX_Matrix transformation) {
+  // Calculate the transformed rectangle with the given params.
+  CFX_FloatRect rect(xPos, yPos, xPos + xSize, yPos + ySize);
+  rect = transformation.TransformRect(rect);
+  CFX_Matrix inverse = transformation.GetInverse();
+  // Calculate the top left, bottom left, and top right corners of this
+  // rectangle. Call them point0, point1, point2 respectively.
+  CFX_PointF point0(rect.left, rect.top);
+  CFX_PointF point1(rect.left, rect.bottom);
+  CFX_PointF point2(rect.right, rect.top);
+  // Calculate the original coordinates of these points, i.e. on the coordinate
+  // plane before the transformation.
+  point0 = inverse.Transform(point0);
+  point1 = inverse.Transform(point1);
+  point2 = inverse.Transform(point2);
+
+  // Calculate the display matrix using the points obtained.
+  CFX_Matrix matrix = m_PageMatrix;
+  matrix.Concat(CFX_Matrix(
+      (point2.x - point0.x) / m_PageWidth, (point2.y - point0.y) / m_PageWidth,
+      (point1.x - point0.x) / m_PageHeight,
+      (point1.y - point0.y) / m_PageHeight, point0.x, point0.y));
+  return matrix;
+}
+
 int CPDF_Page::GetPageRotation() const {
   CPDF_Object* pRotate = GetPageAttr("Rotate");
   int rotate = pRotate ? (pRotate->GetInteger() / 90) % 4 : 0;
