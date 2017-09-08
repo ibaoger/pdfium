@@ -256,6 +256,10 @@ TEST_F(FPDFEditEmbeddertest, AddPaths) {
   EXPECT_EQ(0U, B);
   EXPECT_EQ(128U, A);
 
+  // Make sure the path has 5 points (1 FXPT_TYPE::MoveTo and 4
+  // FXPT_TYPE::LineTo).
+  ASSERT_EQ(5, FPDFPath_CountPoint(green_rect));
+
   EXPECT_TRUE(FPDFPath_SetDrawMode(green_rect, FPDF_FILLMODE_WINDING, 0));
   FPDFPage_InsertObject(page, green_rect);
   page_bitmap = RenderPage(page);
