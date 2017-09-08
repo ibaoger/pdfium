@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90f4f2b3_aa127f14",
+        "filename": "core/fxcrt/fx_safe_types.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:54:49Z",
+      "side": 1,
+      "message": "Can you remove this and switch usages to FX_SAFE_SIZE_T in a follow up?",
+      "range": {
+        "startLine": 17,
+        "startChar": 45,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "b7403b4bf30a551f2b3be7a1e37739c92bb06612",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
