@@ -472,12 +472,13 @@ void TIFF_PredictLine(uint8_t* dest_buf,
   }
   int BytesPerPixel = BitsPerComponent * Colors / 8;
   if (BitsPerComponent == 16) {
-    for (uint32_t i = BytesPerPixel; i < row_size; i += 2) {
-      uint16_t pixel =
-          (dest_buf[i - BytesPerPixel] << 8) | dest_buf[i - BytesPerPixel + 1];
-      pixel += (dest_buf[i] << 8) | dest_buf[i + 1];
-      dest_buf[i] = pixel >> 8;
-      dest_buf[i + 1] = (uint8_t)pixel;
+    for (uint32_t i = BytesPerPixel; i < row_size / 2; ++i) {
+      uint32_t src_index = i * 2 - BytesPerPixel;
+      uint16_t pixel = (dest_buf[src_index] << 8) | dest_buf[src_index + 1];
+      uint32_t dst_index = i * 2;
+      pixel += (dest_buf[dst_index] << 8) | dest_buf[dst_index + 1];
+      dest_buf[dst_index] = pixel >> 8;
+      dest_buf[dst_index + 1] = static_cast<uint8_t>(pixel);
     }
   } else {
     for (uint32_t i = BytesPerPixel; i < row_size; i++) {
