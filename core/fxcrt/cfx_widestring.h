@@ -40,7 +40,7 @@ class CFX_WideString {
   // NOLINTNEXTLINE(runtime/explicit)
   CFX_WideString(char) = delete;
 
-  CFX_WideString(const wchar_t* ptr, FX_STRSIZE len);
+  CFX_WideString(const wchar_t* ptr, size_t len);
 
   explicit CFX_WideString(const CFX_WideStringC& str);
   CFX_WideString(const CFX_WideStringC& str1, const CFX_WideStringC& str2);
@@ -53,9 +53,9 @@ class CFX_WideString {
                                      uint16_t codepage);
 
   static CFX_WideString FromUTF8(const CFX_ByteStringC& str);
-  static CFX_WideString FromUTF16LE(const unsigned short* str, FX_STRSIZE len);
+  static CFX_WideString FromUTF16LE(const unsigned short* str, size_t len);
 
-  static FX_STRSIZE WStringLength(const unsigned short* str);
+  static size_t WStringLength(const unsigned short* str);
 
   // Explicit conversion to C-style wide string.
   // Note: Any subsequent modification of |this| will invalidate the result.
@@ -75,13 +75,13 @@ class CFX_WideString {
 
   void clear() { m_pData.Reset(); }
 
-  FX_STRSIZE GetLength() const { return m_pData ? m_pData->m_nDataLength : 0; }
-  FX_STRSIZE GetStringLength() const {
+  size_t GetLength() const { return m_pData ? m_pData->m_nDataLength : 0; }
+  size_t GetStringLength() const {
     return m_pData ? FXSYS_wcslen(m_pData->m_String) : 0;
   }
   bool IsEmpty() const { return !GetLength(); }
-  bool IsValidIndex(FX_STRSIZE index) const { return index < GetLength(); }
-  bool IsValidLength(FX_STRSIZE length) const { return length <= GetLength(); }
+  bool IsValidIndex(size_t index) const { return index < GetLength(); }
+  bool IsValidLength(size_t length) const { return length <= GetLength(); }
 
   const CFX_WideString& operator=(const wchar_t* str);
   const CFX_WideString& operator=(const CFX_WideString& stringSrc);
@@ -104,7 +104,7 @@ class CFX_WideString {
 
   bool operator<(const CFX_WideString& str) const;
 
-  CharType operator[](const FX_STRSIZE index) const {
+  CharType operator[](const size_t index) const {
     ASSERT(IsValidIndex(index));
     return m_pData ? m_pData->m_String[index] : 0;
   }
@@ -112,20 +112,20 @@ class CFX_WideString {
   CharType First() const { return GetLength() ? (*this)[0] : 0; }
   CharType Last() const { return GetLength() ? (*this)[GetLength() - 1] : 0; }
 
-  void SetAt(FX_STRSIZE index, wchar_t c);
+  void SetAt(size_t index, wchar_t c);
 
   int Compare(const wchar_t* str) const;
   int Compare(const CFX_WideString& str) const;
   int CompareNoCase(const wchar_t* str) const;
 
-  CFX_WideString Mid(FX_STRSIZE first, FX_STRSIZE count) const;
-  CFX_WideString Left(FX_STRSIZE count) const;
-  CFX_WideString Right(FX_STRSIZE count) const;
+  CFX_WideString Mid(size_t first, size_t count) const;
+  CFX_WideString Left(size_t count) const;
+  CFX_WideString Right(size_t count) const;
 
-  FX_STRSIZE Insert(FX_STRSIZE index, wchar_t ch);
-  FX_STRSIZE InsertAtFront(wchar_t ch) { return Insert(0, ch); }
-  FX_STRSIZE InsertAtBack(wchar_t ch) { return Insert(GetLength(), ch); }
-  FX_STRSIZE Delete(FX_STRSIZE index, FX_STRSIZE count = 1);
+  size_t Insert(size_t index, wchar_t ch);
+  size_t InsertAtFront(wchar_t ch) { return Insert(0, ch); }
+  size_t InsertAtBack(wchar_t ch) { return Insert(GetLength(), ch); }
+  size_t Delete(size_t index, size_t count = 1);
 
   void Format(const wchar_t* lpszFormat, ...);
   void FormatV(const wchar_t* lpszFormat, va_list argList);
@@ -141,27 +141,27 @@ class CFX_WideString {
   void TrimLeft(wchar_t chTarget);
   void TrimLeft(const CFX_WideStringC& pTargets);
 
-  void Reserve(FX_STRSIZE len);
-  wchar_t* GetBuffer(FX_STRSIZE len);
-  void ReleaseBuffer(FX_STRSIZE len);
+  void Reserve(size_t len);
+  wchar_t* GetBuffer(size_t len);
+  void ReleaseBuffer(size_t len);
 
   int GetInteger() const;
   float GetFloat() const;
 
-  pdfium::Optional<FX_STRSIZE> Find(const CFX_WideStringC& pSub,
-                                    FX_STRSIZE start = 0) const;
-  pdfium::Optional<FX_STRSIZE> Find(wchar_t ch, FX_STRSIZE start = 0) const;
+  pdfium::Optional<size_t> Find(const CFX_WideStringC& pSub,
+                                size_t start = 0) const;
+  pdfium::Optional<size_t> Find(wchar_t ch, size_t start = 0) const;
 
-  bool Contains(const CFX_WideStringC& lpszSub, FX_STRSIZE start = 0) const {
+  bool Contains(const CFX_WideStringC& lpszSub, size_t start = 0) const {
     return Find(lpszSub, start).has_value();
   }
 
-  bool Contains(char ch, FX_STRSIZE start = 0) const {
+  bool Contains(char ch, size_t start = 0) const {
     return Find(ch, start).has_value();
   }
 
-  FX_STRSIZE Replace(const CFX_WideStringC& pOld, const CFX_WideStringC& pNew);
-  FX_STRSIZE Remove(wchar_t ch);
+  size_t Replace(const CFX_WideStringC& pOld, const CFX_WideStringC& pNew);
+  size_t Remove(wchar_t ch);
 
   CFX_ByteString UTF8Encode() const;
   CFX_ByteString UTF16LE_Encode() const;
@@ -169,16 +169,16 @@ class CFX_WideString {
  protected:
   using StringData = CFX_StringDataTemplate<wchar_t>;
 
-  void ReallocBeforeWrite(FX_STRSIZE nLen);
-  void AllocBeforeWrite(FX_STRSIZE nLen);
+  void ReallocBeforeWrite(size_t nLen);
+  void AllocBeforeWrite(size_t nLen);
   void AllocCopy(CFX_WideString& dest,
-                 FX_STRSIZE nCopyLen,
-                 FX_STRSIZE nCopyIndex) const;
-  void AssignCopy(const wchar_t* pSrcData, FX_STRSIZE nSrcLen);
-  void Concat(const wchar_t* lpszSrcData, FX_STRSIZE nSrcLen);
+                 size_t nCopyLen,
+                 size_t nCopyIndex) const;
+  void AssignCopy(const wchar_t* pSrcData, size_t nSrcLen);
+  void Concat(const wchar_t* lpszSrcData, size_t nSrcLen);
 
   // Returns true unless we ran out of space.
-  bool TryVSWPrintf(FX_STRSIZE size, const wchar_t* format, va_list argList);
+  bool TryVSWPrintf(size_t size, const wchar_t* format, va_list argList);
 
   CFX_RetainPtr<StringData> m_pData;
 

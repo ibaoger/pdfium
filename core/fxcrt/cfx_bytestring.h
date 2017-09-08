@@ -40,8 +40,8 @@ class CFX_ByteString {
   // NOLINTNEXTLINE(runtime/explicit)
   CFX_ByteString(wchar_t) = delete;
 
-  CFX_ByteString(const char* ptr, FX_STRSIZE len);
-  CFX_ByteString(const uint8_t* ptr, FX_STRSIZE len);
+  CFX_ByteString(const char* ptr, size_t len);
+  CFX_ByteString(const uint8_t* ptr, size_t len);
 
   explicit CFX_ByteString(const CFX_ByteStringC& bstrc);
   CFX_ByteString(const CFX_ByteStringC& bstrc1, const CFX_ByteStringC& bstrc2);
@@ -77,13 +77,13 @@ class CFX_ByteString {
     return m_pData ? m_pData->m_String + m_pData->m_nDataLength : nullptr;
   }
 
-  FX_STRSIZE GetLength() const { return m_pData ? m_pData->m_nDataLength : 0; }
-  FX_STRSIZE GetStringLength() const {
+  size_t GetLength() const { return m_pData ? m_pData->m_nDataLength : 0; }
+  size_t GetStringLength() const {
     return m_pData ? FXSYS_strlen(m_pData->m_String) : 0;
   }
   bool IsEmpty() const { return !GetLength(); }
-  bool IsValidIndex(FX_STRSIZE index) const { return index < GetLength(); }
-  bool IsValidLength(FX_STRSIZE length) const { return length <= GetLength(); }
+  bool IsValidIndex(size_t index) const { return index < GetLength(); }
+  bool IsValidLength(size_t length) const { return length <= GetLength(); }
 
   int Compare(const CFX_ByteStringC& str) const;
   bool EqualNoCase(const CFX_ByteStringC& str) const;
@@ -109,7 +109,7 @@ class CFX_ByteString {
   const CFX_ByteString& operator+=(const CFX_ByteString& str);
   const CFX_ByteString& operator+=(const CFX_ByteStringC& bstrc);
 
-  CharType operator[](const FX_STRSIZE index) const {
+  CharType operator[](const size_t index) const {
     ASSERT(IsValidIndex(index));
     return m_pData ? m_pData->m_String[index] : 0;
   }
@@ -117,34 +117,34 @@ class CFX_ByteString {
   CharType First() const { return GetLength() ? (*this)[0] : 0; }
   CharType Last() const { return GetLength() ? (*this)[GetLength() - 1] : 0; }
 
-  void SetAt(FX_STRSIZE index, char c);
+  void SetAt(size_t index, char c);
 
-  FX_STRSIZE Insert(FX_STRSIZE index, char ch);
-  FX_STRSIZE InsertAtFront(char ch) { return Insert(0, ch); }
-  FX_STRSIZE InsertAtBack(char ch) { return Insert(GetLength(), ch); }
-  FX_STRSIZE Delete(FX_STRSIZE index, FX_STRSIZE count = 1);
+  size_t Insert(size_t index, char ch);
+  size_t InsertAtFront(char ch) { return Insert(0, ch); }
+  size_t InsertAtBack(char ch) { return Insert(GetLength(), ch); }
+  size_t Delete(size_t index, size_t count = 1);
 
   void Format(const char* lpszFormat, ...);
   void FormatV(const char* lpszFormat, va_list argList);
 
-  void Reserve(FX_STRSIZE len);
-  char* GetBuffer(FX_STRSIZE len);
-  void ReleaseBuffer(FX_STRSIZE len);
+  void Reserve(size_t len);
+  char* GetBuffer(size_t len);
+  void ReleaseBuffer(size_t len);
 
-  CFX_ByteString Mid(FX_STRSIZE first, FX_STRSIZE count) const;
-  CFX_ByteString Left(FX_STRSIZE count) const;
-  CFX_ByteString Right(FX_STRSIZE count) const;
+  CFX_ByteString Mid(size_t first, size_t count) const;
+  CFX_ByteString Left(size_t count) const;
+  CFX_ByteString Right(size_t count) const;
 
-  pdfium::Optional<FX_STRSIZE> Find(const CFX_ByteStringC& lpszSub,
-                                    FX_STRSIZE start = 0) const;
-  pdfium::Optional<FX_STRSIZE> Find(char ch, FX_STRSIZE start = 0) const;
-  pdfium::Optional<FX_STRSIZE> ReverseFind(char ch) const;
+  pdfium::Optional<size_t> Find(const CFX_ByteStringC& lpszSub,
+                                size_t start = 0) const;
+  pdfium::Optional<size_t> Find(char ch, size_t start = 0) const;
+  pdfium::Optional<size_t> ReverseFind(char ch) const;
 
-  bool Contains(const CFX_ByteStringC& lpszSub, FX_STRSIZE start = 0) const {
+  bool Contains(const CFX_ByteStringC& lpszSub, size_t start = 0) const {
     return Find(lpszSub, start).has_value();
   }
 
-  bool Contains(char ch, FX_STRSIZE start = 0) const {
+  bool Contains(char ch, size_t start = 0) const {
     return Find(ch, start).has_value();
   }
 
@@ -159,10 +159,10 @@ class CFX_ByteString {
   void TrimLeft(char chTarget);
   void TrimLeft(const CFX_ByteStringC& lpszTargets);
 
-  FX_STRSIZE Replace(const CFX_ByteStringC& lpszOld,
-                     const CFX_ByteStringC& lpszNew);
+  size_t Replace(const CFX_ByteStringC& lpszOld,
+                 const CFX_ByteStringC& lpszNew);
 
-  FX_STRSIZE Remove(char ch);
+  size_t Remove(char ch);
 
   CFX_WideString UTF8Decode() const;
 
@@ -174,13 +174,13 @@ class CFX_ByteString {
  protected:
   using StringData = CFX_StringDataTemplate<char>;
 
-  void ReallocBeforeWrite(FX_STRSIZE nNewLen);
-  void AllocBeforeWrite(FX_STRSIZE nNewLen);
+  void ReallocBeforeWrite(size_t nNewLen);
+  void AllocBeforeWrite(size_t nNewLen);
   void AllocCopy(CFX_ByteString& dest,
-                 FX_STRSIZE nCopyLen,
-                 FX_STRSIZE nCopyIndex) const;
-  void AssignCopy(const char* pSrcData, FX_STRSIZE nSrcLen);
-  void Concat(const char* lpszSrcData, FX_STRSIZE nSrcLen);
+                 size_t nCopyLen,
+                 size_t nCopyIndex) const;
+  void AssignCopy(const char* pSrcData, size_t nSrcLen);
+  void Concat(const char* lpszSrcData, size_t nSrcLen);
 
   CFX_RetainPtr<StringData> m_pData;
 

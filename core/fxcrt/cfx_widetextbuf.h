@@ -14,7 +14,7 @@
 class CFX_WideTextBuf : public CFX_BinaryBuf {
  public:
   void AppendChar(wchar_t wch);
-  FX_STRSIZE GetLength() const { return m_DataSize / sizeof(wchar_t); }
+  size_t GetLength() const { return m_DataSize / sizeof(wchar_t); }
   wchar_t* GetBuffer() const {
     return reinterpret_cast<wchar_t*>(m_pBuffer.get());
   }

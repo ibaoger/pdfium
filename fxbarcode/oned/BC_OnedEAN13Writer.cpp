@@ -65,7 +65,7 @@ CFX_WideString CBC_OnedEAN13Writer::FilterContents(
     const CFX_WideStringC& contents) {
   CFX_WideString filtercontents;
   wchar_t ch;
-  for (FX_STRSIZE i = 0; i < contents.GetLength(); i++) {
+  for (size_t i = 0; i < contents.GetLength(); i++) {
     ch = contents[i];
     if (ch > 175) {
       i++;
