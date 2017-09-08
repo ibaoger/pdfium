@@ -19,6 +19,7 @@ class CPDF_Dictionary;
 class CPDF_HintTables;
 class CPDF_IndirectObjectHolder;
 class CPDF_LinearizedHeader;
+class CPDF_PageObjectAvail;
 class CPDF_Parser;
 class CPDF_ReadValidator;
 
@@ -221,7 +222,7 @@ class CPDF_DataAvail final {
   CPDF_Object* m_pPageResource;
   bool m_bNeedDownLoadResource;
   bool m_bPageLoadedOK;
-  bool m_bLinearizedFormParamLoad;
+  std::unique_ptr<CPDF_PageObjectAvail> m_pFormAvail;
   std::vector<std::unique_ptr<CPDF_Object>> m_PagesArray;
   uint32_t m_dwEncryptObjNum;
   FX_FILESIZE m_dwPrevXRefOffset;

@@ -107,7 +107,6 @@ CPDF_DataAvail::CPDF_DataAvail(
   m_bAcroFormLoad = false;
   m_bPageLoadedOK = false;
   m_bNeedDownLoadResource = false;
-  m_bLinearizedFormParamLoad = false;
   m_pTrailer = nullptr;
   m_pCurrentParser = nullptr;
   m_pPageDict = nullptr;
@@ -1486,7 +1485,7 @@ CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
       return FormNotAvailable;
   }
 
-  if (!m_bLinearizedFormParamLoad) {
+  if (!m_pFormAvail) {
     const CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
     if (!pRoot)
       return FormAvailable;
@@ -1495,20 +1494,19 @@ CPDF_DataAvail::DocFormStatus CPDF_DataAvail::IsFormAvail(
     if (!pAcroForm)
       return FormNotExist;
 
-    m_objs_array.push_back(pAcroForm->GetDict());
-    m_bLinearizedFormParamLoad = true;
+    m_pFormAvail = pdfium::MakeUnique<CPDF_PageObjectAvail>(
+        GetValidator().Get(), m_pDocument, pAcroForm);
   }
-
-  std::vector<CPDF_Object*> new_objs_array;
-  if (!AreObjectsAvailable(m_objs_array, false, new_objs_array)) {
-    m_objs_array = new_objs_array;
-    return FormNotAvailable;
+  switch (m_pFormAvail->CheckAvail()) {
+    case DocAvailStatus::DataError:
+      return DocFormStatus::FormError;
+    case DocAvailStatus::DataNotAvailable:
+      return DocFormStatus::FormNotAvailable;
+    case DocAvailStatus::DataAvailable:
+      return DocFormStatus::FormAvailable;
+    default:
+      NOTREACHED();
   }
-
-  m_objs_array.clear();
-  if (!ValidateForm())
-    return FormError;
-  return FormAvailable;
 }
 
 bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
@@ -1517,17 +1515,6 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
   if (!pPageDict)
     return false;
   CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pPageDict);
-  return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
-}
-
-bool CPDF_DataAvail::ValidateForm() {
-  const CPDF_Dictionary* pRoot = m_pDocument->GetRoot();
-  if (!pRoot)
-    return true;
-  CPDF_Object* pAcroForm = pRoot->GetObjectFor("AcroForm");
-  if (!pAcroForm)
-    return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pAcroForm);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 
