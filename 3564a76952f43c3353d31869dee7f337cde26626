@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b367a551_2f1ba96b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:34:44Z",
+      "side": 1,
+      "message": "In the",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "3564a76952f43c3353d31869dee7f337cde26626",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf87bcd5_50b05cbd",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:34:44Z",
+      "side": 1,
+      "message": "Move to next line, it\u0027s already close to one condition per line.",
+      "range": {
+        "startLine": 535,
+        "startChar": 49,
+        "endLine": 535,
+        "endChar": 74
+      },
+      "revId": "3564a76952f43c3353d31869dee7f337cde26626",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d4d6455_44dd5fae",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:34:44Z",
+      "side": 1,
+      "message": "This part is just move + renames, right?",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 3
+      },
+      "revId": "3564a76952f43c3353d31869dee7f337cde26626",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
