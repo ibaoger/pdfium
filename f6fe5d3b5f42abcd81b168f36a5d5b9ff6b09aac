@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "24b0cad4_f2efd676",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T17:08:41Z",
+      "side": 1,
+      "message": "What I mean is an attack is easier to perform with this seed from g_nTimesCalled. If the attacked can write to it, they can control the random to generate anything.",
+      "parentUuid": "5fae724c_73a2cfee",
+      "range": {
+        "startLine": 58,
+        "startChar": 80,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c25fb88_eb5feedd",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 15
