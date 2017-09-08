@@ -23,6 +23,30 @@
       "revId": "7b6411513f41e893593ff9c25dcccb06733a9808",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2537ec5_1573df20",
+        "filename": "core/fxcodec/codec/fx_codec_flate.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T22:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "546c33b8_73f1afd3",
+      "range": {
+        "startLine": 475,
+        "startChar": 37,
+        "endLine": 475,
+        "endChar": 69
+      },
+      "revId": "7b6411513f41e893593ff9c25dcccb06733a9808",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
