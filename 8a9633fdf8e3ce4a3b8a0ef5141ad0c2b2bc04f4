@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dd38e40_122a4560",
+        "filename": "xfa/fwl/cfwl_barcode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-08T21:30:42Z",
+      "side": 1,
+      "message": "Is this needed? I don\u0027t see \"FWLTHEME\" in this file.",
+      "revId": "8a9633fdf8e3ce4a3b8a0ef5141ad0c2b2bc04f4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
