@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "0d41a602_5cbff8f7",
+        "filename": "testing/tools/safetynet_job.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T14:29:37Z",
+      "side": 1,
+      "message": "This means there were no changes for the day, which is different than the script not being run on that day. When drawing a graph, I can consider the results equal to the previous run and draw a flat line instead of having no data point.",
+      "parentUuid": "61215f3f_81cde0de",
+      "revId": "c065b69d05e8b0035c0bcd5b9f195da3020d7bf1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf8a7d3d_91eec079",
         "filename": "testing/tools/safetynet_job.py",
         "patchSetId": 8
