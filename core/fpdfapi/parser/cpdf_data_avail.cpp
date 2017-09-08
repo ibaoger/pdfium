@@ -92,7 +92,6 @@ CPDF_DataAvail::CPDF_DataAvail(
   m_dwCurrentXRefSteam = 0;
   m_dwAcroFormObjNum = 0;
   m_dwInfoObjNum = 0;
-  m_pDocument = 0;
   m_dwEncryptObjNum = 0;
   m_dwPrevXRefOffset = 0;
   m_dwLastXRefOffset = 0;
@@ -121,10 +120,19 @@ CPDF_DataAvail::CPDF_DataAvail(
 
 CPDF_DataAvail::~CPDF_DataAvail() {
   m_pHintTables.reset();
+  if (m_pDocument)
+    m_pDocument->RemoveObserver(this);
 }
 
 void CPDF_DataAvail::SetDocument(CPDF_Document* pDoc) {
+  ASSERT(!m_pDocument);
+  ASSERT(pDoc);
   m_pDocument = pDoc;
+  m_pDocument->AddObserver(this);
+}
+
+void CPDF_DataAvail::OnDocumentDestroyed() {
+  m_pDocument = nullptr;
 }
 
 bool CPDF_DataAvail::AreObjectsAvailable(std::vector<CPDF_Object*>& obj_array,
@@ -1465,7 +1473,7 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
     m_syntaxParser.InitParser(
         m_pFileRead, pdfium::base::checked_cast<uint32_t>(szPageStartPos));
     m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
-        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument));
+        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument.Get()));
   }
   if (!ValidatePage(index))
     return nullptr;
@@ -1516,7 +1524,8 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
   CPDF_Dictionary* pPageDict = m_pDocument->GetPage(safePage.ValueOrDie());
   if (!pPageDict)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pPageDict);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pPageDict);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 
@@ -1527,7 +1536,8 @@ bool CPDF_DataAvail::ValidateForm() {
   CPDF_Object* pAcroForm = pRoot->GetObjectFor("AcroForm");
   if (!pAcroForm)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pAcroForm);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pAcroForm);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 
