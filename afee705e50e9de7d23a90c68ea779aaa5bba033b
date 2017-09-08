@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dfb1ddc_31ce8207",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-08T15:56:51Z",
+      "side": 1,
+      "message": "What\u0027s the reason to make this a member if it is only used in this method?",
+      "range": {
+        "startLine": 457,
+        "startChar": 2,
+        "endLine": 457,
+        "endChar": 14
+      },
+      "revId": "afee705e50e9de7d23a90c68ea779aaa5bba033b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cf8c236_8c3f8294",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-08T15:56:51Z",
+      "side": 1,
+      "message": "nit {}",
+      "range": {
+        "startLine": 509,
+        "startChar": 12,
+        "endLine": 509,
+        "endChar": 13
+      },
+      "revId": "afee705e50e9de7d23a90c68ea779aaa5bba033b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e441ec3_151a8594",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-08T15:56:51Z",
+      "side": 1,
+      "message": "nit: else if(...)",
+      "range": {
+        "startLine": 526,
+        "startChar": 4,
+        "endLine": 527,
+        "endChar": 6
+      },
+      "revId": "afee705e50e9de7d23a90c68ea779aaa5bba033b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "346586ce_4c63aab2",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-08T15:56:51Z",
+      "side": 1,
+      "message": "nit: clamp",
+      "range": {
+        "startLine": 608,
+        "startChar": 12,
+        "endLine": 612,
+        "endChar": 13
+      },
+      "revId": "afee705e50e9de7d23a90c68ea779aaa5bba033b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
