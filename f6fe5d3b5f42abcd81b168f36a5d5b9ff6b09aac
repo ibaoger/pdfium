@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5fae724c_73a2cfee",
+        "filename": "core/fxcrt/fx_random.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-08T17:00:58Z",
+      "side": 1,
+      "message": "Replaced with a global seed to be initialized once and increment.\n\nThe important thing isn\u0027t so much controlling the seed, but having a\nwide variety of seeds to avoid generating the same sequences in practice\nand having a collision. These needn\u0027t be cryptographically strong.",
+      "parentUuid": "a8bfaff3_edbaaa16",
+      "range": {
+        "startLine": 58,
+        "startChar": 80,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c25fb88_eb5feedd",
         "filename": "core/fxcrt/fx_random_unittest.cpp",
         "patchSetId": 15
@@ -45,6 +69,30 @@
       "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745c4db5_1239f59e",
+        "filename": "core/fxcrt/fx_random_unittest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-08T17:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c25fb88_eb5feedd",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f6fe5d3b5f42abcd81b168f36a5d5b9ff6b09aac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
