@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "910c1a2d_ef4ebe9b",
+        "filename": "core/fpdfapi/page/cpdf_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "I don\u0027t know what\u0027s going on in this method. Can you explain in one or more comments?",
+      "range": {
+        "startLine": 181,
+        "startChar": 57,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44482bfe_4cc94eb8",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "Can you add a test that combined a rotation with a scaling?",
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62b5c49b_73d0ad94",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "Could be \"const char* kTopLeftQuarterMD5[4]\"",
+      "range": {
+        "startLine": 354,
+        "startChar": 2,
+        "endLine": 354,
+        "endChar": 31
+      },
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f0602a_a9f3cd76",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "Could be \"const char* kTopLeftQuarterMD5\" to match above.",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 33
+      },
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f556f0a1_a04ebc8e",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "Stretched",
+      "range": {
+        "startLine": 358,
+        "startChar": 18,
+        "endLine": 358,
+        "endChar": 26
+      },
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53dd041f_88e8f50e",
+        "filename": "fpdfsdk/fpdfview_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-08T15:16:49Z",
+      "side": 1,
+      "message": "Reference a bug to solve this.",
+      "range": {
+        "startLine": 419,
+        "startChar": 10,
+        "endLine": 419,
+        "endChar": 0
+      },
+      "revId": "abe568a9fee1d0b244450630d8f653fd334c460f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
