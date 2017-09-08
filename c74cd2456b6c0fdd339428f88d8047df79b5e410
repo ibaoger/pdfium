@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "5c9824d2_f82763f3",
+        "filename": "core/fpdfapi/page/cpdf_page.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-08T19:17:48Z",
+      "side": 1,
+      "message": "No, we cannot use the original values, or I don\u0027t understand what you mean by that. For example, let\u0027s do point 0. First, take the top left coordinate of the rectangle in the transformed space. Now, calculate what this point was in the original space by inverting. Clearly this is not necessarily the same as the top left corner of the original rectangle. The method above already contains explicit examples (rotations) of this.",
+      "parentUuid": "d614cb03_148f639f",
+      "range": {
+        "startLine": 198,
+        "startChar": 37,
+        "endLine": 198,
+        "endChar": 0
+      },
+      "revId": "c74cd2456b6c0fdd339428f88d8047df79b5e410",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0372c959_eaca8d1e",
         "filename": "core/fpdfapi/page/cpdf_page.cpp",
         "patchSetId": 3
