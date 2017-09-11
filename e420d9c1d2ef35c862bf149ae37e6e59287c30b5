@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e737341_0e4a65f1",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-11T21:11:13Z",
+      "side": 1,
+      "message": "Are you hoping to hit this in a crash? ASSERT() is enabled in non-debug builds, so this probably won\u0027t help much.\n\nApparently PDFIUM_IMMEDIATE_CRASH() exists, but it has no users.",
+      "revId": "e420d9c1d2ef35c862bf149ae37e6e59287c30b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
