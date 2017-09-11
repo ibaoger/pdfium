@@ -1308,6 +1308,8 @@ bool CFX_AggDeviceDriver::DrawPath(const CFX_PathData* pPathData,
     return true;
 
   m_FillFlags = fill_mode;
+  if (0x10 != fill_mode)
+  printf("fill mode %d\n", fill_mode);
   if ((fill_mode & 3) && fill_color) {
     CAgg_PathData path_data;
     path_data.BuildPath(pPathData, pObject2Device);
