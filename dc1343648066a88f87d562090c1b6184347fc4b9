@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "d34bb6de_dc76ebad",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T22:12:41Z",
+      "side": 1,
+      "message": "this is likely a const method.",
+      "range": {
+        "startLine": 1222,
+        "startChar": 47,
+        "endLine": 1222,
+        "endChar": 0
+      },
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a4029d_1766afa3",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T22:12:41Z",
+      "side": 1,
+      "message": "this should be a widestringc, avoid a copy, and use AsStringC().",
+      "range": {
+        "startLine": 1223,
+        "startChar": 2,
+        "endLine": 1223,
+        "endChar": 16
+      },
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "558b9333_641e877a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T22:12:41Z",
+      "side": 1,
+      "message": "having made this a widestring, \n\n   curText \u003d curText.TrimRight(0x20) is cheap.  Then do this before the IsEmpty() check.  In fact, maybe we\u0027re back to getlength() and insisting that length \u003e\u003d 2.",
+      "range": {
+        "startLine": 1228,
+        "startChar": 2,
+        "endLine": 1229,
+        "endChar": 37
+      },
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a822cce_fad36f7c",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 6
@@ -25,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "367611a4_89b689ee",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T22:12:41Z",
+      "side": 1,
+      "message": "then this is lenght - 1",
+      "range": {
+        "startLine": 1233,
+        "startChar": 0,
+        "endLine": 1233,
+        "endChar": 27
+      },
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "043abdc2_92dc858f",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 6
@@ -36,6 +128,29 @@
       "writtenOn": "2017-09-11T21:57:09Z",
       "side": 1,
       "message": "I think you want --index here, except we need a length check. argh.",
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0bdea28_86b5c881",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T22:12:41Z",
+      "side": 1,
+      "message": "and this is lenght -2",
+      "range": {
+        "startLine": 1236,
+        "startChar": 28,
+        "endLine": 1236,
+        "endChar": 38
+      },
       "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
