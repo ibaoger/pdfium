@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbfc3397_8ecccf8f",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T21:08:47Z",
+      "side": 1,
+      "message": "I thought this would be index--.  Please doublecheck.",
+      "range": {
+        "startLine": 1226,
+        "startChar": 26,
+        "endLine": 1226,
+        "endChar": 33
+      },
+      "revId": "11421add0c37665ec6f60be9dfb700b940549689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb798131_57b59894",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T21:08:47Z",
+      "side": 1,
+      "message": "maybe add IsHypen() helper function and use above, too.",
+      "range": {
+        "startLine": 1245,
+        "startChar": 6,
+        "endLine": 1245,
+        "endChar": 67
+      },
+      "revId": "11421add0c37665ec6f60be9dfb700b940549689",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
