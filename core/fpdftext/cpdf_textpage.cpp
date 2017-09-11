@@ -1216,19 +1216,19 @@ CPDF_TextPage::TextOrientation CPDF_TextPage::GetTextObjectWritingMode(
 }
 
 bool CPDF_TextPage::IsHyphen(wchar_t curChar) {
-  CFX_WideString strCurText = m_TempTextBuf.MakeString();
-  if (strCurText.IsEmpty())
-    strCurText = m_TextBuf.AsStringC();
-  FX_STRSIZE nCount = strCurText.GetLength();
-  if (nCount < 1)
+  CFX_WideString curText = m_TempTextBuf.MakeString();
+  if (curText.IsEmpty())
+    curText = m_TextBuf.AsStringC();
+  FX_STRSIZE count = curText.GetLength();
+  if (count < 1)
     return false;
-  FX_STRSIZE nIndex = nCount - 1;
-  wchar_t wcTmp = strCurText[nIndex];
-  while (wcTmp == 0x20 && nIndex > 0 && nIndex <= nCount - 1)
-    wcTmp = strCurText[--nIndex];
+  FX_STRSIZE index = count;
+  wchar_t wcTmp = curText[index - 1];
+  while (wcTmp == 0x20 && index > 1)
+    wcTmp = curText[--index - 1];
   if (0x2D == wcTmp || 0xAD == wcTmp) {
-    if (--nIndex > 0) {
-      wchar_t preChar = strCurText[nIndex];
+    if (--index > 1) {
+      wchar_t preChar = curText[index - 1];
       if (FXSYS_iswalpha(preChar) && FXSYS_iswalpha(curChar))
         return true;
     }
