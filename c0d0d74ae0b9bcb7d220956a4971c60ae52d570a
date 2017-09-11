@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aba3124b_833ba5d6",
+        "filename": "core/fpdfapi/parser/cpdf_object_writer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T17:58:59Z",
+      "side": 1,
+      "message": "This is likely going to require a unit test.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "c0d0d74ae0b9bcb7d220956a4971c60ae52d570a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
