@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8a9ae03_b03b33c1",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T20:17:51Z",
+      "side": 1,
+      "message": "nit: maybe do if (curText.empty()) return false; for consistency with previous, and move length calculation to 1225.  Do we use count at all after this?  We can probably just use the one |index| local.",
+      "range": {
+        "startLine": 1222,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 41
+      },
+      "revId": "7f9fdd32c5f4eb479b0b30bc43f9eb313589c902",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "358c3b3a_5c68c73e",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T20:17:51Z",
+      "side": 1,
+      "message": "nit: count \u003d\u003d 0",
+      "range": {
+        "startLine": 1223,
+        "startChar": 12,
+        "endLine": 1223,
+        "endChar": 13
+      },
+      "revId": "7f9fdd32c5f4eb479b0b30bc43f9eb313589c902",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d306af_689e73f4",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T20:17:51Z",
+      "side": 1,
+      "message": "I think we want to do the post-decrement here rather than inside the []",
+      "range": {
+        "startLine": 1227,
+        "startChar": 26,
+        "endLine": 1227,
+        "endChar": 32
+      },
+      "revId": "7f9fdd32c5f4eb479b0b30bc43f9eb313589c902",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59ac778c_4776e317",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T20:17:51Z",
+      "side": 1,
+      "message": "nit: maybe invert and early return while were at it.",
+      "range": {
+        "startLine": 1229,
+        "startChar": 2,
+        "endLine": 1229,
+        "endChar": 39
+      },
+      "revId": "7f9fdd32c5f4eb479b0b30bc43f9eb313589c902",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf3ace9_4e85733e",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T20:17:51Z",
+      "side": 1,
+      "message": "then we don\u0027t have to predecrement here if we change 1227",
+      "range": {
+        "startLine": 1230,
+        "startChar": 10,
+        "endLine": 1230,
+        "endChar": 15
+      },
+      "revId": "7f9fdd32c5f4eb479b0b30bc43f9eb313589c902",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
