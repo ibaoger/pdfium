@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a822cce_fad36f7c",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T21:48:48Z",
+      "side": 1,
+      "message": "maybe just:\n  while (index \u003e 1 \u0026\u0026 curText[index - 1] \u003d\u003d 0x20)\n    --index;",
+      "range": {
+        "startLine": 1229,
+        "startChar": 1,
+        "endLine": 1231,
+        "endChar": 31
+      },
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

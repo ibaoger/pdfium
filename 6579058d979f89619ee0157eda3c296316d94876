@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "1b70fc10_5983ea13",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T21:48:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is now pointing at the correct char.",
+      "range": {
+        "startLine": 1236,
+        "startChar": 0,
+        "endLine": 1236,
+        "endChar": 39
+      },
+      "revId": "6579058d979f89619ee0157eda3c296316d94876",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63c063a4_bc29c7b7",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 4
