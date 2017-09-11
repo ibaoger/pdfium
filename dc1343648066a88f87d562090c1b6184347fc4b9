@@ -22,6 +22,23 @@
       "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "043abdc2_92dc858f",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-11T21:57:09Z",
+      "side": 1,
+      "message": "I think you want --index here, except we need a length check. argh.",
+      "revId": "dc1343648066a88f87d562090c1b6184347fc4b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
