@@ -45,9 +45,9 @@ CPDF_ReadValidator::CPDF_ReadValidator(
     : file_read_(file_read),
       file_avail_(file_avail),
       read_error_(false),
-      has_unavailable_data_(false) {
-  ASSERT(file_read_);
-}
+      has_unavailable_data_(false),
+      whole_file_already_available_(false),
+      file_size_(file_read->GetSize()) {}
 
 CPDF_ReadValidator::~CPDF_ReadValidator() {}
 
@@ -80,7 +80,7 @@ bool CPDF_ReadValidator::ReadBlock(void* buffer,
 }
 
 FX_FILESIZE CPDF_ReadValidator::GetSize() {
-  return file_read_->GetSize();
+  return file_size_;
 }
 
 void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, uint32_t size) {
@@ -109,27 +109,37 @@ void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, uint32_t size) {
 
 bool CPDF_ReadValidator::IsDataRangeAvailable(FX_FILESIZE offset,
                                               uint32_t size) const {
-  return !file_avail_ || file_avail_->IsDataAvail(offset, size);
+  return whole_file_already_available_ || !file_avail_ ||
+         file_avail_->IsDataAvail(offset, size);
 }
 
 bool CPDF_ReadValidator::IsWholeFileAvailable() {
   const FX_SAFE_UINT32 safe_size = GetSize();
-  return safe_size.IsValid() ? IsDataRangeAvailable(0, safe_size.ValueOrDie())
-                             : false;
+  whole_file_already_available_ =
+      whole_file_already_available_ ||
+      (safe_size.IsValid() ? IsDataRangeAvailable(0, safe_size.ValueOrDie())
+                           : false);
+
+  return whole_file_already_available_;
 }
 
 bool CPDF_ReadValidator::CheckWithRequestDataRange(FX_FILESIZE offset,
                                                    uint32_t size) {
-  const bool result = !file_avail_ || file_avail_->IsDataAvail(offset, size);
-  if (!result) {
+  const bool result = whole_file_already_available_ || !file_avail_ ||
+                      file_avail_->IsDataAvail(offset, size);
+  if (!result)
     ScheduleDownload(offset, size);
-  }
+
   return result;
 }
 
 bool CPDF_ReadValidator::CheckWithRequestWholeFile() {
+  if (IsWholeFileAvailable())
+    return true;
+
   const FX_SAFE_UINT32 safe_size = GetSize();
-  return safe_size.IsValid()
-             ? CheckWithRequestDataRange(0, safe_size.ValueOrDie())
-             : false;
+  if (safe_size.IsValid())
+    ScheduleDownload(0, safe_size.ValueOrDie());
+
+  return false;
 }
