@@ -336,6 +336,9 @@ CPDF_Page* CPDFPageFromFPDFPage(FPDF_PAGE page) {
 }
 
 CPDF_PathObject* CPDFPathObjectFromFPDFPageObject(FPDF_PAGEOBJECT page_object) {
+  auto* obj = CPDFPageObjectFromFPDFPageObject(page_object);
+  if (!obj || !obj->IsPath())
+    return nullptr;
   return static_cast<CPDF_PathObject*>(page_object);
 }
 
