@@ -68,14 +68,14 @@ bool CPDF_ReadValidator::ReadBlock(void* buffer,
   if (!end_offset.IsValid() || end_offset.ValueOrDie() > GetSize())
     return false;
 
-  if (!file_avail_ ||
-      file_avail_->IsDataAvail(offset, static_cast<uint32_t>(size))) {
-    if (file_read_->ReadBlock(buffer, offset, size))
-      return true;
-    read_error_ = true;
-  }
-  has_unavailable_data_ = true;
-  ScheduleDownload(offset, size);
+  if (!CheckWithRequestDataRange(offset, static_cast<uint32_t>(size)))
+    return false;
+
+  if (file_read_->ReadBlock(buffer, offset, size))
+    return true;
+
+  read_error_ = true;
+  ScheduleDownload(offset, static_cast<uint32_t>(size));
   return false;
 }
 
@@ -83,14 +83,8 @@ FX_FILESIZE CPDF_ReadValidator::GetSize() {
   return file_read_->GetSize();
 }
 
-void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, size_t size) {
-  const FX_SAFE_UINT32 safe_size = size;
-  if (safe_size.IsValid())
-    ScheduleDataDownload(offset, safe_size.ValueOrDie());
-}
-
-void CPDF_ReadValidator::ScheduleDataDownload(FX_FILESIZE offset,
-                                              uint32_t size) {
+void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, uint32_t size) {
+  has_unavailable_data_ = true;
   if (!hints_ || size == 0)
     return;
 
@@ -113,12 +107,6 @@ void CPDF_ReadValidator::ScheduleDataDownload(FX_FILESIZE offset,
   hints_->AddSegment(start_segment_offset, segment_size.ValueOrDie());
 }
 
-void CPDF_ReadValidator::ScheduleDownloadWholeFile() {
-  const FX_SAFE_UINT32 safe_size = GetSize();
-  if (safe_size.IsValid())
-    ScheduleDataDownload(0, safe_size.ValueOrDie());
-}
-
 bool CPDF_ReadValidator::IsDataRangeAvailable(FX_FILESIZE offset,
                                               uint32_t size) const {
   return !file_avail_ || file_avail_->IsDataAvail(offset, size);
@@ -128,4 +116,20 @@ bool CPDF_ReadValidator::IsWholeFileAvailable() {
   const FX_SAFE_UINT32 safe_size = GetSize();
   return safe_size.IsValid() ? IsDataRangeAvailable(0, safe_size.ValueOrDie())
                              : false;
+}
+
+bool CPDF_ReadValidator::CheckWithRequestDataRange(FX_FILESIZE offset,
+                                                   uint32_t size) {
+  const bool result = !file_avail_ || file_avail_->IsDataAvail(offset, size);
+  if (!result) {
+    ScheduleDownload(offset, size);
+  }
+  return result;
+}
+
+bool CPDF_ReadValidator::CheckWithRequestWholeFile() {
+  const FX_SAFE_UINT32 safe_size = GetSize();
+  return safe_size.IsValid()
+             ? CheckWithRequestDataRange(0, safe_size.ValueOrDie())
+             : false;
 }

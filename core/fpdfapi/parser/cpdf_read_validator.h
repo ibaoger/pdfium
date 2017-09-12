@@ -37,11 +37,10 @@ class CPDF_ReadValidator : public IFX_SeekableReadStream {
 
   void ResetErrors();
 
-  bool IsDataRangeAvailable(FX_FILESIZE offset, uint32_t size) const;
   bool IsWholeFileAvailable();
 
-  void ScheduleDataDownload(FX_FILESIZE offset, uint32_t size);
-  void ScheduleDownloadWholeFile();
+  bool CheckWithRequestDataRange(FX_FILESIZE offset, uint32_t size);
+  bool CheckWithRequestWholeFile();
 
   // IFX_SeekableReadStream overrides:
   bool ReadBlock(void* buffer, FX_FILESIZE offset, size_t size) override;
@@ -53,7 +52,8 @@ class CPDF_ReadValidator : public IFX_SeekableReadStream {
   ~CPDF_ReadValidator() override;
 
  private:
-  void ScheduleDownload(FX_FILESIZE offset, size_t size);
+  void ScheduleDownload(FX_FILESIZE offset, uint32_t size);
+  bool IsDataRangeAvailable(FX_FILESIZE offset, uint32_t size) const;
 
   CFX_RetainPtr<IFX_SeekableReadStream> file_read_;
   CFX_UnownedPtr<CPDF_DataAvail::FileAvail> file_avail_;

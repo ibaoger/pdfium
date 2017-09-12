@@ -322,11 +322,10 @@ bool CPDF_DataAvail::CheckPageStatus() {
 }
 
 bool CPDF_DataAvail::LoadAllFile() {
-  if (GetValidator()->IsWholeFileAvailable()) {
+  if (GetValidator()->CheckWithRequestWholeFile()) {
     m_docStatus = PDF_DATAAVAIL_DONE;
     return true;
   }
-  GetValidator()->ScheduleDownloadWholeFile();
   return false;
 }
 
@@ -591,10 +590,8 @@ bool CPDF_DataAvail::CheckFirstPage() {
 
   const FX_FILESIZE start_pos = m_dwFileLen > 1024 ? 1024 : m_dwFileLen;
   const uint32_t data_size = dwEnd > 1024 ? dwEnd - 1024 : 0;
-  if (!GetValidator()->IsDataRangeAvailable(start_pos, data_size)) {
-    GetValidator()->ScheduleDataDownload(start_pos, data_size);
+  if (!GetValidator()->CheckWithRequestDataRange(start_pos, data_size))
     return false;
-  }
 
   m_docStatus =
       m_bSupportHintTable ? PDF_DATAAVAIL_HINTTABLE : PDF_DATAAVAIL_DONE;
@@ -613,10 +610,9 @@ bool CPDF_DataAvail::IsDataAvail(FX_FILESIZE offset, uint32_t size) {
   else
     size += 512;
 
-  if (!GetValidator()->IsDataRangeAvailable(offset, size)) {
-    GetValidator()->ScheduleDataDownload(offset, size);
+  if (!GetValidator()->CheckWithRequestDataRange(offset, size))
     return false;
-  }
+
   return true;
 }
 
@@ -1214,12 +1210,9 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedData() {
     if (!data_size.IsValid())
       return DataError;
 
-    if (!GetValidator()->IsDataRangeAvailable(
-            m_pLinearized->GetLastXRefOffset(), data_size.ValueOrDie())) {
-      GetValidator()->ScheduleDataDownload(m_pLinearized->GetLastXRefOffset(),
-                                           data_size.ValueOrDie());
+    if (!GetValidator()->CheckWithRequestDataRange(
+            m_pLinearized->GetLastXRefOffset(), data_size.ValueOrDie()))
       return DataNotAvailable;
-    }
 
     CPDF_Parser::Error eRet =
         m_pDocument->GetParser()->LoadLinearizedMainXRefTable();
