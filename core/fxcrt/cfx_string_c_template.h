@@ -8,6 +8,7 @@
 #define CORE_FXCRT_CFX_STRING_C_TEMPLATE_H_
 
 #include <algorithm>
+#include <functional>
 #include <type_traits>
 #include <utility>
 #include <vector>
@@ -26,6 +27,45 @@ class CFX_StringCTemplate {
   using CharType = T;
   using UnsignedType = typename std::make_unsigned<CharType>::type;
   using const_iterator = const CharType*;
+
+  class const_reverse_iterator {
+   public:
+    explicit const_reverse_iterator(const CharType* ptr) : m_Ptr(ptr) {}
+    const_reverse_iterator(const const_reverse_iterator& that)
+        : m_Ptr(that.m_Ptr) {}
+
+    const CharType& operator*() const { return *(m_Ptr - 1); }
+    const const_reverse_iterator& operator++() {  // Preincrement.
+      --m_Ptr;
+      return *this;
+    }
+    const const_reverse_iterator operator++(int) {  // Post, by convention.
+      const_reverse_iterator old(*this);
+      --m_Ptr;
+      return old;
+    }
+    const const_reverse_iterator& operator--() {  // Preincrement.
+      ++m_Ptr;
+      return *this;
+    }
+    const const_reverse_iterator operator--(int) {  // Post, by convention.
+      const_reverse_iterator old(*this);
+      ++m_Ptr;
+      return old;
+    }
+    bool operator==(const const_reverse_iterator& that) const {
+      return m_Ptr == that.m_Ptr;
+    }
+    bool operator!=(const const_reverse_iterator& that) const {
+      return !(*this == that);
+    }
+    bool operator<(const const_reverse_iterator& that) const {
+      return std::less<const CharType*>()(that.m_Ptr, m_Ptr);
+    }
+
+   private:
+    const CharType* m_Ptr;  // Current character is one before ptr.
+  };
 
   CFX_StringCTemplate() : m_Ptr(nullptr), m_Length(0) {}
 
@@ -82,6 +122,16 @@ class CFX_StringCTemplate {
   const_iterator end() const {
     return m_Ptr ? reinterpret_cast<const CharType*>(m_Ptr.Get()) + m_Length
                  : nullptr;
+  }
+
+  const_reverse_iterator rbegin() const {
+    return const_reverse_iterator(
+        m_Ptr ? reinterpret_cast<const CharType*>(m_Ptr.Get() + m_Length)
+              : nullptr);
+  }
+  const_reverse_iterator rend() const {
+    return const_reverse_iterator(
+        reinterpret_cast<const CharType*>(m_Ptr.Get()));
   }
 
   bool operator==(const CharType* ptr) const {
