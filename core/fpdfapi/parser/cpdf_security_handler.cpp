@@ -33,7 +33,7 @@ void CalcEncryptKey(CPDF_Dictionary* pEncrypt,
                     uint8_t* key,
                     int keylen,
                     bool bIgnoreMeta,
-                    CPDF_Array* pIdArray) {
+                    const CPDF_Array* pIdArray) {
   int revision = pEncrypt->GetIntegerFor("R");
   uint8_t passcode[32];
   for (uint32_t i = 0; i < 32; i++) {
@@ -441,7 +441,7 @@ bool CPDF_SecurityHandler::CheckUserPassword(const uint8_t* password,
     CRYPT_md5_context md5;
     CRYPT_MD5Start(&md5);
     CRYPT_MD5Update(&md5, defpasscode, 32);
-    CPDF_Array* pIdArray = m_pParser->GetIDArray();
+    const CPDF_Array* pIdArray = m_pParser->GetIDArray();
     if (pIdArray) {
       CFX_ByteString id = pIdArray->GetStringAt(0);
       CRYPT_MD5Update(&md5, (uint8_t*)id.c_str(), id.GetLength());
