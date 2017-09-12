@@ -12,6 +12,7 @@
 #include <utility>
 
 #include "core/fxcrt/cfx_retain_ptr.h"
+#include "core/fxcrt/cfx_reverse_iterator_template.h"
 #include "core/fxcrt/cfx_string_c_template.h"
 #include "core/fxcrt/cfx_string_data_template.h"
 #include "core/fxcrt/fx_system.h"
@@ -25,6 +26,7 @@ class CFX_ByteString {
  public:
   using CharType = char;
   using const_iterator = const CharType*;
+  using const_reverse_iterator = CFX_ReverseIteratorTemplate<CharType>;
 
   CFX_ByteString();
   CFX_ByteString(const CFX_ByteString& other);
@@ -75,6 +77,14 @@ class CFX_ByteString {
   const_iterator begin() const { return m_pData ? m_pData->m_String : nullptr; }
   const_iterator end() const {
     return m_pData ? m_pData->m_String + m_pData->m_nDataLength : nullptr;
+  }
+
+  // Note: Any subsequent modification of |this| will invalidate iterators.
+  const_reverse_iterator rbegin() const {
+    return const_reverse_iterator(end());
+  }
+  const_reverse_iterator rend() const {
+    return const_reverse_iterator(begin());
   }
 
   FX_STRSIZE GetLength() const { return m_pData ? m_pData->m_nDataLength : 0; }
