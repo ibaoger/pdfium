@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b3daee2_d8cd473a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-12T16:36:03Z",
+      "side": 1,
+      "message": "nit: should be stringC to avoid copies",
+      "range": {
+        "startLine": 1223,
+        "startChar": 16,
+        "endLine": 1223,
+        "endChar": 17
+      },
+      "revId": "0350c52d0ed4f7bd8b970f95cf28c067e8aea083",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84877851_1fce790a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-12T16:36:03Z",
+      "side": 1,
+      "message": "nit: prefer !empty() for these two",
+      "range": {
+        "startLine": 1224,
+        "startChar": 7,
+        "endLine": 1224,
+        "endChar": 37
+      },
+      "revId": "0350c52d0ed4f7bd8b970f95cf28c067e8aea083",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4273f5e_bb76e48c",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-12T16:36:03Z",
+      "side": 1,
+      "message": "The these become AsStringC()",
+      "range": {
+        "startLine": 1225,
+        "startChar": 28,
+        "endLine": 1225,
+        "endChar": 39
+      },
+      "revId": "0350c52d0ed4f7bd8b970f95cf28c067e8aea083",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68a4fbdb_7c8e2bf4",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-12T16:36:03Z",
+      "side": 1,
+      "message": "nit: prefer  \u003c 2",
+      "range": {
+        "startLine": 1232,
+        "startChar": 26,
+        "endLine": 1232,
+        "endChar": 30
+      },
+      "revId": "0350c52d0ed4f7bd8b970f95cf28c067e8aea083",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
