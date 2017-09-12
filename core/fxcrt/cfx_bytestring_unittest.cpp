@@ -1192,6 +1192,73 @@ TEST(fxcrt, ByteStringCMultiCharIterator) {
   EXPECT_EQ('a' + 'b' + 'c', sum);
 }
 
+TEST(fxcrt, ByteStringCEmptyReverseIterator) {
+  CFX_ByteStringC empty;
+  auto iter = empty.rbegin();
+  EXPECT_TRUE(iter == empty.rend());
+  EXPECT_FALSE(iter != empty.rend());
+  EXPECT_FALSE(iter < empty.rend());
+}
+
+TEST(fxcrt, ByteStringCOneCharReverseIterator) {
+  CFX_ByteStringC one_str("a");
+  auto iter = one_str.rbegin();
+  EXPECT_FALSE(iter == one_str.rend());
+  EXPECT_TRUE(iter != one_str.rend());
+  EXPECT_TRUE(iter < one_str.rend());
+
+  char ch = *iter++;
+  EXPECT_EQ('a', ch);
+  EXPECT_TRUE(iter == one_str.rend());
+  EXPECT_FALSE(iter != one_str.rend());
+  EXPECT_FALSE(iter < one_str.rend());
+}
+
+TEST(fxcrt, ByteStringCMultiCharReverseIterator) {
+  CFX_ByteStringC multi_str("abcd");
+  auto iter = multi_str.rbegin();
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  char ch = *iter++;
+  EXPECT_EQ('d', ch);
+  EXPECT_EQ('c', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *(++iter);
+  EXPECT_EQ('b', ch);
+  EXPECT_EQ('b', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *iter++;
+  EXPECT_EQ('b', ch);
+  EXPECT_EQ('a', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *iter++;
+  EXPECT_EQ('a', ch);
+  EXPECT_TRUE(iter == multi_str.rend());
+
+  ch = *(--iter);
+  EXPECT_EQ('a', ch);
+  EXPECT_EQ('a', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *iter--;
+  EXPECT_EQ('a', ch);
+  EXPECT_EQ('b', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *iter--;
+  EXPECT_EQ('b', ch);
+  EXPECT_EQ('c', *iter);
+  EXPECT_FALSE(iter == multi_str.rend());
+
+  ch = *(--iter);
+  EXPECT_EQ('d', ch);
+  EXPECT_EQ('d', *iter);
+  EXPECT_TRUE(iter == multi_str.rbegin());
+}
+
 TEST(fxcrt, ByteStringCAnyAllNoneOf) {
   CFX_ByteStringC str("aaaaaaaaaaaaaaaaab");
   EXPECT_FALSE(std::all_of(str.begin(), str.end(),
