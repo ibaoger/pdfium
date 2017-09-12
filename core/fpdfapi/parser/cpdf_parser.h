@@ -41,13 +41,6 @@ class CPDF_Parser {
     HANDLER_ERROR
   };
 
-  enum class ObjectType : uint8_t {
-    kFree = 0x00,
-    kNotCompressed = 0x01,
-    kCompressed = 0x02,
-    kNull = 0xFF,
-  };
-
   // A limit on the maximum object number in the xref table. Theoretical limits
   // are higher, but this may be large enough in practice.
   static const uint32_t kMaxObjectNumber = 1048576;
@@ -81,9 +74,9 @@ class CPDF_Parser {
   uint32_t GetLastObjNum() const;
   bool IsValidObjectNumber(uint32_t objnum) const;
   FX_FILESIZE GetObjectPositionOrZero(uint32_t objnum) const;
-  ObjectType GetObjectType(uint32_t objnum) const;
   uint16_t GetObjectGenNum(uint32_t objnum) const;
   bool IsObjectFreeOrNull(uint32_t objnum) const;
+  bool IsObjectFree(uint32_t objnum) const;
   CFX_RetainPtr<CPDF_CryptoHandler> GetCryptoHandler() const;
   CFX_RetainPtr<IFX_SeekableReadStream> GetFileAccess() const;
 
@@ -106,6 +99,13 @@ class CPDF_Parser {
   uint32_t GetFirstPageNo() const;
 
  protected:
+  enum class ObjectType : uint8_t {
+    kFree = 0x00,
+    kNotCompressed = 0x01,
+    kCompressed = 0x02,
+    kNull = 0xFF,
+  };
+
   struct ObjectInfo {
     ObjectInfo() : pos(0), type(ObjectType::kFree), gennum(0) {}
     // if type is ObjectType::kCompressed the archive_obj_num should be used.
@@ -191,6 +191,10 @@ class CPDF_Parser {
   bool InitSyntaxParser(
       const CFX_RetainPtr<IFX_SeekableReadStream>& file_access);
   bool ParseFileVersion();
+
+  ObjectType GetObjectType(uint32_t objnum) const;
+  ObjectType GetObjectTypeFromCrossRefStreamType(
+      int cross_ref_stream_type) const;
 
   CFX_UnownedPtr<CPDF_Document> m_pDocument;
   bool m_bHasParsed;
