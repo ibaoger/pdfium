@@ -11,6 +11,7 @@
 #include <utility>
 
 #include "core/fxcrt/cfx_retain_ptr.h"
+#include "core/fxcrt/cfx_reverse_iterator_template.h"
 #include "core/fxcrt/cfx_string_c_template.h"
 #include "core/fxcrt/cfx_string_data_template.h"
 #include "core/fxcrt/fx_memory.h"
@@ -25,6 +26,7 @@ class CFX_WideString {
  public:
   using CharType = wchar_t;
   using const_iterator = const CharType*;
+  using const_reverse_iterator = CFX_ReverseIteratorTemplate<CharType>;
 
   CFX_WideString();
   CFX_WideString(const CFX_WideString& other);
@@ -71,6 +73,14 @@ class CFX_WideString {
   const_iterator begin() const { return m_pData ? m_pData->m_String : nullptr; }
   const_iterator end() const {
     return m_pData ? m_pData->m_String + m_pData->m_nDataLength : nullptr;
+  }
+
+  // Note: Any subsequent modification of |this| will invalidate iterators.
+  const_reverse_iterator rbegin() const {
+    return const_reverse_iterator(end());
+  }
+  const_reverse_iterator rend() const {
+    return const_reverse_iterator(begin());
   }
 
   void clear() { m_pData.Reset(); }
