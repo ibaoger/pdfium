@@ -12,6 +12,7 @@
 #include <utility>
 #include <vector>
 
+#include "core/fxcrt/cfx_reverse_iterator_template.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/fx_system.h"
 #include "third_party/base/optional.h"
@@ -26,6 +27,7 @@ class CFX_StringCTemplate {
   using CharType = T;
   using UnsignedType = typename std::make_unsigned<CharType>::type;
   using const_iterator = const CharType*;
+  using const_reverse_iterator = CFX_ReverseIteratorTemplate<CharType>;
 
   CFX_StringCTemplate() : m_Ptr(nullptr), m_Length(0) {}
 
@@ -82,6 +84,16 @@ class CFX_StringCTemplate {
   const_iterator end() const {
     return m_Ptr ? reinterpret_cast<const CharType*>(m_Ptr.Get()) + m_Length
                  : nullptr;
+  }
+
+  const_reverse_iterator rbegin() const {
+    return const_reverse_iterator(
+        m_Ptr ? reinterpret_cast<const CharType*>(m_Ptr.Get() + m_Length)
+              : nullptr);
+  }
+  const_reverse_iterator rend() const {
+    return const_reverse_iterator(
+        reinterpret_cast<const CharType*>(m_Ptr.Get()));
   }
 
   bool operator==(const CharType* ptr) const {
