@@ -69,44 +69,66 @@ CPDF_Parser::ObjectType GetObjectTypeFromCrossRefStreamType(
 
 class CPDF_Parser::TrailerData {
  public:
-  TrailerData() {}
+  enum class Type {
+    kNone,
+    kV4,
+    kV5,
+    kMixed,
+  };
+
+  TrailerData() : TrailerData(Type::kNone) {}
+  explicit TrailerData(Type type) : TrailerData(type, nullptr) {}
+  TrailerData(Type type, std::unique_ptr<CPDF_Dictionary> trailer)
+      : type_(type), trailer_(std::move(trailer)) {}
+
   ~TrailerData() {}
 
-  CPDF_Dictionary* GetMainTrailer() const { return main_trailer_.get(); }
+  CPDF_Dictionary* GetTrailer() const { return trailer_.get(); }
 
-  void SetMainTrailer(std::unique_ptr<CPDF_Dictionary> trailer) {
-    ASSERT(trailer);
-    main_trailer_ = std::move(trailer);
-    ApplyTrailer(main_trailer_.get());
+  void MergeOnWith(std::unique_ptr<TrailerData> other) {
+    if (!other)
+      return;
+
+    if (other->type_ != Type::kNone)
+      type_ = (type_ == Type::kNone) ? other->type_ : Type::kMixed;
+
+    if (!trailer_ || trailer_->GetCount() == 0) {
+      trailer_ = std::move(other->trailer_);
+    } else if (other->trailer_) {
+      trailer_->SetFor("Prev", other->trailer_->RemoveFor("Prev"));
+      auto it = other->trailer_->begin();
+      while (it != other->trailer_->end()) {
+        const auto key = it->first;
+        ++it;
+        if (!trailer_->KeyExist(key))
+          trailer_->SetFor(key, other->trailer_->RemoveFor(key));
+      }
+    }
   }
 
-  void AppendTrailer(std::unique_ptr<CPDF_Dictionary> trailer) {
-    ASSERT(trailer);
-    ApplyTrailer(trailer.get());
+  void MergeUnderWith(std::unique_ptr<TrailerData> other) {
+    if (!other)
+      return;
+
+    std::swap(type_, other->type_);
+    std::swap(trailer_, other->trailer_);
+    MergeOnWith(std::move(other));
   }
 
   void Clear() {
-    main_trailer_.reset();
-    last_info_obj_num_ = 0;
+    trailer_.reset();
+    type_ = Type::kNone;
   }
 
   uint32_t GetInfoObjNum() const {
     const CPDF_Reference* pRef = ToReference(
-        GetMainTrailer() ? GetMainTrailer()->GetObjectFor("Info") : nullptr);
-    return pRef ? pRef->GetRefObjNum() : last_info_obj_num_;
+        GetTrailer() ? GetTrailer()->GetObjectFor("Info") : nullptr);
+    return pRef ? pRef->GetRefObjNum() : 0;
   }
 
  private:
-  void ApplyTrailer(const CPDF_Dictionary* dict) {
-    // The most recent Info object number contained in last added trailer.
-    // See PDF 1.7 spec, section 3.4.5 - Incremental Updates.
-    const auto* pRef = ToReference(dict->GetObjectFor("Info"));
-    if (pRef)
-      last_info_obj_num_ = pRef->GetRefObjNum();
-  }
-
-  std::unique_ptr<CPDF_Dictionary> main_trailer_;
-  uint32_t last_info_obj_num_ = 0;
+  Type type_;
+  std::unique_ptr<CPDF_Dictionary> trailer_;
 };
 
 CPDF_Parser::CPDF_Parser()
@@ -386,7 +408,8 @@ bool CPDF_Parser::LoadAllCrossRefV4(FX_FILESIZE xrefpos) {
   if (!trailer)
     return false;
 
-  m_TrailerData->SetMainTrailer(std::move(trailer));
+  m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+      TrailerData::Type::kV4, std::move(trailer)));
   int32_t xrefsize = GetDirectInteger(GetTrailer(), "Size");
   if (xrefsize > 0 && xrefsize <= kMaxXRefSize)
     ShrinkObjectMap(xrefsize);
@@ -422,7 +445,8 @@ bool CPDF_Parser::LoadAllCrossRefV4(FX_FILESIZE xrefpos) {
     // SLOW ...
     XRefStreamList.insert(XRefStreamList.begin(),
                           pDict->GetIntegerFor("XRefStm"));
-    m_TrailerData->AppendTrailer(std::move(pDict));
+    m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+        TrailerData::Type::kV4, std::move(pDict)));
   }
 
   for (size_t i = 0; i < CrossRefList.size(); ++i) {
@@ -443,7 +467,8 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
   if (!trailer)
     return false;
 
-  m_TrailerData->SetMainTrailer(std::move(trailer));
+  m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+      TrailerData::Type::kV4, std::move(trailer)));
   int32_t xrefsize = GetDirectInteger(GetTrailer(), "Size");
   if (xrefsize == 0)
     return false;
@@ -477,7 +502,8 @@ bool CPDF_Parser::LoadLinearizedAllCrossRefV4(FX_FILESIZE xrefpos,
     // SLOW ...
     XRefStreamList.insert(XRefStreamList.begin(),
                           pDict->GetIntegerFor("XRefStm"));
-    m_TrailerData->AppendTrailer(std::move(pDict));
+    m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+        TrailerData::Type::kV4, std::move(pDict)));
   }
 
   for (size_t i = 1; i < CrossRefList.size(); ++i) {
@@ -822,8 +848,10 @@ bool CPDF_Parser::RebuildCrossRef() {
                       CPDF_Object* pRoot = pDict->GetObjectFor("Root");
                       if (pRoot && pRoot->GetDict() &&
                           pRoot->GetDict()->GetObjectFor("Pages")) {
-                        m_TrailerData->SetMainTrailer(
-                            ToDictionary(pDict->Clone()));
+                        m_TrailerData->MergeUnderWith(
+                            pdfium::MakeUnique<TrailerData>(
+                                TrailerData::Type::kNone,
+                                ToDictionary(pDict->Clone())));
                       }
                     }
                   }
@@ -898,10 +926,12 @@ bool CPDF_Parser::RebuildCrossRef() {
                         }
                       }
                     } else {
-                      m_TrailerData->SetMainTrailer(
-                          ToDictionary(pObj->IsStream() ? pTrailer->Clone()
-                                                        : std::move(pObj)));
-
+                      m_TrailerData->MergeUnderWith(
+                          pdfium::MakeUnique<TrailerData>(
+                              TrailerData::Type::kNone,
+                              ToDictionary(pObj->IsStream()
+                                               ? pTrailer->Clone()
+                                               : std::move(pObj))));
                       FX_FILESIZE dwSavePos = m_pSyntax->GetPos();
                       CFX_ByteString strWord = m_pSyntax->GetKeyword();
                       if (!strWord.Compare("startxref")) {
@@ -1038,13 +1068,12 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
     return false;
 
   std::unique_ptr<CPDF_Dictionary> pNewTrailer = ToDictionary(pDict->Clone());
+  m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+      TrailerData::Type::kV5, std::move(pNewTrailer)));
   if (bMainXRef) {
-    m_TrailerData->SetMainTrailer(std::move(pNewTrailer));
     ShrinkObjectMap(size);
     for (auto& it : m_ObjectInfo)
       it.second.type = ObjectType::kFree;
-  } else {
-    m_TrailerData->AppendTrailer(std::move(pNewTrailer));
   }
 
   std::vector<std::pair<int32_t, int32_t>> arrIndex;
@@ -1178,7 +1207,7 @@ uint32_t CPDF_Parser::GetRootObjNum() {
 }
 
 CPDF_Dictionary* CPDF_Parser::GetTrailer() const {
-  return m_TrailerData->GetMainTrailer();
+  return m_TrailerData->GetTrailer();
 }
 
 uint32_t CPDF_Parser::GetInfoObjNum() {
@@ -1375,7 +1404,9 @@ CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
     if (!trailer)
       return SUCCESS;
 
-    m_TrailerData->SetMainTrailer(std::move(trailer));
+    m_TrailerData->MergeOnWith(pdfium::MakeUnique<TrailerData>(
+        TrailerData::Type::kV4, std::move(trailer)));
+
     int32_t xrefsize = GetDirectInteger(GetTrailer(), "Size");
     if (xrefsize > 0)
       ShrinkObjectMap(xrefsize);
