@@ -657,32 +657,14 @@ std::unique_ptr<CPDF_Object> CPDF_DataAvail::ParseIndirectObjectAt(
     FX_FILESIZE pos,
     uint32_t objnum,
     CPDF_IndirectObjectHolder* pObjList) {
-  FX_FILESIZE SavedPos = m_syntaxParser.GetPos();
+  const FX_FILESIZE SavedPos = m_syntaxParser.GetPos();
   m_syntaxParser.SetPos(pos);
-
-  bool bIsNumber;
-  CFX_ByteString word = m_syntaxParser.GetNextWord(&bIsNumber);
-  if (!bIsNumber)
-    return nullptr;
-
-  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
-  if (objnum && parser_objnum != objnum)
-    return nullptr;
-
-  word = m_syntaxParser.GetNextWord(&bIsNumber);
-  if (!bIsNumber)
-    return nullptr;
-
-  uint32_t gennum = FXSYS_atoui(word.c_str());
-  if (m_syntaxParser.GetKeyword() != "obj") {
-    m_syntaxParser.SetPos(SavedPos);
-    return nullptr;
-  }
-
-  std::unique_ptr<CPDF_Object> pObj =
-      m_syntaxParser.GetObject(pObjList, parser_objnum, gennum, false);
+  std::unique_ptr<CPDF_Object> result = m_syntaxParser.GetIndirectObject(
+      pObjList, 0, false, CPDF_SyntaxParser::ParseType::kLoose);
   m_syntaxParser.SetPos(SavedPos);
-  return pObj;
+  return (result && (!objnum || result->GetObjNum() == objnum))
+             ? std::move(result)
+             : nullptr;
 }
 
 CPDF_DataAvail::DocLinearizationStatus CPDF_DataAvail::IsLinearizedPDF() {
