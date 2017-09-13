@@ -1299,34 +1299,8 @@ uint32_t CPDF_Parser::GetPermissions() const {
 
 bool CPDF_Parser::ParseLinearizedHeader() {
   m_pSyntax->SetPos(m_pSyntax->m_HeaderOffset + 9);
-
-  FX_FILESIZE SavedPos = m_pSyntax->GetPos();
-  bool bIsNumber;
-  CFX_ByteString word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber)
-    return false;
-
-  uint32_t objnum = FXSYS_atoui(word.c_str());
-  word = m_pSyntax->GetNextWord(&bIsNumber);
-  if (!bIsNumber)
-    return false;
-
-  uint32_t gennum = FXSYS_atoui(word.c_str());
-  if (m_pSyntax->GetKeyword() != "obj") {
-    m_pSyntax->SetPos(SavedPos);
-    return false;
-  }
-
-  m_pLinearized = CPDF_LinearizedHeader::CreateForObject(
-      m_pSyntax->GetObject(nullptr, objnum, gennum, false));
-  if (!m_pLinearized)
-    return false;
-
-  // Move parser onto first page xref table start.
-  m_pSyntax->GetNextWord(nullptr);
-
-  m_LastXRefOffset = m_pSyntax->GetPos();
-  return true;
+  m_pLinearized = CPDF_LinearizedHeader::Parse(m_pSyntax.get());
+  return !!m_pLinearized;
 }
 
 CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
@@ -1345,6 +1319,7 @@ CPDF_Parser::Error CPDF_Parser::StartLinearizedParse(
   m_bHasParsed = true;
   m_pDocument = pDocument;
 
+  m_LastXRefOffset = m_pLinearized->GetLastXRefOffset();
   FX_FILESIZE dwFirstXRefOffset = m_LastXRefOffset;
   bool bXRefRebuilt = false;
   bool bLoadV4 = LoadCrossRefV4(dwFirstXRefOffset, 0, false);
