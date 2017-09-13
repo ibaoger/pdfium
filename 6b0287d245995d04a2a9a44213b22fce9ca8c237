@@ -16,6 +16,23 @@
       "revId": "6b0287d245995d04a2a9a44213b22fce9ca8c237",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aec25b7_59738ac3",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-13T19:43:01Z",
+      "side": 0,
+      "message": "BTW: I have just found, that also we should check result of data reading in this place. Because it is can be unavailable.\nThis CL also fix that.",
+      "revId": "6b0287d245995d04a2a9a44213b22fce9ca8c237",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
