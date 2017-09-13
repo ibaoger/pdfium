@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "a5202cf5_f1c5d3da",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-13T20:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2da137b6_f46632e4",
+      "revId": "3f7dc12dd655bfd4919594d3cad31e68cd8ab586",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6dbbbdc6_06f27d66",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2017-09-13T16:44:48Z",
       "side": 1,
       "message": "Could the same kind of check be added here too?",
+      "range": {
+        "startLine": 346,
+        "startChar": 52,
+        "endLine": 346,
+        "endChar": 0
+      },
+      "revId": "3f7dc12dd655bfd4919594d3cad31e68cd8ab586",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "880a102b_e11f1d90",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-13T20:23:06Z",
+      "side": 1,
+      "message": "Nope. FPDF_PAGEOBJECT is CPDF_PageObject. What else can we check? If the caller passes in a bad pointer, that\u0027s their problem.",
+      "parentUuid": "6dbbbdc6_06f27d66",
       "range": {
         "startLine": 346,
         "startChar": 52,
