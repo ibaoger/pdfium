@@ -715,15 +715,7 @@ bool CPDF_DataAvail::IsLinearizedFile(uint8_t* pData, uint32_t dwLen) {
   m_dwHeaderOffset = offset;
   m_syntaxParser.InitParser(file, offset);
   m_syntaxParser.SetPos(m_syntaxParser.m_HeaderOffset + 9);
-
-  bool bNumber;
-  CFX_ByteString wordObjNum = m_syntaxParser.GetNextWord(&bNumber);
-  if (!bNumber)
-    return false;
-
-  uint32_t objnum = FXSYS_atoui(wordObjNum.c_str());
-  m_pLinearized = CPDF_LinearizedHeader::CreateForObject(
-      ParseIndirectObjectAt(m_syntaxParser.m_HeaderOffset + 9, objnum));
+  m_pLinearized = CPDF_LinearizedHeader::Parse(&m_syntaxParser);
   if (!m_pLinearized ||
       m_pLinearized->GetFileSize() != m_pFileRead->GetSize()) {
     m_pLinearized.reset();
