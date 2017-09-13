@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f98ecb1_c580457f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-13T23:58:24Z",
+      "side": 1,
+      "message": "Would you mind copying the commit message format from previous Clang rolls?",
+      "revId": "114fa4868dfc861536f249af4389860964d5e5c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e237a91_9d950502",
         "filename": "DEPS",
         "patchSetId": 1
@@ -13,6 +30,30 @@
       "writtenOn": "2017-09-13T23:55:49Z",
       "side": 1,
       "message": "D\u0027ya think its safe to kill this as a follow-up?",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 2
+      },
+      "revId": "114fa4868dfc861536f249af4389860964d5e5c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7391e53e_e00d6b28",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-13T23:58:24Z",
+      "side": 1,
+      "message": "No, I\u0027ve been trying. Still can\u0027t.",
+      "parentUuid": "4e237a91_9d950502",
       "range": {
         "startLine": 89,
         "startChar": 1,
