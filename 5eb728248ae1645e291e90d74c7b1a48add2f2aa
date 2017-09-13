@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51a45581_56366910",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-13T23:38:14Z",
+      "side": 1,
+      "message": "Done, I added one for a triangle.",
+      "parentUuid": "38cf010b_3326a638",
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20423891_6a05dbdc",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8a25a114_610aaa6c",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-13T23:38:14Z",
+      "side": 1,
+      "message": "Done, I added -1 as return value for the NULL case similar to how it\u0027s done in FPDFPage_CountObject().",
+      "parentUuid": "20423891_6a05dbdc",
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adfe5743_5cbf041f",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2017-09-13T16:06:47Z",
       "side": 1,
       "message": "Point objects? Can you add a reference to where that is defined, or just explain what that means?",
+      "range": {
+        "startLine": 555,
+        "startChar": 7,
+        "endLine": 555,
+        "endChar": 30
+      },
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c29efc98_1a2207a1",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-13T23:38:14Z",
+      "side": 1,
+      "message": "Done, I added a short description. This will make more sense if a follow-up patch actually exposes point objects, similar to FPDFPage_GetObject() exposting objects on a page. (The internal existing type is FX_PATHPOINT.)",
+      "parentUuid": "adfe5743_5cbf041f",
       "range": {
         "startLine": 555,
         "startChar": 7,
@@ -79,6 +139,30 @@
       "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c270f53_0bf78d6c",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-13T23:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71bd8bc2_901a3bd0",
+      "range": {
+        "startLine": 559,
+        "startChar": 37,
+        "endLine": 559,
+        "endChar": 41
+      },
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
