@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "38cf010b_3326a638",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-13T16:06:47Z",
+      "side": 1,
+      "message": "Can we add a couple more tests? Especially at least one that is not a rectangle.",
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20423891_6a05dbdc",
         "filename": "fpdfsdk/fpdfeditpath.cpp",
         "patchSetId": 2
@@ -13,6 +30,52 @@
       "writtenOn": "2017-09-11T23:45:40Z",
       "side": 1,
       "message": "Please check and make sure |path| is not NULL. See many of the surrounding functions. If you add more tests for the new method, you can catch errors like that.\n\nWell, then I noticed CPDFPathObjectFromFPDFPageObject() isn\u0027t entirely correct. I guess I should go fix that.",
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adfe5743_5cbf041f",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-13T16:06:47Z",
+      "side": 1,
+      "message": "Point objects? Can you add a reference to where that is defined, or just explain what that means?",
+      "range": {
+        "startLine": 555,
+        "startChar": 7,
+        "endLine": 555,
+        "endChar": 30
+      },
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71bd8bc2_901a3bd0",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-09-13T16:06:47Z",
+      "side": 1,
+      "message": "path",
+      "range": {
+        "startLine": 559,
+        "startChar": 37,
+        "endLine": 559,
+        "endChar": 41
+      },
       "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
