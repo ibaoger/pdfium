@@ -50,6 +50,23 @@
       "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ad80098_9d5a8a73",
+        "filename": "fpdfsdk/formfiller/cffl_checkbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T20:35:05Z",
+      "side": 1,
+      "message": "Can you structure this code like lines 82-86?",
+      "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
