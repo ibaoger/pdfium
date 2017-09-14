@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "281f0d5c_934b4ede",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-14T20:46:29Z",
+      "side": 1,
+      "message": "PCLR \u003d palette color? I think\n\nIf pdfium_use_colorspace is set for the image and we are using the JP2 codec and there is a palette defined, then during obj_decode (third_party_libopenjpeg20/jp2.c:1643) the decoded image will be adjusted.\n\nUnforuntately the terminology is a bit confusing for what is going on. The core issue is that that we are decompressing/decoding the information out of the stream into OpenJPEG\u0027s intermediatory form during Init before we determine if we can allocate a bitmap large enough to hold the image.\n\nA little time line that will hopefully clarify what is going on.\n\nOriginal Code\n\nPDFium                          CJPX_Decoder (wrapper)                     OpenJPEG\n-------                         -------                                    --------\n1. Load Image Data\nCreate Codec Wrapper (Init)\n                                2. Create Stream for Data\n                                3. Setup codec data structures                                          \n                                                                           4. Read header\n                                                                           5. Decode image\n\n6. Allocate bitmap\nCopy Data to Bitmap (Decode)\n                                7. Transfer data from image to bitmap\n\nThe problem is that the image is being decoded at step 5 without validating we will be able to create a bitmap to hold it. My original change effectively swapped steps 5 and 6, putting the actual call to decode the image from the stream into the  Decode method in CJPX_Decoder. The \n problem is  that if there is a palette applied during the decoding process in OpenJPEG \n the amount of space allocated for the bitmap and other data structures may be wrong. The method that I have added to the OpenJPEG API calculates what the number of components at the end of decoding should be, so the right allocations can be done when swapping 5 \u0026 6.",
+      "parentUuid": "b35c9d38_93d58473",
+      "range": {
+        "startLine": 15,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c31f841_b9c46eb8",
         "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ebcdf20b_fdb93c10",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-14T20:46:29Z",
+      "side": 1,
+      "message": "This part of the process is fine. The issue is later in the current implementation, the code is decompressing the image into an intermediate form before determining if it can allocate enough memory for the final Bitmap. This leads to the fuzzers hitting a really big allocation even though we are immediately going to fail the decoding process for the stream.",
+      "parentUuid": "2c31f841_b9c46eb8",
+      "range": {
+        "startLine": 453,
+        "startChar": 19,
+        "endLine": 453,
+        "endChar": 74
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "555461d8_0075732b",
         "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9dd2873_7789e25a",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-14T20:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555461d8_0075732b",
+      "range": {
+        "startLine": 507,
+        "startChar": 1,
+        "endLine": 507,
+        "endChar": 2
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
