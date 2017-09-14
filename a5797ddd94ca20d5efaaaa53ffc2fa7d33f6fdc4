@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f90528a_6d97f22f",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-14T21:31:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bd43396_c1c54845",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 2
+      },
+      "revId": "a5797ddd94ca20d5efaaaa53ffc2fa7d33f6fdc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46f8ef2_65b186e9",
         "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "a5797ddd94ca20d5efaaaa53ffc2fa7d33f6fdc4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81146458_21a692c9",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-14T21:31:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a46f8ef2_65b186e9",
+      "revId": "a5797ddd94ca20d5efaaaa53ffc2fa7d33f6fdc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
