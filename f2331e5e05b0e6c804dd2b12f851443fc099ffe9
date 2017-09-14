@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "2c31f841_b9c46eb8",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-14T20:28:42Z",
+      "side": 1,
+      "message": "Alternatively, could we pass in maxium dimensions here, and then return false after we know its too big? Then keep all the logic here you shuffled to decode?",
+      "range": {
+        "startLine": 453,
+        "startChar": 19,
+        "endLine": 453,
+        "endChar": 74
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "555461d8_0075732b",
         "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
         "patchSetId": 1
