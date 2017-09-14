@@ -12,9 +12,12 @@
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
+#include "core/fpdfapi/parser/cpdf_syntax_parser.h"
 #include "third_party/base/ptr_util.h"
 
 namespace {
+
+constexpr FX_FILESIZE kLinearizedHeaderOffset = 9;
 
 template <class T>
 bool IsValidNumericDictionaryValue(const CPDF_Dictionary* pDict,
@@ -35,9 +38,13 @@ bool IsValidNumericDictionaryValue(const CPDF_Dictionary* pDict,
 }  // namespace
 
 // static
-std::unique_ptr<CPDF_LinearizedHeader> CPDF_LinearizedHeader::CreateForObject(
-    std::unique_ptr<CPDF_Object> pObj) {
-  auto pDict = ToDictionary(std::move(pObj));
+std::unique_ptr<CPDF_LinearizedHeader> CPDF_LinearizedHeader::Parse(
+    CPDF_SyntaxParser* parser) {
+  parser->SetPos(kLinearizedHeaderOffset);
+
+  const auto pDict = ToDictionary(parser->GetIndirectObject(
+      nullptr, 0, false, CPDF_SyntaxParser::ParseType::kLoose));
+
   if (!pDict || !pDict->KeyExist("Linearized") ||
       !IsValidNumericDictionaryValue<FX_FILESIZE>(pDict.get(), "L", 1) ||
       !IsValidNumericDictionaryValue<uint32_t>(pDict.get(), "P", 0, false) ||
@@ -46,7 +53,21 @@ std::unique_ptr<CPDF_LinearizedHeader> CPDF_LinearizedHeader::CreateForObject(
       !IsValidNumericDictionaryValue<FX_FILESIZE>(pDict.get(), "E", 1) ||
       !IsValidNumericDictionaryValue<uint32_t>(pDict.get(), "O", 1))
     return nullptr;
-  return pdfium::WrapUnique(new CPDF_LinearizedHeader(pDict.get()));
+  // Move parser onto first page xref table start. (skip endobj keyword)
+  if (parser->GetNextWord(nullptr) != "endobj")
+    return nullptr;
+
+  auto result = pdfium::WrapUnique(new CPDF_LinearizedHeader(pDict.get()));
+  result->m_szLastXRefOffset = parser->GetPos();
+
+  const auto file_size = parser->GetFileAccess()->GetSize();
+  return (result->GetFileSize() == file_size &&
+          result->GetMainXRefTableFirstEntryOffset() < file_size &&
+          result->GetFirstPageEndOffset() < file_size &&
+          result->GetLastXRefOffset() < file_size &&
+          result->GetHintStart() < file_size)
+             ? std::move(result)
+             : nullptr;
 }
 
 CPDF_LinearizedHeader::CPDF_LinearizedHeader(const CPDF_Dictionary* pDict) {
