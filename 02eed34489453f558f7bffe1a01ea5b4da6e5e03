@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acfc046e_bbe9c247",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T18:42:55Z",
+      "side": 1,
+      "message": "Please wrap at 72 columns.",
+      "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e170b26a_549d94a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T18:42:55Z",
+      "side": 1,
+      "message": "Can you just pick 1 reviewer, e.g. me, rather than all possible reviewers?\n\nChromium has hundreds of people. Are you going to add them all if you ask for a Chromium code review? ;)",
+      "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
