@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eff313e9_85a81e7d",
+        "filename": "fpdfsdk/formfiller/cffl_interactiveformfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T23:52:36Z",
+      "side": 1,
+      "message": "braces.",
+      "revId": "a8e540e118dcf08fe20eb20cbc57d78942d6000a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "886156bb_9aacffba",
+        "filename": "testing/resources/bug_765384.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T23:52:36Z",
+      "side": 1,
+      "message": "Not used. Also (23 0).",
+      "revId": "a8e540e118dcf08fe20eb20cbc57d78942d6000a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92d88e9_6851c4e4",
+        "filename": "testing/resources/bug_765384.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T23:52:36Z",
+      "side": 1,
+      "message": "{{trailer}}\n\nThen regenerate PDF.",
+      "revId": "a8e540e118dcf08fe20eb20cbc57d78942d6000a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
