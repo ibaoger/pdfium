@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "9ca322d6_4bf8f472",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T00:06:10Z",
+      "side": 1,
+      "message": "Can we add a new FPDFEditEmbeddertest test case that calls CreateNewDocument()? Inside, create a FPDF_PAGEOBJECT with FPDFPageObj_NewImageObj() and try to pass that in to FPDFPath_CountPoint(). Also try passing in a nullptr to FPDFPath_CountPoint(). Both of which should fail gracefully by returning -1.",
+      "parentUuid": "8a25a114_610aaa6c",
+      "revId": "5eb728248ae1645e291e90d74c7b1a48add2f2aa",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adfe5743_5cbf041f",
         "filename": "public/fpdf_edit.h",
         "patchSetId": 2
