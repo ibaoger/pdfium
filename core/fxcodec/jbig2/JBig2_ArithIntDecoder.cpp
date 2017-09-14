@@ -49,6 +49,9 @@ CJBig2_ArithIntDecoder::~CJBig2_ArithIntDecoder() {}
 
 bool CJBig2_ArithIntDecoder::decode(CJBig2_ArithDecoder* pArithDecoder,
                                     int* nResult) {
+  // This decoding algorithm is explained in "Annex A - Arithmetic Integer
+  // Decoding Procedure" on page 113 of the JBIG2 specification (ISO/IEC FCD
+  // 14492).
   int PREV = 1;
   const int S = pArithDecoder->DECODE(&m_IAx[PREV]);
   PREV = ShiftOr(PREV, S);
@@ -56,7 +59,7 @@ bool CJBig2_ArithIntDecoder::decode(CJBig2_ArithDecoder* pArithDecoder,
   const size_t nDecodeDataIndex =
       RecursiveDecode(pArithDecoder, &m_IAx, &PREV, 0);
 
-  int nTemp = 0;
+  uint32_t nTemp = 0;
   for (int i = 0; i < g_ArithIntDecodeData[nDecodeDataIndex].nNeedBits; ++i) {
     int D = pArithDecoder->DECODE(&m_IAx[PREV]);
     PREV = ShiftOr(PREV, D);
@@ -64,12 +67,12 @@ bool CJBig2_ArithIntDecoder::decode(CJBig2_ArithDecoder* pArithDecoder,
       PREV = (PREV & 511) | 256;
     nTemp = ShiftOr(nTemp, D);
   }
-  int nValue = g_ArithIntDecodeData[nDecodeDataIndex].nValue;
+  int64_t nValue = g_ArithIntDecodeData[nDecodeDataIndex].nValue;
   nValue += nTemp;
   if (S == 1 && nValue > 0)
     nValue = -nValue;
 
-  *nResult = nValue;
+  *nResult = static_cast<int>(nValue);
   return S != 1 || nValue != 0;
 }
 
