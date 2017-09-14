@@ -436,6 +436,7 @@ void sycc420_to_rgb(opj_image_t* img) {
 CJPX_Decoder::CJPX_Decoder(CPDF_ColorSpace* cs)
     : m_Image(nullptr),
       m_Codec(nullptr),
+      m_CodecFormat(OPJ_CODEC_UNKNOWN),
       m_DecodeData(nullptr),
       m_Stream(nullptr),
       m_ColorSpace(cs) {}
@@ -471,9 +472,11 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
   m_Parameters.cod_format = 3;
   if (memcmp(m_SrcData, szJP2Header, sizeof(szJP2Header)) == 0) {
     m_Codec = opj_create_decompress(OPJ_CODEC_JP2);
+    m_CodecFormat = OPJ_CODEC_JP2;
     m_Parameters.decod_format = 1;
   } else {
     m_Codec = opj_create_decompress(OPJ_CODEC_J2K);
+    m_CodecFormat = OPJ_CODEC_J2K;
   }
   if (!m_Codec)
     return false;
@@ -492,6 +495,22 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
   }
   m_Image->pdfium_use_colorspace = !!m_ColorSpace;
 
+  return true;
+}
+
+void CJPX_Decoder::GetInfo(uint32_t* width,
+                           uint32_t* height,
+                           uint32_t* components) {
+  *width = m_Image->x1;
+  *height = m_Image->y1;
+  pdfium_get_components(m_Codec, m_CodecFormat, components);
+  fprintf(stdout, "width = %u, height = %u, components = %u\n", *width, *height,
+          *components);
+}
+
+bool CJPX_Decoder::Decode(uint8_t* dest_buf,
+                          int pitch,
+                          const std::vector<uint8_t>& offsets) {
   if (!m_Parameters.nb_tile_to_decode) {
     if (!opj_set_decode_area(m_Codec, m_Image, m_Parameters.DA_x0,
                              m_Parameters.DA_y0, m_Parameters.DA_x1,
@@ -532,20 +551,6 @@ bool CJPX_Decoder::Init(const unsigned char* src_data, uint32_t src_size) {
     m_Image->icc_profile_len = 0;
   }
 
-  return true;
-}
-
-void CJPX_Decoder::GetInfo(uint32_t* width,
-                           uint32_t* height,
-                           uint32_t* components) {
-  *width = m_Image->x1;
-  *height = m_Image->y1;
-  *components = m_Image->numcomps;
-}
-
-bool CJPX_Decoder::Decode(uint8_t* dest_buf,
-                          int pitch,
-                          const std::vector<uint8_t>& offsets) {
   if (m_Image->comps[0].w != m_Image->x1 || m_Image->comps[0].h != m_Image->y1)
     return false;
 
