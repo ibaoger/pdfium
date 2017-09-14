@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bd43396_c1c54845",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-14T19:55:44Z",
+      "side": 1,
+      "message": "nit: maybe use a new local, say safeValue or some such.",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 2
+      },
+      "revId": "a5797ddd94ca20d5efaaaa53ffc2fa7d33f6fdc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a46f8ef2_65b186e9",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-14T19:55:44Z",
+      "side": 1,
+      "message": "nit: then assign nValue from safe_value.ValueOrDie() once, to avoid calling ValueOrDie over and over (it takes some space in the instruction stream to insert the OrDie code every time).",
+      "revId": "a5797ddd94ca20d5efaaaa53ffc2fa7d33f6fdc4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
