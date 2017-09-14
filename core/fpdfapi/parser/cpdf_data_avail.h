@@ -175,18 +175,17 @@ class CPDF_DataAvail final {
   void ResetFirstCheck(uint32_t dwPage);
   bool ValidatePage(uint32_t dwPage);
   bool ValidateForm();
+  CPDF_SyntaxParser* GetSyntaxParser() const;
 
   FileAvail* const m_pFileAvail;
   CFX_RetainPtr<CPDF_ReadValidator> m_pFileRead;
   CPDF_Parser m_parser;
-  CPDF_SyntaxParser m_syntaxParser;
   std::unique_ptr<CPDF_Object> m_pRoot;
   uint32_t m_dwRootObjNum;
   uint32_t m_dwInfoObjNum;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
   CFX_UnownedPtr<CPDF_Object> m_pTrailer;
   bool m_bDocAvail;
-  FX_FILESIZE m_dwHeaderOffset;
   FX_FILESIZE m_dwLastXRefOffset;
   FX_FILESIZE m_dwXRefOffset;
   FX_FILESIZE m_dwTrailerOffset;
