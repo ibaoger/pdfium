@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "555461d8_0075732b",
+        "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-14T20:10:29Z",
+      "side": 1,
+      "message": "stray printf left over from debugging.",
+      "range": {
+        "startLine": 507,
+        "startChar": 1,
+        "endLine": 507,
+        "endChar": 2
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
