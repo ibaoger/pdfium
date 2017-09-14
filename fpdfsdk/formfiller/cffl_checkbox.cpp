@@ -58,9 +58,10 @@ bool CFFL_CheckBox::OnChar(CPDFSDK_Annot* pAnnot,
       }
 
       CFFL_FormFiller::OnChar(pAnnot, nChar, nFlags);
+      CPDFSDK_Widget* pWidget = static_cast<CPDFSDK_Widget*>(pAnnot);
       CPWL_CheckBox* pWnd = GetCheckBox(pPageView, true);
       if (pWnd)
-        pWnd->SetCheck(!pWnd->IsChecked());
+        pWnd->SetCheck(!pWidget->IsChecked());
 
       return CommitData(pPageView, nFlags);
     }
