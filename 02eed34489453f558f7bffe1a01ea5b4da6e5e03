@@ -33,6 +33,23 @@
       "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a44d58_5488b9e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-14T18:51:13Z",
+      "side": 1,
+      "message": "The bug number needs to be:\n\npdfium:897\n\nOtherwise it gets autolinked to chromium bug 897 instead.",
+      "revId": "02eed34489453f558f7bffe1a01ea5b4da6e5e03",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
