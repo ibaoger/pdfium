@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b35c9d38_93d58473",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-14T20:15:42Z",
+      "side": 1,
+      "message": "What is PCLR?  Where is it applied (between Init and decode)?  how did it used to deal with presumably the need to resize after init?",
+      "range": {
+        "startLine": 15,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "f2331e5e05b0e6c804dd2b12f851443fc099ffe9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "555461d8_0075732b",
         "filename": "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
         "patchSetId": 1
