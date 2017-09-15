@@ -131,7 +131,7 @@ CFX_ByteString CPWL_SBButton::GetClassName() const {
   return "CPWL_SBButton";
 }
 
-void CPWL_SBButton::OnCreate(PWL_CREATEPARAM& cp) {
+void CPWL_SBButton::OnCreate(CreateParams& cp) {
   cp.eCursorType = FXCT_ARROW;
 }
 
@@ -329,7 +329,7 @@ CFX_ByteString CPWL_ScrollBar::GetClassName() const {
   return "CPWL_ScrollBar";
 }
 
-void CPWL_ScrollBar::OnCreate(PWL_CREATEPARAM& cp) {
+void CPWL_ScrollBar::OnCreate(CreateParams& cp) {
   cp.eCursorType = FXCT_ARROW;
 }
 
@@ -539,8 +539,8 @@ void CPWL_ScrollBar::NotifyMouseMove(CPWL_Wnd* child, const CFX_PointF& pos) {
     OnPosButtonMouseMove(pos);
 }
 
-void CPWL_ScrollBar::CreateButtons(const PWL_CREATEPARAM& cp) {
-  PWL_CREATEPARAM scp = cp;
+void CPWL_ScrollBar::CreateButtons(const CreateParams& cp) {
+  CreateParams scp = cp;
   scp.pParentWnd = this;
   scp.dwBorderWidth = 2;
   scp.nBorderStyle = BorderStyle::BEVELED;
@@ -863,7 +863,7 @@ float CPWL_ScrollBar::FaceToTrue(float fFace) {
   return fTrue;
 }
 
-void CPWL_ScrollBar::CreateChildWnd(const PWL_CREATEPARAM& cp) {
+void CPWL_ScrollBar::CreateChildWnd(const CreateParams& cp) {
   CreateButtons(cp);
 }
 
