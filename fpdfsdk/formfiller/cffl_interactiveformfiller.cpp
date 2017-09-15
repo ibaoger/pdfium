@@ -122,7 +122,7 @@ void CFFL_InteractiveFormFiller::OnMouseEnter(
     if (pWidget->GetAAction(CPDF_AAction::CursorEnter).GetDict()) {
       m_bNotifying = true;
 
-      int nValueAge = pWidget->GetValueAge();
+      uint32_t nValueAge = pWidget->GetValueAge();
       pWidget->ClearAppModified();
       ASSERT(pPageView);
 
@@ -156,7 +156,7 @@ void CFFL_InteractiveFormFiller::OnMouseExit(CPDFSDK_PageView* pPageView,
       m_bNotifying = true;
       pWidget->GetAppearanceAge();
 
-      int nValueAge = pWidget->GetValueAge();
+      uint32_t nValueAge = pWidget->GetValueAge();
       pWidget->ClearAppModified();
       ASSERT(pPageView);
 
@@ -193,7 +193,7 @@ bool CFFL_InteractiveFormFiller::OnLButtonDown(
       m_bNotifying = true;
       pWidget->GetAppearanceAge();
 
-      int nValueAge = pWidget->GetValueAge();
+      uint32_t nValueAge = pWidget->GetValueAge();
       pWidget->ClearAppModified();
       ASSERT(pPageView);
 
@@ -269,12 +269,11 @@ bool CFFL_InteractiveFormFiller::OnButtonUp(CPDFSDK_Annot::ObservedPtr* pAnnot,
   if (!pWidget->GetAAction(CPDF_AAction::ButtonUp).GetDict())
     return false;
 
+  ASSERT(pPageView);
   m_bNotifying = true;
 
-  int nAge = pWidget->GetAppearanceAge();
-  int nValueAge = pWidget->GetValueAge();
-  ASSERT(pPageView);
-
+  uint32_t nAge = pWidget->GetAppearanceAge();
+  uint32_t nValueAge = pWidget->GetValueAge();
   PDFSDK_FieldAction fa;
   fa.bModifier = CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
   fa.bShift = CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
@@ -378,7 +377,7 @@ bool CFFL_InteractiveFormFiller::OnSetFocus(CPDFSDK_Annot::ObservedPtr* pAnnot,
       m_bNotifying = true;
       pWidget->GetAppearanceAge();
 
-      int nValueAge = pWidget->GetValueAge();
+      uint32_t nValueAge = pWidget->GetValueAge();
       pWidget->ClearAppModified();
 
       CFFL_FormFiller* pFormFiller = GetFormFiller(pWidget, true);
@@ -717,15 +716,14 @@ bool CFFL_InteractiveFormFiller::OnClick(CPDFSDK_Annot::ObservedPtr* pAnnot,
     return false;
 
   m_bNotifying = true;
-  int nAge = pWidget->GetAppearanceAge();
-  int nValueAge = pWidget->GetValueAge();
-
+  uint32_t nAge = pWidget->GetAppearanceAge();
+  uint32_t nValueAge = pWidget->GetValueAge();
   PDFSDK_FieldAction fa;
   fa.bModifier = CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
   fa.bShift = CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
-
   pWidget->OnXFAAAction(PDFSDK_XFA_Click, fa, pPageView);
   m_bNotifying = false;
+
   if (!(*pAnnot) || !IsValidAnnot(pPageView, pWidget))
     return true;
   if (nAge == pWidget->GetAppearanceAge())
@@ -746,16 +744,16 @@ bool CFFL_InteractiveFormFiller::OnFull(CPDFSDK_Annot::ObservedPtr* pAnnot,
   if (!pWidget->HasXFAAAction(PDFSDK_XFA_Full))
     return false;
 
-  m_bNotifying = true;
-  int nAge = pWidget->GetAppearanceAge();
-  int nValueAge = pWidget->GetValueAge();
-
+  uint32_t nAge = pWidget->GetAppearanceAge();
+  uint32_t nValueAge = pWidget->GetValueAge();
   PDFSDK_FieldAction fa;
   fa.bModifier = CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
   fa.bShift = CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
-
-  pWidget->OnXFAAAction(PDFSDK_XFA_Full, fa, pPageView);
-  m_bNotifying = false;
+  {
+    CFX_AutoRestorer<bool> restorer(&m_bNotifying);
+    m_bNotifying = true;
+    pWidget->OnXFAAAction(PDFSDK_XFA_Full, fa, pPageView);
+  }
   if (!(*pAnnot) || !IsValidAnnot(pPageView, pWidget))
     return true;
   if (nAge == pWidget->GetAppearanceAge())
@@ -798,15 +796,14 @@ bool CFFL_InteractiveFormFiller::OnPreOpen(CPDFSDK_Annot::ObservedPtr* pAnnot,
     return false;
 
   m_bNotifying = true;
-  int nAge = pWidget->GetAppearanceAge();
-  int nValueAge = pWidget->GetValueAge();
-
+  uint32_t nAge = pWidget->GetAppearanceAge();
+  uint32_t nValueAge = pWidget->GetValueAge();
   PDFSDK_FieldAction fa;
   fa.bModifier = CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
   fa.bShift = CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
-
   pWidget->OnXFAAAction(PDFSDK_XFA_PreOpen, fa, pPageView);
   m_bNotifying = false;
+
   if (!(*pAnnot) || !IsValidAnnot(pPageView, pWidget))
     return true;
   if (nAge == pWidget->GetAppearanceAge())
@@ -828,16 +825,16 @@ bool CFFL_InteractiveFormFiller::OnPostOpen(CPDFSDK_Annot::ObservedPtr* pAnnot,
   if (!pWidget->HasXFAAAction(PDFSDK_XFA_PostOpen))
     return false;
 
-  m_bNotifying = true;
-  int nAge = pWidget->GetAppearanceAge();
-  int nValueAge = pWidget->GetValueAge();
-
+  uint32_t nAge = pWidget->GetAppearanceAge();
+  uint32_t nValueAge = pWidget->GetValueAge();
   PDFSDK_FieldAction fa;
   fa.bModifier = CPDFSDK_FormFillEnvironment::IsCTRLKeyDown(nFlag);
   fa.bShift = CPDFSDK_FormFillEnvironment::IsSHIFTKeyDown(nFlag);
 
+  m_bNotifying = true;
   pWidget->OnXFAAAction(PDFSDK_XFA_PostOpen, fa, pPageView);
   m_bNotifying = false;
+
   if (!(*pAnnot) || !IsValidAnnot(pPageView, pWidget))
     return true;
   if (nAge == pWidget->GetAppearanceAge())
@@ -886,8 +883,8 @@ std::pair<bool, bool> CFFL_InteractiveFormFiller::OnBeforeKeyStroke(
   CFX_AutoRestorer<bool> restorer(&m_bNotifying);
   m_bNotifying = true;
 
-  int nAge = privateData.pWidget->GetAppearanceAge();
-  int nValueAge = privateData.pWidget->GetValueAge();
+  uint32_t nAge = privateData.pWidget->GetAppearanceAge();
+  uint32_t nValueAge = privateData.pWidget->GetValueAge();
   CPDFSDK_FormFillEnvironment* pFormFillEnv =
       privateData.pPageView->GetFormFillEnv();
 
