@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e548fc6e_16c62f6a",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T18:19:52Z",
+      "side": 1,
+      "message": "nit: just if (!observed_ptr)",
+      "revId": "bbf96812ae98cd065a0bab034d8d315a1ca0931f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
