@@ -11,6 +11,7 @@
 #include "fpdfsdk/formfiller/cffl_formfiller.h"
 #include "fpdfsdk/pwl/cpwl_special_button.h"
 #include "public/fpdf_fwlevent.h"
+#include "third_party/base/ptr_util.h"
 
 CFFL_RadioButton::CFFL_RadioButton(CPDFSDK_FormFillEnvironment* pApp,
                                    CPDFSDK_Widget* pWidget)
@@ -18,12 +19,11 @@ CFFL_RadioButton::CFFL_RadioButton(CPDFSDK_FormFillEnvironment* pApp,
 
 CFFL_RadioButton::~CFFL_RadioButton() {}
 
-CPWL_Wnd* CFFL_RadioButton::NewPDFWindow(const PWL_CREATEPARAM& cp) {
-  CPWL_RadioButton* pWnd = new CPWL_RadioButton();
+std::unique_ptr<CPWL_Wnd> CFFL_RadioButton::NewPDFWindow(
+    const CPWL_Wnd::CreateParams& cp) {
+  auto pWnd = pdfium::MakeUnique<CPWL_RadioButton>();
   pWnd->Create(cp);
-
   pWnd->SetCheck(m_pWidget->IsChecked());
-
   return pWnd;
 }
 
