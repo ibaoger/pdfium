@@ -24,13 +24,12 @@ CPWL_EditCtrl::CPWL_EditCtrl()
 
 CPWL_EditCtrl::~CPWL_EditCtrl() {}
 
-void CPWL_EditCtrl::OnCreate(CreateParams& cp) {
-  cp.eCursorType = FXCT_VBEAM;
+void CPWL_EditCtrl::OnCreate(CreateParams* pParamsToAdjust) {
+  pParamsToAdjust->eCursorType = FXCT_VBEAM;
 }
 
 void CPWL_EditCtrl::OnCreated() {
   SetFontSize(GetCreationParams().fFontSize);
-
   m_pEdit->SetFontMap(GetFontMap());
   m_pEdit->SetNotify(this);
   m_pEdit->Initialize();

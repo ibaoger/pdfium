@@ -151,9 +151,9 @@ CFX_ByteString CPWL_ComboBox::GetClassName() const {
   return "CPWL_ComboBox";
 }
 
-void CPWL_ComboBox::OnCreate(CreateParams& cp) {
-  cp.dwFlags &= ~PWS_HSCROLL;
-  cp.dwFlags &= ~PWS_VSCROLL;
+void CPWL_ComboBox::OnCreate(CreateParams* pParamsToAdjust) {
+  pParamsToAdjust->dwFlags &= ~PWS_HSCROLL;
+  pParamsToAdjust->dwFlags &= ~PWS_VSCROLL;
 }
 
 void CPWL_ComboBox::OnDestroy() {

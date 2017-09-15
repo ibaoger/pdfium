@@ -51,7 +51,7 @@ class CPWL_ComboBox : public CPWL_Wnd {
 
   // CPWL_Wnd:
   CFX_ByteString GetClassName() const override;
-  void OnCreate(CreateParams& cp) override;
+  void OnCreate(CreateParams* pParamsToAdjust) override;
   void OnDestroy() override;
   bool OnKeyDown(uint16_t nChar, uint32_t nFlag) override;
   bool OnChar(uint16_t nChar, uint32_t nFlag) override;

@@ -50,7 +50,7 @@ class CPWL_SBButton : public CPWL_Wnd {
 
   // CPWL_Wnd
   CFX_ByteString GetClassName() const override;
-  void OnCreate(CreateParams& cp) override;
+  void OnCreate(CreateParams* pParamsToAdjust) override;
   void DrawThisAppearance(CFX_RenderDevice* pDevice,
                           const CFX_Matrix& mtUser2Device) override;
   bool OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) override;
@@ -60,7 +60,6 @@ class CPWL_SBButton : public CPWL_Wnd {
  protected:
   PWL_SCROLLBAR_TYPE m_eScrollBarType;
   PWL_SBBUTTON_TYPE m_eSBButtonType;
-
   bool m_bMouseDown;
 };
 
@@ -122,7 +121,7 @@ class CPWL_ScrollBar : public CPWL_Wnd {
 
   // CPWL_Wnd:
   CFX_ByteString GetClassName() const override;
-  void OnCreate(CreateParams& cp) override;
+  void OnCreate(CreateParams* pParamsToAdjust) override;
   void OnDestroy() override;
   void RePosChildWnd() override;
   void DrawThisAppearance(CFX_RenderDevice* pDevice,

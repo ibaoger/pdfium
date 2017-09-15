@@ -45,7 +45,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void SetReadyToInput();
 
   // CPWL_Wnd:
-  void OnCreate(CreateParams& cp) override;
+  void OnCreate(CreateParams* pParamsToAdjust) override;
   void OnCreated() override;
   bool OnKeyDown(uint16_t nChar, uint32_t nFlag) override;
   bool OnChar(uint16_t nChar, uint32_t nFlag) override;

@@ -131,8 +131,8 @@ CFX_ByteString CPWL_SBButton::GetClassName() const {
   return "CPWL_SBButton";
 }
 
-void CPWL_SBButton::OnCreate(CreateParams& cp) {
-  cp.eCursorType = FXCT_ARROW;
+void CPWL_SBButton::OnCreate(CreateParams* pParamsToAdjust) {
+  pParamsToAdjust->eCursorType = FXCT_ARROW;
 }
 
 void CPWL_SBButton::DrawThisAppearance(CFX_RenderDevice* pDevice,
@@ -329,8 +329,8 @@ CFX_ByteString CPWL_ScrollBar::GetClassName() const {
   return "CPWL_ScrollBar";
 }
 
-void CPWL_ScrollBar::OnCreate(CreateParams& cp) {
-  cp.eCursorType = FXCT_ARROW;
+void CPWL_ScrollBar::OnCreate(CreateParams* pParamsToAdjust) {
+  pParamsToAdjust->eCursorType = FXCT_ARROW;
 }
 
 void CPWL_ScrollBar::OnDestroy() {
