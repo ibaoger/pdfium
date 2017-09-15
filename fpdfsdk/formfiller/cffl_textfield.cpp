@@ -26,8 +26,8 @@ CFFL_TextField::~CFFL_TextField() {
   DestroyWindows();
 }
 
-PWL_CREATEPARAM CFFL_TextField::GetCreateParam() {
-  PWL_CREATEPARAM cp = CFFL_TextObject::GetCreateParam();
+CPWL_Wnd::CREATEPARAM CFFL_TextField::GetCreateParam() {
+  CPWL_Wnd::CREATEPARAM cp = CFFL_TextObject::GetCreateParam();
   int nFlags = m_pWidget->GetFieldFlags();
   if (nFlags & FIELDFLAG_PASSWORD)
     cp.dwFlags |= PES_PASSWORD;
@@ -67,7 +67,7 @@ PWL_CREATEPARAM CFFL_TextField::GetCreateParam() {
   return cp;
 }
 
-CPWL_Wnd* CFFL_TextField::NewPDFWindow(const PWL_CREATEPARAM& cp) {
+CPWL_Wnd* CFFL_TextField::NewPDFWindow(const CPWL_Wnd::CREATEPARAM& cp) {
   CPWL_Edit* pWnd = new CPWL_Edit();
   pWnd->AttachFFLData(this);
   pWnd->Create(cp);

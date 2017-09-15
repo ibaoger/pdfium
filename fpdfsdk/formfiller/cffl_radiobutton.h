@@ -17,7 +17,7 @@ class CFFL_RadioButton : public CFFL_Button {
   ~CFFL_RadioButton() override;
 
   // CFFL_Button
-  CPWL_Wnd* NewPDFWindow(const PWL_CREATEPARAM& cp) override;
+  CPWL_Wnd* NewPDFWindow(const CPWL_Wnd::CREATEPARAM& cp) override;
   bool OnKeyDown(CPDFSDK_Annot* pAnnot,
                  uint32_t nKeyCode,
                  uint32_t nFlags) override;

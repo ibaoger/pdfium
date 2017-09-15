@@ -24,7 +24,7 @@ CPWL_EditCtrl::CPWL_EditCtrl()
 
 CPWL_EditCtrl::~CPWL_EditCtrl() {}
 
-void CPWL_EditCtrl::OnCreate(PWL_CREATEPARAM& cp) {
+void CPWL_EditCtrl::OnCreate(CREATEPARAM& cp) {
   cp.eCursorType = FXCT_VBEAM;
 }
 
@@ -85,19 +85,19 @@ void CPWL_EditCtrl::ScrollWindowVertically(float pos) {
   m_pEdit->SetScrollPos(CFX_PointF(m_pEdit->GetScrollPos().x, pos));
 }
 
-void CPWL_EditCtrl::CreateChildWnd(const PWL_CREATEPARAM& cp) {
+void CPWL_EditCtrl::CreateChildWnd(const CREATEPARAM& cp) {
   if (!IsReadOnly())
     CreateEditCaret(cp);
 }
 
-void CPWL_EditCtrl::CreateEditCaret(const PWL_CREATEPARAM& cp) {
+void CPWL_EditCtrl::CreateEditCaret(const CREATEPARAM& cp) {
   if (m_pEditCaret)
     return;
 
   m_pEditCaret = new CPWL_Caret;
   m_pEditCaret->SetInvalidRect(GetClientRect());
 
-  PWL_CREATEPARAM ecp = cp;
+  CREATEPARAM ecp = cp;
   ecp.pParentWnd = this;
   ecp.dwFlags = PWS_CHILD | PWS_NOREFRESHCLIP;
   ecp.dwBorderWidth = 0;
