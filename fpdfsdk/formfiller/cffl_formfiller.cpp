@@ -15,6 +15,7 @@
 #include "fpdfsdk/cpdfsdk_widget.h"
 #include "fpdfsdk/formfiller/cba_fontmap.h"
 #include "fpdfsdk/fsdk_common.h"
+#include "third_party/base/ptr_util.h"
 
 namespace {
 
@@ -299,8 +300,8 @@ bool CFFL_FormFiller::IsValid() const {
   return m_bValid;
 }
 
-PWL_CREATEPARAM CFFL_FormFiller::GetCreateParam() {
-  PWL_CREATEPARAM cp;
+CPWL_Wnd::CreateParams CFFL_FormFiller::GetCreateParam() {
+  CPWL_Wnd::CreateParams cp;
   cp.pParentWnd = nullptr;
   cp.pProvider.Reset(this);
   cp.rcRectWnd = GetPDFWindowRect();
@@ -356,7 +357,7 @@ CPWL_Wnd* CFFL_FormFiller::GetPDFWindow(CPDFSDK_PageView* pPageView,
     return pWnd;
 
   if (!found) {
-    PWL_CREATEPARAM cp = GetCreateParam();
+    CPWL_Wnd::CreateParams cp = GetCreateParam();
     cp.pAttachedWidget.Reset(m_pWidget.Get());
 
     CFFL_PrivateData* pPrivateData = new CFFL_PrivateData;

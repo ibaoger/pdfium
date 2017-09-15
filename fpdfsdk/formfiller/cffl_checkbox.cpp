@@ -11,6 +11,7 @@
 #include "fpdfsdk/formfiller/cffl_formfiller.h"
 #include "fpdfsdk/pwl/cpwl_special_button.h"
 #include "public/fpdf_fwlevent.h"
+#include "third_party/base/ptr_util.h"
 
 CFFL_CheckBox::CFFL_CheckBox(CPDFSDK_FormFillEnvironment* pApp,
                              CPDFSDK_Widget* pWidget)
@@ -18,8 +19,8 @@ CFFL_CheckBox::CFFL_CheckBox(CPDFSDK_FormFillEnvironment* pApp,
 
 CFFL_CheckBox::~CFFL_CheckBox() {}
 
-CPWL_Wnd* CFFL_CheckBox::NewPDFWindow(const PWL_CREATEPARAM& cp) {
-  CPWL_CheckBox* pWnd = new CPWL_CheckBox();
+CPWL_Wnd* CFFL_CheckBox::NewPDFWindow(const CPWL_Wnd::CreateParams& cp) {
+  auto* pWnd = new CPWL_CheckBox();
   pWnd->Create(cp);
   pWnd->SetCheck(m_pWidget->IsChecked());
   return pWnd;
