@@ -162,6 +162,8 @@ int CheckPDFiumCApi() {
     CHK(FPDFText_LoadFont);
     CHK(FPDFFont_Close);
     CHK(FPDFPageObj_CreateTextObj);
+    CHK(FPDFPath_GetPoint);
+    CHK(FPDFPoint_GetCoordinates);
 
     // fpdf_ext.h
     CHK(FSDK_SetUnSpObjProcessHandler);

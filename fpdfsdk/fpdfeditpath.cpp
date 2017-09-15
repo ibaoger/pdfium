@@ -2,12 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "public/fpdf_edit.h"
+#include <vector>
 
 #include "core/fpdfapi/page/cpdf_path.h"
 #include "core/fpdfapi/page/cpdf_pathobject.h"
 #include "core/fxcrt/fx_system.h"
 #include "fpdfsdk/fsdk_define.h"
+#include "public/fpdf_edit.h"
 #include "third_party/base/ptr_util.h"
 
 // These checks are here because core/ and public/ cannot depend on each other.
@@ -125,6 +126,16 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFPath_CountPoint(FPDF_PAGEOBJECT path) {
   return pdfium::CollectionSize<int>(pPathObj->m_Path.GetPoints());
 }
 
+FPDF_EXPORT FPDF_POINTOBJECT FPDF_CALLCONV
+FPDFPath_GetPoint(FPDF_PAGEOBJECT path, int index) {
+  auto* pPathObj = CPDFPathObjectFromFPDFPageObject(path);
+  if (!pPathObj)
+    return nullptr;
+
+  const std::vector<FX_PATHPOINT>& points = pPathObj->m_Path.GetPoints();
+  return pdfium::IndexInBounds(points, index) ? &points[index] : nullptr;
+}
+
 FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
                                                     float x,
                                                     float y) {
@@ -228,4 +239,16 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFPath_SetLineCap(FPDF_PAGEOBJECT path,
       static_cast<CFX_GraphStateData::LineCap>(line_cap);
   pPathObj->m_GraphState.SetLineCap(lineCap);
   pPathObj->SetDirty(true);
+}
+
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFPoint_GetCoordinates(FPDF_POINTOBJECT point, float* x, float* y) {
+  auto* pPathPoint = FXPathPointFromFPDFPointObject(point);
+  if (!pPathPoint || !x || !y)
+    return false;
+
+  *x = pPathPoint->m_Point.x;
+  *y = pPathPoint->m_Point.y;
+
+  return true;
 }
