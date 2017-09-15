@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a26e01c_bbc7e6a8",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-15T22:55:38Z",
+      "side": 1,
+      "message": "What do you think of combining the two?\n\nFPDF_EXPORT bool FPDF_CALLCONV FPDFPath_GetPoint(FPDF_PAGEOBJECT path, int index, float* x, float* y);",
+      "revId": "6871393ef932992236b86a0c40b10dd9a9356413",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
