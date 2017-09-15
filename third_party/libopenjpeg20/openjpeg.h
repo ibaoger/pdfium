@@ -1338,6 +1338,19 @@ OPJ_API OPJ_BOOL OPJ_CALLCONV opj_read_header(opj_stream_t *p_stream,
         opj_image_t **p_image);
 
 /**
+ * Get the number of components for an image to be decoded.
+ *
+ * @param p_codec     codec handle that is being used.
+ * @param format      format of the codec being used.
+ * @param components  location to write out the number of components to.
+ *
+ * @return OPJ_TRUE   number of components calculated and written out.
+ */
+OPJ_API OPJ_BOOL OPJ_CALLCONV pdfium_get_components(opj_codec_t* p_codec,
+                                                    OPJ_CODEC_FORMAT format,
+                                                    OPJ_UINT32* components);
+
+/**
  * Sets the given area to be decoded. This function should be called right after opj_read_header and before any tile header reading.
  *
  * @param   p_codec         the jpeg2000 codec.

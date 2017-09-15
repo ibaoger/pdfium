@@ -33,6 +33,7 @@ class CJPX_Decoder {
   // TODO(rharrison): Convert these to unowned ptrs, if possible.
   opj_image_t* m_Image;
   opj_codec_t* m_Codec;
+  CODEC_FORMAT m_CodecFormat;
   std::unique_ptr<DecodeData> m_DecodeData;
   opj_stream_t* m_Stream;
   opj_dparameters_t m_Parameters;

@@ -1,0 +1,66 @@
+diff --git a/third_party/libopenjpeg20/openjpeg.c b/third_party/libopenjpeg20/openjpeg.c
+index 4e649a74f..5ce45713a 100644
+--- a/third_party/libopenjpeg20/openjpeg.c
++++ b/third_party/libopenjpeg20/openjpeg.c
+@@ -426,6 +426,37 @@ OPJ_BOOL OPJ_CALLCONV opj_read_header(opj_stream_t *p_stream,
+     return OPJ_FALSE;
+ }
+ 
++OPJ_API OPJ_BOOL OPJ_CALLCONV pdfium_get_components(opj_codec_t *p_codec,
++                                                    OPJ_CODEC_FORMAT format,
++                                                    OPJ_UINT32 *components) {
++  if (!p_codec || !components)
++    return OPJ_FALSE;
++  opj_codec_private_t* l_codec = (opj_codec_private_t*) p_codec;
++  switch (format) {
++  case OPJ_CODEC_JP2:
++  {
++    opj_jp2_t *jp2 = (opj_jp2_t *)l_codec->m_codec;
++    opj_j2k_t *j2k = jp2->j2k;
++    opj_image_t *image = j2k->m_private_image;
++    opj_jp2_color_t color = jp2->color;
++    if (image->pdfium_use_colorspace &&  color.jp2_pclr && color.jp2_pclr->cmap) {
++      *components = color.jp2_pclr->nr_channels;
++    } else {
++      *components = j2k->m_private_image->numcomps;
++    }
++  }
++    break;
++  case OPJ_CODEC_J2K: {
++    opj_j2k_t *j2k = (opj_j2k_t *)l_codec->m_codec;
++    *components = j2k->m_private_image->numcomps;
++    }
++    break;
++  default:
++    return OPJ_FALSE;
++  }
++  return OPJ_TRUE;
++}
++
+ OPJ_BOOL OPJ_CALLCONV opj_decode(opj_codec_t *p_codec,
+                                  opj_stream_t *p_stream,
+                                  opj_image_t* p_image)
+diff --git a/third_party/libopenjpeg20/openjpeg.h b/third_party/libopenjpeg20/openjpeg.h
+index e8dbe4ff7..b0769a415 100644
+--- a/third_party/libopenjpeg20/openjpeg.h
++++ b/third_party/libopenjpeg20/openjpeg.h
+@@ -1337,6 +1337,19 @@ OPJ_API OPJ_BOOL OPJ_CALLCONV opj_read_header(opj_stream_t *p_stream,
+         opj_codec_t *p_codec,
+         opj_image_t **p_image);
+ 
++/**
++ * Get the number of components for an image to be decoded.
++ *
++ * @param p_codec     codec handle that is being used.
++ * @param format      format of the codec being used.
++ * @param components  location to write out the number of components to.
++ *
++ * @return OPJ_TRUE   number of components calculated and written out.
++ */
++OPJ_API OPJ_BOOL OPJ_CALLCONV pdfium_get_components(opj_codec_t *p_codec,
++        OPJ_CODEC_FORMAT format,
++        OPJ_UINT32 *components);
++
+ /**
+  * Sets the given area to be decoded. This function should be called right after opj_read_header and before any tile header reading.
+  *

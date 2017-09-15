@@ -426,6 +426,37 @@ OPJ_BOOL OPJ_CALLCONV opj_read_header(opj_stream_t *p_stream,
     return OPJ_FALSE;
 }
 
+OPJ_API OPJ_BOOL OPJ_CALLCONV pdfium_get_components(opj_codec_t *p_codec,
+                                                    OPJ_CODEC_FORMAT format,
+                                                    OPJ_UINT32 *components) {
+  if (!p_codec || !components)
+    return OPJ_FALSE;
+  opj_codec_private_t* l_codec = (opj_codec_private_t*) p_codec;
+  switch (format) {
+  case OPJ_CODEC_JP2:
+  {
+    opj_jp2_t *jp2 = (opj_jp2_t *)l_codec->m_codec;
+    opj_j2k_t *j2k = jp2->j2k;
+    opj_image_t *image = j2k->m_private_image;
+    opj_jp2_color_t color = jp2->color;
+    if (image->pdfium_use_colorspace &&  color.jp2_pclr && color.jp2_pclr->cmap) {
+      *components = color.jp2_pclr->nr_channels;
+    } else {
+      *components = j2k->m_private_image->numcomps;
+    }
+  }
+    break;
+  case OPJ_CODEC_J2K: {
+    opj_j2k_t *j2k = (opj_j2k_t *)l_codec->m_codec;
+    *components = j2k->m_private_image->numcomps;
+    }
+    break;
+  default:
+    return OPJ_FALSE;
+  }
+  return OPJ_TRUE;
+}
+
 OPJ_BOOL OPJ_CALLCONV opj_decode(opj_codec_t *p_codec,
                                  opj_stream_t *p_stream,
                                  opj_image_t* p_image)
