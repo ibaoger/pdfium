@@ -15,7 +15,7 @@ CFX_ByteString CPWL_Button::GetClassName() const {
   return "CPWL_Button";
 }
 
-void CPWL_Button::OnCreate(PWL_CREATEPARAM& cp) {
+void CPWL_Button::OnCreate(CREATEPARAM& cp) {
   cp.eCursorType = FXCT_HAND;
 }
 

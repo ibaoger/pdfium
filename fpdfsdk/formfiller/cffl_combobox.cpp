@@ -32,8 +32,8 @@ CFFL_ComboBox::~CFFL_ComboBox() {
   DestroyWindows();
 }
 
-PWL_CREATEPARAM CFFL_ComboBox::GetCreateParam() {
-  PWL_CREATEPARAM cp = CFFL_TextObject::GetCreateParam();
+CPWL_Wnd::CREATEPARAM CFFL_ComboBox::GetCreateParam() {
+  CPWL_Wnd::CREATEPARAM cp = CFFL_TextObject::GetCreateParam();
   if (m_pWidget->GetFieldFlags() & FIELDFLAG_EDIT)
     cp.dwFlags |= PCBS_ALLOWCUSTOMTEXT;
 
@@ -42,8 +42,9 @@ PWL_CREATEPARAM CFFL_ComboBox::GetCreateParam() {
   return cp;
 }
 
-CPWL_Wnd* CFFL_ComboBox::NewPDFWindow(const PWL_CREATEPARAM& cp) {
-  CPWL_ComboBox* pWnd = new CPWL_ComboBox();
+std::unique_ptr<CPWL_Wnd> CFFL_ComboBox::NewPDFWindow(
+    const CPWL_Wnd::CREATEPARAM& cp) {
+  auto pWnd = pdfium::MakeUnique<CPWL_ComboBox>();
   pWnd->AttachFFLData(this);
   pWnd->Create(cp);
 
