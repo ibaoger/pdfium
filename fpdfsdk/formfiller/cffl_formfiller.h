@@ -8,6 +8,7 @@
 #define FPDFSDK_FORMFILLER_CFFL_FORMFILLER_H_
 
 #include <map>
+#include <memory>
 
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "fpdfsdk/formfiller/cba_fontmap.h"
@@ -130,8 +131,8 @@ class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
   void DestroyPDFWindow(CPDFSDK_PageView* pPageView);
   void EscapeFiller(CPDFSDK_PageView* pPageView, bool bDestroyPDFWindow);
 
-  virtual PWL_CREATEPARAM GetCreateParam();
-  virtual CPWL_Wnd* NewPDFWindow(const PWL_CREATEPARAM& cp) = 0;
+  virtual CPWL_Wnd::CreateParams GetCreateParam();
+  virtual CPWL_Wnd* NewPDFWindow(const CPWL_Wnd::CreateParams& cp) = 0;
   virtual CFX_FloatRect GetFocusBox(CPDFSDK_PageView* pPageView);
 
   bool IsValid() const;
