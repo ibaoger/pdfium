@@ -562,6 +562,25 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
 // Returns the number of objects in |path| or -1 on failure.
 FPDF_EXPORT int FPDF_CALLCONV FPDFPath_CountPoint(FPDF_PAGEOBJECT path);
 
+// Get point in |path| at |index|.
+//
+//   path  - handle to a path.
+//   index - the index of a point object.
+//
+// Returns the handle to the point object, or NULL on faiure.
+FPDF_EXPORT FPDF_POINTOBJECT FPDF_CALLCONV
+FPDFPath_GetPoint(FPDF_PAGEOBJECT path, int index);
+
+// Get coordinates of |point|.
+//
+//   point  - handle to a point.
+//   x      - the horizontal position of the point.
+//   y      - the vertical position of the point.
+//
+// Returns TRUE on success
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFPoint_GetCoordinates(FPDF_POINTOBJECT point, float* x, float* y);
+
 // Move a path's current point.
 //
 // path   - the handle to the path object.
