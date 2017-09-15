@@ -19,7 +19,8 @@ class CPDFSDK_FormFillEnvironment;
 class CPDFSDK_PageView;
 class CPDFSDK_Widget;
 
-class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
+class CFFL_FormFiller : public CPWL_Wnd::ProviderIface,
+                        public CPWL_TimerHandler {
  public:
   CFFL_FormFiller(CPDFSDK_FormFillEnvironment* pFormFillEnv,
                   CPDFSDK_Widget* pWidget);
@@ -84,8 +85,8 @@ class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
   void TimerProc() override;
   CFX_SystemHandler* GetSystemHandler() const override;
 
-  // IPWL_Provider
-  CFX_Matrix GetWindowMatrix(void* pAttachedData) override;
+  // IPWL_Provider:
+  CFX_Matrix GetWindowMatrix(CPWL_Wnd::PrivateData* pAttached) override;
 
   virtual void GetActionData(CPDFSDK_PageView* pPageView,
                              CPDF_AAction::AActionType type,
@@ -130,8 +131,8 @@ class CFFL_FormFiller : public IPWL_Provider, public CPWL_TimerHandler {
   void DestroyPDFWindow(CPDFSDK_PageView* pPageView);
   void EscapeFiller(CPDFSDK_PageView* pPageView, bool bDestroyPDFWindow);
 
-  virtual PWL_CREATEPARAM GetCreateParam();
-  virtual CPWL_Wnd* NewPDFWindow(const PWL_CREATEPARAM& cp) = 0;
+  virtual CPWL_Wnd::CreateParams GetCreateParam();
+  virtual CPWL_Wnd* NewPDFWindow(const CPWL_Wnd::CreateParams& cp) = 0;
   virtual CFX_FloatRect GetFocusBox(CPDFSDK_PageView* pPageView);
 
   bool IsValid() const;
