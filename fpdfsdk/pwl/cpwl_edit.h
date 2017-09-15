@@ -18,13 +18,13 @@ class IPWL_Filler_Notify {
   virtual ~IPWL_Filler_Notify() {}
 
   // Must write to |bBottom| and |fPopupRet|.
-  virtual void QueryWherePopup(void* pPrivateData,
+  virtual void QueryWherePopup(CPWL_Wnd::PrivateData* pAttached,
                                float fPopupMin,
                                float fPopupMax,
                                bool* bBottom,
                                float* fPopupRet) = 0;
   virtual std::pair<bool, bool> OnBeforeKeyStroke(
-      void* pPrivateData,
+      CPWL_Wnd::PrivateData* pAttached,
       CFX_WideString& strChange,
       const CFX_WideString& strChangeEx,
       int nSelStart,
@@ -32,8 +32,10 @@ class IPWL_Filler_Notify {
       bool bKeyDown,
       uint32_t nFlag) = 0;
 #ifdef PDF_ENABLE_XFA
-  virtual bool OnPopupPreOpen(void* pPrivateData, uint32_t nFlag) = 0;
-  virtual bool OnPopupPostOpen(void* pPrivateData, uint32_t nFlag) = 0;
+  virtual bool OnPopupPreOpen(CPWL_Wnd::PrivateData* pAttached,
+                              uint32_t nFlag) = 0;
+  virtual bool OnPopupPostOpen(CPWL_Wnd::PrivateData* pAttached,
+                               uint32_t nFlag) = 0;
 #endif  // PDF_ENABLE_XFA
 };
 
