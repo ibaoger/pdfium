@@ -17,6 +17,24 @@
       "revId": "42c7dc092a3c98f2bd85e50944a11869d68a71df",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "127f970d_6e39bc83",
+        "filename": "core/fpdfdoc/cpdf_aaction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-15T01:26:51Z",
+      "side": 1,
+      "message": "fpdfsdk/cpdfsdk_widget.cpp:147 doesn\u0027t need to handle \"NumberOfActions\" in the switch statement. Eh. I\u0027ll just handle it.",
+      "parentUuid": "a6f6f993_1c1138fd",
+      "revId": "42c7dc092a3c98f2bd85e50944a11869d68a71df",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
