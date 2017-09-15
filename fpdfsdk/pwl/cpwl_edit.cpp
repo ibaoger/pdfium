@@ -340,14 +340,26 @@ void CPWL_Edit::OnSetFocus() {
 }
 
 void CPWL_Edit::OnKillFocus() {
+  auto observed_ptr = ObservedPtr(this);
   CPWL_ScrollBar* pScroll = GetVScrollBar();
   if (pScroll && pScroll->IsVisible()) {
     pScroll->SetVisible(false);
+    if (!observed_ptr.Get())
+      return;
+
     Move(m_rcOldWindow, true, true);
   }
+  if (!observed_ptr.Get())
+    return;
 
   m_pEdit->SelectNone();
+  if (!observed_ptr.Get())
+    return;
+
   SetCaret(false, CFX_PointF(), CFX_PointF());
+  if (!observed_ptr.Get())
+    return;
+
   SetCharSet(FX_CHARSET_ANSI);
   m_bFocus = false;
 }
