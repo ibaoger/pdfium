@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "85f79179_5e4d399b",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T18:29:27Z",
+      "side": 1,
+      "message": "nit: maybe \n   ObservedPtr observed_ptr(this);",
+      "range": {
+        "startLine": 343,
+        "startChar": 2,
+        "endLine": 343,
+        "endChar": 6
+      },
+      "revId": "bbf96812ae98cd065a0bab034d8d315a1ca0931f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e548fc6e_16c62f6a",
         "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
         "patchSetId": 1
@@ -13,6 +36,29 @@
       "writtenOn": "2017-09-15T18:19:52Z",
       "side": 1,
       "message": "nit: just if (!observed_ptr)",
+      "revId": "bbf96812ae98cd065a0bab034d8d315a1ca0931f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38f39da1_a32f573b",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T18:29:27Z",
+      "side": 1,
+      "message": "nit: CPWL_MsgControl::ObservedPtr observed_ptr(this);\n\nmaybe _ rather than camelcase to be consistent with above.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 8
+      },
       "revId": "bbf96812ae98cd065a0bab034d8d315a1ca0931f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
