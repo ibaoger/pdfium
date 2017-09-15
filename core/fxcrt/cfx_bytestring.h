@@ -194,6 +194,8 @@ class CFX_ByteString {
 
   CFX_RetainPtr<StringData> m_pData;
 
+  friend class fxcrt_CFXByteStringConcat_Test;
+  friend class fxcrt_CFXByteStringPool_Test;
   friend class fxcrt_ByteStringConcat_Test;
   friend class fxcrt_ByteStringPool_Test;
 };

@@ -803,6 +803,7 @@ config("fxge_warnings") {
 
 static_library("fxcrt") {
   sources = [
+    "core/fxcrt/bytestring.h",
     "core/fxcrt/cfx_autorestorer.h",
     "core/fxcrt/cfx_binarybuf.cpp",
     "core/fxcrt/cfx_binarybuf.h",
@@ -858,6 +859,8 @@ static_library("fxcrt") {
     "core/fxcrt/fx_unicode.h",
     "core/fxcrt/ifx_fileaccess.h",
     "core/fxcrt/ifx_pauseindicator.h",
+    "core/fxcrt/stringview_template.h",
+    "core/fxcrt/widestring.h",
     "core/fxcrt/xml/cxml_attritem.cpp",
     "core/fxcrt/xml/cxml_attritem.h",
     "core/fxcrt/xml/cxml_attrmap.cpp",
@@ -1917,6 +1920,7 @@ test("pdfium_unittests") {
     "core/fxcodec/codec/fx_codec_rle_unittest.cpp",
     "core/fxcodec/jbig2/JBig2_BitStream_unittest.cpp",
     "core/fxcodec/jbig2/JBig2_Image_unittest.cpp",
+    "core/fxcrt/bytestring_unittest.cpp",
     "core/fxcrt/cfx_bytestring_unittest.cpp",
     "core/fxcrt/cfx_maybe_owned_unittest.cpp",
     "core/fxcrt/cfx_observable_unittest.cpp",
@@ -1933,6 +1937,7 @@ test("pdfium_unittests") {
     "core/fxcrt/fx_random_unittest.cpp",
     "core/fxcrt/fx_string_unittest.cpp",
     "core/fxcrt/fx_system_unittest.cpp",
+    "core/fxcrt/widestring_unittest.cpp",
     "core/fxge/dib/cstretchengine_unittest.cpp",
     "fpdfsdk/fpdfdoc_unittest.cpp",
     "fpdfsdk/fpdfeditimg_unittest.cpp",

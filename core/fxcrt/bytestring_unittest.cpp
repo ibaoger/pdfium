@@ -2,17 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "core/fxcrt/cfx_bytestring.h"
-#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/bytestring.h"
 
 #include <algorithm>
 #include <vector>
 
+#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/stringview_template.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "third_party/base/stl_util.h"
 
-TEST(fxcrt, CFXByteStringElementAccess) {
-  const CFX_ByteString abc("abc");
+using fxcrt::ByteString;
+using fxcrt::ByteStringView;
+
+TEST(fxcrt, ByteStringElementAccess) {
+  const ByteString abc("abc");
   EXPECT_EQ('a', abc[0]);
   EXPECT_EQ('b', abc[1]);
   EXPECT_EQ('c', abc[2]);
@@ -20,7 +24,7 @@ TEST(fxcrt, CFXByteStringElementAccess) {
   EXPECT_DEATH({ abc[3]; }, ".*");
 #endif
 
-  CFX_ByteString mutable_abc = abc;
+  ByteString mutable_abc = abc;
   EXPECT_EQ(abc.c_str(), mutable_abc.c_str());
   EXPECT_EQ('a', mutable_abc[0]);
   EXPECT_EQ('b', mutable_abc[1]);
@@ -48,11 +52,11 @@ TEST(fxcrt, CFXByteStringElementAccess) {
 #endif
 }
 
-TEST(fxcrt, CFXByteStringOperatorLT) {
-  CFX_ByteString empty;
-  CFX_ByteString a("a");
-  CFX_ByteString abc("abc");
-  CFX_ByteString def("def");
+TEST(fxcrt, ByteStringOperatorLT) {
+  ByteString empty;
+  ByteString a("a");
+  ByteString abc("abc");
+  ByteString def("def");
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
@@ -78,16 +82,16 @@ TEST(fxcrt, CFXByteStringOperatorLT) {
   EXPECT_FALSE(def < abc);
 }
 
-TEST(fxcrt, CFXByteStringOperatorEQ) {
-  CFX_ByteString null_string;
+TEST(fxcrt, ByteStringOperatorEQ) {
+  ByteString null_string;
   EXPECT_TRUE(null_string == null_string);
 
-  CFX_ByteString empty_string("");
+  ByteString empty_string("");
   EXPECT_TRUE(empty_string == empty_string);
   EXPECT_TRUE(empty_string == null_string);
   EXPECT_TRUE(null_string == empty_string);
 
-  CFX_ByteString deleted_string("hello");
+  ByteString deleted_string("hello");
   deleted_string.Delete(0, 5);
   EXPECT_TRUE(deleted_string == deleted_string);
   EXPECT_TRUE(deleted_string == null_string);
@@ -95,7 +99,7 @@ TEST(fxcrt, CFXByteStringOperatorEQ) {
   EXPECT_TRUE(null_string == deleted_string);
   EXPECT_TRUE(empty_string == deleted_string);
 
-  CFX_ByteString byte_string("hello");
+  ByteString byte_string("hello");
   EXPECT_TRUE(byte_string == byte_string);
   EXPECT_FALSE(byte_string == null_string);
   EXPECT_FALSE(byte_string == empty_string);
@@ -104,17 +108,17 @@ TEST(fxcrt, CFXByteStringOperatorEQ) {
   EXPECT_FALSE(empty_string == byte_string);
   EXPECT_FALSE(deleted_string == byte_string);
 
-  CFX_ByteString byte_string_same1("hello");
+  ByteString byte_string_same1("hello");
   EXPECT_TRUE(byte_string == byte_string_same1);
   EXPECT_TRUE(byte_string_same1 == byte_string);
 
-  CFX_ByteString byte_string_same2(byte_string);
+  ByteString byte_string_same2(byte_string);
   EXPECT_TRUE(byte_string == byte_string_same2);
   EXPECT_TRUE(byte_string_same2 == byte_string);
 
-  CFX_ByteString byte_string1("he");
-  CFX_ByteString byte_string2("hellp");
-  CFX_ByteString byte_string3("hellod");
+  ByteString byte_string1("he");
+  ByteString byte_string2("hellp");
+  ByteString byte_string3("hellod");
   EXPECT_FALSE(byte_string == byte_string1);
   EXPECT_FALSE(byte_string == byte_string2);
   EXPECT_FALSE(byte_string == byte_string3);
@@ -122,34 +126,34 @@ TEST(fxcrt, CFXByteStringOperatorEQ) {
   EXPECT_FALSE(byte_string2 == byte_string);
   EXPECT_FALSE(byte_string3 == byte_string);
 
-  CFX_ByteStringC null_string_c;
-  CFX_ByteStringC empty_string_c("");
-  EXPECT_TRUE(null_string == null_string_c);
-  EXPECT_TRUE(null_string == empty_string_c);
-  EXPECT_TRUE(empty_string == null_string_c);
-  EXPECT_TRUE(empty_string == empty_string_c);
-  EXPECT_TRUE(deleted_string == null_string_c);
-  EXPECT_TRUE(deleted_string == empty_string_c);
-  EXPECT_TRUE(null_string_c == null_string);
-  EXPECT_TRUE(empty_string_c == null_string);
-  EXPECT_TRUE(null_string_c == empty_string);
-  EXPECT_TRUE(empty_string_c == empty_string);
-  EXPECT_TRUE(null_string_c == deleted_string);
-  EXPECT_TRUE(empty_string_c == deleted_string);
+  ByteStringView null_string_view;
+  ByteStringView empty_string_view("");
+  EXPECT_TRUE(null_string == null_string_view);
+  EXPECT_TRUE(null_string == empty_string_view);
+  EXPECT_TRUE(empty_string == null_string_view);
+  EXPECT_TRUE(empty_string == empty_string_view);
+  EXPECT_TRUE(deleted_string == null_string_view);
+  EXPECT_TRUE(deleted_string == empty_string_view);
+  EXPECT_TRUE(null_string_view == null_string);
+  EXPECT_TRUE(empty_string_view == null_string);
+  EXPECT_TRUE(null_string_view == empty_string);
+  EXPECT_TRUE(empty_string_view == empty_string);
+  EXPECT_TRUE(null_string_view == deleted_string);
+  EXPECT_TRUE(empty_string_view == deleted_string);
 
-  CFX_ByteStringC byte_string_c_same1("hello");
-  EXPECT_TRUE(byte_string == byte_string_c_same1);
-  EXPECT_TRUE(byte_string_c_same1 == byte_string);
+  ByteStringView byte_string_view_same1("hello");
+  EXPECT_TRUE(byte_string == byte_string_view_same1);
+  EXPECT_TRUE(byte_string_view_same1 == byte_string);
 
-  CFX_ByteStringC byte_string_c1("he");
-  CFX_ByteStringC byte_string_c2("hellp");
-  CFX_ByteStringC byte_string_c3("hellod");
-  EXPECT_FALSE(byte_string == byte_string_c1);
-  EXPECT_FALSE(byte_string == byte_string_c2);
-  EXPECT_FALSE(byte_string == byte_string_c3);
-  EXPECT_FALSE(byte_string_c1 == byte_string);
-  EXPECT_FALSE(byte_string_c2 == byte_string);
-  EXPECT_FALSE(byte_string_c3 == byte_string);
+  ByteStringView byte_string_view1("he");
+  ByteStringView byte_string_view2("hellp");
+  ByteStringView byte_string_view3("hellod");
+  EXPECT_FALSE(byte_string == byte_string_view1);
+  EXPECT_FALSE(byte_string == byte_string_view2);
+  EXPECT_FALSE(byte_string == byte_string_view3);
+  EXPECT_FALSE(byte_string_view1 == byte_string);
+  EXPECT_FALSE(byte_string_view2 == byte_string);
+  EXPECT_FALSE(byte_string_view3 == byte_string);
 
   const char* c_null_string = nullptr;
   const char* c_empty_string = "";
@@ -181,16 +185,16 @@ TEST(fxcrt, CFXByteStringOperatorEQ) {
   EXPECT_FALSE(c_string3 == byte_string);
 }
 
-TEST(fxcrt, CFXByteStringOperatorNE) {
-  CFX_ByteString null_string;
+TEST(fxcrt, ByteStringOperatorNE) {
+  ByteString null_string;
   EXPECT_FALSE(null_string != null_string);
 
-  CFX_ByteString empty_string("");
+  ByteString empty_string("");
   EXPECT_FALSE(empty_string != empty_string);
   EXPECT_FALSE(empty_string != null_string);
   EXPECT_FALSE(null_string != empty_string);
 
-  CFX_ByteString deleted_string("hello");
+  ByteString deleted_string("hello");
   deleted_string.Delete(0, 5);
   EXPECT_FALSE(deleted_string != deleted_string);
   EXPECT_FALSE(deleted_string != null_string);
@@ -200,7 +204,7 @@ TEST(fxcrt, CFXByteStringOperatorNE) {
   EXPECT_FALSE(empty_string != deleted_string);
   EXPECT_FALSE(deleted_string != deleted_string);
 
-  CFX_ByteString byte_string("hello");
+  ByteString byte_string("hello");
   EXPECT_FALSE(byte_string != byte_string);
   EXPECT_TRUE(byte_string != null_string);
   EXPECT_TRUE(byte_string != empty_string);
@@ -209,17 +213,17 @@ TEST(fxcrt, CFXByteStringOperatorNE) {
   EXPECT_TRUE(empty_string != byte_string);
   EXPECT_TRUE(deleted_string != byte_string);
 
-  CFX_ByteString byte_string_same1("hello");
+  ByteString byte_string_same1("hello");
   EXPECT_FALSE(byte_string != byte_string_same1);
   EXPECT_FALSE(byte_string_same1 != byte_string);
 
-  CFX_ByteString byte_string_same2(byte_string);
+  ByteString byte_string_same2(byte_string);
   EXPECT_FALSE(byte_string != byte_string_same2);
   EXPECT_FALSE(byte_string_same2 != byte_string);
 
-  CFX_ByteString byte_string1("he");
-  CFX_ByteString byte_string2("hellp");
-  CFX_ByteString byte_string3("hellod");
+  ByteString byte_string1("he");
+  ByteString byte_string2("hellp");
+  ByteString byte_string3("hellod");
   EXPECT_TRUE(byte_string != byte_string1);
   EXPECT_TRUE(byte_string != byte_string2);
   EXPECT_TRUE(byte_string != byte_string3);
@@ -227,30 +231,30 @@ TEST(fxcrt, CFXByteStringOperatorNE) {
   EXPECT_TRUE(byte_string2 != byte_string);
   EXPECT_TRUE(byte_string3 != byte_string);
 
-  CFX_ByteStringC null_string_c;
-  CFX_ByteStringC empty_string_c("");
-  EXPECT_FALSE(null_string != null_string_c);
-  EXPECT_FALSE(null_string != empty_string_c);
-  EXPECT_FALSE(empty_string != null_string_c);
-  EXPECT_FALSE(empty_string != empty_string_c);
-  EXPECT_FALSE(null_string_c != null_string);
-  EXPECT_FALSE(empty_string_c != null_string);
-  EXPECT_FALSE(null_string_c != empty_string);
-  EXPECT_FALSE(empty_string_c != empty_string);
+  ByteStringView null_string_view;
+  ByteStringView empty_string_view("");
+  EXPECT_FALSE(null_string != null_string_view);
+  EXPECT_FALSE(null_string != empty_string_view);
+  EXPECT_FALSE(empty_string != null_string_view);
+  EXPECT_FALSE(empty_string != empty_string_view);
+  EXPECT_FALSE(null_string_view != null_string);
+  EXPECT_FALSE(empty_string_view != null_string);
+  EXPECT_FALSE(null_string_view != empty_string);
+  EXPECT_FALSE(empty_string_view != empty_string);
 
-  CFX_ByteStringC byte_string_c_same1("hello");
-  EXPECT_FALSE(byte_string != byte_string_c_same1);
-  EXPECT_FALSE(byte_string_c_same1 != byte_string);
+  ByteStringView byte_string_view_same1("hello");
+  EXPECT_FALSE(byte_string != byte_string_view_same1);
+  EXPECT_FALSE(byte_string_view_same1 != byte_string);
 
-  CFX_ByteStringC byte_string_c1("he");
-  CFX_ByteStringC byte_string_c2("hellp");
-  CFX_ByteStringC byte_string_c3("hellod");
-  EXPECT_TRUE(byte_string != byte_string_c1);
-  EXPECT_TRUE(byte_string != byte_string_c2);
-  EXPECT_TRUE(byte_string != byte_string_c3);
-  EXPECT_TRUE(byte_string_c1 != byte_string);
-  EXPECT_TRUE(byte_string_c2 != byte_string);
-  EXPECT_TRUE(byte_string_c3 != byte_string);
+  ByteStringView byte_string_view1("he");
+  ByteStringView byte_string_view2("hellp");
+  ByteStringView byte_string_view3("hellod");
+  EXPECT_TRUE(byte_string != byte_string_view1);
+  EXPECT_TRUE(byte_string != byte_string_view2);
+  EXPECT_TRUE(byte_string != byte_string_view3);
+  EXPECT_TRUE(byte_string_view1 != byte_string);
+  EXPECT_TRUE(byte_string_view2 != byte_string);
+  EXPECT_TRUE(byte_string_view3 != byte_string);
 
   const char* c_null_string = nullptr;
   const char* c_empty_string = "";
@@ -282,47 +286,47 @@ TEST(fxcrt, CFXByteStringOperatorNE) {
   EXPECT_TRUE(c_string3 != byte_string);
 }
 
-TEST(fxcrt, CFXByteStringCNull) {
-  CFX_ByteStringC null_string;
+TEST(fxcrt, ByteStringViewNull) {
+  ByteStringView null_string;
   EXPECT_FALSE(null_string.raw_str());
   EXPECT_EQ(0u, null_string.GetLength());
   EXPECT_TRUE(null_string.IsEmpty());
 
-  CFX_ByteStringC another_null_string;
+  ByteStringView another_null_string;
   EXPECT_EQ(null_string, another_null_string);
 
-  CFX_ByteStringC copied_null_string(null_string);
+  ByteStringView copied_null_string(null_string);
   EXPECT_FALSE(copied_null_string.raw_str());
   EXPECT_EQ(0u, copied_null_string.GetLength());
   EXPECT_TRUE(copied_null_string.IsEmpty());
   EXPECT_EQ(null_string, copied_null_string);
 
-  CFX_ByteStringC empty_string("");  // Pointer to NUL, not NULL pointer.
+  ByteStringView empty_string("");  // Pointer to NUL, not NULL pointer.
   EXPECT_TRUE(empty_string.raw_str());
   EXPECT_EQ(0u, empty_string.GetLength());
   EXPECT_TRUE(empty_string.IsEmpty());
   EXPECT_EQ(null_string, empty_string);
 
-  CFX_ByteStringC assigned_null_string("initially not nullptr");
+  ByteStringView assigned_null_string("initially not nullptr");
   assigned_null_string = null_string;
   EXPECT_FALSE(assigned_null_string.raw_str());
   EXPECT_EQ(0u, assigned_null_string.GetLength());
   EXPECT_TRUE(assigned_null_string.IsEmpty());
   EXPECT_EQ(null_string, assigned_null_string);
 
-  CFX_ByteStringC assigned_nullptr_string("initially not nullptr");
+  ByteStringView assigned_nullptr_string("initially not nullptr");
   assigned_nullptr_string = nullptr;
   EXPECT_FALSE(assigned_nullptr_string.raw_str());
   EXPECT_EQ(0u, assigned_nullptr_string.GetLength());
   EXPECT_TRUE(assigned_nullptr_string.IsEmpty());
   EXPECT_EQ(null_string, assigned_nullptr_string);
 
-  CFX_ByteStringC non_null_string("a");
+  ByteStringView non_null_string("a");
   EXPECT_NE(null_string, non_null_string);
 }
 
-TEST(fxcrt, CFXByteStringConcat) {
-  CFX_ByteString fred;
+TEST(fxcrt, ByteStringConcat) {
+  ByteString fred;
   fred.Concat("FRED", 4);
   EXPECT_EQ("FRED", fred);
 
@@ -335,14 +339,14 @@ TEST(fxcrt, CFXByteStringConcat) {
   fred.Concat("D", 1);
   EXPECT_EQ("FRED", fred);
 
-  CFX_ByteString copy = fred;
+  ByteString copy = fred;
   fred.Concat("DY", 2);
   EXPECT_EQ("FREDDY", fred);
   EXPECT_EQ("FRED", copy);
 }
 
-TEST(fxcrt, CFXByteStringRemove) {
-  CFX_ByteString freed("FREED");
+TEST(fxcrt, ByteStringRemove) {
+  ByteString freed("FREED");
   freed.Remove('E');
   EXPECT_EQ("FRD", freed);
   freed.Remove('F');
@@ -354,13 +358,13 @@ TEST(fxcrt, CFXByteStringRemove) {
   freed.Remove('R');
   EXPECT_EQ("", freed);
 
-  CFX_ByteString empty;
+  ByteString empty;
   empty.Remove('X');
   EXPECT_EQ("", empty);
 }
 
-TEST(fxcrt, CFXByteStringRemoveCopies) {
-  CFX_ByteString freed("FREED");
+TEST(fxcrt, ByteStringRemoveCopies) {
+  ByteString freed("FREED");
   const char* old_buffer = freed.c_str();
 
   // No change with single reference - no copy.
@@ -374,7 +378,7 @@ TEST(fxcrt, CFXByteStringRemoveCopies) {
   EXPECT_EQ(old_buffer, freed.c_str());
 
   // No change with multiple references - no copy.
-  CFX_ByteString shared(freed);
+  ByteString shared(freed);
   freed.Remove('Q');
   EXPECT_EQ("FRD", freed);
   EXPECT_EQ(old_buffer, freed.c_str());
@@ -388,8 +392,8 @@ TEST(fxcrt, CFXByteStringRemoveCopies) {
   EXPECT_EQ(old_buffer, shared.c_str());
 }
 
-TEST(fxcrt, CFXByteStringReplace) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringReplace) {
+  ByteString fred("FRED");
   fred.Replace("FR", "BL");
   EXPECT_EQ("BLED", fred);
   fred.Replace("D", "DDY");
@@ -406,8 +410,8 @@ TEST(fxcrt, CFXByteStringReplace) {
   EXPECT_EQ("", fred);
 }
 
-TEST(fxcrt, CFXByteStringInsert) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringInsert) {
+  ByteString fred("FRED");
   EXPECT_EQ(5u, fred.Insert(0, 'S'));
   EXPECT_EQ("SFRED", fred);
   EXPECT_EQ(6u, fred.Insert(1, 'T'));
@@ -419,20 +423,20 @@ TEST(fxcrt, CFXByteStringInsert) {
   EXPECT_EQ(8u, fred.Insert(12, 'P'));
   EXPECT_EQ("STFRUEDV", fred);
   {
-    CFX_ByteString empty;
+    ByteString empty;
     EXPECT_EQ(1u, empty.Insert(0, 'X'));
     EXPECT_EQ("X", empty);
   }
   {
-    CFX_ByteString empty;
+    ByteString empty;
     EXPECT_EQ(0u, empty.Insert(5, 'X'));
     EXPECT_NE("X", empty);
   }
 }
 
-TEST(fxcrt, CFXByteStringInsertAtFrontAndInsertAtBack) {
+TEST(fxcrt, ByteStringInsertAtFrontAndInsertAtBack) {
   {
-    CFX_ByteString empty;
+    ByteString empty;
     EXPECT_EQ(1u, empty.InsertAtFront('D'));
     EXPECT_EQ("D", empty);
     EXPECT_EQ(2u, empty.InsertAtFront('E'));
@@ -443,7 +447,7 @@ TEST(fxcrt, CFXByteStringInsertAtFrontAndInsertAtBack) {
     EXPECT_EQ("FRED", empty);
   }
   {
-    CFX_ByteString empty;
+    ByteString empty;
     EXPECT_EQ(1u, empty.InsertAtBack('F'));
     EXPECT_EQ("F", empty);
     EXPECT_EQ(2u, empty.InsertAtBack('R'));
@@ -454,7 +458,7 @@ TEST(fxcrt, CFXByteStringInsertAtFrontAndInsertAtBack) {
     EXPECT_EQ("FRED", empty);
   }
   {
-    CFX_ByteString empty;
+    ByteString empty;
     EXPECT_EQ(1u, empty.InsertAtBack('E'));
     EXPECT_EQ("E", empty);
     EXPECT_EQ(2u, empty.InsertAtFront('R'));
@@ -466,8 +470,8 @@ TEST(fxcrt, CFXByteStringInsertAtFrontAndInsertAtBack) {
   }
 }
 
-TEST(fxcrt, CFXByteStringDelete) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringDelete) {
+  ByteString fred("FRED");
   EXPECT_EQ(4u, fred.Delete(0, 0));
   EXPECT_EQ("FRED", fred);
   EXPECT_EQ(2u, fred.Delete(0, 2));
@@ -479,15 +483,15 @@ TEST(fxcrt, CFXByteStringDelete) {
   EXPECT_EQ(0u, fred.Delete(0));
   EXPECT_EQ("", fred);
 
-  CFX_ByteString empty;
+  ByteString empty;
   EXPECT_EQ(0u, empty.Delete(0));
   EXPECT_EQ("", empty);
   EXPECT_EQ(0u, empty.Delete(1));
   EXPECT_EQ("", empty);
 }
 
-TEST(fxcrt, CFXByteStringMid) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringMid) {
+  ByteString fred("FRED");
   EXPECT_EQ("", fred.Mid(0, 0));
   EXPECT_EQ("", fred.Mid(3, 0));
   EXPECT_EQ("FRED", fred.Mid(0, 4));
@@ -505,12 +509,12 @@ TEST(fxcrt, CFXByteStringMid) {
   EXPECT_EQ("RED", fred.Mid(1, 3));
   EXPECT_EQ("", fred.Mid(4, 1));
 
-  CFX_ByteString empty;
+  ByteString empty;
   EXPECT_EQ("", empty.Mid(0, 0));
 }
 
-TEST(fxcrt, CFXByteStringLeft) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringLeft) {
+  ByteString fred("FRED");
   EXPECT_EQ("", fred.Left(0));
   EXPECT_EQ("F", fred.Left(1));
   EXPECT_EQ("FR", fred.Left(2));
@@ -519,13 +523,13 @@ TEST(fxcrt, CFXByteStringLeft) {
 
   EXPECT_EQ("", fred.Left(5));
 
-  CFX_ByteString empty;
+  ByteString empty;
   EXPECT_EQ("", empty.Left(0));
   EXPECT_EQ("", empty.Left(1));
 }
 
-TEST(fxcrt, CFXByteStringRight) {
-  CFX_ByteString fred("FRED");
+TEST(fxcrt, ByteStringRight) {
+  ByteString fred("FRED");
   EXPECT_EQ("", fred.Right(0));
   EXPECT_EQ("D", fred.Right(1));
   EXPECT_EQ("ED", fred.Right(2));
@@ -534,29 +538,29 @@ TEST(fxcrt, CFXByteStringRight) {
 
   EXPECT_EQ("", fred.Right(5));
 
-  CFX_ByteString empty;
+  ByteString empty;
   EXPECT_EQ("", empty.Right(0));
   EXPECT_EQ("", empty.Right(1));
 }
 
-TEST(fxcrt, CFXByteStringFind) {
-  CFX_ByteString null_string;
+TEST(fxcrt, ByteStringFind) {
+  ByteString null_string;
   EXPECT_FALSE(null_string.Find('a').has_value());
   EXPECT_FALSE(null_string.Find('\0').has_value());
 
-  CFX_ByteString empty_string("");
+  ByteString empty_string("");
   EXPECT_FALSE(empty_string.Find('a').has_value());
   EXPECT_FALSE(empty_string.Find('\0').has_value());
 
   pdfium::Optional<FX_STRSIZE> result;
-  CFX_ByteString single_string("a");
+  ByteString single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
   EXPECT_FALSE(single_string.Find('b').has_value());
   EXPECT_FALSE(single_string.Find('\0').has_value());
 
-  CFX_ByteString longer_string("abccc");
+  ByteString longer_string("abccc");
   result = longer_string.Find('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
@@ -580,7 +584,7 @@ TEST(fxcrt, CFXByteStringFind) {
   EXPECT_EQ(3u, result.value());
   EXPECT_FALSE(longer_string.Find("d").has_value());
 
-  CFX_ByteString hibyte_string(
+  ByteString hibyte_string(
       "ab\x8c"
       "def");
   result = hibyte_string.Find('\x8c');
@@ -588,24 +592,24 @@ TEST(fxcrt, CFXByteStringFind) {
   EXPECT_EQ(2u, result.value());
 }
 
-TEST(fxcrt, CFXByteStringReverseFind) {
-  CFX_ByteString null_string;
+TEST(fxcrt, ByteStringReverseFind) {
+  ByteString null_string;
   EXPECT_FALSE(null_string.ReverseFind('a').has_value());
   EXPECT_FALSE(null_string.ReverseFind('\0').has_value());
 
-  CFX_ByteString empty_string("");
+  ByteString empty_string("");
   EXPECT_FALSE(empty_string.ReverseFind('a').has_value());
   EXPECT_FALSE(empty_string.ReverseFind('\0').has_value());
 
   pdfium::Optional<FX_STRSIZE> result;
-  CFX_ByteString single_string("a");
+  ByteString single_string("a");
   result = single_string.ReverseFind('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
   EXPECT_FALSE(single_string.ReverseFind('b').has_value());
   EXPECT_FALSE(single_string.ReverseFind('\0').has_value());
 
-  CFX_ByteString longer_string("abccc");
+  ByteString longer_string("abccc");
   result = longer_string.ReverseFind('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
@@ -614,7 +618,7 @@ TEST(fxcrt, CFXByteStringReverseFind) {
   EXPECT_EQ(4u, result.value());
   EXPECT_FALSE(longer_string.ReverseFind('\0').has_value());
 
-  CFX_ByteString hibyte_string(
+  ByteString hibyte_string(
       "ab\x8c"
       "def");
   result = hibyte_string.ReverseFind('\x8c');
@@ -622,22 +626,22 @@ TEST(fxcrt, CFXByteStringReverseFind) {
   EXPECT_EQ(2u, result.value());
 }
 
-TEST(fxcrt, CFXByteStringUpperLower) {
-  CFX_ByteString fred("F-Re.42D");
+TEST(fxcrt, ByteStringUpperLower) {
+  ByteString fred("F-Re.42D");
   fred.MakeLower();
   EXPECT_EQ("f-re.42d", fred);
   fred.MakeUpper();
   EXPECT_EQ("F-RE.42D", fred);
 
-  CFX_ByteString empty;
+  ByteString empty;
   empty.MakeLower();
   EXPECT_EQ("", empty);
   empty.MakeUpper();
   EXPECT_EQ("", empty);
 }
 
-TEST(fxcrt, CFXByteStringTrimRight) {
-  CFX_ByteString fred("  FRED  ");
+TEST(fxcrt, ByteStringTrimRight) {
+  ByteString fred("  FRED  ");
   fred.TrimRight();
   EXPECT_EQ("  FRED", fred);
   fred.TrimRight('E');
@@ -647,7 +651,7 @@ TEST(fxcrt, CFXByteStringTrimRight) {
   fred.TrimRight("ERP");
   EXPECT_EQ("  F", fred);
 
-  CFX_ByteString blank("   ");
+  ByteString blank("   ");
   blank.TrimRight("ERP");
   EXPECT_EQ("   ", blank);
   blank.TrimRight('E');
@@ -655,7 +659,7 @@ TEST(fxcrt, CFXByteStringTrimRight) {
   blank.TrimRight();
   EXPECT_EQ("", blank);
 
-  CFX_ByteString empty;
+  ByteString empty;
   empty.TrimRight("ERP");
   EXPECT_EQ("", empty);
   empty.TrimRight('E');
@@ -664,10 +668,10 @@ TEST(fxcrt, CFXByteStringTrimRight) {
   EXPECT_EQ("", empty);
 }
 
-TEST(fxcrt, CFXByteStringTrimRightCopies) {
+TEST(fxcrt, ByteStringTrimRightCopies) {
   {
     // With a single reference, no copy takes place.
-    CFX_ByteString fred("  FRED  ");
+    ByteString fred("  FRED  ");
     const char* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ("  FRED", fred);
@@ -675,8 +679,8 @@ TEST(fxcrt, CFXByteStringTrimRightCopies) {
   }
   {
     // With multiple references, we must copy.
-    CFX_ByteString fred("  FRED  ");
-    CFX_ByteString other_fred = fred;
+    ByteString fred("  FRED  ");
+    ByteString other_fred = fred;
     const char* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ("  FRED", fred);
@@ -685,8 +689,8 @@ TEST(fxcrt, CFXByteStringTrimRightCopies) {
   }
   {
     // With multiple references, but no modifications, no copy.
-    CFX_ByteString fred("FRED");
-    CFX_ByteString other_fred = fred;
+    ByteString fred("FRED");
+    ByteString other_fred = fred;
     const char* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ("FRED", fred);
@@ -695,8 +699,8 @@ TEST(fxcrt, CFXByteStringTrimRightCopies) {
   }
 }
 
-TEST(fxcrt, CFXByteStringTrimLeft) {
-  CFX_ByteString fred("  FRED  ");
+TEST(fxcrt, ByteStringTrimLeft) {
+  ByteString fred("  FRED  ");
   fred.TrimLeft();
   EXPECT_EQ("FRED  ", fred);
   fred.TrimLeft('E');
@@ -706,7 +710,7 @@ TEST(fxcrt, CFXByteStringTrimLeft) {
   fred.TrimLeft("ERP");
   EXPECT_EQ("D  ", fred);
 
-  CFX_ByteString blank("   ");
+  ByteString blank("   ");
   blank.TrimLeft("ERP");
   EXPECT_EQ("   ", blank);
   blank.TrimLeft('E');
@@ -714,7 +718,7 @@ TEST(fxcrt, CFXByteStringTrimLeft) {
   blank.TrimLeft();
   EXPECT_EQ("", blank);
 
-  CFX_ByteString empty;
+  ByteString empty;
   empty.TrimLeft("ERP");
   EXPECT_EQ("", empty);
   empty.TrimLeft('E');
@@ -723,10 +727,10 @@ TEST(fxcrt, CFXByteStringTrimLeft) {
   EXPECT_EQ("", empty);
 }
 
-TEST(fxcrt, CFXByteStringTrimLeftCopies) {
+TEST(fxcrt, ByteStringTrimLeftCopies) {
   {
     // With a single reference, no copy takes place.
-    CFX_ByteString fred("  FRED  ");
+    ByteString fred("  FRED  ");
     const char* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ("FRED  ", fred);
@@ -734,8 +738,8 @@ TEST(fxcrt, CFXByteStringTrimLeftCopies) {
   }
   {
     // With multiple references, we must copy.
-    CFX_ByteString fred("  FRED  ");
-    CFX_ByteString other_fred = fred;
+    ByteString fred("  FRED  ");
+    ByteString other_fred = fred;
     const char* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ("FRED  ", fred);
@@ -744,8 +748,8 @@ TEST(fxcrt, CFXByteStringTrimLeftCopies) {
   }
   {
     // With multiple references, but no modifications, no copy.
-    CFX_ByteString fred("FRED");
-    CFX_ByteString other_fred = fred;
+    ByteString fred("FRED");
+    ByteString other_fred = fred;
     const char* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ("FRED", fred);
@@ -754,9 +758,9 @@ TEST(fxcrt, CFXByteStringTrimLeftCopies) {
   }
 }
 
-TEST(fxcrt, CFXByteStringReserve) {
+TEST(fxcrt, ByteStringReserve) {
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Reserve(6);
     const char* old_buffer = str.c_str();
     str += "ABCDEF";
@@ -765,7 +769,7 @@ TEST(fxcrt, CFXByteStringReserve) {
     EXPECT_NE(old_buffer, str.c_str());
   }
   {
-    CFX_ByteString str("A");
+    ByteString str("A");
     str.Reserve(6);
     const char* old_buffer = str.c_str();
     str += "BCDEF";
@@ -775,9 +779,9 @@ TEST(fxcrt, CFXByteStringReserve) {
   }
 }
 
-TEST(fxcrt, CFXByteStringGetBuffer) {
+TEST(fxcrt, ByteStringGetBuffer) {
   {
-    CFX_ByteString str;
+    ByteString str;
     char* buffer = str.GetBuffer(12);
     // NOLINTNEXTLINE(runtime/printf)
     strcpy(buffer, "clams");
@@ -785,7 +789,7 @@ TEST(fxcrt, CFXByteStringGetBuffer) {
     EXPECT_EQ("clams", str);
   }
   {
-    CFX_ByteString str("cl");
+    ByteString str("cl");
     char* buffer = str.GetBuffer(12);
     // NOLINTNEXTLINE(runtime/printf)
     strcpy(buffer + 2, "ams");
@@ -794,9 +798,9 @@ TEST(fxcrt, CFXByteStringGetBuffer) {
   }
 }
 
-TEST(fxcrt, CFXByteStringReleaseBuffer) {
+TEST(fxcrt, ByteStringReleaseBuffer) {
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Reserve(12);
     str += "clams";
     const char* old_buffer = str.c_str();
@@ -805,7 +809,7 @@ TEST(fxcrt, CFXByteStringReleaseBuffer) {
     EXPECT_EQ("clam", str);
   }
   {
-    CFX_ByteString str("c");
+    ByteString str("c");
     str.Reserve(12);
     str += "lams";
     const char* old_buffer = str.c_str();
@@ -814,7 +818,7 @@ TEST(fxcrt, CFXByteStringReleaseBuffer) {
     EXPECT_EQ("clam", str);
   }
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Reserve(200);
     str += "clams";
     const char* old_buffer = str.c_str();
@@ -823,7 +827,7 @@ TEST(fxcrt, CFXByteStringReleaseBuffer) {
     EXPECT_EQ("clam", str);
   }
   {
-    CFX_ByteString str("c");
+    ByteString str("c");
     str.Reserve(200);
     str += "lams";
     const char* old_buffer = str.c_str();
@@ -833,16 +837,16 @@ TEST(fxcrt, CFXByteStringReleaseBuffer) {
   }
 }
 
-TEST(fxcrt, CFXByteStringEmptyReverseIterator) {
-  CFX_ByteString empty;
+TEST(fxcrt, ByteStringEmptyReverseIterator) {
+  ByteString empty;
   auto iter = empty.rbegin();
   EXPECT_TRUE(iter == empty.rend());
   EXPECT_FALSE(iter != empty.rend());
   EXPECT_FALSE(iter < empty.rend());
 }
 
-TEST(fxcrt, CFXByteStringOneCharReverseIterator) {
-  CFX_ByteString one_str("a");
+TEST(fxcrt, ByteStringOneCharReverseIterator) {
+  ByteString one_str("a");
   auto iter = one_str.rbegin();
   EXPECT_FALSE(iter == one_str.rend());
   EXPECT_TRUE(iter != one_str.rend());
@@ -855,8 +859,8 @@ TEST(fxcrt, CFXByteStringOneCharReverseIterator) {
   EXPECT_FALSE(iter < one_str.rend());
 }
 
-TEST(fxcrt, CFXByteStringMultiCharReverseIterator) {
-  CFX_ByteString multi_str("abcd");
+TEST(fxcrt, ByteStringMultiCharReverseIterator) {
+  ByteString multi_str("abcd");
   auto iter = multi_str.rbegin();
   EXPECT_FALSE(iter == multi_str.rend());
 
@@ -900,12 +904,12 @@ TEST(fxcrt, CFXByteStringMultiCharReverseIterator) {
   EXPECT_TRUE(iter == multi_str.rbegin());
 }
 
-TEST(fxcrt, CFXByteStringCNotNull) {
-  CFX_ByteStringC string3("abc");
-  CFX_ByteStringC string6("abcdef");
-  CFX_ByteStringC alternate_string3("abcdef", 3);
-  CFX_ByteStringC embedded_nul_string7("abc\0def", 7);
-  CFX_ByteStringC illegal_string7("abcdef", 7);
+TEST(fxcrt, ByteStringViewNotNull) {
+  ByteStringView string3("abc");
+  ByteStringView string6("abcdef");
+  ByteStringView alternate_string3("abcdef", 3);
+  ByteStringView embedded_nul_string7("abc\0def", 7);
+  ByteStringView illegal_string7("abcdef", 7);
 
   EXPECT_EQ(3u, string3.GetLength());
   EXPECT_EQ(6u, string6.GetLength());
@@ -924,18 +928,18 @@ TEST(fxcrt, CFXByteStringCNotNull) {
   EXPECT_NE(alternate_string3, illegal_string7);
   EXPECT_NE(embedded_nul_string7, illegal_string7);
 
-  CFX_ByteStringC copied_string3(string3);
-  CFX_ByteStringC copied_alternate_string3(alternate_string3);
-  CFX_ByteStringC copied_embedded_nul_string7(embedded_nul_string7);
+  ByteStringView copied_string3(string3);
+  ByteStringView copied_alternate_string3(alternate_string3);
+  ByteStringView copied_embedded_nul_string7(embedded_nul_string7);
 
   EXPECT_EQ(string3, copied_string3);
   EXPECT_EQ(alternate_string3, copied_alternate_string3);
   EXPECT_EQ(embedded_nul_string7, copied_embedded_nul_string7);
 
-  CFX_ByteStringC assigned_string3("intially something else");
-  CFX_ByteStringC assigned_alternate_string3("initally something else");
-  CFX_ByteStringC assigned_ptr_string3("initially something else");
-  CFX_ByteStringC assigned_embedded_nul_string7("initially something else");
+  ByteStringView assigned_string3("intially something else");
+  ByteStringView assigned_alternate_string3("initally something else");
+  ByteStringView assigned_ptr_string3("initially something else");
+  ByteStringView assigned_embedded_nul_string7("initially something else");
 
   assigned_string3 = string3;
   assigned_alternate_string3 = alternate_string3;
@@ -947,15 +951,15 @@ TEST(fxcrt, CFXByteStringCNotNull) {
   EXPECT_EQ(embedded_nul_string7, assigned_embedded_nul_string7);
 }
 
-TEST(fxcrt, CFXByteStringCFromChar) {
-  CFX_ByteStringC null_string;
-  CFX_ByteStringC lower_a_string("a");
+TEST(fxcrt, ByteStringViewFromChar) {
+  ByteStringView null_string;
+  ByteStringView lower_a_string("a");
 
-  // Must have lvalues that outlive the corresponding ByteStringC.
+  // Must have lvalues that outlive the corresponding ByteStringView.
   char nul = '\0';
   char lower_a = 'a';
-  CFX_ByteStringC nul_string_from_char(nul);
-  CFX_ByteStringC lower_a_string_from_char(lower_a);
+  ByteStringView nul_string_from_char(nul);
+  ByteStringView lower_a_string_from_char(lower_a);
 
   // Pointer to nul, not nullptr ptr, hence length 1 ...
   EXPECT_EQ(1u, nul_string_from_char.GetLength());
@@ -965,60 +969,60 @@ TEST(fxcrt, CFXByteStringCFromChar) {
   EXPECT_EQ(lower_a_string, lower_a_string_from_char);
   EXPECT_NE(nul_string_from_char, lower_a_string_from_char);
 
-  CFX_ByteStringC longer_string("ab");
+  ByteStringView longer_string("ab");
   EXPECT_NE(longer_string, lower_a_string_from_char);
 }
 
-TEST(fxcrt, CFXByteStringCFromVector) {
+TEST(fxcrt, ByteStringViewFromVector) {
   std::vector<uint8_t> null_vec;
-  CFX_ByteStringC null_string(null_vec);
+  ByteStringView null_string(null_vec);
   EXPECT_EQ(0u, null_string.GetLength());
 
   std::vector<uint8_t> lower_a_vec(10, static_cast<uint8_t>('a'));
-  CFX_ByteStringC lower_a_string(lower_a_vec);
+  ByteStringView lower_a_string(lower_a_vec);
   EXPECT_EQ(static_cast<FX_STRSIZE>(10), lower_a_string.GetLength());
   EXPECT_EQ("aaaaaaaaaa", lower_a_string);
 
   std::vector<uint8_t> cleared_vec;
   cleared_vec.push_back(42);
   cleared_vec.pop_back();
-  CFX_ByteStringC cleared_string(cleared_vec);
+  ByteStringView cleared_string(cleared_vec);
   EXPECT_EQ(0u, cleared_string.GetLength());
   EXPECT_EQ(nullptr, cleared_string.raw_str());
 }
 
-TEST(fxcrt, CFXByteStringCGetID) {
-  CFX_ByteStringC null_string;
+TEST(fxcrt, ByteStringViewGetID) {
+  ByteStringView null_string;
   EXPECT_EQ(0u, null_string.GetID());
 
-  CFX_ByteStringC empty_string("");
+  ByteStringView empty_string("");
   EXPECT_EQ(0u, empty_string.GetID());
 
-  CFX_ByteStringC short_string("ab");
+  ByteStringView short_string("ab");
   EXPECT_EQ(FXBSTR_ID('a', 'b', 0, 0), short_string.GetID());
 
-  CFX_ByteStringC longer_string("abcdef");
+  ByteStringView longer_string("abcdef");
   EXPECT_EQ(FXBSTR_ID('a', 'b', 'c', 'd'), longer_string.GetID());
 }
 
-TEST(fxcrt, CFXByteStringCFind) {
-  CFX_ByteStringC null_string;
+TEST(fxcrt, ByteStringViewFind) {
+  ByteStringView null_string;
   EXPECT_FALSE(null_string.Find('a').has_value());
   EXPECT_FALSE(null_string.Find('\0').has_value());
 
-  CFX_ByteStringC empty_string("");
+  ByteStringView empty_string("");
   EXPECT_FALSE(empty_string.Find('a').has_value());
   EXPECT_FALSE(empty_string.Find('\0').has_value());
 
   pdfium::Optional<FX_STRSIZE> result;
-  CFX_ByteStringC single_string("a");
+  ByteStringView single_string("a");
   result = single_string.Find('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
   EXPECT_FALSE(single_string.Find('b').has_value());
   EXPECT_FALSE(single_string.Find('\0').has_value());
 
-  CFX_ByteStringC longer_string("abccc");
+  ByteStringView longer_string("abccc");
   result = longer_string.Find('a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
@@ -1028,7 +1032,7 @@ TEST(fxcrt, CFXByteStringCFind) {
   EXPECT_FALSE(longer_string.Find('d').has_value());
   EXPECT_FALSE(longer_string.Find('\0').has_value());
 
-  CFX_ByteStringC hibyte_string(
+  ByteStringView hibyte_string(
       "ab\x8c"
       "def");
   result = hibyte_string.Find('\x8c');
@@ -1036,47 +1040,47 @@ TEST(fxcrt, CFXByteStringCFind) {
   EXPECT_EQ(2u, result.value());
 }
 
-TEST(fxcrt, CFXByteStringCMid) {
-  CFX_ByteStringC null_string;
+TEST(fxcrt, ByteStringViewMid) {
+  ByteStringView null_string;
   EXPECT_EQ(null_string, null_string.Mid(0, 1));
   EXPECT_EQ(null_string, null_string.Mid(1, 1));
 
-  CFX_ByteStringC empty_string("");
+  ByteStringView empty_string("");
   EXPECT_EQ("", empty_string.Mid(0, 1));
   EXPECT_EQ("", empty_string.Mid(1, 1));
 
-  CFX_ByteStringC single_character("a");
+  ByteStringView single_character("a");
   EXPECT_EQ("", single_character.Mid(0, 0));
   EXPECT_EQ(single_character, single_character.Mid(0, 1));
   EXPECT_EQ("", single_character.Mid(1, 0));
   EXPECT_EQ("", single_character.Mid(1, 1));
 
-  CFX_ByteStringC longer_string("abcdef");
+  ByteStringView longer_string("abcdef");
   EXPECT_EQ(longer_string, longer_string.Mid(0, 6));
   EXPECT_EQ("", longer_string.Mid(0, 187));
 
-  CFX_ByteStringC leading_substring("ab");
+  ByteStringView leading_substring("ab");
   EXPECT_EQ(leading_substring, longer_string.Mid(0, 2));
 
-  CFX_ByteStringC middle_substring("bcde");
+  ByteStringView middle_substring("bcde");
   EXPECT_EQ(middle_substring, longer_string.Mid(1, 4));
 
-  CFX_ByteStringC trailing_substring("ef");
+  ByteStringView trailing_substring("ef");
   EXPECT_EQ(trailing_substring, longer_string.Mid(4, 2));
   EXPECT_EQ("", longer_string.Mid(4, 3));
 }
 
-TEST(fxcrt, CFXByteStringCTrimmedRight) {
-  CFX_ByteStringC fred("FRED");
+TEST(fxcrt, ByteStringViewTrimmedRight) {
+  ByteStringView fred("FRED");
   EXPECT_EQ("FRED", fred.TrimmedRight('E'));
   EXPECT_EQ("FRE", fred.TrimmedRight('D'));
-  CFX_ByteStringC fredd("FREDD");
+  ByteStringView fredd("FREDD");
   EXPECT_EQ("FRE", fred.TrimmedRight('D'));
 }
 
-TEST(fxcrt, CFXByteStringCElementAccess) {
-  // CFX_ByteStringC includes the NUL terminator for non-empty strings.
-  CFX_ByteStringC abc("abc");
+TEST(fxcrt, ByteStringViewElementAccess) {
+  // ByteStringView includes the NUL terminator for non-empty strings.
+  ByteStringView abc("abc");
   EXPECT_EQ('a', static_cast<char>(abc[0]));
   EXPECT_EQ('b', static_cast<char>(abc[1]));
   EXPECT_EQ('c', static_cast<char>(abc[2]));
@@ -1085,11 +1089,11 @@ TEST(fxcrt, CFXByteStringCElementAccess) {
 #endif
 }
 
-TEST(fxcrt, CFXByteStringCOperatorLT) {
-  CFX_ByteStringC empty;
-  CFX_ByteStringC a("a");
-  CFX_ByteStringC abc("abc");
-  CFX_ByteStringC def("def");
+TEST(fxcrt, ByteStringViewOperatorLT) {
+  ByteStringView empty;
+  ByteStringView a("a");
+  ByteStringView abc("abc");
+  ByteStringView def("def");
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
@@ -1115,112 +1119,112 @@ TEST(fxcrt, CFXByteStringCOperatorLT) {
   EXPECT_FALSE(def < abc);
 }
 
-TEST(fxcrt, CFXByteStringCOperatorEQ) {
-  CFX_ByteStringC byte_string_c("hello");
-  EXPECT_TRUE(byte_string_c == byte_string_c);
+TEST(fxcrt, ByteStringViewOperatorEQ) {
+  ByteStringView byte_string_view("hello");
+  EXPECT_TRUE(byte_string_view == byte_string_view);
 
-  CFX_ByteStringC byte_string_c_same1("hello");
-  EXPECT_TRUE(byte_string_c == byte_string_c_same1);
-  EXPECT_TRUE(byte_string_c_same1 == byte_string_c);
+  ByteStringView byte_string_view_same1("hello");
+  EXPECT_TRUE(byte_string_view == byte_string_view_same1);
+  EXPECT_TRUE(byte_string_view_same1 == byte_string_view);
 
-  CFX_ByteStringC byte_string_c_same2(byte_string_c);
-  EXPECT_TRUE(byte_string_c == byte_string_c_same2);
-  EXPECT_TRUE(byte_string_c_same2 == byte_string_c);
+  ByteStringView byte_string_view_same2(byte_string_view);
+  EXPECT_TRUE(byte_string_view == byte_string_view_same2);
+  EXPECT_TRUE(byte_string_view_same2 == byte_string_view);
 
-  CFX_ByteStringC byte_string_c1("he");
-  CFX_ByteStringC byte_string_c2("hellp");
-  CFX_ByteStringC byte_string_c3("hellod");
-  EXPECT_FALSE(byte_string_c == byte_string_c1);
-  EXPECT_FALSE(byte_string_c == byte_string_c2);
-  EXPECT_FALSE(byte_string_c == byte_string_c3);
-  EXPECT_FALSE(byte_string_c1 == byte_string_c);
-  EXPECT_FALSE(byte_string_c2 == byte_string_c);
-  EXPECT_FALSE(byte_string_c3 == byte_string_c);
+  ByteStringView byte_string_view1("he");
+  ByteStringView byte_string_view2("hellp");
+  ByteStringView byte_string_view3("hellod");
+  EXPECT_FALSE(byte_string_view == byte_string_view1);
+  EXPECT_FALSE(byte_string_view == byte_string_view2);
+  EXPECT_FALSE(byte_string_view == byte_string_view3);
+  EXPECT_FALSE(byte_string_view1 == byte_string_view);
+  EXPECT_FALSE(byte_string_view2 == byte_string_view);
+  EXPECT_FALSE(byte_string_view3 == byte_string_view);
 
-  CFX_ByteString byte_string_same1("hello");
-  EXPECT_TRUE(byte_string_c == byte_string_same1);
-  EXPECT_TRUE(byte_string_same1 == byte_string_c);
+  ByteString byte_string_same1("hello");
+  EXPECT_TRUE(byte_string_view == byte_string_same1);
+  EXPECT_TRUE(byte_string_same1 == byte_string_view);
 
-  CFX_ByteString byte_string1("he");
-  CFX_ByteString byte_string2("hellp");
-  CFX_ByteString byte_string3("hellod");
-  EXPECT_FALSE(byte_string_c == byte_string1);
-  EXPECT_FALSE(byte_string_c == byte_string2);
-  EXPECT_FALSE(byte_string_c == byte_string3);
-  EXPECT_FALSE(byte_string1 == byte_string_c);
-  EXPECT_FALSE(byte_string2 == byte_string_c);
-  EXPECT_FALSE(byte_string3 == byte_string_c);
+  ByteString byte_string1("he");
+  ByteString byte_string2("hellp");
+  ByteString byte_string3("hellod");
+  EXPECT_FALSE(byte_string_view == byte_string1);
+  EXPECT_FALSE(byte_string_view == byte_string2);
+  EXPECT_FALSE(byte_string_view == byte_string3);
+  EXPECT_FALSE(byte_string1 == byte_string_view);
+  EXPECT_FALSE(byte_string2 == byte_string_view);
+  EXPECT_FALSE(byte_string3 == byte_string_view);
 
   const char* c_string_same1 = "hello";
-  EXPECT_TRUE(byte_string_c == c_string_same1);
-  EXPECT_TRUE(c_string_same1 == byte_string_c);
+  EXPECT_TRUE(byte_string_view == c_string_same1);
+  EXPECT_TRUE(c_string_same1 == byte_string_view);
 
   const char* c_string1 = "he";
   const char* c_string2 = "hellp";
   const char* c_string3 = "hellod";
-  EXPECT_FALSE(byte_string_c == c_string1);
-  EXPECT_FALSE(byte_string_c == c_string2);
-  EXPECT_FALSE(byte_string_c == c_string3);
+  EXPECT_FALSE(byte_string_view == c_string1);
+  EXPECT_FALSE(byte_string_view == c_string2);
+  EXPECT_FALSE(byte_string_view == c_string3);
 
-  EXPECT_FALSE(c_string1 == byte_string_c);
-  EXPECT_FALSE(c_string2 == byte_string_c);
-  EXPECT_FALSE(c_string3 == byte_string_c);
+  EXPECT_FALSE(c_string1 == byte_string_view);
+  EXPECT_FALSE(c_string2 == byte_string_view);
+  EXPECT_FALSE(c_string3 == byte_string_view);
 }
 
-TEST(fxcrt, CFXByteStringCOperatorNE) {
-  CFX_ByteStringC byte_string_c("hello");
-  EXPECT_FALSE(byte_string_c != byte_string_c);
+TEST(fxcrt, ByteStringViewOperatorNE) {
+  ByteStringView byte_string_view("hello");
+  EXPECT_FALSE(byte_string_view != byte_string_view);
 
-  CFX_ByteStringC byte_string_c_same1("hello");
-  EXPECT_FALSE(byte_string_c != byte_string_c_same1);
-  EXPECT_FALSE(byte_string_c_same1 != byte_string_c);
+  ByteStringView byte_string_view_same1("hello");
+  EXPECT_FALSE(byte_string_view != byte_string_view_same1);
+  EXPECT_FALSE(byte_string_view_same1 != byte_string_view);
 
-  CFX_ByteStringC byte_string_c_same2(byte_string_c);
-  EXPECT_FALSE(byte_string_c != byte_string_c_same2);
-  EXPECT_FALSE(byte_string_c_same2 != byte_string_c);
+  ByteStringView byte_string_view_same2(byte_string_view);
+  EXPECT_FALSE(byte_string_view != byte_string_view_same2);
+  EXPECT_FALSE(byte_string_view_same2 != byte_string_view);
 
-  CFX_ByteStringC byte_string_c1("he");
-  CFX_ByteStringC byte_string_c2("hellp");
-  CFX_ByteStringC byte_string_c3("hellod");
-  EXPECT_TRUE(byte_string_c != byte_string_c1);
-  EXPECT_TRUE(byte_string_c != byte_string_c2);
-  EXPECT_TRUE(byte_string_c != byte_string_c3);
-  EXPECT_TRUE(byte_string_c1 != byte_string_c);
-  EXPECT_TRUE(byte_string_c2 != byte_string_c);
-  EXPECT_TRUE(byte_string_c3 != byte_string_c);
+  ByteStringView byte_string_view1("he");
+  ByteStringView byte_string_view2("hellp");
+  ByteStringView byte_string_view3("hellod");
+  EXPECT_TRUE(byte_string_view != byte_string_view1);
+  EXPECT_TRUE(byte_string_view != byte_string_view2);
+  EXPECT_TRUE(byte_string_view != byte_string_view3);
+  EXPECT_TRUE(byte_string_view1 != byte_string_view);
+  EXPECT_TRUE(byte_string_view2 != byte_string_view);
+  EXPECT_TRUE(byte_string_view3 != byte_string_view);
 
-  CFX_ByteString byte_string_same1("hello");
-  EXPECT_FALSE(byte_string_c != byte_string_same1);
-  EXPECT_FALSE(byte_string_same1 != byte_string_c);
+  ByteString byte_string_same1("hello");
+  EXPECT_FALSE(byte_string_view != byte_string_same1);
+  EXPECT_FALSE(byte_string_same1 != byte_string_view);
 
-  CFX_ByteString byte_string1("he");
-  CFX_ByteString byte_string2("hellp");
-  CFX_ByteString byte_string3("hellod");
-  EXPECT_TRUE(byte_string_c != byte_string1);
-  EXPECT_TRUE(byte_string_c != byte_string2);
-  EXPECT_TRUE(byte_string_c != byte_string3);
-  EXPECT_TRUE(byte_string1 != byte_string_c);
-  EXPECT_TRUE(byte_string2 != byte_string_c);
-  EXPECT_TRUE(byte_string3 != byte_string_c);
+  ByteString byte_string1("he");
+  ByteString byte_string2("hellp");
+  ByteString byte_string3("hellod");
+  EXPECT_TRUE(byte_string_view != byte_string1);
+  EXPECT_TRUE(byte_string_view != byte_string2);
+  EXPECT_TRUE(byte_string_view != byte_string3);
+  EXPECT_TRUE(byte_string1 != byte_string_view);
+  EXPECT_TRUE(byte_string2 != byte_string_view);
+  EXPECT_TRUE(byte_string3 != byte_string_view);
 
   const char* c_string_same1 = "hello";
-  EXPECT_FALSE(byte_string_c != c_string_same1);
-  EXPECT_FALSE(c_string_same1 != byte_string_c);
+  EXPECT_FALSE(byte_string_view != c_string_same1);
+  EXPECT_FALSE(c_string_same1 != byte_string_view);
 
   const char* c_string1 = "he";
   const char* c_string2 = "hellp";
   const char* c_string3 = "hellod";
-  EXPECT_TRUE(byte_string_c != c_string1);
-  EXPECT_TRUE(byte_string_c != c_string2);
-  EXPECT_TRUE(byte_string_c != c_string3);
+  EXPECT_TRUE(byte_string_view != c_string1);
+  EXPECT_TRUE(byte_string_view != c_string2);
+  EXPECT_TRUE(byte_string_view != c_string3);
 
-  EXPECT_TRUE(c_string1 != byte_string_c);
-  EXPECT_TRUE(c_string2 != byte_string_c);
-  EXPECT_TRUE(c_string3 != byte_string_c);
+  EXPECT_TRUE(c_string1 != byte_string_view);
+  EXPECT_TRUE(c_string2 != byte_string_view);
+  EXPECT_TRUE(c_string3 != byte_string_view);
 }
 
-TEST(fxcrt, CFXByteStringCNullIterator) {
-  CFX_ByteStringC null_str;
+TEST(fxcrt, ByteStringViewNullIterator) {
+  ByteStringView null_str;
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : null_str) {
@@ -1231,8 +1235,8 @@ TEST(fxcrt, CFXByteStringCNullIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXByteStringCEmptyIterator) {
-  CFX_ByteStringC empty_str("");
+TEST(fxcrt, ByteStringViewEmptyIterator) {
+  ByteStringView empty_str("");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : empty_str) {
@@ -1243,8 +1247,8 @@ TEST(fxcrt, CFXByteStringCEmptyIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXByteStringCOneCharIterator) {
-  CFX_ByteStringC one_str("a");
+TEST(fxcrt, ByteStringViewOneCharIterator) {
+  ByteStringView one_str("a");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1255,8 +1259,8 @@ TEST(fxcrt, CFXByteStringCOneCharIterator) {
   EXPECT_EQ('a', sum);
 }
 
-TEST(fxcrt, CFXByteStringCMultiCharIterator) {
-  CFX_ByteStringC one_str("abc");
+TEST(fxcrt, ByteStringViewMultiCharIterator) {
+  ByteStringView one_str("abc");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1267,16 +1271,16 @@ TEST(fxcrt, CFXByteStringCMultiCharIterator) {
   EXPECT_EQ('a' + 'b' + 'c', sum);
 }
 
-TEST(fxcrt, CFXByteStringCEmptyReverseIterator) {
-  CFX_ByteStringC empty;
+TEST(fxcrt, ByteStringViewEmptyReverseIterator) {
+  ByteStringView empty;
   auto iter = empty.rbegin();
   EXPECT_TRUE(iter == empty.rend());
   EXPECT_FALSE(iter != empty.rend());
   EXPECT_FALSE(iter < empty.rend());
 }
 
-TEST(fxcrt, CFXByteStringCOneCharReverseIterator) {
-  CFX_ByteStringC one_str("a");
+TEST(fxcrt, ByteStringViewOneCharReverseIterator) {
+  ByteStringView one_str("a");
   auto iter = one_str.rbegin();
   EXPECT_FALSE(iter == one_str.rend());
   EXPECT_TRUE(iter != one_str.rend());
@@ -1289,8 +1293,8 @@ TEST(fxcrt, CFXByteStringCOneCharReverseIterator) {
   EXPECT_FALSE(iter < one_str.rend());
 }
 
-TEST(fxcrt, CFXByteStringCMultiCharReverseIterator) {
-  CFX_ByteStringC multi_str("abcd");
+TEST(fxcrt, ByteStringViewMultiCharReverseIterator) {
+  ByteStringView multi_str("abcd");
   auto iter = multi_str.rbegin();
   EXPECT_FALSE(iter == multi_str.rend());
 
@@ -1334,8 +1338,8 @@ TEST(fxcrt, CFXByteStringCMultiCharReverseIterator) {
   EXPECT_TRUE(iter == multi_str.rbegin());
 }
 
-TEST(fxcrt, CFXByteStringCAnyAllNoneOf) {
-  CFX_ByteStringC str("aaaaaaaaaaaaaaaaab");
+TEST(fxcrt, ByteStringViewAnyAllNoneOf) {
+  ByteStringView str("aaaaaaaaaaaaaaaaab");
   EXPECT_FALSE(std::all_of(str.begin(), str.end(),
                            [](const char& c) { return c == 'a'; }));
 
@@ -1350,87 +1354,87 @@ TEST(fxcrt, CFXByteStringCAnyAllNoneOf) {
   EXPECT_FALSE(pdfium::ContainsValue(str, 'z'));
 }
 
-TEST(fxcrt, CFXByteStringFormatWidth) {
+TEST(fxcrt, ByteStringFormatWidth) {
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%5d", 1);
     EXPECT_EQ("    1", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%d", 1);
     EXPECT_EQ("1", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%*d", 5, 1);
     EXPECT_EQ("    1", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%-1d", 1);
     EXPECT_EQ("1", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%0d", 1);
     EXPECT_EQ("1", str);
   }
 }
 
-TEST(fxcrt, CFXByteStringFormatPrecision) {
+TEST(fxcrt, ByteStringFormatPrecision) {
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%.2f", 1.12345);
     EXPECT_EQ("1.12", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%.*f", 3, 1.12345);
     EXPECT_EQ("1.123", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%f", 1.12345);
     EXPECT_EQ("1.123450", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%-1f", 1.12345);
     EXPECT_EQ("1.123450", str);
   }
 
   {
-    CFX_ByteString str;
+    ByteString str;
     str.Format("%0f", 1.12345);
     EXPECT_EQ("1.123450", str);
   }
 }
 
-TEST(fxcrt, EmptyCFXByteString) {
-  CFX_ByteString empty_str;
+TEST(fxcrt, EmptyByteString) {
+  ByteString empty_str;
   EXPECT_TRUE(empty_str.IsEmpty());
   EXPECT_EQ(0u, empty_str.GetLength());
   const char* cstr = empty_str.c_str();
   EXPECT_EQ(0u, FXSYS_strlen(cstr));
 }
 
-TEST(fxcrt, CFXByteStringInitializerList) {
-  CFX_ByteString many_str({"clams", " and ", "oysters"});
+TEST(fxcrt, ByteStringInitializerList) {
+  ByteString many_str({"clams", " and ", "oysters"});
   EXPECT_EQ("clams and oysters", many_str);
   many_str = {"fish", " and ", "chips", " and ", "soda"};
   EXPECT_EQ("fish and chips and soda", many_str);
 }
 
-TEST(fxcrt, CFXByteStringNullIterator) {
-  CFX_ByteString null_str;
+TEST(fxcrt, ByteStringNullIterator) {
+  ByteString null_str;
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : null_str) {
@@ -1441,8 +1445,8 @@ TEST(fxcrt, CFXByteStringNullIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXByteStringEmptyIterator) {
-  CFX_ByteString empty_str("");
+TEST(fxcrt, ByteStringEmptyIterator) {
+  ByteString empty_str("");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : empty_str) {
@@ -1453,8 +1457,8 @@ TEST(fxcrt, CFXByteStringEmptyIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXByteStringOneCharIterator) {
-  CFX_ByteString one_str("a");
+TEST(fxcrt, ByteStringOneCharIterator) {
+  ByteString one_str("a");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1465,8 +1469,8 @@ TEST(fxcrt, CFXByteStringOneCharIterator) {
   EXPECT_EQ('a', sum);
 }
 
-TEST(fxcrt, CFXByteStringMultiCharIterator) {
-  CFX_ByteString one_str("abc");
+TEST(fxcrt, ByteStringMultiCharIterator) {
+  ByteString one_str("abc");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1477,8 +1481,8 @@ TEST(fxcrt, CFXByteStringMultiCharIterator) {
   EXPECT_EQ('a' + 'b' + 'c', sum);
 }
 
-TEST(fxcrt, CFXByteStringAnyAllNoneOf) {
-  CFX_ByteString str("aaaaaaaaaaaaaaaaab");
+TEST(fxcrt, ByteStringAnyAllNoneOf) {
+  ByteString str("aaaaaaaaaaaaaaaaab");
   EXPECT_FALSE(std::all_of(str.begin(), str.end(),
                            [](const char& c) { return c == 'a'; }));
 
@@ -1493,8 +1497,8 @@ TEST(fxcrt, CFXByteStringAnyAllNoneOf) {
   EXPECT_FALSE(pdfium::ContainsValue(str, 'z'));
 }
 
-TEST(fxcrt, CFXByteStringEqualNoCase) {
-  CFX_ByteString str("aaa");
+TEST(fxcrt, ByteStringEqualNoCase) {
+  ByteString str("aaa");
   EXPECT_TRUE(str.EqualNoCase("aaa"));
   EXPECT_TRUE(str.EqualNoCase("AAA"));
   EXPECT_TRUE(str.EqualNoCase("aaA"));
@@ -1506,11 +1510,11 @@ TEST(fxcrt, CFXByteStringEqualNoCase) {
   EXPECT_FALSE(str.EqualNoCase(""));
 }
 
-TEST(fxcrt, OStreamCFXByteStringOverload) {
+TEST(fxcrt, OStreamByteStringOverload) {
   std::ostringstream stream;
 
   // Basic case, empty string
-  CFX_ByteString str;
+  ByteString str;
   stream << str;
   EXPECT_EQ("", stream.str());
 
@@ -1520,7 +1524,7 @@ TEST(fxcrt, OStreamCFXByteStringOverload) {
   stream << "abc" << str << "ghi";
   EXPECT_EQ("abcdefghi", stream.str());
 
-  // Changing the CFX_ByteString does not change the stream it was written to.
+  // Changing the ByteString does not change the stream it was written to.
   str = "123";
   EXPECT_EQ("abcdefghi", stream.str());
 
@@ -1531,35 +1535,35 @@ TEST(fxcrt, OStreamCFXByteStringOverload) {
 
   char stringWithNulls[]{'x', 'y', '\0', 'z'};
 
-  // Writing a CFX_ByteString with nulls and no specified length treats it as
+  // Writing a ByteString with nulls and no specified length treats it as
   // a C-style null-terminated string.
-  str = CFX_ByteString(stringWithNulls);
+  str = ByteString(stringWithNulls);
   EXPECT_EQ(2u, str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(2u, stream.tellp());
 
-  // Writing a CFX_ByteString with nulls but specifying its length treats it as
+  // Writing a ByteString with nulls but specifying its length treats it as
   // a C++-style string.
-  str = CFX_ByteString(stringWithNulls, 4);
+  str = ByteString(stringWithNulls, 4);
   EXPECT_EQ(4u, str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(4u, stream.tellp());
 
   // << operators can be chained.
-  CFX_ByteString str1("abc");
-  CFX_ByteString str2("def");
+  ByteString str1("abc");
+  ByteString str2("def");
   stream.str("");
   stream << str1 << str2;
   EXPECT_EQ("abcdef", stream.str());
 }
 
-TEST(fxcrt, OStreamByteStringCOverload) {
+TEST(fxcrt, OStreamByteStringViewOverload) {
   // Basic case, empty string
   {
     std::ostringstream stream;
-    CFX_ByteStringC str;
+    ByteStringView str;
     stream << str;
     EXPECT_EQ("", stream.str());
   }
@@ -1567,15 +1571,15 @@ TEST(fxcrt, OStreamByteStringCOverload) {
   // Basic case, non-empty string
   {
     std::ostringstream stream;
-    CFX_ByteStringC str("def");
+    ByteStringView str("def");
     stream << "abc" << str << "ghi";
     EXPECT_EQ("abcdefghi", stream.str());
   }
 
-  // Changing the CFX_ByteStringC does not change the stream it was written to.
+  // Changing the ByteStringView does not change the stream it was written to.
   {
     std::ostringstream stream;
-    CFX_ByteStringC str("abc");
+    ByteStringView str("abc");
     stream << str;
     str = "123";
     EXPECT_EQ("abc", stream.str());
@@ -1584,7 +1588,7 @@ TEST(fxcrt, OStreamByteStringCOverload) {
   // Writing it again to the stream will use the latest value.
   {
     std::ostringstream stream;
-    CFX_ByteStringC str("abc");
+    ByteStringView str("abc");
     stream << str;
     stream.str("");
     str = "123";
@@ -1592,24 +1596,24 @@ TEST(fxcrt, OStreamByteStringCOverload) {
     EXPECT_EQ("123", stream.str());
   }
 
-  // Writing a CFX_ByteStringC with nulls and no specified length treats it as
+  // Writing a ByteStringView with nulls and no specified length treats it as
   // a C-style null-terminated string.
   {
     std::ostringstream stream;
     char stringWithNulls[]{'x', 'y', '\0', 'z'};
-    CFX_ByteStringC str(stringWithNulls);
+    ByteStringView str(stringWithNulls);
     EXPECT_EQ(2u, str.GetLength());
     stream << str;
     EXPECT_EQ(2u, stream.tellp());
     str = "";
   }
 
-  // Writing a CFX_ByteStringC with nulls but specifying its length treats it as
+  // Writing a ByteStringView with nulls but specifying its length treats it as
   // a C++-style string.
   {
     std::ostringstream stream;
     char stringWithNulls[]{'x', 'y', '\0', 'z'};
-    CFX_ByteStringC str(stringWithNulls, 4);
+    ByteStringView str(stringWithNulls, 4);
     EXPECT_EQ(4u, str.GetLength());
     stream << str;
     EXPECT_EQ(4u, stream.tellp());
@@ -1619,24 +1623,24 @@ TEST(fxcrt, OStreamByteStringCOverload) {
   // << operators can be chained.
   {
     std::ostringstream stream;
-    CFX_ByteStringC str1("abc");
-    CFX_ByteStringC str2("def");
+    ByteStringView str1("abc");
+    ByteStringView str2("def");
     stream << str1 << str2;
     EXPECT_EQ("abcdef", stream.str());
   }
 }
 
-TEST(fxcrt, CFXByteStringFormatInteger) {
+TEST(fxcrt, ByteStringFormatInteger) {
   // Base case of 0.
-  EXPECT_EQ("0", CFX_ByteString::FormatInteger(0));
+  EXPECT_EQ("0", ByteString::FormatInteger(0));
 
   // Positive ordinary number.
-  EXPECT_EQ("123456", CFX_ByteString::FormatInteger(123456));
+  EXPECT_EQ("123456", ByteString::FormatInteger(123456));
 
   // Negative ordinary number.
-  EXPECT_EQ("-123456", CFX_ByteString::FormatInteger(-123456));
+  EXPECT_EQ("-123456", ByteString::FormatInteger(-123456));
 
   // int limits.
-  EXPECT_EQ("2147483647", CFX_ByteString::FormatInteger(INT_MAX));
-  EXPECT_EQ("-2147483648", CFX_ByteString::FormatInteger(INT_MIN));
+  EXPECT_EQ("2147483647", ByteString::FormatInteger(INT_MAX));
+  EXPECT_EQ("-2147483648", ByteString::FormatInteger(INT_MIN));
 }

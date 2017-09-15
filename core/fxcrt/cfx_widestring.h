@@ -192,6 +192,8 @@ class CFX_WideString {
 
   CFX_RetainPtr<StringData> m_pData;
 
+  friend class fxcrt_CFXWideStringConcatInPlace_Test;
+  friend class fxcrt_CFXWideStringPool_Test;
   friend class fxcrt_WideStringConcatInPlace_Test;
   friend class fxcrt_WideStringPool_Test;
 };
