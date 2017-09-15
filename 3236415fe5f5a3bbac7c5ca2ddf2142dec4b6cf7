@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7a47a4f_4aa20148",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-15T01:09:50Z",
+      "side": 1,
+      "message": "Please double check, but CPWL_Wnd needs to have its Destroy() method called before deletion. Do we want to fix that first before putting it in a unique_ptr?",
+      "revId": "3236415fe5f5a3bbac7c5ca2ddf2142dec4b6cf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4592764d_6d2edfa9",
+        "filename": "fpdfsdk/formfiller/cffl_formfiller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-15T01:09:50Z",
+      "side": 1,
+      "message": "This may be more convenient to write, but it gives the wrong idea about ownership.\n\nActually, |m_Maps| takes ownership. Since it\u0027s eventually pulled out of |m_Maps| and destroyed + deleted in DestroyWindows() or DestroyPDFWindow().",
+      "revId": "3236415fe5f5a3bbac7c5ca2ddf2142dec4b6cf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d65ea1f2_8774f579",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-15T01:09:50Z",
+      "side": 1,
+      "message": "If we are doing this, can it be CreateParams?",
+      "revId": "3236415fe5f5a3bbac7c5ca2ddf2142dec4b6cf7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
