@@ -2,16 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "core/fxcrt/cfx_widestring.h"
-#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/widestring.h"
 
 #include <algorithm>
 #include <vector>
 
+#include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/stringview_template.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-TEST(fxcrt, CFXWideStringElementAccess) {
-  const CFX_WideString abc(L"abc");
+using fxcrt::WideString;
+using fxcrt::WideStringView;
+
+TEST(fxcrt, WideStringElementAccess) {
+  const WideString abc(L"abc");
   EXPECT_EQ(L'a', abc[0]);
   EXPECT_EQ(L'b', abc[1]);
   EXPECT_EQ(L'c', abc[2]);
@@ -19,7 +23,7 @@ TEST(fxcrt, CFXWideStringElementAccess) {
   EXPECT_DEATH({ abc[4]; }, ".*");
 #endif
 
-  CFX_WideString mutable_abc = abc;
+  WideString mutable_abc = abc;
   EXPECT_EQ(abc.c_str(), mutable_abc.c_str());
   EXPECT_EQ(L'a', mutable_abc[0]);
   EXPECT_EQ(L'b', mutable_abc[1]);
@@ -47,11 +51,11 @@ TEST(fxcrt, CFXWideStringElementAccess) {
 #endif
 }
 
-TEST(fxcrt, CFXWideStringOperatorLT) {
-  CFX_WideString empty;
-  CFX_WideString a(L"a");
-  CFX_WideString abc(L"\x0110qq");  // Comes before despite endianness.
-  CFX_WideString def(L"\x1001qq");  // Comes after despite endianness.
+TEST(fxcrt, WideStringOperatorLT) {
+  WideString empty;
+  WideString a(L"a");
+  WideString abc(L"\x0110qq");  // Comes before despite endianness.
+  WideString def(L"\x1001qq");  // Comes after despite endianness.
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
@@ -77,16 +81,16 @@ TEST(fxcrt, CFXWideStringOperatorLT) {
   EXPECT_FALSE(def < abc);
 }
 
-TEST(fxcrt, CFXWideStringOperatorEQ) {
-  CFX_WideString null_string;
+TEST(fxcrt, WideStringOperatorEQ) {
+  WideString null_string;
   EXPECT_TRUE(null_string == null_string);
 
-  CFX_WideString empty_string(L"");
+  WideString empty_string(L"");
   EXPECT_TRUE(empty_string == empty_string);
   EXPECT_TRUE(empty_string == null_string);
   EXPECT_TRUE(null_string == empty_string);
 
-  CFX_WideString deleted_string(L"hello");
+  WideString deleted_string(L"hello");
   deleted_string.Delete(0, 5);
   EXPECT_TRUE(deleted_string == deleted_string);
   EXPECT_TRUE(deleted_string == null_string);
@@ -94,7 +98,7 @@ TEST(fxcrt, CFXWideStringOperatorEQ) {
   EXPECT_TRUE(null_string == deleted_string);
   EXPECT_TRUE(null_string == empty_string);
 
-  CFX_WideString wide_string(L"hello");
+  WideString wide_string(L"hello");
   EXPECT_TRUE(wide_string == wide_string);
   EXPECT_FALSE(wide_string == null_string);
   EXPECT_FALSE(wide_string == empty_string);
@@ -103,17 +107,17 @@ TEST(fxcrt, CFXWideStringOperatorEQ) {
   EXPECT_FALSE(empty_string == wide_string);
   EXPECT_FALSE(deleted_string == wide_string);
 
-  CFX_WideString wide_string_same1(L"hello");
+  WideString wide_string_same1(L"hello");
   EXPECT_TRUE(wide_string == wide_string_same1);
   EXPECT_TRUE(wide_string_same1 == wide_string);
 
-  CFX_WideString wide_string_same2(wide_string);
+  WideString wide_string_same2(wide_string);
   EXPECT_TRUE(wide_string == wide_string_same2);
   EXPECT_TRUE(wide_string_same2 == wide_string);
 
-  CFX_WideString wide_string1(L"he");
-  CFX_WideString wide_string2(L"hellp");
-  CFX_WideString wide_string3(L"hellod");
+  WideString wide_string1(L"he");
+  WideString wide_string2(L"hellp");
+  WideString wide_string3(L"hellod");
   EXPECT_FALSE(wide_string == wide_string1);
   EXPECT_FALSE(wide_string == wide_string2);
   EXPECT_FALSE(wide_string == wide_string3);
@@ -121,34 +125,34 @@ TEST(fxcrt, CFXWideStringOperatorEQ) {
   EXPECT_FALSE(wide_string2 == wide_string);
   EXPECT_FALSE(wide_string3 == wide_string);
 
-  CFX_WideStringC null_string_c;
-  CFX_WideStringC empty_string_c(L"");
-  EXPECT_TRUE(null_string == null_string_c);
-  EXPECT_TRUE(null_string == empty_string_c);
-  EXPECT_TRUE(empty_string == null_string_c);
-  EXPECT_TRUE(empty_string == empty_string_c);
-  EXPECT_TRUE(deleted_string == null_string_c);
-  EXPECT_TRUE(deleted_string == empty_string_c);
-  EXPECT_TRUE(null_string_c == null_string);
-  EXPECT_TRUE(empty_string_c == null_string);
-  EXPECT_TRUE(null_string_c == empty_string);
-  EXPECT_TRUE(empty_string_c == empty_string);
-  EXPECT_TRUE(null_string_c == deleted_string);
-  EXPECT_TRUE(empty_string_c == deleted_string);
+  WideStringView null_string_view;
+  WideStringView empty_string_view(L"");
+  EXPECT_TRUE(null_string == null_string_view);
+  EXPECT_TRUE(null_string == empty_string_view);
+  EXPECT_TRUE(empty_string == null_string_view);
+  EXPECT_TRUE(empty_string == empty_string_view);
+  EXPECT_TRUE(deleted_string == null_string_view);
+  EXPECT_TRUE(deleted_string == empty_string_view);
+  EXPECT_TRUE(null_string_view == null_string);
+  EXPECT_TRUE(empty_string_view == null_string);
+  EXPECT_TRUE(null_string_view == empty_string);
+  EXPECT_TRUE(empty_string_view == empty_string);
+  EXPECT_TRUE(null_string_view == deleted_string);
+  EXPECT_TRUE(empty_string_view == deleted_string);
 
-  CFX_WideStringC wide_string_c_same1(L"hello");
-  EXPECT_TRUE(wide_string == wide_string_c_same1);
-  EXPECT_TRUE(wide_string_c_same1 == wide_string);
+  WideStringView wide_string_view_same1(L"hello");
+  EXPECT_TRUE(wide_string == wide_string_view_same1);
+  EXPECT_TRUE(wide_string_view_same1 == wide_string);
 
-  CFX_WideStringC wide_string_c1(L"he");
-  CFX_WideStringC wide_string_c2(L"hellp");
-  CFX_WideStringC wide_string_c3(L"hellod");
-  EXPECT_FALSE(wide_string == wide_string_c1);
-  EXPECT_FALSE(wide_string == wide_string_c2);
-  EXPECT_FALSE(wide_string == wide_string_c3);
-  EXPECT_FALSE(wide_string_c1 == wide_string);
-  EXPECT_FALSE(wide_string_c2 == wide_string);
-  EXPECT_FALSE(wide_string_c3 == wide_string);
+  WideStringView wide_string_view1(L"he");
+  WideStringView wide_string_view2(L"hellp");
+  WideStringView wide_string_view3(L"hellod");
+  EXPECT_FALSE(wide_string == wide_string_view1);
+  EXPECT_FALSE(wide_string == wide_string_view2);
+  EXPECT_FALSE(wide_string == wide_string_view3);
+  EXPECT_FALSE(wide_string_view1 == wide_string);
+  EXPECT_FALSE(wide_string_view2 == wide_string);
+  EXPECT_FALSE(wide_string_view3 == wide_string);
 
   const wchar_t* c_null_string = nullptr;
   const wchar_t* c_empty_string = L"";
@@ -180,16 +184,16 @@ TEST(fxcrt, CFXWideStringOperatorEQ) {
   EXPECT_FALSE(c_string3 == wide_string);
 }
 
-TEST(fxcrt, CFXWideStringOperatorNE) {
-  CFX_WideString null_string;
+TEST(fxcrt, WideStringOperatorNE) {
+  WideString null_string;
   EXPECT_FALSE(null_string != null_string);
 
-  CFX_WideString empty_string(L"");
+  WideString empty_string(L"");
   EXPECT_FALSE(empty_string != empty_string);
   EXPECT_FALSE(empty_string != null_string);
   EXPECT_FALSE(null_string != empty_string);
 
-  CFX_WideString deleted_string(L"hello");
+  WideString deleted_string(L"hello");
   deleted_string.Delete(0, 5);
   EXPECT_FALSE(deleted_string != deleted_string);
   EXPECT_FALSE(deleted_string != null_string);
@@ -197,7 +201,7 @@ TEST(fxcrt, CFXWideStringOperatorNE) {
   EXPECT_FALSE(null_string != deleted_string);
   EXPECT_FALSE(null_string != empty_string);
 
-  CFX_WideString wide_string(L"hello");
+  WideString wide_string(L"hello");
   EXPECT_FALSE(wide_string != wide_string);
   EXPECT_TRUE(wide_string != null_string);
   EXPECT_TRUE(wide_string != empty_string);
@@ -206,17 +210,17 @@ TEST(fxcrt, CFXWideStringOperatorNE) {
   EXPECT_TRUE(empty_string != wide_string);
   EXPECT_TRUE(deleted_string != wide_string);
 
-  CFX_WideString wide_string_same1(L"hello");
+  WideString wide_string_same1(L"hello");
   EXPECT_FALSE(wide_string != wide_string_same1);
   EXPECT_FALSE(wide_string_same1 != wide_string);
 
-  CFX_WideString wide_string_same2(wide_string);
+  WideString wide_string_same2(wide_string);
   EXPECT_FALSE(wide_string != wide_string_same2);
   EXPECT_FALSE(wide_string_same2 != wide_string);
 
-  CFX_WideString wide_string1(L"he");
-  CFX_WideString wide_string2(L"hellp");
-  CFX_WideString wide_string3(L"hellod");
+  WideString wide_string1(L"he");
+  WideString wide_string2(L"hellp");
+  WideString wide_string3(L"hellod");
   EXPECT_TRUE(wide_string != wide_string1);
   EXPECT_TRUE(wide_string != wide_string2);
   EXPECT_TRUE(wide_string != wide_string3);
@@ -224,32 +228,32 @@ TEST(fxcrt, CFXWideStringOperatorNE) {
   EXPECT_TRUE(wide_string2 != wide_string);
   EXPECT_TRUE(wide_string3 != wide_string);
 
-  CFX_WideStringC null_string_c;
-  CFX_WideStringC empty_string_c(L"");
-  EXPECT_FALSE(null_string != null_string_c);
-  EXPECT_FALSE(null_string != empty_string_c);
-  EXPECT_FALSE(empty_string != null_string_c);
-  EXPECT_FALSE(empty_string != empty_string_c);
-  EXPECT_FALSE(deleted_string != null_string_c);
-  EXPECT_FALSE(deleted_string != empty_string_c);
-  EXPECT_FALSE(null_string_c != null_string);
-  EXPECT_FALSE(empty_string_c != null_string);
-  EXPECT_FALSE(null_string_c != empty_string);
-  EXPECT_FALSE(empty_string_c != empty_string);
+  WideStringView null_string_view;
+  WideStringView empty_string_view(L"");
+  EXPECT_FALSE(null_string != null_string_view);
+  EXPECT_FALSE(null_string != empty_string_view);
+  EXPECT_FALSE(empty_string != null_string_view);
+  EXPECT_FALSE(empty_string != empty_string_view);
+  EXPECT_FALSE(deleted_string != null_string_view);
+  EXPECT_FALSE(deleted_string != empty_string_view);
+  EXPECT_FALSE(null_string_view != null_string);
+  EXPECT_FALSE(empty_string_view != null_string);
+  EXPECT_FALSE(null_string_view != empty_string);
+  EXPECT_FALSE(empty_string_view != empty_string);
 
-  CFX_WideStringC wide_string_c_same1(L"hello");
-  EXPECT_FALSE(wide_string != wide_string_c_same1);
-  EXPECT_FALSE(wide_string_c_same1 != wide_string);
+  WideStringView wide_string_view_same1(L"hello");
+  EXPECT_FALSE(wide_string != wide_string_view_same1);
+  EXPECT_FALSE(wide_string_view_same1 != wide_string);
 
-  CFX_WideStringC wide_string_c1(L"he");
-  CFX_WideStringC wide_string_c2(L"hellp");
-  CFX_WideStringC wide_string_c3(L"hellod");
-  EXPECT_TRUE(wide_string != wide_string_c1);
-  EXPECT_TRUE(wide_string != wide_string_c2);
-  EXPECT_TRUE(wide_string != wide_string_c3);
-  EXPECT_TRUE(wide_string_c1 != wide_string);
-  EXPECT_TRUE(wide_string_c2 != wide_string);
-  EXPECT_TRUE(wide_string_c3 != wide_string);
+  WideStringView wide_string_view1(L"he");
+  WideStringView wide_string_view2(L"hellp");
+  WideStringView wide_string_view3(L"hellod");
+  EXPECT_TRUE(wide_string != wide_string_view1);
+  EXPECT_TRUE(wide_string != wide_string_view2);
+  EXPECT_TRUE(wide_string != wide_string_view3);
+  EXPECT_TRUE(wide_string_view1 != wide_string);
+  EXPECT_TRUE(wide_string_view2 != wide_string);
+  EXPECT_TRUE(wide_string_view3 != wide_string);
 
   const wchar_t* c_null_string = nullptr;
   const wchar_t* c_empty_string = L"";
@@ -281,8 +285,8 @@ TEST(fxcrt, CFXWideStringOperatorNE) {
   EXPECT_TRUE(c_string3 != wide_string);
 }
 
-TEST(fxcrt, CFXWideStringConcatInPlace) {
-  CFX_WideString fred;
+TEST(fxcrt, WideStringConcatInPlace) {
+  WideString fred;
   fred.Concat(L"FRED", 4);
   EXPECT_EQ(L"FRED", fred);
 
@@ -295,14 +299,14 @@ TEST(fxcrt, CFXWideStringConcatInPlace) {
   fred.Concat(L"D", 1);
   EXPECT_EQ(L"FRED", fred);
 
-  CFX_WideString copy = fred;
+  WideString copy = fred;
   fred.Concat(L"DY", 2);
   EXPECT_EQ(L"FREDDY", fred);
   EXPECT_EQ(L"FRED", copy);
 }
 
-TEST(fxcrt, CFXWideStringRemove) {
-  CFX_WideString freed(L"FREED");
+TEST(fxcrt, WideStringRemove) {
+  WideString freed(L"FREED");
   freed.Remove(L'E');
   EXPECT_EQ(L"FRD", freed);
   freed.Remove(L'F');
@@ -314,13 +318,13 @@ TEST(fxcrt, CFXWideStringRemove) {
   freed.Remove(L'R');
   EXPECT_EQ(L"", freed);
 
-  CFX_WideString empty;
+  WideString empty;
   empty.Remove(L'X');
   EXPECT_EQ(L"", empty);
 }
 
-TEST(fxcrt, CFXWideStringRemoveCopies) {
-  CFX_WideString freed(L"FREED");
+TEST(fxcrt, WideStringRemoveCopies) {
+  WideString freed(L"FREED");
   const wchar_t* old_buffer = freed.c_str();
 
   // No change with single reference - no copy.
@@ -334,7 +338,7 @@ TEST(fxcrt, CFXWideStringRemoveCopies) {
   EXPECT_EQ(old_buffer, freed.c_str());
 
   // No change with multiple references - no copy.
-  CFX_WideString shared(freed);
+  WideString shared(freed);
   freed.Remove(L'Q');
   EXPECT_EQ(L"FRD", freed);
   EXPECT_EQ(old_buffer, freed.c_str());
@@ -348,8 +352,8 @@ TEST(fxcrt, CFXWideStringRemoveCopies) {
   EXPECT_EQ(old_buffer, shared.c_str());
 }
 
-TEST(fxcrt, CFXWideStringReplace) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringReplace) {
+  WideString fred(L"FRED");
   fred.Replace(L"FR", L"BL");
   EXPECT_EQ(L"BLED", fred);
   fred.Replace(L"D", L"DDY");
@@ -366,8 +370,8 @@ TEST(fxcrt, CFXWideStringReplace) {
   EXPECT_EQ(L"", fred);
 }
 
-TEST(fxcrt, CFXWideStringInsert) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringInsert) {
+  WideString fred(L"FRED");
   EXPECT_EQ(5u, fred.Insert(0, 'S'));
   EXPECT_EQ(L"SFRED", fred);
   EXPECT_EQ(6u, fred.Insert(1, 'T'));
@@ -379,20 +383,20 @@ TEST(fxcrt, CFXWideStringInsert) {
   EXPECT_EQ(8u, fred.Insert(12, 'P'));
   EXPECT_EQ(L"STFRUEDV", fred);
   {
-    CFX_WideString empty;
+    WideString empty;
     EXPECT_EQ(1u, empty.Insert(0, 'X'));
     EXPECT_EQ(L"X", empty);
   }
   {
-    CFX_WideString empty;
+    WideString empty;
     EXPECT_EQ(0u, empty.Insert(5, 'X'));
     EXPECT_NE(L"X", empty);
   }
 }
 
-TEST(fxcrt, CFXWideStringInsertAtFrontAndInsertAtBack) {
+TEST(fxcrt, WideStringInsertAtFrontAndInsertAtBack) {
   {
-    CFX_WideString empty;
+    WideString empty;
     EXPECT_EQ(1u, empty.InsertAtFront('D'));
     EXPECT_EQ(L"D", empty);
     EXPECT_EQ(2u, empty.InsertAtFront('E'));
@@ -403,7 +407,7 @@ TEST(fxcrt, CFXWideStringInsertAtFrontAndInsertAtBack) {
     EXPECT_EQ(L"FRED", empty);
   }
   {
-    CFX_WideString empty;
+    WideString empty;
     EXPECT_EQ(1u, empty.InsertAtBack('F'));
     EXPECT_EQ(L"F", empty);
     EXPECT_EQ(2u, empty.InsertAtBack('R'));
@@ -414,7 +418,7 @@ TEST(fxcrt, CFXWideStringInsertAtFrontAndInsertAtBack) {
     EXPECT_EQ(L"FRED", empty);
   }
   {
-    CFX_WideString empty;
+    WideString empty;
     EXPECT_EQ(1u, empty.InsertAtBack('E'));
     EXPECT_EQ(L"E", empty);
     EXPECT_EQ(2u, empty.InsertAtFront('R'));
@@ -426,8 +430,8 @@ TEST(fxcrt, CFXWideStringInsertAtFrontAndInsertAtBack) {
   }
 }
 
-TEST(fxcrt, CFXWideStringDelete) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringDelete) {
+  WideString fred(L"FRED");
   EXPECT_EQ(4u, fred.Delete(0, 0));
   EXPECT_EQ(L"FRED", fred);
   EXPECT_EQ(2u, fred.Delete(0, 2));
@@ -439,15 +443,15 @@ TEST(fxcrt, CFXWideStringDelete) {
   EXPECT_EQ(0u, fred.Delete(0));
   EXPECT_EQ(L"", fred);
 
-  CFX_WideString empty;
+  WideString empty;
   EXPECT_EQ(0u, empty.Delete(0));
   EXPECT_EQ(L"", empty);
   EXPECT_EQ(0u, empty.Delete(1));
   EXPECT_EQ(L"", empty);
 }
 
-TEST(fxcrt, CFXWideStringMid) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringMid) {
+  WideString fred(L"FRED");
   EXPECT_EQ(L"", fred.Mid(0, 0));
   EXPECT_EQ(L"", fred.Mid(3, 0));
   EXPECT_EQ(L"FRED", fred.Mid(0, 4));
@@ -465,12 +469,12 @@ TEST(fxcrt, CFXWideStringMid) {
   EXPECT_EQ(L"", fred.Mid(1, 4));
   EXPECT_EQ(L"", fred.Mid(4, 1));
 
-  CFX_WideString empty;
+  WideString empty;
   EXPECT_EQ(L"", empty.Mid(0, 0));
 }
 
-TEST(fxcrt, CFXWideStringLeft) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringLeft) {
+  WideString fred(L"FRED");
   EXPECT_EQ(L"", fred.Left(0));
   EXPECT_EQ(L"F", fred.Left(1));
   EXPECT_EQ(L"FR", fred.Left(2));
@@ -479,13 +483,13 @@ TEST(fxcrt, CFXWideStringLeft) {
 
   EXPECT_EQ(L"", fred.Left(5));
 
-  CFX_WideString empty;
+  WideString empty;
   EXPECT_EQ(L"", empty.Left(0));
   EXPECT_EQ(L"", empty.Left(1));
 }
 
-TEST(fxcrt, CFXWideStringRight) {
-  CFX_WideString fred(L"FRED");
+TEST(fxcrt, WideStringRight) {
+  WideString fred(L"FRED");
   EXPECT_EQ(L"", fred.Right(0));
   EXPECT_EQ(L"D", fred.Right(1));
   EXPECT_EQ(L"ED", fred.Right(2));
@@ -494,29 +498,29 @@ TEST(fxcrt, CFXWideStringRight) {
 
   EXPECT_EQ(L"", fred.Right(5));
 
-  CFX_WideString empty;
+  WideString empty;
   EXPECT_EQ(L"", empty.Right(0));
   EXPECT_EQ(L"", empty.Right(1));
 }
 
-TEST(fxcrt, CFXWideStringFind) {
-  CFX_WideString null_string;
+TEST(fxcrt, WideStringFind) {
+  WideString null_string;
   EXPECT_FALSE(null_string.Find(L'a').has_value());
   EXPECT_FALSE(null_string.Find(L'\0').has_value());
 
-  CFX_WideString empty_string(L"");
+  WideString empty_string(L"");
   EXPECT_FALSE(empty_string.Find(L'a').has_value());
   EXPECT_FALSE(empty_string.Find(L'\0').has_value());
 
   pdfium::Optional<FX_STRSIZE> result;
-  CFX_WideString single_string(L"a");
+  WideString single_string(L"a");
   result = single_string.Find(L'a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
   EXPECT_FALSE(single_string.Find(L'b').has_value());
   EXPECT_FALSE(single_string.Find(L'\0').has_value());
 
-  CFX_WideString longer_string(L"abccc");
+  WideString longer_string(L"abccc");
   result = longer_string.Find(L'a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
@@ -539,7 +543,7 @@ TEST(fxcrt, CFXWideStringFind) {
   EXPECT_EQ(3u, result.value());
   EXPECT_FALSE(longer_string.Find(L"d").has_value());
 
-  CFX_WideString hibyte_string(
+  WideString hibyte_string(
       L"ab\xff8c"
       L"def");
   result = hibyte_string.Find(L'\xff8c');
@@ -547,22 +551,22 @@ TEST(fxcrt, CFXWideStringFind) {
   EXPECT_EQ(2u, result.value());
 }
 
-TEST(fxcrt, CFXWideStringUpperLower) {
-  CFX_WideString fred(L"F-Re.42D");
+TEST(fxcrt, WideStringUpperLower) {
+  WideString fred(L"F-Re.42D");
   fred.MakeLower();
   EXPECT_EQ(L"f-re.42d", fred);
   fred.MakeUpper();
   EXPECT_EQ(L"F-RE.42D", fred);
 
-  CFX_WideString empty;
+  WideString empty;
   empty.MakeLower();
   EXPECT_EQ(L"", empty);
   empty.MakeUpper();
   EXPECT_EQ(L"", empty);
 }
 
-TEST(fxcrt, CFXWideStringTrimRight) {
-  CFX_WideString fred(L"  FRED  ");
+TEST(fxcrt, WideStringTrimRight) {
+  WideString fred(L"  FRED  ");
   fred.TrimRight();
   EXPECT_EQ(L"  FRED", fred);
   fred.TrimRight(L'E');
@@ -572,7 +576,7 @@ TEST(fxcrt, CFXWideStringTrimRight) {
   fred.TrimRight(L"ERP");
   EXPECT_EQ(L"  F", fred);
 
-  CFX_WideString blank(L"   ");
+  WideString blank(L"   ");
   blank.TrimRight(L"ERP");
   EXPECT_EQ(L"   ", blank);
   blank.TrimRight(L'E');
@@ -580,7 +584,7 @@ TEST(fxcrt, CFXWideStringTrimRight) {
   blank.TrimRight();
   EXPECT_EQ(L"", blank);
 
-  CFX_WideString empty;
+  WideString empty;
   empty.TrimRight(L"ERP");
   EXPECT_EQ(L"", empty);
   empty.TrimRight(L'E');
@@ -589,10 +593,10 @@ TEST(fxcrt, CFXWideStringTrimRight) {
   EXPECT_EQ(L"", empty);
 }
 
-TEST(fxcrt, CFXWideStringTrimRightCopies) {
+TEST(fxcrt, WideStringTrimRightCopies) {
   {
     // With a single reference, no copy takes place.
-    CFX_WideString fred(L"  FRED  ");
+    WideString fred(L"  FRED  ");
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ(L"  FRED", fred);
@@ -600,8 +604,8 @@ TEST(fxcrt, CFXWideStringTrimRightCopies) {
   }
   {
     // With multiple references, we must copy.
-    CFX_WideString fred(L"  FRED  ");
-    CFX_WideString other_fred = fred;
+    WideString fred(L"  FRED  ");
+    WideString other_fred = fred;
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ(L"  FRED", fred);
@@ -610,8 +614,8 @@ TEST(fxcrt, CFXWideStringTrimRightCopies) {
   }
   {
     // With multiple references, but no modifications, no copy.
-    CFX_WideString fred(L"FRED");
-    CFX_WideString other_fred = fred;
+    WideString fred(L"FRED");
+    WideString other_fred = fred;
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimRight();
     EXPECT_EQ(L"FRED", fred);
@@ -620,8 +624,8 @@ TEST(fxcrt, CFXWideStringTrimRightCopies) {
   }
 }
 
-TEST(fxcrt, CFXWideStringTrimLeft) {
-  CFX_WideString fred(L"  FRED  ");
+TEST(fxcrt, WideStringTrimLeft) {
+  WideString fred(L"  FRED  ");
   fred.TrimLeft();
   EXPECT_EQ(L"FRED  ", fred);
   fred.TrimLeft(L'E');
@@ -631,7 +635,7 @@ TEST(fxcrt, CFXWideStringTrimLeft) {
   fred.TrimLeft(L"ERP");
   EXPECT_EQ(L"D  ", fred);
 
-  CFX_WideString blank(L"   ");
+  WideString blank(L"   ");
   blank.TrimLeft(L"ERP");
   EXPECT_EQ(L"   ", blank);
   blank.TrimLeft(L'E');
@@ -639,7 +643,7 @@ TEST(fxcrt, CFXWideStringTrimLeft) {
   blank.TrimLeft();
   EXPECT_EQ(L"", blank);
 
-  CFX_WideString empty;
+  WideString empty;
   empty.TrimLeft(L"ERP");
   EXPECT_EQ(L"", empty);
   empty.TrimLeft(L'E');
@@ -648,10 +652,10 @@ TEST(fxcrt, CFXWideStringTrimLeft) {
   EXPECT_EQ(L"", empty);
 }
 
-TEST(fxcrt, CFXWideStringTrimLeftCopies) {
+TEST(fxcrt, WideStringTrimLeftCopies) {
   {
     // With a single reference, no copy takes place.
-    CFX_WideString fred(L"  FRED  ");
+    WideString fred(L"  FRED  ");
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ(L"FRED  ", fred);
@@ -659,8 +663,8 @@ TEST(fxcrt, CFXWideStringTrimLeftCopies) {
   }
   {
     // With multiple references, we must copy.
-    CFX_WideString fred(L"  FRED  ");
-    CFX_WideString other_fred = fred;
+    WideString fred(L"  FRED  ");
+    WideString other_fred = fred;
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ(L"FRED  ", fred);
@@ -669,8 +673,8 @@ TEST(fxcrt, CFXWideStringTrimLeftCopies) {
   }
   {
     // With multiple references, but no modifications, no copy.
-    CFX_WideString fred(L"FRED");
-    CFX_WideString other_fred = fred;
+    WideString fred(L"FRED");
+    WideString other_fred = fred;
     const wchar_t* old_buffer = fred.c_str();
     fred.TrimLeft();
     EXPECT_EQ(L"FRED", fred);
@@ -679,9 +683,9 @@ TEST(fxcrt, CFXWideStringTrimLeftCopies) {
   }
 }
 
-TEST(fxcrt, CFXWideStringReserve) {
+TEST(fxcrt, WideStringReserve) {
   {
-    CFX_WideString str;
+    WideString str;
     str.Reserve(6);
     const wchar_t* old_buffer = str.c_str();
     str += L"ABCDEF";
@@ -690,7 +694,7 @@ TEST(fxcrt, CFXWideStringReserve) {
     EXPECT_NE(old_buffer, str.c_str());
   }
   {
-    CFX_WideString str(L"A");
+    WideString str(L"A");
     str.Reserve(6);
     const wchar_t* old_buffer = str.c_str();
     str += L"BCDEF";
@@ -700,16 +704,16 @@ TEST(fxcrt, CFXWideStringReserve) {
   }
 }
 
-TEST(fxcrt, CFXWideStringGetBuffer) {
+TEST(fxcrt, WideStringGetBuffer) {
   {
-    CFX_WideString str;
+    WideString str;
     wchar_t* buffer = str.GetBuffer(12);
     wcscpy(buffer, L"clams");
     str.ReleaseBuffer(str.GetStringLength());
     EXPECT_EQ(L"clams", str);
   }
   {
-    CFX_WideString str(L"cl");
+    WideString str(L"cl");
     wchar_t* buffer = str.GetBuffer(12);
     wcscpy(buffer + 2, L"ams");
     str.ReleaseBuffer(str.GetStringLength());
@@ -717,9 +721,9 @@ TEST(fxcrt, CFXWideStringGetBuffer) {
   }
 }
 
-TEST(fxcrt, CFXWideStringReleaseBuffer) {
+TEST(fxcrt, WideStringReleaseBuffer) {
   {
-    CFX_WideString str;
+    WideString str;
     str.Reserve(12);
     str += L"clams";
     const wchar_t* old_buffer = str.c_str();
@@ -728,7 +732,7 @@ TEST(fxcrt, CFXWideStringReleaseBuffer) {
     EXPECT_EQ(L"clam", str);
   }
   {
-    CFX_WideString str(L"c");
+    WideString str(L"c");
     str.Reserve(12);
     str += L"lams";
     const wchar_t* old_buffer = str.c_str();
@@ -737,7 +741,7 @@ TEST(fxcrt, CFXWideStringReleaseBuffer) {
     EXPECT_EQ(L"clam", str);
   }
   {
-    CFX_WideString str;
+    WideString str;
     str.Reserve(200);
     str += L"clams";
     const wchar_t* old_buffer = str.c_str();
@@ -746,7 +750,7 @@ TEST(fxcrt, CFXWideStringReleaseBuffer) {
     EXPECT_EQ(L"clam", str);
   }
   {
-    CFX_WideString str(L"c");
+    WideString str(L"c");
     str.Reserve(200);
     str += L"lams";
     const wchar_t* old_buffer = str.c_str();
@@ -756,34 +760,34 @@ TEST(fxcrt, CFXWideStringReleaseBuffer) {
   }
 }
 
-TEST(fxcrt, CFXWideStringEmptyReverseIterator) {
-  CFX_WideString empty;
+TEST(fxcrt, WideStringEmptyReverseIterator) {
+  WideString empty;
   auto iter = empty.rbegin();
   EXPECT_TRUE(iter == empty.rend());
   EXPECT_FALSE(iter != empty.rend());
   EXPECT_FALSE(iter < empty.rend());
 }
 
-TEST(fxcrt, CFXWideStringOneCharReverseIterator) {
-  CFX_WideString one_str(L"a");
+TEST(fxcrt, WideStringOneCharReverseIterator) {
+  WideString one_str(L"a");
   auto iter = one_str.rbegin();
   EXPECT_FALSE(iter == one_str.rend());
   EXPECT_TRUE(iter != one_str.rend());
   EXPECT_TRUE(iter < one_str.rend());
 
-  char ch = *iter++;
+  wchar_t ch = *iter++;
   EXPECT_EQ('a', ch);
   EXPECT_TRUE(iter == one_str.rend());
   EXPECT_FALSE(iter != one_str.rend());
   EXPECT_FALSE(iter < one_str.rend());
 }
 
-TEST(fxcrt, CFXWideStringMultiCharReverseIterator) {
-  CFX_WideString multi_str(L"abcd");
+TEST(fxcrt, WideStringMultiCharReverseIterator) {
+  WideString multi_str(L"abcd");
   auto iter = multi_str.rbegin();
   EXPECT_FALSE(iter == multi_str.rend());
 
-  char ch = *iter++;
+  wchar_t ch = *iter++;
   EXPECT_EQ('d', ch);
   EXPECT_EQ('c', *iter);
   EXPECT_FALSE(iter == multi_str.rend());
@@ -823,9 +827,9 @@ TEST(fxcrt, CFXWideStringMultiCharReverseIterator) {
   EXPECT_TRUE(iter == multi_str.rbegin());
 }
 
-TEST(fxcrt, CFXWideStringUTF16LE_Encode) {
+TEST(fxcrt, WideStringUTF16LE_Encode) {
   struct UTF16LEEncodeCase {
-    CFX_WideString ws;
+    WideString ws;
     CFX_ByteString bs;
   } utf16le_encode_cases[] = {
       {L"", CFX_ByteString("\0\0", 2)},
@@ -843,27 +847,27 @@ TEST(fxcrt, CFXWideStringUTF16LE_Encode) {
   }
 }
 
-TEST(fxcrt, CFXWideStringCFromVector) {
-  std::vector<CFX_WideStringC::UnsignedType> null_vec;
-  CFX_WideStringC null_string(null_vec);
+TEST(fxcrt, WideStringViewFromVector) {
+  std::vector<WideStringView::UnsignedType> null_vec;
+  WideStringView null_string(null_vec);
   EXPECT_EQ(0u, null_string.GetLength());
 
-  std::vector<CFX_WideStringC::UnsignedType> lower_a_vec(
-      10, static_cast<CFX_WideStringC::UnsignedType>(L'a'));
-  CFX_WideStringC lower_a_string(lower_a_vec);
+  std::vector<WideStringView::UnsignedType> lower_a_vec(
+      10, static_cast<WideStringView::UnsignedType>(L'a'));
+  WideStringView lower_a_string(lower_a_vec);
   EXPECT_EQ(10u, lower_a_string.GetLength());
   EXPECT_EQ(L"aaaaaaaaaa", lower_a_string);
 
-  std::vector<CFX_WideStringC::UnsignedType> cleared_vec;
+  std::vector<WideStringView::UnsignedType> cleared_vec;
   cleared_vec.push_back(42);
   cleared_vec.pop_back();
-  CFX_WideStringC cleared_string(cleared_vec);
+  WideStringView cleared_string(cleared_vec);
   EXPECT_EQ(0u, cleared_string.GetLength());
   EXPECT_EQ(nullptr, cleared_string.raw_str());
 }
 
-TEST(fxcrt, CFXWideStringCElementAccess) {
-  CFX_WideStringC abc(L"abc");
+TEST(fxcrt, WideStringViewElementAccess) {
+  WideStringView abc(L"abc");
   EXPECT_EQ(L'a', static_cast<wchar_t>(abc[0]));
   EXPECT_EQ(L'b', static_cast<wchar_t>(abc[1]));
   EXPECT_EQ(L'c', static_cast<wchar_t>(abc[2]));
@@ -872,11 +876,11 @@ TEST(fxcrt, CFXWideStringCElementAccess) {
 #endif
 }
 
-TEST(fxcrt, CFXWideStringCOperatorLT) {
-  CFX_WideStringC empty;
-  CFX_WideStringC a(L"a");
-  CFX_WideStringC abc(L"\x0110qq");  // Comes InsertAtFront despite endianness.
-  CFX_WideStringC def(L"\x1001qq");  // Comes InsertAtBack despite endianness.
+TEST(fxcrt, WideStringViewOperatorLT) {
+  WideStringView empty;
+  WideStringView a(L"a");
+  WideStringView abc(L"\x0110qq");  // Comes InsertAtFront despite endianness.
+  WideStringView def(L"\x1001qq");  // Comes InsertAtBack despite endianness.
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
@@ -902,128 +906,128 @@ TEST(fxcrt, CFXWideStringCOperatorLT) {
   EXPECT_FALSE(def < abc);
 }
 
-TEST(fxcrt, CFXWideStringCOperatorEQ) {
-  CFX_WideStringC wide_string_c(L"hello");
-  EXPECT_TRUE(wide_string_c == wide_string_c);
+TEST(fxcrt, WideStringViewOperatorEQ) {
+  WideStringView wide_string_view(L"hello");
+  EXPECT_TRUE(wide_string_view == wide_string_view);
 
-  CFX_WideStringC wide_string_c_same1(L"hello");
-  EXPECT_TRUE(wide_string_c == wide_string_c_same1);
-  EXPECT_TRUE(wide_string_c_same1 == wide_string_c);
+  WideStringView wide_string_view_same1(L"hello");
+  EXPECT_TRUE(wide_string_view == wide_string_view_same1);
+  EXPECT_TRUE(wide_string_view_same1 == wide_string_view);
 
-  CFX_WideStringC wide_string_c_same2(wide_string_c);
-  EXPECT_TRUE(wide_string_c == wide_string_c_same2);
-  EXPECT_TRUE(wide_string_c_same2 == wide_string_c);
+  WideStringView wide_string_view_same2(wide_string_view);
+  EXPECT_TRUE(wide_string_view == wide_string_view_same2);
+  EXPECT_TRUE(wide_string_view_same2 == wide_string_view);
 
-  CFX_WideStringC wide_string_c1(L"he");
-  CFX_WideStringC wide_string_c2(L"hellp");
-  CFX_WideStringC wide_string_c3(L"hellod");
-  EXPECT_FALSE(wide_string_c == wide_string_c1);
-  EXPECT_FALSE(wide_string_c == wide_string_c2);
-  EXPECT_FALSE(wide_string_c == wide_string_c3);
-  EXPECT_FALSE(wide_string_c1 == wide_string_c);
-  EXPECT_FALSE(wide_string_c2 == wide_string_c);
-  EXPECT_FALSE(wide_string_c3 == wide_string_c);
+  WideStringView wide_string_view1(L"he");
+  WideStringView wide_string_view2(L"hellp");
+  WideStringView wide_string_view3(L"hellod");
+  EXPECT_FALSE(wide_string_view == wide_string_view1);
+  EXPECT_FALSE(wide_string_view == wide_string_view2);
+  EXPECT_FALSE(wide_string_view == wide_string_view3);
+  EXPECT_FALSE(wide_string_view1 == wide_string_view);
+  EXPECT_FALSE(wide_string_view2 == wide_string_view);
+  EXPECT_FALSE(wide_string_view3 == wide_string_view);
 
-  CFX_WideString wide_string_same1(L"hello");
-  EXPECT_TRUE(wide_string_c == wide_string_same1);
-  EXPECT_TRUE(wide_string_same1 == wide_string_c);
+  WideString wide_string_same1(L"hello");
+  EXPECT_TRUE(wide_string_view == wide_string_same1);
+  EXPECT_TRUE(wide_string_same1 == wide_string_view);
 
-  CFX_WideString wide_string1(L"he");
-  CFX_WideString wide_string2(L"hellp");
-  CFX_WideString wide_string3(L"hellod");
-  EXPECT_FALSE(wide_string_c == wide_string1);
-  EXPECT_FALSE(wide_string_c == wide_string2);
-  EXPECT_FALSE(wide_string_c == wide_string3);
-  EXPECT_FALSE(wide_string1 == wide_string_c);
-  EXPECT_FALSE(wide_string2 == wide_string_c);
-  EXPECT_FALSE(wide_string3 == wide_string_c);
+  WideString wide_string1(L"he");
+  WideString wide_string2(L"hellp");
+  WideString wide_string3(L"hellod");
+  EXPECT_FALSE(wide_string_view == wide_string1);
+  EXPECT_FALSE(wide_string_view == wide_string2);
+  EXPECT_FALSE(wide_string_view == wide_string3);
+  EXPECT_FALSE(wide_string1 == wide_string_view);
+  EXPECT_FALSE(wide_string2 == wide_string_view);
+  EXPECT_FALSE(wide_string3 == wide_string_view);
 
   const wchar_t* c_string_same1 = L"hello";
-  EXPECT_TRUE(wide_string_c == c_string_same1);
-  EXPECT_TRUE(c_string_same1 == wide_string_c);
+  EXPECT_TRUE(wide_string_view == c_string_same1);
+  EXPECT_TRUE(c_string_same1 == wide_string_view);
 
   const wchar_t* c_string1 = L"he";
   const wchar_t* c_string2 = L"hellp";
   const wchar_t* c_string3 = L"hellod";
-  EXPECT_FALSE(wide_string_c == c_string1);
-  EXPECT_FALSE(wide_string_c == c_string2);
-  EXPECT_FALSE(wide_string_c == c_string3);
+  EXPECT_FALSE(wide_string_view == c_string1);
+  EXPECT_FALSE(wide_string_view == c_string2);
+  EXPECT_FALSE(wide_string_view == c_string3);
 
-  EXPECT_FALSE(c_string1 == wide_string_c);
-  EXPECT_FALSE(c_string2 == wide_string_c);
-  EXPECT_FALSE(c_string3 == wide_string_c);
+  EXPECT_FALSE(c_string1 == wide_string_view);
+  EXPECT_FALSE(c_string2 == wide_string_view);
+  EXPECT_FALSE(c_string3 == wide_string_view);
 }
 
-TEST(fxcrt, CFXWideStringCOperatorNE) {
-  CFX_WideStringC wide_string_c(L"hello");
-  EXPECT_FALSE(wide_string_c != wide_string_c);
+TEST(fxcrt, WideStringViewOperatorNE) {
+  WideStringView wide_string_view(L"hello");
+  EXPECT_FALSE(wide_string_view != wide_string_view);
 
-  CFX_WideStringC wide_string_c_same1(L"hello");
-  EXPECT_FALSE(wide_string_c != wide_string_c_same1);
-  EXPECT_FALSE(wide_string_c_same1 != wide_string_c);
+  WideStringView wide_string_view_same1(L"hello");
+  EXPECT_FALSE(wide_string_view != wide_string_view_same1);
+  EXPECT_FALSE(wide_string_view_same1 != wide_string_view);
 
-  CFX_WideStringC wide_string_c_same2(wide_string_c);
-  EXPECT_FALSE(wide_string_c != wide_string_c_same2);
-  EXPECT_FALSE(wide_string_c_same2 != wide_string_c);
+  WideStringView wide_string_view_same2(wide_string_view);
+  EXPECT_FALSE(wide_string_view != wide_string_view_same2);
+  EXPECT_FALSE(wide_string_view_same2 != wide_string_view);
 
-  CFX_WideStringC wide_string_c1(L"he");
-  CFX_WideStringC wide_string_c2(L"hellp");
-  CFX_WideStringC wide_string_c3(L"hellod");
-  EXPECT_TRUE(wide_string_c != wide_string_c1);
-  EXPECT_TRUE(wide_string_c != wide_string_c2);
-  EXPECT_TRUE(wide_string_c != wide_string_c3);
-  EXPECT_TRUE(wide_string_c1 != wide_string_c);
-  EXPECT_TRUE(wide_string_c2 != wide_string_c);
-  EXPECT_TRUE(wide_string_c3 != wide_string_c);
+  WideStringView wide_string_view1(L"he");
+  WideStringView wide_string_view2(L"hellp");
+  WideStringView wide_string_view3(L"hellod");
+  EXPECT_TRUE(wide_string_view != wide_string_view1);
+  EXPECT_TRUE(wide_string_view != wide_string_view2);
+  EXPECT_TRUE(wide_string_view != wide_string_view3);
+  EXPECT_TRUE(wide_string_view1 != wide_string_view);
+  EXPECT_TRUE(wide_string_view2 != wide_string_view);
+  EXPECT_TRUE(wide_string_view3 != wide_string_view);
 
-  CFX_WideString wide_string_same1(L"hello");
-  EXPECT_FALSE(wide_string_c != wide_string_same1);
-  EXPECT_FALSE(wide_string_same1 != wide_string_c);
+  WideString wide_string_same1(L"hello");
+  EXPECT_FALSE(wide_string_view != wide_string_same1);
+  EXPECT_FALSE(wide_string_same1 != wide_string_view);
 
-  CFX_WideString wide_string1(L"he");
-  CFX_WideString wide_string2(L"hellp");
-  CFX_WideString wide_string3(L"hellod");
-  EXPECT_TRUE(wide_string_c != wide_string1);
-  EXPECT_TRUE(wide_string_c != wide_string2);
-  EXPECT_TRUE(wide_string_c != wide_string3);
-  EXPECT_TRUE(wide_string1 != wide_string_c);
-  EXPECT_TRUE(wide_string2 != wide_string_c);
-  EXPECT_TRUE(wide_string3 != wide_string_c);
+  WideString wide_string1(L"he");
+  WideString wide_string2(L"hellp");
+  WideString wide_string3(L"hellod");
+  EXPECT_TRUE(wide_string_view != wide_string1);
+  EXPECT_TRUE(wide_string_view != wide_string2);
+  EXPECT_TRUE(wide_string_view != wide_string3);
+  EXPECT_TRUE(wide_string1 != wide_string_view);
+  EXPECT_TRUE(wide_string2 != wide_string_view);
+  EXPECT_TRUE(wide_string3 != wide_string_view);
 
   const wchar_t* c_string_same1 = L"hello";
-  EXPECT_FALSE(wide_string_c != c_string_same1);
-  EXPECT_FALSE(c_string_same1 != wide_string_c);
+  EXPECT_FALSE(wide_string_view != c_string_same1);
+  EXPECT_FALSE(c_string_same1 != wide_string_view);
 
   const wchar_t* c_string1 = L"he";
   const wchar_t* c_string2 = L"hellp";
   const wchar_t* c_string3 = L"hellod";
-  EXPECT_TRUE(wide_string_c != c_string1);
-  EXPECT_TRUE(wide_string_c != c_string2);
-  EXPECT_TRUE(wide_string_c != c_string3);
+  EXPECT_TRUE(wide_string_view != c_string1);
+  EXPECT_TRUE(wide_string_view != c_string2);
+  EXPECT_TRUE(wide_string_view != c_string3);
 
-  EXPECT_TRUE(c_string1 != wide_string_c);
-  EXPECT_TRUE(c_string2 != wide_string_c);
-  EXPECT_TRUE(c_string3 != wide_string_c);
+  EXPECT_TRUE(c_string1 != wide_string_view);
+  EXPECT_TRUE(c_string2 != wide_string_view);
+  EXPECT_TRUE(c_string3 != wide_string_view);
 }
 
-TEST(fxcrt, CFXWideStringCFind) {
-  CFX_WideStringC null_string;
+TEST(fxcrt, WideStringViewFind) {
+  WideStringView null_string;
   EXPECT_FALSE(null_string.Find(L'a').has_value());
   EXPECT_FALSE(null_string.Find(L'\0').has_value());
 
-  CFX_WideStringC empty_string(L"");
+  WideStringView empty_string(L"");
   EXPECT_FALSE(empty_string.Find(L'a').has_value());
   EXPECT_FALSE(empty_string.Find(L'\0').has_value());
 
   pdfium::Optional<FX_STRSIZE> result;
-  CFX_WideStringC single_string(L"a");
+  WideStringView single_string(L"a");
   result = single_string.Find(L'a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
   EXPECT_FALSE(single_string.Find(L'b').has_value());
   EXPECT_FALSE(single_string.Find(L'\0').has_value());
 
-  CFX_WideStringC longer_string(L"abccc");
+  WideStringView longer_string(L"abccc");
   result = longer_string.Find(L'a');
   ASSERT_TRUE(result.has_value());
   EXPECT_EQ(0u, result.value());
@@ -1033,7 +1037,7 @@ TEST(fxcrt, CFXWideStringCFind) {
   EXPECT_FALSE(longer_string.Find(L'd').has_value());
   EXPECT_FALSE(longer_string.Find(L'\0').has_value());
 
-  CFX_WideStringC hibyte_string(
+  WideStringView hibyte_string(
       L"ab\xFF8c"
       L"def");
   result = hibyte_string.Find(L'\xFF8c');
@@ -1041,8 +1045,8 @@ TEST(fxcrt, CFXWideStringCFind) {
   EXPECT_EQ(2u, result.value());
 }
 
-TEST(fxcrt, CFXWideStringCNullIterator) {
-  CFX_WideStringC null_str;
+TEST(fxcrt, WideStringViewNullIterator) {
+  WideStringView null_str;
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : null_str) {
@@ -1053,8 +1057,8 @@ TEST(fxcrt, CFXWideStringCNullIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXWideStringCEmptyIterator) {
-  CFX_WideStringC empty_str(L"");
+TEST(fxcrt, WideStringViewEmptyIterator) {
+  WideStringView empty_str(L"");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : empty_str) {
@@ -1065,8 +1069,8 @@ TEST(fxcrt, CFXWideStringCEmptyIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXWideStringCOneCharIterator) {
-  CFX_WideStringC one_str(L"a");
+TEST(fxcrt, WideStringViewOneCharIterator) {
+  WideStringView one_str(L"a");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1077,8 +1081,8 @@ TEST(fxcrt, CFXWideStringCOneCharIterator) {
   EXPECT_EQ(static_cast<int32_t>(L'a'), sum);
 }
 
-TEST(fxcrt, CFXWideStringCMultiCharIterator) {
-  CFX_WideStringC one_str(L"abc");
+TEST(fxcrt, WideStringViewMultiCharIterator) {
+  WideStringView one_str(L"abc");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1089,34 +1093,34 @@ TEST(fxcrt, CFXWideStringCMultiCharIterator) {
   EXPECT_EQ(static_cast<int32_t>(L'a' + L'b' + L'c'), sum);
 }
 
-TEST(fxcrt, CFXWideStringCEmptyReverseIterator) {
-  CFX_WideStringC empty;
+TEST(fxcrt, WideStringViewEmptyReverseIterator) {
+  WideStringView empty;
   auto iter = empty.rbegin();
   EXPECT_TRUE(iter == empty.rend());
   EXPECT_FALSE(iter != empty.rend());
   EXPECT_FALSE(iter < empty.rend());
 }
 
-TEST(fxcrt, CFXWideStringCOneCharReverseIterator) {
-  CFX_WideStringC one_str(L"a");
+TEST(fxcrt, WideStringViewOneCharReverseIterator) {
+  WideStringView one_str(L"a");
   auto iter = one_str.rbegin();
   EXPECT_FALSE(iter == one_str.rend());
   EXPECT_TRUE(iter != one_str.rend());
   EXPECT_TRUE(iter < one_str.rend());
 
-  char ch = *iter++;
+  wchar_t ch = *iter++;
   EXPECT_EQ('a', ch);
   EXPECT_TRUE(iter == one_str.rend());
   EXPECT_FALSE(iter != one_str.rend());
   EXPECT_FALSE(iter < one_str.rend());
 }
 
-TEST(fxcrt, CFXWideStringCMultiCharReverseIterator) {
-  CFX_WideStringC multi_str(L"abcd");
+TEST(fxcrt, WideStringViewMultiCharReverseIterator) {
+  WideStringView multi_str(L"abcd");
   auto iter = multi_str.rbegin();
   EXPECT_FALSE(iter == multi_str.rend());
 
-  char ch = *iter++;
+  wchar_t ch = *iter++;
   EXPECT_EQ('d', ch);
   EXPECT_EQ('c', *iter);
   EXPECT_FALSE(iter == multi_str.rend());
@@ -1156,8 +1160,8 @@ TEST(fxcrt, CFXWideStringCMultiCharReverseIterator) {
   EXPECT_TRUE(iter == multi_str.rbegin());
 }
 
-TEST(fxcrt, CFXWideStringCAnyAllNoneOf) {
-  CFX_WideStringC str(L"aaaaaaaaaaaaaaaaab");
+TEST(fxcrt, WideStringViewAnyAllNoneOf) {
+  WideStringView str(L"aaaaaaaaaaaaaaaaab");
   EXPECT_FALSE(std::all_of(str.begin(), str.end(),
                            [](const wchar_t& c) { return c == L'a'; }));
 
@@ -1172,112 +1176,112 @@ TEST(fxcrt, CFXWideStringCAnyAllNoneOf) {
   EXPECT_FALSE(pdfium::ContainsValue(str, L'z'));
 }
 
-TEST(fxcrt, CFXWideStringCTrimmedRight) {
-  CFX_WideStringC fred(L"FRED");
+TEST(fxcrt, WideStringViewTrimmedRight) {
+  WideStringView fred(L"FRED");
   EXPECT_EQ(L"FRED", fred.TrimmedRight(L'E'));
   EXPECT_EQ(L"FRE", fred.TrimmedRight(L'D'));
-  CFX_WideStringC fredd(L"FREDD");
+  WideStringView fredd(L"FREDD");
   EXPECT_EQ(L"FRE", fred.TrimmedRight(L'D'));
 }
 
-TEST(fxcrt, CFXWideStringFormatWidth) {
+TEST(fxcrt, WideStringFormatWidth) {
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%5d", 1);
     EXPECT_EQ(L"    1", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%d", 1);
     EXPECT_EQ(L"1", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%*d", 5, 1);
     EXPECT_EQ(L"    1", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%-1d", 1);
     EXPECT_EQ(L"1", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%0d", 1);
     EXPECT_EQ(L"1", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%1048576d", 1);
     EXPECT_EQ(L"", str);
   }
 }
 
-TEST(fxcrt, CFXWideStringFormatPrecision) {
+TEST(fxcrt, WideStringFormatPrecision) {
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%.2f", 1.12345);
     EXPECT_EQ(L"1.12", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%.*f", 3, 1.12345);
     EXPECT_EQ(L"1.123", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%f", 1.12345);
     EXPECT_EQ(L"1.123450", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%-1f", 1.12345);
     EXPECT_EQ(L"1.123450", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%0f", 1.12345);
     EXPECT_EQ(L"1.123450", str);
   }
 
   {
-    CFX_WideString str;
+    WideString str;
     str.Format(L"%.1048576f", 1.2);
     EXPECT_EQ(L"", str);
   }
 }
 
-TEST(fxcrt, CFXWideStringFormatOutOfRangeChar) {
-  CFX_WideString str;
+TEST(fxcrt, WideStringFormatOutOfRangeChar) {
+  WideString str;
   str.Format(L"unsupported char '%c'", 0x00FF00FF);
 }
 
-TEST(fxcrt, EmptyCFXWideString) {
-  CFX_WideString empty_str;
+TEST(fxcrt, EmptyWideString) {
+  WideString empty_str;
   EXPECT_TRUE(empty_str.IsEmpty());
   EXPECT_EQ(0u, empty_str.GetLength());
   const wchar_t* cstr = empty_str.c_str();
   EXPECT_EQ(0u, FXSYS_wcslen(cstr));
 }
 
-TEST(fxcrt, CFXWideStringInitializerList) {
-  CFX_WideString many_str({L"clams", L" and ", L"oysters"});
+TEST(fxcrt, WideStringInitializerList) {
+  WideString many_str({L"clams", L" and ", L"oysters"});
   EXPECT_EQ(L"clams and oysters", many_str);
   many_str = {L"fish", L" and ", L"chips", L" and ", L"soda"};
   EXPECT_EQ(L"fish and chips and soda", many_str);
 }
 
-TEST(fxcrt, CFXWideStringNullIterator) {
-  CFX_WideString null_str;
+TEST(fxcrt, WideStringNullIterator) {
+  WideString null_str;
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : null_str) {
@@ -1288,8 +1292,8 @@ TEST(fxcrt, CFXWideStringNullIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXWideStringEmptyIterator) {
-  CFX_WideString empty_str(L"");
+TEST(fxcrt, WideStringEmptyIterator) {
+  WideString empty_str(L"");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : empty_str) {
@@ -1300,8 +1304,8 @@ TEST(fxcrt, CFXWideStringEmptyIterator) {
   EXPECT_EQ(0, sum);
 }
 
-TEST(fxcrt, CFXWideStringOneCharIterator) {
-  CFX_WideString one_str(L"a");
+TEST(fxcrt, WideStringOneCharIterator) {
+  WideString one_str(L"a");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1312,8 +1316,8 @@ TEST(fxcrt, CFXWideStringOneCharIterator) {
   EXPECT_EQ(static_cast<int32_t>(L'a'), sum);
 }
 
-TEST(fxcrt, CFXWideStringMultiCharIterator) {
-  CFX_WideString one_str(L"abc");
+TEST(fxcrt, WideStringMultiCharIterator) {
+  WideString one_str(L"abc");
   int32_t sum = 0;
   bool any_present = false;
   for (const auto& c : one_str) {
@@ -1324,8 +1328,8 @@ TEST(fxcrt, CFXWideStringMultiCharIterator) {
   EXPECT_EQ(static_cast<int32_t>(L'a' + L'b' + L'c'), sum);
 }
 
-TEST(fxcrt, CFXWideStringAnyAllNoneOf) {
-  CFX_WideString str(L"aaaaaaaaaaaaaaaaab");
+TEST(fxcrt, WideStringAnyAllNoneOf) {
+  WideString str(L"aaaaaaaaaaaaaaaaab");
   EXPECT_FALSE(std::all_of(str.begin(), str.end(),
                            [](const wchar_t& c) { return c == L'a'; }));
 
@@ -1340,11 +1344,11 @@ TEST(fxcrt, CFXWideStringAnyAllNoneOf) {
   EXPECT_FALSE(pdfium::ContainsValue(str, L'z'));
 }
 
-TEST(fxcrt, OStreamCFXWideStringOverload) {
+TEST(fxcrt, OStreamWideStringOverload) {
   std::ostringstream stream;
 
   // Basic case, empty string
-  CFX_WideString str;
+  WideString str;
   stream << str;
   EXPECT_EQ("", stream.str());
 
@@ -1359,7 +1363,7 @@ TEST(fxcrt, OStreamCFXWideStringOverload) {
   stream << "abc" << str << "ghi";
   EXPECT_EQ("abcdefghi", stream.str());
 
-  // Changing the CFX_WideString does not change the stream it was written to.
+  // Changing the WideString does not change the stream it was written to.
   str = L"123";
   EXPECT_EQ("abcdefghi", stream.str());
 
@@ -1370,35 +1374,35 @@ TEST(fxcrt, OStreamCFXWideStringOverload) {
 
   wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
 
-  // Writing a CFX_WideString with nulls and no specified length treats it as
+  // Writing a WideString with nulls and no specified length treats it as
   // a C-style null-terminated string.
-  str = CFX_WideString(stringWithNulls);
+  str = WideString(stringWithNulls);
   EXPECT_EQ(2u, str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(2u, stream.tellp());
 
-  // Writing a CFX_WideString with nulls but specifying its length treats it as
+  // Writing a WideString with nulls but specifying its length treats it as
   // a C++-style string.
-  str = CFX_WideString(stringWithNulls, 4);
+  str = WideString(stringWithNulls, 4);
   EXPECT_EQ(4u, str.GetLength());
   stream.str("");
   stream << str;
   EXPECT_EQ(4u, stream.tellp());
 
   // << operators can be chained.
-  CFX_WideString str1(L"abc");
-  CFX_WideString str2(L"def");
+  WideString str1(L"abc");
+  WideString str2(L"def");
   stream.str("");
   stream << str1 << str2;
   EXPECT_EQ("abcdef", stream.str());
 }
 
-TEST(fxcrt, WideOStreamCFXWideStringOverload) {
+TEST(fxcrt, WideOStreamWideStringOverload) {
   std::wostringstream stream;
 
   // Basic case, empty string
-  CFX_WideString str;
+  WideString str;
   stream << str;
   EXPECT_EQ(L"", stream.str());
 
@@ -1413,7 +1417,7 @@ TEST(fxcrt, WideOStreamCFXWideStringOverload) {
   stream << L"abc" << str << L"ghi";
   EXPECT_EQ(L"abcdefghi", stream.str());
 
-  // Changing the CFX_WideString does not change the stream it was written to.
+  // Changing the WideString does not change the stream it was written to.
   str = L"123";
   EXPECT_EQ(L"abcdefghi", stream.str());
 
@@ -1424,35 +1428,35 @@ TEST(fxcrt, WideOStreamCFXWideStringOverload) {
 
   wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
 
-  // Writing a CFX_WideString with nulls and no specified length treats it as
+  // Writing a WideString with nulls and no specified length treats it as
   // a C-style null-terminated string.
-  str = CFX_WideString(stringWithNulls);
+  str = WideString(stringWithNulls);
   EXPECT_EQ(2u, str.GetLength());
   stream.str(L"");
   stream << str;
   EXPECT_EQ(2u, stream.tellp());
 
-  // Writing a CFX_WideString with nulls but specifying its length treats it as
+  // Writing a WideString with nulls but specifying its length treats it as
   // a C++-style string.
-  str = CFX_WideString(stringWithNulls, 4);
+  str = WideString(stringWithNulls, 4);
   EXPECT_EQ(4u, str.GetLength());
   stream.str(L"");
   stream << str;
   EXPECT_EQ(4u, stream.tellp());
 
   // << operators can be chained.
-  CFX_WideString str1(L"abc");
-  CFX_WideString str2(L"def");
+  WideString str1(L"abc");
+  WideString str2(L"def");
   stream.str(L"");
   stream << str1 << str2;
   EXPECT_EQ(L"abcdef", stream.str());
 }
 
-TEST(fxcrt, OStreamWideStringCOverload) {
+TEST(fxcrt, OStreamWideStringViewOverload) {
   // Basic case, empty string
   {
     std::ostringstream stream;
-    CFX_WideStringC str;
+    WideStringView str;
     stream << str;
     EXPECT_EQ("", stream.str());
   }
@@ -1460,7 +1464,7 @@ TEST(fxcrt, OStreamWideStringCOverload) {
   // Basic case, non-empty string
   {
     std::ostringstream stream;
-    CFX_WideStringC str(L"def");
+    WideStringView str(L"def");
     stream << "abc" << str << "ghi";
     EXPECT_EQ("abcdefghi", stream.str());
   }
@@ -1468,15 +1472,15 @@ TEST(fxcrt, OStreamWideStringCOverload) {
   // Basic case, wide character
   {
     std::ostringstream stream;
-    CFX_WideStringC str(L"\u20AC");
+    WideStringView str(L"\u20AC");
     stream << str;
     EXPECT_EQ("\u20AC", stream.str());
   }
 
-  // Changing the CFX_WideStringC does not change the stream it was written to.
+  // Changing the WideStringView does not change the stream it was written to.
   {
     std::ostringstream stream;
-    CFX_WideStringC str(L"abc");
+    WideStringView str(L"abc");
     stream << str;
     str = L"123";
     EXPECT_EQ("abc", stream.str());
@@ -1485,7 +1489,7 @@ TEST(fxcrt, OStreamWideStringCOverload) {
   // Writing it again to the stream will use the latest value.
   {
     std::ostringstream stream;
-    CFX_WideStringC str(L"abc");
+    WideStringView str(L"abc");
     stream << str;
     stream.str("");
     str = L"123";
@@ -1493,24 +1497,24 @@ TEST(fxcrt, OStreamWideStringCOverload) {
     EXPECT_EQ("123", stream.str());
   }
 
-  // Writing a CFX_WideStringC with nulls and no specified length treats it as
+  // Writing a WideStringView with nulls and no specified length treats it as
   // a C-style null-terminated string.
   {
     wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
     std::ostringstream stream;
-    CFX_WideStringC str(stringWithNulls);
+    WideStringView str(stringWithNulls);
     EXPECT_EQ(2u, str.GetLength());
     stream << str;
     EXPECT_EQ(2u, stream.tellp());
     str = L"";
   }
 
-  // Writing a CFX_WideStringC with nulls but specifying its length treats it as
+  // Writing a WideStringView with nulls but specifying its length treats it as
   // a C++-style string.
   {
     wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
     std::ostringstream stream;
-    CFX_WideStringC str(stringWithNulls, 4);
+    WideStringView str(stringWithNulls, 4);
     EXPECT_EQ(4u, str.GetLength());
     stream << str;
     EXPECT_EQ(4u, stream.tellp());
@@ -1520,18 +1524,18 @@ TEST(fxcrt, OStreamWideStringCOverload) {
   // << operators can be chained.
   {
     std::ostringstream stream;
-    CFX_WideStringC str1(L"abc");
-    CFX_WideStringC str2(L"def");
+    WideStringView str1(L"abc");
+    WideStringView str2(L"def");
     stream << str1 << str2;
     EXPECT_EQ("abcdef", stream.str());
   }
 }
 
-TEST(fxcrt, WideOStreamWideStringCOverload) {
+TEST(fxcrt, WideOStreamWideStringViewOverload) {
   // Basic case, empty string
   {
     std::wostringstream stream;
-    CFX_WideStringC str;
+    WideStringView str;
     stream << str;
     EXPECT_EQ(L"", stream.str());
   }
@@ -1539,7 +1543,7 @@ TEST(fxcrt, WideOStreamWideStringCOverload) {
   // Basic case, non-empty string
   {
     std::wostringstream stream;
-    CFX_WideStringC str(L"def");
+    WideStringView str(L"def");
     stream << "abc" << str << "ghi";
     EXPECT_EQ(L"abcdefghi", stream.str());
   }
@@ -1547,15 +1551,15 @@ TEST(fxcrt, WideOStreamWideStringCOverload) {
   // Basic case, wide character
   {
     std::wostringstream stream;
-    CFX_WideStringC str(L"\u20AC");
+    WideStringView str(L"\u20AC");
     stream << str;
     EXPECT_EQ(L"\u20AC", stream.str());
   }
 
-  // Changing the CFX_WideStringC does not change the stream it was written to.
+  // Changing the WideStringView does not change the stream it was written to.
   {
     std::wostringstream stream;
-    CFX_WideStringC str(L"abc");
+    WideStringView str(L"abc");
     stream << str;
     str = L"123";
     EXPECT_EQ(L"abc", stream.str());
@@ -1564,7 +1568,7 @@ TEST(fxcrt, WideOStreamWideStringCOverload) {
   // Writing it again to the stream will use the latest value.
   {
     std::wostringstream stream;
-    CFX_WideStringC str(L"abc");
+    WideStringView str(L"abc");
     stream << str;
     stream.str(L"");
     str = L"123";
@@ -1572,23 +1576,23 @@ TEST(fxcrt, WideOStreamWideStringCOverload) {
     EXPECT_EQ(L"123", stream.str());
   }
 
-  // Writing a CFX_WideStringC with nulls and no specified length treats it as
+  // Writing a WideStringView with nulls and no specified length treats it as
   // a C-style null-terminated string.
   {
     wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
     std::wostringstream stream;
-    CFX_WideStringC str(stringWithNulls);
+    WideStringView str(stringWithNulls);
     EXPECT_EQ(2u, str.GetLength());
     stream << str;
     EXPECT_EQ(2u, stream.tellp());
   }
 
-  // Writing a CFX_WideStringC with nulls but specifying its length treats it as
+  // Writing a WideStringView with nulls but specifying its length treats it as
   // a C++-style string.
   {
     wchar_t stringWithNulls[]{'x', 'y', '\0', 'z'};
     std::wostringstream stream;
-    CFX_WideStringC str(stringWithNulls, 4);
+    WideStringView str(stringWithNulls, 4);
     EXPECT_EQ(4u, str.GetLength());
     stream << str;
     EXPECT_EQ(4u, stream.tellp());
@@ -1597,8 +1601,8 @@ TEST(fxcrt, WideOStreamWideStringCOverload) {
   // << operators can be chained.
   {
     std::wostringstream stream;
-    CFX_WideStringC str1(L"abc");
-    CFX_WideStringC str2(L"def");
+    WideStringView str1(L"abc");
+    WideStringView str2(L"def");
     stream << str1 << str2;
     EXPECT_EQ(L"abcdef", stream.str());
   }
