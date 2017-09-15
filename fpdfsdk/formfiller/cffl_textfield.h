@@ -24,7 +24,8 @@ struct FFL_TextFieldState {
   CFX_WideString sValue;
 };
 
-class CFFL_TextField : public CFFL_TextObject, public IPWL_FocusHandler {
+class CFFL_TextField : public CFFL_TextObject,
+                       public CPWL_Wnd::FocusHandlerIface {
  public:
   CFFL_TextField(CPDFSDK_FormFillEnvironment* pApp, CPDFSDK_Widget* pWidget);
   ~CFFL_TextField() override;
