@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8684053d_3fe5d0c1",
+        "filename": "core/fxcrt/bytestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T19:53:07Z",
+      "side": 1,
+      "message": "nit using:",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "d802b8e13e45e25159ce2dd2ec654cbb56f08a3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b14cfe3_6323a223",
+        "filename": "core/fxcrt/bytestring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T19:53:07Z",
+      "side": 1,
+      "message": "these belong in the bytstring.h",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "d802b8e13e45e25159ce2dd2ec654cbb56f08a3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12783f51_ea742718",
+        "filename": "core/fxcrt/cfx_widestring_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-15T19:53:07Z",
+      "side": 1,
+      "message": "why did we nee all this?  We\u0027re going to remove them in the future.",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 38
+      },
+      "revId": "d802b8e13e45e25159ce2dd2ec654cbb56f08a3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
