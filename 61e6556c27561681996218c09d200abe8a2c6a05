@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "598f4b68_76b35f02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T20:01:40Z",
+      "side": 1,
+      "message": "You\u0027re saying the document should not outlive the CPDF_DataAvail, but CFX_UnownedPtr has the opposite meaning, the UnownedPtr has to outlive the owner. Is there another way to fix this without invalidating the pointers in the DataAvail? Can we fixup the cleanup?\n\nIs there a PDF which is causing this issue? Can you file a bug with a repro?",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d27217b_820aec39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T20:01:40Z",
+      "side": 1,
+      "message": "We have a core/fxcrt/cfx_observable.h to handle this case. The document would inherit from CFX_Observable\u003cCPDF_Document\u003e and then instead of a CFX_UnownedPtr\u003cDocument\u003e you have a CFX_ObservedPtr\u003cCPDF_Document\u003e",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
