@@ -16,6 +16,40 @@
       "revId": "418b00889b73bda2edcb479a836842e47c49e22c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8edcbbe_01879479",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T17:56:51Z",
+      "side": 1,
+      "message": "nit: line up these two -\u0027s with the ones below.",
+      "revId": "418b00889b73bda2edcb479a836842e47c49e22c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0698514a_4cb7732b",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T17:56:51Z",
+      "side": 1,
+      "message": "What happens to x, y if this returns false? Can we add a bit of text around that condition?",
+      "revId": "418b00889b73bda2edcb479a836842e47c49e22c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
