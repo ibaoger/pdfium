@@ -16,6 +16,24 @@
       "revId": "6871393ef932992236b86a0c40b10dd9a9356413",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bad8218_2c430ba5",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-18T08:05:30Z",
+      "side": 1,
+      "message": "Why not; I\u0027ll do that.",
+      "parentUuid": "7a26e01c_bbc7e6a8",
+      "revId": "6871393ef932992236b86a0c40b10dd9a9356413",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
