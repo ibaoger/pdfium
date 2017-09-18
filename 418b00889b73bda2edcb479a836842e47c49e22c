@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c201ecb_bba41198",
+        "filename": "fpdfsdk/fpdfview_c_api_test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-18T17:46:23Z",
+      "side": 1,
+      "message": "Put this with CountPoint above.",
+      "revId": "418b00889b73bda2edcb479a836842e47c49e22c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
