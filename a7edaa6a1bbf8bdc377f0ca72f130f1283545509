@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c6747cf_b961244d",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T19:48:31Z",
+      "side": 1,
+      "message": "Should ScheduleDownload take a size_t (or FX_FILESIZE) instead of uint32_t?",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "058a64da_d23a0437",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T19:48:31Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "964d2d1d_24cf5019",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T19:48:31Z",
+      "side": 1,
+      "message": "I think the following is a bit easier to read:\n\n{\n  if (IsDateRangeAvailable(offset, size))\n    return true;\n\n  ScheduleDownload(offset, size);\n  return false;\n}",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5945909_26f7aad5",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T19:48:31Z",
+      "side": 1,
+      "message": "CheckDataRangeAndRequestIfAvailable(..) ?",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1c465eb_dd26f0ee",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T19:48:31Z",
+      "side": 1,
+      "message": "CheckWholeFileAndRequestIfAvailable()?",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
