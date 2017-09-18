@@ -259,6 +259,21 @@ TEST_F(FPDFEditEmbeddertest, AddPaths) {
   // Make sure the path has 5 points (1 FXPT_TYPE::MoveTo and 4
   // FXPT_TYPE::LineTo).
   ASSERT_EQ(5, FPDFPath_CountPoint(green_rect));
+  // Verify actual coordinates.
+  float x;
+  float y;
+  EXPECT_TRUE(FPDFPath_GetPoint(green_rect, 0, &x, &y));
+  EXPECT_EQ(100, x);
+  EXPECT_EQ(100, y);
+  EXPECT_TRUE(FPDFPath_GetPoint(green_rect, 1, &x, &y));
+  EXPECT_EQ(100, x);
+  EXPECT_EQ(140, y);
+  EXPECT_TRUE(FPDFPath_GetPoint(green_rect, 2, &x, &y));
+  EXPECT_EQ(140, x);
+  EXPECT_EQ(140, y);
+  EXPECT_TRUE(FPDFPath_GetPoint(green_rect, 3, &x, &y));
+  EXPECT_EQ(140, x);
+  EXPECT_EQ(100, y);
 
   EXPECT_TRUE(FPDFPath_SetDrawMode(green_rect, FPDF_FILLMODE_WINDING, 0));
   FPDFPage_InsertObject(page, green_rect);
@@ -277,6 +292,18 @@ TEST_F(FPDFEditEmbeddertest, AddPaths) {
   // Make sure the path has 3 points (1 FXPT_TYPE::MoveTo and 2
   // FXPT_TYPE::LineTo).
   ASSERT_EQ(3, FPDFPath_CountPoint(black_path));
+  // Verify actual coordinates.
+  EXPECT_TRUE(FPDFPath_GetPoint(black_path, 0, &x, &y));
+  EXPECT_EQ(400, x);
+  EXPECT_EQ(100, y);
+  EXPECT_TRUE(FPDFPath_GetPoint(black_path, 1, &x, &y));
+  EXPECT_EQ(400, x);
+  EXPECT_EQ(200, y);
+  EXPECT_TRUE(FPDFPath_GetPoint(black_path, 2, &x, &y));
+  EXPECT_EQ(300, x);
+  EXPECT_EQ(100, y);
+  // Make sure out of bounds index access fails properly.
+  EXPECT_FALSE(FPDFPath_GetPoint(black_path, 3, &x, &y));
 
   FPDFPage_InsertObject(page, black_path);
   page_bitmap = RenderPage(page);
@@ -316,6 +343,13 @@ TEST_F(FPDFEditEmbeddertest, PathsPoints) {
 
   // This should fail gracefully, even if path is NULL.
   ASSERT_EQ(-1, FPDFPath_CountPoint(nullptr));
+
+  // FPDFPath_GetPoint() with a non-path.
+  float x;
+  float y;
+  EXPECT_FALSE(FPDFPath_GetPoint(img, 0, &x, &y));
+  // FPDFPath_GetPoint() with a NULL path.
+  EXPECT_FALSE(FPDFPath_GetPoint(nullptr, 0, &x, &y));
 
   FPDFPageObj_Destroy(img);
 }

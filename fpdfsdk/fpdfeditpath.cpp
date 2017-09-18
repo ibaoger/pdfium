@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include <vector>
+
 #include "public/fpdf_edit.h"
 
 #include "core/fpdfapi/page/cpdf_path.h"
@@ -123,6 +125,23 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFPath_CountPoint(FPDF_PAGEOBJECT path) {
   if (!pPathObj)
     return -1;
   return pdfium::CollectionSize<int>(pPathObj->m_Path.GetPoints());
+}
+
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetPoint(FPDF_PAGEOBJECT path,
+                                                      int index,
+                                                      float* x,
+                                                      float* y) {
+  auto* pPathObj = CPDFPathObjectFromFPDFPageObject(path);
+  if (!pPathObj || !x || !y)
+    return false;
+
+  const std::vector<FX_PATHPOINT>& points = pPathObj->m_Path.GetPoints();
+  if (!pdfium::IndexInBounds(points, index))
+    return false;
+
+  *x = points[index].m_Point.x;
+  *y = points[index].m_Point.y;
+  return true;
 }
 
 FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_MoveTo(FPDF_PAGEOBJECT path,
