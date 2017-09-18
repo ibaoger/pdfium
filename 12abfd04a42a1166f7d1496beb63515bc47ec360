@@ -16,6 +16,24 @@
       "revId": "12abfd04a42a1166f7d1496beb63515bc47ec360",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f903ec07_1a40aa58",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 6835
+      },
+      "writtenOn": "2017-09-18T16:26:52Z",
+      "side": 1,
+      "message": "I tried to be consistent with FPDFPage_CountObject(), but otherwise I have no problem with renaming it.",
+      "parentUuid": "7eb24356_e969e032",
+      "revId": "12abfd04a42a1166f7d1496beb63515bc47ec360",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
