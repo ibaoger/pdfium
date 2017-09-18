@@ -34,6 +34,24 @@
       "revId": "12abfd04a42a1166f7d1496beb63515bc47ec360",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "596d8db5_31a5b779",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-18T17:52:38Z",
+      "side": 1,
+      "message": "Ugh, didn\u0027t realize the other was mis-named as well. Let\u0027s name this as CountPoints, then we can do a followup object to add a CountObjects and add a Deprecated marker to CountObject.",
+      "parentUuid": "f903ec07_1a40aa58",
+      "revId": "12abfd04a42a1166f7d1496beb63515bc47ec360",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
