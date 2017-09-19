@@ -134,6 +134,24 @@
       "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4f793a_560760f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-19T13:33:30Z",
+      "side": 1,
+      "message": "Also i should clear\nCPDF_DataAvail::m_pPageDict\nCPDF_DataAvail::m_pPageResource\nCPDF_DataAvail::m_objs_array\n...\ni.e. any pointed members, which can be owned by document.\n\nAlso if i will be added CPDF_ObjectAvail object as member of CPDF_DataAvail, i should destroy it to, on destroing document. Because it is contains pointer to document (CPDF_ObjectAvail::holder_)\nsee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_object_avail.h?rcl\u003d5b2092a1ec59077b430bd2cab91554cad2eb5128\u0026l\u003d46",
+      "parentUuid": "f4af75e3_4286d590",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
