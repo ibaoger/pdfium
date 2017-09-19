@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5a8654c_aa1e4943",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-19T12:42:49Z",
+      "side": 1,
+      "message": "\u003e\u003e Howe does this fail if we just make it an unowned_ptr?\n\nYes, it is.",
+      "parentUuid": "15327220_e591e0e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "598f4b68_76b35f02",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "c8cf46d7_59f07604",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-19T12:42:49Z",
+      "side": 1,
+      "message": "Any PDF causing this issue.\n\nCommon pdfium usage is:\navail \u003d FPDFAvail_Create(...); // \u003d new CPDF_DataAvail\n//...\ndocument \u003d FPDFAvail_GetDocument(avail, ...); // \u003d new CPDF_Document\n\n// Now CPDF_DataAvail conatins pointer to CPDF_Document\n// see call SetDocument at https://cs.chromium.org/chromium/src/third_party/pdfium/fpdfsdk/fpdf_dataavail.cpp?rcl\u003d5b2092a1ec59077b430bd2cab91554cad2eb5128\u0026l\u003d160\n\n// Destroy objects in back order:\nFPDF_CloseDocument(document); \n// Now CPDF_DataAvail contains invalid pointer to CPDF_Document\n\n// At this point we delete the CPDF_DataAvail object, and CPDF_DataAvail::m_pDocument is invalid, and in case if it is CFX_UnownedPtr, the asan builds will be failed.\nFPDFAvail_Destroy(avail);",
+      "parentUuid": "598f4b68_76b35f02",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d27217b_820aec39",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2017-09-18T20:01:40Z",
       "side": 1,
       "message": "We have a core/fxcrt/cfx_observable.h to handle this case. The document would inherit from CFX_Observable\u003cCPDF_Document\u003e and then instead of a CFX_UnownedPtr\u003cDocument\u003e you have a CFX_ObservedPtr\u003cCPDF_Document\u003e",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "717086ed_25e20cfb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-19T12:42:49Z",
+      "side": 1,
+      "message": "I have tried to use CFX_Observable, but it is have not notification about destroing, which i can override. It is working like base::WeakPtr, as i understand.\n\nI need notification to clear document related data in CPDF_DataAvail,\nFor example CPDF_ObjectAvail::holder_ is pointer too document too, and it is already CFX_UnownedPtr.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_object_avail.h?rcl\u003d5b2092a1ec59077b430bd2cab91554cad2eb5128\u0026l\u003d46\n\nShould i use CFX_ObservedPtr in all places when i want to store pointer to document and add asserts on before any usage of CPDF_IndirectObjectHolder(CPDF_Document) pointer ? \nAnd also in places when it will be implicitly (like in CPDF_ObjectAvail)?",
+      "parentUuid": "2d27217b_820aec39",
       "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
