@@ -7,6 +7,7 @@
 #ifndef FXBARCODE_QRCODE_BC_QRCODERECBLOCKS_H_
 #define FXBARCODE_QRCODE_BC_QRCODERECBLOCKS_H_
 
+#include <cstdint>
 #include <vector>
 
 struct CBC_QRCoderECBlockData;
