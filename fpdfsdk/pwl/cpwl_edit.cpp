@@ -331,7 +331,12 @@ bool CPWL_Edit::OnRButtonUp(const CFX_PointF& point, uint32_t nFlag) {
 }
 
 void CPWL_Edit::OnSetFocus() {
+  ObservedPtr observed_ptr(this);
+
   SetEditCaret(true);
+  if (!observed_ptr)
+    return;
+
   if (!IsReadOnly()) {
     if (CPWL_Wnd::FocusHandlerIface* pFocusHandler = GetFocusHandler())
       pFocusHandler->OnSetFocus(this);
@@ -340,7 +345,8 @@ void CPWL_Edit::OnSetFocus() {
 }
 
 void CPWL_Edit::OnKillFocus() {
-  ObservedPtr observed_ptr = ObservedPtr(this);
+  ObservedPtr observed_ptr(this);
+
   CPWL_ScrollBar* pScroll = GetVScrollBar();
   if (pScroll && pScroll->IsVisible()) {
     pScroll->SetVisible(false);
