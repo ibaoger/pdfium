@@ -7,6 +7,7 @@
 #ifndef XFA_FXFA_CXFA_TEXTTABSTOPSCONTEXT_H_
 #define XFA_FXFA_CXFA_TEXTTABSTOPSCONTEXT_H_
 
+#include <stdint.h>
 #include <vector>
 
 struct XFA_TABSTOPS {
