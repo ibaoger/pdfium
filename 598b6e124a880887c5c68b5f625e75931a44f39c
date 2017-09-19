@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59fa5aa1_43c1cba5",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T17:16:45Z",
+      "side": 1,
+      "message": "nit: extra blank line?",
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b567ed5d_d38487c0",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T17:16:45Z",
+      "side": 1,
+      "message": "not clear which call would invalidate us.  GetVScrollBar()?  SetVisible()?",
+      "range": {
+        "startLine": 358,
+        "startChar": 2,
+        "endLine": 358,
+        "endChar": 20
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee3ecbaa_ea1c1ffb",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T17:16:45Z",
+      "side": 1,
+      "message": "again, maybe wrap tighter aound the call that causes trouble.  If we skip over this block, there\u0027s no point doing the set insert/erase regquired to track the oberserver...",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
