@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30edcd25_adeafe51",
+        "filename": "fxbarcode/qrcode/BC_QRCoderECBlocks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T12:24:55Z",
+      "side": 1,
+      "message": "The code predominately uses \u003cstdint.h\u003e instead of \u003ccstdint\u003e can you switch these?",
+      "revId": "0ba031b8bcf9ce5e2f44c6c0b7af3c6aefc6a644",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
