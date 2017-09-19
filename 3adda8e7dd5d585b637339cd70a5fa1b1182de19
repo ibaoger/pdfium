@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cc16fd2_101483b8",
+        "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:46:36Z",
+      "side": 1,
+      "message": "followup",
+      "parentUuid": "3ccaa03d_0ae5b934",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 2
+      },
+      "revId": "3adda8e7dd5d585b637339cd70a5fa1b1182de19",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43dfc593_27f52e9e",
         "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-19T17:38:26Z",
       "side": 1,
       "message": "nit: again, this whole method would be happier with early returns and no else (e.g. invert line 75 test and return after this block, etc.).",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 4
+      },
+      "revId": "3adda8e7dd5d585b637339cd70a5fa1b1182de19",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae0be3b1_171e0852",
+        "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:46:36Z",
+      "side": 1,
+      "message": "followup",
+      "parentUuid": "43dfc593_27f52e9e",
       "range": {
         "startLine": 108,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "615575b3_8211094b",
+        "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:46:36Z",
+      "side": 1,
+      "message": "followup",
+      "parentUuid": "a3bcaa78_7b8c775a",
+      "range": {
+        "startLine": 124,
+        "startChar": 1,
+        "endLine": 124,
+        "endChar": 10
+      },
+      "revId": "3adda8e7dd5d585b637339cd70a5fa1b1182de19",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2418246d_5c8377da",
         "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "3adda8e7dd5d585b637339cd70a5fa1b1182de19",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dff793a_cc5f51f1",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2418246d_5c8377da",
+      "range": {
+        "startLine": 98,
+        "startChar": 22,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "3adda8e7dd5d585b637339cd70a5fa1b1182de19",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
