@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "0ffb0317_c80aac70",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T17:17:39Z",
+      "side": 1,
+      "message": "can this whack us, too, leading to issue at 344?",
+      "range": {
+        "startLine": 342,
+        "startChar": 6,
+        "endLine": 342,
+        "endChar": 38
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b567ed5d_d38487c0",
         "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
         "patchSetId": 1
