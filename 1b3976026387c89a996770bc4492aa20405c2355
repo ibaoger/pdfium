@@ -22,6 +22,30 @@
       "revId": "1b3976026387c89a996770bc4492aa20405c2355",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e385db5_1a4f3ba2",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T15:31:14Z",
+      "side": 1,
+      "message": "Nope, see line 1030, we early exit if (IsEOF(bPrev)).",
+      "parentUuid": "6affd52e_021bce28",
+      "range": {
+        "startLine": 1042,
+        "startChar": 8,
+        "endLine": 1042,
+        "endChar": 23
+      },
+      "revId": "1b3976026387c89a996770bc4492aa20405c2355",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
