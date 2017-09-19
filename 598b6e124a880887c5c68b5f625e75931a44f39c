@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ef84241_a3e122ff",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59fa5aa1_43c1cba5",
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ffb0317_c80aac70",
         "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-09-19T17:17:39Z",
       "side": 1,
       "message": "can this whack us, too, leading to issue at 344?",
+      "range": {
+        "startLine": 342,
+        "startChar": 6,
+        "endLine": 342,
+        "endChar": 38
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be2ad90c_61612ec4",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:31:03Z",
+      "side": 1,
+      "message": "Maybe? Wrapped to be safe. This looks like it ends up in FFI_* code so... who knows what can happen.",
+      "parentUuid": "0ffb0317_c80aac70",
       "range": {
         "startLine": 342,
         "startChar": 6,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "686000ea_64dfe17c",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:31:03Z",
+      "side": 1,
+      "message": "rharrison@ can you fix this in a followup on your CL?",
+      "parentUuid": "b567ed5d_d38487c0",
+      "range": {
+        "startLine": 358,
+        "startChar": 2,
+        "endLine": 358,
+        "endChar": 20
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee3ecbaa_ea1c1ffb",
         "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-09-19T17:16:45Z",
       "side": 1,
       "message": "again, maybe wrap tighter aound the call that causes trouble.  If we skip over this block, there\u0027s no point doing the set insert/erase regquired to track the oberserver...",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "598b6e124a880887c5c68b5f625e75931a44f39c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3428092_85374440",
+        "filename": "fpdfsdk/pwl/cpwl_wnd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T17:31:03Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "ee3ecbaa_ea1c1ffb",
       "range": {
         "startLine": 105,
         "startChar": 6,
