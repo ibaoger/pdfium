@@ -116,6 +116,24 @@
       "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4af75e3_4286d590",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T13:23:07Z",
+      "side": 1,
+      "message": "The only thing that happens in OnDestroy is to set the pointer to nullptr which means you already have to check for m_pDocument before usage as it can be null.\n\nSo, if you have an observed ptr, you just check if that is null and you don\u0027t need OnDestroy.\n\nI\u0027m not sure why you  need to change everyplace that holds a document, the CPDF_ObjectAvail seems to work fine now as a CFX_UnownedPtr. What other locations are currently a raw document that have lifetime issue?",
+      "parentUuid": "717086ed_25e20cfb",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
