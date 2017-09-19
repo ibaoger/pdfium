@@ -83,7 +83,12 @@ void CPWL_Caret::SetCaret(bool bVisible,
       m_ptFoot = ptFoot;
       EndTimer();
       BeginTimer(PWL_CARET_FLASHINTERVAL);
+
+      ObservedPtr observer(this);
       CPWL_Wnd::SetVisible(true);
+      if (!observer)
+        return;
+
       m_bFlash = true;
       Move(m_rcInvalid, false, true);
     }
