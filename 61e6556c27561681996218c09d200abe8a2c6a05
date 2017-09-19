@@ -152,6 +152,24 @@
       "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51358cf9_11c06174",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-19T13:53:35Z",
+      "side": 1,
+      "message": "JFYI:\nThis CL needs for fix compilation in this CL:\nhttps://pdfium-review.googlesource.com/c/pdfium/+/13530\nAs you can see in CL, the CPDF_DataAvail::m_pFormAvail containes pointer to document.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_object_avail.h?rcl\u003d5b2092a1ec59077b430bd2cab91554cad2eb5128\u0026l\u003d46.\n\nAnd this pointer outlive the document (because the CPDF_DataAvail outlive the document).",
+      "parentUuid": "4c4f793a_560760f5",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
