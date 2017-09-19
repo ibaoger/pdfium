@@ -16,6 +16,24 @@
       "revId": "0ba031b8bcf9ce5e2f44c6c0b7af3c6aefc6a644",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee4c2b52_89818965",
+        "filename": "fxbarcode/qrcode/BC_QRCoderECBlocks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7228
+      },
+      "writtenOn": "2017-09-19T12:27:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30edcd25_adeafe51",
+      "revId": "0ba031b8bcf9ce5e2f44c6c0b7af3c6aefc6a644",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
