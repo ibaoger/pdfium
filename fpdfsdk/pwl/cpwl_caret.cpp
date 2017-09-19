@@ -56,12 +56,13 @@ void CPWL_Caret::DrawThisAppearance(CFX_RenderDevice* pDevice,
 void CPWL_Caret::TimerProc() {
   if (m_nDelay > 0) {
     m_nDelay--;
-  } else {
-    m_bFlash = !m_bFlash;
-    InvalidateRect(nullptr);
-    // Note, |this| may no longer be viable at this point. If more work needs
-    // to be done, add an observer.
+    return;
   }
+
+  m_bFlash = !m_bFlash;
+  InvalidateRect(nullptr);
+  // Note, |this| may no longer be viable at this point. If more work needs
+  // to be done, add an observer.
 }
 
 CFX_FloatRect CPWL_Caret::GetCaretRect() const {
@@ -82,48 +83,54 @@ void CPWL_Caret::SetCaret(bool bVisible,
         // Note, |this| may no longer be viable at this point. If more work
         // needs to be done, add an observer.
       }
-    } else {
-      m_ptHead = ptHead;
-      m_ptFoot = ptFoot;
-      EndTimer();
-      BeginTimer(PWL_CARET_FLASHINTERVAL);
-
-      ObservedPtr observer(this);
-      CPWL_Wnd::SetVisible(true);
-      if (!observer)
-        return;
-
-      m_bFlash = true;
-      Move(m_rcInvalid, false, true);
-      // Note, |this| may no longer be viable at this point. If more work needs
-      // to be done, add an observer.
+      return;
     }
-  } else {
-    m_ptHead = CFX_PointF();
-    m_ptFoot = CFX_PointF();
-    m_bFlash = false;
-    if (IsVisible()) {
-      EndTimer();
-      CPWL_Wnd::SetVisible(false);
-      // Note, |this| may no longer be viable at this point. If more work needs
-      // to be done, add an observer.
-    }
+
+    m_ptHead = ptHead;
+    m_ptFoot = ptFoot;
+    EndTimer();
+    BeginTimer(PWL_CARET_FLASHINTERVAL);
+
+    ObservedPtr observer(this);
+    CPWL_Wnd::SetVisible(true);
+    if (!observer)
+      return;
+
+    m_bFlash = true;
+    Move(m_rcInvalid, false, true);
+    // Note, |this| may no longer be viable at this point. If more work needs
+    // to be done, add an observer.
+    return;
   }
+
+  m_ptHead = CFX_PointF();
+  m_ptFoot = CFX_PointF();
+  m_bFlash = false;
+  if (!IsVisible())
+    return;
+
+  EndTimer();
+  CPWL_Wnd::SetVisible(false);
+  // Note, |this| may no longer be viable at this point. If more work needs
+  // to be done, add an observer.
 }
 
 void CPWL_Caret::InvalidateRect(CFX_FloatRect* pRect) {
-  if (pRect) {
-    CFX_FloatRect rcRefresh = *pRect;
-    if (!rcRefresh.IsEmpty()) {
-      rcRefresh.Inflate(0.5f, 0.5f);
-      rcRefresh.Normalize();
-    }
-    rcRefresh.top += 1;
-    rcRefresh.bottom -= 1;
-    CPWL_Wnd::InvalidateRect(&rcRefresh);
-  } else {
-    CPWL_Wnd::InvalidateRect(pRect);
+  if (!pRect) {
+    CPWL_Wnd::InvalidateRect(nullptr);
+    // Note, |this| may no longer be viable at this point. If more work needs
+    // to be done, add an observer.
+    return;
   }
+
+  CFX_FloatRect rcRefresh = *pRect;
+  if (!rcRefresh.IsEmpty()) {
+    rcRefresh.Inflate(0.5f, 0.5f);
+    rcRefresh.Normalize();
+  }
+  rcRefresh.top += 1;
+  rcRefresh.bottom -= 1;
+  CPWL_Wnd::InvalidateRect(&rcRefresh);
   // Note, |this| may no longer be viable at this point. If more work needs
   // to be done, add an observer.
 }
