@@ -106,6 +106,24 @@
       "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b343c82_089ce3a2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-19T15:10:17Z",
+      "side": 1,
+      "message": "Can we change the syntax parser to work with the data that\u0027s available instead of working around the mismatch in request sizes?\n\nIf SyntaxParser has 900 to end of file, why does it re-request from 512?",
+      "parentUuid": "18ee0c49_08d7a270",
+      "revId": "f8e840e42f58815e4150754cbb663e8e6763ba26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
