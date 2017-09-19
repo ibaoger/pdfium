@@ -16,6 +16,24 @@
       "revId": "7404a3a685a0592f52fc4523a6f89e7f8a130bb3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf82072_370b43cd",
+        "filename": "fxbarcode/common/BC_CommonBitArray.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 7228
+      },
+      "writtenOn": "2017-09-19T12:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d50d97ef_469638fc",
+      "revId": "7404a3a685a0592f52fc4523a6f89e7f8a130bb3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
