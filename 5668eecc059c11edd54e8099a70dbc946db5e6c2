@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46bab2a5_5c138cd2",
+        "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T19:40:38Z",
+      "side": 1,
+      "message": "nit: --m_nDelay;",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 15
+      },
+      "revId": "5668eecc059c11edd54e8099a70dbc946db5e6c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a270820_af2ae92c",
+        "filename": "fpdfsdk/pwl/cpwl_caret.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-19T19:40:38Z",
+      "side": 1,
+      "message": "I\u0027d invert this test.  Then we have less nesting.",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "5668eecc059c11edd54e8099a70dbc946db5e6c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
