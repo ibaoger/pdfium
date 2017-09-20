@@ -17,6 +17,24 @@
       "revId": "1e3d0ac00af2227a536f242d2799660a334a5693",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f62ab88d_6cad851d",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-20T04:43:13Z",
+      "side": 1,
+      "message": "None of the use_system_$libname options are expected to work on non-Linux. GN will fail. Freetype example is in build/config/freetype/BUILD.gn and build/linux/BUILD.gn.",
+      "parentUuid": "3d107fff_0109b2d6",
+      "revId": "1e3d0ac00af2227a536f242d2799660a334a5693",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
