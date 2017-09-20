@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c6ce396_3fab711f",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-20T15:09:14Z",
+      "side": 1,
+      "message": "I would consider putting this in the header, and including a comment in the implementation on the line that can trigger Layout.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 71
+      },
+      "revId": "b3b540fdd4e79b297fc49c6ba42505751f9b018c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3572f58f_2614bf40",
+        "filename": "xfa/fde/cfde_texteditengine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-20T15:09:14Z",
+      "side": 1,
+      "message": "Why did you move these out of the while scope? They don\u0027t appear to be used anywhere but in that scope.",
+      "range": {
+        "startLine": 976,
+        "startChar": 2,
+        "endLine": 978,
+        "endChar": 0
+      },
+      "revId": "b3b540fdd4e79b297fc49c6ba42505751f9b018c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
