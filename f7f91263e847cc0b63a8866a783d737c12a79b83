@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4adf213a_4deec526",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T18:31:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f745b6_d99b019e",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "f7f91263e847cc0b63a8866a783d737c12a79b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0965cff_d2634ae3",
         "filename": "core/fxge/agg/fx_agg_driver.cpp",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-09-20T17:53:33Z",
       "side": 1,
       "message": "Right, so if |i| is 0, do we do this or reject the path? Can we craft a PDF to test the our behavior against other PDF readers?",
+      "revId": "f7f91263e847cc0b63a8866a783d737c12a79b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67cacfc4_839a9194",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T18:31:39Z",
+      "side": 1,
+      "message": "Per spec, it should be an error:\n\nIf the current path is empty, the current point is undefined. Most operators that add a segment to the current path start at the current point; if the current point is undefined, an error is generated.\n\nCreating a bad PDF we seem to do the same as Acrobat, but it isn\u0027t because of this code. If I\u0027m missing the initial current point we never actually get to run this, so somewhere else we seem to detect that a bezier without a current point isn\u0027t valid and bail out and never try to render the path. So, this code is just extra safety.",
+      "parentUuid": "a0965cff_d2634ae3",
       "revId": "f7f91263e847cc0b63a8866a783d737c12a79b83",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
