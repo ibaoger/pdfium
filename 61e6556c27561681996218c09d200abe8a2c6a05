@@ -170,6 +170,24 @@
       "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86fc628a_a3626a33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T20:43:18Z",
+      "side": 1,
+      "message": "I\u0027m going to take a look at the code and see if I can figure out how these things are all related and if there are better lifetime semantics we can use here.\n\nAdding more observers and methods on Destroy is going to make the code more complicated.",
+      "parentUuid": "51358cf9_11c06174",
+      "revId": "61e6556c27561681996218c09d200abe8a2c6a05",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
