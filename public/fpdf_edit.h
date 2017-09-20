@@ -42,6 +42,12 @@
 #define FPDF_PAGEOBJ_SHADING 4
 #define FPDF_PAGEOBJ_FORM 5
 
+// The path point object constants.
+#define FPDF_PATHPOINTOBJ_UNKNOWN -1
+#define FPDF_PATHPOINTOBJ_LINETO 0
+#define FPDF_PATHPOINTOBJ_BEZIERTO 1
+#define FPDF_PATHPOINTOBJ_MOVETO 2
+
 #define FPDF_FILLMODE_ALTERNATE 1
 #define FPDF_FILLMODE_WINDING 2
 
@@ -552,6 +558,7 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
                                                           unsigned int* B,
                                                           unsigned int* A);
 
+// Experimental API.
 // Get number of point objects inside |path|.
 //
 //   path - handle to a path.
@@ -561,6 +568,45 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPath_GetFillColor(FPDF_PAGEOBJECT path,
 //
 // Returns the number of objects in |path| or -1 on failure.
 FPDF_EXPORT int FPDF_CALLCONV FPDFPath_CountPoint(FPDF_PAGEOBJECT path);
+
+// Experimental API.
+// Get point in |path| at |index|.
+//
+//   path  - handle to a path.
+//   index - the index of a point object.
+//
+// Returns the handle to the point object, or NULL on faiure.
+FPDF_EXPORT FPDF_PATHPOINTOBJECT FPDF_CALLCONV
+FPDFPath_GetPathPointObject(FPDF_PAGEOBJECT path, int index);
+
+// Experimental API.
+// Get coordinates of |point|.
+//
+//   point  - handle to a point.
+//   x      - the horizontal position of the point.
+//   y      - the vertical position of the point.
+//
+// Returns TRUE on success, otherwise |x| and |y| is not set.
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFPathPoint_GetPoint(FPDF_PATHPOINTOBJECT point, float* x, float* y);
+
+// Experimental API.
+// Get type of |point|.
+//
+//   point - handle to a point.
+//
+// Returns one of the FPDF_PATHPOINTOBJ_* values on success,
+// FPDF_PATHPOINTOBJ_UNKNOWN on error.
+FPDF_EXPORT int FPDF_CALLCONV FPDFPathPoint_GetType(FPDF_PATHPOINTOBJECT point);
+
+// Experimental API.
+// Gets if the |point| closes the current subpath of a given path.
+//
+//   point - handle to a point.
+//
+// Returns close flag for non-NULL point, FALSE otherwise.
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFPathPoint_GetClose(FPDF_PATHPOINTOBJECT point);
 
 // Move a path's current point.
 //

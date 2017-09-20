@@ -358,6 +358,11 @@ CFX_DIBitmap* CFXBitmapFromFPDFBitmap(FPDF_BITMAP bitmap) {
   return static_cast<CFX_DIBitmap*>(bitmap);
 }
 
+const FX_PATHPOINT* FXPathPointFromFPDFPathPointObject(
+    FPDF_PATHPOINTOBJECT point) {
+  return static_cast<const FX_PATHPOINT*>(point);
+}
+
 unsigned long Utf16EncodeMaybeCopyAndReturnLength(const CFX_WideString& text,
                                                   void* buffer,
                                                   unsigned long buflen) {
