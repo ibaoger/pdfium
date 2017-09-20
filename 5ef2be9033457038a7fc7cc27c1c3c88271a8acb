@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee998b45_395ab4b1",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T14:38:53Z",
+      "side": 1,
+      "message": "I think this API needs to be extended a bit. Just knowing the points in the path doesn\u0027t necessarily help you as you need to know what type of point it is. Is it a LINE_TO, MOVE_TO, BEZIER_TO. Just having the points doesn\u0027t tell you what to do with them.\n\nWe probably want this to return a FPDF_PathNode object which is a void* and here we just return the FX_PATHPOINT static cast to the FPDF_PathNode.\n\nThen we add methods to get the FPDF_PathNodeType, FPDF_PathNodePoint, FPDF_PathNodeIsClose which correspond to the params in FX_PATHPOINT.\n\n(Note, FPDF_PathNode is a terrible name and I can\u0027t think of a better one off the top of my head)\n\nLet me know if you don\u0027t have time to make these changes and I\u0027ll see what we can do.",
+      "revId": "5ef2be9033457038a7fc7cc27c1c3c88271a8acb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
