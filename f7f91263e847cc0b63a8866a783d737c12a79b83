@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45f745b6_d99b019e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-20T17:53:33Z",
+      "side": 1,
+      "message": "comma",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "f7f91263e847cc0b63a8866a783d737c12a79b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0965cff_d2634ae3",
+        "filename": "core/fxge/agg/fx_agg_driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-09-20T17:53:33Z",
+      "side": 1,
+      "message": "Right, so if |i| is 0, do we do this or reject the path? Can we craft a PDF to test the our behavior against other PDF readers?",
+      "revId": "f7f91263e847cc0b63a8866a783d737c12a79b83",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
