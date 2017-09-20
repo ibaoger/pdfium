@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "020c508c_7812df37",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T19:37:04Z",
+      "side": 1,
+      "message": "return pPathPoint ? static_cast\u003cint\u003e(pPathPoint-\u003em_Type) : FPDF_PATHPOINTOBJ_UNKNOWN;",
+      "revId": "f517bd960be940d3437f7680549d45c34f763b28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a2db74_97863cf7",
+        "filename": "fpdfsdk/fpdfeditpath.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T19:37:04Z",
+      "side": 1,
+      "message": "return pPathPoint ? pPathPoint-\u003em_CloseFigure : false;",
+      "revId": "f517bd960be940d3437f7680549d45c34f763b28",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
