@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1505860031 -0700\nnonce AJMiPPegDCccTkrrsYq/h3B2xQ85P9dzERwHzFNtsu9reL+9hunxckVftIw1eTz17AzzdSiLCgKr\n\n0000000000000000000000000000000000000000 1e3d0ac00af2227a536f242d2799660a334a5693 refs/for/refs/heads/master%notify\u003dNONE,m\u003dfix\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZwZm/AAoJEKs2LWFaZv17y0IH/jwjxCPGMDTYXICLwmih+oSp\nHgZUNR/FcXihfLn7A+MspmXDbvbBbVXU7MTOOKA964lzzglluKwLynhq9OVlEIP1\nHBjBPLJeeUyrWzGxGtBl0l2tjZ2QT2d1jTQCPRWFoMC6wZcGG50iLuMMiYevYDJx\nTVji6ndvnf2A52DA39D0pDArkUeLRWc2TbTXI6djdP+uB05MILAGWgZ59KDRsN57\nW0kx4RmCobHGAEwo3JIOQ7WK4fZ3dW8AezhkIxALtgfTEDvLSY8nDCmRFnMMJx6q\nJba2OY9q6GAvKWkCrj+ttthOZIfPXQPIB9pPJWMIZ7BgJPmfdzMnu3FX1FruJO8\u003d\n\u003d/dwu\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d107fff_0109b2d6",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-20T01:31:58Z",
+      "side": 1,
+      "message": "What happens if someone uses use_system_lcms2 on mac or windows? Does the pkg-config.gni work, or does it have a os_linux check in it to early exit?",
+      "revId": "1e3d0ac00af2227a536f242d2799660a334a5693",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
