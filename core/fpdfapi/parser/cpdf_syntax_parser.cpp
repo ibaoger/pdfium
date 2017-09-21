@@ -44,8 +44,7 @@ CPDF_SyntaxParser::CPDF_SyntaxParser()
     : CPDF_SyntaxParser(WeakPtr<ByteStringPool>()) {}
 
 CPDF_SyntaxParser::CPDF_SyntaxParser(const WeakPtr<ByteStringPool>& pPool)
-    : m_MetadataObjnum(0),
-      m_pFileAccess(nullptr),
+    : m_pFileAccess(nullptr),
       m_pFileBuf(nullptr),
       m_BufSize(CPDF_ModuleMgr::kFileBufSize),
       m_pPool(pPool) {}
@@ -361,13 +360,9 @@ ByteString CPDF_SyntaxParser::GetKeyword() {
 }
 
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBody(
-    CPDF_IndirectObjectHolder* pObjList,
-    uint32_t objnum,
-    uint32_t gennum,
-    bool bDecrypt) {
+    CPDF_IndirectObjectHolder* pObjList) {
   const CPDF_ReadValidator::Session read_session(GetValidator().Get());
-  auto result = GetObjectBodyInternal(pObjList, objnum, gennum, bDecrypt,
-                                      ParseType::kLoose);
+  auto result = GetObjectBodyInternal(pObjList, ParseType::kLoose);
   if (GetValidator()->has_read_problems())
     return nullptr;
   return result;
@@ -375,9 +370,6 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBody(
 
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
     CPDF_IndirectObjectHolder* pObjList,
-    uint32_t objnum,
-    uint32_t gennum,
-    bool bDecrypt,
     ParseType parse_type) {
   AutoRestorer<int> restorer(&s_CurrentRecursionDepth);
   if (++s_CurrentRecursionDepth > kParserMaxRecursionDepth)
@@ -413,20 +405,16 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
 
   if (word == "(") {
     ByteString str = ReadString();
-    if (m_pCryptoHandler && bDecrypt)
-      str = m_pCryptoHandler->Decrypt(objnum, gennum, str);
     return pdfium::MakeUnique<CPDF_String>(m_pPool, str, false);
   }
   if (word == "<") {
     ByteString str = ReadHexString();
-    if (m_pCryptoHandler && bDecrypt)
-      str = m_pCryptoHandler->Decrypt(objnum, gennum, str);
     return pdfium::MakeUnique<CPDF_String>(m_pPool, str, true);
   }
   if (word == "[") {
     auto pArray = pdfium::MakeUnique<CPDF_Array>();
-    while (std::unique_ptr<CPDF_Object> pObj = GetObjectBodyInternal(
-               pObjList, objnum, gennum, true, ParseType::kLoose)) {
+    while (std::unique_ptr<CPDF_Object> pObj =
+               GetObjectBodyInternal(pObjList, ParseType::kLoose)) {
       pArray->Add(std::move(pObj));
     }
     return (parse_type == ParseType::kLoose || m_WordBuffer[0] == ']')
@@ -439,7 +427,6 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
         PDF_NameDecode(ByteStringView(m_WordBuffer + 1, m_WordSize - 1)));
   }
   if (word == "<<") {
-    FX_FILESIZE dwSignValuePos = 0;
     std::unique_ptr<CPDF_Dictionary> pDict =
         pdfium::MakeUnique<CPDF_Dictionary>(m_pPool);
     while (1) {
@@ -459,14 +446,12 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
         continue;
 
       key = PDF_NameDecode(key);
-      if (key == "/Contents")
-        dwSignValuePos = m_Pos;
 
       if (key.IsEmpty() && parse_type == ParseType::kLoose)
         continue;
 
-      std::unique_ptr<CPDF_Object> pObj = GetObjectBodyInternal(
-          pObjList, objnum, gennum, true, ParseType::kLoose);
+      std::unique_ptr<CPDF_Object> pObj =
+          GetObjectBodyInternal(pObjList, ParseType::kLoose);
       if (!pObj) {
         if (parse_type == ParseType::kLoose)
           continue;
@@ -481,24 +466,13 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
       }
     }
 
-    // Only when this is a signature dictionary and has contents, we reset the
-    // contents to the un-decrypted form.
-    if (m_pCryptoHandler && bDecrypt && pDict->IsSignatureDict() &&
-        dwSignValuePos) {
-      AutoRestorer<FX_FILESIZE> save_pos(&m_Pos);
-      m_Pos = dwSignValuePos;
-      pDict->SetFor("Contents",
-                    GetObjectBodyInternal(pObjList, objnum, gennum, false,
-                                          ParseType::kLoose));
-    }
-
     FX_FILESIZE SavedPos = m_Pos;
     ByteString nextword = GetNextWord(nullptr);
     if (nextword != "stream") {
       m_Pos = SavedPos;
       return std::move(pDict);
     }
-    return ReadStream(std::move(pDict), objnum, gennum);
+    return ReadStream(std::move(pDict));
   }
   if (word == ">>")
     m_Pos = SavedObjPos;
@@ -506,23 +480,8 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyInternal(
   return nullptr;
 }
 
-std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetObjectBodyForStrict(
-    CPDF_IndirectObjectHolder* pObjList,
-    uint32_t objnum,
-    uint32_t gennum,
-    bool bDecrypt) {
-  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
-  auto result = GetObjectBodyInternal(pObjList, objnum, gennum, bDecrypt,
-                                      ParseType::kStrict);
-  if (GetValidator()->has_read_problems())
-    return nullptr;
-  return result;
-}
-
 std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetIndirectObject(
     CPDF_IndirectObjectHolder* pObjList,
-    uint32_t objnum,
-    bool bDecrypt,
     ParseType parse_type) {
   const CPDF_ReadValidator::Session read_session(GetValidator().Get());
   const FX_FILESIZE saved_pos = GetPos();
@@ -532,30 +491,24 @@ std::unique_ptr<CPDF_Object> CPDF_SyntaxParser::GetIndirectObject(
     SetPos(saved_pos);
     return nullptr;
   }
-
-  uint32_t parser_objnum = FXSYS_atoui(word.c_str());
-  if (objnum && parser_objnum != objnum) {
-    SetPos(saved_pos);
-    return nullptr;
-  }
+  const uint32_t parser_objnum = FXSYS_atoui(word.c_str());
 
   word = GetNextWord(&is_number);
   if (!is_number || word.IsEmpty()) {
     SetPos(saved_pos);
     return nullptr;
   }
-
   const uint32_t parser_gennum = FXSYS_atoui(word.c_str());
+
   if (GetKeyword() != "obj") {
     SetPos(saved_pos);
     return nullptr;
   }
 
-  std::unique_ptr<CPDF_Object> pObj = GetObjectBodyInternal(
-      pObjList, objnum, parser_gennum, bDecrypt, parse_type);
+  std::unique_ptr<CPDF_Object> pObj =
+      GetObjectBodyInternal(pObjList, parse_type);
   if (pObj) {
-    if (!objnum)
-      pObj->m_ObjNum = parser_objnum;
+    pObj->m_ObjNum = parser_objnum;
     pObj->m_GenNum = parser_gennum;
   }
 
@@ -579,9 +532,7 @@ unsigned int CPDF_SyntaxParser::ReadEOLMarkers(FX_FILESIZE pos) {
 }
 
 std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
-    std::unique_ptr<CPDF_Dictionary> pDict,
-    uint32_t objnum,
-    uint32_t gennum) {
+    std::unique_ptr<CPDF_Dictionary> pDict) {
   const CPDF_Number* pLenObj = ToNumber(pDict->GetDirectObjectFor("Length"));
   FX_FILESIZE len = pLenObj ? pLenObj->GetInteger() : -1;
 
@@ -592,9 +543,6 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
   const ByteStringView kEndStreamStr("endstream");
   const ByteStringView kEndObjStr("endobj");
 
-  CPDF_CryptoHandler* pCryptoHandler =
-      objnum == m_MetadataObjnum ? nullptr : m_pCryptoHandler.Get();
-  if (!pCryptoHandler) {
     bool bSearchForKeyword = true;
     if (len >= 0) {
       pdfium::base::CheckedNumeric<FX_FILESIZE> pos = m_Pos;
@@ -681,7 +629,7 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
       pDict->SetNewFor<CPDF_Number>("Length", static_cast<int>(len));
     }
     m_Pos = streamStartPos;
-  }
+
   // Read up to the end of the buffer. Note, we allow zero length streams as
   // we need to pass them through when we are importing pages into a new
   // document.
@@ -691,21 +639,8 @@ std::unique_ptr<CPDF_Stream> CPDF_SyntaxParser::ReadStream(
 
   std::unique_ptr<uint8_t, FxFreeDeleter> pData;
   if (len > 0) {
-    if (pCryptoHandler && pCryptoHandler->IsCipherAES() && len < 16)
-      return nullptr;
-
     pData.reset(FX_Alloc(uint8_t, len));
     ReadBlock(pData.get(), len);
-    if (pCryptoHandler) {
-      CFX_BinaryBuf dest_buf;
-      dest_buf.EstimateSize(pCryptoHandler->DecryptGetSize(len));
-
-      void* context = pCryptoHandler->DecryptStart(objnum, gennum);
-      pCryptoHandler->DecryptStream(context, pData.get(), len, dest_buf);
-      pCryptoHandler->DecryptFinish(context, dest_buf);
-      len = dest_buf.GetSize();
-      pData = dest_buf.DetachBuffer();
-    }
   }
   auto pStream =
       pdfium::MakeUnique<CPDF_Stream>(std::move(pData), len, std::move(pDict));
@@ -842,11 +777,6 @@ FX_FILESIZE CPDF_SyntaxParser::FindTag(const ByteStringView& tag,
       return -1;
   }
   return -1;
-}
-
-void CPDF_SyntaxParser::SetEncrypt(
-    const RetainPtr<CPDF_CryptoHandler>& pCryptoHandler) {
-  m_pCryptoHandler = pCryptoHandler;
 }
 
 RetainPtr<IFX_SeekableReadStream> CPDF_SyntaxParser::GetFileAccess() const {
