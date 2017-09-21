@@ -415,3 +415,9 @@ bool CXFA_FFDoc::ImportData(const CFX_RetainPtr<IFX_SeekableStream>& pStream,
       pdfium::MakeUnique<CXFA_DataImporter>(m_pDocumentParser->GetDocument());
   return importer->ImportData(pStream);
 }
+
+CFX_RetainPtr<CFGAS_GEFont> CXFA_FFDoc::GetFont(
+    const WideStringView& wsFontFamily,
+    uint32_t dwFontStyles) {
+  return GetApp()->GetFont(this, wsFontFamily, dwFontStyles);
+}

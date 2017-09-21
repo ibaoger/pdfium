@@ -81,6 +81,9 @@ class CXFA_FFDoc {
   bool ImportData(const CFX_RetainPtr<IFX_SeekableStream>& pStream,
                   bool bXDP = true);
 
+  CFX_RetainPtr<CFGAS_GEFont> GetFont(const WideStringView& wsFontFamily,
+                                      uint32_t dwFontStyles);
+
  private:
   CFX_UnownedPtr<IXFA_DocEnvironment> const m_pDocEnvironment;
   std::unique_ptr<CXFA_DocumentParser> m_pDocumentParser;
