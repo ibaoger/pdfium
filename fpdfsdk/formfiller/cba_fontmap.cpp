@@ -67,22 +67,6 @@ void CBA_FontMap::Initialize() {
     CPWL_FontMap::Initialize();
 }
 
-void CBA_FontMap::SetDefaultFont(CPDF_Font* pFont,
-                                 const ByteString& sFontName) {
-  ASSERT(pFont);
-
-  if (m_pDefaultFont)
-    return;
-
-  m_pDefaultFont = pFont;
-  m_sDefaultFontName = sFontName;
-
-  int32_t nCharset = FX_CHARSET_Default;
-  if (const CFX_SubstFont* pSubstFont = m_pDefaultFont->GetSubstFont())
-    nCharset = pSubstFont->m_Charset;
-  AddFontData(m_pDefaultFont.Get(), m_sDefaultFontName, nCharset);
-}
-
 CPDF_Font* CBA_FontMap::FindFontSameCharset(ByteString* sFontAlias,
                                             int32_t nCharset) {
   if (m_pAnnotDict->GetStringFor("Subtype") != "Widget")

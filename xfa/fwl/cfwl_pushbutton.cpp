@@ -20,7 +20,7 @@
 #include "xfa/fwl/cfwl_themetext.h"
 #include "xfa/fwl/ifwl_themeprovider.h"
 
-CFWL_PushButton::CFWL_PushButton(const CFWL_App* app)
+CFWL_PushButton::CFWL_PushButton(CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_bBtnDown(false) {}
 
@@ -63,7 +63,7 @@ void CFWL_PushButton::DrawWidget(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_PushButton::DrawBkground(CXFA_Graphics* pGraphics,
-                                   IFWL_ThemeProvider* pTheme,
+                                   const IFWL_ThemeProvider* pTheme,
                                    const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;

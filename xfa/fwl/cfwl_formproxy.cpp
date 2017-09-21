@@ -13,7 +13,7 @@
 #include "xfa/fwl/cfwl_notedriver.h"
 
 CFWL_FormProxy::CFWL_FormProxy(
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_Form(app, std::move(properties), pOuter) {}

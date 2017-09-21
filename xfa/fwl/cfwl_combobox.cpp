@@ -30,7 +30,7 @@
 #include "xfa/fwl/cfwl_widgetmgr.h"
 #include "xfa/fwl/ifwl_themeprovider.h"
 
-CFWL_ComboBox::CFWL_ComboBox(const CFWL_App* app)
+CFWL_ComboBox::CFWL_ComboBox(CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_pComboBoxProxy(nullptr),
       m_bLButtonDown(false),
@@ -137,7 +137,7 @@ void CFWL_ComboBox::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
 
@@ -197,7 +197,7 @@ void CFWL_ComboBox::DrawWidget(CXFA_Graphics* pGraphics,
   pTheme->DrawBackground(&param);
 }
 
-void CFWL_ComboBox::SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) {
+void CFWL_ComboBox::SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider) {
   if (!pThemeProvider)
     return;
 
@@ -372,7 +372,7 @@ void CFWL_ComboBox::Layout() {
     return DisForm_Layout();
 
   m_rtClient = GetClientRect();
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (!theme)
     return;
 
@@ -396,7 +396,7 @@ void CFWL_ComboBox::Layout() {
 }
 
 void CFWL_ComboBox::ResetTheme() {
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (!pTheme) {
     pTheme = GetAvailableTheme();
     m_pProperties->m_pThemeProvider = pTheme;
@@ -616,7 +616,7 @@ FWL_WidgetHit CFWL_ComboBox::DisForm_HitTest(const CFX_PointF& point) {
 
 void CFWL_ComboBox::DisForm_DrawWidget(CXFA_Graphics* pGraphics,
                                        const CFX_Matrix* pMatrix) {
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   CFX_Matrix mtOrg;
   if (pMatrix)
     mtOrg = *pMatrix;
@@ -662,7 +662,7 @@ CFX_RectF CFWL_ComboBox::DisForm_GetBBox() const {
 void CFWL_ComboBox::DisForm_Layout() {
   m_rtClient = GetClientRect();
   m_rtContent = m_rtClient;
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (!theme)
     return;
 

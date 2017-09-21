@@ -17,7 +17,7 @@ class CFWL_Widget;
 
 class CFWL_PictureBox : public CFWL_Widget {
  public:
-  explicit CFWL_PictureBox(const CFWL_App* pApp);
+  explicit CFWL_PictureBox(CFWL_App* pApp);
   ~CFWL_PictureBox() override;
 
   // CFWL_Widget

@@ -27,7 +27,7 @@ class IFWL_ThemeProvider;
 
 class CFWL_Form : public CFWL_Widget {
  public:
-  CFWL_Form(const CFWL_App* app,
+  CFWL_Form(CFWL_App* app,
             std::unique_ptr<CFWL_WidgetProperties> properties,
             CFWL_Widget* pOuter);
   ~CFWL_Form() override;
@@ -50,7 +50,8 @@ class CFWL_Form : public CFWL_Widget {
   void SetSubFocus(CFWL_Widget* pWidget) { m_pSubFocus = pWidget; }
 
  private:
-  void DrawBackground(CXFA_Graphics* pGraphics, IFWL_ThemeProvider* pTheme);
+  void DrawBackground(CXFA_Graphics* pGraphics,
+                      const IFWL_ThemeProvider* pTheme);
   CFX_RectF GetEdgeRect();
   void SetWorkAreaRect();
   void Layout();

@@ -78,11 +78,11 @@ CXFA_FWLTheme::~CXFA_FWLTheme() {
   FWLTHEME_Release();
 }
 
-void CXFA_FWLTheme::DrawBackground(CFWL_ThemeBackground* pParams) {
+void CXFA_FWLTheme::DrawBackground(CFWL_ThemeBackground* pParams) const {
   GetTheme(pParams->m_pWidget)->DrawBackground(pParams);
 }
 
-void CXFA_FWLTheme::DrawText(CFWL_ThemeText* pParams) {
+void CXFA_FWLTheme::DrawText(CFWL_ThemeText* pParams) const {
   if (pParams->m_wsText.IsEmpty())
     return;
 
@@ -220,7 +220,8 @@ CFX_SizeF CXFA_FWLTheme::GetSpaceAboveBelow(CFWL_ThemePart* pThemePart) const {
   return sizeAboveBelow;
 }
 
-void CXFA_FWLTheme::CalcTextRect(CFWL_ThemeText* pParams, CFX_RectF& rect) {
+void CXFA_FWLTheme::CalcTextRect(CFWL_ThemeText* pParams,
+                                 CFX_RectF& rect) const {
   if (pParams->m_pWidget->GetClassID() == FWL_Type::MonthCalendar) {
     CXFA_FFWidget* pWidget = XFA_ThemeGetOuterWidget(pParams->m_pWidget);
     if (!pWidget || !pParams || !m_pTextOut)

@@ -161,7 +161,7 @@ class CXFA_FFWidget : public CXFA_ContentLayoutItem {
   bool IsLayoutRectEmpty();
   CXFA_FFWidget* GetParent();
   bool IsAncestorOf(CXFA_FFWidget* pWidget);
-  const CFWL_App* GetFWLApp();
+  CFWL_App* GetFWLApp();
 
  protected:
   virtual bool PtInActiveRect(const CFX_PointF& point);

@@ -15,6 +15,7 @@
 #include "core/fxcrt/observable.h"
 #include "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.h"
 #include "fpdfsdk/fpdfxfa/cpdfxfa_page.h"
+#include "xfa/fxfa/cxfa_ffapp.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
 
 class CJS_Runtime;
@@ -42,7 +43,7 @@ class CPDFXFA_Context : public IXFA_AppProvider {
   CXFA_FFDocView* GetXFADocView() { return m_pXFADocView.Get(); }
   XFA_DocType GetDocType() const { return m_iDocType; }
   v8::Isolate* GetJSERuntime() const;
-  CXFA_FFApp* GetXFAApp() { return m_pXFAApp.get(); }
+  CXFA_FFApp* GetXFAApp() { return &m_XFAApp; }
 
   CPDFSDK_FormFillEnvironment* GetFormFillEnv() const {
     return m_pFormFillEnv.Get();
@@ -106,7 +107,7 @@ class CPDFXFA_Context : public IXFA_AppProvider {
   std::unique_ptr<CXFA_FFDoc> m_pXFADoc;
   Observable<CPDFSDK_FormFillEnvironment>::ObservedPtr m_pFormFillEnv;
   CFX_UnownedPtr<CXFA_FFDocView> m_pXFADocView;
-  std::unique_ptr<CXFA_FFApp> m_pXFAApp;
+  CXFA_FFApp m_XFAApp;
   std::unique_ptr<CJS_Runtime> m_pRuntime;
   std::vector<CFX_RetainPtr<CPDFXFA_Page>> m_XFAPageList;
   LoadStatus m_nLoadStatus;

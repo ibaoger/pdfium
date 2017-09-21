@@ -65,7 +65,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   virtual FWL_WidgetHit HitTest(const CFX_PointF& point);
   virtual void DrawWidget(CXFA_Graphics* pGraphics,
                           const CFX_Matrix& matrix) = 0;
-  virtual void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider);
+  virtual void SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider);
 
   // IFWL_WidgetDelegate.
   void OnProcessMessage(CFWL_Message* pMessage) override;
@@ -94,7 +94,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
 
   CFX_PointF TransformTo(CFWL_Widget* pWidget, const CFX_PointF& point);
   CFX_Matrix GetMatrix();
-  IFWL_ThemeProvider* GetThemeProvider() const;
+  const IFWL_ThemeProvider* GetThemeProvider() const;
 
   void SetDelegate(IFWL_WidgetDelegate* delegate) { m_pDelegate = delegate; }
   IFWL_WidgetDelegate* GetDelegate() {
@@ -104,7 +104,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
     return m_pDelegate ? m_pDelegate.Get() : this;
   }
 
-  const CFWL_App* GetOwnerApp() const { return m_pOwnerApp.Get(); }
+  CFWL_App* GetOwnerApp() const { return m_pOwnerApp.Get(); }
   uint32_t GetEventKey() const { return m_nEventKey; }
   void SetEventKey(uint32_t key) { m_nEventKey = key; }
 
@@ -116,7 +116,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   void Repaint();
 
  protected:
-  CFWL_Widget(const CFWL_App* app,
+  CFWL_Widget(CFWL_App* app,
               std::unique_ptr<CFWL_WidgetProperties> properties,
               CFWL_Widget* pOuter);
 
@@ -126,12 +126,12 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   CFX_RectF GetEdgeRect();
   float GetBorderSize(bool bCX);
   CFX_RectF GetRelativeRect();
-  IFWL_ThemeProvider* GetAvailableTheme();
+  const IFWL_ThemeProvider* GetAvailableTheme();
   CFX_SizeF CalcTextSize(const WideString& wsText,
-                         IFWL_ThemeProvider* pTheme,
+                         const IFWL_ThemeProvider* pTheme,
                          bool bMultiLine);
   void CalcTextRect(const WideString& wsText,
-                    IFWL_ThemeProvider* pTheme,
+                    const IFWL_ThemeProvider* pTheme,
                     const FDE_TextStyle& dwTTOStyles,
                     FDE_TextAlignment iTTOAlign,
                     CFX_RectF& rect);
@@ -145,10 +145,10 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
   void DispatchEvent(CFWL_Event* pEvent);
   void DrawBorder(CXFA_Graphics* pGraphics,
                   CFWL_Part iPartBorder,
-                  IFWL_ThemeProvider* pTheme,
+                  const IFWL_ThemeProvider* pTheme,
                   const CFX_Matrix& pMatrix);
 
-  CFX_UnownedPtr<const CFWL_App> const m_pOwnerApp;
+  CFX_UnownedPtr<CFWL_App> const m_pOwnerApp;
   CFX_UnownedPtr<CFWL_WidgetMgr> const m_pWidgetMgr;
   std::unique_ptr<CFWL_WidgetProperties> m_pProperties;
   CFWL_Widget* m_pOuter;
@@ -177,7 +177,7 @@ class CFWL_Widget : public IFWL_WidgetDelegate {
                           CFX_RectF& rtPopup);
   void DrawBackground(CXFA_Graphics* pGraphics,
                       CFWL_Part iPartBk,
-                      IFWL_ThemeProvider* pTheme,
+                      const IFWL_ThemeProvider* pTheme,
                       const CFX_Matrix* pMatrix);
   void NotifyDriver();
   bool IsParent(CFWL_Widget* pParent);

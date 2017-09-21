@@ -62,7 +62,7 @@ void AddSquigglyPath(CXFA_Path* pPathData,
 
 }  // namespace
 
-CFWL_Edit::CFWL_Edit(const CFWL_App* app,
+CFWL_Edit::CFWL_Edit(CFWL_App* app,
                      std::unique_ptr<CFWL_WidgetProperties> properties,
                      CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -95,7 +95,7 @@ FWL_Type CFWL_Edit::GetClassID() const {
 CFX_RectF CFWL_Edit::GetWidgetRect() {
   CFX_RectF rect = m_pProperties->m_rtWidget;
   if (m_pProperties->m_dwStyleExes & FWL_STYLEEXT_EDT_OuterScrollbar) {
-    IFWL_ThemeProvider* theme = GetAvailableTheme();
+    const IFWL_ThemeProvider* theme = GetAvailableTheme();
     float scrollbarWidth = theme ? theme->GetScrollBarWidth() : 0.0f;
     if (IsShowScrollBar(true)) {
       rect.width += scrollbarWidth;
@@ -245,7 +245,7 @@ void CFWL_Edit::DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) {
   if (m_rtClient.IsEmpty())
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (!m_pWidgetMgr->IsFormDisabled())
     DrawTextBk(pGraphics, pTheme, &matrix);
   DrawContent(pGraphics, pTheme, &matrix);
@@ -258,7 +258,7 @@ void CFWL_Edit::DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) {
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
 }
 
-void CFWL_Edit::SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) {
+void CFWL_Edit::SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider) {
   if (!pThemeProvider)
     return;
   if (m_pHorzScrollBar)
@@ -429,7 +429,7 @@ void CFWL_Edit::SetScrollOffset(float fScrollOffset) {
 }
 
 void CFWL_Edit::DrawTextBk(CXFA_Graphics* pGraphics,
-                           IFWL_ThemeProvider* pTheme,
+                           const IFWL_ThemeProvider* pTheme,
                            const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
@@ -461,7 +461,7 @@ void CFWL_Edit::DrawTextBk(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_Edit::DrawContent(CXFA_Graphics* pGraphics,
-                            IFWL_ThemeProvider* pTheme,
+                            const IFWL_ThemeProvider* pTheme,
                             const CFX_Matrix* pMatrix) {
   pGraphics->SaveGraphState();
 
@@ -625,7 +625,7 @@ void CFWL_Edit::UpdateEditParams() {
   }
   m_EdtEngine.LimitHorizontalScroll(!auto_hscroll);
 
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   CFWL_ThemePart part;
   part.m_pWidget = this;
 
@@ -705,7 +705,7 @@ bool CFWL_Edit::UpdateOffset(CFWL_ScrollBar* pScrollBar, float fPosChanged) {
 void CFWL_Edit::UpdateVAlignment() {
   float fSpaceAbove = 0.0f;
   float fSpaceBelow = 0.0f;
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (theme) {
     CFWL_ThemePart part;
     part.m_pWidget = this;
@@ -840,7 +840,7 @@ bool CFWL_Edit::IsContentHeightOverflow() {
 void CFWL_Edit::Layout() {
   m_rtClient = GetClientRect();
   m_rtEngine = m_rtClient;
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (!theme)
     return;
 
@@ -913,7 +913,7 @@ void CFWL_Edit::LayoutScrollBar() {
   bool bShowVertScrollbar = IsShowScrollBar(true);
   bool bShowHorzScrollbar = IsShowScrollBar(false);
 
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   float fWidth = theme ? theme->GetScrollBarWidth() : 0;
   if (bShowVertScrollbar) {
     if (!m_pVertScrollBar) {

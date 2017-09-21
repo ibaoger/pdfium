@@ -28,7 +28,7 @@ const int kItemTextMargin = 2;
 
 }  // namespace
 
-CFWL_ListBox::CFWL_ListBox(const CFWL_App* app,
+CFWL_ListBox::CFWL_ListBox(CFWL_App* app,
                            std::unique_ptr<CFWL_WidgetProperties> properties,
                            CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -97,7 +97,7 @@ void CFWL_ListBox::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   pGraphics->SaveGraphState();
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
@@ -116,7 +116,7 @@ void CFWL_ListBox::DrawWidget(CXFA_Graphics* pGraphics,
   pGraphics->RestoreGraphState();
 }
 
-void CFWL_ListBox::SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) {
+void CFWL_ListBox::SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider) {
   if (pThemeProvider)
     m_pProperties->m_pThemeProvider = pThemeProvider;
 }
@@ -350,7 +350,7 @@ bool CFWL_ListBox::ScrollToVisible(CFWL_ListItem* pItem) {
 }
 
 void CFWL_ListBox::DrawBkground(CXFA_Graphics* pGraphics,
-                                IFWL_ThemeProvider* pTheme,
+                                const IFWL_ThemeProvider* pTheme,
                                 const CFX_Matrix* pMatrix) {
   if (!pGraphics)
     return;
@@ -373,7 +373,7 @@ void CFWL_ListBox::DrawBkground(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_ListBox::DrawItems(CXFA_Graphics* pGraphics,
-                             IFWL_ThemeProvider* pTheme,
+                             const IFWL_ThemeProvider* pTheme,
                              const CFX_Matrix* pMatrix) {
   float fPosX = 0.0f;
   if (m_pHorzScrollBar)
@@ -406,7 +406,7 @@ void CFWL_ListBox::DrawItems(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_ListBox::DrawItem(CXFA_Graphics* pGraphics,
-                            IFWL_ThemeProvider* pTheme,
+                            const IFWL_ThemeProvider* pTheme,
                             CFWL_ListItem* pItem,
                             int32_t Index,
                             const CFX_RectF& rtItem,
@@ -475,7 +475,7 @@ CFX_SizeF CFWL_ListBox::CalcSize(bool bAutoSize) {
   if (!m_pOuter) {
     CFWL_ThemePart part;
     part.m_pWidget = this;
-    IFWL_ThemeProvider* theme = GetAvailableTheme();
+    const IFWL_ThemeProvider* theme = GetAvailableTheme();
     CFX_RectF pUIMargin = theme ? theme->GetUIMargin(&part) : CFX_RectF();
     m_rtConent.Deflate(pUIMargin.left, pUIMargin.top, pUIMargin.width,
                        pUIMargin.height);
@@ -607,12 +607,12 @@ float CFWL_ListBox::GetMaxTextWidth() {
 }
 
 float CFWL_ListBox::GetScrollWidth() {
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   return theme ? theme->GetScrollBarWidth() : 0.0f;
 }
 
 float CFWL_ListBox::CalcItemHeight() {
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   CFWL_ThemePart part;
   part.m_pWidget = this;
   return (theme ? theme->GetFontSize(&part) : 20.0f) + 2 * kItemTextMargin;

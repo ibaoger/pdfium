@@ -16,7 +16,7 @@
 #include "xfa/fwl/ifwl_themeprovider.h"
 #include "xfa/fwl/theme/cfwl_utils.h"
 
-CFWL_Barcode::CFWL_Barcode(const CFWL_App* app)
+CFWL_Barcode::CFWL_Barcode(CFWL_App* app)
     : CFWL_Edit(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_dwStatus(0),
       m_type(BC_UNKNOWN),
@@ -163,7 +163,7 @@ void CFWL_Barcode::GenerateBarcodeImageCache() {
   if (!m_pBarcodeEngine)
     return;
 
-  IFWL_ThemeProvider* pTheme = GetAvailableTheme();
+  const IFWL_ThemeProvider* pTheme = GetAvailableTheme();
   if (pTheme) {
     CFWL_ThemePart part;
     part.m_pWidget = this;
