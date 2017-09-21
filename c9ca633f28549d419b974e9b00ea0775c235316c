@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8587518e_10846a02",
+        "filename": "xfa/fgas/font/cfgas_defaultfontmanager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-21T19:04:41Z",
+      "side": 1,
+      "message": "/*wCodePage\u003d*/0xFFFF\nSame below.",
+      "range": {
+        "startLine": 21,
+        "startChar": 59,
+        "endLine": 21,
+        "endChar": 65
+      },
+      "revId": "c9ca633f28549d419b974e9b00ea0775c235316c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e47e094_f37817d4",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-21T19:04:41Z",
+      "side": 0,
+      "message": "I don\u0027t see much gain in this. It\u0027s less indirection, but moves some specific responsibility to CXFA_FFApp.",
+      "range": {
+        "startLine": 48,
+        "startChar": 54,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "b31bb05ea5f3bdb7af834c81e4cc42009c01d660",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
