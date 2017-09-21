@@ -33,11 +33,11 @@ enum LoadStatus {
 
 class CPDFXFA_Context : public IXFA_AppProvider {
  public:
-  explicit CPDFXFA_Context(std::unique_ptr<CPDF_Document> pPDFDoc);
+  explicit CPDFXFA_Context(CFX_RetainPtr<CPDF_Document> pPDFDoc);
   ~CPDFXFA_Context() override;
 
   bool LoadXFADoc();
-  CPDF_Document* GetPDFDoc() { return m_pPDFDoc.get(); }
+  CPDF_Document* GetPDFDoc() { return m_pPDFDoc.Get(); }
   CXFA_FFDoc* GetXFADoc() { return m_pXFADoc.get(); }
   CXFA_FFDocView* GetXFADocView() { return m_pXFADocView.Get(); }
   XFA_DocType GetDocType() const { return m_iDocType; }
@@ -102,7 +102,7 @@ class CPDFXFA_Context : public IXFA_AppProvider {
   void CloseXFADoc();
 
   XFA_DocType m_iDocType;
-  std::unique_ptr<CPDF_Document> m_pPDFDoc;
+  CFX_RetainPtr<CPDF_Document> m_pPDFDoc;
   std::unique_ptr<CXFA_FFDoc> m_pXFADoc;
   CFX_Observable<CPDFSDK_FormFillEnvironment>::ObservedPtr m_pFormFillEnv;
   CFX_UnownedPtr<CXFA_FFDocView> m_pXFADocView;

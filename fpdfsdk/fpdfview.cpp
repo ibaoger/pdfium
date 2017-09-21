@@ -284,15 +284,15 @@ FPDF_DOCUMENT LoadDocumentImpl(
   auto pParser = pdfium::MakeUnique<CPDF_Parser>();
   pParser->SetPassword(password);
 
-  auto pDocument = pdfium::MakeUnique<CPDF_Document>(std::move(pParser));
+  auto pDocument = pdfium::MakeRetain<CPDF_Document>(std::move(pParser));
   CPDF_Parser::Error error =
-      pDocument->GetParser()->StartParse(pFileAccess, pDocument.get());
+      pDocument->GetParser()->StartParse(pFileAccess, pDocument.Get());
   if (error != CPDF_Parser::SUCCESS) {
     ProcessParseError(error);
     return nullptr;
   }
-  CheckUnSupportError(pDocument.get(), error);
-  return FPDFDocumentFromCPDFDocument(pDocument.release());
+  CheckUnSupportError(pDocument.Get(), error);
+  return FPDFDocumentFromCPDFDocument(pDocument.Leak());
 }
 
 }  // namespace
@@ -318,10 +318,13 @@ CPDF_Document* CPDFDocumentFromFPDFDocument(FPDF_DOCUMENT doc) {
 }
 
 FPDF_DOCUMENT FPDFDocumentFromCPDFDocument(CPDF_Document* doc) {
+  if (!doc)
+    return nullptr;
+
 #ifdef PDF_ENABLE_XFA
-  return doc ? FPDFDocumentFromUnderlying(
-                   new CPDFXFA_Context(pdfium::WrapUnique(doc)))
-             : nullptr;
+  CFX_RetainPtr<CPDF_Document> retain_doc;
+  retain_doc.Unleak(doc);
+  return FPDFDocumentFromUnderlying(new CPDFXFA_Context(retain_doc));
 #else   // PDF_ENABLE_XFA
   return FPDFDocumentFromUnderlying(doc);
 #endif  // PDF_ENABLE_XFA
@@ -1071,7 +1074,15 @@ FPDF_EXPORT void FPDF_CALLCONV FPDF_ClosePage(FPDF_PAGE page) {
 }
 
 FPDF_EXPORT void FPDF_CALLCONV FPDF_CloseDocument(FPDF_DOCUMENT document) {
+  if (!document)
+    return;
+
+#ifdef PDF_ENABLE_XFA
   delete UnderlyingFromFPDFDocument(document);
+#else   // PDF_ENABLE_XFA
+  CFX_RetainPtr<CPDF_Document> retain_doc;
+  retain_doc.Unleak(UnderlyingFromFPDFDocument(document));
+#endif  // PDF_ENABLE_XFA
 }
 
 FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetLastError() {
