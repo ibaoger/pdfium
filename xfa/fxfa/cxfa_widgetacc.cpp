@@ -17,7 +17,6 @@
 #include "xfa/fxfa/cxfa_ffdoc.h"
 #include "xfa/fxfa/cxfa_ffdocview.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
-#include "xfa/fxfa/cxfa_fontmgr.h"
 #include "xfa/fxfa/cxfa_textlayout.h"
 #include "xfa/fxfa/cxfa_textprovider.h"
 #include "xfa/fxfa/parser/cxfa_layoutprocessor.h"
@@ -1503,7 +1502,8 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_WidgetAcc::GetFDEFont() {
       dwFontStyle |= FX_FONTSTYLE_Italic;
     font.GetTypeface(wsFontName);
   }
-  return GetDoc()->GetApp()->GetFont(GetDoc(), wsFontName, dwFontStyle);
+  return GetDoc()->GetApp()->GetFont(GetDoc()->GetPDFFontMgr(), wsFontName,
+                                     dwFontStyle);
 }
 
 float CXFA_WidgetAcc::GetFontSize() {
