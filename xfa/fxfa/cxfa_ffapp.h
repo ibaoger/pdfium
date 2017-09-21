@@ -7,6 +7,7 @@
 #ifndef XFA_FXFA_CXFA_FFAPP_H_
 #define XFA_FXFA_CXFA_FFAPP_H_
 
+#include <map>
 #include <memory>
 #include <vector>
 
@@ -14,15 +15,14 @@
 #include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fxcrt/cfx_unowned_ptr.h"
 #include "core/fxcrt/retain_ptr.h"
+#include "xfa/fgas/font/cfgas_defaultfontmanager.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fwl/cfwl_app.h"
-#include "xfa/fxfa/cxfa_fontmgr.h"
 #include "xfa/fxfa/cxfa_fwladapterwidgetmgr.h"
 #include "xfa/fxfa/cxfa_fwltheme.h"
 #include "xfa/fxfa/fxfa.h"
 
 class CFWL_WidgetMgr;
-class CFGAS_DefaultFontManager;
 class CXFA_FFDocHandler;
 class IFWL_AdapterTimerMgr;
 
@@ -46,7 +46,7 @@ class CXFA_FFApp {
     return m_pProvider->GetTimerMgr();
   }
 
-  RetainPtr<CFGAS_GEFont> GetFont(CXFA_FFDoc* hDoc,
+  RetainPtr<CFGAS_GEFont> GetFont(CFGAS_PDFFontMgr* pMgr,
                                   const WideStringView& wsFontFamily,
                                   uint32_t dwFontStyles);
 
@@ -60,14 +60,15 @@ class CXFA_FFApp {
   // font manager. The GEFont::LoadFont call takes the manager as a param and
   // stores it internally. When you destroy the GEFont it tries to unregister
   // from the font manager and if the default font manager was destroyed first
-  // get get a use-after-free. The m_FWLTheme can try to cleanup a GEFont
+  // you get a use-after-free. The m_FWLTheme can try to cleanup a GEFont
   // when it frees, so make sure it gets cleaned up first. That requires
   // m_FWLApp to be cleaned up as well.
   //
   // TODO(dsinclair): The GEFont should have the FontMgr as the pointer instead
   // of the DEFFontMgr so this goes away. Bug 561.
   std::unique_ptr<CFGAS_FontMgr> m_pFDEFontMgr;
-  CXFA_FontMgr m_FontMgr;
+  CFGAS_DefaultFontManager m_DefFontMgr;
+  std::map<ByteString, RetainPtr<CFGAS_GEFont>> m_FontCache;
 
 #if _FXM_PLATFORM_ != _FXM_PLATFORM_WINDOWS_
   std::unique_ptr<CFX_FontSourceEnum_File> m_pFontSource;

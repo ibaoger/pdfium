@@ -21,7 +21,6 @@
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fxfa/cxfa_ffapp.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
-#include "xfa/fxfa/cxfa_fontmgr.h"
 #include "xfa/fxfa/cxfa_textparsecontext.h"
 #include "xfa/fxfa/cxfa_textprovider.h"
 #include "xfa/fxfa/cxfa_texttabstopscontext.h"
@@ -341,7 +340,7 @@ RetainPtr<CFGAS_GEFont> CXFA_TextParser::GetFont(
       dwStyle |= FX_FONTSTYLE_Italic;
   }
   auto* doc = pTextProvider->GetDocNode();
-  return doc->GetApp()->GetFont(doc, wsFamily, dwStyle);
+  return doc->GetApp()->GetFont(doc->GetPDFFontMgr(), wsFamily, dwStyle);
 }
 
 float CXFA_TextParser::GetFontSize(CXFA_TextProvider* pTextProvider,

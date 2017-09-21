@@ -28,7 +28,6 @@
 #include "xfa/fxfa/cxfa_ffdocview.h"
 #include "xfa/fxfa/cxfa_ffpageview.h"
 #include "xfa/fxfa/cxfa_ffwidgethandler.h"
-#include "xfa/fxfa/cxfa_fontmgr.h"
 
 #ifndef _WIN32
 extern void SetLastError(int err);

@@ -14,12 +14,12 @@
 #include "third_party/base/ptr_util.h"
 #include "third_party/base/stl_util.h"
 #include "xfa/fgas/font/cfgas_fontmgr.h"
+#include "xfa/fgas/font/fgas_fontutils.h"
 #include "xfa/fwl/cfwl_notedriver.h"
 #include "xfa/fwl/cfwl_widgetmgr.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
 #include "xfa/fxfa/cxfa_ffdochandler.h"
 #include "xfa/fxfa/cxfa_ffwidgethandler.h"
-#include "xfa/fxfa/cxfa_fontmgr.h"
 #include "xfa/fxfa/cxfa_fwladapterwidgetmgr.h"
 #include "xfa/fxfa/cxfa_fwltheme.h"
 
@@ -65,8 +65,47 @@ void CXFA_FFApp::ClearEventTargets() {
   m_FWLApp.GetNoteDriver()->ClearEventTargets();
 }
 
-RetainPtr<CFGAS_GEFont> CXFA_FFApp::GetFont(CXFA_FFDoc* hDoc,
+RetainPtr<CFGAS_GEFont> CXFA_FFApp::GetFont(CFGAS_PDFFontMgr* pMgr,
                                             const WideStringView& wsFontFamily,
                                             uint32_t dwFontStyles) {
-  return m_FontMgr.GetFont(hDoc, wsFontFamily, dwFontStyles);
+  uint32_t dwHash = FX_HashCode_GetW(wsFontFamily, false);
+  ByteString bsKey;
+  bsKey.Format("%u%u%u", dwHash, dwFontStyles, 0xFFFF);
+  auto iter = m_FontCache.find(bsKey);
+  if (iter != m_FontCache.end())
+    return iter->second;
+
+  WideString wsEnglishName = FGAS_FontNameToEnglishName(wsFontFamily);
+
+  CPDF_Font* pPDFFont = nullptr;
+  RetainPtr<CFGAS_GEFont> pFont;
+  if (pMgr) {
+    pFont = pMgr->GetFont(wsEnglishName.AsStringView(), dwFontStyles, &pPDFFont,
+                          true);
+    if (pFont)
+      return pFont;
+  }
+  if (!pFont)
+    pFont = m_DefFontMgr.GetFont(GetFDEFontMgr(), wsFontFamily, dwFontStyles);
+
+  if (!pFont && pMgr) {
+    pPDFFont = nullptr;
+    pFont = pMgr->GetFont(wsEnglishName.AsStringView(), dwFontStyles, &pPDFFont,
+                          false);
+    if (pFont)
+      return pFont;
+  }
+  if (!pFont) {
+    pFont = m_DefFontMgr.GetDefaultFont(GetFDEFontMgr(), wsFontFamily,
+                                        dwFontStyles);
+  }
+  if (!pFont)
+    return nullptr;
+
+  if (pPDFFont) {
+    pMgr->SetFont(pFont, pPDFFont);
+    pFont->SetFontProvider(pMgr);
+  }
+  m_FontCache[bsKey] = pFont;
+  return pFont;
 }
