@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75a11de7_0782807f",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T20:30:42Z",
+      "side": 1,
+      "message": "The constructor for CXFA_FFApp doesn\u0027t appear to be using the provider so this seems to be safe.",
+      "parentUuid": "9ee50fbd_a96f2c1a",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "da57f220c59c2bce9a93b1dfbe337c39368c8dbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a884b79d_5e38bdf7",
         "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.h",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "da57f220c59c2bce9a93b1dfbe337c39368c8dbc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6302aa90_bb82119c",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T20:30:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a884b79d_5e38bdf7",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "da57f220c59c2bce9a93b1dfbe337c39368c8dbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
