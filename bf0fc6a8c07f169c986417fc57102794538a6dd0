@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d657a4d4_6a2b7e85",
+        "filename": "public/fpdf_edit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T17:40:13Z",
+      "side": 1,
+      "message": "nit: Add FPDFPath_BezierTo to the list of commands that create segments.",
+      "revId": "bf0fc6a8c07f169c986417fc57102794538a6dd0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
