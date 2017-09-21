@@ -46,6 +46,30 @@
       "revId": "b31bb05ea5f3bdb7af834c81e4cc42009c01d660",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc370a6_76cbe15e",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-21T19:35:22Z",
+      "side": 0,
+      "message": "Ideally who would provide the fonts then? CXFA_FFDoc? Or do you intend to leave this in CXFA_FFApp?",
+      "parentUuid": "3e0532a8_3945a931",
+      "range": {
+        "startLine": 48,
+        "startChar": 54,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "b31bb05ea5f3bdb7af834c81e4cc42009c01d660",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
