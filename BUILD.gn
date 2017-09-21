@@ -715,6 +715,7 @@ static_library("fxcodec") {
     "core/fxcodec/codec/fx_codec_jpeg.cpp",
     "core/fxcodec/codec/fx_codec_jpx_opj.cpp",
     "core/fxcodec/fx_codec.h",
+    "core/fxcodec/fx_codec_def.cpp",
     "core/fxcodec/fx_codec_def.h",
     "core/fxcodec/jbig2/JBig2_ArithDecoder.cpp",
     "core/fxcodec/jbig2/JBig2_ArithDecoder.h",
