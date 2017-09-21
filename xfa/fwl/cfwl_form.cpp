@@ -22,7 +22,7 @@
 #include "xfa/fwl/cfwl_widgetmgr.h"
 #include "xfa/fwl/ifwl_themeprovider.h"
 
-CFWL_Form::CFWL_Form(const CFWL_App* app,
+CFWL_Form::CFWL_Form(CFWL_App* app,
                      std::unique_ptr<CFWL_WidgetProperties> properties,
                      CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -80,7 +80,7 @@ void CFWL_Form::DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) {
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   DrawBackground(pGraphics, pTheme);
 
 #ifdef FWL_UseMacSystemBorder
@@ -99,7 +99,7 @@ void CFWL_Form::DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) {
 }
 
 CFWL_Widget* CFWL_Form::DoModal() {
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return nullptr;
 
@@ -128,12 +128,11 @@ void CFWL_Form::EndDoModal() {
 
 #if (_FX_OS_ == _FX_MACOSX_)
   m_pNoteLoop->EndModalLoop();
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pDriver = pApp->GetNoteDriver();
   if (!pDriver)
     return;
 
@@ -146,7 +145,7 @@ void CFWL_Form::EndDoModal() {
 }
 
 void CFWL_Form::DrawBackground(CXFA_Graphics* pGraphics,
-                               IFWL_ThemeProvider* pTheme) {
+                               const IFWL_ThemeProvider* pTheme) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
   param.m_iPart = CFWL_Part::Background;
@@ -178,19 +177,18 @@ void CFWL_Form::Layout() {
   m_rtRelative = GetRelativeRect();
 
 #ifndef FWL_UseMacSystemBorder
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   m_fCXBorder = theme ? theme->GetCXBorderSize() : 0.0f;
   m_fCYBorder = theme ? theme->GetCYBorderSize() : 0.0f;
 #endif
 }
 
 void CFWL_Form::RegisterForm() {
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pDriver = pApp->GetNoteDriver();
   if (!pDriver)
     return;
 
@@ -198,12 +196,11 @@ void CFWL_Form::RegisterForm() {
 }
 
 void CFWL_Form::UnRegisterForm() {
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pDriver = pApp->GetNoteDriver();
   if (!pDriver)
     return;
 

@@ -10,7 +10,7 @@
 
 #include "third_party/base/ptr_util.h"
 
-CFWL_PictureBox::CFWL_PictureBox(const CFWL_App* app)
+CFWL_PictureBox::CFWL_PictureBox(CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr) {
   m_rtClient.Reset();
   m_rtImage.Reset();
@@ -39,7 +39,7 @@ void CFWL_PictureBox::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = GetAvailableTheme();
+  const IFWL_ThemeProvider* pTheme = GetAvailableTheme();
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
 }

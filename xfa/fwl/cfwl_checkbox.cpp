@@ -29,7 +29,7 @@ const int kCaptionMargin = 5;
 
 }  // namespace
 
-CFWL_CheckBox::CFWL_CheckBox(const CFWL_App* app)
+CFWL_CheckBox::CFWL_CheckBox(CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_iTTOAlign(FDE_TextAlignment::kCenter),
       m_bBtnDown(false),
@@ -68,7 +68,7 @@ void CFWL_CheckBox::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (HasBorder()) {
     DrawBorder(pGraphics, CFWL_Part::Border, m_pProperties->m_pThemeProvider,
                matrix);

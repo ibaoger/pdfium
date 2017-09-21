@@ -17,7 +17,7 @@ class CFWL_ComboBox;
 
 class CFWL_ComboEdit : public CFWL_Edit {
  public:
-  CFWL_ComboEdit(const CFWL_App* app,
+  CFWL_ComboEdit(CFWL_App* app,
                  std::unique_ptr<CFWL_WidgetProperties> properties,
                  CFWL_Widget* pOuter);
 

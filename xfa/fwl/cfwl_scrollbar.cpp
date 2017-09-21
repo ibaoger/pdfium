@@ -29,7 +29,7 @@ const float kMinThumbSize = 5.0f;
 }  // namespace
 
 CFWL_ScrollBar::CFWL_ScrollBar(
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -81,7 +81,7 @@ void CFWL_ScrollBar::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
   DrawTrack(pGraphics, pTheme, true, &matrix);
@@ -105,7 +105,7 @@ bool CFWL_ScrollBar::DoScroll(CFWL_EventScroll::Code dwCode, float fPos) {
 }
 
 void CFWL_ScrollBar::DrawTrack(CXFA_Graphics* pGraphics,
-                               IFWL_ThemeProvider* pTheme,
+                               const IFWL_ThemeProvider* pTheme,
                                bool bLower,
                                const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
@@ -121,7 +121,7 @@ void CFWL_ScrollBar::DrawTrack(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_ScrollBar::DrawArrowBtn(CXFA_Graphics* pGraphics,
-                                  IFWL_ThemeProvider* pTheme,
+                                  const IFWL_ThemeProvider* pTheme,
                                   bool bMinBtn,
                                   const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
@@ -138,7 +138,7 @@ void CFWL_ScrollBar::DrawArrowBtn(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_ScrollBar::DrawThumb(CXFA_Graphics* pGraphics,
-                               IFWL_ThemeProvider* pTheme,
+                               const IFWL_ThemeProvider* pTheme,
                                const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;

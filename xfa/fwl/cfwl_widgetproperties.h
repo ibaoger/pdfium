@@ -24,7 +24,7 @@ class CFWL_WidgetProperties {
   uint32_t m_dwStyles;
   uint32_t m_dwStyleExes;
   uint32_t m_dwStates;
-  IFWL_ThemeProvider* m_pThemeProvider;
+  const IFWL_ThemeProvider* m_pThemeProvider;
   CFWL_Widget* m_pParent;
   CFWL_Widget* m_pOwner;
 };

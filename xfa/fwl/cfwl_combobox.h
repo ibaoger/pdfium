@@ -41,7 +41,7 @@ class CFWL_Widget;
 
 class CFWL_ComboBox : public CFWL_Widget {
  public:
-  explicit CFWL_ComboBox(const CFWL_App* pApp);
+  explicit CFWL_ComboBox(CFWL_App* pApp);
   ~CFWL_ComboBox() override;
 
   // CFWL_Widget
@@ -53,7 +53,7 @@ class CFWL_ComboBox : public CFWL_Widget {
   void Update() override;
   FWL_WidgetHit HitTest(const CFX_PointF& point) override;
   void DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) override;
-  void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) override;
+  void SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CXFA_Graphics* pGraphics,

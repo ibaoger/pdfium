@@ -20,9 +20,9 @@ class IFWL_ThemeProvider {
  public:
   virtual ~IFWL_ThemeProvider() {}
 
-  virtual void DrawBackground(CFWL_ThemeBackground* pParams) = 0;
-  virtual void DrawText(CFWL_ThemeText* pParams) = 0;
-  virtual void CalcTextRect(CFWL_ThemeText* pParams, CFX_RectF& rect) = 0;
+  virtual void DrawBackground(CFWL_ThemeBackground* pParams) const = 0;
+  virtual void DrawText(CFWL_ThemeText* pParams) const = 0;
+  virtual void CalcTextRect(CFWL_ThemeText* pParams, CFX_RectF& rect) const = 0;
   virtual float GetCXBorderSize() const = 0;
   virtual float GetCYBorderSize() const = 0;
   virtual CFX_RectF GetUIMargin(CFWL_ThemePart* pThemePart) const = 0;

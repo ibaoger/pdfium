@@ -12,10 +12,8 @@
 #include "xfa/fwl/cfwl_widgetmgr.h"
 #include "xfa/fxfa/cxfa_fwladapterwidgetmgr.h"
 
-CFWL_App::CFWL_App(CXFA_FFApp* pAdapter)
-    : m_pAdapterNative(pAdapter),
-      m_pWidgetMgr(pdfium::MakeUnique<CFWL_WidgetMgr>(pAdapter)),
-      m_pNoteDriver(pdfium::MakeUnique<CFWL_NoteDriver>()) {
+CFWL_App::CFWL_App(CXFA_FFApp* pAdapter, CXFA_FWLAdapterWidgetMgr* pAdapterMgr)
+    : m_pAdapterNative(pAdapter), m_WidgetMgr(pAdapterMgr) {
   ASSERT(m_pAdapterNative);
 }
 

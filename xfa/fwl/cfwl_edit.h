@@ -46,7 +46,7 @@ class CFWL_Caret;
 
 class CFWL_Edit : public CFWL_Widget, public CFDE_TextEditEngine::Delegate {
  public:
-  CFWL_Edit(const CFWL_App* app,
+  CFWL_Edit(CFWL_App* app,
             std::unique_ptr<CFWL_WidgetProperties> properties,
             CFWL_Widget* pOuter);
   ~CFWL_Edit() override;
@@ -59,7 +59,7 @@ class CFWL_Edit : public CFWL_Widget, public CFDE_TextEditEngine::Delegate {
   FWL_WidgetHit HitTest(const CFX_PointF& point) override;
   void SetStates(uint32_t dwStates) override;
   void DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) override;
-  void SetThemeProvider(IFWL_ThemeProvider* pThemeProvider) override;
+  void SetThemeProvider(const IFWL_ThemeProvider* pThemeProvider) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnProcessEvent(CFWL_Event* pEvent) override;
   void OnDrawWidget(CXFA_Graphics* pGraphics,
@@ -109,10 +109,10 @@ class CFWL_Edit : public CFWL_Widget, public CFDE_TextEditEngine::Delegate {
                   const CFX_RectF& clipRect,
                   const CFX_Matrix& mt);
   void DrawTextBk(CXFA_Graphics* pGraphics,
-                  IFWL_ThemeProvider* pTheme,
+                  const IFWL_ThemeProvider* pTheme,
                   const CFX_Matrix* pMatrix);
   void DrawContent(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
   void DrawSpellCheck(CXFA_Graphics* pGraphics, const CFX_Matrix* pMatrix);
 

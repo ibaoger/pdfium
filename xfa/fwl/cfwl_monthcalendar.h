@@ -24,7 +24,7 @@ class CFWL_Widget;
 
 class CFWL_MonthCalendar : public CFWL_Widget {
  public:
-  CFWL_MonthCalendar(const CFWL_App* app,
+  CFWL_MonthCalendar(CFWL_App* app,
                      std::unique_ptr<CFWL_WidgetProperties> properties,
                      CFWL_Widget* pOuter);
   ~CFWL_MonthCalendar() override;
@@ -91,40 +91,40 @@ class CFWL_MonthCalendar : public CFWL_Widget {
   };
 
   void DrawBackground(CXFA_Graphics* pGraphics,
-                      IFWL_ThemeProvider* pTheme,
+                      const IFWL_ThemeProvider* pTheme,
                       const CFX_Matrix* pMatrix);
   void DrawHeadBK(CXFA_Graphics* pGraphics,
-                  IFWL_ThemeProvider* pTheme,
+                  const IFWL_ThemeProvider* pTheme,
                   const CFX_Matrix* pMatrix);
   void DrawLButton(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
   void DrawRButton(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
   void DrawCaption(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
   void DrawSeperator(CXFA_Graphics* pGraphics,
-                     IFWL_ThemeProvider* pTheme,
+                     const IFWL_ThemeProvider* pTheme,
                      const CFX_Matrix* pMatrix);
   void DrawDatesInBK(CXFA_Graphics* pGraphics,
-                     IFWL_ThemeProvider* pTheme,
+                     const IFWL_ThemeProvider* pTheme,
                      const CFX_Matrix* pMatrix);
   void DrawWeek(CXFA_Graphics* pGraphics,
-                IFWL_ThemeProvider* pTheme,
+                const IFWL_ThemeProvider* pTheme,
                 const CFX_Matrix* pMatrix);
   void DrawToday(CXFA_Graphics* pGraphics,
-                 IFWL_ThemeProvider* pTheme,
+                 const IFWL_ThemeProvider* pTheme,
                  const CFX_Matrix* pMatrix);
   void DrawDatesIn(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
   void DrawDatesOut(CXFA_Graphics* pGraphics,
-                    IFWL_ThemeProvider* pTheme,
+                    const IFWL_ThemeProvider* pTheme,
                     const CFX_Matrix* pMatrix);
   void DrawDatesInCircle(CXFA_Graphics* pGraphics,
-                         IFWL_ThemeProvider* pTheme,
+                         const IFWL_ThemeProvider* pTheme,
                          const CFX_Matrix* pMatrix);
   CFX_SizeF CalcSize();
   void Layout();
