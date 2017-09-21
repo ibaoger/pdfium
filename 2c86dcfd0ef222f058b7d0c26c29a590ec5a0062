@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88ae5e46_10be0ca7",
+        "filename": "core/fxcodec/lgif/fx_gif.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-21T18:20:06Z",
+      "side": 0,
+      "message": "This will save some memory, maybe, since we stamp this into every .cc that happens to include this either directly or indirectly.",
+      "range": {
+        "startLine": 167,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 60
+      },
+      "revId": "2c86dcfd0ef222f058b7d0c26c29a590ec5a0062",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
