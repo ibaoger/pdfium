@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "464bc117_5c7055c9",
+        "filename": "xfa/fgas/font/cfgas_defaultfontmanager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T18:30:13Z",
+      "side": 1,
+      "message": "Git has decided there is too much changed and doesn\u0027t know. The old system did have a way, I don\u0027t think Gerrit does.",
+      "parentUuid": "fa822f59_1dd085c9",
+      "revId": "9035fcbc41f303ea6ac4507086f5935feab0ff69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6332571c_069cfe0d",
         "filename": "xfa/fgas/font/cfgas_defaultfontmanager.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-21T18:28:02Z",
       "side": 1,
       "message": "This is basically a copy switching CXFA_FFDoc to CFGAS_FontMgr, correct?",
+      "revId": "9035fcbc41f303ea6ac4507086f5935feab0ff69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e0dbf82_87c9c77e",
+        "filename": "xfa/fgas/font/cfgas_defaultfontmanager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T18:30:13Z",
+      "side": 1,
+      "message": "Yes, and the first param was changed from a FFDoc to FontMgr (we just used the doc to get the font mgr before)",
+      "parentUuid": "6332571c_069cfe0d",
       "revId": "9035fcbc41f303ea6ac4507086f5935feab0ff69",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
