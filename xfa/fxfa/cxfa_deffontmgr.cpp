@@ -14,14 +14,14 @@ CXFA_DefFontMgr::CXFA_DefFontMgr() {}
 
 CXFA_DefFontMgr::~CXFA_DefFontMgr() {}
 
-CFX_RetainPtr<CFGAS_GEFont> CXFA_DefFontMgr::GetFont(
+RetainPtr<CFGAS_GEFont> CXFA_DefFontMgr::GetFont(
     CXFA_FFDoc* hDoc,
     const WideStringView& wsFontFamily,
     uint32_t dwFontStyles,
     uint16_t wCodePage) {
   WideString wsFontName(wsFontFamily);
   CFGAS_FontMgr* pFDEFontMgr = hDoc->GetApp()->GetFDEFontMgr();
-  CFX_RetainPtr<CFGAS_GEFont> pFont =
+  RetainPtr<CFGAS_GEFont> pFont =
       pFDEFontMgr->LoadFont(wsFontName.c_str(), dwFontStyles, wCodePage);
   if (!pFont) {
     const XFA_FONTINFO* pCurFont =
@@ -58,13 +58,13 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_DefFontMgr::GetFont(
   return pFont;
 }
 
-CFX_RetainPtr<CFGAS_GEFont> CXFA_DefFontMgr::GetDefaultFont(
+RetainPtr<CFGAS_GEFont> CXFA_DefFontMgr::GetDefaultFont(
     CXFA_FFDoc* hDoc,
     const WideStringView& wsFontFamily,
     uint32_t dwFontStyles,
     uint16_t wCodePage) {
   CFGAS_FontMgr* pFDEFontMgr = hDoc->GetApp()->GetFDEFontMgr();
-  CFX_RetainPtr<CFGAS_GEFont> pFont =
+  RetainPtr<CFGAS_GEFont> pFont =
       pFDEFontMgr->LoadFont(L"Arial Narrow", dwFontStyles, wCodePage);
   if (!pFont) {
     pFont = pFDEFontMgr->LoadFont(static_cast<const wchar_t*>(nullptr),

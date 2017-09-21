@@ -9,8 +9,8 @@
 
 #include <vector>
 
-#include "core/fxcrt/cfx_retain_ptr.h"
 #include "core/fxcrt/fx_string.h"
+#include "core/fxcrt/retain_ptr.h"
 #include "xfa/fgas/font/cfgas_gefont.h"
 
 class CXFA_FFDoc;
@@ -20,17 +20,17 @@ class CXFA_DefFontMgr {
   CXFA_DefFontMgr();
   ~CXFA_DefFontMgr();
 
-  CFX_RetainPtr<CFGAS_GEFont> GetFont(CXFA_FFDoc* hDoc,
-                                      const WideStringView& wsFontFamily,
-                                      uint32_t dwFontStyles,
-                                      uint16_t wCodePage = 0xFFFF);
-  CFX_RetainPtr<CFGAS_GEFont> GetDefaultFont(CXFA_FFDoc* hDoc,
-                                             const WideStringView& wsFontFamily,
-                                             uint32_t dwFontStyles,
-                                             uint16_t wCodePage = 0xFFFF);
+  RetainPtr<CFGAS_GEFont> GetFont(CXFA_FFDoc* hDoc,
+                                  const WideStringView& wsFontFamily,
+                                  uint32_t dwFontStyles,
+                                  uint16_t wCodePage = 0xFFFF);
+  RetainPtr<CFGAS_GEFont> GetDefaultFont(CXFA_FFDoc* hDoc,
+                                         const WideStringView& wsFontFamily,
+                                         uint32_t dwFontStyles,
+                                         uint16_t wCodePage = 0xFFFF);
 
  private:
-  std::vector<CFX_RetainPtr<CFGAS_GEFont>> m_CacheFonts;
+  std::vector<RetainPtr<CFGAS_GEFont>> m_CacheFonts;
 };
 
 #endif  // XFA_FXFA_CXFA_DEFFONTMGR_H_
