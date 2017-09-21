@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7565dd10_9d678da0",
+        "filename": "core/fxcrt/maybe_owned.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-21T16:34:32Z",
+      "side": 1,
+      "message": "again, add:\n\nusing fxcrt::MaybeOwned;\n\nand remove the fxcrt:: throughout the  code.",
+      "revId": "1a4c109eb35ea450099cde850221824671c9352a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
