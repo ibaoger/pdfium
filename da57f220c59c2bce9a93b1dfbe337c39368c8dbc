@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ee50fbd_a96f2c1a",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-21T20:24:44Z",
+      "side": 1,
+      "message": "worry about order.  I think I had the makeuniqe in the body so all these initializations would be complete by the time I used |this|.",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "da57f220c59c2bce9a93b1dfbe337c39368c8dbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a884b79d_5e38bdf7",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-21T20:24:44Z",
+      "side": 1,
+      "message": "The downside to all this is that GetXFAApp() should have been a const method returning a non-const pointer, but now we need both const and non-const versions of this returning const and non-const pointers if we ever want to use this on const objects.",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "da57f220c59c2bce9a93b1dfbe337c39368c8dbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
