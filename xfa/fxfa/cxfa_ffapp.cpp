@@ -64,3 +64,9 @@ CFGAS_FontMgr* CXFA_FFApp::GetFDEFontMgr() {
 void CXFA_FFApp::ClearEventTargets() {
   m_FWLApp.GetNoteDriver()->ClearEventTargets();
 }
+
+RetainPtr<CFGAS_GEFont> CXFA_FFApp::GetFont(CXFA_FFDoc* hDoc,
+                                            const WideStringView& wsFontFamily,
+                                            uint32_t dwFontStyles) {
+  return m_FontMgr.GetFont(hDoc, wsFontFamily, dwFontStyles);
+}

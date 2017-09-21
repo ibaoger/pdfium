@@ -28,8 +28,7 @@ class CXFA_FontMgr {
 
   RetainPtr<CFGAS_GEFont> GetFont(CXFA_FFDoc* hDoc,
                                   const WideStringView& wsFontFamily,
-                                  uint32_t dwFontStyles,
-                                  uint16_t wCodePage = 0xFFFF);
+                                  uint32_t dwFontStyles);
 
  private:
   CFGAS_DefaultFontManager m_DefFontMgr;

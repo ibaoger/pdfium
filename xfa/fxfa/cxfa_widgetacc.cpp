@@ -1502,10 +1502,7 @@ RetainPtr<CFGAS_GEFont> CXFA_WidgetAcc::GetFDEFont() {
       dwFontStyle |= FX_FONTSTYLE_Italic;
     font.GetTypeface(wsFontName);
   }
-
-  auto* pDoc = GetDoc();
-  return pDoc->GetApp()->GetXFAFontMgr()->GetFont(pDoc, wsFontName,
-                                                  dwFontStyle);
+  return GetDoc()->GetApp()->GetFont(GetDoc(), wsFontName, dwFontStyle);
 }
 
 float CXFA_WidgetAcc::GetFontSize() {
