@@ -37,7 +37,7 @@ class CPDF_TestDocument : public CPDF_Document {
 class CPDF_TestXFAContext : public CPDFXFA_Context {
  public:
   CPDF_TestXFAContext()
-      : CPDFXFA_Context(pdfium::MakeUnique<CPDF_TestDocument>()) {}
+      : CPDFXFA_Context(pdfium::MakeRetain<CPDF_TestDocument>()) {}
 
   void SetRoot(CPDF_Dictionary* root) {
     reinterpret_cast<CPDF_TestDocument*>(GetPDFDoc())->SetRoot(root);
@@ -45,9 +45,6 @@ class CPDF_TestXFAContext : public CPDFXFA_Context {
 
   CPDF_IndirectObjectHolder* GetHolder() { return GetPDFDoc(); }
 };
-using CPDF_TestPdfDocument = CPDF_TestXFAContext;
-#else   // PDF_ENABLE_XFA
-using CPDF_TestPdfDocument = CPDF_TestDocument;
 #endif  // PDF_ENABLE_XFA
 
 class PDFDocTest : public testing::Test {
@@ -60,7 +57,11 @@ class PDFDocTest : public testing::Test {
   void SetUp() override {
     CPDF_ModuleMgr::Get()->Init();
 
-    m_pDoc = pdfium::MakeUnique<CPDF_TestPdfDocument>();
+#ifdef PDF_ENABLE_XFA
+    m_pDoc = pdfium::MakeUnique<CPDF_TestXFAContext>();
+#else   // PDF_ENABLE_XFA
+    m_pDoc = pdfium::MakeRetain<CPDF_TestDocument>();
+#endif  // PDF_ENABLE_XFA
     m_pIndirectObjs = m_pDoc->GetHolder();
 
     // Setup the root directory.
@@ -85,8 +86,18 @@ class PDFDocTest : public testing::Test {
     return info;
   }
 
+#ifdef PDF_ENABLE_XFA
+  CPDF_TestXFAContext* GetDoc() const { return m_pDoc.get(); }
+#else  // PDF_ENABLE_XFA
+  CPDF_TestDocument* GetDoc() const { return m_pDoc.Get(); }
+#endif  // PDF_ENABLE_XFA
+
  protected:
-  std::unique_ptr<CPDF_TestPdfDocument> m_pDoc;
+#ifdef PDF_ENABLE_XFA
+  std::unique_ptr<CPDF_TestXFAContext> m_pDoc;
+#else   // PDF_ENABLE_XFA
+  CFX_RetainPtr<CPDF_TestDocument> m_pDoc;
+#endif  // PDF_ENABLE_XFA
   CFX_UnownedPtr<CPDF_IndirectObjectHolder> m_pIndirectObjs;
   std::unique_ptr<CPDF_Dictionary> m_pRootObj;
 };
@@ -96,20 +107,20 @@ TEST_F(PDFDocTest, FindBookmark) {
     // No bookmark information.
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     title = GetFPDFWideString(L"Preface");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
   }
   {
     // Empty bookmark tree.
     m_pRootObj->SetNewFor<CPDF_Dictionary>("Outlines");
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     title = GetFPDFWideString(L"Preface");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
   }
   {
     // Check on a regular bookmark tree.
@@ -140,19 +151,19 @@ TEST_F(PDFDocTest, FindBookmark) {
     // Title with no match.
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"Chapter 3");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     // Title with partial match only.
     title = GetFPDFWideString(L"Chapter");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     // Title with a match.
     title = GetFPDFWideString(L"Chapter 2");
-    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(GetDoc(), title.get()));
 
     // Title match is case insensitive.
     title = GetFPDFWideString(L"cHaPter 2");
-    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(GetDoc(), title.get()));
   }
   {
     // Circular bookmarks in depth.
@@ -183,11 +194,11 @@ TEST_F(PDFDocTest, FindBookmark) {
     // Title with no match.
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"Chapter 3");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     // Title with a match.
     title = GetFPDFWideString(L"Chapter 2");
-    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(bookmarks[2].obj, FPDFBookmark_Find(GetDoc(), title.get()));
   }
   {
     // Circular bookmarks in breadth.
@@ -224,11 +235,11 @@ TEST_F(PDFDocTest, FindBookmark) {
     // Title with no match.
     std::unique_ptr<unsigned short, pdfium::FreeDeleter> title =
         GetFPDFWideString(L"Chapter 8");
-    EXPECT_EQ(nullptr, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(nullptr, FPDFBookmark_Find(GetDoc(), title.get()));
 
     // Title with a match.
     title = GetFPDFWideString(L"Chapter 3");
-    EXPECT_EQ(bookmarks[3].obj, FPDFBookmark_Find(m_pDoc.get(), title.get()));
+    EXPECT_EQ(bookmarks[3].obj, FPDFBookmark_Find(GetDoc(), title.get()));
   }
 }
 

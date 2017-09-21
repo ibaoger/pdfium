@@ -35,9 +35,9 @@ extern void SetLastError(int err);
 extern int GetLastError();
 #endif
 
-CPDFXFA_Context::CPDFXFA_Context(std::unique_ptr<CPDF_Document> pPDFDoc)
+CPDFXFA_Context::CPDFXFA_Context(CFX_RetainPtr<CPDF_Document> pPDFDoc)
     : m_iDocType(XFA_DocType::PDF),
-      m_pPDFDoc(std::move(pPDFDoc)),
+      m_pPDFDoc(pPDFDoc),
       m_pFormFillEnv(nullptr),
       m_pXFADocView(nullptr),
       m_nLoadStatus(FXFA_LOADSTATUS_PRELOAD),
@@ -95,7 +95,7 @@ bool CPDFXFA_Context::LoadXFADoc() {
   if (!pApp)
     return false;
 
-  m_pXFADoc = pApp->CreateDoc(&m_DocEnv, m_pPDFDoc.get());
+  m_pXFADoc = pApp->CreateDoc(&m_DocEnv, m_pPDFDoc.Get());
   if (!m_pXFADoc) {
     SetLastError(FPDF_ERR_XFALOAD);
     return false;

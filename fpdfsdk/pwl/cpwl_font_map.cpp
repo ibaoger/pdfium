@@ -52,11 +52,11 @@ CPWL_FontMap::~CPWL_FontMap() {
 CPDF_Document* CPWL_FontMap::GetDocument() {
   if (!m_pPDFDoc) {
     if (CPDF_ModuleMgr::Get()) {
-      m_pPDFDoc = pdfium::MakeUnique<CPDF_Document>(nullptr);
+      m_pPDFDoc = pdfium::MakeRetain<CPDF_Document>(nullptr);
       m_pPDFDoc->CreateNewDoc();
     }
   }
-  return m_pPDFDoc.get();
+  return m_pPDFDoc.Get();
 }
 
 CPDF_Font* CPWL_FontMap::GetPDFFont(int32_t nFontIndex) {

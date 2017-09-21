@@ -100,7 +100,7 @@ class CPDF_DataAvail final {
 
   bool IsDataAvail(FX_FILESIZE offset, uint32_t size, DownloadHints* pHints);
   DocAvailStatus IsDocAvail(DownloadHints* pHints);
-  void SetDocument(CPDF_Document* pDoc);
+  void SetDocument(CFX_RetainPtr<CPDF_Document> pDoc);
   DocAvailStatus IsPageAvail(uint32_t dwPage, DownloadHints* pHints);
   DocFormStatus IsFormAvail(DownloadHints* pHints);
   DocLinearizationStatus IsLinearizedPDF();
@@ -194,7 +194,7 @@ class CPDF_DataAvail final {
   FX_FILESIZE m_dwCurrentOffset;
   PDF_DATAAVAIL_STATUS m_docStatus;
   FX_FILESIZE m_dwFileLen;
-  CPDF_Document* m_pDocument;
+  CFX_RetainPtr<CPDF_Document> m_pDocument;
   std::set<uint32_t> m_ObjectSet;
   std::vector<CPDF_Object*> m_objs_array;
   FX_FILESIZE m_Pos;

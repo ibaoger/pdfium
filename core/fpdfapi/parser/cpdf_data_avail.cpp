@@ -121,9 +121,10 @@ CPDF_DataAvail::CPDF_DataAvail(
 
 CPDF_DataAvail::~CPDF_DataAvail() {
   m_pHintTables.reset();
+  ASSERT(!m_pDocument || m_pDocument->HasOneRef());
 }
 
-void CPDF_DataAvail::SetDocument(CPDF_Document* pDoc) {
+void CPDF_DataAvail::SetDocument(CFX_RetainPtr<CPDF_Document> pDoc) {
   m_pDocument = pDoc;
 }
 
@@ -1465,7 +1466,7 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
     m_syntaxParser.InitParser(
         m_pFileRead, pdfium::base::checked_cast<uint32_t>(szPageStartPos));
     m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
-        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument));
+        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument.Get()));
   }
   if (!ValidatePage(index))
     return nullptr;
@@ -1516,7 +1517,8 @@ bool CPDF_DataAvail::ValidatePage(uint32_t dwPage) {
   CPDF_Dictionary* pPageDict = m_pDocument->GetPage(safePage.ValueOrDie());
   if (!pPageDict)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pPageDict);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pPageDict);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 
@@ -1527,7 +1529,8 @@ bool CPDF_DataAvail::ValidateForm() {
   CPDF_Object* pAcroForm = pRoot->GetObjectFor("AcroForm");
   if (!pAcroForm)
     return false;
-  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument, pAcroForm);
+  CPDF_PageObjectAvail obj_avail(GetValidator().Get(), m_pDocument.Get(),
+                                 pAcroForm);
   return obj_avail.CheckAvail() == DocAvailStatus::DataAvailable;
 }
 

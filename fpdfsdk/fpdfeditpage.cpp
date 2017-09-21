@@ -96,7 +96,7 @@ void CalcBoundingBox(CPDF_PageObject* pPageObj) {
 }  // namespace
 
 FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV FPDF_CreateNewDocument() {
-  auto pDoc = pdfium::MakeUnique<CPDF_Document>(nullptr);
+  auto pDoc = pdfium::MakeRetain<CPDF_Document>(nullptr);
   pDoc->CreateNewDoc();
 
   time_t currentTime;
@@ -120,7 +120,7 @@ FPDF_EXPORT FPDF_DOCUMENT FPDF_CALLCONV FPDF_CreateNewDocument() {
   }
 
   // Caller takes ownership of pDoc.
-  return FPDFDocumentFromCPDFDocument(pDoc.release());
+  return FPDFDocumentFromCPDFDocument(pDoc.Leak());
 }
 
 FPDF_EXPORT void FPDF_CALLCONV FPDFPage_Delete(FPDF_DOCUMENT document,
