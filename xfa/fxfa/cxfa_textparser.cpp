@@ -340,10 +340,8 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_TextParser::GetFont(
     if (pStyle->GetFontStyle() == CFX_CSSFontStyle::Italic)
       dwStyle |= FX_FONTSTYLE_Italic;
   }
-
-  CXFA_FFDoc* pDoc = pTextProvider->GetDocNode();
-  CXFA_FontMgr* pFontMgr = pDoc->GetApp()->GetXFAFontMgr();
-  return pFontMgr->GetFont(pDoc, wsFamily, dwStyle);
+  auto* doc = pTextProvider->GetDocNode();
+  return doc->GetApp()->GetFont(doc, wsFamily, dwStyle);
 }
 
 float CXFA_TextParser::GetFontSize(CXFA_TextProvider* pTextProvider,

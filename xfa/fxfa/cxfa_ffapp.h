@@ -45,7 +45,10 @@ class CXFA_FFApp {
   IFWL_AdapterTimerMgr* GetTimerMgr() const {
     return m_pProvider->GetTimerMgr();
   }
-  CXFA_FontMgr* GetXFAFontMgr() { return &m_FontMgr; }
+
+  CFX_RetainPtr<CFGAS_GEFont> GetFont(CXFA_FFDoc* hDoc,
+                                      const WideStringView& wsFontFamily,
+                                      uint32_t dwFontStyles);
 
   void ClearEventTargets();
 
