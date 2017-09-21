@@ -88,7 +88,7 @@ class CPWL_FontMap : public IPVT_FontMap {
                            CFX_ByteString& sFontName,
                            uint8_t nCharset);
 
-  std::unique_ptr<CPDF_Document> m_pPDFDoc;
+  CFX_RetainPtr<CPDF_Document> m_pPDFDoc;
   CFX_UnownedPtr<CFX_SystemHandler> const m_pSystemHandler;
 };
 

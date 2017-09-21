@@ -161,8 +161,7 @@ class cpdf_document_test : public testing::Test {
 };
 
 TEST_F(cpdf_document_test, GetPages) {
-  std::unique_ptr<CPDF_TestDocumentForPages> document =
-      pdfium::MakeUnique<CPDF_TestDocumentForPages>();
+  auto document = pdfium::MakeRetain<CPDF_TestDocumentForPages>();
   for (int i = 0; i < kNumTestPages; i++) {
     CPDF_Dictionary* page = document->GetPage(i);
     ASSERT_TRUE(page);
@@ -174,7 +173,7 @@ TEST_F(cpdf_document_test, GetPages) {
 }
 
 TEST_F(cpdf_document_test, GetPageWithoutObjNumTwice) {
-  auto document = pdfium::MakeUnique<CPDF_TestDocumentWithPageWithoutPageNum>();
+  auto document = pdfium::MakeRetain<CPDF_TestDocumentWithPageWithoutPageNum>();
   const CPDF_Dictionary* page = document->GetPage(2);
   ASSERT_TRUE(page);
   ASSERT_EQ(document->inlined_page(), page);
@@ -185,8 +184,7 @@ TEST_F(cpdf_document_test, GetPageWithoutObjNumTwice) {
 }
 
 TEST_F(cpdf_document_test, GetPagesReverseOrder) {
-  std::unique_ptr<CPDF_TestDocumentForPages> document =
-      pdfium::MakeUnique<CPDF_TestDocumentForPages>();
+  auto document = pdfium::MakeRetain<CPDF_TestDocumentForPages>();
   for (int i = 6; i >= 0; i--) {
     CPDF_Dictionary* page = document->GetPage(i);
     ASSERT_TRUE(page);
@@ -198,8 +196,7 @@ TEST_F(cpdf_document_test, GetPagesReverseOrder) {
 }
 
 TEST_F(cpdf_document_test, GetPagesInDisorder) {
-  std::unique_ptr<CPDF_TestDocumentForPages> document =
-      pdfium::MakeUnique<CPDF_TestDocumentForPages>();
+  auto document = pdfium::MakeRetain<CPDF_TestDocumentForPages>();
 
   CPDF_Dictionary* page = document->GetPage(1);
   ASSERT_TRUE(page);
@@ -224,29 +221,29 @@ TEST_F(cpdf_document_test, UseCachedPageObjNumIfHaveNotPagesDict) {
   // ObjNum can be added in CPDF_DataAvail::IsPageAvail, and PagesDict
   // can be not exists in this case.
   // (case, when hint table is used to page check in CPDF_DataAvail).
-  CPDF_Document document(pdfium::MakeUnique<CPDF_Parser>());
+  auto document =
+      pdfium::MakeRetain<CPDF_Document>(pdfium::MakeUnique<CPDF_Parser>());
   auto dict = pdfium::MakeUnique<CPDF_Dictionary>();
   dict->SetNewFor<CPDF_Boolean>("Linearized", true);
   const int page_count = 100;
   dict->SetNewFor<CPDF_Number>("N", page_count);
   TestLinearized linearized(dict.get());
-  document.LoadLinearizedDoc(&linearized);
-  ASSERT_EQ(page_count, document.GetPageCount());
-  CPDF_Object* page_stub = document.NewIndirect<CPDF_Dictionary>();
+  document->LoadLinearizedDoc(&linearized);
+  ASSERT_EQ(page_count, document->GetPageCount());
+  CPDF_Object* page_stub = document->NewIndirect<CPDF_Dictionary>();
   const uint32_t obj_num = page_stub->GetObjNum();
   const int test_page_num = 33;
 
-  EXPECT_FALSE(document.IsPageLoaded(test_page_num));
-  EXPECT_EQ(nullptr, document.GetPage(test_page_num));
+  EXPECT_FALSE(document->IsPageLoaded(test_page_num));
+  EXPECT_EQ(nullptr, document->GetPage(test_page_num));
 
-  document.SetPageObjNum(test_page_num, obj_num);
-  EXPECT_TRUE(document.IsPageLoaded(test_page_num));
-  EXPECT_EQ(page_stub, document.GetPage(test_page_num));
+  document->SetPageObjNum(test_page_num, obj_num);
+  EXPECT_TRUE(document->IsPageLoaded(test_page_num));
+  EXPECT_EQ(page_stub, document->GetPage(test_page_num));
 }
 
 TEST_F(cpdf_document_test, CountGreaterThanPageTree) {
-  std::unique_ptr<CPDF_TestDocumentForPages> document =
-      pdfium::MakeUnique<CPDF_TestDocumentForPages>();
+  auto document = pdfium::MakeRetain<CPDF_TestDocumentForPages>();
   document->SetTreeSize(kNumTestPages + 3);
   for (int i = 0; i < kNumTestPages; i++)
     EXPECT_TRUE(document->GetPage(i));
@@ -257,7 +254,7 @@ TEST_F(cpdf_document_test, CountGreaterThanPageTree) {
 
 TEST_F(cpdf_document_test, PagesWithoutKids) {
   // Set up a document with Pages dict without kids, and Count = 3
-  auto pDoc = pdfium::MakeUnique<CPDF_TestDocPagesWithoutKids>();
+  auto pDoc = pdfium::MakeRetain<CPDF_TestDocPagesWithoutKids>();
   EXPECT_TRUE(pDoc->GetPage(0));
   // Test GetPage does not fetch pages out of range
   for (int i = 1; i < 5; i++)

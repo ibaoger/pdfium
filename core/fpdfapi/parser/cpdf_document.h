@@ -17,6 +17,7 @@
 #include "core/fpdfapi/parser/cpdf_indirect_object_holder.h"
 #include "core/fpdfapi/parser/cpdf_object.h"
 #include "core/fpdfdoc/cpdf_linklist.h"
+#include "core/fxcrt/cfx_retain_ptr.h"
 
 class CFX_Font;
 class CFX_Matrix;
@@ -42,10 +43,10 @@ class JBig2_DocumentContext;
 #define FPDFPERM_PRINT_HIGH 0x0800
 #define FPDF_PAGE_MAX_NUM 0xFFFFF
 
-class CPDF_Document : public CPDF_IndirectObjectHolder {
+class CPDF_Document : public CFX_Retainable, public CPDF_IndirectObjectHolder {
  public:
-  explicit CPDF_Document(std::unique_ptr<CPDF_Parser> pParser);
-  ~CPDF_Document() override;
+  template <typename T, typename... Args>
+  friend CFX_RetainPtr<T> pdfium::MakeRetain(Args&&... args);
 
   CPDF_Parser* GetParser() const { return m_pParser.get(); }
   const CPDF_Dictionary* GetRoot() const { return m_pRootDict; }
@@ -105,6 +106,9 @@ class CPDF_Document : public CPDF_IndirectObjectHolder {
 #endif
 
  protected:
+  explicit CPDF_Document(std::unique_ptr<CPDF_Parser> pParser);
+  ~CPDF_Document() override;
+
   // Retrieve page count information by getting count value from the tree nodes
   int RetrievePageCount() const;
   // When this method is called, m_pTreeTraversal[level] exists.
