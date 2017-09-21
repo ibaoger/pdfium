@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10a8cafb_3a286ce5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T17:49:10Z",
+      "side": 1,
+      "message": "nit: s/bit map/bitmap",
+      "revId": "087c800a0659c1722674fb8ae6211120802a206f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf5a69db_d6ff7f6c",
+        "filename": "core/fxcodec/codec/fx_codec_progress.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T17:49:10Z",
+      "side": 1,
+      "message": "Should this be !\u003d ::Unfinished?  Looks like the old code would loop forever in that case?",
+      "revId": "087c800a0659c1722674fb8ae6211120802a206f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3bfe521_8ecafe0c",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T17:49:10Z",
+      "side": 1,
+      "message": "Can the IsFXCodedErrorStatus just go into the anon namespace in this file? If we find we need it somewhere else we can extract it then.",
+      "revId": "087c800a0659c1722674fb8ae6211120802a206f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
