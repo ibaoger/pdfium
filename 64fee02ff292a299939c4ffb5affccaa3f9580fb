@@ -16,6 +16,24 @@
       "revId": "64fee02ff292a299939c4ffb5affccaa3f9580fb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d6b7c0_c7ef7939",
+        "filename": "xfa/fwl/cfwl_comboboxproxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T18:53:56Z",
+      "side": 0,
+      "message": "Yup, it\u0027s a side effect of us removing a lot of IFWL_* types. We missed some casts that we can remove.",
+      "parentUuid": "4842297c_0298d407",
+      "revId": "64fee02ff292a299939c4ffb5affccaa3f9580fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
