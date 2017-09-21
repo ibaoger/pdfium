@@ -15,7 +15,7 @@
 #include "xfa/fwl/cfwl_widgetmgr.h"
 
 CFWL_DateTimeEdit::CFWL_DateTimeEdit(
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_Edit(app, std::move(properties), pOuter) {}

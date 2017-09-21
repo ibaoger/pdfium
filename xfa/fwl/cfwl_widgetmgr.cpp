@@ -28,10 +28,10 @@ struct FWL_NEEDREPAINTHITDATA {
 
 }  // namespace
 
-CFWL_WidgetMgr::CFWL_WidgetMgr(CXFA_FFApp* pAdapterNative)
-    : m_dwCapability(FWL_WGTMGR_DisableForm),
-      m_pAdapter(pAdapterNative->GetFWLAdapterWidgetMgr()) {
+CFWL_WidgetMgr::CFWL_WidgetMgr(CXFA_FWLAdapterWidgetMgr* pAdapterNative)
+    : m_dwCapability(FWL_WGTMGR_DisableForm), m_pAdapter(pAdapterNative) {
   ASSERT(m_pAdapter);
+
   m_mapWidgetItem[nullptr] = pdfium::MakeUnique<Item>();
 #if (_FX_OS_ == _FX_WIN32_DESKTOP_) || (_FX_OS_ == _FX_WIN64_)
   m_rtScreen.Reset();
@@ -393,12 +393,11 @@ void CFWL_WidgetMgr::OnProcessMessageToForm(CFWL_Message* pMessage) {
     return;
 
   CFWL_Widget* pDstWidget = pMessage->m_pDstTarget;
-  const CFWL_App* pApp = pDstWidget->GetOwnerApp();
+  CFWL_App* pApp = pDstWidget->GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pNoteDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pNoteDriver = pApp->GetNoteDriver();
   if (!pNoteDriver)
     return;
 

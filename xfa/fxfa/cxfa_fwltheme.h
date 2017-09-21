@@ -22,7 +22,9 @@
 #include "xfa/fwl/theme/cfwl_pushbuttontp.h"
 #include "xfa/fwl/theme/cfwl_scrollbartp.h"
 #include "xfa/fwl/theme/cfwl_widgettp.h"
-#include "xfa/fxfa/cxfa_ffapp.h"
+#include "xfa/fxfa/cxfa_ffwidget.h"
+
+class CXFA_FFApp;
 
 class CXFA_FWLTheme final : public IFWL_ThemeProvider {
  public:
@@ -30,9 +32,9 @@ class CXFA_FWLTheme final : public IFWL_ThemeProvider {
   ~CXFA_FWLTheme() override;
 
   // IFWL_ThemeProvider:
-  void DrawBackground(CFWL_ThemeBackground* pParams) override;
-  void DrawText(CFWL_ThemeText* pParams) override;
-  void CalcTextRect(CFWL_ThemeText* pParams, CFX_RectF& rect) override;
+  void DrawBackground(CFWL_ThemeBackground* pParams) const override;
+  void DrawText(CFWL_ThemeText* pParams) const override;
+  void CalcTextRect(CFWL_ThemeText* pParams, CFX_RectF& rect) const override;
   float GetCXBorderSize() const override;
   float GetCYBorderSize() const override;
   CFX_RectF GetUIMargin(CFWL_ThemePart* pThemePart) const override;

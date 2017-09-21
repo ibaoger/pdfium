@@ -33,7 +33,7 @@ class CFWL_FormProxy;
 
 class CFWL_DateTimePicker : public CFWL_Widget {
  public:
-  explicit CFWL_DateTimePicker(const CFWL_App* pApp);
+  explicit CFWL_DateTimePicker(CFWL_App* pApp);
   ~CFWL_DateTimePicker() override;
 
   // CFWL_Widget
@@ -41,7 +41,7 @@ class CFWL_DateTimePicker : public CFWL_Widget {
   void Update() override;
   FWL_WidgetHit HitTest(const CFX_PointF& point) override;
   void DrawWidget(CXFA_Graphics* pGraphics, const CFX_Matrix& matrix) override;
-  void SetThemeProvider(IFWL_ThemeProvider* pTP) override;
+  void SetThemeProvider(const IFWL_ThemeProvider* pTP) override;
   void OnProcessMessage(CFWL_Message* pMessage) override;
   void OnDrawWidget(CXFA_Graphics* pGraphics,
                     const CFX_Matrix& matrix) override;
@@ -70,7 +70,7 @@ class CFWL_DateTimePicker : public CFWL_Widget {
 
  private:
   void DrawDropDownButton(CXFA_Graphics* pGraphics,
-                          IFWL_ThemeProvider* pTheme,
+                          const IFWL_ThemeProvider* pTheme,
                           const CFX_Matrix* pMatrix);
   void FormatDateString(int32_t iYear,
                         int32_t iMonth,

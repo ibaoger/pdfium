@@ -15,7 +15,7 @@ class CFWL_WidgetProperties;
 
 class CFWL_FormProxy : public CFWL_Form {
  public:
-  CFWL_FormProxy(const CFWL_App* app,
+  CFWL_FormProxy(CFWL_App* app,
                  std::unique_ptr<CFWL_WidgetProperties> properties,
                  CFWL_Widget* pOuter);
   ~CFWL_FormProxy() override;

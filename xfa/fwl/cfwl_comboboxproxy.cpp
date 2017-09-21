@@ -17,7 +17,7 @@
 
 CFWL_ComboBoxProxy::CFWL_ComboBoxProxy(
     CFWL_ComboBox* pComboBox,
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_FormProxy(app, std::move(properties), pOuter),
@@ -64,12 +64,11 @@ void CFWL_ComboBoxProxy::OnDrawWidget(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_ComboBoxProxy::OnLButtonDown(CFWL_Message* pMessage) {
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pDriver = pApp->GetNoteDriver();
   CFWL_MessageMouse* pMsg = static_cast<CFWL_MessageMouse*>(pMessage);
   if (CFX_RectF(0, 0, GetWidgetRect().Size()).Contains(pMsg->m_pos)) {
     m_bLButtonDown = true;
@@ -83,12 +82,11 @@ void CFWL_ComboBoxProxy::OnLButtonDown(CFWL_Message* pMessage) {
 
 void CFWL_ComboBoxProxy::OnLButtonUp(CFWL_Message* pMessage) {
   m_bLButtonDown = false;
-  const CFWL_App* pApp = GetOwnerApp();
+  CFWL_App* pApp = GetOwnerApp();
   if (!pApp)
     return;
 
-  CFWL_NoteDriver* pDriver =
-      static_cast<CFWL_NoteDriver*>(pApp->GetNoteDriver());
+  CFWL_NoteDriver* pDriver = pApp->GetNoteDriver();
   pDriver->SetGrab(this, false);
   if (!m_bLButtonUpSelf) {
     m_bLButtonUpSelf = true;

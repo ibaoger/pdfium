@@ -39,7 +39,7 @@ enum FWL_BCDAttribute {
 
 class CFWL_Barcode : public CFWL_Edit {
  public:
-  explicit CFWL_Barcode(const CFWL_App* pApp);
+  explicit CFWL_Barcode(CFWL_App* pApp);
   ~CFWL_Barcode() override;
 
   // CFWL_Widget

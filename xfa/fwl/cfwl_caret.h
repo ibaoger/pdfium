@@ -20,7 +20,7 @@ class CFWL_Widget;
 
 class CFWL_Caret : public CFWL_Widget {
  public:
-  CFWL_Caret(const CFWL_App* app,
+  CFWL_Caret(CFWL_App* app,
              std::unique_ptr<CFWL_WidgetProperties> properties,
              CFWL_Widget* pOuter);
   ~CFWL_Caret() override;
@@ -47,7 +47,7 @@ class CFWL_Caret : public CFWL_Widget {
   friend class CFWL_Caret::Timer;
 
   void DrawCaretBK(CXFA_Graphics* pGraphics,
-                   IFWL_ThemeProvider* pTheme,
+                   const IFWL_ThemeProvider* pTheme,
                    const CFX_Matrix* pMatrix);
 
   std::unique_ptr<CFWL_Caret::Timer> m_pTimer;

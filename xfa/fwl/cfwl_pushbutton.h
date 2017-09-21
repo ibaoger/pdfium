@@ -21,7 +21,7 @@ class CFWL_Widget;
 
 class CFWL_PushButton : public CFWL_Widget {
  public:
-  explicit CFWL_PushButton(const CFWL_App*);
+  explicit CFWL_PushButton(CFWL_App*);
   ~CFWL_PushButton() override;
 
   // CFWL_Widget
@@ -35,7 +35,7 @@ class CFWL_PushButton : public CFWL_Widget {
 
  private:
   void DrawBkground(CXFA_Graphics* pGraphics,
-                    IFWL_ThemeProvider* pTheme,
+                    const IFWL_ThemeProvider* pTheme,
                     const CFX_Matrix* pMatrix);
   uint32_t GetPartStates();
   void UpdateTextOutStyles();
