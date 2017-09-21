@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee2bde3e_565ec1f6",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-21T20:06:10Z",
+      "side": 1,
+      "message": "As we talked offline, move this into CFGAS_FontMgr in a follow-up.",
+      "range": {
+        "startLine": 71,
+        "startChar": 64,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "0f917f1bf63960540c3cc7327cca31c2ce48590d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
