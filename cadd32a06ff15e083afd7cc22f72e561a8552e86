@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a214d5a0_626aa364",
+        "filename": "xfa/fxfa/cxfa_ffdoc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-21T18:31:37Z",
+      "side": 1,
+      "message": "Can\u0027t we include it? Does it create a circular ref?",
+      "range": {
+        "startLine": 18,
+        "startChar": 23,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "cadd32a06ff15e083afd7cc22f72e561a8552e86",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
