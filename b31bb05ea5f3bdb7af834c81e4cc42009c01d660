@@ -70,6 +70,30 @@
       "revId": "b31bb05ea5f3bdb7af834c81e4cc42009c01d660",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3062e5_8fe27bbf",
+        "filename": "xfa/fxfa/cxfa_ffapp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T19:38:54Z",
+      "side": 0,
+      "message": "See next cl, heh. I\u0027m thinking merging CXFA_FontMgr into CXFA_FFApp is the right way to go here.",
+      "parentUuid": "fcc370a6_76cbe15e",
+      "range": {
+        "startLine": 48,
+        "startChar": 54,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "b31bb05ea5f3bdb7af834c81e4cc42009c01d660",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
