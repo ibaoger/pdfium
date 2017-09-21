@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7380453_f4bebb70",
+        "filename": "core/fxcrt/weak_ptr_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-21T21:06:18Z",
+      "side": 1,
+      "message": "Renamed these two using\u0027s to make it clear they were test based. (And to fix the WeakPtr naming conflict)",
+      "revId": "2a50dad531a7d9023c51f72e920d422e800bf997",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
