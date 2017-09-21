@@ -18,7 +18,7 @@
 #include "xfa/fwl/cfwl_messagemouse.h"
 
 CFWL_ComboList::CFWL_ComboList(
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_ListBox(app, std::move(properties), pOuter), m_bNotifyOwner(true) {

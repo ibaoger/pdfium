@@ -40,12 +40,10 @@ CPDFXFA_Context::CPDFXFA_Context(std::unique_ptr<CPDF_Document> pPDFDoc)
       m_pPDFDoc(std::move(pPDFDoc)),
       m_pFormFillEnv(nullptr),
       m_pXFADocView(nullptr),
+      m_XFAApp(this),
       m_nLoadStatus(FXFA_LOADSTATUS_PRELOAD),
       m_nPageCount(0),
-      m_DocEnv(this) {
-  m_pXFAApp = pdfium::MakeUnique<CXFA_FFApp>(this);
-  m_pXFAApp->SetDefaultFontMgr(pdfium::MakeUnique<CFGAS_DefaultFontManager>());
-}
+      m_DocEnv(this) {}
 
 CPDFXFA_Context::~CPDFXFA_Context() {
   m_nLoadStatus = FXFA_LOADSTATUS_CLOSING;

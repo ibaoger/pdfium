@@ -10,9 +10,9 @@
 #include <memory>
 
 #include "core/fxcrt/fx_string.h"
+#include "xfa/fwl/cfwl_notedriver.h"
+#include "xfa/fwl/cfwl_widgetmgr.h"
 
-class CFWL_NoteDriver;
-class CFWL_WidgetMgr;
 class CXFA_FFApp;
 class CXFA_FWLAdapterWidgetMgr;
 class CFWL_Widget;
@@ -29,17 +29,18 @@ enum FWL_KeyFlag {
 
 class CFWL_App {
  public:
-  explicit CFWL_App(CXFA_FFApp* pAdapter);
+  explicit CFWL_App(CXFA_FFApp* pAdapter,
+                    CXFA_FWLAdapterWidgetMgr* pAdapterMgr);
   ~CFWL_App();
 
   CXFA_FFApp* GetAdapterNative() const { return m_pAdapterNative.Get(); }
-  CFWL_WidgetMgr* GetWidgetMgr() const { return m_pWidgetMgr.get(); }
-  CFWL_NoteDriver* GetNoteDriver() const { return m_pNoteDriver.get(); }
+  CFWL_WidgetMgr* GetWidgetMgr() { return &m_WidgetMgr; }
+  CFWL_NoteDriver* GetNoteDriver() { return &m_NoteDriver; }
 
  private:
   CFX_UnownedPtr<CXFA_FFApp> const m_pAdapterNative;
-  std::unique_ptr<CFWL_WidgetMgr> m_pWidgetMgr;
-  std::unique_ptr<CFWL_NoteDriver> m_pNoteDriver;
+  CFWL_WidgetMgr m_WidgetMgr;
+  CFWL_NoteDriver m_NoteDriver;
 };
 
 #endif  // XFA_FWL_CFWL_APP_H_

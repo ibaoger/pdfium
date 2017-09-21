@@ -22,7 +22,7 @@ class CFWL_Widget;
 
 class CFWL_ScrollBar : public CFWL_Widget {
  public:
-  CFWL_ScrollBar(const CFWL_App* app,
+  CFWL_ScrollBar(CFWL_App* app,
                  std::unique_ptr<CFWL_WidgetProperties> properties,
                  CFWL_Widget* pOuter);
   ~CFWL_ScrollBar() override;
@@ -67,15 +67,15 @@ class CFWL_ScrollBar : public CFWL_Widget {
     return !!(m_pProperties->m_dwStyleExes & FWL_STYLEEXT_SCB_Vert);
   }
   void DrawTrack(CXFA_Graphics* pGraphics,
-                 IFWL_ThemeProvider* pTheme,
+                 const IFWL_ThemeProvider* pTheme,
                  bool bLower,
                  const CFX_Matrix* pMatrix);
   void DrawArrowBtn(CXFA_Graphics* pGraphics,
-                    IFWL_ThemeProvider* pTheme,
+                    const IFWL_ThemeProvider* pTheme,
                     bool bMinBtn,
                     const CFX_Matrix* pMatrix);
   void DrawThumb(CXFA_Graphics* pGraphics,
-                 IFWL_ThemeProvider* pTheme,
+                 const IFWL_ThemeProvider* pTheme,
                  const CFX_Matrix* pMatrix);
   void Layout();
   void CalcButtonLen();

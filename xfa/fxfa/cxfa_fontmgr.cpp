@@ -46,9 +46,9 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
     if (pFont)
       return pFont;
   }
-  if (!pFont && m_pDefFontMgr)
-    pFont = m_pDefFontMgr->GetFont(hDoc->GetApp()->GetFDEFontMgr(),
-                                   wsFontFamily, dwFontStyles, wCodePage);
+  if (!pFont)
+    pFont = m_DefFontMgr.GetFont(hDoc->GetApp()->GetFDEFontMgr(), wsFontFamily,
+                                 dwFontStyles, wCodePage);
 
   if (!pFont && pMgr) {
     pPDFFont = nullptr;
@@ -57,22 +57,18 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
     if (pFont)
       return pFont;
   }
-  if (!pFont && m_pDefFontMgr) {
-    pFont = m_pDefFontMgr->GetDefaultFont(
-        hDoc->GetApp()->GetFDEFontMgr(), wsFontFamily, dwFontStyles, wCodePage);
+  if (!pFont) {
+    pFont = m_DefFontMgr.GetDefaultFont(hDoc->GetApp()->GetFDEFontMgr(),
+                                        wsFontFamily, dwFontStyles, wCodePage);
   }
 
-  if (pFont) {
-    if (pPDFFont) {
-      pMgr->SetFont(pFont, pPDFFont);
-      pFont->SetFontProvider(pMgr);
-    }
-    m_FontMap[bsKey] = pFont;
+  if (!pFont)
+    return nullptr;
+
+  if (pPDFFont) {
+    pMgr->SetFont(pFont, pPDFFont);
+    pFont->SetFontProvider(pMgr);
   }
+  m_FontMap[bsKey] = pFont;
   return pFont;
-}
-
-void CXFA_FontMgr::SetDefFontMgr(
-    std::unique_ptr<CFGAS_DefaultFontManager> pFontMgr) {
-  m_pDefFontMgr = std::move(pFontMgr);
 }

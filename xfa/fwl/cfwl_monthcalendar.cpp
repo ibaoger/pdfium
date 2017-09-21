@@ -32,7 +32,7 @@
 
 namespace {
 
-WideString GetCapacityForDay(IFWL_ThemeProvider* pTheme,
+WideString GetCapacityForDay(const IFWL_ThemeProvider* pTheme,
                              CFWL_ThemePart& params,
                              uint32_t day) {
   ASSERT(day < 7);
@@ -52,7 +52,7 @@ WideString GetCapacityForDay(IFWL_ThemeProvider* pTheme,
   return L"Sat";
 }
 
-WideString GetCapacityForMonth(IFWL_ThemeProvider* pTheme,
+WideString GetCapacityForMonth(const IFWL_ThemeProvider* pTheme,
                                CFWL_ThemePart& params,
                                uint32_t month) {
   ASSERT(month < 12);
@@ -85,7 +85,7 @@ WideString GetCapacityForMonth(IFWL_ThemeProvider* pTheme,
 }  // namespace
 
 CFWL_MonthCalendar::CFWL_MonthCalendar(
-    const CFWL_App* app,
+    CFWL_App* app,
     std::unique_ptr<CFWL_WidgetProperties> properties,
     CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -153,7 +153,7 @@ void CFWL_MonthCalendar::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     m_pProperties->m_pThemeProvider = GetAvailableTheme();
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
 
@@ -179,7 +179,7 @@ void CFWL_MonthCalendar::SetSelect(int32_t iYear,
 }
 
 void CFWL_MonthCalendar::DrawBackground(CXFA_Graphics* pGraphics,
-                                        IFWL_ThemeProvider* pTheme,
+                                        const IFWL_ThemeProvider* pTheme,
                                         const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -193,7 +193,7 @@ void CFWL_MonthCalendar::DrawBackground(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawHeadBK(CXFA_Graphics* pGraphics,
-                                    IFWL_ThemeProvider* pTheme,
+                                    const IFWL_ThemeProvider* pTheme,
                                     const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -207,7 +207,7 @@ void CFWL_MonthCalendar::DrawHeadBK(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawLButton(CXFA_Graphics* pGraphics,
-                                     IFWL_ThemeProvider* pTheme,
+                                     const IFWL_ThemeProvider* pTheme,
                                      const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -221,7 +221,7 @@ void CFWL_MonthCalendar::DrawLButton(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawRButton(CXFA_Graphics* pGraphics,
-                                     IFWL_ThemeProvider* pTheme,
+                                     const IFWL_ThemeProvider* pTheme,
                                      const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -235,7 +235,7 @@ void CFWL_MonthCalendar::DrawRButton(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawCaption(CXFA_Graphics* pGraphics,
-                                     IFWL_ThemeProvider* pTheme,
+                                     const IFWL_ThemeProvider* pTheme,
                                      const CFX_Matrix* pMatrix) {
   CFWL_ThemeText textParam;
   textParam.m_pWidget = this;
@@ -255,7 +255,7 @@ void CFWL_MonthCalendar::DrawCaption(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawSeperator(CXFA_Graphics* pGraphics,
-                                       IFWL_ThemeProvider* pTheme,
+                                       const IFWL_ThemeProvider* pTheme,
                                        const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -269,7 +269,7 @@ void CFWL_MonthCalendar::DrawSeperator(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawDatesInBK(CXFA_Graphics* pGraphics,
-                                       IFWL_ThemeProvider* pTheme,
+                                       const IFWL_ThemeProvider* pTheme,
                                        const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground params;
   params.m_pWidget = this;
@@ -299,7 +299,7 @@ void CFWL_MonthCalendar::DrawDatesInBK(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawWeek(CXFA_Graphics* pGraphics,
-                                  IFWL_ThemeProvider* pTheme,
+                                  const IFWL_ThemeProvider* pTheme,
                                   const CFX_Matrix* pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
@@ -325,7 +325,7 @@ void CFWL_MonthCalendar::DrawWeek(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawToday(CXFA_Graphics* pGraphics,
-                                   IFWL_ThemeProvider* pTheme,
+                                   const IFWL_ThemeProvider* pTheme,
                                    const CFX_Matrix* pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
@@ -347,7 +347,7 @@ void CFWL_MonthCalendar::DrawToday(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawDatesIn(CXFA_Graphics* pGraphics,
-                                     IFWL_ThemeProvider* pTheme,
+                                     const IFWL_ThemeProvider* pTheme,
                                      const CFX_Matrix* pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
@@ -373,7 +373,7 @@ void CFWL_MonthCalendar::DrawDatesIn(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawDatesOut(CXFA_Graphics* pGraphics,
-                                      IFWL_ThemeProvider* pTheme,
+                                      const IFWL_ThemeProvider* pTheme,
                                       const CFX_Matrix* pMatrix) {
   CFWL_ThemeText params;
   params.m_pWidget = this;
@@ -387,7 +387,7 @@ void CFWL_MonthCalendar::DrawDatesOut(CXFA_Graphics* pGraphics,
 }
 
 void CFWL_MonthCalendar::DrawDatesInCircle(CXFA_Graphics* pGraphics,
-                                           IFWL_ThemeProvider* pTheme,
+                                           const IFWL_ThemeProvider* pTheme,
                                            const CFX_Matrix* pMatrix) {
   if (m_iMonth != m_iCurMonth || m_iYear != m_iCurYear)
     return;
@@ -416,7 +416,7 @@ CFX_SizeF CFWL_MonthCalendar::CalcSize() {
 
   CFWL_ThemePart params;
   params.m_pWidget = this;
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   float fMaxWeekW = 0.0f;
   float fMaxWeekH = 0.0f;
 

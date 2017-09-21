@@ -908,7 +908,7 @@ CXFA_FFWidget::CXFA_FFWidget(CXFA_WidgetAcc* pDataAcc)
 
 CXFA_FFWidget::~CXFA_FFWidget() {}
 
-const CFWL_App* CXFA_FFWidget::GetFWLApp() {
+CFWL_App* CXFA_FFWidget::GetFWLApp() {
   return GetPageView()->GetDocView()->GetDoc()->GetApp()->GetFWLApp();
 }
 

@@ -25,7 +25,7 @@ namespace {
 const int kDateTimePickerHeight = 20;
 
 }  // namespace
-CFWL_DateTimePicker::CFWL_DateTimePicker(const CFWL_App* app)
+CFWL_DateTimePicker::CFWL_DateTimePicker(CFWL_App* app)
     : CFWL_Widget(app, pdfium::MakeUnique<CFWL_WidgetProperties>(), nullptr),
       m_iBtnState(1),
       m_iYear(-1),
@@ -76,7 +76,7 @@ void CFWL_DateTimePicker::Update() {
   m_pEdit->SetThemeProvider(m_pProperties->m_pThemeProvider);
   m_rtClient = GetClientRect();
 
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (!theme)
     return;
 
@@ -120,7 +120,7 @@ void CFWL_DateTimePicker::DrawWidget(CXFA_Graphics* pGraphics,
   if (!m_pProperties->m_pThemeProvider)
     return;
 
-  IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
+  const IFWL_ThemeProvider* pTheme = m_pProperties->m_pThemeProvider;
   if (HasBorder())
     DrawBorder(pGraphics, CFWL_Part::Border, pTheme, matrix);
   if (!m_rtBtn.IsEmpty())
@@ -131,7 +131,7 @@ void CFWL_DateTimePicker::DrawWidget(CXFA_Graphics* pGraphics,
   }
 }
 
-void CFWL_DateTimePicker::SetThemeProvider(IFWL_ThemeProvider* pTP) {
+void CFWL_DateTimePicker::SetThemeProvider(const IFWL_ThemeProvider* pTP) {
   m_pProperties->m_pThemeProvider = pTP;
   m_pMonthCal->SetThemeProvider(pTP);
 }
@@ -195,7 +195,7 @@ void CFWL_DateTimePicker::ModifyEditStylesEx(uint32_t dwStylesExAdded,
 }
 
 void CFWL_DateTimePicker::DrawDropDownButton(CXFA_Graphics* pGraphics,
-                                             IFWL_ThemeProvider* pTheme,
+                                             const IFWL_ThemeProvider* pTheme,
                                              const CFX_Matrix* pMatrix) {
   CFWL_ThemeBackground param;
   param.m_pWidget = this;
@@ -417,7 +417,7 @@ void CFWL_DateTimePicker::DisForm_Update() {
   if (!m_pMonthCal->GetThemeProvider())
     m_pMonthCal->SetThemeProvider(m_pProperties->m_pThemeProvider);
 
-  IFWL_ThemeProvider* theme = GetAvailableTheme();
+  const IFWL_ThemeProvider* theme = GetAvailableTheme();
   if (!theme)
     return;
 
