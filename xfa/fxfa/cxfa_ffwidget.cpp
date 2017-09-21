@@ -2002,14 +2002,25 @@ CFX_RetainPtr<CFX_DIBitmap> XFA_LoadImageFromBuffer(
   pBitmap->Create(pProgressiveDecoder->GetWidth(),
                   pProgressiveDecoder->GetHeight(), dibFormat);
   pBitmap->Clear(0xffffffff);
+
   int32_t nFrames;
-  if ((pProgressiveDecoder->GetFrames(nFrames) ==
-       FXCODEC_STATUS_DECODE_READY) &&
-      (nFrames > 0)) {
-    pProgressiveDecoder->StartDecode(pBitmap, 0, 0, pBitmap->GetWidth(),
-                                     pBitmap->GetHeight());
-    pProgressiveDecoder->ContinueDecode();
+  if (pProgressiveDecoder->GetFrames(&nFrames) != FXCODEC_STATUS_DECODE_READY ||
+      nFrames <= 0) {
+    pBitmap = nullptr;
+    return pBitmap;
   }
+
+  if (IsFXCodecErrorStatus(pProgressiveDecoder->StartDecode(
+          pBitmap, 0, 0, pBitmap->GetWidth(), pBitmap->GetHeight()))) {
+    pBitmap = nullptr;
+    return pBitmap;
+  }
+
+  if (IsFXCodecErrorStatus(pProgressiveDecoder->ContinueDecode())) {
+    pBitmap = nullptr;
+    return pBitmap;
+  }
+
   return pBitmap;
 }
 
