@@ -26,11 +26,10 @@ CXFA_FontMgr::~CXFA_FontMgr() {}
 CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
     CXFA_FFDoc* hDoc,
     const WideStringView& wsFontFamily,
-    uint32_t dwFontStyles,
-    uint16_t wCodePage) {
+    uint32_t dwFontStyles) {
   uint32_t dwHash = FX_HashCode_GetW(wsFontFamily, false);
   ByteString bsKey;
-  bsKey.Format("%u%u%u", dwHash, dwFontStyles, wCodePage);
+  bsKey.Format("%u%u%u", dwHash, dwFontStyles, 0xFFFF);
   auto iter = m_FontMap.find(bsKey);
   if (iter != m_FontMap.end())
     return iter->second;
@@ -48,7 +47,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
   }
   if (!pFont)
     pFont = m_DefFontMgr.GetFont(hDoc->GetApp()->GetFDEFontMgr(), wsFontFamily,
-                                 dwFontStyles, wCodePage);
+                                 dwFontStyles);
 
   if (!pFont && pMgr) {
     pPDFFont = nullptr;
@@ -59,7 +58,7 @@ CFX_RetainPtr<CFGAS_GEFont> CXFA_FontMgr::GetFont(
   }
   if (!pFont) {
     pFont = m_DefFontMgr.GetDefaultFont(hDoc->GetApp()->GetFDEFontMgr(),
-                                        wsFontFamily, dwFontStyles, wCodePage);
+                                        wsFontFamily, dwFontStyles);
   }
 
   if (!pFont)
