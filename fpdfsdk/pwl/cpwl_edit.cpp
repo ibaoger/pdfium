@@ -559,9 +559,13 @@ bool CPWL_Edit::OnChar(uint16_t nChar, uint32_t nFlag) {
       }
 
       WideString strChangeEx;
+      CPWL_Wnd::ObservedPtr thisPtr(this);
       std::tie(bRC, bExit) = m_pFillerNotify->OnBeforeKeyStroke(
           GetAttachedData(), swChange, strChangeEx, nSelStart, nSelEnd, true,
           nFlag);
+      if (!thisPtr) {
+        return false;
+      }
     }
   }
 
