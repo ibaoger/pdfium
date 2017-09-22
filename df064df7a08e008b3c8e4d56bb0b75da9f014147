@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6778dbe2_bf44cd61",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 7229
+      },
+      "writtenOn": "2017-09-22T13:01:48Z",
+      "side": 1,
+      "message": "The spec requires UTF-8; the comment should say so.",
+      "revId": "df064df7a08e008b3c8e4d56bb0b75da9f014147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e41ce4_2f5bdbf4",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 7229
+      },
+      "writtenOn": "2017-09-22T13:01:48Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "df064df7a08e008b3c8e4d56bb0b75da9f014147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ceea23_6192cfe5",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 7229
+      },
+      "writtenOn": "2017-09-22T13:01:48Z",
+      "side": 1,
+      "message": "This comment needs to be updated.",
+      "revId": "df064df7a08e008b3c8e4d56bb0b75da9f014147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c10e7953_e255bee3",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 7229
+      },
+      "writtenOn": "2017-09-22T13:01:48Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "df064df7a08e008b3c8e4d56bb0b75da9f014147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d982573_19ed9691",
+        "filename": "public/fpdf_annot.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 7229
+      },
+      "writtenOn": "2017-09-22T13:01:48Z",
+      "side": 1,
+      "message": "Same.",
+      "revId": "df064df7a08e008b3c8e4d56bb0b75da9f014147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
