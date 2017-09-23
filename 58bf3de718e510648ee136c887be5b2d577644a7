@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c34963b_a7724b6e",
+        "filename": "core/fxcodec/codec/fx_codec_icc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5475
+      },
+      "writtenOn": "2017-09-23T12:27:35Z",
+      "side": 1,
+      "message": "The if body is now dead code. Icc_FORMAT_DEFAULT is set to 0 unconditionally, and T_DOSWAP checks if the 11th bit of it argument is set. Is this expected?\n\nFound by a compiler warning I\u0027m evaluating in crbug.com/346399 :\n\n../../third_party/pdfium/core/fxcodec/codec/fx_codec_icc.cpp(88,7):  error: code will never be executed [-Werror,-Wunreachable-code]\n      srcFormat |\u003d DOSWAP_SH(1);\n      ^~~~~~~~~",
+      "range": {
+        "startLine": 86,
+        "startChar": 42,
+        "endLine": 86,
+        "endChar": 62
+      },
+      "revId": "58bf3de718e510648ee136c887be5b2d577644a7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
