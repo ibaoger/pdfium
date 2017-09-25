@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e31ad57_35b70fcb",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "This seems like it should be a method on CPDF_Dictionary since all paths ask the dictionary questions.",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f8bd4f8_1d2cef6c",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "This would be better named DecryptObjectAndChildren or something as it walks all of the sub-objects",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2d05d5_f9af33b9",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "make this a stack of structs so we can name the dict and object for clarity.",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9b30e7f_07684af0",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "Store walker.GetParent()-\u003eGetDict() in a temporary",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d89a9055_529afbe4",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "These blocks seem like they should be methods on the objects themselves. Then you\u0027d just do child-\u003eDecrypt() instead of having the multiple if\u0027s.",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f795e091_e50ddd6c",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "In the original code we wouldn\u0027t even have a CPDF_Stream we\u0027d have returned nullptr earlier. We will now have a stream with a nullptr as it\u0027s data. Is that going to cause any issues in the code which uses the streams?",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9f0396a_346d1054",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "What does this mean, decryption failed?",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e2fd398_f2a5954e",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "What about if it is a signature dictionary? We just ignore it? Leave it encrypted? what happens?",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb283cf_39a5a525",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 1,
+      "message": "Indenting is wrong here.",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

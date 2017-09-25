@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "2105da07_47955831",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 0,
+      "message": "Previously this would always run on the MetadataObjnum, it will now, is that an issue? It would also run if the crypto handler wasn\u0027t set and it won\u0027t now.",
+      "revId": "09b5ce623fc47bc3d19d60aa2a219c838971dd4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099dc646_7c862b1c",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T17:52:39Z",
+      "side": 0,
+      "message": "Lost safety check? Does this still handle documents what not enough data to decrypt?",
+      "revId": "09b5ce623fc47bc3d19d60aa2a219c838971dd4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2e77864_33c5e028",
         "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
         "patchSetId": 4
