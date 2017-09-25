@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2e77864_33c5e028",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T16:25:30Z",
+      "side": 0,
+      "message": "If this is unused, can you remove it in a separate CL?",
+      "revId": "09b5ce623fc47bc3d19d60aa2a219c838971dd4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

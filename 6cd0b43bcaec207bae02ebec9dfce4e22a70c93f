@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce6905be_4d8b0600",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T16:25:30Z",
+      "side": 1,
+      "message": "Previously this decrypted now it doesn\u0027t?",
+      "revId": "6cd0b43bcaec207bae02ebec9dfce4e22a70c93f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e57a81_87c80cae",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-25T16:25:30Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6cd0b43bcaec207bae02ebec9dfce4e22a70c93f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
