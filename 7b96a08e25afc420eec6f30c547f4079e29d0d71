@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "acd568e5_e0b6acca",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:58:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e2d05d5_f9af33b9",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9b30e7f_07684af0",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -103,6 +121,24 @@
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d70f29b1_0f2aa952",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:58:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b30e7f_07684af0",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
