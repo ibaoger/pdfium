@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5aa00ba_2011df5c",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "No.\nThis is en[de]cryption specific logic, and i think that, dictionary should not know about this. It is should be stayed as universal object. And this is just the particular application of it.",
+      "parentUuid": "5e31ad57_35b70fcb",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f8bd4f8_1d2cef6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-09-25T17:52:39Z",
       "side": 1,
       "message": "This would be better named DecryptObjectAndChildren or something as it walks all of the sub-objects",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2928028f_a2e33810",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "What about \"DecryptIndirectObject\"? \nLike in other places?",
+      "parentUuid": "6f8bd4f8_1d2cef6c",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "3609515d_d3fb8ac0",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "Why we should spread the decryption logic in much places?\nIt is will make reading worse and increase complexity.\nIn This CL it is solid. \nAlso:\n1) Only two types of object have decryption - strings and streams, why we need that for other?\n2) Decryption is used only in one place of (CPDF_SyntaxParser::ParseIndirectObjectInternal). In other places it is should be never used. (For other places it is invisible.)",
+      "parentUuid": "d89a9055_529afbe4",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f795e091_e50ddd6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -98,6 +152,24 @@
       "writtenOn": "2017-09-25T17:52:39Z",
       "side": 1,
       "message": "In the original code we wouldn\u0027t even have a CPDF_Stream we\u0027d have returned nullptr earlier. We will now have a stream with a nullptr as it\u0027s data. Is that going to cause any issues in the code which uses the streams?",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8fc5f3c_076070cb",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "See https://pdfium.googlesource.com/pdfium.git/+/957480c17682008ae2a14723868fcdcab89b6577",
+      "parentUuid": "f795e091_e50ddd6c",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "e6422fa0_a7fba163",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "f9f0396a_346d1054",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e2fd398_f2a5954e",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -132,6 +222,24 @@
       "writtenOn": "2017-09-25T17:52:39Z",
       "side": 1,
       "message": "What about if it is a signature dictionary? We just ignore it? Leave it encrypted? what happens?",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a650b5b_b36894c7",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T18:38:27Z",
+      "side": 1,
+      "message": "The contents of signature dictionary already decrypted, and should stay unchanged. Just skipping decryptrion of it.",
+      "parentUuid": "4e2fd398_f2a5954e",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
