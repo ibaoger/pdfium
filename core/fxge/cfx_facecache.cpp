@@ -77,6 +77,23 @@ void ContrastAdjust(uint8_t* pDataIn,
   }
 }
 
+struct UniqueKeyGen {
+  void Generate(int count, ...);
+
+  char m_Key[128];
+  int m_KeyLen;
+};
+void UniqueKeyGen::Generate(int count, ...) {
+  va_list argList;
+  va_start(argList, count);
+  for (int i = 0; i < count; i++) {
+    int p = va_arg(argList, int);
+    ((uint32_t*)m_Key)[i] = p;
+  }
+  va_end(argList);
+  m_KeyLen = count * sizeof(uint32_t);
+}
+
 }  // namespace
 
 CFX_FaceCache::CFX_FaceCache(FXFT_Face face)
@@ -262,7 +279,7 @@ const CFX_GlyphBitmap* CFX_FaceCache::LoadGlyphBitmap(const CFX_Font* pFont,
   if (glyph_index == kInvalidGlyphIndex)
     return nullptr;
 
-  CFX_UniqueKeyGen keygen;
+  UniqueKeyGen keygen;
   int nMatrixA = static_cast<int>(pMatrix->a * 10000);
   int nMatrixB = static_cast<int>(pMatrix->b * 10000);
   int nMatrixC = static_cast<int>(pMatrix->c * 10000);
