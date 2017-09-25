@@ -17,7 +17,6 @@
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_substfont.h"
 #include "core/fxge/fx_freetype.h"
-#include "core/fxge/fx_text_int.h"
 #include "third_party/base/numerics/safe_math.h"
 #include "third_party/base/ptr_util.h"
 
@@ -95,6 +94,14 @@ void UniqueKeyGen::Generate(int count, ...) {
 }
 
 }  // namespace
+
+class CFX_SizeGlyphCache {
+ public:
+  CFX_SizeGlyphCache() = default;
+  ~CFX_SizeGlyphCache() = default;
+
+  std::map<uint32_t, std::unique_ptr<CFX_GlyphBitmap>> m_GlyphMap;
+};
 
 CFX_FaceCache::CFX_FaceCache(FXFT_Face face)
     : m_Face(face)
