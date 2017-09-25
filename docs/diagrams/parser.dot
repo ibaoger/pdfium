@@ -1,0 +1,105 @@
+digraph "parser" {
+  center=true;
+  compound=true;
+  rankdir=LR;
+
+  node [shape = box, group = a];
+  CPDF_CryptoHandler;
+  CPDF_DataAvail;
+  CPDF_Document;
+  CPDF_HintTables;
+  CPDF_IndirectObjectHolder;
+  CPDF_LinearizedHeader;
+  CPDF_ObjectAvail;
+  CPDF_PageObjectAvail;
+  CPDF_Parser;
+  CPDF_ReadValidator;
+  CPDF_SecurityHandler;
+  CPDF_SimpleParser;
+  CPDF_SyntaxParser;
+  CFDF_Document;
+  CPDF_Creator;
+
+  subgraph cluster_fpdf_document {
+    FPDF_DOCUMENT;
+    CPDF_Document;
+    CPDFXFA_Context;
+
+    FPDF_DOCUMENT -> CPDF_Document
+    FPDF_DOCUMENT -> CPDFXFA_Context
+    graph [style=dotted]
+  }
+
+  subgraph cluster_fpdf_avail {
+    FPDF_AVAIL;
+    CFPDF_DataAvail;
+
+    FPDF_AVAIL -> CFPDF_DataAvail
+    graph [style=dotted]
+  }
+
+  CPDF_Document -> CPDF_IndirectObjectHolder [style=dotted;
+  ltail=cluster_fpdf_document]
+  CPDF_Document -> CPDF_Parser [ltail=cluster_fpdf_document;]
+
+  CPDF_HintTables -> CPDF_DataAvail [color=gray]
+  CPDF_HintTables -> CPDF_LinearizedHeader [color=gray]
+
+  CPDF_DataAvail -> FileAvail [color=gray]
+  CPDF_DataAvail -> CPDF_ReadValidator [color=green]
+  CPDF_DataAvail -> CPDF_Parser
+  CPDF_DataAvail -> CPDF_SyntaxParser
+  CPDF_DataAvail -> CPDF_LinearizedHeader
+  CPDF_DataAvail -> CPDF_Document [color=gray; lhead=cluster_fpdf_document;]
+  CPDF_DataAvail -> CPDF_HintTables
+  CPDF_DataAvail -> CPDF_PageObjectAvail
+  
+  CPDF_ObjectAvail -> CPDF_ReadValidator [color=gray]
+  CPDF_ObjectAvail -> CPDF_IndirectObjectHolder [color=gray]
+
+  CPDF_PageObjectAvail -> CPDF_ObjectAvail [style=dotted]
+
+  CPDF_Parser -> CPDF_SyntaxParser
+  CPDF_Parser -> CPDF_Document [color=gray; lhead=cluster_fpdf_document;]
+  CPDF_Parser -> CPDF_SecurityHandler
+  CPDF_Parser -> CPDF_LinearizedHeader
+
+  CPDF_SecurityHandler -> CPDF_Parser [color=gray]
+
+  CPDF_SyntaxParser -> CPDF_ReadValidator [color=green]
+  CPDF_SyntaxParser -> CPDF_CryptoHandler [color=green]
+
+  CPDF_ReadValidator -> FileAvail [color=gray]
+
+  CPDF_CryptoHandler -> CPDF_SecurityHandler [color=gray]
+
+  CFDF_Document -> CPDF_IndirectObjectHolder [style=dotted]
+
+  CFPDF_DataAvail -> CPDF_DataAvail [color=gray; ltail=cluster_fpdf_avail]
+
+  CPDF_Creator -> CPDF_Document [color=gray; lhead=cluster_fpdf_document;]
+  CPDF_Creator -> CPDF_Parser [color=gray]
+  CPDF_Creator -> CPDF_CryptoHandler [color=green]
+  CPDF_Creator -> CPDF_SecurityHandler
+
+  node [shape=plaintext]
+  subgraph cluster_01 {
+    label = "Legend";
+    src [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+      <tr><td align="right" port="inherit">Inherit</td></tr>
+      <tr><td align="right" port="own">Owns</td></tr>
+      <tr><td align="right" port="retain">Retains</td></tr>
+      <tr><td align="right" port="unown">Unowned</td></tr>
+      </table>>]
+    sink [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+      <tr><td port="inherit">&nbsp;</td></tr>
+      <tr><td port="own">&nbsp;</td></tr>
+      <tr><td port="retain">&nbsp;</td></tr>
+      <tr><td port="unown">&nbsp;</td></tr>
+      </table>>]
+    src:inherit:e -> sink:inherit:w [style=dotted]
+    src:own:e -> sink:own:w
+    src:retain:e -> sink:retain:w [color=green]
+    src:unown:e -> sink:unown:w [color=gray]
+  }
+}
