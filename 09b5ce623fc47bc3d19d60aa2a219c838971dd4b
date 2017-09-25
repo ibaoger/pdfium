@@ -16,6 +16,24 @@
       "revId": "09b5ce623fc47bc3d19d60aa2a219c838971dd4b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b2a6f8_c934bd76",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-25T16:48:55Z",
+      "side": 0,
+      "message": "Restored for now.\nWill be removed in other CL after this.",
+      "parentUuid": "a2e77864_33c5e028",
+      "revId": "09b5ce623fc47bc3d19d60aa2a219c838971dd4b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
