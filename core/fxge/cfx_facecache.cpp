@@ -17,7 +17,6 @@
 #include "core/fxge/cfx_pathdata.h"
 #include "core/fxge/cfx_substfont.h"
 #include "core/fxge/fx_freetype.h"
-#include "core/fxge/fx_text_int.h"
 #include "third_party/base/numerics/safe_math.h"
 #include "third_party/base/ptr_util.h"
 
@@ -329,7 +328,7 @@ const CFX_GlyphBitmap* CFX_FaceCache::LoadGlyphBitmap(const CFX_Font* pFont,
   std::unique_ptr<CFX_GlyphBitmap> pGlyphBitmap;
   auto it = m_SizeMap.find(FaceGlyphsKey);
   if (it != m_SizeMap.end()) {
-    CFX_SizeGlyphCache* pSizeCache = it->second.get();
+    SizeGlyphCache* pSizeCache = it->second.get();
     auto it2 = pSizeCache->m_GlyphMap.find(glyph_index);
     if (it2 != pSizeCache->m_GlyphMap.end())
       return it2->second.get();
@@ -345,8 +344,8 @@ const CFX_GlyphBitmap* CFX_FaceCache::LoadGlyphBitmap(const CFX_Font* pFont,
     pGlyphBitmap = RenderGlyph_Nativetext(pFont, glyph_index, pMatrix,
                                           dest_width, anti_alias);
     if (pGlyphBitmap) {
-      auto pNewCache = pdfium::MakeUnique<CFX_SizeGlyphCache>();
-      CFX_SizeGlyphCache* pSizeCache = pNewCache.get();
+      auto pNewCache = pdfium::MakeUnique<SizeGlyphCache>();
+      SizeGlyphCache* pSizeCache = pNewCache.get();
       m_SizeMap[FaceGlyphsKey] = std::move(pNewCache);
       CFX_GlyphBitmap* pResult = pGlyphBitmap.get();
       pSizeCache->m_GlyphMap[glyph_index] = std::move(pGlyphBitmap);
@@ -397,10 +396,10 @@ CFX_GlyphBitmap* CFX_FaceCache::LookUpGlyphBitmap(
     bool bFontStyle,
     int dest_width,
     int anti_alias) {
-  CFX_SizeGlyphCache* pSizeCache;
+  SizeGlyphCache* pSizeCache;
   auto it = m_SizeMap.find(FaceGlyphsKey);
   if (it == m_SizeMap.end()) {
-    auto pNewCache = pdfium::MakeUnique<CFX_SizeGlyphCache>();
+    auto pNewCache = pdfium::MakeUnique<SizeGlyphCache>();
     pSizeCache = pNewCache.get();
     m_SizeMap[FaceGlyphsKey] = std::move(pNewCache);
   } else {
@@ -416,3 +415,7 @@ CFX_GlyphBitmap* CFX_FaceCache::LookUpGlyphBitmap(
   pSizeCache->m_GlyphMap[glyph_index] = std::move(pGlyphBitmap);
   return pResult;
 }
+
+CFX_FaceCache::SizeGlyphCache::SizeGlyphCache() {}
+
+CFX_FaceCache::SizeGlyphCache::~SizeGlyphCache() {}

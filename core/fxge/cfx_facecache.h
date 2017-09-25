@@ -38,6 +38,14 @@ class CFX_FaceCache {
 #endif
 
  private:
+  class SizeGlyphCache {
+   public:
+    SizeGlyphCache();
+    ~SizeGlyphCache();
+
+    std::map<uint32_t, std::unique_ptr<CFX_GlyphBitmap>> m_GlyphMap;
+  };
+
   std::unique_ptr<CFX_GlyphBitmap> RenderGlyph(const CFX_Font* pFont,
                                                uint32_t glyph_index,
                                                bool bFontStyle,
@@ -61,7 +69,7 @@ class CFX_FaceCache {
   void DestroyPlatform();
 
   FXFT_Face const m_Face;
-  std::map<ByteString, std::unique_ptr<CFX_SizeGlyphCache>> m_SizeMap;
+  std::map<ByteString, std::unique_ptr<SizeGlyphCache>> m_SizeMap;
   std::map<uint32_t, std::unique_ptr<CFX_PathData>> m_PathMap;
 #if defined _SKIA_SUPPORT_ || _SKIA_SUPPORT_PATHS_
   sk_sp<SkTypeface> m_pTypeface;
