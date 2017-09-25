@@ -17,7 +17,6 @@
 #define FWL_WGTMGR_DisableForm 0x00000002
 
 class CFWL_Message;
-class CXFA_FFApp;
 class CXFA_FWLAdapterWidgetMgr;
 class CXFA_Graphics;
 class CFX_Matrix;
@@ -25,7 +24,7 @@ class CFWL_Widget;
 
 class CFWL_WidgetMgr {
  public:
-  explicit CFWL_WidgetMgr(CXFA_FFApp* pAdapterNative);
+  explicit CFWL_WidgetMgr(CXFA_FWLAdapterWidgetMgr* pAdapterNative);
   ~CFWL_WidgetMgr();
 
   void OnProcessMessageToForm(CFWL_Message* pMessage);

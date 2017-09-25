@@ -35,7 +35,7 @@ class CFWL_Widget;
 
 class CFWL_CheckBox : public CFWL_Widget {
  public:
-  explicit CFWL_CheckBox(const CFWL_App* pApp);
+  explicit CFWL_CheckBox(CFWL_App* pApp);
   ~CFWL_CheckBox() override;
 
   // CFWL_Widget

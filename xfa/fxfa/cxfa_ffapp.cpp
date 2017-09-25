@@ -23,10 +23,10 @@
 #include "xfa/fxfa/cxfa_fwladapterwidgetmgr.h"
 #include "xfa/fxfa/cxfa_fwltheme.h"
 
-CXFA_FFApp::CXFA_FFApp(IXFA_AppProvider* pProvider) : m_pProvider(pProvider) {
-  // Ensure fully initialized before making an app based on |this|.
-  m_pFWLApp = pdfium::MakeUnique<CFWL_App>(this);
-}
+CXFA_FFApp::CXFA_FFApp(IXFA_AppProvider* pProvider)
+    : m_pProvider(pProvider),
+      m_FWLTheme(this),
+      m_FWLApp(this, &m_AdapterWidgetMgr) {}
 
 CXFA_FFApp::~CXFA_FFApp() {}
 
@@ -49,17 +49,6 @@ std::unique_ptr<CXFA_FFDoc> CXFA_FFApp::CreateDoc(
   return pDoc;
 }
 
-void CXFA_FFApp::SetDefaultFontMgr(
-    std::unique_ptr<CFGAS_DefaultFontManager> pFontMgr) {
-  if (!m_pFontMgr)
-    m_pFontMgr = pdfium::MakeUnique<CXFA_FontMgr>();
-  m_pFontMgr->SetDefFontMgr(std::move(pFontMgr));
-}
-
-CXFA_FontMgr* CXFA_FFApp::GetXFAFontMgr() const {
-  return m_pFontMgr.get();
-}
-
 CFGAS_FontMgr* CXFA_FFApp::GetFDEFontMgr() {
   if (!m_pFDEFontMgr) {
 #if _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
@@ -72,22 +61,6 @@ CFGAS_FontMgr* CXFA_FFApp::GetFDEFontMgr() {
   return m_pFDEFontMgr.get();
 }
 
-CXFA_FWLTheme* CXFA_FFApp::GetFWLTheme() {
-  if (!m_pFWLTheme)
-    m_pFWLTheme = pdfium::MakeUnique<CXFA_FWLTheme>(this);
-  return m_pFWLTheme.get();
-}
-
-CXFA_FWLAdapterWidgetMgr* CXFA_FFApp::GetFWLAdapterWidgetMgr() {
-  if (!m_pAdapterWidgetMgr)
-    m_pAdapterWidgetMgr = pdfium::MakeUnique<CXFA_FWLAdapterWidgetMgr>();
-  return m_pAdapterWidgetMgr.get();
-}
-
-IFWL_AdapterTimerMgr* CXFA_FFApp::GetTimerMgr() const {
-  return m_pProvider->GetTimerMgr();
-}
-
 void CXFA_FFApp::ClearEventTargets() {
-  m_pFWLApp->GetNoteDriver()->ClearEventTargets();
+  m_FWLApp.GetNoteDriver()->ClearEventTargets();
 }

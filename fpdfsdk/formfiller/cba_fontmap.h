@@ -19,7 +19,6 @@ class CBA_FontMap : public CPWL_FontMap {
   ~CBA_FontMap() override;
 
   void Reset();
-  void SetDefaultFont(CPDF_Font* pFont, const ByteString& sFontName);
   void SetAPType(const ByteString& sAPType);
 
  private:

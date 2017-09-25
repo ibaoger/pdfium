@@ -15,7 +15,7 @@
 
 class CFWL_ComboList : public CFWL_ListBox {
  public:
-  CFWL_ComboList(const CFWL_App* app,
+  CFWL_ComboList(CFWL_App* app,
                  std::unique_ptr<CFWL_WidgetProperties> properties,
                  CFWL_Widget* pOuter);
 

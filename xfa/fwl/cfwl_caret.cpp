@@ -21,7 +21,7 @@ const uint32_t kFrequency = 400;
 
 }  // namespace
 
-CFWL_Caret::CFWL_Caret(const CFWL_App* app,
+CFWL_Caret::CFWL_Caret(CFWL_App* app,
                        std::unique_ptr<CFWL_WidgetProperties> properties,
                        CFWL_Widget* pOuter)
     : CFWL_Widget(app, std::move(properties), pOuter),
@@ -71,7 +71,7 @@ void CFWL_Caret::HideCaret() {
 }
 
 void CFWL_Caret::DrawCaretBK(CXFA_Graphics* pGraphics,
-                             IFWL_ThemeProvider* pTheme,
+                             const IFWL_ThemeProvider* pTheme,
                              const CFX_Matrix* pMatrix) {
   if (!(m_pProperties->m_dwStates & FWL_STATE_CAT_HightLight))
     return;

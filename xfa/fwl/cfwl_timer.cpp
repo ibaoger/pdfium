@@ -17,7 +17,7 @@ CFWL_Timer::CFWL_Timer(CFWL_Widget* parent) : m_pWidget(parent) {}
 CFWL_Timer::~CFWL_Timer() {}
 
 CFWL_TimerInfo* CFWL_Timer::StartTimer(uint32_t dwElapse, bool bImmediately) {
-  const CFWL_App* pApp = m_pWidget->GetOwnerApp();
+  CFWL_App* pApp = m_pWidget->GetOwnerApp();
   if (!pApp)
     return nullptr;
 
