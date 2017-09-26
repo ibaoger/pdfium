@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ce972f0_25285ca7",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T16:25:47Z",
+      "side": 1,
+      "message": "We usually use ::Create",
+      "revId": "c564cf5fd2ab36d25f87476100b3e5c00da433cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc53300a_602f4179",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T16:25:47Z",
+      "side": 1,
+      "message": "We have no guarantee that err_msg_ is actually GIF_MAX_ERROR_SIZE in size.",
+      "revId": "c564cf5fd2ab36d25f87476100b3e5c00da433cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c15b6def_d7668192",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T16:25:47Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "c564cf5fd2ab36d25f87476100b3e5c00da433cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7abe498_9caa4a77",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T16:25:47Z",
+      "side": 1,
+      "message": "Do we use the value set in here? Or can the param be removed?",
+      "range": {
+        "startLine": 22,
+        "startChar": 53,
+        "endLine": 22,
+        "endChar": 68
+      },
+      "revId": "c564cf5fd2ab36d25f87476100b3e5c00da433cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb3aeb3_6273db13",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T16:25:47Z",
+      "side": 1,
+      "message": "Don\u0027t need explicit with more then 1 param.\n\nThis should be private so the MakeDecoder method has to be used.",
+      "revId": "c564cf5fd2ab36d25f87476100b3e5c00da433cf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
