@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96c38082_82d819c5",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-26T20:46:03Z",
+      "side": 1,
+      "message": "Changed WideString to CFX_WideString to merge.",
+      "range": {
+        "startLine": 561,
+        "startChar": 6,
+        "endLine": 561,
+        "endChar": 33
+      },
+      "revId": "f3f24a46aa35148c3192022eed048dfd1ed1f6f3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cb18251_80216f40",
+        "filename": "fpdfsdk/pwl/cpwl_list_box.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-26T20:46:03Z",
+      "side": 1,
+      "message": "Changed WideString to CFX_WideString to merge.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 29
+      },
+      "revId": "f3f24a46aa35148c3192022eed048dfd1ed1f6f3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
