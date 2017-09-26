@@ -15,10 +15,11 @@ CFGAS_DefaultFontManager::~CFGAS_DefaultFontManager() {}
 RetainPtr<CFGAS_GEFont> CFGAS_DefaultFontManager::GetFont(
     CFGAS_FontMgr* pFontMgr,
     const WideStringView& wsFontFamily,
-    uint32_t dwFontStyles) {
+    uint32_t dwFontStyles,
+    uint16_t wCodePage) {
   WideString wsFontName(wsFontFamily);
   RetainPtr<CFGAS_GEFont> pFont =
-      pFontMgr->LoadFont(wsFontName.c_str(), dwFontStyles, 0xFFFF);
+      pFontMgr->LoadFont(wsFontName.c_str(), dwFontStyles, wCodePage);
   if (!pFont) {
     const FGAS_FontInfo* pCurFont =
         FGAS_FontInfoByFontName(wsFontName.AsStringView());
@@ -38,7 +39,7 @@ RetainPtr<CFGAS_GEFont> CFGAS_DefaultFontManager::GetFont(
           iLength--;
         }
         WideString wsReplace = WideString(pReplace, pNameText - pReplace);
-        pFont = pFontMgr->LoadFont(wsReplace.c_str(), dwStyle, 0xFFFF);
+        pFont = pFontMgr->LoadFont(wsReplace.c_str(), dwStyle, wCodePage);
         if (pFont)
           break;
 
@@ -56,12 +57,13 @@ RetainPtr<CFGAS_GEFont> CFGAS_DefaultFontManager::GetFont(
 RetainPtr<CFGAS_GEFont> CFGAS_DefaultFontManager::GetDefaultFont(
     CFGAS_FontMgr* pFontMgr,
     const WideStringView& wsFontFamily,
-    uint32_t dwFontStyles) {
+    uint32_t dwFontStyles,
+    uint16_t wCodePage) {
   RetainPtr<CFGAS_GEFont> pFont =
-      pFontMgr->LoadFont(L"Arial Narrow", dwFontStyles, 0xFFFF);
+      pFontMgr->LoadFont(L"Arial Narrow", dwFontStyles, wCodePage);
   if (!pFont) {
     pFont = pFontMgr->LoadFont(static_cast<const wchar_t*>(nullptr),
-                               dwFontStyles, 0xFFFF);
+                               dwFontStyles, wCodePage);
   }
   if (pFont)
     m_CacheFonts.push_back(pFont);

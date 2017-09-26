@@ -184,17 +184,18 @@ uint32_t GetFontFamilyHash(const wchar_t* pszFontFamily,
 
 }  // namespace
 
-CFGAS_FontMgr::CFGAS_FontMgr()
-    : m_pEnumerator(FX_GetDefFontEnumerator()), m_FontFaces(100) {
+std::unique_ptr<CFGAS_FontMgr> CFGAS_FontMgr::Create(
+    FX_LPEnumAllFonts pEnumerator) {
+  return pdfium::MakeUnique<CFGAS_FontMgr>(pEnumerator);
+}
+
+CFGAS_FontMgr::CFGAS_FontMgr(FX_LPEnumAllFonts pEnumerator)
+    : m_pEnumerator(pEnumerator), m_FontFaces(100) {
   if (m_pEnumerator)
     m_pEnumerator(&m_FontFaces, nullptr, 0xFEFF);
 }
 
 CFGAS_FontMgr::~CFGAS_FontMgr() {}
-
-bool CFGAS_FontMgr::EnumFonts() {
-  return true;
-}
 
 RetainPtr<CFGAS_GEFont> CFGAS_FontMgr::GetFontByCodePage(
     uint16_t wCodePage,
@@ -206,11 +207,11 @@ RetainPtr<CFGAS_GEFont> CFGAS_FontMgr::GetFontByCodePage(
     return it->second ? LoadFont(it->second, dwFontStyles, wCodePage) : nullptr;
   }
   const FX_FONTDESCRIPTOR* pFD =
-      FindFont(pszFontFamily, dwFontStyles, true, wCodePage, 999, 0);
+      FindFont(pszFontFamily, dwFontStyles, true, wCodePage);
   if (!pFD)
-    pFD = FindFont(nullptr, dwFontStyles, true, wCodePage, 999, 0);
+    pFD = FindFont(nullptr, dwFontStyles, true, wCodePage);
   if (!pFD)
-    pFD = FindFont(nullptr, dwFontStyles, false, wCodePage, 999, 0);
+    pFD = FindFont(nullptr, dwFontStyles, false, wCodePage);
   if (!pFD)
     return nullptr;
 
@@ -275,9 +276,9 @@ RetainPtr<CFGAS_GEFont> CFGAS_FontMgr::LoadFont(const wchar_t* pszFontFamily,
     return it->second ? LoadFont(it->second, dwFontStyles, wCodePage) : nullptr;
 
   const FX_FONTDESCRIPTOR* pFD =
-      FindFont(pszFontFamily, dwFontStyles, true, wCodePage, 999, 0);
+      FindFont(pszFontFamily, dwFontStyles, true, wCodePage);
   if (!pFD)
-    pFD = FindFont(pszFontFamily, dwFontStyles, false, wCodePage, 999, 0);
+    pFD = FindFont(pszFontFamily, dwFontStyles, false, wCodePage);
   if (!pFD)
     return nullptr;
 
@@ -632,7 +633,7 @@ ByteString CFX_FontSourceEnum_File::GetNextFile() {
     if (m_FolderPaths.empty())
       return "";
     pCurHandle = FX_OpenFolder(m_FolderPaths.back().c_str());
-    HandleParentPath hpp;
+    FX_HandleParentPath hpp;
     hpp.pFileHandle = pCurHandle;
     hpp.bsParentPath = m_FolderPaths.back();
     m_FolderQueue.push_back(hpp);
@@ -657,7 +658,7 @@ ByteString CFX_FontSourceEnum_File::GetNextFile() {
     if (bsName == "." || bsName == "..")
       continue;
     if (bFolder) {
-      HandleParentPath hpp;
+      FX_HandleParentPath hpp;
       hpp.bsParentPath =
           m_FolderQueue.back().bsParentPath + bsFolderSeparator + bsName;
       hpp.pFileHandle = FX_OpenFolder(hpp.bsParentPath.c_str());
@@ -687,8 +688,19 @@ RetainPtr<CFX_CRTFileAccess> CFX_FontSourceEnum_File::GetNext() {
   return pAccess;
 }
 
-CFGAS_FontMgr::CFGAS_FontMgr()
-    : m_pFontSource(pdfium::MakeUnique<CFX_FontSourceEnum_File>()) {}
+std::unique_ptr<CFGAS_FontMgr> CFGAS_FontMgr::Create(
+    CFX_FontSourceEnum_File* pFontEnum) {
+  if (!pFontEnum)
+    return nullptr;
+
+  auto pFontMgr = pdfium::MakeUnique<CFGAS_FontMgr>(pFontEnum);
+  if (!pFontMgr->EnumFonts())
+    return nullptr;
+  return pFontMgr;
+}
+
+CFGAS_FontMgr::CFGAS_FontMgr(CFX_FontSourceEnum_File* pFontEnum)
+    : m_pFontSource(pFontEnum) {}
 
 CFGAS_FontMgr::~CFGAS_FontMgr() {}
 
