@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a42c0966_102d07b1",
+        "filename": "core/fxcrt/cfx_datetime.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T19:57:08Z",
+      "side": 1,
+      "message": "nit: maybe copy comment from line 111 here too.",
+      "revId": "5dece8daf1a2c6578fa2789fe19b94a18db4eef3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
