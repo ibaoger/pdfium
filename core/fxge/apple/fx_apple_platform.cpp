@@ -19,6 +19,7 @@
 #include "core/fxge/cfx_gemodule.h"
 #include "core/fxge/cfx_renderdevice.h"
 #include "core/fxge/fx_freetype.h"
+#include "core/fxge/fx_text_int.h"
 
 #ifndef _SKIA_SUPPORT_
 
