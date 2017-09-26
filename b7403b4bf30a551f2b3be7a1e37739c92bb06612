@@ -22,6 +22,30 @@
       "revId": "b7403b4bf30a551f2b3be7a1e37739c92bb06612",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3006b012_c0e44478",
+        "filename": "core/fxcrt/fx_safe_types.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-26T18:31:55Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "90f4f2b3_aa127f14",
+      "range": {
+        "startLine": 17,
+        "startChar": 45,
+        "endLine": 17,
+        "endChar": 60
+      },
+      "revId": "b7403b4bf30a551f2b3be7a1e37739c92bb06612",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
