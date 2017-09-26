@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d827f365_3eb9c6ce",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "nit: pdfium::MakeUnique\u003cCFX_LZWDecoder\u003e(color_exp, code_exp)",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34e37549_5d181d4f",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "nit: maybe invert and early return on error?",
+      "range": {
+        "startLine": 140,
+        "startChar": 1,
+        "endLine": 140,
+        "endChar": 2
+      },
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1335f2cd_05e99166",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "or just sizeof(code_table_) in case things change.",
+      "range": {
+        "startLine": 151,
+        "startChar": 25,
+        "endLine": 151,
+        "endChar": 61
+      },
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c5a5969_db2526ed",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "or just sizeof(stack_)",
+      "range": {
+        "startLine": 152,
+        "startChar": 20,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379309e4_050df4dd",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "nit: comment \"returns null on error\" or some such.",
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f947c589_2b09e338",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "nit: why not size_t, just because?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02f3e4a4_422cc8da",
+        "filename": "core/fxcodec/lgif/cfx_lzwdecoder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-26T18:14:47Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think the blank line here and at 51 are needed.",
+      "revId": "aadc8124d57055ec4304075b5a384b8bd258f27c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
