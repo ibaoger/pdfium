@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "99a1c53a_be509b02",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T14:15:39Z",
+      "side": 1,
+      "message": "So, to me this is the same issue as the decryption logic location and the ObjectWriter CL. Logic related to the object should live with the object. If it\u0027s a signature dictionary is something the dictionary can tell us. How to serialize a String is something string can tell us.\n\nSpreading that logic around into all kinds of ObjectWriter and CryptoHandler it makes those helper objects a lot larger then they need to be (we\u0027ve already split up a few of these where it was very had to tell what was happening). It also makes them a lot harder to have comprehensive tests as you now need to be testing into other classes.",
+      "parentUuid": "e5aa00ba_2011df5c",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f8bd4f8_1d2cef6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "What about \"DecryptIndirectObject\"? \nLike in other places?",
       "parentUuid": "6f8bd4f8_1d2cef6c",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d520720_387ce65b",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T14:15:39Z",
+      "side": 1,
+      "message": "But this doesn\u0027t just decrypt the indirect object, it also decrypts all of the children as well.",
+      "parentUuid": "2928028f_a2e33810",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -276,6 +312,24 @@
       "side": 1,
       "message": "The contents of signature dictionary already decrypted, and should stay unchanged. Just skipping decryptrion of it.",
       "parentUuid": "4e2fd398_f2a5954e",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8b3fc60_fbd4c831",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T14:15:39Z",
+      "side": 1,
+      "message": "But doesn\u0027t the comment above on 353 says the signature dictionary wasn\u0027t decrypted, so doesn\u0027t this mean it won\u0027t be decrypted?",
+      "parentUuid": "2a650b5b_b36894c7",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
