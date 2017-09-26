@@ -9,7 +9,7 @@
 
 #include "core/fxcrt/fx_system.h"
 
-//NOTE: The tiff codec requires an ANSI C compiler environment for building and 
+//NOTE: The tiff codec requires an ANSI C compiler environment for building and
 //		presumes an ANSI C environment for use.
 
 # define HAVE_SYS_TYPES_H 1
@@ -39,10 +39,10 @@
 /* According typedef int  int32_t; in the fx_system.h*/
 #define SIZEOF_INT 4
 
-/* Sunliang.Liu 20110325. We should config the correct long size for tif 
-   fax4decode optimize in tif_fax3.c  -- Linux64 decode issue. 
+/* Sunliang.Liu 20110325. We should config the correct long size for tif
+   fax4decode optimize in tif_fax3.c  -- Linux64 decode issue.
    TESTDOC: Bug #23661 - z1.tif. */
-#if _FX_CPU_ == _FX_WIN64_ || _FX_CPU_ == _FX_X64_ || _FX_CPU_ == _FX_IA64_
+#if _FX_CPU_ == _FX_X64_ || _FX_CPU_ == _FX_IA64_
 /* The size of `unsigned long', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_LONG 8
 #else
