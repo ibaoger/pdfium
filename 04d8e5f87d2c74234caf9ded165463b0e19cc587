@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4e13d4f_76329525",
+        "filename": "core/fxcrt/cfx_datetime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T19:38:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8018d53_97d2d249",
+      "range": {
+        "startLine": 97,
+        "startChar": 16,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "04d8e5f87d2c74234caf9ded165463b0e19cc587",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3211af6b_fb3c9460",
         "filename": "fxbarcode/utils.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-26T18:49:27Z",
       "side": 1,
       "message": "no such thing as _FX_IOS_",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "04d8e5f87d2c74234caf9ded165463b0e19cc587",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97116f99_bf1844a9",
+        "filename": "fxbarcode/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T19:38:19Z",
+      "side": 1,
+      "message": "We use this in a handful of places, will do a followup.",
+      "parentUuid": "3211af6b_fb3c9460",
       "range": {
         "startLine": 25,
         "startChar": 17,
