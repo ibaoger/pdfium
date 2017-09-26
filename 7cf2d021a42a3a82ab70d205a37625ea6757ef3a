@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17c49c37_9c14216f",
+        "filename": "core/fxge/cfx_facecache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-26T14:16:31Z",
+      "side": 1,
+      "message": "nit: This can be a struct, or even better a typedef",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "7cf2d021a42a3a82ab70d205a37625ea6757ef3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
