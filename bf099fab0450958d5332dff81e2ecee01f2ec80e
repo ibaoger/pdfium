@@ -22,6 +22,30 @@
       "revId": "bf099fab0450958d5332dff81e2ecee01f2ec80e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "090b1ecc_4093b0c8",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-26T17:25:54Z",
+      "side": 1,
+      "message": "The enumeration for windows doesn\u0027t fail, this method already existed in the !windows version of this class below and was just moved from private to public.",
+      "parentUuid": "0825e890_19247494",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 35
+      },
+      "revId": "bf099fab0450958d5332dff81e2ecee01f2ec80e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
