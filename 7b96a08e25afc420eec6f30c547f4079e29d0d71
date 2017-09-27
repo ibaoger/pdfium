@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9efd02dc_ca9c8152",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T19:50:14Z",
+      "side": 1,
+      "message": "Fair enough, not putting these Is*Dictionary methods in the CPDF_Dictionary makes sense. Can we remove the CPDF_Dicationary::IsSignatureDict method completely and just use this one?",
+      "parentUuid": "55bd543a_4260cb16",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f8bd4f8_1d2cef6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -249,6 +267,24 @@
     },
     {
       "key": {
+        "uuid": "43a770c2_70e43234",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T19:50:14Z",
+      "side": 1,
+      "message": "With this and the ObjectWriter CL we have to make a choice, do we want the objects to know how to serialize and decrypt themselves, or do we want to put all of that logic into external helper objects.\n\nAfter thinking about it a bit, I believe we want to have all of the object related code together. Yes, it spreads out the decryption and serialization code, but it also centralizes all of the code for each object into one place.\n\nFor the Decrypt, which only operates on the two types, it\u0027s should just be a matter of having CPDF_Object havea NOTREACHED() as the default implementation of Decrypt(). Stream and String can then override to do the real work. This has the added benefit that the code will fail quickly if we, for some reason, have another object type which we think is encrypted.",
+      "parentUuid": "3609515d_d3fb8ac0",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f795e091_e50ddd6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -284,6 +320,24 @@
     },
     {
       "key": {
+        "uuid": "4d203fcc_ec7889bf",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T19:50:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e8fc5f3c_076070cb",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f0396a_346d1054",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -313,6 +367,24 @@
       "side": 1,
       "message": "Yes",
       "parentUuid": "f9f0396a_346d1054",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93906d09_a81fb21b",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T19:50:14Z",
+      "side": 1,
+      "message": "Can we add a comment along the lines of:\n\n// Decryption failed, set the stream to empty",
+      "parentUuid": "e6422fa0_a7fba163",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -384,6 +456,24 @@
       "side": 1,
       "message": "By PDF specification (and original implementation) its should stay unchanged. As result i suggest that it is already decrypted.",
       "parentUuid": "e8b3fc60_fbd4c831",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb236ca1_80e06df6",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T19:50:14Z",
+      "side": 1,
+      "message": "So, should the comment on line 357 be removed since it won\u0027t ever be decrypted?",
+      "parentUuid": "7766a84e_c8c9e48b",
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
