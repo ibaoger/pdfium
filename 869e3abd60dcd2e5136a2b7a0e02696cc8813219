@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce323784_b79a66d3",
+        "filename": "core/fxge/fx_font.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-27T17:47:01Z",
+      "side": 1,
+      "message": "1 \u003c\u003c 6",
+      "range": {
+        "startLine": 30,
+        "startChar": 25,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "869e3abd60dcd2e5136a2b7a0e02696cc8813219",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "757faff2_b5dd8969",
+        "filename": "public/fpdf_sysfontinfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-27T17:47:01Z",
+      "side": 1,
+      "message": "1 \u003c\u003c 6",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 32
+      },
+      "revId": "869e3abd60dcd2e5136a2b7a0e02696cc8813219",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
