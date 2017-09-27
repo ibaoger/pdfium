@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e043993_a5f025b8",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-27T15:10:46Z",
+      "side": 1,
+      "message": "nit: Doesn\u0027t match the macro above",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 50
+      },
+      "revId": "320c7e345cc1b9a79886e65a945fd971e4a28218",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
