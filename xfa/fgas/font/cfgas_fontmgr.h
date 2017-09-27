@@ -79,9 +79,8 @@ typedef void (*FX_LPEnumAllFonts)(std::deque<FX_FONTDESCRIPTOR>* fonts,
                                   const wchar_t* pwsFaceName,
                                   wchar_t wUnicode);
 
-FX_LPEnumAllFonts FX_GetDefFontEnumerator();
+#else  // _FXM_PLATFORM_ == _FXM_PLATFORM_WINDOWS_
 
-#else  // _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_
 class CFX_FontDescriptor {
  public:
   CFX_FontDescriptor();
