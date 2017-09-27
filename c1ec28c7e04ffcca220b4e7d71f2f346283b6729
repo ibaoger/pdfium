@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fc29e19_0e6e7144",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-27T15:53:09Z",
+      "side": 1,
+      "message": "Replacing",
+      "range": {
+        "startLine": 10,
+        "startChar": 22,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "c1ec28c7e04ffcca220b4e7d71f2f346283b6729",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
