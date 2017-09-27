@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "core/fxcodec/lgif/cfx_lzwdecoder.h"
+#include "core/fxcodec/gif/cfx_lzwdecoder.h"
 
 #include "core/fxcrt/fx_memory.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -25,17 +25,17 @@ TEST(CFX_LZWDecoder, DecodeBadParams) {
   uint8_t output_data[10];
   uint32_t output_size = FX_ArraySize(output_data);
 
-  EXPECT_EQ(GifDecodeStatus::Error,
+  EXPECT_EQ(CFX_GifDecodeStatus::Error,
             decoder->Decode(nullptr, image_size, output_data, &output_size));
-  EXPECT_EQ(GifDecodeStatus::Error,
+  EXPECT_EQ(CFX_GifDecodeStatus::Error,
             decoder->Decode(image_data, 0, output_data, &output_size));
-  EXPECT_EQ(GifDecodeStatus::Error,
+  EXPECT_EQ(CFX_GifDecodeStatus::Error,
             decoder->Decode(image_data, image_size, nullptr, &output_size));
-  EXPECT_EQ(GifDecodeStatus::Error,
+  EXPECT_EQ(CFX_GifDecodeStatus::Error,
             decoder->Decode(image_data, image_size, output_data, nullptr));
 
   output_size = 0;
-  EXPECT_EQ(GifDecodeStatus::InsufficientDestSize,
+  EXPECT_EQ(CFX_GifDecodeStatus::InsufficientDestSize,
             decoder->Decode(image_data, image_size, output_data, &output_size));
 }
 
@@ -52,7 +52,7 @@ TEST(CFX_LZWDecoder, Decode1x1SingleColour) {
   uint8_t output_data[1];
   uint32_t output_size = FX_ArraySize(output_data);
 
-  EXPECT_EQ(GifDecodeStatus::Success,
+  EXPECT_EQ(CFX_GifDecodeStatus::Success,
             decoder->Decode(image_data, image_size, output_data, &output_size));
   uint8_t expected_data[] = {0x00};
 
@@ -74,7 +74,7 @@ TEST(CFX_LZWDecoder, Decode10x10SingleColour) {
   memset(output_data, 0, sizeof(output_data));
   uint32_t output_size = FX_ArraySize(output_data);
 
-  EXPECT_EQ(GifDecodeStatus::Success,
+  EXPECT_EQ(CFX_GifDecodeStatus::Success,
             decoder->Decode(image_data, image_size, output_data, &output_size));
   uint8_t expected_data[] = {
       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -107,7 +107,7 @@ TEST(CFX_LZWDecoder, Decode10x10MultipleColour) {
   memset(output_data, 0, sizeof(output_data));
   uint32_t output_size = FX_ArraySize(output_data);
 
-  EXPECT_EQ(GifDecodeStatus::Success,
+  EXPECT_EQ(CFX_GifDecodeStatus::Success,
             decoder->Decode(image_data, image_size, output_data, &output_size));
   uint8_t expected_data[] = {
       0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x02, 0x02, 0x02, 0x02, 0x01, 0x01,
@@ -142,6 +142,6 @@ TEST(CFX_LZWDecoder, HandleColourCodeOutOfPalette) {
   memset(output_data, 0, sizeof(output_data));
   uint32_t output_size = FX_ArraySize(output_data);
 
-  EXPECT_EQ(GifDecodeStatus::Error,
+  EXPECT_EQ(CFX_GifDecodeStatus::Error,
             decoder->Decode(image_data, image_size, output_data, &output_size));
 }

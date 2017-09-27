@@ -4,13 +4,13 @@
 
 // Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
 
-#ifndef CORE_FXCODEC_LGIF_CFX_LZWDECODER_H_
-#define CORE_FXCODEC_LGIF_CFX_LZWDECODER_H_
+#ifndef CORE_FXCODEC_GIF_CFX_LZWDECODER_H_
+#define CORE_FXCODEC_GIF_CFX_LZWDECODER_H_
 
 #include <memory>
 #include <vector>
 
-#include "core/fxcodec/lgif/fx_gif.h"
+#include "core/fxcodec/gif/cfx_gif.h"
 
 class CFX_LZWDecoder {
  public:
@@ -24,10 +24,10 @@ class CFX_LZWDecoder {
                                                 uint8_t code_exp);
   ~CFX_LZWDecoder();
 
-  GifDecodeStatus Decode(uint8_t* src_buf,
-                         uint32_t src_size,
-                         uint8_t* des_buf,
-                         uint32_t* des_size);
+  CFX_GifDecodeStatus Decode(uint8_t* src_buf,
+                             uint32_t src_size,
+                             uint8_t* des_buf,
+                             uint32_t* des_size);
 
  private:
   CFX_LZWDecoder(uint8_t color_exp, uint8_t code_exp);
@@ -52,4 +52,4 @@ class CFX_LZWDecoder {
   uint32_t code_store_;
 };
 
-#endif  // CORE_FXCODEC_LGIF_CFX_LZWDECODER_H_
+#endif  // CORE_FXCODEC_GIF_CFX_LZWDECODER_H_
