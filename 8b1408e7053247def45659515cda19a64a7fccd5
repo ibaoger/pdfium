@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd3e5a7e_8230ea70",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-27T21:39:07Z",
+      "side": 1,
+      "message": "no-op cast.",
+      "range": {
+        "startLine": 105,
+        "startChar": 26,
+        "endLine": 105,
+        "endChar": 45
+      },
+      "revId": "8b1408e7053247def45659515cda19a64a7fccd5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
