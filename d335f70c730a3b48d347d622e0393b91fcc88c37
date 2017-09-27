@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45c5db6f_6738c57e",
+        "filename": "core/fxcrt/fx_system.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-27T00:13:33Z",
+      "side": 1,
+      "message": "nit: cast no longer needed?  (and below).",
+      "range": {
+        "startLine": 119,
+        "startChar": 40,
+        "endLine": 119,
+        "endChar": 52
+      },
+      "revId": "d335f70c730a3b48d347d622e0393b91fcc88c37",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
