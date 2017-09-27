@@ -22,6 +22,29 @@
       "revId": "d335f70c730a3b48d347d622e0393b91fcc88c37",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07718536_a607d8a7",
+        "filename": "core/fxcrt/fx_system.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-09-27T00:14:34Z",
+      "side": 1,
+      "message": "follow-up: no need to keep these wrappers any longer.",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 20
+      },
+      "revId": "d335f70c730a3b48d347d622e0393b91fcc88c37",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
