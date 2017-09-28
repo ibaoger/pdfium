@@ -22,6 +22,30 @@
       "revId": "0c6a29789a84abe075c37991724b2d370d3edf2d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1735e9b1_9b07edb4",
+        "filename": "xfa/fgas/font/cfgas_gefont.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-28T15:32:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28a22145_a09cc28d",
+      "range": {
+        "startLine": 285,
+        "startChar": 58,
+        "endLine": 285,
+        "endChar": 71
+      },
+      "revId": "0c6a29789a84abe075c37991724b2d370d3edf2d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
