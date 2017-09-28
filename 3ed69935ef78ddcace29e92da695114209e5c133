@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12cd4f33_6fbfe274",
+        "filename": "core/fxcodec/gif/cfx_lzwdecompressor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-28T18:51:29Z",
+      "side": 1,
+      "message": "I think we want to do a resize() to (code_next_ - code_clear_ + 1) here and then change the insert()\u0027s below to write at specific indexes. Otherwise, the insert() below will do a memmove for every character insert.",
+      "revId": "3ed69935ef78ddcace29e92da695114209e5c133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cb54c2f_1703d0a9",
+        "filename": "core/fxcodec/gif/cfx_lzwdecompressor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-09-28T18:51:29Z",
+      "side": 1,
+      "message": "Instead of friending can you add a FooForTesting() method that returns what you want? Friends make it a lot harder to figure out if something is unused.",
+      "revId": "3ed69935ef78ddcace29e92da695114209e5c133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
