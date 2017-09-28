@@ -44,6 +44,7 @@ RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(CFX_Font* pExternalFont,
   return pFont;
 }
 
+#if _FX_PLATFORM_ != _FX_PLATFORM_WINDOWS_
 // static
 RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(
     std::unique_ptr<CFX_Font> pInternalFont,
@@ -53,6 +54,7 @@ RetainPtr<CFGAS_GEFont> CFGAS_GEFont::LoadFont(
     return nullptr;
   return pFont;
 }
+#endif  // _FX_PLATFORM != _FX_PLATFORM_WINDOWS_
 
 CFGAS_GEFont::CFGAS_GEFont(CFGAS_FontMgr* pFontMgr)
     :
@@ -120,6 +122,7 @@ bool CFGAS_GEFont::LoadFontInternal(const wchar_t* pszFontFamily,
     dwFlags |= FXFONT_BOLD;
   if (dwFontStyles & FX_FONTSTYLE_ExactMatch)
     dwFlags |= FXFONT_EXACTMATCH;
+
   int32_t iWeight =
       (dwFontStyles & FX_FONTSTYLE_Bold) ? FXFONT_FW_BOLD : FXFONT_FW_NORMAL;
   m_pFont = new CFX_Font;
@@ -129,9 +132,11 @@ bool CFGAS_GEFont::LoadFontInternal(const wchar_t* pszFontFamily,
     csFontFamily += ",Bold";
   else if (dwFlags & FXFONT_ITALIC)
     csFontFamily += ",Italic";
+
   m_pFont->LoadSubst(csFontFamily, true, dwFlags, iWeight, 0, wCodePage, false);
   if (!m_pFont->GetFace())
     return false;
+
   return InitFont();
 }
 #endif  // _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_
