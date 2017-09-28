@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "38052a56_9eef1fb5",
+        "filename": "core/fxcodec/gif/cfx_lzwdecompressor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-28T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12cd4f33_6fbfe274",
+      "revId": "3ed69935ef78ddcace29e92da695114209e5c133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cb54c2f_1703d0a9",
         "filename": "core/fxcodec/gif/cfx_lzwdecompressor.h",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "3ed69935ef78ddcace29e92da695114209e5c133",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff44126_882f83b9",
+        "filename": "core/fxcodec/gif/cfx_lzwdecompressor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-09-28T19:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cb54c2f_1703d0a9",
+      "revId": "3ed69935ef78ddcace29e92da695114209e5c133",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
