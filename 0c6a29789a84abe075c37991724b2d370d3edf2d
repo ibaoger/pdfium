@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28a22145_a09cc28d",
+        "filename": "xfa/fgas/font/cfgas_gefont.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-09-28T14:47:11Z",
+      "side": 1,
+      "message": "Rename now it gets more than the index.",
+      "range": {
+        "startLine": 285,
+        "startChar": 58,
+        "endLine": 285,
+        "endChar": 71
+      },
+      "revId": "0c6a29789a84abe075c37991724b2d370d3edf2d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
