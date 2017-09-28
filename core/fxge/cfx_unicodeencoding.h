@@ -9,7 +9,6 @@
 
 #include "core/fxge/fx_font.h"
 
-#define ENCODING_INTERNAL 0
 #define ENCODING_UNICODE 1
 
 #ifdef PDF_ENABLE_XFA
