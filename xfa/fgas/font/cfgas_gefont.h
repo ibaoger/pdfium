@@ -18,8 +18,6 @@
 #include "xfa/fgas/font/cfgas_fontmgr.h"
 #include "xfa/fgas/font/cfgas_pdffontmgr.h"
 
-#define FXFONT_SUBST_ITALIC 0x02
-
 class CFGAS_FontMgr;
 class CFX_UnicodeEncoding;
 
@@ -36,9 +34,12 @@ class CFGAS_GEFont : public Retainable {
                                           CFGAS_FontMgr* pFontMgr);
   static RetainPtr<CFGAS_GEFont> LoadFont(CFX_Font* pExternalFont,
                                           CFGAS_FontMgr* pFontMgr);
+
+#if _FX_PLATFORM_ != _FX_PLATFORM_WINDOWS_
   static RetainPtr<CFGAS_GEFont> LoadFont(
       std::unique_ptr<CFX_Font> pInternalFont,
       CFGAS_FontMgr* pFontMgr);
+#endif  // _FX_PLATFORM_ != _FX_PLATFORM_WINDOWS_
 
   uint32_t GetFontStyles() const;
   bool GetCharWidth(wchar_t wUnicode, int32_t& iWidth);
@@ -77,9 +78,11 @@ class CFGAS_GEFont : public Retainable {
   bool LoadFontInternal(const uint8_t* pBuffer, int32_t length);
   bool LoadFontInternal(const RetainPtr<CFX_SeekableStreamProxy>& pFontStream,
                         bool bSaveStream);
-#endif
-  bool LoadFontInternal(CFX_Font* pExternalFont);
+#else   // _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_
   bool LoadFontInternal(std::unique_ptr<CFX_Font> pInternalFont);
+#endif  // _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_
+
+  bool LoadFontInternal(CFX_Font* pExternalFont);
   bool InitFont();
   std::pair<int32_t, RetainPtr<CFGAS_GEFont>> GetGlyphIndex(wchar_t wUnicode,
                                                             bool bRecursive);
