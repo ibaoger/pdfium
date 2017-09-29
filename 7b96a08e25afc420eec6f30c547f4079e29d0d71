@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "d4aa2249_7abd3d65",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-29T14:35:05Z",
+      "side": 1,
+      "message": "Yes, I want to remove it completely in other CL, after resolution of CPDF_Writer.",
+      "parentUuid": "9efd02dc_ca9c8152",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f8bd4f8_1d2cef6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -285,6 +303,24 @@
     },
     {
       "key": {
+        "uuid": "f894e19e_85ed579d",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-29T14:35:05Z",
+      "side": 1,
+      "message": "Ok. But this is not trivial change, and I want to do this in other CL.\nFor now, i believe, we can stay at this point, because this CL better than the original code, and then continue in other, after.",
+      "parentUuid": "43a770c2_70e43234",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f795e091_e50ddd6c",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -391,6 +427,24 @@
     },
     {
       "key": {
+        "uuid": "8fba4a91_a8601348",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-29T14:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93906d09_a81fb21b",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e2fd398_f2a5954e",
         "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
         "patchSetId": 5
@@ -477,6 +531,24 @@
       "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af932f8c_0cceb639",
+        "filename": "core/fpdfapi/parser/cpdf_crypto_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-09-29T14:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb236ca1_80e06df6",
+      "revId": "7b96a08e25afc420eec6f30c547f4079e29d0d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
