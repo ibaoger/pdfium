@@ -344,7 +344,8 @@ void CPWL_ScrollBar::OnDestroy() {
   CPWL_Wnd::OnDestroy();
 }
 
-void CPWL_ScrollBar::RePosChildWnd() {
+bool CPWL_ScrollBar::RePosChildWnd() {
+  CPWL_Wnd::ObservedPtr thisObserved(this);
   CFX_FloatRect rcClient = GetClientRect();
   CFX_FloatRect rcMinButton, rcMaxButton;
   float fBWidth = 0;
@@ -368,6 +369,8 @@ void CPWL_ScrollBar::RePosChildWnd() {
                                       rcClient.right, rcClient.top);
         } else {
           SetVisible(false);
+          if (!thisObserved)
+            return false;
         }
       }
       break;
@@ -390,16 +393,27 @@ void CPWL_ScrollBar::RePosChildWnd() {
                             rcClient.bottom + fBWidth);
         } else {
           SetVisible(false);
+          if (!thisObserved)
+            return false;
         }
       }
       break;
   }
 
-  if (m_pMinButton)
+  if (m_pMinButton) {
     m_pMinButton->Move(rcMinButton, true, false);
-  if (m_pMaxButton)
+    if (!thisObserved)
+      return false;
+  }
+
+  if (m_pMaxButton) {
     m_pMaxButton->Move(rcMaxButton, true, false);
+    if (!thisObserved)
+      return false;
+  }
+
   MovePosButton(false);
+  return !!thisObserved;
 }
 
 void CPWL_ScrollBar::DrawThisAppearance(CFX_RenderDevice* pDevice,

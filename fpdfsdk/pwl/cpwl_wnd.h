@@ -248,13 +248,15 @@ class CPWL_Wnd : public CPWL_TimerHandler, public Observable<CPWL_Wnd> {
   CFX_Matrix GetWindowMatrix() const;
 
  protected:
+  void Indents(int indents);
   friend class CPWL_MsgControl;
 
   // CPWL_TimerHandler
   CFX_SystemHandler* GetSystemHandler() const override;
 
   virtual void CreateChildWnd(const CreateParams& cp);
-  virtual void RePosChildWnd();
+  // Returns whether this instance is still allocated.
+  virtual bool RePosChildWnd();
 
   virtual void DrawThisAppearance(CFX_RenderDevice* pDevice,
                                   const CFX_Matrix& mtUser2Device);

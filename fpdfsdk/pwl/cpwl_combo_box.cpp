@@ -173,7 +173,12 @@ void CPWL_ComboBox::SetFocus() {
 }
 
 void CPWL_ComboBox::KillFocus() {
+  ObservedPtr thisObserved(this);
+
   SetPopup(false);
+  if (!thisObserved)
+    return;
+
   CPWL_Wnd::KillFocus();
 }
 
@@ -315,7 +320,8 @@ void CPWL_ComboBox::CreateListBox(const CreateParams& cp) {
   m_pList->Create(lcp);
 }
 
-void CPWL_ComboBox::RePosChildWnd() {
+bool CPWL_ComboBox::RePosChildWnd() {
+  ObservedPtr thisObserved(this);
   const CFX_FloatRect rcClient = GetClientRect();
   if (m_bPopup) {
     const float fOldWindowHeight = m_rcOldWindow.Height();
@@ -337,35 +343,58 @@ void CPWL_ComboBox::RePosChildWnd() {
       rcList.bottom += fOldWindowHeight;
     }
 
-    if (m_pButton)
+    if (m_pButton) {
       m_pButton->Move(rcButton, true, false);
+      if (!thisObserved)
+        return false;
+    }
 
-    if (m_pEdit)
+    if (m_pEdit) {
       m_pEdit->Move(rcEdit, true, false);
+      if (!thisObserved)
+        return false;
+    }
 
     if (m_pList) {
       m_pList->SetVisible(true);
+      if (!thisObserved)
+        return false;
+
       m_pList->Move(rcList, true, false);
+      if (!thisObserved)
+        return false;
+
       m_pList->ScrollToListItem(m_nSelectItem);
     }
-    return;
+    return !!thisObserved;
   }
 
   CFX_FloatRect rcButton = rcClient;
   rcButton.left =
       std::max(rcButton.right - PWL_COMBOBOX_BUTTON_WIDTH, rcClient.left);
 
-  if (m_pButton)
+  if (m_pButton) {
     m_pButton->Move(rcButton, true, false);
+    if (!thisObserved)
+      return false;
+  }
 
   CFX_FloatRect rcEdit = rcClient;
   rcEdit.right = std::max(rcButton.left - 1.0f, rcEdit.left);
 
-  if (m_pEdit)
+  if (m_pEdit) {
     m_pEdit->Move(rcEdit, true, false);
+    if (!thisObserved)
+      return false;
+  }
 
-  if (m_pList)
+  if (m_pList) {
     m_pList->SetVisible(false);
+    if (!thisObserved)
+      return false;
+  }
+
+  return !!thisObserved;
 }
 
 void CPWL_ComboBox::SelectAll() {
@@ -378,6 +407,7 @@ CFX_FloatRect CPWL_ComboBox::GetFocusRect() const {
 }
 
 void CPWL_ComboBox::SetPopup(bool bPopup) {
+  ObservedPtr thisObserved = ObservedPtr(this);
   if (!m_pList)
     return;
   if (bPopup == m_bPopup)
@@ -389,6 +419,9 @@ void CPWL_ComboBox::SetPopup(bool bPopup) {
   if (!bPopup) {
     m_bPopup = bPopup;
     Move(m_rcOldWindow, true, true);
+    if (!thisObserved)
+      return;
+
     return;
   }
 
@@ -424,6 +457,8 @@ void CPWL_ComboBox::SetPopup(bool bPopup) {
     rcWindow.top += fPopupRet;
 
   Move(rcWindow, true, true);
+  if (!thisObserved)
+    return;
 #ifdef PDF_ENABLE_XFA
   m_pFillerNotify->OnPopupPostOpen(GetAttachedData(), 0);
 #endif  // PDF_ENABLE_XFA

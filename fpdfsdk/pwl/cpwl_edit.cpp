@@ -79,13 +79,16 @@ void CPWL_Edit::SetText(const WideString& csText) {
   m_pEdit->SetText(swText);
 }
 
-void CPWL_Edit::RePosChildWnd() {
+bool CPWL_Edit::RePosChildWnd() {
+  CPWL_Wnd::ObservedPtr thisObserved(this);
   if (CPWL_ScrollBar* pVSB = GetVScrollBar()) {
     CFX_FloatRect rcWindow = m_rcOldWindow;
     CFX_FloatRect rcVScroll =
         CFX_FloatRect(rcWindow.right, rcWindow.bottom,
                       rcWindow.right + PWL_SCROLLBAR_WIDTH, rcWindow.top);
     pVSB->Move(rcVScroll, true, false);
+    if (!thisObserved)
+      return false;
   }
 
   if (m_pEditCaret && !HasFlag(PES_TEXTOVERFLOW)) {
@@ -98,7 +101,7 @@ void CPWL_Edit::RePosChildWnd() {
     m_pEditCaret->SetClipRect(rect);
   }
 
-  CPWL_EditCtrl::RePosChildWnd();
+  return CPWL_EditCtrl::RePosChildWnd();
 }
 
 CFX_FloatRect CPWL_Edit::GetClientRect() const {
