@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cd618e3_2420c2d6",
+        "filename": "core/fxcodec/gif/cfx_gifcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T21:14:26Z",
+      "side": 1,
+      "message": "Nit, blank line not needed between these if\u0027s",
+      "revId": "37baec6ae10f858ca25e5b072f399c423db8c745",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4abad476_2319ef90",
+        "filename": "core/fxcodec/gif/cfx_gifcontext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T21:14:26Z",
+      "side": 1,
+      "message": "Can we add ForTestings methods instead of friends? Friends make me sad.  (Or if you\u0027re subclassing, make what you need protected and the rest private)",
+      "revId": "37baec6ae10f858ca25e5b072f399c423db8c745",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
