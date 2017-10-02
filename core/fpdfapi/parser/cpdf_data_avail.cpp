@@ -599,7 +599,7 @@ bool CPDF_DataAvail::CheckFirstPage() {
   return true;
 }
 
-bool CPDF_DataAvail::IsDataAvail(FX_FILESIZE offset, size_t size) {
+bool CPDF_DataAvail::IsDataAvail(FX_FILESIZE offset, uint32_t size) {
   if (offset < 0 || offset > m_dwFileLen)
     return true;
 
@@ -611,7 +611,8 @@ bool CPDF_DataAvail::IsDataAvail(FX_FILESIZE offset, size_t size) {
   else
     size += 512;
 
-  if (!GetValidator()->CheckDataRangeAndRequestIfUnavailable(offset, size))
+  if (!GetValidator()->CheckDataRangeAndRequestIfUnavailable(
+          offset, static_cast<size_t>(size)))
     return false;
 
   return true;
@@ -1204,13 +1205,22 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckLinearizedData() {
     return DataError;
 
   if (!m_bMainXRefLoadTried) {
+    ASSERT(m_pDocument->GetParser()->GetTrailer());
+    const FX_SAFE_FILESIZE main_xref_offset =
+        m_pDocument->GetParser()->GetTrailer()->GetIntegerFor("Prev");
+    if (!main_xref_offset.IsValid())
+      return DataError;
+
+    if (main_xref_offset.ValueOrDie() == 0)
+      return DataAvailable;
+
     FX_SAFE_SIZE_T data_size = m_dwFileLen;
-    data_size -= m_pLinearized->GetLastXRefOffset();
+    data_size -= main_xref_offset.ValueOrDie();
     if (!data_size.IsValid())
       return DataError;
 
     if (!GetValidator()->CheckDataRangeAndRequestIfUnavailable(
-            m_pLinearized->GetLastXRefOffset(), data_size.ValueOrDie()))
+            main_xref_offset.ValueOrDie(), data_size.ValueOrDie()))
       return DataNotAvailable;
 
     CPDF_Parser::Error eRet =
