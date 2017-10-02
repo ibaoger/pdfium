@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "72455515_f558e6f2",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T14:47:25Z",
+      "side": 1,
+      "message": "FX_DOWNLOADHINTS takes (FX_DOWNLOADHINTS, size_t, size_t), which means these should probably also take size_t.",
+      "parentUuid": "573ef8e5_bb78e27e",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "058a64da_d23a0437",
         "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
         "patchSetId": 1
