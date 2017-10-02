@@ -88,6 +88,24 @@
       "revId": "a1e87070ac95bb9dba76d7e31ec9ddeb9bc75cd3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c707337d_b5fd2b94",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-02T18:22:49Z",
+      "side": 0,
+      "message": "In original code the \"ID\" entry also was not added (see line 1160).\nOriginal logic is just changing \"ID\" entry from indirect object to inlined object.\n(See line 1164, if \"ID\" not \"reference\" return original object as array (or null if it is not array) )",
+      "parentUuid": "b9435d99_db5ca14c",
+      "revId": "a1e87070ac95bb9dba76d7e31ec9ddeb9bc75cd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
