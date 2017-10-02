@@ -94,7 +94,7 @@ void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, size_t size) {
   end_segment_offset =
       std::min(GetSize(), AlignUp(end_segment_offset.ValueOrDie()));
 
-  FX_SAFE_SIZE_T segment_size = end_segment_offset;
+  FX_SAFE_UINT32 segment_size = end_segment_offset;
   segment_size -= start_segment_offset;
   if (!segment_size.IsValid()) {
     NOTREACHED();
@@ -109,7 +109,7 @@ bool CPDF_ReadValidator::IsDataRangeAvailable(FX_FILESIZE offset,
 }
 
 bool CPDF_ReadValidator::IsWholeFileAvailable() {
-  const FX_SAFE_SIZE_T safe_size = GetSize();
+  const FX_SAFE_UINT32 safe_size = GetSize();
   return safe_size.IsValid() ? IsDataRangeAvailable(0, safe_size.ValueOrDie())
                              : false;
 }
@@ -125,7 +125,7 @@ bool CPDF_ReadValidator::CheckDataRangeAndRequestIfUnavailable(
 }
 
 bool CPDF_ReadValidator::CheckWholeFileAndRequestIfUnavailable() {
-  const FX_SAFE_SIZE_T safe_size = GetSize();
+  const FX_SAFE_UINT32 safe_size = GetSize();
   return safe_size.IsValid()
              ? CheckDataRangeAndRequestIfUnavailable(0, safe_size.ValueOrDie())
              : false;
