@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "e9ac1682_1eda63ea",
+        "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-02T14:59:51Z",
+      "side": 1,
+      "message": "But CPDF_ReadValidator is not using the FX_DOWNLOADHINTS directly. It use CPDF_DataAvail::DownloadHints.",
+      "parentUuid": "72455515_f558e6f2",
+      "revId": "a7edaa6a1bbf8bdc377f0ca72f130f1283545509",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "058a64da_d23a0437",
         "filename": "core/fpdfapi/parser/cpdf_read_validator.cpp",
         "patchSetId": 1
