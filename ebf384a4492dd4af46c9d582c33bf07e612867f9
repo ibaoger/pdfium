@@ -22,6 +22,30 @@
       "revId": "ebf384a4492dd4af46c9d582c33bf07e612867f9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f27bc3f_3a76fe99",
+        "filename": "core/fxcrt/fx_system.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-02T20:21:05Z",
+      "side": 1,
+      "message": "Talked with dsinclair OOB. This is needed, since the | is going to cause an up cast, so when using this one gets warnings about implicit down casting.",
+      "parentUuid": "759548fc_aeae2d0c",
+      "range": {
+        "startLine": 203,
+        "startChar": 3,
+        "endLine": 203,
+        "endChar": 24
+      },
+      "revId": "ebf384a4492dd4af46c9d582c33bf07e612867f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
