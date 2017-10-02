@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d03391ab_bd5af516",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T13:19:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c456156d_d6326fb7",
+      "range": {
+        "startLine": 9,
+        "startChar": 22,
+        "endLine": 9,
+        "endChar": 0
+      },
+      "revId": "850f8a60f73dc5ea42b2c9e1f3095be0de80a629",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0722f488_cf3bf397",
         "filename": "core/fxge/cfx_unicodeencoding.h",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-09-28T21:18:54Z",
       "side": 1,
       "message": "This is unused too.",
+      "revId": "850f8a60f73dc5ea42b2c9e1f3095be0de80a629",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3138c54_e4a33994",
+        "filename": "core/fxge/cfx_unicodeencoding.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T13:19:05Z",
+      "side": 1,
+      "message": "Right, saw FTFX_ENCODING_UNICODE and thought it was this one. Done.",
+      "parentUuid": "0722f488_cf3bf397",
       "revId": "850f8a60f73dc5ea42b2c9e1f3095be0de80a629",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
