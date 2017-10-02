@@ -16,6 +16,24 @@
       "revId": "a1e87070ac95bb9dba76d7e31ec9ddeb9bc75cd3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e6d569_fca0ae49",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-02T14:57:39Z",
+      "side": 0,
+      "message": "No places, where it is used as indirect object. As result we can store original view of it, and not necessary to forcing it into indirect object.",
+      "parentUuid": "6f0ea8c5_fca19848",
+      "revId": "a1e87070ac95bb9dba76d7e31ec9ddeb9bc75cd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
