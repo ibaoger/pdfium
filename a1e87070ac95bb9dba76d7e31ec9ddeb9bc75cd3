@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f0ea8c5_fca19848",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T14:49:11Z",
+      "side": 0,
+      "message": "Why do we no longer set the ID into the trailer?",
+      "revId": "a1e87070ac95bb9dba76d7e31ec9ddeb9bc75cd3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
