@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05b8a068_b68b425c",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T14:56:29Z",
+      "side": 1,
+      "message": "Why did this get added instead of being in the anonymous namespace?",
+      "revId": "25863533ac2bf4097c5501d7c1e0fd9cd0f5991a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
