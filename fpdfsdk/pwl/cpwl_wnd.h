@@ -248,6 +248,7 @@ class CPWL_Wnd : public CPWL_TimerHandler, public Observable<CPWL_Wnd> {
   CFX_Matrix GetWindowMatrix() const;
 
  protected:
+  void Indents(int indents);
   friend class CPWL_MsgControl;
 
   // CPWL_TimerHandler
