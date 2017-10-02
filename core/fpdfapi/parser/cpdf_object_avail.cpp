@@ -33,7 +33,10 @@ CPDF_ObjectAvail::CPDF_ObjectAvail(CPDF_ReadValidator* validator,
   ASSERT(holder);
 }
 
-CPDF_ObjectAvail::~CPDF_ObjectAvail() {}
+CPDF_ObjectAvail::~CPDF_ObjectAvail() {
+  // TODO(art-snake): Remove this after resolving document owning problem.
+  holder_ = nullptr;
+}
 
 CPDF_DataAvail::DocAvailStatus CPDF_ObjectAvail::CheckAvail() {
   if (!LoadRootObject())
