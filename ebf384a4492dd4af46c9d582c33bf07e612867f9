@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "759548fc_aeae2d0c",
+        "filename": "core/fxcrt/fx_system.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-02T20:10:03Z",
+      "side": 1,
+      "message": "I believe this cast is redundant as both items are uint16\u0027s we should have a uin16 at the end. Same below.",
+      "range": {
+        "startLine": 203,
+        "startChar": 3,
+        "endLine": 203,
+        "endChar": 24
+      },
+      "revId": "ebf384a4492dd4af46c9d582c33bf07e612867f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
