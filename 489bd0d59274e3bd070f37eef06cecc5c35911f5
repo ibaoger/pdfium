@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcdf3407_e4328b99",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T15:44:42Z",
+      "side": 1,
+      "message": "Is this the only OnCreate method we call on SecurityHandler? If so, can we erase the other two?",
+      "revId": "489bd0d59274e3bd070f37eef06cecc5c35911f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0df55102_88b8aa27",
+        "filename": "core/fpdfapi/edit/cpdf_creator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T15:44:42Z",
+      "side": 1,
+      "message": "What if this fails?",
+      "revId": "489bd0d59274e3bd070f37eef06cecc5c35911f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5753e62a_2928d873",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T15:44:42Z",
+      "side": 1,
+      "message": "Is this still used? Should we remove it get it through the SecurityHandler instead?",
+      "revId": "489bd0d59274e3bd070f37eef06cecc5c35911f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd91df5_a20cf891",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T15:44:42Z",
+      "side": 1,
+      "message": "Can we call this directly from OnCreate and OnInit and remove the public API? (Make it private) then callers don\u0027t need to handle it as a special case.",
+      "revId": "489bd0d59274e3bd070f37eef06cecc5c35911f5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
