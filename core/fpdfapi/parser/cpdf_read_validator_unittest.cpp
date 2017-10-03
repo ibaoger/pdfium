@@ -107,7 +107,7 @@ TEST(CPDF_ReadValidatorTest, UnavailableDataWithHints) {
   EXPECT_TRUE(validator->has_unavailable_data());
 
   // Requested range should be enlarged and aligned.
-  EXPECT_EQ(MakeRange(4608, 5120), hints.GetLastRequstedRange());
+  EXPECT_EQ(MakeRange(4608, 5632), hints.GetLastRequstedRange());
 
   file_avail.SetAvailableRange(hints.GetLastRequstedRange());
   hints.Reset();

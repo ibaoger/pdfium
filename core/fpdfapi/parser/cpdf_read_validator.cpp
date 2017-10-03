@@ -6,11 +6,12 @@
 
 #include <algorithm>
 
+#include "core/fpdfapi/cpdf_modulemgr.h"
 #include "third_party/base/logging.h"
 
 namespace {
 
-constexpr FX_FILESIZE kAlignBlockValue = 512;
+constexpr FX_FILESIZE kAlignBlockValue = CPDF_ModuleMgr::kFileBufSize;
 
 FX_FILESIZE AlignDown(FX_FILESIZE offset) {
   return offset > 0 ? (offset - offset % kAlignBlockValue) : 0;
@@ -91,8 +92,11 @@ void CPDF_ReadValidator::ScheduleDownload(FX_FILESIZE offset, size_t size) {
     NOTREACHED();
     return;
   }
+  // Align up twice, to increase requested size. This is allow to
+  // CPDF_SyntaxParser correctly read block at end of not alligned requested
+  // range.
   end_segment_offset =
-      std::min(file_size_, AlignUp(end_segment_offset.ValueOrDie()));
+      std::min(file_size_, AlignUp(AlignUp(end_segment_offset.ValueOrDie())));
 
   FX_SAFE_SIZE_T segment_size = end_segment_offset;
   segment_size -= start_segment_offset;
