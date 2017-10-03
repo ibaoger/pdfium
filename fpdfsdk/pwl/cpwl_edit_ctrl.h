@@ -56,7 +56,7 @@ class CPWL_EditCtrl : public CPWL_Wnd {
   void SetScrollPosition(float pos) override;
   void ScrollWindowVertically(float pos) override;
   void CreateChildWnd(const CreateParams& cp) override;
-  void RePosChildWnd() override;
+  bool RePosChildWnd() override;
   void SetFontSize(float fFontSize) override;
   float GetFontSize() const override;
   void SetCursor() override;
