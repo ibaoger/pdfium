@@ -27,9 +27,6 @@ class CPDF_CryptoHandler {
 
   static bool IsSignatureDictionary(const CPDF_Dictionary* dictionary);
 
-  bool Init(CPDF_Dictionary* pEncryptDict,
-            CPDF_SecurityHandler* pSecurityHandler);
-
   std::unique_ptr<CPDF_Object> DecryptObjectTree(
       std::unique_ptr<CPDF_Object> object);
 
@@ -44,7 +41,7 @@ class CPDF_CryptoHandler {
                       uint8_t* dest_buf,
                       uint32_t& dest_size);
 
-  bool Init(int cipher, const uint8_t* key, int keylen);
+  void Init(int cipher, const uint8_t* key, int keylen);
   bool IsCipherAES() const;
 
  private:
