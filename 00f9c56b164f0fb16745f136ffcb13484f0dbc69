@@ -16,6 +16,24 @@
       "revId": "00f9c56b164f0fb16745f136ffcb13484f0dbc69",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "284ae95c_451be525",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-03T16:12:09Z",
+      "side": 1,
+      "message": "Yes, I will do this in other CL (when i will start the refactoring of CPDF_SecurityHandler)",
+      "parentUuid": "325ef7e1_87337ca7",
+      "revId": "00f9c56b164f0fb16745f136ffcb13484f0dbc69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
