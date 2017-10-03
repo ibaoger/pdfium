@@ -7,7 +7,8 @@
 #ifndef CORE_FPDFAPI_PARSER_CPDF_SECURITY_HANDLER_H_
 #define CORE_FPDFAPI_PARSER_CPDF_SECURITY_HANDLER_H_
 
-#include "core/fpdfapi/parser/cpdf_crypto_handler.h"
+#include <memory>
+
 #include "core/fxcrt/fx_string.h"
 #include "core/fxcrt/fx_system.h"
 
@@ -19,6 +20,7 @@
 #define PDF_ENCRYPT_CONTENT 0
 
 class CPDF_Array;
+class CPDF_CryptoHandler;
 class CPDF_Dictionary;
 class CPDF_Parser;
 
@@ -27,7 +29,9 @@ class CPDF_SecurityHandler {
   CPDF_SecurityHandler();
   ~CPDF_SecurityHandler();
 
-  bool OnInit(CPDF_Parser* pParser, CPDF_Dictionary* pEncryptDict);
+  bool OnInit(CPDF_Dictionary* pEncryptDict,
+              const CPDF_Array* pIdArray,
+              const ByteString& password);
   uint32_t GetPermissions();
   bool GetCryptInfo(int& cipher, const uint8_t*& buffer, int& keylen);
   bool IsMetadataEncrypted() const;
@@ -54,6 +58,11 @@ class CPDF_SecurityHandler {
                      bool bOwner,
                      uint8_t* key,
                      int key_len);
+
+  bool InitCryptoHandler();
+  CPDF_CryptoHandler* GetCryptoHandler() const {
+    return m_pCryptoHandler.get();
+  }
 
  private:
   bool LoadDict(CPDF_Dictionary* pEncryptDict);
@@ -97,13 +106,15 @@ class CPDF_SecurityHandler {
 
   int m_Version;
   int m_Revision;
-  UnownedPtr<CPDF_Parser> m_pParser;
   UnownedPtr<CPDF_Dictionary> m_pEncryptDict;
+  UnownedPtr<const CPDF_Array> m_pIdArray;
+  ByteString m_Password;
   uint32_t m_Permissions;
   int m_Cipher;
   uint8_t m_EncryptKey[32];
   int m_KeyLen;
   bool m_bOwnerUnlocked;
+  std::unique_ptr<CPDF_CryptoHandler> m_pCryptoHandler;
 };
 
 #endif  // CORE_FPDFAPI_PARSER_CPDF_SECURITY_HANDLER_H_
