@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e08af6be_ebcb8924",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T18:29:00Z",
+      "side": 1,
+      "message": "Let\u0027s drop the Init method so this just becomes:\n\nm_pCryptoHandler \u003d pdfium::MakeUnique\u003cCPDF_CryptoHandler(m_Cipher, m_EncryptKey, m_KeyLen);",
+      "revId": "f628b12082e024a93720130c12dcd305fc2f3ab8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
