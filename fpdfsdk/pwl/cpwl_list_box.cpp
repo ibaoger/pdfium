@@ -46,12 +46,14 @@ void CPWL_List_Notify::IOnSetScrollInfoY(float fPlateMin,
       IsFloatEqual(Info.fPlateWidth, Info.fContentMax - Info.fContentMin)) {
     if (pScroll->IsVisible()) {
       pScroll->SetVisible(false);
-      m_pList->RePosChildWnd();
+      if (!m_pList->RePosChildWnd())
+        return;
     }
   } else {
     if (!pScroll->IsVisible()) {
       pScroll->SetVisible(true);
-      m_pList->RePosChildWnd();
+      if (!m_pList->RePosChildWnd())
+        return;
     }
   }
 }
@@ -250,10 +252,12 @@ void CPWL_ListBox::KillFocus() {
   CPWL_Wnd::KillFocus();
 }
 
-void CPWL_ListBox::RePosChildWnd() {
-  CPWL_Wnd::RePosChildWnd();
+bool CPWL_ListBox::RePosChildWnd() {
+  if (!CPWL_Wnd::RePosChildWnd())
+    return false;
 
   m_pList->SetPlateRect(GetListRect());
+  return true;
 }
 
 bool CPWL_ListBox::OnNotifySelectionChanged(bool bKeyDown, uint32_t nFlag) {
