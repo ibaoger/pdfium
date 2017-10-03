@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e7cfa35_7b83b8af",
+        "filename": "core/fxcodec/gif/cfx_gif.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-03T13:26:07Z",
+      "side": 1,
+      "message": "Nothing depends on the GIF and version parts of the string being separate, so reading as a single string means that the validation code doesn\u0027t have to concat it later.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 52
+      },
+      "revId": "df95d2eae7dc71efd1a315d233754ab31c3da1e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
