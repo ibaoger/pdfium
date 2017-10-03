@@ -67,8 +67,9 @@ void CPWL_EditCtrl::ReplaceSelection(const WideString& text) {
   m_pEdit->InsertText(text, FX_CHARSET_Default);
 }
 
-void CPWL_EditCtrl::RePosChildWnd() {
+bool CPWL_EditCtrl::RePosChildWnd() {
   m_pEdit->SetPlateRect(GetClientRect());
+  return true;
 }
 
 void CPWL_EditCtrl::SetScrollInfo(const PWL_SCROLL_INFO& info) {
@@ -264,8 +265,8 @@ bool CPWL_EditCtrl::OnLButtonDown(const CFX_PointF& point, uint32_t nFlag) {
   CPWL_Wnd::OnLButtonDown(point, nFlag);
 
   if (ClientHitTest(point)) {
-    if (m_bMouseDown)
-      InvalidateRect(nullptr);
+    if (m_bMouseDown && !InvalidateRect(nullptr))
+      return true;
 
     m_bMouseDown = true;
     SetCapture();
