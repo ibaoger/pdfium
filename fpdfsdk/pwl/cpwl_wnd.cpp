@@ -175,7 +175,9 @@ void CPWL_Wnd::Create(const CreateParams& cp) {
   CreateChildWnd(ccp);
   m_bVisible = HasFlag(PWS_VISIBLE);
   OnCreated();
-  RePosChildWnd();
+  if (!RePosChildWnd())
+    return;
+
   m_bCreated = true;
 }
 
@@ -201,7 +203,8 @@ void CPWL_Wnd::Destroy() {
   if (m_bCreated) {
     m_pVScrollBar = nullptr;
     for (auto it = m_Children.rbegin(); it != m_Children.rend(); ++it) {
-      if (CPWL_Wnd* pChild = *it) {
+      CPWL_Wnd* pChild = *it;
+      if (pChild) {
         *it = nullptr;
         pChild->Destroy();
         delete pChild;
@@ -216,9 +219,10 @@ void CPWL_Wnd::Destroy() {
   m_Children.clear();
 }
 
-void CPWL_Wnd::Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh) {
+bool CPWL_Wnd::Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh) {
+  ObservedPtr thisObserved(this);
   if (!IsValid())
-    return;
+    return true;
 
   CFX_FloatRect rcOld = GetWindowRect();
   m_rcWindow = rcNew;
@@ -227,13 +231,18 @@ void CPWL_Wnd::Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh) {
   if (bReset) {
     if (rcOld.left != rcNew.left || rcOld.right != rcNew.right ||
         rcOld.top != rcNew.top || rcOld.bottom != rcNew.bottom) {
-      RePosChildWnd();
+      if (!RePosChildWnd())
+        return false;
     }
   }
-  if (bRefresh)
+  if (bRefresh) {
     InvalidateRectMove(rcOld, rcNew);
+    if (!thisObserved)
+      return false;
+  }
 
   m_CreationParams.rcRectWnd = m_rcWindow;
+  return true;
 }
 
 void CPWL_Wnd::InvalidateRectMove(const CFX_FloatRect& rcOld,
@@ -563,19 +572,27 @@ const CPWL_Wnd* CPWL_Wnd::GetRootWnd() const {
   return pParent ? pParent->GetRootWnd() : this;
 }
 
-void CPWL_Wnd::SetVisible(bool bVisible) {
+bool CPWL_Wnd::SetVisible(bool bVisible) {
+  ObservedPtr thisObserved(this);
+
   if (!IsValid())
-    return;
+    return true;
 
   for (auto* pChild : m_Children) {
-    if (pChild)
-      pChild->SetVisible(bVisible);
+    if (pChild && !pChild->SetVisible(bVisible))
+      return false;
   }
+
   if (bVisible != m_bVisible) {
     m_bVisible = bVisible;
-    RePosChildWnd();
+    if (!RePosChildWnd())
+      return false;
+
     InvalidateRect(nullptr);
+    if (!thisObserved)
+      return false;
   }
+  return true;
 }
 
 void CPWL_Wnd::SetClipRect(const CFX_FloatRect& rect) {
@@ -591,10 +608,11 @@ bool CPWL_Wnd::IsReadOnly() const {
   return HasFlag(PWS_READONLY);
 }
 
-void CPWL_Wnd::RePosChildWnd() {
+bool CPWL_Wnd::RePosChildWnd() {
+  ObservedPtr thisObserved(this);
   CPWL_ScrollBar* pVSB = GetVScrollBar();
   if (!pVSB)
-    return;
+    return true;
 
   CFX_FloatRect rcContent = GetWindowRect();
   if (!rcContent.IsEmpty()) {
@@ -605,7 +623,10 @@ void CPWL_Wnd::RePosChildWnd() {
   CFX_FloatRect rcVScroll =
       CFX_FloatRect(rcContent.right - PWL_SCROLLBAR_WIDTH, rcContent.bottom,
                     rcContent.right - 1.0f, rcContent.top);
-  pVSB->Move(rcVScroll, true, false);
+  if (!pVSB->Move(rcVScroll, true, false))
+    return false;
+
+  return true;
 }
 
 void CPWL_Wnd::CreateChildWnd(const CreateParams& cp) {}

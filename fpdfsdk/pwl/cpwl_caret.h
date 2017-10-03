@@ -19,7 +19,7 @@ class CPWL_Caret : public CPWL_Wnd {
   void DrawThisAppearance(CFX_RenderDevice* pDevice,
                           const CFX_Matrix& mtUser2Device) override;
   void InvalidateRect(CFX_FloatRect* pRect) override;
-  void SetVisible(bool bVisible) override {}
+  bool SetVisible(bool bVisible) override;
   void TimerProc() override;
 
   void SetCaret(bool bVisible,
