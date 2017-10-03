@@ -27,9 +27,6 @@ class CPDF_CryptoHandler {
 
   static bool IsSignatureDictionary(const CPDF_Dictionary* dictionary);
 
-  bool Init(CPDF_Dictionary* pEncryptDict,
-            CPDF_SecurityHandler* pSecurityHandler);
-
   std::unique_ptr<CPDF_Object> DecryptObjectTree(
       std::unique_ptr<CPDF_Object> object);
 

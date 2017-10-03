@@ -93,7 +93,7 @@ bool CPDF_SecurityHandler::OnInit(CPDF_Dictionary* pEncryptDict,
   if (m_Cipher == FXCIPHER_NONE) {
     return true;
   }
-  return CheckSecurity(password);
+  return CheckSecurity(password) && InitCryptoHandler();
 }
 
 bool CPDF_SecurityHandler::CheckSecurity(const ByteString& password) {
@@ -196,14 +196,6 @@ bool CPDF_SecurityHandler::LoadDict(CPDF_Dictionary* pEncryptDict,
   return true;
 }
 
-bool CPDF_SecurityHandler::GetCryptInfo(int& cipher,
-                                        const uint8_t*& buffer,
-                                        int& keylen) {
-  cipher = m_Cipher;
-  buffer = m_EncryptKey;
-  keylen = m_KeyLen;
-  return true;
-}
 #define FX_GET_32WORD(n, b, i)                                        \
   {                                                                   \
     (n) = (uint32_t)(                                                 \
@@ -507,12 +499,12 @@ bool CPDF_SecurityHandler::IsMetadataEncrypted() const {
   return m_pEncryptDict->GetBooleanFor("EncryptMetadata", true);
 }
 
-void CPDF_SecurityHandler::OnCreate(CPDF_Dictionary* pEncryptDict,
-                                    CPDF_Array* pIdArray,
-                                    const ByteString& user_password,
-                                    const ByteString& owner_password,
-                                    bool bDefault,
-                                    uint32_t type) {
+void CPDF_SecurityHandler::OnCreateInternal(CPDF_Dictionary* pEncryptDict,
+                                            CPDF_Array* pIdArray,
+                                            const ByteString& user_password,
+                                            const ByteString& owner_password,
+                                            bool bDefault,
+                                            uint32_t type) {
   int cipher = 0, key_len = 0;
   if (!LoadDict(pEncryptDict, type, cipher, key_len)) {
     return;
@@ -598,19 +590,26 @@ void CPDF_SecurityHandler::OnCreate(CPDF_Dictionary* pEncryptDict,
     pEncryptDict->SetNewFor<CPDF_String>("U", ByteString(digest, 32), false);
   }
 }
+
 void CPDF_SecurityHandler::OnCreate(CPDF_Dictionary* pEncryptDict,
                                     CPDF_Array* pIdArray,
                                     const ByteString& user_password,
                                     const ByteString& owner_password,
                                     uint32_t type) {
-  OnCreate(pEncryptDict, pIdArray, user_password, owner_password, true, type);
+  OnCreateInternal(pEncryptDict, pIdArray, user_password, owner_password, true,
+                   type);
+  InitCryptoHandler();
 }
+
 void CPDF_SecurityHandler::OnCreate(CPDF_Dictionary* pEncryptDict,
                                     CPDF_Array* pIdArray,
                                     const ByteString& user_password,
                                     uint32_t type) {
-  OnCreate(pEncryptDict, pIdArray, user_password, ByteString(), false, type);
+  OnCreateInternal(pEncryptDict, pIdArray, user_password, ByteString(), false,
+                   type);
+  InitCryptoHandler();
 }
+
 void CPDF_SecurityHandler::AES256_SetPassword(CPDF_Dictionary* pEncryptDict,
                                               const ByteString& password,
                                               bool bOwner,
@@ -697,5 +696,5 @@ void CPDF_SecurityHandler::AES256_SetPerms(CPDF_Dictionary* pEncryptDict,
 
 bool CPDF_SecurityHandler::InitCryptoHandler() {
   m_pCryptoHandler = pdfium::MakeUnique<CPDF_CryptoHandler>();
-  return m_pCryptoHandler->Init(m_pEncryptDict.Get(), this);
+  return m_pCryptoHandler->Init(m_Cipher, m_EncryptKey, m_KeyLen);
 }
