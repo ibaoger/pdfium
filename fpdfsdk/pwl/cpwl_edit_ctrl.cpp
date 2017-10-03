@@ -67,8 +67,9 @@ void CPWL_EditCtrl::ReplaceSelection(const WideString& text) {
   m_pEdit->InsertText(text, FX_CHARSET_Default);
 }
 
-void CPWL_EditCtrl::RePosChildWnd() {
+bool CPWL_EditCtrl::RePosChildWnd() {
   m_pEdit->SetPlateRect(GetClientRect());
+  return true;
 }
 
 void CPWL_EditCtrl::SetScrollInfo(const PWL_SCROLL_INFO& info) {

@@ -188,7 +188,7 @@ class CPWL_Wnd : public CPWL_TimerHandler, public Observable<CPWL_Wnd> {
   void InvalidateProvider(ProviderIface* provider);
   void Create(const CreateParams& cp);
   void Destroy();
-  void Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh);
+  bool Move(const CFX_FloatRect& rcNew, bool bReset, bool bRefresh);
 
   void SetCapture();
   void ReleaseCapture();
@@ -248,13 +248,16 @@ class CPWL_Wnd : public CPWL_TimerHandler, public Observable<CPWL_Wnd> {
   CFX_Matrix GetWindowMatrix() const;
 
  protected:
+  void Indents(int indents);
   friend class CPWL_MsgControl;
 
   // CPWL_TimerHandler
   CFX_SystemHandler* GetSystemHandler() const override;
 
   virtual void CreateChildWnd(const CreateParams& cp);
-  virtual void RePosChildWnd();
+
+  // Returns whether this instance is still allocated.
+  virtual bool RePosChildWnd();
 
   virtual void DrawThisAppearance(CFX_RenderDevice* pDevice,
                                   const CFX_Matrix& mtUser2Device);

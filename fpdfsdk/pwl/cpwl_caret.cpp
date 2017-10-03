@@ -101,7 +101,7 @@ void CPWL_Caret::SetCaret(bool bVisible,
     m_bFlash = true;
     Move(m_rcInvalid, false, true);
     // Note, |this| may no longer be viable at this point. If more work needs
-    // to be done, add an observer.
+    // to be done, check the return value of Move().
     return;
   }
 
@@ -113,7 +113,7 @@ void CPWL_Caret::SetCaret(bool bVisible,
   m_bFlash = true;
   Move(m_rcInvalid, false, true);
   // Note, |this| may no longer be viable at this point. If more work
-  // needs to be done, add an observer.
+  // needs to be done, check the return value of Move().
 }
 
 void CPWL_Caret::InvalidateRect(CFX_FloatRect* pRect) {
