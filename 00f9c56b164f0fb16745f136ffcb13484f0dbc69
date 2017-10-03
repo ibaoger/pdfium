@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "325ef7e1_87337ca7",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-03T15:39:58Z",
+      "side": 1,
+      "message": "Can we followup and convert things like CheckPassword to take a const ByteString\u0026 instead of ptr, size.",
+      "revId": "00f9c56b164f0fb16745f136ffcb13484f0dbc69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
