@@ -86,6 +86,8 @@ class CPDF_SyntaxParser {
   ByteString ReadString();
   ByteString ReadHexString();
   unsigned int ReadEOLMarkers(FX_FILESIZE pos);
+  bool GoToStreamEnd();
+  bool GoToWholeWordStart(const ByteStringView& word);
   std::unique_ptr<CPDF_Stream> ReadStream(
       std::unique_ptr<CPDF_Dictionary> pDict);
 
