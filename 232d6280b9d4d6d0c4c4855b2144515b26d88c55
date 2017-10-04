@@ -22,6 +22,30 @@
       "revId": "232d6280b9d4d6d0c4c4855b2144515b26d88c55",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1db2ab35_36d69334",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T15:05:48Z",
+      "side": 1,
+      "message": "no \nkInvalidObjNum !\u003d 0.\n\nobjnum \u003d\u003d 0, means (like in original code), that we not want to check objnum (result-\u003eGetObjNum() \u003d\u003d objnum)",
+      "parentUuid": "367227b6_0c2b27bc",
+      "range": {
+        "startLine": 662,
+        "startChar": 21,
+        "endLine": 662,
+        "endChar": 28
+      },
+      "revId": "232d6280b9d4d6d0c4c4855b2144515b26d88c55",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
