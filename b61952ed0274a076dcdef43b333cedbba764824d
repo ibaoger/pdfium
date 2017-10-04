@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b4472483_39b96f96",
+        "filename": "fpdfsdk/pwl/cpwl_combo_box.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d271c4c_63940d18",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53a6f813_82cfa898",
         "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba10a43_8a9ede2f",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "OnLButtonDown already had a return type defined and always returned true, so I\u0027m just skipping the rest of the method.",
+      "parentUuid": "53a6f813_82cfa898",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "72fea6d4_630a0d05",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85974e1_16e3b1e1",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3424f19d_c65d279a",
         "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
         "patchSetId": 13
@@ -67,6 +121,24 @@
       "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6adeaf50_de309b7a",
+        "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "OnLButtonDown already had a return type defined and always returned true, so I\u0027m just skipping the rest of the method.",
+      "parentUuid": "3424f19d_c65d279a",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "eddea2af_9eb95779",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "OnLButtonDown already had a return type defined and always returned true, so I\u0027m just skipping the rest of the method.",
+      "parentUuid": "1592da02_f36989ca",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "822e9c12_8d529832",
         "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
         "patchSetId": 13
@@ -101,6 +191,24 @@
       "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a64f10a_60f8d7c1",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "822e9c12_8d529832",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "246d55da_2da397ca",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "9cca3b42_a42ce40d",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1bf275c_6f9381a5",
         "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
         "patchSetId": 13
@@ -135,6 +261,24 @@
       "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c849f68_c5c214f4",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "See above but for OnLButtonUp.",
+      "parentUuid": "e1bf275c_6f9381a5",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "5682a2d8_49123463",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24ebaa1e_5c8a261a",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c0fb245_6f66f8b3",
         "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
         "patchSetId": 13
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "e71c609d_810f1fb3",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c0fb245_6f66f8b3",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f772701_cb1f656d",
         "filename": "fpdfsdk/pwl/cpwl_scroll_bar.h",
         "patchSetId": 13
@@ -186,6 +366,24 @@
       "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5653f4c_88dda827",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:10:25Z",
+      "side": 1,
+      "message": "Done here and in other files, but used \"iff\".",
+      "parentUuid": "0f772701_cb1f656d",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
