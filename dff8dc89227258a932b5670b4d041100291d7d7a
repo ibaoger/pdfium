@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6458eed_55aad545",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "non-requested",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "148c3029_e3c9e8b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "To reduce reconnections, read stream data first, then do all checks.",
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "853d82c7_e0fc2f9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "reconnections",
+      "range": {
+        "startLine": 12,
+        "startChar": 62,
+        "endLine": 12,
+        "endChar": 75
+      },
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0007913c_f3330263",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "Can you use FX_FILESIZE here?",
+      "range": {
+        "startLine": 539,
+        "startChar": 8,
+        "endLine": 539,
+        "endChar": 12
+      },
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5967799_f7cc3678",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "This block looks a lot like the one above. Do we want to refactor it into a helper method?",
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39dc5181_22a986ee",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "Can you consistently use GetPos() or |m_Pos|?",
+      "range": {
+        "startLine": 568,
+        "startChar": 21,
+        "endLine": 568,
+        "endChar": 29
+      },
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2df23e9_d6c77dc4",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-04T18:06:41Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 629,
+        "startChar": 46,
+        "endLine": 629,
+        "endChar": 48
+      },
+      "revId": "dff8dc89227258a932b5670b4d041100291d7d7a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
