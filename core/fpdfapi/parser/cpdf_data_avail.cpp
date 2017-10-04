@@ -331,7 +331,6 @@ bool CPDF_DataAvail::LoadAllFile() {
 }
 
 bool CPDF_DataAvail::LoadAllXref() {
-  m_parser.m_pSyntax->InitParser(m_pFileRead, (uint32_t)m_dwHeaderOffset);
   if (!m_parser.LoadAllCrossRefV4(m_dwLastXRefOffset) &&
       !m_parser.LoadAllCrossRefV5(m_dwLastXRefOffset)) {
     m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
@@ -612,8 +611,6 @@ bool CPDF_DataAvail::CheckHintTables() {
                                                              szHintLength))
     return false;
 
-  m_syntaxParser.InitParser(m_pFileRead, m_dwHeaderOffset);
-
   auto pHintTables = pdfium::MakeUnique<CPDF_HintTables>(GetValidator().Get(),
                                                          m_pLinearized.get());
   std::unique_ptr<CPDF_Object> pHintStream =
@@ -630,11 +627,11 @@ std::unique_ptr<CPDF_Object> CPDF_DataAvail::ParseIndirectObjectAt(
     FX_FILESIZE pos,
     uint32_t objnum,
     CPDF_IndirectObjectHolder* pObjList) {
-  const FX_FILESIZE SavedPos = m_syntaxParser.GetPos();
-  m_syntaxParser.SetPos(pos);
-  std::unique_ptr<CPDF_Object> result = m_syntaxParser.GetIndirectObject(
+  const FX_FILESIZE SavedPos = GetSyntaxParser()->GetPos();
+  GetSyntaxParser()->SetPos(pos);
+  std::unique_ptr<CPDF_Object> result = GetSyntaxParser()->GetIndirectObject(
       pObjList, CPDF_SyntaxParser::ParseType::kLoose);
-  m_syntaxParser.SetPos(SavedPos);
+  GetSyntaxParser()->SetPos(SavedPos);
   return (result && (!objnum || result->GetObjNum() == objnum))
              ? std::move(result)
              : nullptr;
@@ -667,10 +664,8 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckHeaderAndLinearized() {
   if (header_offset == kInvalidHeaderOffset)
     return DocAvailStatus::DataError;
 
-  m_dwHeaderOffset = header_offset;
-
-  m_syntaxParser.InitParserWithValidator(GetValidator(), header_offset);
-  m_pLinearized = CPDF_LinearizedHeader::Parse(&m_syntaxParser);
+  m_parser.m_pSyntax->InitParserWithValidator(GetValidator(), header_offset);
+  m_pLinearized = m_parser.ParseLinearizedHeader();
   if (GetValidator()->has_read_problems())
     return DocAvailStatus::DataNotAvailable;
 
@@ -679,41 +674,17 @@ CPDF_DataAvail::DocAvailStatus CPDF_DataAvail::CheckHeaderAndLinearized() {
 }
 
 bool CPDF_DataAvail::CheckEnd() {
-  const uint32_t req_pos =
-      (uint32_t)(m_dwFileLen > 1024 ? m_dwFileLen - 1024 : 0);
-  const uint32_t dwSize = (uint32_t)(m_dwFileLen - req_pos);
-  std::vector<uint8_t> buffer(dwSize);
-  {
-    const CPDF_ReadValidator::Session read_session(GetValidator().Get());
-    m_pFileRead->ReadBlock(buffer.data(), req_pos, dwSize);
-    if (GetValidator()->has_read_problems())
-      return false;
-  }
+  const CPDF_ReadValidator::Session read_session(GetValidator().Get());
+  const FX_FILESIZE last_xref_offset = m_parser.ParseStartXRef();
 
-  auto file = pdfium::MakeRetain<CFX_MemoryStream>(
-      buffer.data(), static_cast<size_t>(dwSize), false);
-  m_syntaxParser.InitParser(file, 0);
-  m_syntaxParser.SetPos(dwSize - 1);
-  if (!m_syntaxParser.BackwardsSearchToWord("startxref", dwSize)) {
-    m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
-    return true;
-  }
-  m_syntaxParser.GetNextWord(nullptr);
-
-  bool bNumber;
-  ByteString xrefpos_str = m_syntaxParser.GetNextWord(&bNumber);
-  if (!bNumber) {
-    m_docStatus = PDF_DATAAVAIL_ERROR;
+  if (GetValidator()->has_read_problems())
     return false;
-  }
-  m_dwXRefOffset = (FX_FILESIZE)FXSYS_atoi64(xrefpos_str.c_str());
-  if (!m_dwXRefOffset || m_dwXRefOffset > m_dwFileLen) {
-    m_docStatus = PDF_DATAAVAIL_LOADALLFILE;
-    return true;
-  }
-  m_dwLastXRefOffset = m_dwXRefOffset;
-  SetStartOffset(m_dwXRefOffset);
-  m_docStatus = PDF_DATAAVAIL_CROSSREF;
+
+  m_dwLastXRefOffset = last_xref_offset;
+  m_dwXRefOffset = last_xref_offset;
+  SetStartOffset(last_xref_offset);
+  m_docStatus =
+      (last_xref_offset > 0) ? PDF_DATAAVAIL_CROSSREF : PDF_DATAAVAIL_ERROR;
   return true;
 }
 
@@ -861,12 +832,10 @@ bool CPDF_DataAvail::CheckCrossRef() {
 }
 
 bool CPDF_DataAvail::CheckTrailer() {
-  m_syntaxParser.InitParser(m_pFileRead, 0);
-
   const CPDF_ReadValidator::Session read_session(GetValidator().Get());
-  m_syntaxParser.SetPos(m_dwTrailerOffset);
+  GetSyntaxParser()->SetPos(m_dwTrailerOffset);
   const std::unique_ptr<CPDF_Object> pTrailer =
-      m_syntaxParser.GetObjectBody(nullptr);
+      GetSyntaxParser()->GetObjectBody(nullptr);
   if (!pTrailer) {
     if (!GetValidator()->has_read_problems())
       m_docStatus = PDF_DATAAVAIL_ERROR;
@@ -1381,6 +1350,11 @@ RetainPtr<CPDF_ReadValidator> CPDF_DataAvail::GetValidator() const {
   return m_pFileRead;
 }
 
+CPDF_SyntaxParser* CPDF_DataAvail::GetSyntaxParser() const {
+  return m_pDocument ? m_pDocument->GetParser()->m_pSyntax.get()
+                     : m_parser.m_pSyntax.get();
+}
+
 int CPDF_DataAvail::GetPageCount() const {
   if (m_pLinearized)
     return m_pLinearized->GetPageCount();
@@ -1409,10 +1383,8 @@ CPDF_Dictionary* CPDF_DataAvail::GetPage(int index) {
   m_pDocument->SetPageObjNum(index, dwObjNum);
   // Page object already can be parsed in document.
   if (!m_pDocument->GetIndirectObject(dwObjNum)) {
-    m_syntaxParser.InitParser(
-        m_pFileRead, pdfium::base::checked_cast<uint32_t>(szPageStartPos));
     m_pDocument->ReplaceIndirectObjectIfHigherGeneration(
-        dwObjNum, ParseIndirectObjectAt(0, dwObjNum, m_pDocument));
+        dwObjNum, ParseIndirectObjectAt(szPageStartPos, dwObjNum, m_pDocument));
   }
   if (!ValidatePage(index))
     return nullptr;
