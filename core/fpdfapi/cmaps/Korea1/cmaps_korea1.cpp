@@ -39,11 +39,11 @@ static const FXCMAP_CMap g_FXCMAP_Korea1_cmaps[] = {
 void CPDF_ModuleMgr::LoadEmbeddedKorea1CMaps() {
   CPDF_FontGlobals* pFontGlobals =
       CPDF_ModuleMgr::Get()->GetPageModule()->GetFontGlobals();
-  pFontGlobals->m_EmbeddedCharsets[CIDSET_KOREA1].m_pMapList =
+  pFontGlobals->embedded_charsets_[CIDSET_KOREA1].map_list_ =
       g_FXCMAP_Korea1_cmaps;
-  pFontGlobals->m_EmbeddedCharsets[CIDSET_KOREA1].m_Count =
+  pFontGlobals->embedded_charsets_[CIDSET_KOREA1].count_ =
       FX_ArraySize(g_FXCMAP_Korea1_cmaps);
-  pFontGlobals->m_EmbeddedToUnicodes[CIDSET_KOREA1].m_pMap =
+  pFontGlobals->embedded_to_unicodes_[CIDSET_KOREA1].map_ =
       g_FXCMAP_Korea1CID2Unicode_2;
-  pFontGlobals->m_EmbeddedToUnicodes[CIDSET_KOREA1].m_Count = 18352;
+  pFontGlobals->embedded_to_unicodes_[CIDSET_KOREA1].count_ = 18352;
 }

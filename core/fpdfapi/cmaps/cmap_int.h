@@ -13,14 +13,14 @@
 struct FXCMAP_CMap {
   enum MapType { None, Single, Range, Reverse };
 
-  const char* m_Name;
-  MapType m_WordMapType;
-  const uint16_t* m_pWordMap;
-  int m_WordCount;
-  MapType m_DWordMapType;
-  const uint16_t* m_pDWordMap;
-  int m_DWordCount;
-  int m_UseOffset;
+  const char* name_;
+  MapType word_map_type_;
+  const uint16_t* word_map_;
+  int word_count_;
+  MapType d_word_map_type_;
+  const uint16_t* d_word_map_;
+  int d_word_count_;
+  int use_offset_;
 };
 
 void FPDFAPI_FindEmbeddedCMap(const ByteString& name,
