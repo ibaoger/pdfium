@@ -22,6 +22,30 @@
       "revId": "408afb2393781c99d1cd39e882ee9067c77881a2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93f2ebfa_531580ff",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T17:28:17Z",
+      "side": 1,
+      "message": "While, technically, that would work, we need to check has_next before accessing the stream the first time. (It would work technically because stream would be nullptr, but I don\u0027t want to depend on that)",
+      "parentUuid": "655e6604_9a9abce0",
+      "range": {
+        "startLine": 743,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "408afb2393781c99d1cd39e882ee9067c77881a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
