@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2edcb7d_6950f929",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T16:28:50Z",
+      "side": 1,
+      "message": "if (!cid)\n  return 0;",
+      "revId": "b211c72b75f3d93f6a025d8b4b7cc0d2c812097a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e22497f2_a51f0305",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T16:28:50Z",
+      "side": 1,
+      "message": "pCodes as below? Or rename below to map.",
+      "range": {
+        "startLine": 151,
+        "startChar": 17,
+        "endLine": 151,
+        "endChar": 21
+      },
+      "revId": "b211c72b75f3d93f6a025d8b4b7cc0d2c812097a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a376e99c_db21d699",
+        "filename": "core/fpdfapi/font/cpdf_cidfont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T16:28:50Z",
+      "side": 1,
+      "message": "charCode",
+      "range": {
+        "startLine": 173,
+        "startChar": 15,
+        "endLine": 173,
+        "endChar": 23
+      },
+      "revId": "b211c72b75f3d93f6a025d8b4b7cc0d2c812097a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
