@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d271c4c_63940d18",
+        "filename": "fpdfsdk/pwl/cpwl_combo_box.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "nit: remove blank line so the if() is with the thing that could cause the observer to go away.",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a6f813_82cfa898",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be false? If !InvalidateRect is true then we\u0027re destroyed, no?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85974e1_16e3b1e1",
+        "filename": "fpdfsdk/pwl/cpwl_edit.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "if (!SetCaret?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3424f19d_c65d279a",
+        "filename": "fpdfsdk/pwl/cpwl_edit_ctrl.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "false?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1592da02_f36989ca",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "false?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "822e9c12_8d529832",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "false?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cca3b42_a42ce40d",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "false?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1bf275c_6f9381a5",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "false?",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24ebaa1e_5c8a261a",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "if (!m_pPosButton)\n  return;",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0fb245_6f66f8b3",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "Add a return here, drop the else.",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f772701_cb1f656d",
+        "filename": "fpdfsdk/pwl/cpwl_scroll_bar.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T13:49:56Z",
+      "side": 1,
+      "message": "Returns |true| if this instance is still allocated.",
+      "revId": "b61952ed0274a076dcdef43b333cedbba764824d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
