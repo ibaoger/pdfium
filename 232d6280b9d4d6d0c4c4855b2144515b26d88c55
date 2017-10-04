@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "367227b6_0c2b27bc",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T14:59:08Z",
+      "side": 1,
+      "message": "Should this be objnum \u003d\u003d kInvalidObjNum || ?",
+      "range": {
+        "startLine": 662,
+        "startChar": 21,
+        "endLine": 662,
+        "endChar": 28
+      },
+      "revId": "232d6280b9d4d6d0c4c4855b2144515b26d88c55",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
