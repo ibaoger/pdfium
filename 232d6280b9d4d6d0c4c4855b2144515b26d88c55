@@ -46,6 +46,30 @@
       "revId": "232d6280b9d4d6d0c4c4855b2144515b26d88c55",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dd7412e_cfd6ea84",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T15:10:53Z",
+      "side": 1,
+      "message": "That seems, wrong, We should be using InvalidObjectNum instead of 0 for this should we not. It would be a lot more consistent with the rest of the code.",
+      "parentUuid": "1db2ab35_36d69334",
+      "range": {
+        "startLine": 662,
+        "startChar": 21,
+        "endLine": 662,
+        "endChar": 28
+      },
+      "revId": "232d6280b9d4d6d0c4c4855b2144515b26d88c55",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
