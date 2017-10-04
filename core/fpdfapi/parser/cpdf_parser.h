@@ -201,11 +201,11 @@ class CPDF_Parser {
   bool m_bHasParsed;
   bool m_bXRefStream;
   int m_FileVersion;
+  std::unique_ptr<TrailerData> m_TrailerData;
   UnownedPtr<CPDF_Dictionary> m_pEncryptDict;
   FX_FILESIZE m_LastXRefOffset;
   std::unique_ptr<CPDF_SecurityHandler> m_pSecurityHandler;
   ByteString m_Password;
-  std::unique_ptr<TrailerData> m_TrailerData;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
   uint32_t m_dwLinearizedFirstPageXRefStartObjNum;
 
