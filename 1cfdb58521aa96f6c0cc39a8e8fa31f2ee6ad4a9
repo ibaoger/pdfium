@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cb1664e6_b84e6d59",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T14:55:22Z",
+      "side": 0,
+      "message": "It is already exists in  m_syntaxParser.GetIndirectObject https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_syntax_parser.cpp?rcl\u003daafdc153a2b7609968b315ca6c6900717f6d6c36\u0026l\u003d486",
+      "parentUuid": "49f4b4cd_d54b2ce5",
+      "revId": "1cfdb58521aa96f6c0cc39a8e8fa31f2ee6ad4a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c5dcbba_cd0604c9",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-04T14:05:14Z",
       "side": 0,
       "message": "Where did this error checking go?",
+      "revId": "1cfdb58521aa96f6c0cc39a8e8fa31f2ee6ad4a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26261ca0_18d4c007",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T14:55:22Z",
+      "side": 0,
+      "message": "It is already exists in  m_syntaxParser.GetIndirectObject https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_syntax_parser.cpp?rcl\u003daafdc153a2b7609968b315ca6c6900717f6d6c36\u0026l\u003d486",
+      "parentUuid": "7c5dcbba_cd0604c9",
       "revId": "1cfdb58521aa96f6c0cc39a8e8fa31f2ee6ad4a9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
