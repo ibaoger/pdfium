@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3c7e951e_1dfbac6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T16:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04703238_98d0cc2d",
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98920d87_998423e5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "bf8ff91c_a5d498a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T16:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98920d87_998423e5",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f709926e_ac735257",
         "filename": "core/fpdfapi/parser/cpdf_parser.h",
         "patchSetId": 3
@@ -56,6 +98,24 @@
       "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2dfdde6_550027d6",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T16:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f709926e_ac735257",
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

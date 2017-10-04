@@ -16,6 +16,24 @@
       "revId": "55469aed5acffcce3259d37418ba9e8b8e60d801",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e962f90_51c3b16b",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-04T16:43:44Z",
+      "side": 0,
+      "message": "In some cases the m_pEncryptDict may be owned by Main Trailer too.\nsee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003daafdc153a2b7609968b315ca6c6900717f6d6c36\u0026l\u003d295\n\nI can change the order of m_pEncryptDict and m_TrailerData (swap), or just remove it from initializer list in this CL.\nI think more simple just remove.",
+      "parentUuid": "1945d5d3_e5429c6b",
+      "revId": "55469aed5acffcce3259d37418ba9e8b8e60d801",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
