@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "655e6604_9a9abce0",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-04T15:57:01Z",
+      "side": 1,
+      "message": "do {\n  std::tie(has_next, stream) \u003d m_pFontSource-\u003eGetNext();\n  if (stream)\n    RegisterFaces(stream, nullptr);\n} while (has_next);",
+      "range": {
+        "startLine": 743,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 3
+      },
+      "revId": "408afb2393781c99d1cd39e882ee9067c77881a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
