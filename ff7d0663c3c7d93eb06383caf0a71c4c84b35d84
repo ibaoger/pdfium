@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04703238_98d0cc2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T16:28:52Z",
+      "side": 1,
+      "message": "Extra blank lines",
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98920d87_998423e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T16:28:52Z",
+      "side": 1,
+      "message": "Make this:\n\nBug: chromium:771479\n\nI never know which one will confuse the bot so fully qualifying is best.",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f709926e_ac735257",
+        "filename": "core/fpdfapi/parser/cpdf_parser.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-04T16:28:52Z",
+      "side": 1,
+      "message": "Can you add a comment before m_TrailerData:\n\n// m_TrailerData must be destroyed after m_pSecurityHandler due to the ownership\n// of the ID array data.",
+      "revId": "ff7d0663c3c7d93eb06383caf0a71c4c84b35d84",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
