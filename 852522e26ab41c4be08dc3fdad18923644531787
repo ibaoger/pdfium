@@ -169,6 +169,24 @@
       "revId": "852522e26ab41c4be08dc3fdad18923644531787",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4badd4a8_141498e2",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-05T18:10:59Z",
+      "side": 1,
+      "message": "I\u0027d rather put it duplicated after the ResetAppearance calls in this case, so signal they would be the cause.",
+      "parentUuid": "d4bcb84f_16f369fb",
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
