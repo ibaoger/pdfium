@@ -80,34 +80,36 @@ void RenderPageImpl(CPDF_PageRenderContext* pContext,
   if (!pContext->m_pOptions)
     pContext->m_pOptions = pdfium::MakeUnique<CPDF_RenderOptions>();
 
+  uint32_t option_flags = pContext->m_pOptions->GetFlags();
   if (flags & FPDF_LCD_TEXT)
-    pContext->m_pOptions->m_Flags |= RENDER_CLEARTYPE;
+    option_flags |= RENDER_CLEARTYPE;
   else
-    pContext->m_pOptions->m_Flags &= ~RENDER_CLEARTYPE;
+    option_flags &= ~RENDER_CLEARTYPE;
 
   if (flags & FPDF_NO_NATIVETEXT)
-    pContext->m_pOptions->m_Flags |= RENDER_NO_NATIVETEXT;
+    option_flags |= RENDER_NO_NATIVETEXT;
   if (flags & FPDF_RENDER_LIMITEDIMAGECACHE)
-    pContext->m_pOptions->m_Flags |= RENDER_LIMITEDIMAGECACHE;
+    option_flags |= RENDER_LIMITEDIMAGECACHE;
   if (flags & FPDF_RENDER_FORCEHALFTONE)
-    pContext->m_pOptions->m_Flags |= RENDER_FORCE_HALFTONE;
+    option_flags |= RENDER_FORCE_HALFTONE;
 #ifndef PDF_ENABLE_XFA
   if (flags & FPDF_RENDER_NO_SMOOTHTEXT)
-    pContext->m_pOptions->m_Flags |= RENDER_NOTEXTSMOOTH;
+    option_flags |= RENDER_NOTEXTSMOOTH;
   if (flags & FPDF_RENDER_NO_SMOOTHIMAGE)
-    pContext->m_pOptions->m_Flags |= RENDER_NOIMAGESMOOTH;
+    option_flags |= RENDER_NOIMAGESMOOTH;
   if (flags & FPDF_RENDER_NO_SMOOTHPATH)
-    pContext->m_pOptions->m_Flags |= RENDER_NOPATHSMOOTH;
+    option_flags |= RENDER_NOPATHSMOOTH;
 #endif  // PDF_ENABLE_XFA
+  pContext->m_pOptions->SetFlags(option_flags);
 
   // Grayscale output
   if (flags & FPDF_GRAYSCALE)
-    pContext->m_pOptions->m_ColorMode = CPDF_RenderOptions::kGray;
+    pContext->m_pOptions->SetColorMode(CPDF_RenderOptions::kGray);
 
   const CPDF_OCContext::UsageType usage =
       (flags & FPDF_PRINTING) ? CPDF_OCContext::Print : CPDF_OCContext::View;
-  pContext->m_pOptions->m_pOCContext =
-      pdfium::MakeRetain<CPDF_OCContext>(pPage->m_pDocument.Get(), usage);
+  pContext->m_pOptions->SetOCContext(
+      pdfium::MakeRetain<CPDF_OCContext>(pPage->m_pDocument.Get(), usage));
 
   pContext->m_pDevice->SaveState();
   pContext->m_pDevice->SetClip_Rect(clipping_rect);
