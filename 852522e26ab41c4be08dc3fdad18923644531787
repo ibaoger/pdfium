@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c20130d5_e839f25d",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-05T17:35:21Z",
+      "side": 1,
+      "message": "CPDFSDK_Widget::ObservedPtr observed_widget(pWidget);",
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bfdbb12_7740c6ad",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-05T17:35:21Z",
+      "side": 1,
+      "message": "Should we:\n\nif (!observed_widget)\n  return;\n\nso we don\u0027t access anything later accidentally?",
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18978046_76ead15e",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-05T17:35:21Z",
+      "side": 1,
+      "message": "Is this just an extra guard of the OnFormat, if we early return can we remove it?",
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
