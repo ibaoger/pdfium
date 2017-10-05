@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0161157_e1839397",
+        "filename": "third_party/freetype/roll-freetype.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-05T17:09:12Z",
+      "side": 1,
+      "message": "Why is this one pdfium/ and the rest aren\u0027t?",
+      "range": {
+        "startLine": 2,
+        "startChar": 32,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "f8b06dd1e8674326b7ad7a40d7b455194930b9e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53d63673_53ae2d18",
+        "filename": "third_party/freetype/roll-freetype.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-05T17:09:12Z",
+      "side": 1,
+      "message": "This needed?",
+      "range": {
+        "startLine": 7,
+        "startChar": 83,
+        "endLine": 8,
+        "endChar": 4
+      },
+      "revId": "f8b06dd1e8674326b7ad7a40d7b455194930b9e9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
