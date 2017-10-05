@@ -111,9 +111,14 @@ void CFFL_CheckBox::SaveData(CPDFSDK_PageView* pPageView) {
       }
     }
   }
+  CPDFSDK_Widget::ObservedPtr observed_widget(m_pWidget.Get());
 
   m_pWidget->SetCheck(bNewChecked, false);
+  if (!observed_widget)
+    return;
   m_pWidget->UpdateField();
+  if (!observed_widget)
+    return;
   SetChangeMark();
 }
 
