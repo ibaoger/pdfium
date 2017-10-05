@@ -117,9 +117,16 @@ void CFFL_ListBox::SaveData(CPDFSDK_PageView* pPageView) {
   } else {
     m_pWidget->SetOptionSelection(pListBox->GetCurSel(), true, false);
   }
+  CPDFSDK_Widget::ObservedPtr observed_widget(m_pWidget.Get());
   m_pWidget->SetTopVisibleIndex(nNewTopIndex);
+  if (!observed_widget)
+    return;
   m_pWidget->ResetFieldAppearance(true);
+  if (!observed_widget)
+    return;
   m_pWidget->UpdateField();
+  if (!observed_widget)
+    return;
   SetChangeMark();
 }
 

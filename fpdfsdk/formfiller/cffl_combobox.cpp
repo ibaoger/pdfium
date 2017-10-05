@@ -108,11 +108,14 @@ void CFFL_ComboBox::SaveData(CPDFSDK_PageView* pPageView) {
     m_pWidget->GetSelectedIndex(0);
     m_pWidget->SetOptionSelection(nCurSel, true, false);
   }
-
+  CPDFSDK_Widget::ObservedPtr observed_widget(m_pWidget.Get());
   m_pWidget->ResetFieldAppearance(true);
+  if (!observed_widget)
+    return;
   m_pWidget->UpdateField();
+  if (!observed_widget)
+    return;
   SetChangeMark();
-
   m_pWidget->GetPDFPage();
 }
 
