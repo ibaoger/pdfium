@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "620d88c8_5da9551e",
+        "filename": "fpdfsdk/formfiller/cffl_textfield.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-05T17:54:01Z",
+      "side": 1,
+      "message": "maybe less redundant as\n\nCPDFSDK_Widget::ObservedPtr observed_widget(m_pWidget.Get())",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 51
+      },
+      "revId": "0b98656da3986b7502b4cc21531ae07710016860",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b3ec7b_216d3d0e",
+        "filename": "fpdfsdk/formfiller/cffl_textfield.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-05T17:54:01Z",
+      "side": 1,
+      "message": "Maybe\n\n  CFFL_TextField::ObservedPtr observed_field(this);\n\nsince I had to think for two seconds about the type of the pointer before it dawned on me ...",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "0b98656da3986b7502b4cc21531ae07710016860",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
