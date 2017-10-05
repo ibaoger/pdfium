@@ -324,19 +324,22 @@ void Field::UpdateFormControl(CPDFSDK_FormFillEnvironment* pFormFillEnv,
   CPDFSDK_Widget* pWidget = pForm->GetWidget(pFormControl);
 
   if (pWidget) {
+    CPDFSDK_Widget::ObservedPtr observed_widget =
+        CPDFSDK_Widget::ObservedPtr(pWidget);
     if (bResetAP) {
       int nFieldType = pWidget->GetFieldType();
       if (nFieldType == FIELDTYPE_COMBOBOX ||
           nFieldType == FIELDTYPE_TEXTFIELD) {
         bool bFormatted = false;
         WideString sValue = pWidget->OnFormat(bFormatted);
-        pWidget->ResetAppearance(bFormatted ? &sValue : nullptr, false);
+        if (observed_widget)
+          pWidget->ResetAppearance(bFormatted ? &sValue : nullptr, false);
       } else {
         pWidget->ResetAppearance(nullptr, false);
       }
     }
 
-    if (bRefresh) {
+    if (bRefresh && observed_widget) {
       CPDFSDK_InterForm* pInterForm = pWidget->GetInterForm();
       pInterForm->GetFormFillEnv()->UpdateAllViews(nullptr, pWidget);
     }
