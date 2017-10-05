@@ -16,6 +16,24 @@
       "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93b42325_0764c7c4",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-05T15:30:59Z",
+      "side": 0,
+      "message": "This check is always false in original code, because \"m_Pos\" is not used for much time (at least from 2014) within CPDF_DataAvail::GetObject.",
+      "parentUuid": "ff3ae671_eee90c99",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
