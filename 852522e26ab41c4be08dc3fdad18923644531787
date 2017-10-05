@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "2e13637e_d227be6a",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-05T17:40:47Z",
+      "side": 1,
+      "message": "Can this line cause \"this\" to be destroyed as well as the widget? If so, we might want an observer for \"this\" as well.",
+      "range": {
+        "startLine": 334,
+        "startChar": 58,
+        "endLine": 334,
+        "endChar": 0
+      },
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6bfdbb12_7740c6ad",
         "filename": "fpdfsdk/javascript/Field.cpp",
         "patchSetId": 2
@@ -30,6 +53,24 @@
       "writtenOn": "2017-10-05T17:35:21Z",
       "side": 1,
       "message": "Should we:\n\nif (!observed_widget)\n  return;\n\nso we don\u0027t access anything later accidentally?",
+      "revId": "852522e26ab41c4be08dc3fdad18923644531787",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf2ecb5_7db7e8a2",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-05T17:40:47Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "6bfdbb12_7740c6ad",
       "revId": "852522e26ab41c4be08dc3fdad18923644531787",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
