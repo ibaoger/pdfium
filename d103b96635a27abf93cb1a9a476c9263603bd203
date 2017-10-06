@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc133568_4b6f0244",
+        "filename": "core/fpdfapi/render/cpdf_imagerenderer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-06T18:03:22Z",
+      "side": 0,
+      "message": "Not obvious why need this. |m_pDIBSource| will be holding on to it anyway.",
+      "revId": "d103b96635a27abf93cb1a9a476c9263603bd203",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
