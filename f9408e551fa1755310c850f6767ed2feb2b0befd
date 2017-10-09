@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac944a55_de07b381",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-09T16:40:05Z",
+      "side": 1,
+      "message": "nit: If this is only used by the tests, one convention is to call this GetHintTablesForTesting().",
+      "range": {
+        "startLine": 112,
+        "startChar": 38,
+        "endLine": 112,
+        "endChar": 39
+      },
+      "revId": "f9408e551fa1755310c850f6767ed2feb2b0befd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
