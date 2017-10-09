@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bbbc19f_a13b6862",
+        "filename": "fpdfsdk/formfiller/cffl_textfield.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-09T16:42:37Z",
+      "side": 1,
+      "message": "can you explain why observing the widget instead of the text field is sufficient here?",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "60f7e9c3a701c86a5f0bb30e0059edb47aa0bc45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
