@@ -22,6 +22,30 @@
       "revId": "60f7e9c3a701c86a5f0bb30e0059edb47aa0bc45",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14c02631_39913641",
+        "filename": "fpdfsdk/formfiller/cffl_textfield.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 7253
+      },
+      "writtenOn": "2017-10-09T17:10:19Z",
+      "side": 1,
+      "message": "I just notice there is a function called |CFFL_InteractiveFormFiller::RemoveFormFiller| which would kill CFFL_FormFiller independently , but looks like no one call it. So I suppose currently there is no way to destroy CFFL_FormFiller without destroying widget as well. \n\nBut for sure, we can make another observe ptr for CFFL_FormFiller :). Do you want me to do it ?",
+      "parentUuid": "7bbbc19f_a13b6862",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "60f7e9c3a701c86a5f0bb30e0059edb47aa0bc45",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
