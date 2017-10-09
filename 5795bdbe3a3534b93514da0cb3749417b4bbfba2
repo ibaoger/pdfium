@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ebc549f_c3f9e921",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-09T16:52:15Z",
+      "side": 1,
+      "message": "Did this come from some spec?  Maybe just link to it or specifiy the section.",
+      "range": {
+        "startLine": 461,
+        "startChar": 2,
+        "endLine": 461,
+        "endChar": 6
+      },
+      "revId": "5795bdbe3a3534b93514da0cb3749417b4bbfba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6260ef35_43f754fe",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-09T16:52:15Z",
+      "side": 1,
+      "message": "nit: just \n\n  retur file_offset.ValueOrDefault(0);",
+      "range": {
+        "startLine": 468,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 34
+      },
+      "revId": "5795bdbe3a3534b93514da0cb3749417b4bbfba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
