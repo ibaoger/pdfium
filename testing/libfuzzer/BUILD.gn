@@ -3,6 +3,7 @@
 # found in the LICENSE file.
 
 import("../../pdfium.gni")
+import("//testing/libfuzzer/fuzzer_test.gni")
 
 config("libfuzzer_config") {
   configs = [ "../..:pdfium_core_config" ]
@@ -121,6 +122,33 @@ if (pdf_enable_xfa) {
     sources = [
       "pdf_css_fuzzer.cc",
     ]
+  }
+
+  fuzzer_test("pdf_css_proto_fuzzer") {
+    sources = [
+      "pdf_css_proto_fuzzer.cc",
+      "pdf_fuzzer_init.cc",
+    ]
+    deps = [
+      "../..:pdfium",
+      "//testing/libfuzzer/fuzzers:css_proto_converter",
+      "//third_party/libprotobuf-mutator",
+      "//third_party/protobuf:protobuf_full",
+    ]
+
+    # configs = [ "../..:pdfium_core_config" ]
+
+    defines = [
+      "PNG_PREFIX",
+      "PNG_USE_READ_MACROS",
+    ]
+    include_dirs = [ "../.." ]
+    if (pdf_enable_v8) {
+      defines += [ "PDF_ENABLE_V8" ]
+    }
+    if (pdf_enable_xfa) {
+      defines += [ "PDF_ENABLE_XFA" ]
+    }
   }
 
   pdfium_fuzzer("pdf_fm2js_fuzzer") {
