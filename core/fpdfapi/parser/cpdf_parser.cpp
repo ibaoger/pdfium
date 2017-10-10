@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_parser.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 #include <vector>
 
@@ -1126,7 +1127,9 @@ bool CPDF_Parser::LoadCrossRefV5(FX_FILESIZE* pos, bool bMainXRef) {
 }
 
 const CPDF_Array* CPDF_Parser::GetIDArray() const {
-  return GetTrailer() ? GetTrailer()->GetArrayFor("ID") : nullptr;
+  CPDF_Array* result = GetTrailer() ? GetTrailer()->GetArrayFor("ID") : nullptr;
+  std::cerr << "CPDF_Parser " << (void*)this << " ::GetIDArray returns " << (void*)result << std::endl;
+  return result;
 }
 
 uint32_t CPDF_Parser::GetRootObjNum() {
