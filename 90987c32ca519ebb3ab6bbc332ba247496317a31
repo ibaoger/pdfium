@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ec8480a_68d4a228",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-10T20:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "291b83d1_7cee644d",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "90987c32ca519ebb3ab6bbc332ba247496317a31",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e425735_cdbcfd87",
         "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7fa52df8_85dfd3b0",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-10T20:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e425735_cdbcfd87",
+      "range": {
+        "startLine": 105,
+        "startChar": 30,
+        "endLine": 105,
+        "endChar": 31
+      },
+      "revId": "90987c32ca519ebb3ab6bbc332ba247496317a31",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cdbed2b_c6c09f2a",
         "filename": "core/fpdfapi/parser/cpdf_security_handler.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-10-10T19:57:24Z",
       "side": 1,
       "message": "or maybe std::vector\u003cuint8_t\u003e, since we expect it to contain 0s ???",
+      "range": {
+        "startLine": 98,
+        "startChar": 12,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "90987c32ca519ebb3ab6bbc332ba247496317a31",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0ed38be_7c1cb76f",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-10T20:13:39Z",
+      "side": 1,
+      "message": "To avoid creating another bug while fixing these (which are Beta Blockers) I\u0027ll do just the minimal change.",
+      "parentUuid": "8cdbed2b_c6c09f2a",
       "range": {
         "startLine": 98,
         "startChar": 12,
