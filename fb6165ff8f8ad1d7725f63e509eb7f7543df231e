@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77022ade_920438ee",
+        "filename": "infra/config/cq.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-12T17:24:20Z",
+      "side": 0,
+      "message": "nit: This link redirects and then 404s now. I think the underlying file being referenced has moved, since there is a v1 and v2 directory at the destination. Do you happen to know what the correct link is?",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "fb6165ff8f8ad1d7725f63e509eb7f7543df231e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
