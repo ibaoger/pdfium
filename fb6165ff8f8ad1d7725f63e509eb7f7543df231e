@@ -22,6 +22,30 @@
       "revId": "fb6165ff8f8ad1d7725f63e509eb7f7543df231e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50c4ba9e_528f24d5",
+        "filename": "infra/config/cq.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6131
+      },
+      "writtenOn": "2017-10-12T17:36:37Z",
+      "side": 0,
+      "message": "ah, I didn\u0027t realize cq.proto was referenced in depot_tools. Thanks for heads up, I\u0027;l resolve it soon (filed https://crbug.com/774159). \n\ncq.proto source of truth is here http://shortn/_gCznKj7TIz (Google internal).",
+      "parentUuid": "77022ade_920438ee",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "fb6165ff8f8ad1d7725f63e509eb7f7543df231e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
