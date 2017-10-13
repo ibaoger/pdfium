@@ -88,7 +88,7 @@ void CPDFSDK_PageView::PageView_OnDraw(CFX_RenderDevice* pDevice,
   if (!pPage)
     return;
 
-  if (pPage->GetContext()->GetDocType() == XFA_DocType::Dynamic) {
+  if (pPage->GetContext()->GetDocType() == XFA_DocType::Full) {
     CFX_RectF rectClip(
         static_cast<float>(pClip.left), static_cast<float>(pClip.top),
         static_cast<float>(pClip.Width()), static_cast<float>(pClip.Height()));
@@ -176,8 +176,8 @@ bool CPDFSDK_PageView::DeleteAnnot(CPDFSDK_Annot* pAnnot) {
     return false;
 
   CPDFXFA_Page* pPage = pAnnot->GetPDFXFAPage();
-  if (!pPage || (pPage->GetContext()->GetDocType() != XFA_DocType::Static &&
-                 pPage->GetContext()->GetDocType() != XFA_DocType::Dynamic)) {
+  if (!pPage || (pPage->GetContext()->GetDocType() != XFA_DocType::Foreground &&
+                 pPage->GetContext()->GetDocType() != XFA_DocType::Full)) {
     return false;
   }
 
@@ -428,7 +428,7 @@ void CPDFSDK_PageView::LoadFXAnnots() {
 
 #ifdef PDF_ENABLE_XFA
   RetainPtr<CPDFXFA_Page> protector(m_page);
-  if (m_pFormFillEnv->GetXFAContext()->GetDocType() == XFA_DocType::Dynamic) {
+  if (m_pFormFillEnv->GetXFAContext()->GetDocType() == XFA_DocType::Full) {
     CXFA_FFPageView* pageView = m_page->GetXFAPageView();
     std::unique_ptr<IXFA_WidgetIterator> pWidgetHandler(
         pageView->CreateWidgetIterator(
@@ -486,11 +486,11 @@ int CPDFSDK_PageView::GetPageIndex() const {
 
 #ifdef PDF_ENABLE_XFA
   switch (m_page->GetContext()->GetDocType()) {
-    case XFA_DocType::Dynamic: {
+    case XFA_DocType::Full: {
       CXFA_FFPageView* pPageView = m_page->GetXFAPageView();
       return pPageView ? pPageView->GetPageIndex() : -1;
     }
-    case XFA_DocType::Static:
+    case XFA_DocType::Foreground:
     case XFA_DocType::PDF:
       return GetPageIndexForStaticPDF();
     default:

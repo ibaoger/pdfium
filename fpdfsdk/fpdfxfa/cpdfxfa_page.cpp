@@ -66,9 +66,9 @@ bool CPDFXFA_Page::LoadPage() {
 
   switch (m_pContext->GetDocType()) {
     case XFA_DocType::PDF:
-    case XFA_DocType::Static:
+    case XFA_DocType::Foreground:
       return LoadPDFPage();
-    case XFA_DocType::Dynamic:
+    case XFA_DocType::Full:
       return LoadXFAPageView();
     default:
       return false;
@@ -90,12 +90,12 @@ float CPDFXFA_Page::GetPageWidth() const {
     return 0.0f;
 
   switch (m_pContext->GetDocType()) {
-    case XFA_DocType::Dynamic: {
+    case XFA_DocType::Full: {
       if (m_pXFAPageView)
         return m_pXFAPageView->GetPageViewRect().width;
       break;
     }
-    case XFA_DocType::Static:
+    case XFA_DocType::Foreground:
     case XFA_DocType::PDF: {
       if (m_pPDFPage)
         return m_pPDFPage->GetPageWidth();
@@ -114,12 +114,12 @@ float CPDFXFA_Page::GetPageHeight() const {
 
   switch (m_pContext->GetDocType()) {
     case XFA_DocType::PDF:
-    case XFA_DocType::Static: {
+    case XFA_DocType::Foreground: {
       if (m_pPDFPage)
         return m_pPDFPage->GetPageHeight();
       break;
     }
-    case XFA_DocType::Dynamic: {
+    case XFA_DocType::Full: {
       if (m_pXFAPageView)
         return m_pXFAPageView->GetPageViewRect().height;
       break;
@@ -183,7 +183,7 @@ CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
     return CFX_Matrix();
 
   switch (m_pContext->GetDocType()) {
-    case XFA_DocType::Dynamic: {
+    case XFA_DocType::Full: {
       if (m_pXFAPageView) {
         return m_pXFAPageView->GetDisplayMatrix(
             CFX_Rect(xPos, yPos, xSize, ySize), iRotate);
@@ -191,7 +191,7 @@ CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
       break;
     }
     case XFA_DocType::PDF:
-    case XFA_DocType::Static: {
+    case XFA_DocType::Foreground: {
       if (m_pPDFPage)
         return m_pPDFPage->GetDisplayMatrix(xPos, yPos, xSize, ySize, iRotate);
       break;
