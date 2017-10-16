@@ -72,7 +72,7 @@ CPDFSDK_Widget::~CPDFSDK_Widget() {}
 #ifdef PDF_ENABLE_XFA
 CXFA_FFWidget* CPDFSDK_Widget::GetMixXFAWidget() const {
   CPDFXFA_Context* pContext = m_pPageView->GetFormFillEnv()->GetXFAContext();
-  if (pContext->GetDocType() == XFA_DocType::Static) {
+  if (pContext->GetDocType() == XFA_DocType::Foreground) {
     if (!m_hMixXFAWidget) {
       if (CXFA_FFDocView* pDocView = pContext->GetXFADocView()) {
         WideString sName;
@@ -95,7 +95,7 @@ CXFA_FFWidget* CPDFSDK_Widget::GetMixXFAWidget() const {
 
 CXFA_FFWidget* CPDFSDK_Widget::GetGroupMixXFAWidget() {
   CPDFXFA_Context* pContext = m_pPageView->GetFormFillEnv()->GetXFAContext();
-  if (pContext->GetDocType() != XFA_DocType::Static)
+  if (pContext->GetDocType() != XFA_DocType::Foreground)
     return nullptr;
 
   CXFA_FFDocView* pDocView = pContext->GetXFADocView();
@@ -108,7 +108,7 @@ CXFA_FFWidget* CPDFSDK_Widget::GetGroupMixXFAWidget() {
 
 CXFA_FFWidgetHandler* CPDFSDK_Widget::GetXFAWidgetHandler() const {
   CPDFXFA_Context* pContext = m_pPageView->GetFormFillEnv()->GetXFAContext();
-  if (pContext->GetDocType() != XFA_DocType::Static)
+  if (pContext->GetDocType() != XFA_DocType::Foreground)
     return nullptr;
 
   if (!m_pWidgetHandler) {
@@ -507,7 +507,7 @@ bool CPDFSDK_Widget::IsAppearanceValid() {
 #ifdef PDF_ENABLE_XFA
   CPDFXFA_Context* pContext = m_pPageView->GetFormFillEnv()->GetXFAContext();
   XFA_DocType nDocType = pContext->GetDocType();
-  if (nDocType != XFA_DocType::PDF && nDocType != XFA_DocType::Static)
+  if (nDocType != XFA_DocType::None && nDocType != XFA_DocType::Foreground)
     return true;
 #endif  // PDF_ENABLE_XFA
   return CPDFSDK_BAAnnot::IsAppearanceValid();
