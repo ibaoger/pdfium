@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ca11ca6_59931b59",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:07:46Z",
+      "side": 1,
+      "message": "Where do these names come from? I thought the spec said static and dynamic? (Static and dynamic also give more context into what the difference is, I have no idea what foreground or full mean?)",
+      "range": {
+        "startLine": 179,
+        "startChar": 67,
+        "endLine": 179,
+        "endChar": 77
+      },
+      "revId": "b4da0c24628fb7a8d3ca0f0a3effcba0a0effffc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
