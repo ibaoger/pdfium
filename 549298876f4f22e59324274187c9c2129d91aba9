@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3ae248_e6482580",
+        "filename": "core/fpdfdoc/cpvt_generateap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-16T18:03:07Z",
+      "side": 1,
+      "message": "I\u0027d prefer to leave these as bool to be consistent with the other calls. Is it possible to remove the return from all the GenerateFooAPI calls?",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "549298876f4f22e59324274187c9c2129d91aba9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
