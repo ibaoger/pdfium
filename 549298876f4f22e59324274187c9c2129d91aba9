@@ -22,6 +22,30 @@
       "revId": "549298876f4f22e59324274187c9c2129d91aba9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b74d1e29_481aafd6",
+        "filename": "core/fpdfdoc/cpvt_generateap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T18:05:27Z",
+      "side": 1,
+      "message": "The others are actually checked. Removing the return type here makes it a lot clearer that we\u0027re ignoring the return value. (And, they seem to always return false anyway).",
+      "parentUuid": "0e3ae248_e6482580",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "549298876f4f22e59324274187c9c2129d91aba9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
