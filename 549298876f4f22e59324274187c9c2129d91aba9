@@ -46,6 +46,30 @@
       "revId": "549298876f4f22e59324274187c9c2129d91aba9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04066f4f_28e34d3c",
+        "filename": "core/fpdfdoc/cpvt_generateap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-16T18:24:25Z",
+      "side": 1,
+      "message": "It doesn\u0027t always return false. It\u0027s true when it succeeds, false when it fails.\n\nI think keeping the return value is more correct than omitting it. I feel the problem is not checking the result, rather than the fact that the result is returned.",
+      "parentUuid": "b74d1e29_481aafd6",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "549298876f4f22e59324274187c9c2129d91aba9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
