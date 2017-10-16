@@ -22,6 +22,30 @@
       "revId": "b4da0c24628fb7a8d3ca0f0a3effcba0a0effffc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d827d2_b305e7a0",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-16T15:02:58Z",
+      "side": 1,
+      "message": "There are named after the technical differences between the two types of form wrt how display is specified. dynamic v. static is more of a property that the form may have/what it may do. I will document this in the follow on CL.",
+      "parentUuid": "7ca11ca6_59931b59",
+      "range": {
+        "startLine": 179,
+        "startChar": 67,
+        "endLine": 179,
+        "endChar": 77
+      },
+      "revId": "b4da0c24628fb7a8d3ca0f0a3effcba0a0effffc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
