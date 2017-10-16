@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f0cf23f_1fb14d4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T17:27:17Z",
+      "side": 1,
+      "message": "What about ForegroundOnly as the keyword here to give a little more context?  I think having kFull and kForegroundOnly would give the most description?",
+      "range": {
+        "startLine": 24,
+        "startChar": 42,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "dd31ad818ab61f35476b8571c9979e5148df7ac6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3efee2eb_ba1e4350",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T17:27:17Z",
+      "side": 1,
+      "message": "We should match chromium style if we\u0027re renaming these which I think would be kNone, kFull and kForeground?",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "dd31ad818ab61f35476b8571c9979e5148df7ac6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
