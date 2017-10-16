@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d168cc7_403ec83f",
+        "filename": "fpdfsdk/fpdfcatalog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:03:56Z",
+      "side": 1,
+      "message": "nit: remove blank line",
+      "revId": "d0bd5eb689cd6f795ab34d0101eeac168cbb6426",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61020abc_085279bd",
+        "filename": "public/fpdf_catalog.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:03:56Z",
+      "side": 1,
+      "message": "This should have an Experimental API label on it. (See fpdf_annot.h FPDFAnnot_GetFormFieldAtPoint for an example)",
+      "revId": "d0bd5eb689cd6f795ab34d0101eeac168cbb6426",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69aab73c_15e8055a",
+        "filename": "public/fpdf_catalog.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:03:56Z",
+      "side": 1,
+      "message": "Determine if |document| represents a tagged PDF.",
+      "revId": "d0bd5eb689cd6f795ab34d0101eeac168cbb6426",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffac0c02_26840f39",
+        "filename": "public/fpdf_catalog.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:03:56Z",
+      "side": 1,
+      "message": "Returns true if |document| is a tagged PDF.",
+      "revId": "d0bd5eb689cd6f795ab34d0101eeac168cbb6426",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52d6c183_7e7503b7",
+        "filename": "public/fpdf_catalog.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-16T13:03:56Z",
+      "side": 1,
+      "message": "This needs to be added to fpdfview_c_api_test.c",
+      "revId": "d0bd5eb689cd6f795ab34d0101eeac168cbb6426",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
