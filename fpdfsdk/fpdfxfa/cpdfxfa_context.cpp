@@ -36,7 +36,7 @@ extern int GetLastError();
 #endif
 
 CPDFXFA_Context::CPDFXFA_Context(std::unique_ptr<CPDF_Document> pPDFDoc)
-    : m_iDocType(XFA_DocType::PDF),
+    : m_iDocType(XFA_DocType::None),
       m_pPDFDoc(std::move(pPDFDoc)),
       m_pFormFillEnv(nullptr),
       m_pXFADocView(nullptr),
@@ -117,10 +117,10 @@ bool CPDFXFA_Context::LoadXFADoc() {
   m_pXFADoc->StopLoad();
   m_pXFADoc->GetXFADoc()->InitScriptContext(GetJSERuntime());
 
-  if (m_pXFADoc->GetDocType() == XFA_DocType::Dynamic)
-    m_iDocType = XFA_DocType::Dynamic;
+  if (m_pXFADoc->GetDocType() == XFA_DocType::Full)
+    m_iDocType = XFA_DocType::Full;
   else
-    m_iDocType = XFA_DocType::Static;
+    m_iDocType = XFA_DocType::Foreground;
 
   m_pXFADocView = m_pXFADoc->CreateDocView();
   if (m_pXFADocView->StartLayout() < 0) {
@@ -141,11 +141,11 @@ int CPDFXFA_Context::GetPageCount() const {
     return 0;
 
   switch (m_iDocType) {
-    case XFA_DocType::PDF:
-    case XFA_DocType::Static:
+    case XFA_DocType::None:
+    case XFA_DocType::Foreground:
       if (m_pPDFDoc)
         return m_pPDFDoc->GetPageCount();
-    case XFA_DocType::Dynamic:
+    case XFA_DocType::Full:
       if (m_pXFADoc)
         return m_pXFADocView->CountPageViews();
     default:
@@ -183,7 +183,7 @@ RetainPtr<CPDFXFA_Page> CPDFXFA_Context::GetXFAPage(
   if (!m_pXFADoc)
     return nullptr;
 
-  if (m_iDocType != XFA_DocType::Dynamic)
+  if (m_iDocType != XFA_DocType::Full)
     return nullptr;
 
   for (auto& pTempPage : m_XFAPageList) {
