@@ -68,6 +68,30 @@
       "revId": "2072d3cc3e258756147295553c9b409dc7c137c2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ece87e_7c84cbcd",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2243,
+      "author": {
+        "id": 5035
+      },
+      "writtenOn": "2017-10-17T19:28:27Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to use std::ceil() at all. Just use base::IsValueInRangeForNumericType(), which correctly accounts for the loss of precision when converting from floating point to integral types.\n\nSo, do something something like this:\n\n  if (!base::IsValueInRangeForNumericType\u003cint\u003e(cell_bbox.Height()) ||\n      !base::IsValueInRangeForNumericType\u003cint\u003e(cell_bbox.Width())) {\n    return;\n  }\n  \n  int width \u003d static_cast\u003cint\u003e(cell_bbox.Height());\n  int height \u003d static_cast\u003cint\u003e(cell_bbox.Width());",
+      "parentUuid": "c30e7cc0_2605480b",
+      "range": {
+        "startLine": 2243,
+        "startChar": 2,
+        "endLine": 2243,
+        "endChar": 3
+      },
+      "revId": "2072d3cc3e258756147295553c9b409dc7c137c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
