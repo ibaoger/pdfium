@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb9df17c_a836ef24",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-17T18:15:25Z",
+      "side": 1,
+      "message": "include \u003ccmath\u003e and use std::ceil() (it\u0027s overloaded for float args) or include \u003cmath.h\u003e and use fceil() (it\u0027s prototyped for float args).",
+      "range": {
+        "startLine": 2234,
+        "startChar": 22,
+        "endLine": 2234,
+        "endChar": 26
+      },
+      "revId": "2072d3cc3e258756147295553c9b409dc7c137c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d1133c_d8fd88e0",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2239,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-17T18:15:25Z",
+      "side": 1,
+      "message": "Do you want floor() for the min case?  Also \u003c\u003d ?",
+      "range": {
+        "startLine": 2239,
+        "startChar": 6,
+        "endLine": 2239,
+        "endChar": 17
+      },
+      "revId": "2072d3cc3e258756147295553c9b409dc7c137c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c30e7cc0_2605480b",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2243,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-17T18:15:25Z",
+      "side": 1,
+      "message": "+jschuh, is there a beter way to do the previous block using safe_numerics? (return, not CHECK() if out of range).",
+      "range": {
+        "startLine": 2243,
+        "startChar": 2,
+        "endLine": 2243,
+        "endChar": 3
+      },
+      "revId": "2072d3cc3e258756147295553c9b409dc7c137c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
