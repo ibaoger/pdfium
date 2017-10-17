@@ -7,6 +7,7 @@
 #include "core/fpdfapi/render/cpdf_renderstatus.h"
 
 #include <algorithm>
+#include <limits>
 #include <memory>
 #include <utility>
 #include <vector>
@@ -2229,8 +2230,20 @@ void CPDF_RenderStatus::DrawTilingPattern(CPDF_TilingPattern* pPattern,
       (mtPattern2Device.IsScaled() || mtPattern2Device.Is90Rotated());
 
   CFX_FloatRect cell_bbox = mtPattern2Device.TransformRect(pPattern->bbox());
-  int width = static_cast<int>(ceil(cell_bbox.Width()));
-  int height = static_cast<int>(ceil(cell_bbox.Height()));
+
+  float ceil_height = ceil(cell_bbox.Height());
+  float ceil_width = ceil(cell_bbox.Width());
+
+  // Validate the float will fit into the int when the conversion is done.
+  if (ceil_height >= static_cast<float>(std::numeric_limits<int>::max()) ||
+      ceil_height < static_cast<float>(std::numeric_limits<int>::min()) ||
+      ceil_width >= static_cast<float>(std::numeric_limits<int>::max()) ||
+      ceil_width < static_cast<float>(std::numeric_limits<int>::min())) {
+    return;
+  }
+
+  int width = static_cast<int>(ceil_width);
+  int height = static_cast<int>(ceil_height);
   if (width == 0)
     width = 1;
   if (height == 0)
@@ -2246,6 +2259,10 @@ void CPDF_RenderStatus::DrawTilingPattern(CPDF_TilingPattern* pPattern,
                           pPattern->y_step());
   int max_row = (int)floor((clip_box_p.top - pPattern->bbox().bottom) /
                            pPattern->y_step());
+
+  // Make sure we can fit the needed width * height into an int.
+  if (height > std::numeric_limits<int>::max() / width)
+    return;
 
   if (width > clip_box.Width() || height > clip_box.Height() ||
       width * height > clip_box.Width() * clip_box.Height()) {
