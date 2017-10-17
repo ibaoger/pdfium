@@ -23,6 +23,7 @@
 #include "public/cpp/fpdf_deleters.h"
 #include "public/fpdf_annot.h"
 #include "public/fpdf_attachment.h"
+#include "public/fpdf_catalog.h"
 #include "public/fpdf_dataavail.h"
 #include "public/fpdf_edit.h"
 #include "public/fpdf_ext.h"
@@ -1476,6 +1477,10 @@ void RenderPdf(const std::string& name,
 
   FORM_DoDocumentAAction(form.get(), FPDFDOC_AACTION_WC);
   fprintf(stderr, "Rendered %d pages.\n", rendered_pages);
+
+  bool tagged = FPDFCatalog_IsTagged(doc.get());
+  printf("%d\n", tagged ? 1 : 0);
+
   if (bad_pages)
     fprintf(stderr, "Skipped %d bad pages.\n", bad_pages);
 }
