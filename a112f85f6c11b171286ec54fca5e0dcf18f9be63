@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cd9f7f4_83290fc5",
+        "filename": "core/fxge/cfx_folderfontinfo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-17T01:55:21Z",
+      "side": 1,
+      "message": "BTW, the slightly longer, but less thinking involved alternative would be:\n\nFX_SAFE_UINT32 safe_offset \u003d offset;\nsafe_offset +\u003d size;\nif (!safe_offset.IsValid() || safe_offset.ValueOrDie() \u003e fileSize ||\n    fseek(pFile, offset, SEEK_SET) \u003c 0) {\n  return ByteString();\n}",
+      "revId": "a112f85f6c11b171286ec54fca5e0dcf18f9be63",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
