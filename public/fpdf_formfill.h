@@ -12,10 +12,11 @@
 
 typedef void* FPDF_FORMHANDLE;
 
-#define XFADOCTYPE_NONE 0  // Document contains no XFA forms
-#define XFADOCTYPE_FULL 1  // XFA forms are specified using the entire XFA spec
-#define XFADOCTYPE_FOREGROUNDONLY \
-  2  // XFA forms are specified using the XFAF subset
+#define FORMTYPE_NONE 0       // Document contains no forms
+#define FORMTYPE_ACRO_FORM 1  // Forms are specified using AcroForm spec
+#define FORMTYPE_XFA_FULL 2   // Forms are specified using the entire XFA spec
+#define FORMTYPE_XFA_FOREGROUND \
+  3  // Forms are specified using the XFAF subset of XFA spec
 
 // Exported Functions
 #ifdef __cplusplus
@@ -1607,19 +1608,19 @@ FPDF_EXPORT void FPDF_CALLCONV FPDF_FFLRecord(FPDF_FORMHANDLE hHandle,
 #endif
 
 /**
- * Function: FPDF_HasXFAField
+ * Function: FPDF_HasFormInfo
  *                      This method is designed to check whether a pdf document
- *has XFA fields.
+ *has forms.
  * Parameters:
  *                      document                -       Handle to document.
  *Returned by FPDF_LoadDocument function.
  *                      docType                 -       Document type defined as
- *XFADOCTYPE_xxx.
+ *FORMTYPE_xxx.
  * Return Value:
- *                      TRUE indicates that the input document has XFA fields,
- *otherwise FALSE.
+ *                      TRUE indicates that the input document has forms
+ *information. otherwise FALSE.
  **/
-FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasXFAField(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasFormInfo(FPDF_DOCUMENT document,
                                                      int* docType);
 
 #ifdef PDF_ENABLE_XFA

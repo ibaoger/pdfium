@@ -565,10 +565,12 @@ FPDF_LoadDocument(FPDF_STRING file_path, FPDF_BYTESTRING password) {
       password);
 }
 
-FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasXFAField(FPDF_DOCUMENT document,
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasFormInfo(FPDF_DOCUMENT document,
                                                      int* docType) {
   if (!document)
     return false;
+  if (docType)
+    *docType = FORMTYPE_NONE;
 
   const CPDF_Document* pDoc = CPDFDocumentFromFPDFDocument(document);
   if (!pDoc)
@@ -583,11 +585,17 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_HasXFAField(FPDF_DOCUMENT document,
     return false;
 
   CPDF_Object* pXFA = pAcroForm->GetObjectFor("XFA");
-  if (!pXFA)
-    return false;
+  if (!pXFA) {
+    if (docType)
+      *docType = FORMTYPE_ACRO_FORM;
+    return true;
+  }
 
-  bool bDynamicXFA = pRoot->GetBooleanFor("NeedsRendering", false);
-  *docType = bDynamicXFA ? XFADOCTYPE_FULL : XFADOCTYPE_FOREGROUNDONLY;
+  if (docType) {
+    bool needsRendering = pRoot->GetBooleanFor("NeedsRendering", false);
+    *docType = needsRendering ? FORMTYPE_XFA_FULL : FORMTYPE_XFA_FOREGROUND;
+  }
+
   return true;
 }
 

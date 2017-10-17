@@ -565,6 +565,34 @@ TEST_F(FPDFFormFillEmbeddertest, FormText) {
   TestAndCloseSaved(300, 300, md5_3);
 }
 
+TEST_F(FPDFFormFillEmbeddertest, HasFormInfoNone) {
+  EXPECT_TRUE(OpenDocument("hello_world.pdf"));
+  int form_type;
+  EXPECT_FALSE(FPDF_HasFormInfo(document_, &form_type));
+  EXPECT_EQ(FORMTYPE_NONE, form_type);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, HasFormInfoAcroForm) {
+  EXPECT_TRUE(OpenDocument("text_form.pdf"));
+  int form_type;
+  EXPECT_TRUE(FPDF_HasFormInfo(document_, &form_type));
+  EXPECT_EQ(FORMTYPE_ACRO_FORM, form_type);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, HasFormInfoXFAFull) {
+  EXPECT_TRUE(OpenDocument("simple_xfa.pdf"));
+  int form_type;
+  EXPECT_TRUE(FPDF_HasFormInfo(document_, &form_type));
+  EXPECT_EQ(FORMTYPE_XFA_FULL, form_type);
+}
+
+TEST_F(FPDFFormFillEmbeddertest, HasFormInfoXFAForeground) {
+  EXPECT_TRUE(OpenDocument("bug_216.pdf"));
+  int form_type;
+  EXPECT_TRUE(FPDF_HasFormInfo(document_, &form_type));
+  EXPECT_EQ(FORMTYPE_XFA_FOREGROUND, form_type);
+}
+
 TEST_F(FPDFFormFillTextFormEmbeddertest, GetSelectedTextEmptyAndBasicKeyboard) {
   // Test empty selection.
   CheckSelection(L"");

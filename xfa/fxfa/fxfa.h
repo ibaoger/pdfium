@@ -41,7 +41,12 @@ class IXFA_WidgetIterator;
 #define XFA_IDYes 4
 
 // Note, values match fpdf_formfill.h XFADOCTYPE_* flags.
-enum class XFA_DocType { kNone = 0, kFull = 1, kForegroundOnly = 2 };
+enum class FormType {
+  kNone = 0,
+  kAcroForm = 1,
+  kXFAFull = 2,
+  kXFAForeground = 3
+};
 
 #define XFA_PARSESTATUS_StatusErr -3
 #define XFA_PARSESTATUS_StreamErr -2

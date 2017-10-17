@@ -282,8 +282,8 @@ bool app::viewerVersion(CJS_Runtime* pRuntime,
     return false;
 #ifdef PDF_ENABLE_XFA
   CPDFXFA_Context* pXFAContext = pRuntime->GetFormFillEnv()->GetXFAContext();
-  if (pXFAContext->GetDocType() == XFA_DocType::kFull ||
-      pXFAContext->GetDocType() == XFA_DocType::kForegroundOnly) {
+  if (pXFAContext->GetFormType() == FormType::kXFAFull ||
+      pXFAContext->GetFormType() == FormType::kXFAForeground) {
     vp << JS_NUM_VIEWERVERSION_XFA;
     return true;
   }

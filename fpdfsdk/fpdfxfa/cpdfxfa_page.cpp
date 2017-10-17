@@ -64,11 +64,11 @@ bool CPDFXFA_Page::LoadPage() {
   if (!m_pContext || m_iPageIndex < 0)
     return false;
 
-  switch (m_pContext->GetDocType()) {
-    case XFA_DocType::kNone:
-    case XFA_DocType::kForegroundOnly:
+  switch (m_pContext->GetFormType()) {
+    case FormType::kNone:
+    case FormType::kXFAForeground:
       return LoadPDFPage();
-    case XFA_DocType::kFull:
+    case FormType::kXFAFull:
       return LoadXFAPageView();
     default:
       return false;
@@ -89,14 +89,14 @@ float CPDFXFA_Page::GetPageWidth() const {
   if (!m_pPDFPage && !m_pXFAPageView)
     return 0.0f;
 
-  switch (m_pContext->GetDocType()) {
-    case XFA_DocType::kFull: {
+  switch (m_pContext->GetFormType()) {
+    case FormType::kXFAFull: {
       if (m_pXFAPageView)
         return m_pXFAPageView->GetPageViewRect().width;
       break;
     }
-    case XFA_DocType::kForegroundOnly:
-    case XFA_DocType::kNone: {
+    case FormType::kXFAForeground:
+    case FormType::kNone: {
       if (m_pPDFPage)
         return m_pPDFPage->GetPageWidth();
       break;
@@ -112,14 +112,14 @@ float CPDFXFA_Page::GetPageHeight() const {
   if (!m_pPDFPage && !m_pXFAPageView)
     return 0.0f;
 
-  switch (m_pContext->GetDocType()) {
-    case XFA_DocType::kNone:
-    case XFA_DocType::kForegroundOnly: {
+  switch (m_pContext->GetFormType()) {
+    case FormType::kNone:
+    case FormType::kXFAForeground: {
       if (m_pPDFPage)
         return m_pPDFPage->GetPageHeight();
       break;
     }
-    case XFA_DocType::kFull: {
+    case FormType::kXFAFull: {
       if (m_pXFAPageView)
         return m_pXFAPageView->GetPageViewRect().height;
       break;
@@ -182,16 +182,16 @@ CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
   if (!m_pPDFPage && !m_pXFAPageView)
     return CFX_Matrix();
 
-  switch (m_pContext->GetDocType()) {
-    case XFA_DocType::kFull: {
+  switch (m_pContext->GetFormType()) {
+    case FormType::kXFAFull: {
       if (m_pXFAPageView) {
         return m_pXFAPageView->GetDisplayMatrix(
             CFX_Rect(xPos, yPos, xSize, ySize), iRotate);
       }
       break;
     }
-    case XFA_DocType::kNone:
-    case XFA_DocType::kForegroundOnly: {
+    case FormType::kNone:
+    case FormType::kXFAForeground: {
       if (m_pPDFPage)
         return m_pPDFPage->GetDisplayMatrix(xPos, yPos, xSize, ySize, iRotate);
       break;
