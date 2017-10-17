@@ -39,6 +39,86 @@
       "revId": "0947182909b91e899e2ce39dd8e2b7483611dffd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c99347dd_c7a120dc",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_context.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T21:02:54Z",
+      "side": 1,
+      "message": "Add kAcroForm",
+      "revId": "0947182909b91e899e2ce39dd8e2b7483611dffd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fed3351_1ab9a4e5",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T21:02:54Z",
+      "side": 1,
+      "message": "Add kAcroForm",
+      "range": {
+        "startLine": 69,
+        "startChar": 34,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "0947182909b91e899e2ce39dd8e2b7483611dffd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "784e5b7e_e02696c5",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T21:02:54Z",
+      "side": 1,
+      "message": "Add kAcroForm\n\nAlso reorder to match the switch above, or reorder above to match this.",
+      "revId": "0947182909b91e899e2ce39dd8e2b7483611dffd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64ba1de6_d69adf77",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T21:02:54Z",
+      "side": 1,
+      "message": "Add kAcroForm",
+      "range": {
+        "startLine": 117,
+        "startChar": 36,
+        "endLine": 117,
+        "endChar": 0
+      },
+      "revId": "0947182909b91e899e2ce39dd8e2b7483611dffd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
