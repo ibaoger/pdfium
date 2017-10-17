@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9198b9_265446c4",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T19:22:07Z",
+      "side": 1,
+      "message": "With kAcroForm, this should be now formType \u003d\u003d FormType::kXFAFull",
+      "range": {
+        "startLine": 510,
+        "startChar": 74,
+        "endLine": 510,
+        "endChar": 0
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ab7668_1ddf615d",
+        "filename": "fpdfsdk/fpdfsave.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T19:22:07Z",
+      "side": 1,
+      "message": "This piece repeats so often it might be better to refactor out as a method into CPDFXFA_Context.",
+      "range": {
+        "startLine": 218,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7f4496_ba599ad7",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-17T19:22:07Z",
+      "side": 1,
+      "message": "Add kAcroForm",
+      "range": {
+        "startLine": 194,
+        "startChar": 36,
+        "endLine": 194,
+        "endChar": 0
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
