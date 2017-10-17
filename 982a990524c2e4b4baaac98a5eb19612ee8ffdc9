@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6fa7520e_60afb123",
+        "filename": "fpdfsdk/cpdfsdk_widget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff9198b9_265446c4",
+      "range": {
+        "startLine": 510,
+        "startChar": 74,
+        "endLine": 510,
+        "endChar": 0
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ab7668_1ddf615d",
         "filename": "fpdfsdk/fpdfsave.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "74e19a37_176ab1b0",
+        "filename": "fpdfsdk/fpdfsave.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ab7668_1ddf615d",
+      "range": {
+        "startLine": 218,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69394e46_9e251058",
         "filename": "fpdfsdk/fpdfview.cpp",
         "patchSetId": 1
@@ -62,6 +110,24 @@
       "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515f6ed8_1443d362",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69394e46_9e251058",
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "f8b690dd_b092e7a7",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_page.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d7f4496_ba599ad7",
+      "range": {
+        "startLine": 194,
+        "startChar": 36,
+        "endLine": 194,
+        "endChar": 0
+      },
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b07b4da5_97384920",
         "filename": "public/fpdf_formfill.h",
         "patchSetId": 1
@@ -102,6 +192,24 @@
       "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77913763_9443ba7d",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "This was behind the XFA define before.",
+      "parentUuid": "b07b4da5_97384920",
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -122,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "1777c276_791d3918",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d59e4410_d9c8e5ae",
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0460e5a_85ab939b",
         "filename": "xfa/fxfa/fxfa.h",
         "patchSetId": 1
@@ -136,6 +262,24 @@
       "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe8e69b_c1d3037d",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-17T20:37:44Z",
+      "side": 1,
+      "message": "Ack\n\nTalked with Dan about this OOB, since it turned to be a bit of PITA",
+      "parentUuid": "b0460e5a_85ab939b",
+      "revId": "982a990524c2e4b4baaac98a5eb19612ee8ffdc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
