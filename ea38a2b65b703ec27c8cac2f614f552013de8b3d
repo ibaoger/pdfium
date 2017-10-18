@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f523bad8_315cd630",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 7260
+      },
+      "writtenOn": "2017-10-18T21:47:40Z",
+      "side": 1,
+      "message": "nit: Maybe use kMaxCompressionRatio here rather than 10.",
+      "revId": "ea38a2b65b703ec27c8cac2f614f552013de8b3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
