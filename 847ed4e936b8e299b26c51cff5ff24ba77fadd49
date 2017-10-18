@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e54e55fe_82193cc2",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler_embeddertest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-18T16:23:44Z",
+      "side": 1,
+      "message": "Why do you need these changes?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "847ed4e936b8e299b26c51cff5ff24ba77fadd49",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
