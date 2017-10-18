@@ -343,8 +343,12 @@ int CFX_Font::GetGlyphWidth(uint32_t glyph_index) {
   if (err)
     return 0;
 
-  int width = EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face),
-                        FXFT_Get_Glyph_HoriAdvance(m_Face));
+  int horiAdvance = FXFT_Get_Glyph_HoriAdvance(m_Face);
+  if (horiAdvance < std::numeric_limits<int>::min() / 1000 ||
+      horiAdvance > std::numeric_limits<int>::max() / 1000)
+    return 0;
+
+  int width = EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face), horiAdvance);
   return width;
 }
 
@@ -366,16 +370,24 @@ int CFX_Font::GetAscent() const {
   if (!m_Face)
     return 0;
 
-  return EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face),
-                   FXFT_Get_Face_Ascender(m_Face));
+  int ascender = FXFT_Get_Face_Ascender(m_Face);
+  if (ascender < std::numeric_limits<int>::min() / 1000 ||
+      ascender > std::numeric_limits<int>::max() / 1000)
+    return 0;
+
+  return EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face), ascender);
 }
 
 int CFX_Font::GetDescent() const {
   if (!m_Face)
     return 0;
 
-  return EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face),
-                   FXFT_Get_Face_Descender(m_Face));
+  int descender = FXFT_Get_Face_Descender(m_Face);
+  if (descender < std::numeric_limits<int>::min() / 1000 ||
+      descender > std::numeric_limits<int>::max() / 1000)
+    return 0;
+
+  return EM_ADJUST(FXFT_Get_Face_UnitsPerEM(m_Face), descender);
 }
 
 bool CFX_Font::GetGlyphBBox(uint32_t glyph_index, FX_RECT& bbox) {
