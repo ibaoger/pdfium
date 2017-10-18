@@ -147,6 +147,7 @@ class EmbedderTest : public ::testing::Test,
                  int height,
                  const char* md5,
                  const char* password = nullptr);
+  FPDF_DOCUMENT OpenSaved(const char* password = nullptr);
   void CloseSaved();
   void TestAndCloseSaved(int width, int height, const char* md5);
 
