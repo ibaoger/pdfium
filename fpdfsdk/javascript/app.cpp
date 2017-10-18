@@ -161,19 +161,20 @@ void TimerObj::SetTimer(GlobalTimer* pTimer) {
 JSConstSpec CJS_App::ConstSpecs[] = {{0, JSConstSpec::Number, 0, 0}};
 
 JSPropertySpec CJS_App::PropertySpecs[] = {
-    {"activeDocs", get_activeDocs_static, set_activeDocs_static},
+    {"activeDocs", get_active_docs_static, set_active_docs_static},
     {"calculate", get_calculate_static, set_calculate_static},
-    {"formsVersion", get_formsVersion_static, set_formsVersion_static},
+    {"formsVersion", get_forms_version_static, set_forms_version_static},
     {"fs", get_fs_static, set_fs_static},
     {"fullscreen", get_fullscreen_static, set_fullscreen_static},
     {"language", get_language_static, set_language_static},
     {"media", get_media_static, set_media_static},
     {"platform", get_platform_static, set_platform_static},
-    {"runtimeHighlight", get_runtimeHighlight_static,
-     set_runtimeHighlight_static},
-    {"viewerType", get_viewerType_static, set_viewerType_static},
-    {"viewerVariation", get_viewerVariation_static, set_viewerVariation_static},
-    {"viewerVersion", get_viewerVersion_static, set_viewerVersion_static},
+    {"runtimeHighlight", get_runtime_highlight_static,
+     set_runtime_highlight_static},
+    {"viewerType", get_viewer_type_static, set_viewer_type_static},
+    {"viewerVariation", get_viewer_variation_static,
+     set_viewer_variation_static},
+    {"viewerVersion", get_viewer_version_static, set_viewer_version_static},
     {0, 0, 0}};
 
 JSMethodSpec CJS_App::MethodSpecs[] = {{"alert", alert_static},
