@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76c3440f_1ce57d2a",
+        "filename": "testing/libfuzzer/pdf_formcalc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T19:29:34Z",
+      "side": 1,
+      "message": "this doesn\u0027t check anything?",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "2910be89cc030d91f7b79cd75ee4527e933d9f3b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
