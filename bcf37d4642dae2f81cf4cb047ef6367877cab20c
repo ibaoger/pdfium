@@ -637,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "1c33515c_398b9ae0",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T20:07:51Z",
+      "side": 1,
+      "message": "Agreed, like when propvalue goes away entirely in favor of just CJS_ value.",
+      "parentUuid": "f1bc485b_07566c15",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5f7d5af_5621138c",
         "filename": "fpdfsdk/javascript/JS_Value.h",
         "patchSetId": 5
