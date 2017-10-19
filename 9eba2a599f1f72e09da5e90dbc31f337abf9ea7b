@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee56fde3_61ccd4da",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-19T21:00:25Z",
+      "side": 1,
+      "message": "Wait, why are we adding this? The constant is never used as part of an assignment into a form_type variable.",
+      "revId": "9eba2a599f1f72e09da5e90dbc31f337abf9ea7b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
