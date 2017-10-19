@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b0ec3c4_94183e9f",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:45:33Z",
+      "side": 1,
+      "message": "nit: constexpr",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393c6116_38f1485d",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:45:33Z",
+      "side": 1,
+      "message": "nit: const uinit_t ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f5ceed5_f509e028",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:45:33Z",
+      "side": 1,
+      "message": "nit: size_t ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a105915c_32235075",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:45:33Z",
+      "side": 1,
+      "message": "nit: maybe define kMinCompressionRatio above, too",
+      "range": {
+        "startLine": 23,
+        "startChar": 37,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e23672a_1e25dbf6",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:45:33Z",
+      "side": 1,
+      "message": "nit: or just const uint8_t* lzw_data \u003d data + 2;",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
