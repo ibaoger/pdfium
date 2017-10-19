@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51295196_e0d1aca9",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-19T22:59:07Z",
+      "side": 1,
+      "message": "Should this return true like line 656 below? Returning true here means \"finished drawing\" whereas false means \"cannot draw, please try doing something else.\" In which case, CFX_RenderDevice::DrawNormalText() will try to do some work to output text with font_size\u003d0.",
+      "revId": "1fca62656245c7559511c4ed3b1a1b6382dd056a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a7ce82_241e89c7",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-19T22:59:07Z",
+      "side": 1,
+      "message": "BTW, I think this should be moved up to the top with the |font_size| check.",
+      "revId": "1fca62656245c7559511c4ed3b1a1b6382dd056a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
