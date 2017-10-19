@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8bf4c079_5d94fe88",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:22:59Z",
+      "side": 0,
+      "message": "Meh, I think it\u0027s pretty obvious we don\u0027t implement the method given the lack of code in the method, heh.",
+      "parentUuid": "792d97f4_67f705b7",
+      "range": {
+        "startLine": 654,
+        "startChar": 2,
+        "endLine": 654,
+        "endChar": 19
+      },
+      "revId": "29659da99184e8cf7971a9d3bb26f0a1565a2684",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1490179_4caf1830",
         "filename": "fpdfsdk/javascript/Field.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-19T17:40:38Z",
       "side": 0,
       "message": "do these correspond to unnamed integral constants in the wacky PDF spec?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "29659da99184e8cf7971a9d3bb26f0a1565a2684",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "061f30fb_7fef0eb2",
+        "filename": "fpdfsdk/javascript/Field.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:22:59Z",
+      "side": 0,
+      "message": "Only in so much as they relate to the JS method names I believe.",
+      "parentUuid": "d1490179_4caf1830",
       "range": {
         "startLine": 22,
         "startChar": 2,
