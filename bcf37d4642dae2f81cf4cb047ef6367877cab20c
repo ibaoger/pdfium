@@ -613,6 +613,30 @@
     },
     {
       "key": {
+        "uuid": "f1bc485b_07566c15",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T19:50:00Z",
+      "side": 1,
+      "message": "I don\u0027t think it has to happen, but each of the Set and To methods ASSERTs the value. This was big enough that I want to tackle changing it in a later CL.",
+      "parentUuid": "daed6add_b22cd705",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5f7d5af_5621138c",
         "filename": "fpdfsdk/javascript/JS_Value.h",
         "patchSetId": 5
