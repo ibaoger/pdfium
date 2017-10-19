@@ -17,20 +17,73 @@ class color : public CJS_EmbedObj {
   explicit color(CJS_Object* pJSObject);
   ~color() override;
 
-  bool black(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool blue(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool cyan(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool dkGray(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool gray(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool green(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool ltGray(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool magenta(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool red(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool transparent(CJS_Runtime* pRuntime,
-                   CJS_PropValue& vp,
-                   WideString& sError);
-  bool white(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
-  bool yellow(CJS_Runtime* pRuntime, CJS_PropValue& vp, WideString& sError);
+  bool get_black(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_black(CJS_Runtime* pRuntime,
+                 const CJS_PropValue& vp,
+                 WideString* sError);
+
+  bool get_blue(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_blue(CJS_Runtime* pRuntime,
+                const CJS_PropValue& vp,
+                WideString* sError);
+
+  bool get_cyan(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_cyan(CJS_Runtime* pRuntime,
+                const CJS_PropValue& vp,
+                WideString* sError);
+
+  bool get_dark_gray(CJS_Runtime* pRuntime,
+                     CJS_PropValue* vp,
+                     WideString* sError);
+  bool set_dark_gray(CJS_Runtime* pRuntime,
+                     const CJS_PropValue& vp,
+                     WideString* sError);
+
+  bool get_gray(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_gray(CJS_Runtime* pRuntime,
+                const CJS_PropValue& vp,
+                WideString* sError);
+
+  bool get_green(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_green(CJS_Runtime* pRuntime,
+                 const CJS_PropValue& vp,
+                 WideString* sError);
+
+  bool get_light_gray(CJS_Runtime* pRuntime,
+                      CJS_PropValue* vp,
+                      WideString* sError);
+  bool set_light_gray(CJS_Runtime* pRuntime,
+                      const CJS_PropValue& vp,
+                      WideString* sError);
+
+  bool get_magenta(CJS_Runtime* pRuntime,
+                   CJS_PropValue* vp,
+                   WideString* sError);
+  bool set_magenta(CJS_Runtime* pRuntime,
+                   const CJS_PropValue& vp,
+                   WideString* sError);
+
+  bool get_red(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_red(CJS_Runtime* pRuntime,
+               const CJS_PropValue& vp,
+               WideString* sError);
+
+  bool get_transparent(CJS_Runtime* pRuntime,
+                       CJS_PropValue* vp,
+                       WideString* sError);
+  bool set_transparent(CJS_Runtime* pRuntime,
+                       const CJS_PropValue& vp,
+                       WideString* sError);
+
+  bool get_white(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_white(CJS_Runtime* pRuntime,
+                 const CJS_PropValue& vp,
+                 WideString* sError);
+
+  bool get_yellow(CJS_Runtime* pRuntime, CJS_PropValue* vp, WideString* sError);
+  bool set_yellow(CJS_Runtime* pRuntime,
+                  const CJS_PropValue& vp,
+                  WideString* sError);
 
   bool convert(CJS_Runtime* pRuntime,
                const std::vector<CJS_Value>& params,
@@ -49,7 +102,12 @@ class color : public CJS_EmbedObj {
                                      CFX_Color* color);
 
  private:
-  bool PropertyHelper(CJS_Runtime* pRuntime, CJS_PropValue& vp, CFX_Color* val);
+  bool GetPropertyHelper(CJS_Runtime* pRuntime,
+                         CJS_PropValue* vp,
+                         CFX_Color* val);
+  bool SetPropertyHelper(CJS_Runtime* pRuntime,
+                         const CJS_PropValue& vp,
+                         CFX_Color* val);
 
   CFX_Color m_crTransparent;
   CFX_Color m_crBlack;
@@ -75,10 +133,10 @@ class CJS_Color : public CJS_Object {
   JS_STATIC_PROP(black, color);
   JS_STATIC_PROP(blue, color);
   JS_STATIC_PROP(cyan, color);
-  JS_STATIC_PROP(dkGray, color);
+  JS_STATIC_NAMED_PROP(dkGray, dark_gray, color);
   JS_STATIC_PROP(gray, color);
   JS_STATIC_PROP(green, color);
-  JS_STATIC_PROP(ltGray, color);
+  JS_STATIC_NAMED_PROP(ltGray, light_gray, color);
   JS_STATIC_PROP(magenta, color);
   JS_STATIC_PROP(red, color);
   JS_STATIC_PROP(transparent, color);
