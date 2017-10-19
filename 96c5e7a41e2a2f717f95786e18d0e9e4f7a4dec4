@@ -16,6 +16,24 @@
       "revId": "96c5e7a41e2a2f717f95786e18d0e9e4f7a4dec4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88add09_8f99b485",
+        "filename": "testing/libfuzzer/pdf_formcalc_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T19:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ec8da_a2606790",
+      "revId": "96c5e7a41e2a2f717f95786e18d0e9e4f7a4dec4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
