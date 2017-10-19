@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "792d97f4_67f705b7",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:40:38Z",
+      "side": 0,
+      "message": "maybe this comment has to move over to line 600 in the new code, etc.",
+      "range": {
+        "startLine": 654,
+        "startChar": 2,
+        "endLine": 654,
+        "endChar": 19
+      },
+      "revId": "29659da99184e8cf7971a9d3bb26f0a1565a2684",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1490179_4caf1830",
+        "filename": "fpdfsdk/javascript/Field.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-19T17:40:38Z",
+      "side": 0,
+      "message": "do these correspond to unnamed integral constants in the wacky PDF spec?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "29659da99184e8cf7971a9d3bb26f0a1565a2684",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
