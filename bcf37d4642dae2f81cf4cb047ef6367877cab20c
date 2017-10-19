@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70ac122b_65e27da2",
+        "filename": "fpdfsdk/javascript/Annot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc317a9e_9dd35736",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 19
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4329d5_29cf3f58",
         "filename": "fpdfsdk/javascript/Annot.cpp",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "489f3d5a_12964150",
+        "filename": "fpdfsdk/javascript/Annot.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4329d5_29cf3f58",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "70e127b6_df695d2b",
+        "filename": "fpdfsdk/javascript/Document.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f80d3f0a_2d27619d",
+      "range": {
+        "startLine": 462,
+        "startChar": 2,
+        "endLine": 464,
+        "endChar": 2
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc1a134d_be57e4ec",
         "filename": "fpdfsdk/javascript/Field.cpp",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a538e36f_ee5e33e4",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc1a134d_be57e4ec",
+      "range": {
+        "startLine": 2106,
+        "startChar": 20,
+        "endLine": 2106,
+        "endChar": 45
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "14f43bf9_ae5bf96e",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2272,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "799dde15_3d4911d1",
+      "range": {
+        "startLine": 2271,
+        "startChar": 1,
+        "endLine": 2272,
+        "endChar": 0
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfa973ca_1fe56fe2",
         "filename": "fpdfsdk/javascript/Field.cpp",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2017-10-19T17:30:20Z",
       "side": 1,
       "message": "nit: indentation is off",
+      "range": {
+        "startLine": 2539,
+        "startChar": 0,
+        "endLine": 2539,
+        "endChar": 4
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302d3683_913f9b4c",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Yea, this got fixed in one of the followup changes. Going to leave for now.",
+      "parentUuid": "cfa973ca_1fe56fe2",
       "range": {
         "startLine": 2539,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "af6e7862_a16fabe5",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682ea605_734fd48f",
+      "range": {
+        "startLine": 93,
+        "startChar": 8,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "794dd513_bb3e51a1",
         "filename": "fpdfsdk/javascript/JS_Define.h",
         "patchSetId": 5
@@ -183,6 +351,30 @@
       "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9f90d56_90cc4c3a",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "794dd513_bb3e51a1",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 108,
+        "endChar": 56
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +424,54 @@
     },
     {
       "key": {
+        "uuid": "d35f94a5_1ea03656",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a22533_fbcf15bf",
+      "range": {
+        "startLine": 366,
+        "startChar": 52,
+        "endLine": 366,
+        "endChar": 64
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7ce1812_c861af91",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39968aa8_30ff3ed1",
+      "range": {
+        "startLine": 366,
+        "startChar": 67,
+        "endLine": 366,
+        "endChar": 70
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5420f1fc_7714ce18",
         "filename": "fpdfsdk/javascript/JS_Define.h",
         "patchSetId": 5
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "63d0f8c2_df0ebcb2",
+        "filename": "fpdfsdk/javascript/JS_Define.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "945518a6_892eb11a",
+      "range": {
+        "startLine": 417,
+        "startChar": 2,
+        "endLine": 419,
+        "endChar": 47
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a90886_0a4eac1f",
         "filename": "fpdfsdk/javascript/JS_Value.h",
         "patchSetId": 5
@@ -289,6 +553,30 @@
       "writtenOn": "2017-10-19T17:30:20Z",
       "side": 1,
       "message": "Are these now obsolete, as the set/vs/get is now explicit in the method?",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f843cc_dba999f7",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Not quite, as the setters themselves check them. Will look into it with a followup on how to clean this up.",
+      "parentUuid": "b8a90886_0a4eac1f",
       "range": {
         "startLine": 87,
         "startChar": 2,
@@ -321,6 +609,30 @@
       "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc614fbc_28364f46",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T18:19:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b5f7d5af_5621138c",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 45
+      },
+      "revId": "bcf37d4642dae2f81cf4cb047ef6367877cab20c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
