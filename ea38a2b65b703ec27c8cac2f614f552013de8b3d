@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "23940af1_45af1a2f",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:56:09Z",
+      "side": 1,
+      "message": "nit: {}s",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "ea38a2b65b703ec27c8cac2f614f552013de8b3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f523bad8_315cd630",
         "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
         "patchSetId": 2
@@ -13,6 +36,46 @@
       "writtenOn": "2017-10-18T21:47:40Z",
       "side": 1,
       "message": "nit: Maybe use kMaxCompressionRatio here rather than 10.",
+      "revId": "ea38a2b65b703ec27c8cac2f614f552013de8b3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bea4106_81105056",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:56:09Z",
+      "side": 1,
+      "message": "private?",
+      "revId": "ea38a2b65b703ec27c8cac2f614f552013de8b3d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56cdb244_2182dfd9",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:56:09Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 13
+      },
       "revId": "ea38a2b65b703ec27c8cac2f614f552013de8b3d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
