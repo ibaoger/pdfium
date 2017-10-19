@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "670015c0_cb0dea7f",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T18:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b0ec3c4_94183e9f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "393c6116_38f1485d",
         "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5216ad52_db4a272b",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T18:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "393c6116_38f1485d",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f53515f2_51e902dd",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T18:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f5ceed5_f509e028",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a105915c_32235075",
         "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "38c70270_4bcea53b",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T18:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a105915c_32235075",
+      "range": {
+        "startLine": 23,
+        "startChar": 37,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e23672a_1e25dbf6",
         "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
         "patchSetId": 3
@@ -114,6 +210,30 @@
       "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0758e2_cf216151",
+        "filename": "testing/libfuzzer/pdf_lzw_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-19T18:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e23672a_1e25dbf6",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "a1e1f72c355e8e661b0c5e529716aab6708814eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
