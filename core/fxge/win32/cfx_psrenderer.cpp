@@ -644,6 +644,10 @@ bool CFX_PSRenderer::DrawText(int nChars,
                               const CFX_Matrix* pObject2Device,
                               float font_size,
                               uint32_t color) {
+  // Do not send zero or negative font sizes to printers. See crbug.com/767343.
+  if (font_size <= 0.0)
+    return false;
+
   StartRendering();
   int alpha = FXARGB_A(color);
   if (alpha < 255)
