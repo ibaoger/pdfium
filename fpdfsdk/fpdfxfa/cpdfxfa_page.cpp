@@ -65,6 +65,7 @@ bool CPDFXFA_Page::LoadPage() {
     return false;
 
   switch (m_pContext->GetFormType()) {
+    case FormType::kOther:
     case FormType::kNone:
     case FormType::kAcroForm:
     case FormType::kXFAForeground:
@@ -90,6 +91,7 @@ float CPDFXFA_Page::GetPageWidth() const {
     return 0.0f;
 
   switch (m_pContext->GetFormType()) {
+    case FormType::kOther:
     case FormType::kNone:
     case FormType::kAcroForm:
     case FormType::kXFAForeground:
@@ -108,6 +110,7 @@ float CPDFXFA_Page::GetPageHeight() const {
     return 0.0f;
 
   switch (m_pContext->GetFormType()) {
+    case FormType::kOther:
     case FormType::kNone:
     case FormType::kAcroForm:
     case FormType::kXFAForeground:
@@ -173,6 +176,7 @@ CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
     return CFX_Matrix();
 
   switch (m_pContext->GetFormType()) {
+    case FormType::kOther:
     case FormType::kNone:
     case FormType::kAcroForm:
     case FormType::kXFAForeground:

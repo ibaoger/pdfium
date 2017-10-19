@@ -42,10 +42,11 @@ class IXFA_WidgetIterator;
 
 // Note, values must match fpdf_formfill.h FORMTYPE_* flags.
 enum class FormType {
-  kNone = 0,
-  kAcroForm = 1,
-  kXFAFull = 2,
-  kXFAForeground = 3
+  kOther = 0,
+  kNone = 1,
+  kAcroForm = 2,
+  kXFAFull = 3,
+  kXFAForeground = 4,
 };
 
 #define XFA_PARSESTATUS_StatusErr -3

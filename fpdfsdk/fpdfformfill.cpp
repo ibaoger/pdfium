@@ -33,6 +33,8 @@
 #include "xfa/fxfa/cxfa_ffpageview.h"
 #include "xfa/fxfa/cxfa_ffwidget.h"
 
+static_assert(static_cast<int>(FormType::kOther) == FORMTYPE_OTHER,
+              "Other form types must match");
 static_assert(static_cast<int>(FormType::kNone) == FORMTYPE_NONE,
               "None form types must match");
 static_assert(static_cast<int>(FormType::kAcroForm) == FORMTYPE_ACRO_FORM,

@@ -141,6 +141,7 @@ int CPDFXFA_Context::GetPageCount() const {
     return 0;
 
   switch (m_FormType) {
+    case FormType::kOther:
     case FormType::kNone:
     case FormType::kAcroForm:
     case FormType::kXFAForeground:
