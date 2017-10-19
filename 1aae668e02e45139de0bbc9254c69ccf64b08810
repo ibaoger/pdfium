@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "055bdd30_93b387b6",
+        "filename": "core/fxge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:53:55Z",
+      "side": 1,
+      "message": "Let\u0027s do the division once and store it somewhere.",
+      "range": {
+        "startLine": 348,
+        "startChar": 20,
+        "endLine": 348,
+        "endChar": 58
+      },
+      "revId": "1aae668e02e45139de0bbc9254c69ccf64b08810",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a24f62ca_2d98c531",
+        "filename": "core/fxge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:53:55Z",
+      "side": 1,
+      "message": "Local width not needed just return EM_ADJUST(...)",
+      "revId": "1aae668e02e45139de0bbc9254c69ccf64b08810",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03032239_144e73fa",
+        "filename": "core/fxge/cfx_font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-19T12:53:55Z",
+      "side": 1,
+      "message": "Maybe\n\nconstexpr int kMin\u003cSomething\u003eSize \u003d std::numeric_limits\u003cint\u003e::min() / 1000\nconstexpr int kMax\u003cSomething\u003eSize \u003d std::numeric_limits\u003cint\u003e::max() / 1000\n\n?",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 375,
+        "endChar": 55
+      },
+      "revId": "1aae668e02e45139de0bbc9254c69ccf64b08810",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
