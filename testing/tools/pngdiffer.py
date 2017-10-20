@@ -4,6 +4,7 @@
 # found in the LICENSE file.
 
 import os
+import shutil
 import sys
 
 import common
@@ -74,6 +75,34 @@ class PNGDiffer():
           return True
       i += 1
     return False
+
+  def Regenerate(self, input_filename, source_dir, working_dir):
+    template_paths = self._GetTemplatePaths(
+        input_filename, source_dir, working_dir)
+    actual_path_template = template_paths[0];
+    expected_path_template = template_paths[1]
+    platform_expected_path_template = template_paths[2]
+    page = 0
+    while True:
+      actual_path = actual_path_template % page
+      if not os.path.isfile(actual_path):
+        break
+
+      platform_expected_path = (
+          platform_expected_path_template % (self.os_name, page))
+
+      print "Checking " + actual_path
+      sys.stdout.flush()
+
+      if os.path.exists(platform_expected_path):
+        expected_path = platform_expected_path
+      else:
+        expected_path = expected_path_template % page
+
+      if os.path.exists(expected_path):
+        shutil.copyfile(actual_path, expected_path)
+
+      page += 1
 
   def _GetTemplatePaths(self, input_filename, source_dir, working_dir):
     input_root, _ = os.path.splitext(input_filename)
