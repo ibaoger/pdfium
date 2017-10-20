@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "94c13c62_3120842c",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-20T19:23:34Z",
+      "side": 1,
+      "message": "I agree that we don\u0027t strictly need FORMTYPE_OTHER in this file, but having it here makes clear that it is already used. I can convert it to a comment that 0 is already reserved if you prefer.",
+      "parentUuid": "1608c77f_e58281c9",
+      "revId": "1522e624237f15eb24c9eb851d8bf4bf27af1d3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0e5b138_47801413",
         "filename": "xfa/fxfa/fxfa.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-20T19:08:03Z",
       "side": 1,
       "message": "No, what I meant was, this file shouldn\u0027t change at all.",
+      "revId": "1522e624237f15eb24c9eb851d8bf4bf27af1d3a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83e3542_68f2dfed",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-20T19:23:34Z",
+      "side": 1,
+      "message": "My understanding of what was requested with regards to the metrics is that the values should be 0 for Other, then the known values, then a count value. This allows us to directly convert from these values to the values being used for metrics via a cast instead of a switch. It also allows the count value to be incremented when new values are known.\n\nIf we keep the current values, then we will have known value, other value, then count, so if this needs expanding it will become known value, other value, new value, then count, since we don\u0027t want to change these numbers, lest we have to translate between two different sets of means for the histogram data.",
+      "parentUuid": "d0e5b138_47801413",
       "revId": "1522e624237f15eb24c9eb851d8bf4bf27af1d3a",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
