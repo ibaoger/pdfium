@@ -130,165 +130,157 @@ void color::ConvertArrayToPWLColor(CJS_Runtime* pRuntime,
 }
 
 bool color::get_transparent(CJS_Runtime* pRuntime,
-                            CJS_PropValue* vp,
+                            CJS_Value* vp,
                             WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crTransparent);
 }
 
 bool color::set_transparent(CJS_Runtime* pRuntime,
-                            const CJS_PropValue& vp,
+                            const CJS_Value& vp,
                             WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crTransparent);
 }
 
 bool color::get_black(CJS_Runtime* pRuntime,
-                      CJS_PropValue* vp,
+                      CJS_Value* vp,
                       WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crBlack);
 }
 
 bool color::set_black(CJS_Runtime* pRuntime,
-                      const CJS_PropValue& vp,
+                      const CJS_Value& vp,
                       WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crBlack);
 }
 
 bool color::get_white(CJS_Runtime* pRuntime,
-                      CJS_PropValue* vp,
+                      CJS_Value* vp,
                       WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crWhite);
 }
 
 bool color::set_white(CJS_Runtime* pRuntime,
-                      const CJS_PropValue& vp,
+                      const CJS_Value& vp,
                       WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crWhite);
 }
 
-bool color::get_red(CJS_Runtime* pRuntime,
-                    CJS_PropValue* vp,
-                    WideString* sError) {
+bool color::get_red(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crRed);
 }
 
 bool color::set_red(CJS_Runtime* pRuntime,
-                    const CJS_PropValue& vp,
+                    const CJS_Value& vp,
                     WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crRed);
 }
 
 bool color::get_green(CJS_Runtime* pRuntime,
-                      CJS_PropValue* vp,
+                      CJS_Value* vp,
                       WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crGreen);
 }
 
 bool color::set_green(CJS_Runtime* pRuntime,
-                      const CJS_PropValue& vp,
+                      const CJS_Value& vp,
                       WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crGreen);
 }
 
-bool color::get_blue(CJS_Runtime* pRuntime,
-                     CJS_PropValue* vp,
-                     WideString* sError) {
+bool color::get_blue(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crBlue);
 }
 
 bool color::set_blue(CJS_Runtime* pRuntime,
-                     const CJS_PropValue& vp,
+                     const CJS_Value& vp,
                      WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crBlue);
 }
 
-bool color::get_cyan(CJS_Runtime* pRuntime,
-                     CJS_PropValue* vp,
-                     WideString* sError) {
+bool color::get_cyan(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crCyan);
 }
 
 bool color::set_cyan(CJS_Runtime* pRuntime,
-                     const CJS_PropValue& vp,
+                     const CJS_Value& vp,
                      WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crCyan);
 }
 
 bool color::get_magenta(CJS_Runtime* pRuntime,
-                        CJS_PropValue* vp,
+                        CJS_Value* vp,
                         WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crMagenta);
 }
 
 bool color::set_magenta(CJS_Runtime* pRuntime,
-                        const CJS_PropValue& vp,
+                        const CJS_Value& vp,
                         WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crMagenta);
 }
 
 bool color::get_yellow(CJS_Runtime* pRuntime,
-                       CJS_PropValue* vp,
+                       CJS_Value* vp,
                        WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crYellow);
 }
 
 bool color::set_yellow(CJS_Runtime* pRuntime,
-                       const CJS_PropValue& vp,
+                       const CJS_Value& vp,
                        WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crYellow);
 }
 
 bool color::get_dark_gray(CJS_Runtime* pRuntime,
-                          CJS_PropValue* vp,
+                          CJS_Value* vp,
                           WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crDKGray);
 }
 
 bool color::set_dark_gray(CJS_Runtime* pRuntime,
-                          const CJS_PropValue& vp,
+                          const CJS_Value& vp,
                           WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crDKGray);
 }
 
-bool color::get_gray(CJS_Runtime* pRuntime,
-                     CJS_PropValue* vp,
-                     WideString* sError) {
+bool color::get_gray(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crGray);
 }
 
 bool color::set_gray(CJS_Runtime* pRuntime,
-                     const CJS_PropValue& vp,
+                     const CJS_Value& vp,
                      WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crGray);
 }
 
 bool color::get_light_gray(CJS_Runtime* pRuntime,
-                           CJS_PropValue* vp,
+                           CJS_Value* vp,
                            WideString* sError) {
   return GetPropertyHelper(pRuntime, vp, &m_crLTGray);
 }
 
 bool color::set_light_gray(CJS_Runtime* pRuntime,
-                           const CJS_PropValue& vp,
+                           const CJS_Value& vp,
                            WideString* sError) {
   return SetPropertyHelper(pRuntime, vp, &m_crLTGray);
 }
 
 bool color::GetPropertyHelper(CJS_Runtime* pRuntime,
-                              CJS_PropValue* vp,
+                              CJS_Value* vp,
                               CFX_Color* var) {
   CJS_Array array;
-    ConvertPWLColorToArray(pRuntime, *var, &array);
-    vp->Set(array);
-    return true;
+  ConvertPWLColorToArray(pRuntime, *var, &array);
+  vp->Set(pRuntime, array);
+  return true;
 }
 
 bool color::SetPropertyHelper(CJS_Runtime* pRuntime,
-                              const CJS_PropValue& vp,
+                              const CJS_Value& vp,
                               CFX_Color* var) {
-  if (!vp.GetJSValue()->IsArrayObject())
+  if (!vp.IsArrayObject())
     return false;
 
-  CJS_Array array = vp.GetJSValue()->ToArray(pRuntime);
+  CJS_Array array = vp.ToArray(pRuntime);
   ConvertArrayToPWLColor(pRuntime, array, var);
   return true;
 }
