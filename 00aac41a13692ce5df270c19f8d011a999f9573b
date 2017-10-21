@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11def41d_288ab565",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-21T05:48:05Z",
+      "side": 1,
+      "message": "Since PDFium is a standalone project, it shouldn\u0027t have to know about Chromium\u0027s histogram logging.",
+      "revId": "00aac41a13692ce5df270c19f8d011a999f9573b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e6572b2_a978d413",
+        "filename": "public/fpdf_formfill.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-21T05:48:05Z",
+      "side": 1,
+      "message": "than",
+      "range": {
+        "startLine": 16,
+        "startChar": 25,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "00aac41a13692ce5df270c19f8d011a999f9573b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
