@@ -1355,9 +1355,9 @@ CPDF_TextPage::GenerateCharacter CPDF_TextPage::ProcessInsertObject(
   }
   WideString PrevStr =
       m_pPreTextObj->GetFont()->UnicodeFromCharCode(PrevItem.m_CharCode);
-  if (PrevStr.IsEmpty())
-    return GenerateCharacter::None;
-  wchar_t preChar = PrevStr[PrevStr.GetLength() - 1];
+  wchar_t preChar = 0;
+  if (!PrevStr.IsEmpty())
+    preChar = PrevStr[PrevStr.GetLength() - 1];
   CFX_Matrix matrix = pObj->GetTextMatrix();
   matrix.Concat(formMatrix);
 
