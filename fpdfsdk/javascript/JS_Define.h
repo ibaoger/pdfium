@@ -13,6 +13,7 @@
 #include "fpdfsdk/javascript/JS_Value.h"
 #include "fpdfsdk/javascript/resource.h"
 #include "fxjs/fxjs_v8.h"
+#include "third_party/base/optional.h"
 
 struct JSConstSpec {
   enum Type { Number = 0, String = 1 };
@@ -102,10 +103,8 @@ void JSPropSetter(const char* prop_name_string,
   }
 
 template <class C,
-          bool (C::*M)(CJS_Runtime*,
-                       const std::vector<CJS_Value>&,
-                       CJS_Value&,
-                       WideString&)>
+          pdfium::Optional<CJS_Value> (
+              C::*M)(CJS_Runtime*, const std::vector<CJS_Value>&, WideString&)>
 void JSMethod(const char* method_name_string,
               const char* class_name_string,
               const v8::FunctionCallbackInfo<v8::Value>& info) {
@@ -113,23 +112,25 @@ void JSMethod(const char* method_name_string,
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
   if (!pRuntime)
     return;
+
   std::vector<CJS_Value> parameters;
-  for (unsigned int i = 0; i < (unsigned int)info.Length(); i++) {
+  for (unsigned int i = 0; i < (unsigned int)info.Length(); i++)
     parameters.push_back(CJS_Value(pRuntime, info[i]));
-  }
+
   CJS_Object* pJSObj =
       static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(info.Holder()));
   if (!pJSObj)
     return;
+
   C* pObj = reinterpret_cast<C*>(pJSObj->GetEmbedObject());
   WideString sError;
-  CJS_Value valueRes(pRuntime);
-  if (!(pObj->*M)(pRuntime, parameters, valueRes, sError)) {
+  pdfium::Optional<CJS_Value> opt = (pObj->*M)(pRuntime, parameters, sError);
+  if (!opt) {
     pRuntime->Error(
         JSFormatErrorString(class_name_string, method_name_string, sError));
     return;
   }
-  info.GetReturnValue().Set(valueRes.ToV8Value(pRuntime));
+  info.GetReturnValue().Set(opt->ToV8Value(pRuntime));
 }
 
 #define JS_STATIC_METHOD(method_name, class_name)                             \

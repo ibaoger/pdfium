@@ -19,32 +19,27 @@
 
 class util : public CJS_EmbedObj {
  public:
+  static WideString printx(const WideString& cFormat,
+                           const WideString& cSource);
+
   explicit util(CJS_Object* pJSObject);
   ~util() override;
 
-  bool printd(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool printf(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool printx(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool scand(CJS_Runtime* pRuntime,
-             const std::vector<CJS_Value>& params,
-             CJS_Value& vRet,
-             WideString& sError);
-  bool byteToChar(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-
-  static WideString printx(const WideString& cFormat,
-                           const WideString& cSource);
+  pdfium::Optional<CJS_Value> printd(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> printf(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> printx(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> scand(CJS_Runtime* pRuntime,
+                                    const std::vector<CJS_Value>& params,
+                                    WideString& sError);
+  pdfium::Optional<CJS_Value> byteToChar(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
 
  private:
   friend class CJS_Util_ParseDataType_Test;

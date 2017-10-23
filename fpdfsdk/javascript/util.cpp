@@ -73,13 +73,12 @@ util::util(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}
 
 util::~util() {}
 
-bool util::printf(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> util::printf(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   const size_t iSize = params.size();
   if (iSize < 1)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   std::wstring unsafe_fmt_string(params[0].ToWideString(pRuntime).c_str());
   std::vector<std::wstring> unsafe_conversion_specifiers;
@@ -132,29 +131,27 @@ bool util::printf(CJS_Runtime* pRuntime,
   }
 
   c_strResult.erase(c_strResult.begin());
-  vRet = CJS_Value(pRuntime, c_strResult.c_str());
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, c_strResult.c_str()));
 }
 
-bool util::printd(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> util::printd(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   const size_t iSize = params.size();
   if (iSize < 2)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   const CJS_Value& p1 = params[0];
   const CJS_Value& p2 = params[1];
   if (!p2.IsDateObject()) {
     sError = JSGetStringFromID(IDS_STRING_JSPRINT1);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CJS_Date jsDate = p2.ToDate(pRuntime);
   if (!jsDate.IsValidDate(pRuntime)) {
     sError = JSGetStringFromID(IDS_STRING_JSPRINT2);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   if (p1.GetType() == CJS_Value::VT_number) {
@@ -182,17 +179,17 @@ bool util::printd(CJS_Runtime* pRuntime,
         break;
       default:
         sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-        return false;
+        return pdfium::Optional<CJS_Value>();
     }
 
-    vRet = CJS_Value(pRuntime, swResult.c_str());
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, swResult.c_str()));
   }
 
   if (p1.GetType() == CJS_Value::VT_string) {
     if (iSize > 2 && params[2].ToBool(pRuntime)) {
       sError = JSGetStringFromID(IDS_STRING_JSNOTSUPPORT);
-      return false;  // currently, it doesn't support XFAPicture.
+      // currently, it doesn't support XFAPicture.
+      return pdfium::Optional<CJS_Value>();
     }
 
     // Convert PDF-style format specifiers to wcsftime specifiers. Remove any
@@ -215,7 +212,7 @@ bool util::printd(CJS_Runtime* pRuntime,
     int iYear = jsDate.GetYear(pRuntime);
     if (iYear < 0) {
       sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-      return false;
+      return pdfium::Optional<CJS_Value>();
     }
 
     int iMonth = jsDate.GetMonth(pRuntime);
@@ -259,28 +256,26 @@ bool util::printd(CJS_Runtime* pRuntime,
     wchar_t buf[64] = {};
     FXSYS_wcsftime(buf, 64, cFormat.c_str(), &time);
     cFormat = buf;
-    vRet = CJS_Value(pRuntime, cFormat.c_str());
-    return true;
+
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, cFormat.c_str()));
   }
 
   sError = JSGetStringFromID(IDS_STRING_JSTYPEERROR);
-  return false;
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool util::printx(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> util::printx(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   if (params.size() < 2) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
-  vRet = CJS_Value(pRuntime, printx(params[0].ToWideString(pRuntime),
-                                    params[1].ToWideString(pRuntime))
-                                 .c_str());
-
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime,
+      printx(params[0].ToWideString(pRuntime), params[1].ToWideString(pRuntime))
+          .c_str()));
 }
 
 enum CaseMode { kPreserveCase, kUpperCase, kLowerCase };
@@ -381,47 +376,45 @@ WideString util::printx(const WideString& wsFormat,
   return wsResult;
 }
 
-bool util::scand(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError) {
+pdfium::Optional<CJS_Value> util::scand(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError) {
   if (params.size() < 2)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   WideString sFormat = params[0].ToWideString(pRuntime);
   WideString sDate = params[1].ToWideString(pRuntime);
   double dDate = JS_GetDateTime();
-  if (sDate.GetLength() > 0) {
+  if (sDate.GetLength() > 0)
     dDate = CJS_PublicMethods::MakeRegularDate(sDate, sFormat, nullptr);
-  }
 
   if (!std::isnan(dDate)) {
-    vRet = CJS_Value(pRuntime, CJS_Date(pRuntime, dDate));
-  } else {
-    vRet.SetNull(pRuntime);
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, CJS_Date(pRuntime, dDate)));
   }
 
-  return true;
+  CJS_Value vRet(pRuntime);
+  vRet.SetNull(pRuntime);
+  return pdfium::Optional<CJS_Value>(vRet);
 }
 
-bool util::byteToChar(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
+pdfium::Optional<CJS_Value> util::byteToChar(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() < 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   int arg = params[0].ToInt(pRuntime);
   if (arg < 0 || arg > 255) {
     sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   WideString wStr(static_cast<wchar_t>(arg));
-  vRet = CJS_Value(pRuntime, wStr.c_str());
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, wStr.c_str()));
 }
 
 // Ensure that sFormat contains at most one well-understood printf formatting

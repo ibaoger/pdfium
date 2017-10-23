@@ -275,17 +275,14 @@ bool color::SetPropertyHelper(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool color::convert(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
+pdfium::Optional<CJS_Value> color::convert(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
   int iSize = params.size();
   if (iSize < 2)
-    return false;
-
+    return pdfium::Optional<CJS_Value>();
   if (!params[0].IsArrayObject())
-    return false;
-
+    return pdfium::Optional<CJS_Value>();
 
   ByteString sDestSpace = params[1].ToByteString(pRuntime);
   int nColorType = CFX_Color::kTransparent;
@@ -300,20 +297,18 @@ bool color::convert(CJS_Runtime* pRuntime,
 
   CFX_Color color =
       ConvertArrayToPWLColor(pRuntime, params[0].ToArray(pRuntime));
-  vRet = CJS_Value(pRuntime, ConvertPWLColorToArray(
-                                 pRuntime, color.ConvertColorType(nColorType)));
-
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime,
+      ConvertPWLColorToArray(pRuntime, color.ConvertColorType(nColorType))));
 }
 
-bool color::equal(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> color::equal(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   if (params.size() < 2)
-    return false;
+    return pdfium::Optional<CJS_Value>();
   if (!params[0].IsArrayObject() || !params[1].IsArrayObject())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CFX_Color color1 =
       ConvertArrayToPWLColor(pRuntime, params[0].ToArray(pRuntime));
@@ -321,6 +316,5 @@ bool color::equal(CJS_Runtime* pRuntime,
       ConvertArrayToPWLColor(pRuntime, params[1].ToArray(pRuntime));
 
   color1 = color1.ConvertColorType(color2.nColorType);
-  vRet = CJS_Value(pRuntime, color1 == color2);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, color1 == color2));
 }

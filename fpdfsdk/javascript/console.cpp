@@ -30,33 +30,29 @@ console::console(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}
 
 console::~console() {}
 
-bool console::clear(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> console::clear(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool console::hide(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> console::hide(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool console::println(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
-  if (params.size() < 1) {
-    return false;
-  }
-  return true;
+pdfium::Optional<CJS_Value> console::println(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  if (params.size() < 1)
+    return pdfium::Optional<CJS_Value>();
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool console::show(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> console::show(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }

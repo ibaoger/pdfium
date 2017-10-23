@@ -255,146 +255,151 @@ bool Document::set_page_num(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::addAnnot(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> Document::addAnnot(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::addField(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> Document::addField(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::exportAsText(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::exportAsText(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::exportAsFDF(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
+pdfium::Optional<CJS_Value> Document::exportAsFDF(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::exportAsXFDF(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::exportAsXFDF(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getField(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getField(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() < 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   WideString wideName = params[0].ToWideString(pRuntime);
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
   CPDF_InterForm* pPDFForm = pInterForm->GetInterForm();
   if (pPDFForm->CountFields(wideName) <= 0) {
-    vRet.SetNull(pRuntime);
-    return true;
+    CJS_Value null(pRuntime);
+    null.SetNull(pRuntime);
+    return pdfium::Optional<CJS_Value>(null);
   }
 
   v8::Local<v8::Object> pFieldObj =
       pRuntime->NewFxDynamicObj(CJS_Field::g_nObjDefnID);
   if (pFieldObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_Field* pJSField =
       static_cast<CJS_Field*>(pRuntime->GetObjectPrivate(pFieldObj));
   Field* pField = static_cast<Field*>(pJSField->GetEmbedObject());
   pField->AttachField(this, wideName);
-  vRet = CJS_Value(pRuntime, pJSField);
-  return true;
+
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pJSField));
 }
 
 // Gets the name of the nth field in the document
-bool Document::getNthFieldName(CJS_Runtime* pRuntime,
-                               const std::vector<CJS_Value>& params,
-                               CJS_Value& vRet,
-                               WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getNthFieldName(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   int nIndex = params[0].ToInt(pRuntime);
   if (nIndex < 0) {
     sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
   CPDF_InterForm* pPDFForm = pInterForm->GetInterForm();
   CPDF_FormField* pField = pPDFForm->GetField(nIndex, WideString());
   if (!pField)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
-  vRet = CJS_Value(pRuntime, pField->GetFullName().c_str());
-  return true;
+  return pdfium::Optional<CJS_Value>(
+      CJS_Value(pRuntime, pField->GetFullName().c_str()));
 }
 
-bool Document::importAnFDF(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
+pdfium::Optional<CJS_Value> Document::importAnFDF(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::importAnXFDF(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::importAnXFDF(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::importTextData(CJS_Runtime* pRuntime,
-                              const std::vector<CJS_Value>& params,
-                              CJS_Value& vRet,
-                              WideString& sError) {
+pdfium::Optional<CJS_Value> Document::importTextData(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 // exports the form data and mails the resulting fdf file as an attachment to
 // all recipients.
 // comment: need reader supports
-bool Document::mailForm(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> Document::mailForm(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv->GetPermissions(FPDFPERM_EXTRACT_ACCESS)) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   int iLength = params.size();
   bool bUI = iLength > 0 ? params[0].ToBool(pRuntime) : true;
   WideString cTo = iLength > 1 ? params[1].ToWideString(pRuntime) : L"";
@@ -402,10 +407,11 @@ bool Document::mailForm(CJS_Runtime* pRuntime,
   WideString cBcc = iLength > 3 ? params[3].ToWideString(pRuntime) : L"";
   WideString cSubject = iLength > 4 ? params[4].ToWideString(pRuntime) : L"";
   WideString cMsg = iLength > 5 ? params[5].ToWideString(pRuntime) : L"";
+
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
   ByteString sTextBuf = pInterForm->ExportFormToFDFTextBuf();
   if (sTextBuf.GetLength() == 0)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   size_t nBufSize = sTextBuf.GetLength();
   char* pMutableBuf = FX_Alloc(char, nBufSize);
@@ -418,17 +424,19 @@ bool Document::mailForm(CJS_Runtime* pRuntime,
                                cMsg.c_str());
   pRuntime->EndBlock();
   FX_Free(pMutableBuf);
-  return true;
+
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::print(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
+pdfium::Optional<CJS_Value> Document::print(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   bool bUI = true;
   int nStart = 0;
   int nEnd = 0;
@@ -480,38 +488,39 @@ bool Document::print(CJS_Runtime* pRuntime,
   if (m_pFormFillEnv) {
     m_pFormFillEnv->JS_docprint(bUI, nStart, nEnd, bSilent, bShrinkToFit,
                                 bPrintAsImage, bReverse, bAnnotations);
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
-  return false;
+
+  return pdfium::Optional<CJS_Value>();
 }
 
 // removes the specified field from the document.
 // comment:
 // note: if the filed name is not rational, adobe is dumb for it.
 
-bool Document::removeField(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
+pdfium::Optional<CJS_Value> Document::removeField(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!(m_pFormFillEnv->GetPermissions(FPDFPERM_MODIFY) ||
         m_pFormFillEnv->GetPermissions(FPDFPERM_ANNOT_FORM))) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   WideString sFieldName = params[0].ToWideString(pRuntime);
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
   std::vector<CPDFSDK_Annot::ObservedPtr> widgets;
   pInterForm->GetWidgets(sFieldName, &widgets);
   if (widgets.empty())
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 
   for (const auto& pAnnot : widgets) {
     CPDFSDK_Widget* pWidget = static_cast<CPDFSDK_Widget*>(pAnnot.Get());
@@ -541,26 +550,26 @@ bool Document::removeField(CJS_Runtime* pRuntime,
   }
   m_pFormFillEnv->SetChangeMark();
 
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 // reset filed values within a document.
 // comment:
 // note: if the fields names r not rational, aodbe is dumb for it.
 
-bool Document::resetForm(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
+pdfium::Optional<CJS_Value> Document::resetForm(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!(m_pFormFillEnv->GetPermissions(FPDFPERM_MODIFY) ||
         m_pFormFillEnv->GetPermissions(FPDFPERM_ANNOT_FORM) ||
         m_pFormFillEnv->GetPermissions(FPDFPERM_FILL_FORM))) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
@@ -570,7 +579,7 @@ bool Document::resetForm(CJS_Runtime* pRuntime,
   if (params.empty()) {
     pPDFForm->ResetForm(true);
     m_pFormFillEnv->SetChangeMark();
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
 
   switch (params[0].GetType()) {
@@ -595,36 +604,36 @@ bool Document::resetForm(CJS_Runtime* pRuntime,
     m_pFormFillEnv->SetChangeMark();
   }
 
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::saveAs(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
+pdfium::Optional<CJS_Value> Document::saveAs(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::syncAnnotScan(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::syncAnnotScan(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::submitForm(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
+pdfium::Optional<CJS_Value> Document::submitForm(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int nSize = params.size();
   if (nSize < 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CJS_Array aFields;
@@ -664,7 +673,7 @@ bool Document::submitForm(CJS_Runtime* pRuntime,
       pInterForm->SubmitForm(strURL, false);
       pRuntime->EndBlock();
     }
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
 
   std::vector<CPDF_FormField*> fieldObjects;
@@ -686,7 +695,7 @@ bool Document::submitForm(CJS_Runtime* pRuntime,
     pInterForm->SubmitFields(strURL, fieldObjects, true, !bFDF);
     pRuntime->EndBlock();
   }
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 void Document::SetFormFillEnv(CPDFSDK_FormFillEnvironment* pFormFillEnv) {
@@ -705,10 +714,10 @@ bool Document::set_bookmark_root(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::mailDoc(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> Document::mailDoc(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // TODO(tsepez): Check maximum number of allowed params.
   bool bUI = true;
   WideString cTo = L"";
@@ -757,7 +766,7 @@ bool Document::mailDoc(CJS_Runtime* pRuntime,
   pFormFillEnv->JS_docmailForm(nullptr, 0, bUI, cTo.c_str(), cSubject.c_str(),
                                cCc.c_str(), cBcc.c_str(), cMsg.c_str());
   pRuntime->EndBlock();
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool Document::get_author(CJS_Runtime* pRuntime,
@@ -1214,44 +1223,45 @@ bool Document::set_layout(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::addLink(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::addLink(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::closeDoc(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::closeDoc(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getPageBox(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::getPageBox(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getAnnot(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getAnnot(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 2) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   int nPageNo = params[0].ToInt(pRuntime);
   WideString swAnnotName = params[1].ToWideString(pRuntime);
   CPDFSDK_PageView* pPageView = m_pFormFillEnv->GetPageView(nPageNo);
   if (!pPageView)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDFSDK_AnnotIteration annotIteration(pPageView, false);
   CPDFSDK_BAAnnot* pSDKBAAnnot = nullptr;
@@ -1264,28 +1274,27 @@ bool Document::getAnnot(CJS_Runtime* pRuntime,
     }
   }
   if (!pSDKBAAnnot)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   v8::Local<v8::Object> pObj =
       pRuntime->NewFxDynamicObj(CJS_Annot::g_nObjDefnID);
   if (pObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_Annot* pJS_Annot =
       static_cast<CJS_Annot*>(pRuntime->GetObjectPrivate(pObj));
   Annot* pAnnot = static_cast<Annot*>(pJS_Annot->GetEmbedObject());
   pAnnot->SetSDKAnnot(pSDKBAAnnot);
-  vRet = CJS_Value(pRuntime, pJS_Annot);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pJS_Annot));
 }
 
-bool Document::getAnnots(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getAnnots(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   // TODO(tonikitoo): Add support supported parameters as per
   // the PDF spec.
@@ -1296,18 +1305,18 @@ bool Document::getAnnots(CJS_Runtime* pRuntime,
   for (int i = 0; i < nPageNo; ++i) {
     CPDFSDK_PageView* pPageView = m_pFormFillEnv->GetPageView(i);
     if (!pPageView)
-      return false;
+      return pdfium::Optional<CJS_Value>();
 
     CPDFSDK_AnnotIteration annotIteration(pPageView, false);
     for (const auto& pSDKAnnotCur : annotIteration) {
       if (!pSDKAnnotCur) {
         sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-        return false;
+        return pdfium::Optional<CJS_Value>();
       }
       v8::Local<v8::Object> pObj =
           pRuntime->NewFxDynamicObj(CJS_Annot::g_nObjDefnID);
       if (pObj.IsEmpty())
-        return false;
+        return pdfium::Optional<CJS_Value>();
 
       CJS_Annot* pJS_Annot =
           static_cast<CJS_Annot*>(pRuntime->GetObjectPrivate(pObj));
@@ -1316,37 +1325,37 @@ bool Document::getAnnots(CJS_Runtime* pRuntime,
       annots.SetElement(pRuntime, i, CJS_Value(pRuntime, pJS_Annot));
     }
   }
-  vRet = CJS_Value(pRuntime, annots);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, annots));
 }
 
-bool Document::getAnnot3D(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getAnnot3D(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  CJS_Value vRet(pRuntime);
   vRet.SetNull(pRuntime);
-  return true;
+  return pdfium::Optional<CJS_Value>(vRet);
 }
 
-bool Document::getAnnots3D(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::getAnnots3D(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getOCGs(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::getOCGs(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getLinks(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Document::getLinks(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool Document::IsEnclosedInRect(CFX_FloatRect rect, CFX_FloatRect LinkRect) {
@@ -1354,34 +1363,34 @@ bool Document::IsEnclosedInRect(CFX_FloatRect rect, CFX_FloatRect LinkRect) {
           rect.right >= LinkRect.right && rect.bottom >= LinkRect.bottom);
 }
 
-bool Document::addIcon(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> Document::addIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 2) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   WideString swIconName = params[0].ToWideString(pRuntime);
   if (params[1].GetType() != CJS_Value::VT_object) {
     sError = JSGetStringFromID(IDS_STRING_JSTYPEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   v8::Local<v8::Object> pJSIcon = params[1].ToV8Object(pRuntime);
   if (CFXJS_Engine::GetObjDefnID(pJSIcon) != CJS_Icon::g_nObjDefnID) {
     sError = JSGetStringFromID(IDS_STRING_JSTYPEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   if (!params[1].ToObject(pRuntime)->GetEmbedObject()) {
     sError = JSGetStringFromID(IDS_STRING_JSTYPEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   m_IconNames.push_back(swIconName);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool Document::get_icons(CJS_Runtime* pRuntime,
@@ -1418,46 +1427,45 @@ bool Document::set_icons(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool Document::getIcon(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   WideString swIconName = params[0].ToWideString(pRuntime);
   auto it = std::find(m_IconNames.begin(), m_IconNames.end(), swIconName);
   if (it == m_IconNames.end())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   v8::Local<v8::Object> pObj =
       pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
   if (pObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_Icon* pJS_Icon = static_cast<CJS_Icon*>(pRuntime->GetObjectPrivate(pObj));
   Icon* pIcon = static_cast<Icon*>(pJS_Icon->GetEmbedObject());
   pIcon->SetIconName(*it);
-  vRet = CJS_Value(pRuntime, pJS_Icon);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pJS_Icon));
 }
 
-bool Document::removeIcon(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
+pdfium::Optional<CJS_Value> Document::removeIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, no supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::createDataObject(CJS_Runtime* pRuntime,
-                                const std::vector<CJS_Value>& params,
-                                CJS_Value& vRet,
-                                WideString& sError) {
+pdfium::Optional<CJS_Value> Document::createDataObject(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not implemented.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool Document::get_media(CJS_Runtime* pRuntime,
@@ -1472,22 +1480,23 @@ bool Document::set_media(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::calculateNow(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::calculateNow(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!(m_pFormFillEnv->GetPermissions(FPDFPERM_MODIFY) ||
         m_pFormFillEnv->GetPermissions(FPDFPERM_ANNOT_FORM) ||
         m_pFormFillEnv->GetPermissions(FPDFPERM_FILL_FORM))) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   m_pFormFillEnv->GetInterForm()->OnCalculate();
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool Document::get_collab(CJS_Runtime* pRuntime,
@@ -1502,17 +1511,17 @@ bool Document::set_collab(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::getPageNthWord(CJS_Runtime* pRuntime,
-                              const std::vector<CJS_Value>& params,
-                              CJS_Value& vRet,
-                              WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getPageNthWord(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv->GetPermissions(FPDFPERM_EXTRACT_ACCESS)) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   // TODO(tsepez): check maximum allowable params.
@@ -1523,16 +1532,16 @@ bool Document::getPageNthWord(CJS_Runtime* pRuntime,
 
   CPDF_Document* pDocument = m_pFormFillEnv->GetPDFDocument();
   if (!pDocument)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   if (nPageNo < 0 || nPageNo >= pDocument->GetPageCount()) {
     sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CPDF_Dictionary* pPageDict = pDocument->GetPage(nPageNo);
   if (!pPageDict)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_Page page(pDocument, pPageDict, true);
   page.ParseContent();
@@ -1556,47 +1565,49 @@ bool Document::getPageNthWord(CJS_Runtime* pRuntime,
     swRet.TrimRight();
   }
 
-  vRet = CJS_Value(pRuntime, swRet.c_str());
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, swRet.c_str()));
 }
 
-bool Document::getPageNthWordQuads(CJS_Runtime* pRuntime,
-                                   const std::vector<CJS_Value>& params,
-                                   CJS_Value& vRet,
-                                   WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getPageNthWordQuads(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv->GetPermissions(FPDFPERM_EXTRACT_ACCESS)) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
-  return false;
+
+  // Not supported?
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Document::getPageNumWords(CJS_Runtime* pRuntime,
-                               const std::vector<CJS_Value>& params,
-                               CJS_Value& vRet,
-                               WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getPageNumWords(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv->GetPermissions(FPDFPERM_EXTRACT_ACCESS)) {
     sError = JSGetStringFromID(IDS_STRING_JSNOPERMISSION);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   int nPageNo = params.size() > 0 ? params[0].ToInt(pRuntime) : 0;
   CPDF_Document* pDocument = m_pFormFillEnv->GetPDFDocument();
   if (nPageNo < 0 || nPageNo >= pDocument->GetPageCount()) {
     sError = JSGetStringFromID(IDS_STRING_JSVALUEERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CPDF_Dictionary* pPageDict = pDocument->GetPage(nPageNo);
   if (!pPageDict)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_Page page(pDocument, pPageDict, true);
   page.ParseContent();
@@ -1607,23 +1618,21 @@ bool Document::getPageNumWords(CJS_Runtime* pRuntime,
       nWords += CountWords(pPageObj->AsText());
   }
 
-  vRet = CJS_Value(pRuntime, nWords);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, nWords));
 }
 
-bool Document::getPrintParams(CJS_Runtime* pRuntime,
-                              const std::vector<CJS_Value>& params,
-                              CJS_Value& vRet,
-                              WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getPrintParams(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   v8::Local<v8::Object> pRetObj =
       pRuntime->NewFxDynamicObj(CJS_PrintParamsObj::g_nObjDefnID);
   if (pRetObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   // Not implemented yet.
 
-  vRet = CJS_Value(pRuntime, pRetObj);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pRetObj));
 }
 
 #define ISLATINWORD(u) (u != 0x20 && u <= 0x28FF)
@@ -1720,67 +1729,68 @@ bool Document::set_zoom_type(CJS_Runtime* pRuntime,
   return true;
 }
 
-bool Document::deletePages(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
+pdfium::Optional<CJS_Value> Document::deletePages(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, no supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::extractPages(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::extractPages(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::insertPages(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError) {
+pdfium::Optional<CJS_Value> Document::insertPages(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::replacePages(CJS_Runtime* pRuntime,
-                            const std::vector<CJS_Value>& params,
-                            CJS_Value& vRet,
-                            WideString& sError) {
+pdfium::Optional<CJS_Value> Document::replacePages(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::getURL(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
+pdfium::Optional<CJS_Value> Document::getURL(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Document::gotoNamedDest(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
+pdfium::Optional<CJS_Value> Document::gotoNamedDest(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   if (!m_pFormFillEnv) {
     sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   WideString wideName = params[0].ToWideString(pRuntime);
   CPDF_Document* pDocument = m_pFormFillEnv->GetPDFDocument();
   if (!pDocument)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_NameTree nameTree(pDocument, "Dests");
   CPDF_Array* destArray = nameTree.LookupNamedDest(pDocument, wideName);
   if (!destArray)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_Dest dest(destArray);
   const CPDF_Array* arrayObject = ToArray(dest.GetObject());
@@ -1794,7 +1804,7 @@ bool Document::gotoNamedDest(CJS_Runtime* pRuntime,
                                scrollPositionArray.data(),
                                scrollPositionArray.size());
   pRuntime->EndBlock();
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 void Document::AddDelayData(CJS_DelayData* pData) {

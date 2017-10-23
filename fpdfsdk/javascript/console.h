@@ -16,23 +16,18 @@ class console : public CJS_EmbedObj {
   explicit console(CJS_Object* pJSObject);
   ~console() override;
 
- public:
-  bool clear(CJS_Runtime* pRuntime,
-             const std::vector<CJS_Value>& params,
-             CJS_Value& vRet,
-             WideString& sError);
-  bool hide(CJS_Runtime* pRuntime,
-            const std::vector<CJS_Value>& params,
-            CJS_Value& vRet,
-            WideString& sError);
-  bool println(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool show(CJS_Runtime* pRuntime,
-            const std::vector<CJS_Value>& params,
-            CJS_Value& vRet,
-            WideString& sError);
+  pdfium::Optional<CJS_Value> clear(CJS_Runtime* pRuntime,
+                                    const std::vector<CJS_Value>& params,
+                                    WideString& sError);
+  pdfium::Optional<CJS_Value> hide(CJS_Runtime* pRuntime,
+                                   const std::vector<CJS_Value>& params,
+                                   WideString& sError);
+  pdfium::Optional<CJS_Value> println(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> show(CJS_Runtime* pRuntime,
+                                   const std::vector<CJS_Value>& params,
+                                   WideString& sError);
 };
 
 class CJS_Console : public CJS_Object {

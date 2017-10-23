@@ -343,110 +343,98 @@ class Field : public CJS_EmbedObj {
                   const CJS_Value& vp,
                   WideString* sError);
 
-  bool browseForFileToSubmit(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError);
-  bool buttonGetCaption(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool buttonGetIcon(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool buttonImportIcon(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool buttonSetCaption(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool buttonSetIcon(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool checkThisBox(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool clearItems(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-  bool defaultIsChecked(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool deleteItemAt(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool getArray(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool getItemAt(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool getLock(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool insertItemAt(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool isBoxChecked(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool isDefaultChecked(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool setAction(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool setFocus(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool setItems(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool setLock(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool signatureGetModifications(CJS_Runtime* pRuntime,
-                                 const std::vector<CJS_Value>& params,
-                                 CJS_Value& vRet,
-                                 WideString& sError);
-  bool signatureGetSeedValue(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError);
-  bool signatureInfo(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool signatureSetSeedValue(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError);
-  bool signatureSign(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool signatureValidate(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError);
+  pdfium::Optional<CJS_Value> browseForFileToSubmit(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> buttonGetCaption(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> buttonGetIcon(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> buttonImportIcon(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> buttonSetCaption(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> buttonSetIcon(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> checkThisBox(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> clearItems(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
+  pdfium::Optional<CJS_Value> defaultIsChecked(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> deleteItemAt(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> getArray(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> getItemAt(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> getLock(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> insertItemAt(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> isBoxChecked(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> isDefaultChecked(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> setAction(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> setFocus(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> setItems(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> setLock(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureGetModifications(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureGetSeedValue(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureInfo(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureSetSeedValue(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureSign(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> signatureValidate(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
 
   bool AttachField(Document* pDocument, const WideString& csFieldName);
 
