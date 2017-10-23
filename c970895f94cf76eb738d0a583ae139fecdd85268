@@ -46,6 +46,30 @@
       "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1361999_0807ec33",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-23T18:10:42Z",
+      "side": 1,
+      "message": "I think you\u0027re looking at cfxjse_value, not js_value here.",
+      "parentUuid": "54d229df_69547984",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
