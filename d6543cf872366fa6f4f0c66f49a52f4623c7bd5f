@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "401ec733_1cedbaf5",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-23T13:14:15Z",
+      "side": 1,
+      "message": "cmath used on 2235\nlimits used on 2263",
+      "parentUuid": "25842e88_6b4c9203",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "d6543cf872366fa6f4f0c66f49a52f4623c7bd5f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d50303a4_6938ab63",
         "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-18T20:26:41Z",
       "side": 1,
       "message": "Can width be negative?",
+      "range": {
+        "startLine": 2263,
+        "startChar": 49,
+        "endLine": 2263,
+        "endChar": 54
+      },
+      "revId": "d6543cf872366fa6f4f0c66f49a52f4623c7bd5f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db02d680_4f9485d5",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2263,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-23T13:14:15Z",
+      "side": 1,
+      "message": "Updated checks on 2246 and 2248.",
+      "parentUuid": "d50303a4_6938ab63",
       "range": {
         "startLine": 2263,
         "startChar": 49,
