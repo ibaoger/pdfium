@@ -16,15 +16,12 @@ class Report : public CJS_EmbedObj {
   explicit Report(CJS_Object* pJSObject);
   ~Report() override;
 
- public:
-  bool save(CJS_Runtime* pRuntime,
-            const std::vector<CJS_Value>& params,
-            CJS_Value& vRet,
-            WideString& sError);
-  bool writeText(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
+  pdfium::Optional<CJS_Value> save(CJS_Runtime* pRuntime,
+                                   const std::vector<CJS_Value>& params,
+                                   WideString& sError);
+  pdfium::Optional<CJS_Value> writeText(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
 };
 
 class CJS_Report : public CJS_Object {

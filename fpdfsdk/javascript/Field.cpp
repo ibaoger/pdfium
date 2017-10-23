@@ -2403,13 +2403,13 @@ bool Field::set_value_as_string(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool Field::browseForFileToSubmit(CJS_Runtime* pRuntime,
-                                  const std::vector<CJS_Value>& params,
-                                  CJS_Value& vRet,
-                                  WideString& sError) {
+pdfium::Optional<CJS_Value> Field::browseForFileToSubmit(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if ((pFormField->GetFieldFlags() & FIELDFLAG_FILESELECT) &&
@@ -2419,15 +2419,15 @@ bool Field::browseForFileToSubmit(CJS_Runtime* pRuntime,
       pFormField->SetValue(wsFileName);
       UpdateFormField(m_pFormFillEnv.Get(), pFormField, true, true, true);
     }
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
-  return false;
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::buttonGetCaption(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
+pdfium::Optional<CJS_Value> Field::buttonGetCaption(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int nface = 0;
   int iSize = params.size();
   if (iSize >= 1)
@@ -2435,91 +2435,93 @@ bool Field::buttonGetCaption(CJS_Runtime* pRuntime,
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (pFormField->GetFieldType() != FIELDTYPE_PUSHBUTTON)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormControl* pFormControl = GetSmartFieldControl(pFormField);
   if (!pFormControl)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
-  if (nface == 0)
-    vRet = CJS_Value(pRuntime, pFormControl->GetNormalCaption().c_str());
-  else if (nface == 1)
-    vRet = CJS_Value(pRuntime, pFormControl->GetDownCaption().c_str());
-  else if (nface == 2)
-    vRet = CJS_Value(pRuntime, pFormControl->GetRolloverCaption().c_str());
-  else
-    return false;
-
-  return true;
+  if (nface == 0) {
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, pFormControl->GetNormalCaption().c_str()));
+  }
+  if (nface == 1) {
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, pFormControl->GetDownCaption().c_str()));
+  }
+  if (nface == 2) {
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, pFormControl->GetRolloverCaption().c_str()));
+  }
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::buttonGetIcon(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
+pdfium::Optional<CJS_Value> Field::buttonGetIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() >= 1) {
     int nFace = params[0].ToInt(pRuntime);
     if (nFace < 0 || nFace > 2)
-      return false;
+      return pdfium::Optional<CJS_Value>();
   }
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (pFormField->GetFieldType() != FIELDTYPE_PUSHBUTTON)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormControl* pFormControl = GetSmartFieldControl(pFormField);
   if (!pFormControl)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   v8::Local<v8::Object> pObj =
       pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
   if (pObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_Icon* pJS_Icon = static_cast<CJS_Icon*>(pRuntime->GetObjectPrivate(pObj));
-  vRet = CJS_Value(pRuntime, pJS_Icon);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pJS_Icon));
 }
 
-bool Field::buttonImportIcon(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::buttonImportIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::buttonSetCaption(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::buttonSetCaption(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::buttonSetIcon(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::buttonSetIcon(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::checkThisBox(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
+pdfium::Optional<CJS_Value> Field::checkThisBox(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int iSize = params.size();
   if (iSize < 1)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   if (!m_bCanSet)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   int nWidget = params[0].ToInt(pRuntime);
   bool bCheckit = true;
@@ -2528,14 +2530,14 @@ bool Field::checkThisBox(CJS_Runtime* pRuntime,
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (pFormField->GetFieldType() != FIELDTYPE_CHECKBOX &&
       pFormField->GetFieldType() != FIELDTYPE_RADIOBUTTON)
-    return false;
+    return pdfium::Optional<CJS_Value>();
   if (nWidget < 0 || nWidget >= pFormField->CountControls())
-    return false;
+    return pdfium::Optional<CJS_Value>();
   // TODO(weili): Check whether anything special needed for radio button,
   // otherwise merge these branches.
   if (pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON)
@@ -2544,57 +2546,55 @@ bool Field::checkThisBox(CJS_Runtime* pRuntime,
     pFormField->CheckControl(nWidget, bCheckit, true);
 
   UpdateFormField(m_pFormFillEnv.Get(), pFormField, true, true, true);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::clearItems(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::clearItems(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::defaultIsChecked(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
+pdfium::Optional<CJS_Value> Field::defaultIsChecked(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (!m_bCanSet)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   int iSize = params.size();
   if (iSize < 1)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   int nWidget = params[0].ToInt(pRuntime);
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (nWidget < 0 || nWidget >= pFormField->CountControls())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
-  vRet = CJS_Value(pRuntime,
-                   pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
-                       pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON);
-
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime, pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
+                    pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON));
 }
 
-bool Field::deleteItemAt(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::deleteItemAt(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::getArray(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
+pdfium::Optional<CJS_Value> Field::getArray(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   std::vector<std::unique_ptr<WideString>> swSort;
   for (CPDF_FormField* pFormField : FieldArray) {
@@ -2613,7 +2613,7 @@ bool Field::getArray(CJS_Runtime* pRuntime,
     v8::Local<v8::Object> pObj =
         pRuntime->NewFxDynamicObj(CJS_Field::g_nObjDefnID);
     if (pObj.IsEmpty())
-      return false;
+      return pdfium::Optional<CJS_Value>();
 
     CJS_Field* pJSField =
         static_cast<CJS_Field*>(pRuntime->GetObjectPrivate(pObj));
@@ -2622,14 +2622,13 @@ bool Field::getArray(CJS_Runtime* pRuntime,
     FormFieldArray.SetElement(pRuntime, j++, CJS_Value(pRuntime, pJSField));
   }
 
-  vRet = CJS_Value(pRuntime, FormFieldArray);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, FormFieldArray));
 }
 
-bool Field::getItemAt(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
+pdfium::Optional<CJS_Value> Field::getItemAt(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int iSize = params.size();
   int nIdx = -1;
   if (iSize >= 1)
@@ -2641,108 +2640,105 @@ bool Field::getItemAt(CJS_Runtime* pRuntime,
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
-  if ((pFormField->GetFieldType() == FIELDTYPE_LISTBOX) ||
-      (pFormField->GetFieldType() == FIELDTYPE_COMBOBOX)) {
-    if (nIdx == -1 || nIdx > pFormField->CountOptions())
-      nIdx = pFormField->CountOptions() - 1;
-    if (bExport) {
-      WideString strval = pFormField->GetOptionValue(nIdx);
-      if (strval.IsEmpty())
-        vRet = CJS_Value(pRuntime, pFormField->GetOptionLabel(nIdx).c_str());
-      else
-        vRet = CJS_Value(pRuntime, strval.c_str());
-    } else {
-      vRet = CJS_Value(pRuntime, pFormField->GetOptionLabel(nIdx).c_str());
-    }
-  } else {
-    return false;
+  if ((pFormField->GetFieldType() != FIELDTYPE_LISTBOX) &&
+      (pFormField->GetFieldType() != FIELDTYPE_COMBOBOX))
+    return pdfium::Optional<CJS_Value>();
+
+  if (nIdx == -1 || nIdx > pFormField->CountOptions())
+    nIdx = pFormField->CountOptions() - 1;
+
+  if (!bExport) {
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, pFormField->GetOptionLabel(nIdx).c_str()));
   }
 
-  return true;
+  WideString strval = pFormField->GetOptionValue(nIdx);
+  if (strval.IsEmpty()) {
+    return pdfium::Optional<CJS_Value>(
+        CJS_Value(pRuntime, pFormField->GetOptionLabel(nIdx).c_str()));
+  }
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, strval.c_str()));
 }
 
-bool Field::getLock(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::getLock(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::insertItemAt(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::insertItemAt(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::isBoxChecked(CJS_Runtime* pRuntime,
-                         const std::vector<CJS_Value>& params,
-                         CJS_Value& vRet,
-                         WideString& sError) {
+pdfium::Optional<CJS_Value> Field::isBoxChecked(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int nIndex = -1;
   if (params.size() >= 1)
     nIndex = params[0].ToInt(pRuntime);
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (nIndex < 0 || nIndex >= pFormField->CountControls())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
-  vRet = CJS_Value(pRuntime,
-                   ((pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
-                     pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON) &&
-                    pFormField->GetControl(nIndex)->IsChecked() != 0));
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime, ((pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
+                  pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON) &&
+                 pFormField->GetControl(nIndex)->IsChecked() != 0)));
 }
 
-bool Field::isDefaultChecked(CJS_Runtime* pRuntime,
-                             const std::vector<CJS_Value>& params,
-                             CJS_Value& vRet,
-                             WideString& sError) {
+pdfium::Optional<CJS_Value> Field::isDefaultChecked(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   int nIndex = -1;
   if (params.size() >= 1)
     nIndex = params[0].ToInt(pRuntime);
 
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   if (nIndex < 0 || nIndex >= pFormField->CountControls())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
-  vRet = CJS_Value(pRuntime,
-                   ((pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
-                     pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON) &&
-                    pFormField->GetControl(nIndex)->IsDefaultChecked() != 0));
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime, ((pFormField->GetFieldType() == FIELDTYPE_CHECKBOX ||
+                  pFormField->GetFieldType() == FIELDTYPE_RADIOBUTTON) &&
+                 pFormField->GetControl(nIndex)->IsDefaultChecked() != 0)));
 }
 
-bool Field::setAction(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::setAction(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::setFocus(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
+pdfium::Optional<CJS_Value> Field::setFocus(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   std::vector<CPDF_FormField*> FieldArray = GetFormFields(m_FieldName);
   if (FieldArray.empty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDF_FormField* pFormField = FieldArray[0];
   int32_t nCount = pFormField->CountControls();
   if (nCount < 1)
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CPDFSDK_InterForm* pInterForm = m_pFormFillEnv->GetInterForm();
   CPDFSDK_Widget* pWidget = nullptr;
@@ -2753,7 +2749,7 @@ bool Field::setFocus(CJS_Runtime* pRuntime,
         UnderlyingFromFPDFPage(m_pFormFillEnv->GetCurrentPage(
             m_pFormFillEnv->GetUnderlyingDocument()));
     if (!pPage)
-      return false;
+      return pdfium::Optional<CJS_Value>();
     if (CPDFSDK_PageView* pCurPageView =
             m_pFormFillEnv->GetPageView(pPage, true)) {
       for (int32_t i = 0; i < nCount; i++) {
@@ -2773,63 +2769,62 @@ bool Field::setFocus(CJS_Runtime* pRuntime,
     m_pFormFillEnv->SetFocusAnnot(&pObserved);
   }
 
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::setItems(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> Field::setItems(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Field::setLock(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::setLock(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureGetModifications(CJS_Runtime* pRuntime,
-                                      const std::vector<CJS_Value>& params,
-                                      CJS_Value& vRet,
-                                      WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureGetModifications(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureGetSeedValue(CJS_Runtime* pRuntime,
-                                  const std::vector<CJS_Value>& params,
-                                  CJS_Value& vRet,
-                                  WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureGetSeedValue(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureInfo(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureInfo(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureSetSeedValue(CJS_Runtime* pRuntime,
-                                  const std::vector<CJS_Value>& params,
-                                  CJS_Value& vRet,
-                                  WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureSetSeedValue(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureSign(CJS_Runtime* pRuntime,
-                          const std::vector<CJS_Value>& params,
-                          CJS_Value& vRet,
-                          WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureSign(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool Field::signatureValidate(CJS_Runtime* pRuntime,
-                              const std::vector<CJS_Value>& params,
-                              CJS_Value& vRet,
-                              WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> Field::signatureValidate(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
 bool Field::get_source(CJS_Runtime* pRuntime,

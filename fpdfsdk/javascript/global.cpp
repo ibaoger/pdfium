@@ -180,10 +180,10 @@ class JSGlobalAlternate : public CJS_EmbedObj {
   explicit JSGlobalAlternate(CJS_Object* pJSObject);
   ~JSGlobalAlternate() override;
 
-  bool setPersistent(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
+  pdfium::Optional<CJS_Value> setPersistent(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
   bool QueryProperty(const wchar_t* propname);
   bool GetProperty(CJS_Runtime* pRuntime,
                    const wchar_t* propname,
@@ -353,21 +353,22 @@ bool JSGlobalAlternate::SetProperty(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool JSGlobalAlternate::setPersistent(CJS_Runtime* pRuntime,
-                                      const std::vector<CJS_Value>& params,
-                                      CJS_Value& vRet,
-                                      WideString& sError) {
+pdfium::Optional<CJS_Value> JSGlobalAlternate::setPersistent(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 2) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
+
   auto it = m_MapGlobal.find(params[0].ToByteString(pRuntime));
   if (it == m_MapGlobal.end() || it->second->bDeleted) {
     sError = JSGetStringFromID(IDS_STRING_JSNOGLOBAL);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
   it->second->bPersistent = params[1].ToBool(pRuntime);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 void JSGlobalAlternate::UpdateGlobalPersistentVariables() {

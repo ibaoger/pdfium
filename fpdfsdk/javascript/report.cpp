@@ -26,18 +26,17 @@ Report::Report(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}
 
 Report::~Report() {}
 
-bool Report::writeText(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> Report::writeText(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool Report::save(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> Report::save(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }

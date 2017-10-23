@@ -358,12 +358,12 @@ bool app::set_language(CJS_Runtime* pRuntime,
 // comment: need reader support
 // note:
 // CFDF_Document * CPDFSDK_FormFillEnvironment::NewFDF();
-bool app::newFDF(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> app::newFDF(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
+
 // opens a specified pdf document and returns its document object
 // comment:need reader support
 // note: as defined in js reference, the proto of this function's fourth
@@ -371,30 +371,26 @@ bool app::newFDF(CJS_Runtime* pRuntime,
 // CFDF_Document * CPDFSDK_FormFillEnvironment::OpenFDF(string strPath,bool
 // bUserConv);
 
-bool app::openFDF(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> app::openFDF(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::alert(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError) {
+pdfium::Optional<CJS_Value> app::alert(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError) {
   std::vector<CJS_Value> newParams = ExpandKeywordParams(
       pRuntime, params, 4, L"cMsg", L"nIcon", L"nType", L"cTitle");
 
   if (newParams[0].GetType() == CJS_Value::VT_unknown) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   CPDFSDK_FormFillEnvironment* pFormFillEnv = pRuntime->GetFormFillEnv();
-  if (!pFormFillEnv) {
-    vRet = CJS_Value(pRuntime, 0);
-    return true;
-  }
+  if (!pFormFillEnv)
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, 0));
 
   WideString swMsg;
   if (newParams[0].GetType() == CJS_Value::VT_object) {
@@ -433,37 +429,37 @@ bool app::alert(CJS_Runtime* pRuntime,
   pRuntime->BeginBlock();
   pFormFillEnv->KillFocusAnnot(0);
 
-  vRet = CJS_Value(pRuntime, pFormFillEnv->JS_appAlert(
-                                 swMsg.c_str(), swTitle.c_str(), iType, iIcon));
+  CJS_Value vRet = CJS_Value(
+      pRuntime,
+      pFormFillEnv->JS_appAlert(swMsg.c_str(), swTitle.c_str(), iType, iIcon));
   pRuntime->EndBlock();
-  return true;
+  return pdfium::Optional<CJS_Value>(vRet);
 }
 
-bool app::beep(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError) {
+pdfium::Optional<CJS_Value> app::beep(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError) {
   if (params.size() == 1) {
     pRuntime->GetFormFillEnv()->JS_appBeep(params[0].ToInt(pRuntime));
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
 
   sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-  return false;
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool app::findComponent(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> app::findComponent(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::popUpMenuEx(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> app::popUpMenuEx(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
 bool app::get_fs(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
@@ -476,20 +472,20 @@ bool app::set_fs(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool app::setInterval(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError) {
+pdfium::Optional<CJS_Value> app::setInterval(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() > 2 || params.size() == 0) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   WideString script =
       params.size() > 0 ? params[0].ToWideString(pRuntime) : L"";
   if (script.IsEmpty()) {
     sError = JSGetStringFromID(IDS_STRING_JSAFNUMBER_KEYSTROKE);
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
 
   uint32_t dwInterval = params.size() > 1 ? params[1].ToInt(pRuntime) : 1000;
@@ -501,30 +497,29 @@ bool app::setInterval(CJS_Runtime* pRuntime,
   v8::Local<v8::Object> pRetObj =
       pRuntime->NewFxDynamicObj(CJS_TimerObj::g_nObjDefnID);
   if (pRetObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_TimerObj* pJS_TimerObj =
       static_cast<CJS_TimerObj*>(pRuntime->GetObjectPrivate(pRetObj));
   TimerObj* pTimerObj = static_cast<TimerObj*>(pJS_TimerObj->GetEmbedObject());
   pTimerObj->SetTimer(timerRef);
 
-  vRet = CJS_Value(pRuntime, pRetObj);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pRetObj));
 }
 
-bool app::setTimeOut(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
+pdfium::Optional<CJS_Value> app::setTimeOut(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() > 2 || params.size() == 0) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   WideString script = params[0].ToWideString(pRuntime);
   if (script.IsEmpty()) {
     sError = JSGetStringFromID(IDS_STRING_JSAFNUMBER_KEYSTROKE);
-    return true;
+    return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
   }
 
   uint32_t dwTimeOut = params.size() > 1 ? params[1].ToInt(pRuntime) : 1000;
@@ -536,40 +531,40 @@ bool app::setTimeOut(CJS_Runtime* pRuntime,
   v8::Local<v8::Object> pRetObj =
       pRuntime->NewFxDynamicObj(CJS_TimerObj::g_nObjDefnID);
   if (pRetObj.IsEmpty())
-    return false;
+    return pdfium::Optional<CJS_Value>();
 
   CJS_TimerObj* pJS_TimerObj =
       static_cast<CJS_TimerObj*>(pRuntime->GetObjectPrivate(pRetObj));
   TimerObj* pTimerObj = static_cast<TimerObj*>(pJS_TimerObj->GetEmbedObject());
   pTimerObj->SetTimer(timerRef);
-  vRet = CJS_Value(pRuntime, pRetObj);
-  return true;
+
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime, pRetObj));
 }
 
-bool app::clearTimeOut(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> app::clearTimeOut(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   app::ClearTimerCommon(pRuntime, params[0]);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::clearInterval(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError) {
+pdfium::Optional<CJS_Value> app::clearInterval(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   if (params.size() != 1) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
   app::ClearTimerCommon(pRuntime, params[0]);
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 void app::ClearTimerCommon(CJS_Runtime* pRuntime, const CJS_Value& param) {
@@ -591,11 +586,11 @@ void app::ClearTimerCommon(CJS_Runtime* pRuntime, const CJS_Value& param) {
   GlobalTimer::Cancel(pTimerObj->GetTimerID());
 }
 
-bool app::execMenuItem(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> app::execMenuItem(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
 void app::TimerProc(GlobalTimer* pTimer) {
@@ -618,36 +613,33 @@ void app::RunJsScript(CJS_Runtime* pRuntime, const WideString& wsScript) {
   }
 }
 
-bool app::goBack(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError) {
+pdfium::Optional<CJS_Value> app::goBack(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError) {
   // Not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::goForward(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
+pdfium::Optional<CJS_Value> app::goForward(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
   // Not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::mailMsg(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
+pdfium::Optional<CJS_Value> app::mailMsg(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
   std::vector<CJS_Value> newParams =
       ExpandKeywordParams(pRuntime, params, 6, L"bUI", L"cTo", L"cCc", L"cBcc",
                           L"cSubject", L"cMsg");
 
   if (newParams[0].GetType() == CJS_Value::VT_unknown) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
-  bool bUI = newParams[0].ToBool(pRuntime);
 
+  bool bUI = newParams[0].ToBool(pRuntime);
   WideString cTo;
   if (newParams[1].GetType() != CJS_Value::VT_unknown) {
     cTo = newParams[1].ToWideString(pRuntime);
@@ -655,7 +647,7 @@ bool app::mailMsg(CJS_Runtime* pRuntime,
     if (!bUI) {
       // cTo parameter required when UI not invoked.
       sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-      return false;
+      return pdfium::Optional<CJS_Value>();
     }
   }
 
@@ -680,15 +672,14 @@ bool app::mailMsg(CJS_Runtime* pRuntime,
                                              cSubject.c_str(), cCc.c_str(),
                                              cBcc.c_str(), cMsg.c_str());
   pRuntime->EndBlock();
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
-bool app::launchURL(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
+pdfium::Optional<CJS_Value> app::launchURL(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 bool app::get_runtime_highlight(CJS_Runtime* pRuntime,
@@ -717,19 +708,18 @@ bool app::set_fullscreen(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool app::popUpMenu(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> app::popUpMenu(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool app::browseForDoc(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError) {
+pdfium::Optional<CJS_Value> app::browseForDoc(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
   // Unsafe, not supported.
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }
 
 WideString app::SysPathToPDFPath(const WideString& sOldPath) {
@@ -741,34 +731,31 @@ WideString app::SysPathToPDFPath(const WideString& sOldPath) {
   return sRet;
 }
 
-bool app::newDoc(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> app::newDoc(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool app::openDoc(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError) {
-  return false;
+pdfium::Optional<CJS_Value> app::openDoc(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError) {
+  return pdfium::Optional<CJS_Value>();
 }
 
-bool app::response(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError) {
+pdfium::Optional<CJS_Value> app::response(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError) {
   std::vector<CJS_Value> newParams =
       ExpandKeywordParams(pRuntime, params, 5, L"cQuestion", L"cTitle",
                           L"cDefault", L"bPassword", L"cLabel");
 
   if (newParams[0].GetType() == CJS_Value::VT_unknown) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
-  WideString swQuestion = newParams[0].ToWideString(pRuntime);
 
+  WideString swQuestion = newParams[0].ToWideString(pRuntime);
   WideString swTitle = L"PDF";
   if (newParams[1].GetType() != CJS_Value::VT_unknown)
     swTitle = newParams[1].ToWideString(pRuntime);
@@ -793,15 +780,14 @@ bool app::response(CJS_Runtime* pRuntime,
 
   if (nLengthBytes < 0 || nLengthBytes > MAX_INPUT_BYTES) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAM_TOOLONG);
-    return false;
+    return pdfium::Optional<CJS_Value>();
   }
 
-  vRet = CJS_Value(pRuntime, WideString::FromUTF16LE(
-                                 reinterpret_cast<uint16_t*>(pBuff.data()),
-                                 nLengthBytes / sizeof(uint16_t))
-                                 .c_str());
-
-  return true;
+  return pdfium::Optional<CJS_Value>(CJS_Value(
+      pRuntime,
+      WideString::FromUTF16LE(reinterpret_cast<uint16_t*>(pBuff.data()),
+                              nLengthBytes / sizeof(uint16_t))
+          .c_str()));
 }
 
 bool app::get_media(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
@@ -814,9 +800,9 @@ bool app::set_media(CJS_Runtime* pRuntime,
   return false;
 }
 
-bool app::execDialog(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError) {
-  return true;
+pdfium::Optional<CJS_Value> app::execDialog(
+    CJS_Runtime* pRuntime,
+    const std::vector<CJS_Value>& params,
+    WideString& sError) {
+  return pdfium::Optional<CJS_Value>(CJS_Value(pRuntime));
 }

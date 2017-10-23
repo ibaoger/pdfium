@@ -208,174 +208,141 @@ class Document : public CJS_EmbedObj {
   bool get_URL(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError);
   bool set_URL(CJS_Runtime* pRuntime, const CJS_Value& vp, WideString* sError);
 
-  bool addAnnot(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool addField(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool addLink(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool addIcon(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool calculateNow(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool closeDoc(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool createDataObject(CJS_Runtime* pRuntime,
-                        const std::vector<CJS_Value>& params,
-                        CJS_Value& vRet,
-                        WideString& sError);
-  bool deletePages(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool exportAsText(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool exportAsFDF(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool exportAsXFDF(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool extractPages(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool getAnnot(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool getAnnots(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool getAnnot3D(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-  bool getAnnots3D(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool getField(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool getIcon(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool getLinks(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool getNthFieldName(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError);
-  bool getOCGs(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool getPageBox(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-  bool getPageNthWord(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError);
-  bool getPageNthWordQuads(CJS_Runtime* pRuntime,
-                           const std::vector<CJS_Value>& params,
-                           CJS_Value& vRet,
-                           WideString& sError);
-  bool getPageNumWords(CJS_Runtime* pRuntime,
-                       const std::vector<CJS_Value>& params,
-                       CJS_Value& vRet,
-                       WideString& sError);
-  bool getPrintParams(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError);
-  bool getURL(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool gotoNamedDest(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool importAnFDF(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool importAnXFDF(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool importTextData(CJS_Runtime* pRuntime,
-                      const std::vector<CJS_Value>& params,
-                      CJS_Value& vRet,
-                      WideString& sError);
-  bool insertPages(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool mailForm(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool print(CJS_Runtime* pRuntime,
-             const std::vector<CJS_Value>& params,
-             CJS_Value& vRet,
-             WideString& sError);
-  bool removeField(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool replacePages(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool resetForm(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool saveAs(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool submitForm(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-  bool syncAnnotScan(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool mailDoc(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool removeIcon(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
+  pdfium::Optional<CJS_Value> addAnnot(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> addField(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> addLink(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> addIcon(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> calculateNow(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> closeDoc(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> createDataObject(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> deletePages(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> exportAsText(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> exportAsFDF(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> exportAsXFDF(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> extractPages(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> getAnnot(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> getAnnots(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> getAnnot3D(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
+  pdfium::Optional<CJS_Value> getAnnots3D(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> getField(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> getIcon(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> getLinks(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> getNthFieldName(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> getOCGs(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> getPageBox(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
+  pdfium::Optional<CJS_Value> getPageNthWord(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> getPageNthWordQuads(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> getPageNumWords(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> getPrintParams(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> getURL(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> gotoNamedDest(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> importAnFDF(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> importAnXFDF(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> importTextData(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> insertPages(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> mailForm(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> print(CJS_Runtime* pRuntime,
+                                    const std::vector<CJS_Value>& params,
+                                    WideString& sError);
+  pdfium::Optional<CJS_Value> removeField(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> replacePages(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> resetForm(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> saveAs(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> submitForm(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
+  pdfium::Optional<CJS_Value> syncAnnotScan(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> mailDoc(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> removeIcon(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
 
   void SetFormFillEnv(CPDFSDK_FormFillEnvironment* pFormFillEnv);
   CPDFSDK_FormFillEnvironment* GetFormFillEnv() const {

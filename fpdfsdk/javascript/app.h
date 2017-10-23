@@ -111,90 +111,71 @@ class app : public CJS_EmbedObj {
                           const CJS_Value& vp,
                           WideString* sError);
 
-  bool alert(CJS_Runtime* pRuntime,
-             const std::vector<CJS_Value>& params,
-             CJS_Value& vRet,
-             WideString& sError);
-  bool beep(CJS_Runtime* pRuntime,
-            const std::vector<CJS_Value>& params,
-            CJS_Value& vRet,
-            WideString& sError);
-  bool browseForDoc(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool clearInterval(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool clearTimeOut(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool execDialog(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
-  bool execMenuItem(CJS_Runtime* pRuntime,
-                    const std::vector<CJS_Value>& params,
-                    CJS_Value& vRet,
-                    WideString& sError);
-  bool findComponent(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
-                     CJS_Value& vRet,
-                     WideString& sError);
-  bool goBack(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool goForward(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool launchURL(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool mailMsg(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool newFDF(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool newDoc(CJS_Runtime* pRuntime,
-              const std::vector<CJS_Value>& params,
-              CJS_Value& vRet,
-              WideString& sError);
-  bool openDoc(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool openFDF(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool popUpMenuEx(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool popUpMenu(CJS_Runtime* pRuntime,
-                 const std::vector<CJS_Value>& params,
-                 CJS_Value& vRet,
-                 WideString& sError);
-  bool response(CJS_Runtime* pRuntime,
-                const std::vector<CJS_Value>& params,
-                CJS_Value& vRet,
-                WideString& sError);
-  bool setInterval(CJS_Runtime* pRuntime,
-                   const std::vector<CJS_Value>& params,
-                   CJS_Value& vRet,
-                   WideString& sError);
-  bool setTimeOut(CJS_Runtime* pRuntime,
-                  const std::vector<CJS_Value>& params,
-                  CJS_Value& vRet,
-                  WideString& sError);
+  pdfium::Optional<CJS_Value> alert(CJS_Runtime* pRuntime,
+                                    const std::vector<CJS_Value>& params,
+                                    WideString& sError);
+  pdfium::Optional<CJS_Value> beep(CJS_Runtime* pRuntime,
+                                   const std::vector<CJS_Value>& params,
+                                   WideString& sError);
+  pdfium::Optional<CJS_Value> browseForDoc(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> clearInterval(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> clearTimeOut(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> execDialog(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
+  pdfium::Optional<CJS_Value> execMenuItem(CJS_Runtime* pRuntime,
+                                           const std::vector<CJS_Value>& params,
+                                           WideString& sError);
+  pdfium::Optional<CJS_Value> findComponent(
+      CJS_Runtime* pRuntime,
+      const std::vector<CJS_Value>& params,
+      WideString& sError);
+  pdfium::Optional<CJS_Value> goBack(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> goForward(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> launchURL(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> mailMsg(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> newFDF(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> newDoc(CJS_Runtime* pRuntime,
+                                     const std::vector<CJS_Value>& params,
+                                     WideString& sError);
+  pdfium::Optional<CJS_Value> openDoc(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> openFDF(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> popUpMenuEx(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> popUpMenu(CJS_Runtime* pRuntime,
+                                        const std::vector<CJS_Value>& params,
+                                        WideString& sError);
+  pdfium::Optional<CJS_Value> response(CJS_Runtime* pRuntime,
+                                       const std::vector<CJS_Value>& params,
+                                       WideString& sError);
+  pdfium::Optional<CJS_Value> setInterval(CJS_Runtime* pRuntime,
+                                          const std::vector<CJS_Value>& params,
+                                          WideString& sError);
+  pdfium::Optional<CJS_Value> setTimeOut(CJS_Runtime* pRuntime,
+                                         const std::vector<CJS_Value>& params,
+                                         WideString& sError);
 
   void TimerProc(GlobalTimer* pTimer);
   void CancelProc(GlobalTimer* pTimer);

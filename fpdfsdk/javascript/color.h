@@ -76,14 +76,12 @@ class color : public CJS_EmbedObj {
                   const CJS_Value& vp,
                   WideString* sError);
 
-  bool convert(CJS_Runtime* pRuntime,
-               const std::vector<CJS_Value>& params,
-               CJS_Value& vRet,
-               WideString& sError);
-  bool equal(CJS_Runtime* pRuntime,
-             const std::vector<CJS_Value>& params,
-             CJS_Value& vRet,
-             WideString& sError);
+  pdfium::Optional<CJS_Value> convert(CJS_Runtime* pRuntime,
+                                      const std::vector<CJS_Value>& params,
+                                      WideString& sError);
+  pdfium::Optional<CJS_Value> equal(CJS_Runtime* pRuntime,
+                                    const std::vector<CJS_Value>& params,
+                                    WideString& sError);
 
  private:
   bool GetPropertyHelper(CJS_Runtime* pRuntime, CJS_Value* vp, CFX_Color* val);
