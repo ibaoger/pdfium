@@ -16,6 +16,24 @@
       "revId": "7916e48fa640721cb2494e9eeb962663cb3bf4cd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c11e346_33d11ce1",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 6910
+      },
+      "writtenOn": "2017-10-23T18:43:10Z",
+      "side": 1,
+      "message": "Yes, yes they could.",
+      "parentUuid": "16051b47_a4ff6aa6",
+      "revId": "7916e48fa640721cb2494e9eeb962663cb3bf4cd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
