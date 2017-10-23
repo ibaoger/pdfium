@@ -70,6 +70,30 @@
       "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8047bd_5ae743ae",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-23T18:18:34Z",
+      "side": 1,
+      "message": "Doh. You\u0027re right. This could go away ......",
+      "parentUuid": "d1361999_0807ec33",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
