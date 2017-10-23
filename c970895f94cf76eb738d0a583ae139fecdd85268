@@ -22,6 +22,30 @@
       "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d229df_69547984",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-23T18:03:24Z",
+      "side": 1,
+      "message": "It hides all of the v8 conversion code. For each of the To* methods we have something like:\n\n  CFXJSE_ScopeUtil_IsolateHandleRootContext scope(m_pIsolate);\n  v8::Local\u003cv8::Value\u003e hValue \u003d v8::Local\u003cv8::Value\u003e::New(m_pIsolate, m_hValue);\n  return static_cast\u003cfloat\u003e(hValue-\u003eNumberValue());\n\nSimilar for the Set* and Is* methods. So, this wrapper class makes it a lot nicer to work with.",
+      "parentUuid": "97f48f79_2933da6e",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
