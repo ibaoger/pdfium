@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "400bd38b_04048afd",
+        "filename": "fpdfsdk/javascript/app.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-23T19:21:38Z",
+      "side": 1,
+      "message": "v8::Values already encompass a notion of Optional, If we switch to them we\u0027ll have to redo all this ?",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 29
+      },
+      "revId": "b4e953fc0eb9bc70a6aaca4803065923a09ed548",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
