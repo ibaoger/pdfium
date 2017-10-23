@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97f48f79_2933da6e",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-23T17:58:52Z",
+      "side": 1,
+      "message": "Follow-up:  That the class contains only a v8::Value hints that there is no reason for it to exist ... but a boatload of work ...",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "c970895f94cf76eb738d0a583ae139fecdd85268",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
