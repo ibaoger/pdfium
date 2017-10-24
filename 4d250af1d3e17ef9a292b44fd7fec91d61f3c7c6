@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab1342ea_aa006684",
+        "filename": "fpdfsdk/javascript/JS_Value.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-24T19:08:54Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 431,
+        "startChar": 8,
+        "endLine": 431,
+        "endChar": 43
+      },
+      "revId": "4d250af1d3e17ef9a292b44fd7fec91d61f3c7c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98db255e_242e56e2",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-24T19:08:54Z",
+      "side": 1,
+      "message": "we called -\u003eIsObject() at 417, so this is always true?",
+      "range": {
+        "startLine": 418,
+        "startChar": 7,
+        "endLine": 418,
+        "endChar": 43
+      },
+      "revId": "4d250af1d3e17ef9a292b44fd7fec91d61f3c7c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
