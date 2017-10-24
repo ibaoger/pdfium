@@ -22,6 +22,30 @@
       "revId": "a6b320945780ac0707f6a7ff1ac3970c517f3f8c",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad98f8e3_2e6ebfe8",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-24T19:28:07Z",
+      "side": 1,
+      "message": "Quick check, I just removed the IsObject check because if it\u0027s IsArray then it has to be IsObject.",
+      "parentUuid": "90a82598_9622c3f6",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 3
+      },
+      "revId": "a6b320945780ac0707f6a7ff1ac3970c517f3f8c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
