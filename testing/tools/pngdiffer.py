@@ -64,7 +64,7 @@ class PNGDiffer():
       i += 1
     return False
 
-  def Regenerate(self, input_filename, source_dir, working_dir):
+  def Regenerate(self, input_filename, source_dir, working_dir, platform_only):
     paths = TemplatePaths(input_filename, source_dir, working_dir)
 
     page = 0
@@ -78,13 +78,16 @@ class PNGDiffer():
       platform_expected_path = paths.GetPlatformExpectedPath(self.os_name, page)
 
       # If there is a platform expected png, we will overwrite it. Otherwise,
-      # overwrite the generic png.
+      # overwrite the generic png in "all" mode, or do nothing in "platform"
+      # mode.
       if os.path.exists(platform_expected_path):
         expected_path = platform_expected_path
-      else:
+      elif not platform_only:
         expected_path = paths.GetExpectedPath(page)
+      else:
+        expected_path = None
 
-      if os.path.exists(expected_path):
+      if expected_path is not None and os.path.exists(expected_path):
         shutil.copyfile(actual_path, expected_path)
 
       page += 1
