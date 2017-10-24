@@ -415,7 +415,8 @@ bool app::alert(CJS_Runtime* pRuntime,
 
   WideString swMsg;
   if (newParams[0].ToV8Value()->IsObject()) {
-    if (newParams[0].IsArrayObject()) {
+    if (!newParams[0].ToV8Value().IsEmpty() &&
+        newParams[0].ToV8Value()->IsArray()) {
       CJS_Array carray(pRuntime->ToArray(newParams[0].ToV8Value()));
       swMsg = L"[";
       for (int i = 0; i < carray.GetLength(pRuntime); ++i) {
