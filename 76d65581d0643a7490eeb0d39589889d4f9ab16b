@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "483edbaf_1e6c80ee",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-24T19:05:49Z",
+      "side": 1,
+      "message": "nit: well, in some sense v8 knows what it is, but we just don\u0027t know what to do with it.  Maybe invert the sense of the return value and call it IsCompatibleType() ?  IsExpectedType() ? since there seems to be a ! in front of most usages.  Or just IsTypeKnown() ? IsTypeRecognized() ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "76d65581d0643a7490eeb0d39589889d4f9ab16b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
