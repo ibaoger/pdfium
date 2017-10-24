@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e2d204e_4f669f17",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-24T17:16:52Z",
+      "side": 1,
+      "message": "Removed in next CL.",
+      "parentUuid": "3f62bf89_1e0f6506",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 10
+      },
+      "revId": "a6957426982894bf45e1cd69dbe4eb9b05c6dc4c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef00ecb4_9086d9ed",
         "filename": "fpdfsdk/javascript/JS_Value.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-24T16:26:07Z",
       "side": 1,
       "message": "nit: same here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 10
+      },
+      "revId": "a6957426982894bf45e1cd69dbe4eb9b05c6dc4c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed652c2_53f2e108",
+        "filename": "fpdfsdk/javascript/JS_Value.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-24T17:16:52Z",
+      "side": 1,
+      "message": "Removed in next-next CL.",
+      "parentUuid": "ef00ecb4_9086d9ed",
       "range": {
         "startLine": 61,
         "startChar": 2,
