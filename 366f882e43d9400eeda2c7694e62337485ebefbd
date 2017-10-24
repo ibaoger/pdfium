@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2a0fba3_01881463",
+        "filename": "fpdfsdk/javascript/Annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-24T21:29:56Z",
+      "side": 1,
+      "message": "I think the v8 convention is to pass these by value as they are cheap.\nhttps://cs.chromium.org/chromium/src/v8/include/v8.h?rcl\u003d4d2286971f6cf9df7633e26ae48b34a9ef8207fd\u0026l\u003d178",
+      "range": {
+        "startLine": 20,
+        "startChar": 17,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "366f882e43d9400eeda2c7694e62337485ebefbd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
