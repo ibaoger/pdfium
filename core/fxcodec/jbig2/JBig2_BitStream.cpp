@@ -132,12 +132,24 @@ void CJBig2_BitStream::incByteIdx() {
     ++m_dwByteIdx;
 }
 
-uint8_t CJBig2_BitStream::getCurByte_arith() const {
-  return IsInBounds() ? m_pBuf[m_dwByteIdx] : 0xFF;
+bool CJBig2_BitStream::getCurByte_arith(uint8_t* byte) const {
+  if (!IsInBounds()) {
+    *byte = 0xFF;
+    return false;
+  }
+
+  *byte = m_pBuf[m_dwByteIdx];
+  return true;
 }
 
-uint8_t CJBig2_BitStream::getNextByte_arith() const {
-  return m_dwByteIdx + 1 < m_dwLength ? m_pBuf[m_dwByteIdx + 1] : 0xFF;
+bool CJBig2_BitStream::getNextByte_arith(uint8_t* byte) const {
+  if (m_dwByteIdx + 1 >= m_dwLength) {
+    *byte = 0xFF;
+    return false;
+  }
+
+  *byte = m_pBuf[m_dwByteIdx + 1];
+  return true;
 }
 
 uint32_t CJBig2_BitStream::getOffset() const {

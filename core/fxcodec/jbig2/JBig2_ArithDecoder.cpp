@@ -56,8 +56,8 @@ int DecodeNLPS(JBig2ArithCtx* pCX, const JBig2ArithQe& qe) {
 }  // namespace
 
 CJBig2_ArithDecoder::CJBig2_ArithDecoder(CJBig2_BitStream* pStream)
-    : m_Complete(false), m_pStream(pStream) {
-  m_B = m_pStream->getCurByte_arith();
+    : m_Complete(false), m_DecodeError(false), m_pStream(pStream) {
+  m_pStream->getCurByte_arith(&m_B);
   m_C = (m_B ^ 0xff) << 16;
   BYTEIN();
   m_C = m_C << 7;
@@ -68,8 +68,10 @@ CJBig2_ArithDecoder::CJBig2_ArithDecoder(CJBig2_BitStream* pStream)
 CJBig2_ArithDecoder::~CJBig2_ArithDecoder() {}
 
 int CJBig2_ArithDecoder::DECODE(JBig2ArithCtx* pCX) {
-  if (!pCX || pCX->I >= FX_ArraySize(kQeTable))
+  if (!pCX || pCX->I >= FX_ArraySize(kQeTable)) {
+    m_DecodeError = true;
     return 0;
+  }
 
   const JBig2ArithQe& qe = kQeTable[pCX->I];
   m_A -= qe.Qe;
@@ -92,7 +94,9 @@ int CJBig2_ArithDecoder::DECODE(JBig2ArithCtx* pCX) {
 void CJBig2_ArithDecoder::BYTEIN() {
   unsigned char B1;
   if (m_B == 0xff) {
-    B1 = m_pStream->getNextByte_arith();
+    if (!m_pStream->getNextByte_arith(&B1))
+      m_DecodeError = true;
+
     if (B1 > 0x8f) {
       m_CT = 8;
     } else {
@@ -103,7 +107,9 @@ void CJBig2_ArithDecoder::BYTEIN() {
     }
   } else {
     m_pStream->incByteIdx();
-    m_B = m_pStream->getCurByte_arith();
+    if (!m_pStream->getCurByte_arith(&m_B))
+      m_DecodeError = true;
+
     m_C = m_C + 0xff00 - (m_B << 8);
     m_CT = 8;
   }

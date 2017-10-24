@@ -27,8 +27,8 @@ class CJBig2_BitStream {
   void alignByte();
   uint8_t getCurByte() const;
   void incByteIdx();
-  uint8_t getCurByte_arith() const;
-  uint8_t getNextByte_arith() const;
+  bool getCurByte_arith(uint8_t* byte) const;
+  bool getNextByte_arith(uint8_t* byte) const;
   uint32_t getOffset() const;
   void setOffset(uint32_t dwOffset);
   uint32_t getBitPos() const;
