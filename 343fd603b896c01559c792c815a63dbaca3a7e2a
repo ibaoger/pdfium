@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2af5c087_f995a1e9",
+        "filename": "testing/tools/pngdiffer.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-10-25T21:14:24Z",
+      "side": 1,
+      "message": "Why do you like the name |paths| better considering theres multiple paths variables?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "343fd603b896c01559c792c815a63dbaca3a7e2a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
