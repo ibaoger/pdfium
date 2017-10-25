@@ -22,6 +22,30 @@
       "revId": "51f14a9c9d9486cdc2e86a446ac16e5a61464e94",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "708d29f9_422a60c0",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-25T18:17:00Z",
+      "side": 0,
+      "message": "I really want to get rid of the out params. This bundles things up nicely and removes the possibility of doing things like setting an error and returning true or setting a value and returning false.",
+      "parentUuid": "9e5d18a1_5748d9fa",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 46
+      },
+      "revId": "51f14a9c9d9486cdc2e86a446ac16e5a61464e94",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }

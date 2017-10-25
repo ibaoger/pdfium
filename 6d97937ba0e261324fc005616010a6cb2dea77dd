@@ -22,6 +22,30 @@
       "revId": "6d97937ba0e261324fc005616010a6cb2dea77dd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fd1831a_47907570",
+        "filename": "fpdfsdk/javascript/global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-25T18:17:00Z",
+      "side": 1,
+      "message": "It was checked in the original code, they just cared about the return value which is what I\u0027m checking here as well.",
+      "parentUuid": "5354ddc2_781620ca",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 56
+      },
+      "revId": "6d97937ba0e261324fc005616010a6cb2dea77dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
