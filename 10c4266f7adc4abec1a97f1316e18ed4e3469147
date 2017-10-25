@@ -2,6 +2,305 @@
   "comments": [
     {
       "key": {
+        "uuid": "b090aebe_a6c12a9f",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "Just for grins, let\u0027s compute length every time through loop.  Now that the v8 objects are here, its easy to see we re-enter JS at 521 and maybe muck with the array.",
+      "range": {
+        "startLine": 519,
+        "startChar": 18,
+        "endLine": 519,
+        "endChar": 55
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5c4ebaf_a860d31d",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 592,
+        "startChar": 22,
+        "endLine": 592,
+        "endChar": 36
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4542bde_e9ef060d",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "just i \u003c count ?  We own the array here and there isn\u0027t a ref to it from js yet, so we should be add elements without fear.",
+      "range": {
+        "startLine": 796,
+        "startChar": 18,
+        "endLine": 796,
+        "endChar": 33
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e917cf0_3b4c7be3",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "nit: compute each time through.",
+      "range": {
+        "startLine": 816,
+        "startChar": 20,
+        "endLine": 816,
+        "endChar": 33
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e50ebea_e743cfac",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "seems silly.  maybe just make it at line 1064 always?",
+      "range": {
+        "startLine": 1068,
+        "startChar": 5,
+        "endLine": 1069,
+        "endChar": 49
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a4c5d50_f394ebae",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "see comment at 1069",
+      "range": {
+        "startLine": 1084,
+        "startChar": 8,
+        "endLine": 1084,
+        "endChar": 36
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def725d9_619fc6fd",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "same here.  v8 will gc it eventually if early return.",
+      "range": {
+        "startLine": 1440,
+        "startChar": 3,
+        "endLine": 1442,
+        "endChar": 0
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af3be92e_b57f76f1",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "can\u0027t be empty?  we made it at 1602?",
+      "range": {
+        "startLine": 1612,
+        "startChar": 2,
+        "endLine": 1612,
+        "endChar": 24
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c88de32_f9f8f595",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2063,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "nit: again, just make it at 2051",
+      "range": {
+        "startLine": 2062,
+        "startChar": 10,
+        "endLine": 2063,
+        "endChar": 46
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f86a3130_2a9091fa",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 2109,
+        "startChar": 21,
+        "endLine": 2109,
+        "endChar": 40
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1427d0_89bc5f7b",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2423,
+        "startChar": 3,
+        "endLine": 2425,
+        "endChar": 0
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a27d18ef_3ffae737",
+        "filename": "fpdfsdk/javascript/PublicMethods.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 280,
+        "startChar": 2,
+        "endLine": 282,
+        "endChar": 0
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "833a3169_ec460988",
+        "filename": "fpdfsdk/javascript/PublicMethods.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "\"",
+      "range": {
+        "startLine": 1755,
+        "startChar": 2,
+        "endLine": 1756,
+        "endChar": 36
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dad1d754_9a2070be",
         "filename": "fpdfsdk/javascript/app.cpp",
         "patchSetId": 2
@@ -46,6 +345,30 @@
       "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18f2f825_d9d353ed",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T20:41:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0973a6b7_97ec2cfa",
+      "range": {
+        "startLine": 232,
+        "startChar": 1,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
