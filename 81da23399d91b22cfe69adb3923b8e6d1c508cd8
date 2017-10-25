@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85d23941_870aab65",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 5760
+      },
+      "writtenOn": "2017-10-25T00:22:44Z",
+      "side": 1,
+      "message": "Since we\u0027ve done this a couple times now, let\u0027s add a boolean as a master switch, so we don\u0027t have to change the rest of the logic the next time we want to flip the switch.",
+      "revId": "81da23399d91b22cfe69adb3923b8e6d1c508cd8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
