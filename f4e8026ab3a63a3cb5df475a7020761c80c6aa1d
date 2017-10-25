@@ -16,6 +16,24 @@
       "revId": "f4e8026ab3a63a3cb5df475a7020761c80c6aa1d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a23882_230a671b",
+        "filename": "fpdfsdk/fpdfview.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 6675
+      },
+      "writtenOn": "2017-10-25T19:00:56Z",
+      "side": 1,
+      "message": "I think this would lead to bitmapping every page when the flag is false, which isn\u0027t what we want - simplified it a bit, let me know what you think.",
+      "parentUuid": "47bc5e47_bb5ee7c7",
+      "revId": "f4e8026ab3a63a3cb5df475a7020761c80c6aa1d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
