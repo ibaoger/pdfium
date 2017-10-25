@@ -95,6 +95,12 @@ void CJBig2_ArithDecoder::BYTEIN() {
     B1 = m_pStream->getNextByte_arith();
     if (B1 > 0x8f) {
       m_CT = 8;
+      // If we are here, it means that we have finished decoding data (see JBIG
+      // spec, Section E.3.4). If we arrive here a second time, we're looping,
+      // so complete decoding.
+      if (m_FinishedStream)
+        m_Complete = true;
+      m_FinishedStream = true;
     } else {
       m_pStream->incByteIdx();
       m_B = B1;
