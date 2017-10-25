@@ -44,14 +44,16 @@ bool Annot::get_hidden(CJS_Runtime* pRuntime,
   }
 
   CPDF_Annot* pPDFAnnot = ToBAAnnot(m_pAnnot.Get())->GetPDFAnnot();
-  vp->Set(pRuntime, CPDF_Annot::IsAnnotationHidden(pPDFAnnot->GetAnnotDict()));
+  vp->Set(pRuntime->NewBoolean(
+      CPDF_Annot::IsAnnotationHidden(pPDFAnnot->GetAnnotDict())));
   return true;
 }
 
 bool Annot::set_hidden(CJS_Runtime* pRuntime,
-                       const CJS_Value& vp,
+                       v8::Local<v8::Value> vp,
                        WideString* sError) {
-  bool bHidden = vp.ToBool(pRuntime);  // May invalidate m_pAnnot.
+  // May invalidate m_pAnnot.
+  bool bHidden = pRuntime->ToBoolean(vp);
   if (!m_pAnnot) {
     *sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
     return false;
@@ -80,14 +82,16 @@ bool Annot::get_name(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
     return false;
   }
 
-  vp->Set(pRuntime, ToBAAnnot(m_pAnnot.Get())->GetAnnotName());
+  vp->Set(
+      pRuntime->NewString(ToBAAnnot(m_pAnnot.Get())->GetAnnotName().c_str()));
   return true;
 }
 
 bool Annot::set_name(CJS_Runtime* pRuntime,
-                     const CJS_Value& vp,
+                     v8::Local<v8::Value> vp,
                      WideString* sError) {
-  WideString annotName = vp.ToWideString(pRuntime);  // May invalidate m_pAnnot.
+  // May invalidate m_pAnnot.
+  WideString annotName = pRuntime->ToWideString(vp);
   if (!m_pAnnot) {
     *sError = JSGetStringFromID(IDS_STRING_JSBADOBJECT);
     return false;
@@ -103,13 +107,16 @@ bool Annot::get_type(CJS_Runtime* pRuntime, CJS_Value* vp, WideString* sError) {
     return false;
   }
 
-  vp->Set(pRuntime, CPDF_Annot::AnnotSubtypeToString(
-                        ToBAAnnot(m_pAnnot.Get())->GetAnnotSubtype()));
+  vp->Set(pRuntime->NewString(
+      WideString::FromLocal(CPDF_Annot::AnnotSubtypeToString(
+                                ToBAAnnot(m_pAnnot.Get())->GetAnnotSubtype())
+                                .c_str())
+          .c_str()));
   return true;
 }
 
 bool Annot::set_type(CJS_Runtime* pRuntime,
-                     const CJS_Value& vp,
+                     v8::Local<v8::Value> vp,
                      WideString* sError) {
   *sError = JSGetStringFromID(IDS_STRING_JSREADONLY);
   return false;
