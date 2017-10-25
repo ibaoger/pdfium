@@ -866,10 +866,10 @@ FPDF_EXPORT void FPDF_CALLCONV FPDF_RenderPage(HDC dc,
   // of masks. Full page bitmaps result in large spool sizes, so they should
   // only be used when necessary. For large numbers of masks, rendering each
   // individually is inefficient and unlikely to significantly improve spool
-  // size.
+  // size. TODO (rbpotter): Figure out why this breaks certain printing of
+  // certain PDFs. See crbug.com/777837
   const bool bNewBitmap =
-      pPage->BackgroundAlphaNeeded() ||
-      (pPage->HasImageMask() && pPage->GetMaskBoundingBoxes().size() > 100);
+      pPage->BackgroundAlphaNeeded() || pPage->HasImageMask();
   const bool bHasMask = pPage->HasImageMask() && !bNewBitmap;
   if (bNewBitmap || bHasMask) {
     pBitmap = pdfium::MakeRetain<CFX_DIBitmap>();
