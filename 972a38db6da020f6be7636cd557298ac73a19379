@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12a81ec1_6a34df5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-25T17:45:39Z",
+      "side": 1,
+      "message": "visitor",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "972a38db6da020f6be7636cd557298ac73a19379",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ce0fef_2f446dfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-25T17:45:39Z",
+      "side": 1,
+      "message": "reworking",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "972a38db6da020f6be7636cd557298ac73a19379",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "750df428_1d9e286d",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmsimpleexpression.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-25T17:45:39Z",
+      "side": 1,
+      "message": "Suggestion: create a FMToJavaScriptDepth class that\u0027s essentially this AutoRestorer, but on which you make the IncrementAndCheck below. These lines would be then:\n\nFMToJavaScriptDepth depthManager;\nif (depthManager.IsBeyondMaxDepth())\n  return false;",
+      "range": {
+        "startLine": 529,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 73
+      },
+      "revId": "972a38db6da020f6be7636cd557298ac73a19379",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2afc58b5_505b3aa6",
+        "filename": "xfa/fxfa/fm2js/cxfa_fmtojavascriptdepth.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-25T17:45:39Z",
+      "side": 1,
+      "message": "How did you determine this value? Add a comment.",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "972a38db6da020f6be7636cd557298ac73a19379",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
