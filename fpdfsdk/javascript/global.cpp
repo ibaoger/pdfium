@@ -104,12 +104,12 @@ void JSSpecialPropGet(const char* class_name,
   WideString propname =
       WideString::FromUTF8(ByteStringView(*utf8_value, utf8_value.length()));
 
-  CJS_Value value(pRuntime);
+  CJS_Value value;
   if (!pObj->GetProperty(pRuntime, propname.c_str(), &value)) {
     pRuntime->Error(JSFormatErrorString(class_name, "GetProperty", L""));
     return;
   }
-  info.GetReturnValue().Set(value.ToV8Value(pRuntime));
+  info.GetReturnValue().Set(value.ToV8Value());
 }
 
 template <class Alt>
@@ -131,8 +131,7 @@ void JSSpecialPropPut(const char* class_name,
   v8::String::Utf8Value utf8_value(property);
   WideString propname =
       WideString::FromUTF8(ByteStringView(*utf8_value, utf8_value.length()));
-  CJS_Value prop_value(pRuntime, value);
-  if (!pObj->SetProperty(pRuntime, propname.c_str(), prop_value)) {
+  if (!pObj->SetProperty(pRuntime, propname.c_str(), value)) {
     pRuntime->Error(JSFormatErrorString(class_name, "PutProperty", L""));
   }
 }
@@ -181,7 +180,7 @@ class JSGlobalAlternate : public CJS_EmbedObj {
   ~JSGlobalAlternate() override;
 
   bool setPersistent(CJS_Runtime* pRuntime,
-                     const std::vector<CJS_Value>& params,
+                     const std::vector<v8::Local<v8::Value>>& params,
                      CJS_Value& vRet,
                      WideString& sError);
   bool QueryProperty(const wchar_t* propname);
@@ -190,7 +189,7 @@ class JSGlobalAlternate : public CJS_EmbedObj {
                    CJS_Value* vp);
   bool SetProperty(CJS_Runtime* pRuntime,
                    const wchar_t* propname,
-                   const CJS_Value& vp);
+                   v8::Local<v8::Value> vp);
   bool DelProperty(CJS_Runtime* pRuntime, const wchar_t* propname);
   void Initial(CPDFSDK_FormFillEnvironment* pFormFillEnv);
 
@@ -287,33 +286,33 @@ bool JSGlobalAlternate::GetProperty(CJS_Runtime* pRuntime,
                                     CJS_Value* vp) {
   auto it = m_MapGlobal.find(ByteString::FromUnicode(propname));
   if (it == m_MapGlobal.end()) {
-    vp->SetNull(pRuntime);
+    vp->Set(pRuntime->NewNull());
     return true;
   }
 
   JSGlobalData* pData = it->second.get();
   if (pData->bDeleted) {
-    vp->SetNull(pRuntime);
+    vp->Set(pRuntime->NewNull());
     return true;
   }
 
   switch (pData->nType) {
     case JS_GlobalDataType::NUMBER:
-      vp->Set(pRuntime, pData->dData);
+      vp->Set(pRuntime->NewNumber(pData->dData));
       return true;
     case JS_GlobalDataType::BOOLEAN:
-      vp->Set(pRuntime, pData->bData);
+      vp->Set(pRuntime->NewBoolean(pData->bData));
       return true;
     case JS_GlobalDataType::STRING:
-      vp->Set(pRuntime, pData->sData);
+      vp->Set(pRuntime->NewString(
+          WideString::FromLocal(pData->sData.c_str()).c_str()));
       return true;
     case JS_GlobalDataType::OBJECT: {
-      vp->Set(pRuntime,
-              v8::Local<v8::Object>::New(pRuntime->GetIsolate(), pData->pData));
+      vp->Set(v8::Local<v8::Object>::New(pRuntime->GetIsolate(), pData->pData));
       return true;
     }
     case JS_GlobalDataType::NULLOBJ:
-      vp->SetNull(pRuntime);
+      vp->Set(pRuntime->NewNull());
       return true;
     default:
       break;
@@ -323,50 +322,55 @@ bool JSGlobalAlternate::GetProperty(CJS_Runtime* pRuntime,
 
 bool JSGlobalAlternate::SetProperty(CJS_Runtime* pRuntime,
                                     const wchar_t* propname,
-                                    const CJS_Value& vp) {
+                                    v8::Local<v8::Value> vp) {
   ByteString sPropName = ByteString::FromUnicode(propname);
-  switch (vp.GetType()) {
-    case CJS_Value::VT_number:
-      return SetGlobalVariables(sPropName, JS_GlobalDataType::NUMBER,
-                                vp.ToDouble(pRuntime), false, "",
-                                v8::Local<v8::Object>(), false);
-    case CJS_Value::VT_boolean:
-      return SetGlobalVariables(sPropName, JS_GlobalDataType::BOOLEAN, 0,
-                                vp.ToBool(pRuntime), "",
-                                v8::Local<v8::Object>(), false);
-    case CJS_Value::VT_string:
-      return SetGlobalVariables(sPropName, JS_GlobalDataType::STRING, 0, false,
-                                vp.ToByteString(pRuntime),
-                                v8::Local<v8::Object>(), false);
-    case CJS_Value::VT_object:
-      return SetGlobalVariables(sPropName, JS_GlobalDataType::OBJECT, 0, false,
-                                "", vp.ToV8Object(pRuntime), false);
-    case CJS_Value::VT_null:
-      return SetGlobalVariables(sPropName, JS_GlobalDataType::NULLOBJ, 0, false,
-                                "", v8::Local<v8::Object>(), false);
-    case CJS_Value::VT_undefined:
-      DelProperty(pRuntime, propname);
-      return true;
-    default:
-      break;
+  if (vp->IsNumber()) {
+    return SetGlobalVariables(sPropName, JS_GlobalDataType::NUMBER,
+                              pRuntime->ToDouble(vp), false, "",
+                              v8::Local<v8::Object>(), false);
+  }
+  if (vp->IsBoolean()) {
+    return SetGlobalVariables(sPropName, JS_GlobalDataType::BOOLEAN, 0,
+                              pRuntime->ToBoolean(vp), "",
+                              v8::Local<v8::Object>(), false);
+  }
+  if (vp->IsString()) {
+    return SetGlobalVariables(
+        sPropName, JS_GlobalDataType::STRING, 0, false,
+        ByteString::FromUnicode(pRuntime->ToWideString(vp)),
+        v8::Local<v8::Object>(), false);
+  }
+  if (vp->IsObject()) {
+    return SetGlobalVariables(sPropName, JS_GlobalDataType::OBJECT, 0, false,
+                              "", pRuntime->ToObject(vp), false);
+  }
+  if (vp->IsNull()) {
+    return SetGlobalVariables(sPropName, JS_GlobalDataType::NULLOBJ, 0, false,
+                              "", v8::Local<v8::Object>(), false);
+  }
+  if (vp->IsUndefined()) {
+    DelProperty(pRuntime, propname);
+    return true;
   }
   return false;
 }
 
-bool JSGlobalAlternate::setPersistent(CJS_Runtime* pRuntime,
-                                      const std::vector<CJS_Value>& params,
-                                      CJS_Value& vRet,
-                                      WideString& sError) {
+bool JSGlobalAlternate::setPersistent(
+    CJS_Runtime* pRuntime,
+    const std::vector<v8::Local<v8::Value>>& params,
+    CJS_Value& vRet,
+    WideString& sError) {
   if (params.size() != 2) {
     sError = JSGetStringFromID(IDS_STRING_JSPARAMERROR);
     return false;
   }
-  auto it = m_MapGlobal.find(params[0].ToByteString(pRuntime));
+  auto it = m_MapGlobal.find(
+      ByteString::FromUnicode(pRuntime->ToWideString(params[0])));
   if (it == m_MapGlobal.end() || it->second->bDeleted) {
     sError = JSGetStringFromID(IDS_STRING_JSNOGLOBAL);
     return false;
   }
-  it->second->bPersistent = params[1].ToBool(pRuntime);
+  it->second->bPersistent = pRuntime->ToBoolean(params[1]);
   return true;
 }
 
@@ -469,44 +473,44 @@ void JSGlobalAlternate::ObjectToArray(CJS_Runtime* pRuntime,
   for (const auto& ws : pKeyList) {
     ByteString sKey = ws.UTF8Encode();
     v8::Local<v8::Value> v = pRuntime->GetObjectProperty(pObj, ws);
-    switch (CJS_Value::GetValueType(v)) {
-      case CJS_Value::VT_number: {
-        CJS_KeyValue* pObjElement = new CJS_KeyValue;
-        pObjElement->nType = JS_GlobalDataType::NUMBER;
-        pObjElement->sKey = sKey;
-        pObjElement->dData = pRuntime->ToDouble(v);
-        array.Add(pObjElement);
-      } break;
-      case CJS_Value::VT_boolean: {
-        CJS_KeyValue* pObjElement = new CJS_KeyValue;
-        pObjElement->nType = JS_GlobalDataType::BOOLEAN;
-        pObjElement->sKey = sKey;
-        pObjElement->dData = pRuntime->ToBoolean(v);
-        array.Add(pObjElement);
-      } break;
-      case CJS_Value::VT_string: {
-        ByteString sValue = CJS_Value(pRuntime, v).ToByteString(pRuntime);
-        CJS_KeyValue* pObjElement = new CJS_KeyValue;
-        pObjElement->nType = JS_GlobalDataType::STRING;
-        pObjElement->sKey = sKey;
-        pObjElement->sData = sValue;
-        array.Add(pObjElement);
-      } break;
-      case CJS_Value::VT_object: {
-        CJS_KeyValue* pObjElement = new CJS_KeyValue;
-        pObjElement->nType = JS_GlobalDataType::OBJECT;
-        pObjElement->sKey = sKey;
-        ObjectToArray(pRuntime, pRuntime->ToObject(v), pObjElement->objData);
-        array.Add(pObjElement);
-      } break;
-      case CJS_Value::VT_null: {
-        CJS_KeyValue* pObjElement = new CJS_KeyValue;
-        pObjElement->nType = JS_GlobalDataType::NULLOBJ;
-        pObjElement->sKey = sKey;
-        array.Add(pObjElement);
-      } break;
-      default:
-        break;
+    if (v->IsNumber()) {
+      CJS_KeyValue* pObjElement = new CJS_KeyValue;
+      pObjElement->nType = JS_GlobalDataType::NUMBER;
+      pObjElement->sKey = sKey;
+      pObjElement->dData = pRuntime->ToDouble(v);
+      array.Add(pObjElement);
+      continue;
+    }
+    if (v->IsBoolean()) {
+      CJS_KeyValue* pObjElement = new CJS_KeyValue;
+      pObjElement->nType = JS_GlobalDataType::BOOLEAN;
+      pObjElement->sKey = sKey;
+      pObjElement->dData = pRuntime->ToBoolean(v);
+      array.Add(pObjElement);
+      continue;
+    }
+    if (v->IsString()) {
+      ByteString sValue = ByteString::FromUnicode(pRuntime->ToWideString(v));
+      CJS_KeyValue* pObjElement = new CJS_KeyValue;
+      pObjElement->nType = JS_GlobalDataType::STRING;
+      pObjElement->sKey = sKey;
+      pObjElement->sData = sValue;
+      array.Add(pObjElement);
+      continue;
+    }
+    if (v->IsObject()) {
+      CJS_KeyValue* pObjElement = new CJS_KeyValue;
+      pObjElement->nType = JS_GlobalDataType::OBJECT;
+      pObjElement->sKey = sKey;
+      ObjectToArray(pRuntime, pRuntime->ToObject(v), pObjElement->objData);
+      array.Add(pObjElement);
+      continue;
+    }
+    if (v->IsNull()) {
+      CJS_KeyValue* pObjElement = new CJS_KeyValue;
+      pObjElement->nType = JS_GlobalDataType::NULLOBJ;
+      pObjElement->sKey = sKey;
+      array.Add(pObjElement);
     }
   }
 }

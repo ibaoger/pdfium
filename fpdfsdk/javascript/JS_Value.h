@@ -19,70 +19,15 @@ class CJS_Runtime;
 
 class CJS_Value {
  public:
-  enum Type {
-    VT_unknown,
-    VT_string,
-    VT_number,
-    VT_boolean,
-    VT_date,
-    VT_object,
-    VT_null,
-    VT_undefined
-  };
-
-  static Type GetValueType(v8::Local<v8::Value> value);
-
-  explicit CJS_Value(CJS_Runtime* pRuntime);
-  CJS_Value(CJS_Runtime* pRuntime, v8::Local<v8::Value> pValue);
-  CJS_Value(CJS_Runtime* pRuntime, int iValue);
-  CJS_Value(CJS_Runtime* pRuntime, double dValue);
-  CJS_Value(CJS_Runtime* pRuntime, bool bValue);
-  CJS_Value(CJS_Runtime* pRuntime, CJS_Object* pObj);
-  CJS_Value(CJS_Runtime* pRuntime, const char* pStr);
-  CJS_Value(CJS_Runtime* pRuntime, const wchar_t* pWstr);
-  CJS_Value(CJS_Runtime* pRuntime, const CJS_Array& array);
-  CJS_Value(CJS_Runtime* pRuntime, const CJS_Date& date);
-  CJS_Value(CJS_Runtime* pRuntime, const CJS_Object* object);
+  CJS_Value();
+  explicit CJS_Value(v8::Local<v8::Value> pValue);
   CJS_Value(const CJS_Value& other);
-
   ~CJS_Value();
 
   // These calls may re-enter JS (and hence invalidate objects).
-  void Set(CJS_Runtime* pRuntime, int val);
-  void Set(CJS_Runtime* pRuntime, bool val);
-  void Set(CJS_Runtime* pRuntime, double val);
-  void Set(CJS_Runtime* pRuntime, CJS_Object* pObj);
-  void Set(CJS_Runtime* pRuntime, CJS_Document* pJsDoc);
-  void Set(CJS_Runtime* pRuntime, const ByteString&);
-  void Set(CJS_Runtime* pRuntime, const WideString&);
-  void Set(CJS_Runtime* pRuntime, const wchar_t* c_string);
-  void Set(CJS_Runtime* pRuntime, const CJS_Array& array);
-  void Set(CJS_Runtime* pRuntime, const CJS_Date& date);
-  void Set(CJS_Runtime* pRuntime, v8::Local<v8::Value> pValue);
-  void SetNull(CJS_Runtime* pRuntime);
+  void Set(v8::Local<v8::Value> pValue);
 
-  Type GetType() const { return GetValueType(m_pValue); }
-
-  int ToInt(CJS_Runtime* pRuntime) const;
-  bool ToBool(CJS_Runtime* pRuntime) const;
-  double ToDouble(CJS_Runtime* pRuntime) const;
-  float ToFloat(CJS_Runtime* pRuntime) const;
-  CJS_Object* ToObject(CJS_Runtime* pRuntime) const;
-  CJS_Document* ToDocument(CJS_Runtime* pRuntime) const;
-  CJS_Array ToArray(CJS_Runtime* pRuntime) const;
-  CJS_Date ToDate(CJS_Runtime* pRuntime) const;
-  WideString ToWideString(CJS_Runtime* pRuntime) const;
-  ByteString ToByteString(CJS_Runtime* pRuntime) const;
-  v8::Local<v8::Object> ToV8Object(CJS_Runtime* pRuntime) const;
-  v8::Local<v8::Array> ToV8Array(CJS_Runtime* pRuntime) const;
-  v8::Local<v8::Value> ToV8Value(CJS_Runtime* pRuntime) const;
-
-  // Replace the current |m_pValue| with a v8::Number if possible
-  // to make one from the current |m_pValue|.
-  void MaybeCoerceToNumber(CJS_Runtime* pRuntime);
-
-  bool IsArrayObject() const;
-  bool IsDateObject() const;
+  v8::Local<v8::Value> ToV8Value() const;
 
  private:
   v8::Local<v8::Value> m_pValue;
@@ -98,12 +43,12 @@ class CJS_Array {
   int GetLength(CJS_Runtime* pRuntime) const;
 
   // These two calls may re-enter JS (and hence invalidate objects).
-  CJS_Value GetElement(CJS_Runtime* pRuntime, unsigned index) const;
+  v8::Local<v8::Value> GetElement(CJS_Runtime* pRuntime, unsigned index) const;
   void SetElement(CJS_Runtime* pRuntime,
                   unsigned index,
-                  const CJS_Value& value);
+                  v8::Local<v8::Value> value);
 
-  v8::Local<v8::Array> ToV8Array(CJS_Runtime* pRuntime) const;
+  v8::Local<v8::Value> ToV8Value() const { return m_pArray; }
 
  private:
   mutable v8::Local<v8::Array> m_pArray;
@@ -133,10 +78,9 @@ class CJS_Date {
   int GetMinutes(CJS_Runtime* pRuntime) const;
   int GetSeconds(CJS_Runtime* pRuntime) const;
 
-  v8::Local<v8::Date> ToV8Date(CJS_Runtime* pRuntime) const;
-  WideString ToWideString(int style) const;
+  v8::Local<v8::Value> ToV8Value() const { return m_pDate; }
 
- protected:
+ private:
   v8::Local<v8::Date> m_pDate;
 };
 
@@ -158,9 +102,9 @@ double JS_MakeDate(double day, double time);
 // names as wchar_t string literals corresponding to each positional argument.
 // The result will always contain |nKeywords| value, with unspecified ones
 // being set to type VT_unknown.
-std::vector<CJS_Value> ExpandKeywordParams(
+std::vector<v8::Local<v8::Value>> ExpandKeywordParams(
     CJS_Runtime* pRuntime,
-    const std::vector<CJS_Value>& originals,
+    const std::vector<v8::Local<v8::Value>>& originals,
     size_t nKeywords,
     ...);
 
