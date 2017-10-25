@@ -22,6 +22,30 @@
       "revId": "366f882e43d9400eeda2c7694e62337485ebefbd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8afe6a2e_5dce56c8",
+        "filename": "fpdfsdk/javascript/Annot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-25T01:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2a0fba3_01881463",
+      "range": {
+        "startLine": 20,
+        "startChar": 17,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "366f882e43d9400eeda2c7694e62337485ebefbd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
