@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "c642dbdc_f5f82b07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed010930_aa88aeb0",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20857e82_a5b7f9d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88e58dac_c4380759",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 67
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2684bcf9_68ac204a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "da29c75e_768269f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2684bcf9_68ac204a",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 2
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90bafddd_e6bd04e2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb58199d_b1c21576",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90bafddd_e6bd04e2",
+      "range": {
+        "startLine": 20,
+        "startChar": 62,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -137,6 +233,54 @@
       "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9ad782_71fe9af9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "I will keep it open while I take another look at what is going on in JS land. If I can\u0027t figure it out, I will close it and let ClusterFuzz generate a new report, hopefully with a better minimum case.",
+      "parentUuid": "46e667d4_02b79b6d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e950fd8_b86ab342",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-10-25T19:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47ace487_f45e5f77",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 37
+      },
+      "revId": "5d1e0524a096dcf395e69d4085a0aeb9491b951f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
