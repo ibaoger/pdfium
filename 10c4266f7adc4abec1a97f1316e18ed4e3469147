@@ -22,6 +22,30 @@
       "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0973a6b7_97ec2cfa",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-25T19:52:27Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure what the semantics around putting an empty v8::Local were, so I err\u0027d on keeping this as before.",
+      "parentUuid": "dad1d754_9a2070be",
+      "range": {
+        "startLine": 232,
+        "startChar": 1,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
