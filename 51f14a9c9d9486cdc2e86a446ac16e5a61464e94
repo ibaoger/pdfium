@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e5d18a1_5748d9fa",
+        "filename": "fpdfsdk/javascript/Field.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-25T18:10:53Z",
+      "side": 0,
+      "message": "dunno, can we move to v8::value\u003c\u003e without this refactor?  What I\u0027d like to see is, I guess:\n\n  *vp \u003d pRuntime-\u003eNewString(L\"center\");\n  return true;",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 46
+      },
+      "revId": "51f14a9c9d9486cdc2e86a446ac16e5a61464e94",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
