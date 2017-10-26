@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "03c31666_b3fc1db3",
+        "filename": "fpdfsdk/javascript/cjs_annot.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T19:55:25Z",
+      "side": 1,
+      "message": "Rationale: In a world of jumbo builds (eeek), these all collide unless they have different names.  So they need to be named after the class.  So they might as well be class::ObjDefnID instead of g_classobjid",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "10e231d0c4830c4fb92aa722817d35f341d8edde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd6fd3c0_2ea1f11b",
         "filename": "fpdfsdk/javascript/cjs_annot.h",
         "patchSetId": 3
