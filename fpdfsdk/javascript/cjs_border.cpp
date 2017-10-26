@@ -21,7 +21,8 @@ const JSConstSpec CJS_Border::ConstSpecs[] = {
     {0, JSConstSpec::Number, 0, 0}};
 
 // static
-void CJS_Border::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_borderObjId = pEngine->DefineObj("border", eObjType, nullptr, nullptr);
+void CJS_Border::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_borderObjId =
+      pEngine->DefineObj("border", FXJSOBJTYPE_STATIC, nullptr, nullptr);
   DefineConsts(pEngine, g_borderObjId, ConstSpecs);
 }

@@ -27,8 +27,8 @@ const JSMethodSpec CJS_Console::MethodSpecs[] = {{"clear", clear_static},
                                                  {0, 0}};
 
 // static
-void CJS_Console::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_consoleObjId = pEngine->DefineObj("console", eObjType,
+void CJS_Console::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_consoleObjId = pEngine->DefineObj("console", FXJSOBJTYPE_STATIC,
                                       JSConstructor<CJS_Console, console>,
                                       JSDestructor<CJS_Console>);
   DefineMethods(pEngine, g_consoleObjId, MethodSpecs);

@@ -22,7 +22,8 @@ const JSConstSpec CJS_Style::ConstSpecs[] = {
     {0, JSConstSpec::Number, 0, 0}};
 
 // static
-void CJS_Style::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_styleObjId = pEngine->DefineObj("style", eObjType, nullptr, nullptr);
+void CJS_Style::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_styleObjId =
+      pEngine->DefineObj("style", FXJSOBJTYPE_STATIC, nullptr, nullptr);
   DefineConsts(pEngine, g_styleObjId, ConstSpecs);
 }

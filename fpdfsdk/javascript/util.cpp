@@ -66,9 +66,10 @@ const JSMethodSpec CJS_Util::MethodSpecs[] = {
     {"byteToChar", byteToChar_static}, {0, 0}};
 
 // static
-void CJS_Util::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_utilObjId = pEngine->DefineObj(
-      "util", eObjType, JSConstructor<CJS_Util, util>, JSDestructor<CJS_Util>);
+void CJS_Util::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_utilObjId =
+      pEngine->DefineObj("util", FXJSOBJTYPE_STATIC,
+                         JSConstructor<CJS_Util, util>, JSDestructor<CJS_Util>);
   CJS_Object::DefineMethods(pEngine, g_utilObjId, MethodSpecs);
 }
 
