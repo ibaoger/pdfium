@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47097643_03592ae8",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T16:58:31Z",
+      "side": 1,
+      "message": "Does this cover the empty handle case for us?",
+      "range": {
+        "startLine": 581,
+        "startChar": 16,
+        "endLine": 581,
+        "endChar": 30
+      },
+      "revId": "57ca71b377d8a4f38d63bbcb1a56628a9d70a4a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

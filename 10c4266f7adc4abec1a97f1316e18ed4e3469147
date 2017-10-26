@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9343bab0_89f6cacb",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T16:58:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3faa1335_197da48d",
+      "range": {
+        "startLine": 519,
+        "startChar": 18,
+        "endLine": 519,
+        "endChar": 55
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5c4ebaf_a860d31d",
         "filename": "fpdfsdk/javascript/Document.cpp",
         "patchSetId": 2
@@ -700,6 +724,52 @@
         "startChar": 20,
         "endLine": 364,
         "endChar": 40
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8371034e_f8c1936c",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T16:58:31Z",
+      "side": 1,
+      "message": "maybe we want to enclose the whole loop in if (!carray.IsEmpty()) {...} rather than messing with ?-operator",
+      "range": {
+        "startLine": 364,
+        "startChar": 2,
+        "endLine": 364,
+        "endChar": 39
+      },
+      "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45e86c3_bc934af6",
+        "filename": "fpdfsdk/javascript/app.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T16:58:31Z",
+      "side": 1,
+      "message": "then we can compute the length on each iteration, as with the others.",
+      "range": {
+        "startLine": 365,
+        "startChar": 24,
+        "endLine": 365,
+        "endChar": 35
       },
       "revId": "10c4266f7adc4abec1a97f1316e18ed4e3469147",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
