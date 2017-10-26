@@ -14,19 +14,24 @@
 #include "fpdfsdk/javascript/cjs_event_context.h"
 #include "fpdfsdk/javascript/cjs_eventhandler.h"
 
+namespace {
+
+int g_consoleObjId = -1;
+
+}  // namespace
+
 JSMethodSpec CJS_Console::MethodSpecs[] = {{"clear", clear_static},
                                            {"hide", hide_static},
                                            {"println", println_static},
                                            {"show", show_static},
                                            {0, 0}};
 
-int CJS_Console::g_nObjDefnID = -1;
-
+// static
 void CJS_Console::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("console", eObjType,
-                                    JSConstructor<CJS_Console, console>,
-                                    JSDestructor<CJS_Console>);
-  DefineMethods(pEngine, g_nObjDefnID, MethodSpecs);
+  g_consoleObjId = pEngine->DefineObj("console", eObjType,
+                                      JSConstructor<CJS_Console, console>,
+                                      JSDestructor<CJS_Console>);
+  DefineMethods(pEngine, g_consoleObjId, MethodSpecs);
 }
 
 console::console(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}

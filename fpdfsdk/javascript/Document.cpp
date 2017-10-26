@@ -38,11 +38,17 @@
 #include "third_party/base/numerics/safe_math.h"
 #include "third_party/base/ptr_util.h"
 
-int CJS_PrintParamsObj::g_nObjDefnID = -1;
+namespace {
 
+int g_printParamsObjId = -1;
+int g_documentObjId = -1;
+
+}  // namespace
+
+// static
 void CJS_PrintParamsObj::DefineJSObjects(CFXJS_Engine* pEngine,
                                          FXJSOBJTYPE eObjType) {
-  g_nObjDefnID =
+  g_printParamsObjId =
       pEngine->DefineObj("PrintParamsObj", eObjType,
                          JSConstructor<CJS_PrintParamsObj, PrintParamsObj>,
                          JSDestructor<CJS_PrintParamsObj>);
@@ -145,15 +151,19 @@ JSMethodSpec CJS_Document::MethodSpecs[] = {
     {"mailDoc", mailDoc_static},
     {0, 0}};
 
-int CJS_Document::g_nObjDefnID = -1;
+// static
+int CJS_Document::GetObjId() {
+  return g_documentObjId;
+}
 
+//
 void CJS_Document::DefineJSObjects(CFXJS_Engine* pEngine,
                                    FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("Document", eObjType,
-                                    JSConstructor<CJS_Document, Document>,
-                                    JSDestructor<CJS_Document>);
-  DefineProps(pEngine, g_nObjDefnID, PropertySpecs);
-  DefineMethods(pEngine, g_nObjDefnID, MethodSpecs);
+  g_documentObjId = pEngine->DefineObj("Document", eObjType,
+                                       JSConstructor<CJS_Document, Document>,
+                                       JSDestructor<CJS_Document>);
+  DefineProps(pEngine, g_documentObjId, PropertySpecs);
+  DefineMethods(pEngine, g_documentObjId, MethodSpecs);
 }
 
 void CJS_Document::InitInstance(IJS_Runtime* pIRuntime) {
@@ -283,7 +293,7 @@ CJS_Return Document::getField(CJS_Runtime* pRuntime,
     return CJS_Return(pRuntime->NewUndefined());
 
   v8::Local<v8::Object> pFieldObj =
-      pRuntime->NewFxDynamicObj(CJS_Field::g_nObjDefnID);
+      pRuntime->NewFxDynamicObj(CJS_Field::GetObjId());
   if (pFieldObj.IsEmpty())
     return CJS_Return(false);
 
@@ -392,8 +402,7 @@ CJS_Return Document::print(CJS_Runtime* pRuntime,
   if (nlength == 9) {
     if (params[8]->IsObject()) {
       v8::Local<v8::Object> pObj = pRuntime->ToObject(params[8]);
-      if (CFXJS_Engine::GetObjDefnID(pObj) ==
-          CJS_PrintParamsObj::g_nObjDefnID) {
+      if (CFXJS_Engine::GetObjDefnID(pObj) == g_printParamsObjId) {
         v8::Local<v8::Object> pObj = pRuntime->ToObject(params[8]);
         CJS_Object* pJSObj =
             static_cast<CJS_Object*>(pRuntime->GetObjectPrivate(pObj));
@@ -1050,8 +1059,7 @@ CJS_Return Document::getAnnot(CJS_Runtime* pRuntime,
   if (!pSDKBAAnnot)
     return CJS_Return(false);
 
-  v8::Local<v8::Object> pObj =
-      pRuntime->NewFxDynamicObj(CJS_Annot::g_nObjDefnID);
+  v8::Local<v8::Object> pObj = pRuntime->NewFxDynamicObj(CJS_Annot::GetObjId());
   if (pObj.IsEmpty())
     return CJS_Return(false);
 
@@ -1088,7 +1096,7 @@ CJS_Return Document::getAnnots(
         return CJS_Return(JSGetStringFromID(IDS_STRING_JSBADOBJECT));
 
       v8::Local<v8::Object> pObj =
-          pRuntime->NewFxDynamicObj(CJS_Annot::g_nObjDefnID);
+          pRuntime->NewFxDynamicObj(CJS_Annot::GetObjId());
       if (pObj.IsEmpty())
         return CJS_Return(false);
 
@@ -1142,7 +1150,7 @@ CJS_Return Document::addIcon(CJS_Runtime* pRuntime,
     return CJS_Return(JSGetStringFromID(IDS_STRING_JSTYPEERROR));
 
   v8::Local<v8::Object> pJSIcon = pRuntime->ToObject(params[1]);
-  if (CFXJS_Engine::GetObjDefnID(pJSIcon) != CJS_Icon::g_nObjDefnID)
+  if (CFXJS_Engine::GetObjDefnID(pJSIcon) != CJS_Icon::GetObjId())
     return CJS_Return(JSGetStringFromID(IDS_STRING_JSTYPEERROR));
 
   v8::Local<v8::Object> pObj = pRuntime->ToObject(params[1]);
@@ -1162,7 +1170,7 @@ CJS_Return Document::get_icons(CJS_Runtime* pRuntime) {
   int i = 0;
   for (const auto& name : m_IconNames) {
     v8::Local<v8::Object> pObj =
-        pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
+        pRuntime->NewFxDynamicObj(CJS_Icon::GetObjId());
     if (pObj.IsEmpty())
       return CJS_Return(false);
 
@@ -1192,8 +1200,7 @@ CJS_Return Document::getIcon(CJS_Runtime* pRuntime,
   if (it == m_IconNames.end())
     return CJS_Return(false);
 
-  v8::Local<v8::Object> pObj =
-      pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
+  v8::Local<v8::Object> pObj = pRuntime->NewFxDynamicObj(CJS_Icon::GetObjId());
   if (pObj.IsEmpty())
     return CJS_Return(false);
 
@@ -1344,8 +1351,7 @@ CJS_Return Document::getPageNumWords(
 CJS_Return Document::getPrintParams(
     CJS_Runtime* pRuntime,
     const std::vector<v8::Local<v8::Value>>& params) {
-  v8::Local<v8::Object> pRetObj =
-      pRuntime->NewFxDynamicObj(CJS_PrintParamsObj::g_nObjDefnID);
+  v8::Local<v8::Object> pRetObj = pRuntime->NewFxDynamicObj(g_printParamsObjId);
   if (pRetObj.IsEmpty())
     return CJS_Return(false);
 

@@ -10,16 +10,26 @@
 #include "fpdfsdk/javascript/JS_Object.h"
 #include "fpdfsdk/javascript/JS_Value.h"
 
+namespace {
+
+int g_iconObjId = -1;
+
+}  // namespace
+
 JSPropertySpec CJS_Icon::PropertySpecs[] = {
     {"name", get_name_static, set_name_static},
     {0, 0, 0}};
 
-int CJS_Icon::g_nObjDefnID = -1;
+// static
+int CJS_Icon::GetObjId() {
+  return g_iconObjId;
+}
 
+// static
 void CJS_Icon::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj(
+  g_iconObjId = pEngine->DefineObj(
       "Icon", eObjType, JSConstructor<CJS_Icon, Icon>, JSDestructor<CJS_Icon>);
-  DefineProps(pEngine, g_nObjDefnID, PropertySpecs);
+  DefineProps(pEngine, g_iconObjId, PropertySpecs);
 }
 
 Icon::Icon(CJS_Object* pJSObject)
