@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8556930f_7dc715c8",
+        "filename": "fpdfsdk/javascript/app.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T18:40:20Z",
+      "side": 1,
+      "message": "unrelated, but these are static const JSPropertySpec.",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 149,
+        "endChar": 23
+      },
+      "revId": "435be8ad86c05bb2e02d7b22cd8f89f3c1a6660e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
