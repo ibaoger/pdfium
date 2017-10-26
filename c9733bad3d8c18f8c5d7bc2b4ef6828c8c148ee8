@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "972effb2_98112d0f",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T20:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa7a01e_08150dbe",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 0
+      },
+      "revId": "c9733bad3d8c18f8c5d7bc2b4ef6828c8c148ee8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c367b72a_256dd8a7",
         "filename": "fpdfsdk/javascript/event.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-26T20:33:19Z",
       "side": 1,
       "message": "no GetObjDefnID() ?",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 8
+      },
+      "revId": "c9733bad3d8c18f8c5d7bc2b4ef6828c8c148ee8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151ae1dd_1d004483",
+        "filename": "fpdfsdk/javascript/event.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T20:48:39Z",
+      "side": 1,
+      "message": "It isn\u0027t being called so I didn\u0027t write it. I only added them if needed.",
+      "parentUuid": "c367b72a_256dd8a7",
       "range": {
         "startLine": 80,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b34b4f09_2be4c89e",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T20:48:39Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "0592f448_1696d494",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "c9733bad3d8c18f8c5d7bc2b4ef6828c8c148ee8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccb9110c_228b3dfe",
         "filename": "fpdfsdk/javascript/util.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-10-26T20:33:19Z",
       "side": 1,
       "message": "or is this unused per above?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 23
+      },
+      "revId": "c9733bad3d8c18f8c5d7bc2b4ef6828c8c148ee8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7154461_7e82abc0",
+        "filename": "fpdfsdk/javascript/util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T20:48:39Z",
+      "side": 1,
+      "message": "It\u0027s used in that it stores the global object ID and is used to setup the object. I guess we maybe don\u0027t need to store it? But, I think storing it consistently makes sense and we can add the accessor if needed.",
+      "parentUuid": "ccb9110c_228b3dfe",
       "range": {
         "startLine": 59,
         "startChar": 0,
