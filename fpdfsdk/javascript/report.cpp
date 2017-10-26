@@ -18,9 +18,9 @@ int g_reportObjId = -1;
 
 }  // namespace
 
-JSMethodSpec CJS_Report::MethodSpecs[] = {{"save", save_static},
-                                          {"writeText", writeText_static},
-                                          {0, 0}};
+const JSMethodSpec CJS_Report::MethodSpecs[] = {{"save", save_static},
+                                                {"writeText", writeText_static},
+                                                {0, 0}};
 
 // static
 void CJS_Report::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {

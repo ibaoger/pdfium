@@ -20,11 +20,11 @@ int g_consoleObjId = -1;
 
 }  // namespace
 
-JSMethodSpec CJS_Console::MethodSpecs[] = {{"clear", clear_static},
-                                           {"hide", hide_static},
-                                           {"println", println_static},
-                                           {"show", show_static},
-                                           {0, 0}};
+const JSMethodSpec CJS_Console::MethodSpecs[] = {{"clear", clear_static},
+                                                 {"hide", hide_static},
+                                                 {"println", println_static},
+                                                 {"show", show_static},
+                                                 {0, 0}};
 
 // static
 void CJS_Console::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {

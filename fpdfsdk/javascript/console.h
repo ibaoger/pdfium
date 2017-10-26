@@ -40,7 +40,7 @@ class CJS_Console : public CJS_Object {
   JS_STATIC_METHOD(show, console);
 
  private:
-  static JSMethodSpec MethodSpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CONSOLE_H_

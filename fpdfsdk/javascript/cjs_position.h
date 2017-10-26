@@ -17,7 +17,7 @@ class CJS_Position : public CJS_Object {
   ~CJS_Position() override {}
 
  private:
-  static JSConstSpec ConstSpecs[];
+  static const JSConstSpec ConstSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_POSITION_H_

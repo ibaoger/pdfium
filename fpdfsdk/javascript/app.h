@@ -181,8 +181,8 @@ class CJS_App : public CJS_Object {
   JS_STATIC_METHOD(setTimeOut, app);
 
  private:
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
+  static const JSPropertySpec PropertySpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_APP_H_

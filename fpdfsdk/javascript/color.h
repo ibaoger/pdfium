@@ -107,8 +107,8 @@ class CJS_Color : public CJS_Object {
   JS_STATIC_METHOD(equal, color);
 
  private:
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
+  static const JSPropertySpec PropertySpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_COLOR_H_

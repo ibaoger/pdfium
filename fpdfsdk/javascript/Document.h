@@ -349,8 +349,8 @@ class CJS_Document : public CJS_Object {
   JS_STATIC_METHOD(mailDoc, Document);
 
  private:
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
+  static const JSPropertySpec PropertySpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_DOCUMENT_H_

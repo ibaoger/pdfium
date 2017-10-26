@@ -448,8 +448,8 @@ class CJS_Field : public CJS_Object {
   JS_STATIC_METHOD(signatureValidate, Field);
 
  private:
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
+  static const JSPropertySpec PropertySpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_FIELD_H_

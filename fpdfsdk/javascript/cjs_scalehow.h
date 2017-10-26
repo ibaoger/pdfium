@@ -17,7 +17,7 @@ class CJS_ScaleHow : public CJS_Object {
   ~CJS_ScaleHow() override {}
 
  private:
-  static JSConstSpec ConstSpecs[];
+  static const JSConstSpec ConstSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_SCALEHOW_H_
