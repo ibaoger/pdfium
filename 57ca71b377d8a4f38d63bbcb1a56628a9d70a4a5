@@ -22,6 +22,30 @@
       "revId": "57ca71b377d8a4f38d63bbcb1a56628a9d70a4a5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd50005_e9e14950",
+        "filename": "fpdfsdk/javascript/Document.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T17:04:01Z",
+      "side": 1,
+      "message": "Yea.\n\nunsigned CFXJS_Engine::GetArrayLength(v8::Local\u003cv8::Array\u003e pArray) {\n  if (pArray.IsEmpty())\n    return 0;\n  return pArray-\u003eLength();\n}",
+      "parentUuid": "47097643_03592ae8",
+      "range": {
+        "startLine": 581,
+        "startChar": 16,
+        "endLine": 581,
+        "endChar": 30
+      },
+      "revId": "57ca71b377d8a4f38d63bbcb1a56628a9d70a4a5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
