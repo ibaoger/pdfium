@@ -12,7 +12,7 @@ int g_fontObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_Font::ConstSpecs[] = {
+const JSConstSpec CJS_Font::ConstSpecs[] = {
     {"Times", JSConstSpec::String, 0, "Times-Roman"},
     {"TimesB", JSConstSpec::String, 0, "Times-Bold"},
     {"TimesI", JSConstSpec::String, 0, "Times-Italic"},

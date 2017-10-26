@@ -12,7 +12,7 @@ int g_scaleWhenObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_ScaleWhen::ConstSpecs[] = {
+const JSConstSpec CJS_ScaleWhen::ConstSpecs[] = {
     {"always", JSConstSpec::Number, 0, 0},
     {"never", JSConstSpec::Number, 1, 0},
     {"tooBig", JSConstSpec::Number, 2, 0},

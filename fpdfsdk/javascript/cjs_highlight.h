@@ -17,7 +17,7 @@ class CJS_Highlight : public CJS_Object {
   ~CJS_Highlight() override {}
 
  private:
-  static JSConstSpec ConstSpecs[];
+  static const JSConstSpec ConstSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_HIGHLIGHT_H_

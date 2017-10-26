@@ -12,11 +12,12 @@ int g_displayObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_Display::ConstSpecs[] = {{"visible", JSConstSpec::Number, 0, 0},
-                                         {"hidden", JSConstSpec::Number, 1, 0},
-                                         {"noPrint", JSConstSpec::Number, 2, 0},
-                                         {"noView", JSConstSpec::Number, 3, 0},
-                                         {0, JSConstSpec::Number, 0, 0}};
+const JSConstSpec CJS_Display::ConstSpecs[] = {
+    {"visible", JSConstSpec::Number, 0, 0},
+    {"hidden", JSConstSpec::Number, 1, 0},
+    {"noPrint", JSConstSpec::Number, 2, 0},
+    {"noView", JSConstSpec::Number, 3, 0},
+    {0, JSConstSpec::Number, 0, 0}};
 
 // static
 void CJS_Display::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {

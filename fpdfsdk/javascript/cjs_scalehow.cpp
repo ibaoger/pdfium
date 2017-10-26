@@ -12,7 +12,7 @@ int g_scaleHowObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_ScaleHow::ConstSpecs[] = {
+const JSConstSpec CJS_ScaleHow::ConstSpecs[] = {
     {"proportional", JSConstSpec::Number, 0, 0},
     {"anamorphic", JSConstSpec::Number, 1, 0},
     {0, JSConstSpec::Number, 0, 0}};

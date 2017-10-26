@@ -37,7 +37,7 @@ class CJS_Icon : public CJS_Object {
   JS_STATIC_PROP(name, name, Icon);
 
  private:
-  static JSPropertySpec PropertySpecs[];
+  static const JSPropertySpec PropertySpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_ICON_H_
