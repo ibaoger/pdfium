@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ede8a06e_532ba5dd",
+        "filename": "fpdfsdk/javascript/cjs_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T19:37:41Z",
+      "side": 0,
+      "message": "I\u0027d keep this as a class static but make private.  Maybe call it ObjDefnID and lose the funny g_n",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "11e0b0470da388d1c580d26fb53fd13ec4cd867b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

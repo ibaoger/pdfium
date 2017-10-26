@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd6fd3c0_2ea1f11b",
+        "filename": "fpdfsdk/javascript/cjs_annot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T19:37:41Z",
+      "side": 1,
+      "message": "GetObjDefnID().  That term still means something to me ...",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "10e231d0c4830c4fb92aa722817d35f341d8edde",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
