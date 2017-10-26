@@ -13,6 +13,12 @@
 #include "fpdfsdk/javascript/cjs_event_context.h"
 #include "fpdfsdk/javascript/cjs_eventhandler.h"
 
+namespace {
+
+int g_eventObjId = -1;
+
+}  // namespace
+
 JSPropertySpec CJS_Event::PropertySpecs[] = {
     {"change", get_change_static, set_change_static},
     {"changeEx", get_change_ex_static, set_change_ex_static},
@@ -36,13 +42,12 @@ JSPropertySpec CJS_Event::PropertySpecs[] = {
     {"willCommit", get_will_commit_static, set_will_commit_static},
     {0, 0, 0}};
 
-int CJS_Event::g_nObjDefnID = -1;
-
+// static
 void CJS_Event::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID =
+  g_eventObjId =
       pEngine->DefineObj("event", eObjType, JSConstructor<CJS_Event, event>,
                          JSDestructor<CJS_Event>);
-  DefineProps(pEngine, g_nObjDefnID, PropertySpecs);
+  DefineProps(pEngine, g_eventObjId, PropertySpecs);
 }
 
 event::event(CJS_Object* pJsObject) : CJS_EmbedObj(pJsObject) {}

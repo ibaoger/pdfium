@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_zoomtype.h"
 
+namespace {
+
+int g_zoomtypeObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Zoomtype::ConstSpecs[] = {
     {"none", JSConstSpec::String, 0, "NoVary"},
     {"fitP", JSConstSpec::String, 0, "FitPage"},
@@ -16,10 +22,9 @@ JSConstSpec CJS_Zoomtype::ConstSpecs[] = {
     {"refW", JSConstSpec::String, 0, "ReflowWidth"},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Zoomtype::g_nObjDefnID = -1;
-
+// static
 void CJS_Zoomtype::DefineJSObjects(CFXJS_Engine* pEngine,
                                    FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("zoomtype", eObjType, nullptr, nullptr);
-  DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_zoomtypeObjId = pEngine->DefineObj("zoomtype", eObjType, nullptr, nullptr);
+  DefineConsts(pEngine, g_zoomtypeObjId, ConstSpecs);
 }

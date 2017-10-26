@@ -28,20 +28,9 @@
 #include <ctype.h>
 #endif
 
-JSMethodSpec CJS_Util::MethodSpecs[] = {
-    {"printd", printd_static},         {"printf", printf_static},
-    {"printx", printx_static},         {"scand", scand_static},
-    {"byteToChar", byteToChar_static}, {0, 0}};
-
-int CJS_Util::g_nObjDefnID = -1;
-
-void CJS_Util::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj(
-      "util", eObjType, JSConstructor<CJS_Util, util>, JSDestructor<CJS_Util>);
-  DefineMethods(pEngine, g_nObjDefnID, MethodSpecs);
-}
-
 namespace {
+
+int g_utilObjId = -1;
 
 // Map PDF-style directives to equivalent wcsftime directives. Not
 // all have direct equivalents, though.
@@ -70,6 +59,18 @@ const TbConvert TbConvertTable[] = {
 };
 
 }  // namespace
+
+JSMethodSpec CJS_Util::MethodSpecs[] = {
+    {"printd", printd_static},         {"printf", printf_static},
+    {"printx", printx_static},         {"scand", scand_static},
+    {"byteToChar", byteToChar_static}, {0, 0}};
+
+// static
+void CJS_Util::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
+  g_utilObjId = pEngine->DefineObj(
+      "util", eObjType, JSConstructor<CJS_Util, util>, JSDestructor<CJS_Util>);
+  CJS_Object::DefineMethods(pEngine, g_utilObjId, MethodSpecs);
+}
 
 util::util(CJS_Object* pJSObject) : CJS_EmbedObj(pJSObject) {}
 

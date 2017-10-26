@@ -15,6 +15,12 @@
 #include "fpdfsdk/javascript/cjs_eventhandler.h"
 #include "fpdfsdk/javascript/cjs_runtime.h"
 
+namespace {
+
+int g_colorObjId = -1;
+
+}  // namespace
+
 JSPropertySpec CJS_Color::PropertySpecs[] = {
     {"black", get_black_static, set_black_static},
     {"blue", get_blue_static, set_blue_static},
@@ -34,14 +40,13 @@ JSMethodSpec CJS_Color::MethodSpecs[] = {{"convert", convert_static},
                                          {"equal", equal_static},
                                          {0, 0}};
 
-int CJS_Color::g_nObjDefnID = -1;
-
+// static
 void CJS_Color::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID =
+  g_colorObjId =
       pEngine->DefineObj("color", eObjType, JSConstructor<CJS_Color, color>,
                          JSDestructor<CJS_Color>);
-  DefineProps(pEngine, g_nObjDefnID, PropertySpecs);
-  DefineMethods(pEngine, g_nObjDefnID, MethodSpecs);
+  DefineProps(pEngine, g_colorObjId, PropertySpecs);
+  DefineMethods(pEngine, g_colorObjId, MethodSpecs);
 }
 
 // static

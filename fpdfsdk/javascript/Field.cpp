@@ -32,6 +32,8 @@
 
 namespace {
 
+int g_fieldObjId = -1;
+
 bool SetWidgetDisplayStatus(CPDFSDK_Widget* pWidget, int value) {
   if (!pWidget)
     return false;
@@ -165,14 +167,18 @@ JSMethodSpec CJS_Field::MethodSpecs[] = {
     {"signatureValidate", signatureValidate_static},
     {0, 0}};
 
-int CJS_Field::g_nObjDefnID = -1;
+// static
+int CJS_Field::GetObjId() {
+  return g_fieldObjId;
+}
 
+// static
 void CJS_Field::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID =
+  g_fieldObjId =
       pEngine->DefineObj("Field", eObjType, JSConstructor<CJS_Field, Field>,
                          JSDestructor<CJS_Field>);
-  DefineProps(pEngine, g_nObjDefnID, PropertySpecs);
-  DefineMethods(pEngine, g_nObjDefnID, MethodSpecs);
+  DefineProps(pEngine, g_fieldObjId, PropertySpecs);
+  DefineMethods(pEngine, g_fieldObjId, MethodSpecs);
 }
 
 CJS_DelayData::CJS_DelayData(FIELD_PROP prop, int idx, const WideString& name)
@@ -2277,8 +2283,7 @@ CJS_Return Field::buttonGetIcon(
   if (!pFormControl)
     return CJS_Return(false);
 
-  v8::Local<v8::Object> pObj =
-      pRuntime->NewFxDynamicObj(CJS_Icon::g_nObjDefnID);
+  v8::Local<v8::Object> pObj = pRuntime->NewFxDynamicObj(CJS_Icon::GetObjId());
   if (pObj.IsEmpty())
     return CJS_Return(false);
 
@@ -2398,8 +2403,7 @@ CJS_Return Field::getArray(CJS_Runtime* pRuntime,
 
   int j = 0;
   for (const auto& pStr : swSort) {
-    v8::Local<v8::Object> pObj =
-        pRuntime->NewFxDynamicObj(CJS_Field::g_nObjDefnID);
+    v8::Local<v8::Object> pObj = pRuntime->NewFxDynamicObj(g_fieldObjId);
     if (pObj.IsEmpty())
       return CJS_Return(false);
 
