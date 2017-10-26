@@ -25,17 +25,20 @@ class TimerObj : public CJS_EmbedObj {
   int GetTimerID() const { return m_nTimerID; }
 
  private:
+  static int ObjDefnID;
   int m_nTimerID;  // Weak reference to GlobalTimer through global map.
 };
 
 class CJS_TimerObj : public CJS_Object {
  public:
+  static int GetObjDefnID();
+  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+
   explicit CJS_TimerObj(v8::Local<v8::Object> pObject) : CJS_Object(pObject) {}
   ~CJS_TimerObj() override {}
 
-  static int g_nObjDefnID;
-
-  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+ private:
+  static int ObjDefnID;
 };
 
 class app : public CJS_EmbedObj {
@@ -142,14 +145,10 @@ class app : public CJS_EmbedObj {
 
 class CJS_App : public CJS_Object {
  public:
+  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+
   explicit CJS_App(v8::Local<v8::Object> pObject) : CJS_Object(pObject) {}
   ~CJS_App() override {}
-
-  static int g_nObjDefnID;
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
-
-  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
 
   JS_STATIC_PROP(activeDocs, active_docs, app);
   JS_STATIC_PROP(calculate, calculate, app);
@@ -185,6 +184,11 @@ class CJS_App : public CJS_Object {
   JS_STATIC_METHOD(response, app);
   JS_STATIC_METHOD(setInterval, app);
   JS_STATIC_METHOD(setTimeOut, app);
+
+ private:
+  static int ObjDefnID;
+  static JSPropertySpec PropertySpecs[];
+  static JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_APP_H_
