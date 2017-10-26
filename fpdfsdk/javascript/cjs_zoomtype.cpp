@@ -12,7 +12,7 @@ int g_zoomtypeObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_Zoomtype::ConstSpecs[] = {
+const JSConstSpec CJS_Zoomtype::ConstSpecs[] = {
     {"none", JSConstSpec::String, 0, "NoVary"},
     {"fitP", JSConstSpec::String, 0, "FitPage"},
     {"fitW", JSConstSpec::String, 0, "FitWidth"},

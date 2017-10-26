@@ -16,7 +16,7 @@ int g_iconObjId = -1;
 
 }  // namespace
 
-JSPropertySpec CJS_Icon::PropertySpecs[] = {
+const JSPropertySpec CJS_Icon::PropertySpecs[] = {
     {"name", get_name_static, set_name_static},
     {0, 0, 0}};
 

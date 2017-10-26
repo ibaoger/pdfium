@@ -43,7 +43,7 @@ class CJS_Annot : public CJS_Object {
   JS_STATIC_PROP(type, type, Annot);
 
  private:
-  static JSPropertySpec PropertySpecs[];
+  static const JSPropertySpec PropertySpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_ANNOT_H_

@@ -35,7 +35,7 @@ class CJS_Global : public CJS_Object {
   void InitInstance(IJS_Runtime* pIRuntime) override;
 
  private:
-  static JSMethodSpec MethodSpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_GLOBAL_H_

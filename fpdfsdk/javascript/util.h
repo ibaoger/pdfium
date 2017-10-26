@@ -56,7 +56,7 @@ class CJS_Util : public CJS_Object {
   JS_STATIC_METHOD(byteToChar, util);
 
  private:
-  static JSMethodSpec MethodSpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_UTIL_H_

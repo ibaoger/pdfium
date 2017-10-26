@@ -12,7 +12,7 @@ int g_styleObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_Style::ConstSpecs[] = {
+const JSConstSpec CJS_Style::ConstSpecs[] = {
     {"ch", JSConstSpec::String, 0, "check"},
     {"cr", JSConstSpec::String, 0, "cross"},
     {"di", JSConstSpec::String, 0, "diamond"},

@@ -104,7 +104,7 @@ class CJS_Event : public CJS_Object {
   JS_STATIC_PROP(willCommit, will_commit, event);
 
  private:
-  static JSPropertySpec PropertySpecs[];
+  static const JSPropertySpec PropertySpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_EVENT_H_

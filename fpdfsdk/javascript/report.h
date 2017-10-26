@@ -34,7 +34,7 @@ class CJS_Report : public CJS_Object {
   JS_STATIC_METHOD(writeText, Report);
 
  private:
-  static JSMethodSpec MethodSpecs[];
+  static const JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_REPORT_H_

@@ -12,7 +12,7 @@ int g_highlightObjId = -1;
 
 }  // namespace
 
-JSConstSpec CJS_Highlight::ConstSpecs[] = {
+const JSConstSpec CJS_Highlight::ConstSpecs[] = {
     {"n", JSConstSpec::String, 0, "none"},
     {"i", JSConstSpec::String, 0, "invert"},
     {"p", JSConstSpec::String, 0, "push"},
