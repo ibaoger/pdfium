@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_border.h"
 
+namespace {
+
+int g_borderObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Border::ConstSpecs[] = {
     {"s", JSConstSpec::String, 0, "solid"},
     {"b", JSConstSpec::String, 0, "beveled"},
@@ -14,9 +20,8 @@ JSConstSpec CJS_Border::ConstSpecs[] = {
     {"u", JSConstSpec::String, 0, "underline"},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Border::g_nObjDefnID = -1;
-
+// static
 void CJS_Border::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("border", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_borderObjId = pEngine->DefineObj("border", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_borderObjId, ConstSpecs);
 }

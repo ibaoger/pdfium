@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_highlight.h"
 
+namespace {
+
+int g_highlightObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Highlight::ConstSpecs[] = {
     {"n", JSConstSpec::String, 0, "none"},
     {"i", JSConstSpec::String, 0, "invert"},
@@ -13,10 +19,10 @@ JSConstSpec CJS_Highlight::ConstSpecs[] = {
     {"o", JSConstSpec::String, 0, "outline"},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Highlight::g_nObjDefnID = -1;
-
+// static
 void CJS_Highlight::DefineJSObjects(CFXJS_Engine* pEngine,
                                     FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("highlight", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_highlightObjId =
+      pEngine->DefineObj("highlight", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_highlightObjId, ConstSpecs);
 }

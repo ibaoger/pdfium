@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_scalewhen.h"
 
+namespace {
+
+int g_scaleWhenObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_ScaleWhen::ConstSpecs[] = {
     {"always", JSConstSpec::Number, 0, 0},
     {"never", JSConstSpec::Number, 1, 0},
@@ -13,10 +19,10 @@ JSConstSpec CJS_ScaleWhen::ConstSpecs[] = {
     {"tooSmall", JSConstSpec::Number, 3, 0},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_ScaleWhen::g_nObjDefnID = -1;
-
+// static
 void CJS_ScaleWhen::DefineJSObjects(CFXJS_Engine* pEngine,
                                     FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("scaleWhen", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_scaleWhenObjId =
+      pEngine->DefineObj("scaleWhen", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_scaleWhenObjId, ConstSpecs);
 }

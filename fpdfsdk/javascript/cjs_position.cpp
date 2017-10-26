@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_position.h"
 
+namespace {
+
+int g_positionObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Position::ConstSpecs[] = {
     {"textOnly", JSConstSpec::Number, 0, 0},
     {"iconOnly", JSConstSpec::Number, 1, 0},
@@ -16,10 +22,9 @@ JSConstSpec CJS_Position::ConstSpecs[] = {
     {"overlay", JSConstSpec::Number, 6, 0},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Position::g_nObjDefnID = -1;
-
+// static
 void CJS_Position::DefineJSObjects(CFXJS_Engine* pEngine,
                                    FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("position", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_positionObjId = pEngine->DefineObj("position", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_positionObjId, ConstSpecs);
 }

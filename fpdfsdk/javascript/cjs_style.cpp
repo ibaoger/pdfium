@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_style.h"
 
+namespace {
+
+int g_styleObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Style::ConstSpecs[] = {
     {"ch", JSConstSpec::String, 0, "check"},
     {"cr", JSConstSpec::String, 0, "cross"},
@@ -15,9 +21,8 @@ JSConstSpec CJS_Style::ConstSpecs[] = {
     {"sq", JSConstSpec::String, 0, "square"},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Style::g_nObjDefnID = -1;
-
+// static
 void CJS_Style::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("style", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_styleObjId = pEngine->DefineObj("style", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_styleObjId, ConstSpecs);
 }

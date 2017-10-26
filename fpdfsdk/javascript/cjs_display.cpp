@@ -6,15 +6,20 @@
 
 #include "fpdfsdk/javascript/cjs_display.h"
 
+namespace {
+
+int g_displayObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Display::ConstSpecs[] = {{"visible", JSConstSpec::Number, 0, 0},
                                          {"hidden", JSConstSpec::Number, 1, 0},
                                          {"noPrint", JSConstSpec::Number, 2, 0},
                                          {"noView", JSConstSpec::Number, 3, 0},
                                          {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Display::g_nObjDefnID = -1;
-
+// static
 void CJS_Display::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("display", eObjType, nullptr, nullptr);
-  CJS_Object::DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_displayObjId = pEngine->DefineObj("display", eObjType, nullptr, nullptr);
+  CJS_Object::DefineConsts(pEngine, g_displayObjId, ConstSpecs);
 }
