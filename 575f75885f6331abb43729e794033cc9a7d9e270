@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6d7841b_365f8453",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:53:27Z",
+      "side": 1,
+      "message": "Why does this mean xfa?",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de5797e0_8d9e1f92",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:53:27Z",
+      "side": 1,
+      "message": "break apart",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e25f414_7b473e62",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:53:27Z",
+      "side": 1,
+      "message": "Break apart.",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b977413c_e476e257",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:53:27Z",
+      "side": 1,
+      "message": "We\u0027re adding more and more of these maps, is there no way this can be shared with the PageObjectAvail\u0027s below since they seem to be the same?",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
