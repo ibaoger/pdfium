@@ -46,10 +46,9 @@ int CJS_PrintParamsObj::GetObjDefnID() {
 }
 
 // static
-void CJS_PrintParamsObj::DefineJSObjects(CFXJS_Engine* pEngine,
-                                         FXJSOBJTYPE eObjType) {
+void CJS_PrintParamsObj::DefineJSObjects(CFXJS_Engine* pEngine) {
   ObjDefnID =
-      pEngine->DefineObj("PrintParamsObj", eObjType,
+      pEngine->DefineObj("PrintParamsObj", FXJSOBJTYPE_DYNAMIC,
                          JSConstructor<CJS_PrintParamsObj, PrintParamsObj>,
                          JSDestructor<CJS_PrintParamsObj>);
 }
@@ -158,10 +157,9 @@ int CJS_Document::GetObjDefnID() {
   return ObjDefnID;
 }
 
-//
-void CJS_Document::DefineJSObjects(CFXJS_Engine* pEngine,
-                                   FXJSOBJTYPE eObjType) {
-  ObjDefnID = pEngine->DefineObj("Document", eObjType,
+// static
+void CJS_Document::DefineJSObjects(CFXJS_Engine* pEngine) {
+  ObjDefnID = pEngine->DefineObj("Document", FXJSOBJTYPE_GLOBAL,
                                  JSConstructor<CJS_Document, Document>,
                                  JSDestructor<CJS_Document>);
   DefineProps(pEngine, ObjDefnID, PropertySpecs);
