@@ -22,6 +22,30 @@
       "revId": "2128eb98e04a2af8b54926d6bc15d35aaf5a14c3",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a933cc_4d082427",
+        "filename": "fpdfsdk/javascript/cjs_annot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T18:34:23Z",
+      "side": 0,
+      "message": "The objects call DefineProps, DefineMethods and DefineConsts but they don\u0027t all call them. I removed all the empty array definitions and the calls for the classes which don\u0027t need them.\n\nSo, if we wanted Instantiator, it would be come more complicated or not work everywhere.",
+      "parentUuid": "fc32de9c_793f4c0c",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "2128eb98e04a2af8b54926d6bc15d35aaf5a14c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
