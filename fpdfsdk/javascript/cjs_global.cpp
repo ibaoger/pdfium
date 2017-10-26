@@ -224,10 +224,10 @@ void CJS_Global::DefineAllProperties(CFXJS_Engine* pEngine) {
 }
 
 // static
-void CJS_Global::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
+void CJS_Global::DefineJSObjects(CFXJS_Engine* pEngine) {
   g_globalObjId = pEngine->DefineObj(
-      "global", eObjType, JSConstructor<CJS_Global, JSGlobalAlternate>,
-      JSDestructor<CJS_Global>);
+      "global", FXJSOBJTYPE_STATIC,
+      JSConstructor<CJS_Global, JSGlobalAlternate>, JSDestructor<CJS_Global>);
   DefineMethods(pEngine, g_globalObjId, MethodSpecs);
   DefineAllProperties(pEngine);
 }

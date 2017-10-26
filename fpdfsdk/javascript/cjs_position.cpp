@@ -23,8 +23,8 @@ const JSConstSpec CJS_Position::ConstSpecs[] = {
     {0, JSConstSpec::Number, 0, 0}};
 
 // static
-void CJS_Position::DefineJSObjects(CFXJS_Engine* pEngine,
-                                   FXJSOBJTYPE eObjType) {
-  g_positionObjId = pEngine->DefineObj("position", eObjType, nullptr, nullptr);
+void CJS_Position::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_positionObjId =
+      pEngine->DefineObj("position", FXJSOBJTYPE_STATIC, nullptr, nullptr);
   DefineConsts(pEngine, g_positionObjId, ConstSpecs);
 }

@@ -43,10 +43,10 @@ const JSPropertySpec CJS_Event::PropertySpecs[] = {
     {0, 0, 0}};
 
 // static
-void CJS_Event::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_eventObjId =
-      pEngine->DefineObj("event", eObjType, JSConstructor<CJS_Event, event>,
-                         JSDestructor<CJS_Event>);
+void CJS_Event::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_eventObjId = pEngine->DefineObj("event", FXJSOBJTYPE_STATIC,
+                                    JSConstructor<CJS_Event, event>,
+                                    JSDestructor<CJS_Event>);
   DefineProps(pEngine, g_eventObjId, PropertySpecs);
 }
 
