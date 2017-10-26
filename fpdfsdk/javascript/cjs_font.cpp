@@ -30,7 +30,8 @@ const JSConstSpec CJS_Font::ConstSpecs[] = {
     {0, JSConstSpec::Number, 0, 0}};
 
 // static
-void CJS_Font::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_fontObjId = pEngine->DefineObj("font", eObjType, nullptr, nullptr);
+void CJS_Font::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_fontObjId =
+      pEngine->DefineObj("font", FXJSOBJTYPE_STATIC, nullptr, nullptr);
   DefineConsts(pEngine, g_fontObjId, ConstSpecs);
 }

@@ -18,8 +18,8 @@ const JSConstSpec CJS_ScaleHow::ConstSpecs[] = {
     {0, JSConstSpec::Number, 0, 0}};
 
 // static
-void CJS_ScaleHow::DefineJSObjects(CFXJS_Engine* pEngine,
-                                   FXJSOBJTYPE eObjType) {
-  g_scaleHowObjId = pEngine->DefineObj("scaleHow", eObjType, nullptr, nullptr);
+void CJS_ScaleHow::DefineJSObjects(CFXJS_Engine* pEngine) {
+  g_scaleHowObjId =
+      pEngine->DefineObj("scaleHow", FXJSOBJTYPE_STATIC, nullptr, nullptr);
   DefineConsts(pEngine, g_scaleHowObjId, ConstSpecs);
 }
