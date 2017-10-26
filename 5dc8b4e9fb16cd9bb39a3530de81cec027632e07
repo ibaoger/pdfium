@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f4434d_cff14cf2",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:54:11Z",
+      "side": 1,
+      "message": "Does this need to clear the m_PagesResoucesAvail?",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a29de78_d3c840fe",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:54:11Z",
+      "side": 1,
+      "message": "If we don\u0027t have a page to check against, why do we consider the data is available?",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc68df22_0be066f6",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:54:11Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8d84558_de00eebf",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-26T14:54:11Z",
+      "side": 1,
+      "message": "Store the page object avail into a variable and pull out the .Get before moving into the map.",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
