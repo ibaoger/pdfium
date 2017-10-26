@@ -34,13 +34,11 @@ class PrintParamsObj : public CJS_EmbedObj {
 
 class CJS_PrintParamsObj : public CJS_Object {
  public:
+  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+
   explicit CJS_PrintParamsObj(v8::Local<v8::Object> pObject)
       : CJS_Object(pObject) {}
   ~CJS_PrintParamsObj() override {}
-
-  static int g_nObjDefnID;
-
-  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
 };
 
 struct CJS_AnnotObj;
@@ -265,17 +263,14 @@ class Document : public CJS_EmbedObj {
 
 class CJS_Document : public CJS_Object {
  public:
+  static int GetObjId();
+  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+
   explicit CJS_Document(v8::Local<v8::Object> pObject) : CJS_Object(pObject) {}
   ~CJS_Document() override {}
 
   // CJS_Object
   void InitInstance(IJS_Runtime* pIRuntime) override;
-
-  static int g_nObjDefnID;
-  static JSPropertySpec PropertySpecs[];
-  static JSMethodSpec MethodSpecs[];
-
-  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
 
   JS_STATIC_PROP(ADBE, ADBE, Document);
   JS_STATIC_PROP(author, author, Document);
@@ -352,6 +347,10 @@ class CJS_Document : public CJS_Object {
   JS_STATIC_METHOD(submitForm, Document);
   JS_STATIC_METHOD(syncAnnotScan, Document);
   JS_STATIC_METHOD(mailDoc, Document);
+
+ private:
+  static JSPropertySpec PropertySpecs[];
+  static JSMethodSpec MethodSpecs[];
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_DOCUMENT_H_

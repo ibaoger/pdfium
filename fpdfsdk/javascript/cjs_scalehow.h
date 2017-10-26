@@ -11,14 +11,13 @@
 
 class CJS_ScaleHow : public CJS_Object {
  public:
+  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
+
   explicit CJS_ScaleHow(v8::Local<v8::Object> pObject) : CJS_Object(pObject) {}
   ~CJS_ScaleHow() override {}
 
-  static int g_nObjDefnID;
+ private:
   static JSConstSpec ConstSpecs[];
-
-  static void DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType);
-
 };
 
 #endif  // FPDFSDK_JAVASCRIPT_CJS_SCALEHOW_H_

@@ -6,6 +6,12 @@
 
 #include "fpdfsdk/javascript/cjs_font.h"
 
+namespace {
+
+int g_fontObjId = -1;
+
+}  // namespace
+
 JSConstSpec CJS_Font::ConstSpecs[] = {
     {"Times", JSConstSpec::String, 0, "Times-Roman"},
     {"TimesB", JSConstSpec::String, 0, "Times-Bold"},
@@ -23,9 +29,8 @@ JSConstSpec CJS_Font::ConstSpecs[] = {
     {"ZapfD", JSConstSpec::String, 0, "ZapfDingbats"},
     {0, JSConstSpec::Number, 0, 0}};
 
-int CJS_Font::g_nObjDefnID = -1;
-
+// static
 void CJS_Font::DefineJSObjects(CFXJS_Engine* pEngine, FXJSOBJTYPE eObjType) {
-  g_nObjDefnID = pEngine->DefineObj("font", eObjType, nullptr, nullptr);
-  DefineConsts(pEngine, g_nObjDefnID, ConstSpecs);
+  g_fontObjId = pEngine->DefineObj("font", eObjType, nullptr, nullptr);
+  DefineConsts(pEngine, g_fontObjId, ConstSpecs);
 }
