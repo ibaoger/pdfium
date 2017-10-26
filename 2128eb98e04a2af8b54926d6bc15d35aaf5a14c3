@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc32de9c_793f4c0c",
+        "filename": "fpdfsdk/javascript/cjs_annot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-26T18:25:25Z",
+      "side": 0,
+      "message": "suppose we had\n\ntemplate \u003cclass T\u003e\nclass Instantiator {\n  void Instantiate(CFXJS_Engine* pEngine) {\n    T::g_nObjDefnID \u003d pEngine-\u003eDefineObj(T::g_pClassName, ...)\n    CJS_Object::DefineProps(pEngine, T::g_nObjDefnID, T::PropertySpecs);\n}\n\n\n\nthen we\u0027d want to get at these via class statics.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "2128eb98e04a2af8b54926d6bc15d35aaf5a14c3",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
