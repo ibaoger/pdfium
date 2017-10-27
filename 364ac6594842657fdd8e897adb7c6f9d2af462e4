@@ -16,6 +16,24 @@
       "revId": "364ac6594842657fdd8e897adb7c6f9d2af462e4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ac49ad_bb194ab8",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1439,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:04:21Z",
+      "side": 1,
+      "message": "the DocAvailStatus is not equal to DocFormStatus. The DocFormStatus have additional value DocFormStatus::FormNotExist which have not equivalent in DocAvailStatus.",
+      "parentUuid": "1f05506d_f70caab1",
+      "revId": "364ac6594842657fdd8e897adb7c6f9d2af462e4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
