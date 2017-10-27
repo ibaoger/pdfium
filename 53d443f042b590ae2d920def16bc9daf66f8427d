@@ -16,6 +16,24 @@
       "revId": "53d443f042b590ae2d920def16bc9daf66f8427d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a867a4d7_094e0b0b",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-10-27T20:33:00Z",
+      "side": 1,
+      "message": "You\u0027re right, but will address this after messy change is done.",
+      "parentUuid": "1b38cc6d_d9bd8d52",
+      "revId": "53d443f042b590ae2d920def16bc9daf66f8427d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
