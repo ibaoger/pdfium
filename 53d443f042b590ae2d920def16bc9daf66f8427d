@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b38cc6d_d9bd8d52",
+        "filename": "fpdfsdk/fpdfannot_embeddertest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-27T06:53:12Z",
+      "side": 1,
+      "message": "BTW, if Windows and Linux render identically, might as well deduplicate.",
+      "revId": "53d443f042b590ae2d920def16bc9daf66f8427d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
