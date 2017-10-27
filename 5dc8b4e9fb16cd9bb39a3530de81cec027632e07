@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "96deda25_e4e59b3e",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:46:10Z",
+      "side": 1,
+      "message": "No. \nThe m_PagesResoucesAvail already contains per page related data. And if page will use new resource object the PageObjectAvail will be created for it. If page will use already stored resource object, is not necessary clear it, because it is same, and we can continue check availability of it.",
+      "parentUuid": "d9f4434d_cff14cf2",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a29de78_d3c840fe",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-26T14:54:11Z",
       "side": 1,
       "message": "If we don\u0027t have a page to check against, why do we consider the data is available?",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c586ed_38ca50e3",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:46:10Z",
+      "side": 1,
+      "message": "It is original logic.\nIf you see on original code of CPDF_DataAvail::IsPageAvail:\nIf we have not m_pPageDict we do not check resources \nsee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d78b334a824c42138f5e98060638b1643b0279602\u0026l\u003d1356\n\nAnd return DataAvailable\nsee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d78b334a824c42138f5e98060638b1643b0279602\u0026l\u003d1375",
+      "parentUuid": "0a29de78_d3c840fe",
       "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "05e99e94_59f7dfbf",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:46:10Z",
+      "side": 1,
+      "message": "In this case, if we have not resources, that page without it. This is equal to \"page with empty resources\". And this is correct case, as result \"empty resources\" are available.",
+      "parentUuid": "cc68df22_0be066f6",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8d84558_de00eebf",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2017-10-26T14:54:11Z",
       "side": 1,
       "message": "Store the page object avail into a variable and pull out the .Get before moving into the map.",
+      "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5c29e47_8f7af2c0",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:46:10Z",
+      "side": 1,
+      "message": "This is other case.\nI want to use already stored object, if it is exists in map. Or new if not.",
+      "parentUuid": "c8d84558_de00eebf",
       "revId": "5dc8b4e9fb16cd9bb39a3530de81cec027632e07",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
