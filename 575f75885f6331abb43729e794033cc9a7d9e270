@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ec762b0_25ed3eae",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:33:31Z",
+      "side": 1,
+      "message": "This is original logic:\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d78b334a824c42138f5e98060638b1643b0279602\u0026l\u003d1329\n\nWe reach this point only in the case of XFA Dynamic form, in this case the document have only one page (Non XFA page stub). But XFA Form contains more pages, and for each of them we should return DataAvailable.",
+      "parentUuid": "f6d7841b_365f8453",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de5797e0_8d9e1f92",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a85301f7_0affdc37",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:33:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de5797e0_8d9e1f92",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cfb07594_57bf3e8c",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:33:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e25f414_7b473e62",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977413c_e476e257",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-10-26T14:53:27Z",
       "side": 1,
       "message": "We\u0027re adding more and more of these maps, is there no way this can be shared with the PageObjectAvail\u0027s below since they seem to be the same?",
+      "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4083a124_61e4a4b8",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-27T12:33:31Z",
+      "side": 1,
+      "message": "Its are not same.\nThe m_PagesObjAvail is map for pages objects by page number.\nThe m_PagesResourcesAvail is map for resource objects, by pointer. Each page can share the resources with other pages.\nBoth of this maps just needs for optimization, which was exists in original code.",
+      "parentUuid": "b977413c_e476e257",
       "revId": "575f75885f6331abb43729e794033cc9a7d9e270",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
