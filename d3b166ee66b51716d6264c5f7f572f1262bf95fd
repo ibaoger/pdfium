@@ -22,6 +22,30 @@
       "revId": "d3b166ee66b51716d6264c5f7f572f1262bf95fd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67443ca_cc434891",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T11:30:40Z",
+      "side": 1,
+      "message": "In original logic the index based access for m_szPageOffsetArray is used too. \nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_hint_tables.cpp?rcl\u003d09b419242ed85acb6ddf64cddfaa7ca8fbb07b1a\u0026l\u003d189\nm_szPageOffsetArray[i - 1]\nAs result i think the m_szPageOffsetArray should be empty before call this method.\nAlso by logic, the CPDF_HintTables::ReadPageHintTable should be caled only once, and this is only alone method, where the m_szPageOffsetArray are filled.",
+      "parentUuid": "86845149_fe7c41ac",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 31
+      },
+      "revId": "d3b166ee66b51716d6264c5f7f572f1262bf95fd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
