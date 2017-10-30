@@ -46,6 +46,30 @@
       "revId": "632067a029d6e65891c63ba55787b6e77ed46d60",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30f942b7_acfade79",
+        "filename": "fxjs/js_resources.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T20:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648898dc_6b761ac7",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "632067a029d6e65891c63ba55787b6e77ed46d60",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
