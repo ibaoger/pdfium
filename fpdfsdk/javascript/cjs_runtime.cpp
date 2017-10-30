@@ -10,7 +10,6 @@
 
 #include "fpdfsdk/cpdfsdk_formfillenvironment.h"
 #include "fpdfsdk/javascript/JS_Define.h"
-#include "fpdfsdk/javascript/JS_Object.h"
 #include "fpdfsdk/javascript/JS_Value.h"
 #include "fpdfsdk/javascript/PublicMethods.h"
 #include "fpdfsdk/javascript/app.h"
@@ -27,6 +26,7 @@
 #include "fpdfsdk/javascript/cjs_globalconsts.h"
 #include "fpdfsdk/javascript/cjs_highlight.h"
 #include "fpdfsdk/javascript/cjs_icon.h"
+#include "fpdfsdk/javascript/cjs_object.h"
 #include "fpdfsdk/javascript/cjs_position.h"
 #include "fpdfsdk/javascript/cjs_printparamsobj.h"
 #include "fpdfsdk/javascript/cjs_scalehow.h"
