@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c2080d70_a757b908",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T18:50:15Z",
+      "side": 1,
+      "message": "Previously, would we have been able to parse multiple documents by returning different data from the various requests? i.e. is this potentially changing the behaviour of the public/ API?",
+      "parentUuid": "8b57e9ec_de6f7a96",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e83b4a16_82b2c77f",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I want to store it after, because the parse error may be result of validation error.\nI.e. if we have not some data available, we can not correctly parse it.",
       "parentUuid": "e83b4a16_82b2c77f",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f97dc9a_189a3e97",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T18:50:15Z",
+      "side": 1,
+      "message": "But shouldn\u0027t the parse error just contain the validation error in that case?",
+      "parentUuid": "e00b389e_e8feb9c1",
       "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
