@@ -34,43 +34,31 @@ namespace {
 
 const FXJSE_CLASS_DESCRIPTOR GlobalClassDescriptor = {
     "Root",   // name
-    nullptr,  // constructor
-    nullptr,  // properties
     nullptr,  // methods
-    0,        // property count
     0,        // method count
     CXFA_ScriptContext::GlobalPropTypeGetter,
     CXFA_ScriptContext::GlobalPropertyGetter,
     CXFA_ScriptContext::GlobalPropertySetter,
-    nullptr,  // property deleter
     CXFA_ScriptContext::NormalMethodCall,
 };
 
 const FXJSE_CLASS_DESCRIPTOR NormalClassDescriptor = {
     "XFAObject",  // name
-    nullptr,      // constructor
-    nullptr,      // properties
     nullptr,      // methods
-    0,            // property count
     0,            // method count
     CXFA_ScriptContext::NormalPropTypeGetter,
     CXFA_ScriptContext::NormalPropertyGetter,
     CXFA_ScriptContext::NormalPropertySetter,
-    nullptr,  // property deleter
     CXFA_ScriptContext::NormalMethodCall,
 };
 
 const FXJSE_CLASS_DESCRIPTOR VariablesClassDescriptor = {
     "XFAScriptObject",  // name
-    nullptr,            // constructor
-    nullptr,            // properties
     nullptr,            // methods
-    0,                  // property count
     0,                  // method count
     CXFA_ScriptContext::NormalPropTypeGetter,
     CXFA_ScriptContext::GlobalPropertyGetter,
     CXFA_ScriptContext::GlobalPropertySetter,
-    nullptr,  // property deleter
     CXFA_ScriptContext::NormalMethodCall,
 };
 
@@ -250,6 +238,7 @@ void CXFA_ScriptContext::GlobalPropertyGetter(CFXJSE_Value* pObject,
       }
     }
   }
+
   uint32_t dwFlag = XFA_RESOLVENODE_Children | XFA_RESOLVENODE_Properties |
                     XFA_RESOLVENODE_Attributes;
   CXFA_Node* pRefNode = ToNode(lpScriptContext->GetThisObject());
@@ -387,15 +376,16 @@ int32_t CXFA_ScriptContext::NormalPropTypeGetter(
   pObject = lpScriptContext->GetVariablesThis(pObject);
   XFA_Element eType = pObject->GetElementType();
   WideString wsPropName = WideString::FromUTF8(szPropName);
-  if (GetMethodByName(eType, wsPropName.AsStringView())) {
+  if (GetMethodByName(eType, wsPropName.AsStringView()))
     return FXJSE_ClassPropType_Method;
-  }
+
   if (bQueryIn &&
       !XFA_GetScriptAttributeByName(eType, wsPropName.AsStringView())) {
     return FXJSE_ClassPropType_None;
   }
   return FXJSE_ClassPropType_Property;
 }
+
 int32_t CXFA_ScriptContext::GlobalPropTypeGetter(
     CFXJSE_Value* pOriginalValue,
     const ByteStringView& szPropName,
@@ -409,11 +399,12 @@ int32_t CXFA_ScriptContext::GlobalPropTypeGetter(
   pObject = lpScriptContext->GetVariablesThis(pObject);
   XFA_Element eType = pObject->GetElementType();
   WideString wsPropName = WideString::FromUTF8(szPropName);
-  if (GetMethodByName(eType, wsPropName.AsStringView())) {
+  if (GetMethodByName(eType, wsPropName.AsStringView()))
     return FXJSE_ClassPropType_Method;
-  }
+
   return FXJSE_ClassPropType_Property;
 }
+
 void CXFA_ScriptContext::NormalMethodCall(CFXJSE_Value* pThis,
                                           const ByteStringView& szFuncName,
                                           CFXJSE_Arguments& args) {
@@ -432,12 +423,15 @@ void CXFA_ScriptContext::NormalMethodCall(CFXJSE_Value* pThis,
 
   (pObject->*(lpMethodInfo->lpfnCallback))(&args);
 }
+
 bool CXFA_ScriptContext::IsStrictScopeInJavaScript() {
   return m_pDocument->HasFlag(XFA_DOCFLAG_StrictScoping);
 }
+
 XFA_SCRIPTLANGTYPE CXFA_ScriptContext::GetType() {
   return m_eScriptType;
 }
+
 void CXFA_ScriptContext::DefineJsContext() {
   m_JsContext = CFXJSE_Context::Create(m_pIsolate, &GlobalClassDescriptor,
                                        m_pDocument->GetRoot());
