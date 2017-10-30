@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8b57e9ec_de6f7a96",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T17:43:01Z",
+      "side": 1,
+      "message": "This is new.",
+      "parentUuid": "90f77a36_e5ca4fa6",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e83b4a16_82b2c77f",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-30T16:50:10Z",
       "side": 1,
       "message": "Move this check to 1269 so we return the parse error before bothering with the validation error.",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00b389e_e8feb9c1",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T17:43:01Z",
+      "side": 1,
+      "message": "I want to store it after, because the parse error may be result of validation error.\nI.e. if we have not some data available, we can not correctly parse it.",
+      "parentUuid": "e83b4a16_82b2c77f",
       "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
