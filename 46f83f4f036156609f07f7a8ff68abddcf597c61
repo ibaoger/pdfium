@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90f77a36_e5ca4fa6",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T16:50:10Z",
+      "side": 1,
+      "message": "Did this happen before or is the check new?",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e83b4a16_82b2c77f",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T16:50:10Z",
+      "side": 1,
+      "message": "Move this check to 1269 so we return the parse error before bothering with the validation error.",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
