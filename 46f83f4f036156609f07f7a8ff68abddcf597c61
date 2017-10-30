@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "e55b4479_166bc604",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T19:09:15Z",
+      "side": 1,
+      "message": "No.\nPreviously the result of this case was undefined.\nCPDF_DataAvail can return document only once, because after parsing, the CPDF_DataAvail store unowned pointers to document and related to it data (CPDF_Objects for example).\nI have just added correct error for this case.",
+      "parentUuid": "c2080d70_a757b908",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e83b4a16_82b2c77f",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 1
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "But shouldn\u0027t the parse error just contain the validation error in that case?",
       "parentUuid": "e00b389e_e8feb9c1",
+      "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692ff0cf_7b7c057b",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T19:09:15Z",
+      "side": 1,
+      "message": "Currently, the CPDF_Parser is not know about validation, and can not check this error. The CPDF_DataAvail should guarantee, that all data for parse already available.\n\nIf some data is unavailable, that parsing result will be undefined.\nFor example if encryption dictionary have unavailable data, the parsing error may be \"Incorrect password\", because the parser have not correctly processed it. But real error is \"Unavailable data\".\n\nJFI. This is just synthetic example, the all necessary data always should be available at this point.",
+      "parentUuid": "4f97dc9a_189a3e97",
       "revId": "46f83f4f036156609f07f7a8ff68abddcf597c61",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
