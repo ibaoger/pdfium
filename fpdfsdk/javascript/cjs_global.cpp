@@ -18,7 +18,6 @@
 #include "fpdfsdk/javascript/cjs_event_context.h"
 #include "fpdfsdk/javascript/cjs_eventhandler.h"
 #include "fpdfsdk/javascript/cjs_object.h"
-#include "fpdfsdk/javascript/resource.h"
 
 namespace {
 

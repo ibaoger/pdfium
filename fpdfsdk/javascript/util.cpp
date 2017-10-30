@@ -21,7 +21,6 @@
 #include "fpdfsdk/javascript/cjs_object.h"
 #include "fpdfsdk/javascript/cjs_publicmethods.h"
 #include "fpdfsdk/javascript/cjs_runtime.h"
-#include "fpdfsdk/javascript/resource.h"
 
 #if _FX_OS_ == _FX_OS_ANDROID_
 #include <ctype.h>
