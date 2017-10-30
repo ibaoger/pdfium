@@ -52,6 +52,24 @@
       "revId": "364ac6594842657fdd8e897adb7c6f9d2af462e4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2973cfac_a5df0fb0",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1439,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T17:47:52Z",
+      "side": 1,
+      "message": "I think - No.\nThe \"NotExists\" will be undefined value for document, because if we have not document this is \"DataError\".\nBut for AcroForm, the \"NotExists\" is correct not error value.",
+      "parentUuid": "51e177a4_7d4bb114",
+      "revId": "364ac6594842657fdd8e897adb7c6f9d2af462e4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
