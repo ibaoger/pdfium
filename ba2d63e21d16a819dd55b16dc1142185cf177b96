@@ -22,6 +22,30 @@
       "revId": "ba2d63e21d16a819dd55b16dc1142185cf177b96",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e019f7a4_64a73394",
+        "filename": "fpdfsdk/javascript/resource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T19:18:49Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "477ff701_cf9c3376",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "ba2d63e21d16a819dd55b16dc1142185cf177b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
