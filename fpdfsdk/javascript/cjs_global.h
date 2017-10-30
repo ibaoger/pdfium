@@ -31,9 +31,6 @@ class CJS_Global : public CJS_Object {
   explicit CJS_Global(v8::Local<v8::Object> pObject) : CJS_Object(pObject) {}
   ~CJS_Global() override {}
 
-  // CJS_Object
-  void InitInstance(IJS_Runtime* pIRuntime) override;
-
  private:
   static int ObjDefnID;
   static const JSMethodSpec MethodSpecs[];
