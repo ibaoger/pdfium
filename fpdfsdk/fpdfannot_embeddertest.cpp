@@ -491,11 +491,6 @@ TEST_F(FPDFAnnotEmbeddertest, AddAndModifyPath) {
   const char md5_modified_path[] = "cf3cea74bd46497520ff6c4d1ea228c8";
   const char md5_two_paths[] = "e8994452fc4385337bae5522354e10ff";
   const char md5_new_annot[] = "ee5372b31fede117fc83b9384598aa25";
-#elif _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_
-  const char md5_original[] = "964f89bbe8911e540a465cf1a64b7f7e";
-  const char md5_modified_path[] = "3f77b88ce6048e08e636c9a03921b2e5";
-  const char md5_two_paths[] = "bffbf5ecd15862b9fe553c795400ff8e";
-  const char md5_new_annot[] = "e020534c7eeea76be537c70d6e359a40";
 #else
   const char md5_original[] = "964f89bbe8911e540a465cf1a64b7f7e";
   const char md5_modified_path[] = "3f77b88ce6048e08e636c9a03921b2e5";
