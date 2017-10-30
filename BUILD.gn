@@ -1189,10 +1189,6 @@ static_library("javascript") {
   if (pdf_enable_v8) {
     sources += [
       "fpdfsdk/javascript/JS_Define.h",
-      "fpdfsdk/javascript/JS_GlobalData.cpp",
-      "fpdfsdk/javascript/JS_GlobalData.h",
-      "fpdfsdk/javascript/JS_KeyValue.cpp",
-      "fpdfsdk/javascript/JS_KeyValue.h",
       "fpdfsdk/javascript/JS_Value.cpp",
       "fpdfsdk/javascript/JS_Value.h",
       "fpdfsdk/javascript/PublicMethods.cpp",
