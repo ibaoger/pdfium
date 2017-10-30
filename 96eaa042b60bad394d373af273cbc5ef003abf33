@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e3f7735_413c98b8",
+        "filename": "fpdfsdk/javascript/JS_GlobalData.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T15:29:26Z",
+      "side": 0,
+      "message": "LoadFileBuffer returns nullptr always.",
+      "revId": "96eaa042b60bad394d373af273cbc5ef003abf33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6acdca4b_67f29731",
+        "filename": "fpdfsdk/javascript/JS_GlobalData.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T15:29:26Z",
+      "side": 0,
+      "message": "WriteFileBuffer does nothing always so the above work was useless.",
+      "revId": "96eaa042b60bad394d373af273cbc5ef003abf33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d1cc8ce_e6e23d7f",
+        "filename": "fpdfsdk/javascript/cjs_global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T15:29:26Z",
+      "side": 0,
+      "message": "We don\u0027t load the data, so when this is called after the initial creation the GetSize has to be 0, so this does nothing.",
+      "revId": "96eaa042b60bad394d373af273cbc5ef003abf33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc9897f_cc4a27be",
+        "filename": "fpdfsdk/javascript/cjs_global.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-30T15:29:26Z",
+      "side": 0,
+      "message": "Never called.",
+      "revId": "96eaa042b60bad394d373af273cbc5ef003abf33",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
