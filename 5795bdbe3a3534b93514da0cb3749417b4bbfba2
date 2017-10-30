@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c1d7165c_f993c441",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T11:21:43Z",
+      "side": 1,
+      "message": "I have added the link.\nBut i want to store the comment to simplify understanding of code.",
+      "parentUuid": "7ebc549f_c3f9e921",
+      "range": {
+        "startLine": 461,
+        "startChar": 2,
+        "endLine": 461,
+        "endChar": 6
+      },
+      "revId": "5795bdbe3a3534b93514da0cb3749417b4bbfba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6260ef35_43f754fe",
         "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "5795bdbe3a3534b93514da0cb3749417b4bbfba2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e69d7507_9542d9fc",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-30T11:21:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6260ef35_43f754fe",
+      "range": {
+        "startLine": 468,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 34
+      },
+      "revId": "5795bdbe3a3534b93514da0cb3749417b4bbfba2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
