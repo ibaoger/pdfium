@@ -1190,8 +1190,6 @@ static_library("javascript") {
     sources += [
       "fpdfsdk/javascript/JS_Define.cpp",
       "fpdfsdk/javascript/JS_Define.h",
-      "fpdfsdk/javascript/PublicMethods.cpp",
-      "fpdfsdk/javascript/PublicMethods.h",
       "fpdfsdk/javascript/app.cpp",
       "fpdfsdk/javascript/app.h",
       "fpdfsdk/javascript/cjs_annot.cpp",
@@ -1230,6 +1228,8 @@ static_library("javascript") {
       "fpdfsdk/javascript/cjs_position.h",
       "fpdfsdk/javascript/cjs_printparamsobj.cpp",
       "fpdfsdk/javascript/cjs_printparamsobj.h",
+      "fpdfsdk/javascript/cjs_publicmethods.cpp",
+      "fpdfsdk/javascript/cjs_publicmethods.h",
       "fpdfsdk/javascript/cjs_return.cpp",
       "fpdfsdk/javascript/cjs_return.h",
       "fpdfsdk/javascript/cjs_runtime.cpp",
