@@ -5,7 +5,7 @@
 #include <cmath>
 
 #include "core/fxcrt/fx_string.h"
-#include "fpdfsdk/javascript/PublicMethods.h"
+#include "fpdfsdk/javascript/cjs_publicmethods.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/js_embedder_test.h"
 
