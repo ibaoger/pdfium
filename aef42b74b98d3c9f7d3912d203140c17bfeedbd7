@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8caafa3c_2a54500a",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "Previously we\u0027d return false on DATAAVAIL_ERROR, why switch to true?",
+      "range": {
+        "startLine": 567,
+        "startChar": 12,
+        "endLine": 567,
+        "endChar": 18
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8205c38_7fd0be9c",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "Should we set this after checking for read problems?",
+      "range": {
+        "startLine": 673,
+        "startChar": 2,
+        "endLine": 673,
+        "endChar": 36
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b68f5b_f010b61f",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "Where does 9 come from?",
+      "range": {
+        "startLine": 20,
+        "startChar": 48,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ca4889_b4131f00",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "nit: this should have {}\u0027s as the if () is multiple lines.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e631ce64_9d08b43a",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "nit: Rewrite as:\n\nMove parser to the start of the xref table for the documents first page. (skpping endobj keyword)",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 49
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8aa74e6_0260dcce",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:43:43Z",
+      "side": 1,
+      "message": "Let\u0027s move this into a IsLinearizedHeaderValid(result, file_size) method",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
