@@ -51,6 +51,7 @@ executable("pdfium_test") {
   testonly = true
   sources = [
     "pdfium_test.cc",
+    "pdfium_mem_buffer_file_write.cc",
   ]
   deps = [
     "../:image_diff",

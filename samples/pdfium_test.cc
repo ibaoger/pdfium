@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include <bitset>
 #include <iterator>
@@ -31,9 +32,12 @@
 #include "public/fpdf_structtree.h"
 #include "public/fpdf_text.h"
 #include "public/fpdfview.h"
+#include "public/fpdf_save.h"
+#include "public/fpdf_transformpage.h"
 #include "testing/image_diff/image_diff_png.h"
 #include "testing/test_support.h"
 #include "third_party/base/logging.h"
+#include "pdfium_mem_buffer_file_write.h"
 
 #ifdef _WIN32
 #include <io.h>
@@ -63,6 +67,7 @@
 
 enum OutputFormat {
   OUTPUT_NONE,
+  OUTPUT_PDF,
   OUTPUT_STRUCTURE,
   OUTPUT_TEXT,
   OUTPUT_PPM,
@@ -189,6 +194,45 @@ std::string WritePpm(const char* pdf_name,
     fprintf(stderr, "Failed to write to %s\n", filename);
   fclose(fp);
   return std::string(filename);
+}
+
+void WritePdf(FPDF_PAGE page, const char* pdf_name, int num) {
+  fprintf(stderr, "Transforimg page %d.\n", num);
+  char filename[256];
+  int chars_formatted =
+      snprintf(filename, sizeof(filename), "%s.%d.pdf", pdf_name, num);
+  if (chars_formatted < 0 ||
+      static_cast<size_t>(chars_formatted) >= sizeof(filename)) {
+    fprintf(stderr, "Filename %s is too long\n", filename);
+    return;
+  }
+  const double scale_factor = 0.5;
+  fprintf(stderr, "Scaling pages with scale_factor %f.\n", scale_factor);
+  int width = static_cast<int>(FPDF_GetPageWidth(page));
+  int height = static_cast<int>(FPDF_GetPageHeight(page));
+  const double scale_factor_x =
+   static_cast<float>(height) / (2 * width);
+  const double scale_factor_y =
+    static_cast<float>(width) / static_cast<float>(height) * 0.95;
+  const double cliprect_width = height / 2;
+  const double cliprect_height = width;
+  fprintf(stderr, "Scaling pages with scale_factor_x %f.\n", scale_factor_x);
+  fprintf(stderr, "Scaling pages with scale_factor_y %f.\n", scale_factor_y);
+  fprintf(stderr, "cliprect_width is %f.\n", cliprect_width);
+  fprintf(stderr, "cliprect_height is %f.\n", cliprect_height);
+  FS_MATRIX matrix = {0,
+                      static_cast<float>(scale_factor_x),
+                      -static_cast<float>(scale_factor_y),
+                      0,
+                      cliprect_height,
+                      0};
+  FS_RECTF cliprect = {static_cast<float>(0.0),
+                       static_cast<float>(0.0),
+                       static_cast<float>(width),
+                       static_cast<float>(height)};
+  if(num < 2) {
+    FPDFPage_TransFormWithClip(page, &matrix, &cliprect);
+  }
 }
 
 void WriteText(FPDF_PAGE page, const char* pdf_name, int num) {
@@ -747,6 +791,12 @@ bool ParseCommandLine(const std::vector<std::string>& args,
         return false;
       }
       options->output_format = OUTPUT_PPM;
+    } else if (cur_arg == "--pdf") {
+      if (options->output_format != OUTPUT_NONE) {
+        fprintf(stderr, "Duplicate or conflicting --pdf argument\n");
+        return false;
+      }
+      options->output_format = OUTPUT_PDF;
     } else if (cur_arg == "--png") {
       if (options->output_format != OUTPUT_NONE) {
         fprintf(stderr, "Duplicate or conflicting --png argument\n");
@@ -1302,6 +1352,10 @@ bool RenderPage(const std::string& name,
         WritePS(page, name.c_str(), page_index);
         break;
 #endif
+      case OUTPUT_PDF:
+        // TODO(xlou): implement page transformation here.
+        WritePdf(page, name.c_str(), page_index);
+        break;
       case OUTPUT_TEXT:
         WriteText(page, name.c_str(), page_index);
         break;
@@ -1468,12 +1522,14 @@ void RenderPdf(const std::string& name,
     }
     if (RenderPage(name, doc.get(), form.get(), &form_callbacks, i, options,
                    events)) {
+      fprintf(stderr, "Rendering pages as %u.\n", options.output_format);
       ++rendered_pages;
     } else {
       ++bad_pages;
     }
   }
-
+  PDFiumMemBufferFileWrite output_file_write;
+  FPDF_SaveAsCopy(doc.get(), &output_file_write, 0);
   FORM_DoDocumentAAction(form.get(), FPDFDOC_AACTION_WC);
   fprintf(stderr, "Rendered %d pages.\n", rendered_pages);
   if (bad_pages)
