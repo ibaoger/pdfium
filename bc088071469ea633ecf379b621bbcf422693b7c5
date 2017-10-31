@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42fccfda_184f11fc",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:36:48Z",
+      "side": 1,
+      "message": "Make the a char* and to strlen below?",
+      "revId": "bc088071469ea633ecf379b621bbcf422693b7c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74074afa_524e1781",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-10-31T13:36:48Z",
+      "side": 1,
+      "message": "Then this isn\u0027t needed anymore.",
+      "range": {
+        "startLine": 282,
+        "startChar": 52,
+        "endLine": 282,
+        "endChar": 55
+      },
+      "revId": "bc088071469ea633ecf379b621bbcf422693b7c5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
