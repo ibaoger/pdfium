@@ -43,8 +43,6 @@ class CPDF_LinearizedHeader {
   uint32_t GetHintLength() const { return m_HintLength; }
 
  protected:
-  static bool IsLinearizedHeaderValid(const CPDF_LinearizedHeader* header,
-                                      FX_FILESIZE file_size);
   explicit CPDF_LinearizedHeader(const CPDF_Dictionary* pDict);
 
  private:
