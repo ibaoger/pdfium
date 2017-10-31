@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c418669d_871d3240",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "In original code, in some cases on PDF_DATAAVAIL_ERROR returns true.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d8aa3002c673f36909560575514b9a9474e5e66bf\u0026l\u003d972\n\nI want unify this, and always return true for this case.\nThe \"True\" mean, that we continue availability check in LoadAllFile.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d8aa3002c673f36909560575514b9a9474e5e66bf\u0026l\u003d170",
+      "parentUuid": "8caafa3c_2a54500a",
+      "range": {
+        "startLine": 567,
+        "startChar": 12,
+        "endLine": 567,
+        "endChar": 18
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8205c38_7fd0be9c",
         "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-31T13:43:43Z",
       "side": 1,
       "message": "Should we set this after checking for read problems?",
+      "range": {
+        "startLine": 673,
+        "startChar": 2,
+        "endLine": 673,
+        "endChar": 36
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77c528d7_9f9f2ed5",
+        "filename": "core/fpdfapi/parser/cpdf_data_avail.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "This is not necessary. The CPDF_SyntaxParser and CPDF_LinearizedHeader::Parse guarantee to us, that if we have read problems, the object will be not returned.\nAlso we have additional guard for this - \"m_bHeaderAvail\".",
+      "parentUuid": "c8205c38_7fd0be9c",
       "range": {
         "startLine": 673,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b86fb277_1d0176d5",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "From original code.\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_data_avail.cpp?rcl\u003d8aa3002c673f36909560575514b9a9474e5e66bf\u0026l\u003d550\nand\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_parser.cpp?rcl\u003d8aa3002c673f36909560575514b9a9474e5e66bf\u0026l\u003d1284\n\nThis is offset of end line of PDF version.",
+      "parentUuid": "74b68f5b_f010b61f",
+      "range": {
+        "startLine": 20,
+        "startChar": 48,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48ca4889_b4131f00",
         "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
         "patchSetId": 10
@@ -91,6 +163,30 @@
       "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26c11446_8ab0b295",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ca4889_b4131f00",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e0db3d54_a241319d",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e631ce64_9d08b43a",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 49
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8aa74e6_0260dcce",
         "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
         "patchSetId": 10
@@ -137,6 +257,30 @@
       "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa43481_8e6ed737",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-10-31T14:50:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8aa74e6_0260dcce",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "aef42b74b98d3c9f7d3912d203140c17bfeedbd7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
