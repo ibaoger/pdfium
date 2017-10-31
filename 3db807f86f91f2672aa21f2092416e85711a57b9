@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba95f6a5_a2885237",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-31T21:15:18Z",
+      "side": 1,
+      "message": "In what function? If someone only reads the commit message, they won\u0027t understand what this CL is about.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "3db807f86f91f2672aa21f2092416e85711a57b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b495779_982a6657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-31T21:15:18Z",
+      "side": 1,
+      "message": "Please write a properly formatted commit message. You can look in git log for examples.",
+      "revId": "3db807f86f91f2672aa21f2092416e85711a57b9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
