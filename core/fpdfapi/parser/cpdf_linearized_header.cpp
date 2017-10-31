@@ -62,19 +62,22 @@ std::unique_ptr<CPDF_LinearizedHeader> CPDF_LinearizedHeader::Parse(
       !IsValidNumericDictionaryValue<FX_FILESIZE>(pDict.get(), "T", 1) ||
       !IsValidNumericDictionaryValue<uint32_t>(pDict.get(), "N", 0) ||
       !IsValidNumericDictionaryValue<FX_FILESIZE>(pDict.get(), "E", 1) ||
-      !IsValidNumericDictionaryValue<uint32_t>(pDict.get(), "O", 1)) {
+      !IsValidNumericDictionaryValue<uint32_t>(pDict.get(), "O", 1))
     return nullptr;
-  }
-  // Move parser to the start of the xref table for the documents first page.
-  // (skpping endobj keyword)
+  // Move parser onto first page xref table start. (skip endobj keyword)
   if (parser->GetNextWord(nullptr) != "endobj")
     return nullptr;
 
   auto result = pdfium::WrapUnique(new CPDF_LinearizedHeader(pDict.get()));
   result->m_szLastXRefOffset = parser->GetPos();
 
-  return IsLinearizedHeaderValid(result.get(),
-                                 parser->GetFileAccess()->GetSize())
+  const auto file_size = parser->GetFileAccess()->GetSize();
+  return (result->GetFileSize() == file_size &&
+          result->GetMainXRefTableFirstEntryOffset() < file_size &&
+          result->GetPageCount() > 0 &&
+          result->GetFirstPageEndOffset() < file_size &&
+          result->GetLastXRefOffset() < file_size &&
+          result->GetHintStart() < file_size)
              ? std::move(result)
              : nullptr;
 }
