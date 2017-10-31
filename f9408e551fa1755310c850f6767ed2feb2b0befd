@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7f89cda_8da4e93e",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-10-31T21:48:05Z",
+      "side": 0,
+      "message": "I agree with the virtual methods gone, we should simplify. But shouldn\u0027t we preserve checks like this?\n\nUsing the first page number as an example, in the document, it\u0027s stored in a dictionary as an integer. With the existing code, we store the int into CPDF_LinearizedHeader::m_dwFirstPageNo which is uint32_t, then we cast it back to int in CPDF_HintTables::GetFirstPageObjectNumber().\n\nWith this CL, isn\u0027t it just going to reinterpret a negative first page number as a very large positive value instead? Can CPDF_LinearizedHeader just return the raw value, and let the caller decide what to do with it?",
+      "revId": "f9408e551fa1755310c850f6767ed2feb2b0befd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
