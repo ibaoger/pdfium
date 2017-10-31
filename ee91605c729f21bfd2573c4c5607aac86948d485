@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f49a9e5_d7235f4a",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-31T21:27:13Z",
+      "side": 1,
+      "message": "nit: reinterpret_cast",
+      "range": {
+        "startLine": 40,
+        "startChar": 43,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4841b5b2_8b4e4e32",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-31T21:27:13Z",
+      "side": 1,
+      "message": "nit: move to anon namespace and lose static.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 6
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d7bc26_aa067e82",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-31T21:27:13Z",
+      "side": 1,
+      "message": "can this be unowned, too?",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 19
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "066f241b_f71335fa",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-10-31T21:27:13Z",
+      "side": 1,
+      "message": "Can we justify why we want an embedded node vs multiple inheritance from it?",
+      "range": {
+        "startLine": 47,
+        "startChar": 18,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
