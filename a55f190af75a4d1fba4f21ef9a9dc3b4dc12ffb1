@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c225338_975b4585",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-01T16:09:06Z",
+      "side": 1,
+      "message": "nit: redundant given 356 and 359 ...",
+      "range": {
+        "startLine": 385,
+        "startChar": 4,
+        "endLine": 385,
+        "endChar": 31
+      },
+      "revId": "a55f190af75a4d1fba4f21ef9a9dc3b4dc12ffb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b7255b_d7d3e48e",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-01T16:09:06Z",
+      "side": 1,
+      "message": "followup?",
+      "range": {
+        "startLine": 66,
+        "startChar": 51,
+        "endLine": 66,
+        "endChar": 69
+      },
+      "revId": "a55f190af75a4d1fba4f21ef9a9dc3b4dc12ffb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
