@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9324ba00_dad09745",
+        "filename": "fxjs/cjx_nodelist.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-01T16:05:29Z",
+      "side": 1,
+      "message": "nit: maybe use auto (lotsa places).",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "e3bfa9d391285d824dd4ccece299549e45a44d53",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
