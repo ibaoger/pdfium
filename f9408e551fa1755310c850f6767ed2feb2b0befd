@@ -16,6 +16,24 @@
       "revId": "f9408e551fa1755310c850f6767ed2feb2b0befd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2888a0_4ae55f54",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-01T09:55:55Z",
+      "side": 0,
+      "message": "The CPDF_LinearizedHeader guarantee, that m_dwFirstPageNo and m_FirstPageObjNum are valid positive values.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_linearized_header.h?rcl\u003d994f20cfb76f4902491a94c4ef61f55705fc124d\u0026l\u003d34\n\nAs result the casting problem are solved on early stage.\nSee https://cs.chromium.org/chromium/src/third_party/pdfium/core/fpdfapi/parser/cpdf_linearized_header.cpp?rcl\u003d994f20cfb76f4902491a94c4ef61f55705fc124d\u0026l\u003d47.\n\nAnd we can remove negative checks from much place, because this is not necessary anymore.",
+      "parentUuid": "e7f89cda_8da4e93e",
+      "revId": "f9408e551fa1755310c850f6767ed2feb2b0befd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
