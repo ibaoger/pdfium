@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd336694_7d5e8b38",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3725,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T18:45:13Z",
+      "side": 0,
+      "message": "bProtoAlso is always false, so this is always true and we break after the first iteration, so the for() can go away and we just use GetXFANode() directly.",
+      "range": {
+        "startLine": 3725,
+        "startChar": 9,
+        "endLine": 3725,
+        "endChar": 19
+      },
+      "revId": "85bcb2900139ae38e7f7920ca4eafb7de4a11d12",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba5ceb82_074ed58d",
+        "filename": "xfa/fxfa/parser/cxfa_dataexporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T18:45:13Z",
+      "side": 0,
+      "message": "We can only get here if !bProto is true, which means bProto is always false when calling HasAttribute.",
+      "range": {
+        "startLine": 95,
+        "startChar": 58,
+        "endLine": 95,
+        "endChar": 65
+      },
+      "revId": "85bcb2900139ae38e7f7920ca4eafb7de4a11d12",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
