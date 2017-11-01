@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "985a9bc6_5aef4df5",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T01:52:22Z",
+      "side": 1,
+      "message": "I actually think this can be a unique_ptr, but would rather do it as a followup as this is how it was in CXFA_Node",
+      "parentUuid": "79d7bc26_aa067e82",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 19
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "066f241b_f71335fa",
         "filename": "xfa/fxfa/parser/cxfa_node.h",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2017-10-31T21:27:13Z",
       "side": 1,
       "message": "Can we justify why we want an embedded node vs multiple inheritance from it?",
+      "range": {
+        "startLine": 47,
+        "startChar": 18,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72a02a4_7a76ca3d",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T01:52:22Z",
+      "side": 1,
+      "message": "I really want to get as much of the JS stuff out of CXFA_Node as possible. I\u0027d also like to make the JS hierarchy actually realized for XFA instead of having everything in CJX_Node, there would be a Node, SOM, List, Tree, TreeList, etc. The things that exist as the Script_*_ names should be real classes.\n\nSo, I think it makes sense to have as a parallel hierarchy.",
+      "parentUuid": "066f241b_f71335fa",
       "range": {
         "startLine": 47,
         "startChar": 18,
