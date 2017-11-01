@@ -122,6 +122,44 @@ CFX_FloatRect CPDF_Page::GetBox(const ByteString& name) const {
   return box;
 }
 
+bool CPDF_Page::DeviceToPage(int start_x,
+                             int start_y,
+                             int size_x,
+                             int size_y,
+                             int rotate,
+                             int device_x,
+                             int device_y,
+                             double* page_x,
+                             double* page_y) const {
+  CFX_Matrix matrix =
+      GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
+  CFX_PointF pos = matrix.GetInverse().Transform(
+      CFX_PointF(static_cast<float>(device_x), static_cast<float>(device_y)));
+
+  *page_x = pos.x;
+  *page_y = pos.y;
+  return true;
+}
+
+bool CPDF_Page::PageToDevice(int start_x,
+                             int start_y,
+                             int size_x,
+                             int size_y,
+                             int rotate,
+                             double page_x,
+                             double page_y,
+                             int* device_x,
+                             int* device_y) const {
+  CFX_Matrix matrix =
+      GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
+  CFX_PointF pos = matrix.Transform(
+      CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)));
+
+  *device_x = FXSYS_round(pos.x);
+  *device_y = FXSYS_round(pos.y);
+  return true;
+}
+
 CFX_Matrix CPDF_Page::GetDisplayMatrix(int xPos,
                                        int yPos,
                                        int xSize,
@@ -188,7 +226,7 @@ CFX_Matrix CPDF_Page::GetDisplayMatrixWithTransformation(
     int yPos,
     int xSize,
     int ySize,
-    const CFX_Matrix& transformation) {
+    const CFX_Matrix& transformation) const {
   CFX_FloatRect rect(xPos, yPos, xPos + xSize, yPos + ySize);
   rect = transformation.TransformRect(rect);
   CFX_Matrix inverse = transformation.GetInverse();

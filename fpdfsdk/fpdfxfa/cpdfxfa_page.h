@@ -38,7 +38,7 @@ class CPDFXFA_Page : public Retainable {
   float GetPageWidth() const;
   float GetPageHeight() const;
 
-  void DeviceToPage(int start_x,
+  bool DeviceToPage(int start_x,
                     int start_y,
                     int size_x,
                     int size_y,
@@ -46,8 +46,8 @@ class CPDFXFA_Page : public Retainable {
                     int device_x,
                     int device_y,
                     double* page_x,
-                    double* page_y);
-  void PageToDevice(int start_x,
+                    double* page_y) const;
+  bool PageToDevice(int start_x,
                     int start_y,
                     int size_x,
                     int size_y,
@@ -55,7 +55,7 @@ class CPDFXFA_Page : public Retainable {
                     double page_x,
                     double page_y,
                     int* device_x,
-                    int* device_y);
+                    int* device_y) const;
 
   CFX_Matrix GetDisplayMatrix(int xPos,
                               int yPos,
