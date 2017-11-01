@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1494381449 -0700\nnonce APbwY4rML0Rhtj4nxWr3KVDcLLHFSc8BMiNelxeHX0szP65hcEH/XdE2mf8tYOB6qFaE4AZtJofV\n\n0000000000000000000000000000000000000000 36f5ff2157d501436e5fec00598f7c73226850d1 refs/for/refs/heads/master%m\u003dInitial_upload,notify\u003dNONE\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZEnOJAAoJEKs2LWFaZv17734IALo0yl8LVYuTyy1NKY3KYqNR\nEPbr+/ogvcj0XNp02gyUDNbGFXQ5uxsRuY7Ye6A5AlCBVDpgQaw3Us+5Vi8NDXzp\nTNXw3bklFJqC2ZWaExIX+Ns4fTNTblDwr82P2leA0mKQD9za65UW4ufuBWfh9014\nQ5EzPxzLwePj4N+WKvB8cIpZ2hfGm/PG9QC9hmtfrPC4y5k5qdCpHUvBSsWaTSzn\nfLsDmMSUfRG+oNF0abzPThuN1W8+GRVq5ByQ8mCzQ7OK5FBMym86V8aXRMKtl9ry\nJGZy3Y3S/ZGZLiCWZvs7SfGIRq1EkNJue2CF+ThyHEwW/jFoQl98z6/Adpo1XDI\u003d\n\u003dJpI+\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "1559e6d8_411482b1",
+        "filename": "core/fpdfapi/render/cpdf_dibsource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-01T00:49:18Z",
+      "side": 1,
+      "message": "Hmph, why did I name an integer bFoo?",
+      "range": {
+        "startLine": 287,
+        "startChar": 6,
+        "endLine": 287,
+        "endChar": 21
+      },
+      "revId": "36f5ff2157d501436e5fec00598f7c73226850d1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
