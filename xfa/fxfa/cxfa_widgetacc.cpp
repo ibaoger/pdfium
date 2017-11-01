@@ -162,7 +162,7 @@ CXFA_WidgetAcc::~CXFA_WidgetAcc() {}
 
 bool CXFA_WidgetAcc::GetName(WideString& wsName, int32_t iNameType) {
   if (iNameType == 0) {
-    m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Name, wsName);
+    m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Name, wsName, true);
     return !wsName.IsEmpty();
   }
   m_pNode->GetSOMExpression(wsName);
@@ -257,16 +257,17 @@ void CXFA_WidgetAcc::SetImageEdit(const WideString& wsContentType,
   }
   WideString wsFormatValue(wsData);
   GetFormatDataValue(wsData, wsFormatValue);
-  m_pNode->JSNode()->SetContent(wsData, wsFormatValue, true);
+  m_pNode->JSNode()->SetContent(wsData, wsFormatValue, true, false, true);
   CXFA_Node* pBind = GetDatasets();
   if (!pBind) {
     image.SetTransferEncoding(XFA_ATTRIBUTEENUM_Base64);
     return;
   }
-  pBind->JSNode()->SetCData(XFA_ATTRIBUTE_ContentType, wsContentType);
+  pBind->JSNode()->SetCData(XFA_ATTRIBUTE_ContentType, wsContentType, false,
+                            false);
   CXFA_Node* pHrefNode = pBind->GetNodeItem(XFA_NODEITEM_FirstChild);
   if (pHrefNode) {
-    pHrefNode->JSNode()->SetCData(XFA_ATTRIBUTE_Value, wsHref);
+    pHrefNode->JSNode()->SetCData(XFA_ATTRIBUTE_Value, wsHref, false, false);
   } else {
     CFX_XMLNode* pXMLNode = pBind->GetXMLMappingNode();
     ASSERT(pXMLNode && pXMLNode->GetType() == FX_XMLNODE_Element);
@@ -660,7 +661,7 @@ int32_t CXFA_WidgetAcc::ExecuteScript(CXFA_Script script,
           continue;
 
         auto* pGlobalData = static_cast<CXFA_CalcData*>(
-            pRefNode->JSNode()->GetUserData(XFA_CalcData));
+            pRefNode->JSNode()->GetUserData(XFA_CalcData, false));
         if (!pGlobalData) {
           pGlobalData = new CXFA_CalcData;
           pRefNode->JSNode()->SetUserData(XFA_CalcData, pGlobalData,

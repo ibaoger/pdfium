@@ -55,38 +55,33 @@ class CJX_Node : public CJX_Object {
   bool HasAttribute(XFA_ATTRIBUTE eAttr);
   bool SetAttribute(XFA_ATTRIBUTE eAttr,
                     const WideStringView& wsValue,
-                    bool bNotify = false);
-
+                    bool bNotify);
   bool SetAttribute(const WideStringView& wsAttr,
                     const WideStringView& wsValue,
-                    bool bNotify = false);
+                    bool bNotify);
   bool GetAttribute(const WideStringView& wsAttr,
                     WideString& wsValue,
-                    bool bUseDefault = true);
-  bool GetAttribute(XFA_ATTRIBUTE eAttr,
-                    WideString& wsValue,
-                    bool bUseDefault = true);
+                    bool bUseDefault);
+  bool GetAttribute(XFA_ATTRIBUTE eAttr, WideString& wsValue, bool bUseDefault);
   bool SetAttributeValue(const WideString& wsValue,
                          const WideString& wsXMLValue,
-                         bool bNotify = false,
-                         bool bScriptModify = false);
+                         bool bNotify,
+                         bool bScriptModify);
   bool RemoveAttribute(const WideStringView& wsAttr);
 
   CXFA_Node* GetProperty(int32_t index,
                          XFA_Element eType,
-                         bool bCreateProperty = true);
+                         bool bCreateProperty);
 
   bool SetContent(const WideString& wsContent,
                   const WideString& wsXMLValue,
-                  bool bNotify = false,
-                  bool bScriptModify = false,
-                  bool bSyncData = true);
+                  bool bNotify,
+                  bool bScriptModify,
+                  bool bSyncData);
   WideString GetContent();
 
-  bool TryInteger(XFA_ATTRIBUTE eAttr,
-                  int32_t& iValue,
-                  bool bUseDefault = true);
-  bool SetInteger(XFA_ATTRIBUTE eAttr, int32_t iValue, bool bNotify = false) {
+  bool TryInteger(XFA_ATTRIBUTE eAttr, int32_t& iValue, bool bUseDefault);
+  bool SetInteger(XFA_ATTRIBUTE eAttr, int32_t iValue, bool bNotify) {
     return SetValue(eAttr, XFA_ATTRIBUTETYPE_Integer, (void*)(uintptr_t)iValue,
                     bNotify);
   }
@@ -95,33 +90,23 @@ class CJX_Node : public CJX_Object {
     return TryInteger(eAttr, iValue, true) ? iValue : 0;
   }
 
-  bool TryCData(XFA_ATTRIBUTE eAttr,
-                WideStringView& wsValue,
-                bool bUseDefault = true,
-                bool bProto = true);
-  bool TryCData(XFA_ATTRIBUTE eAttr,
-                WideString& wsValue,
-                bool bUseDefault = true,
-                bool bProto = true);
+  bool TryCData(XFA_ATTRIBUTE eAttr, WideStringView& wsValue, bool bUseDefault);
+  bool TryCData(XFA_ATTRIBUTE eAttr, WideString& wsValue, bool bUseDefault);
   bool SetCData(XFA_ATTRIBUTE eAttr,
                 const WideString& wsValue,
-                bool bNotify = false,
-                bool bScriptModify = false);
+                bool bNotify,
+                bool bScriptModify);
   WideStringView GetCData(XFA_ATTRIBUTE eAttr) {
     WideStringView wsValue;
-    return TryCData(eAttr, wsValue) ? wsValue : WideStringView();
+    return TryCData(eAttr, wsValue, true) ? wsValue : WideStringView();
   }
 
-  bool TryContent(WideString& wsContent,
-                  bool bScriptModify = false,
-                  bool bProto = true);
+  bool TryContent(WideString& wsContent, bool bScriptModify, bool bProto);
 
   bool TryEnum(XFA_ATTRIBUTE eAttr,
                XFA_ATTRIBUTEENUM& eValue,
-               bool bUseDefault = true);
-  bool SetEnum(XFA_ATTRIBUTE eAttr,
-               XFA_ATTRIBUTEENUM eValue,
-               bool bNotify = false) {
+               bool bUseDefault);
+  bool SetEnum(XFA_ATTRIBUTE eAttr, XFA_ATTRIBUTEENUM eValue, bool bNotify) {
     return SetValue(eAttr, XFA_ATTRIBUTETYPE_Enum, (void*)(uintptr_t)eValue,
                     bNotify);
   }
@@ -130,8 +115,8 @@ class CJX_Node : public CJX_Object {
     return TryEnum(eAttr, eValue, true) ? eValue : XFA_ATTRIBUTEENUM_Unknown;
   }
 
-  bool TryBoolean(XFA_ATTRIBUTE eAttr, bool& bValue, bool bUseDefault = true);
-  bool SetBoolean(XFA_ATTRIBUTE eAttr, bool bValue, bool bNotify = false) {
+  bool TryBoolean(XFA_ATTRIBUTE eAttr, bool& bValue, bool bUseDefault);
+  bool SetBoolean(XFA_ATTRIBUTE eAttr, bool bValue, bool bNotify) {
     return SetValue(eAttr, XFA_ATTRIBUTETYPE_Boolean, (void*)(uintptr_t)bValue,
                     bNotify);
   }
@@ -142,16 +127,14 @@ class CJX_Node : public CJX_Object {
 
   bool TryMeasure(XFA_ATTRIBUTE eAttr,
                   CXFA_Measurement& mValue,
-                  bool bUseDefault = true) const;
-  bool SetMeasure(XFA_ATTRIBUTE eAttr,
-                  CXFA_Measurement mValue,
-                  bool bNotify = false);
+                  bool bUseDefault) const;
+  bool SetMeasure(XFA_ATTRIBUTE eAttr, CXFA_Measurement mValue, bool bNotify);
   CXFA_Measurement GetMeasure(XFA_ATTRIBUTE eAttr) const;
 
   bool SetUserData(void* pKey,
                    void* pData,
-                   XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo = nullptr);
-  void* GetUserData(void* pKey, bool bProtoAlso = false) {
+                   XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo);
+  void* GetUserData(void* pKey, bool bProtoAlso) {
     void* pData;
     return TryUserData(pKey, pData, bProtoAlso) ? pData : nullptr;
   }
@@ -159,7 +142,7 @@ class CJX_Node : public CJX_Object {
   bool TryObject(XFA_ATTRIBUTE eAttr, void*& pData);
   bool SetObject(XFA_ATTRIBUTE eAttr,
                  void* pData,
-                 XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo = nullptr);
+                 XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo);
   void* GetObject(XFA_ATTRIBUTE eAttr) {
     void* pData;
     return TryObject(eAttr, pData) ? pData : nullptr;
@@ -179,10 +162,6 @@ class CJX_Node : public CJX_Object {
 
   void Script_TreeClass_ResolveNode(CFXJSE_Arguments* pArguments);
   void Script_TreeClass_ResolveNodes(CFXJSE_Arguments* pArguments);
-  void Script_Som_ResolveNodeList(CFXJSE_Value* pValue,
-                                  WideString wsExpression,
-                                  uint32_t dwFlag,
-                                  CXFA_Node* refNode = nullptr);
   void Script_TreeClass_All(CFXJSE_Value* pValue,
                             bool bSetting,
                             XFA_ATTRIBUTE eAttribute);
@@ -252,8 +231,6 @@ class CJX_Node : public CJX_Object {
   void Script_Delta_Target(CFXJSE_Value* pValue,
                            bool bSetting,
                            XFA_ATTRIBUTE eAttribute);
-  void Script_Attribute_SendAttributeChangeMessage(XFA_ATTRIBUTE eAttribute,
-                                                   bool bScriptModify);
   void Script_Attribute_Integer(CFXJSE_Value* pValue,
                                 bool bSetting,
                                 XFA_ATTRIBUTE eAttribute);
@@ -456,7 +433,15 @@ class CJX_Node : public CJX_Object {
                                bool bSetting,
                                XFA_ATTRIBUTE eAttribute);
 
+  void Script_Attribute_SendAttributeChangeMessage(XFA_ATTRIBUTE eAttribute,
+                                                   bool bScriptModify);
+
  private:
+  void Script_Som_ResolveNodeList(CFXJSE_Value* pValue,
+                                  WideString wsExpression,
+                                  uint32_t dwFlag,
+                                  CXFA_Node* refNode);
+
   bool SetValue(XFA_ATTRIBUTE eAttr,
                 XFA_ATTRIBUTETYPE eType,
                 void* pValue,
@@ -466,14 +451,14 @@ class CJX_Node : public CJX_Object {
                 bool bUseDefault,
                 void*& pValue);
 
-  bool TryUserData(void* pKey, void*& pData, bool bProtoAlso = false);
+  bool TryUserData(void* pKey, void*& pData, bool bProtoAlso);
 
   bool SetScriptContent(const WideString& wsContent,
                         const WideString& wsXMLValue,
-                        bool bNotify = true,
-                        bool bScriptModify = false,
-                        bool bSyncData = true);
-  WideString GetScriptContent(bool bScriptModify = false);
+                        bool bNotify,
+                        bool bScriptModify,
+                        bool bSyncData);
+  WideString GetScriptContent(bool bScriptModify);
 
   XFA_MAPMODULEDATA* CreateMapModuleData();
   XFA_MAPMODULEDATA* GetMapModuleData() const;
@@ -481,22 +466,21 @@ class CJX_Node : public CJX_Object {
   bool GetMapModuleValue(void* pKey, void*& pValue);
   void SetMapModuleString(void* pKey, const WideStringView& wsValue);
   bool GetMapModuleString(void* pKey, WideStringView& wsValue);
-  void SetMapModuleBuffer(
-      void* pKey,
-      void* pValue,
-      int32_t iBytes,
-      XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo = nullptr);
+  void SetMapModuleBuffer(void* pKey,
+                          void* pValue,
+                          int32_t iBytes,
+                          XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo);
   bool GetMapModuleBuffer(void* pKey,
                           void*& pValue,
                           int32_t& iBytes,
-                          bool bProtoAlso = true) const;
+                          bool bProtoAlso) const;
   bool HasMapModuleKey(void* pKey);
-  void RemoveMapModuleKey(void* pKey = nullptr);
+  void RemoveMapModuleKey(void* pKey);
+  void ClearMapModuleBuffer();
   void MoveBufferMapData(CXFA_Node* pDstModule, void* pKey);
   void MoveBufferMapData(CXFA_Node* pSrcModule,
                          CXFA_Node* pDstModule,
-                         void* pKey,
-                         bool bRecursive = false);
+                         void* pKey);
 
   int32_t execSingleEventByName(const WideStringView& wsEventName,
                                 XFA_Element eType);

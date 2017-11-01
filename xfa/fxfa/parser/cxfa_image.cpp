@@ -16,13 +16,14 @@ int32_t CXFA_Image::GetAspect() {
 }
 
 bool CXFA_Image::GetContentType(WideString& wsContentType) {
-  return m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_ContentType, wsContentType);
+  return m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_ContentType, wsContentType,
+                                     true);
 }
 
 bool CXFA_Image::GetHref(WideString& wsHref) {
   if (m_bDefValue)
-    return m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Href, wsHref);
-  return m_pNode->JSNode()->GetAttribute(L"href", wsHref);
+    return m_pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Href, wsHref, true);
+  return m_pNode->JSNode()->GetAttribute(L"href", wsHref, true);
 }
 
 int32_t CXFA_Image::GetTransferEncoding() {
@@ -32,24 +33,27 @@ int32_t CXFA_Image::GetTransferEncoding() {
 }
 
 bool CXFA_Image::GetContent(WideString& wsText) {
-  return m_pNode->JSNode()->TryContent(wsText);
+  return m_pNode->JSNode()->TryContent(wsText, false, true);
 }
 
 bool CXFA_Image::SetContentType(const WideString& wsContentType) {
-  return m_pNode->JSNode()->SetCData(XFA_ATTRIBUTE_ContentType, wsContentType);
+  return m_pNode->JSNode()->SetCData(XFA_ATTRIBUTE_ContentType, wsContentType,
+                                     false, false);
 }
 
 bool CXFA_Image::SetHref(const WideString& wsHref) {
   if (m_bDefValue)
-    return m_pNode->JSNode()->SetCData(XFA_ATTRIBUTE_Href, wsHref);
+    return m_pNode->JSNode()->SetCData(XFA_ATTRIBUTE_Href, wsHref, false,
+                                       false);
   return m_pNode->JSNode()->SetAttribute(XFA_ATTRIBUTE_Href,
-                                         wsHref.AsStringView());
+                                         wsHref.AsStringView(), false);
 }
 
 bool CXFA_Image::SetTransferEncoding(int32_t iTransferEncoding) {
   if (m_bDefValue) {
     return m_pNode->JSNode()->SetEnum(XFA_ATTRIBUTE_TransferEncoding,
-                                      (XFA_ATTRIBUTEENUM)iTransferEncoding);
+                                      (XFA_ATTRIBUTEENUM)iTransferEncoding,
+                                      false);
   }
   return true;
 }

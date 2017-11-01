@@ -145,10 +145,6 @@ class CXFA_Node : public CXFA_Object {
 
   void Script_TreeClass_ResolveNode(CFXJSE_Arguments* pArguments);
   void Script_TreeClass_ResolveNodes(CFXJSE_Arguments* pArguments);
-  void Script_Som_ResolveNodeList(CFXJSE_Value* pValue,
-                                  WideString wsExpression,
-                                  uint32_t dwFlag,
-                                  CXFA_Node* refNode = nullptr);
   void Script_TreeClass_All(CFXJSE_Value* pValue,
                             bool bSetting,
                             XFA_ATTRIBUTE eAttribute);
@@ -218,8 +214,6 @@ class CXFA_Node : public CXFA_Object {
   void Script_Delta_Target(CFXJSE_Value* pValue,
                            bool bSetting,
                            XFA_ATTRIBUTE eAttribute);
-  void Script_Attribute_SendAttributeChangeMessage(XFA_ATTRIBUTE eAttribute,
-                                                   bool bScriptModify);
   void Script_Attribute_Integer(CFXJSE_Value* pValue,
                                 bool bSetting,
                                 XFA_ATTRIBUTE eAttribute);

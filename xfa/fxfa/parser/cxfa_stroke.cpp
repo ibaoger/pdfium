@@ -41,7 +41,7 @@ void CXFA_Stroke::SetMSThickness(CXFA_Measurement msThinkness) {
   if (!m_pNode)
     return;
 
-  m_pNode->JSNode()->SetMeasure(XFA_ATTRIBUTE_Thickness, msThinkness);
+  m_pNode->JSNode()->SetMeasure(XFA_ATTRIBUTE_Thickness, msThinkness, false);
 }
 
 FX_ARGB CXFA_Stroke::GetColor() const {
@@ -53,7 +53,7 @@ FX_ARGB CXFA_Stroke::GetColor() const {
     return 0xFF000000;
 
   WideStringView wsColor;
-  pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Value, wsColor);
+  pNode->JSNode()->TryCData(XFA_ATTRIBUTE_Value, wsColor, true);
   return CXFA_Data::ToColor(wsColor);
 }
 
@@ -61,7 +61,8 @@ void CXFA_Stroke::SetColor(FX_ARGB argb) {
   if (!m_pNode)
     return;
 
-  CXFA_Node* pNode = m_pNode->JSNode()->GetProperty(0, XFA_Element::Color);
+  CXFA_Node* pNode =
+      m_pNode->JSNode()->GetProperty(0, XFA_Element::Color, true);
   WideString wsColor;
   int a;
   int r;
@@ -69,7 +70,7 @@ void CXFA_Stroke::SetColor(FX_ARGB argb) {
   int b;
   std::tie(a, r, g, b) = ArgbDecode(argb);
   wsColor.Format(L"%d,%d,%d", r, g, b);
-  pNode->JSNode()->SetCData(XFA_ATTRIBUTE_Value, wsColor);
+  pNode->JSNode()->SetCData(XFA_ATTRIBUTE_Value, wsColor, false, false);
 }
 
 int32_t CXFA_Stroke::GetJoinType() const {
