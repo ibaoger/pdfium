@@ -52,7 +52,7 @@ class CJX_Node : public CJX_Object {
   CXFA_Node* GetXFANode();
   const CXFA_Node* GetXFANode() const;
 
-  bool HasAttribute(XFA_ATTRIBUTE eAttr, bool bCanInherit = false);
+  bool HasAttribute(XFA_ATTRIBUTE eAttr);
   bool SetAttribute(XFA_ATTRIBUTE eAttr,
                     const WideStringView& wsValue,
                     bool bNotify = false);
