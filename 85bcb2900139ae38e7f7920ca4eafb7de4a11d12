@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c077a842_09afd778",
+        "filename": "fxjs/cjx_object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-01T20:04:21Z",
+      "side": 1,
+      "message": "nit: is this const method?  I think it is.",
+      "range": {
+        "startLine": 25,
+        "startChar": 30,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "85bcb2900139ae38e7f7920ca4eafb7de4a11d12",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
