@@ -22,6 +22,30 @@
       "revId": "c490522b24594879c9e28d5aee842af1068d4eda",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5da2d6ad_febc3662",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T16:05:11Z",
+      "side": 1,
+      "message": "Yea, will followup once other classes are converted and try to get all of these fixed at the same time with a helper.",
+      "parentUuid": "902b53da_d5571f9f",
+      "range": {
+        "startLine": 1002,
+        "startChar": 30,
+        "endLine": 1002,
+        "endChar": 56
+      },
+      "revId": "c490522b24594879c9e28d5aee842af1068d4eda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
