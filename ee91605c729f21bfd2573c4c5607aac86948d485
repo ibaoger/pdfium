@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40d7cecc_34b0f4ed",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T13:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f49a9e5_d7235f4a",
+      "range": {
+        "startLine": 40,
+        "startChar": 43,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4841b5b2_8b4e4e32",
         "filename": "fxjs/cjx_node.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-31T21:27:13Z",
       "side": 1,
       "message": "nit: move to anon namespace and lose static.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 6
+      },
+      "revId": "ee91605c729f21bfd2573c4c5607aac86948d485",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da26e669_5235b790",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-01T13:06:16Z",
+      "side": 1,
+      "message": "Already in anon namespace, removed the static.",
+      "parentUuid": "4841b5b2_8b4e4e32",
       "range": {
         "startLine": 120,
         "startChar": 0,
