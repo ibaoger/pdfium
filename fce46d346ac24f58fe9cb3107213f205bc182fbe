@@ -23,6 +23,30 @@
       "revId": "fce46d346ac24f58fe9cb3107213f205bc182fbe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b71295a_865cd3ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T18:44:19Z",
+      "side": 1,
+      "message": "I can certainly break it apart into CLs that do less. As is, rearranging the CMap data in question should make it a bit more obvious that it is range data and not single map entries.",
+      "parentUuid": "d6de0259_af901d64",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "fce46d346ac24f58fe9cb3107213f205bc182fbe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
