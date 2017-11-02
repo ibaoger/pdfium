@@ -166,8 +166,7 @@ class CPDF_DataAvail final {
 
   RetainPtr<CPDF_ReadValidator> m_pFileRead;
   CPDF_Parser m_parser;
-  std::unique_ptr<CPDF_Object> m_pRoot;
-  uint32_t m_dwRootObjNum;
+  std::unique_ptr<CPDF_Dictionary> m_pRoot;
   std::unique_ptr<CPDF_LinearizedHeader> m_pLinearized;
   bool m_bDocAvail;
   std::unique_ptr<CPDF_CrossRefAvail> m_pCrossRefAvail;
