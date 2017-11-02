@@ -50,6 +50,30 @@
     },
     {
       "key": {
+        "uuid": "b07ea782_b20a0d1a",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T19:13:31Z",
+      "side": 1,
+      "message": "Works for me.",
+      "parentUuid": "4f415732_d09f2439",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aae1f430_a698c5c7",
         "filename": "core/fpdfapi/page/cpdf_page.h",
         "patchSetId": 1
@@ -97,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "fb2267f3_3cf96e10",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T19:13:31Z",
+      "side": 1,
+      "message": "Working in floats makes sense",
+      "parentUuid": "ea992a1a_ac8f3bd0",
+      "range": {
+        "startLine": 43,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 34
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8867512a_255e1f70",
         "filename": "core/fpdfapi/page/cpdf_page.h",
         "patchSetId": 1
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "How about a pdfium::Optional\u003cCFX_Point\u003e instead?",
       "parentUuid": "8867512a_255e1f70",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fae81fe3_d11f5226",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T19:13:31Z",
+      "side": 1,
+      "message": "+1 to returning Optional, I always forget about Optional.",
+      "parentUuid": "e9d01f1d_09cb5f74",
       "range": {
         "startLine": 52,
         "startChar": 19,
