@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55b07b46_867165b8",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-02T17:30:41Z",
+      "side": 1,
+      "message": "nit: braces (and below)",
+      "range": {
+        "startLine": 1407,
+        "startChar": 69,
+        "endLine": 1407,
+        "endChar": 0
+      },
+      "revId": "1dd1b4995279818330e96bd6d218c340da93b1ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d317438_2a1e9f2d",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1411,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-02T17:30:41Z",
+      "side": 1,
+      "message": "maybe do this at line 1406 so if TryInteger fails, we still have set it to an error code rather than leaving un-init (and below)?",
+      "range": {
+        "startLine": 1411,
+        "startChar": 0,
+        "endLine": 1411,
+        "endChar": 19
+      },
+      "revId": "1dd1b4995279818330e96bd6d218c340da93b1ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96b0fec_ab8483a7",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-02T17:30:41Z",
+      "side": 1,
+      "message": "this might benefit from being written in terms of early returns.  Longer, but clearer.",
+      "range": {
+        "startLine": 1412,
+        "startChar": 1,
+        "endLine": 1413,
+        "endChar": 1
+      },
+      "revId": "1dd1b4995279818330e96bd6d218c340da93b1ec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
