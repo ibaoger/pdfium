@@ -203,10 +203,11 @@ FPDFImageObj_GetImageDataRaw(FPDF_PAGEOBJECT image_object,
     return 0;
 
   uint32_t len = pImgStream->GetRawSize();
-  if (buffer && buflen >= len)
-    memcpy(buffer, pImgStream->GetRawData(), len);
+  if (!buffer || buflen < len)
+    return len;
 
-  return len;
+  return pImgStream->ReadRawData(0, static_cast<uint8_t*>(buffer), len) ? len
+                                                                        : 0;
 }
 
 FPDF_EXPORT int FPDF_CALLCONV

@@ -37,7 +37,6 @@ class CPDF_Stream : public CPDF_Object {
   bool WriteTo(IFX_ArchiveStream* archive) const override;
 
   uint32_t GetRawSize() const { return m_dwSize; }
-  uint8_t* GetRawData() const { return m_pDataBuf.get(); }
 
   // Does not takes ownership of |pData|, copies into internally-owned buffer.
   void SetData(const uint8_t* pData, uint32_t size);
@@ -58,10 +57,13 @@ class CPDF_Stream : public CPDF_Object {
                    uint8_t* pBuf,
                    uint32_t buf_size) const;
 
-  bool IsMemoryBased() const { return m_bMemoryBased; }
   bool HasFilter() const;
 
  protected:
+  friend class CPDF_StreamAcc;
+  uint8_t* GetRawData() const { return m_pDataBuf.get(); }
+  bool IsMemoryBased() const { return m_bMemoryBased; }
+
   std::unique_ptr<CPDF_Object> CloneNonCyclic(
       bool bDirect,
       std::set<const CPDF_Object*>* pVisited) const override;

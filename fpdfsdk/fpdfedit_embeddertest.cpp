@@ -13,6 +13,7 @@
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_number.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
+#include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fxcrt/fx_system.h"
 #include "fpdfsdk/fsdk_define.h"
 #include "public/cpp/fpdf_deleters.h"
@@ -81,7 +82,9 @@ class FPDFEditEmbeddertest : public EmbedderTest {
       ASSERT_EQ(static_cast<int>(size),
                 font_stream->GetDict()->GetIntegerFor("Length1"));
     }
-    uint8_t* stream_data = font_stream->GetRawData();
+    CPDF_StreamAcc streamAcc(font_stream);
+    streamAcc.LoadAllData(true);
+    const uint8_t* stream_data = streamAcc.GetData();
     for (size_t j = 0; j < size; j++)
       EXPECT_EQ(data[j], stream_data[j]) << " at byte " << j;
   }
