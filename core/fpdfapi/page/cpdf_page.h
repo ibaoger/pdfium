@@ -33,6 +33,25 @@ class CPDF_Page : public CPDF_PageObjectHolder {
 
   void ParseContent();
 
+  bool DeviceToPage(int start_x,
+                    int start_y,
+                    int size_x,
+                    int size_y,
+                    int rotate,
+                    int device_x,
+                    int device_y,
+                    double* page_x,
+                    double* page_y) const;
+  bool PageToDevice(int start_x,
+                    int start_y,
+                    int size_x,
+                    int size_y,
+                    int rotate,
+                    double page_x,
+                    double page_y,
+                    int* device_x,
+                    int* device_y) const;
+
   CFX_Matrix GetDisplayMatrix(int xPos,
                               int yPos,
                               int xSize,
@@ -43,7 +62,7 @@ class CPDF_Page : public CPDF_PageObjectHolder {
       int yPos,
       int xSize,
       int ySize,
-      const CFX_Matrix& transformation);
+      const CFX_Matrix& transformation) const;
 
   float GetPageWidth() const { return m_PageWidth; }
   float GetPageHeight() const { return m_PageHeight; }

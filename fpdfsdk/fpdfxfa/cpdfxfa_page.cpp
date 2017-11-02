@@ -121,7 +121,7 @@ float CPDFXFA_Page::GetPageHeight() const {
   return 0.0f;
 }
 
-void CPDFXFA_Page::DeviceToPage(int start_x,
+bool CPDFXFA_Page::DeviceToPage(int start_x,
                                 int start_y,
                                 int size_x,
                                 int size_y,
@@ -129,9 +129,9 @@ void CPDFXFA_Page::DeviceToPage(int start_x,
                                 int device_x,
                                 int device_y,
                                 double* page_x,
-                                double* page_y) {
+                                double* page_y) const {
   if (!m_pPDFPage && !m_pXFAPageView)
-    return;
+    return false;
 
   CFX_PointF pos = GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate)
                        .GetInverse()
@@ -140,9 +140,10 @@ void CPDFXFA_Page::DeviceToPage(int start_x,
 
   *page_x = pos.x;
   *page_y = pos.y;
+  return true;
 }
 
-void CPDFXFA_Page::PageToDevice(int start_x,
+bool CPDFXFA_Page::PageToDevice(int start_x,
                                 int start_y,
                                 int size_x,
                                 int size_y,
@@ -150,9 +151,9 @@ void CPDFXFA_Page::PageToDevice(int start_x,
                                 double page_x,
                                 double page_y,
                                 int* device_x,
-                                int* device_y) {
+                                int* device_y) const {
   if (!m_pPDFPage && !m_pXFAPageView)
-    return;
+    return false;
 
   CFX_Matrix page2device =
       GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
@@ -162,6 +163,7 @@ void CPDFXFA_Page::PageToDevice(int start_x,
 
   *device_x = FXSYS_round(pos.x);
   *device_y = FXSYS_round(pos.y);
+  return true;
 }
 
 CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
@@ -179,9 +181,10 @@ CFX_Matrix CPDFXFA_Page::GetDisplayMatrix(int xPos,
       if (m_pPDFPage)
         return m_pPDFPage->GetDisplayMatrix(xPos, yPos, xSize, ySize, iRotate);
     case FormType::kXFAFull:
-      if (m_pXFAPageView)
+      if (m_pXFAPageView) {
         return m_pXFAPageView->GetDisplayMatrix(
             CFX_Rect(xPos, yPos, xSize, ySize), iRotate);
+      }
   }
 
   return CFX_Matrix();

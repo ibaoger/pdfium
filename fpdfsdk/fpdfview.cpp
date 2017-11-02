@@ -1096,61 +1096,40 @@ FPDF_EXPORT unsigned long FPDF_CALLCONV FPDF_GetLastError() {
   return GetLastError();
 }
 
-FPDF_EXPORT void FPDF_CALLCONV FPDF_DeviceToPage(FPDF_PAGE page,
-                                                 int start_x,
-                                                 int start_y,
-                                                 int size_x,
-                                                 int size_y,
-                                                 int rotate,
-                                                 int device_x,
-                                                 int device_y,
-                                                 double* page_x,
-                                                 double* page_y) {
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_DeviceToPage(FPDF_PAGE page,
+                                                      int start_x,
+                                                      int start_y,
+                                                      int size_x,
+                                                      int size_y,
+                                                      int rotate,
+                                                      int device_x,
+                                                      int device_y,
+                                                      double* page_x,
+                                                      double* page_y) {
   if (!page || !page_x || !page_y)
-    return;
+    return false;
+
   UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
-#ifdef PDF_ENABLE_XFA
-  pPage->DeviceToPage(start_x, start_y, size_x, size_y, rotate, device_x,
-                      device_y, page_x, page_y);
-#else   // PDF_ENABLE_XFA
-  CFX_Matrix page2device =
-      pPage->GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
-
-  CFX_PointF pos = page2device.GetInverse().Transform(
-      CFX_PointF(static_cast<float>(device_x), static_cast<float>(device_y)));
-
-  *page_x = pos.x;
-  *page_y = pos.y;
-#endif  // PDF_ENABLE_XFA
+  return pPage->DeviceToPage(start_x, start_y, size_x, size_y, rotate, device_x,
+                             device_y, page_x, page_y);
 }
 
-FPDF_EXPORT void FPDF_CALLCONV FPDF_PageToDevice(FPDF_PAGE page,
-                                                 int start_x,
-                                                 int start_y,
-                                                 int size_x,
-                                                 int size_y,
-                                                 int rotate,
-                                                 double page_x,
-                                                 double page_y,
-                                                 int* device_x,
-                                                 int* device_y) {
-  if (!device_x || !device_y)
-    return;
-  UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
-  if (!pPage)
-    return;
-#ifdef PDF_ENABLE_XFA
-  pPage->PageToDevice(start_x, start_y, size_x, size_y, rotate, page_x, page_y,
-                      device_x, device_y);
-#else   // PDF_ENABLE_XFA
-  CFX_Matrix page2device =
-      pPage->GetDisplayMatrix(start_x, start_y, size_x, size_y, rotate);
-  CFX_PointF pos = page2device.Transform(
-      CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)));
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_PageToDevice(FPDF_PAGE page,
+                                                      int start_x,
+                                                      int start_y,
+                                                      int size_x,
+                                                      int size_y,
+                                                      int rotate,
+                                                      double page_x,
+                                                      double page_y,
+                                                      int* device_x,
+                                                      int* device_y) {
+  if (!page || !device_x || !device_y)
+    return false;
 
-  *device_x = FXSYS_round(pos.x);
-  *device_y = FXSYS_round(pos.y);
-#endif  // PDF_ENABLE_XFA
+  UnderlyingPageType* pPage = UnderlyingFromFPDFPage(page);
+  return pPage->PageToDevice(start_x, start_y, size_x, size_y, rotate, page_x,
+                             page_y, device_x, device_y);
 }
 
 FPDF_EXPORT FPDF_BITMAP FPDF_CALLCONV FPDFBitmap_Create(int width,
