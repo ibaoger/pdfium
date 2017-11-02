@@ -1145,10 +1145,6 @@ bool CPDF_DataAvail::CheckResources() {
   return true;
 }
 
-RetainPtr<IFX_SeekableReadStream> CPDF_DataAvail::GetFileRead() const {
-  return m_pFileRead;
-}
-
 RetainPtr<CPDF_ReadValidator> CPDF_DataAvail::GetValidator() const {
   return m_pFileRead;
 }
@@ -1265,7 +1261,7 @@ CPDF_DataAvail::ParseDocument(const char* password) {
 
   CPDF_ReadValidator::Session read_session(GetValidator().Get());
   CPDF_Parser::Error error = document->GetParser()->StartLinearizedParse(
-      GetFileRead(), document.get());
+      GetValidator(), document.get());
 
   // Additional check, that all ok.
   if (GetValidator()->has_read_problems()) {
