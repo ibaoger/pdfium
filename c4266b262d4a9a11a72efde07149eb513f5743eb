@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "593a914b_1c465993",
+        "filename": "core/fpdfapi/cmaps/GB1/cmaps_gb1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T18:33:30Z",
+      "side": 0,
+      "message": "This doesn\u0027t look right. The code being removed in core/fpdfapi/cmaps/fpdf_cmaps.cpp treats this as an array of size 1017 * 3, but the array actually has a size of 1017 * 4, and it\u0027s data looks like a FXCMAP_CMap::Range.",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "c4266b262d4a9a11a72efde07149eb513f5743eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
