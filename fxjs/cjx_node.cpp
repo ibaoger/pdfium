@@ -6,7 +6,7 @@
 
 #include "fxjs/cjx_node.h"
 
-#include <memory>
+#include <map>
 #include <vector>
 
 #include "core/fxcrt/cfx_decimal.h"
@@ -172,12 +172,21 @@ static void XFA_DefaultFreeData(void* pData) {}
 static XFA_MAPDATABLOCKCALLBACKINFO gs_XFADefaultFreeData = {
     XFA_DefaultFreeData, nullptr};
 
-XFA_MAPMODULEDATA::XFA_MAPMODULEDATA() {}
+struct XFA_MAPDATABLOCK {
+  uint8_t* GetData() const { return (uint8_t*)this + sizeof(XFA_MAPDATABLOCK); }
+  XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo;
+  int32_t iBytes;
+};
 
-XFA_MAPMODULEDATA::~XFA_MAPMODULEDATA() {}
+struct XFA_MAPMODULEDATA {
+  XFA_MAPMODULEDATA() {}
+  ~XFA_MAPMODULEDATA() {}
 
-CJX_Node::CJX_Node(CXFA_Node* node)
-    : CJX_Object(node), map_module_data_(nullptr) {}
+  std::map<void*, void*> m_ValueMap;
+  std::map<void*, XFA_MAPDATABLOCK*> m_BufferMap;
+};
+
+CJX_Node::CJX_Node(CXFA_Node* node) : CJX_Object(node) {}
 
 CJX_Node::~CJX_Node() {
   ClearMapModuleBuffer();
@@ -3663,17 +3672,16 @@ CXFA_Node* CJX_Node::GetProperty(int32_t index,
 
 XFA_MAPMODULEDATA* CJX_Node::CreateMapModuleData() {
   if (!map_module_data_)
-    map_module_data_ = new XFA_MAPMODULEDATA;
-  return map_module_data_;
+    map_module_data_ = pdfium::MakeUnique<XFA_MAPMODULEDATA>();
+  return map_module_data_.get();
 }
 
 XFA_MAPMODULEDATA* CJX_Node::GetMapModuleData() const {
-  return map_module_data_;
+  return map_module_data_.get();
 }
 
 void CJX_Node::SetMapModuleValue(void* pKey, void* pValue) {
-  XFA_MAPMODULEDATA* pModule = CreateMapModuleData();
-  pModule->m_ValueMap[pKey] = pValue;
+  CreateMapModuleData()->m_ValueMap[pKey] = pValue;
 }
 
 bool CJX_Node::GetMapModuleValue(void* pKey, void*& pValue) {
@@ -3713,8 +3721,7 @@ void CJX_Node::SetMapModuleBuffer(void* pKey,
                                   void* pValue,
                                   int32_t iBytes,
                                   XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo) {
-  XFA_MAPMODULEDATA* pModule = CreateMapModuleData();
-  XFA_MAPDATABLOCK*& pBuffer = pModule->m_BufferMap[pKey];
+  XFA_MAPDATABLOCK*& pBuffer = CreateMapModuleData()->m_BufferMap[pKey];
   if (!pBuffer) {
     pBuffer =
         (XFA_MAPDATABLOCK*)FX_Alloc(uint8_t, sizeof(XFA_MAPDATABLOCK) + iBytes);
@@ -3782,7 +3789,6 @@ void CJX_Node::ClearMapModuleBuffer() {
   }
   pModule->m_BufferMap.clear();
   pModule->m_ValueMap.clear();
-  delete pModule;
 }
 
 void CJX_Node::RemoveMapModuleKey(void* pKey) {
@@ -3806,9 +3812,9 @@ void CJX_Node::RemoveMapModuleKey(void* pKey) {
   return;
 }
 
-void CJX_Node::MergeAllData(void* pDstModule) {
+void CJX_Node::MergeAllData(CXFA_Node* pDstModule) {
   XFA_MAPMODULEDATA* pDstModuleData =
-      static_cast<CXFA_Node*>(pDstModule)->JSNode()->CreateMapModuleData();
+      pDstModule->JSNode()->CreateMapModuleData();
   XFA_MAPMODULEDATA* pSrcModuleData = GetMapModuleData();
   if (!pSrcModuleData)
     return;
