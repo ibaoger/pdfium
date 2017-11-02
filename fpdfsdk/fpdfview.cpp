@@ -20,6 +20,7 @@
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_dictionary.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
+#include "core/fpdfapi/parser/cpdf_stream_acc.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
 #include "core/fpdfapi/render/cpdf_progressiverenderer.h"
 #include "core/fpdfapi/render/cpdf_renderoptions.h"
@@ -388,8 +389,10 @@ unsigned long DecodeStreamMaybeCopyAndReturnLength(const CPDF_Stream* stream,
                                                    void* buffer,
                                                    unsigned long buflen) {
   ASSERT(stream);
-  uint8_t* data = stream->GetRawData();
-  uint32_t len = stream->GetRawSize();
+  auto streamAcc = pdfium::MakeRetain<CPDF_StreamAcc>(stream);
+  streamAcc->LoadAllData(true);
+  const uint8_t* data = streamAcc->GetData();
+  const uint32_t len = streamAcc->GetSize();
   CPDF_Dictionary* dict = stream->GetDict();
   CPDF_Object* decoder = dict ? dict->GetDirectObjectFor("Filter") : nullptr;
   if (decoder && (decoder->IsArray() || decoder->IsName())) {
