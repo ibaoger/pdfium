@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "cd5dd02f_5107af58",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cb3c00_b825dacb",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be0fc4c0_11762f24",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
         "patchSetId": 1
@@ -59,6 +77,30 @@
     },
     {
       "key": {
+        "uuid": "81a94b81_72997cad",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be0fc4c0_11762f24",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12fdccff_59d97e0a",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
         "patchSetId": 1
@@ -73,6 +115,24 @@
       "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5fb9a1a_30c4eb58",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12fdccff_59d97e0a",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -99,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "1229f667_a70c49e2",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ce6159_f4d6e000",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a0fd827_2be19144",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
         "patchSetId": 1
@@ -116,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "7f9e0709_c7778f83",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0fd827_2be19144",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28e3ebcb_43c6fa54",
         "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_unittest.cpp",
         "patchSetId": 1
@@ -130,6 +232,24 @@
       "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d99edf92_4c2f6c35",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7160
+      },
+      "writtenOn": "2017-11-02T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28e3ebcb_43c6fa54",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
