@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13bb7498_f2704ebf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T05:13:18Z",
+      "side": 1,
+      "message": "Couldn\u0027t tell if you mean properly or property. Looks like the former.",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "4ac35f239938877b15e6bbe1a5c73aab14a2ae5d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
