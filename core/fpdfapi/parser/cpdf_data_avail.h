@@ -142,7 +142,7 @@ class CPDF_DataAvail final {
       CPDF_IndirectObjectHolder* pObjList = nullptr);
   std::unique_ptr<CPDF_Object> GetObject(uint32_t objnum,
                                          bool* pExistInFile);
-  bool GetPageKids(CPDF_Parser* pParser, CPDF_Object* pPages);
+  bool GetPageKids(CPDF_Object* pPages);
   bool PreparePageItem();
   bool LoadPages();
   bool CheckAndLoadAllXref();
@@ -164,7 +164,6 @@ class CPDF_DataAvail final {
   bool ValidatePage(uint32_t dwPage);
   CPDF_SyntaxParser* GetSyntaxParser() const;
 
-  FileAvail* const m_pFileAvail;
   RetainPtr<CPDF_ReadValidator> m_pFileRead;
   CPDF_Parser m_parser;
   std::unique_ptr<CPDF_Object> m_pRoot;
@@ -183,7 +182,6 @@ class CPDF_DataAvail final {
   bool m_bMainXRefLoadedOK;
   bool m_bPagesTreeLoad;
   bool m_bPagesLoad;
-  CPDF_Parser* m_pCurrentParser;
   std::unique_ptr<CPDF_PageObjectAvail> m_pFormAvail;
   std::vector<std::unique_ptr<CPDF_Object>> m_PagesArray;
   uint32_t m_dwEncryptObjNum;
@@ -192,7 +190,6 @@ class CPDF_DataAvail final {
   PageNode m_PageNode;
   std::set<uint32_t> m_pageMapCheckState;
   std::set<uint32_t> m_pagesLoadState;
-  std::set<uint32_t> m_SeenPrevPositions;
   std::unique_ptr<CPDF_HintTables> m_pHintTables;
   bool m_bSupportHintTable;
   std::map<uint32_t, std::unique_ptr<CPDF_PageObjectAvail>> m_PagesObjAvail;
