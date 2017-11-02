@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "4f415732_d09f2439",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T19:09:37Z",
+      "side": 1,
+      "message": "How about:\n(start_x, start_y, size_x, size_y) -\u003e CFX_Size\n(device_x, device_y) -\u003e CFX_Point",
+      "parentUuid": "bfb2304c_bf0cd45b",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aae1f430_a698c5c7",
         "filename": "core/fpdfapi/page/cpdf_page.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2017-11-02T14:14:53Z",
       "side": 1,
       "message": "Think it would be worthwhile making a CFX_PointD \u003d CFX_PTemplate\u003cdouble\u003e and then using that for this return and the page_x, page_y below?",
+      "range": {
+        "startLine": 43,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 34
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea992a1a_ac8f3bd0",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T19:09:37Z",
+      "side": 1,
+      "message": "Or should we just use CFX_PointF? CFX_Matrix also uses floats, so I don\u0027t think the out value really benefits from being doubles. But we are stuck with the public interface as is.",
+      "parentUuid": "aae1f430_a698c5c7",
       "range": {
         "startLine": 43,
         "startChar": 20,
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "e9d01f1d_09cb5f74",
+        "filename": "core/fpdfapi/page/cpdf_page.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T19:09:37Z",
+      "side": 1,
+      "message": "How about a pdfium::Optional\u003cCFX_Point\u003e instead?",
+      "parentUuid": "8867512a_255e1f70",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "097413f6_8fc7c970",
         "filename": "public/fpdfview.h",
         "patchSetId": 1
@@ -92,6 +164,30 @@
       "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd707dfe_e0e7d0c4",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T19:09:37Z",
+      "side": 1,
+      "message": "Rephrased. Looks ok?",
+      "parentUuid": "097413f6_8fc7c970",
+      "range": {
+        "startLine": 730,
+        "startChar": 12,
+        "endLine": 730,
+        "endChar": 57
+      },
+      "revId": "a2af36e3196f9b5f340cdf1e463adf02adb742c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
