@@ -71,6 +71,30 @@
       "revId": "fce46d346ac24f58fe9cb3107213f205bc182fbe",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c15ea2_bd01eeb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-02T19:36:48Z",
+      "side": 1,
+      "message": "Most of the cleanup depends on agreeing that the GBK2K-H CMap is a range. Once that happens, then all the DWORD maps are either ranges or none. Only then can we change struct FXCMAP_CMap and make the other changes accordingly. So it has to be fix, then cleanup. I\u0027ve already done a bunch of possible cleanup in https://pdfium-review.googlesource.com/c/pdfium/+/17410 . After this CL lands, whether as 1 or multiple, the other follow ups are:\n\n- Drop FXCMAP_CMap::MapType. Since WORD maps are always single or range, so those two cases can be replaced by a bool. DWORD maps are always range or none, so assume range always, with a nullptr DWORD pointer to represent none.\n- Pack FXCMAP_CMap more efficiently to save ~1 KB.\n- Stop using bsearch().",
+      "parentUuid": "7453af55_e3e459b4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "fce46d346ac24f58fe9cb3107213f205bc182fbe",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
