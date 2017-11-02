@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2675aff_92a62ba5",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77cb3c00_b825dacb",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "Let\u0027s turn this into a while(1)  and remove DoStep and inline it here. Then break as needed.",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be0fc4c0_11762f24",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "Lets drop SetError and just inline the setting of the status at each call site.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12fdccff_59d97e0a",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ce6159_f4d6e000",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be subclassed, why virtual?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a0fd827_2be19144",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "Remove blank lines between variables.",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e3ebcb_43c6fa54",
+        "filename": "core/fpdfapi/parser/cpdf_cross_ref_avail_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-02T14:08:34Z",
+      "side": 1,
+      "message": "nit: 2017",
+      "revId": "70822dc47de6f5b2a04ec2f3456a2313a2ae3abc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
