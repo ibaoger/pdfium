@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "4c67e99e_f8091310",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:40:02Z",
+      "side": 1,
+      "message": "It\u0027s actually not possible, but it\u0027s also not immediately obvious. I need to do more cleanup and reorganizing to make it obvious, but I didn\u0027t want to do it all in 1 big CL.",
+      "parentUuid": "17d852bd_d0616258",
+      "range": {
+        "startLine": 414,
+        "startChar": 58,
+        "endLine": 414,
+        "endChar": 72
+      },
+      "revId": "1e18655a5686b3a640b9fec8570771c1685d2fb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3038823f_63ba7d1f",
         "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c8b7c408_d0779fcb",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:40:02Z",
+      "side": 1,
+      "message": "Ya, I realized I didn\u0027t fully revert this portion. I\u0027ll get this on the next pass.",
+      "parentUuid": "3038823f_63ba7d1f",
+      "range": {
+        "startLine": 415,
+        "startChar": 28,
+        "endLine": 415,
+        "endChar": 30
+      },
+      "revId": "1e18655a5686b3a640b9fec8570771c1685d2fb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16d3ac9c_8156d16c",
         "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2017-11-03T18:20:08Z",
       "side": 1,
       "message": "nit: no {}",
+      "range": {
+        "startLine": 520,
+        "startChar": 47,
+        "endLine": 520,
+        "endChar": 49
+      },
+      "revId": "1e18655a5686b3a640b9fec8570771c1685d2fb5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a87a04bb_7307c756",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:40:02Z",
+      "side": 1,
+      "message": "Will get this on the next pass.",
+      "parentUuid": "16d3ac9c_8156d16c",
       "range": {
         "startLine": 520,
         "startChar": 47,
