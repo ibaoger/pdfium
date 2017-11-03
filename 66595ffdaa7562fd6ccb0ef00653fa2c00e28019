@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f971063a_a1c9cbfb",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-03T18:28:37Z",
+      "side": 1,
+      "message": "nit: if you feel like it, maybe a while loop and move 3904/3905 into the body?  might read cleaner.",
+      "range": {
+        "startLine": 3903,
+        "startChar": 2,
+        "endLine": 3903,
+        "endChar": 32
+      },
+      "revId": "66595ffdaa7562fd6ccb0ef00653fa2c00e28019",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
