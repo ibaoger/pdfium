@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dac614c8_0ceff71a",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:15:19Z",
+      "side": 0,
+      "message": "I makde m_pCache mutable instead.",
+      "revId": "d7999f6a794207842544214d015af6f06322157c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
