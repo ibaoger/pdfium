@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5457aff2_9fa3ba79",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T21:35:03Z",
+      "side": 1,
+      "message": "- Why does this need to be GoToWholeWordStart()? Why can\u0027t it be:\n\nFX_FILESIZE CPDF_SyntaxParser::FindWordOffset(const ByteStringView\u0026 word) {\n  ...\n  if (IsWholeWord(...))\n    return GetPos() - saved_pos - word.GetLength();\n  ...\n  return -1;\n}\n\nThen GoToStreamEnd() can be simplified. e.g.\n\nFX_FILESIZE endStreamOffset \u003d FindWordOffset(kEndStreamStr);\n\n- Also, GoToStreamEnd() oftentimes call SetPos() soon after GoToWholeWordStart() anyway. So why bother calling SetPos() inside GoToWholeWordStart() just for the purpose of an offset calculation, when the caller will override it?\n\n- Continuing in this direction, maybe FindWordOffset() should not change |m_Pos| at all. One way to do that is to add:\n\nAutoRestorer\u003cFX_FILESIZE\u003e pos_restorer(\u0026m_Pos);\n\nat the beginning. Then GoToStreamEnd() won\u0027t need to call SetPos(saved_pos) in any of the return false cases.",
+      "revId": "8c01b64719e818d10b616d96f73559c27e49b5c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "781bebb5_f96306b4",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T21:35:03Z",
+      "side": 1,
+      "message": "Can we do this check before the memcmp() at line 636? The memcmp() block isn\u0027t going to change the output of has_read_problems(), right? So why not return as soon as possible on failure?",
+      "revId": "8c01b64719e818d10b616d96f73559c27e49b5c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d473bae_f0c26eee",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T21:35:03Z",
+      "side": 1,
+      "message": "FX_FILESIZE",
+      "range": {
+        "startLine": 667,
+        "startChar": 8,
+        "endLine": 667,
+        "endChar": 12
+      },
+      "revId": "8c01b64719e818d10b616d96f73559c27e49b5c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a7f5e8c_e41e68fd",
+        "filename": "core/fpdfapi/parser/cpdf_syntax_parser.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T21:35:03Z",
+      "side": 1,
+      "message": "Can you put this in the same order as in the .cpp file?",
+      "revId": "8c01b64719e818d10b616d96f73559c27e49b5c4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
