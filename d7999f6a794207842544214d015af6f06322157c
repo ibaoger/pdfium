@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df79041f_7827de84",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:13:55Z",
+      "side": 0,
+      "message": "Not a raw pointer, so not needed.",
+      "revId": "d7999f6a794207842544214d015af6f06322157c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f4820e8_2c0c8cff",
+        "filename": "core/fpdfapi/parser/cpdf_security_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-03T18:13:55Z",
+      "side": 0,
+      "message": "Pointer always valid here. The first thing this method does is check and make sure this is the case.",
+      "revId": "d7999f6a794207842544214d015af6f06322157c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
