@@ -150,7 +150,7 @@ class CPDF_AnnotContext {
     pStream->GetDict()->SetMatrixFor("Matrix", CFX_Matrix());
 
     m_pAnnotForm = pdfium::MakeUnique<CPDF_Form>(
-        m_pPage->m_pDocument.Get(), m_pPage->m_pResources.Get(), pStream);
+        m_pPage->GetDocument(), m_pPage->m_pResources.Get(), pStream);
     m_pAnnotForm->ParseContent();
   }
 
@@ -201,7 +201,7 @@ FPDFPage_CreateAnnot(FPDF_PAGE page, FPDF_ANNOTATION_SUBTYPE subtype) {
     return nullptr;
 
   auto pDict = pdfium::MakeUnique<CPDF_Dictionary>(
-      pPage->m_pDocument->GetByteStringPool());
+      pPage->GetDocument()->GetByteStringPool());
   pDict->SetNewFor<CPDF_Name>("Type", "Annot");
   pDict->SetNewFor<CPDF_Name>("Subtype",
                               CPDF_Annot::AnnotSubtypeToString(
@@ -209,9 +209,9 @@ FPDFPage_CreateAnnot(FPDF_PAGE page, FPDF_ANNOTATION_SUBTYPE subtype) {
   auto pNewAnnot =
       pdfium::MakeUnique<CPDF_AnnotContext>(pDict.get(), pPage, nullptr);
 
-  CPDF_Array* pAnnotList = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnotList = pPage->GetFormDict()->GetArrayFor("Annots");
   if (!pAnnotList)
-    pAnnotList = pPage->m_pFormDict->SetNewFor<CPDF_Array>("Annots");
+    pAnnotList = pPage->GetFormDict()->SetNewFor<CPDF_Array>("Annots");
 
   pAnnotList->Add(std::move(pDict));
   return pNewAnnot.release();
@@ -219,20 +219,20 @@ FPDFPage_CreateAnnot(FPDF_PAGE page, FPDF_ANNOTATION_SUBTYPE subtype) {
 
 FPDF_EXPORT int FPDF_CALLCONV FPDFPage_GetAnnotCount(FPDF_PAGE page) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
-  if (!pPage || !pPage->m_pFormDict)
+  if (!pPage || !pPage->GetFormDict())
     return 0;
 
-  CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnots = pPage->GetFormDict()->GetArrayFor("Annots");
   return pAnnots ? pAnnots->GetCount() : 0;
 }
 
 FPDF_EXPORT FPDF_ANNOTATION FPDF_CALLCONV FPDFPage_GetAnnot(FPDF_PAGE page,
                                                             int index) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
-  if (!pPage || !pPage->m_pFormDict || index < 0)
+  if (!pPage || !pPage->GetFormDict() || index < 0)
     return nullptr;
 
-  CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnots = pPage->GetFormDict()->GetArrayFor("Annots");
   if (!pAnnots || static_cast<size_t>(index) >= pAnnots->GetCount())
     return nullptr;
 
@@ -245,10 +245,10 @@ FPDF_EXPORT int FPDF_CALLCONV FPDFPage_GetAnnotIndex(FPDF_PAGE page,
                                                      FPDF_ANNOTATION annot) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
-  if (!pPage || !pPage->m_pFormDict || !pAnnot || !pAnnot->GetAnnotDict())
+  if (!pPage || !pPage->GetFormDict() || !pAnnot || !pAnnot->GetAnnotDict())
     return -1;
 
-  CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnots = pPage->GetFormDict()->GetArrayFor("Annots");
   if (!pAnnots)
     return -1;
 
@@ -272,10 +272,10 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFPage_CloseAnnot(FPDF_ANNOTATION annot) {
 FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPage_RemoveAnnot(FPDF_PAGE page,
                                                          int index) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
-  if (!pPage || !pPage->m_pFormDict || index < 0)
+  if (!pPage || !pPage->GetFormDict() || index < 0)
     return false;
 
-  CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnots = pPage->GetFormDict()->GetArrayFor("Annots");
   if (!pAnnots || static_cast<size_t>(index) >= pAnnots->GetCount())
     return false;
 
@@ -357,7 +357,7 @@ FPDFAnnot_AppendObject(FPDF_ANNOTATION annot, FPDF_PAGEOBJECT obj) {
   CPDF_Stream* pStream = FPDFDOC_GetAnnotAP(pAnnot->GetAnnotDict(),
                                             CPDF_Annot::AppearanceMode::Normal);
   if (!pStream) {
-    CPVT_GenerateAP::GenerateEmptyAP(pPage->m_pDocument.Get(), pAnnotDict);
+    CPVT_GenerateAP::GenerateEmptyAP(pPage->GetDocument(), pAnnotDict);
     pStream =
         FPDFDOC_GetAnnotAP(pAnnotDict, CPDF_Annot::AppearanceMode::Normal);
     if (!pStream)
@@ -784,7 +784,7 @@ FPDFAnnot_GetFormFieldFlags(FPDF_PAGE page, FPDF_ANNOTATION annot) {
   if (!pAnnotDict)
     return FPDF_FORMFLAG_NONE;
 
-  CPDF_InterForm interform(pPage->m_pDocument.Get());
+  CPDF_InterForm interform(pPage->GetDocument());
   CPDF_FormField* pFormField = interform.GetFieldByDict(pAnnotDict);
   return pFormField ? pFormField->GetFieldFlags() : FPDF_FORMFLAG_NONE;
 }
@@ -798,7 +798,7 @@ FPDFAnnot_GetFormFieldAtPoint(FPDF_FORMHANDLE hHandle,
   if (!hHandle || !pPage)
     return nullptr;
 
-  CPDF_InterForm interform(pPage->m_pDocument.Get());
+  CPDF_InterForm interform(pPage->GetDocument());
   int annot_index = -1;
   CPDF_FormControl* pFormCtrl = interform.GetControlAtPoint(
       pPage, CFX_PointF(static_cast<float>(page_x), static_cast<float>(page_y)),

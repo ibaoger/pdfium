@@ -50,14 +50,16 @@ FPDF_EXPORT FPDF_TEXTPAGE FPDF_CALLCONV FPDFText_LoadPage(FPDF_PAGE page) {
   if (!pPDFPage)
     return nullptr;
 
+  CPDF_Document* pDocument;
 #ifdef PDF_ENABLE_XFA
   CPDFXFA_Page* pPage = (CPDFXFA_Page*)page;
   CPDFXFA_Context* pContext = pPage->GetContext();
-  CPDF_ViewerPreferences viewRef(pContext->GetPDFDoc());
+  pDocument = pContext->GetPDFDoc();
 #else  // PDF_ENABLE_XFA
-  CPDF_ViewerPreferences viewRef(pPDFPage->m_pDocument.Get());
+  pDocument = pPDFPage->GetDocument();
 #endif  // PDF_ENABLE_XFA
 
+  CPDF_ViewerPreferences viewRef(pDocument);
   CPDF_TextPage* textpage = new CPDF_TextPage(
       pPDFPage, viewRef.IsDirectionR2L() ? FPDFText_Direction::Right
                                          : FPDFText_Direction::Left);

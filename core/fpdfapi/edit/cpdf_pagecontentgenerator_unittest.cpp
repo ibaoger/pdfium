@@ -54,7 +54,10 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessRect) {
   pPathObj->m_FillType = FXFILL_ALTERNATE;
   pPathObj->m_bStroke = true;
 
-  auto pTestPage = pdfium::MakeUnique<CPDF_Page>(nullptr, nullptr, false);
+  auto pDoc = pdfium::MakeUnique<CPDF_Document>(nullptr);
+  pDoc->CreateNewDoc();
+  CPDF_Dictionary* pPageDict = pDoc->CreateNewPage(0);
+  auto pTestPage = pdfium::MakeUnique<CPDF_Page>(pDoc.get(), pPageDict, false);
   CPDF_PageContentGenerator generator(pTestPage.get());
   std::ostringstream buf;
   TestProcessPath(&generator, &buf, pPathObj.get());
@@ -98,7 +101,10 @@ TEST_F(CPDF_PageContentGeneratorTest, ProcessPath) {
   pPathObj->m_FillType = FXFILL_WINDING;
   pPathObj->m_bStroke = false;
 
-  auto pTestPage = pdfium::MakeUnique<CPDF_Page>(nullptr, nullptr, false);
+  auto pDoc = pdfium::MakeUnique<CPDF_Document>(nullptr);
+  pDoc->CreateNewDoc();
+  CPDF_Dictionary* pPageDict = pDoc->CreateNewPage(0);
+  auto pTestPage = pdfium::MakeUnique<CPDF_Page>(pDoc.get(), pPageDict, false);
   CPDF_PageContentGenerator generator(pTestPage.get());
   std::ostringstream buf;
   TestProcessPath(&generator, &buf, pPathObj.get());

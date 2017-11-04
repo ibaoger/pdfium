@@ -28,8 +28,6 @@ CPDF_Page::CPDF_Page(CPDF_Document* pDocument,
       m_pView(nullptr) {
   if (bPageCache)
     m_pPageRender = pdfium::MakeUnique<CPDF_PageRenderCache>(this);
-  if (!pPageDict)
-    return;
 
   CPDF_Object* pPageAttr = GetPageAttr("Resources");
   m_pResources = pPageAttr ? pPageAttr->GetDict() : nullptr;
@@ -79,11 +77,11 @@ bool CPDF_Page::IsPage() const {
 }
 
 void CPDF_Page::StartParse() {
-  if (m_ParseState == CONTENT_PARSED || m_ParseState == CONTENT_PARSING)
+  if (IsParsing() || IsParsed())
     return;
 
   m_pParser = pdfium::MakeUnique<CPDF_ContentParser>(this);
-  m_ParseState = CONTENT_PARSING;
+  SetStartedParsing();
 }
 
 void CPDF_Page::ParseContent() {
@@ -97,8 +95,8 @@ void CPDF_Page::SetRenderContext(
 }
 
 CPDF_Object* CPDF_Page::GetPageAttr(const ByteString& name) const {
-  CPDF_Dictionary* pPageDict = m_pFormDict.Get();
-  std::set<CPDF_Dictionary*> visited;
+  const CPDF_Dictionary* pPageDict = GetFormDict();
+  std::set<const CPDF_Dictionary*> visited;
   while (1) {
     visited.insert(pPageDict);
     if (CPDF_Object* pObj = pPageDict->GetDirectObjectFor(name))

@@ -201,14 +201,14 @@ bool CPDFSDK_PageView::DeleteAnnot(CPDFSDK_Annot* pAnnot) {
 #endif  // PDF_ENABLE_XFA
 
 CPDF_Document* CPDFSDK_PageView::GetPDFDocument() {
-  if (m_page) {
+  if (!m_page)
+    return nullptr;
+
 #ifdef PDF_ENABLE_XFA
-    return m_page->GetContext()->GetPDFDoc();
+  return m_page->GetContext()->GetPDFDoc();
 #else   // PDF_ENABLE_XFA
-    return m_page->m_pDocument.Get();
+  return m_page->GetDocument();
 #endif  // PDF_ENABLE_XFA
-  }
-  return nullptr;
 }
 
 CPDF_Page* CPDFSDK_PageView::GetPDFPage() const {
@@ -521,7 +521,7 @@ CPDFSDK_Annot* CPDFSDK_PageView::GetFocusAnnot() {
 }
 
 int CPDFSDK_PageView::GetPageIndexForStaticPDF() const {
-  CPDF_Dictionary* pDict = GetPDFPage()->m_pFormDict.Get();
+  const CPDF_Dictionary* pDict = GetPDFPage()->GetFormDict();
   CPDF_Document* pDoc = m_pFormFillEnv->GetPDFDocument();
   return (pDoc && pDict) ? pDoc->GetPageIndex(pDict->GetObjNum()) : -1;
 }

@@ -33,7 +33,7 @@ bool CPDFXFA_Page::LoadPDFPage() {
   if (!pDict)
     return false;
 
-  if (!m_pPDFPage || m_pPDFPage->m_pFormDict != pDict) {
+  if (!m_pPDFPage || m_pPDFPage->GetFormDict() != pDict) {
     m_pPDFPage = pdfium::MakeUnique<CPDF_Page>(pPDFDoc, pDict, true);
     m_pPDFPage->ParseContent();
   }

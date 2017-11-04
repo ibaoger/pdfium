@@ -15,14 +15,9 @@
 
 CPDF_PageObjectHolder::CPDF_PageObjectHolder(CPDF_Document* pDoc,
                                              CPDF_Dictionary* pFormDict)
-    : m_pFormDict(pFormDict),
-      m_pFormStream(nullptr),
-      m_pDocument(pDoc),
-      m_pPageResources(nullptr),
-      m_pResources(nullptr),
-      m_iTransparency(0),
-      m_bBackgroundAlphaNeeded(false),
-      m_ParseState(CONTENT_NOT_PARSED) {
+    : m_pDocument(pDoc),
+      m_pFormDict(pFormDict),
+      m_bBackgroundAlphaNeeded(false) {
   // TODO(thestig): Check if |m_pFormDict| is never a nullptr and simplify
   // callers that checks for that.
 }
@@ -73,21 +68,20 @@ CFX_FloatRect CPDF_PageObjectHolder::CalcBoundingBox() const {
 }
 
 void CPDF_PageObjectHolder::LoadTransInfo() {
-  if (!m_pFormDict) {
+  if (!m_pFormDict)
     return;
-  }
+
   CPDF_Dictionary* pGroup = m_pFormDict->GetDictFor("Group");
-  if (!pGroup) {
+  if (!pGroup)
     return;
-  }
-  if (pGroup->GetStringFor("S") != "Transparency") {
+
+  if (pGroup->GetStringFor("S") != "Transparency")
     return;
-  }
+
   m_iTransparency |= PDFTRANS_GROUP;
-  if (pGroup->GetIntegerFor("I")) {
+  if (pGroup->GetIntegerFor("I"))
     m_iTransparency |= PDFTRANS_ISOLATED;
-  }
-  if (pGroup->GetIntegerFor("K")) {
+
+  if (pGroup->GetIntegerFor("K"))
     m_iTransparency |= PDFTRANS_KNOCKOUT;
-  }
 }

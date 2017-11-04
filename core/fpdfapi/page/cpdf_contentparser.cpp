@@ -24,12 +24,12 @@
 
 CPDF_ContentParser::CPDF_ContentParser(CPDF_Page* pPage)
     : m_InternalStage(STAGE_GETCONTENT), m_pObjectHolder(pPage) {
-  if (!pPage || !pPage->m_pDocument || !pPage->m_pFormDict) {
+  if (!pPage->GetFormDict()) {
     m_bIsDone = true;
     return;
   }
 
-  CPDF_Object* pContent = pPage->m_pFormDict->GetDirectObjectFor("Contents");
+  CPDF_Object* pContent = pPage->GetFormDict()->GetDirectObjectFor("Contents");
   if (!pContent) {
     m_bIsDone = true;
     return;
@@ -61,11 +61,12 @@ CPDF_ContentParser::CPDF_ContentParser(CPDF_Form* pForm,
     : m_InternalStage(STAGE_PARSE),
       m_pObjectHolder(pForm),
       m_pType3Char(pType3Char) {
-  CFX_Matrix form_matrix = pForm->m_pFormDict->GetMatrixFor("Matrix");
+  CPDF_Dictionary* pFormDict = pForm->GetFormDict();
+  CFX_Matrix form_matrix = pFormDict->GetMatrixFor("Matrix");
   if (pGraphicStates)
     form_matrix.Concat(pGraphicStates->m_CTM);
 
-  CPDF_Array* pBBox = pForm->m_pFormDict->GetArrayFor("BBox");
+  CPDF_Array* pBBox = pFormDict->GetArrayFor("BBox");
   CFX_FloatRect form_bbox;
   CPDF_Path ClipPath;
   if (pBBox) {
@@ -82,9 +83,9 @@ CPDF_ContentParser::CPDF_ContentParser(CPDF_Form* pForm,
       form_bbox = pParentMatrix->TransformRect(form_bbox);
   }
 
-  CPDF_Dictionary* pResources = pForm->m_pFormDict->GetDictFor("Resources");
+  CPDF_Dictionary* pResources = pFormDict->GetDictFor("Resources");
   m_pParser = pdfium::MakeUnique<CPDF_StreamContentParser>(
-      pForm->m_pDocument.Get(), pForm->m_pPageResources.Get(),
+      pForm->GetDocument(), pForm->m_pPageResources.Get(),
       pForm->m_pResources.Get(), pParentMatrix, pForm, pResources, form_bbox,
       pGraphicStates, parsedSet);
   m_pParser->GetCurStates()->m_CTM = form_matrix;
@@ -93,7 +94,7 @@ CPDF_ContentParser::CPDF_ContentParser(CPDF_Form* pForm,
     m_pParser->GetCurStates()->m_ClipPath.AppendPath(ClipPath, FXFILL_WINDING,
                                                      true);
   }
-  if (pForm->m_iTransparency & PDFTRANS_GROUP) {
+  if (pForm->GetTransparency() & PDFTRANS_GROUP) {
     CPDF_GeneralState* pState = &m_pParser->GetCurStates()->m_GeneralState;
     pState->SetBlendType(FXDIB_BLEND_NORMAL);
     pState->SetStrokeAlpha(1.0f);
@@ -147,7 +148,7 @@ bool CPDF_ContentParser::Continue(IFX_PauseIndicator* pPause) {
         m_CurrentOffset = 0;
       } else {
         CPDF_Array* pContent =
-            m_pObjectHolder->m_pFormDict->GetArrayFor("Contents");
+            m_pObjectHolder->GetFormDict()->GetArrayFor("Contents");
         CPDF_Stream* pStreamObj = ToStream(
             pContent ? pContent->GetDirectObjectAt(m_CurrentOffset) : nullptr);
         m_StreamArray[m_CurrentOffset] =
@@ -160,10 +161,10 @@ bool CPDF_ContentParser::Continue(IFX_PauseIndicator* pPause) {
       if (!m_pParser) {
         m_parsedSet = pdfium::MakeUnique<std::set<const uint8_t*>>();
         m_pParser = pdfium::MakeUnique<CPDF_StreamContentParser>(
-            m_pObjectHolder->m_pDocument.Get(),
+            m_pObjectHolder->GetDocument(),
             m_pObjectHolder->m_pPageResources.Get(), nullptr, nullptr,
             m_pObjectHolder.Get(), m_pObjectHolder->m_pResources.Get(),
-            m_pObjectHolder->m_BBox, nullptr, m_parsedSet.get());
+            m_pObjectHolder->GetBBox(), nullptr, m_parsedSet.get());
         m_pParser->GetCurStates()->m_ColorState.SetDefault();
       }
       if (m_CurrentOffset >= m_Size) {
