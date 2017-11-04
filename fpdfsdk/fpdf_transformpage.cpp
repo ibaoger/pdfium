@@ -30,7 +30,8 @@ void SetBoundingBox(CPDF_Page* page,
                     float bottom,
                     float right,
                     float top) {
-  CPDF_Array* pBoundingBoxArray = page->m_pFormDict->SetNewFor<CPDF_Array>(key);
+  CPDF_Array* pBoundingBoxArray =
+      page->GetFormDict()->SetNewFor<CPDF_Array>(key);
   pBoundingBoxArray->AddNew<CPDF_Number>(left);
   pBoundingBoxArray->AddNew<CPDF_Number>(bottom);
   pBoundingBoxArray->AddNew<CPDF_Number>(right);
@@ -43,7 +44,7 @@ bool GetBoundingBox(CPDF_Page* page,
                     float* bottom,
                     float* right,
                     float* top) {
-  CPDF_Array* pArray = page->m_pFormDict->GetArrayFor(key);
+  CPDF_Array* pArray = page->GetFormDict()->GetArrayFor(key);
   if (!pArray)
     return false;
 
@@ -124,15 +125,12 @@ FPDFPage_TransFormWithClip(FPDF_PAGE page,
                  matrix->d, matrix->e, matrix->f);
   textBuf << bsMatix;
 
-  CPDF_Dictionary* pPageDict = pPage->m_pFormDict.Get();
+  CPDF_Dictionary* pPageDict = pPage->GetFormDict();
   CPDF_Object* pContentObj = GetPageContent(pPageDict);
   if (!pContentObj)
     return false;
 
-  CPDF_Document* pDoc = pPage->m_pDocument.Get();
-  if (!pDoc)
-    return false;
-
+  CPDF_Document* pDoc = pPage->GetDocument();
   CPDF_Stream* pStream = pDoc->NewIndirect<CPDF_Stream>(
       nullptr, 0,
       pdfium::MakeUnique<CPDF_Dictionary>(pDoc->GetByteStringPool()));
@@ -264,7 +262,7 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFPage_InsertClipPath(FPDF_PAGE page,
   if (!pPage)
     return;
 
-  CPDF_Dictionary* pPageDict = pPage->m_pFormDict.Get();
+  CPDF_Dictionary* pPageDict = pPage->GetFormDict();
   CPDF_Object* pContentObj = GetPageContent(pPageDict);
   if (!pContentObj)
     return;
@@ -286,10 +284,7 @@ FPDF_EXPORT void FPDF_CALLCONV FPDFPage_InsertClipPath(FPDF_PAGE page,
         strClip << "W* n\n";
     }
   }
-  CPDF_Document* pDoc = pPage->m_pDocument.Get();
-  if (!pDoc)
-    return;
-
+  CPDF_Document* pDoc = pPage->GetDocument();
   CPDF_Stream* pStream = pDoc->NewIndirect<CPDF_Stream>(
       nullptr, 0,
       pdfium::MakeUnique<CPDF_Dictionary>(pDoc->GetByteStringPool()));

@@ -28,8 +28,6 @@ CPDF_Page::CPDF_Page(CPDF_Document* pDocument,
       m_pView(nullptr) {
   if (bPageCache)
     m_pPageRender = pdfium::MakeUnique<CPDF_PageRenderCache>(this);
-  if (!pPageDict)
-    return;
 
   CPDF_Object* pPageAttr = GetPageAttr("Resources");
   m_pResources = pPageAttr ? pPageAttr->GetDict() : nullptr;
@@ -79,11 +77,11 @@ bool CPDF_Page::IsPage() const {
 }
 
 void CPDF_Page::StartParse() {
-  if (m_ParseState == CONTENT_PARSED || m_ParseState == CONTENT_PARSING)
+  if (IsParsing() || IsParsed())
     return;
 
   m_pParser = pdfium::MakeUnique<CPDF_ContentParser>(this);
-  m_ParseState = CONTENT_PARSING;
+  SetStartedParsing();
 }
 
 void CPDF_Page::ParseContent() {

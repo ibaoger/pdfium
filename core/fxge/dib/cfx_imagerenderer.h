@@ -37,7 +37,7 @@ class CFX_ImageRenderer {
 
  private:
   const RetainPtr<CFX_DIBitmap> m_pDevice;
-  const UnownedPtr<const CFX_ClipRgn> m_pClipRgn;
+  UnownedPtr<const CFX_ClipRgn> const m_pClipRgn;
   const CFX_Matrix m_Matrix;
   const int m_BitmapAlpha;
   const int m_BlendType;

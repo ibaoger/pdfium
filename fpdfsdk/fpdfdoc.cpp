@@ -53,7 +53,7 @@ CPDF_LinkList* GetLinkList(CPDF_Page* page) {
   if (!page)
     return nullptr;
 
-  CPDF_Document* pDoc = page->m_pDocument.Get();
+  CPDF_Document* pDoc = page->GetDocument();
   std::unique_ptr<CPDF_LinkList>* pHolder = pDoc->LinksContext();
   if (!pHolder->get())
     *pHolder = pdfium::MakeUnique<CPDF_LinkList>();
@@ -304,9 +304,9 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFLink_Enumerate(FPDF_PAGE page,
   if (!startPos || !linkAnnot)
     return false;
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
-  if (!pPage || !pPage->m_pFormDict)
+  if (!pPage || !pPage->GetFormDict())
     return false;
-  CPDF_Array* pAnnots = pPage->m_pFormDict->GetArrayFor("Annots");
+  CPDF_Array* pAnnots = pPage->GetFormDict()->GetArrayFor("Annots");
   if (!pAnnots)
     return false;
   for (size_t i = *startPos; i < pAnnots->GetCount(); i++) {

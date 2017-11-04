@@ -25,7 +25,6 @@ CPDF_Form::CPDF_Form(CPDF_Document* pDoc,
     m_pResources = pParentResources;
   if (!m_pResources)
     m_pResources = pPageResources;
-  m_iTransparency = 0;
   LoadTransInfo();
 }
 
@@ -35,18 +34,17 @@ void CPDF_Form::StartParse(CPDF_AllStates* pGraphicStates,
                            const CFX_Matrix* pParentMatrix,
                            CPDF_Type3Char* pType3Char,
                            std::set<const uint8_t*>* parsedSet) {
-  if (m_ParseState == CONTENT_PARSED || m_ParseState == CONTENT_PARSING)
+  if (IsParsing() || IsParsed())
     return;
 
   if (!parsedSet) {
-    if (!m_ParsedSet)
-      m_ParsedSet = pdfium::MakeUnique<std::set<const uint8_t*>>();
+    m_ParsedSet = pdfium::MakeUnique<std::set<const uint8_t*>>();
     parsedSet = m_ParsedSet.get();
   }
 
   m_pParser = pdfium::MakeUnique<CPDF_ContentParser>(
       this, pGraphicStates, pParentMatrix, pType3Char, parsedSet);
-  m_ParseState = CONTENT_PARSING;
+  SetStartedParsing();
 }
 
 void CPDF_Form::ParseContent() {

@@ -42,8 +42,7 @@ FPDF_StructTree_GetForPage(FPDF_PAGE page) {
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (!pPage)
     return nullptr;
-  return CPDF_StructTree::LoadPage(pPage->m_pDocument.Get(),
-                                   pPage->m_pFormDict.Get())
+  return CPDF_StructTree::LoadPage(pPage->GetDocument(), pPage->GetFormDict())
       .release();
 }
 
