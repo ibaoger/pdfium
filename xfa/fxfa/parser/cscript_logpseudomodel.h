@@ -20,12 +20,6 @@ class CScript_LogPseudoModel : public CXFA_Object {
   CJX_LogPseudoModel* JSLogPseudoModel() {
     return static_cast<CJX_LogPseudoModel*>(JSObject());
   }
-
-  void Message(CFXJSE_Arguments* pArguments);
-  void TraceEnabled(CFXJSE_Arguments* pArguments);
-  void TraceActivate(CFXJSE_Arguments* pArguments);
-  void TraceDeactivate(CFXJSE_Arguments* pArguments);
-  void Trace(CFXJSE_Arguments* pArguments);
 };
 
 #endif  // XFA_FXFA_PARSER_CSCRIPT_LOGPSEUDOMODEL_H_

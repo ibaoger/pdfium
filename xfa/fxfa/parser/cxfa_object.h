@@ -76,10 +76,6 @@ class CXFA_Object : public CFXJSE_HostObject {
   WideStringView GetClassName() const { return m_elementName; }
   uint32_t GetClassHashCode() const { return m_elementNameHash; }
 
-  void Script_ObjectClass_ClassName(CFXJSE_Value* pValue,
-                                    bool bSetting,
-                                    XFA_ATTRIBUTE eAttribute);
-
  protected:
   CXFA_Object(CXFA_Document* pDocument,
               XFA_ObjectType objectType,
