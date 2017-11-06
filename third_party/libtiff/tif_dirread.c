@@ -3638,6 +3638,13 @@ TIFFReadDirectory(TIFF* tif)
 		    isTiled(tif) ? "tiles" : "strips");
 		goto bad;
 	}
+	if (tif->tif_dir.td_nstrips > 2147483648) {
+		TIFFErrorExt(tif->tif_clientdata, module,
+		    "Cannot handle %u number of %s",
+		    tif->tif_dir.td_nstrips,
+		    isTiled(tif) ? "tiles" : "strips");
+		goto bad;
+	}
 	tif->tif_dir.td_stripsperimage = tif->tif_dir.td_nstrips;
 	if (tif->tif_dir.td_planarconfig == PLANARCONFIG_SEPARATE)
 		tif->tif_dir.td_stripsperimage /= tif->tif_dir.td_samplesperpixel;
