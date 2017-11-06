@@ -5916,10 +5916,10 @@ void CFXJSE_FormCalcContext::ParseResolveResult(
 
   CFXJSE_FormCalcContext* pContext = ToJSContext(pThis, nullptr);
   v8::Isolate* pIsolate = pContext->GetScriptRuntime();
+  CFXJSE_Engine* pScriptContext = pContext->GetDocument()->GetScriptContext();
 
   if (resolveNodeRS.dwFlags == XFA_RESOLVENODE_RSTYPE_Nodes) {
     *bAttribute = false;
-    CFXJSE_Engine* pScriptContext = pContext->GetDocument()->GetScriptContext();
     for (CXFA_Object* pObject : resolveNodeRS.objects) {
       resultValues->push_back(pdfium::MakeUnique<CFXJSE_Value>(pIsolate));
       resultValues->back()->Assign(pScriptContext->GetJSValueFromMap(pObject));
@@ -5928,7 +5928,8 @@ void CFXJSE_FormCalcContext::ParseResolveResult(
   }
 
   CXFA_ValueArray objectProperties(pIsolate);
-  int32_t iRet = resolveNodeRS.GetAttributeResult(&objectProperties);
+  int32_t iRet =
+      resolveNodeRS.GetAttributeResult(pScriptContext, &objectProperties);
   *bAttribute = true;
   if (iRet != 0) {
     *bAttribute = false;

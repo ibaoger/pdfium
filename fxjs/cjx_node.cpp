@@ -469,7 +469,8 @@ void CJX_Node::Script_TreeClass_ResolveNode(CFXJSE_Arguments* pArguments) {
           pdfium::MakeUnique<CFXJSE_Value>(pScriptContext->GetRuntime());
       CJX_Object* jsObject = resolveNodeRS.objects.front()->JSObject();
       (jsObject->*(lpAttributeInfo->callback))(
-          pValue.get(), false, (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
+          pScriptContext, pValue.get(), false,
+          (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
       pArguments->GetReturnValue()->Assign(pValue.get());
     } else {
       pArguments->GetReturnValue()->SetNull();
@@ -517,7 +518,7 @@ void CJX_Node::ResolveNodeList(CFXJSE_Value* pValue,
     }
   } else {
     CXFA_ValueArray valueArray(pScriptContext->GetRuntime());
-    if (resolveNodeRS.GetAttributeResult(&valueArray) > 0) {
+    if (resolveNodeRS.GetAttributeResult(pScriptContext, &valueArray) > 0) {
       for (CXFA_Object* pObject : valueArray.GetAttributeObject()) {
         if (pObject->IsNode())
           pNodeList->Append(pObject->AsNode());

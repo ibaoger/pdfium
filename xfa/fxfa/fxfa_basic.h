@@ -11,6 +11,7 @@
 #include "fxjs/fxjse.h"
 
 class CFXJSE_Arguments;
+class CFXJSE_Engine;
 class CJX_Object;
 class CXFA_Measurement;
 enum class XFA_ObjectType;
@@ -1000,14 +1001,16 @@ struct XFA_NOTSUREATTRIBUTE {
   void* pValue;
 };
 
-typedef void (CJX_Object::*XFA_METHOD_CALLBACK)(CFXJSE_Arguments* pArguments);
+typedef void (CJX_Object::*XFA_METHOD_CALLBACK)(CFXJSE_Engine* pEngine,
+                                                CFXJSE_Arguments* pArguments);
 struct XFA_METHODINFO {
   uint32_t uHash;
   const wchar_t* pName;
   XFA_METHOD_CALLBACK callback;
 };
 
-typedef void (CJX_Object::*XFA_ATTRIBUTE_CALLBACK)(CFXJSE_Value* pValue,
+typedef void (CJX_Object::*XFA_ATTRIBUTE_CALLBACK)(CFXJSE_Engine* pEngine,
+                                                   CFXJSE_Value* pValue,
                                                    bool bSetting,
                                                    XFA_ATTRIBUTE eAttribute);
 enum XFA_SCRIPT_TYPE {

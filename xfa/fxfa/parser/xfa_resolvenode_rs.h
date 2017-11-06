@@ -28,6 +28,8 @@
 #define XFA_RESOLVENODE_Bind 0x0800
 #define XFA_RESOLVENODE_BindNew 0x1000
 
+class CFXJSE_Engine;
+
 enum XFA_SCRIPTLANGTYPE {
   XFA_SCRIPTLANGTYPE_Formcalc = XFA_SCRIPTTYPE_Formcalc,
   XFA_SCRIPTLANGTYPE_Javascript = XFA_SCRIPTTYPE_Javascript,
@@ -47,13 +49,14 @@ struct XFA_RESOLVENODE_RS {
   XFA_RESOLVENODE_RS();
   ~XFA_RESOLVENODE_RS();
 
-  size_t GetAttributeResult(CXFA_ValueArray* valueArray) const {
+  size_t GetAttributeResult(CFXJSE_Engine* engine,
+                            CXFA_ValueArray* valueArray) const {
     if (pScriptAttribute && pScriptAttribute->eValueType == XFA_SCRIPT_Object) {
       for (CXFA_Object* pObject : objects) {
         auto pValue = pdfium::MakeUnique<CFXJSE_Value>(valueArray->m_pIsolate);
         CJX_Object* jsObject = pObject->JSObject();
         (jsObject->*(pScriptAttribute->callback))(
-            pValue.get(), false,
+            engine, pValue.get(), false,
             static_cast<XFA_ATTRIBUTE>(pScriptAttribute->eAttribute));
         valueArray->m_Values.push_back(std::move(pValue));
       }
