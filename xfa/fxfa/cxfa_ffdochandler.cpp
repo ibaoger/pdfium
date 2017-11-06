@@ -10,7 +10,6 @@
 #include "fxjs/cfxjse_engine.h"
 #include "xfa/fxfa/cxfa_ffdoc.h"
 #include "xfa/fxfa/parser/cxfa_node.h"
-#include "xfa/fxfa/parser/xfa_resolvenode_rs.h"
 
 CXFA_FFDocHandler::CXFA_FFDocHandler() {}
 
@@ -40,22 +39,4 @@ XFA_ATTRIBUTEENUM CXFA_FFDocHandler::GetRestoreState(CXFA_FFDoc* hDoc) {
   if (!pSubForm)
     return XFA_ATTRIBUTEENUM_Unknown;
   return pSubForm->JSNode()->GetEnum(XFA_ATTRIBUTE_RestoreState);
-}
-
-bool CXFA_FFDocHandler::RunDocScript(CXFA_FFDoc* hDoc,
-                                     XFA_SCRIPTTYPE eScriptType,
-                                     const WideStringView& wsScript,
-                                     CFXJSE_Value* pRetValue,
-                                     CFXJSE_Value* pThisValue) {
-  CXFA_Document* pXFADoc = hDoc->GetXFADoc();
-  if (!pXFADoc)
-    return false;
-
-  CFXJSE_Engine* pScriptContext = pXFADoc->GetScriptContext();
-  if (!pScriptContext)
-    return false;
-
-  return pScriptContext->RunScript(
-      (XFA_SCRIPTLANGTYPE)eScriptType, wsScript, pRetValue,
-      pThisValue ? CFXJSE_Engine::ToObject(pThisValue, nullptr) : nullptr);
 }
