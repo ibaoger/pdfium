@@ -38,6 +38,24 @@
     },
     {
       "key": {
+        "uuid": "952ba401_70e369a8",
+        "filename": "core/fpdfapi/page/cpdf_psengine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T19:13:26Z",
+      "side": 1,
+      "message": "I don\u0027t like friends as I find they hide things like private methods which are unused and make refactoring harder because you have no idea what\u0027s changing your private variables.",
+      "parentUuid": "87ee7bc3_d374c423",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "698235a2_78b2fbb9",
         "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
         "patchSetId": 1
@@ -73,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "2be0ff68_07d2633e",
+        "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T19:13:26Z",
+      "side": 1,
+      "message": "Ah, yea that would make a lot more sense.",
+      "parentUuid": "f72c6134_c2a97d3c",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30d0bcf4_3f7ef20d",
         "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
         "patchSetId": 1
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "The current version of gtest in use has:\n\nEXPECT_FLOAT_EQ(expected, actual)\n\nSo this is correct in that 0 is the expected value.",
       "parentUuid": "30d0bcf4_3f7ef20d",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e4061e_6734ee1e",
+        "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T19:13:26Z",
+      "side": 1,
+      "message": "Sorry, I meant:\n\nif (word \u003d\u003d \"invalid\")\n  EXPECT_FLOAT_EQ(0, fv)\nelse\n  EXPECT_EQ(word, ByteString::FormatFloat(fv));\n\nso the if() is positive.",
+      "parentUuid": "a9847409_f4f296a4",
       "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
