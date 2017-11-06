@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1509992142 -0800\nnonce AMT3iFjzXNO10eOt1SK+jcBYVuxKC/01noh6UpGQ0BH08AwhDN3FLF59nm0fRtz+xs2F2dEuo/fd\n\n0000000000000000000000000000000000000000 8286309a354916119f0d2a3077b51b71e81e3010 refs/for/refs/heads/master%notify\u003dNONE,m\u003drebase\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaAKbOAAoJEKs2LWFaZv17NAUH/3vKdI6oJ9GQUg7kZ517bumk\nsUCDojPqosAKQOZxniYpvtUPR3AagOKmYMocidaCplMIRldgYBzg7/DcM0ZLKbIx\ngM2NCX+YWmIoC3a00icc34e1tHrh3pn1cnP0adkqv0NO0+jghXX9YS11IUPlp7J/\nH/1BAod2BGO0Yc8VTdGVteU+aslrtXwppQZx+dxfISCzhQUQ/NoPTlgtvdRytrSE\nQgOzz3i6SBtvRxRJD0M/gKb4sHivPJOz/jlpPJDnjSBKgOaDHYoArrC9ytZcWznp\nYI6iyqCyY+vSYBK+QfIH5Pn+rpsGFcWXd6iypmg61KsUxrm4Xkw28UVHxFdpjJw\u003d\n\u003dDzG5\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0f7ef65_885bfee3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-06T18:28:35Z",
+      "side": 1,
+      "message": "nit: explain how, eg. fewer comparisions for degenerate cases, direct comparisons against other string types, etc.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "8286309a354916119f0d2a3077b51b71e81e3010",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
