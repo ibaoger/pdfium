@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f3a8f22_2247243f",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-06T20:30:04Z",
+      "side": 1,
+      "message": "nit: \n  return iret \u003d\u003d XFA_EVENTERROR_Success \u0026\u0026 bret;",
+      "range": {
+        "startLine": 225,
+        "startChar": 9,
+        "endLine": 225,
+        "endChar": 55
+      },
+      "revId": "d522bd5c9cca1aa37f43386dd2d21c2988eca60e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
