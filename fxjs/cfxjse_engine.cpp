@@ -177,6 +177,7 @@ bool CFXJSE_Engine::RunScript(XFA_SCRIPTLANGTYPE eScriptType,
   return m_JsContext->ExecuteScript(btScript.c_str(), hRetValue, pValue);
 }
 
+// static
 void CFXJSE_Engine::GlobalPropertySetter(CFXJSE_Value* pObject,
                                          const ByteStringView& szPropName,
                                          CFXJSE_Value* pValue) {
@@ -229,12 +230,13 @@ bool CFXJSE_Engine::QueryNodeByFlag(CXFA_Node* refNode,
     if (lpAttributeInfo) {
       CJX_Object* jsObject = resolveRs.objects.front()->JSObject();
       (jsObject->*(lpAttributeInfo->callback))(
-          pValue, bSetting, (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
+          this, pValue, bSetting, (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
     }
   }
   return true;
 }
 
+// static
 void CFXJSE_Engine::GlobalPropertyGetter(CFXJSE_Value* pObject,
                                          const ByteStringView& szPropName,
                                          CFXJSE_Value* pValue) {
@@ -291,6 +293,8 @@ void CFXJSE_Engine::GlobalPropertyGetter(CFXJSE_Value* pObject,
   pNotify->GetDocEnvironment()->GetGlobalProperty(pNotify->GetHDOC(),
                                                   szPropName, pValue);
 }
+
+// static
 void CFXJSE_Engine::NormalPropertyGetter(CFXJSE_Value* pOriginalValue,
                                          const ByteStringView& szPropName,
                                          CFXJSE_Value* pReturnValue) {
@@ -339,6 +343,7 @@ void CFXJSE_Engine::NormalPropertyGetter(CFXJSE_Value* pOriginalValue,
     pReturnValue->SetUndefined();
 }
 
+// static
 void CFXJSE_Engine::NormalPropertySetter(CFXJSE_Value* pOriginalValue,
                                          const ByteStringView& szPropName,
                                          CFXJSE_Value* pReturnValue) {
@@ -355,7 +360,8 @@ void CFXJSE_Engine::NormalPropertySetter(CFXJSE_Value* pOriginalValue,
   if (lpAttributeInfo) {
     CJX_Object* jsObject = pObject->JSObject();
     (jsObject->*(lpAttributeInfo->callback))(
-        pReturnValue, true, (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
+        lpScriptContext, pReturnValue, true,
+        (XFA_ATTRIBUTE)lpAttributeInfo->eAttribute);
     return;
   }
 
@@ -378,7 +384,8 @@ void CFXJSE_Engine::NormalPropertySetter(CFXJSE_Value* pOriginalValue,
       if (lpAttrInfo) {
         CJX_Node* jsObject = pPropOrChild->JSNode();
         (jsObject->*(lpAttrInfo->callback))(
-            pReturnValue, true, (XFA_ATTRIBUTE)lpAttrInfo->eAttribute);
+            lpScriptContext, pReturnValue, true,
+            (XFA_ATTRIBUTE)lpAttrInfo->eAttribute);
         return;
       }
     }
@@ -392,6 +399,7 @@ void CFXJSE_Engine::NormalPropertySetter(CFXJSE_Value* pOriginalValue,
   }
 }
 
+// static
 int32_t CFXJSE_Engine::NormalPropTypeGetter(CFXJSE_Value* pOriginalValue,
                                             const ByteStringView& szPropName,
                                             bool bQueryIn) {
@@ -413,6 +421,7 @@ int32_t CFXJSE_Engine::NormalPropTypeGetter(CFXJSE_Value* pOriginalValue,
   return FXJSE_ClassPropType_Property;
 }
 
+// static
 int32_t CFXJSE_Engine::GlobalPropTypeGetter(CFXJSE_Value* pOriginalValue,
                                             const ByteStringView& szPropName,
                                             bool bQueryIn) {
@@ -430,6 +439,7 @@ int32_t CFXJSE_Engine::GlobalPropTypeGetter(CFXJSE_Value* pOriginalValue,
   return FXJSE_ClassPropType_Property;
 }
 
+// static
 void CFXJSE_Engine::NormalMethodCall(CFXJSE_Value* pThis,
                                      const ByteStringView& szFuncName,
                                      CFXJSE_Arguments& args) {
@@ -447,7 +457,7 @@ void CFXJSE_Engine::NormalMethodCall(CFXJSE_Value* pThis,
     return;
 
   CJX_Object* jsObject = pObject->JSObject();
-  (jsObject->*(lpMethodInfo->callback))(&args);
+  (jsObject->*(lpMethodInfo->callback))(lpScriptContext, &args);
 }
 
 bool CFXJSE_Engine::IsStrictScopeInJavaScript() {
@@ -665,7 +675,7 @@ int32_t CFXJSE_Engine::ResolveObjects(CXFA_Object* refObject,
         auto pValue = pdfium::MakeUnique<CFXJSE_Value>(m_pIsolate);
         CJX_Object* jsObject = rndFind.m_Objects.front()->JSObject();
         (jsObject->*(rndFind.m_pScriptAttribute->callback))(
-            pValue.get(), false,
+            this, pValue.get(), false,
             (XFA_ATTRIBUTE)rndFind.m_pScriptAttribute->eAttribute);
         rndFind.m_Objects.front() = ToObject(pValue.get(), nullptr);
       }
