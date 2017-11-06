@@ -20,21 +20,6 @@ class CScript_DataWindow : public CXFA_Object {
   CJX_DataWindow* JSDataWindow() {
     return static_cast<CJX_DataWindow*>(JSObject());
   }
-
-  void MoveCurrentRecord(CFXJSE_Arguments* pArguments);
-  void Record(CFXJSE_Arguments* pArguments);
-  void GotoRecord(CFXJSE_Arguments* pArguments);
-  void IsRecordGroup(CFXJSE_Arguments* pArguments);
-  void RecordsBefore(CFXJSE_Value* pValue,
-                     bool bSetting,
-                     XFA_ATTRIBUTE eAttribute);
-  void CurrentRecordNumber(CFXJSE_Value* pValue,
-                           bool bSetting,
-                           XFA_ATTRIBUTE eAttribute);
-  void RecordsAfter(CFXJSE_Value* pValue,
-                    bool bSetting,
-                    XFA_ATTRIBUTE eAttribute);
-  void IsDefined(CFXJSE_Value* pValue, bool bSetting, XFA_ATTRIBUTE eAttribute);
 };
 
 #endif  // XFA_FXFA_PARSER_CSCRIPT_DATAWINDOW_H_
