@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28a3fbb7_c974e131",
+        "filename": "fxjs/cfxjse_engine.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-06T17:20:56Z",
+      "side": 1,
+      "message": "nit: static cast, or better yet \nfollowup: there\u0027s an int field in a struct that needs to be converted to the proper enum in XFA_SCRIPTATTRIBUTEINFO",
+      "range": {
+        "startLine": 225,
+        "startChar": 28,
+        "endLine": 225,
+        "endChar": 43
+      },
+      "revId": "14d3e4f42e81ae0109c264e0f0b5753471c0f1ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a44d9ad6_feb8a65f",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-06T17:20:56Z",
+      "side": 1,
+      "message": "follow-up:  I think the first two members of this could change to uint8_t, packing a little tigher.",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "14d3e4f42e81ae0109c264e0f0b5753471c0f1ff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
