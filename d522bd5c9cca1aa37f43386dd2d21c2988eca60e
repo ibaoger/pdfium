@@ -22,6 +22,30 @@
       "revId": "d522bd5c9cca1aa37f43386dd2d21c2988eca60e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acb6f82a_a847d329",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-06T20:33:31Z",
+      "side": 1,
+      "message": "(having a |true| or |false| as the second or third operand of a ?-expression usually means there\u0027s an easier way to write it as a boolean expression).",
+      "parentUuid": "5f3a8f22_2247243f",
+      "range": {
+        "startLine": 225,
+        "startChar": 9,
+        "endLine": 225,
+        "endChar": 55
+      },
+      "revId": "d522bd5c9cca1aa37f43386dd2d21c2988eca60e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
