@@ -22,6 +22,30 @@
       "revId": "b689642f3dac2f74af4086a0eab38d0f9ea242b4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c485874_56f9935a",
+        "filename": "xfa/fxfa/parser/cxfa_validate.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T20:30:28Z",
+      "side": 1,
+      "message": "Removed variable and inline below.",
+      "parentUuid": "93ab62a2_029d4a8c",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "b689642f3dac2f74af4086a0eab38d0f9ea242b4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
