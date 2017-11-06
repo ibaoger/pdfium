@@ -625,8 +625,6 @@ FXFT_Face CFX_FontMapper::FindSubstFont(const ByteString& name,
   iExact = !match.IsEmpty();
   void* hFont = m_pFontInfo->MapFont(weight, bItalic, Charset, PitchFamily,
                                      family.c_str(), iExact);
-  if (iExact)
-    pSubstFont->m_bFlagExact = true;
   if (!hFont) {
 #ifdef PDF_ENABLE_XFA
     if (flags & FXFONT_EXACTMATCH)
