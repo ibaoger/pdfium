@@ -1,4 +1,113 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1509759427 -0700\nnonce AMT3iFjjI1oNaqFCluO9AdrDPIP4lG1nnRggOugQVDzXaZvpErQe6hZKSaO/fLP59o/sJ0/5e7Em\n\n0000000000000000000000000000000000000000 ba1053478cc27293a2a4c85900a3c3125d37ff62 refs/for/refs/heads/master%notify\u003dNONE,m\u003dbuild\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJZ/RnDAAoJEKs2LWFaZv17NcEIAK1R8IllLfW/M7ty6wtCSgR2\nMQ8kN8H/Uykco5LCf+KPvDVCQ9+A1gqgOyX9QTH9fQY7/EdiDC+zlWRV0pkwjuHY\nJHRArLgSZmUIcBpaZ35z7hqQrXK4yJY1q8pAkkTAZs7AZJvev9g9ZJ/nT2deDLAX\n23Aecyd8e2UhZ6VvsuZ48JsFbKPtvY/i6U6Pd3oEEW+TYyz09OigBspeCZocHxFW\nF1zfDEE9xXOR6vf0v0jDmbLboFqLEZGMPaK7xgWsrswbrgHxpQmO74xLdSHq9B7F\nAbN/Gy5lGVUSGTKmNm0j6G/5Ng7Kaju96AdaPp60h+dIxqayw8j9muNJUwyNB+c\u003d\n\u003dheJa\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "52dc4f31_f7507a2b",
+        "filename": "core/fpdfapi/page/cpdf_contentparser.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "YOu still need the !pPage or this may crash.",
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286ccb45_ec714ec7",
+        "filename": "core/fpdfapi/page/cpdf_form.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "Was this intentional? Previously we\u0027d only re-create if it didn\u0027t exist.",
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19a60650_55424cf1",
+        "filename": "core/fpdfapi/page/cpdf_page.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "ASSERT(pPageDict) as I don\u0027t see any immediate accesses, this would make the crash happen closer to the reason.",
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27b5887c_36b01c29",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "Should e ASSET(pDoc) in here to make sure it can never be null?",
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3da55ef3_a6ae9ee0",
+        "filename": "core/fpdfapi/page/cpdf_pageobjectholder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "This is the same comment as in the header now, can this one be removed so we only have this once?",
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326ec39c_d4a338ae",
+        "filename": "fpdfsdk/cpdfsdk_pageview.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-06T15:09:03Z",
+      "side": 1,
+      "message": "Does this have a GetDocument method already? If not, can we make it return Getcontext()-\u003eGetPDFDoc() and then this doesn\u0027t have the #ifdef blocks at all?",
+      "range": {
+        "startLine": 208,
+        "startChar": 9,
+        "endLine": 208,
+        "endChar": 15
+      },
+      "revId": "ba1053478cc27293a2a4c85900a3c3125d37ff62",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
