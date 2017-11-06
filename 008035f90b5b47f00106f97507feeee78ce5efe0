@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "87ee7bc3_d374c423",
+        "filename": "core/fpdfapi/page/cpdf_psengine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-06T19:08:12Z",
+      "side": 1,
+      "message": "The test still needs to check |m_Operators| for correctness. Is there a reason for not wanting the test as a friend?",
+      "parentUuid": "664ef1b7_08f025d8",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "698235a2_78b2fbb9",
         "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
         "patchSetId": 1
@@ -37,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "f72c6134_c2a97d3c",
+        "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-06T19:08:12Z",
+      "side": 1,
+      "message": "I guess I should write out the auto. It\u0027s a std::unique_ptr\u003cCPDF_PSOP\u003e.",
+      "parentUuid": "698235a2_78b2fbb9",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30d0bcf4_3f7ef20d",
         "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2017-11-06T18:51:52Z",
       "side": 1,
       "message": "Flip these and make the comparison positive?",
+      "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9847409_f4f296a4",
+        "filename": "core/fpdfapi/page/cpdf_psengine_unittest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-06T19:08:12Z",
+      "side": 1,
+      "message": "The current version of gtest in use has:\n\nEXPECT_FLOAT_EQ(expected, actual)\n\nSo this is correct in that 0 is the expected value.",
+      "parentUuid": "30d0bcf4_3f7ef20d",
       "revId": "008035f90b5b47f00106f97507feeee78ce5efe0",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
