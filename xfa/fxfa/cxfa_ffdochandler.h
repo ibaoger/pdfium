@@ -18,12 +18,6 @@ class CXFA_FFDocHandler {
 
   CFXJSE_Value* GetXFAScriptObject(CXFA_FFDoc* hDoc);
   XFA_ATTRIBUTEENUM GetRestoreState(CXFA_FFDoc* hDoc);
-
-  bool RunDocScript(CXFA_FFDoc* hDoc,
-                    XFA_SCRIPTTYPE eScriptType,
-                    const WideStringView& wsScript,
-                    CFXJSE_Value* pRetValue,
-                    CFXJSE_Value* pThisObject);
 };
 
 #endif  // XFA_FXFA_CXFA_FFDOCHANDLER_H_
