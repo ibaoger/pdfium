@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01311dcb_22733965",
+        "filename": "core/fpdfapi/parser/cpdf_hint_tables.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-06T20:00:12Z",
+      "side": 0,
+      "message": "GetFirstPageNo() returned -1. CPDF_LinearizedHeader doesn\u0027t check for that.",
+      "revId": "05ac5961fec712fe9d0f364012982620d814aade",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
