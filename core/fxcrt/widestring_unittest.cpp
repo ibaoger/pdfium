@@ -54,29 +54,94 @@ TEST(WideString, OperatorLT) {
   WideString a(L"a");
   WideString abc(L"\x0110qq");  // Comes before despite endianness.
   WideString def(L"\x1001qq");  // Comes after despite endianness.
+  WideStringView v_empty;
+  WideStringView v_a(L"a");
+  WideStringView v_abc(L"\x0110qq");
+  WideStringView v_def(L"\x1001qq");
+  const wchar_t* const c_null = nullptr;
+  const wchar_t* const c_empty = L"";
+  const wchar_t* const c_a = L"a";
+  const wchar_t* const c_abc = L"\x0110qq";
+  const wchar_t* const c_def = L"\x1001qq";
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
   EXPECT_FALSE(abc < abc);
   EXPECT_FALSE(def < def);
+  EXPECT_FALSE(c_null < empty);
+  EXPECT_FALSE(c_empty < empty);
+  EXPECT_FALSE(c_a < a);
+  EXPECT_FALSE(c_abc < abc);
+  EXPECT_FALSE(c_def < def);
+  EXPECT_FALSE(empty < c_null);
+  EXPECT_FALSE(empty < c_empty);
+  EXPECT_FALSE(a < c_a);
+  EXPECT_FALSE(abc < c_abc);
+  EXPECT_FALSE(def < c_def);
+  EXPECT_FALSE(empty < v_empty);
+  EXPECT_FALSE(a < v_a);
+  EXPECT_FALSE(abc < v_abc);
+  EXPECT_FALSE(def < v_def);
 
   EXPECT_TRUE(empty < a);
   EXPECT_FALSE(a < empty);
+  EXPECT_TRUE(c_null < a);
+  EXPECT_TRUE(c_empty < a);
+  EXPECT_FALSE(c_a < empty);
+  EXPECT_TRUE(empty < c_a);
+  EXPECT_FALSE(a < c_null);
+  EXPECT_FALSE(a < c_empty);
+  EXPECT_TRUE(empty < v_a);
+  EXPECT_FALSE(a < v_empty);
 
   EXPECT_TRUE(empty < abc);
   EXPECT_FALSE(abc < empty);
+  EXPECT_TRUE(c_null < abc);
+  EXPECT_TRUE(c_empty < abc);
+  EXPECT_FALSE(c_abc < empty);
+  EXPECT_TRUE(empty < c_abc);
+  EXPECT_FALSE(abc < c_null);
+  EXPECT_FALSE(abc < c_empty);
+  EXPECT_TRUE(empty < v_abc);
+  EXPECT_FALSE(abc < v_empty);
 
   EXPECT_TRUE(empty < def);
   EXPECT_FALSE(def < empty);
+  EXPECT_TRUE(c_null < def);
+  EXPECT_TRUE(c_empty < def);
+  EXPECT_FALSE(c_def < empty);
+  EXPECT_TRUE(empty < c_def);
+  EXPECT_FALSE(def < c_null);
+  EXPECT_FALSE(def < c_empty);
+  EXPECT_TRUE(empty < v_def);
+  EXPECT_FALSE(def < v_empty);
 
   EXPECT_TRUE(a < abc);
   EXPECT_FALSE(abc < a);
+  EXPECT_TRUE(c_a < abc);
+  EXPECT_FALSE(c_abc < a);
+  EXPECT_TRUE(a < c_abc);
+  EXPECT_FALSE(abc < c_a);
+  EXPECT_TRUE(a < v_abc);
+  EXPECT_FALSE(abc < v_a);
 
   EXPECT_TRUE(a < def);
   EXPECT_FALSE(def < a);
+  EXPECT_TRUE(c_a < def);
+  EXPECT_FALSE(c_def < a);
+  EXPECT_TRUE(a < c_def);
+  EXPECT_FALSE(def < c_a);
+  EXPECT_TRUE(a < v_def);
+  EXPECT_FALSE(def < v_a);
 
   EXPECT_TRUE(abc < def);
   EXPECT_FALSE(def < abc);
+  EXPECT_TRUE(c_abc < def);
+  EXPECT_FALSE(c_def < abc);
+  EXPECT_TRUE(abc < c_def);
+  EXPECT_FALSE(def < c_abc);
+  EXPECT_TRUE(abc < v_def);
+  EXPECT_FALSE(def < v_abc);
 }
 
 TEST(WideString, OperatorEQ) {
@@ -152,8 +217,8 @@ TEST(WideString, OperatorEQ) {
   EXPECT_FALSE(wide_string_c2 == wide_string);
   EXPECT_FALSE(wide_string_c3 == wide_string);
 
-  const wchar_t* c_null_string = nullptr;
-  const wchar_t* c_empty_string = L"";
+  const wchar_t* const c_null_string = nullptr;
+  const wchar_t* const c_empty_string = L"";
   EXPECT_TRUE(null_string == c_null_string);
   EXPECT_TRUE(null_string == c_empty_string);
   EXPECT_TRUE(empty_string == c_null_string);
@@ -167,13 +232,13 @@ TEST(WideString, OperatorEQ) {
   EXPECT_TRUE(c_null_string == deleted_string);
   EXPECT_TRUE(c_empty_string == deleted_string);
 
-  const wchar_t* c_string_same1 = L"hello";
+  const wchar_t* const c_string_same1 = L"hello";
   EXPECT_TRUE(wide_string == c_string_same1);
   EXPECT_TRUE(c_string_same1 == wide_string);
 
-  const wchar_t* c_string1 = L"he";
-  const wchar_t* c_string2 = L"hellp";
-  const wchar_t* c_string3 = L"hellod";
+  const wchar_t* const c_string1 = L"he";
+  const wchar_t* const c_string2 = L"hellp";
+  const wchar_t* const c_string3 = L"hellod";
   EXPECT_FALSE(wide_string == c_string1);
   EXPECT_FALSE(wide_string == c_string2);
   EXPECT_FALSE(wide_string == c_string3);
@@ -253,8 +318,8 @@ TEST(WideString, OperatorNE) {
   EXPECT_TRUE(wide_string_c2 != wide_string);
   EXPECT_TRUE(wide_string_c3 != wide_string);
 
-  const wchar_t* c_null_string = nullptr;
-  const wchar_t* c_empty_string = L"";
+  const wchar_t* const c_null_string = nullptr;
+  const wchar_t* const c_empty_string = L"";
   EXPECT_FALSE(null_string != c_null_string);
   EXPECT_FALSE(null_string != c_empty_string);
   EXPECT_FALSE(empty_string != c_null_string);
@@ -268,13 +333,13 @@ TEST(WideString, OperatorNE) {
   EXPECT_FALSE(c_null_string != deleted_string);
   EXPECT_FALSE(c_empty_string != deleted_string);
 
-  const wchar_t* c_string_same1 = L"hello";
+  const wchar_t* const c_string_same1 = L"hello";
   EXPECT_FALSE(wide_string != c_string_same1);
   EXPECT_FALSE(c_string_same1 != wide_string);
 
-  const wchar_t* c_string1 = L"he";
-  const wchar_t* c_string2 = L"hellp";
-  const wchar_t* c_string3 = L"hellod";
+  const wchar_t* const c_string1 = L"he";
+  const wchar_t* const c_string2 = L"hellp";
+  const wchar_t* const c_string3 = L"hellod";
   EXPECT_TRUE(wide_string != c_string1);
   EXPECT_TRUE(wide_string != c_string2);
   EXPECT_TRUE(wide_string != c_string3);
@@ -879,29 +944,59 @@ TEST(WideStringView, OperatorLT) {
   WideStringView a(L"a");
   WideStringView abc(L"\x0110qq");  // Comes InsertAtFront despite endianness.
   WideStringView def(L"\x1001qq");  // Comes InsertAtBack despite endianness.
+  const wchar_t* const c_null = nullptr;
+  const wchar_t* const c_empty = L"";
+  const wchar_t* const c_a = L"a";
+  const wchar_t* const c_abc = L"\x0110qq";
+  const wchar_t* const c_def = L"\x1001qq";
 
   EXPECT_FALSE(empty < empty);
   EXPECT_FALSE(a < a);
   EXPECT_FALSE(abc < abc);
   EXPECT_FALSE(def < def);
+  EXPECT_FALSE(c_null < empty);
+  EXPECT_FALSE(c_empty < empty);
+  EXPECT_FALSE(c_a < a);
+  EXPECT_FALSE(c_abc < abc);
+  EXPECT_FALSE(c_def < def);
+  EXPECT_FALSE(empty < c_null);
+  EXPECT_FALSE(empty < c_empty);
+  EXPECT_FALSE(a < c_a);
+  EXPECT_FALSE(abc < c_abc);
+  EXPECT_FALSE(def < c_def);
 
   EXPECT_TRUE(empty < a);
   EXPECT_FALSE(a < empty);
+  EXPECT_TRUE(empty < c_a);
+  EXPECT_FALSE(a < c_null);
+  EXPECT_FALSE(a < c_empty);
 
   EXPECT_TRUE(empty < abc);
   EXPECT_FALSE(abc < empty);
+  EXPECT_TRUE(empty < c_abc);
+  EXPECT_FALSE(abc < c_null);
+  EXPECT_FALSE(abc < c_empty);
 
   EXPECT_TRUE(empty < def);
   EXPECT_FALSE(def < empty);
+  EXPECT_TRUE(empty < c_def);
+  EXPECT_FALSE(def < c_null);
+  EXPECT_FALSE(def < c_empty);
 
   EXPECT_TRUE(a < abc);
   EXPECT_FALSE(abc < a);
+  EXPECT_TRUE(a < c_abc);
+  EXPECT_FALSE(abc < c_a);
 
   EXPECT_TRUE(a < def);
   EXPECT_FALSE(def < a);
+  EXPECT_TRUE(a < c_def);
+  EXPECT_FALSE(def < c_a);
 
   EXPECT_TRUE(abc < def);
   EXPECT_FALSE(def < abc);
+  EXPECT_TRUE(abc < c_def);
+  EXPECT_FALSE(def < c_abc);
 }
 
 TEST(WideStringView, OperatorEQ) {
@@ -940,13 +1035,13 @@ TEST(WideStringView, OperatorEQ) {
   EXPECT_FALSE(wide_string2 == wide_string_c);
   EXPECT_FALSE(wide_string3 == wide_string_c);
 
-  const wchar_t* c_string_same1 = L"hello";
+  const wchar_t* const c_string_same1 = L"hello";
   EXPECT_TRUE(wide_string_c == c_string_same1);
   EXPECT_TRUE(c_string_same1 == wide_string_c);
 
-  const wchar_t* c_string1 = L"he";
-  const wchar_t* c_string2 = L"hellp";
-  const wchar_t* c_string3 = L"hellod";
+  const wchar_t* const c_string1 = L"he";
+  const wchar_t* const c_string2 = L"hellp";
+  const wchar_t* const c_string3 = L"hellod";
   EXPECT_FALSE(wide_string_c == c_string1);
   EXPECT_FALSE(wide_string_c == c_string2);
   EXPECT_FALSE(wide_string_c == c_string3);
@@ -992,13 +1087,13 @@ TEST(WideStringView, OperatorNE) {
   EXPECT_TRUE(wide_string2 != wide_string_c);
   EXPECT_TRUE(wide_string3 != wide_string_c);
 
-  const wchar_t* c_string_same1 = L"hello";
+  const wchar_t* const c_string_same1 = L"hello";
   EXPECT_FALSE(wide_string_c != c_string_same1);
   EXPECT_FALSE(c_string_same1 != wide_string_c);
 
-  const wchar_t* c_string1 = L"he";
-  const wchar_t* c_string2 = L"hellp";
-  const wchar_t* c_string3 = L"hellod";
+  const wchar_t* const c_string1 = L"he";
+  const wchar_t* const c_string2 = L"hellp";
+  const wchar_t* const c_string3 = L"hellod";
   EXPECT_TRUE(wide_string_c != c_string1);
   EXPECT_TRUE(wide_string_c != c_string2);
   EXPECT_TRUE(wide_string_c != c_string3);
