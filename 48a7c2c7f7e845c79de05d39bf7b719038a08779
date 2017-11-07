@@ -16,6 +16,24 @@
       "revId": "48a7c2c7f7e845c79de05d39bf7b719038a08779",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70118ad4_d93f1442",
+        "filename": "core/fxge/cfx_fontmapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-07T16:06:43Z",
+      "side": 1,
+      "message": "Done, nice catch.",
+      "parentUuid": "a76326d9_e2292c77",
+      "revId": "48a7c2c7f7e845c79de05d39bf7b719038a08779",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
