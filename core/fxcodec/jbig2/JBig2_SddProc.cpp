@@ -469,7 +469,7 @@ std::unique_ptr<CJBig2_SymbolDict> CJBig2_SDDProc::decode_Huffman(
         if (pStream->getByteLeft() >= stride * HCHEIGHT) {
           BHC = pdfium::MakeUnique<CJBig2_Image>(TOTWIDTH, HCHEIGHT);
           for (I = 0; I < HCHEIGHT; I++) {
-            JBIG2_memcpy(BHC->m_pData + I * BHC->stride(),
+            JBIG2_memcpy(BHC->m_pData.Get() + I * BHC->stride(),
                          pStream->getPointer(), stride);
             pStream->offset(stride);
           }

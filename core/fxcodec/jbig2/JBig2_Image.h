@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "core/fxcodec/jbig2/JBig2_Define.h"
+#include "core/fxcrt/maybe_owned.h"
 
 struct FX_RECT;
 
@@ -68,13 +69,12 @@ class CJBig2_Image {
                                          int32_t h);
   void expand(int32_t h, bool v);
 
-  uint8_t* m_pData;
+  MaybeOwned<uint8_t, FxFreeDeleter> m_pData;
 
  private:
   int32_t m_nWidth;   // 1-bit pixels
   int32_t m_nHeight;  // lines
   int32_t m_nStride;  // bytes
-  bool m_bOwnsBuffer;
 };
 
 #endif  // CORE_FXCODEC_JBIG2_JBIG2_IMAGE_H_
