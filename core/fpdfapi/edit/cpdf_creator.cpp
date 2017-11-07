@@ -7,6 +7,7 @@
 #include "core/fpdfapi/edit/cpdf_creator.h"
 
 #include <algorithm>
+#include <iostream>
 
 #include "core/fpdfapi/edit/cpdf_encryptor.h"
 #include "core/fpdfapi/edit/cpdf_flateencoder.h"
@@ -613,7 +614,12 @@ int32_t CPDF_Creator::WriteDoc_Stage4() {
   ASSERT(m_iStage >= 90);
 
   bool bXRefStream = IsIncremental() && m_pParser->IsXRefStream();
+  std::cerr << "IsIncremental() " << IsIncremental() << std::endl;
+  std::cerr << "m_pParser->IsXRefStream() " << m_pParser->IsXRefStream()
+            << std::endl;
+  std::cerr << "bXRefStream " << bXRefStream << std::endl;
   if (!bXRefStream) {
+    std::cerr << "started writing trailer" << std::endl;
     if (!m_Archive->WriteString("trailer\r\n<<"))
       return -1;
   } else {
@@ -623,20 +629,28 @@ int32_t CPDF_Creator::WriteDoc_Stage4() {
     }
   }
 
+  std::cerr << "m_pParser " << !!m_pParser << std::endl;
   if (m_pParser) {
-    CPDF_Dictionary* p = m_pParser->GetTrailer();
+    std::unique_ptr<CPDF_Dictionary> p = m_pParser->GetCombinedTrailer();
+    std::cerr << "m_pParser->GetTrailer()->GetCount() "
+              << m_pParser->GetCombinedTrailer()->GetCount() << std::endl;
     for (const auto& it : *p) {
       const ByteString& key = it.first;
       CPDF_Object* pValue = it.second.get();
+      std::cerr << "  " << key << ":?" << std::endl;
       if (key == "Encrypt" || key == "Size" || key == "Filter" ||
           key == "Index" || key == "Length" || key == "Prev" || key == "W" ||
           key == "XRefStm" || key == "ID") {
         continue;
       }
+      std::cerr << "    will write /" << PDF_NameEncode(key).AsStringView()
+                << std::endl;
       if (!m_Archive->WriteString(("/")) ||
           !m_Archive->WriteString(PDF_NameEncode(key).AsStringView())) {
         return -1;
       }
+      std::cerr << "    wrote" << std::endl;
+      std::cerr << "    pValue->IsInline() " << pValue->IsInline() << std::endl;
       if (!pValue->IsInline()) {
         if (!m_Archive->WriteString(" ") ||
             !m_Archive->WriteDWord(pValue->GetObjNum()) ||
@@ -648,6 +662,7 @@ int32_t CPDF_Creator::WriteDoc_Stage4() {
       }
     }
   } else {
+    std::cerr << "   ========== NOT REACHED ==========" << std::endl;
     if (!m_Archive->WriteString("\r\n/Root ") ||
         !m_Archive->WriteDWord(m_pDocument->GetRoot()->GetObjNum()) ||
         !m_Archive->WriteString(" 0 R\r\n")) {

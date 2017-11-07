@@ -6,6 +6,7 @@
 
 #include "core/fpdfapi/parser/cpdf_document.h"
 
+#include <iostream>
 #include <memory>
 #include <set>
 #include <utility>
@@ -363,15 +364,24 @@ std::unique_ptr<CPDF_Object> CPDF_Document::ParseIndirectObject(
 }
 
 void CPDF_Document::LoadDocInternal() {
+  std::cerr << "CPDF_Document::LoadDocInternal" << std::endl;
+  std::cerr << "  m_pParser->GetLastObjNum() " << m_pParser->GetLastObjNum()
+            << std::endl;
+  std::cerr << "  m_pParser->GetRootObjNum() " << m_pParser->GetRootObjNum()
+            << std::endl;
   SetLastObjNum(m_pParser->GetLastObjNum());
 
   CPDF_Object* pRootObj = GetOrParseIndirectObject(m_pParser->GetRootObjNum());
-  if (!pRootObj)
+  if (!pRootObj) {
+    std::cerr << "  !pRootObj" << std::endl;
     return;
+  }
 
   m_pRootDict = pRootObj->GetDict();
-  if (!m_pRootDict)
+  if (!m_pRootDict) {
+    std::cerr << "  !m_pRootDict" << std::endl;
     return;
+  }
 
   LoadDocumentInfo();
 }

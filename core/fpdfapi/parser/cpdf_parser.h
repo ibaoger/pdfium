@@ -58,6 +58,7 @@ class CPDF_Parser {
   void SetPassword(const char* password) { m_Password = password; }
   ByteString GetPassword() { return m_Password; }
   CPDF_Dictionary* GetTrailer() const;
+  std::unique_ptr<CPDF_Dictionary> GetCombinedTrailer() const;
   FX_FILESIZE GetLastXRefOffset() const { return m_LastXRefOffset; }
 
   uint32_t GetPermissions() const;

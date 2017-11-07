@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include <bitset>
+#include <iostream>
 #include <iterator>
 #include <map>
 #include <memory>
@@ -28,6 +29,7 @@
 #include "public/fpdf_ext.h"
 #include "public/fpdf_formfill.h"
 #include "public/fpdf_progressive.h"
+#include "public/fpdf_save.h"
 #include "public/fpdf_structtree.h"
 #include "public/fpdf_text.h"
 #include "public/fpdfview.h"
@@ -132,6 +134,8 @@ FPDF_FORMFILLINFO_PDFiumTest* ToPDFiumTestFormFillInfo(
     FPDF_FORMFILLINFO* form_fill_info) {
   return static_cast<FPDF_FORMFILLINFO_PDFiumTest*>(form_fill_info);
 }
+
+std::ofstream ofstream;
 
 bool CheckDimensions(int stride, int width, int height) {
   if (stride < 0 || width < 0 || height < 0)
@@ -1346,6 +1350,15 @@ bool RenderPage(const std::string& name,
   return !!bitmap;
 }
 
+int WriteBlock(struct FPDF_FILEWRITE_* pThis,
+               const void* pData,
+               unsigned long size) {
+  // std::cerr << "WriteBlock " << size << std::endl;
+  std::string dataStr(static_cast<const char*>(pData), size);
+  ofstream << dataStr;
+  return 1;
+}
+
 void RenderPdf(const std::string& name,
                const char* pBuf,
                size_t len,
@@ -1390,6 +1403,7 @@ void RenderPdf(const std::string& name,
   pdf_avail.reset(FPDFAvail_Create(&file_avail, &file_access));
 
   if (FPDFAvail_IsLinearized(pdf_avail.get()) == PDF_LINEARIZED) {
+    fprintf(stderr, "PDF_LINEARIZED\n");
     doc.reset(FPDFAvail_GetDocument(pdf_avail.get(), nullptr));
     if (doc) {
       while (nRet == PDF_DATA_NOTAVAIL)
@@ -1409,6 +1423,7 @@ void RenderPdf(const std::string& name,
       bIsLinearized = true;
     }
   } else {
+    fprintf(stderr, "PDF_IS_NOT_LINEARIZED\n");
     doc.reset(FPDF_LoadCustomDocument(&file_access, nullptr));
   }
 
@@ -1416,6 +1431,16 @@ void RenderPdf(const std::string& name,
     PrintLastError();
     return;
   }
+
+  char outputFileName[1000];
+  snprintf(outputFileName, 1000,
+           "/usr/local/google/home/hnakashima/Desktop/new_pdf_%zu.pdf", len);
+  ofstream = std::ofstream(outputFileName, std::ios::out | std::ios::binary);
+  FPDF_FILEWRITE fileWrite;
+  fileWrite.version = 42;
+  fileWrite.WriteBlock = WriteBlock;
+  FPDF_SaveAsCopy(doc.get(), &fileWrite, 0);
+  ofstream.close();
 
   (void)FPDF_GetDocPermissions(doc.get());
 

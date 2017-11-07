@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_indirect_object_holder.h"
 
 #include <algorithm>
+#include <iostream>
 #include <utility>
 
 #include "core/fpdfapi/parser/cpdf_object.h"
@@ -38,16 +39,29 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetIndirectObject(
 
 CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
     uint32_t objnum) {
-  if (objnum == 0 || objnum == CPDF_Object::kInvalidObjNum)
+  // if (objnum == 31699) std::cerr <<
+  // "CPDF_IndirectObjectHolder::GetOrParseIndirectObject" << std::endl;
+  if (objnum == 0 || objnum == CPDF_Object::kInvalidObjNum) {
+    // if (objnum == 31699) std::cerr <<
+    // "CPDF_IndirectObjectHolder::GetOrParseIndirectObject fail 1" <<
+    // std::endl;
     return nullptr;
+  }
 
   // Add item anyway to prevent recursively parsing of same object.
   auto insert_result = m_IndirectObjs.insert(std::make_pair(objnum, nullptr));
-  if (!insert_result.second)
+  if (!insert_result.second) {
+    // if (objnum == 31699) std::cerr <<
+    // "CPDF_IndirectObjectHolder::GetOrParseIndirectObject FilterInvalidObjNum"
+    // << std::endl;
     return FilterInvalidObjNum(insert_result.first->second.get());
+  }
 
   std::unique_ptr<CPDF_Object> pNewObj = ParseIndirectObject(objnum);
   if (!pNewObj) {
+    // if (objnum == 31699) std::cerr <<
+    // "CPDF_IndirectObjectHolder::GetOrParseIndirectObject fail 2" <<
+    // std::endl;
     m_IndirectObjs.erase(insert_result.first);
     return nullptr;
   }
@@ -55,6 +69,9 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
   pNewObj->SetObjNum(objnum);
   m_LastObjNum = std::max(m_LastObjNum, objnum);
   insert_result.first->second = std::move(pNewObj);
+  // if (objnum == 31699) std::cerr <<
+  // "CPDF_IndirectObjectHolder::GetOrParseIndirectObject normal flow" <<
+  // std::endl;
   return insert_result.first->second.get();
 }
 
