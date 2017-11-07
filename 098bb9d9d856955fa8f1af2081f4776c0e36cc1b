@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57451838_019dcbdc",
+        "filename": "core/fxcodec/jbig2/JBig2_GrdProc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T17:59:14Z",
+      "side": 1,
+      "message": "maybe provide an accessor method and make m_pData private to avoid saying .Get() all over the place?",
+      "range": {
+        "startLine": 230,
+        "startChar": 19,
+        "endLine": 230,
+        "endChar": 40
+      },
+      "revId": "098bb9d9d856955fa8f1af2081f4776c0e36cc1b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
