@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32e57e80_fd8ea4cf",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T18:40:56Z",
+      "side": 1,
+      "message": "nit: use boolean expression (check my logic)\nbool bBind \u003d argc \u003d\u003d 2 \u0026\u0026 pArguments-\u003eGetInt32(1) !\u003d 0;",
+      "range": {
+        "startLine": 2593,
+        "startChar": 2,
+        "endLine": 2596,
+        "endChar": 0
+      },
+      "revId": "a0bc599b7d88242bf2b2b40b3f0014f33cf498fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc7642cb_3fef707e",
+        "filename": "xfa/fxfa/parser/xfa_document_datamerger_imp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T18:40:56Z",
+      "side": 1,
+      "message": "nit: false as 3rd operand to ?-expression is dubious, eg. (but check logic)\nreturn pOccurNode \u0026\u0026 CXFA_ ...",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "a0bc599b7d88242bf2b2b40b3f0014f33cf498fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
