@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a25b179_2b719528",
+        "filename": "xfa/fxfa/cxfa_ffwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T18:15:06Z",
+      "side": 1,
+      "message": "follow-up: pass by const ref?",
+      "range": {
+        "startLine": 170,
+        "startChar": 18,
+        "endLine": 170,
+        "endChar": 39
+      },
+      "revId": "ff0673f880ffb9578d32ad2957490cf4e7a3eb69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85329842_814975c4",
+        "filename": "xfa/fxfa/cxfa_ffwidget.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T18:15:06Z",
+      "side": 1,
+      "message": "and here, and in helper functions in .cpp, etc.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 48
+      },
+      "revId": "ff0673f880ffb9578d32ad2957490cf4e7a3eb69",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
