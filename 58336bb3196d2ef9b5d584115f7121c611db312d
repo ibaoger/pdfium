@@ -22,6 +22,30 @@
       "revId": "58336bb3196d2ef9b5d584115f7121c611db312d",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06605a7a_90ee7bb3",
+        "filename": "xfa/fxfa/parser/cxfa_rectangledata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T21:00:12Z",
+      "side": 1,
+      "message": "nack, don\u0027t usually do that on file moves.",
+      "parentUuid": "889f387f_0b472765",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "58336bb3196d2ef9b5d584115f7121c611db312d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
