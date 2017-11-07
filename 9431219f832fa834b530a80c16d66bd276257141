@@ -22,6 +22,30 @@
       "revId": "9431219f832fa834b530a80c16d66bd276257141",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c268f4b9_d5396566",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T20:30:29Z",
+      "side": 1,
+      "message": "Will try to fix the GetTransferEncoding() return type in a followup.",
+      "parentUuid": "db5bda1b_59dd2908",
+      "range": {
+        "startLine": 1912,
+        "startChar": 7,
+        "endLine": 1912,
+        "endChar": 28
+      },
+      "revId": "9431219f832fa834b530a80c16d66bd276257141",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
