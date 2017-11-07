@@ -38,13 +38,15 @@ CPDF_Object* CPDF_IndirectObjectHolder::GetIndirectObject(
 
 CPDF_Object* CPDF_IndirectObjectHolder::GetOrParseIndirectObject(
     uint32_t objnum) {
-  if (objnum == 0 || objnum == CPDF_Object::kInvalidObjNum)
+  if (objnum == 0 || objnum == CPDF_Object::kInvalidObjNum) {
     return nullptr;
+  }
 
   // Add item anyway to prevent recursively parsing of same object.
   auto insert_result = m_IndirectObjs.insert(std::make_pair(objnum, nullptr));
-  if (!insert_result.second)
+  if (!insert_result.second) {
     return FilterInvalidObjNum(insert_result.first->second.get());
+  }
 
   std::unique_ptr<CPDF_Object> pNewObj = ParseIndirectObject(objnum);
   if (!pNewObj) {
