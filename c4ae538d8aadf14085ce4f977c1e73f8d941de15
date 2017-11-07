@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4774541_e625f8b0",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T18:53:21Z",
+      "side": 1,
+      "message": "curText.IsEmpty()",
+      "revId": "c4ae538d8aadf14085ce4f977c1e73f8d941de15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02a4a7fb_cdafc51a",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T18:53:21Z",
+      "side": 1,
+      "message": "Maybe add a comment // Do nothing\nto make it clear this has no body?",
+      "revId": "c4ae538d8aadf14085ce4f977c1e73f8d941de15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c9294dd_ff1883fd",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T18:53:21Z",
+      "side": 1,
+      "message": "nit: no ()\u0027s",
+      "revId": "c4ae538d8aadf14085ce4f977c1e73f8d941de15",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
