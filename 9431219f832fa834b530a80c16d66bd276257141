@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db5bda1b_59dd2908",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-07T18:29:26Z",
+      "side": 1,
+      "message": "static cast or return enums from callee?",
+      "range": {
+        "startLine": 1912,
+        "startChar": 7,
+        "endLine": 1912,
+        "endChar": 28
+      },
+      "revId": "9431219f832fa834b530a80c16d66bd276257141",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
