@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2a428514_8688ca36",
+        "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T20:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcbbdd03_7c282cc7",
+      "revId": "93f065e60680f07750c93adf2f3911bdc5985783",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3afc2241_365fa849",
         "filename": "xfa/fxfa/parser/cxfa_scriptdata.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-11-07T18:49:12Z",
       "side": 1,
       "message": "nit: const method?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "93f065e60680f07750c93adf2f3911bdc5985783",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a890d4_5177536b",
+        "filename": "xfa/fxfa/parser/cxfa_scriptdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-07T20:46:11Z",
+      "side": 1,
+      "message": "Calls down into the JS c++ code which isn\u0027t const ....",
+      "parentUuid": "3afc2241_365fa849",
       "range": {
         "startLine": 27,
         "startChar": 2,
