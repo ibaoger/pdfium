@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a76326d9_e2292c77",
+        "filename": "core/fxge/cfx_fontmapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-07T00:27:32Z",
+      "side": 1,
+      "message": "|iExact| is an out variable for MapFont() and this is just providing a default value, right? Doesn\u0027t that mean this can go away now, and |iExact| can become |iExactDummy| ?\n\nOr better yet, remove the |iExact| parameter from IFX_SystemFontInfo::MapFont(). The MapFont function pointer in public/fpdf_sysfontinfo.h need to stay the same, though we should add a comment to say setting |bExact| is now pointless.",
+      "revId": "48a7c2c7f7e845c79de05d39bf7b719038a08779",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
