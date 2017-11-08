@@ -106,23 +106,30 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFPage_TransFormWithClip(FPDF_PAGE page,
                            FS_MATRIX* matrix,
                            FS_RECTF* clipRect) {
+  if (!matrix && !clipRect)
+    return false;
   CPDF_Page* pPage = CPDFPageFromFPDFPage(page);
   if (!pPage)
     return false;
 
   std::ostringstream textBuf;
   textBuf << "q ";
-  CFX_FloatRect rect = CFXFloatRectFromFSRECTF(*clipRect);
-  rect.Normalize();
-  ByteString bsClipping;
-  bsClipping.Format("%f %f %f %f re W* n ", rect.left, rect.bottom,
-                    rect.Width(), rect.Height());
-  textBuf << bsClipping;
 
-  ByteString bsMatix;
-  bsMatix.Format("%f %f %f %f %f %f cm ", matrix->a, matrix->b, matrix->c,
-                 matrix->d, matrix->e, matrix->f);
-  textBuf << bsMatix;
+  if (clipRect) {
+    CFX_FloatRect rect = CFXFloatRectFromFSRECTF(*clipRect);
+    rect.Normalize();
+    ByteString bsClipping;
+    bsClipping.Format("%f %f %f %f re W* n ", rect.left, rect.bottom,
+                      rect.Width(), rect.Height());
+    textBuf << bsClipping;
+  }
+
+  if (matrix) {
+    ByteString bsMatix;
+    bsMatix.Format("%f %f %f %f %f %f cm ", matrix->a, matrix->b, matrix->c,
+                   matrix->d, matrix->e, matrix->f);
+    textBuf << bsMatix;
+  }
 
   CPDF_Dictionary* pPageDict = pPage->m_pFormDict.Get();
   CPDF_Object* pContentObj = GetPageContent(pPageDict);
