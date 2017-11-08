@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a429cb18_7ee61b4c",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T19:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568972b0_ecdabf02",
+      "range": {
+        "startLine": 725,
+        "startChar": 2,
+        "endLine": 725,
+        "endChar": 21
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d79f57b_b2e69243",
         "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4180778a_7cfb8f27",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T19:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d79f57b_b2e69243",
+      "range": {
+        "startLine": 731,
+        "startChar": 2,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "493b731e_2ef8639d",
         "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-08T18:15:21Z",
       "side": 1,
       "message": "nit: static ?",
+      "range": {
+        "startLine": 733,
+        "startChar": 4,
+        "endLine": 733,
+        "endChar": 9
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19b04f5b_3fc6d44a",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T19:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "493b731e_2ef8639d",
       "range": {
         "startLine": 733,
         "startChar": 4,
