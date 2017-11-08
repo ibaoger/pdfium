@@ -65,7 +65,6 @@ class CFGAS_GEFont : public Retainable {
 
  private:
   explicit CFGAS_GEFont(CFGAS_FontMgr* pFontMgr);
-  CFGAS_GEFont(const RetainPtr<CFGAS_GEFont>& src, uint32_t dwFontStyles);
   ~CFGAS_GEFont() override;
 
 #if _FX_PLATFORM_ == _FX_PLATFORM_WINDOWS_

@@ -65,34 +65,6 @@ CFGAS_GEFont::CFGAS_GEFont(CFGAS_FontMgr* pFontMgr)
       m_pFontMgr(pFontMgr) {
 }
 
-CFGAS_GEFont::CFGAS_GEFont(const RetainPtr<CFGAS_GEFont>& src,
-                           uint32_t dwFontStyles)
-    :
-#if _FX_PLATFORM_ != _FX_PLATFORM_WINDOWS_
-      m_bUseLogFontStyle(false),
-      m_dwLogFontStyle(0),
-#endif
-      m_pFont(nullptr),
-      m_bExternalFont(false),
-      m_pSrcFont(src),
-      m_pFontMgr(src->m_pFontMgr) {
-  ASSERT(m_pSrcFont->m_pFont);
-  m_pFont = new CFX_Font;
-  m_pFont->LoadClone(m_pSrcFont->m_pFont);
-
-  CFX_SubstFont* pSubst = m_pFont->GetSubstFont();
-  if (!pSubst) {
-    pSubst = new CFX_SubstFont;
-    m_pFont->SetSubstFont(std::unique_ptr<CFX_SubstFont>(pSubst));
-  }
-  pSubst->m_Weight =
-      FontStyleIsBold(dwFontStyles) ? FXFONT_FW_BOLD : FXFONT_FW_NORMAL;
-  if (FontStyleIsItalic(dwFontStyles))
-    pSubst->m_bFlagItalic = true;
-
-  InitFont();
-}
-
 CFGAS_GEFont::~CFGAS_GEFont() {
   if (!m_bExternalFont)
     delete m_pFont;

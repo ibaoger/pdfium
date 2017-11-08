@@ -46,7 +46,6 @@ class CFX_Font {
 #ifdef PDF_ENABLE_XFA
   bool LoadFile(const RetainPtr<IFX_SeekableReadStream>& pFile, int nFaceIndex);
 
-  bool LoadClone(const CFX_Font* pFont);
   void SetFace(FXFT_Face face);
   void SetSubstFont(std::unique_ptr<CFX_SubstFont> subst) {
     m_pSubstFont = std::move(subst);
@@ -79,8 +78,8 @@ class CFX_Font {
   bool IsTTFont() const;
   bool GetBBox(FX_RECT& bbox);
   bool IsEmbedded() const { return m_bEmbedded; }
-  uint8_t* GetSubData() const { return m_pGsubData; }
-  void SetSubData(uint8_t* data) { m_pGsubData = data; }
+  uint8_t* GetSubData() const { return m_pGsubData.get(); }
+  void SetSubData(uint8_t* data) { m_pGsubData.reset(data); }
 #if _FX_PLATFORM_ == _FX_PLATFORM_APPLE_
   void* GetPlatformFont() const { return m_pPlatformFont; }
   void SetPlatformFont(void* font) { m_pPlatformFont = font; }
@@ -100,8 +99,7 @@ class CFX_Font {
 
 #ifdef PDF_ENABLE_XFA
  protected:
-  bool m_bShallowCopy;
-  FXFT_StreamRec* m_pOwnedStream;
+  std::unique_ptr<FXFT_StreamRec> m_pOwnedStream;
 #endif  // PDF_ENABLE_XFA
 
  private:
@@ -115,7 +113,7 @@ class CFX_Font {
   std::unique_ptr<CFX_SubstFont> m_pSubstFont;
   std::vector<uint8_t> m_pFontDataAllocation;
   uint8_t* m_pFontData;
-  uint8_t* m_pGsubData;
+  std::unique_ptr<uint8_t, FxFreeDeleter> m_pGsubData;
   uint32_t m_dwSize;
 #if _FX_PLATFORM_ == _FX_PLATFORM_APPLE_
   void* m_pPlatformFont;
