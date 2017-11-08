@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db4c9d60_96b4c0aa",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8febeca4_8f243c67",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "Not used. Can you remove the ones you don\u0027t need?",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf1b41a0_ef108b40",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "Isn\u0027t it really easy to call FPDFPage_TransFormWithClip(page, nullptr, nullptr) and make sure it returns false?",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23fc8bda_527409ad",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "Font rendering is going to be slightly different across platforms. So if you pick this as your test, you will need md5sums for all platforms that vary. Whereas rectangles.pdf, for example, renders more consistently across platforms.",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f8d3671_6a0bb86e",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "Can these be float to start with, so you can avoid the cast?",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d21edd9_d55a4098",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure compilers on Windows will like the narrowing from FPDF_BOOL (AKA int) to bool. Just do:\n\nEXPECT_TRUE(FPDFPage_TransFormWithClip(page, \u0026matrix, \u0026cliprect));",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "106353d0_71ea1920",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "These variables are only used in the EXPECT_EQ() statements, so just drop the variables?",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a4e8d3_3a5c4862",
+        "filename": "public/fpdf_transformpage.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-08T22:48:16Z",
+      "side": 1,
+      "message": "This is not necessary. None of the other functions that return FPDF_BOOL have special #defines for their return values.",
+      "revId": "558d5f97207c2d4c804ccf88b5b63eabb5f271ac",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
