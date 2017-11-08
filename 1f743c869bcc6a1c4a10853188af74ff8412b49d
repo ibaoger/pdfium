@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "568972b0_ecdabf02",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T18:15:21Z",
+      "side": 1,
+      "message": "nit: used?",
+      "range": {
+        "startLine": 725,
+        "startChar": 2,
+        "endLine": 725,
+        "endChar": 21
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "493b731e_2ef8639d",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T18:15:21Z",
+      "side": 1,
+      "message": "nit: static ?",
+      "range": {
+        "startLine": 733,
+        "startChar": 4,
+        "endLine": 733,
+        "endChar": 9
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
