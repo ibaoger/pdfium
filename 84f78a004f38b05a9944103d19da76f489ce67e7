@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a231dbd_b8d632ec",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T16:54:02Z",
+      "side": 0,
+      "message": "All of the usages of XFA_PACKET_ are to call into the GetPacketByIndex method. I don\u0027t see any reason why these things have to line up in this way so simplified by just using numbers.",
+      "range": {
+        "startLine": 70,
+        "startChar": 30,
+        "endLine": 84,
+        "endChar": 42
+      },
+      "revId": "84f78a004f38b05a9944103d19da76f489ce67e7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
