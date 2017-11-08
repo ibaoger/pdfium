@@ -7,6 +7,7 @@
 #include "core/fpdfapi/parser/cpdf_linearized_header.h"
 
 #include <algorithm>
+#include <limits>
 #include <utility>
 
 #include "core/fpdfapi/parser/cpdf_array.h"
@@ -39,6 +40,8 @@ bool IsLinearizedHeaderValid(const CPDF_LinearizedHeader* header,
                              FX_FILESIZE file_size) {
   ASSERT(header);
   return header->GetFileSize() == file_size &&
+         static_cast<int>(header->GetFirstPageNo()) >= 0 &&
+         header->GetFirstPageNo() <= std::numeric_limits<int>::max() - 1 &&
          header->GetMainXRefTableFirstEntryOffset() < file_size &&
          header->GetPageCount() > 0 &&
          header->GetFirstPageEndOffset() < file_size &&
