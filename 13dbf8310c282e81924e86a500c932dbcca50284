@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0165d6bc_8fd77b05",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T17:18:51Z",
+      "side": 1,
+      "message": "nit: might as well cast it to uint32_t, just because uint8_t will promote to int32_t under the covers before the shift, and then we\u0027re or\u0027ing signed and unsigned.  Which is fine until we want to shift by more than, say 24 (instead of 8) down the road.",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "13dbf8310c282e81924e86a500c932dbcca50284",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8541398b_a34c0b85",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T17:18:51Z",
+      "side": 1,
+      "message": "Mabybe uint8_t with unknown going last with value \u003d 255.",
+      "range": {
+        "startLine": 371,
+        "startChar": 39,
+        "endLine": 372,
+        "endChar": 23
+      },
+      "revId": "13dbf8310c282e81924e86a500c932dbcca50284",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
