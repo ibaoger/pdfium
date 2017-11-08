@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9cf3c968_c8b5a430",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T18:10:47Z",
+      "side": 1,
+      "message": "I think this one was fine as 735 is inside a block, so isn\u0027t in scope here. But changed to just have it once instead of 3 times.",
+      "parentUuid": "03b8d833_b61aeaf7",
+      "range": {
+        "startLine": 773,
+        "startChar": 2,
+        "endLine": 773,
+        "endChar": 20
+      },
+      "revId": "467bb4b277323d33f9d324de7fe322c87ee9d9dc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93bd0fc4_2628b952",
         "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "467bb4b277323d33f9d324de7fe322c87ee9d9dc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49051bf7_6ac6e673",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-08T18:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93bd0fc4_2628b952",
+      "range": {
+        "startLine": 805,
+        "startChar": 6,
+        "endLine": 805,
+        "endChar": 24
+      },
+      "revId": "467bb4b277323d33f9d324de7fe322c87ee9d9dc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
