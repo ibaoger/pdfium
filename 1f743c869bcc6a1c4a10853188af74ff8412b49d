@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "3d79f57b_b2e69243",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T18:16:52Z",
+      "side": 1,
+      "message": "nit: I\u0027d flip the order of this line and the one above it, I can\u0027t really say why, but putting filestream declaration nearer a filetype test seems worthy in some small sense.",
+      "range": {
+        "startLine": 731,
+        "startChar": 2,
+        "endLine": 731,
+        "endChar": 12
+      },
+      "revId": "1f743c869bcc6a1c4a10853188af74ff8412b49d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "493b731e_2ef8639d",
         "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
         "patchSetId": 4
