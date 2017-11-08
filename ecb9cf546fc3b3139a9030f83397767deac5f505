@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59de28f4_4c26defa",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T17:21:56Z",
+      "side": 1,
+      "message": "nit: again, maybe last with value 255 ?",
+      "range": {
+        "startLine": 991,
+        "startChar": 2,
+        "endLine": 991,
+        "endChar": 10
+      },
+      "revId": "ecb9cf546fc3b3139a9030f83397767deac5f505",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
