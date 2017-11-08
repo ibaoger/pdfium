@@ -22,6 +22,30 @@
       "revId": "a0026a4f638d6b2429000253de2fc42dd6f9e715",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "531b490f_914486e2",
+        "filename": "core/fpdfapi/parser/cpdf_parser.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-08T16:19:38Z",
+      "side": 1,
+      "message": "I think it should, but I\u0027ll do that in a follow-up because then value 0 is specifically checked in some places, and I want to dissociate the bugfix from this potentially breaking change.",
+      "parentUuid": "8a499dbb_83846ab6",
+      "range": {
+        "startLine": 91,
+        "startChar": 3,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "a0026a4f638d6b2429000253de2fc42dd6f9e715",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
