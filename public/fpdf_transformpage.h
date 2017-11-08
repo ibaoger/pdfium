@@ -10,6 +10,11 @@
 // NOLINTNEXTLINE(build/include)
 #include "fpdfview.h"
 
+// Transformation operation failed.
+#define TRANSFORMATION_FAIL 0
+// Transformation operation succeed.
+#define TRANSFORMATION_SUCCESS 1
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,15 +89,17 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDFPage_GetCropBox(FPDF_PAGE page,
                                                         float* top);
 
 /**
-* Transform the whole page with a specified matrix, then clip the page content
-* region.
-*
-* @param[in] page        - A page handle.
-* @param[in] matrix      - The transform matrix.
-* @param[in] clipRect    - A rectangle page area to be clipped.
-* @Note. This function will transform the whole page, and would take effect to
-* all the objects in the page.
-*/
+ * Transform the whole page with a specified matrix, then clip the page content
+ * region in case of neither matrix nor clipRect is null.  Otherwise if matrix
+ * is null, it will only clip the page, if clipRect is null, it will only
+ * transform the page.
+ *
+ * @param[in] page        - A page handle.
+ * @param[in] matrix      - The transform matrix.
+ * @param[in] clipRect    - A rectangle page area to be clipped.
+ * @Note. This function will transform the whole page, and would take effect to
+ * all the objects in the page.
+ */
 FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
 FPDFPage_TransFormWithClip(FPDF_PAGE page,
                            FS_MATRIX* matrix,
