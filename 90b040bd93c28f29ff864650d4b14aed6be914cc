@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bede74a_5c2b83d7",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-08T17:05:30Z",
+      "side": 1,
+      "message": "maybe \n\nenum XFA_ATTRIBUTE : int16_t {\n\nso as to pack against evaluetype at line 1024 on 32 bit platform",
+      "range": {
+        "startLine": 369,
+        "startChar": 19,
+        "endLine": 369,
+        "endChar": 20
+      },
+      "revId": "90b040bd93c28f29ff864650d4b14aed6be914cc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
