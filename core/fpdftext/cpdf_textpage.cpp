@@ -1226,18 +1226,18 @@ bool CPDF_TextPage::IsHyphen(wchar_t curChar) const {
     return false;
 
   auto iter = curText.rbegin();
-  for (; iter != curText.rend() && *iter == 0x20; iter++) {
+  for (; (iter + 1) != curText.rend() && *iter == 0x20; iter++) {
     // Do nothing
   }
 
-  if (iter != curText.rend()) {
+  if ((iter + 1) != curText.rend()) {
     if (!IsHyphenCode(*iter))
       return false;
+
     iter++;
     if (FXSYS_iswalpha(*iter) && FXSYS_iswalpha(*iter))
       return true;
   } else {
-    iter--;
     if (!IsHyphenCode(*iter))
       return false;
   }
