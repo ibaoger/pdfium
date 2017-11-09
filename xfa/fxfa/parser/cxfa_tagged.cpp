@@ -1,0 +1,29 @@
+// Copyright 2017 PDFium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// Original code copyright 2014 Foxit Software Inc. http://www.foxitsoftware.com
+
+#include "xfa/fxfa/parser/cxfa_tagged.h"
+
+// static
+bool CXFA_Tagged::IsValidPacket(XFA_XDPPACKET packet) {
+  return !!(XFA_XDPPACKET_Config & packet);
+}
+
+CXFA_Tagged::CXFA_Tagged(CXFA_Document* doc, XFA_XDPPACKET packet)
+    : CXFA_Node(doc,
+                packet,
+                XFA_ObjectType::ContentNode,
+                XFA_Element::Tagged,
+                L"tagged") {}
+
+CXFA_Tagged::~CXFA_Tagged() {}
+
+WideStringView CXFA_Tagged::GetName() const {
+  return L"tagged";
+}
+
+XFA_Element CXFA_Tagged::GetElementType() const {
+  return XFA_Element::Tagged;
+}

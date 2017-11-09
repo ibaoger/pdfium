@@ -52,6 +52,8 @@ class CXFA_Node : public CXFA_Object {
 
   ~CXFA_Node() override;
 
+  virtual WideStringView GetName() const;
+
   uint32_t GetPacketID() const { return m_ePacket; }
 
   void SetFlag(uint32_t dwFlag, bool bNotify);
@@ -140,13 +142,14 @@ class CXFA_Node : public CXFA_Object {
 
   CXFA_Node* GetOccurNode();
 
- private:
+ protected:
   CXFA_Node(CXFA_Document* pDoc,
             uint16_t ePacket,
             XFA_ObjectType oType,
             XFA_Element eType,
             const WideStringView& elementName);
 
+ private:
   bool HasFlag(XFA_NodeFlag dwFlag) const;
   CXFA_Node* Deprecated_GetPrevSibling();
 
