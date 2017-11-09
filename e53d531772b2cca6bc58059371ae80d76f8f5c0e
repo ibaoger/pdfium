@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d006574_f4047234",
+        "filename": "xfa/fxfa/parser/cxfa_imagedata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T17:20:58Z",
+      "side": 1,
+      "message": "nit: const methods?",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "e53d531772b2cca6bc58059371ae80d76f8f5c0e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29b14f20_9c704d8a",
+        "filename": "xfa/fxfa/parser/cxfa_imagedata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T17:20:58Z",
+      "side": 1,
+      "message": "nit: re-order to pair setters and getters?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 64
+      },
+      "revId": "e53d531772b2cca6bc58059371ae80d76f8f5c0e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8ec90d_45185e87",
+        "filename": "xfa/fxfa/parser/cxfa_scriptdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T17:20:58Z",
+      "side": 1,
+      "message": "nit: invert and early return.",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "e53d531772b2cca6bc58059371ae80d76f8f5c0e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
