@@ -20,11 +20,11 @@ class CXFA_ImageData : public CXFA_Data {
   int32_t GetAspect();
   bool GetContentType(WideString& wsContentType);
   bool GetHref(WideString& wsHref);
-  int32_t GetTransferEncoding();
+  XFA_ATTRIBUTEENUM GetTransferEncoding();
   bool GetContent(WideString& wsText);
   bool SetContentType(const WideString& wsContentType);
   bool SetHref(const WideString& wsHref);
-  bool SetTransferEncoding(int32_t iTransferEncoding);
+  bool SetTransferEncoding(XFA_ATTRIBUTEENUM iTransferEncoding);
 
  private:
   bool m_bDefValue;
