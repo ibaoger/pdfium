@@ -125,9 +125,7 @@ class EmbedderTest : public ::testing::Test,
   FPDF_FORMHANDLE SetupFormFillEnvironment(FPDF_DOCUMENT doc);
 
   // Return the hash of |bitmap|.
-  static std::string HashBitmap(FPDF_BITMAP bitmap,
-                                int expected_width,
-                                int expected_height);
+  static std::string HashBitmap(FPDF_BITMAP bitmap);
 
   // Check |bitmap| to make sure it has the right dimensions and content.
   static void CompareBitmap(FPDF_BITMAP bitmap,
