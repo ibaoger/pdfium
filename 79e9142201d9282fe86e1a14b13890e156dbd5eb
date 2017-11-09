@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "607e1bbb_d80acfc8",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "It won\u0027t be nicer because the caller uses FX_Alloc",
+      "parentUuid": "f945e5ef_56745619",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1559f7f9_b3287561",
         "filename": "core/fxge/cfx_font.h",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2017-11-09T14:21:53Z",
       "side": 1,
       "message": "This should probably be inside:\n\n#if _FX_PLATFORM_ \u003d\u003d _FX_PLATFORM_APPLE_ \u0026\u0026 !defined _SKIA_SUPPORT_\n#endif\n\nOtherwise it isn\u0027t defined.",
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c060970c_bed81b33",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "Just the Apple part seems right to me.",
+      "parentUuid": "1559f7f9_b3287561",
       "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "948fcfce_5429fe60",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b936f94_81232e58",
+      "range": {
+        "startLine": 975,
+        "startChar": 0,
+        "endLine": 975,
+        "endChar": 5
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acc169f7_a82a41b1",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 6
@@ -76,6 +142,30 @@
       "writtenOn": "2017-11-09T14:21:53Z",
       "side": 1,
       "message": "I\u0027m assuming these chunks in are all just copied/combined from the above blocks?",
+      "range": {
+        "startLine": 985,
+        "startChar": 14,
+        "endLine": 989,
+        "endChar": 15
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c791f342_252ae86b",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "Yes, how I did it was:\n* Replace the map-finding in Windows with the other OS code: creating a hash and finding from |m_Hash2Fonts|.\n* If it doesn\u0027t find, use the same code on Windows, except that in the end we call SetLogicalFontStyle and add to the hash map.",
+      "parentUuid": "acc169f7_a82a41b1",
       "range": {
         "startLine": 985,
         "startChar": 14,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "ed9d9418_121148e1",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b679e693_126bb2c5",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 5
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c780491c_cdf2c98d",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 6
@@ -131,6 +245,30 @@
       "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b81a2cd_9585c1f8",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-09T19:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c780491c_cdf2c98d",
+      "range": {
+        "startLine": 1117,
+        "startChar": 0,
+        "endLine": 1117,
+        "endChar": 5
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
