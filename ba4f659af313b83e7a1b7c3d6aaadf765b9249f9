@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c090da2c_dfc097e8",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "let\u0027s just lose the code.  There\u0027s nothing remarkable in it to preserve.",
+      "range": {
+        "startLine": 656,
+        "startChar": 1,
+        "endLine": 665,
+        "endChar": 41
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65fa40d8_ef421c42",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "again, not much remarkable here.",
+      "range": {
+        "startLine": 885,
+        "startChar": 2,
+        "endLine": 885,
+        "endChar": 37
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac30ef1_bae120fa",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "my feelings haven\u0027t changed.",
+      "range": {
+        "startLine": 942,
+        "startChar": 4,
+        "endLine": 942,
+        "endChar": 5
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6bdf3cb_70a111fe",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "nit: while (pParent \u0026\u0026 !pParent-\u003eIsContainerNode())",
+      "range": {
+        "startLine": 1268,
+        "startChar": 2,
+        "endLine": 1270,
+        "endChar": 12
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11159f1_530d94bb",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "unique_ptr instead?",
+      "range": {
+        "startLine": 1345,
+        "startChar": 2,
+        "endLine": 1345,
+        "endChar": 20
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "932aa700_22069b01",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "nit: segv on next line anyways, no need to assert.",
+      "range": {
+        "startLine": 1694,
+        "startChar": 1,
+        "endLine": 1694,
+        "endChar": 21
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "641f5c61_598414eb",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "I don\u0027t get this.",
+      "range": {
+        "startLine": 1699,
+        "startChar": 2,
+        "endLine": 1700,
+        "endChar": 39
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33ecff8f_ac046218",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1818,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "if we used a byte string, we wouldn\u0027t have to utf8-encode it later, since we know that the printf on the next line isn\u0027t gonna make any funny chars.",
+      "range": {
+        "startLine": 1818,
+        "startChar": 2,
+        "endLine": 1818,
+        "endChar": 15
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf1a77e0_c381ad90",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "follow-up: probably should have been a static method.",
+      "range": {
+        "startLine": 1819,
+        "startChar": 10,
+        "endLine": 1819,
+        "endChar": 16
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dfad456_4deb3cd7",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1859,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "nit: local not needed",
+      "range": {
+        "startLine": 1859,
+        "startChar": 10,
+        "endLine": 1859,
+        "endChar": 16
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "466fa8b1_30e47141",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2508,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "nit: pArgumets-\u003eGetReturnValue()-\u003eSetBoolean(!!GetXFANode()-\u003eGetwidgedata());",
+      "range": {
+        "startLine": 2504,
+        "startChar": 2,
+        "endLine": 2508,
+        "endChar": 49
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed8d7743_00997f34",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2553,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T00:43:05Z",
+      "side": 1,
+      "message": "nit: local not needed.",
+      "range": {
+        "startLine": 2553,
+        "startChar": 10,
+        "endLine": 2553,
+        "endChar": 19
+      },
+      "revId": "ba4f659af313b83e7a1b7c3d6aaadf765b9249f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
