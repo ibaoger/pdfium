@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "760f8810_59937c83",
+        "filename": "xfa/fxfa/parser/cxfa_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T17:15:05Z",
+      "side": 1,
+      "message": "ah, this should take ownership, but its a mess.  add a todo?",
+      "range": {
+        "startLine": 220,
+        "startChar": 4,
+        "endLine": 220,
+        "endChar": 30
+      },
+      "revId": "0e9d12a2a71282e442ba88dcf995079e923eaf38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda22965_b55904be",
+        "filename": "xfa/fxfa/parser/cxfa_document.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-09T17:15:05Z",
+      "side": 1,
+      "message": "nit: Invert test and early return for this error case.",
+      "range": {
+        "startLine": 223,
+        "startChar": 1,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "0e9d12a2a71282e442ba88dcf995079e923eaf38",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
