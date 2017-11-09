@@ -215,13 +215,11 @@ CXFA_Node* CXFA_Document::CreateNode(const XFA_PACKETINFO* pPacket,
 
   const XFA_ELEMENTINFO* pElement = XFA_GetElementByID(eElement);
   if (pElement && (pElement->dwPackets & pPacket->eName)) {
-    CXFA_Node* pNode =
-        new CXFA_Node(this, pPacket->eName, pElement->eObjectType,
-                      pElement->eName, pElement->pName);
-    AddPurgeNode(pNode);
-    return pNode;
+    std::unique_ptr<CXFA_Node> pNode =
+        CXFA_Node::Create(this, pPacket->eName, pElement);
+    AddPurgeNode(pNode.get());
+    return pNode.release();
   }
-
   return nullptr;
 }
 
