@@ -34,6 +34,24 @@
       "revId": "35de7acc6522b1f9ac92ee83286356799b0db2a4",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829ba598_38edc17f",
+        "filename": "testing/embedder_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-09T22:03:35Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ll do just that. I didn\u0027t want to start touching a lot of other tests in the same CL, but seems like it will be way cleaner this way.",
+      "parentUuid": "49d48bc0_604f1af5",
+      "revId": "35de7acc6522b1f9ac92ee83286356799b0db2a4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
