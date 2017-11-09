@@ -60,11 +60,13 @@ bool GetExternalData(const std::string& exe_path,
 }
 #endif  // V8_USE_EXTERNAL_STARTUP_DATA
 
-void InitializeV8Common(const char* exe_path, v8::Platform** platform) {
+void InitializeV8Common(const char* exe_path,
+                        std::unique_ptr<v8::Platform>* platform) {
   v8::V8::InitializeICUDefaultLocation(exe_path);
 
-  *platform = v8::platform::CreateDefaultPlatform();
-  v8::V8::InitializePlatform(*platform);
+  *platform =
+      std::unique_ptr<v8::Platform>(v8::platform::CreateDefaultPlatform());
+  v8::V8::InitializePlatform((*platform).get());
 
   // By enabling predictable mode, V8 won't post any background tasks.
   // By enabling GC, it makes it easier to chase use-after-free.
@@ -181,7 +183,7 @@ bool InitializeV8ForPDFium(const std::string& exe_path,
                            const std::string& bin_dir,
                            v8::StartupData* natives_blob,
                            v8::StartupData* snapshot_blob,
-                           v8::Platform** platform) {
+                           std::unique_ptr<v8::Platform>* platform) {
   InitializeV8Common(exe_path.c_str(), platform);
   if (natives_blob && snapshot_blob) {
     if (!GetExternalData(exe_path, bin_dir, "natives_blob.bin", natives_blob))
@@ -195,7 +197,7 @@ bool InitializeV8ForPDFium(const std::string& exe_path,
 }
 #else   // V8_USE_EXTERNAL_STARTUP_DATA
 bool InitializeV8ForPDFium(const std::string& exe_path,
-                           v8::Platform** platform) {
+                           std::unique_ptr<v8::Platform>* platform) {
   InitializeV8Common(exe_path.c_str(), platform);
   return true;
 }
