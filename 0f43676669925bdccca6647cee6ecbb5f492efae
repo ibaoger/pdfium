@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab76ae34_9547662a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "We don\u0027t include modified lines in pdfium commit messages.",
+      "range": {
+        "startLine": 7,
+        "startChar": 165,
+        "endLine": 7,
+        "endChar": 207
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53509adb_01056d88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "The commit message should be formatted as:\n\nShort Description \u003c 72 characters\n\nLong Description over multiple lines each \u003c 72 characters.\n\nThat way, git and gerrit will set the title of the commit and the code review correctly.",
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ae21be_7c242734",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "Remove Bug: if there is no bug number.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8723f793_940bf3b0",
+        "filename": "fpdfsdk/fpdf_transformpage.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "nit: blank line before this line to separate from the if() without {}\u0027s .",
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12ded2cd_8104f4f5",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "Can we add a test where we just pass in clipRect and a second test where we just pass in matrix. That would cover the bits added in this Cl at least I think.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3052e3_3fdd2dce",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "EXPECT_FALSE?",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42e413e3_f025fb42",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "static constexpr char kRotatedMD5",
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d3cde65_fcdeaf4a",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "EXPECT_TRUE?",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 11
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa941f1_2decb39f",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "Is the image rotated or scaled?",
+      "range": {
+        "startLine": 39,
+        "startChar": 54,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d392e64_c19a1ee5",
+        "filename": "public/fpdf_transformpage.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:01:35Z",
+      "side": 1,
+      "message": "Apply transforms to |page|.\n\nIf |matrix| is provided it will be applied to transform the page.\nIf |clipRect| is provided it will be used to clip the resulting page.\nIf neither |matrix| or |clipRect| are provided this method returns |false|.\n\n@param[in] page     - page handle\n@param[in] matrix   - transformation matrix\n@param[in] clipRect - clipping rectangle\n\nReturns |true| if transforms are applied.",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 22
+      },
+      "revId": "0f43676669925bdccca6647cee6ecbb5f492efae",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
