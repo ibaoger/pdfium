@@ -89,7 +89,6 @@ EmbedderTest::EmbedderTest()
 EmbedderTest::~EmbedderTest() {
 #ifdef PDF_ENABLE_V8
   v8::V8::ShutdownPlatform();
-  delete platform_;
 #endif  // PDF_ENABLE_V8
 }
 

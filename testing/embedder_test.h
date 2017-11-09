@@ -159,7 +159,7 @@ class EmbedderTest : public ::testing::Test,
   FPDF_AVAIL avail_;
   FPDF_FILEACCESS file_access_;  // must outlive avail_.
 #ifdef PDF_ENABLE_V8
-  v8::Platform* platform_;
+  std::unique_ptr<v8::Platform> platform_;
 #endif  // PDF_ENABLE_V8
   void* external_isolate_;
   TestLoader* loader_;
