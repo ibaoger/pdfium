@@ -59,6 +59,15 @@ TEST_F(FPDFSaveEmbedderTest, SaveCopiedDoc) {
   UnloadPage(page);
 }
 
+TEST_F(FPDFSaveEmbedderTest, SaveLinearizedDoc) {
+  EXPECT_TRUE(OpenDocument("linearized.pdf"));
+  EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+  EXPECT_THAT(GetString(), testing::StartsWith("%PDF-1.4\r\n"));
+  EXPECT_THAT(GetString(), testing::HasSubstr("/Root "));
+  EXPECT_THAT(GetString(), testing::HasSubstr("/Info "));
+  EXPECT_EQ(32260u, GetString().length());
+}
+
 TEST_F(FPDFSaveEmbedderTest, BUG_342) {
   EXPECT_TRUE(OpenDocument("hello_world.pdf"));
   EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
