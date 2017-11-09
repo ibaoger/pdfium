@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d80cd87_6ba20bca",
+        "filename": "testing/test_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:24:16Z",
+      "side": 1,
+      "message": "Can we just return the unique_ptr\u003cv8::Platform\u003e since we don\u0027t appear to ever check the bool? On failure we can just return nullptr.",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 25
+      },
+      "revId": "7c76832df752bfe59e7cf2c30a41a95ad621d43e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ae4ab9_8aff2ec0",
+        "filename": "testing/test_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-09T14:24:16Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 15
+      },
+      "revId": "7c76832df752bfe59e7cf2c30a41a95ad621d43e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
