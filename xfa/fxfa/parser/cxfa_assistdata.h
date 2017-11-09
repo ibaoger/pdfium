@@ -7,12 +7,12 @@
 #ifndef XFA_FXFA_PARSER_CXFA_ASSISTDATA_H_
 #define XFA_FXFA_PARSER_CXFA_ASSISTDATA_H_
 
-#include "xfa/fxfa/parser/cxfa_data.h"
+#include "xfa/fxfa/parser/cxfa_datadata.h"
 #include "xfa/fxfa/parser/cxfa_tooltipdata.h"
 
 class CXFA_Node;
 
-class CXFA_AssistData : public CXFA_Data {
+class CXFA_AssistData : public CXFA_DataData {
  public:
   explicit CXFA_AssistData(CXFA_Node* pNode);
 

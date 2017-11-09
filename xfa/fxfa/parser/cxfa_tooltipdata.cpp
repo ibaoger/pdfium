@@ -8,7 +8,7 @@
 
 #include "xfa/fxfa/parser/cxfa_node.h"
 
-CXFA_ToolTipData::CXFA_ToolTipData(CXFA_Node* pNode) : CXFA_Data(pNode) {}
+CXFA_ToolTipData::CXFA_ToolTipData(CXFA_Node* pNode) : CXFA_DataData(pNode) {}
 
 bool CXFA_ToolTipData::GetTip(WideString& wsTip) {
   return m_pNode->JSNode()->TryContent(wsTip, false, true);
