@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "7b0cffa7_5223bac6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-09T17:51:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f42f47cd_c7c16390",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "f39841dbd9ff5f278f28ec2142c95b84b6bab579",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ea0eae6_c9a86d8b",
         "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2017-11-09T14:08:11Z",
       "side": 1,
       "message": "Is the constexpr worth it? Why not just put the static_cast here?",
+      "range": {
+        "startLine": 45,
+        "startChar": 36,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "f39841dbd9ff5f278f28ec2142c95b84b6bab579",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d93bae2_fd06a018",
+        "filename": "core/fpdfapi/parser/cpdf_linearized_header.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-09T17:51:17Z",
+      "side": 1,
+      "message": "std::numeric_limits is too darn long and won\u0027t fit on 1 line here. If I have to use 2 lines, I wanted to do it in a way that keeps the comparison looking neat.",
+      "parentUuid": "0ea0eae6_c9a86d8b",
       "range": {
         "startLine": 45,
         "startChar": 36,
