@@ -52,6 +52,24 @@
       "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82165f9f_30f6b6d6",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-10T20:26:57Z",
+      "side": 1,
+      "message": "Hmm yeah, I hadn\u0027t thought of VerifySavedRendering(). I guess it falls under the various ways to misuse the embedder tests calls.",
+      "parentUuid": "21006b0e_c7a640f7",
+      "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
