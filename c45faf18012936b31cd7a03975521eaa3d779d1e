@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0637f27d_12326b1c",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2017-11-10T04:58:02Z",
+      "side": 1,
+      "message": "That was my plan, but since the hash value was suspicious, I removed those code.",
+      "parentUuid": "c200bb75_8e9c3cba",
+      "revId": "c45faf18012936b31cd7a03975521eaa3d779d1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09746d1e_48a417bf",
         "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
         "patchSetId": 13
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "317a4008_4c2863b9",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2017-11-10T04:58:02Z",
+      "side": 1,
+      "message": "Good catch.  Thanks!",
+      "parentUuid": "09746d1e_48a417bf",
+      "revId": "c45faf18012936b31cd7a03975521eaa3d779d1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2063ab9_d71a0149",
         "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
         "patchSetId": 13
@@ -47,6 +83,24 @@
       "writtenOn": "2017-11-10T00:21:30Z",
       "side": 1,
       "message": "This is also an empty rect, which may be why CompareBitmap() is not working as expected.",
+      "revId": "c45faf18012936b31cd7a03975521eaa3d779d1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a13942_4c7730a5",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2017-11-10T04:58:02Z",
+      "side": 1,
+      "message": "Good catch.  However, after I corrected the cliprect, something interesting came up.  Inside CompareBitmap there were many hash value comparison failed.",
+      "parentUuid": "c2063ab9_d71a0149",
       "revId": "c45faf18012936b31cd7a03975521eaa3d779d1e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
