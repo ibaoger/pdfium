@@ -16,6 +16,24 @@
       "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a5e8f2_706a9b17",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-10T20:17:06Z",
+      "side": 1,
+      "message": "CloseSavedPage() is really just FPDF_ClosePage(), so the page provided will be closed regardless of whether it loaded from the saved document. It would be nice to have the check to make sure we\u0027re not calling CloseSavedPage() in this context, which would certainly be a logic error, but that introduces checking to whether the test is right while increasing its complexity at the same time. I prefer to go with code simplicity in this case.",
+      "parentUuid": "3b839e60_6ee48b11",
+      "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
