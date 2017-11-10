@@ -34,6 +34,24 @@
       "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21006b0e_c7a640f7",
+        "filename": "testing/embedder_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-10T20:24:08Z",
+      "side": 1,
+      "message": "I was actually thinking VerifySavedRendering() is going to use the given |page| with |m_SavedForm|. What happens if |page| is from a different document? Someone will find out, someday. :)",
+      "parentUuid": "c6a5e8f2_706a9b17",
+      "revId": "59a6f15929bd6bacb137dfbf16b410c8afd08947",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
