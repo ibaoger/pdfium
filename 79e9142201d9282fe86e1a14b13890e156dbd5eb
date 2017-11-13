@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ea7d6c2c_b3fa8ef7",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-13T15:04:53Z",
+      "side": 1,
+      "message": "Ok, this can be a followup.",
+      "parentUuid": "25db321e_62027db2",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1559f7f9_b3287561",
         "filename": "core/fxge/cfx_font.h",
         "patchSetId": 6
@@ -120,6 +144,24 @@
       "side": 1,
       "message": "This is the same if def that\u0027s wrapping the code in the cpp file. Adding it here should match what we use in the cpp.",
       "parentUuid": "c060970c_bed81b33",
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fbf10b4_d0b7cd60",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-13T15:04:53Z",
+      "side": 1,
+      "message": "In fx_apple_platform.cpp there is a #ifndef in line 24 with a #endif on line 162. CFX_Font::ReleasePlatformResource is defined on line 177. There is no wrapping ifndef.",
+      "parentUuid": "0f593ff9_c33fe095",
       "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
