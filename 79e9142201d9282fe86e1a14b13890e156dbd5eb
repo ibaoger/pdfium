@@ -168,6 +168,24 @@
     },
     {
       "key": {
+        "uuid": "a97b4c77_4c03249e",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-13T15:07:58Z",
+      "side": 1,
+      "message": "The call I see is line 243 of cfx_font.cpp which has both conditions?",
+      "parentUuid": "7fbf10b4_d0b7cd60",
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b936f94_81232e58",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 6
