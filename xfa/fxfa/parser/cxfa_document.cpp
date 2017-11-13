@@ -210,17 +210,16 @@ CXFA_Node* CXFA_Document::CreateNode(uint32_t dwPacket, XFA_Element eElement) {
 
 CXFA_Node* CXFA_Document::CreateNode(const XFA_PACKETINFO* pPacket,
                                      XFA_Element eElement) {
-  if (!pPacket)
+  if (!pPacket || eElement == XFA_Element::Unknown)
     return nullptr;
 
-  const XFA_ELEMENTINFO* pElement = XFA_GetElementByID(eElement);
-  if (pElement && (pElement->dwPackets & pPacket->eName)) {
-    std::unique_ptr<CXFA_Node> pNode =
-        CXFA_Node::Create(this, pPacket->eName, pElement);
-    AddPurgeNode(pNode.get());
-    return pNode.release();
-  }
-  return nullptr;
+  std::unique_ptr<CXFA_Node> pNode =
+      CXFA_Node::Create(this, eElement, pPacket->eName);
+  if (!pNode)
+    return nullptr;
+
+  AddPurgeNode(pNode.get());
+  return pNode.release();
 }
 
 void CXFA_Document::AddPurgeNode(CXFA_Node* pNode) {
