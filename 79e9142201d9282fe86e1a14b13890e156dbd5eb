@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "25db321e_62027db2",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-13T14:40:06Z",
+      "side": 1,
+      "message": "It makes the ownership a lot nicer, even if the caller has to do FX_Alloc. Making it a unique_ptr makes it clear that this method is taking ownership, whereas, now it isn\u0027t clear.",
+      "parentUuid": "607e1bbb_d80acfc8",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1559f7f9_b3287561",
         "filename": "core/fxge/cfx_font.h",
         "patchSetId": 6
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "Just the Apple part seems right to me.",
       "parentUuid": "1559f7f9_b3287561",
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f593ff9_c33fe095",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-13T14:40:06Z",
+      "side": 1,
+      "message": "This is the same if def that\u0027s wrapping the code in the cpp file. Adding it here should match what we use in the cpp.",
+      "parentUuid": "c060970c_bed81b33",
       "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
