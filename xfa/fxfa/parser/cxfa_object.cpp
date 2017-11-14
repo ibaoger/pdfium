@@ -46,6 +46,10 @@ const CXFA_NodeList* CXFA_Object::AsNodeList() const {
   return IsNodeList() ? static_cast<const CXFA_NodeList*>(this) : nullptr;
 }
 
+XFA_Element CXFA_Object::GetElementType() const {
+  return m_elementType;
+}
+
 CXFA_Node* ToNode(CXFA_Object* pObj) {
   return pObj ? pObj->AsNode() : nullptr;
 }
