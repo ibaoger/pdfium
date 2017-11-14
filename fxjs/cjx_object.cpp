@@ -33,6 +33,10 @@ void CJX_Object::ThrowInvalidPropertyException() const {
   ThrowException(L"Invalid property set operation.");
 }
 
+void CJX_Object::ThrowInvalidAttributeException() const {
+  ThrowException(L"Invalid attribute operation.");
+}
+
 void CJX_Object::ThrowIndexOutOfBoundsException() const {
   ThrowException(L"Index value is out of bounds.");
 }

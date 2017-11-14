@@ -44,18 +44,11 @@ class CJX_Node : public CJX_Object {
   bool SetAttribute(XFA_Attribute eAttr,
                     const WideStringView& wsValue,
                     bool bNotify);
-  bool SetAttribute(const WideStringView& wsAttr,
-                    const WideStringView& wsValue,
-                    bool bNotify);
-  bool GetAttribute(const WideStringView& wsAttr,
-                    WideString& wsValue,
-                    bool bUseDefault);
   bool GetAttribute(XFA_Attribute eAttr, WideString& wsValue, bool bUseDefault);
   bool SetAttributeValue(const WideString& wsValue,
                          const WideString& wsXMLValue,
                          bool bNotify,
                          bool bScriptModify);
-  void RemoveAttribute(const WideStringView& wsAttr);
 
   CXFA_Node* GetProperty(int32_t index,
                          XFA_Element eType,

@@ -78,20 +78,9 @@ void StrToRGB(const WideString& strRGB, int32_t& r, int32_t& g, int32_t& b) {
   }
 }
 
-enum XFA_KEYTYPE {
-  XFA_KEYTYPE_Custom,
-  XFA_KEYTYPE_Element,
-};
-
-void* GetMapKey_Custom(const WideStringView& wsKey) {
-  uint32_t dwKey = FX_HashCode_GetW(wsKey, false);
-  return (void*)(uintptr_t)((dwKey << 1) | XFA_KEYTYPE_Custom);
-}
-
 void* GetMapKey_Element(XFA_Element eType, XFA_Attribute eAttribute) {
   return (void*)(uintptr_t)((static_cast<uint32_t>(eType) << 16) |
-                            (static_cast<uint32_t>(eAttribute) << 8) |
-                            XFA_KEYTYPE_Element);
+                            (static_cast<uint32_t>(eAttribute) << 8));
 }
 
 const XFA_ATTRIBUTEINFO* GetAttributeOfElement(XFA_Element eElement,
@@ -245,18 +234,6 @@ bool CJX_Node::SetAttribute(XFA_Attribute eAttr,
   return false;
 }
 
-bool CJX_Node::SetAttribute(const WideStringView& wsAttr,
-                            const WideStringView& wsValue,
-                            bool bNotify) {
-  const XFA_ATTRIBUTEINFO* pAttributeInfo = XFA_GetAttributeByName(wsValue);
-  if (pAttributeInfo) {
-    return SetAttribute(pAttributeInfo->eName, wsValue, bNotify);
-  }
-  void* pKey = GetMapKey_Custom(wsAttr);
-  SetMapModuleString(pKey, wsValue);
-  return true;
-}
-
 bool CJX_Node::GetAttribute(XFA_Attribute eAttr,
                             WideString& wsValue,
                             bool bUseDefault) {
@@ -309,27 +286,6 @@ bool CJX_Node::GetAttribute(XFA_Attribute eAttr,
     default:
       return false;
   }
-}
-
-bool CJX_Node::GetAttribute(const WideStringView& wsAttr,
-                            WideString& wsValue,
-                            bool bUseDefault) {
-  const XFA_ATTRIBUTEINFO* pAttributeInfo = XFA_GetAttributeByName(wsAttr);
-  if (pAttributeInfo) {
-    return GetAttribute(pAttributeInfo->eName, wsValue, bUseDefault);
-  }
-  void* pKey = GetMapKey_Custom(wsAttr);
-  WideStringView wsValueC;
-  if (GetMapModuleString(pKey, wsValueC)) {
-    wsValue = wsValueC;
-  }
-  return true;
-}
-
-void CJX_Node::RemoveAttribute(const WideStringView& wsAttr) {
-  void* pKey = GetMapKey_Custom(wsAttr);
-  if (pKey)
-    RemoveMapModuleKey(pKey);
 }
 
 int32_t CJX_Node::Subform_and_SubformSet_InstanceIndex() {
@@ -673,7 +629,16 @@ void CJX_Node::Script_NodeClass_GetAttribute(CFXJSE_Arguments* pArguments) {
   WideString wsExpression =
       WideString::FromUTF8(pArguments->GetUTF8String(0).AsStringView());
   WideString wsValue;
-  GetAttribute(wsExpression.AsStringView(), wsValue, true);
+
+  const XFA_ATTRIBUTEINFO* info =
+      XFA_GetAttributeByName(wsExpression.AsStringView());
+  if (!info) {
+    ThrowInvalidAttributeException();
+    return;
+  }
+
+  GetAttribute(info->eName, wsValue, true);
+
   CFXJSE_Value* pValue = pArguments->GetReturnValue();
   if (pValue)
     pValue->SetString(wsValue.UTF8Encode().AsStringView());
@@ -900,8 +865,15 @@ void CJX_Node::Script_NodeClass_SetAttribute(CFXJSE_Arguments* pArguments) {
       WideString::FromUTF8(pArguments->GetUTF8String(0).AsStringView());
   WideString wsAttribute =
       WideString::FromUTF8(pArguments->GetUTF8String(1).AsStringView());
-  SetAttribute(wsAttribute.AsStringView(), wsAttributeValue.AsStringView(),
-               true);
+
+  const XFA_ATTRIBUTEINFO* info =
+      XFA_GetAttributeByName(wsAttribute.AsStringView());
+  if (!info) {
+    ThrowInvalidAttributeException();
+    return;
+  }
+
+  SetAttribute(info->eName, wsAttributeValue.AsStringView(), true);
 }
 
 void CJX_Node::Script_NodeClass_SetElement(CFXJSE_Arguments* pArguments) {

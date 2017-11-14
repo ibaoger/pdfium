@@ -29,6 +29,7 @@ class CJX_Object {
                                     XFA_Attribute eAttribute);
 
   void ThrowInvalidPropertyException() const;
+  void ThrowInvalidAttributeException() const;
   void ThrowArgumentMismatchException() const;
   void ThrowIndexOutOfBoundsException() const;
   void ThrowParamCountMismatchException(const WideString& method) const;
