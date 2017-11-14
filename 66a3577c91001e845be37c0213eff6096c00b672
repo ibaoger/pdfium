@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2630b3e5_c092644c",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:23:06Z",
+      "side": 1,
+      "message": "follow-up: return by value (and line 925).",
+      "range": {
+        "startLine": 908,
+        "startChar": 2,
+        "endLine": 908,
+        "endChar": 35
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e75562b_c30649cb",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:23:06Z",
+      "side": 0,
+      "message": "Yep, this saves a copy since sharing WideStrings is cheap but making one from a view isn\u0027t.  sigh.",
+      "range": {
+        "startLine": 909,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 27
+      },
+      "revId": "f2d490650cef611f92e5d4a112c90647f08f054e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
