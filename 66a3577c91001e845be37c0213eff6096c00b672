@@ -46,6 +46,328 @@
       "revId": "66a3577c91001e845be37c0213eff6096c00b672",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63fb60bd_88e326a1",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: reinterpret cast.",
+      "range": {
+        "startLine": 914,
+        "startChar": 24,
+        "endLine": 914,
+        "endChar": 41
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d670be70_bb867292",
+        "filename": "fpdfsdk/fpdfxfa/cpdfxfa_docenvironment.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: pointless?",
+      "range": {
+        "startLine": 916,
+        "startChar": 4,
+        "endLine": 916,
+        "endChar": 26
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "816e6e74_74e55c5f",
+        "filename": "fxjs/cfxjse_engine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: isn\u0027t there something line wsSrcript.UTF8Encode()",
+      "range": {
+        "startLine": 508,
+        "startChar": 37,
+        "endLine": 508,
+        "endChar": 62
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d3809c0_26913896",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2969,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: may read cleaner with early return of false if !ret",
+      "range": {
+        "startLine": 2969,
+        "startChar": 2,
+        "endLine": 2969,
+        "endChar": 10
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21eaafca_21157946",
+        "filename": "xfa/fxfa/parser/cxfa_binditemsdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "return by value?",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c86a889e_ef6de274",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: these might all read cleaner if invert and early return, esp. later on when there are complex bodies.",
+      "range": {
+        "startLine": 1224,
+        "startChar": 7,
+        "endLine": 1224,
+        "endChar": 34
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae48abae_a40fb505",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: reinterpret cast x 2",
+      "range": {
+        "startLine": 1236,
+        "startChar": 12,
+        "endLine": 1236,
+        "endChar": 38
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc99b998_a0e7e43c",
+        "filename": "xfa/fxfa/parser/cxfa_scriptdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: invert and early return?",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 77
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69c7c7e9_85fe51fd",
+        "filename": "xfa/fxfa/parser/cxfa_scriptdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: I thought you fixed \"unkown\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 32
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fafd3eb_ec5baa3d",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: extract assigment to its own line.",
+      "range": {
+        "startLine": 454,
+        "startChar": 3,
+        "endLine": 454,
+        "endChar": 68
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025a41b1_6a3b8cad",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: then return pParent \u0026\u0026 ...",
+      "range": {
+        "startLine": 455,
+        "startChar": 3,
+        "endLine": 456,
+        "endChar": 15
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b92443fb_4390823a",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: {} required.",
+      "range": {
+        "startLine": 461,
+        "startChar": 15,
+        "endLine": 461,
+        "endChar": 0
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e68c41d_07c812b1",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: return pUIChild \u0026\u0026",
+      "range": {
+        "startLine": 470,
+        "startChar": 2,
+        "endLine": 472,
+        "endChar": 15
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f80da7be_d17faaa1",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T17:39:35Z",
+      "side": 1,
+      "message": "nit: any of these const methods?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "66a3577c91001e845be37c0213eff6096c00b672",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
