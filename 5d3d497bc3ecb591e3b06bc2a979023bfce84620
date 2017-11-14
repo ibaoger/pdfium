@@ -22,6 +22,30 @@
       "revId": "5d3d497bc3ecb591e3b06bc2a979023bfce84620",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c3a25ed_e5519beb",
+        "filename": "xfa/fxfa/parser/xfa_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-14T21:25:03Z",
+      "side": 1,
+      "message": "These are also called by CXFA_LocaleValue.",
+      "parentUuid": "52201474_95f0f50d",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "5d3d497bc3ecb591e3b06bc2a979023bfce84620",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
