@@ -904,9 +904,8 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
   if (!pFormFillEnv)
     return false;
 
-  WideStringView csURLC;
-  submitData.GetSubmitTarget(csURLC);
-  WideString csURL(csURLC);
+  WideString csURL;
+  submitData.GetSubmitTarget(csURL);
   if (csURL.IsEmpty()) {
     WideString ws;
     ws.FromLocal("Submit cancelled.");
@@ -922,10 +921,8 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
   int fileFlag = -1;
   switch (submitData.GetSubmitFormat()) {
     case XFA_ATTRIBUTEENUM_Xdp: {
-      WideStringView csContentC;
-      submitData.GetSubmitXDPContent(csContentC);
       WideString csContent;
-      csContent = csContentC;
+      submitData.GetSubmitXDPContent(csContent);
       csContent.TrimLeft();
       csContent.TrimRight();
       WideString space;
