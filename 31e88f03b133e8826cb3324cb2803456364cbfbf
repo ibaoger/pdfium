@@ -22,6 +22,30 @@
       "revId": "31e88f03b133e8826cb3324cb2803456364cbfbf",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c618f1de_8c32b6bb",
+        "filename": "core/fxcrt/cfx_pdfstreamstream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-14T15:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4820f228_3b640c7d",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "31e88f03b133e8826cb3324cb2803456364cbfbf",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
