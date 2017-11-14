@@ -280,12 +280,7 @@ bool CJX_Node::GetAttribute(XFA_Attribute eAttr,
       return true;
     }
     case XFA_AttributeType::CData: {
-      WideStringView wsValueC;
-      if (!TryCData(pAttr->eName, wsValueC, bUseDefault))
-        return false;
-
-      wsValue = wsValueC;
-      return true;
+      return TryCData(pAttr->eName, wsValue, bUseDefault);
     }
     case XFA_AttributeType::Boolean: {
       bool bValue;
@@ -368,7 +363,7 @@ int32_t CJX_Node::InstanceManager_SetInstances(int32_t iDesired) {
     return 0;
 
   if (iDesired < iCount) {
-    WideStringView wsInstManagerName = GetCData(XFA_Attribute::Name);
+    WideString wsInstManagerName = GetCData(XFA_Attribute::Name);
     WideString wsInstanceName = WideString(
         wsInstManagerName.IsEmpty()
             ? wsInstManagerName
@@ -762,7 +757,7 @@ void CJX_Node::Script_NodeClass_LoadXML(CFXJSE_Arguments* pArguments) {
     bIgnoreRoot = false;
   }
   CXFA_Node* pFakeRoot = GetXFANode()->Clone(false);
-  WideStringView wsContentType = GetCData(XFA_Attribute::ContentType);
+  WideString wsContentType = GetCData(XFA_Attribute::ContentType);
   if (!wsContentType.IsEmpty()) {
     pFakeRoot->JSNode()->SetCData(XFA_Attribute::ContentType,
                                   WideString(wsContentType), false, false);
@@ -2221,13 +2216,12 @@ void CJX_Node::Script_Subform_InstanceManager(CFXJSE_Value* pValue,
     return;
   }
 
-  WideStringView wsName = GetCData(XFA_Attribute::Name);
+  WideString wsName = GetCData(XFA_Attribute::Name);
   CXFA_Node* pInstanceMgr = nullptr;
   for (CXFA_Node* pNode = GetXFANode()->GetNodeItem(XFA_NODEITEM_PrevSibling);
        pNode; pNode = pNode->GetNodeItem(XFA_NODEITEM_PrevSibling)) {
     if (pNode->GetElementType() == XFA_Element::InstanceManager) {
-      WideStringView wsInstMgrName =
-          pNode->JSNode()->GetCData(XFA_Attribute::Name);
+      WideString wsInstMgrName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
       if (wsInstMgrName.GetLength() >= 1 && wsInstMgrName[0] == '_' &&
           wsInstMgrName.Right(wsInstMgrName.GetLength() - 1) == wsName) {
         pInstanceMgr = pNode;
@@ -2963,10 +2957,18 @@ void CJX_Node::Script_Encrypt_Format(CFXJSE_Value* pValue,
 
 bool CJX_Node::TryBoolean(XFA_Attribute eAttr, bool& bValue, bool bUseDefault) {
   void* pValue = nullptr;
-  if (!GetValue(eAttr, XFA_AttributeType::Boolean, bUseDefault, pValue))
+  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
+  if (GetMapModuleValue(pKey, pValue)) {
+    bValue = !!pValue;
+    return true;
+  }
+  if (!bUseDefault)
     return false;
-  bValue = !!pValue;
-  return true;
+
+  pdfium::Optional<bool> ret = GetXFANode()->GetDefaultBoolean(eAttr);
+  if (ret)
+    bValue = *ret;
+  return !!ret;
 }
 
 bool CJX_Node::SetBoolean(XFA_Attribute eAttr, bool bValue, bool bNotify) {
@@ -2992,21 +2994,37 @@ int32_t CJX_Node::GetInteger(XFA_Attribute eAttr) {
 bool CJX_Node::TryInteger(XFA_Attribute eAttr,
                           int32_t& iValue,
                           bool bUseDefault) {
+  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
   void* pValue = nullptr;
-  if (!GetValue(eAttr, XFA_AttributeType::Integer, bUseDefault, pValue))
+  if (GetMapModuleValue(pKey, pValue)) {
+    iValue = (int32_t)(uintptr_t)pValue;
+    return true;
+  }
+  if (!bUseDefault)
     return false;
-  iValue = (int32_t)(uintptr_t)pValue;
-  return true;
+
+  pdfium::Optional<int32_t> ret = GetXFANode()->GetDefaultInteger(eAttr);
+  if (ret)
+    iValue = *ret;
+  return !!ret;
 }
 
 bool CJX_Node::TryEnum(XFA_Attribute eAttr,
                        XFA_ATTRIBUTEENUM& eValue,
                        bool bUseDefault) {
+  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
   void* pValue = nullptr;
-  if (!GetValue(eAttr, XFA_AttributeType::Enum, bUseDefault, pValue))
+  if (GetMapModuleValue(pKey, pValue)) {
+    eValue = (XFA_ATTRIBUTEENUM)(uintptr_t)pValue;
+    return true;
+  }
+  if (!bUseDefault)
     return false;
-  eValue = (XFA_ATTRIBUTEENUM)(uintptr_t)pValue;
-  return true;
+
+  pdfium::Optional<XFA_ATTRIBUTEENUM> ret = GetXFANode()->GetDefaultEnum(eAttr);
+  if (ret)
+    eValue = *ret;
+  return !!ret;
 }
 
 bool CJX_Node::SetEnum(XFA_Attribute eAttr,
@@ -3042,14 +3060,14 @@ bool CJX_Node::TryMeasure(XFA_Attribute eAttr,
     memcpy(&mValue, pValue, sizeof(mValue));
     return true;
   }
-  if (bUseDefault &&
-      XFA_GetAttributeDefaultValue(pValue, GetXFANode()->GetElementType(),
-                                   eAttr, XFA_AttributeType::Measure,
-                                   GetXFANode()->GetPacketID())) {
-    memcpy(&mValue, pValue, sizeof(mValue));
-    return true;
-  }
-  return false;
+  if (!bUseDefault)
+    return false;
+
+  pdfium::Optional<CXFA_Measurement> measure =
+      GetXFANode()->GetDefaultMeasurement(eAttr);
+  if (measure)
+    mValue = *measure;
+  return !!measure;
 }
 
 CXFA_Measurement CJX_Node::GetMeasure(XFA_Attribute eAttr) const {
@@ -3057,9 +3075,9 @@ CXFA_Measurement CJX_Node::GetMeasure(XFA_Attribute eAttr) const {
   return TryMeasure(eAttr, mValue, true) ? mValue : CXFA_Measurement();
 }
 
-WideStringView CJX_Node::GetCData(XFA_Attribute eAttr) {
-  WideStringView wsValue;
-  return TryCData(eAttr, wsValue, true) ? wsValue : WideStringView();
+WideString CJX_Node::GetCData(XFA_Attribute eAttr) {
+  WideString wsValue;
+  return TryCData(eAttr, wsValue, true) ? wsValue : WideString();
 }
 
 bool CJX_Node::SetCData(XFA_Attribute eAttr,
@@ -3209,45 +3227,13 @@ bool CJX_Node::TryCData(XFA_Attribute eAttr,
       return true;
     }
   }
-  if (!bUseDefault) {
+  if (!bUseDefault)
     return false;
-  }
-  void* pValue = nullptr;
-  if (XFA_GetAttributeDefaultValue(pValue, GetXFANode()->GetElementType(),
-                                   eAttr, XFA_AttributeType::CData,
-                                   GetXFANode()->GetPacketID())) {
-    wsValue = (const wchar_t*)pValue;
-    return true;
-  }
-  return false;
-}
 
-bool CJX_Node::TryCData(XFA_Attribute eAttr,
-                        WideStringView& wsValue,
-                        bool bUseDefault) {
-  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
-  if (eAttr == XFA_Attribute::Value) {
-    WideString* pStr = (WideString*)GetUserData(pKey, true);
-    if (pStr) {
-      wsValue = pStr->AsStringView();
-      return true;
-    }
-  } else {
-    if (GetMapModuleString(pKey, wsValue)) {
-      return true;
-    }
-  }
-  if (!bUseDefault) {
-    return false;
-  }
-  void* pValue = nullptr;
-  if (XFA_GetAttributeDefaultValue(pValue, GetXFANode()->GetElementType(),
-                                   eAttr, XFA_AttributeType::CData,
-                                   GetXFANode()->GetPacketID())) {
-    wsValue = (WideStringView)(const wchar_t*)pValue;
-    return true;
-  }
-  return false;
+  pdfium::Optional<WideString> str = GetXFANode()->GetDefaultCData(eAttr);
+  if (str)
+    wsValue = *str;
+  return !!str;
 }
 
 bool CJX_Node::SetObject(XFA_Attribute eAttr,
@@ -3306,22 +3292,6 @@ bool CJX_Node::SetValue(XFA_Attribute eAttr,
     }
   }
   return true;
-}
-
-bool CJX_Node::GetValue(XFA_Attribute eAttr,
-                        XFA_AttributeType eType,
-                        bool bUseDefault,
-                        void*& pValue) {
-  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
-  if (GetMapModuleValue(pKey, pValue)) {
-    return true;
-  }
-  if (!bUseDefault) {
-    return false;
-  }
-  return XFA_GetAttributeDefaultValue(pValue, GetXFANode()->GetElementType(),
-                                      eAttr, eType,
-                                      GetXFANode()->GetPacketID());
 }
 
 void* CJX_Node::GetUserData(void* pKey, bool bProtoAlso) {
