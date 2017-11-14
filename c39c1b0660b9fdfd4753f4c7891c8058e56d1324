@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa186d33_a7ee26db",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-14T18:20:26Z",
+      "side": 1,
+      "message": "follow-up: I thought we fixed all these to do a stringcmp in addition to the hash, fooey.  And get rid of hand-written bsearch with lower_bound.",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 27
+      },
+      "revId": "c39c1b0660b9fdfd4753f4c7891c8058e56d1324",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
