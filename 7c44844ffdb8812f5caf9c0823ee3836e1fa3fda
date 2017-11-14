@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19122ac2_e3881305",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-14T18:47:04Z",
+      "side": 1,
+      "message": "These giant chunks are split out in the next CL to a cxfa_node_statics.cpp file which makes this a bit nicer.",
+      "range": {
+        "startLine": 697,
+        "startChar": 41,
+        "endLine": 707,
+        "endChar": 42
+      },
+      "revId": "7c44844ffdb8812f5caf9c0823ee3836e1fa3fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
