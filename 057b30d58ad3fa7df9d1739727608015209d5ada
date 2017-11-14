@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fca32350_32ae60cb",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-14T17:31:25Z",
+      "side": 1,
+      "message": "Note: These are inlined from the giant data arrays. I don\u0027t see us changing the defaults, so inlining is safe, and clearer.",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 35
+      },
+      "revId": "057b30d58ad3fa7df9d1739727608015209d5ada",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
