@@ -2198,6 +2198,7 @@ if (pdf_enable_xfa) {
       "xfa/fxfa/parser/cxfa_neverembed.h",
       "xfa/fxfa/parser/cxfa_node.cpp",
       "xfa/fxfa/parser/cxfa_node.h",
+      "xfa/fxfa/parser/cxfa_node_statics.cpp",
       "xfa/fxfa/parser/cxfa_nodehelper.cpp",
       "xfa/fxfa/parser/cxfa_nodehelper.h",
       "xfa/fxfa/parser/cxfa_nodelist.cpp",
