@@ -191,10 +191,10 @@ CXFA_Node* CXFA_Node::Clone(bool bRecursive) {
       WideString wsName;
       JSNode()->GetAttribute(XFA_Attribute::Name, wsName, false);
       auto pCloneXMLElement = pdfium::MakeUnique<CFX_XMLElement>(wsName);
-      WideStringView wsValue = JSNode()->GetCData(XFA_Attribute::Value);
-      if (!wsValue.IsEmpty()) {
+      WideString wsValue = JSNode()->GetCData(XFA_Attribute::Value);
+      if (!wsValue.IsEmpty())
         pCloneXMLElement->SetTextData(WideString(wsValue));
-      }
+
       pCloneXML.reset(pCloneXMLElement.release());
       pClone->JSNode()->SetEnum(XFA_Attribute::Contains,
                                 XFA_ATTRIBUTEENUM_Unknown, false);
@@ -844,18 +844,17 @@ bool CXFA_Node::RemoveChild(CXFA_Node* pNode, bool bNotify) {
       if (pNode->m_pXMLNode->GetType() == FX_XMLNODE_Element) {
         CFX_XMLElement* pXMLElement =
             static_cast<CFX_XMLElement*>(pNode->m_pXMLNode);
-        WideStringView wsAttributeName =
+        WideString wsAttributeName =
             pNode->JSNode()->GetCData(XFA_Attribute::QualifiedName);
-        // TODO(tsepez): check usage of c_str() below.
-        pXMLElement->RemoveAttribute(wsAttributeName.unterminated_c_str());
+        pXMLElement->RemoveAttribute(wsAttributeName.c_str());
       }
       WideString wsName;
       pNode->JSNode()->GetAttribute(XFA_Attribute::Name, wsName, false);
       CFX_XMLElement* pNewXMLElement = new CFX_XMLElement(wsName);
-      WideStringView wsValue = JSNode()->GetCData(XFA_Attribute::Value);
-      if (!wsValue.IsEmpty()) {
+      WideString wsValue = JSNode()->GetCData(XFA_Attribute::Value);
+      if (!wsValue.IsEmpty())
         pNewXMLElement->SetTextData(WideString(wsValue));
-      }
+
       pNode->m_pXMLNode = pNewXMLElement;
       pNode->JSNode()->SetEnum(XFA_Attribute::Contains,
                                XFA_ATTRIBUTEENUM_Unknown, false);
@@ -955,9 +954,8 @@ CXFA_Node* CXFA_Node::GetInstanceMgrOfSubform() {
         break;
       }
       if (eType == XFA_Element::InstanceManager) {
-        WideStringView wsName = JSNode()->GetCData(XFA_Attribute::Name);
-        WideStringView wsInstName =
-            pNode->JSNode()->GetCData(XFA_Attribute::Name);
+        WideString wsName = JSNode()->GetCData(XFA_Attribute::Name);
+        WideString wsInstName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
         if (wsInstName.GetLength() > 0 && wsInstName[0] == '_' &&
             wsInstName.Right(wsInstName.GetLength() - 1) == wsName) {
           pInstanceMgr = pNode;
@@ -1012,14 +1010,14 @@ void CXFA_Node::OnRemoved(bool bNotify) {
 void CXFA_Node::UpdateNameHash() {
   const XFA_NOTSUREATTRIBUTE* pNotsure =
       XFA_GetNotsureAttribute(GetElementType(), XFA_Attribute::Name);
-  WideStringView wsName;
+  WideString wsName;
   if (!pNotsure || pNotsure->eType == XFA_AttributeType::CData) {
     wsName = JSNode()->GetCData(XFA_Attribute::Name);
-    m_dwNameHash = FX_HashCode_GetW(wsName, false);
+    m_dwNameHash = FX_HashCode_GetW(wsName.AsStringView(), false);
   } else if (pNotsure->eType == XFA_AttributeType::Enum) {
     wsName =
         GetAttributeEnumByID(JSNode()->GetEnum(XFA_Attribute::Name))->pName;
-    m_dwNameHash = FX_HashCode_GetW(wsName, false);
+    m_dwNameHash = FX_HashCode_GetW(wsName.AsStringView(), false);
   }
 }
 
@@ -1050,8 +1048,8 @@ CXFA_Node* CXFA_Node::GetItem(int32_t iIndex) {
       continue;
     }
     if (iCount == 0) {
-      WideStringView wsName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
-      WideStringView wsInstName = JSNode()->GetCData(XFA_Attribute::Name);
+      WideString wsName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
+      WideString wsInstName = JSNode()->GetCData(XFA_Attribute::Name);
       if (wsInstName.GetLength() < 1 || wsInstName[0] != '_' ||
           wsInstName.Right(wsInstName.GetLength() - 1) != wsName) {
         return nullptr;
@@ -1081,8 +1079,8 @@ int32_t CXFA_Node::GetCount() {
       continue;
     }
     if (iCount == 0) {
-      WideStringView wsName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
-      WideStringView wsInstName = JSNode()->GetCData(XFA_Attribute::Name);
+      WideString wsName = pNode->JSNode()->GetCData(XFA_Attribute::Name);
+      WideString wsInstName = JSNode()->GetCData(XFA_Attribute::Name);
       if (wsInstName.GetLength() < 1 || wsInstName[0] != '_' ||
           wsInstName.Right(wsInstName.GetLength() - 1) != wsName) {
         return iCount;
@@ -1221,3 +1219,54 @@ CXFA_Node* CXFA_Node::CreateInstance(bool bDataMerge) {
   return pInstance;
 }
 
+pdfium::Optional<bool> CXFA_Node::GetDefaultBoolean(XFA_Attribute attr) const {
+  void* pValue = nullptr;
+  if (XFA_GetAttributeDefaultValue(pValue, GetElementType(), attr,
+                                   XFA_AttributeType::Boolean, GetPacketID())) {
+    return {!!pValue};
+  }
+  return {};
+}
+
+pdfium::Optional<int32_t> CXFA_Node::GetDefaultInteger(
+    XFA_Attribute attr) const {
+  void* pValue = nullptr;
+  if (XFA_GetAttributeDefaultValue(pValue, GetElementType(), attr,
+                                   XFA_AttributeType::Integer, GetPacketID())) {
+    return {(int32_t)(uintptr_t)pValue};
+  }
+  return {};
+}
+
+pdfium::Optional<CXFA_Measurement> CXFA_Node::GetDefaultMeasurement(
+    XFA_Attribute attr) const {
+  void* pValue = nullptr;
+  if (XFA_GetAttributeDefaultValue(pValue, GetElementType(), attr,
+                                   XFA_AttributeType::Measure, GetPacketID())) {
+    CXFA_Measurement measure;
+    memcpy(&measure, pValue, sizeof(measure));
+    return {measure};
+  }
+  return {};
+}
+
+pdfium::Optional<WideString> CXFA_Node::GetDefaultCData(
+    XFA_Attribute attr) const {
+  void* pValue = nullptr;
+  if (XFA_GetAttributeDefaultValue(pValue, GetElementType(), attr,
+                                   XFA_AttributeType::CData, GetPacketID())) {
+    WideStringView view((const wchar_t*)pValue);
+    return {WideString(view)};
+  }
+  return {};
+}
+
+pdfium::Optional<XFA_ATTRIBUTEENUM> CXFA_Node::GetDefaultEnum(
+    XFA_Attribute attr) const {
+  void* pValue = nullptr;
+  if (XFA_GetAttributeDefaultValue(pValue, GetElementType(), attr,
+                                   XFA_AttributeType::Enum, GetPacketID())) {
+    return {(XFA_ATTRIBUTEENUM)(uintptr_t)pValue};
+  }
+  return {};
+}

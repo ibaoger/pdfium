@@ -11,7 +11,7 @@
 CXFA_ScriptData::CXFA_ScriptData(CXFA_Node* pNode) : CXFA_Data(pNode) {}
 
 XFA_SCRIPTTYPE CXFA_ScriptData::GetContentType() {
-  WideStringView cData;
+  WideString cData;
   if (m_pNode->JSNode()->TryCData(XFA_Attribute::ContentType, cData, false)) {
     if (cData == L"application/x-javascript")
       return XFA_SCRIPTTYPE_Javascript;
