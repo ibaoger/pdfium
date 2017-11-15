@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07d31f2d_c0d1d967",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-15T18:33:14Z",
+      "side": 1,
+      "message": "ah, my favorite feature request (static method for this) would make this much prettier.",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "22ff32a2390ebb60dfddc4f97ba7bda5d2ba73d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d863a9_0a21b5a2",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-15T18:33:14Z",
+      "side": 1,
+      "message": "isn\u0027t this the same as GetAttribute()?",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "22ff32a2390ebb60dfddc4f97ba7bda5d2ba73d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
