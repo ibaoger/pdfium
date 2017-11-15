@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbdd4d81_50bb02e6",
+        "filename": "fxjs/cfxjse_engine.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-15T20:58:01Z",
+      "side": 1,
+      "message": "It dawns on me that we may want to add a\n\n  using pdfium::Optional;\n\nto the end of our optional.h; we won\u0027t have both in here, and the namespace is really link-time collisions vs compile-time confusion. And we could save a lot of typing ... make stuff fit on one line .. etc.",
+      "range": {
+        "startLine": 504,
+        "startChar": 2,
+        "endLine": 504,
+        "endChar": 10
+      },
+      "revId": "38d8806fa5e2980879a495e3b225d7a4cffc4ae2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
