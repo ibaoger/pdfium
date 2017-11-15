@@ -198,8 +198,9 @@ CXFA_Node* CXFA_Node::Clone(bool bRecursive) {
   if (IsNeedSavingXMLNode()) {
     std::unique_ptr<CFX_XMLNode> pCloneXML;
     if (IsAttributeInXML()) {
-      WideString wsName;
-      JSNode()->GetAttribute(XFA_Attribute::Name, wsName, false);
+      pdfium::Optional<WideString> name =
+          JSNode()->TryAttribute(XFA_Attribute::Name, false);
+      WideString wsName = name ? *name : WideString();
       auto pCloneXMLElement = pdfium::MakeUnique<CFX_XMLElement>(wsName);
       WideString wsValue = JSNode()->GetCData(XFA_Attribute::Value);
       if (!wsValue.IsEmpty())
@@ -866,8 +867,9 @@ bool CXFA_Node::RemoveChild(CXFA_Node* pNode, bool bNotify) {
             pNode->JSNode()->GetCData(XFA_Attribute::QualifiedName);
         pXMLElement->RemoveAttribute(wsAttributeName.c_str());
       }
-      WideString wsName;
-      pNode->JSNode()->GetAttribute(XFA_Attribute::Name, wsName, false);
+      pdfium::Optional<WideString> name =
+          pNode->JSNode()->TryAttribute(XFA_Attribute::Name, false);
+      WideString wsName = name ? *name : WideString();
       CFX_XMLElement* pNewXMLElement = new CFX_XMLElement(wsName);
       WideString wsValue = JSNode()->GetCData(XFA_Attribute::Value);
       if (!wsValue.IsEmpty())
