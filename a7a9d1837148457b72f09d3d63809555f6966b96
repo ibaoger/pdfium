@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a6820d1_4c30f90c",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T18:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfb43d92_564a857d",
+      "range": {
+        "startLine": 535,
+        "startChar": 3,
+        "endLine": 535,
+        "endChar": 35
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01225959_1928041e",
         "filename": "xfa/fxfa/parser/cxfa_validatedata.cpp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e0e98d_48dc1d0d",
+        "filename": "xfa/fxfa/parser/cxfa_validatedata.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T18:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01225959_1928041e",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 68
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ce9e86d8_bd12eaa1",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T18:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27d6b99b_9ed0c1a4",
+      "range": {
+        "startLine": 484,
+        "startChar": 15,
+        "endLine": 484,
+        "endChar": 18
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7af2c71_32d0afc1",
         "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8f5fc606_491d5308",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T18:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7af2c71_32d0afc1",
+      "range": {
+        "startLine": 1010,
+        "startChar": 2,
+        "endLine": 1010,
+        "endChar": 75
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d333dae_99e6b3ae",
         "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-11-15T18:10:22Z",
       "side": 1,
       "message": "iSearch really not needed to shadow iCount, we can tell if the loop failed to break via !pChildItem.",
+      "range": {
+        "startLine": 1019,
+        "startChar": 2,
+        "endLine": 1020,
+        "endChar": 11
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "410b3fbb_176d6c2a",
+        "filename": "xfa/fxfa/parser/cxfa_widgetdata.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T18:56:39Z",
+      "side": 1,
+      "message": "Not if pChildItem declaration is folded into the loop, heh.",
+      "parentUuid": "4d333dae_99e6b3ae",
       "range": {
         "startLine": 1019,
         "startChar": 2,
