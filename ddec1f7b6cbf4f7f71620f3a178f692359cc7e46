@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d545d82_bdc131f9",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T20:45:27Z",
+      "side": 1,
+      "message": "Done as two lines with the set because the unique_ptr type differs from the created type.",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 60
+      },
+      "revId": "ddec1f7b6cbf4f7f71620f3a178f692359cc7e46",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
