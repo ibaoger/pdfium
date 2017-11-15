@@ -89,15 +89,16 @@ int32_t CXFA_FillData::GetLinear(FX_ARGB& endColor) {
 
   CXFA_Node* pNode =
       m_pNode->JSNode()->GetProperty(0, XFA_Element::Linear, true);
-  XFA_ATTRIBUTEENUM eAttr = XFA_ATTRIBUTEENUM_ToRight;
-  pNode->JSNode()->TryEnum(XFA_Attribute::Type, eAttr, true);
   if (CXFA_Node* pColor = pNode->GetChild(0, XFA_Element::Color, false)) {
     pdfium::Optional<WideString> wsColor =
         pColor->JSNode()->TryCData(XFA_Attribute::Value, false);
     if (wsColor)
       endColor = CXFA_DataData::ToColor(wsColor->AsStringView());
   }
-  return eAttr;
+
+  pdfium::Optional<XFA_ATTRIBUTEENUM> attr =
+      pNode->JSNode()->TryEnum(XFA_Attribute::Type, true);
+  return attr ? *attr : XFA_ATTRIBUTEENUM_ToRight;
 }
 
 int32_t CXFA_FillData::GetRadial(FX_ARGB& endColor) {
@@ -105,13 +106,14 @@ int32_t CXFA_FillData::GetRadial(FX_ARGB& endColor) {
 
   CXFA_Node* pNode =
       m_pNode->JSNode()->GetProperty(0, XFA_Element::Radial, true);
-  XFA_ATTRIBUTEENUM eAttr = XFA_ATTRIBUTEENUM_ToEdge;
-  pNode->JSNode()->TryEnum(XFA_Attribute::Type, eAttr, true);
   if (CXFA_Node* pColor = pNode->GetChild(0, XFA_Element::Color, false)) {
     pdfium::Optional<WideString> wsColor =
         pColor->JSNode()->TryCData(XFA_Attribute::Value, false);
     if (wsColor)
       endColor = CXFA_DataData::ToColor(wsColor->AsStringView());
   }
-  return eAttr;
+
+  pdfium::Optional<XFA_ATTRIBUTEENUM> attr =
+      pNode->JSNode()->TryEnum(XFA_Attribute::Type, true);
+  return attr ? *attr : XFA_ATTRIBUTEENUM_ToEdge;
 }

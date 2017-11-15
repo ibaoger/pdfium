@@ -645,9 +645,8 @@ void CXFA_LayoutPageMgr::FinishPaginatedPageSets() {
           XFA_ATTRIBUTEENUM eCurChoice =
               pNode->JSNode()->GetEnum(XFA_Attribute::PagePosition);
           if (eCurChoice == XFA_ATTRIBUTEENUM_Last) {
-            XFA_ATTRIBUTEENUM eOddOrEven = XFA_ATTRIBUTEENUM_Any;
-            pNode->JSNode()->TryEnum(XFA_Attribute::OddOrEven, eOddOrEven,
-                                     true);
+            XFA_ATTRIBUTEENUM eOddOrEven =
+                pNode->JSNode()->GetEnum(XFA_Attribute::OddOrEven);
             XFA_ATTRIBUTEENUM eLastChoice =
                 pLastPageAreaLayoutItem->m_pFormNode->JSNode()->GetEnum(
                     XFA_Attribute::PagePosition);
@@ -1309,18 +1308,18 @@ bool CXFA_LayoutPageMgr::MatchPageAreaOddOrEven(CXFA_Node* pPageArea,
   if (m_ePageSetMode != XFA_ATTRIBUTEENUM_DuplexPaginated)
     return true;
 
-  XFA_ATTRIBUTEENUM eOddOrEven = XFA_ATTRIBUTEENUM_Any;
-  pPageArea->JSNode()->TryEnum(XFA_Attribute::OddOrEven, eOddOrEven, true);
-  if (eOddOrEven != XFA_ATTRIBUTEENUM_Any) {
-    int32_t iPageCount = GetPageCount();
-    if (bLastMatch) {
-      return eOddOrEven == XFA_ATTRIBUTEENUM_Odd ? iPageCount % 2 == 1
-                                                 : iPageCount % 2 == 0;
-    }
-    return eOddOrEven == XFA_ATTRIBUTEENUM_Odd ? iPageCount % 2 == 0
-                                               : iPageCount % 2 == 1;
+  pdfium::Optional<XFA_ATTRIBUTEENUM> ret =
+      pPageArea->JSNode()->TryEnum(XFA_Attribute::OddOrEven, true);
+  if (!ret || *ret == XFA_ATTRIBUTEENUM_Any)
+    return true;
+
+  int32_t iPageCount = GetPageCount();
+  if (bLastMatch) {
+    return *ret == XFA_ATTRIBUTEENUM_Odd ? iPageCount % 2 == 1
+                                         : iPageCount % 2 == 0;
   }
-  return true;
+  return *ret == XFA_ATTRIBUTEENUM_Odd ? iPageCount % 2 == 0
+                                       : iPageCount % 2 == 1;
 }
 
 CXFA_Node* CXFA_LayoutPageMgr::GetNextAvailPageArea(
