@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f92347eb_e58aa626",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T19:14:02Z",
+      "side": 1,
+      "message": "I\u0027m going to keep the Gets for now. I\u0027ll look at possibly inlining in the future, but I\u0027d lean towards keeping the wrapper.",
+      "parentUuid": "f36474c3_46d87831",
+      "range": {
+        "startLine": 259,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 1
+      },
+      "revId": "22ff32a2390ebb60dfddc4f97ba7bda5d2ba73d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07d31f2d_c0d1d967",
         "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "750038b7_38c4b858",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T19:14:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "07d31f2d_c0d1d967",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "22ff32a2390ebb60dfddc4f97ba7bda5d2ba73d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5d863a9_0a21b5a2",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-15T18:33:14Z",
       "side": 1,
       "message": "isn\u0027t this the same as GetAttribute()?",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "22ff32a2390ebb60dfddc4f97ba7bda5d2ba73d8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37db5bd5_491e634d",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T19:14:02Z",
+      "side": 1,
+      "message": "No, the false as the param to TryAttribute is different from GetAttribute which passes true (i.e. this doesn\u0027t use the default value whereas Get does)",
+      "parentUuid": "b5d863a9_0a21b5a2",
       "range": {
         "startLine": 203,
         "startChar": 6,
