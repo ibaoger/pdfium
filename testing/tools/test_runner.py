@@ -5,13 +5,18 @@
 
 import cStringIO
 import functools
+import json
 import multiprocessing
 import optparse
 import os
+import pprint
 import re
 import shutil
 import subprocess
 import sys
+import urllib2
+
+from sys import exit
 
 import common
 import gold
@@ -138,7 +143,26 @@ class TestRunner:
     return common.RunCommandExtractHashedFiles(cmd_to_run)
 
   def HandleResult(self, input_filename, input_path, result):
+    FORMAT_RED = '\033[01;31m{0}\033[00m'
+    FORMAT_GREEN = '\033[01;32m{0}\033[00m'
+    FORMAT_MAGENTA = '\033[01;35m{0}\033[00m'
+
     success, image_paths = result
+
+    if (image_paths
+        and not self.test_suppressor.IsResultSuppressed(input_filename)):
+      for img_path, md5_hash in image_paths:
+        test_name = os.path.splitext(os.path.split(img_path)[1])[0]
+        if test_name in self.skia_gold_data:
+          if md5_hash in self.skia_gold_data[test_name]:
+            result_string = FORMAT_GREEN.format('CORRECT')
+          else:
+            result_string = FORMAT_RED.format('INCORRECT')
+            exit(1)
+        else:
+          result_string = FORMAT_MAGENTA.format('NON_EXISTENT')
+        print 'Hash for %s is %s' % (test_name, result_string)
+
     if self.gold_results:
       if image_paths:
         for img_path, md5_hash in image_paths:
@@ -153,6 +177,14 @@ class TestRunner:
     else:
       if not success:
         self.failures.append(input_path)
+
+  def LoadSkiaGoldData(self):
+    response = urllib2.urlopen('https://storage.googleapis.com/skia-infra-gm/'
+                               'hash_files/gold-pdfium-baseline.json')
+    json_data = response.read()
+    data = json.loads(json_data)
+    pprint.pprint(data)
+    return data['master']
 
 
   def Run(self):
@@ -225,6 +257,8 @@ class TestRunner:
     self.test_suppressor = suppressor.Suppressor(finder, self.feature_string)
     self.image_differ = pngdiffer.PNGDiffer(finder)
 
+    self.skia_gold_data = self.LoadSkiaGoldData()
+
     walk_from_dir = finder.TestingDir(test_dir);
 
     self.test_cases = []
@@ -250,6 +284,10 @@ class TestRunner:
             else:
               if os.path.isfile(input_path):
                 self.test_cases.append((input_filename, file_dir))
+
+    print 'Skia gold data: %d' % len(self.skia_gold_data)
+    print 'Test cases before: %d' % len(self.test_cases)
+
 
     self.failures = []
     self.surprises = []
