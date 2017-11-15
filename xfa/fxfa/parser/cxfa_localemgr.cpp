@@ -1237,8 +1237,10 @@ WideStringView CXFA_LocaleMgr::GetConfigLocaleName(CXFA_Node* pConfig) {
           pCommon ? pCommon->GetFirstChildByClass(XFA_Element::Locale)
                   : nullptr;
       if (pLocale) {
-        pLocale->JSNode()->TryCData(XFA_Attribute::Value, m_wsConfigLocale,
-                                    false);
+        pdfium::Optional<WideString> ret =
+            pLocale->JSNode()->TryCData(XFA_Attribute::Value, false);
+        if (ret)
+          m_wsConfigLocale = *ret;
       }
     }
     m_dwLocaleFlags |= 0x01;

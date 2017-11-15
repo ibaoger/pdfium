@@ -501,8 +501,8 @@ bool CFXJSE_Engine::RunVariablesScript(CXFA_Node* pScriptNode) {
   if (!pTextNode)
     return false;
 
-  WideString wsScript;
-  if (!pTextNode->JSNode()->TryCData(XFA_Attribute::Value, wsScript, true))
+  WideString wsScript = pTextNode->JSNode()->GetCData(XFA_Attribute::Value);
+  if (wsScript.IsEmpty())
     return false;
 
   ByteString btScript = wsScript.UTF8Encode();

@@ -16,13 +16,15 @@ int32_t CXFA_ImageData::GetAspect() {
 }
 
 bool CXFA_ImageData::GetContentType(WideString& wsContentType) {
-  return m_pNode->JSNode()->TryCData(XFA_Attribute::ContentType, wsContentType,
-                                     true);
+  wsContentType = m_pNode->JSNode()->GetCData(XFA_Attribute::ContentType);
+  return !wsContentType.IsEmpty();
 }
 
 bool CXFA_ImageData::GetHref(WideString& wsHref) {
-  if (m_bDefValue)
-    return m_pNode->JSNode()->TryCData(XFA_Attribute::Href, wsHref, true);
+  if (m_bDefValue) {
+    wsHref = m_pNode->JSNode()->GetCData(XFA_Attribute::Href);
+    return !wsHref.IsEmpty();
+  }
   return m_pNode->JSNode()->GetAttribute(L"href", wsHref, true);
 }
 
@@ -35,7 +37,8 @@ XFA_ATTRIBUTEENUM CXFA_ImageData::GetTransferEncoding() {
 }
 
 bool CXFA_ImageData::GetContent(WideString& wsText) {
-  return m_pNode->JSNode()->TryContent(wsText, false, true);
+  wsText = m_pNode->JSNode()->GetContent(false);
+  return !wsText.IsEmpty();
 }
 
 bool CXFA_ImageData::SetContentType(const WideString& wsContentType) {
