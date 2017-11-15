@@ -7,6 +7,55 @@ import json
 import os
 import shlex
 import shutil
+import urllib2
+
+
+def _ParseKeyValuePairs(kv_str):
+  kv_pairs = shlex.split(kv_str)
+  if len(kv_pairs) % 2:
+    raise ValueError('Uneven number of key/value pairs. Got %s' % kv_str)
+  return { kv_pairs[i]:kv_pairs[i+1] for i in range(0, len(kv_pairs), 2) }
+
+
+class GoldBaseline(object):
+
+  def __init__(self, properties_str):
+    self._properties = _ParseKeyValuePairs(properties_str)
+
+  def LoadSkiaGoldBaseline(self):
+    GOLD_BASELINE_URL = ('https://storage.googleapis.com/skia-infra-gm/'
+                         'hash_files/gold-pdfium-baseline.json')
+    try:
+      response = urllib2.urlopen(GOLD_BASELINE_URL)
+      json_data = response.read()
+    except urllib2.HTTPError:
+      print 'Error: Unable to read skia gold json from %s' % GOLD_BASELINE_URL
+      return None
+
+    try:
+      data = json.loads(json_data)
+    except ValueError:
+      print 'Error: Malformed json read from %s' % GOLD_BASELINE_URL
+      return None
+
+    try:
+      master_baseline = data['master']
+    except KeyError, TypeError:
+      print 'Error: "master" key not in json read from %s' % GOLD_BASELINE_URL
+      return None
+
+    cl_number_str = self._properties.get('issue')
+    if cl_number_str is not None:
+      try:
+        cl_baseline = data['changelists'][cl_number_str]
+        print 'Has baselines for cl %s' % cl_number_str
+      except KeyError, TypeError:
+        print 'No baselines for cl %s' % cl_number_str
+    else:
+      print "CL number unknown, pass it as --gold_properties 'issue [cl_number]'"
+
+    return master_baseline
+
 
 # This module collects and writes output in a format expected by the
 # Gold baseline tool. Based on meta data provided explicitly and by
@@ -66,8 +115,8 @@ class GoldResults(object):
                that should be ignored.
     """
     self._source_type = source_type
-    self._properties = self._parseKeyValuePairs(propertiesStr)
-    self._properties["key"] = self._parseKeyValuePairs(keyStr)
+    self._properties = _ParseKeyValuePairs(propertiesStr)
+    self._properties["key"] = _ParseKeyValuePairs(keyStr)
     self._results =  []
     self._outputDir = outputDir
 
@@ -105,12 +154,6 @@ class GoldResults(object):
         "gamma_correct": "no"
       }
     })
-
-  def _parseKeyValuePairs(self, kvStr):
-    kvPairs = shlex.split(kvStr)
-    if len(kvPairs) % 2:
-      raise ValueError("Uneven number of key/value pairs. Got %s" % kvStr)
-    return { kvPairs[i]:kvPairs[i+1] for i in range(0, len(kvPairs), 2) }
 
   def WriteResults(self):
     self._properties.update({

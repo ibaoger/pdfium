@@ -138,7 +138,26 @@ class TestRunner:
     return common.RunCommandExtractHashedFiles(cmd_to_run)
 
   def HandleResult(self, input_filename, input_path, result):
+    FORMAT_RED = '\033[01;31m{0}\033[00m'
+    FORMAT_GREEN = '\033[01;32m{0}\033[00m'
+    FORMAT_MAGENTA = '\033[01;35m{0}\033[00m'
+
     success, image_paths = result
+
+    if (self.skia_gold_data is not None
+        and image_paths
+        and not self.test_suppressor.IsResultSuppressed(input_filename)):
+      for img_path, md5_hash in image_paths:
+        test_name = os.path.splitext(os.path.split(img_path)[1])[0]
+        if test_name in self.skia_gold_data:
+          if md5_hash in self.skia_gold_data[test_name]:
+            result_string = FORMAT_GREEN.format('CORRECT')
+          else:
+            result_string = FORMAT_RED.format('INCORRECT')
+        else:
+          result_string = FORMAT_MAGENTA.format('NON_EXISTENT')
+        print 'Hash for %s is %s' % (test_name, result_string)
+
     if self.gold_results:
       if image_paths:
         for img_path, md5_hash in image_paths:
@@ -153,6 +172,20 @@ class TestRunner:
     else:
       if not success:
         self.failures.append(input_path)
+
+  def LoadSkiaGoldBaseline(self):
+    return gold.GoldBaseline(self.options.gold_properties).LoadSkiaGoldBaseline()
+    # GOLD_BASELINE_URL = ('https://storage.googleapis.com/skia-infra-gm/'
+    #                      'hash_files/gold-pdfium-baseline.json')
+    # try:
+    #   response = urllib2.urlopen(GOLD_BASELINE_URL)
+    #   json_data = response.read()
+    # except:
+    #   print 'Unable to read skia gold json from %s' % GOLD_BASELINE_URL
+    #   return None
+
+    # data = json.loads(json_data)
+    # return data['master']
 
 
   def Run(self):
@@ -224,6 +257,8 @@ class TestRunner:
                                                    '--show-config'])
     self.test_suppressor = suppressor.Suppressor(finder, self.feature_string)
     self.image_differ = pngdiffer.PNGDiffer(finder)
+
+    self.skia_gold_data = self.LoadSkiaGoldBaseline()
 
     walk_from_dir = finder.TestingDir(test_dir);
 
