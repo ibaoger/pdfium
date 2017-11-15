@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "337f4e78_b8700da7",
+        "filename": "xfa/fxfa/parser/cxfa_occurdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-15T18:23:49Z",
+      "side": 0,
+      "message": "can\u0027t help but think that this was an off-by bug: value containing 0 returns 0, but all error conditions return 1.",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
