@@ -22,6 +22,30 @@
       "revId": "f0f26d75f7dc1827a2515b9cbfc85d20b0179732",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a60aa87c_6bbb84ea",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3594,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-15T20:50:52Z",
+      "side": 0,
+      "message": "Ack. Agreed.  We didn\u0027t set anything in the old case.",
+      "parentUuid": "d450f82e_0d756a0d",
+      "range": {
+        "startLine": 3592,
+        "startChar": 2,
+        "endLine": 3594,
+        "endChar": 0
+      },
+      "revId": "f0f26d75f7dc1827a2515b9cbfc85d20b0179732",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
