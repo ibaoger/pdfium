@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d450f82e_0d756a0d",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3594,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T19:48:56Z",
+      "side": 0,
+      "message": "This strikes me as a bug. We treat the equivalent check on 3579 as a failure but here success? Changed to be a failure instead.",
+      "range": {
+        "startLine": 3592,
+        "startChar": 2,
+        "endLine": 3594,
+        "endChar": 0
+      },
+      "revId": "f0f26d75f7dc1827a2515b9cbfc85d20b0179732",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
