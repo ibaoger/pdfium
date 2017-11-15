@@ -116,7 +116,6 @@ class TestRunner:
         [sys.executable, self.fixup_path, '--output-dir=' + self.working_dir,
             input_path])
 
-
   def TestText(self, input_root, expected_txt_path, pdf_path):
     txt_path = os.path.join(self.working_dir, input_root + '.txt')
 
@@ -126,7 +125,6 @@ class TestRunner:
 
     cmd = [sys.executable, self.text_diff_path, expected_txt_path, txt_path]
     return common.RunCommand(cmd)
-
 
   def TestPixel(self, input_root, pdf_path):
     cmd_to_run = [self.pdfium_test_path, '--send-events', '--png']
@@ -139,11 +137,19 @@ class TestRunner:
 
   def HandleResult(self, input_filename, input_path, result):
     success, image_paths = result
-    if self.gold_results:
-      if image_paths:
-        for img_path, md5_hash in image_paths:
-          # the output filename (without extension becomes the test name)
-          test_name = os.path.splitext(os.path.split(img_path)[1])[0]
+
+    if image_paths:
+      for img_path, md5_hash in image_paths:
+        # The output filename without image extension becomes the test name.
+        # For example, "/usr/local/.../testing/corpus/example_005.pdf.0.png"
+        # becomes "example_005.pdf.0".
+        test_name = os.path.splitext(os.path.split(img_path)[1])[0]
+
+        if (not self.test_suppressor.IsResultSuppressed(input_filename)
+            and self.skia_gold_baselines is not None):
+          self._MatchResultWithSkiaGoldBaselines(test_name, img_path, md5_hash)
+
+        if self.gold_results:
           self.gold_results.AddTestResult(test_name, md5_hash, img_path)
 
     if self.test_suppressor.IsResultSuppressed(input_filename):
@@ -154,6 +160,25 @@ class TestRunner:
       if not success:
         self.failures.append(input_path)
 
+  def _MatchResultWithSkiaGoldBaselines(self, test_name, img_path, md5_hash):
+    FORMAT_RED = '\033[01;31m{0}\033[00m'
+    FORMAT_GREEN = '\033[01;32m{0}\033[00m'
+    FORMAT_MAGENTA = '\033[01;35m{0}\033[00m'
+
+    for baseline in self.skia_gold_baselines:
+      if test_name in baseline:
+        if md5_hash in baseline[test_name]:
+          result_string = FORMAT_GREEN.format('CORRECT')
+          print 'Hash for %s is %s' % (test_name, result_string)
+        else:
+          result_string = FORMAT_RED.format('INCORRECT')
+          print 'Hash for %s is %s' % (test_name, result_string)
+          # TODO(hnakashima): Fail the test when we're relying on Skia Gold.
+        return
+
+    result_string = FORMAT_MAGENTA.format('NON_EXISTENT')
+    # TODO(hnakashima): Fail the test when we're relying on Skia Gold.
+    print 'Hash for %s is %s' % (test_name, result_string)
 
   def Run(self):
     parser = optparse.OptionParser()
@@ -224,6 +249,9 @@ class TestRunner:
                                                    '--show-config'])
     self.test_suppressor = suppressor.Suppressor(finder, self.feature_string)
     self.image_differ = pngdiffer.PNGDiffer(finder)
+
+    gold_baseline = gold.GoldBaseline(self.options.gold_properties)
+    self.skia_gold_baselines = gold_baseline.LoadSkiaGoldBaselines()
 
     walk_from_dir = finder.TestingDir(test_dir);
 
