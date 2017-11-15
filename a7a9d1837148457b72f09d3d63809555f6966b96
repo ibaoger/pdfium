@@ -22,6 +22,30 @@
       "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5f5cab8_563d9d41",
+        "filename": "xfa/fxfa/parser/cxfa_occurdata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-15T19:04:34Z",
+      "side": 0,
+      "message": "They\u0027re actually right, sort-of. The defaults specified in the spec are 1, 0 is the minium value that makes sense.\n\nThe -ish part is that if you read the accompanying text, the defaults changed depending on the parent container, so, hopefully, we\u0027re correcting these later.....or something, heh. I\u0027m guessing we have a bug with occur if embedded in certain containers.",
+      "parentUuid": "337f4e78_b8700da7",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "a7a9d1837148457b72f09d3d63809555f6966b96",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
