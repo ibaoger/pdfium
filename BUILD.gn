@@ -2053,6 +2053,7 @@ test("pdfium_embeddertests") {
     "fpdfsdk/fpdf_dataavail_embeddertest.cpp",
     "fpdfsdk/fpdf_flatten_embeddertest.cpp",
     "fpdfsdk/fpdf_structtree_embeddertest.cpp",
+    "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
     "fpdfsdk/fpdfannot_embeddertest.cpp",
     "fpdfsdk/fpdfattachment_embeddertest.cpp",
     "fpdfsdk/fpdfdoc_embeddertest.cpp",
