@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df820d18_dc632025",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "this feels wrong to my tiny brain   ...  what if pValue is nullptr? did they mean\n\n   if (pValue \u0026\u0026 !pValue-\u003eIsNull() \u0026\u0026 !pValue-\u003eIsUndefined())\n\nmight have to chase back some history to see if we refactored this properly.",
+      "range": {
+        "startLine": 1445,
+        "startChar": 3,
+        "endLine": 1446,
+        "endChar": 42
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dabb7267_9444f2e5",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: maybe const auto\u0026 pFormNode",
+      "range": {
+        "startLine": 1452,
+        "startChar": 11,
+        "endLine": 1452,
+        "endChar": 32
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b2b0479_bc692671",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3286,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "this is cheating ... by re-ordering things, we should be able to avoid having to do this.",
+      "range": {
+        "startLine": 3282,
+        "startChar": 0,
+        "endLine": 3286,
+        "endChar": 0
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2823c0_6d4e6c36",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3414,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: const auto\u0026 ? ( several other places )",
+      "range": {
+        "startLine": 3414,
+        "startChar": 13,
+        "endLine": 3414,
+        "endChar": 34
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3750354d_d1b9f49c",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "vector is kinda behaving like unique_ptr here in some sense, so typically pass by value and force callers to std::move it, too.  That avoids the surprise in the caller of the vector getting clobbered as a result of this call.",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 59
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "824b15d4_4dcd20ab",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: Maybe return ptr, in case we want to do destructive operations on it?",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7b9ac34_aebaf59f",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: local not needed, and then the move is not needed as a result:\npNode-\u003eJSNode()-\u003eSetWidgetData(pdfium::MakeUnique\u003cCXFA_WidgetAcc\u003e(pDocView, pNode));",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 36
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b264041c_54d5e500",
+        "filename": "xfa/fxfa/parser/cxfa_datadata.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: I think you get a clang error unless these two move to .cpp file now that you\u0027ve virtualized it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "721bab13_cb780250",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "can we std::find() or std::find_if() this?",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 400,
+        "endChar": 15
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e400f76_0a234487",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: just |items|, not a ptr.",
+      "range": {
+        "startLine": 413,
+        "startChar": 37,
+        "endLine": 413,
+        "endChar": 44
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23b66df8_1c94cd51",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "fyi, this is one of the callers I\u0027d like to see as std::move(items);",
+      "range": {
+        "startLine": 416,
+        "startChar": 27,
+        "endLine": 416,
+        "endChar": 34
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ee4f89c_2bf1875b",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: const auto\u0026",
+      "range": {
+        "startLine": 484,
+        "startChar": 11,
+        "endLine": 484,
+        "endChar": 33
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9a83695_f3db7d4c",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: or \n  for (CXFA_Node* pNode \u003d m_pChild; pNode; pNode \u003d pNode-\u003em_pNext)\n     pNode-\u003eReleaseBindingNodes();",
+      "range": {
+        "startLine": 1011,
+        "startChar": 2,
+        "endLine": 1015,
+        "endChar": 3
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4469975d_3a0a10df",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "this used to do a copy.  Are we sure it\u0027s ok to share the same vector?  Also return * ??",
+      "range": {
+        "startLine": 123,
+        "startChar": 36,
+        "endLine": 123,
+        "endChar": 37
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2178187_3a4fad9e",
+        "filename": "xfa/fxfa/parser/xfa_document_datamerger_imp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:45:19Z",
+      "side": 1,
+      "message": "nit: I\u0027d not have put a blank line here.",
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
