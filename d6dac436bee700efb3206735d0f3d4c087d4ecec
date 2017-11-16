@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bd0289ff_faa49c5c",
+        "filename": "core/fpdfdoc/cpdf_pagelabel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "nit: else after returns.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 3
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9f808a9_3280dc60",
+        "filename": "core/fxcrt/widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "pre-existing: The releasebuffer is pointless on failure, as str is going out of scope, and will be destroyed.  So this might go to line 266.  I\u0027d keep the bSufficientBuffer local even though not needed following the move just as it adds clarity.",
+      "range": {
+        "startLine": 268,
+        "startChar": 1,
+        "endLine": 269,
+        "endChar": 14
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b61e5f0_d18af3cd",
         "filename": "core/fxcrt/widestring.cpp",
         "patchSetId": 1
@@ -18,6 +64,191 @@
         "startChar": 3,
         "endLine": 339,
         "endChar": 15
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3abd539c_d2aac38c",
+        "filename": "core/fxcrt/widestring.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "I think you might reach this for some big format directives.  returning L\"\" should be OK, though.",
+      "parentUuid": "3b61e5f0_d18af3cd",
+      "range": {
+        "startLine": 338,
+        "startChar": 3,
+        "endLine": 339,
+        "endChar": 15
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93063c82_eb7f12ef",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "nit: local not needed but may not read clearly afterwards ?",
+      "range": {
+        "startLine": 1152,
+        "startChar": 5,
+        "endLine": 1152,
+        "endChar": 20
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c731cd4b_6c6c4a28",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "same?",
+      "range": {
+        "startLine": 1239,
+        "startChar": 25,
+        "endLine": 1240,
+        "endChar": 44
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78c9cea8_05aa5624",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "same?",
+      "range": {
+        "startLine": 1555,
+        "startChar": 4,
+        "endLine": 1556,
+        "endChar": 43
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed4da14_df02e9df",
+        "filename": "xfa/fwl/cfwl_monthcalendar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 588,
+        "endChar": 42
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c98a1a5_5b5b48e0",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "follow-up:  Now() could be static and return a value?",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 17
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3caea548_9495e316",
+        "filename": "xfa/fxfa/cxfa_fftextedit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "nit: local not needed?",
+      "range": {
+        "startLine": 206,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 24
+      },
+      "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9498247_7b562ee9",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T19:06:09Z",
+      "side": 1,
+      "message": "nit: could be line 67 in place of break",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 1
       },
       "revId": "d6dac436bee700efb3206735d0f3d4c087d4ecec",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
