@@ -119,7 +119,7 @@ class CXFA_Node : public CXFA_Object {
   CXFA_Node* GetDataDescriptionNode();
   void SetDataDescriptionNode(CXFA_Node* pDataDescriptionNode);
   CXFA_Node* GetBindData();
-  std::vector<CXFA_Node*> GetBindItems();
+  std::vector<CXFA_Node*>& GetBindItems();
   int32_t AddBindItem(CXFA_Node* pFormNode);
   int32_t RemoveBindItem(CXFA_Node* pFormNode);
   bool HasBindItem();

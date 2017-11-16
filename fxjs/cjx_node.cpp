@@ -3240,24 +3240,6 @@ pdfium::Optional<WideString> CJX_Node::TryCData(XFA_Attribute eAttr,
   return GetXFANode()->GetDefaultCData(eAttr);
 }
 
-bool CJX_Node::SetObject(XFA_Attribute eAttr,
-                         void* pData,
-                         XFA_MAPDATABLOCKCALLBACKINFO* pCallbackInfo) {
-  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
-  return SetUserData(pKey, pData, pCallbackInfo);
-}
-
-void* CJX_Node::GetObject(XFA_Attribute eAttr) {
-  void* pData;
-  return TryObject(eAttr, pData) ? pData : nullptr;
-}
-
-bool CJX_Node::TryObject(XFA_Attribute eAttr, void*& pData) {
-  void* pKey = GetMapKey_Element(GetXFANode()->GetElementType(), eAttr);
-  pData = GetUserData(pKey, false);
-  return !!pData;
-}
-
 bool CJX_Node::SetValue(XFA_Attribute eAttr,
                         XFA_AttributeType eType,
                         void* pValue,
@@ -3567,6 +3549,10 @@ pdfium::Optional<WideString> CJX_Node::TryContent(bool bScriptModify,
     return TryCData(XFA_Attribute::Value, false);
   }
   return {};
+}
+
+void CJX_Node::SetWidgetData(std::unique_ptr<CXFA_WidgetData> data) {
+  widget_data_ = std::move(data);
 }
 
 pdfium::Optional<WideString> CJX_Node::TryNamespace() {
