@@ -525,3 +525,44 @@ TEST_F(FPDFTextEmbeddertest, Bug_921) {
   FPDFText_ClosePage(textpage);
   UnloadPage(page);
 }
+
+TEST_F(FPDFTextEmbeddertest, GetTextWithHyphen) {
+  EXPECT_TRUE(OpenDocument("bug_781804.pdf"));
+  FPDF_PAGE page = LoadPage(0);
+  EXPECT_TRUE(page);
+
+  FPDF_TEXTPAGE textpage = FPDFText_LoadPage(page);
+  EXPECT_TRUE(textpage);
+
+  // Check that soft hyphens are not included
+  {
+    const char expected[] = "Veritaserum";
+    constexpr int expected_count = FX_ArraySize(expected);
+    unsigned short buffer[expected_count];
+    memset(buffer, 0, sizeof(buffer));
+
+    EXPECT_EQ(expected_count,
+              FPDFText_GetText(textpage, 0, expected_count, buffer));
+    EXPECT_TRUE(
+        check_unsigned_shorts(expected, buffer, sizeof(expected_count)));
+  }
+
+  // Check that hard hyphens are included
+  {
+    constexpr size_t offset = sizeof("Veritaserum") + 2;  // + 2 for \r\n
+    // Expecting 'User-\r\ngenerated', the - is a unicode character, so cannnot
+    // store in a char[].
+    unsigned short expected[] = {0x0055, 0x0073, 0x0065, 0x0072, 0x2010, 0x000d,
+                                 0x000a, 0x0067, 0x0065, 0x006e, 0x0065, 0x0072,
+                                 0x0061, 0x0074, 0x0065, 0x0064, 0x0000};
+    constexpr int expected_count = FX_ArraySize(expected);
+    unsigned short buffer[expected_count];
+
+    EXPECT_EQ(expected_count,
+              FPDFText_GetText(textpage, offset, expected_count, buffer));
+    for (int i = 0; i < expected_count; i++)
+      EXPECT_EQ(expected[i], buffer[i]);
+  }
+  FPDFText_ClosePage(textpage);
+  UnloadPage(page);
+}
