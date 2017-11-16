@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbf8140e_3d6304ab",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-16T18:50:01Z",
+      "side": 1,
+      "message": "if you\u0027re gonna do this, make it cfx_retainable ?",
+      "range": {
+        "startLine": 472,
+        "startChar": 1,
+        "endLine": 472,
+        "endChar": 31
+      },
+      "revId": "7bb3e8f3d69a0fd444e42d14d1d27745703e969a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
