@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "730cfc96_76e262a9",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-16T22:22:09Z",
+      "side": 1,
+      "message": "Rather, should this be expected_count - drop sizeof()? But then I made that change locally and the test fails.",
+      "parentUuid": "b0020bca_19f3ecad",
+      "range": {
+        "startLine": 547,
+        "startChar": 55,
+        "endLine": 547,
+        "endChar": 69
+      },
+      "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "625da363_4f2cb8b5",
         "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
         "patchSetId": 2
