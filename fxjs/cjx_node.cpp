@@ -1767,9 +1767,7 @@ void CJX_Node::Script_Som_FontColor(CFXJSE_Value* pValue,
   int32_t g;
   int32_t b;
   std::tie(a, r, g, b) = ArgbDecode(color);
-  ByteString bsColor;
-  bsColor.Format("%d,%d,%d", r, g, b);
-  pValue->SetString(bsColor.AsStringView());
+  pValue->SetString(ByteString::Format("%d,%d,%d", r, g, b).AsStringView());
 }
 
 void CJX_Node::Script_Field_FormatMessage(CFXJSE_Value* pValue,

@@ -103,7 +103,7 @@ ByteString CPDF_FormControl::GetCheckedAPState() {
       GetType() == CPDF_FormField::CheckBox) {
     if (ToArray(FPDF_GetFieldAttr(m_pField->GetDict(), "Opt"))) {
       int iIndex = m_pField->GetControlIndex(this);
-      csOn.Format("%d", iIndex);
+      csOn = ByteString::Format("%d", iIndex);
     }
   }
   if (csOn.IsEmpty())
