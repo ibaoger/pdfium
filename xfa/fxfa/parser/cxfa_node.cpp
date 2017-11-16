@@ -381,7 +381,7 @@ CXFA_Node* CXFA_Node::GetBindData() {
   return JSNode()->GetBindingNode();
 }
 
-std::vector<UnownedPtr<CXFA_Node>>& CXFA_Node::GetBindItems() {
+std::vector<CXFA_Node*>& CXFA_Node::GetBindItems() {
   return JSNode()->GetBindingNodes();
 }
 
@@ -389,10 +389,10 @@ int32_t CXFA_Node::AddBindItem(CXFA_Node* pFormNode) {
   ASSERT(pFormNode);
 
   if (BindsFormItems()) {
-    std::vector<UnownedPtr<CXFA_Node>>& nodes = JSNode()->GetBindingNodes();
+    std::vector<CXFA_Node*>& nodes = JSNode()->GetBindingNodes();
     bool found = false;
-    for (auto& v : nodes) {
-      if (v.Get() == pFormNode) {
+    for (auto* v : nodes) {
+      if (v == pFormNode) {
         found = true;
         break;
       }
@@ -410,7 +410,7 @@ int32_t CXFA_Node::AddBindItem(CXFA_Node* pFormNode) {
   if (pOldFormItem == pFormNode)
     return 1;
 
-  std::vector<UnownedPtr<CXFA_Node>> pItems;
+  std::vector<CXFA_Node*> pItems;
   pItems.emplace_back(pOldFormItem);
   pItems.emplace_back(pFormNode);
   JSNode()->SetBindingNodes(pItems);
@@ -421,12 +421,11 @@ int32_t CXFA_Node::AddBindItem(CXFA_Node* pFormNode) {
 
 int32_t CXFA_Node::RemoveBindItem(CXFA_Node* pFormNode) {
   if (BindsFormItems()) {
-    std::vector<UnownedPtr<CXFA_Node>>& nodes = JSNode()->GetBindingNodes();
+    std::vector<CXFA_Node*>& nodes = JSNode()->GetBindingNodes();
 
-    auto it = std::find_if(nodes.begin(), nodes.end(),
-                           [&pFormNode](const UnownedPtr<CXFA_Node>& node) {
-                             return node.Get() == pFormNode;
-                           });
+    auto it = std::find_if(
+        nodes.begin(), nodes.end(),
+        [&pFormNode](const CXFA_Node* node) { return node == pFormNode; });
     if (it != nodes.end())
       nodes.erase(it);
 
@@ -481,7 +480,7 @@ CXFA_WidgetData* CXFA_Node::GetContainerWidgetData() {
       if (!pDataNode)
         return nullptr;
       pFieldWidgetData = nullptr;
-      for (UnownedPtr<CXFA_Node>& pFormNode : pDataNode->GetBindItems()) {
+      for (CXFA_Node* pFormNode : pDataNode->GetBindItems()) {
         if (!pFormNode || pFormNode->HasRemovedChildren())
           continue;
         pFieldWidgetData = pFormNode->GetWidgetData();
@@ -1001,18 +1000,6 @@ void CXFA_Node::SetFlag(uint32_t dwFlag, bool bNotify) {
 
 void CXFA_Node::ClearFlag(uint32_t dwFlag) {
   m_uNodeFlags &= ~dwFlag;
-}
-
-void CXFA_Node::ReleaseBindingNodes() {
-  // Clear any binding nodes set on our JS node as we don't necessarily destruct
-  // in an order that makes sense.
-  JSNode()->ReleaseBindingNodes();
-
-  CXFA_Node* pNode = m_pChild;
-  while (pNode) {
-    pNode->ReleaseBindingNodes();
-    pNode = pNode->m_pNext;
-  }
 }
 
 bool CXFA_Node::IsAttributeInXML() {
