@@ -22,6 +22,30 @@
       "revId": "5f87041b260427ee4ddc05bcad5143849fe32627",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9a371f_b9508438",
+        "filename": "core/fxcrt/widestring.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T19:55:34Z",
+      "side": 1,
+      "message": "Bad merge, fixed.",
+      "parentUuid": "33606559_7106eb9d",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "5f87041b260427ee4ddc05bcad5143849fe32627",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
