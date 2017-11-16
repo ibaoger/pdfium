@@ -222,6 +222,24 @@
     },
     {
       "key": {
+        "uuid": "fd91baaa_30ffdbc7",
+        "filename": "core/fxge/cfx_font.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-16T21:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "928540a4_449ae436",
+      "revId": "79e9142201d9282fe86e1a14b13890e156dbd5eb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b936f94_81232e58",
         "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
         "patchSetId": 6
