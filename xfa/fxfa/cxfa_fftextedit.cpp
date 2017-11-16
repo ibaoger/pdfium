@@ -203,9 +203,8 @@ void CXFA_FFTextEdit::ValidateNumberField(const WideString& wsText) {
   WideString wsSomField;
   pAcc->GetNode()->GetSOMExpression(wsSomField);
 
-  WideString wsMessage;
-  wsMessage.Format(L"%s can not contain %s", wsText.c_str(),
-                   wsSomField.c_str());
+  WideString wsMessage = WideString::Format(L"%s can not contain %s",
+                                            wsText.c_str(), wsSomField.c_str());
   pAppProvider->MsgBox(wsMessage, pAppProvider->GetAppTitle(), XFA_MBICON_Error,
                        XFA_MB_OK);
 }
