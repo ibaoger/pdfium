@@ -33,8 +33,6 @@
 #include "xfa/fxfa/parser/cxfa_layoutprocessor.h"
 #include "xfa/fxfa/parser/xfa_resolvenode_rs.h"
 
-#define XFA_CalcRefCount (void*)(uintptr_t) FXBSTR_ID('X', 'F', 'A', 'R')
-
 const XFA_ATTRIBUTEENUM gs_EventActivity[] = {
     XFA_ATTRIBUTEENUM_Click,      XFA_ATTRIBUTEENUM_Change,
     XFA_ATTRIBUTEENUM_DocClose,   XFA_ATTRIBUTEENUM_DocReady,
@@ -618,8 +616,7 @@ void CXFA_FFDocView::AddCalculateWidgetAcc(CXFA_WidgetAcc* pWidgetAcc) {
 }
 
 void CXFA_FFDocView::AddCalculateNodeNotify(CXFA_Node* pNodeChange) {
-  auto* pGlobalData = static_cast<CXFA_CalcData*>(
-      pNodeChange->JSNode()->GetUserData(XFA_CalcData, false));
+  CXFA_CalcData* pGlobalData = pNodeChange->JSNode()->GetCalcData();
   if (!pGlobalData)
     return;
 
@@ -633,12 +630,9 @@ size_t CXFA_FFDocView::RunCalculateRecursive(size_t index) {
   while (index < m_CalculateAccs.size()) {
     CXFA_WidgetAcc* pCurAcc = m_CalculateAccs[index];
     AddCalculateNodeNotify(pCurAcc->GetNode());
-    int32_t iRefCount =
-        (int32_t)(uintptr_t)pCurAcc->GetNode()->JSNode()->GetUserData(
-            XFA_CalcRefCount, false);
-    iRefCount++;
-    pCurAcc->GetNode()->JSNode()->SetUserData(
-        XFA_CalcRefCount, (void*)(uintptr_t)iRefCount, nullptr);
+    uint32_t iRefCount = pCurAcc->GetNode()->JSNode()->GetCalcRefCount();
+    ++iRefCount;
+    pCurAcc->GetNode()->JSNode()->SetCalcRefCount(iRefCount);
     if (iRefCount > 11)
       break;
     if (pCurAcc->ProcessCalculate() == XFA_EVENTERROR_Success)
@@ -656,8 +650,7 @@ int32_t CXFA_FFDocView::RunCalculateWidgets() {
     RunCalculateRecursive(0);
 
   for (CXFA_WidgetAcc* pCurAcc : m_CalculateAccs)
-    pCurAcc->GetNode()->JSNode()->SetUserData(XFA_CalcRefCount, nullptr,
-                                              nullptr);
+    pCurAcc->GetNode()->JSNode()->SetCalcRefCount(0);
 
   m_CalculateAccs.clear();
   return XFA_EVENTERROR_Success;
