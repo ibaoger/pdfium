@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7dc41de0_1155344f",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Bad refactoring: https://pdfium.googlesource.com/pdfium.git/+/769b137a435fd53a419ebbd1deb8617771b73ef6%5E%21/xfa/fxfa/parser/xfa_object_imp.cpp fixed other instances as well.",
+      "parentUuid": "df820d18_dc632025",
+      "range": {
+        "startLine": 1445,
+        "startChar": 3,
+        "endLine": 1446,
+        "endChar": 42
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dabb7267_9444f2e5",
         "filename": "fxjs/cjx_node.cpp",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "94089b45_d52fef66",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabb7267_9444f2e5",
+      "range": {
+        "startLine": 1452,
+        "startChar": 11,
+        "endLine": 1452,
+        "endChar": 32
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b2b0479_bc692671",
         "filename": "fxjs/cjx_node.cpp",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2017-11-16T18:45:19Z",
       "side": 1,
       "message": "this is cheating ... by re-ordering things, we should be able to avoid having to do this.",
+      "range": {
+        "startLine": 3282,
+        "startChar": 0,
+        "endLine": 3286,
+        "endChar": 0
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "164144ff_296d7a9d",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3286,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Maybe ... in the future. The CXFA_Nodes are a linked list thing where I haven\u0027t figured out the ownership. It looks like we set the bind nodes but never unbind them. So, we\u0027d have to find the right place to do the unbinding but currently the destruction order is top down .....",
+      "parentUuid": "0b2b0479_bc692671",
       "range": {
         "startLine": 3282,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "172f3a95_66e0e459",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 3414,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e2823c0_6d4e6c36",
+      "range": {
+        "startLine": 3414,
+        "startChar": 13,
+        "endLine": 3414,
+        "endChar": 34
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3750354d_d1b9f49c",
         "filename": "fxjs/cjx_node.h",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c053191_1b2ff425",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3750354d_d1b9f49c",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 59
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "5d3ecd5b_dcff44b9",
+        "filename": "fxjs/cjx_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "824b15d4_4dcd20ab",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7b9ac34_aebaf59f",
         "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
         "patchSetId": 7
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f94d1e68_6944b5fb",
+        "filename": "xfa/fxfa/cxfa_ffnotify.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b9ac34_aebaf59f",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 36
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b264041c_54d5e500",
         "filename": "xfa/fxfa/parser/cxfa_datadata.h",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2017-11-16T18:45:19Z",
       "side": 1,
       "message": "nit: I think you get a clang error unless these two move to .cpp file now that you\u0027ve virtualized it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b6df737_299c8b36",
+        "filename": "xfa/fxfa/parser/cxfa_datadata.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "I .... don\u0027t seem to be getting an error? Moved anyway.",
+      "parentUuid": "b264041c_54d5e500",
       "range": {
         "startLine": 21,
         "startChar": 2,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "52dc48be_fa965ecf",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Followup.",
+      "parentUuid": "721bab13_cb780250",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 400,
+        "endChar": 15
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6e400f76_0a234487",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 7
@@ -229,6 +445,30 @@
       "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d13e6d4_8afa5feb",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e400f76_0a234487",
+      "range": {
+        "startLine": 413,
+        "startChar": 37,
+        "endLine": 413,
+        "endChar": 44
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "29fcac97_7cea9193",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b66df8_1c94cd51",
+      "range": {
+        "startLine": 416,
+        "startChar": 27,
+        "endLine": 416,
+        "endChar": 34
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ee4f89c_2bf1875b",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 7
@@ -275,6 +539,30 @@
       "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5e7bfda_7b76ffb1",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ee4f89c_2bf1875b",
+      "range": {
+        "startLine": 484,
+        "startChar": 11,
+        "endLine": 484,
+        "endChar": 33
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "c382605c_80f3bfdc",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a83695_f3db7d4c",
+      "range": {
+        "startLine": 1011,
+        "startChar": 2,
+        "endLine": 1015,
+        "endChar": 3
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4469975d_3a0a10df",
         "filename": "xfa/fxfa/parser/cxfa_node.h",
         "patchSetId": 7
@@ -312,6 +624,30 @@
       "writtenOn": "2017-11-16T18:45:19Z",
       "side": 1,
       "message": "this used to do a copy.  Are we sure it\u0027s ok to share the same vector?  Also return * ??",
+      "range": {
+        "startLine": 123,
+        "startChar": 36,
+        "endLine": 123,
+        "endChar": 37
+      },
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d4a0d7_e1afeb3d",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Changed to *. We use it for iteration and checking empty so I think it\u0027s safe.",
+      "parentUuid": "4469975d_3a0a10df",
       "range": {
         "startLine": 123,
         "startChar": 36,
@@ -338,6 +674,24 @@
       "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3f13442_1007e158",
+        "filename": "xfa/fxfa/parser/xfa_document_datamerger_imp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-16T20:26:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f2178187_3a4fad9e",
+      "revId": "3c0913b7bc029d752ac06dc1dfbd5ab930208562",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
