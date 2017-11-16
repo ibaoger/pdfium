@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "58785f9a_dadd931b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-16T21:58:35Z",
+      "side": 1,
+      "message": "Typo, line 10 as well, unless there\u0027s an English dialect I\u0027m not aware of? ;)",
+      "range": {
+        "startLine": 7,
+        "startChar": 55,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4013124c_5d41e750",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -19,6 +42,69 @@
         "endLine": 9,
         "endChar": 70
       },
+      "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0020bca_19f3ecad",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-16T21:58:35Z",
+      "side": 1,
+      "message": "This should be |expected|.",
+      "range": {
+        "startLine": 547,
+        "startChar": 55,
+        "endLine": 547,
+        "endChar": 69
+      },
+      "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "625da363_4f2cb8b5",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-16T21:58:35Z",
+      "side": 1,
+      "message": "Why not sizeof(\"foo\\r\\n\"); ?",
+      "range": {
+        "startLine": 552,
+        "startChar": 51,
+        "endLine": 552,
+        "endChar": 73
+      },
+      "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379971ea_f6619e85",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-16T21:58:35Z",
+      "side": 1,
+      "message": "constexpr?",
       "revId": "fb20449eb195e2f402e56d14aeebf00127ba5727",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
