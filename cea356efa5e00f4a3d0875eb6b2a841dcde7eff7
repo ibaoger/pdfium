@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "325d6a8e_0eed3999",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-17T18:14:05Z",
+      "side": 1,
+      "message": "You probably meant to say \"test cases\" here. fpdf_transformpage_embeddertest.cpp is not a unit test.",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "cea356efa5e00f4a3d0875eb6b2a841dcde7eff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "454a9774_a4935d8a",
+        "filename": "fpdfsdk/fpdf_transformpage_embeddertest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-17T18:14:05Z",
+      "side": 1,
+      "message": "Do you want to save the result of the initial_{width,height} * scale_factor calculation?",
+      "revId": "cea356efa5e00f4a3d0875eb6b2a841dcde7eff7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
