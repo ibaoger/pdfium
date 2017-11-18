@@ -29,7 +29,7 @@
 #include "fxjs/cjs_util.h"
 #include "fxjs/js_resources.h"
 
-#define DOUBLE_CORRECT 0.000000000000001
+constexpr double kDoubleCorrect = 0.000000000000001;
 
 // static
 const JSMethodSpec CJS_PublicMethods::GlobalFunctionSpecs[] = {
@@ -103,8 +103,7 @@ ByteString CalculateString(double dValue,
 }
 #endif
 
-// TODO(thestig): Make |event| const when SelStart() and SelEnd() are const.
-WideString CalcMergedString(CJS_EventHandler* event,
+WideString CalcMergedString(const CJS_EventHandler* event,
                             const WideString& value,
                             const WideString& change) {
   WideString prefix = value.Left(event->SelStart());
@@ -888,7 +887,7 @@ CJS_Return CJS_PublicMethods::AFNumber_Format(
   NormalizeDecimalMark(&strValue);
   double dValue = atof(strValue.c_str());
   if (iDec > 0)
-    dValue += DOUBLE_CORRECT;
+    dValue += kDoubleCorrect;
 
   // Calculating number string
   bool bNegative;
@@ -1079,7 +1078,7 @@ CJS_Return CJS_PublicMethods::AFPercent_Format(
   double dValue = atof(strValue.c_str());
   dValue *= 100;
   if (iDec > 0)
-    dValue += DOUBLE_CORRECT;
+    dValue += kDoubleCorrect;
 
   int iDec2;
   int iNegative = 0;
@@ -1229,7 +1228,7 @@ CJS_Return CJS_PublicMethods::AFDate_KeystrokeEx(
     if (!pEvent->m_pValue)
       return CJS_Return(false);
 
-    WideString strValue = pEvent->Value();
+    const WideString& strValue = pEvent->Value();
     if (strValue.IsEmpty())
       return CJS_Return(true);
 
@@ -1362,7 +1361,7 @@ CJS_Return CJS_PublicMethods::AFSpecial_Format(
   if (!pEvent->m_pValue)
     return CJS_Return(false);
 
-  WideString wsSource = pEvent->Value();
+  const WideString& wsSource = pEvent->Value();
   WideString wsFormat;
   switch (pRuntime->ToInt32(params[0])) {
     case 0:
@@ -1398,7 +1397,7 @@ CJS_Return CJS_PublicMethods::AFSpecial_KeystrokeEx(
   if (!pEvent->m_pValue)
     return CJS_Return(false);
 
-  WideString& valEvent = pEvent->Value();
+  const WideString& valEvent = pEvent->Value();
   WideString wstrMask = pRuntime->ToWideString(params[0]);
   if (wstrMask.IsEmpty())
     return CJS_Return(true);
