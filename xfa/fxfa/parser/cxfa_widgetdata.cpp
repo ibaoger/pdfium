@@ -327,28 +327,36 @@ CXFA_BindData CXFA_WidgetData::GetBindData() {
       m_pNode->JSNode()->GetProperty(0, XFA_Element::Bind, false));
 }
 
-bool CXFA_WidgetData::GetWidth(float& fWidth) {
-  return TryMeasure(XFA_Attribute::W, fWidth);
+pdfium::Optional<float> CXFA_WidgetData::TryWidthAttr(XFA_Attribute attr) {
+  pdfium::Optional<CXFA_Measurement> measure =
+      GetNode()->JSNode()->TryMeasure(attr, false);
+  if (measure)
+    return {measure->ToUnit(XFA_Unit::Pt)};
+  return {};
 }
 
-bool CXFA_WidgetData::GetHeight(float& fHeight) {
-  return TryMeasure(XFA_Attribute::H, fHeight);
+pdfium::Optional<float> CXFA_WidgetData::TryWidth() {
+  return TryWidthAttr(XFA_Attribute::W);
 }
 
-bool CXFA_WidgetData::GetMinWidth(float& fMinWidth) {
-  return TryMeasure(XFA_Attribute::MinW, fMinWidth);
+pdfium::Optional<float> CXFA_WidgetData::TryHeight() {
+  return TryWidthAttr(XFA_Attribute::H);
 }
 
-bool CXFA_WidgetData::GetMinHeight(float& fMinHeight) {
-  return TryMeasure(XFA_Attribute::MinH, fMinHeight);
+pdfium::Optional<float> CXFA_WidgetData::TryMinWidth() {
+  return TryWidthAttr(XFA_Attribute::MinW);
 }
 
-bool CXFA_WidgetData::GetMaxWidth(float& fMaxWidth) {
-  return TryMeasure(XFA_Attribute::MaxW, fMaxWidth);
+pdfium::Optional<float> CXFA_WidgetData::TryMinHeight() {
+  return TryWidthAttr(XFA_Attribute::MinH);
 }
 
-bool CXFA_WidgetData::GetMaxHeight(float& fMaxHeight) {
-  return TryMeasure(XFA_Attribute::MaxH, fMaxHeight);
+pdfium::Optional<float> CXFA_WidgetData::TryMaxWidth() {
+  return TryWidthAttr(XFA_Attribute::MaxW);
+}
+
+pdfium::Optional<float> CXFA_WidgetData::TryMaxHeight() {
+  return TryWidthAttr(XFA_Attribute::MaxH);
 }
 
 CXFA_BorderData CXFA_WidgetData::GetUIBorderData() {
@@ -373,29 +381,28 @@ CFX_RectF CXFA_WidgetData::GetUIMargin() {
     return CFX_RectF();
   }
 
-  float fLeftInset, fTopInset, fRightInset, fBottomInset;
-  bool bLeft = mgUI.GetLeftInset(fLeftInset);
-  bool bTop = mgUI.GetTopInset(fTopInset);
-  bool bRight = mgUI.GetRightInset(fRightInset);
-  bool bBottom = mgUI.GetBottomInset(fBottomInset);
+  pdfium::Optional<float> leftInset = mgUI.TryLeftInset();
+  pdfium::Optional<float> topInset = mgUI.GetTopInset();
+  pdfium::Optional<float> rightInset = mgUI.GetRightInset();
+  pdfium::Optional<float> bottomInset = mgUI.GetBottomInset();
   if (borderData.HasValidNode()) {
     bool bVisible = false;
     float fThickness = 0;
     int32_t iType = 0;
     std::tie(iType, bVisible, fThickness) = borderData.Get3DStyle();
-    if (!bLeft || !bTop || !bRight || !bBottom) {
+    if (!leftInset || !topInset || !rightInset || !bottomInset) {
       std::vector<CXFA_StrokeData> strokes = borderData.GetStrokes();
-      if (!bTop)
-        fTopInset = GetEdgeThickness(strokes, bVisible, 0);
-      if (!bRight)
-        fRightInset = GetEdgeThickness(strokes, bVisible, 1);
-      if (!bBottom)
-        fBottomInset = GetEdgeThickness(strokes, bVisible, 2);
-      if (!bLeft)
-        fLeftInset = GetEdgeThickness(strokes, bVisible, 3);
+      if (!topInset)
+        topInset = GetEdgeThickness(strokes, bVisible, 0);
+      if (!rightInset)
+        rightInset = GetEdgeThickness(strokes, bVisible, 1);
+      if (!bottomInset)
+        bottomInset = GetEdgeThickness(strokes, bVisible, 2);
+      if (!leftInset)
+        leftInset = GetEdgeThickness(strokes, bVisible, 3);
     }
   }
-  return CFX_RectF(fLeftInset, fTopInset, fRightInset, fBottomInset);
+  return CFX_RectF(*leftInset, *topInset, *rightInset, *bottomInset);
 }
 
 XFA_ATTRIBUTEENUM CXFA_WidgetData::GetButtonHighlight() {

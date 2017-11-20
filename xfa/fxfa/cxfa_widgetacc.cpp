@@ -735,14 +735,10 @@ void CXFA_WidgetAcc::CalcCaptionSize(CFX_SizeF& szCap) {
 
   CXFA_MarginData captionMarginData = captionData.GetMarginData();
   if (captionMarginData.HasValidNode()) {
-    float fLeftInset;
-    float fTopInset;
-    float fRightInset;
-    float fBottomInset;
-    captionMarginData.GetLeftInset(fLeftInset);
-    captionMarginData.GetTopInset(fTopInset);
-    captionMarginData.GetRightInset(fRightInset);
-    captionMarginData.GetBottomInset(fBottomInset);
+    float fLeftInset = captionMarginData.GetLeftInset();
+    float fTopInset = captionMarginData.GetTopInset();
+    float fRightInset = captionMarginData.GetRightInset();
+    float fBottomInset = captionMarginData.GetBottomInset();
     if (bReserveExit) {
       bVert ? (szCap.width += fLeftInset + fRightInset)
             : (szCap.height += fTopInset + fBottomInset);
@@ -783,40 +779,38 @@ bool CXFA_WidgetAcc::CalculateFieldAutoSize(CFX_SizeF& size) {
 bool CXFA_WidgetAcc::CalculateWidgetAutoSize(CFX_SizeF& size) {
   CXFA_MarginData marginData = GetMarginData();
   if (marginData.HasValidNode()) {
-    float fLeftInset, fTopInset, fRightInset, fBottomInset;
-    marginData.GetLeftInset(fLeftInset);
-    marginData.GetTopInset(fTopInset);
-    marginData.GetRightInset(fRightInset);
-    marginData.GetBottomInset(fBottomInset);
-    size.width += fLeftInset + fRightInset;
-    size.height += fTopInset + fBottomInset;
+    size.width += marginData.GetLeftInset() + marginData.GetRightInset();
+    size.height += marginData.GetTopInset() + marginData.GetBottomInset();
   }
 
   CXFA_ParaData paraData = GetParaData();
   if (paraData.HasValidNode())
     size.width += paraData.GetMarginLeft() + paraData.GetTextIndent();
 
-  float fVal = 0;
-  float fMin = 0;
-  float fMax = 0;
-  if (GetWidth(fVal)) {
-    size.width = fVal;
+  pdfium::Optional<float> val = TryWidth();
+  if (val) {
+    size.width = *val;
   } else {
-    if (GetMinWidth(fMin))
-      size.width = std::max(size.width, fMin);
-    if (GetMaxWidth(fMax) && fMax > 0)
-      size.width = std::min(size.width, fMax);
+    pdfium::Optional<float> min = TryMinWidth();
+    if (min)
+      size.width = std::max(size.width, *min);
+
+    pdfium::Optional<float> max = TryMaxWidth();
+    if (max && *max > 0)
+      size.width = std::min(size.width, *max);
   }
-  fVal = 0;
-  fMin = 0;
-  fMax = 0;
-  if (GetHeight(fVal)) {
-    size.height = fVal;
+
+  val = TryHeight();
+  if (val) {
+    size.height = *val;
   } else {
-    if (GetMinHeight(fMin))
-      size.height = std::max(size.height, fMin);
-    if (GetMaxHeight(fMax) && fMax > 0)
-      size.height = std::min(size.height, fMax);
+    pdfium::Optional<float> min = TryMinHeight();
+    if (min)
+      size.height = std::max(size.height, *min);
+
+    pdfium::Optional<float> max = TryMaxHeight();
+    if (max && *max > 0)
+      size.height = std::min(size.height, *max);
   }
   return true;
 }
@@ -877,13 +871,9 @@ bool CXFA_WidgetAcc::CalculateTextEditAutoSize(CFX_SizeF& size) {
     CFX_RectF rtUIMargin = GetUIMargin();
     size.width -= rtUIMargin.left + rtUIMargin.width;
     CXFA_MarginData marginData = GetMarginData();
-    if (marginData.HasValidNode()) {
-      float fLeftInset;
-      float fRightInset;
-      marginData.GetLeftInset(fLeftInset);
-      marginData.GetRightInset(fRightInset);
-      size.width -= fLeftInset + fRightInset;
-    }
+    if (marginData.HasValidNode())
+      size.width -= marginData.GetLeftInset() + marginData.GetRightInset();
+
     CalculateTextContentSize(size);
     size.height += rtUIMargin.top + rtUIMargin.height;
     if (bCapExit) {
@@ -934,15 +924,21 @@ bool CXFA_WidgetAcc::CalculateImageAutoSize(CFX_SizeF& size) {
         XFA_UnitPx2Pt((float)pBitmap->GetHeight(), (float)iImageYDpi));
 
     CFX_RectF rtFit;
-    if (GetWidth(rtFit.width))
+    pdfium::Optional<float> width = TryWidth();
+    if (width) {
+      rtFit.width = *width;
       GetWidthWithoutMargin(rtFit.width);
-    else
+    } else {
       rtFit.width = rtImage.width;
+    }
 
-    if (GetHeight(rtFit.height))
+    pdfium::Optional<float> height = TryHeight();
+    if (height) {
+      rtFit.height = *height;
       GetHeightWithoutMargin(rtFit.height);
-    else
+    } else {
       rtFit.height = rtImage.height;
+    }
 
     size = rtFit.Size();
   }
@@ -964,15 +960,21 @@ bool CXFA_WidgetAcc::CalculateImageEditAutoSize(CFX_SizeF& size) {
         XFA_UnitPx2Pt((float)pBitmap->GetHeight(), (float)iImageYDpi));
 
     CFX_RectF rtFit;
-    if (GetWidth(rtFit.width))
+    pdfium::Optional<float> width = TryWidth();
+    if (width) {
+      rtFit.width = *width;
       GetWidthWithoutMargin(rtFit.width);
-    else
+    } else {
       rtFit.width = rtImage.width;
+    }
 
-    if (GetHeight(rtFit.height))
+    pdfium::Optional<float> height = TryHeight();
+    if (height) {
+      rtFit.height = *height;
       GetHeightWithoutMargin(rtFit.height);
-    else
+    } else {
       rtFit.height = rtImage.height;
+    }
 
     size.width = rtFit.width;
     size.height = rtFit.height;
@@ -1024,63 +1026,47 @@ void CXFA_WidgetAcc::LoadText() {
 
 float CXFA_WidgetAcc::CalculateWidgetAutoWidth(float fWidthCalc) {
   CXFA_MarginData marginData = GetMarginData();
-  if (marginData.HasValidNode()) {
-    float fLeftInset;
-    float fRightInset;
-    marginData.GetLeftInset(fLeftInset);
-    marginData.GetRightInset(fRightInset);
-    fWidthCalc += fLeftInset + fRightInset;
-  }
+  if (marginData.HasValidNode())
+    fWidthCalc += marginData.GetLeftInset() + marginData.GetRightInset();
 
-  float fMin = 0, fMax = 0;
-  if (GetMinWidth(fMin))
-    fWidthCalc = std::max(fWidthCalc, fMin);
-  if (GetMaxWidth(fMax) && fMax > 0)
-    fWidthCalc = std::min(fWidthCalc, fMax);
+  pdfium::Optional<float> min = TryMinWidth();
+  if (min)
+    fWidthCalc = std::max(fWidthCalc, *min);
+
+  pdfium::Optional<float> max = TryMaxWidth();
+  if (max && *max > 0)
+    fWidthCalc = std::min(fWidthCalc, *max);
 
   return fWidthCalc;
 }
 
 float CXFA_WidgetAcc::GetWidthWithoutMargin(float fWidthCalc) {
   CXFA_MarginData marginData = GetMarginData();
-  if (marginData.HasValidNode()) {
-    float fLeftInset;
-    float fRightInset;
-    marginData.GetLeftInset(fLeftInset);
-    marginData.GetRightInset(fRightInset);
-    fWidthCalc -= fLeftInset + fRightInset;
-  }
+  if (marginData.HasValidNode())
+    fWidthCalc -= marginData.GetLeftInset() + marginData.GetRightInset();
   return fWidthCalc;
 }
 
 float CXFA_WidgetAcc::CalculateWidgetAutoHeight(float fHeightCalc) {
   CXFA_MarginData marginData = GetMarginData();
-  if (marginData.HasValidNode()) {
-    float fTopInset;
-    float fBottomInset;
-    marginData.GetTopInset(fTopInset);
-    marginData.GetBottomInset(fBottomInset);
-    fHeightCalc += fTopInset + fBottomInset;
-  }
+  if (marginData.HasValidNode())
+    fHeightCalc += marginData.GetTopInset() + marginData.GetBottomInset();
 
-  float fMin = 0, fMax = 0;
-  if (GetMinHeight(fMin))
-    fHeightCalc = std::max(fHeightCalc, fMin);
-  if (GetMaxHeight(fMax) && fMax > 0)
-    fHeightCalc = std::min(fHeightCalc, fMax);
+  pdfium::Optional<float> min = TryMinHeight();
+  if (min)
+    fHeightCalc = std::max(fHeightCalc, *min);
+
+  pdfium::Optional<float> max = TryMaxHeight();
+  if (max && *max > 0)
+    fHeightCalc = std::min(fHeightCalc, *max);
 
   return fHeightCalc;
 }
 
 float CXFA_WidgetAcc::GetHeightWithoutMargin(float fHeightCalc) {
   CXFA_MarginData marginData = GetMarginData();
-  if (marginData.HasValidNode()) {
-    float fTopInset;
-    float fBottomInset;
-    marginData.GetTopInset(fTopInset);
-    marginData.GetBottomInset(fBottomInset);
-    fHeightCalc -= fTopInset + fBottomInset;
-  }
+  if (marginData.HasValidNode())
+    fHeightCalc -= marginData.GetTopInset() + marginData.GetBottomInset();
   return fHeightCalc;
 }
 
@@ -1088,8 +1074,7 @@ void CXFA_WidgetAcc::StartWidgetLayout(float& fCalcWidth, float& fCalcHeight) {
   InitLayoutData();
   XFA_Element eUIType = GetUIType();
   if (eUIType == XFA_Element::Text) {
-    m_pLayoutData->m_fWidgetHeight = -1;
-    GetHeight(m_pLayoutData->m_fWidgetHeight);
+    m_pLayoutData->m_fWidgetHeight = TryHeight().value_or(-1);
     StartTextLayout(fCalcWidth, fCalcHeight);
     return;
   }
@@ -1099,14 +1084,21 @@ void CXFA_WidgetAcc::StartWidgetLayout(float& fCalcWidth, float& fCalcHeight) {
   m_pLayoutData->m_fWidgetHeight = -1;
   float fWidth = 0;
   if (fCalcWidth > 0 && fCalcHeight < 0) {
-    if (!GetHeight(fCalcHeight))
+    pdfium::Optional<float> height = TryHeight();
+    fCalcHeight = height.value_or(0.0f);
+    if (!height)
       CalculateAccWidthAndHeight(eUIType, fCalcWidth, fCalcHeight);
 
     m_pLayoutData->m_fWidgetHeight = fCalcHeight;
     return;
   }
   if (fCalcWidth < 0 && fCalcHeight < 0) {
-    if (!GetWidth(fWidth) || !GetHeight(fCalcHeight))
+    pdfium::Optional<float> width = TryWidth();
+    pdfium::Optional<float> height = TryHeight();
+
+    fWidth = width.value_or(0.0f);
+    fCalcHeight = height.value_or(0.0f);
+    if (!width || !height)
       CalculateAccWidthAndHeight(eUIType, fWidth, fCalcHeight);
 
     fCalcWidth = fWidth;
@@ -1174,8 +1166,8 @@ bool CXFA_WidgetAcc::FindSplitPos(int32_t iBlockIndex, float& fCalcHeight) {
   if (iBlockIndex == 0) {
     CXFA_MarginData marginData = GetMarginData();
     if (marginData.HasValidNode()) {
-      marginData.GetTopInset(fTopInset);
-      marginData.GetBottomInset(fBottomInset);
+      fTopInset = marginData.GetTopInset();
+      fBottomInset = marginData.GetBottomInset();
     }
 
     CFX_RectF rtUIMargin = GetUIMargin();
@@ -1235,9 +1227,10 @@ bool CXFA_WidgetAcc::FindSplitPos(int32_t iBlockIndex, float& fCalcHeight) {
     iLinesCount = 1;
   } else {
     if (!pFieldData->m_pTextOut) {
-      float fWidth = 0;
-      GetWidth(fWidth);
-      CalculateAccWidthAndHeight(eUIType, fWidth, fHeight);
+      // TODO(dsinclair): When the 2nd param of CalculateAccWidthAndHeight
+      // isn't a ref-param we can remove the temporary.
+      float width = TryWidth().value_or(0.0f);
+      CalculateAccWidthAndHeight(eUIType, width, fHeight);
     }
     iLinesCount = pFieldData->m_pTextOut->GetTotalLines();
   }
@@ -1429,8 +1422,10 @@ void CXFA_WidgetAcc::StartTextLayout(float& fCalcWidth, float& fCalcHeight) {
   }
   if (fCalcWidth < 0 && fCalcHeight < 0) {
     float fMaxWidth = -1;
-    bool bRet = GetWidth(fMaxWidth);
-    if (bRet) {
+    pdfium::Optional<float> maxWidth = TryWidth();
+    if (maxWidth) {
+      fMaxWidth = *maxWidth;
+
       float fWidth = GetWidthWithoutMargin(fMaxWidth);
       pTextLayout->StartLayout(fWidth);
     } else {

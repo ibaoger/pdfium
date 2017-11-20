@@ -61,12 +61,12 @@ class CXFA_WidgetData : public CXFA_DataData {
   CXFA_CalculateData GetCalculateData();
   CXFA_ValidateData GetValidateData(bool bModified);
 
-  bool GetWidth(float& fWidth);
-  bool GetHeight(float& fHeight);
-  bool GetMinWidth(float& fMinWidth);
-  bool GetMinHeight(float& fMinHeight);
-  bool GetMaxWidth(float& fMaxWidth);
-  bool GetMaxHeight(float& fMaxHeight);
+  pdfium::Optional<float> TryWidth();
+  pdfium::Optional<float> TryHeight();
+  pdfium::Optional<float> TryMinWidth();
+  pdfium::Optional<float> TryMinHeight();
+  pdfium::Optional<float> TryMaxWidth();
+  pdfium::Optional<float> TryMaxHeight();
 
   CXFA_BorderData GetUIBorderData();
   CFX_RectF GetUIMargin();
@@ -166,6 +166,7 @@ class CXFA_WidgetData : public CXFA_DataData {
   void FormatNumStr(const WideString& wsValue,
                     IFX_Locale* pLocale,
                     WideString& wsOutput);
+  pdfium::Optional<float> TryWidthAttr(XFA_Attribute attr);
 
   CXFA_Node* m_pUiChildNode;
   XFA_Element m_eUIType;
