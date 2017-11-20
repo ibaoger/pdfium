@@ -25,11 +25,6 @@ class CXFA_DataData {
   XFA_Element GetElementType() const;
 
  protected:
-  bool TryMeasure(XFA_Attribute eAttr,
-                  float& fValue,
-                  bool bUseDefault = false) const;
-  bool SetMeasure(XFA_Attribute eAttr, float fValue);
-
   CXFA_Node* m_pNode;
 };
 
