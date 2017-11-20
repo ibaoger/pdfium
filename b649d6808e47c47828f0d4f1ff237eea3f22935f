@@ -1,4 +1,166 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1511200117 -0800\nnonce AMT3iFjF/O+p5rGloc45VICmyD4r3irAoKTXDPmtYaqIl8SN9KklWJ09txMpbeCxpC8zJjlCw/dZ\n\n0000000000000000000000000000000000000000 b649d6808e47c47828f0d4f1ff237eea3f22935f refs/for/refs/heads/master%notify\u003dNONE,m\u003dandroid\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaExV1AAoJEKs2LWFaZv17SrQH/25v6Icau1HC8BGjldMqnNMB\nYTTVy95z9Ye0ODmdqp/wOnf4N3M58aOoiBLAi02rZ7IXx4KzCvC3Kk8cSBuY6vk2\noF3O3nlpRaMTovAP/d3UOWKr6JuN2J9QZ+RnD7ndw3Oo/UTRGYATXdtMkM03tyA+\noR2bekBmAm1oz0B9GaiaMD9mdBkLG6USrOiJxg+Twvwl2F8jkY9HAGZ2YtMHioFO\n1yezwoVLvcK03Sy6qOovEP4tpdCzNaN69Ha4SFzsxpNklZ3M7cxJKcCaHC4pV170\nRpSRmZyFNlXClvSIHlhdXy/1XT+miY/h+psCqJ9FAWWCmZdc1JAvB8EHW6M4WGk\u003d\n\u003dGqh9\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d50b17b_ca93fd4c",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "Just move this to the {Byte|Wide}String classes as Trim()?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 1
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbfb17c6_d6cb1e24",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "Technically this is wrong (but the old code was wrong too) as it should take the given month into account and if it\u0027s a leap year, etc.\n\nShould we have a todo to fix this?",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 15
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeff5062_01eb7347",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "24 isn\u0027t a valid 24hr hr, that would be 0.",
+      "range": {
+        "startLine": 193,
+        "startChar": 24,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "891b4681_40823319",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "similar ditto",
+      "range": {
+        "startLine": 197,
+        "startChar": 21,
+        "endLine": 197,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c895156_7297bbb5",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "similar ditto",
+      "range": {
+        "startLine": 201,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97aeb3f_42e4440f",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "Could use the string.Trim() method here",
+      "range": {
+        "startLine": 1604,
+        "startChar": 10,
+        "endLine": 1605,
+        "endChar": 29
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49d80927_5d5eecd3",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T20:46:44Z",
+      "side": 1,
+      "message": "ditto (and below)",
+      "range": {
+        "startLine": 1619,
+        "startChar": 12,
+        "endLine": 1620,
+        "endChar": 31
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
