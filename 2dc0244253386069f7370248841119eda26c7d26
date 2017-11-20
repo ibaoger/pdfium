@@ -22,6 +22,30 @@
       "revId": "2dc0244253386069f7370248841119eda26c7d26",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ab6763c_69fd682a",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T21:07:03Z",
+      "side": 1,
+      "message": "\u0026\u0026 is right, the code below is wrong. Changed to use .value_or() with the correct default values.",
+      "parentUuid": "6a9e846e_4686e16b",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "2dc0244253386069f7370248841119eda26c7d26",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
