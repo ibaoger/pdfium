@@ -22,6 +22,30 @@
       "revId": "a8cdc47c78cbfe031a2c5a4db622f0a657b92d72",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f41c2020_e9603f61",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3565,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-20T14:51:46Z",
+      "side": 1,
+      "message": "Changed to std::move.\n\nI think the name is fine and plus it\u0027s returning a std::unique_ptr which makes it clear ownership is transfering.",
+      "parentUuid": "db93fe13_e6d868d1",
+      "range": {
+        "startLine": 3565,
+        "startChar": 8,
+        "endLine": 3565,
+        "endChar": 65
+      },
+      "revId": "a8cdc47c78cbfe031a2c5a4db622f0a657b92d72",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
