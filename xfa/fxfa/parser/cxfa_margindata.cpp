@@ -6,24 +6,47 @@
 
 #include "xfa/fxfa/parser/cxfa_margindata.h"
 
+#include "xfa/fxfa/parser/cxfa_measurement.h"
+#include "xfa/fxfa/parser/cxfa_node.h"
+
 CXFA_MarginData::CXFA_MarginData(CXFA_Node* pNode) : CXFA_DataData(pNode) {}
 
-bool CXFA_MarginData::GetLeftInset(float& fInset, float fDefInset) const {
-  fInset = fDefInset;
-  return TryMeasure(XFA_Attribute::LeftInset, fInset);
+pdfium::Optional<float> CXFA_MarginData::TryInset(XFA_Attribute inset) const {
+  pdfium::Optional<CXFA_Measurement> measure =
+      GetNode()->JSNode()->TryMeasure(inset, false);
+  if (measure)
+    return {measure->ToUnit(XFA_Unit::Pt)};
+  return {};
 }
 
-bool CXFA_MarginData::GetTopInset(float& fInset, float fDefInset) const {
-  fInset = fDefInset;
-  return TryMeasure(XFA_Attribute::TopInset, fInset);
+pdfium::Optional<float> CXFA_MarginData::TryLeftInset() const {
+  return TryInset(XFA_Attribute::LeftInset);
 }
 
-bool CXFA_MarginData::GetRightInset(float& fInset, float fDefInset) const {
-  fInset = fDefInset;
-  return TryMeasure(XFA_Attribute::RightInset, fInset);
+pdfium::Optional<float> CXFA_MarginData::TryTopInset() const {
+  return TryInset(XFA_Attribute::TopInset);
 }
 
-bool CXFA_MarginData::GetBottomInset(float& fInset, float fDefInset) const {
-  fInset = fDefInset;
-  return TryMeasure(XFA_Attribute::BottomInset, fInset);
+pdfium::Optional<float> CXFA_MarginData::TryRightInset() const {
+  return TryInset(XFA_Attribute::RightInset);
+}
+
+pdfium::Optional<float> CXFA_MarginData::TryBottomInset() const {
+  return TryInset(XFA_Attribute::BottomInset);
+}
+
+float CXFA_MarginData::GetLeftInset() const {
+  return TryLeftInset().value_or(0.0f);
+}
+
+float CXFA_MarginData::GetRightInset() const {
+  return TryRightInset().value_or(0.0f);
+}
+
+float CXFA_MarginData::GetTopInset() const {
+  return TryTopInset().value_or(0.0f);
+}
+
+float CXFA_MarginData::GetBottomInset() const {
+  return TryBottomInset().value_or(0.0f);
 }

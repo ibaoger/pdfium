@@ -16,10 +16,18 @@ class CXFA_MarginData : public CXFA_DataData {
  public:
   explicit CXFA_MarginData(CXFA_Node* pNode);
 
-  bool GetLeftInset(float& fInset, float fDefInset = 0) const;
-  bool GetTopInset(float& fInset, float fDefInset = 0) const;
-  bool GetRightInset(float& fInset, float fDefInset = 0) const;
-  bool GetBottomInset(float& fInset, float fDefInset = 0) const;
+  pdfium::Optional<float> TryLeftInset() const;
+  pdfium::Optional<float> TryTopInset() const;
+  pdfium::Optional<float> TryRightInset() const;
+  pdfium::Optional<float> TryBottomInset() const;
+
+  float GetLeftInset() const;
+  float GetTopInset() const;
+  float GetRightInset() const;
+  float GetBottomInset() const;
+
+ private:
+  pdfium::Optional<float> TryInset(XFA_Attribute inset) const;
 };
 
 #endif  // XFA_FXFA_PARSER_CXFA_MARGINDATA_H_

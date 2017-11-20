@@ -46,16 +46,14 @@ void CXFA_FFText::RenderWidget(CXFA_Graphics* pGS,
     if (!pItem->GetPrev() && !pItem->GetNext()) {
       XFA_RectWidthoutMargin(rtText, marginData);
     } else {
-      float fLeftInset;
-      float fRightInset;
       float fTopInset = 0;
       float fBottomInset = 0;
-      marginData.GetLeftInset(fLeftInset);
-      marginData.GetRightInset(fRightInset);
+      float fLeftInset = marginData.GetLeftInset();
+      float fRightInset = marginData.GetRightInset();
       if (!pItem->GetPrev())
-        marginData.GetTopInset(fTopInset);
+        fTopInset = marginData.GetTopInset();
       else if (!pItem->GetNext())
-        marginData.GetBottomInset(fBottomInset);
+        fBottomInset = marginData.GetBottomInset();
 
       rtText.Deflate(fLeftInset, fTopInset, fRightInset, fBottomInset);
     }
@@ -90,15 +88,10 @@ bool CXFA_FFText::PerformLayout() {
     CFX_RectF rtText = pItem->GetRect(false);
     CXFA_MarginData marginData = m_pDataAcc->GetMarginData();
     if (marginData.HasValidNode()) {
-      if (!pItem->GetPrev()) {
-        float fTopInset;
-        marginData.GetTopInset(fTopInset);
-        rtText.height -= fTopInset;
-      } else if (!pItem->GetNext()) {
-        float fBottomInset;
-        marginData.GetBottomInset(fBottomInset);
-        rtText.height -= fBottomInset;
-      }
+      if (!pItem->GetPrev())
+        rtText.height -= marginData.GetTopInset();
+      else if (!pItem->GetNext())
+        rtText.height -= marginData.GetBottomInset();
     }
     pTextLayout->ItemBlocks(rtText, pItem->GetIndex());
     pItem = pItem->GetNext();

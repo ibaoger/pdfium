@@ -68,20 +68,3 @@ CXFA_DataData::~CXFA_DataData() {}
 XFA_Element CXFA_DataData::GetElementType() const {
   return m_pNode ? m_pNode->GetElementType() : XFA_Element::Unknown;
 }
-
-bool CXFA_DataData::TryMeasure(XFA_Attribute eAttr,
-                               float& fValue,
-                               bool bUseDefault) const {
-  pdfium::Optional<CXFA_Measurement> measure =
-      m_pNode->JSNode()->TryMeasure(eAttr, bUseDefault);
-  if (!measure)
-    return false;
-
-  fValue = measure->ToUnit(XFA_Unit::Pt);
-  return true;
-}
-
-bool CXFA_DataData::SetMeasure(XFA_Attribute eAttr, float fValue) {
-  CXFA_Measurement ms(fValue, XFA_Unit::Pt);
-  return m_pNode->JSNode()->SetMeasure(eAttr, ms, false);
-}
