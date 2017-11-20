@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a833d682_ec32e6f8",
+        "filename": "testing/tools/gold.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-20T20:00:15Z",
+      "side": 1,
+      "message": "So as per we discussed on email/chat, we will for now consider the changeLists entry will NOT contain all new baselines necessarily and the master baseline needs to be checked too. In the future we will stop using the changeLists entries and have a separate URL for each cl.",
+      "parentUuid": "a73b937e_e52e0faf",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 38
+      },
+      "revId": "c6bb6aa89cce2696d053f4f25e5346ef52715895",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "407faf3b_91d562a8",
         "filename": "testing/tools/test_runner.py",
         "patchSetId": 9
