@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f32b122d_636fb048",
+        "filename": "samples/pdfium_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T23:29:14Z",
+      "side": 0,
+      "message": "I don\u0027t understand why this wasn\u0027t just a std::string.",
+      "revId": "d328d91f9e7a49f0d79048a7d10be9ba17ad9cb2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
