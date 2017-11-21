@@ -142,8 +142,7 @@ CXFA_Node* ResolveBreakTarget(CXFA_Node* pPageSetRoot,
   if (wsTargetAll.IsEmpty())
     return nullptr;
 
-  wsTargetAll.TrimLeft();
-  wsTargetAll.TrimRight();
+  wsTargetAll.Trim();
   int32_t iSplitIndex = 0;
   bool bTargetAllFind = true;
   while (iSplitIndex != -1) {
