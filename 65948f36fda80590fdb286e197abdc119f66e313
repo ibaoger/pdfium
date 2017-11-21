@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77358883_7351689d",
+        "filename": "xfa/fxfa/parser/cxfa_datadata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-21T16:32:48Z",
+      "side": 1,
+      "message": "Why do you feel the need to rename TryMeasure? Do you think someone may expect to get an int?",
+      "range": {
+        "startLine": 28,
+        "startChar": 26,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "65948f36fda80590fdb286e197abdc119f66e313",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
