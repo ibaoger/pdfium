@@ -22,6 +22,30 @@
       "revId": "df2df5dfa521e59473f61745f52ad5e473da1963",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b436e9fa_e780185b",
+        "filename": "xfa/fxfa/cxfa_widgetacc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-21T16:32:21Z",
+      "side": 1,
+      "message": "Yes because of the early returns.",
+      "parentUuid": "9ab76e62_546c3fc1",
+      "range": {
+        "startLine": 939,
+        "startChar": 15,
+        "endLine": 939,
+        "endChar": 0
+      },
+      "revId": "df2df5dfa521e59473f61745f52ad5e473da1963",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
