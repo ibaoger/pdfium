@@ -903,8 +903,7 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
   if (!pFormFillEnv)
     return false;
 
-  WideString csURL;
-  submitData.GetSubmitTarget(csURL);
+  WideString csURL = submitData.GetSubmitTarget();
   if (csURL.IsEmpty()) {
     WideString ws;
     ws.FromLocal("Submit cancelled.");
@@ -920,10 +919,10 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
   int fileFlag = -1;
   switch (submitData.GetSubmitFormat()) {
     case XFA_ATTRIBUTEENUM_Xdp: {
-      WideString csContent;
-      submitData.GetSubmitXDPContent(csContent);
+      WideString csContent = submitData.GetSubmitXDPContent();
       csContent.TrimLeft();
       csContent.TrimRight();
+
       WideString space;
       space.FromLocal(" ");
       csContent = space + csContent + space;
@@ -954,6 +953,7 @@ bool CPDFXFA_DocEnvironment::SubmitDataInternal(CXFA_FFDoc* hDoc,
   }
   if (!pFileHandler)
     return false;
+
   if (csURL.Left(7).CompareNoCase(L"mailto:") == 0) {
     WideString csToAddress;
     WideString csCCAddress;
