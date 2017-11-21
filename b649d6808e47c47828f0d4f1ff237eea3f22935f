@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "68919e23_4975a9ab",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack. Will make a pass over the codebase and combine all callers in a separate CL.",
+      "parentUuid": "2d50b17b_ca93fd4c",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 1
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dbfb17c6_d6cb1e24",
         "filename": "fxjs/cjs_publicmethods.cpp",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2017-11-20T20:46:44Z",
       "side": 1,
       "message": "Technically this is wrong (but the old code was wrong too) as it should take the given month into account and if it\u0027s a leap year, etc.\n\nShould we have a todo to fix this?",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 15
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e819856e_e7d39934",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Added TODOs. This class needs a lot more testing.",
+      "parentUuid": "dbfb17c6_d6cb1e24",
       "range": {
         "startLine": 188,
         "startChar": 4,
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "61ca36ee_13043a91",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eeff5062_01eb7347",
+      "range": {
+        "startLine": 193,
+        "startChar": 24,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "891b4681_40823319",
         "filename": "fxjs/cjs_publicmethods.cpp",
         "patchSetId": 5
@@ -92,6 +164,30 @@
       "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b157da6_49c69940",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "891b4681_40823319",
+      "range": {
+        "startLine": 197,
+        "startChar": 21,
+        "endLine": 197,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "088deeab_95cd2cdd",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c895156_7297bbb5",
+      "range": {
+        "startLine": 201,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 26
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c97aeb3f_42e4440f",
         "filename": "fxjs/cjs_publicmethods.cpp",
         "patchSetId": 5
@@ -141,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "fbc6d407_33e19102",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c97aeb3f_42e4440f",
+      "range": {
+        "startLine": 1604,
+        "startChar": 10,
+        "endLine": 1605,
+        "endChar": 29
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49d80927_5d5eecd3",
         "filename": "fxjs/cjs_publicmethods.cpp",
         "patchSetId": 5
@@ -161,6 +305,30 @@
       "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81fbde8f_7c71ce53",
+        "filename": "fxjs/cjs_publicmethods.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-21T17:17:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49d80927_5d5eecd3",
+      "range": {
+        "startLine": 1619,
+        "startChar": 12,
+        "endLine": 1620,
+        "endChar": 31
+      },
+      "revId": "b649d6808e47c47828f0d4f1ff237eea3f22935f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
