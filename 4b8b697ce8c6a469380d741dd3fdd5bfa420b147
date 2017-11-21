@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe25545d_34a1cb48",
+        "filename": "xfa/fxfa/parser/cxfa_filldata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-21T18:33:14Z",
+      "side": 1,
+      "message": "Seems like it\u0027s always false, so just drop the flag and assume it\u0027s false.\n\nIf not, suggestion: make 2 separate methods instead of passing this flag that call a 3rd internal one.",
+      "range": {
+        "startLine": 33,
+        "startChar": 32,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "4b8b697ce8c6a469380d741dd3fdd5bfa420b147",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
