@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "add7cdad_b46c4269",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-22T22:33:56Z",
+      "side": 1,
+      "message": "Barring any collateral effects in IsNull, you can reduce to:\n  pWidgetData-\u003eSetPreNull(pWidgetData-\u003eIsNull());\n  pWidgetData-\u003eSetIsNull(pValue \u0026\u0026 pValue-\u003eIsNull());",
+      "range": {
+        "startLine": 1664,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 5
+      },
+      "revId": "a8c92ce8017c5c4a40fe9cf94cc15b852c456103",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
