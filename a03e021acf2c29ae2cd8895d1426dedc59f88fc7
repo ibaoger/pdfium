@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45308618_78f1b252",
+        "filename": "xfa/fxfa/parser/cxfa_valuedata.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-22T17:19:21Z",
+      "side": 1,
+      "message": "nit: Add empty line below this",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "a03e021acf2c29ae2cd8895d1426dedc59f88fc7",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
