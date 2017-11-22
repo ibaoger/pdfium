@@ -71,7 +71,7 @@ class CXFA_Object : public CFXJSE_HostObject {
   CJX_Object* JSObject() { return m_pJSObject.get(); }
   const CJX_Object* JSObject() const { return m_pJSObject.get(); }
 
-  XFA_Element GetElementType() const { return m_elementType; }
+  XFA_Element GetElementType() const;
   WideStringView GetClassName() const { return m_elementName; }
   uint32_t GetClassHashCode() const { return m_elementNameHash; }
 
