@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1518fe15_e7013f0c",
+        "filename": "xfa/fxfa/parser/cxfa_encoding.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-22T18:42:15Z",
+      "side": 1,
+      "message": "kAttributeData",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "a3ecfd6582a8432117f37939ef7b8f0235258053",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6867f40_ee7f6814",
+        "filename": "xfa/fxfa/parser/cxfa_encoding.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-22T18:42:15Z",
+      "side": 1,
+      "message": "Not const enough.",
+      "revId": "a3ecfd6582a8432117f37939ef7b8f0235258053",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958dcf97_06dfb934",
+        "filename": "xfa/fxfa/parser/cxfa_encoding.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-22T18:42:15Z",
+      "side": 1,
+      "message": "The entire object hierarchy uses virtual / override, but there\u0027s no virtual methods. CFXJSE_HostObject -\u003e CXFA_Object -\u003e CXFA_Node.",
+      "range": {
+        "startLine": 15,
+        "startChar": 19,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "a3ecfd6582a8432117f37939ef7b8f0235258053",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
