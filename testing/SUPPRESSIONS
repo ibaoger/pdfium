@@ -110,7 +110,8 @@ combo_box_format.pdf mac * *
 date.pdf mac * *
 edit_transform.pdf mac * *
 en_contact.pdf mac * *
-en_diy.pdf mac * *
+en_diy.pdf * * *
+pen_diy.pdf mac * *
 en_foxit.pdf mac * *
 en_fqa2.pdf mac * *
 en_introduce.pdf mac * *
@@ -177,7 +178,8 @@ example_051.pdf mac * *
 example_052.pdf mac * *
 example_053.pdf mac * *
 example_054.pdf mac * *
-example_055.pdf mac,win * *
+example_055.pdf * * *
+pexample_055.pdf mac,win * *
 example_056.pdf mac * *
 example_057.pdf mac * *
 example_058.pdf mac * *
