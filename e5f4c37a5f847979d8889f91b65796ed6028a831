@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "026f0cf0_2c1ecd14",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-23T10:40:16Z",
+      "side": 1,
+      "message": "I should\u0027ve chimed in. If count \u003d 0, wasn\u0027t the previous behavior to return 1 and write L\"\" AKA \\0\\0 into |*result|? I think that\u0027s better than returning 0.\n\nTo advocate for my POV, let\u0027s say the text page contains \"hello\". With this CL and some edge cases:\n\nFPDFText_GetText(text_page, 0, -1, buf) returns 0, |buf| is untouched.\nFPDFText_GetText(text_page, 0, 0, buf) returns 0, |buf| is untouched.\nFPDFText_GetText(text_page, 0, 1, buf) returns 2, |buf| contains \\0h\\0\\0 AKA L\"h\"\n\nMy proposed behavior is:\n\nFPDFText_GetText(text_page, 0, -1, buf) returns 0, |buf| is untouched.\nFPDFText_GetText(text_page, 0, 0, buf) returns 1, |buf| contains \\0\\0 AKA L\"\"\nFPDFText_GetText(text_page, 0, 1, buf) returns 2, |buf| contains \\0h\\0\\0 AKA L\"h\"\n\nWhich has a smoother progression.\n\nAlso using std::string as an example:\n\nlen \u003d 0: std::string empty; empty.c_str() returns \"\" (not nullptr) and sizeof(\"\") is 1\nlen \u003d 1: std::string one(\"h\"); one.c_str() returns \"h\", sizeof(\"h\") is 2",
+      "parentUuid": "26a0c1de_5194715a",
+      "range": {
+        "startLine": 165,
+        "startChar": 19,
+        "endLine": 165,
+        "endChar": 28
+      },
+      "revId": "e5f4c37a5f847979d8889f91b65796ed6028a831",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a8a6b3_ef0ba21d",
         "filename": "fpdfsdk/fpdftext.cpp",
         "patchSetId": 1
