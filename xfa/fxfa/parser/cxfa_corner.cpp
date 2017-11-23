@@ -11,11 +11,32 @@ namespace {
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::Color, 1, 0},
                                                  {XFA_Element::Extras, 1, 0},
                                                  {XFA_Element::Unknown, 0, 0}};
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,       XFA_Attribute::Use,      XFA_Attribute::Stroke,
-    XFA_Attribute::Presence, XFA_Attribute::Inverted, XFA_Attribute::Thickness,
-    XFA_Attribute::Usehref,  XFA_Attribute::Join,     XFA_Attribute::Radius,
-    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Stroke, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Solid,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Presence, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Visible,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Inverted, XFA_AttributeType::Boolean, (void*)0,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Thickness, XFA_AttributeType::Measure, (void*)L"0.5pt",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Join, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Square,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Radius, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"corner";
 

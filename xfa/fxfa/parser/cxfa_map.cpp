@@ -8,10 +8,29 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,   XFA_Attribute::Name,    XFA_Attribute::Use,
-    XFA_Attribute::Bind, XFA_Attribute::Usehref, XFA_Attribute::Desc,
-    XFA_Attribute::From, XFA_Attribute::Lock,    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Name, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Config | XFA_XDPPACKET_LocaleSet |
+         XFA_XDPPACKET_Template | XFA_XDPPACKET_Datasets | XFA_XDPPACKET_Form |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Bind, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Desc, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Config | XFA_XDPPACKET_LocaleSet},
+    {XFA_Attribute::From, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Config},
+    {XFA_Attribute::Lock, XFA_AttributeType::Integer, (void*)0,
+     XFA_XDPPACKET_Config},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"map";
 

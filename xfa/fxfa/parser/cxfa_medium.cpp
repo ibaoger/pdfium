@@ -8,13 +8,34 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,          XFA_Attribute::TrayOut,
-    XFA_Attribute::Use,         XFA_Attribute::Orientation,
-    XFA_Attribute::ImagingBBox, XFA_Attribute::Short,
-    XFA_Attribute::TrayIn,      XFA_Attribute::Usehref,
-    XFA_Attribute::Stock,       XFA_Attribute::Long,
-    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::TrayOut, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Auto,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Orientation, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Portrait,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::ImagingBBox, XFA_AttributeType::CData, (void*)L"none",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Short, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::TrayIn, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Auto,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Stock, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Long, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"medium";
 

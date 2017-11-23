@@ -8,8 +8,10 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {XFA_Attribute::Checksum,
-                                        XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Checksum, XFA_AttributeType::CData, (void*)nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"form";
 

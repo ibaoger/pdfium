@@ -8,11 +8,25 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,      XFA_Attribute::Name,
-    XFA_Attribute::Use,     XFA_Attribute::FracDigits,
-    XFA_Attribute::Usehref, XFA_Attribute::LeadDigits,
-    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Name, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Config | XFA_XDPPACKET_LocaleSet |
+         XFA_XDPPACKET_Template | XFA_XDPPACKET_Datasets | XFA_XDPPACKET_Form |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::FracDigits, XFA_AttributeType::Integer, (void*)2,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::LeadDigits, XFA_AttributeType::Integer, (void*)-1,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"decimal";
 

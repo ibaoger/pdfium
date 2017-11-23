@@ -8,9 +8,14 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Desc, XFA_Attribute::WritingScript, XFA_Attribute::Lock,
-    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Desc, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Config | XFA_XDPPACKET_LocaleSet},
+    {XFA_Attribute::WritingScript, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Asterisk, XFA_XDPPACKET_Config},
+    {XFA_Attribute::Lock, XFA_AttributeType::Integer, (void*)0,
+     XFA_XDPPACKET_Config},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"defaultTypeface";
 

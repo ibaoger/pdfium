@@ -8,9 +8,18 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::To,   XFA_Attribute::UnicodeRange, XFA_Attribute::Desc,
-    XFA_Attribute::From, XFA_Attribute::Lock,         XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::To, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Config},
+    {XFA_Attribute::UnicodeRange, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Config},
+    {XFA_Attribute::Desc, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Config | XFA_XDPPACKET_LocaleSet},
+    {XFA_Attribute::From, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Config},
+    {XFA_Attribute::Lock, XFA_AttributeType::Integer, (void*)0,
+     XFA_XDPPACKET_Config},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"equateRange";
 

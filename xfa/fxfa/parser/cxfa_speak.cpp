@@ -8,10 +8,24 @@
 
 namespace {
 
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,       XFA_Attribute::Rid,     XFA_Attribute::Use,
-    XFA_Attribute::Priority, XFA_Attribute::Usehref, XFA_Attribute::Disable,
-    XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Rid, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Priority, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Custom,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Disable, XFA_AttributeType::Boolean, (void*)0,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"speak";
 

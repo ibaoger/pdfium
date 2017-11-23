@@ -3575,4 +3575,4 @@ const XFA_SCRIPTATTRIBUTEINFO g_SomAttributeData[] = {
      XFA_Attribute::Unknown, XFA_ScriptType::Basic},
 };
 const int32_t g_iSomAttributeCount =
-    sizeof(g_SomAttributeData) / sizeof(XFA_ATTRIBUTEINFO);
+    sizeof(g_SomAttributeData) / sizeof(XFA_SCRIPTATTRIBUTEINFO);

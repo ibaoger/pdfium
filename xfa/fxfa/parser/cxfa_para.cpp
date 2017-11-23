@@ -11,16 +11,46 @@ namespace {
 const CXFA_Node::PropertyData kPropertyData[] = {
     {XFA_Element::Hyphenation, 1, 0},
     {XFA_Element::Unknown, 0, 0}};
-const XFA_Attribute kAttributeData[] = {
-    XFA_Attribute::Id,         XFA_Attribute::HAlign,
-    XFA_Attribute::TextIndent, XFA_Attribute::Use,
-    XFA_Attribute::Widows,     XFA_Attribute::MarginRight,
-    XFA_Attribute::MarginLeft, XFA_Attribute::RadixOffset,
-    XFA_Attribute::Preserve,   XFA_Attribute::SpaceBelow,
-    XFA_Attribute::VAlign,     XFA_Attribute::TabDefault,
-    XFA_Attribute::TabStops,   XFA_Attribute::Orphans,
-    XFA_Attribute::Usehref,    XFA_Attribute::LineHeight,
-    XFA_Attribute::SpaceAbove, XFA_Attribute::Unknown};
+const CXFA_Node::AttributeData kAttributeData[] = {
+    {XFA_Attribute::Id, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::HAlign, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Left,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::TextIndent, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Use, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Widows, XFA_AttributeType::Integer, (void*)0,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::MarginRight, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::MarginLeft, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::RadixOffset, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Preserve, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::SpaceBelow, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::VAlign, XFA_AttributeType::Enum,
+     (void*)XFA_ATTRIBUTEENUM_Top, XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::TabDefault, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::TabStops, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Orphans, XFA_AttributeType::Integer, (void*)0,
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Usehref, XFA_AttributeType::CData, nullptr,
+     XFA_XDPPACKET_SourceSet | XFA_XDPPACKET_Template |
+         XFA_XDPPACKET_ConnectionSet | XFA_XDPPACKET_Form},
+    {XFA_Attribute::LineHeight, XFA_AttributeType::Measure, (void*)L"0pt",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::SpaceAbove, XFA_AttributeType::Measure, (void*)L"0in",
+     XFA_XDPPACKET_Template | XFA_XDPPACKET_Form},
+    {XFA_Attribute::Unknown, XFA_AttributeType::Integer, 0}};
 
 constexpr wchar_t kName[] = L"para";
 
