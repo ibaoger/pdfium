@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "295058e9_fe739e58",
+        "filename": "xfa/fxfa/cxfa_ffcombobox.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-23T14:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d922e22_75133e23",
+      "range": {
+        "startLine": 58,
+        "startChar": 6,
+        "endLine": 58,
+        "endChar": 24
+      },
+      "revId": "a46f41b4121c1a44c0597c6e6fae3ef2504d52de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86f62e64_c1360006",
         "filename": "xfa/fxfa/cxfa_ffpasswordedit.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-22T22:33:56Z",
       "side": 1,
       "message": "wsPassword",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "a46f41b4121c1a44c0597c6e6fae3ef2504d52de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfa3156b_b2b8543f",
+        "filename": "xfa/fxfa/cxfa_ffpasswordedit.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-23T14:01:55Z",
+      "side": 1,
+      "message": "MoRe UpErCaSe.",
+      "parentUuid": "86f62e64_c1360006",
       "range": {
         "startLine": 51,
         "startChar": 13,

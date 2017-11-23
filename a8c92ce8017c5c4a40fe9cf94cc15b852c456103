@@ -22,6 +22,30 @@
       "revId": "a8c92ce8017c5c4a40fe9cf94cc15b852c456103",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36901eba_72a5d685",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-23T14:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "add7cdad_b46c4269",
+      "range": {
+        "startLine": 1664,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 5
+      },
+      "revId": "a8c92ce8017c5c4a40fe9cf94cc15b852c456103",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
