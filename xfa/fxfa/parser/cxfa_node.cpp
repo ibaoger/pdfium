@@ -138,24 +138,22 @@ const XFA_ATTRIBUTEENUMINFO* GetAttributeEnumByID(XFA_ATTRIBUTEENUM eName) {
   return g_XFAEnumData + eName;
 }
 
-// static
-std::unique_ptr<CXFA_Node> CXFA_Node::Create(CXFA_Document* doc,
-                                             XFA_XDPPACKET packet,
-                                             const XFA_ELEMENTINFO* pElement) {
-  return std::unique_ptr<CXFA_Node>(new CXFA_Node(
-      doc, packet, pElement->eObjectType, pElement->eName, pElement->pName));
-}
-
 CXFA_Node::CXFA_Node(CXFA_Document* pDoc,
                      uint16_t ePacket,
+                     uint32_t validPackets,
                      XFA_ObjectType oType,
                      XFA_Element eType,
+                     const PropertyData* properties,
+                     const XFA_Attribute* attributes,
                      const WideStringView& elementName)
     : CXFA_Object(pDoc,
                   oType,
                   eType,
                   elementName,
                   pdfium::MakeUnique<CJX_Node>(this)),
+      m_Properties(properties),
+      m_Attributes(attributes),
+      m_ValidPackets(validPackets),
       m_pNext(nullptr),
       m_pChild(nullptr),
       m_pLastChild(nullptr),
@@ -245,6 +243,75 @@ CXFA_Node* CXFA_Node::GetNodeItem(XFA_NODEITEM eItem) const {
   return nullptr;
 }
 
+bool CXFA_Node::IsValidInPacket(XFA_XDPPACKET packet) const {
+  return !!(m_ValidPackets & packet);
+}
+
+const CXFA_Node::PropertyData* CXFA_Node::GetPropertyData(
+    XFA_Element property) const {
+  if (m_Properties == nullptr)
+    return nullptr;
+
+  for (size_t i = 0;; ++i) {
+    const PropertyData* data = m_Properties + i;
+    if (data->property == XFA_Element::Unknown)
+      break;
+    if (data->property == property)
+      return data;
+  }
+  return nullptr;
+}
+
+bool CXFA_Node::HasProperty(XFA_Element property) const {
+  return !!GetPropertyData(property);
+}
+
+bool CXFA_Node::HasPropertyFlags(XFA_Element property, uint8_t flags) const {
+  const PropertyData* data = GetPropertyData(property);
+  return data && !!(data->flags & flags);
+}
+
+uint8_t CXFA_Node::PropertyOccuranceCount(XFA_Element property) const {
+  const PropertyData* data = GetPropertyData(property);
+  return data ? data->occurance_count : 0;
+}
+
+pdfium::Optional<XFA_Element> CXFA_Node::GetFirstPropertyWithFlag(
+    uint8_t flag) {
+  if (m_Properties == nullptr)
+    return {};
+
+  for (size_t i = 0;; ++i) {
+    const PropertyData* data = m_Properties + i;
+    if (data->property == XFA_Element::Unknown)
+      break;
+    if (data->flags & flag)
+      return {data->property};
+  }
+  return {};
+}
+
+bool CXFA_Node::HasAttribute(XFA_Attribute attr) const {
+  if (m_Attributes == nullptr)
+    return false;
+
+  for (size_t i = 0;; ++i) {
+    XFA_Attribute cur_attr = *(m_Attributes + i);
+    if (cur_attr == XFA_Attribute::Unknown)
+      break;
+    if (cur_attr == attr)
+      return true;
+  }
+  return false;
+}
+
+// Note: This Method assumes that i is a valid index ....
+XFA_Attribute CXFA_Node::GetAttribute(size_t i) const {
+  if (m_Attributes == nullptr)
+    return XFA_Attribute::Unknown;
+  return *(m_Attributes + i);
+}
+
 CXFA_Node* CXFA_Node::GetNodeItem(XFA_NODEITEM eItem,
                                   XFA_ObjectType eType) const {
   CXFA_Node* pNode = nullptr;
@@ -300,13 +367,12 @@ std::vector<CXFA_Node*> CXFA_Node::GetNodeList(uint32_t dwTypeFilter,
         !!(dwTypeFilter & XFA_NODEFILTER_OneOfProperty);
     CXFA_Node* pChild = m_pChild;
     while (pChild) {
-      const XFA_PROPERTY* pProperty = XFA_GetPropertyOfElement(
-          GetElementType(), pChild->GetElementType(), XFA_XDPPACKET_UNKNOWN);
-      if (pProperty) {
+      if (HasProperty(pChild->GetElementType())) {
         if (bFilterProperties) {
           nodes.push_back(pChild);
         } else if (bFilterOneOfProperties &&
-                   (pProperty->uFlags & XFA_PROPERTYFLAG_OneOf)) {
+                   HasPropertyFlags(pChild->GetElementType(),
+                                    XFA_PROPERTYFLAG_OneOf)) {
           nodes.push_back(pChild);
         } else if (bFilterChildren &&
                    (pChild->GetElementType() == XFA_Element::Variables ||
@@ -318,23 +384,20 @@ std::vector<CXFA_Node*> CXFA_Node::GetNodeList(uint32_t dwTypeFilter,
       }
       pChild = pChild->m_pNext;
     }
+
     if (bFilterOneOfProperties && nodes.empty()) {
-      int32_t iProperties = 0;
-      const XFA_PROPERTY* pProperty =
-          XFA_GetElementProperties(GetElementType(), iProperties);
-      if (!pProperty || iProperties < 1)
+      if (m_Properties == nullptr)
         return nodes;
-      for (int32_t i = 0; i < iProperties; i++) {
-        if (pProperty[i].uFlags & XFA_PROPERTYFLAG_DefaultOneOf) {
-          const XFA_PACKETINFO* pPacket = XFA_GetPacketByID(GetPacketID());
-          CXFA_Node* pNewNode =
-              m_pDocument->CreateNode(pPacket, pProperty[i].eName);
-          if (!pNewNode)
-            break;
+
+      pdfium::Optional<XFA_Element> property =
+          GetFirstPropertyWithFlag(XFA_PROPERTYFLAG_DefaultOneOf);
+      if (property) {
+        const XFA_PACKETINFO* pPacket = XFA_GetPacketByID(GetPacketID());
+        CXFA_Node* pNewNode = m_pDocument->CreateNode(pPacket, *property);
+        if (pNewNode) {
           InsertChild(pNewNode, nullptr);
           pNewNode->SetFlag(XFA_NodeFlag_Initialized, true);
           nodes.push_back(pNewNode);
-          break;
         }
       }
     }
@@ -678,11 +741,8 @@ int32_t CXFA_Node::CountChildren(XFA_Element eType, bool bOnlyChild) {
   for (; pNode; pNode = pNode->GetNodeItem(XFA_NODEITEM_NextSibling)) {
     if (pNode->GetElementType() == eType || eType == XFA_Element::Unknown) {
       if (bOnlyChild) {
-        const XFA_PROPERTY* pProperty = XFA_GetPropertyOfElement(
-            GetElementType(), pNode->GetElementType(), XFA_XDPPACKET_UNKNOWN);
-        if (pProperty) {
+        if (HasProperty(pNode->GetElementType()))
           continue;
-        }
       }
       iCount++;
     }
@@ -698,17 +758,12 @@ CXFA_Node* CXFA_Node::GetChild(int32_t index,
   int32_t iCount = 0;
   for (; pNode; pNode = pNode->GetNodeItem(XFA_NODEITEM_NextSibling)) {
     if (pNode->GetElementType() == eType || eType == XFA_Element::Unknown) {
-      if (bOnlyChild) {
-        const XFA_PROPERTY* pProperty = XFA_GetPropertyOfElement(
-            GetElementType(), pNode->GetElementType(), XFA_XDPPACKET_UNKNOWN);
-        if (pProperty) {
-          continue;
-        }
-      }
+      if (bOnlyChild && HasProperty(pNode->GetElementType()))
+        continue;
+
       iCount++;
-      if (iCount > index) {
+      if (iCount > index)
         return pNode;
-      }
     }
   }
   return nullptr;
