@@ -145,10 +145,14 @@ class TestRunner:
 
         if not self.test_suppressor.IsResultSuppressed(input_filename):
           matched = self.gold_baseline.MatchLocalResult(test_name, md5_hash)
+          warning = None
           if matched == gold.GoldBaseline.MISMATCH:
-            print 'Skia Gold hash mismatch for test case: %s' % test_name
+            warning = 'Skia Gold hash mismatch for test case: %s' % test_name
           elif matched ==  gold.GoldBaseline.NO_BASELINE:
-            print 'No Skia Gold baseline found for test case: %s' % test_name
+            warning = 'No Skia Gold baseline found for test case: %s' % test_name
+          if warning is not None:
+            print warning
+            self.gold_warnings.append(warning)
 
         if self.gold_results:
           self.gold_results.AddTestResult(test_name, md5_hash, img_path)
@@ -261,6 +265,7 @@ class TestRunner:
 
     self.failures = []
     self.surprises = []
+    self.gold_warnings = []
     self.result_suppressed_cases = []
 
     # Collect Gold results if an output directory was named.
@@ -312,6 +317,14 @@ class TestRunner:
         print failure
 
     self._PrintSummary()
+
+    if self.gold_warnings and self.gold_baseline.GetCl() is not None:
+      self.gold_warnings.sort()
+      self.gold_warnings.insert(0, 'Skia Gold checks failed:')
+      comment_text = '\n'.join(self.gold_warnings)
+      cmd = ['git', 'cl', 'comments', '-a', comment_text,
+             '-i', str(self.gold_baseline.GetCl()), '--gerrit']
+      subprocess.check_call(cmd)
 
     if self.failures:
       if not self.options.ignore_errors:
