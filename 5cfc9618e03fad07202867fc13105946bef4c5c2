@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca225f7a_31bd40eb",
+        "filename": "core/fxcrt/widestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-23T20:18:13Z",
+      "side": 1,
+      "message": "\"\\0\\0\" ?",
+      "range": {
+        "startLine": 185,
+        "startChar": 26,
+        "endLine": 185,
+        "endChar": 30
+      },
+      "revId": "5cfc9618e03fad07202867fc13105946bef4c5c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4925c9bb_ce6d5b6a",
+        "filename": "core/fxcrt/widestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-23T20:18:13Z",
+      "side": 1,
+      "message": "Does the UTF8Encode method above do the same? If it does, add a comment to it because it currently looks like this is specific to UTF16LE_Encode.",
+      "range": {
+        "startLine": 187,
+        "startChar": 38,
+        "endLine": 187,
+        "endChar": 0
+      },
+      "revId": "5cfc9618e03fad07202867fc13105946bef4c5c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
