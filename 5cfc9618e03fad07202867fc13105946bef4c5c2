@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "31923915_5f5f7107",
+        "filename": "core/fxcrt/widestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-24T19:33:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca225f7a_31bd40eb",
+      "range": {
+        "startLine": 185,
+        "startChar": 26,
+        "endLine": 185,
+        "endChar": 30
+      },
+      "revId": "5cfc9618e03fad07202867fc13105946bef4c5c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4925c9bb_ce6d5b6a",
         "filename": "core/fxcrt/widestring.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "5cfc9618e03fad07202867fc13105946bef4c5c2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3501f343_7374d932",
+        "filename": "core/fxcrt/widestring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-24T19:33:23Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like it does this. Looks like it will generate a regular ByteString, where the \\0 is not in the string range.",
+      "parentUuid": "4925c9bb_ce6d5b6a",
+      "range": {
+        "startLine": 187,
+        "startChar": 38,
+        "endLine": 187,
+        "endChar": 0
+      },
+      "revId": "5cfc9618e03fad07202867fc13105946bef4c5c2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
