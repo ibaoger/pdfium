@@ -22,6 +22,30 @@
       "revId": "e4f91a08b27c92fd3e6144cd13e6054494c7a698",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70219958_ded0c9df",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-27T18:39:58Z",
+      "side": 1,
+      "message": "Talked with Dan about this. Passing in a 0 length buffer will always be a violation of the API pre-condition, since the buffer needs to have space for the characters covered by count and the terminator.\n\nThis API is tricky and ugly.",
+      "parentUuid": "c075aa24_1ccf60a5",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "e4f91a08b27c92fd3e6144cd13e6054494c7a698",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
