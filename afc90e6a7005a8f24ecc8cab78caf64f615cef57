@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fc05aa1_26d813b5",
+        "filename": "core/fpdfapi/page/cpdf_clippath.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-27T15:30:15Z",
+      "side": 1,
+      "message": "nit: I think this is unneeded, since you change the value to being a size_t, so the only possible time this will fail is if GetTextCount() \u003d\u003d 0. In this case the for loop won\u0027t do anything and I don\u0027t think there is any side effects outside of that.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "afc90e6a7005a8f24ecc8cab78caf64f615cef57",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
