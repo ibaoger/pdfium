@@ -70,6 +70,30 @@
       "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c18b237c_67fc3252",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T20:24:48Z",
+      "side": 1,
+      "message": "We\u0027re already at 1GB, so limiting by half seems like it maked sense. Going to a 10th of that value seems like we\u0027re getting really small?\n\nAre we sure, in this case, that the image is valid? What\u0027s allocating 800mb?",
+      "parentUuid": "14d579b4_d3b27f3c",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
