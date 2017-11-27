@@ -22,6 +22,30 @@
       "revId": "48cbfc5093c0fcb9729ee4e3a69ecc11489566fb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5e4ec9_0c6b2b3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7266
+      },
+      "writtenOn": "2017-11-27T20:32:24Z",
+      "side": 1,
+      "message": "https://github.com/mm2/Little-CMS/issues/145",
+      "parentUuid": "34398370_10475921",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "48cbfc5093c0fcb9729ee4e3a69ecc11489566fb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
