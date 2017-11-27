@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d526425f_c2122262",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T18:13:01Z",
+      "side": 1,
+      "message": "This should be going away. Once the array is removed we won\u0027t need to know the count and this will get dropped.",
+      "parentUuid": "c6c22aa8_87b51680",
+      "range": {
+        "startLine": 621,
+        "startChar": 2,
+        "endLine": 621,
+        "endChar": 26
+      },
+      "revId": "e94474896c5f42fa2021609c274e99013da771a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48d8b347_6fc3b7d6",
         "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-23T19:45:31Z",
       "side": 1,
       "message": "This might one case when it\u0027s clearer to say (!(a || b || c)) rather than (!a \u0026\u0026 !b \u0026\u0026 !c)",
+      "range": {
+        "startLine": 906,
+        "startChar": 13,
+        "endLine": 907,
+        "endChar": 44
+      },
+      "revId": "e94474896c5f42fa2021609c274e99013da771a9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7559dbf4_50cd75a7",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T18:13:01Z",
+      "side": 1,
+      "message": "I find the ! outside the (||) versions harder to read, I always miss the !.",
+      "parentUuid": "48d8b347_6fc3b7d6",
       "range": {
         "startLine": 906,
         "startChar": 13,
