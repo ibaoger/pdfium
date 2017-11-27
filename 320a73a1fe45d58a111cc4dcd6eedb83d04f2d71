@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d79483e_77259139",
+        "filename": "core/fxcodec/jbig2/JBig2_Context.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-27T21:19:04Z",
+      "side": 1,
+      "message": "maybe I should be a size_t, too.",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "320a73a1fe45d58a111cc4dcd6eedb83d04f2d71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
