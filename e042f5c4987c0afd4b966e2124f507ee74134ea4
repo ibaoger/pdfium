@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b3e2d7c_7292296e",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T15:23:53Z",
+      "side": 1,
+      "message": "Added in the bounds check as we access nItems - 1 on 766 which would access array[-1] ...",
+      "range": {
+        "startLine": 761,
+        "startChar": 2,
+        "endLine": 764,
+        "endChar": 0
+      },
+      "revId": "e042f5c4987c0afd4b966e2124f507ee74134ea4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f318e1f_5c4b9f89",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T15:23:53Z",
+      "side": 1,
+      "message": "ditto, access nChars - 1 on 1202 so guard against 0 size.",
+      "range": {
+        "startLine": 1197,
+        "startChar": 4,
+        "endLine": 1197,
+        "endChar": 17
+      },
+      "revId": "e042f5c4987c0afd4b966e2124f507ee74134ea4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b6c3f07_4c7d9974",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T15:23:53Z",
+      "side": 1,
+      "message": "ditto for nItem - 1 on 1271",
+      "range": {
+        "startLine": 1267,
+        "startChar": 2,
+        "endLine": 1268,
+        "endChar": 35
+      },
+      "revId": "e042f5c4987c0afd4b966e2124f507ee74134ea4",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
