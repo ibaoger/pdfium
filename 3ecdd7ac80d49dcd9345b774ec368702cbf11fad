@@ -46,6 +46,30 @@
       "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14d579b4_d3b27f3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-27T20:17:39Z",
+      "side": 1,
+      "message": "The bot will kill you at 2GB, so limiting the image size to be significantly lower then that that makes sense, since if the image is 2 gigs, you have no working space.",
+      "parentUuid": "da3bb667_e56d1390",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
