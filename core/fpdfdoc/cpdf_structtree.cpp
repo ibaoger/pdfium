@@ -12,7 +12,6 @@
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfdoc/cpdf_numbertree.h"
 #include "core/fpdfdoc/cpdf_structelement.h"
-#include "third_party/base/stl_util.h"
 
 namespace {
 
@@ -45,11 +44,11 @@ CPDF_StructTree::CPDF_StructTree(const CPDF_Document* pDoc)
 
 CPDF_StructTree::~CPDF_StructTree() {}
 
-int CPDF_StructTree::CountTopElements() const {
-  return pdfium::CollectionSize<int>(m_Kids);
+size_t CPDF_StructTree::CountTopElements() const {
+  return m_Kids.size();
 }
 
-CPDF_StructElement* CPDF_StructTree::GetTopElement(int i) const {
+CPDF_StructElement* CPDF_StructTree::GetTopElement(size_t i) const {
   return m_Kids[i].Get();
 }
 
