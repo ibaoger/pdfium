@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c075aa24_1ccf60a5",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T18:32:18Z",
+      "side": 1,
+      "message": "Isn\u0027t this potentially an issue? If we pass in a count of 0, and a buffer that\u0027s actually 0 items long .... bad things will happen? This just happens to work because fixed_buffer is \u003e 0 items long.",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "e4f91a08b27c92fd3e6144cd13e6054494c7a698",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
