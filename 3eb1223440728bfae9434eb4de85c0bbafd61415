@@ -22,6 +22,30 @@
       "revId": "3eb1223440728bfae9434eb4de85c0bbafd61415",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d996e4f5_c82ef696",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T18:43:14Z",
+      "side": 1,
+      "message": "Mostly because I find it clearer when doing a boolean op on an int to be clear what you actually mean instead of just assuming that int 0 \u003d\u003d false.",
+      "parentUuid": "b338a884_b499e831",
+      "range": {
+        "startLine": 1863,
+        "startChar": 16,
+        "endLine": 1863,
+        "endChar": 25
+      },
+      "revId": "3eb1223440728bfae9434eb4de85c0bbafd61415",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
