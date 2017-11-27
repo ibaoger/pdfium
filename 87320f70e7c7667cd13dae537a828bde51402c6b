@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8e903d_1b9364ac",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T22:10:13Z",
+      "side": 1,
+      "message": "Assert not needed as it will crash on the next line.",
+      "revId": "87320f70e7c7667cd13dae537a828bde51402c6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
