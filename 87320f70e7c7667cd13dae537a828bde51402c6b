@@ -16,6 +16,24 @@
       "revId": "87320f70e7c7667cd13dae537a828bde51402c6b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c9ce845_9269228e",
+        "filename": "core/fxge/dib/cfx_dibsource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-27T22:14:38Z",
+      "side": 1,
+      "message": "I added to point out why we can remove the if (!pSrcBitmap) in one of the methods. Removed!",
+      "parentUuid": "7c8e903d_1b9364ac",
+      "revId": "87320f70e7c7667cd13dae537a828bde51402c6b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
