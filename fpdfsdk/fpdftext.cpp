@@ -160,27 +160,44 @@ FPDFText_GetCharIndexAtPos(FPDF_TEXTPAGE text_page,
                 static_cast<float>(yTolerance)));
 }
 
-FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE text_page,
-                                               int start,
-                                               int count,
+FPDF_EXPORT int FPDF_CALLCONV FPDFText_GetText(FPDF_TEXTPAGE page,
+                                               int char_start,
+                                               int char_count,
                                                unsigned short* result) {
-  if (start < 0 || count < 0 || !result || !text_page)
+  if (char_start < 0 || char_count < 0 || !result || !page)
     return 0;
 
-  CPDF_TextPage* textpage = CPDFTextPageFromFPDFTextPage(text_page);
-  if (start >= textpage->CountChars())
+  CPDF_TextPage* textpage = CPDFTextPageFromFPDFTextPage(page);
+  int char_end = char_start + char_count - 1;
+  if (char_end > textpage->CountChars())
     return 0;
 
-  WideString str = textpage->GetPageText(start, count);
-  if (str.GetLength() > static_cast<size_t>(count))
-    str = str.Left(static_cast<size_t>(count));
+  // char_* values are for a data structure that includes non-printing unicode
+  // characters, where the text_* values are from a data structure that doesn't
+  // include these characters, so translation is needed.
+  int text_start = textpage->TextIndexFromCharIndex(char_start);
+  if (text_start == -1)
+    return 0;
+
+  int text_end = textpage->TextIndexFromCharIndex(char_end);
+  if (text_end == -1)
+    return 0;
+
+  DCHECK(text_start <= text_end)
+  if (text_start > text_end)
+    return 0;
+  int text_count = text_end - text_start;
+
+  WideString str = textpage->GetPageText(text_start, text_count);
+  if (str.GetLength() > static_cast<size_t>(text_count))
+    str = str.Left(static_cast<size_t>(text_count));
 
   // UFT16LE_Encode doesn't handle surrogate pairs properly, so it is expected
   // the number of items to stay the same.
   ByteString byte_str = str.UTF16LE_Encode();
   ASSERT((byte_str.GetLength()) / kBytesPerCharacter <=
-         static_cast<size_t>(count + 1));  // +1 to account for the string
-                                           // terminator
+         static_cast<size_t>(char_count + 1));  // +1 to account for the string
+                                                // terminator
   memcpy(result, byte_str.GetBuffer(byte_str.GetLength()),
          byte_str.GetLength());
   return (byte_str.GetLength() / kBytesPerCharacter);
