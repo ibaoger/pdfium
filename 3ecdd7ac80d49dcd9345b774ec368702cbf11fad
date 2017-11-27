@@ -94,6 +94,30 @@
       "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12dc6e12_9719e450",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-27T20:29:45Z",
+      "side": 1,
+      "message": "In the fuzzer code itself, we create a bitmap of the size before doing anything else...\n\nI thought it\u0027s crashing right after Create. My fprintfs are just weird: adding at some places make some others disappear. Hence why I thought it was just crashing right after Create. I\u0027m looking to see where the remaining GB is being allocated. But it\u0027s true MSAN uses extra memory to keep track of stuff, just not sure how much.\n\nI still disagree with 1MB as a reasonable limit. What was the reasoning behind it? I don\u0027t think expecting more than 2 orders of magnitude of memory to parse the image is normal, that would just be a bug.",
+      "parentUuid": "c18b237c_67fc3252",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
