@@ -110,14 +110,14 @@ void CPDF_CMapParser::ParseWord(const ByteStringView& word) {
     m_Status = 0;
   } else if (m_Status == 7) {
     if (word == "endcodespacerange") {
-      uint32_t nSegs = pdfium::CollectionSize<uint32_t>(m_CodeRanges);
-      if (nSegs > 1) {
-        m_pCMap->SetCodingScheme(CPDF_CMap::MixedFourBytes);
-        m_pCMap->SetMixedFourByteLeadingRanges(m_CodeRanges);
-      } else if (nSegs == 1) {
+      size_t nSegs = m_CodeRanges.size();
+      if (nSegs == 1) {
         m_pCMap->SetCodingScheme((m_CodeRanges[0].m_CharSize == 2)
                                      ? CPDF_CMap::TwoBytes
                                      : CPDF_CMap::OneByte);
+      } else if (nSegs > 1) {
+        m_pCMap->SetCodingScheme(CPDF_CMap::MixedFourBytes);
+        m_pCMap->SetMixedFourByteLeadingRanges(m_CodeRanges);
       }
       m_Status = 0;
     } else {
