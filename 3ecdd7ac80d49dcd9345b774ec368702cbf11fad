@@ -22,6 +22,30 @@
       "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9a7d9dc_0178e026",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-11-27T20:16:13Z",
+      "side": 1,
+      "message": "It\u0027s failing on a an allocation of size 805 MB. I also noticed that the size limit in xfa_codec_fuzzer.h was reduced to 1 MB, I think that\u0027s way too low.",
+      "parentUuid": "da3bb667_e56d1390",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "3ecdd7ac80d49dcd9345b774ec368702cbf11fad",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
