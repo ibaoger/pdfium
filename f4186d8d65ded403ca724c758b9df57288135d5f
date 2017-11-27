@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ebeb2a5f_ff30760a",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T19:44:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c31774fe_25bd7881",
+      "range": {
+        "startLine": 342,
+        "startChar": 30,
+        "endLine": 342,
+        "endChar": 38
+      },
+      "revId": "f4186d8d65ded403ca724c758b9df57288135d5f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0799c831_7128dc17",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-23T20:01:15Z",
       "side": 1,
       "message": "This looks better with the previous structure:\n\nif (NotSure) {\n  pAttr \u003d XFA_GetNotsureAttribute();\n  if (pAttr)\n    return {pAttr-\u003epValue};\n}\n\nreturn {};",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1390,
+        "endChar": 14
+      },
+      "revId": "f4186d8d65ded403ca724c758b9df57288135d5f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26ec6dcb_36288bd6",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-27T19:44:19Z",
+      "side": 1,
+      "message": "The NotSure\u0027s should, hopefully be going away so this won\u0027t be needed for too long.",
+      "parentUuid": "0799c831_7128dc17",
       "range": {
         "startLine": 1389,
         "startChar": 0,
