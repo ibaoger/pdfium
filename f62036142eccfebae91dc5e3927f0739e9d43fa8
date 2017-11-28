@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d86efb03_e343249d",
+        "filename": "core/fxcrt/fx_bidi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2017-11-28T23:35:18Z",
+      "side": 1,
+      "message": "unless I\u0027m missing something, this is a class with no members and no ctor,\nso all of this mess should just be static functions in an anonymous namespace?",
+      "range": {
+        "startLine": 235,
+        "startChar": 2,
+        "endLine": 235,
+        "endChar": 20
+      },
+      "revId": "f62036142eccfebae91dc5e3927f0739e9d43fa8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
