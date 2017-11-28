@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7faf4db_57e51a7b",
+        "filename": "xfa/fxfa/parser/cxfa_accessiblecontent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-28T18:50:29Z",
+      "side": 1,
+      "message": "nullptr?",
+      "revId": "de2cb1b64fd9fb7eadcb6edb6cde1e33138125de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99cf03f9_ae7771ff",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3578,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-28T18:50:29Z",
+      "side": 1,
+      "message": "FX_ArraySize() ?",
+      "revId": "de2cb1b64fd9fb7eadcb6edb6cde1e33138125de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
