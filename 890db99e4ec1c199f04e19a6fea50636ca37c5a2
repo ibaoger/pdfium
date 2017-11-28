@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7fcf8eb_6186248c",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-28T17:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e546c370_4a679b35",
+      "range": {
+        "startLine": 174,
+        "startChar": 35,
+        "endLine": 174,
+        "endChar": 58
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb595294_b69bd58f",
         "filename": "fpdfsdk/fpdftext.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "129451b0_60a3c9a7",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-28T17:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb595294_b69bd58f",
+      "range": {
+        "startLine": 181,
+        "startChar": 1,
+        "endLine": 183,
+        "endChar": 13
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "606e5732_86622b52",
         "filename": "fpdfsdk/fpdftext.cpp",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f83d4b5e_8e6fa46c",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-28T17:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "606e5732_86622b52",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 33
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
