@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e546c370_4a679b35",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-28T17:14:59Z",
+      "side": 1,
+      "message": "making this textpage-\u003eCountChars() - char_start",
+      "range": {
+        "startLine": 174,
+        "startChar": 35,
+        "endLine": 174,
+        "endChar": 58
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb595294_b69bd58f",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-28T17:14:59Z",
+      "side": 1,
+      "message": "I think we want to clamp char_last to CountChars() - char_start.",
+      "range": {
+        "startLine": 181,
+        "startChar": 1,
+        "endLine": 183,
+        "endChar": 13
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "606e5732_86622b52",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-28T17:14:59Z",
+      "side": 1,
+      "message": "drop this",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 33
+      },
+      "revId": "890db99e4ec1c199f04e19a6fea50636ca37c5a2",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
