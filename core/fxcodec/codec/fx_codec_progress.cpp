@@ -1741,6 +1741,7 @@ void CCodec_ProgressiveDecoder::ResampleVert(
       memmove(scan_des, scan_src, size);
     }
   }
+  return;
 }
 
 void CCodec_ProgressiveDecoder::Resample(
