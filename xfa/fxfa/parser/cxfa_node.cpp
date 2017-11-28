@@ -138,34 +138,13 @@ const XFA_ATTRIBUTEENUMINFO* GetAttributeEnumByID(XFA_ATTRIBUTEENUM eName) {
   return g_XFAEnumData + eName;
 }
 
-// static
-WideString CXFA_Node::AttributeToName(XFA_Attribute attr) {
-  return XFA_GetAttributeByID(attr)->pName;
-}
-
-// static
-XFA_Attribute CXFA_Node::NameToAttribute(const WideStringView& name) {
-  if (name.IsEmpty())
-    return XFA_Attribute::Unknown;
-
-  auto* it = std::lower_bound(g_XFAAttributeData,
-                              g_XFAAttributeData + g_iXFAAttributeCount,
-                              FX_HashCode_GetW(name, false),
-                              [](const XFA_ATTRIBUTEINFO& arg, uint32_t hash) {
-                                return arg.uHash < hash;
-                              });
-  if (it != g_XFAAttributeData + g_iXFAAttributeCount && name == it->pName)
-    return it->eName;
-  return XFA_Attribute::Unknown;
-}
-
 CXFA_Node::CXFA_Node(CXFA_Document* pDoc,
                      uint16_t ePacket,
                      uint32_t validPackets,
                      XFA_ObjectType oType,
                      XFA_Element eType,
                      const PropertyData* properties,
-                     const XFA_Attribute* attributes,
+                     const AttributeData* attributes,
                      const WideStringView& elementName)
     : CXFA_Object(pDoc,
                   oType,
@@ -312,36 +291,35 @@ pdfium::Optional<XFA_Element> CXFA_Node::GetFirstPropertyWithFlag(
   return {};
 }
 
-bool CXFA_Node::HasAttribute(XFA_Attribute attr) const {
+const CXFA_Node::AttributeData* CXFA_Node::GetAttributeData(
+    XFA_Attribute attr) const {
   if (m_Attributes == nullptr)
-    return false;
+    return nullptr;
 
   for (size_t i = 0;; ++i) {
-    XFA_Attribute cur_attr = *(m_Attributes + i);
-    if (cur_attr == XFA_Attribute::Unknown)
+    const AttributeData* cur_attr = m_Attributes + i;
+    if (cur_attr->attribute == XFA_Attribute::Unknown)
       break;
-    if (cur_attr == attr)
-      return true;
+    if (cur_attr->attribute == attr)
+      return cur_attr;
   }
-  return false;
+  return nullptr;
+}
+
+bool CXFA_Node::HasAttribute(XFA_Attribute attr) const {
+  return !!GetAttributeData(attr);
 }
 
 // Note: This Method assumes that i is a valid index ....
 XFA_Attribute CXFA_Node::GetAttribute(size_t i) const {
   if (m_Attributes == nullptr)
     return XFA_Attribute::Unknown;
-  return *(m_Attributes + i);
+  return (m_Attributes + i)->attribute;
 }
 
 XFA_AttributeType CXFA_Node::GetAttributeType(XFA_Attribute type) const {
-  const XFA_ATTRIBUTEINFO* attr = XFA_GetAttributeByID(type);
-  XFA_AttributeType eType = attr->eType;
-  if (eType != XFA_AttributeType::NotSure)
-    return eType;
-
-  const XFA_NOTSUREATTRIBUTE* pNotsure =
-      XFA_GetNotsureAttribute(GetElementType(), attr->eName);
-  return pNotsure ? pNotsure->eType : XFA_AttributeType::CData;
+  const AttributeData* data = GetAttributeData(type);
+  return data ? data->type : XFA_AttributeType::CData;
 }
 
 CXFA_Node* CXFA_Node::GetNodeItem(XFA_NODEITEM eItem,
@@ -1118,17 +1096,18 @@ void CXFA_Node::OnRemoved(bool bNotify) {
 }
 
 void CXFA_Node::UpdateNameHash() {
-  const XFA_NOTSUREATTRIBUTE* pNotsure =
-      XFA_GetNotsureAttribute(GetElementType(), XFA_Attribute::Name);
-  WideString wsName;
-  if (!pNotsure || pNotsure->eType == XFA_AttributeType::CData) {
-    wsName = JSNode()->GetCData(XFA_Attribute::Name);
-    m_dwNameHash = FX_HashCode_GetW(wsName.AsStringView(), false);
-  } else if (pNotsure->eType == XFA_AttributeType::Enum) {
-    wsName =
-        GetAttributeEnumByID(JSNode()->GetEnum(XFA_Attribute::Name))->pName;
-    m_dwNameHash = FX_HashCode_GetW(wsName.AsStringView(), false);
+  const AttributeData* data = GetAttributeData(XFA_Attribute::Name);
+  if (!data || data->type == XFA_AttributeType::CData) {
+    m_dwNameHash = FX_HashCode_GetW(
+        JSNode()->GetCData(XFA_Attribute::Name).AsStringView(), false);
+    return;
   }
+  if (data->type != XFA_AttributeType::Enum)
+    return;
+
+  WideString wsName =
+      GetAttributeEnumByID(JSNode()->GetEnum(XFA_Attribute::Name))->pName;
+  m_dwNameHash = FX_HashCode_GetW(wsName.AsStringView(), false);
 }
 
 CFX_XMLNode* CXFA_Node::CreateXMLMappingNode() {
@@ -1352,9 +1331,8 @@ pdfium::Optional<CXFA_Measurement> CXFA_Node::GetDefaultMeasurement(
   if (!value)
     return {};
 
-  CXFA_Measurement measure;
-  memcpy(&measure, *value, sizeof(measure));
-  return {measure};
+  WideString str = WideString(static_cast<const wchar_t*>(*value));
+  return {CXFA_Measurement(str.AsStringView())};
 }
 
 pdfium::Optional<WideString> CXFA_Node::GetDefaultCData(
@@ -1379,19 +1357,13 @@ pdfium::Optional<XFA_ATTRIBUTEENUM> CXFA_Node::GetDefaultEnum(
 pdfium::Optional<void*> CXFA_Node::GetDefaultValue(
     XFA_Attribute attr,
     XFA_AttributeType eType) const {
-  const XFA_ATTRIBUTEINFO* pInfo = XFA_GetAttributeByID(attr);
-  if (!pInfo)
-    return {};
-  if (GetPacketID() && (GetPacketID() & pInfo->dwPackets) == 0)
-    return {};
-  if (pInfo->eType == eType)
-    return {pInfo->pDefValue};
-  if (pInfo->eType != XFA_AttributeType::NotSure)
+  const AttributeData* data = GetAttributeData(attr);
+  if (!data)
     return {};
 
-  const XFA_NOTSUREATTRIBUTE* pAttr =
-      XFA_GetNotsureAttribute(GetElementType(), attr, eType);
-  if (pAttr)
-    return {pAttr->pValue};
+  if (GetPacketID() && (GetPacketID() & data->packets) == 0)
+    return {};
+  if (data->type == eType)
+    return {data->default_value};
   return {};
 }
