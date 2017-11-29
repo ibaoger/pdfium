@@ -17,9 +17,8 @@
 #include "testing/fx_string_testhelpers.h"
 #include "third_party/base/ptr_util.h"
 
-// Arbitrarily picked to support up to 1000x1000 images. This is far below where
-// OOM issues are occuring.
-const int kXFACodecFuzzerPixelLimit = 1000000;
+// Support up to 512 MB. This prevents trivial OOM when MSAN is on.
+const int kXFACodecFuzzerPixelLimit = 512000000;
 
 class XFACodecFuzzer {
  public:
@@ -39,9 +38,13 @@ class XFACodecFuzzer {
 
     // Skipping very large images, since they will take a long time and may lead
     // to OOM.
-    if (decoder->GetHeight() != 0 &&
-        decoder->GetWidth() > kXFACodecFuzzerPixelLimit / decoder->GetHeight())
+    FX_SAFE_UINT32 bitmap_size = decoder->GetHeight();
+    bitmap_size *= decoder->GetWidth();
+    bitmap_size *= 4;  // From CFX_DIBitmap impl.
+    if (!bitmap_size.IsValid() ||
+        bitmap_size.ValueOrDie() > kXFACodecFuzzerPixelLimit) {
       return 0;
+    }
 
     auto bitmap = pdfium::MakeRetain<CFX_DIBitmap>();
     bitmap->Create(decoder->GetWidth(), decoder->GetHeight(), FXDIB_Argb);
