@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11f143c3_64a56cc9",
+        "filename": "core/fxcodec/codec/ccodec_pngmodule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6910
+      },
+      "writtenOn": "2017-11-29T23:13:50Z",
+      "side": 1,
+      "message": "The FAR define seems to be related to the type of pointers used. AFAICT, it\u0027s mostly used in very old OSes, so I\u0027m not sure it matters here.\n\nI also don\u0027t think the extern \"C\" is necessary since png.h already wraps most of its definitions in extern \"C\".\n\nI\u0027ll try removing both and we can see what happens with a dry run :)",
+      "parentUuid": "0f3a1320_bbd10644",
+      "revId": "21679cdf5edab36533e99d51ffc28c0d490fbd35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82e479b8_d8611f2c",
         "filename": "testing/image_diff/image_diff_png.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "21679cdf5edab36533e99d51ffc28c0d490fbd35",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf02ea0_2b012ece",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 6910
+      },
+      "writtenOn": "2017-11-29T23:13:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82e479b8_d8611f2c",
+      "revId": "21679cdf5edab36533e99d51ffc28c0d490fbd35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
