@@ -113,22 +113,22 @@ pdfium::Optional<float> CXFA_BoxData::GetStartAngle() const {
   if (!m_pNode)
     return {};
 
-  pdfium::Optional<CXFA_Measurement> measure =
-      m_pNode->JSNode()->TryMeasure(XFA_Attribute::StartAngle, false);
-  if (!measure)
+  pdfium::Optional<int32_t> degrees =
+      m_pNode->JSNode()->TryInteger(XFA_Attribute::StartAngle, false);
+  if (!degrees)
     return {};
-  return {measure->GetValue()};
+  return {*degrees};
 }
 
 pdfium::Optional<float> CXFA_BoxData::GetSweepAngle() const {
   if (!m_pNode)
     return {};
 
-  pdfium::Optional<CXFA_Measurement> measure =
-      m_pNode->JSNode()->TryMeasure(XFA_Attribute::SweepAngle, false);
-  if (!measure)
+  pdfium::Optional<int32_t> degrees =
+      m_pNode->JSNode()->TryInteger(XFA_Attribute::SweepAngle, false);
+  if (!degrees)
     return {};
-  return {measure->GetValue()};
+  return {*degrees};
 }
 
 CXFA_FillData CXFA_BoxData::GetFillData(bool bModified) const {
