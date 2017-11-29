@@ -1583,8 +1583,9 @@ bool CXFA_ItemLayoutProcessor::ProcessKeepNodesForBreakBefore(
 }
 
 bool XFA_ItemLayoutProcessor_IsTakingSpace(CXFA_Node* pNode) {
-  XFA_ATTRIBUTEENUM ePresence =
-      pNode->JSNode()->GetEnum(XFA_Attribute::Presence);
+  XFA_ATTRIBUTEENUM ePresence = pNode->JSNode()
+                                    ->TryEnum(XFA_Attribute::Presence, true)
+                                    .value_or(XFA_ATTRIBUTEENUM_Visible);
   return ePresence == XFA_ATTRIBUTEENUM_Visible ||
          ePresence == XFA_ATTRIBUTEENUM_Invisible;
 }
