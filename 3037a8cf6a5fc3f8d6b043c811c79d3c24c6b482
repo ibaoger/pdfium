@@ -17,6 +17,47 @@
       "revId": "3037a8cf6a5fc3f8d6b043c811c79d3c24c6b482",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6e12fb_58c1a687",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-29T15:29:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6798dac_b5680f82",
+      "revId": "3037a8cf6a5fc3f8d6b043c811c79d3c24c6b482",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f452ae5a_c208aa34",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-29T15:29:34Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \u003c 0? If text_count is 0, I think we want to return \"\" and I think the following code will handle that correctly, since GetPageText will return \"\" in that case",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 13
+      },
+      "revId": "3037a8cf6a5fc3f8d6b043c811c79d3c24c6b482",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
