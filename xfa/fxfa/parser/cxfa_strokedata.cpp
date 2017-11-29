@@ -11,9 +11,13 @@
 #include "xfa/fxfa/parser/xfa_utils.h"
 
 bool CXFA_StrokeData::IsVisible() const {
-  return m_pNode ? m_pNode->JSNode()->GetEnum(XFA_Attribute::Presence) ==
-                       XFA_ATTRIBUTEENUM_Visible
-                 : false;
+  if (!m_pNode)
+    return false;
+
+  XFA_ATTRIBUTEENUM presence = m_pNode->JSNode()
+                                   ->TryEnum(XFA_Attribute::Presence, true)
+                                   .value_or(XFA_ATTRIBUTEENUM_Visible);
+  return presence == XFA_ATTRIBUTEENUM_Visible;
 }
 
 XFA_ATTRIBUTEENUM CXFA_StrokeData::GetCapType() const {
