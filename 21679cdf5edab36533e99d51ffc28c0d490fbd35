@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f3a1320_bbd10644",
+        "filename": "core/fxcodec/codec/ccodec_pngmodule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-29T22:31:42Z",
+      "side": 1,
+      "message": "Do you know what the deal is with this? And can the #includes be outside of the extern \"C\" block? They are in testing/image_diff/image_diff_png.cpp.",
+      "revId": "21679cdf5edab36533e99d51ffc28c0d490fbd35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82e479b8_d8611f2c",
+        "filename": "testing/image_diff/image_diff_png.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-29T22:31:42Z",
+      "side": 1,
+      "message": "style: Put the conditionals in their own section. e.g.\n\n#include \"third_party/base/logging.h\"\n#include \"third_party/zlib/zlib.h\"\n\n#ifdef USE_SYSTEM_LIBPNG\n#include \u003cpng.h\u003e\n#else\n#include \"third_party/libpng16/png.h\"\n#endif",
+      "revId": "21679cdf5edab36533e99d51ffc28c0d490fbd35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
