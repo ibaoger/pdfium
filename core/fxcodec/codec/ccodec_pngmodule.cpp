@@ -16,7 +16,11 @@
 
 extern "C" {
 #undef FAR
+#ifdef USE_SYSTEM_LIBPNG
+#include <png.h>
+#else
 #include "third_party/libpng16/png.h"
+#endif
 }  // extern "C"
 
 #define PNG_ERROR_SIZE 256

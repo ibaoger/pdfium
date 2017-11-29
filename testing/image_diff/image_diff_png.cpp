@@ -17,7 +17,11 @@
 #include <string>
 
 #include "third_party/base/logging.h"
+#ifdef USE_SYSTEM_LIBPNG
+#include <png.h>
+#else
 #include "third_party/libpng16/png.h"
+#endif
 #include "third_party/zlib/zlib.h"
 
 namespace image_diff_png {
