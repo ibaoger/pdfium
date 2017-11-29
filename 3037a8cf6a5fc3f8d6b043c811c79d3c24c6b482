@@ -58,6 +58,30 @@
       "revId": "3037a8cf6a5fc3f8d6b043c811c79d3c24c6b482",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c38ae367_cd887edd",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-29T18:32:08Z",
+      "side": 1,
+      "message": "Maybe? I\u0027m just refactoring the if-statement and not making any behavior changes:\n\nstart: text_start \u003e text_last\nsubtract text_start from both sides \u003d\u003d\u003e 0 \u003e text_last - text_start\nflip equation \u003d\u003d\u003e text_last - text_start \u003c 0\nadd 1 to both sides \u003d\u003d\u003e text_last - text_start + 1 \u003c 1\nsubstitute variable \u003d\u003d\u003e text_count \u003c 1",
+      "parentUuid": "f452ae5a_c208aa34",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 13
+      },
+      "revId": "3037a8cf6a5fc3f8d6b043c811c79d3c24c6b482",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
