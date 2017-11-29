@@ -244,7 +244,7 @@ pdfium::Optional<WideString> CJX_Node::TryAttribute(XFA_Attribute eAttr,
       if (!value)
         return {};
 
-      return {GetAttributeEnumByID(*value)->pName};
+      return {CXFA_Node::AttributeEnumToName(*value)};
     }
     case XFA_AttributeType::CData:
       return TryCData(eAttr, bUseDefault);
@@ -1755,14 +1755,10 @@ void CJX_Node::Script_Som_Mandatory(CFXJSE_Value* pValue,
     validateData.SetNullTest(pValue->ToWideString());
     return;
   }
-
-  const XFA_ATTRIBUTEENUMINFO* pInfo =
-      GetAttributeEnumByID(validateData.GetNullTest());
-  if (!pInfo) {
-    pValue->SetString("");
-    return;
-  }
-  pValue->SetString(WideString(pInfo->pName).UTF8Encode().AsStringView());
+  pValue->SetString(
+      WideString(CXFA_Node::AttributeEnumToName(validateData.GetNullTest()))
+          .UTF8Encode()
+          .AsStringView());
 }
 
 void CJX_Node::Script_Som_MandatoryMessage(CFXJSE_Value* pValue,
@@ -3202,7 +3198,8 @@ bool CJX_Node::SetValue(XFA_Attribute eAttr,
     case XFA_AttributeType::Enum:
       elem->SetString(
           CXFA_Node::AttributeToName(eAttr),
-          GetAttributeEnumByID((XFA_ATTRIBUTEENUM)(uintptr_t)pValue)->pName);
+          CXFA_Node::AttributeEnumToName(static_cast<XFA_ATTRIBUTEENUM>(
+              reinterpret_cast<uintptr_t>(pValue))));
       break;
     case XFA_AttributeType::Boolean:
       elem->SetString(CXFA_Node::AttributeToName(eAttr), pValue ? L"1" : L"0");
