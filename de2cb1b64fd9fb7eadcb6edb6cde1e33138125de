@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3c800ff9_d76f1384",
+        "filename": "xfa/fxfa/parser/cxfa_accessiblecontent.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-29T15:56:28Z",
+      "side": 1,
+      "message": "No, the type is Integer, so I think it makes more sense to be 0 explicitly.",
+      "parentUuid": "e7faf4db_57e51a7b",
+      "revId": "de2cb1b64fd9fb7eadcb6edb6cde1e33138125de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "99cf03f9_ae7771ff",
         "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "de2cb1b64fd9fb7eadcb6edb6cde1e33138125de",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b76ae9be_2f9d642c",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3578,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-29T15:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99cf03f9_ae7771ff",
+      "revId": "de2cb1b64fd9fb7eadcb6edb6cde1e33138125de",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
