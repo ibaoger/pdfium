@@ -22,6 +22,30 @@
       "revId": "3d6173bfbb636ca98fb3d2f005eaf88032285060",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4252cbd7_a9278429",
+        "filename": "xfa/fxfa/parser/cxfa_measurement.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-29T18:46:39Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it matters. Internally it\u0027s called Angle so this matches the internal name.",
+      "parentUuid": "c38c1021_aa22d0e6",
+      "range": {
+        "startLine": 147,
+        "startChar": 27,
+        "endLine": 147,
+        "endChar": 0
+      },
+      "revId": "3d6173bfbb636ca98fb3d2f005eaf88032285060",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
