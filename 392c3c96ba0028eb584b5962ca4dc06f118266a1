@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d03cf9_8301561f",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T18:08:57Z",
+      "side": 1,
+      "message": "Add a comment saying where 17 comes from.",
+      "range": {
+        "startLine": 614,
+        "startChar": 31,
+        "endLine": 614,
+        "endChar": 0
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39a89474_455c11ff",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T18:08:57Z",
+      "side": 1,
+      "message": "Why twice?",
+      "range": {
+        "startLine": 616,
+        "startChar": 51,
+        "endLine": 616,
+        "endChar": 0
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
