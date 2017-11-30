@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0fab0bb9_7884777e",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T18:04:47Z",
+      "side": 1,
+      "message": "The decision tree for count is complicated:\n- If \u003d\u003d 0, return \"\"\n- If \u003d\u003d -1, return text_buf.Right(text_available)\n- If \u003c\u003d -2, return \"\"\n- If \u003e\u003d 1, actually do the calculation.\n\nIs this intended? Should values \u003c\u003d -2 be filtered out in the first if?",
+      "range": {
+        "startLine": 439,
+        "startChar": 67,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90b5b118_61191647",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 2
@@ -13,6 +36,29 @@
       "writtenOn": "2017-11-30T17:55:38Z",
       "side": 1,
       "message": "nit: braces",
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a971638_11e232db",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T18:04:47Z",
+      "side": 1,
+      "message": "Please add a comment with a brief summary of what the method does and what the params mean while it\u0027s fresh in your head.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 62
+      },
       "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true

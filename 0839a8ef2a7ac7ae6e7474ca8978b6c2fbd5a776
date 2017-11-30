@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fa5f1d9_6b2e7497",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T18:04:47Z",
+      "side": 0,
+      "message": "We don\u0027t need to call this anymore, or do anything that CheckMarkedContentObject does?",
+      "range": {
+        "startLine": 457,
+        "startChar": 2,
+        "endLine": 457,
+        "endChar": 26
+      },
+      "revId": "0839a8ef2a7ac7ae6e7474ca8978b6c2fbd5a776",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
