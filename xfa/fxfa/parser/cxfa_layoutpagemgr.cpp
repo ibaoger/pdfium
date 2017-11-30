@@ -1722,7 +1722,7 @@ void CXFA_LayoutPageMgr::MergePageSetContents() {
     }
     if (!pPendingPageSet) {
       if (pRootPageSetContainerItem->m_pFormNode->GetPacketID() ==
-          XFA_XDPPACKET_Template) {
+          XFA_PacketType::Template) {
         pPendingPageSet =
             pRootPageSetContainerItem->m_pFormNode->CloneTemplateToForm(false);
       } else {
@@ -1738,7 +1738,7 @@ void CXFA_LayoutPageMgr::MergePageSetContents() {
     for (CXFA_ContainerLayoutItem* pContainerItem = iterator.MoveToNext();
          pContainerItem; pContainerItem = iterator.MoveToNext()) {
       CXFA_Node* pNode = pContainerItem->m_pFormNode;
-      if (pNode->GetPacketID() != XFA_XDPPACKET_Template)
+      if (pNode->GetPacketID() != XFA_PacketType::Template)
         continue;
 
       switch (pNode->GetElementType()) {
@@ -1980,7 +1980,7 @@ void CXFA_LayoutPageMgr::PrepareLayout() {
 
   CXFA_ContainerLayoutItem* pRootLayoutItem = m_pPageSetLayoutItemRoot;
   if (pRootLayoutItem &&
-      pRootLayoutItem->m_pFormNode->GetPacketID() == XFA_XDPPACKET_Form) {
+      pRootLayoutItem->m_pFormNode->GetPacketID() == XFA_PacketType::Form) {
     CXFA_Node* pPageSetFormNode = pRootLayoutItem->m_pFormNode;
     pRootLayoutItem->m_pFormNode->GetDocument()->m_pPendingPageSet.clear();
     if (pPageSetFormNode->HasRemovedChildren()) {
