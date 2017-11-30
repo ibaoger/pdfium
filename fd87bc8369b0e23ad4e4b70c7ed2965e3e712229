@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb35016b_7d0e468e",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:45:45Z",
+      "side": 1,
+      "message": "The followup ...",
+      "range": {
+        "startLine": 87,
+        "startChar": 17,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "fd87bc8369b0e23ad4e4b70c7ed2965e3e712229",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
