@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fdd0b33d_1b2dc438",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-30T19:39:48Z",
+      "side": 1,
+      "message": "I have added this into this CL. I have left them as ints, since these values are treated as ints other places, since -1 for an index is meaning. Without switching the type for the indices in this class everywhere, there is some awkward type conversionss.",
+      "parentUuid": "8c293912_9673d4ca",
+      "range": {
+        "startLine": 106,
+        "startChar": 25,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d03cf9_8301561f",
         "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
         "patchSetId": 3
@@ -187,6 +211,30 @@
       "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffbd117a_46809659",
+        "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-30T19:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3475ea7_3e49b002",
+      "range": {
+        "startLine": 616,
+        "startChar": 51,
+        "endLine": 616,
+        "endChar": 0
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }

@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9ed95929_b030a4fe",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-30T19:39:48Z",
+      "side": 1,
+      "message": "Removed the defaults, so simplified this.",
+      "parentUuid": "53e35ab2_072f8bff",
+      "range": {
+        "startLine": 439,
+        "startChar": 67,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b5b118_61191647",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 2
