@@ -104,6 +104,23 @@
       "revId": "1b23d0eff826d6d84ac10a5bda4175caf5f42fc9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f5c7057_2b3754d4",
+        "filename": "xfa/fxfa/parser/cxfa_filldata.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T21:56:02Z",
+      "side": 1,
+      "message": "Too many to fix, but wanted to mention it. As Henrique mentioned on an earlier CL, sometimes it\u0027s shorter to use a variable. e.g. here:\n\n  auto value \u003d m_pNode-\u003eJSNode()-\u003eTryEnum(XFA_Attribute::Presence, true)\n      .value_or(XFA_AttributeEnum::Visible);\n  return value \u003d\u003d XFA_AttributeEnum::Visible;",
+      "revId": "1b23d0eff826d6d84ac10a5bda4175caf5f42fc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
