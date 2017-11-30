@@ -70,6 +70,46 @@
       "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99248f02_6280fc26",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T20:00:42Z",
+      "side": 1,
+      "message": "Sanity check - this won\u0027t go out of bounds due to the Unknown check, right?",
+      "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f86e2c08_7233bb20",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T20:00:42Z",
+      "side": 1,
+      "message": "m_Attributes[i] ? Also line 317.",
+      "range": {
+        "startLine": 300,
+        "startChar": 36,
+        "endLine": 300,
+        "endChar": 52
+      },
+      "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
