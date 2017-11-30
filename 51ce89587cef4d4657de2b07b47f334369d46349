@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e525e870_2d9ba458",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:23:07Z",
+      "side": 1,
+      "message": "AttributeEnumToName actually returns a WideString now,  removed the class wrapper",
+      "parentUuid": "5805888a_0e117a99",
+      "range": {
+        "startLine": 1758,
+        "startChar": 0,
+        "endLine": 1761,
+        "endChar": 27
+      },
+      "revId": "51ce89587cef4d4657de2b07b47f334369d46349",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59d11c07_7725c161",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-30T18:32:29Z",
       "side": 1,
       "message": "This is only false if g_XFAEnumData is nullptr and item is 0 (XFA_ATTRIBUTEENUM_Asterisk). This check seems out of place. Perhaps we want to check if g_XFAEnumData is null instead?",
+      "range": {
+        "startLine": 140,
+        "startChar": 9,
+        "endLine": 140,
+        "endChar": 10
+      },
+      "revId": "51ce89587cef4d4657de2b07b47f334369d46349",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae5e3866_aa605440",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:23:07Z",
+      "side": 1,
+      "message": "I should be checking that item is within bounds.",
+      "parentUuid": "59d11c07_7725c161",
       "range": {
         "startLine": 140,
         "startChar": 9,
