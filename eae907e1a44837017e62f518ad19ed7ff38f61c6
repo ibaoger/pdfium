@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90b5b118_61191647",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T17:55:38Z",
+      "side": 1,
+      "message": "nit: braces",
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee2670a_e7eca5d4",
+        "filename": "fpdfsdk/fpdftext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T17:55:38Z",
+      "side": 1,
+      "message": "left over debugging output",
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
