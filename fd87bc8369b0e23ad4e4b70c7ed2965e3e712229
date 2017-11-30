@@ -22,6 +22,29 @@
       "revId": "fd87bc8369b0e23ad4e4b70c7ed2965e3e712229",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e2a23a_b3e5c95a",
+        "filename": "xfa/fxfa/parser/cxfa_simple_parser.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T20:54:38Z",
+      "side": 1,
+      "message": "Why pass the XFA_PacketType in some calls and not others? I\u0027d split the methods that depend on the type.",
+      "range": {
+        "startLine": 406,
+        "startChar": 6,
+        "endLine": 406,
+        "endChar": 52
+      },
+      "revId": "fd87bc8369b0e23ad4e4b70c7ed2965e3e712229",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
