@@ -436,49 +436,41 @@ void CPDF_TextPage::CheckMarkedContentObject(int32_t& start,
   }
 }
 
-WideString CPDF_TextPage::GetPageText(int start, int nCount) const {
-  if (!m_bIsParsed || nCount == 0)
+WideString CPDF_TextPage::GetPageText(int start, int count) const {
+  if (!m_bIsParsed || count == 0 || m_CharList.empty() ||
+      m_TextBuf.GetLength() == 0) {
     return L"";
+  }
 
   if (start < 0)
     start = 0;
 
-  if (nCount == -1) {
-    nCount = pdfium::CollectionSize<int>(m_CharList) - start;
-    WideStringView wsTextBuf = m_TextBuf.AsStringView();
-    return WideString(wsTextBuf.Right(wsTextBuf.GetLength() - start));
-  }
-  if (nCount <= 0 || m_CharList.empty())
+  int text_start = TextIndexFromCharIndex(start);
+  if (text_start < 0)
     return L"";
-  if (nCount + start > pdfium::CollectionSize<int>(m_CharList) - 1)
-    nCount = pdfium::CollectionSize<int>(m_CharList) - start;
-  if (nCount <= 0)
+
+  WideStringView text_buf = m_TextBuf.AsStringView();
+  int text_available = text_buf.GetLength() - text_start;
+  if (text_available <= 0)
     return L"";
-  CheckMarkedContentObject(start, nCount);
-  int startindex = 0;
-  PAGECHAR_INFO charinfo = m_CharList[start];
-  int startOffset = 0;
-  while (charinfo.m_Index == -1) {
-    startOffset++;
-    if (startOffset > nCount ||
-        start + startOffset >= pdfium::CollectionSize<int>(m_CharList)) {
-      return L"";
-    }
-    charinfo = m_CharList[start + startOffset];
-  }
-  startindex = charinfo.m_Index;
-  charinfo = m_CharList[start + nCount - 1];
-  int nCountOffset = 0;
-  while (charinfo.m_Index == -1) {
-    nCountOffset++;
-    if (nCountOffset >= nCount)
-      return L"";
-    charinfo = m_CharList[start + nCount - nCountOffset - 1];
-  }
-  nCount = start + nCount - nCountOffset - startindex;
-  if (nCount <= 0)
+
+  if (count == -1)
+    return WideString(text_buf.Right(text_available));
+
+  count = std::min(count, CountChars() - start);
+  if (count < 0)
     return L"";
-  return WideString(m_TextBuf.AsStringView().Mid(startindex, nCount));
+
+  int last = start + count - 1;
+  int text_last = TextIndexFromCharIndex(last);
+  if (text_last < 0)
+    return L"";
+
+  int text_count = text_last - text_start + 1;
+  if (text_count <= 0)
+    return L"";
+
+  return WideString(text_buf.Mid(text_start, text_count));
 }
 
 int CPDF_TextPage::CountRects(int start, int nCount) {
