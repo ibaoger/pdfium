@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c0c2b236_94cb358e",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:41:50Z",
+      "side": 1,
+      "message": "Followup, this type gets changed in a following CL ....",
+      "parentUuid": "0c05aa5c_0d9a3e29",
+      "revId": "05aa7e73eedb7aad5a7e8b5c1fc684b2b50015b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "987b7363_f6a2d34f",
         "filename": "xfa/fxfa/parser/cxfa_node.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "04406706_3952eb73",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:41:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "987b7363_f6a2d34f",
+      "revId": "05aa7e73eedb7aad5a7e8b5c1fc684b2b50015b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45070a07_6868555b",
         "filename": "xfa/fxfa/parser/xfa_utils.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-11-30T20:29:56Z",
       "side": 1,
       "message": "Can we use std::lower_bound here?",
+      "revId": "05aa7e73eedb7aad5a7e8b5c1fc684b2b50015b6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8f5a244_4ce03fbb",
+        "filename": "xfa/fxfa/parser/xfa_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T20:41:50Z",
+      "side": 1,
+      "message": "Done in a followup",
+      "parentUuid": "45070a07_6868555b",
       "revId": "05aa7e73eedb7aad5a7e8b5c1fc684b2b50015b6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
