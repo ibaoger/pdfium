@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2ad75eb8_28b52d5d",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T18:21:38Z",
+      "side": 1,
+      "message": "\u003c\u003d ? Otherwise, isn\u0027t this very similar to 457?",
+      "range": {
+        "startLine": 461,
+        "startChar": 12,
+        "endLine": 461,
+        "endChar": 13
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ebf0290_4bd6d569",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T18:21:38Z",
+      "side": 1,
+      "message": "Can we drop the default values? And can we make these size_t values? (Maybe make count a pdfium::Optional\u003csize_t\u003e?)",
+      "range": {
+        "startLine": 106,
+        "startChar": 25,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "392c3c96ba0028eb584b5962ca4dc06f118266a1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20d03cf9_8301561f",
         "filename": "fpdfsdk/fpdftext_embeddertest.cpp",
         "patchSetId": 3
