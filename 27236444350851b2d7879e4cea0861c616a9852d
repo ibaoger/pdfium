@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df102772_9af11edb",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T20:19:59Z",
+      "side": 1,
+      "message": "You already checked count, so this can only be \u003c\u003d 0 if CountChars() \u003c\u003d start, so perhaps check that instead.",
+      "range": {
+        "startLine": 455,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 17
+      },
+      "revId": "27236444350851b2d7879e4cea0861c616a9852d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eca2c811_261d1e33",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T20:19:59Z",
+      "side": 1,
+      "message": "This can become part of the if above:\n\nif (text_last \u003c 0 || text_last \u003c text_start)",
+      "range": {
+        "startLine": 464,
+        "startChar": 2,
+        "endLine": 464,
+        "endChar": 22
+      },
+      "revId": "27236444350851b2d7879e4cea0861c616a9852d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
