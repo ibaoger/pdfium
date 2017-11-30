@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c3a7ba9_fbd91803",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T22:01:45Z",
+      "side": 1,
+      "message": "Since this results in returning XFA_AttributeEnum::None anyway, lines 693-697 can be deleted.",
+      "revId": "37f2e61130713872e605f96aa7f803c8344bf949",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe03a115_9aabbe27",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T22:01:45Z",
+      "side": 1,
+      "message": "Flip to !\u003d for an early return and less nesting.",
+      "revId": "37f2e61130713872e605f96aa7f803c8344bf949",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "071fed17_7e87f18c",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_enum.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T22:01:45Z",
+      "side": 1,
+      "message": "BTW, what is this a hash of? Does changing \"1mod10_1mod11\" make a difference?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "37f2e61130713872e605f96aa7f803c8344bf949",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
