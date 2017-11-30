@@ -46,6 +46,30 @@
       "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6056a2e4_ad27e9ad",
+        "filename": "xfa/fxfa/parser/cxfa_decimal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-11-30T16:38:44Z",
+      "side": 1,
+      "message": "I see. They look right to me, I looked a few up and they match.",
+      "parentUuid": "f4b840d8_04112ec5",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
