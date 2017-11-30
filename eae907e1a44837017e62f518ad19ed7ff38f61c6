@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53e35ab2_072f8bff",
+        "filename": "core/fpdftext/cpdf_textpage.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-30T18:26:26Z",
+      "side": 1,
+      "message": "I agree it is complex.\n\nThe current code uses a default of -1 to indicate calculate count for me. I have preserved this behaviour, since other code depends on it and I wanted to limit the scope of this CL. The existing code would return \"\" in the \u003c\u003d -2 case, which I retained also, since a value in this range is likely a programming error not an intentional request for entire string.\n\nMy preference would be to remove the default values and -1 in a follow up CL, thus removing all of this complexity.",
+      "parentUuid": "0fab0bb9_7884777e",
+      "range": {
+        "startLine": 439,
+        "startChar": 67,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90b5b118_61191647",
         "filename": "core/fpdftext/cpdf_textpage.cpp",
         "patchSetId": 2
@@ -80,6 +104,30 @@
       "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c74dbf34_7ee2216a",
+        "filename": "core/fpdftext/cpdf_textpage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7065
+      },
+      "writtenOn": "2017-11-30T18:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a971638_11e232db",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 62
+      },
+      "revId": "eae907e1a44837017e62f518ad19ed7ff38f61c6",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
