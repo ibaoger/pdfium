@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84788a30_968fbb3b",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T21:45:19Z",
+      "side": 1,
+      "message": "Same as below.",
+      "revId": "1b23d0eff826d6d84ac10a5bda4175caf5f42fc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "981b73fa_9323128a",
+        "filename": "xfa/fxfa/cxfa_ffwidget.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T21:45:19Z",
+      "side": 1,
+      "message": "Do these need initialization?",
+      "revId": "1b23d0eff826d6d84ac10a5bda4175caf5f42fc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "197fe4e9_2673174e",
+        "filename": "xfa/fxfa/fxfa_basic.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-11-30T21:45:19Z",
+      "side": 1,
+      "message": "Have we talked about repacking this? I think |eName| before |pName| might help.",
+      "revId": "1b23d0eff826d6d84ac10a5bda4175caf5f42fc9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
