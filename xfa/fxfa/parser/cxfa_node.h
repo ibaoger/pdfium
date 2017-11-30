@@ -84,7 +84,7 @@ class CXFA_Node : public CXFA_Object {
   XFA_Attribute GetAttribute(size_t i) const;
   XFA_AttributeType GetAttributeType(XFA_Attribute type) const;
 
-  uint32_t GetPacketID() const { return m_ePacket; }
+  XFA_XDPPACKET GetPacketID() const { return m_ePacket; }
 
   void SetFlag(uint32_t dwFlag, bool bNotify);
   void ClearFlag(uint32_t dwFlag);
@@ -182,7 +182,7 @@ class CXFA_Node : public CXFA_Object {
 
  protected:
   CXFA_Node(CXFA_Document* pDoc,
-            uint16_t ePacket,
+            XFA_XDPPACKET ePacket,
             uint32_t validPackets,
             XFA_ObjectType oType,
             XFA_Element eType,
@@ -208,7 +208,7 @@ class CXFA_Node : public CXFA_Object {
   CXFA_Node* m_pLastChild;
   CXFA_Node* m_pParent;
   CFX_XMLNode* m_pXMLNode;
-  uint16_t m_ePacket;
+  XFA_XDPPACKET m_ePacket;
   uint16_t m_uNodeFlags;
   uint32_t m_dwNameHash;
   CXFA_Node* m_pAuxNode;
