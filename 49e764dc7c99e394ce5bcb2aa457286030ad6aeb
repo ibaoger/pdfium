@@ -34,6 +34,24 @@
       "revId": "49e764dc7c99e394ce5bcb2aa457286030ad6aeb",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c966df9_6e1c9526",
+        "filename": "xfa/fxfa/parser/cxfa_node_statics.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T21:26:24Z",
+      "side": 1,
+      "message": "It\u0027s not fixed, it\u0027s moved. We do it in once place as I need to verify that the XDPPACKET int32 contains the PacketType. But, it\u0027s done inside cxfa_node IsValidInPacket now. It matches what happens in fxfa_basic.h when we define XDPPACKET.",
+      "parentUuid": "293eef24_a4d09ba3",
+      "revId": "49e764dc7c99e394ce5bcb2aa457286030ad6aeb",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
