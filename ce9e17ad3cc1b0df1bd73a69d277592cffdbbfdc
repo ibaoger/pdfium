@@ -22,6 +22,30 @@
       "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4b840d8_04112ec5",
+        "filename": "xfa/fxfa/parser/cxfa_decimal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-11-30T16:32:10Z",
+      "side": 1,
+      "message": "xfa_basic_data_attributes file. My guess is they pulled them from the XFA spec, but I haven\u0027t gone through and verified they\u0027re all correct yet.",
+      "parentUuid": "3c5a5555_beb74ce5",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "ce9e17ad3cc1b0df1bd73a69d277592cffdbbfdc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
