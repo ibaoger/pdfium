@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1512065796 -0800\nnonce ADEcKBp6I9h+9NwfiuIxtNjsfq6WRff8w4iQODAVGJeIRWaWVmmpBPGid7wqEs1gUsZtTsiM6CNm\n\n0000000000000000000000000000000000000000 1e05fec7a005c3642158ce3663a13f7455f9415b refs/for/refs/heads/master%notify\u003dNONE,m\u003drebase%2C_minimize_change\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaIEsEAAoJEKs2LWFaZv17870IAJnzGQ4hk7tyDXWgPcHzrTjy\n5c/Oug+TIHaAXMudGXed3mZgsQrj2C9xFvdOaWpoTnTFCVn+CJIUSMoCDFHT5RVQ\nkwDAvCaTKYag9kY54uDOR11qK97DgRqE5qo5Jdky9viiBiubFdhoQwPHS9pSTZJx\ntHHoJSDXYAEOlT1eQnPtAnmIZPumQ2Ggk+uq4FKC7B6mnll8Fj+NDC7tTlWjZYAb\n2/dGGGjbN0v7W0c1Hnpr62tnXuKGW2ExsL8Dvqd8kH+fXnneizTBQ+3N0df9mhhw\nUyfdI3ktdEAU965MwLVPia3Dvxq2DRXxpWIy+UhgvYlmDw7rvpUAmnkhesBwL3A\u003d\n\u003dodDn\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
