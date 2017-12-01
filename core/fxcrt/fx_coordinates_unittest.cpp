@@ -4,7 +4,118 @@
 
 #include "core/fxcrt/fx_coordinates.h"
 
+#include <vector>
+
 #include "testing/gtest/include/gtest/gtest.h"
+
+TEST(CFX_FloatRect, GetBBox) {
+  CFX_FloatRect rect = CFX_FloatRect::GetBBox(nullptr, 0);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+
+  std::vector<CFX_PointF> data;
+  data.emplace_back(0, 0);
+  rect = CFX_FloatRect::GetBBox(data.data(), 0);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+  rect = CFX_FloatRect::GetBBox(data.data(), data.size());
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+
+  data.emplace_back(2.5, 6.2);
+  data.emplace_back(1.5, 6.2);
+  rect = CFX_FloatRect::GetBBox(data.data(), 2);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(2.5, rect.right);
+  EXPECT_FLOAT_EQ(6.2, rect.top);
+
+  rect = CFX_FloatRect::GetBBox(data.data(), data.size());
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(2.5, rect.right);
+  EXPECT_FLOAT_EQ(6.2, rect.top);
+
+  data.emplace_back(2.5, 6.3);
+  rect = CFX_FloatRect::GetBBox(data.data(), data.size());
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(2.5, rect.right);
+  EXPECT_FLOAT_EQ(6.3, rect.top);
+
+  data.emplace_back(-3.0, 6.3);
+  rect = CFX_FloatRect::GetBBox(data.data(), data.size());
+  EXPECT_FLOAT_EQ(-3.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(2.5, rect.right);
+  EXPECT_FLOAT_EQ(6.3, rect.top);
+
+  data.emplace_back(4.0, -8.0);
+  rect = CFX_FloatRect::GetBBox(data.data(), data.size());
+  EXPECT_FLOAT_EQ(-3.0, rect.left);
+  EXPECT_FLOAT_EQ(-8.0, rect.bottom);
+  EXPECT_FLOAT_EQ(4.0, rect.right);
+  EXPECT_FLOAT_EQ(6.3, rect.top);
+}
+
+TEST(CFX_FloatRect, Scale) {
+  CFX_FloatRect rect(-1, -3, 4.5, 3.2);
+  rect.Scale(1);
+  EXPECT_FLOAT_EQ(-1.0, rect.left);
+  EXPECT_FLOAT_EQ(-3.0, rect.bottom);
+  EXPECT_FLOAT_EQ(4.5, rect.right);
+  EXPECT_FLOAT_EQ(3.2, rect.top);
+  rect.Scale(0.5);
+  EXPECT_FLOAT_EQ(0.375, rect.left);
+  EXPECT_FLOAT_EQ(-1.45, rect.bottom);
+  EXPECT_FLOAT_EQ(3.125, rect.right);
+  EXPECT_FLOAT_EQ(1.65, rect.top);
+  rect.Scale(2);
+  EXPECT_FLOAT_EQ(-1.0, rect.left);
+  EXPECT_FLOAT_EQ(-3.0, rect.bottom);
+  EXPECT_FLOAT_EQ(4.5, rect.right);
+  EXPECT_FLOAT_EQ(3.2, rect.top);
+  rect.Scale(-1);
+  EXPECT_FLOAT_EQ(4.5, rect.left);
+  EXPECT_FLOAT_EQ(3.2, rect.bottom);
+  EXPECT_FLOAT_EQ(-1.0, rect.right);
+  EXPECT_FLOAT_EQ(-3.0, rect.top);
+  rect.Scale(0);
+  EXPECT_FLOAT_EQ(1.75, rect.left);
+  EXPECT_NEAR(0.1, rect.bottom, 0.001f);
+  EXPECT_FLOAT_EQ(1.75, rect.right);
+  EXPECT_NEAR(0.1, rect.top, 0.001f);
+}
+
+TEST(CFX_FloatRect, ScaleEmpty) {
+  CFX_FloatRect rect;
+  rect.Scale(1);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+  rect.Scale(0.5);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+  rect.Scale(2);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+  rect.Scale(0);
+  EXPECT_FLOAT_EQ(0.0, rect.left);
+  EXPECT_FLOAT_EQ(0.0, rect.bottom);
+  EXPECT_FLOAT_EQ(0.0, rect.right);
+  EXPECT_FLOAT_EQ(0.0, rect.top);
+}
 
 TEST(CFX_Matrix, ReverseIdentity) {
   CFX_Matrix m;
@@ -25,7 +136,7 @@ TEST(CFX_Matrix, ReverseIdentity) {
 }
 
 TEST(CFX_Matrix, Reverse) {
-  float data[6] = {3, 0, 2, 3, 1, 4};
+  static constexpr float data[6] = {3, 0, 2, 3, 1, 4};
   CFX_Matrix m(data);
   CFX_Matrix rev = m.GetInverse();
 
@@ -45,8 +156,8 @@ TEST(CFX_Matrix, Reverse) {
 // Note, I think these are a bug and the matrix should be the identity.
 TEST(CFX_Matrix, ReverseCR702041) {
   // The determinate is < std::numeric_limits<float>::epsilon()
-  float data[6] = {0.947368443f, -0.108947366f, -0.923076928f,
-                   0.106153846f, 18.0f,         787.929993f};
+  static constexpr float data[6] = {0.947368443f, -0.108947366f, -0.923076928f,
+                                    0.106153846f, 18.0f,         787.929993f};
   CFX_Matrix m(data);
   CFX_Matrix rev = m.GetInverse();
 
@@ -66,7 +177,8 @@ TEST(CFX_Matrix, ReverseCR702041) {
 
 TEST(CFX_Matrix, ReverseCR714187) {
   // The determinate is < std::numeric_limits<float>::epsilon()
-  float data[6] = {0.000037f, 0.0f, 0.0f, -0.000037f, 182.413101f, 136.977646f};
+  static constexpr float data[6] = {0.000037f,  0.0f,        0.0f,
+                                    -0.000037f, 182.413101f, 136.977646f};
   CFX_Matrix m(data);
   CFX_Matrix rev = m.GetInverse();
 
