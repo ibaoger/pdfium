@@ -22,14 +22,14 @@
 
 namespace {
 
-WideString PropFromV8Prop(v8::Local<v8::String> property) {
+WideString PropFromV8Prop(v8::Local<v8::Name> property) {
   v8::String::Utf8Value utf8_value(property);
   return WideString::FromUTF8(ByteStringView(*utf8_value, utf8_value.length()));
 }
 
 template <class Alt>
 void JSSpecialPropQuery(const char*,
-                        v8::Local<v8::String> property,
+                        v8::Local<v8::Name> property,
                         const v8::PropertyCallbackInfo<v8::Integer>& info) {
   CJS_Runtime* pRuntime =
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
@@ -48,7 +48,7 @@ void JSSpecialPropQuery(const char*,
 
 template <class Alt>
 void JSSpecialPropGet(const char* class_name,
-                      v8::Local<v8::String> property,
+                      v8::Local<v8::Name> property,
                       const v8::PropertyCallbackInfo<v8::Value>& info) {
   CJS_Runtime* pRuntime =
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
@@ -75,7 +75,7 @@ void JSSpecialPropGet(const char* class_name,
 
 template <class Alt>
 void JSSpecialPropPut(const char* class_name,
-                      v8::Local<v8::String> property,
+                      v8::Local<v8::Name> property,
                       v8::Local<v8::Value> value,
                       const v8::PropertyCallbackInfo<v8::Value>& info) {
   CJS_Runtime* pRuntime =
@@ -99,7 +99,7 @@ void JSSpecialPropPut(const char* class_name,
 
 template <class Alt>
 void JSSpecialPropDel(const char* class_name,
-                      v8::Local<v8::String> property,
+                      v8::Local<v8::Name> property,
                       const v8::PropertyCallbackInfo<v8::Boolean>& info) {
   CJS_Runtime* pRuntime =
       CJS_Runtime::CurrentRuntimeFromIsolate(info.GetIsolate());
@@ -188,21 +188,21 @@ void CJS_Global::setPersistent_static(
 
 // static
 void CJS_Global::queryprop_static(
-    v8::Local<v8::String> property,
+    v8::Local<v8::Name> property,
     const v8::PropertyCallbackInfo<v8::Integer>& info) {
   JSSpecialPropQuery<JSGlobalAlternate>("global", property, info);
 }
 
 // static
 void CJS_Global::getprop_static(
-    v8::Local<v8::String> property,
+    v8::Local<v8::Name> property,
     const v8::PropertyCallbackInfo<v8::Value>& info) {
   JSSpecialPropGet<JSGlobalAlternate>("global", property, info);
 }
 
 // static
 void CJS_Global::putprop_static(
-    v8::Local<v8::String> property,
+    v8::Local<v8::Name> property,
     v8::Local<v8::Value> value,
     const v8::PropertyCallbackInfo<v8::Value>& info) {
   JSSpecialPropPut<JSGlobalAlternate>("global", property, value, info);
@@ -210,7 +210,7 @@ void CJS_Global::putprop_static(
 
 // static
 void CJS_Global::delprop_static(
-    v8::Local<v8::String> property,
+    v8::Local<v8::Name> property,
     const v8::PropertyCallbackInfo<v8::Boolean>& info) {
   JSSpecialPropDel<JSGlobalAlternate>("global", property, info);
 }

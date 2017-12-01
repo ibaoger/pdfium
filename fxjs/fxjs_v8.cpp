@@ -328,16 +328,18 @@ void CFXJS_Engine::DefineObjProperty(int nObjDefnID,
 
 void CFXJS_Engine::DefineObjAllProperties(
     int nObjDefnID,
-    v8::NamedPropertyQueryCallback pPropQurey,
-    v8::NamedPropertyGetterCallback pPropGet,
-    v8::NamedPropertySetterCallback pPropPut,
-    v8::NamedPropertyDeleterCallback pPropDel) {
+    v8::GenericNamedPropertyQueryCallback pPropQuery,
+    v8::GenericNamedPropertyGetterCallback pPropGet,
+    v8::GenericNamedPropertySetterCallback pPropPut,
+    v8::GenericNamedPropertyDeleterCallback pPropDel) {
   v8::Isolate::Scope isolate_scope(m_isolate);
   v8::HandleScope handle_scope(m_isolate);
   CFXJS_ObjDefinition* pObjDef =
       CFXJS_ObjDefinition::ForID(m_isolate, nObjDefnID);
-  pObjDef->GetInstanceTemplate()->SetNamedPropertyHandler(pPropGet, pPropPut,
-                                                          pPropQurey, pPropDel);
+  v8::NamedPropertyHandlerConfiguration handlerConfig(
+      pPropGet, pPropPut, pPropQuery, pPropDel, nullptr, v8::Local<v8::Value>(),
+      v8::PropertyHandlerFlags::kOnlyInterceptStrings);
+  pObjDef->GetInstanceTemplate()->SetHandler(handlerConfig);
 }
 
 void CFXJS_Engine::DefineObjConst(int nObjDefnID,
