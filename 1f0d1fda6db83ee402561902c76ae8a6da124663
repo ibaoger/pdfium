@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a45a5f1a_20385828",
+        "filename": "core/fpdfapi/font/cpdf_type3font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-01T20:16:49Z",
+      "side": 0,
+      "message": "smart pointers.",
+      "revId": "1f0d1fda6db83ee402561902c76ae8a6da124663",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
