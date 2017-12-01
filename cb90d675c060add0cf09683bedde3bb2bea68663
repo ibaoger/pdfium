@@ -23,6 +23,30 @@
       "revId": "cb90d675c060add0cf09683bedde3bb2bea68663",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594e27e3_c14e2f73",
+        "filename": "core/fpdfapi/font/cpdf_type3char.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-01T15:51:15Z",
+      "side": 1,
+      "message": "1000 glyph units \u003d 1 text unit. I\u0027ll do this is a follow-up CL, as there are more of these conversions in font code.",
+      "parentUuid": "f700f688_6be905bc",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 1
+      },
+      "revId": "cb90d675c060add0cf09683bedde3bb2bea68663",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
