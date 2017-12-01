@@ -301,12 +301,7 @@ bool XFA_RecognizeRichText(CFX_XMLElement* pRichTextXMLNode) {
 
 CXFA_SimpleParser::CXFA_SimpleParser(CXFA_Document* pFactory,
                                      bool bDocumentParser)
-    : m_pXMLParser(nullptr),
-      m_pFactory(pFactory),
-      m_pRootNode(nullptr),
-      m_ePacketID(XFA_PacketType::User),
-      m_bParseStarted(false),
-      m_bDocumentParser(bDocumentParser) {}
+    : m_pFactory(pFactory), m_bDocumentParser(bDocumentParser) {}
 
 CXFA_SimpleParser::~CXFA_SimpleParser() {}
 
