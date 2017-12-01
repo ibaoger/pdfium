@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25bfcd8b_e504df0c",
+        "filename": "core/fxcodec/jbig2/JBig2_SddProc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-01T18:47:40Z",
+      "side": 0,
+      "message": "I believe order may matter here, as these conditions are not necessarily mutually exclusive.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 52
+      },
+      "revId": "f65f1d398804ec4702a3de691398902a0347461c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
