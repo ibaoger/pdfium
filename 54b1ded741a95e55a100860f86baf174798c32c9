@@ -22,6 +22,30 @@
       "revId": "54b1ded741a95e55a100860f86baf174798c32c9",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2abb58_b2a5b46e",
+        "filename": "core/fxcodec/jbig2/JBig2_ArithIntDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2017-12-01T21:29:28Z",
+      "side": 1,
+      "message": "No, complete means it has finished decoding and should not DECODE any more. See all other uses, for example\nhttps://cs.chromium.org/chromium/src/third_party/pdfium/core/fxcodec/jbig2/JBig2_GrdProc.cpp?q\u003dIsComplete+file:%5Esrc/third_party/pdfium/+package:%5Echromium$\u0026l\u003d89",
+      "parentUuid": "0897029b_2889dfa8",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "54b1ded741a95e55a100860f86baf174798c32c9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
