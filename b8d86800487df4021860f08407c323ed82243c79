@@ -34,6 +34,24 @@
       "revId": "b8d86800487df4021860f08407c323ed82243c79",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc8cf61_fba255f6",
+        "filename": "core/fxcrt/fx_coordinates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-04T19:54:51Z",
+      "side": 0,
+      "message": "Ack. Just making sure I\u0027m not missing something.",
+      "parentUuid": "eb0463a9_64b3b7e6",
+      "revId": "b8d86800487df4021860f08407c323ed82243c79",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
