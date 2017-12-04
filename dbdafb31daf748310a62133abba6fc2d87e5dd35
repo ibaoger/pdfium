@@ -71,6 +71,30 @@
       "revId": "dbdafb31daf748310a62133abba6fc2d87e5dd35",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed34f234_14b00fb2",
+        "filename": "core/fxcrt/fx_coordinates.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-04T20:03:21Z",
+      "side": 1,
+      "message": "Done. Let me know if it\u0027s ok. As an example of the issue I\u0027m referring to, take a look at https://pdfium-review.googlesource.com/12312",
+      "parentUuid": "ca646132_073594a0",
+      "range": {
+        "startLine": 250,
+        "startChar": 11,
+        "endLine": 250,
+        "endChar": 14
+      },
+      "revId": "dbdafb31daf748310a62133abba6fc2d87e5dd35",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
