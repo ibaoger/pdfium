@@ -247,6 +247,7 @@ class CFX_FloatRect {
   void Intersect(const CFX_FloatRect& other_rect);
   void Union(const CFX_FloatRect& other_rect);
 
+  // These may be better at rounding than ToFxRect() and friends.
   FX_RECT GetInnerRect() const;
   FX_RECT GetOuterRect() const;
   FX_RECT GetClosestRect() const;
@@ -329,6 +330,7 @@ class CFX_FloatRect {
   void Scale(float fScale);
   void ScaleFromCenterPoint(float fScale);
 
+  // GetInnerRect() and friends may be better at rounding than these methods.
   FX_RECT ToFxRect() const;
   FX_RECT ToRoundedFxRect() const;
 
