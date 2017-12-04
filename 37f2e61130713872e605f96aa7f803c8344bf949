@@ -56,6 +56,30 @@
       "revId": "37f2e61130713872e605f96aa7f803c8344bf949",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e050f447_6018baa1",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_enum.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-04T15:33:26Z",
+      "side": 1,
+      "message": "doh, it would make a difference when we write the attribute back out. Over greedy sed change.",
+      "parentUuid": "071fed17_7e87f18c",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "37f2e61130713872e605f96aa7f803c8344bf949",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
