@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "449890b5_ea9f2295",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-04T19:30:22Z",
+      "side": 1,
+      "message": "Maybe just move this into the default case?",
+      "revId": "f0c4fe280c9d0ac479c7b78d59ca30566257f236",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad320184_3e50bfef",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-04T19:30:22Z",
+      "side": 1,
+      "message": "And move this to line 726 in place of the break?",
+      "revId": "f0c4fe280c9d0ac479c7b78d59ca30566257f236",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
