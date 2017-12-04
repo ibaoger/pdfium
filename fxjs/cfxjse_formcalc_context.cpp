@@ -5853,8 +5853,7 @@ void CFXJSE_FormCalcContext::GetObjectDefaultValue(
     pDefaultValue->SetNull();
     return;
   }
-  pNode->JSNode()->Script_Som_DefaultValue(pDefaultValue, false,
-                                           XFA_Attribute::Unknown);
+  pNode->JSNode()->Script_Som_DefaultValue(pDefaultValue, false);
 }
 
 // static
@@ -5864,8 +5863,7 @@ bool CFXJSE_FormCalcContext::SetObjectDefaultValue(CFXJSE_Value* pValue,
   if (!pNode)
     return false;
 
-  pNode->JSNode()->Script_Som_DefaultValue(hNewValue, true,
-                                           XFA_Attribute::Unknown);
+  pNode->JSNode()->Script_Som_DefaultValue(hNewValue, true);
   return true;
 }
 

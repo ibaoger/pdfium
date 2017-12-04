@@ -1382,22 +1382,21 @@ void CJX_Node::Script_Field_Length(CFXJSE_Value* pValue,
   pValue->SetInteger(pWidgetData->CountChoiceListItems(true));
 }
 
-void CJX_Node::Script_Som_DefaultValue(CFXJSE_Value* pValue,
-                                       bool bSetting,
-                                       XFA_Attribute eAttribute) {
+void CJX_Node::Script_Som_DefaultValue(CFXJSE_Value* pValue, bool bSetting) {
   XFA_Element eType = GetXFANode()->GetElementType();
   if (eType == XFA_Element::Field) {
-    Script_Field_DefaultValue(pValue, bSetting, eAttribute);
+    Script_Field_DefaultValue(pValue, bSetting, XFA_Attribute::Unknown);
     return;
   }
   if (eType == XFA_Element::Draw) {
-    Script_Draw_DefaultValue(pValue, bSetting, eAttribute);
+    Script_Draw_DefaultValue(pValue, bSetting, XFA_Attribute::Unknown);
     return;
   }
   if (eType == XFA_Element::Boolean) {
-    Script_Boolean_Value(pValue, bSetting, eAttribute);
+    Script_Boolean_Value(pValue, bSetting, XFA_Attribute::Unknown);
     return;
   }
+
   if (bSetting) {
     WideString wsNewValue;
     if (pValue && !(pValue->IsNull() || pValue->IsUndefined()))

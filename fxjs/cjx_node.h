@@ -243,9 +243,7 @@ class CJX_Node : public CJX_Object {
   void Script_Field_Length(CFXJSE_Value* pValue,
                            bool bSetting,
                            XFA_Attribute eAttribute);
-  void Script_Som_DefaultValue(CFXJSE_Value* pValue,
-                               bool bSetting,
-                               XFA_Attribute eAttribute);
+  void Script_Som_DefaultValue(CFXJSE_Value* pValue, bool bSetting);
   void Script_Som_DefaultValue_Read(CFXJSE_Value* pValue,
                                     bool bSetting,
                                     XFA_Attribute eAttribute);
