@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1512301234 -0800\nnonce ADEcKBp36la122uepSLCwYAYbO3sRz4pMUWTp7s+6vcpJ/2VSS3ZXVJvqZNyBuqvMjOiUhGKuXj9\n\n0000000000000000000000000000000000000000 7179e498cf9389259a1cf802fcb9c1a698b19c5c refs/for/refs/heads/master%wip,m\u003dInitial_upload\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaI+KyAAoJEKs2LWFaZv17VGsIAKdHPPCluBy74McPCvjC32da\n5LGYRi8P1cBnzx+6RHyOVXdeyTbN+2EmSDIpz4z//RIBSoim1H47ZlQS34rPxMwr\n3BZunIqOf0pj/wVrpsTWRblgPrzQMBBEnG9h3J2koQ20R5CD5qXASqJ/As97Rqwl\nwgaKwvG0qsAgF3ztP8zuXAVKCxL2LPfcUvZnB2HpIb2m+80Pn+Zu9b+CkjpN76ML\nQ7i1IdmX4s4tbI5NihLr79IQ94B/+iM1ol5SsggKJLMqbmP2bNqMByBAv69DiRk5\nnGhPdLnyi8NJ+4NthiX7FiI7XncZ/QkUfFaszioTTBh1nYBbkBBHqPyGXRTdUOg\u003d\n\u003d3S3y\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a753795_5173d0ca",
+        "filename": "core/fxge/dib/cfx_imagetransformer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-04T14:59:28Z",
+      "side": 1,
+      "message": "nit early return?",
+      "revId": "7179e498cf9389259a1cf802fcb9c1a698b19c5c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
