@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3f856c2_65b73fd1",
+        "filename": "fxjs/cfxjse_formcalc_context.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6009,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-04T18:51:43Z",
+      "side": 1,
+      "message": "Put this in a local outside the for to make the line less convoluted.",
+      "range": {
+        "startLine": 6009,
+        "startChar": 6,
+        "endLine": 6009,
+        "endChar": 61
+      },
+      "revId": "f586c45d3ba7023a64335e22e1542bfdda16a6b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ac5a44e_acfc3013",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-04T18:51:43Z",
+      "side": 1,
+      "message": "Put this in a local outside the for to make the line less convoluted.",
+      "range": {
+        "startLine": 490,
+        "startChar": 8,
+        "endLine": 490,
+        "endChar": 63
+      },
+      "revId": "f586c45d3ba7023a64335e22e1542bfdda16a6b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
