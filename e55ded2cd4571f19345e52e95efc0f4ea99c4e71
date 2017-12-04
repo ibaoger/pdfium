@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fe48ddd_43177ea6",
+        "filename": "fxjs/cfxjse_engine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-04T16:56:55Z",
+      "side": 1,
+      "message": "The {default} value for all attributes calls Script_Som_DefaultValue with an XFA_Attribute::Unknown so we can simplify this to call directly.",
+      "range": {
+        "startLine": 384,
+        "startChar": 29,
+        "endLine": 384,
+        "endChar": 55
+      },
+      "revId": "e55ded2cd4571f19345e52e95efc0f4ea99c4e71",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
