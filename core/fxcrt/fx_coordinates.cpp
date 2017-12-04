@@ -108,32 +108,29 @@ void CFX_FloatRect::Union(const CFX_FloatRect& other_rect) {
 }
 
 FX_RECT CFX_FloatRect::GetOuterRect() const {
-  CFX_FloatRect rect1 = *this;
   FX_RECT rect;
-  rect.left = static_cast<int>(floor(rect1.left));
-  rect.bottom = static_cast<int>(ceil(rect1.top));
-  rect.right = static_cast<int>(ceil(rect1.right));
-  rect.top = static_cast<int>(floor(rect1.bottom));
+  rect.left = static_cast<int>(floor(left));
+  rect.bottom = static_cast<int>(ceil(top));
+  rect.right = static_cast<int>(ceil(right));
+  rect.top = static_cast<int>(floor(bottom));
   rect.Normalize();
   return rect;
 }
 
 FX_RECT CFX_FloatRect::GetInnerRect() const {
-  CFX_FloatRect rect1 = *this;
   FX_RECT rect;
-  rect.left = static_cast<int>(ceil(rect1.left));
-  rect.bottom = static_cast<int>(floor(rect1.top));
-  rect.right = static_cast<int>(floor(rect1.right));
-  rect.top = static_cast<int>(ceil(rect1.bottom));
+  rect.left = static_cast<int>(ceil(left));
+  rect.bottom = static_cast<int>(floor(top));
+  rect.right = static_cast<int>(floor(right));
+  rect.top = static_cast<int>(ceil(bottom));
   rect.Normalize();
   return rect;
 }
 
 FX_RECT CFX_FloatRect::GetClosestRect() const {
-  CFX_FloatRect rect1 = *this;
   FX_RECT rect;
-  MatchFloatRange(rect1.left, rect1.right, &rect.left, &rect.right);
-  MatchFloatRange(rect1.bottom, rect1.top, &rect.top, &rect.bottom);
+  MatchFloatRange(left, right, &rect.left, &rect.right);
+  MatchFloatRange(bottom, top, &rect.top, &rect.bottom);
   rect.Normalize();
   return rect;
 }
