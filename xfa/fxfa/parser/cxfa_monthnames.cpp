@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_monthnames.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::Month, 12, 0},
@@ -26,6 +29,7 @@ CXFA_MonthNames::CXFA_MonthNames(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::MonthNames,
                 kPropertyData,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_MonthNames::~CXFA_MonthNames() {}

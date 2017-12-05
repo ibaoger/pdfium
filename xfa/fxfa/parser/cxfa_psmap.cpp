@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_psmap.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 constexpr wchar_t kName[] = L"psMap";
@@ -20,6 +23,7 @@ CXFA_PsMap::CXFA_PsMap(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::PsMap,
                 nullptr,
                 nullptr,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_PsMap::~CXFA_PsMap() {}

@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_numbersymbol.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -25,6 +28,7 @@ CXFA_NumberSymbol::CXFA_NumberSymbol(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::NumberSymbol,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_NumberSymbol::~CXFA_NumberSymbol() {}
