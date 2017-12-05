@@ -71,8 +71,7 @@ uint16_t FPDFAPI_CIDFromCharCode(const FXCMAP_CMap* pMap, uint32_t charcode) {
   ASSERT(pMap);
   if (charcode >> 16) {
     while (pMap) {
-      if (pMap->m_DWordMapType == FXCMAP_CMap::Range) {
-        ASSERT(pMap->m_pDWordMap);
+      if (pMap->m_pDWordMap) {
         auto* found = static_cast<FXCMAP_DWordCIDMap*>(
             bsearch(&charcode, pMap->m_pDWordMap, pMap->m_DWordCount,
                     sizeof(FXCMAP_DWordCIDMap), compareDWordRange));
@@ -80,9 +79,6 @@ uint16_t FPDFAPI_CIDFromCharCode(const FXCMAP_CMap* pMap, uint32_t charcode) {
           return found->m_CID + static_cast<uint16_t>(charcode) -
                  found->m_LoWordLow;
         }
-      } else {
-        ASSERT(pMap->m_DWordMapType == FXCMAP_CMap::None);
-        ASSERT(!pMap->m_pDWordMap);
       }
       pMap = FindNextCMap(pMap);
     }
