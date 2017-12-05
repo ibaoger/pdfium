@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_appearancefilter.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -29,6 +32,7 @@ CXFA_AppearanceFilter::CXFA_AppearanceFilter(CXFA_Document* doc,
                 XFA_Element::AppearanceFilter,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_AppearanceFilter::~CXFA_AppearanceFilter() {}

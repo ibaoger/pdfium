@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_currencysymbol.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -26,6 +29,7 @@ CXFA_CurrencySymbol::CXFA_CurrencySymbol(CXFA_Document* doc,
                 XFA_Element::CurrencySymbol,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_CurrencySymbol::~CXFA_CurrencySymbol() {}

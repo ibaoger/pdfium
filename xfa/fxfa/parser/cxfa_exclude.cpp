@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_exclude.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -25,6 +28,7 @@ CXFA_Exclude::CXFA_Exclude(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Exclude,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Exclude::~CXFA_Exclude() {}

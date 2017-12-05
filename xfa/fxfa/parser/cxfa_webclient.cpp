@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_webclient.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::FontInfo, 1, 0},
@@ -29,6 +32,7 @@ CXFA_WebClient::CXFA_WebClient(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::WebClient,
                 kPropertyData,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_WebClient::~CXFA_WebClient() {}

@@ -7,6 +7,7 @@
 #ifndef FXJS_CJX_LOGPSEUDOMODEL_H_
 #define FXJS_CJX_LOGPSEUDOMODEL_H_
 
+#include "fxjs/CJX_Define.h"
 #include "fxjs/cjx_object.h"
 
 class CFXJSE_Arguments;
@@ -18,11 +19,18 @@ class CJX_LogPseudoModel : public CJX_Object {
   explicit CJX_LogPseudoModel(CScript_LogPseudoModel* model);
   ~CJX_LogPseudoModel() override;
 
-  void Message(CFXJSE_Arguments* pArguments);
-  void TraceEnabled(CFXJSE_Arguments* pArguments);
-  void TraceActivate(CFXJSE_Arguments* pArguments);
-  void TraceDeactivate(CFXJSE_Arguments* pArguments);
-  void Trace(CFXJSE_Arguments* pArguments);
+  // CJX_Object
+  bool HasMethod(const WideString& func) const override;
+  void RunMethod(const WideString& func, CFXJSE_Arguments* args) override;
+
+  JS_METHOD(message, CJX_LogPseudoModel);
+  JS_METHOD(traceEnabled, CJX_LogPseudoModel);
+  JS_METHOD(traceActivate, CJX_LogPseudoModel);
+  JS_METHOD(traceDeactivate, CJX_LogPseudoModel);
+  JS_METHOD(trace, CJX_LogPseudoModel);
+
+ private:
+  static const CJX_MethodSpec MethodSpecs[];
 };
 
 #endif  // FXJS_CJX_LOGPSEUDOMODEL_H_

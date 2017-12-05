@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_era.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 constexpr wchar_t kName[] = L"era";
@@ -20,6 +23,7 @@ CXFA_Era::CXFA_Era(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Era,
                 nullptr,
                 nullptr,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Era::~CXFA_Era() {}

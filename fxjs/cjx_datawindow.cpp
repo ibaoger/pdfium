@@ -10,18 +10,37 @@
 #include "fxjs/cfxjse_value.h"
 #include "xfa/fxfa/parser/cscript_datawindow.h"
 
+const CJX_MethodSpec CJX_DataWindow::MethodSpecs[] = {
+    {"gotoRecord", gotoRecord_static},
+    {"isRecordGroup", isRecordGroup_static},
+    {"moveCurrentRecord", moveCurrentRecord_static},
+    {"record", record_static},
+    {"", nullptr}};
+
 CJX_DataWindow::CJX_DataWindow(CScript_DataWindow* window)
     : CJX_Object(window) {}
 
 CJX_DataWindow::~CJX_DataWindow() {}
 
-void CJX_DataWindow::MoveCurrentRecord(CFXJSE_Arguments* pArguments) {}
+bool CJX_DataWindow::HasMethod(const WideString& func) const {
+  if (HasMethodFromSpecs(MethodSpecs, func))
+    return true;
+  return CJX_Object::HasMethod(func);
+}
 
-void CJX_DataWindow::Record(CFXJSE_Arguments* pArguments) {}
+void CJX_DataWindow::RunMethod(const WideString& func, CFXJSE_Arguments* args) {
+  if (RunMethodFromSpecs(MethodSpecs, func, args))
+    return;
+  CJX_Object::RunMethod(func, args);
+}
 
-void CJX_DataWindow::GotoRecord(CFXJSE_Arguments* pArguments) {}
+void CJX_DataWindow::moveCurrentRecord(CFXJSE_Arguments* pArguments) {}
 
-void CJX_DataWindow::IsRecordGroup(CFXJSE_Arguments* pArguments) {}
+void CJX_DataWindow::record(CFXJSE_Arguments* pArguments) {}
+
+void CJX_DataWindow::gotoRecord(CFXJSE_Arguments* pArguments) {}
+
+void CJX_DataWindow::isRecordGroup(CFXJSE_Arguments* pArguments) {}
 
 void CJX_DataWindow::RecordsBefore(CFXJSE_Value* pValue,
                                    bool bSetting,

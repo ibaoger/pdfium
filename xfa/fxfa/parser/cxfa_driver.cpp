@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_driver.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::FontInfo, 1, 0},
@@ -29,6 +32,7 @@ CXFA_Driver::CXFA_Driver(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Driver,
                 kPropertyData,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Driver::~CXFA_Driver() {}
