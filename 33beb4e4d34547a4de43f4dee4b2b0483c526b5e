@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32f1daeb_a5c5f44c",
+        "filename": "fxjs/cjx_hostpseudomodel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-05T20:52:48Z",
+      "side": 0,
+      "message": "This doesn\u0027t exist in the spec, removed.",
+      "range": {
+        "startLine": 682,
+        "startChar": 23,
+        "endLine": 682,
+        "endChar": 49
+      },
+      "revId": "33beb4e4d34547a4de43f4dee4b2b0483c526b5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
