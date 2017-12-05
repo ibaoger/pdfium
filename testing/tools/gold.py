@@ -60,6 +60,15 @@ class GoldBaseline(object):
     self._properties = _ParseKeyValuePairs(properties_str)
     self._baselines = self._LoadSkiaGoldBaselines()
 
+  def GetCl(self):
+    return self._properties.get('issue')
+
+  def GetBuilder(self):
+    return self._properties.get('builder')
+
+  def GetPatchset(self):
+    return self._properties.get('patchset')
+
   def _LoadSkiaGoldBaselines(self):
     """
     Download the baseline json and return a list of the two baselines that
@@ -88,7 +97,7 @@ class GoldBaseline(object):
              % (GOLD_BASELINE_URL, e))
       return None
 
-    cl_number_str = self._properties.get('issue')
+    cl_number_str = self.GetCl()
     if cl_number_str is None:
       return [master_baseline]
 
