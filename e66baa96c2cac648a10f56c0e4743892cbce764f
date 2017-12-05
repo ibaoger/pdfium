@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "910821b7_64881e63",
+        "filename": "fxjs/CJX_Define.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "Can we remove the capital letters from this file, and include it in BUILD.gn?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "009966b4_9e6040af",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "Would it be better for HasMethodFromSpecs() and RunMethodFromSpecs() to take a size_t for the array size, and drop the sentinel value from all the MethodSpecs?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed023780_8424aaea",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "This look identical to CJX_LayoutPseudoModel::HasMethod() and other HasMethod() impls. Any way we can combine them?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7239d2d8_1561be16",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "Should these keep the first letter capitalized? I see other files with H() -\u003e h() or X() -\u003e x(). What\u0027s better overall?",
+      "range": {
+        "startLine": 37,
+        "startChar": 21,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6e8b216_eb9a69ca",
+        "filename": "fxjs/cjx_datawindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "nit: Add a colon after.",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a82d7e04_8939cb8a",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-05T22:59:35Z",
+      "side": 1,
+      "message": "Is this the same all the derived classes? If so, can we just allocate it inside CXFA_Node\u0027s ctor?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
