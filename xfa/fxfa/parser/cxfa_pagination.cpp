@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_pagination.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -25,6 +28,7 @@ CXFA_Pagination::CXFA_Pagination(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Pagination,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Pagination::~CXFA_Pagination() {}

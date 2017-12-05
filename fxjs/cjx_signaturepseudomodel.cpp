@@ -10,13 +10,33 @@
 #include "fxjs/cfxjse_value.h"
 #include "xfa/fxfa/parser/cscript_signaturepseudomodel.h"
 
+const CJX_MethodSpec CJX_SignaturePseudoModel::MethodSpecs[] = {
+    {"verify", verifySignature_static},
+    {"sign", sign_static},
+    {"enumerate", enumerate_static},
+    {"clear", clear_static},
+    {"", nullptr}};
+
 CJX_SignaturePseudoModel::CJX_SignaturePseudoModel(
     CScript_SignaturePseudoModel* model)
     : CJX_Object(model) {}
 
 CJX_SignaturePseudoModel::~CJX_SignaturePseudoModel() {}
 
-void CJX_SignaturePseudoModel::Verify(CFXJSE_Arguments* pArguments) {
+bool CJX_SignaturePseudoModel::HasMethod(const WideString& func) const {
+  if (HasMethodFromSpecs(MethodSpecs, func))
+    return true;
+  return CJX_Object::HasMethod(func);
+}
+
+void CJX_SignaturePseudoModel::RunMethod(const WideString& func,
+                                         CFXJSE_Arguments* args) {
+  if (RunMethodFromSpecs(MethodSpecs, func, args))
+    return;
+  CJX_Object::RunMethod(func, args);
+}
+
+void CJX_SignaturePseudoModel::verifySignature(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 1 || iLength > 4) {
     ThrowParamCountMismatchException(L"verify");
@@ -28,7 +48,7 @@ void CJX_SignaturePseudoModel::Verify(CFXJSE_Arguments* pArguments) {
     pValue->SetInteger(0);
 }
 
-void CJX_SignaturePseudoModel::Sign(CFXJSE_Arguments* pArguments) {
+void CJX_SignaturePseudoModel::sign(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 3 || iLength > 7) {
     ThrowParamCountMismatchException(L"sign");
@@ -40,7 +60,7 @@ void CJX_SignaturePseudoModel::Sign(CFXJSE_Arguments* pArguments) {
     pValue->SetBoolean(false);
 }
 
-void CJX_SignaturePseudoModel::Enumerate(CFXJSE_Arguments* pArguments) {
+void CJX_SignaturePseudoModel::enumerate(CFXJSE_Arguments* pArguments) {
   if (pArguments->GetLength() != 0) {
     ThrowParamCountMismatchException(L"enumerate");
     return;
@@ -48,7 +68,7 @@ void CJX_SignaturePseudoModel::Enumerate(CFXJSE_Arguments* pArguments) {
   return;
 }
 
-void CJX_SignaturePseudoModel::Clear(CFXJSE_Arguments* pArguments) {
+void CJX_SignaturePseudoModel::clear(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 1 || iLength > 2) {
     ThrowParamCountMismatchException(L"clear");

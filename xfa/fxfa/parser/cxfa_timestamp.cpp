@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_timestamp.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -29,6 +32,7 @@ CXFA_TimeStamp::CXFA_TimeStamp(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::TimeStamp,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_TimeStamp::~CXFA_TimeStamp() {}

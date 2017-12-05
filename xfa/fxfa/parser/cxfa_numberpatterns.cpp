@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_numberpatterns.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {
@@ -25,6 +28,7 @@ CXFA_NumberPatterns::CXFA_NumberPatterns(CXFA_Document* doc,
                 XFA_Element::NumberPatterns,
                 kPropertyData,
                 nullptr,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_NumberPatterns::~CXFA_NumberPatterns() {}

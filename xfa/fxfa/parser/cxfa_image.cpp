@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_image.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -33,6 +36,7 @@ CXFA_Image::CXFA_Image(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Image,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Image::~CXFA_Image() {}

@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_amd.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {
@@ -25,6 +28,7 @@ CXFA_Amd::CXFA_Amd(CXFA_Document* doc, XFA_PacketType packet)
                 XFA_Element::Amd,
                 nullptr,
                 kAttributeData,
-                kName) {}
+                kName,
+                pdfium::MakeUnique<CJX_Node>(this)) {}
 
 CXFA_Amd::~CXFA_Amd() {}
