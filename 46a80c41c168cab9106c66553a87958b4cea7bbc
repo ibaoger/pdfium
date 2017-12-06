@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "975a1ccf_7a8d9a85",
+        "filename": "core/fxge/win32/cfx_psrenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:51:07Z",
+      "side": 1,
+      "message": "Grr, can you do a quick grep for Format and see if I missed any more? Wish that was a compile error.",
+      "range": {
+        "startLine": 679,
+        "startChar": 21,
+        "endLine": 679,
+        "endChar": 39
+      },
+      "revId": "46a80c41c168cab9106c66553a87958b4cea7bbc",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
