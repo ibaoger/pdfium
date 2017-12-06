@@ -36,6 +36,80 @@
     },
     {
       "key": {
+        "uuid": "14762ebc_c34e218a",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "This can be scoped to the for-loop on line 1518.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c58abd74_6222db9b",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "Are there constants for these?",
+      "range": {
+        "startLine": 1562,
+        "startChar": 20,
+        "endLine": 1562,
+        "endChar": 21
+      },
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22afae04_46f6ed39",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "How about a switch statement?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f292d401_1e3a2c38",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "%ls (as seen in rharrison\u0027s outgoing CL)",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "396aa4f6_fc0840a6",
         "filename": "fxjs/cjx_object.cpp",
         "patchSetId": 7
@@ -47,6 +121,57 @@
       "writtenOn": "2017-12-06T21:43:23Z",
       "side": 1,
       "message": "Move into anonymous namespace?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c2282ea_28b37553",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "pdfium::ContainsKey()",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f48694_0d2b2729",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "Can\u0027t remember if I asked about this in another CL. All the SetFoo() methods always return true?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "716f18cd_fadff93c",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:51:59Z",
+      "side": 1,
+      "message": "NOTREACHED()",
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
