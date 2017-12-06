@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa4b9b9b_2d03a184",
+        "filename": "fxjs/CJX_Define.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:50:08Z",
+      "side": 1,
+      "message": "I\u0027ll add it to build.gn. I\u0027ll do a followup to rename this and JS_Define at the same time. It was named to match that file.",
+      "parentUuid": "910821b7_64881e63",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "009966b4_9e6040af",
         "filename": "fxjs/cjx_datawindow.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-05T22:59:35Z",
       "side": 1,
       "message": "Would it be better for HasMethodFromSpecs() and RunMethodFromSpecs() to take a size_t for the array size, and drop the sentinel value from all the MethodSpecs?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5945c3f_957bdb41",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:50:08Z",
+      "side": 1,
+      "message": "Maybe? I\u0027m going to leave this way until after i figure out the HasMethod issue.",
+      "parentUuid": "009966b4_9e6040af",
       "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "88242346_fdea40b8",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:50:08Z",
+      "side": 1,
+      "message": "They are very similar, except for the call to the base class on line 28. That changes depending on the parent. Same with RunMethod below.\n\nOne thing I could try is passing the MethdSpecs into the constructors in the in CJX_Object storing a vector\u003cconst MethodSpec*\u003e objects that I reverse iterate over in CJX_Object::HasMethod and ::RunMethod, then these overrides can be removed.",
+      "parentUuid": "ed023780_8424aaea",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7239d2d8_1561be16",
         "filename": "fxjs/cjx_datawindow.cpp",
         "patchSetId": 3
@@ -64,6 +118,30 @@
       "writtenOn": "2017-12-05T22:59:35Z",
       "side": 1,
       "message": "Should these keep the first letter capitalized? I see other files with H() -\u003e h() or X() -\u003e x(). What\u0027s better overall?",
+      "range": {
+        "startLine": 37,
+        "startChar": 21,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5823a780_8867c539",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:50:08Z",
+      "side": 1,
+      "message": "I like the lowercase here because then the method name matches the method name in the spec.",
+      "parentUuid": "7239d2d8_1561be16",
       "range": {
         "startLine": 37,
         "startChar": 21,
@@ -104,6 +182,24 @@
       "writtenOn": "2017-12-05T22:59:35Z",
       "side": 1,
       "message": "Is this the same all the derived classes? If so, can we just allocate it inside CXFA_Node\u0027s ctor?",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a84154a1_bb3d04db",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T00:50:08Z",
+      "side": 1,
+      "message": "No, it can be different per object depends on if it has custom methods and how the parent is defined as in the JS docs.",
+      "parentUuid": "a82d7e04_8939cb8a",
       "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
