@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_proto.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 constexpr wchar_t kName[] = L"proto";

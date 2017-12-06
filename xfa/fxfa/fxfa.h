@@ -18,7 +18,7 @@ class CXFA_Graphics;
 class CPDF_Document;
 class CXFA_FFPageView;
 class CXFA_Node;
-class CXFA_NodeList;
+class CXFA_TreeList;
 class CXFA_WidgetAcc;
 class IFWL_AdapterTimerMgr;
 class IFX_SeekableReadStream;

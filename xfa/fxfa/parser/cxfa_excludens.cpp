@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_excludens.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::AttributeData kAttributeData[] = {

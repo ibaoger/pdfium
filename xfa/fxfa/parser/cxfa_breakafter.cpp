@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_breakafter.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::Script, 1, 0},

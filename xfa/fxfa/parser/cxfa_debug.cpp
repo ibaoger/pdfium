@@ -6,6 +6,9 @@
 
 #include "xfa/fxfa/parser/cxfa_debug.h"
 
+#include "fxjs/cjx_node.h"
+#include "third_party/base/ptr_util.h"
+
 namespace {
 
 const CXFA_Node::PropertyData kPropertyData[] = {{XFA_Element::Uri, 1, 0},
