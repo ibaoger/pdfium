@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "e0ef20f5_1c1d360f",
+        "filename": "core/fpdfapi/font/cpdf_type1font.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T19:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b171f2dc_8293100c",
+      "revId": "547b97c04dbdb900019cc0a05930145e5cf90cb9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9349dc69_17e67b24",
         "filename": "core/fpdfapi/font/cpdf_type1font.cpp",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2017-12-06T03:10:04Z",
       "side": 1,
       "message": "Why 0 \u003d\u003d ? Most other places seem to be \u003d\u003d 0? (a few of these above as well)",
+      "range": {
+        "startLine": 292,
+        "startChar": 7,
+        "endLine": 292,
+        "endChar": 12
+      },
+      "revId": "547b97c04dbdb900019cc0a05930145e5cf90cb9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "753c4975_3bdbc3e6",
+        "filename": "core/fpdfapi/font/cpdf_type1font.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T19:38:26Z",
+      "side": 1,
+      "message": "Before I had !foo, but I reverted and just left them as they were. Flipped all of them.",
+      "parentUuid": "9349dc69_17e67b24",
       "range": {
         "startLine": 292,
         "startChar": 7,
