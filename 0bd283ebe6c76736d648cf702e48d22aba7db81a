@@ -20,6 +20,24 @@
     },
     {
       "key": {
+        "uuid": "81e3f195_7f183e07",
+        "filename": "core/fpdfapi/font/cpdf_type1font.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T02:25:06Z",
+      "side": 1,
+      "message": "I guess I\u0027ll put these back, as\n\ngit grep \u0027strcmp(.* \u003d\u003d 0\u0027|wc -l\n\nbeats\n\ngit grep \u0027!strcmp(\u0027|wc -l\n\n3:1.",
+      "parentUuid": "952710b2_a2bf0dba",
+      "revId": "0bd283ebe6c76736d648cf702e48d22aba7db81a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4c8bbec_c4fcdbfb",
         "filename": "core/fpdfapi/font/cpdf_type1font.cpp",
         "patchSetId": 1
