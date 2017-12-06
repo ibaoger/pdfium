@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "33189df6_9fadddfa",
+        "filename": "fxjs/cjx_datawindow.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:53:28Z",
+      "side": 1,
+      "message": "This way matches what we do in non-XFA JS. If we want to support Jumbo I\u0027d prefer to do the fix for both XFA and non-XFA JS at the same time.",
+      "parentUuid": "9c154ecb_a07148c0",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14762ebc_c34e218a",
         "filename": "fxjs/cjx_node.cpp",
         "patchSetId": 7
@@ -588,6 +606,24 @@
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8625becd_7fc9496c",
+        "filename": "xfa/fxfa/parser/cxfa_list.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:53:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97c6383d_3accda7b",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {

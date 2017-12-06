@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "a30bb5e3_02002980",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:53:28Z",
+      "side": 1,
+      "message": "Doing it with the nullptr matches the non-XFA JS code (more-so with the latest CL as they both call DefineMethods) so I\u0027d prefer to keep it this way and change both later if we decide we want a count instead of a sentinel.",
+      "parentUuid": "4c795423_b1f5eab1",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed023780_8424aaea",
         "filename": "fxjs/cjx_datawindow.cpp",
         "patchSetId": 3
