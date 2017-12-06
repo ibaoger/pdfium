@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ada88d7f_5b5b0bad",
+        "filename": "xfa/fgas/font/cfgas_fontmgr.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T22:13:13Z",
+      "side": 1,
+      "message": "nit: needs braces now.",
+      "revId": "11506300e6a64de2aaba2abbea23d69b98627412",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
