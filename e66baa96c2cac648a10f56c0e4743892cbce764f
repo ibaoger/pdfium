@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "e715df96_609a21d0",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T02:34:18Z",
+      "side": 1,
+      "message": "Ah, I see CJX_Node::RunMethod() calls CJX_Tree::RunMethod() instead of CJX_Object::HasMethod(). There are too many changes in this CL, so it\u0027s hard to find all the differences.\n\nMaybe you could also design the class hierarchy in a way such that all the ones that call CJX_Object::HasMethod() share an abstract parent class that just implements HasMethod() / RunMethod() ?",
+      "parentUuid": "88242346_fdea40b8",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7239d2d8_1561be16",
         "filename": "fxjs/cjx_datawindow.cpp",
         "patchSetId": 3
@@ -142,6 +160,30 @@
       "side": 1,
       "message": "I like the lowercase here because then the method name matches the method name in the spec.",
       "parentUuid": "7239d2d8_1561be16",
+      "range": {
+        "startLine": 37,
+        "startChar": 21,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd3bed3_8f63c181",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T02:34:18Z",
+      "side": 1,
+      "message": "What do you think about having a \"Method_\" prefix? e.g. Method_x().",
+      "parentUuid": "5823a780_8867c539",
       "range": {
         "startLine": 37,
         "startChar": 21,
@@ -200,6 +242,24 @@
       "side": 1,
       "message": "No, it can be different per object depends on if it has custom methods and how the parent is defined as in the JS docs.",
       "parentUuid": "a82d7e04_8939cb8a",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53fbe3b_6df12ed5",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T02:34:18Z",
+      "side": 1,
+      "message": "Can we have keep this ctor, but also add a second ctor without this argument that delegates to this one?",
+      "parentUuid": "a84154a1_bb3d04db",
       "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
