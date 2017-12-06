@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7cd6ae83_c02db6f8",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T03:13:42Z",
+      "side": 1,
+      "message": "Do you mean have it fallthrough? We can return ContentArea in here as well as None. I think using fallthrough with the switch above would be more confusing?",
+      "parentUuid": "449890b5_ea9f2295",
+      "revId": "f0c4fe280c9d0ac479c7b78d59ca30566257f236",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad320184_3e50bfef",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 1
