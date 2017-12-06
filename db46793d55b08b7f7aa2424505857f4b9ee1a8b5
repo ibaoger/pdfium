@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "36c59712_ca393a7c",
+        "filename": "fxjs/cjx_signaturepseudomodel.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Because the method name is \u0027verify\u0027 but I have to name it verifySignature because OSX exposes a verify macro which causes bad things to happen when you build. There is another instance where I renamed delete to deleteItem.",
+      "parentUuid": "5d47514d_4bc202d1",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "adfa3ba1_daea4fe7",
         "filename": "fxjs/xfa/cjx_container.cpp",
         "patchSetId": 7
@@ -56,6 +80,24 @@
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8d61ced_fa34f161",
+        "filename": "fxjs/xfa/cjx_container.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "adfa3ba1_daea4fe7",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "9817758c_8e60adb6",
+        "filename": "fxjs/xfa/cjx_content.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "It\u0027s defined in the JS docs so it\u0027s used for inheritance. It will have properties assigned to it eventually.",
+      "parentUuid": "e1758247_f3b8b949",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a2ce810_7a90ffa2",
         "filename": "fxjs/xfa/cjx_delta.h",
         "patchSetId": 7
@@ -104,6 +164,24 @@
       "writtenOn": "2017-12-06T21:30:16Z",
       "side": 1,
       "message": "It\u0027s not obvious this is needed with the JS_METHOD macro. WDYT about a JS_METHOD_FORWARD_DECLARE macro up here?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f009b223_741e59db",
+        "filename": "fxjs/xfa/cjx_delta.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "This will be going away so leaving for now. I\u0027d prefer less macros to more.",
+      "parentUuid": "7a2ce810_7a90ffa2",
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -127,6 +205,24 @@
     },
     {
       "key": {
+        "uuid": "1ebe99b0_02611188",
+        "filename": "fxjs/xfa/cjx_exclgroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Leaving for now, this is copied from the original. Is fixed in a followup.",
+      "parentUuid": "afe4e018_79520784",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d102efb4_3e22ab02",
         "filename": "fxjs/xfa/cjx_exclgroup.cpp",
         "patchSetId": 7
@@ -138,6 +234,24 @@
       "writtenOn": "2017-12-06T21:30:16Z",
       "side": 1,
       "message": "Merge with previous line.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30a656a3_f9e73a2a",
+        "filename": "fxjs/xfa/cjx_exclgroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Will be going away in future CL.",
+      "parentUuid": "d102efb4_3e22ab02",
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
@@ -161,6 +275,24 @@
     },
     {
       "key": {
+        "uuid": "6c37951f_24e57e72",
+        "filename": "fxjs/xfa/cjx_textnode.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d2844cc3_2f182537",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e8f8de6_a0ca1dcd",
         "filename": "fxjs/xfa/cjx_tree.h",
         "patchSetId": 7
@@ -178,6 +310,24 @@
     },
     {
       "key": {
+        "uuid": "8a1ac306_2b01d318",
+        "filename": "fxjs/xfa/cjx_tree.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Yes, because they match the property names.",
+      "parentUuid": "7e8f8de6_a0ca1dcd",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a84b0c8_9b0fea08",
         "filename": "fxjs/xfa/cjx_tree.h",
         "patchSetId": 7
@@ -189,6 +339,24 @@
       "writtenOn": "2017-12-06T21:30:16Z",
       "side": 1,
       "message": "Should this be const ref?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1f4bfa5_b6e9d6b9",
+        "filename": "fxjs/xfa/cjx_tree.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T21:39:57Z",
+      "side": 1,
+      "message": "Possibly, leaving for a followup as it\u0027s existing code.",
+      "parentUuid": "4a84b0c8_9b0fea08",
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
