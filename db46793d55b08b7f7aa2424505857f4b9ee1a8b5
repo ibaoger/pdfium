@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "9c154ecb_a07148c0",
+        "filename": "fxjs/cjx_datawindow.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:43:23Z",
+      "side": 1,
+      "message": "Do these have to be private + static? Can we move them into the .cpp files in an anonymous namespace instead? If you think ahead for jumbo build support, then don\u0027t name them all |MethodSpecs|. i.e. This should be kDataWindowMethodSpecs.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "396aa4f6_fc0840a6",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:43:23Z",
+      "side": 1,
+      "message": "Move into anonymous namespace?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d47514d_4bc202d1",
         "filename": "fxjs/cjx_signaturepseudomodel.h",
         "patchSetId": 7
@@ -328,6 +362,24 @@
     },
     {
       "key": {
+        "uuid": "90e71504_7d99bbfe",
+        "filename": "fxjs/xfa/cjx_tree.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:43:23Z",
+      "side": 1,
+      "message": "Right, I forgot some methods aren\u0027t defined with JS_METHOD.",
+      "parentUuid": "8a1ac306_2b01d318",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a84b0c8_9b0fea08",
         "filename": "fxjs/xfa/cjx_tree.h",
         "patchSetId": 7
@@ -363,6 +415,23 @@
     },
     {
       "key": {
+        "uuid": "fd74d49c_c0326ce8",
+        "filename": "xfa/fxfa/fxfa.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:43:23Z",
+      "side": 1,
+      "message": "Probably not needed at all?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9a09e39_0620deb9",
         "filename": "xfa/fxfa/parser/cxfa_list.cpp",
         "patchSetId": 7
@@ -374,6 +443,23 @@
       "writtenOn": "2017-12-06T21:30:16Z",
       "side": 1,
       "message": "Accidental change?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c6383d_3accda7b",
+        "filename": "xfa/fxfa/parser/cxfa_list.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:43:23Z",
+      "side": 1,
+      "message": "size_t someday?",
       "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
