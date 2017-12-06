@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "49f5cf2e_f7c73479",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T19:30:01Z",
+      "side": 1,
+      "message": "I mean move this return to line 695 in place of the break statement.",
+      "parentUuid": "7cd6ae83_c02db6f8",
+      "revId": "f0c4fe280c9d0ac479c7b78d59ca30566257f236",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad320184_3e50bfef",
         "filename": "xfa/fxfa/parser/cxfa_node.cpp",
         "patchSetId": 1
