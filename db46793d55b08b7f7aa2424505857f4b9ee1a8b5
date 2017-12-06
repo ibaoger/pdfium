@@ -1,0 +1,248 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1050c150_a7265aeb",
+        "filename": "fxjs/cfxjse_engine.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "Comment slightly out of date.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d47514d_4bc202d1",
+        "filename": "fxjs/cjx_signaturepseudomodel.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "This one gets a comment?",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adfa3ba1_daea4fe7",
+        "filename": "fxjs/xfa/cjx_container.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "unique_ptr someday?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0812436e_1586d69c",
+        "filename": "fxjs/xfa/cjx_container.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "#include not needed. Same in others.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1758247_f3b8b949",
+        "filename": "fxjs/xfa/cjx_content.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "This class feels not useful.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2ce810_7a90ffa2",
+        "filename": "fxjs/xfa/cjx_delta.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "It\u0027s not obvious this is needed with the JS_METHOD macro. WDYT about a JS_METHOD_FORWARD_DECLARE macro up here?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe4e018_79520784",
+        "filename": "fxjs/xfa/cjx_exclgroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "just: iRet !\u003d XFA_EVENTERROR_Error\n\nMost \"false : true\" or \"true : false\" code can be simplified away.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d102efb4_3e22ab02",
+        "filename": "fxjs/xfa/cjx_exclgroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "Merge with previous line.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2844cc3_2f182537",
+        "filename": "fxjs/xfa/cjx_textnode.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "Another class that\u0027s empty.",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e8f8de6_a0ca1dcd",
+        "filename": "fxjs/xfa/cjx_tree.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "So these methods are also namedLikeThis()?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a84b0c8_9b0fea08",
+        "filename": "fxjs/xfa/cjx_tree.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "Should this be const ref?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9a09e39_0620deb9",
+        "filename": "xfa/fxfa/parser/cxfa_list.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "Accidental change?",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "200a6749_9763701a",
+        "filename": "xfa/fxfa/parser/cxfa_object.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "nit: no braces",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2281ed48_f415590d",
+        "filename": "xfa/fxfa/parser/cxfa_treelist.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-06T21:30:16Z",
+      "side": 1,
+      "message": "2017",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
