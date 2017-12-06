@@ -49,6 +49,24 @@ int32_t FilterName(const WideStringView& wsExpression,
 
 }  // namespace
 
+const CJX_MethodSpec CJX_HostPseudoModel::MethodSpecs[] = {
+    {"beep", beep_static},
+    {"documentCountInBatch", documentCountInBatch_static},
+    {"documentInBatch", documentInBatch_static},
+    {"exportData", exportData_static},
+    {"getFocus", getFocus_static},
+    {"gotoURL", gotoURL_static},
+    {"importData", importData_static},
+    {"messageBox", messageBox_static},
+    {"openList", openList_static},
+    {"pageDown", pageDown_static},
+    {"pageUp", pageUp_static},
+    {"print", print_static},
+    {"resetData", resetData_static},
+    {"response", response_static},
+    {"setFocus", setFocus_static},
+    {"", nullptr}};
+
 CJX_HostPseudoModel::CJX_HostPseudoModel(CScript_HostPseudoModel* model)
     : CJX_Object(model) {}
 
@@ -229,7 +247,7 @@ void CJX_HostPseudoModel::Name(CFXJSE_Value* pValue,
       pNotify->GetAppProvider()->GetAppName().UTF8Encode().AsStringView());
 }
 
-void CJX_HostPseudoModel::GotoURL(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::gotoURL(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -252,7 +270,7 @@ void CJX_HostPseudoModel::GotoURL(CFXJSE_Arguments* pArguments) {
   pNotify->GetDocEnvironment()->GotoURL(hDoc, wsURL);
 }
 
-void CJX_HostPseudoModel::OpenList(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::openList(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -306,7 +324,7 @@ void CJX_HostPseudoModel::OpenList(CFXJSE_Arguments* pArguments) {
   pNotify->OpenDropDownList(hWidget);
 }
 
-void CJX_HostPseudoModel::Response(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::response(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 1 || iLength > 4) {
     ThrowParamCountMismatchException(L"response");
@@ -344,12 +362,12 @@ void CJX_HostPseudoModel::Response(CFXJSE_Arguments* pArguments) {
     pValue->SetString(wsAnswer.UTF8Encode().AsStringView());
 }
 
-void CJX_HostPseudoModel::DocumentInBatch(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::documentInBatch(CFXJSE_Arguments* pArguments) {
   if (CFXJSE_Value* pValue = pArguments->GetReturnValue())
     pValue->SetInteger(0);
 }
 
-void CJX_HostPseudoModel::ResetData(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::resetData(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 0 || iLength > 1) {
     ThrowParamCountMismatchException(L"resetData");
@@ -399,7 +417,7 @@ void CJX_HostPseudoModel::ResetData(CFXJSE_Arguments* pArguments) {
     pNotify->ResetData();
 }
 
-void CJX_HostPseudoModel::Beep(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::beep(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -420,7 +438,7 @@ void CJX_HostPseudoModel::Beep(CFXJSE_Arguments* pArguments) {
   pNotify->GetAppProvider()->Beep(dwType);
 }
 
-void CJX_HostPseudoModel::SetFocus(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::setFocus(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -463,7 +481,7 @@ void CJX_HostPseudoModel::SetFocus(CFXJSE_Arguments* pArguments) {
   pNotify->SetFocusWidgetNode(pNode);
 }
 
-void CJX_HostPseudoModel::GetFocus(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::getFocus(CFXJSE_Arguments* pArguments) {
   CXFA_FFNotify* pNotify = GetDocument()->GetNotify();
   if (!pNotify)
     return;
@@ -476,7 +494,7 @@ void CJX_HostPseudoModel::GetFocus(CFXJSE_Arguments* pArguments) {
       GetDocument()->GetScriptContext()->GetJSValueFromMap(pNode));
 }
 
-void CJX_HostPseudoModel::MessageBox(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::messageBox(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -541,12 +559,12 @@ bool CJX_HostPseudoModel::ValidateArgsForMsg(CFXJSE_Arguments* pArguments,
   return true;
 }
 
-void CJX_HostPseudoModel::DocumentCountInBatch(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::documentCountInBatch(CFXJSE_Arguments* pArguments) {
   if (CFXJSE_Value* pValue = pArguments->GetReturnValue())
     pValue->SetInteger(0);
 }
 
-void CJX_HostPseudoModel::Print(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::print(CFXJSE_Arguments* pArguments) {
   if (!GetDocument()->GetScriptContext()->IsRunAtClient())
     return;
 
@@ -611,7 +629,7 @@ void CJX_HostPseudoModel::Print(CFXJSE_Arguments* pArguments) {
   pNotify->GetDocEnvironment()->Print(hDoc, nStartPage, nEndPage, dwOptions);
 }
 
-void CJX_HostPseudoModel::ImportData(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::importData(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 0 || iLength > 1) {
     ThrowParamCountMismatchException(L"importData");
@@ -620,7 +638,7 @@ void CJX_HostPseudoModel::ImportData(CFXJSE_Arguments* pArguments) {
   // Not implemented.
 }
 
-void CJX_HostPseudoModel::ExportData(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::exportData(CFXJSE_Arguments* pArguments) {
   int32_t iLength = pArguments->GetLength();
   if (iLength < 0 || iLength > 2) {
     ThrowParamCountMismatchException(L"exportData");
@@ -644,7 +662,7 @@ void CJX_HostPseudoModel::ExportData(CFXJSE_Arguments* pArguments) {
   pNotify->GetDocEnvironment()->ExportData(hDoc, wsFilePath, bXDP);
 }
 
-void CJX_HostPseudoModel::PageUp(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::pageUp(CFXJSE_Arguments* pArguments) {
   CXFA_FFNotify* pNotify = GetDocument()->GetNotify();
   if (!pNotify)
     return;
@@ -659,7 +677,7 @@ void CJX_HostPseudoModel::PageUp(CFXJSE_Arguments* pArguments) {
   pNotify->GetDocEnvironment()->SetCurrentPage(hDoc, nNewPage);
 }
 
-void CJX_HostPseudoModel::PageDown(CFXJSE_Arguments* pArguments) {
+void CJX_HostPseudoModel::pageDown(CFXJSE_Arguments* pArguments) {
   CXFA_FFNotify* pNotify = GetDocument()->GetNotify();
   if (!pNotify)
     return;
@@ -677,15 +695,4 @@ void CJX_HostPseudoModel::PageDown(CFXJSE_Arguments* pArguments) {
     nNewPage = nCurPage + 1;
 
   pNotify->GetDocEnvironment()->SetCurrentPage(hDoc, nNewPage);
-}
-
-void CJX_HostPseudoModel::CurrentDateTime(CFXJSE_Arguments* pArguments) {
-  CXFA_FFNotify* pNotify = GetDocument()->GetNotify();
-  if (!pNotify)
-    return;
-
-  WideString wsDataTime = pNotify->GetCurrentDateTime();
-  CFXJSE_Value* pValue = pArguments->GetReturnValue();
-  if (pValue)
-    pValue->SetString(wsDataTime.UTF8Encode().AsStringView());
 }
