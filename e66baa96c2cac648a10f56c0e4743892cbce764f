@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "d500fc8a_b450a2e0",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T03:08:24Z",
+      "side": 1,
+      "message": "That\u0027s what I\u0027m suggesting above, the trick is, each level of parent can have methods that we have to be able to call up to which is why we need a list of MethodSpecs that we can collect in to CJX_Object. CJX_Object is the ultimate parent of all of the CJX_* classes.\n\nIf we have a vector of {CJX_Object::MethodSpecs, CJX_Tree::MethodSpecs, CJX_DataWindow::MethodSpecs} I can walk that list in reverse in CJX_Object to find the method. Or we push all of those methods into a map, since there should be no duplicate names in a given hierarchy but building the map is more work, but would give faster lookup.",
+      "parentUuid": "e715df96_609a21d0",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7239d2d8_1561be16",
         "filename": "fxjs/cjx_datawindow.cpp",
         "patchSetId": 3
@@ -184,6 +202,30 @@
       "side": 1,
       "message": "What do you think about having a \"Method_\" prefix? e.g. Method_x().",
       "parentUuid": "5823a780_8867c539",
+      "range": {
+        "startLine": 37,
+        "startChar": 21,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa268a10_3833b464",
+        "filename": "fxjs/cjx_datawindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T03:08:24Z",
+      "side": 1,
+      "message": "Using the lower case names matches what we do in CJS already. I\u0027d prefer to keep this as ::moveCurrentRecord and then, if we decide to change, do both CJX and CJS together.  I\u0027m hoping to get CJX and CJS to look more like each other as time moves on (I\u0027m working on a CL to change the params from void(CFXJSE_Arguments*) to CJS_Return(CJX_V8*, std::vector\u003cv8::...\u003e))",
+      "parentUuid": "3cd3bed3_8f63c181",
       "range": {
         "startLine": 37,
         "startChar": 21,
@@ -260,6 +302,24 @@
       "side": 1,
       "message": "Can we have keep this ctor, but also add a second ctor without this argument that delegates to this one?",
       "parentUuid": "a84154a1_bb3d04db",
+      "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ded0eb7_8dd3f4c6",
+        "filename": "xfa/fxfa/parser/cxfa_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-06T03:08:24Z",
+      "side": 1,
+      "message": "Sure, is that to just minimize the changes to CXFA_*? I should be able to build the smarts into the generation script to skip the param if it\u0027s CJX_Node.",
+      "parentUuid": "e53fbe3b_6df12ed5",
       "revId": "e66baa96c2cac648a10f56c0e4743892cbce764f",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
