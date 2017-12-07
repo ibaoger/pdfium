@@ -32,10 +32,11 @@ class ByteString {
   using const_iterator = const CharType*;
   using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-  static ByteString FormatInteger(int i);
-  static ByteString FormatFloat(float f);
-  static ByteString Format(const char* lpszFormat, ...);
-  static ByteString FormatV(const char* lpszFormat, va_list argList);
+  static ByteString FormatInteger(int i) WARN_UNUSED_RESULT;
+  static ByteString FormatFloat(float f) WARN_UNUSED_RESULT;
+  static ByteString Format(const char* lpszFormat, ...) WARN_UNUSED_RESULT;
+  static ByteString FormatV(const char* lpszFormat,
+                            va_list argList) WARN_UNUSED_RESULT;
 
   ByteString();
   ByteString(const ByteString& other);
@@ -63,7 +64,7 @@ class ByteString {
 
   void clear() { m_pData.Reset(); }
 
-  static ByteString FromUnicode(const WideString& str);
+  static ByteString FromUnicode(const WideString& str) WARN_UNUSED_RESULT;
 
   // Explicit conversion to C-style string.
   // Note: Any subsequent modification of |this| will invalidate the result.
