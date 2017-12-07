@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b88c66_2863775c",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-07T19:25:20Z",
+      "side": 1,
+      "message": "Is this NOTREACHED() (but needed for MSVC at least)",
+      "revId": "061d03c4e73d124f5359f0a35f7c4eecd784cc1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68a49e14_523f4deb",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-07T19:25:20Z",
+      "side": 1,
+      "message": "More to move into anonymous namespace.",
+      "revId": "061d03c4e73d124f5359f0a35f7c4eecd784cc1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
