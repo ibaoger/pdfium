@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "edf49666_646d6399",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-07T20:03:47Z",
+      "side": 1,
+      "message": "Ah, I removed all the lines with 0 as the flag as we never processed flag 0. There is a patchset after this one where the numbers are changed to an enum class ....",
+      "parentUuid": "548c7c3a_144ab3de",
+      "revId": "db46793d55b08b7f7aa2424505857f4b9ee1a8b5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14762ebc_c34e218a",
         "filename": "fxjs/cjx_node.cpp",
         "patchSetId": 7
