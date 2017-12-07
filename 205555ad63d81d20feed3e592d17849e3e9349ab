@@ -16,6 +16,24 @@
       "revId": "205555ad63d81d20feed3e592d17849e3e9349ab",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5d781d_b6d76aa4",
+        "filename": "core/fxcrt/widestring_unittest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-07T20:38:27Z",
+      "side": 1,
+      "message": "It seems to be \"unsupported char \u0027\"  but it\u0027s not. There\u0027s some hidden character there somewhere.\n\n../../core/fxcrt/widestring_unittest.cpp:1333: Failure\nValue of: wcslen(WideString::Format(L\"unsupported char \u0027%c\u0027\", 0x00FF00FF).c_str())\n  Actual: 19\nExpected: wcslen(L\"unsupported char \u0027\")\nWhich is: 18\n../../core/fxcrt/widestring_unittest.cpp:1334: Failure\nValue of: WideString::Format(L\"unsupported char \u0027%c\u0027\", 0x00FF00FF)\n  Actual: unsupported char \u0027\nExpected: L\"unsupported char \u0027\"\nWhich is: 0x21adb58\n\nSo I opted to leave a weak but correct check there, since I don\u0027t know what the expected behavior is in this case anyways.",
+      "parentUuid": "326c44f7_c6c6b72b",
+      "revId": "205555ad63d81d20feed3e592d17849e3e9349ab",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
