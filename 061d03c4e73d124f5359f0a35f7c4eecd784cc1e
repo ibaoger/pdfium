@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9cd64b49_57e98c4a",
+        "filename": "fxjs/cjx_node.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-07T19:34:03Z",
+      "side": 1,
+      "message": "Yes, it should fail to compile on other platforms because the switch is covering but MSVC doesn\u0027t understand that.",
+      "parentUuid": "33b88c66_2863775c",
+      "revId": "061d03c4e73d124f5359f0a35f7c4eecd784cc1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68a49e14_523f4deb",
         "filename": "fxjs/cjx_object.cpp",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "061d03c4e73d124f5359f0a35f7c4eecd784cc1e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e3d2f4_dc666aea",
+        "filename": "fxjs/cjx_object.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-07T19:34:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68a49e14_523f4deb",
+      "revId": "061d03c4e73d124f5359f0a35f7c4eecd784cc1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
