@@ -21,6 +21,7 @@ class CPDF_ContentMark {
   CPDF_ContentMark(const CPDF_ContentMark& that);
   ~CPDF_ContentMark();
 
+  int GetMCID() const;
   size_t CountItems() const;
   const CPDF_ContentMarkItem& GetItem(size_t i) const;
 
@@ -39,6 +40,7 @@ class CPDF_ContentMark {
     size_t CountItems() const;
     const CPDF_ContentMarkItem& GetItem(size_t index) const;
 
+    int GetMCID() const;
     void AddMark(const ByteString& name,
                  CPDF_Dictionary* pDict,
                  bool bDictNeedClone);

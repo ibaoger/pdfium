@@ -263,6 +263,8 @@ FPDFImageObj_GetImageMetadata(FPDF_PAGEOBJECT image_object,
   if (!pObj || !pObj->IsImage() || !metadata)
     return false;
 
+  metadata->mcid = pObj->m_ContentMark.GetMCID();
+
   RetainPtr<CPDF_Image> pImg = pObj->AsImage()->GetImage();
   if (!pImg)
     return false;
