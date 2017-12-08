@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b62c3aa_f8b396c4",
+        "filename": "core/fpdfapi/font/cfx_cttgsubtable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-08T21:31:34Z",
+      "side": 1,
+      "message": "My gut feeling is we shouldn\u0027t need this, but some build environment thinks we do. I\u0027ll have to stare at the build error a bit longer to determine if it\u0027s worth adding a TODO comment to say \"remove this eventually\" as a follow-up.",
+      "revId": "73dcdf872f1c71274d5425588d12f5dbf1bbe90c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7688b1_cfa74139",
+        "filename": "core/fpdfdoc/cpdf_action.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-08T21:31:34Z",
+      "side": 1,
+      "message": "And this one concerns me because I don\u0027t understand why the build didn\u0027t fail without this change.",
+      "revId": "73dcdf872f1c71274d5425588d12f5dbf1bbe90c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
