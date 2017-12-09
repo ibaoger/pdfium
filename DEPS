@@ -19,7 +19,7 @@ vars = {
   'jpeg_turbo_revision': '7260e4d8b8e1e40b17f03fafdf1cd83296900f76',
   'markupsafe_revision': '8f45f5cfa0009d2a70589bcda0349b8cb2b72783',
   'pdfium_tests_revision': '3d6228da656a3974d72223a702e6804df494703e',
-  'skia_revision': 'e0e20755f6c09b71038ced2bf4a00b4c4593f504',
+  'skia_revision': 'c63ec5ca64074dcc264a43bd1c1fdfb26e009410',
   'tools_memory_revision': '427f10475e1a8d72424c29d00bf689122b738e5d',
   'trace_event_revision': '0e9a47d74970bee1bbfc063c47215406f8918699',
   'v8_revision': '4931eb42e8a934941dc60d8f7dc510c08d7bc2c6',
