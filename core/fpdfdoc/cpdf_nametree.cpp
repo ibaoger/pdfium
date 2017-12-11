@@ -85,7 +85,7 @@ bool UpdateNodesAndLimitsUponDeletion(CPDF_Dictionary* pNode,
   if (pNames) {
     if (pNames != pFind)
       return false;
-    if (pNames->IsEmpty() || !pLimits)
+    if (!pLimits || pNames->IsEmpty())
       return true;
     if (csLeft != csName && csRight != csName)
       return true;
@@ -123,7 +123,7 @@ bool UpdateNodesAndLimitsUponDeletion(CPDF_Dictionary* pNode,
         (pKid->KeyExist("Kids") && pKid->GetArrayFor("Kids")->IsEmpty())) {
       pKids->RemoveAt(i);
     }
-    if (pKids->IsEmpty() || !pLimits)
+    if (!pLimits || pKids->IsEmpty())
       return true;
     if (csLeft != csName && csRight != csName)
       return true;
@@ -174,12 +174,11 @@ CPDF_Object* SearchNameNodeByName(const CPDF_Dictionary* pNode,
 
     // Skip this node if the name to look for is greater than its higher limit,
     // and the node itself is a leaf node.
-    if (csName.Compare(csRight) > 0 && pNames) {
+    if (pNames && csName.Compare(csRight) > 0) {
       if (ppFind)
         *ppFind = pNames;
       if (pFindIndex)
         *pFindIndex = pNames->GetCount() / 2 - 1;
-
       return nullptr;
     }
   }
@@ -241,17 +240,18 @@ CPDF_Object* SearchNameNodeByIndex(const CPDF_Dictionary* pNode,
   CPDF_Array* pNames = pNode->GetArrayFor("Names");
   if (pNames) {
     size_t nCount = pNames->GetCount() / 2;
-    if (nIndex >= *nCurIndex + nCount) {
+    size_t nFindIndex = nIndex - *nCurIndex;
+    if (nFindIndex >= nCount) {
       *nCurIndex += nCount;
       return nullptr;
     }
     if (ppFind)
       *ppFind = pNames;
     if (pFindIndex)
-      *pFindIndex = nIndex - *nCurIndex;
+      *pFindIndex = nFindIndex;
 
-    *csName = pNames->GetUnicodeTextAt((nIndex - *nCurIndex) * 2);
-    return pNames->GetDirectObjectAt((nIndex - *nCurIndex) * 2 + 1);
+    *csName = pNames->GetUnicodeTextAt(nFindIndex * 2);
+    return pNames->GetDirectObjectAt(nFindIndex * 2 + 1);
   }
 
   CPDF_Array* pKids = pNode->GetArrayFor("Kids");
@@ -299,8 +299,7 @@ size_t CountNamesInternal(CPDF_Dictionary* pNode, int nLevel) {
 CPDF_NameTree::CPDF_NameTree(CPDF_Dictionary* pRoot) : m_pRoot(pRoot) {}
 
 CPDF_NameTree::CPDF_NameTree(const CPDF_Document* pDoc,
-                             const ByteString& category)
-    : m_pRoot(nullptr) {
+                             const ByteString& category) {
   const CPDF_Dictionary* pRoot = pDoc->GetRoot();
   if (!pRoot)
     return;
@@ -395,8 +394,9 @@ bool CPDF_NameTree::DeleteValueAndName(int nIndex) {
   }
 
   // Remove the name and the object from the leaf array |pFind|.
-  pFind->RemoveAt(nFindIndex * 2);
-  pFind->RemoveAt(nFindIndex * 2);
+  int nArrayIndex = nFindIndex * 2;
+  pFind->RemoveAt(nArrayIndex + 1);
+  pFind->RemoveAt(nArrayIndex);
 
   // Delete empty nodes and update the limits of |pFind|'s ancestors as needed.
   UpdateNodesAndLimitsUponDeletion(m_pRoot.Get(), pFind, csName, 0);
