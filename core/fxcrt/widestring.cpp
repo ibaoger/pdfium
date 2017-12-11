@@ -500,15 +500,7 @@ bool WideString::operator==(const WideString& other) const {
 }
 
 bool WideString::operator<(const wchar_t* ptr) const {
-  if (!m_pData && !ptr)
-    return false;
-  if (c_str() == ptr)
-    return false;
-
-  size_t len = GetLength();
-  size_t other_len = ptr ? wcslen(ptr) : 0;
-  int result = wmemcmp(c_str(), ptr, std::min(len, other_len));
-  return result < 0 || (result == 0 && len < other_len);
+  return Compare(ptr) < 0;
 }
 
 bool WideString::operator<(const WideStringView& str) const {
@@ -525,13 +517,7 @@ bool WideString::operator<(const WideStringView& str) const {
 }
 
 bool WideString::operator<(const WideString& other) const {
-  if (m_pData == other.m_pData)
-    return false;
-
-  size_t len = GetLength();
-  size_t other_len = other.GetLength();
-  int result = wmemcmp(c_str(), other.c_str(), std::min(len, other_len));
-  return result < 0 || (result == 0 && len < other_len);
+  return Compare(other) < 0;
 }
 
 void WideString::AssignCopy(const wchar_t* pSrcData, size_t nSrcLen) {
@@ -919,9 +905,11 @@ void WideString::SetAt(size_t index, wchar_t c) {
 }
 
 int WideString::Compare(const wchar_t* lpsz) const {
-  if (m_pData)
-    return lpsz ? wcscmp(m_pData->m_String, lpsz) : 1;
-  return (!lpsz || lpsz[0] == 0) ? 0 : -1;
+  if (!m_pData)
+    return (!lpsz || lpsz[0] == 0) ? 0 : -1;
+  if (lpsz == m_pData->m_String)
+    return 0;
+  return lpsz ? wcscmp(m_pData->m_String, lpsz) : 1;
 }
 
 int WideString::Compare(const WideString& str) const {
@@ -933,17 +921,12 @@ int WideString::Compare(const WideString& str) const {
   size_t this_len = m_pData->m_nDataLength;
   size_t that_len = str.m_pData->m_nDataLength;
   size_t min_len = std::min(this_len, that_len);
-  for (size_t i = 0; i < min_len; i++) {
-    if (m_pData->m_String[i] < str.m_pData->m_String[i])
-      return -1;
-    if (m_pData->m_String[i] > str.m_pData->m_String[i])
-      return 1;
-  }
-  if (this_len < that_len)
-    return -1;
-  if (this_len > that_len)
-    return 1;
-  return 0;
+  int result = wmemcmp(c_str(), str.c_str(), min_len);
+  if (result != 0)
+    return result;
+  if (this_len == that_len)
+    return 0;
+  return this_len < that_len;
 }
 
 int WideString::CompareNoCase(const wchar_t* lpsz) const {
