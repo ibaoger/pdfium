@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 5A66FD7B 1512975095 -0800\nnonce ADEcKBogdfEey87iiXhYz+6omuOdRCwKlXOBozg/QePkrrhh4YsAyNQ0T5O3haz1aAwUY3NrhZiJ\n\n0000000000000000000000000000000000000000 81acaa480fe3a365d9ae1e949184c1c871ddbd18 refs/for/refs/heads/master%wip,m\u003dInitial_upload,hashtag\u003dslightly-simplify-cpdf-streamacc\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaLir3AAoJEKs2LWFaZv17myYH/jTp6f9IsddyRSJiNxiob48s\nnFGKmtQ/fWiLWyYtXneUoUuaSNDAisYTIDYPcN9MqowwZOontF5naDRekzK/DY2f\nFkU3t/Tew7rsGB7yfDyu1exmsKBr9pNKcJiYpmFhKwNFHzUArK8r4IC3U5aGBYs0\nn3Qnj7e0jtCaUQY5I682kCu8xhX7dfxTAQzSMdyRF1uSpvg6F48EH84HJnpY16S/\nVByve07kHr8SDMffW4j+A4YokQinG9dqU8WaFpd2/28AR8L068BzhT93ChwiuTW1\n8VUDUi9rtBjf9fkQGusOXLY3g8fjwNhlq6TZbLR3fIhOkcNFWDZ6R9pkRt+HFko\u003d\n\u003d8mMC\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
