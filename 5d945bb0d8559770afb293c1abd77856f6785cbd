@@ -22,6 +22,30 @@
       "revId": "5d945bb0d8559770afb293c1abd77856f6785cbd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cde38cb0_e511419f",
+        "filename": "core/fpdfapi/parser/cpdf_stream_acc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-11T19:46:00Z",
+      "side": 0,
+      "message": "This is \"Non-Static Class Member Initializers\" on https://chromium-cpp.appspot.com/ which is discussed here: https://groups.google.com/a/chromium.org/forum/#!topic/chromium-dev/zqB-DySA4V0\n\nI like it since I usually have to look at the header to know what types members are anyway. There, I can easily see that they are initialized, and smart pointers are not being explicitly initialized to nullptr.",
+      "parentUuid": "92c24d7d_c264b5b1",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "5d945bb0d8559770afb293c1abd77856f6785cbd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
