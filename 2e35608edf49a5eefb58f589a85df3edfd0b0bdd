@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda1e6de_256ee277",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-11T15:13:23Z",
+      "side": 1,
+      "message": "What about returning a pdfium::Optional\u003csize_t\u003e instead of int, then we don\u0027t need the -1 sentinal.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "190cd32f_0b577c62",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-11T15:13:23Z",
+      "side": 1,
+      "message": "Should we changed all the MCID\u0027s to MarkedContentID to make ti clear what this is to people who haven\u0027t read the spec?",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8960764d_e217e910",
+        "filename": "fpdfsdk/fpdf_structtree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-11T15:13:23Z",
+      "side": 1,
+      "message": "What is returned if K doesnt\u0027 exist?",
+      "range": {
+        "startLine": 89,
+        "startChar": 25,
+        "endLine": 89,
+        "endChar": 45
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edd54343_394ca9ec",
+        "filename": "public/fpdf_structtree.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-11T15:13:23Z",
+      "side": 1,
+      "message": "Should this list when -1 is returned?",
+      "range": {
+        "startLine": 83,
+        "startChar": 31,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
