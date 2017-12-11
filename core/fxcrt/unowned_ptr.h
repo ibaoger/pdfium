@@ -39,7 +39,7 @@ namespace fxcrt {
 template <class T>
 class UnownedPtr {
  public:
-  UnownedPtr() = default;
+  UnownedPtr() : m_pObj(nullptr) {}
   UnownedPtr(const UnownedPtr& that) : UnownedPtr(that.Get()) {}
 
   template <typename U>
@@ -47,7 +47,7 @@ class UnownedPtr {
 
   // Deliberately implicit to allow returning nullptrs.
   // NOLINTNEXTLINE(runtime/explicit)
-  UnownedPtr(std::nullptr_t ptr) {}
+  UnownedPtr(std::nullptr_t ptr) : m_pObj(nullptr) {}
 
   ~UnownedPtr() { ProbeForLowSeverityLifetimeIssue(); }
 
@@ -101,7 +101,7 @@ class UnownedPtr {
 #endif
   }
 
-  T* m_pObj = nullptr;
+  T* m_pObj;
 };
 
 template <typename T, typename U>
