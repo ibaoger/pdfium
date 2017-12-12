@@ -12,6 +12,7 @@
 #include "core/fpdfapi/page/cpdf_contentmarkitem.h"
 #include "core/fxcrt/fx_system.h"
 #include "core/fxcrt/shared_copy_on_write.h"
+#include "third_party/base/optional.h"
 
 class CPDF_Dictionary;
 
@@ -21,6 +22,7 @@ class CPDF_ContentMark {
   CPDF_ContentMark(const CPDF_ContentMark& that);
   ~CPDF_ContentMark();
 
+  pdfium::Optional<size_t> GetMarkedContentID() const;
   size_t CountItems() const;
   const CPDF_ContentMarkItem& GetItem(size_t i) const;
 
@@ -39,6 +41,7 @@ class CPDF_ContentMark {
     size_t CountItems() const;
     const CPDF_ContentMarkItem& GetItem(size_t index) const;
 
+    pdfium::Optional<size_t> GetMarkedContentID() const;
     void AddMark(const ByteString& name,
                  CPDF_Dictionary* pDict,
                  bool bDictNeedClone);

@@ -263,6 +263,9 @@ FPDFImageObj_GetImageMetadata(FPDF_PAGEOBJECT image_object,
   if (!pObj || !pObj->IsImage() || !metadata)
     return false;
 
+  pdfium::Optional<size_t> mcid = pObj->m_ContentMark.GetMarkedContentID();
+  metadata->marked_content_id = mcid ? *mcid : -1;
+
   RetainPtr<CPDF_Image> pImg = pObj->AsImage()->GetImage();
   if (!pImg)
     return false;
