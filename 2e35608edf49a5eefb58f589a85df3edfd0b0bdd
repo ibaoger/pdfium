@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4e317c5_218575f9",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-12T18:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eda1e6de_256ee277",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "190cd32f_0b577c62",
         "filename": "core/fpdfapi/page/cpdf_contentmark.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ce4dad_4b53d647",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-12T18:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "190cd32f_0b577c62",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5c02b353_27c4650f",
+        "filename": "fpdfsdk/fpdf_structtree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-12T18:57:37Z",
+      "side": 1,
+      "message": "Added a check that K exists and is a number, since it can also be another dictionary according to the PDF 1.7 spec, 14.7.4.2 Marked-Content Sequences as Content Items. If a simple numeric marked content ID isn\u0027t available, returns a sentinel of -1.",
+      "parentUuid": "8960764d_e217e910",
+      "range": {
+        "startLine": 89,
+        "startChar": 25,
+        "endLine": 89,
+        "endChar": 45
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edd54343_394ca9ec",
         "filename": "public/fpdf_structtree.h",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a907ea57_7beee047",
+        "filename": "public/fpdf_structtree.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-12T18:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edd54343_394ca9ec",
+      "range": {
+        "startLine": 83,
+        "startChar": 31,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "2e35608edf49a5eefb58f589a85df3edfd0b0bdd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
