@@ -6,6 +6,7 @@
 #include "public/fpdf_structtree.h"
 #include "testing/embedder_test.h"
 #include "testing/test_support.h"
+#include "third_party/base/optional.h"
 
 class FPDFStructTreeEmbeddertest : public EmbedderTest {};
 
@@ -24,6 +25,7 @@ TEST_F(FPDFStructTreeEmbeddertest, GetAltText) {
   EXPECT_EQ(nullptr, element);
   element = FPDF_StructTree_GetChildAtIndex(struct_tree, 0);
   ASSERT_NE(nullptr, element);
+  EXPECT_EQ(-1, FPDF_StructElement_GetMarkedContentID(element));
   EXPECT_EQ(0U, FPDF_StructElement_GetAltText(element, nullptr, 0));
 
   ASSERT_EQ(1, FPDF_StructElement_CountChildren(element));
@@ -34,6 +36,7 @@ TEST_F(FPDFStructTreeEmbeddertest, GetAltText) {
   EXPECT_EQ(nullptr, child_element);
   child_element = FPDF_StructElement_GetChildAtIndex(element, 0);
   ASSERT_NE(nullptr, child_element);
+  EXPECT_EQ(-1, FPDF_StructElement_GetMarkedContentID(child_element));
   EXPECT_EQ(0U, FPDF_StructElement_GetAltText(child_element, nullptr, 0));
 
   ASSERT_EQ(1, FPDF_StructElement_CountChildren(child_element));
@@ -44,6 +47,7 @@ TEST_F(FPDFStructTreeEmbeddertest, GetAltText) {
   EXPECT_EQ(nullptr, gchild_element);
   gchild_element = FPDF_StructElement_GetChildAtIndex(child_element, 0);
   ASSERT_NE(nullptr, gchild_element);
+  EXPECT_EQ(-1, FPDF_StructElement_GetMarkedContentID(gchild_element));
   ASSERT_EQ(24U, FPDF_StructElement_GetAltText(gchild_element, nullptr, 0));
 
   unsigned short buffer[12];
@@ -54,6 +58,7 @@ TEST_F(FPDFStructTreeEmbeddertest, GetAltText) {
   for (size_t i = 0; i < FX_ArraySize(buffer); ++i)
     EXPECT_EQ(0U, buffer[i]);
 
+  EXPECT_EQ(-1, FPDF_StructElement_GetMarkedContentID(gchild_element));
   ASSERT_EQ(24U, FPDF_StructElement_GetAltText(gchild_element, buffer,
                                                sizeof(buffer)));
   const wchar_t kExpected[] = L"Black Image";
