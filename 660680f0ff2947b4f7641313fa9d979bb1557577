@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "919f4079_82b69c44",
+        "filename": "fxjs/xfa/cjx_object.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-13T21:12:21Z",
+      "side": 1,
+      "message": "The code that retrieves the property uses the boolean to determine if it should use the default value or not.",
+      "parentUuid": "7031b241_4a0e4f3d",
+      "range": {
+        "startLine": 1361,
+        "startChar": 47,
+        "endLine": 1361,
+        "endChar": 0
+      },
+      "revId": "660680f0ff2947b4f7641313fa9d979bb1557577",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c94222b7_4a823e11",
         "filename": "xfa/fxfa/cxfa_ffdocview.cpp",
         "patchSetId": 1
