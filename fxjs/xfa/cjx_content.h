@@ -16,6 +16,12 @@ class CJX_Content : public CJX_Object {
  public:
   explicit CJX_Content(CXFA_Object* obj);
   ~CJX_Content() override;
+
+  bool SetContent(const WideString& wsContent,
+                  const WideString& wsXMLValue,
+                  bool bNotify,
+                  bool bScriptModify,
+                  bool bSyncData) override;
 };
 
 #endif  // FXJS_XFA_CJX_CONTENT_H_

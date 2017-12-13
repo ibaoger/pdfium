@@ -20,6 +20,12 @@ class CJX_Container : public CJX_Node {
   JS_METHOD(getDelta, CJX_Container);
   JS_METHOD(getDeltas, CJX_Container);
 
+  bool SetContent(const WideString& wsContent,
+                  const WideString& wsXMLValue,
+                  bool bNotify,
+                  bool bScriptModify,
+                  bool bSyncData) override;
+
  private:
   static const CJX_MethodSpec MethodSpecs[];
 };
