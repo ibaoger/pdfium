@@ -21,6 +21,12 @@ class CJX_DataValue : public CJX_Node {
   JS_PROP(contentType);
   JS_PROP(isNull);
   JS_PROP(value);
+
+  bool SetContent(const WideString& wsContent,
+                  const WideString& wsXMLValue,
+                  bool bNotify,
+                  bool bScriptModify,
+                  bool bSyncData) override;
 };
 
 #endif  // FXJS_XFA_CJX_DATAVALUE_H_

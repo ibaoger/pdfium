@@ -94,11 +94,11 @@ class CJX_Object {
                                             bool bUseDefault);
 
   pdfium::Optional<WideString> TryContent(bool bScriptModify, bool bProto);
-  bool SetContent(const WideString& wsContent,
-                  const WideString& wsXMLValue,
-                  bool bNotify,
-                  bool bScriptModify,
-                  bool bSyncData);
+  virtual bool SetContent(const WideString& wsContent,
+                          const WideString& wsXMLValue,
+                          bool bNotify,
+                          bool bScriptModify,
+                          bool bSyncData);
   WideString GetContent(bool bScriptModify);
 
   CXFA_Node* GetProperty(int32_t index,
