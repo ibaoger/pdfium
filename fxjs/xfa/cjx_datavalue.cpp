@@ -41,3 +41,25 @@ void CJX_DataValue::isNull(CFXJSE_Value* pValue,
                            XFA_Attribute eAttribute) {
   Script_Attribute_BOOL(pValue, bSetting, eAttribute);
 }
+
+bool CJX_DataValue::SetContent(const WideString& wsContent,
+                               const WideString& wsXMLValue,
+                               bool bNotify,
+                               bool bScriptModify,
+                               bool bSyncData) {
+  CXFA_Node* pNode = ToNode(GetXFAObject());
+  if (!pNode)
+    return false;
+
+  SetAttributeValue(wsContent, wsXMLValue, bNotify, bScriptModify);
+
+  CXFA_Node* pBindNode = ToNode(GetXFAObject());
+  if (!pBindNode || !bSyncData)
+    return true;
+
+  for (const auto& pArrayNode : *(pBindNode->GetBindItems())) {
+    pArrayNode->JSObject()->SetContent(wsContent, wsContent, bNotify,
+                                       bScriptModify, false);
+  }
+  return true;
+}
