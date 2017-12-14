@@ -24,6 +24,7 @@
 #include "xfa/fxfa/parser/cxfa_object.h"
 #include "xfa/fxfa/parser/cxfa_occurdata.h"
 #include "xfa/fxfa/parser/cxfa_validate.h"
+#include "xfa/fxfa/parser/cxfa_value.h"
 #include "xfa/fxfa/parser/xfa_utils.h"
 
 namespace {
@@ -1619,8 +1620,8 @@ void CJX_Object::Script_Field_DefaultValue(CFXJSE_Value* pValue,
   }
 
   CXFA_Node* pUIChild = widget_data_->GetUIChild();
-  CXFA_Node* pNode = widget_data_->GetFormValueData().GetNode()->GetNodeItem(
-      XFA_NODEITEM_FirstChild);
+  CXFA_Node* pNode =
+      widget_data_->GetFormValue()->GetNodeItem(XFA_NODEITEM_FirstChild);
   if (pNode && pNode->GetElementType() == XFA_Element::Decimal) {
     if (pUIChild->GetElementType() == XFA_Element::NumericEdit &&
         (pNode->JSObject()->GetInteger(XFA_Attribute::FracDigits) == -1)) {
