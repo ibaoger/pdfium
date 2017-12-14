@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ceb0d900_66091eaa",
+        "filename": "fxjs/xfa/cjx_boolean.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "In the case where the method name doesn\u0027t match the spec name I put the spec name in a comment.",
+      "parentUuid": "cbf1cfa4_a0b9aa29",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a611cc9_cc15b7dc",
         "filename": "fxjs/xfa/cjx_border.h",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fc8fe80_8ce23058",
+        "filename": "fxjs/xfa/cjx_border.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a611cc9_cc15b7dc",
+      "range": {
+        "startLine": 19,
+        "startChar": 23,
+        "endLine": 19,
+        "endChar": 34
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4ba8b042_a5a11534",
+        "filename": "fxjs/xfa/cjx_instancemanager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "353a0aa4_026f4831",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f05081d2_685aa33c",
         "filename": "fxjs/xfa/cjx_instancemanager.cpp",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2b8a5f8e_bafb5a42",
+        "filename": "fxjs/xfa/cjx_instancemanager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f05081d2_685aa33c",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47a9c0dd_2ae2c8d4",
         "filename": "fxjs/xfa/cjx_node.cpp",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-12-14T18:11:27Z",
       "side": 1,
       "message": "Add // Read-only\n\nSame below.",
+      "range": {
+        "startLine": 398,
+        "startChar": 17,
+        "endLine": 398,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "340b01fe_c1495a67",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "I think it\u0027s obvious from the exception.",
+      "parentUuid": "47a9c0dd_2ae2c8d4",
       "range": {
         "startLine": 398,
         "startChar": 17,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e6046ee1_ca347746",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Removed lines from other methods instead.",
+      "parentUuid": "d1e5d4b5_ddaa2de0",
+      "range": {
+        "startLine": 401,
+        "startChar": 3,
+        "endLine": 401,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a64fca06_61724179",
         "filename": "fxjs/xfa/cjx_object.cpp",
         "patchSetId": 4
@@ -160,6 +304,30 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98db7dac_90233646",
+        "filename": "fxjs/xfa/cjx_object.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a64fca06_61724179",
+      "range": {
+        "startLine": 1484,
+        "startChar": 51,
+        "endLine": 1484,
+        "endChar": 60
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "a1643fa4_fb001080",
+        "filename": "fxjs/xfa/cjx_occur.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe91cf91_67162a40",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "052233cc_0035fe1c",
         "filename": "fxjs/xfa/cjx_operation.cpp",
         "patchSetId": 4
@@ -206,6 +398,30 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30cca245_14ce7d42",
+        "filename": "fxjs/xfa/cjx_operation.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "052233cc_0035fe1c",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "b32eea23_4e104b11",
+        "filename": "fxjs/xfa/cjx_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8fb6ab62_ce818728",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b876fe1_126d59ca",
         "filename": "fxjs/xfa/cjx_textnode.h",
         "patchSetId": 4
@@ -252,6 +492,30 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b9d8c7b_d09f9444",
+        "filename": "fxjs/xfa/cjx_textnode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b876fe1_126d59ca",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "848335c1_7a19ced0",
+        "filename": "fxjs/xfa/cjx_xfa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f826f0ba_700409db",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1a56389_822be373",
         "filename": "xfa/fxfa/parser/cxfa_arc.cpp",
         "patchSetId": 4
@@ -289,6 +577,30 @@
       "writtenOn": "2017-12-14T18:11:27Z",
       "side": 1,
       "message": "What exactly are we doing with this? Passing ownership of this object to the superclass? This doesn\u0027t seem right.\n\nSame in other files.",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 49
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abfc69a8_75e319ad",
+        "filename": "xfa/fxfa/parser/cxfa_arc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "What do you mean? Each of these classes creates their associated JS class. That is then stored in the parent xfa object.",
+      "parentUuid": "b1a56389_822be373",
       "range": {
         "startLine": 40,
         "startChar": 17,
@@ -318,6 +630,24 @@
     },
     {
       "key": {
+        "uuid": "4e4d673e_0238fb4d",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3755,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "items just means i don\u0027t know the name. There are multiple items because i don\u0027t know what this one is.",
+      "parentUuid": "d8dacfcb_5a6e8804",
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25887632_b08564c8",
         "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
         "patchSetId": 4
@@ -332,6 +662,24 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724f2448_d2ebe7de",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3792,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2017-12-14T18:29:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "25887632_b08564c8",
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
