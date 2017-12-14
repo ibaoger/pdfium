@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3991f912_0106a675",
+        "filename": "fxjs/xfa/cjx_boolean.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T19:09:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ceb0d900_66091eaa",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a611cc9_cc15b7dc",
         "filename": "fxjs/xfa/cjx_border.h",
         "patchSetId": 4
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "419df761_d916a461",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T19:09:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "340b01fe_c1495a67",
+      "range": {
+        "startLine": 398,
+        "startChar": 17,
+        "endLine": 398,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e5d4b5_ddaa2de0",
         "filename": "fxjs/xfa/cjx_node.cpp",
         "patchSetId": 4
@@ -281,6 +329,30 @@
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff93beab_78726ae4",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T19:09:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6046ee1_ca347746",
+      "range": {
+        "startLine": 401,
+        "startChar": 3,
+        "endLine": 401,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -613,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "7fd759a3_230556c9",
+        "filename": "xfa/fxfa/parser/cxfa_arc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T19:09:34Z",
+      "side": 1,
+      "message": "Oh nvm, I read this totally wrong.",
+      "parentUuid": "abfc69a8_75e319ad",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 49
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8dacfcb_5a6e8804",
         "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
         "patchSetId": 4
@@ -642,6 +738,24 @@
       "side": 1,
       "message": "items just means i don\u0027t know the name. There are multiple items because i don\u0027t know what this one is.",
       "parentUuid": "d8dacfcb_5a6e8804",
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6facce2c_d1e581c4",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3755,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T19:09:34Z",
+      "side": 1,
+      "message": "Let\u0027s change \"items\" to something like \"[unknown]\" then. Currently it looks like it\u0027s a class like the others.",
+      "parentUuid": "4e4d673e_0238fb4d",
       "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
