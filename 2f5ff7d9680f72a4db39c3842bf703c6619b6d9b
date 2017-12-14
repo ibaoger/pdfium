@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbf1cfa4_a0b9aa29",
+        "filename": "fxjs/xfa/cjx_boolean.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Why add this comment? To know it\u0027s not just boilerplate?\n\nAlso add spaces to make it like the others.",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a611cc9_cc15b7dc",
+        "filename": "fxjs/xfa/cjx_border.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 19,
+        "startChar": 23,
+        "endLine": 19,
+        "endChar": 34
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "353a0aa4_026f4831",
+        "filename": "fxjs/xfa/cjx_instancemanager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Fix in a follow up: Occurrences",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f05081d2_685aa33c",
+        "filename": "fxjs/xfa/cjx_instancemanager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "I don\u0027t see why this is not \"iFrom \u003e iCount - 1\" but let\u0027s fix in a follow up.",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a9c0dd_2ae2c8d4",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add // Read-only\n\nSame below.",
+      "range": {
+        "startLine": 398,
+        "startChar": 17,
+        "endLine": 398,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1e5d4b5_ddaa2de0",
+        "filename": "fxjs/xfa/cjx_node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add empty line. Same below where it\u0027s not consistent.",
+      "range": {
+        "startLine": 401,
+        "startChar": 3,
+        "endLine": 401,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a64fca06_61724179",
+        "filename": "fxjs/xfa/cjx_object.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "properties",
+      "range": {
+        "startLine": 1484,
+        "startChar": 51,
+        "endLine": 1484,
+        "endChar": 60
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe91cf91_67162a40",
+        "filename": "fxjs/xfa/cjx_occur.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add // Read-only\n\nSame below.",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "052233cc_0035fe1c",
+        "filename": "fxjs/xfa/cjx_operation.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add empty lines to separate methods.",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fb6ab62_ce818728",
+        "filename": "fxjs/xfa/cjx_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add // Read-only.",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b876fe1_126d59ca",
+        "filename": "fxjs/xfa/cjx_textnode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add spaces around.",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f826f0ba_700409db",
+        "filename": "fxjs/xfa/cjx_xfa.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Add // Read-only",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1a56389_822be373",
+        "filename": "xfa/fxfa/parser/cxfa_arc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "What exactly are we doing with this? Passing ownership of this object to the superclass? This doesn\u0027t seem right.\n\nSame in other files.",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 49
+      },
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8dacfcb_5a6e8804",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3755,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "What\u0027s this? Shouldn\u0027t there be a single /* items */ section?",
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25887632_b08564c8",
+        "filename": "xfa/fxfa/parser/xfa_basic_data_element_script.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3792,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-14T18:11:27Z",
+      "side": 1,
+      "message": "Here there are two as well.",
+      "revId": "2f5ff7d9680f72a4db39c3842bf703c6619b6d9b",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
