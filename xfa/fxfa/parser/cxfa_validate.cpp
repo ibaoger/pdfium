@@ -6,6 +6,7 @@
 
 #include "xfa/fxfa/parser/cxfa_validate.h"
 
+#include "xfa/fxfa/parser/cxfa_picture.h"
 #include "xfa/fxfa/parser/cxfa_script.h"
 
 namespace {
@@ -138,10 +139,10 @@ void CXFA_Validate::SetMessageText(const WideString& wsMessageType,
 }
 
 WideString CXFA_Validate::GetPicture() {
-  CXFA_Node* pNode = GetChild(0, XFA_Element::Picture, false);
+  CXFA_Picture* pNode = GetChild<CXFA_Picture>(0, XFA_Element::Picture, false);
   return pNode ? pNode->JSObject()->GetContent(false) : L"";
 }
 
 CXFA_Script* CXFA_Validate::GetScript() {
-  return static_cast<CXFA_Script*>(GetChild(0, XFA_Element::Script, false));
+  return GetChild<CXFA_Script>(0, XFA_Element::Script, false);
 }
