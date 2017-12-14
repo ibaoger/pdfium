@@ -46,3 +46,37 @@ CXFA_Value::CXFA_Value(CXFA_Document* doc, XFA_PacketType packet)
                 kName) {}
 
 CXFA_Value::~CXFA_Value() {}
+
+XFA_Element CXFA_Value::GetChildValueClassID() const {
+  CXFA_Node* pNode = GetNodeItem(XFA_NODEITEM_FirstChild);
+  return pNode ? pNode->GetElementType() : XFA_Element::Unknown;
+}
+
+WideString CXFA_Value::GetChildValueContent() const {
+  CXFA_Node* pNode = GetNodeItem(XFA_NODEITEM_FirstChild);
+  return pNode ? pNode->JSObject()->TryContent(false, true).value_or(L"") : L"";
+}
+
+CXFA_ArcData CXFA_Value::GetArcData() const {
+  return CXFA_ArcData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
+
+CXFA_LineData CXFA_Value::GetLineData() const {
+  return CXFA_LineData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
+
+CXFA_RectangleData CXFA_Value::GetRectangleData() const {
+  return CXFA_RectangleData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
+
+CXFA_TextData CXFA_Value::GetTextData() const {
+  return CXFA_TextData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
+
+CXFA_ExDataData CXFA_Value::GetExData() const {
+  return CXFA_ExDataData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
+
+CXFA_ImageData CXFA_Value::GetImageData() const {
+  return CXFA_ImageData(GetNodeItem(XFA_NODEITEM_FirstChild));
+}
