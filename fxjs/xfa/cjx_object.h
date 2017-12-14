@@ -92,9 +92,10 @@ class CJX_Object {
                   bool bSyncData);
   WideString GetContent(bool bScriptModify);
 
-  CXFA_Node* GetProperty(int32_t index,
-                         XFA_Element eType,
-                         bool bCreateProperty);
+  template <typename T>
+  T* GetProperty(int32_t index, XFA_Element eType, bool bCreateProperty) {
+    return static_cast<T*>(GetPropertyInternal(index, eType, bCreateProperty));
+  }
 
   void SetAttributeValue(const WideString& wsValue,
                          const WideString& wsXMLValue,
@@ -329,6 +330,9 @@ class CJX_Object {
                                  XFA_Attribute eAttribute);
   int32_t Subform_and_SubformSet_InstanceIndex();
 
+  CXFA_Node* GetPropertyInternal(int32_t index,
+                                 XFA_Element eType,
+                                 bool bCreateProperty);
   void OnChanged(XFA_Attribute eAttr, bool bNotify, bool bScriptModify);
   void OnChanging(XFA_Attribute eAttr, bool bNotify);
   bool SetUserData(void* pKey,

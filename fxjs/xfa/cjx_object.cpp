@@ -601,7 +601,8 @@ bool CJX_Object::SetContent(const WideString& wsContent,
   switch (ToNode(GetXFAObject())->GetObjectType()) {
     case XFA_ObjectType::ContainerNode: {
       if (XFA_FieldIsMultiListBox(ToNode(GetXFAObject()))) {
-        CXFA_Node* pValue = GetProperty(0, XFA_Element::Value, true);
+        CXFA_Value* pValue =
+            GetProperty<CXFA_Value>(0, XFA_Element::Value, true);
         if (!pValue)
           break;
 
@@ -685,7 +686,8 @@ bool CJX_Object::SetContent(const WideString& wsContent,
       if (ToNode(GetXFAObject())->GetElementType() == XFA_Element::ExclGroup) {
         pNode = ToNode(GetXFAObject());
       } else {
-        CXFA_Node* pValue = GetProperty(0, XFA_Element::Value, true);
+        CXFA_Value* pValue =
+            GetProperty<CXFA_Value>(0, XFA_Element::Value, true);
         if (!pValue)
           break;
 
@@ -850,9 +852,9 @@ pdfium::Optional<WideString> CJX_Object::TryContent(bool bScriptModify,
   return {};
 }
 
-CXFA_Node* CJX_Object::GetProperty(int32_t index,
-                                   XFA_Element eProperty,
-                                   bool bCreateProperty) {
+CXFA_Node* CJX_Object::GetPropertyInternal(int32_t index,
+                                           XFA_Element eProperty,
+                                           bool bCreateProperty) {
   if (index < 0 ||
       index >= ToNode(GetXFAObject())->PropertyOccuranceCount(eProperty)) {
     return nullptr;
