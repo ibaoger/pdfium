@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fa87df9_6c66453b",
+        "filename": "core/fxge/freetype/fx_freetype.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-15T23:56:41Z",
+      "side": 1,
+      "message": "Are these two files the same now? Do we want to just use this one always?",
+      "revId": "8b238d3aac9221155659cea14decb0ec3fb20f17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
