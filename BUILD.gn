@@ -1088,6 +1088,10 @@ static_library("fxge") {
     # need it defined in component builds and builds using system freetype.
     defines += [ "DEFINE_PS_TABLES_DATA" ]
   }
+  if (use_system_freetype) {
+    defines += [ "USE_SYSTEM_FREETYPE" ]
+    sources += [ "core/fxge/freetype/pstables.h" ]
+  }
 
   if (pdf_enable_xfa) {
     sources += [

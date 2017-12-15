@@ -6,7 +6,11 @@
 
 #include "core/fxge/fx_freetype.h"
 
+#if defined(USE_SYSTEM_FREETYPE)
+#include "core/fxge/freetype/pstables.h"
+#else
 #include "third_party/freetype/src/src/psnames/pstables.h"
+#endif
 
 static int xyq_search_node(char* glyph_name,
                            int name_offset,
