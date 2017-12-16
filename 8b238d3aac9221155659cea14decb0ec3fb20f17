@@ -16,6 +16,24 @@
       "revId": "8b238d3aac9221155659cea14decb0ec3fb20f17",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d5b74c1_93df291e",
+        "filename": "core/fxge/freetype/fx_freetype.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2017-12-16T00:41:43Z",
+      "side": 1,
+      "message": "Yes they\u0027re the same.  The file has changed in the past, but I don\u0027t think that should matter for pdfium.\n\nSwitched to using the one in third_party unconditionally.",
+      "parentUuid": "7fa87df9_6c66453b",
+      "revId": "8b238d3aac9221155659cea14decb0ec3fb20f17",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
