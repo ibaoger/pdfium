@@ -36,7 +36,7 @@ std::tuple<int32_t, int32_t, int32_t> CXFA_OccurData::GetOccurInfo() const {
 
   pdfium::Optional<int32_t> init =
       m_pNode->JSObject()->TryInteger(XFA_Attribute::Initial, false);
-  return {iMin, iMax, init && *init >= iMin ? *init : iMin};
+  return std::make_tuple(iMin, iMax, init && *init >= iMin ? *init : iMin);
 }
 
 void CXFA_OccurData::SetMax(int32_t iMax) {

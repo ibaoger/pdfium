@@ -7,6 +7,7 @@
 #ifndef FXBARCODE_PDF417_BC_PDF417BARCODEROW_H_
 #define FXBARCODE_PDF417_BC_PDF417BARCODEROW_H_
 
+#include <stddef.h>
 #include <stdint.h>
 
 #include <vector>

@@ -98,7 +98,7 @@ std::tuple<int32_t, int32_t, int32_t> StrToRGB(const WideString& strRGB) {
       }
     }
   }
-  return {r, g, b};
+  return std::make_tuple(r, g, b);
 }
 
 }  // namespace

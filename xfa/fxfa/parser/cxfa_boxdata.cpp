@@ -147,13 +147,14 @@ CXFA_MarginData CXFA_BoxData::GetMarginData() const {
 
 std::tuple<XFA_AttributeEnum, bool, float> CXFA_BoxData::Get3DStyle() const {
   if (IsArc())
-    return {XFA_AttributeEnum::Unknown, false, 0.0f};
+    return std::make_tuple(XFA_AttributeEnum::Unknown, false, 0.0f);
 
   std::vector<CXFA_StrokeData> strokes = GetStrokesInternal(m_pNode, true);
   CXFA_StrokeData strokeData(nullptr);
   XFA_AttributeEnum iType = Style3D(strokes, strokeData);
   if (iType == XFA_AttributeEnum::Unknown)
-    return {XFA_AttributeEnum::Unknown, false, 0.0f};
+    return std::make_tuple(XFA_AttributeEnum::Unknown, false, 0.0f);
 
-  return {iType, strokeData.IsVisible(), strokeData.GetThickness()};
+  return std::make_tuple(iType, strokeData.IsVisible(),
+                         strokeData.GetThickness());
 }
