@@ -59,6 +59,7 @@ int CheckPDFiumCApi() {
     CHK(FPDFAnnot_SetRect);
     CHK(FPDFAnnot_GetRect);
     CHK(FPDFAnnot_HasKey);
+    CHK(FPDFAnnot_GetValueType);
     CHK(FPDFAnnot_SetStringValue);
     CHK(FPDFAnnot_GetStringValue);
     CHK(FPDFAnnot_GetLinkedAnnot);
@@ -71,6 +72,7 @@ int CheckPDFiumCApi() {
     CHK(FPDFDoc_GetAttachmentCount);
     CHK(FPDFDoc_AddAttachment);
     CHK(FPDFDoc_GetAttachment);
+    CHK(FPDFDoc_DeleteAttachment);
     CHK(FPDFAttachment_GetName);
     CHK(FPDFAttachment_HasKey);
     CHK(FPDFAttachment_GetValueType);
@@ -251,6 +253,7 @@ int CheckPDFiumCApi() {
     CHK(FPDF_StructTree_GetChildAtIndex);
     CHK(FPDF_StructElement_GetAltText);
     CHK(FPDF_StructElement_GetType);
+    CHK(FPDF_StructElement_GetTitle);
     CHK(FPDF_StructElement_CountChildren);
     CHK(FPDF_StructElement_GetChildAtIndex);
 
