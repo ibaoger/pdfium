@@ -74,7 +74,6 @@ class CPWL_Edit : public CPWL_EditCtrl {
   void SetCharSpace(float fCharSpace);
 
   bool CanSelectAll() const;
-  bool CanClear() const;
   bool CanCopy() const;
   bool CanCut() const;
 
