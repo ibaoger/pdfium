@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9e8165c_d381479a",
+        "filename": "public/PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "Do we expect this to be significantly different than CheckChangeOnUpload in the long run?",
+      "range": {
+        "startLine": 30,
+        "startChar": 47,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b0b8851_891a85bd",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "Document what the script does in a docstring.",
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00366f21_5132bb14",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "Prepend the names of private functions (all but main) with \u0027_\u0027.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a80c5b4_28a49442",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "This may break with function pointers, but I suppose that\u0027s fine as we\u0027d typedef it anyway, if it was ever included in the api.",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdbb31cc_d0e61817",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "I can\u0027t tell if this will work for any combination of valid line breaks. You could unwrap the lines before analyzing to make the parsing more simple.",
+      "range": {
+        "startLine": 28,
+        "startChar": 44,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4c27c7a_3c7a21ba",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "with open(os.path.join(dirname, filename)) as f:\n  contents \u003d f.readlines()",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 51
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a319cd6_8be5eb01",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "Since this is a state machine, let\u0027s use an \"enum\" to keep track of the state or this may devolve into a complex state spread among multiple vars.\n\nLOOK_FOR_EXPORT \u003d 0\nLOOK_FOR_FUNCTION_NAME \u003d 1\n\nstate \u003d LOOK_FOR_EXPORT\n\nand then inside the for, use a \"switch\":\n\nfor line in contents:\n  if state \u003d\u003d LOOK_FOR_EXPORT:\n    if not line.startswith(\u0027FPDF_EXPORT \u0027):\n      continue\n    [...]\n  elif state \u003d\u003d LOOK_FOR_FUNCTION_NAME:\n    state \u003d LOOK_FOR_EXPORT\n    [...]",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59a669c3_9f16a177",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "Just a suggestion:\n\nfrom collections import Counter\n\nfunctions \u003d Counter()\n[...]\n    functions +\u003d GetExportsFromHeader(public_path, filename)\n\nthen return the Counter and FindDuplicates will be:\nreturn [f for f, occurrences in functions if occurrences \u003e 1]",
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad376fe8_58c6a1ab",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "with open(api_test_path) as f:\n  contents \u003d f.readlines()",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6666b86f_23167ad1",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:17:31Z",
+      "side": 1,
+      "message": "CheckAndPrintFailures (plural)",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 24
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
