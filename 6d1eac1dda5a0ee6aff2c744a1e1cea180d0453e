@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher 5A66FD7B 1513423349 -0800\nnonce ADEcKBpcOtAbfNUfpEaySsJWIfgJ8R/cPq7bZNfGwX/Xo1CkTcvCSI1mM7c6dfzNtOXumyEyQML2\n\n0000000000000000000000000000000000000000 6d1eac1dda5a0ee6aff2c744a1e1cea180d0453e refs/for/refs/heads/master%notify\u003dNONE,m\u003dmore\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJaNQH1AAoJEKs2LWFaZv17/+IIAMWhprPutfv31SJvLgZyLlNM\nU+zKR6VJgFAVcCyjIE/BmOSU03xpK0UuHVMSpuq3J05uOe8/LwQ3BMSL03HqFzj/\nUD6tShh+ZRasL4fl735gJosjXWZ9OuTUSW90rcmYfQNJL/XZDa4RruijENinhHtF\njfscPWJJuraaebcNlFXDQNuOnTA2mLRzr/H4jGeWKsZUsyND3irmJO79Lh4e7fmB\nWGbZW6hR46jIT/a2LwaJ2uKZy8Gne83HjDOdWjmEHE/aK9K3r/C/AbH+S+6R9JZ+\nZ0k+MSKKZ9ywQOZLxxx1W1XCuSK4DZ4IZzsadRHiBVGnCcXbxOy11bOnO4ZnvgI\u003d\n\u003dKgfF\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "745d5678_27403df1",
+        "filename": "core/fpdfapi/parser/cfdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-18T20:27:48Z",
+      "side": 1,
+      "message": "This is the only addition, which is folding ParseFile() (never called from anywhere else) into here.",
+      "revId": "6d1eac1dda5a0ee6aff2c744a1e1cea180d0453e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
 }
