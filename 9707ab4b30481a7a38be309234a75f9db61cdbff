@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "baedcacb_d9da91b2",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2017-12-18T22:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4761ab2f_4a8aa0af",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4732e541_9a31be02",
         "filename": "third_party/freetype/README.pdfium",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5fe52adc_9acd5101",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2017-12-18T22:45:45Z",
+      "side": 1,
+      "message": "yes, there is a gn target called freetype_public_includes_config which uses the modified headers",
+      "parentUuid": "4732e541_9a31be02",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7c87cea_e73b5ce6",
         "filename": "third_party/freetype/include/pstables.h",
         "patchSetId": 4
@@ -50,6 +86,24 @@
       "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32ed93a2_c1f558ad",
+        "filename": "third_party/freetype/include/pstables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2017-12-18T22:45:45Z",
+      "side": 1,
+      "message": "IMHO, it would be more of a pain to maintain the #ifdef\u0027s than it\u0027s worth.  The linker will optimize away the unused data/code anyway.",
+      "parentUuid": "f7c87cea_e73b5ce6",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
