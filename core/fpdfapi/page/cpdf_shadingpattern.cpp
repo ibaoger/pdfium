@@ -89,20 +89,111 @@ bool CPDF_ShadingPattern::Load() {
 
   CPDF_DocPageData* pDocPageData = document()->GetPageData();
   m_pCS = pDocPageData->GetColorSpace(pCSObj, nullptr);
-  if (m_pCS) {
-    // The color space cannot be a Pattern space, according to the PDF 1.7 spec,
-    // page 305.
-    if (m_pCS->GetFamily() == PDFCS_PATTERN)
-      return false;
+  if (!m_pCS)
+    return false;
 
-    m_pCountedCS = pDocPageData->FindColorSpacePtr(m_pCS->GetArray());
-  }
+  // The color space cannot be a Pattern space, according to the PDF 1.7 spec,
+  // page 305.
+  if (m_pCS->GetFamily() == PDFCS_PATTERN)
+    return false;
+
+  m_pCountedCS = pDocPageData->FindColorSpacePtr(m_pCS->GetArray());
 
   m_ShadingType = ToShadingType(pShadingDict->GetIntegerFor("ShadingType"));
 
   // We expect to have a stream if our shading type is a mesh.
   if (IsMeshShading() && !ToStream(m_pShadingObj.Get()))
     return false;
+
+  if (!Validate())
+    return false;
+
+  return true;
+}
+
+bool CPDF_ShadingPattern::Validate() const {
+  // Constraints in PDF 1.7 spec, 4.6.3 Shading Patterns, pages 308-331.
+
+  if (m_ShadingType == kInvalidShading || m_ShadingType == kMaxShading)
+    return false;
+
+  // Validate color space
+  switch (m_ShadingType) {
+    case kFunctionBasedShading:
+    case kAxialShading:
+    case kRadialShading: {
+      if (m_pCS->GetFamily() == PDFCS_INDEXED)
+        return false;
+      break;
+    }
+    case kFreeFormGouraudTriangleMeshShading:
+    case kLatticeFormGouraudTriangleMeshShading:
+    case kCoonsPatchMeshShading:
+    case kTensorProductPatchMeshShading: {
+      if (m_pFunctions.size() > 0 && m_pCS->GetFamily() == PDFCS_INDEXED)
+        return false;
+      break;
+    }
+    default: {
+      NOTREACHED();
+      return false;
+    }
+  }
+
+  uint32_t numColorSpaceComponents = m_pCS->CountComponents();
+  switch (m_ShadingType) {
+    case kFunctionBasedShading: {
+      // Either one 2-to-N function or N 2-to-1 functions.
+      if (!ValidateFunctions(1, 2, numColorSpaceComponents) &&
+          !ValidateFunctions(numColorSpaceComponents, 2, 1)) {
+        return false;
+      }
+      break;
+    }
+    case kAxialShading:
+    case kRadialShading: {
+      // Either one 1-to-N function or N 1-to-1 functions.
+      if (!ValidateFunctions(1, 1, numColorSpaceComponents) &&
+          !ValidateFunctions(numColorSpaceComponents, 1, 1)) {
+        return false;
+      }
+      break;
+    }
+    case kFreeFormGouraudTriangleMeshShading:
+    case kLatticeFormGouraudTriangleMeshShading:
+    case kCoonsPatchMeshShading:
+    case kTensorProductPatchMeshShading: {
+      // Either no function, one 1-to-N function, or N 1-to-1 functions.
+      if (m_pFunctions.size() > 0 &&
+          !ValidateFunctions(1, 1, numColorSpaceComponents) &&
+          !ValidateFunctions(numColorSpaceComponents, 1, 1)) {
+        return false;
+      }
+      break;
+    }
+    default: {
+      NOTREACHED();
+      return false;
+    }
+  }
+  return true;
+}
+
+bool CPDF_ShadingPattern::ValidateFunctions(uint32_t expectedNumFunctions,
+                                            uint32_t expectedNumInputs,
+                                            uint32_t expectedNumOutputs) const {
+  if (m_pFunctions.size() != expectedNumFunctions)
+    return false;
+
+  for (auto& function : m_pFunctions) {
+    if (!function)
+      return false;
+
+    if (function->CountInputs() != expectedNumInputs ||
+        function->CountOutputs() != expectedNumOutputs) {
+      return false;
+    }
+  }
 
   return true;
 }

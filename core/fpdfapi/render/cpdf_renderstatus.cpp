@@ -93,12 +93,12 @@ class CPDF_RefType3Cache {
 
 uint32_t CountOutputs(
     const std::vector<std::unique_ptr<CPDF_Function>>& funcs) {
-  uint32_t total = 0;
+  pdfium::base::CheckedNumeric<uint32_t> total = 0;
   for (const auto& func : funcs) {
     if (func)
       total += func->CountOutputs();
   }
-  return total;
+  return total.ValueOrDefault(0);
 }
 
 void DrawAxialShading(const RetainPtr<CFX_DIBitmap>& pBitmap,
@@ -135,8 +135,10 @@ void DrawAxialShading(const RetainPtr<CFX_DIBitmap>& pBitmap,
   float x_span = end_x - start_x;
   float y_span = end_y - start_y;
   float axis_len_square = (x_span * x_span) + (y_span * y_span);
-  uint32_t total_results =
-      std::max(CountOutputs(funcs), pCS->CountComponents());
+  uint32_t num_outputs = CountOutputs(funcs);
+  if (num_outputs == 0)
+    return;
+  uint32_t total_results = std::max(num_outputs, pCS->CountComponents());
   CFX_FixedBufGrow<float, 16> result_array(total_results);
   float* pResults = result_array;
   memset(pResults, 0, total_results * sizeof(float));
@@ -217,8 +219,10 @@ void DrawRadialShading(const RetainPtr<CFX_DIBitmap>& pBitmap,
     bStartExtend = !!pArray->GetIntegerAt(0);
     bEndExtend = !!pArray->GetIntegerAt(1);
   }
-  uint32_t total_results =
-      std::max(CountOutputs(funcs), pCS->CountComponents());
+  uint32_t num_outputs = CountOutputs(funcs);
+  if (num_outputs == 0)
+    return;
+  uint32_t total_results = std::max(num_outputs, pCS->CountComponents());
   CFX_FixedBufGrow<float, 16> result_array(total_results);
   float* pResults = result_array;
   memset(pResults, 0, total_results * sizeof(float));
@@ -339,8 +343,10 @@ void DrawFuncShading(const RetainPtr<CFX_DIBitmap>& pBitmap,
   int width = pBitmap->GetWidth();
   int height = pBitmap->GetHeight();
   int pitch = pBitmap->GetPitch();
-  uint32_t total_results =
-      std::max(CountOutputs(funcs), pCS->CountComponents());
+  uint32_t num_outputs = CountOutputs(funcs);
+  if (num_outputs == 0)
+    return;
+  uint32_t total_results = std::max(num_outputs, pCS->CountComponents());
   CFX_FixedBufGrow<float, 16> result_array(total_results);
   float* pResults = result_array;
   memset(pResults, 0, total_results * sizeof(float));
