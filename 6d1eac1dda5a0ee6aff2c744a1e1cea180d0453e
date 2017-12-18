@@ -17,6 +17,24 @@
       "revId": "6d1eac1dda5a0ee6aff2c744a1e1cea180d0453e",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11a6460e_2e753adc",
+        "filename": "core/fpdfapi/parser/cfdf_document.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-18T21:57:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "745d5678_27403df1",
+      "revId": "6d1eac1dda5a0ee6aff2c744a1e1cea180d0453e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
