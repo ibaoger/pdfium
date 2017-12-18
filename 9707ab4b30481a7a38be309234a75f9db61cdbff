@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4761ab2f_4a8aa0af",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6781
+      },
+      "writtenOn": "2017-12-18T14:59:03Z",
+      "side": 1,
+      "message": "Slash instead of dot, psnames/pstables.h",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4732e541_9a31be02",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 6781
+      },
+      "writtenOn": "2017-12-18T14:59:03Z",
+      "side": 1,
+      "message": "Is this still used?",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7c87cea_e73b5ce6",
+        "filename": "third_party/freetype/include/pstables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6781
+      },
+      "writtenOn": "2017-12-18T14:59:03Z",
+      "side": 1,
+      "message": "It seems to me that PDFium only requires the ft_adobe_glyph_list and the function that operates on top of this compressed table information. Can we #ifdef out the other parts?",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
