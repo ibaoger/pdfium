@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94366085_87d4b20f",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:25:14Z",
+      "side": 1,
+      "message": "More variable naming.",
+      "range": {
+        "startLine": 136,
+        "startChar": 11,
+        "endLine": 136,
+        "endChar": 34
+      },
+      "revId": "67bac17edab42a82f149dc0ae8e9c08753217fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72f1ea8f_05917eda",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:25:14Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 182,
+        "startChar": 41,
+        "endLine": 182,
+        "endChar": 53
+      },
+      "revId": "67bac17edab42a82f149dc0ae8e9c08753217fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1348bc81_3fb9e7ae",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:25:14Z",
+      "side": 1,
+      "message": "Just: return totalOutputs.IsValid();",
+      "revId": "67bac17edab42a82f149dc0ae8e9c08753217fda",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
