@@ -22,6 +22,30 @@
       "revId": "d926863cb9b41a205c7bfea3dab0a36ed9ce6353",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "629f2682_e64b1082",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-19T19:21:05Z",
+      "side": 1,
+      "message": "Yeah, I think this is the ideal way - if any function is null, something went awry and the shading pattern is not valid.",
+      "parentUuid": "1d7c0b17_275974b4",
+      "range": {
+        "startLine": 187,
+        "startChar": 18,
+        "endLine": 187,
+        "endChar": 0
+      },
+      "revId": "d926863cb9b41a205c7bfea3dab0a36ed9ce6353",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
