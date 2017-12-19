@@ -26,6 +26,7 @@ class CPDF_Dest {
   int GetPageIndex(CPDF_Document* pDoc);
   uint32_t GetPageObjNum();
   int GetZoomMode();
+  unsigned int GetNumParams();
   float GetParam(int index);
 
   bool GetXYZ(bool* pHasX,

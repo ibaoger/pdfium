@@ -175,6 +175,12 @@ FPDFAction_GetURIPath(FPDF_DOCUMENT document,
 FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFDest_GetPageIndex(FPDF_DOCUMENT document, FPDF_DEST dest);
 
+FPDF_EXPORT unsigned long FPDF_CALLCONV
+FPDFDest_GetView(FPDF_DOCUMENT document,
+                 FPDF_DEST pDict,
+                 unsigned long* outNumParams,
+                 FS_FLOAT* outParams);
+
 // Get the (x, y, zoom) location of |dest| in the destination page, if the
 // destination is in [page /XYZ x y zoom] syntax.
 //
