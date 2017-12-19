@@ -49,16 +49,18 @@ class UnownedPtr {
   // NOLINTNEXTLINE(runtime/explicit)
   UnownedPtr(std::nullptr_t ptr) {}
 
-  ~UnownedPtr() { ProbeForLowSeverityLifetimeIssue(); }
+  ~UnownedPtr() {
+    ProbeForLifetimeIssueFileAsLowSeverityIReallyMeanItThisIsntJustANameImTalkingToYouDearBugReporter();
+  }
 
   UnownedPtr& operator=(T* that) {
-    ProbeForLowSeverityLifetimeIssue();
+    ProbeForLifetimeIssueFileAsLowSeverityIReallyMeanItThisIsntJustANameImTalkingToYouDearBugReporter();
     m_pObj = that;
     return *this;
   }
 
   UnownedPtr& operator=(const UnownedPtr& that) {
-    ProbeForLowSeverityLifetimeIssue();
+    ProbeForLifetimeIssueFileAsLowSeverityIReallyMeanItThisIsntJustANameImTalkingToYouDearBugReporter();
     if (*this != that)
       m_pObj = that.Get();
     return *this;
@@ -83,7 +85,7 @@ class UnownedPtr {
   T* Get() const { return m_pObj; }
 
   T* Release() {
-    ProbeForLowSeverityLifetimeIssue();
+    ProbeForLifetimeIssueFileAsLowSeverityIReallyMeanItThisIsntJustANameImTalkingToYouDearBugReporter();
     T* pTemp = nullptr;
     std::swap(pTemp, m_pObj);
     return pTemp;
@@ -94,7 +96,8 @@ class UnownedPtr {
   T* operator->() const { return m_pObj; }
 
  private:
-  inline void ProbeForLowSeverityLifetimeIssue() {
+  inline void
+  ProbeForLifetimeIssueFileAsLowSeverityIReallyMeanItThisIsntJustANameImTalkingToYouDearBugReporter() {
 #if defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
     if (m_pObj)
       reinterpret_cast<const volatile uint8_t*>(m_pObj)[0];
