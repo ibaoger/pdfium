@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dec1429c_ae32f114",
+        "filename": "public/fpdfview.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 6780
+      },
+      "writtenOn": "2017-12-19T14:06:43Z",
+      "side": 1,
+      "message": "Consider something a little closer to Chromium\u0027s export templates:\n\n#if defined(PDFIUM_IS_DLL)\n#if defined(_WIN32)\n\n#if defined(PDFIUM_EXPORT)\n#define FPDF_EXPORT __declspec(dllexport)\n#else\n#define FPDF_EXPORT __declspec(dllimport)\n#endif  // defined(PDFIUM_EXPORT)\n\n#else  // defined(_WIN32)\n\n#if defined(PDFIUM_EXPORT)\n#define FPDF_EXPORT __attribute__((visibility(\"default\")))\n#else\n#define FPDF_EXPORT\n#endif  // defined(PDFIUM_EXPORT)\n\n#endif  // defined(_WIN32)\n\n#else  // defined(PDFIUM_IS_DLL)\n#define FPDF_EXPORT\n#endif  // defined(PDFIUM_IS_DLL)\n\n-------\n\nThis has the advantage of setting dllimport for shared library users and doing nothing for static library users. Also, if you want to enable component builds at a later stage the changes are minimal (PDFIUM_IS_DLL to IS_COMPONENT_BUILD).",
+      "revId": "2255aab134de5904b621db32e21dd609694e9ef1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
