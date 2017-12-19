@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02b3ea20_9c971220",
+        "filename": "BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:03:57Z",
+      "side": 1,
+      "message": "This should go in third_party/BUILD.gn.",
+      "revId": "46ee327bb677b6c8011900751e736ce05458a4dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685490c1_13490228",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:03:57Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 15,
+        "endChar": 59
+      },
+      "revId": "46ee327bb677b6c8011900751e736ce05458a4dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b97508_f27c7f83",
+        "filename": "third_party/freetype/README.pdfium",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:03:57Z",
+      "side": 1,
+      "message": "We don\u0027t have to. We could ask people to jump through hoops to obtain their own copy. So maybe \"we provide it as a convenience.\" ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 52,
+        "endLine": 16,
+        "endChar": 67
+      },
+      "revId": "46ee327bb677b6c8011900751e736ce05458a4dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18954a7f_e6849dc6",
+        "filename": "third_party/freetype/roll-freetype.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:03:57Z",
+      "side": 1,
+      "message": "PDFium\n\nThanks for adding this. It should have been included in the original script.",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "46ee327bb677b6c8011900751e736ce05458a4dd",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}

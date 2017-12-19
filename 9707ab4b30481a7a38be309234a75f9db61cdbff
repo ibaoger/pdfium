@@ -104,6 +104,24 @@
       "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0928e4d8_d722eae7",
+        "filename": "third_party/freetype/include/pstables.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T19:03:57Z",
+      "side": 1,
+      "message": "Definitely in official builds.",
+      "parentUuid": "32ed93a2_c1f558ad",
+      "revId": "9707ab4b30481a7a38be309234a75f9db61cdbff",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
