@@ -61,6 +61,11 @@ class CPDF_ShadingPattern : public CPDF_Pattern {
   }
 
  private:
+  bool Validate() const;
+  bool ValidateFunctions(uint32_t expectedNumFunctions,
+                         uint32_t expectedNumInputs,
+                         uint32_t expectedNumOutputs) const;
+
   ShadingType m_ShadingType;
   bool m_bShadingObj;
   UnownedPtr<CPDF_Object> m_pShadingObj;
