@@ -17,6 +17,10 @@ pdf_enable_v8_override = true
 # Default: Without XFA support.
 pdf_enable_xfa_override = false
 
+# Build PDFium with public API symbols exported.
+# Default: Do not export symbols.
+pdf_export_symbols_override = false
+
 # Build PDFium against skia (experimental) rather than agg, replacing all PDFium
 # graphics.
 # Default: Use agg.

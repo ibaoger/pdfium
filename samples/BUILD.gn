@@ -10,6 +10,9 @@ group("samples") {
   deps = [
     ":pdfium_test",
   ]
+  if (pdf_export_symbols) {
+    deps += [ ":pdfium_shared" ]
+  }
 }
 
 config("pdfium_samples_config") {
@@ -71,5 +74,28 @@ executable("pdfium_test") {
   }
   if (pdf_use_skia || pdf_use_skia_paths) {
     deps += [ "//skia" ]
+  }
+}
+
+if (pdf_export_symbols) {
+  shared_library("pdfium_shared") {
+    deps = [
+      "../:pdfium",
+      "//build/config:exe_and_shlib_deps",
+      "//build/win:default_exe_manifest",
+    ]
+    configs += [ ":pdfium_samples_config" ]
+
+    if (pdf_enable_v8) {
+      deps += [ "//v8:v8_libplatform" ]
+      include_dirs = [
+        "//v8",
+        "//v8/include",
+      ]
+      configs += [ "//v8:external_startup_data" ]
+    }
+    if (pdf_use_skia || pdf_use_skia_paths) {
+      deps += [ "//skia" ]
+    }
   }
 }
