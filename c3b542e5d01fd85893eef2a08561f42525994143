@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "a640a27d_eb970319",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:33:07Z",
+      "side": 1,
+      "message": "Not sure how the function name can be on the third line unless FPDF_CALLCONV is on the second. For FPDF_CALLCONV to be on the second line, \"FPDF_EXPORT return_type FPDF_CALLCONV\" has to have a return_type of 54 letters.",
+      "parentUuid": "bd3f95b2_fa346004",
+      "range": {
+        "startLine": 28,
+        "startChar": 44,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4c27c7a_3c7a21ba",
         "filename": "testing/tools/api_check.py",
         "patchSetId": 3
