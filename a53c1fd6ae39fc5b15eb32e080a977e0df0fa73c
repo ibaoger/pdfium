@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9693e101_b780598d",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "Do we want to roll this into Validate() ?",
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf718b88_ed587ba5",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "Just \"return Validate();\" if we expect this to be the last one?",
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589ea01b_07f0635d",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "Move to header?",
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea87ee4_40b353d6",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "I don\u0027t think this can happen? If it can, I would expect the entire check to be:\n\nm_ShadingType \u003c\u003d kInvalidShading || m_ShadingType \u003e\u003d kMaxShading",
+      "range": {
+        "startLine": 117,
+        "startChar": 39,
+        "endLine": 117,
+        "endChar": 70
+      },
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74ea5e25_00f0fd87",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "! empty()",
+      "range": {
+        "startLine": 167,
+        "startChar": 23,
+        "endLine": 167,
+        "endChar": 33
+      },
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "411f0c68_a5c784da",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "Can this be: const auto\u0026 ?",
+      "range": {
+        "startLine": 188,
+        "startChar": 7,
+        "endLine": 188,
+        "endChar": 12
+      },
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a850eb_006633db",
+        "filename": "core/fpdfapi/page/cpdf_shadingpattern.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "nExpectedNumFoo?",
+      "range": {
+        "startLine": 65,
+        "startChar": 34,
+        "endLine": 65,
+        "endChar": 54
+      },
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a294fea_de2d6f3c",
+        "filename": "core/fpdfapi/render/cpdf_renderstatus.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-19T18:26:49Z",
+      "side": 1,
+      "message": "Why don\u0027t we validate the input params earlier?",
+      "revId": "a53c1fd6ae39fc5b15eb32e080a977e0df0fa73c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
