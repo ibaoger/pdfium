@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "bd3f95b2_fa346004",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-19T16:36:14Z",
+      "side": 1,
+      "message": "It\u0027s ok but... would it work if the function name was in the third line? What about if FPDF_CALLCONV was in the second?",
+      "parentUuid": "e7bf3154_083f7e7f",
+      "range": {
+        "startLine": 28,
+        "startChar": 44,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4c27c7a_3c7a21ba",
         "filename": "testing/tools/api_check.py",
         "patchSetId": 3
@@ -316,6 +340,30 @@
       "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42d47f2_4ecb26d2",
+        "filename": "testing/tools/api_check.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-19T16:36:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a613daae_24eb8fc9",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "c3b542e5d01fd85893eef2a08561f42525994143",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
