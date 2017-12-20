@@ -12,6 +12,7 @@ TEST(CPDF_DeviceCSTest, GetRGBFromGray) {
   float G;
   float B;
   CPDF_DeviceCS device_gray(PDFCS_DEVICEGRAY);
+  ASSERT_TRUE(device_gray.v_Load(nullptr, nullptr, nullptr));
 
   // Test normal values. For gray, only first value from buf should be used.
   float buf[3] = {0.43f, 0.11f, 0.34f};
@@ -55,6 +56,7 @@ TEST(CPDF_DeviceCSTest, GetRGBFromRGB) {
   float G;
   float B;
   CPDF_DeviceCS device_rgb(PDFCS_DEVICERGB);
+  ASSERT_TRUE(device_rgb.v_Load(nullptr, nullptr, nullptr));
 
   // Test normal values
   float buf[3] = {0.13f, 1.0f, 0.652f};
@@ -84,6 +86,7 @@ TEST(CPDF_DeviceCSTest, GetRGBFromCMYK) {
   float G;
   float B;
   CPDF_DeviceCS device_cmyk(PDFCS_DEVICECMYK);
+  ASSERT_TRUE(device_cmyk.v_Load(nullptr, nullptr, nullptr));
 
   // Test normal values
   float buf[4] = {0.6f, 0.5f, 0.3f, 0.9f};
