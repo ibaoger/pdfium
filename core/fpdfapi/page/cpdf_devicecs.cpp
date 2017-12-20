@@ -54,13 +54,19 @@ void ReverseRGB(uint8_t* pDestBuf, const uint8_t* pSrcBuf, int pixels) {
   }
 }
 
-CPDF_DeviceCS::CPDF_DeviceCS(int family)
-    : CPDF_ColorSpace(nullptr, family, ComponentsForFamily(family)) {
+CPDF_DeviceCS::CPDF_DeviceCS(int family) : CPDF_ColorSpace(nullptr, family) {
   ASSERT(family == PDFCS_DEVICEGRAY || family == PDFCS_DEVICERGB ||
          family == PDFCS_DEVICECMYK);
 }
 
 CPDF_DeviceCS::~CPDF_DeviceCS() {}
+
+bool CPDF_DeviceCS::v_Load(CPDF_Document* pDoc,
+                           CPDF_Array* pArray,
+                           std::set<CPDF_Object*>* pVisited) {
+  m_nComponents = ComponentsForFamily(GetFamily());
+  return true;
+}
 
 bool CPDF_DeviceCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
   switch (m_Family) {

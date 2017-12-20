@@ -537,25 +537,13 @@ void CPDF_ColorSpace::EnableStdConversion(bool bEnabled) {
     m_dwStdConversion--;
 }
 
-CPDF_ColorSpace::CPDF_ColorSpace(CPDF_Document* pDoc,
-                                 int family,
-                                 uint32_t nComponents)
-    : m_pDocument(pDoc),
-      m_Family(family),
-      m_nComponents(nComponents),
-      m_pArray(nullptr),
-      m_dwStdConversion(0) {}
+CPDF_ColorSpace::CPDF_ColorSpace(CPDF_Document* pDoc, int family)
+    : m_pDocument(pDoc), m_Family(family) {}
 
 CPDF_ColorSpace::~CPDF_ColorSpace() {}
 
-bool CPDF_ColorSpace::v_Load(CPDF_Document* pDoc,
-                             CPDF_Array* pArray,
-                             std::set<CPDF_Object*>* pVisited) {
-  return true;
-}
-
 CPDF_CalGray::CPDF_CalGray(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_CALGRAY, 1) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_CALGRAY) {}
 
 bool CPDF_CalGray::v_Load(CPDF_Document* pDoc,
                           CPDF_Array* pArray,
@@ -565,17 +553,17 @@ bool CPDF_CalGray::v_Load(CPDF_Document* pDoc,
     return false;
 
   CPDF_Array* pParam = pDict->GetArrayFor("WhitePoint");
-  int i;
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_WhitePoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   pParam = pDict->GetArrayFor("BlackPoint");
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_BlackPoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   m_Gamma = pDict->GetNumberFor("Gamma");
   if (m_Gamma == 0)
     m_Gamma = 1.0f;
+  m_nComponents = 1;
   return true;
 }
 
@@ -600,7 +588,7 @@ void CPDF_CalGray::TranslateImageLine(uint8_t* pDestBuf,
 }
 
 CPDF_CalRGB::CPDF_CalRGB(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_CALRGB, 3) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_CALRGB) {}
 
 bool CPDF_CalRGB::v_Load(CPDF_Document* pDoc,
                          CPDF_Array* pArray,
@@ -610,18 +598,17 @@ bool CPDF_CalRGB::v_Load(CPDF_Document* pDoc,
     return false;
 
   CPDF_Array* pParam = pDict->GetArrayFor("WhitePoint");
-  int i;
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_WhitePoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   pParam = pDict->GetArrayFor("BlackPoint");
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_BlackPoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   pParam = pDict->GetArrayFor("Gamma");
   if (pParam) {
     m_bGamma = true;
-    for (i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
       m_Gamma[i] = pParam->GetNumberAt(i);
   } else {
     m_bGamma = false;
@@ -630,11 +617,12 @@ bool CPDF_CalRGB::v_Load(CPDF_Document* pDoc,
   pParam = pDict->GetArrayFor("Matrix");
   if (pParam) {
     m_bMatrix = true;
-    for (i = 0; i < 9; i++)
+    for (int i = 0; i < 9; i++)
       m_Matrix[i] = pParam->GetNumberAt(i);
   } else {
     m_bMatrix = false;
   }
+  m_nComponents = 3;
   return true;
 }
 
@@ -692,7 +680,7 @@ void CPDF_CalRGB::TranslateImageLine(uint8_t* pDestBuf,
 }
 
 CPDF_LabCS::CPDF_LabCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_LAB, 3) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_LAB) {}
 
 void CPDF_LabCS::GetDefaultValue(int iComponent,
                                  float* value,
@@ -719,19 +707,18 @@ bool CPDF_LabCS::v_Load(CPDF_Document* pDoc,
     return false;
 
   CPDF_Array* pParam = pDict->GetArrayFor("WhitePoint");
-  int i;
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_WhitePoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   pParam = pDict->GetArrayFor("BlackPoint");
-  for (i = 0; i < 3; i++)
+  for (int i = 0; i < 3; i++)
     m_BlackPoint[i] = pParam ? pParam->GetNumberAt(i) : 0;
 
   pParam = pDict->GetArrayFor("Range");
-  const float def_ranges[4] = {-100 * 1.0f, 100 * 1.0f, -100 * 1.0f,
-                               100 * 1.0f};
-  for (i = 0; i < 4; i++)
-    m_Ranges[i] = pParam ? pParam->GetNumberAt(i) : def_ranges[i];
+  const float kDefaultRanges[4] = {-100.0f, 100.0f, -100.0f, 100.0f};
+  for (size_t i = 0; i < FX_ArraySize(kDefaultRanges); i++)
+    m_Ranges[i] = pParam ? pParam->GetNumberAt(i) : kDefaultRanges[i];
+  m_nComponents = 3;
   return true;
 }
 
@@ -789,7 +776,7 @@ void CPDF_LabCS::TranslateImageLine(uint8_t* pDestBuf,
 }
 
 CPDF_ICCBasedCS::CPDF_ICCBasedCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_ICCBASED, 0) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_ICCBASED) {}
 
 CPDF_ICCBasedCS::~CPDF_ICCBasedCS() {
   if (m_pProfile && m_pDocument) {
@@ -818,15 +805,19 @@ bool CPDF_ICCBasedCS::v_Load(CPDF_Document* pDoc,
 
   m_nComponents = nDictComponents;
   m_pProfile = pDoc->LoadIccProfile(pStream);
-  if (!m_pProfile)
+  if (!m_pProfile) {
+    m_nComponents = 0;
     return false;
+  }
 
   // The PDF 1.7 spec also says the number of components in the ICC profile
   // must match the N value. However, that assumes the viewer actually
   // understands the ICC profile.
   // If the valid ICC profile has a mismatch, fail.
-  if (m_pProfile->IsValid() && m_pProfile->GetComponents() != m_nComponents)
+  if (m_pProfile->IsValid() && m_pProfile->GetComponents() != m_nComponents) {
+    m_nComponents = 0;
     return false;
+  }
 
   // If PDFium does not understand the ICC profile format at all, or if it's
   // SRGB, a profile PDFium recognizes but does not support well, then try the
@@ -998,7 +989,7 @@ void CPDF_ICCBasedCS::PopulateRanges(CPDF_Dictionary* pDict) {
 }
 
 CPDF_IndexedCS::CPDF_IndexedCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_INDEXED, 1) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_INDEXED) {}
 
 CPDF_IndexedCS::~CPDF_IndexedCS() {
   FX_Free(m_pCompMinMax);
@@ -1053,6 +1044,7 @@ bool CPDF_IndexedCS::v_Load(CPDF_Document* pDoc,
     pAcc->LoadAllDataFiltered();
     m_Table = ByteStringView(pAcc->GetData(), pAcc->GetSize());
   }
+  m_nComponents = 1;
   return true;
 }
 
@@ -1090,7 +1082,7 @@ void CPDF_IndexedCS::EnableStdConversion(bool bEnabled) {
 }
 
 CPDF_SeparationCS::CPDF_SeparationCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_SEPARATION, 1) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_SEPARATION) {}
 
 CPDF_SeparationCS::~CPDF_SeparationCS() {}
 
@@ -1109,6 +1101,7 @@ bool CPDF_SeparationCS::v_Load(CPDF_Document* pDoc,
   ByteString name = pArray->GetStringAt(1);
   if (name == "None") {
     m_Type = None;
+    m_nComponents = 1;
     return true;
   }
 
@@ -1130,6 +1123,7 @@ bool CPDF_SeparationCS::v_Load(CPDF_Document* pDoc,
 
   if (m_pFunc && m_pFunc->CountOutputs() < m_pAltCS->CountComponents())
     m_pFunc.reset();
+  m_nComponents = 1;
   return true;
 }
 
@@ -1173,7 +1167,7 @@ void CPDF_SeparationCS::EnableStdConversion(bool bEnabled) {
 }
 
 CPDF_DeviceNCS::CPDF_DeviceNCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_DEVICEN, 0) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_DEVICEN) {}
 
 CPDF_DeviceNCS::~CPDF_DeviceNCS() {}
 
@@ -1193,7 +1187,6 @@ bool CPDF_DeviceNCS::v_Load(CPDF_Document* pDoc,
   if (!pObj)
     return false;
 
-  m_nComponents = pObj->GetCount();
   CPDF_Object* pAltCS = pArray->GetDirectObjectAt(2);
   if (!pAltCS || pAltCS == m_pArray)
     return false;
@@ -1206,7 +1199,11 @@ bool CPDF_DeviceNCS::v_Load(CPDF_Document* pDoc,
   if (m_pAltCS->IsSpecial())
     return false;
 
-  return m_pFunc->CountOutputs() >= m_pAltCS->CountComponents();
+  if (m_pFunc->CountOutputs() < m_pAltCS->CountComponents())
+    return false;
+
+  m_nComponents = pObj->GetCount();
+  return true;
 }
 
 bool CPDF_DeviceNCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
