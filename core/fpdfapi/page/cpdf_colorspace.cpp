@@ -156,6 +156,10 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
   bool v_Load(CPDF_Document* pDoc,
               CPDF_Array* pArray,
               std::set<CPDF_Object*>* pVisited) override;
+  void GetDefaultValue(int iComponent,
+                       float* value,
+                       float* min,
+                       float* max) const override;
   bool GetRGB(float* pBuf, float* R, float* G, float* B) const override;
   void EnableStdConversion(bool bEnabled) override;
   void TranslateImageLine(uint8_t* pDestBuf,
@@ -840,6 +844,15 @@ bool CPDF_ICCBasedCS::v_Load(CPDF_Document* pDoc,
 
   PopulateRanges(pDict);
   return true;
+}
+
+void CPDF_ICCBasedCS::GetDefaultValue(int iComponent,
+                                      float* value,
+                                      float* min,
+                                      float* max) const {
+  *min = m_pRanges[iComponent * 2];
+  *max = m_pRanges[iComponent * 2 + 1];
+  *value = *min;
 }
 
 bool CPDF_ICCBasedCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
