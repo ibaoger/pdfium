@@ -23,8 +23,8 @@ class CPDF_Color {
   void Copy(const CPDF_Color* pSrc);
 
   void SetColorSpace(CPDF_ColorSpace* pCS);
-  void SetValue(float* comp);
-  void SetValue(CPDF_Pattern* pPattern, float* comp, uint32_t ncomps);
+  void SetValue(const float* comp);
+  void SetValue(CPDF_Pattern* pPattern, const float* comp, uint32_t ncomps);
 
   bool GetRGB(int* R, int* G, int* B) const;
   CPDF_Pattern* GetPattern() const;
@@ -34,8 +34,8 @@ class CPDF_Color {
   void ReleaseBuffer();
   void ReleaseColorSpace();
 
-  CPDF_ColorSpace* m_pCS;
-  float* m_pBuffer;
+  float* m_pBuffer = nullptr;
+  CPDF_ColorSpace* m_pCS = nullptr;
 };
 
 #endif  // CORE_FPDFAPI_PAGE_CPDF_COLOR_H_
