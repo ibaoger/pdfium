@@ -11,7 +11,7 @@
 #include "core/fpdfapi/parser/cpdf_document.h"
 
 CPDF_PatternCS::CPDF_PatternCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_PATTERN, 1),
+    : CPDF_ColorSpace(pDoc, PDFCS_PATTERN),
       m_pBaseCS(nullptr),
       m_pCountedBaseCS(nullptr) {}
 
@@ -27,6 +27,16 @@ CPDF_PatternCS::~CPDF_PatternCS() {
 bool CPDF_PatternCS::v_Load(CPDF_Document* pDoc,
                             CPDF_Array* pArray,
                             std::set<CPDF_Object*>* pVisited) {
+  MarkVLoadCalled();
+
+  // Handle default stock pattern case.
+  if (!pArray) {
+    ASSERT(!pDoc);
+    ASSERT(!pVisited);
+    m_nComponents = 1;
+    return true;
+  }
+
   CPDF_Object* pBaseCS = pArray->GetDirectObjectAt(1);
   if (pBaseCS == m_pArray)
     return false;
@@ -43,13 +53,17 @@ bool CPDF_PatternCS::v_Load(CPDF_Document* pDoc,
 
   m_pCountedBaseCS = pDocPageData->FindColorSpacePtr(m_pBaseCS->GetArray());
   m_nComponents = m_pBaseCS->CountComponents() + 1;
-  return m_pBaseCS->CountComponents() <= kMaxPatternColorComps;
+  if (m_pBaseCS->CountComponents() > kMaxPatternColorComps)
+    return false;
+
+  m_nComponents = 1;
+  return true;
 }
 
 bool CPDF_PatternCS::GetRGB(float* pBuf, float* R, float* G, float* B) const {
   if (m_pBaseCS) {
     ASSERT(m_pBaseCS->GetFamily() != PDFCS_PATTERN);
-    PatternValue* pvalue = (PatternValue*)pBuf;
+    PatternValue* pvalue = reinterpret_cast<PatternValue*>(pBuf);
     if (m_pBaseCS->GetRGB(pvalue->m_Comps, R, G, B))
       return true;
   }
