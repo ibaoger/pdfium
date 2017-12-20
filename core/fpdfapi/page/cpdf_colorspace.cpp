@@ -174,12 +174,10 @@ class CPDF_ICCBasedCS : public CPDF_ColorSpace {
 
   void UseStockAlternateProfile();
   bool IsValidComponents(int32_t nComps) const;
-  void PopulateRanges(CPDF_Dictionary* pDict);
 
   MaybeOwned<CPDF_ColorSpace> m_pAlterCS;
   RetainPtr<CPDF_IccProfile> m_pProfile;
   mutable uint8_t* m_pCache;
-  float* m_pRanges;
 };
 
 class CPDF_IndexedCS : public CPDF_ColorSpace {
@@ -788,13 +786,10 @@ void CPDF_LabCS::TranslateImageLine(uint8_t* pDestBuf,
 }
 
 CPDF_ICCBasedCS::CPDF_ICCBasedCS(CPDF_Document* pDoc)
-    : CPDF_ColorSpace(pDoc, PDFCS_ICCBASED, 0),
-      m_pCache(nullptr),
-      m_pRanges(nullptr) {}
+    : CPDF_ColorSpace(pDoc, PDFCS_ICCBASED, 0), m_pCache(nullptr) {}
 
 CPDF_ICCBasedCS::~CPDF_ICCBasedCS() {
   FX_Free(m_pCache);
-  FX_Free(m_pRanges);
   if (m_pProfile && m_pDocument) {
     CPDF_Stream* pStream = m_pProfile->GetStream();
     m_pProfile.Reset();  // Give up our reference first.
@@ -841,7 +836,6 @@ bool CPDF_ICCBasedCS::v_Load(CPDF_Document* pDoc,
     UseStockAlternateProfile();
   }
 
-  PopulateRanges(pDict);
   return true;
 }
 
@@ -969,19 +963,6 @@ void CPDF_ICCBasedCS::UseStockAlternateProfile() {
 
 bool CPDF_ICCBasedCS::IsValidComponents(int32_t nComps) const {
   return nComps == 1 || nComps == 3 || nComps == 4;
-}
-
-void CPDF_ICCBasedCS::PopulateRanges(CPDF_Dictionary* pDict) {
-  CPDF_Array* pRanges = pDict->GetArrayFor("Range");
-  m_pRanges = FX_Alloc2D(float, m_nComponents, 2);
-  for (uint32_t i = 0; i < m_nComponents * 2; i++) {
-    if (pRanges)
-      m_pRanges[i] = pRanges->GetNumberAt(i);
-    else if (i % 2)
-      m_pRanges[i] = 1.0f;
-    else
-      m_pRanges[i] = 0.0f;
-  }
 }
 
 CPDF_IndexedCS::CPDF_IndexedCS(CPDF_Document* pDoc)
