@@ -395,7 +395,7 @@ void CPDF_Font::LoadPDFEncoding(CPDF_Object* pEncoding,
   if (iBaseEncoding != PDFFONT_ENCODING_ADOBE_SYMBOL &&
       iBaseEncoding != PDFFONT_ENCODING_ZAPFDINGBATS) {
     ByteString bsEncoding = pDict->GetStringFor("BaseEncoding");
-    if (bsEncoding.Compare("MacExpertEncoding") == 0 && bTrueType) {
+    if (bTrueType && bsEncoding.Compare("MacExpertEncoding") == 0) {
       bsEncoding = "WinAnsiEncoding";
     }
     GetPredefinedEncoding(bsEncoding, &iBaseEncoding);
