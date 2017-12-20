@@ -10,7 +10,12 @@ CPDF_PageModule::CPDF_PageModule()
     : m_StockGrayCS(PDFCS_DEVICEGRAY),
       m_StockRGBCS(PDFCS_DEVICERGB),
       m_StockCMYKCS(PDFCS_DEVICECMYK),
-      m_StockPatternCS(nullptr) {}
+      m_StockPatternCS(nullptr) {
+  m_StockGrayCS.v_Load(nullptr, nullptr, nullptr);
+  m_StockRGBCS.v_Load(nullptr, nullptr, nullptr);
+  m_StockCMYKCS.v_Load(nullptr, nullptr, nullptr);
+  m_StockPatternCS.v_Load(nullptr, nullptr, nullptr);
+}
 
 CPDF_PageModule::~CPDF_PageModule() {}
 
