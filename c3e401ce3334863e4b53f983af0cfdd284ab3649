@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09987859_ad560fb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "nit: Can you wrap at 72 cols?",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80cee51d_9ca0d563",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "const CPDF_Dictionary*",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "294b350a_2b3fe6eb",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "It\u0027s a bit weird that GetIntegerFor() returns an int, then we make it a size_t in the Optional, and finally the external interface treats it as an int again. What\u0027s the valid range of values for MCIDs anyway?",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "618506e1_9abb7479",
+        "filename": "fpdfsdk/fpdf_structtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "Check |elem| and elem-\u003eGetDict() do not return nullptr, like line 80 above.",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "858bf275_1d3428a9",
+        "filename": "fpdfsdk/fpdf_structtree_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "All the calls in this test expect -1 as the return result. Any chance we can make a test where it returns a valid value?",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6667827_5761b90b",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-20T16:52:24Z",
+      "side": 1,
+      "message": "Just: mcid.value_or(-1); ?",
+      "range": {
+        "startLine": 267,
+        "startChar": 32,
+        "endLine": 267,
+        "endChar": 50
+      },
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
