@@ -71,12 +71,6 @@ endobj
 21 0 obj <<
 >>
 stream
-function gc() {
-  tmp = [];
-  for (var i = 0; i < 0x200000; i++)
-    tmp.push(new Uint8Array(10));
-  tmp = null;
-}
 this.getField("MyField2").setFocus();
 this.getField("MyField").borderStyle="dashed";
 this.getField("MyField").setFocus();
@@ -145,15 +139,15 @@ xref
 0000000000 65535 f 
 0000000000 65535 f 
 0000000000 65535 f 
-0000001102 00000 n 
+0000000987 00000 n 
 0000000000 65535 f 
 0000000000 65535 f 
 0000000000 65535 f 
 0000000000 65535 f 
 0000000000 65535 f 
-0000001226 00000 n 
-0000001304 00000 n 
+0000001111 00000 n 
+0000001189 00000 n 
 trailer<< /Root 1 0 R /Size 51 >>
 startxref
-1353
+1238
 %%EOF
