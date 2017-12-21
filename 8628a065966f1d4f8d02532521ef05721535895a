@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42397ea7_7101eb5b",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-21T18:32:32Z",
+      "side": 1,
+      "message": "Suggestion: make v_Load return the number of components instead of having this contract of having to set m_nComponents when successful. Callers then would call a base class \"Load\" method that does:\n\n  m_nComponents \u003d v_Load();\n  return m_nComponents \u003e 0;",
+      "range": {
+        "startLine": 606,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 24
+      },
+      "revId": "8628a065966f1d4f8d02532521ef05721535895a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
