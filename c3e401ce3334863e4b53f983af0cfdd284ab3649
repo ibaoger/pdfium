@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "f16f78a0_33494a43",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-21T21:40:13Z",
+      "side": 1,
+      "message": "To sort of answer my own question - since the MICD is an integer, in theory it can be negative. I imagine in practice it is positive, and everyone avoids using -1, which is the sentinel value for \"no MCID\" in many PDF libraries. Given this, maybe this can be straight forward and not bother with pdfium::Optional? (Sorry for the back and forth.) Keeping pdfium::Optional\u003cint\u003e is ok too. I don\u0027t have strong feelings either way.",
+      "parentUuid": "294b350a_2b3fe6eb",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "618506e1_9abb7479",
         "filename": "fpdfsdk/fpdf_structtree.cpp",
         "patchSetId": 3
@@ -81,6 +99,23 @@
       "writtenOn": "2017-12-20T16:52:24Z",
       "side": 1,
       "message": "All the calls in this test expect -1 as the return result. Any chance we can make a test where it returns a valid value?",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efdfdd3d_8f77a03c",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-21T21:40:13Z",
+      "side": 1,
+      "message": "Does it make sense to check |metadata.marked_content_id| in this FPDFImageObj_GetImageMetadata() call? Also line 1228.",
       "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
