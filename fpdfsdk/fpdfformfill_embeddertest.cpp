@@ -506,7 +506,7 @@ TEST_F(FPDFFormFillEmbeddertest, BUG_707673) {
 }
 
 TEST_F(FPDFFormFillEmbeddertest, BUG_765384) {
-  EXPECT_TRUE(OpenDocument("bug_765384.pdf"));
+  EXPECT_TRUE(OpenDocument("bug_765384_fast.pdf"));
   FPDF_PAGE page = LoadPage(0);
   EXPECT_TRUE(page);
 
