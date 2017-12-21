@@ -15,6 +15,7 @@ namespace {
 
 const char* const g_sZoomModes[] = {"XYZ",  "Fit",   "FitH",  "FitV", "FitR",
                                     "FitB", "FitBH", "FitBV", nullptr};
+const int g_sZoomModeParamCount[] = {3, 0, 1, 1, 4, 0, 1, 1, 0};
 
 }  // namespace
 
@@ -119,6 +120,10 @@ bool CPDF_Dest::GetXYZ(bool* pHasX,
   }
 
   return true;
+}
+
+unsigned int CPDF_Dest::GetNumParams() {
+  return g_sZoomModeParamCount[GetZoomMode()];
 }
 
 float CPDF_Dest::GetParam(int index) {
