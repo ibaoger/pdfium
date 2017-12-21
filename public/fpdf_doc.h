@@ -25,6 +25,16 @@ extern "C" {
 // Launch an application or open a file.
 #define PDFACTION_LAUNCH 4
 
+// View destination fit types. See pdfmark reference v9, page 48.
+#define PDFDEST_VIEW_XYZ 0
+#define PDFDEST_VIEW_FIT 1
+#define PDFDEST_VIEW_FITH 2
+#define PDFDEST_VIEW_FITV 3
+#define PDFDEST_VIEW_FITR 4
+#define PDFDEST_VIEW_FITB 5
+#define PDFDEST_VIEW_FITBH 6
+#define PDFDEST_VIEW_FITBV 7
+
 typedef struct _FS_QUADPOINTSF {
   FS_FLOAT x1;
   FS_FLOAT y1;
@@ -174,6 +184,12 @@ FPDFAction_GetURIPath(FPDF_DOCUMENT document,
 // Returns the page index containing |dest|. Page indices start from 0.
 FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFDest_GetPageIndex(FPDF_DOCUMENT document, FPDF_DEST dest);
+
+FPDF_EXPORT unsigned long FPDF_CALLCONV
+FPDFDest_GetView(FPDF_DOCUMENT document,
+                 FPDF_DEST pDict,
+                 unsigned long* outNumParams,
+                 FS_FLOAT* outParams);
 
 // Get the (x, y, zoom) location of |dest| in the destination page, if the
 // destination is in [page /XYZ x y zoom] syntax.

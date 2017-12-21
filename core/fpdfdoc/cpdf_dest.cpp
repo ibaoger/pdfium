@@ -6,6 +6,8 @@
 
 #include "core/fpdfdoc/cpdf_dest.h"
 
+#include <algorithm>
+
 #include "core/fpdfapi/parser/cpdf_array.h"
 #include "core/fpdfapi/parser/cpdf_document.h"
 #include "core/fpdfapi/parser/cpdf_name.h"
@@ -15,6 +17,7 @@ namespace {
 
 const char* const g_sZoomModes[] = {"XYZ",  "Fit",   "FitH",  "FitV", "FitR",
                                     "FitB", "FitBH", "FitBV", nullptr};
+const int g_sZoomModeParamCount[] = {3, 0, 1, 1, 4, 0, 1, 1, 0};
 
 }  // namespace
 
@@ -119,6 +122,16 @@ bool CPDF_Dest::GetXYZ(bool* pHasX,
   }
 
   return true;
+}
+
+unsigned int CPDF_Dest::GetNumParams() {
+  CPDF_Array* pArray = ToArray(m_pObj.Get());
+  if (!pArray || pArray->GetCount() < 2)
+    return 0;
+
+  size_t maxParamsForFitType = g_sZoomModeParamCount[GetZoomMode()];
+  size_t numParamsInArray = pArray->GetCount() - 2;
+  return std::min(maxParamsForFitType, numParamsInArray);
 }
 
 float CPDF_Dest::GetParam(int index) {
