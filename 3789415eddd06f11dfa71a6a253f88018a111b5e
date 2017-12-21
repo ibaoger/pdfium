@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95b3f637_47b6392b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-21T07:14:04Z",
+      "side": 1,
+      "message": "Whoops, this should have been 317263:318667.",
+      "revId": "3789415eddd06f11dfa71a6a253f88018a111b5e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
