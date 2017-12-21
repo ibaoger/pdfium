@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75dcc1df_655952c6",
+        "filename": "core/fpdfapi/page/cpdf_colorspace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2017-12-21T18:41:31Z",
+      "side": 1,
+      "message": "WhitePoint and BlackPoint differ in that WhitePoint is requires and BlackPoint is optional, defaulting to 0.\n\nAlso, the first and last values of WhitePoint must be positive and the second must be 1.0.\n\nTherefore this method should have some extra validation and return a boolean so v_Load can fail if this does not adhere to the specs.",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "8671958c7db5788de96e1923175bf39c1a4a30f9",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
