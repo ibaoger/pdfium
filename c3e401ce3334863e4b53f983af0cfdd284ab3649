@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "66706ee2_754755c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09987859_ad560fb0",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80cee51d_9ca0d563",
         "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de2b82d9_fa977c37",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80cee51d_9ca0d563",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "b9e3c754_8e683231",
+        "filename": "core/fpdfapi/page/cpdf_contentmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done - I usually like consistency, so I switched back to just use plain ints everywhere.",
+      "parentUuid": "f16f78a0_33494a43",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "618506e1_9abb7479",
         "filename": "fpdfsdk/fpdf_structtree.cpp",
         "patchSetId": 3
@@ -85,6 +139,24 @@
       "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44225eb8_e49c4ea6",
+        "filename": "fpdfsdk/fpdf_structtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "618506e1_9abb7479",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "b3a0d6c7_475054aa",
+        "filename": "fpdfsdk/fpdf_structtree_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done - I made a simple PDF with an image with alt text that has an actual marked content ID and added it.",
+      "parentUuid": "858bf275_1d3428a9",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efdfdd3d_8f77a03c",
         "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
         "patchSetId": 3
@@ -119,6 +209,24 @@
       "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0cd3e4c_12ba6d15",
+        "filename": "fpdfsdk/fpdfedit_embeddertest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efdfdd3d_8f77a03c",
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -142,6 +250,30 @@
       "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02208a48_3b449b1b",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 7296
+      },
+      "writtenOn": "2017-12-22T22:38:57Z",
+      "side": 1,
+      "message": "Ack - switched from Optional to plain int, so I can just return the value of GetMarkedContentID() directly.",
+      "parentUuid": "b6667827_5761b90b",
+      "range": {
+        "startLine": 267,
+        "startChar": 32,
+        "endLine": 267,
+        "endChar": 50
+      },
+      "revId": "c3e401ce3334863e4b53f983af0cfdd284ab3649",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     }
   ]
 }
