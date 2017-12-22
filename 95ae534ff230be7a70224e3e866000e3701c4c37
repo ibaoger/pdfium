@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ca09c61_70ab18c8",
+        "filename": "fpdfsdk/fpdfeditimg.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2017-12-22T23:10:49Z",
+      "side": 1,
+      "message": "Oh, line 270 below can return false. Can we set this after that? ALl the other paths after that returns true.",
+      "revId": "95ae534ff230be7a70224e3e866000e3701c4c37",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
