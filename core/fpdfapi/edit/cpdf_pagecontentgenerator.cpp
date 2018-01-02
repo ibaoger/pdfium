@@ -25,6 +25,7 @@
 #include "core/fpdfapi/parser/cpdf_reference.h"
 #include "core/fpdfapi/parser/cpdf_stream.h"
 #include "core/fpdfapi/parser/fpdf_parser_decode.h"
+#include "third_party/absl/strings/numbers.h"
 
 namespace {
 
@@ -218,10 +219,17 @@ void CPDF_PageContentGenerator::ProcessPath(std::ostringstream* buf,
     *buf << pPoints[0].m_Point.x << " " << pPoints[0].m_Point.y << " " << diff.x
          << " " << diff.y << " re";
   } else {
+    // Buffer for conversion, mainly to avoid re-allocating over and over.
+    char buffer[absl::numbers_internal::kSixDigitsToBufferSize];
     for (size_t i = 0; i < pPoints.size(); i++) {
       if (i > 0)
         *buf << " ";
-      *buf << pPoints[i].m_Point.x << " " << pPoints[i].m_Point.y;
+
+      absl::numbers_internal::SixDigitsToBuffer(pPoints[i].m_Point.x, buffer);
+      *buf << buffer << " ";
+      absl::numbers_internal::SixDigitsToBuffer(pPoints[i].m_Point.y, buffer);
+      *buf << buffer;
+
       FXPT_TYPE pointType = pPoints[i].m_Type;
       if (pointType == FXPT_TYPE::MoveTo) {
         *buf << " m";

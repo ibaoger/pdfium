@@ -194,6 +194,7 @@ static_library("pdfium") {
     ":fxjs",
     ":pwl",
     "third_party:bigint",
+    "third_party:pdfium_absl",
     "third_party:pdfium_base",
   ]
 
@@ -876,10 +877,12 @@ static_library("fxcrt") {
   configs += [ ":pdfium_core_config" ]
   visibility += [ "third_party:*" ]
   deps = [
+    "third_party:pdfium_absl",
     "third_party:pdfium_base",
   ]
   public_deps = [
     ":freetype_common",
+    "third_party:pdfium_absl",
     "third_party:pdfium_base",
   ]
 
