@@ -10,6 +10,7 @@ import("../pdfium.gni")
 group("third_party") {
   deps = [
     ":bigint",
+    ":pdfium_absl",
     ":pdfium_base",
   ]
   if (pdf_bundle_freetype) {
@@ -564,5 +565,18 @@ source_set("pdfium_base") {
     "base/sys_byteorder.h",
     "base/template_util.h",
     "build/build_config.h",
+  ]
+}
+
+source_set("pdfium_absl") {
+  configs -= [ "//build/config/compiler:chromium_code" ]
+  configs += [
+    "//build/config/compiler:no_chromium_code",
+    ":pdfium_third_party_config",
+  ]
+  sources = [
+    "absl/base/macros.h",
+    "absl/strings/numbers.cc",
+    "absl/strings/numbers.h",
   ]
 }
