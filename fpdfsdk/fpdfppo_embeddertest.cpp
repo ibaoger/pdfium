@@ -57,6 +57,22 @@ TEST_F(FPDFPPOEmbeddertest, ImportPages) {
   UnloadPage(page);
 }
 
+TEST_F(FPDFPPOEmbeddertest, ImportNPages) {
+  ASSERT_TRUE(OpenDocument("viewer_ref.pdf"));
+
+  FPDF_PAGE page = LoadPage(0);
+  EXPECT_TRUE(page);
+
+  FPDF_DOCUMENT output_doc = FPDF_CreateNewDocument();
+  ASSERT_TRUE(output_doc);
+  EXPECT_TRUE(FPDF_CopyViewerPreferences(output_doc, document()));
+  EXPECT_TRUE(FPDF_ImportNPages(output_doc, document(), "1", 0, 2));
+  EXPECT_EQ(1, FPDF_GetPageCount(output_doc));
+  FPDF_CloseDocument(output_doc);
+
+  UnloadPage(page);
+}
+
 TEST_F(FPDFPPOEmbeddertest, BadRepeatViewerPref) {
   ASSERT_TRUE(OpenDocument("repeat_viewer_ref.pdf"));
 
