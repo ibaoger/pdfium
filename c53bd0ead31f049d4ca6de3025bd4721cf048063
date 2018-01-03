@@ -1,0 +1,675 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da17fb9d_a8857643",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "GetMediaBox (GetCropBox and GetTrimBox as well)",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 17
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42125e6e_e1345dac",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s on single line conditions and bodies. Same below.",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c5a8f8_22410331",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "nit: blank line above",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc6c75b4_4cd235bb",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "ExportNPagesToOne ?",
+      "range": {
+        "startLine": 166,
+        "startChar": 6,
+        "endLine": 166,
+        "endChar": 17
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e05f64b_d932d8c5",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "CFX_PointF?",
+      "range": {
+        "startLine": 168,
+        "startChar": 18,
+        "endLine": 169,
+        "endChar": 29
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13155c62_316d2846",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Remove default parameters",
+      "range": {
+        "startLine": 175,
+        "startChar": 47,
+        "endLine": 175,
+        "endChar": 57
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d6d7a1e_60542a3a",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "What does this do? Is it AddXObject? Or AddPageAndXObject?",
+      "range": {
+        "startLine": 176,
+        "startChar": 15,
+        "endLine": 176,
+        "endChar": 31
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2729d79e_077dbb6b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Can this be negative? If not size_t.\n\nLets rename to xobjectNum",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 11
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c20b1e30_204eb81c",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "CFX_SizeF pageSize.",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 190,
+        "endChar": 19
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba27211_8a779b54",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Who owns this? Can it be a CFX_UnownedPtr\u003cCPDF_Object\u003e?",
+      "range": {
+        "startLine": 191,
+        "startChar": 23,
+        "endLine": 191,
+        "endChar": 35
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9723f60_5cf9aff0",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Is this used for all the N-up pages? If so, is it the value we want? What if the 4th page is larger then the 1st and 2nd? Should we all each grouping of N pages to determine the page size to use for those pages?",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 36
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90f8f0f7_fa5e7b61",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Lets do the ++ as a separate statement. Makes this more obvious.",
+      "range": {
+        "startLine": 258,
+        "startChar": 47,
+        "endLine": 258,
+        "endChar": 55
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8b9a3a_4d1047cd",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "xobjectName",
+      "range": {
+        "startLine": 258,
+        "startChar": 13,
+        "endLine": 258,
+        "endChar": 19
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a21fdad_4562ca99",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "nit: blank line after {}\u0027less bodies.",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae2c6e65_453b91c3",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Can this be removed if we change ImportPages to call ImportNPages?",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1c1f52f_693e6f07",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Move this to it\u0027s own variable.",
+      "range": {
+        "startLine": 416,
+        "startChar": 6,
+        "endLine": 417,
+        "endChar": 51
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2ad0ef_34d9a510",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Move down to 452? Same with others below. We try to declare as close to usage as possible.",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 23
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d55c224_8ab13dde",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 429,
+        "startChar": 2,
+        "endLine": 429,
+        "endChar": 61
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ddf03d_084b723b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Just do this in the for() on 453, no need for the variable.",
+      "range": {
+        "startLine": 430,
+        "startChar": 3,
+        "endLine": 430,
+        "endChar": 52
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19aa73e8_a1af9b86",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Should this return false instead? If what we want isn\u0027t possible shouldn\u0027t that be an error?",
+      "range": {
+        "startLine": 436,
+        "startChar": 4,
+        "endLine": 436,
+        "endChar": 12
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac28d4fb_6874f5b4",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f7be80_849de918",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Early return, remove else.",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a3dfe4_81c50441",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "++i",
+      "range": {
+        "startLine": 453,
+        "startChar": 31,
+        "endLine": 453,
+        "endChar": 34
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2db36537_d1f9db86",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Is this needed? Cant\u0027 we just do i \u003e 0 \u0026\u0026 i % nup \u003d\u003d 0 or something?",
+      "range": {
+        "startLine": 455,
+        "startChar": 20,
+        "endLine": 455,
+        "endChar": 29
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffefd48c_001b0da2",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Can\u0027t this just become:\n\nFPDF_ImportNPages(desT_doc, src_doc, pagerange, index, 1)?",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 600,
+        "endChar": 70
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e3718a1_f1514e4b",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "ImportNPages(output_doc, document(), \"1\", 0, 0);\nImportNPages(output_doc, document(), \"1-3\", 0, 1);\nImportNPages(output_doc, document(), \"1-3\", 0, 2);\nImportNPages(output_doc, document(), \"\", 0, 1);\nImportNPages(output_doc, document(), \"9999-10000\", 0, 1);  // import pages out of range\nImportNPages(output_doc, document(), \"-1\", 0, 1);  // weird import page range\nImportNPages(output_doc, document(), \"abcd\", 0,1);\nImportNPages(output_doc, document(), \"5-2\", 0, 1);  // weird import page range\nImportNPages(output_doc, document(), \"1,3,5,9\", 0, 2);  // Some way to validate we have 1,3 and 5,9 on pages 1 and 2?\n\n- The next to together, have a output doc with a single first page and we add n-up pages afterwards\nImportPage(output_doc, document(), \"1, 0);\nImportNPages(output_doc, document(), \"1-3\", 1, 2);",
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ea3dc1a_ad2fce28",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "I\u0027d put this down with the nup params on line 40.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc6c5f5c_6f763a87",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Is dest_doc modified on failure?",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f48430ab_a97f2158",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "ImportNPagesToOne ? or something? ImportNPages doesn\u0027t give me much context that it\u0027s different from ImportPages",
+      "range": {
+        "startLine": 43,
+        "startChar": 41,
+        "endLine": 43,
+        "endChar": 52
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d1520a_3bb03886",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "num_pages_per_page?",
+      "range": {
+        "startLine": 47,
+        "startChar": 58,
+        "endLine": 47,
+        "endChar": 61
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "917eed21_5cda1115",
+        "filename": "third_party/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-03T15:13:41Z",
+      "side": 1,
+      "message": "Did these get copied in from chromiums base/ folder? The third_party/base code is stuff we\u0027ve copied from chromium/base. If these are copied, did they originals not have copyright notices?\n\nIf they aren\u0027t from chromium/base there is probably a better place for them to live in core/ or somewhere closer to their usage.",
+      "range": {
+        "startLine": 561,
+        "startChar": 4,
+        "endLine": 565,
+        "endChar": 21
+      },
+      "revId": "c53bd0ead31f049d4ca6de3025bd4721cf048063",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
