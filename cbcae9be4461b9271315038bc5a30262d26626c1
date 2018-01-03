@@ -22,6 +22,30 @@
       "revId": "cbcae9be4461b9271315038bc5a30262d26626c1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a581622_4d058ca8",
+        "filename": "fpdfsdk/pwl/cpwl_edit_impl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 6295
+      },
+      "writtenOn": "2018-01-03T21:59:22Z",
+      "side": 0,
+      "message": "No because it was only being called on old lines 190, 196, where the range of the loop made the check redundant.",
+      "parentUuid": "7dc214ed_7a474271",
+      "range": {
+        "startLine": 1891,
+        "startChar": 2,
+        "endLine": 1891,
+        "endChar": 39
+      },
+      "revId": "cbcae9be4461b9271315038bc5a30262d26626c1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
