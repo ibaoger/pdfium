@@ -234,6 +234,7 @@ int CheckPDFiumCApi() {
 
     // fpdf_ppo.h
     CHK(FPDF_ImportPages);
+    CHK(FPDF_ImportNPages);
     CHK(FPDF_CopyViewerPreferences);
 
     // fpdf_progressive.h
