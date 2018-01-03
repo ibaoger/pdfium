@@ -36,7 +36,7 @@ std::unique_ptr<CPDF_Annot> CreatePopupAnnot(CPDF_Annot* pAnnot,
 
   // TODO(jaepark): We shouldn't strip BOM for some strings and not for others.
   // See pdfium:593.
-  WideString sContents = pParentDict->GetUnicodeTextFor("Contents");
+  ByteString sContents = pParentDict->GetStringFor("Contents");
   if (sContents.IsEmpty())
     return nullptr;
 
@@ -46,7 +46,7 @@ std::unique_ptr<CPDF_Annot> CreatePopupAnnot(CPDF_Annot* pAnnot,
   pAnnotDict->SetNewFor<CPDF_Name>("Subtype", "Popup");
   pAnnotDict->SetNewFor<CPDF_String>("T", pParentDict->GetStringFor("T"),
                                      false);
-  pAnnotDict->SetNewFor<CPDF_String>("Contents", sContents.UTF8Encode(), false);
+  pAnnotDict->SetNewFor<CPDF_String>("Contents", sContents, false);
 
   CFX_FloatRect rect = pParentDict->GetRectFor("Rect");
   rect.Normalize();
