@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb19edd3_f0741e78",
+        "filename": "testing/resources/bug_765384.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2018-01-04T19:55:12Z",
+      "side": 0,
+      "message": "actually, pdfium_test passes --enable-gc to V8, so there should already be a function named gc().  It looks like we don\u0027t need it here at all, but for future reference, there\u0027s a pattern like \n\n  if (typeof(gc) !\u003d \"undefined) {\n    function gc() {...}\n  }\n\nthen just use gc() throughout the test.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 15
+      },
+      "revId": "05dcbc931eacb72f1a11835ae282fc8434b7a434",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
