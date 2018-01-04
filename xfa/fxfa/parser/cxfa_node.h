@@ -153,7 +153,7 @@ class CXFA_Node : public CXFA_Object {
   CXFA_Node* GetModelNode();
   void UpdateNameHash();
 
-  int32_t CountChildren(XFA_Element eType, bool bOnlyChild);
+  size_t CountChildren(XFA_Element eType, bool bOnlyChild);
 
   template <typename T>
   T* GetChild(int32_t index, XFA_Element eType, bool bOnlyChild) {
