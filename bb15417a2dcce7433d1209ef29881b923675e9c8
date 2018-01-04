@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60128fdf_d037d4ee",
+        "filename": "core/fxge/cfx_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T20:03:59Z",
+      "side": 1,
+      "message": "nit: pdfium style is one declaration per line.",
+      "revId": "bb15417a2dcce7433d1209ef29881b923675e9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aea96d45_ddf21089",
+        "filename": "core/fxge/cfx_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T20:03:59Z",
+      "side": 1,
+      "message": "Why do the extra checks? This should just happen once so doesn\u0027t seem like doing 3 int comparisons will slow us down too much?",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 47
+      },
+      "revId": "bb15417a2dcce7433d1209ef29881b923675e9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
