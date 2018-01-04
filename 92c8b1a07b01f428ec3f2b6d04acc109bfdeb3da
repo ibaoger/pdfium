@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7dbf56d_08974d96",
+        "filename": "xfa/fde/cfde_texteditengine.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5495
+      },
+      "writtenOn": "2018-01-04T20:43:11Z",
+      "side": 1,
+      "message": "nit: Although the alignment of a RectF is probably 4 byte boundary, packing the 4 ints adjacently (instead of 3) above this would remove any doubt that there might be padding introduced by a compiler.",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "92c8b1a07b01f428ec3f2b6d04acc109bfdeb3da",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
