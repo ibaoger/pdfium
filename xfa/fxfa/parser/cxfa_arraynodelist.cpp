@@ -48,7 +48,7 @@ bool CXFA_ArrayNodeList::Remove(CXFA_Node* pNode) {
   return true;
 }
 
-CXFA_Node* CXFA_ArrayNodeList::Item(int32_t iIndex) {
-  int32_t iSize = pdfium::CollectionSize<int32_t>(m_array);
-  return (iIndex >= 0 && iIndex < iSize) ? m_array[iIndex] : nullptr;
+CXFA_Node* CXFA_ArrayNodeList::Item(size_t index) {
+  size_t size = m_array.size();
+  return (index >= 0 && index < size) ? m_array[index] : nullptr;
 }
