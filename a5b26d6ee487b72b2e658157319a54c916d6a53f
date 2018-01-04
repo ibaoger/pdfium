@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "597abb83_a3380dc6",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 6580
+      },
+      "writtenOn": "2018-01-04T02:05:31Z",
+      "side": 1,
+      "message": "What does stack allocation cost?  Is it measurable?",
+      "revId": "a5b26d6ee487b72b2e658157319a54c916d6a53f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de405511_08450457",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 6580
+      },
+      "writtenOn": "2018-01-04T02:05:31Z",
+      "side": 1,
+      "message": "possibly faster, but less idiomatic:\n\n      unsigned size \u003d SkFloatToDecimal(pPoints[i].m_Point.x, buffer);\n      buf-\u003ewrite(buffer, size) \u003c\u003c \" \";\n      size \u003d SkFloatToDecimal(pPoints[i].m_Point.y, buffer);\n      buf-\u003ewrite(buffer, size);\n\ncleaner:\n\n    inline void writeFloatToDecimal(std::ostringstream* o, float f) {\n        char buffer[kMaximumSkFloatToDecimalLength];\n        o-\u003ewrite(buffer, SkFloatToDecimal(f, buffer));\n    }\n    writeFloatToDecimal(buf, pPoints[i].m_Point.x);\n    *buf \u003c\u003c \" \";\n    writeFloatToDecimal(buf, pPoints[i].m_Point.y);",
+      "revId": "a5b26d6ee487b72b2e658157319a54c916d6a53f",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
