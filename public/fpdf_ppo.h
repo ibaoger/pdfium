@@ -28,6 +28,25 @@ FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_ImportPages(FPDF_DOCUMENT dest_doc,
                                                      FPDF_BYTESTRING pagerange,
                                                      int index);
 
+// Import pages to a FPDF_DOCUMENT.
+//
+//   dest_doc  - The destination document for the pages.
+//   src_doc   - The document to be imported.
+//   pagerange - A page range string, Such as "1,3,5-7". If |pagerange| is NULL,
+//               all pages from |src_doc| are imported.
+//   index     - The page index to insert at.
+//   nup       - A number indicates how many pages to be inserted into one page.
+//               nup > 1 : import multiple pages onto the same page.
+//               nup == 1 : same as FPDF_ImportPages.
+//
+// Returns TRUE on success.
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV FPDF_ImportNPagesToOne(
+                                                      FPDF_DOCUMENT dest_doc,
+                                                      FPDF_DOCUMENT src_doc,
+                                                      FPDF_BYTESTRING pagerange,
+                                                      int index,
+                                                      int num_pages_per_page);
+
 // Copy the viewer preferences from |src_doc| into |dest_doc|.
 //
 //   dest_doc - Document to write the viewer preferences into.
