@@ -218,6 +218,8 @@ class CXFA_Node : public CXFA_Object {
 
   void SyncValue(const WideString& wsValue, bool bNotify);
 
+  void SyncValue(const WideString& wsValue, bool bNotify);
+
  protected:
   CXFA_Node(CXFA_Document* pDoc,
             XFA_PacketType ePacket,
