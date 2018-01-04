@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "888951fd_464a82f7",
+        "filename": "fxjs/cfxjse_engine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T21:39:23Z",
+      "side": 1,
+      "message": "Can we propagate this to have GetSomExpression return WideString?",
+      "range": {
+        "startLine": 744,
+        "startChar": 2,
+        "endLine": 744,
+        "endChar": 16
+      },
+      "revId": "8e832fe7c89cdb90b35e3c0b92cd1e63e6b8aab8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
