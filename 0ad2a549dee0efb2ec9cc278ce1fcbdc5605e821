@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2441877_2e72a59a",
+        "filename": "xfa/fxfa/parser/cxfa_arraynodelist.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T19:38:59Z",
+      "side": 1,
+      "message": "return (index \u003e\u003d 0 \u0026\u0026 index \u003c m_array.size()) ? m_array[index] : nullptr;",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 65
+      },
+      "revId": "0ad2a549dee0efb2ec9cc278ce1fcbdc5605e821",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7534faba_1863846f",
+        "filename": "xfa/fxfa/parser/cxfa_attachnodelist.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T19:38:59Z",
+      "side": 1,
+      "message": "Followup to make GetChild take size_t?",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "0ad2a549dee0efb2ec9cc278ce1fcbdc5605e821",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
