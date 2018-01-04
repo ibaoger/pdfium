@@ -81,6 +81,30 @@
       "revId": "bb15417a2dcce7433d1209ef29881b923675e9c8",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae7ca59e_80be965f",
+        "filename": "core/fxge/cfx_fontmgr.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T21:33:52Z",
+      "side": 1,
+      "message": "Doh, you\u0027re right. Sorry about that.",
+      "parentUuid": "a6ad3c8e_3ccbf30b",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 47
+      },
+      "revId": "bb15417a2dcce7433d1209ef29881b923675e9c8",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
