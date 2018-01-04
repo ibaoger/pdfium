@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38c971d3_87960b7a",
+        "filename": "xfa/fxfa/parser/cxfa_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-04T19:02:45Z",
+      "side": 1,
+      "message": "Can we followup with this as size_t which removes most of the static casts?",
+      "range": {
+        "startLine": 24,
+        "startChar": 26,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "d92fb161a27a56ae7c9b3a28cf2e19002cadc56a",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
