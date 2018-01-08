@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a819c97_d7098467",
+        "filename": "core/fxge/cfx_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-08T20:51:43Z",
+      "side": 1,
+      "message": "With FT 2.8.1 or newer, this not longer gets called. Does that matter? i.e. should this be:\n\nm_FTLibrarySupportsHinting \u003d DoFTVersionCheck();\nm_FTLibrarySupportsHinting |\u003d FXFT_Library_SetLcdFilter(...) !\u003d FT_Err_Unimplemented_Feature;",
+      "revId": "de8be21859ce52b5f9b4d9e33687c42c9ea79fb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
