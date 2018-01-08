@@ -890,6 +890,64 @@ TEST_F(FPDFAnnotEmbeddertest, GetSetStringValue) {
   CloseSavedDocument();
 }
 
+TEST_F(FPDFAnnotEmbeddertest, GetSetAP) {
+  // Open a file with four annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+
+  // Retrieve the first annotation.
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
+
+  // Check that the string value of a non-string dictionary entry is empty.
+  static constexpr char kApKey[] = "AP";
+  EXPECT_TRUE(FPDFAnnot_HasKey(annot, kApKey));
+  EXPECT_EQ(FPDF_OBJECT_REFERENCE, FPDFAnnot_GetValueType(annot, kApKey));
+  EXPECT_EQ(2u, FPDFAnnot_GetStringValue(annot, kApKey, nullptr, 0));
+
+  // Check that the string value of an AP is existent.
+  EXPECT_EQ(222u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
+                                  nullptr, 0));
+
+  // // Update the AP entry for the annotation.
+  // const wchar_t new_ap[] = L"abcdefghij";
+  // std::unique_ptr<unsigned short, pdfium::FreeDeleter> text =
+  //     GetFPDFWideString(new_date);
+  // EXPECT_TRUE(FPDFAnnot_SetStringValue(annot, kDateKey, text.get()));
+
+  // Save the document, closing the page and document.
+  FPDFPage_CloseAnnot(annot);
+  // EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
+  FPDF_ClosePage(page);
+
+  //   // Open the saved annotation.
+  // #if _FX_PLATFORM_ == _FX_PLATFORM_APPLE_
+  //   const char md5[] = "4d64e61c9c0f8c60ab3cc3234bb73b1c";
+  // #else
+  //   const char md5[] = "c96ee1f316d7f5a1b154de9f9d467f01";
+  // #endif
+  //   OpenSavedDocument();
+  //   page = LoadSavedPage(0);
+  //   VerifySavedRendering(page, 595, 842, md5);
+  //   FPDF_ANNOTATION new_annot = FPDFPage_GetAnnot(page, 0);
+
+  //   // Check that the string value of the modified date is the newly-set
+  //   value. EXPECT_EQ(FPDF_OBJECT_STRING, FPDFAnnot_GetValueType(new_annot,
+  //   kDateKey)); len = FPDFAnnot_GetStringValue(new_annot, kDateKey, nullptr,
+  //   0); buf.clear(); buf.resize(len); EXPECT_EQ(44u,
+  //             FPDFAnnot_GetStringValue(new_annot, kDateKey, buf.data(),
+  //             len));
+  //   EXPECT_STREQ(new_date,
+  //                GetPlatformWString(reinterpret_cast<unsigned
+  //                short*>(buf.data()))
+  //                    .c_str());
+
+  //   FPDFPage_CloseAnnot(new_annot);
+  //   CloseSavedPage(page);
+  //   CloseSavedDocument();
+}
+
 TEST_F(FPDFAnnotEmbeddertest, ExtractLinkedAnnotations) {
   // Open a file with annotations and load its first page.
   ASSERT_TRUE(OpenDocument("annotation_highlight_square_with_ap.pdf"));

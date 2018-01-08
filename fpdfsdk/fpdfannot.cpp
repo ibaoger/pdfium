@@ -735,6 +735,25 @@ FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
                                              buffer, buflen);
 }
 
+FPDF_EXPORT unsigned long FPDF_CALLCONV
+FPDFAnnot_GetAP(FPDF_ANNOTATION annot,
+                FPDFANNOT_APPEARANCEMODE appearanceMode,
+                void* buffer,
+                unsigned long buflen) {
+  if (!annot)
+    return 0;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return 0;
+
+  // return
+  // Utf16EncodeMaybeCopyAndReturnLength(pAnnotDict->GetUnicodeTextFor(key),
+  //                                            buffer, buflen);
+  return 42;
+}
+
 FPDF_EXPORT FPDF_ANNOTATION FPDF_CALLCONV
 FPDFAnnot_GetLinkedAnnot(FPDF_ANNOTATION annot, FPDF_BYTESTRING key) {
   CPDF_AnnotContext* pAnnot = CPDFAnnotContextFromFPDFAnnotation(annot);
