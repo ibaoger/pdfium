@@ -58,6 +58,12 @@ extern "C" {
 #define FPDF_ANNOT_FLAG_LOCKED (1 << 7)
 #define FPDF_ANNOT_FLAG_TOGGLENOVIEW (1 << 8)
 
+typedef enum FPDFANNOT_APPEARANCEMODE {
+  FPDFANNOT_APPEARANCEMODE_Normal = 0,
+  FPDFANNOT_APPEARANCEMODE_Rollover,
+  FPDFANNOT_APPEARANCEMODE_Down,
+} FPDFANNOT_APPEARANCEMODE;
+
 #define FPDF_OBJECT_UNKNOWN 0
 #define FPDF_OBJECT_BOOLEAN 1
 #define FPDF_OBJECT_NUMBER 2
@@ -394,6 +400,12 @@ FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
                          FPDF_BYTESTRING key,
                          void* buffer,
                          unsigned long buflen);
+
+FPDF_EXPORT unsigned long FPDF_CALLCONV
+FPDFAnnot_GetAP(FPDF_ANNOTATION annot,
+                FPDFANNOT_APPEARANCEMODE appearanceMode,
+                void* buffer,
+                unsigned long buflen);
 
 // Experimental API.
 // Get the annotation corresponding to |key| in |annot|'s dictionary. Common
