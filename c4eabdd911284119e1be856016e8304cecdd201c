@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e7ccb50_64aab660",
+        "filename": "core/fpdfdoc/cpdf_annot.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-08T23:18:17Z",
+      "side": 1,
+      "message": "Adding this is the only change from the moved block.",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 23
+      },
+      "revId": "c4eabdd911284119e1be856016e8304cecdd201c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    }
+  ]
+}
