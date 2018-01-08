@@ -11,11 +11,16 @@
 #include "public/fpdf_edit.h"
 #include "public/fpdfview.h"
 #include "testing/embedder_test.h"
+#include "testing/gmock/include/gmock/gmock-matchers.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 static constexpr char kContentsKey[] = "Contents";
 
 class FPDFAnnotEmbeddertest : public EmbedderTest {};
+
+const std::wstring BufferToWString(std::vector<char>& buf) {
+  return GetPlatformWString(reinterpret_cast<unsigned short*>(buf.data()));
+}
 
 TEST_F(FPDFAnnotEmbeddertest, RenderAnnotWithOnlyRolloverAP) {
   // Open a file with one annotation and load its first page.
@@ -888,6 +893,59 @@ TEST_F(FPDFAnnotEmbeddertest, GetSetStringValue) {
   FPDFPage_CloseAnnot(new_annot);
   CloseSavedPage(page);
   CloseSavedDocument();
+}
+
+TEST_F(FPDFAnnotEmbeddertest, GetSetAP) {
+  // Open a file with four annotations and load its first page.
+  ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
+  FPDF_PAGE page = FPDF_LoadPage(document(), 0);
+  ASSERT_TRUE(page);
+
+  // Retrieve the first annotation.
+  FPDF_ANNOTATION annot = FPDFPage_GetAnnot(page, 0);
+  ASSERT_TRUE(annot);
+
+  // Check that the string value of a non-string dictionary entry is empty.
+  static constexpr char kApKey[] = "AP";
+  EXPECT_TRUE(FPDFAnnot_HasKey(annot, kApKey));
+  EXPECT_EQ(FPDF_OBJECT_REFERENCE, FPDFAnnot_GetValueType(annot, kApKey));
+  EXPECT_EQ(2u, FPDFAnnot_GetStringValue(annot, kApKey, nullptr, 0));
+
+  // Check that the string value of an AP returns the expected length.
+  unsigned long len =
+      FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal, nullptr, 0);
+  EXPECT_EQ(73970u, len);
+
+  // Check that the string value of an AP is not returned if the buffer is too
+  // small.
+  std::vector<char> buf(len - 1);
+  EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
+                                    buf.data(), len - 1));
+  std::wstring ap = BufferToWString(buf);
+  EXPECT_STREQ(ap.c_str(), L"");
+
+  // Check that the string value of an AP is returned through a buffer that is
+  // the right size.
+  buf.clear();
+  buf.resize(len);
+  EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
+                                    buf.data(), len));
+  ap = BufferToWString(buf);
+  EXPECT_THAT(ap, testing::StartsWith(L"q Q q 7.442786 w 2 J"));
+  EXPECT_THAT(ap, testing::EndsWith(L"c 716.5381 327.7156 l S Q Q"));
+
+  // Check that the string value of an AP is returned through a buffer that is
+  // larger than necessary.
+  buf.clear();
+  buf.resize(len + 1);
+  EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
+                                    buf.data(), len + 1));
+  ap = BufferToWString(buf);
+  EXPECT_THAT(ap, testing::StartsWith(L"q Q q 7.442786 w 2 J"));
+  EXPECT_THAT(ap, testing::EndsWith(L"c 716.5381 327.7156 l S Q Q"));
+
+  FPDFPage_CloseAnnot(annot);
+  FPDF_ClosePage(page);
 }
 
 TEST_F(FPDFAnnotEmbeddertest, ExtractLinkedAnnotations) {
