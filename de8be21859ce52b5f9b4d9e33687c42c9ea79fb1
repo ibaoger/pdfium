@@ -16,6 +16,24 @@
       "revId": "de8be21859ce52b5f9b4d9e33687c42c9ea79fb1",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff5e9b23_43e465ad",
+        "filename": "core/fxge/cfx_fontmgr.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6910
+      },
+      "writtenOn": "2018-01-08T21:34:33Z",
+      "side": 1,
+      "message": "Good call. I missed that we should always call FXFT_Library_setLcdFilter. I\u0027ll send a CL to reverse the order of the checks.",
+      "parentUuid": "3a819c97_d7098467",
+      "revId": "de8be21859ce52b5f9b4d9e33687c42c9ea79fb1",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
