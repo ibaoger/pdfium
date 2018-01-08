@@ -46,6 +46,30 @@
       "revId": "b1480569cec5b6c0b2e585a40779b6ce9f812842",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23084e93_9c7e1e4d",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6580
+      },
+      "writtenOn": "2018-01-08T20:28:02Z",
+      "side": 1,
+      "message": "I don\u0027t know an easy solution. if 0.28999999 and 0.29 both map to the same float, what algorithm will consistently give the shorter?",
+      "parentUuid": "75d770f6_dc309c53",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 75
+      },
+      "revId": "b1480569cec5b6c0b2e585a40779b6ce9f812842",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
