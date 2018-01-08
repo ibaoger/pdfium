@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6c55190_a04f7b84",
+        "filename": "core/fpdfapi/edit/cpdf_pagecontentgenerator_unittest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7311
+      },
+      "writtenOn": "2018-01-08T15:31:50Z",
+      "side": 1,
+      "message": "Might these overly precise representations be considered a regression? They make the file bigger without, I\u0027d guess, any human-perceptible difference.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 75
+      },
+      "revId": "b1480569cec5b6c0b2e585a40779b6ce9f812842",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
