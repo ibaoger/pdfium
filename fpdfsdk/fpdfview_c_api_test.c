@@ -42,7 +42,7 @@ int CheckPDFiumCApi() {
     CHK(FPDFPage_GetAnnotCount);
     CHK(FPDFPage_GetAnnot);
     CHK(FPDFPage_GetAnnotIndex);
-    CHK(FPDFPage_CloseAnnot);
+    // CHK(FPDFPage_CloseAnnot);
     CHK(FPDFPage_RemoveAnnot);
     CHK(FPDFAnnot_GetSubtype);
     CHK(FPDFAnnot_IsObjectSupportedSubtype);
@@ -77,7 +77,7 @@ int CheckPDFiumCApi() {
     CHK(FPDFAttachment_HasKey);
     CHK(FPDFAttachment_GetValueType);
     CHK(FPDFAttachment_SetStringValue);
-    CHK(FPDFAttachment_GetStringValue);
+    // CHK(FPDFAttachment_GetStringValue);
     CHK(FPDFAttachment_SetFile);
     CHK(FPDFAttachment_GetFile);
 
