@@ -58,6 +58,12 @@ extern "C" {
 #define FPDF_ANNOT_FLAG_LOCKED (1 << 7)
 #define FPDF_ANNOT_FLAG_TOGGLENOVIEW (1 << 8)
 
+typedef enum FPDFANNOT_APPEARANCEMODE {
+  FPDFANNOT_APPEARANCEMODE_Normal = 0,
+  FPDFANNOT_APPEARANCEMODE_Rollover,
+  FPDFANNOT_APPEARANCEMODE_Down,
+} FPDFANNOT_APPEARANCEMODE;
+
 #define FPDF_OBJECT_UNKNOWN 0
 #define FPDF_OBJECT_BOOLEAN 1
 #define FPDF_OBJECT_NUMBER 2
@@ -394,6 +400,27 @@ FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
                          FPDF_BYTESTRING key,
                          void* buffer,
                          unsigned long buflen);
+
+// Experimental API.
+// Get the AP (appearance string) from |annot|'s dictionary for a given
+// |appearanceMode|.
+// |buffer| is only modified if |buflen| is large enough to hold the whole AP
+// string. If |buflen| is smaller, the total size of the AP is still returned,
+// but nothing is copied.
+// On other errors, nothing is written to |buffer| and 0 is returned.
+//
+//   annot          - handle to an annotation.
+//   appearanceMode - the appearance mode (normal, rollover or down) for which
+//                    to get the AP.
+//   buffer         - buffer for holding the value string, encoded in UTF16-LE.
+//   buflen         - length of the buffer.
+//
+// Returns the length of the string value.
+FPDF_EXPORT unsigned long FPDF_CALLCONV
+FPDFAnnot_GetAP(FPDF_ANNOTATION annot,
+                FPDFANNOT_APPEARANCEMODE appearanceMode,
+                void* buffer,
+                unsigned long buflen);
 
 // Experimental API.
 // Get the annotation corresponding to |key| in |annot|'s dictionary. Common
