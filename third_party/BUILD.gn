@@ -540,6 +540,8 @@ source_set("pdfium_base") {
     ":pdfium_third_party_config",
   ]
   sources = [
+    "base/SkFloatToDecimal.cpp",
+    "base/SkFloatToDecimal.h",
     "base/allocator/partition_allocator/address_space_randomization.cc",
     "base/allocator/partition_allocator/address_space_randomization.h",
     "base/allocator/partition_allocator/oom.h",
