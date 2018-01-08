@@ -1,0 +1,749 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ece1e3b6_1b0cb553",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "enum class, and below.",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faa3d3e8_39775478",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "Only left and top are used and only in the constructor below? Is this needed?",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60ffc27_b4732a38",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "Does this need to be an enum? Why not just store hte values?",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b103c302_da144035",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "I believe this should be a class per the style guide [1] since it has methods?\n\n1- https://google.github.io/styleguide/cppguide.html#Structs_vs._Classes",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "977ba1cd_67460a16",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t?",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eab6d4e5_00b7b7cb",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7ac881_389031a3",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "What about just doing some thing like?\n\nreturn i !\u003d 14 \u0026\u0026 i \u003e 0 \u0026\u0026 i \u003c 16 \u0026\u0026 (i \u003d\u003d 1 || (i % 2) \u003d\u003d 0 || (i % 3) \u003d\u003d 0);",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca0dd66a_6a2d9bcc",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "return numPagesPerSheet !\u003d 5 \u0026\u0026 numPagesPerSheet !\u003d 7 \u0026\u0026 numPagesPerSheet !\u003d 11 \u0026\u0026 numPagsePerSheet !\u003d 13\n  \u0026\u0026 numPagePerSheet !\u003d 14;\n\nSeems shorter and as clear?",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025cd89e_6ac42f98",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "This should be a pointer since it\u0027s modified. References should always be const.",
+      "range": {
+        "startLine": 79,
+        "startChar": 37,
+        "endLine": 79,
+        "endChar": 51
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "020971d5_8e14ae15",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "What does pageOrientation mean?",
+      "range": {
+        "startLine": 107,
+        "startChar": 12,
+        "endLine": 107,
+        "endChar": 27
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "260e2b4f_e2efcad5",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: These should be indented 1 space.\n\nCan you run git cl format on this change?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 7
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32195d21_03d13f5c",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: blank line before",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ca1fa07_847f1634",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 14
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb0767a_eec0a131",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "ASSERT",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 8
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27447e41_fb859ded",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 176,
+        "startChar": 10,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f64f7ea7_6b0ca6be",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: pdfium uses ++foo; when possible.",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 11
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3626f4a5_337903de",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "int subX;\nint subY;\nstd::tie(subX, subY) \u003d ConvertPageOrder(subPage);",
+      "range": {
+        "startLine": 218,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 47
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca40181_b7247efa",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "If we inline CalculatePageEdit here, can we return the tuple of \u003cbool, PointF, SizeF\u003e where the scale params are a size (which i think makes sense?)\n\nThen, we don\u0027t need NupPageEdit struct at all?",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c771c36b_e84ccf1d",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: ()\u0027s not needed.",
+      "range": {
+        "startLine": 220,
+        "startChar": 9,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67def25_e7280831",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 363,
+        "startChar": 18,
+        "endLine": 363,
+        "endChar": 29
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2b3ec43_bf97d90b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "const BtyeString\u0026?",
+      "range": {
+        "startLine": 367,
+        "startChar": 46,
+        "endLine": 367,
+        "endChar": 64
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52d9423d_f100d43f",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "uint32_t xobjectNum \u003d 0; then don\u0027t need to initialize in the constructor.",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 22
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c94d2150_af05ff59",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "\"Resources\" and \"XObject\" are used in a few places, move them to a constexpr?",
+      "range": {
+        "startLine": 487,
+        "startChar": 59,
+        "endLine": 487,
+        "endChar": 70
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2189221e_4918e802",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "Just it.first? Don\u0027t need to store key.",
+      "range": {
+        "startLine": 600,
+        "startChar": 44,
+        "endLine": 600,
+        "endChar": 47
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e173cda_a186586b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 618,
+        "startChar": 4,
+        "endLine": 619,
+        "endChar": 9
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35d38f0_bf6a9163",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 621,
+        "startChar": 2,
+        "endLine": 621,
+        "endChar": 5
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6aac316_023903de",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "I think this should fail here. The thing asked for isn\u0027t what we\u0027re going to do anymore so we should just bail and report an error instead of doing something completely different.",
+      "range": {
+        "startLine": 624,
+        "startChar": 2,
+        "endLine": 625,
+        "endChar": 25
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6ef114b_1c3ac697",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "Is the NupParameters struct needed? Can this just be stored in the NupState?",
+      "range": {
+        "startLine": 633,
+        "startChar": 2,
+        "endLine": 633,
+        "endChar": 62
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca6ed90e_43dd7f59",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "We only rotate by 0 or 90, just make it a bool?",
+      "range": {
+        "startLine": 634,
+        "startChar": 1,
+        "endLine": 638,
+        "endChar": 3
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f17634_9458d547",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: blank line before\nnit: size_t",
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51bb14a_dc853294",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "size_t, then change pdfiu::CollectionSize\u003cint\u003e(pageNums) to pageNums.size()",
+      "range": {
+        "startLine": 642,
+        "startChar": 6,
+        "endLine": 642,
+        "endChar": 10
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fb973c9_5185669e",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "CFX_PointF(pgEdit.point.x, pgEdit.point.y)",
+      "range": {
+        "startLine": 666,
+        "startChar": 29,
+        "endLine": 666,
+        "endChar": 36
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "321417b5_42546322",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "why uint16?",
+      "range": {
+        "startLine": 808,
+        "startChar": 13,
+        "endLine": 808,
+        "endChar": 22
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9d9c08b_4651bf4b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "nit: no {}\u0027s on single line body.",
+      "range": {
+        "startLine": 814,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 7
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd59706_5b39f001",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-08T17:15:53Z",
+      "side": 1,
+      "message": "More possible tests?\n\nFPDF_ImportNPagesToOne(output_doc, document(), \"1-4\", 1, 2);  // importing to doc with existing page\nFPDF_ImportNPagesToOne(output_doc, document(), \"2-3\", 0, 2);  // importing from the middle of doc\nFPDF_ImportNpagesToOne(output_doc, document(), \"1-4\", 0, 0); // Invalid N param",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 75
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
