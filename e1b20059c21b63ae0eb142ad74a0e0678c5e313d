@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d688e533_fb6c9a6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-09T08:04:19Z",
+      "side": 1,
+      "message": "BTW, in the future, can we try to follow git commit message formatting conventions a bit more and do subject line / wrap at 72 col?",
+      "revId": "e1b20059c21b63ae0eb142ad74a0e0678c5e313d",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
