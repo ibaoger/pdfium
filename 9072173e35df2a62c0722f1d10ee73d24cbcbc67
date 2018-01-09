@@ -187,6 +187,97 @@
       "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32457bb2_3101d09a",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:06:09Z",
+      "side": 1,
+      "message": "How about:\n\nstd::ostringstream contentStream;\ncontentStream \u003c\u003c \"q\\n\" \u003c\u003c matrix.a \u003c\u003c \" \" \u003c\u003c matrix.b\n    \u003c\u003c \" \" \u003c\u003c matrix.c \u003c\u003c \" \" \u003c\u003c matrix.d \u003c\u003c \" \" \u003c\u003c matrix.e \u003c\u003c \" \" \u003c\u003c matrix.f\n    \u003c\u003c \"/\" \u003c\u003c xobjectName \u003c\u003c \" Do Q\\n\"\n\n\nAvoids constructing 5 ByteStrings.",
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80ceb527_f1dbbcd6",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:06:09Z",
+      "side": 1,
+      "message": "pDestDoc",
+      "range": {
+        "startLine": 793,
+        "startChar": 7,
+        "endLine": 793,
+        "endChar": 15
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e93f7ddd_40868f9b",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:06:09Z",
+      "side": 1,
+      "message": "Is loading the page necessary?",
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9bb0768_0f14c0a7",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:06:09Z",
+      "side": 1,
+      "message": "Add some more test cases:\n\n  // No layout for 5 pages.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_FALSE(FPDF_ImportNPagesToOne(output_doc, document(), \"1-5\", 0, 5));\n  EXPECT_EQ(0, FPDF_GetPageCount(output_doc));\n  FPDF_CloseDocument(output_doc);\n\n  // Fewer pages than layout needs.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_TRUE(FPDF_ImportNPagesToOne(output_doc, document(), \"1-3\", 0, 4));\n  EXPECT_EQ(1, FPDF_GetPageCount(output_doc));\n  FPDF_CloseDocument(output_doc);\n\n  // Landscape layout, multiple pages, last is not completely filled.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_TRUE(FPDF_ImportNPagesToOne(output_doc, document(), \"1-13\", 0, 6));\n  EXPECT_EQ(3, FPDF_GetPageCount(output_doc));\n  FPDF_CloseDocument(output_doc);\n\n  // Complex page ranges.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_TRUE(FPDF_ImportNPagesToOne(output_doc, document(), \"2,4-5,7\", 0, 4));\n  EXPECT_EQ(1, FPDF_GetPageCount(output_doc));\n  FPDF_CloseDocument(output_doc);\n\n  // No page ranges.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_TRUE(FPDF_ImportNPagesToOne(output_doc, document(), \"\", 0, 4));\n  EXPECT_EQ(4, FPDF_GetPageCount(output_doc)); // Assuming document is 16-19 pages long\n  FPDF_CloseDocument(output_doc);\n\n  // Null source.\n  output_doc \u003d FPDF_CreateNewDocument();\n  EXPECT_FALSE(FPDF_ImportNPagesToOne(output_doc, nullptr, \"\", 0, 4));\n  FPDF_CloseDocument(output_doc);\n\n  // Null dest.\n  EXPECT_FALSE(FPDF_ImportNPagesToOne(nullptr, document(), \"\", 0, 4));",
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2592bee6_1a81b038",
+        "filename": "testing/resources/hello_world_multi_pages.pdf",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:06:09Z",
+      "side": 1,
+      "message": "If you convert this to a .in, it will be easier to modify the file and add more pages.",
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
     }
   ]
 }
