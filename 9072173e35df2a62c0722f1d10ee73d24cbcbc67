@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "c5ccc891_420fe6e6",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T22:02:22Z",
+      "side": 1,
+      "message": "PDF pages can be any size/format afaik. As the format approaches a square, landscape/portrait matter less for these layouts.\n\nI believe these layouts will be fine for 90% of PDFs that have A4-like dimensions, but I\u0027m not sure it will work well for slides. Can you check?",
+      "parentUuid": "fe8f8dd9_f1c074ea",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32457bb2_3101d09a",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 16
