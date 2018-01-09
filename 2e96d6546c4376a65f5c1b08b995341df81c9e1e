@@ -869,6 +869,30 @@
     },
     {
       "key": {
+        "uuid": "628bb04a_1f2c0bd5",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-09T18:16:48Z",
+      "side": 1,
+      "message": "In that case, can we change the ref to a pointer? We\u0027re trying to get to the point where all our ref params are const, and non-const things are pointers.",
+      "parentUuid": "2ed38bd7_4a9163ee",
+      "range": {
+        "startLine": 363,
+        "startChar": 18,
+        "endLine": 363,
+        "endChar": 29
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b3ec43_bf97d90b",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 10
@@ -1280,6 +1304,30 @@
       "side": 1,
       "message": "For now, yes, I only need to rotate 90, I wanted to reserve the options to rotate at different angles.",
       "parentUuid": "ca6ed90e_43dd7f59",
+      "range": {
+        "startLine": 634,
+        "startChar": 1,
+        "endLine": 638,
+        "endChar": 3
+      },
+      "revId": "2e96d6546c4376a65f5c1b08b995341df81c9e1e",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71fd5ceb_a05e659a",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-09T18:16:48Z",
+      "side": 1,
+      "message": "We can always add them in later if we need them. Let\u0027s keep the enum, but drop the unused values in that case?",
+      "parentUuid": "09be76e6_33e3667f",
       "range": {
         "startLine": 634,
         "startChar": 1,
