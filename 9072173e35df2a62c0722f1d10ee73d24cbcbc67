@@ -320,6 +320,24 @@
     },
     {
       "key": {
+        "uuid": "a926fb1b_1cf7f486",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2018-01-09T23:35:50Z",
+      "side": 1,
+      "message": "Ack.  It doesn\u0027t work for landscape case for some reason.  Reverted the changes, will search for a solution for this.",
+      "parentUuid": "79166ac8_813816c9",
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80ceb527_f1dbbcd6",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 16
