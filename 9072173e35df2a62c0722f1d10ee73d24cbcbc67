@@ -190,6 +190,29 @@
     },
     {
       "key": {
+        "uuid": "5ac27f30_f59c37d6",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T20:13:46Z",
+      "side": 1,
+      "message": "I don\u0027t think these landscape layouts hold well for all sizes of pages. Are we assuming pages will typically be approximate an A4 ratio? For square pages, for example, these numbers are not ideal. 3 should be 2x2. 8 should be 3x3.",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32457bb2_3101d09a",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 16
