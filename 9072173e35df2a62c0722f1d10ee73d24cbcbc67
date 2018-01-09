@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee23b2db_197b3b15",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2018-01-09T19:51:58Z",
+      "side": 1,
+      "message": "N-up is widely accepted as one word, so I simply removed the dash in between.  NUp sounds like two workds, what do you think?",
+      "parentUuid": "daf467e8_a5bbc50e",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94790e63_977a4bc8",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 16
@@ -45,6 +69,30 @@
       "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
       "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23fd0ef7_8b8d5ec8",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2018-01-09T19:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94790e63_977a4bc8",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f61cc429_06841992",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2018-01-09T19:51:58Z",
+      "side": 1,
+      "message": "This expression is used to guard against the numbers listed in the comments above.  I prefer to have a way that people can easily see what I am doing here.  I personally feel mask is less obvious.",
+      "parentUuid": "85b19a32_1e4ea10b",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 39
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e881e2f_e4f86947",
         "filename": "fpdfsdk/fpdfppo.cpp",
         "patchSetId": 16
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-09T19:40:38Z",
       "side": 1,
       "message": "The information of what cases are not supported is already in this switch. You could refactor it out to a static context and adapt it to be called by IsPossible(). I\u0027d create a \"layouts\" array with this information as fields {is possible, x axis, y axis, is landscape}:\n\n{false, 0, 0, false},\n{true, 1, 1, false},\n{true, 2, 1, true},\n{true, 3, 1, true},\n{true, 4, 4, false},\n{false, 0, 0, false},\n[...]\n\nthen PresetParameters becomes simply:\n\nlayout \u003d layouts[numPagesPerSheet];\n\nand IsPossible becomes:\n\nreturn layouts[numPagesPerSheet].isPossible;",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b907d1_069d4d73",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 7274
+      },
+      "writtenOn": "2018-01-09T19:51:58Z",
+      "side": 1,
+      "message": "Thanks for the suggestion.  I like the current solution better.  What about others?",
+      "parentUuid": "1e881e2f_e4f86947",
       "range": {
         "startLine": 111,
         "startChar": 15,
