@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "462777d9_01d90139",
+        "filename": "xfa/fxfa/parser/cxfa_node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 5965
+      },
+      "writtenOn": "2018-01-09T15:03:44Z",
+      "side": 1,
+      "message": "Changed this to AutoRestorer.",
+      "range": {
+        "startLine": 2009,
+        "startChar": 0,
+        "endLine": 2015,
+        "endChar": 0
+      },
+      "revId": "e73152caa7df8d322715f2f4723ef86cfe6fbc3c",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
