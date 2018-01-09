@@ -23,6 +23,10 @@ const std::wstring BufferToWString(std::vector<char>& buf) {
   return GetPlatformWString(reinterpret_cast<unsigned short*>(buf.data()));
 }
 
+const std::string BufferToString(std::vector<char>& buf) {
+  return GetPlatformString(reinterpret_cast<unsigned short*>(buf.data()));
+}
+
 TEST_F(FPDFAnnotEmbeddertest, RenderAnnotWithOnlyRolloverAP) {
   // Open a file with one annotation and load its first page.
   ASSERT_TRUE(OpenDocument("annotation_highlight_rollover_ap.pdf"));
@@ -907,8 +911,8 @@ TEST_F(FPDFAnnotEmbeddertest, GetAP) {
   wcscpy(reinterpret_cast<wchar_t*>(buf.data()), L"z");
   EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
                                     buf.data(), len - 1));
-  std::wstring ap = BufferToWString(buf);
-  EXPECT_STREQ(L"z", ap.c_str());
+  std::string ap = BufferToString(buf);
+  EXPECT_STREQ("z", ap.c_str());
 
   // Check that the string value of an AP is returned through a buffer that is
   // the right size.
@@ -916,9 +920,9 @@ TEST_F(FPDFAnnotEmbeddertest, GetAP) {
   buf.resize(len);
   EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
                                     buf.data(), len));
-  ap = BufferToWString(buf);
-  EXPECT_THAT(ap, testing::StartsWith(L"q Q q 7.442786 w 2 J"));
-  EXPECT_THAT(ap, testing::EndsWith(L"c 716.5381 327.7156 l S Q Q"));
+  ap = BufferToString(buf);
+  EXPECT_THAT(ap, testing::StartsWith("q Q q 7.442786 w 2 J"));
+  EXPECT_THAT(ap, testing::EndsWith("c 716.5381 327.7156 l S Q Q"));
 
   // Check that the string value of an AP is returned through a buffer that is
   // larger than necessary.
@@ -926,9 +930,9 @@ TEST_F(FPDFAnnotEmbeddertest, GetAP) {
   buf.resize(len + 1);
   EXPECT_EQ(73970u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Normal,
                                     buf.data(), len + 1));
-  ap = BufferToWString(buf);
-  EXPECT_THAT(ap, testing::StartsWith(L"q Q q 7.442786 w 2 J"));
-  EXPECT_THAT(ap, testing::EndsWith(L"c 716.5381 327.7156 l S Q Q"));
+  ap = BufferToString(buf);
+  EXPECT_THAT(ap, testing::StartsWith("q Q q 7.442786 w 2 J"));
+  EXPECT_THAT(ap, testing::EndsWith("c 716.5381 327.7156 l S Q Q"));
 
   // Check that getting an AP for a mode that does not have an AP returns an
   // empty string.
@@ -936,8 +940,8 @@ TEST_F(FPDFAnnotEmbeddertest, GetAP) {
   buf.resize(len);
   EXPECT_EQ(2u, FPDFAnnot_GetAP(annot, FPDFANNOT_APPEARANCEMODE_Rollover,
                                 buf.data(), len));
-  ap = BufferToWString(buf);
-  EXPECT_STREQ(L"", ap.c_str());
+  ap = BufferToString(buf);
+  EXPECT_STREQ("", ap.c_str());
 
   FPDFPage_CloseAnnot(annot);
   FPDF_ClosePage(page);
