@@ -62,6 +62,8 @@ int CheckPDFiumCApi() {
     CHK(FPDFAnnot_GetValueType);
     CHK(FPDFAnnot_SetStringValue);
     CHK(FPDFAnnot_GetStringValue);
+    CHK(FPDFAnnot_SetAP);
+    CHK(FPDFAnnot_GetAP);
     CHK(FPDFAnnot_GetLinkedAnnot);
     CHK(FPDFAnnot_GetFlags);
     CHK(FPDFAnnot_SetFlags);
