@@ -747,6 +747,33 @@ FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
                                              buffer, buflen);
 }
 
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFAnnot_SetAP(FPDF_ANNOTATION annot,
+                FPDF_ANNOTATION_APPEARANCE_MODE appearanceMode,
+                FPDF_WIDESTRING value) {
+  if (appearanceMode < 0 || appearanceMode >= FPDF_ANNOT_APPEARANCEMODE_COUNT)
+    return 0;
+
+  if (!annot)
+    return false;
+
+  CPDF_Dictionary* pAnnotDict =
+      CPDFAnnotContextFromFPDFAnnotation(annot)->GetAnnotDict();
+  if (!pAnnotDict)
+    return false;
+
+  CPDF_Dictionary* pApDict = pAnnotDict->GetDictFor("AP");
+  if (!pApDict)
+    return false;
+
+  const char* modeKeyForMode[] = {"N", "R", "D"};
+  const char* modeKey = modeKeyForMode[appearanceMode];
+
+  pApDict->SetNewFor<CPDF_String>(
+      modeKey, CFXByteStringFromFPDFWideString(value), false);
+  return true;
+}
+
 FPDF_EXPORT unsigned long FPDF_CALLCONV
 FPDFAnnot_GetAP(FPDF_ANNOTATION annot,
                 FPDF_ANNOTATION_APPEARANCE_MODE appearanceMode,

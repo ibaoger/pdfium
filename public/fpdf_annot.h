@@ -402,6 +402,21 @@ FPDFAnnot_GetStringValue(FPDF_ANNOTATION annot,
                          unsigned long buflen);
 
 // Experimental API.
+// Set the AP (appearance string) in |annot|'s dictionary for a given
+// |appearanceMode|.
+//
+//   annot          - handle to an annotation.
+//   appearanceMode - the appearance mode (normal, rollover or down) for which
+//                    to get the AP.
+//   value          - the string value to be set, encoded in UTF16-LE.
+//
+// Returns true if successful.
+FPDF_EXPORT FPDF_BOOL FPDF_CALLCONV
+FPDFAnnot_SetAP(FPDF_ANNOTATION annot,
+                FPDF_ANNOTATION_APPEARANCE_MODE appearanceMode,
+                FPDF_WIDESTRING value);
+
+// Experimental API.
 // Get the AP (appearance string) from |annot|'s dictionary for a given
 // |appearanceMode|.
 // |buffer| is only modified if |buflen| is large enough to hold the whole AP

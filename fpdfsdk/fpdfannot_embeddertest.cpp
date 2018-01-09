@@ -889,7 +889,7 @@ TEST_F(FPDFAnnotEmbeddertest, GetSetStringValue) {
   CloseSavedDocument();
 }
 
-TEST_F(FPDFAnnotEmbeddertest, GetAP) {
+TEST_F(FPDFAnnotEmbeddertest, GetSetAP) {
   // Open a file with four annotations and load its first page.
   ASSERT_TRUE(OpenDocument("annotation_stamp_with_ap.pdf"));
   FPDF_PAGE page = FPDF_LoadPage(document(), 0);
@@ -940,11 +940,37 @@ TEST_F(FPDFAnnotEmbeddertest, GetAP) {
   buf.resize(len);
   EXPECT_EQ(2u, FPDFAnnot_GetAP(annot, FPDF_ANNOT_APPEARANCEMODE_ROLLOVER,
                                 buf.data(), len));
-  ap = BufferToString(buf);
-  EXPECT_STREQ("", ap.c_str());
+  EXPECT_STREQ("", BufferToString(buf).c_str());
 
+  // Set the AP now
+  std::unique_ptr<unsigned short, pdfium::FreeDeleter> apText =
+      GetFPDFWideString(L"new test ap");
+  EXPECT_TRUE(
+      FPDFAnnot_SetAP(annot, FPDF_ANNOT_APPEARANCEMODE_ROLLOVER, apText.get()));
+
+  // Save the modified document, then reopen it.
   FPDFPage_CloseAnnot(annot);
+  EXPECT_TRUE(FPDF_SaveAsCopy(document(), this, 0));
   FPDF_ClosePage(page);
+
+  OpenSavedDocument();
+  page = LoadSavedPage(0);
+  FPDF_ANNOTATION new_annot = FPDFPage_GetAnnot(page, 0);
+
+  // Check that the new annotation value is equal to the value we set above.
+  len = FPDFAnnot_GetAP(new_annot, FPDF_ANNOT_APPEARANCEMODE_ROLLOVER, nullptr,
+                        0);
+  EXPECT_EQ(24u, len);
+  buf.clear();
+  buf.resize(len);
+  EXPECT_EQ(24u, FPDFAnnot_GetAP(new_annot, FPDF_ANNOT_APPEARANCEMODE_ROLLOVER,
+                                 buf.data(), len));
+  EXPECT_STREQ(L"new test ap", BufferToWString(buf).c_str());
+
+  // Close saved document.
+  FPDFPage_CloseAnnot(new_annot);
+  CloseSavedPage(page);
+  CloseSavedDocument();
 }
 
 TEST_F(FPDFAnnotEmbeddertest, ExtractLinkedAnnotations) {
