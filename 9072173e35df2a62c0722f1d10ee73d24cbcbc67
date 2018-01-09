@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daf467e8_a5bbc50e",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T19:40:38Z",
+      "side": 1,
+      "message": "NUp is more clear to me. Same for NupState/NUpState",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94790e63_977a4bc8",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T19:40:38Z",
+      "side": 1,
+      "message": "SetWidth\n\nSame for SetHeight, IsLandscape.",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b19a32_1e4ea10b",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T19:40:38Z",
+      "side": 1,
+      "message": "Uh... I realize this was asked in the review, but this is quite confusing. Is there a logic here or is it just an expression that generates the correct numbers?\n\nA bit shift + and mask like 0b11001011101011110 \u0026 (1 \u003c\u003c numPagesPerSheet) is more obvious. For readability I\u0027d even prefer the original switch.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 39
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e881e2f_e4f86947",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 7035
+      },
+      "writtenOn": "2018-01-09T19:40:38Z",
+      "side": 1,
+      "message": "The information of what cases are not supported is already in this switch. You could refactor it out to a static context and adapt it to be called by IsPossible(). I\u0027d create a \"layouts\" array with this information as fields {is possible, x axis, y axis, is landscape}:\n\n{false, 0, 0, false},\n{true, 1, 1, false},\n{true, 2, 1, true},\n{true, 3, 1, true},\n{true, 4, 4, false},\n{false, 0, 0, false},\n[...]\n\nthen PresetParameters becomes simply:\n\nlayout \u003d layouts[numPagesPerSheet];\n\nand IsPossible becomes:\n\nreturn layouts[numPagesPerSheet].isPossible;",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "9072173e35df2a62c0722f1d10ee73d24cbcbc67",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
