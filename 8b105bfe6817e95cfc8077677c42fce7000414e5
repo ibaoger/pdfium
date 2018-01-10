@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fe43468_89b5038c",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "This private section is redundant.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1de7747_8e6cc132",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "Consider making this change to existing code in a separate CL.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "431ad3d3_3ef4a830",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a377ccb8_2352bcc7",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "Member variables should be named m_Foo.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e9385c7_8bc70981",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "What is the key for this map? Please document.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aadddb1a_bf9ab64c",
+        "filename": "fpdfsdk/fpdfppo.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "This is identical to the code in FPDF_ImportPages(). Add a helper function?",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9807966_4c39020b",
+        "filename": "fpdfsdk/fpdfppo_embeddertest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "Test other bad inputs too. e.g.\n\nFPDF_ImportNPagesToOne(nullptr, ...);\nFPDF_ImportNPagesToOne(output_doc, nullptr, ...);\nFPDF_ImportNPagesToOne(..., -1);\n\nand so on.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed9cc5e_4e54bfaa",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "\"nup\" needs to match the actual parameter name.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4faeec4a_7aaa47ec",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "It\u0027s not obvious what values are valid. Are you going to allow 3 as a valid value for num_pages_per_page? How about 5? 6? 256?\n\nIt\u0027s not obvious what valid values mean. e.g. If 6 is a valid value, does it correspond to 1x6, 2x3, 3x2, or 6x1?",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f01acd8_99273976",
+        "filename": "public/fpdf_ppo.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "If you need add more notes as documentation, append it after this. See other public headers for examples.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d446d12_887a5335",
+        "filename": "testing/resources/hello_world_multi_pages.in",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "If you do rendering tests, text will render slightly different on each OS. Instead, I would do something like:\npage 1 - all red\npage 2 - all green\npage 3 - all blue\npage 4 - all yellow\netc",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9a9534_c3174183",
+        "filename": "testing/resources/hello_world_multi_pages.in",
+        "patchSetId": 20
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2018-01-10T00:22:10Z",
+      "side": 1,
+      "message": "I would recommend making each page unique, so if you decide to make a rendering test, you can actually tell which source page corresponds to which destination page. When all the pages are the same, the implementation could be wrong in some ways but the test won\u0027t be able to recognize that.",
+      "revId": "8b105bfe6817e95cfc8077677c42fce7000414e5",
+      "serverId": "fca2d64a-0420-3532-b200-12848c95a47b",
+      "unresolved": true
+    }
+  ]
+}
